@@ -18,7 +18,7 @@ import (
 const packageName = "aws-native"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
-func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema) (*pschema.PackageSpec, error) {
+func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
@@ -106,6 +106,11 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		RequiredInputs:  p.Config.Required,
 	}
 
+	metadata := CloudAPIMetadata{
+		Resources: map[string]CloudAPIResource{},
+		Types:     map[string]CloudAPIType{},
+	}
+
 	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
 
 	var resourceCount int
@@ -114,6 +119,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		if supportedResources.Has(resourceName) {
 			ctx := &context{
 				pkg:           &p,
+				metadata:      &metadata,
 				resourceName:  resourceName,
 				resourceToken: typeToken(resourceName),
 				resourceSpec:  &jsonSchema,
@@ -121,7 +127,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
-				return nil, err
+				return nil, nil, err
 			}
 			module := moduleName(resourceName)
 			csharpNamespaces[strings.ToLower(module)] = module
@@ -236,12 +242,13 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		},
 	}
 
-	return &p, nil
+	return &p, &metadata, nil
 }
 
 // context holds shared information for a single CF JSON schema.
 type context struct {
 	pkg           *pschema.PackageSpec
+	metadata      *CloudAPIMetadata
 	resourceName  string
 	resourceToken string
 	resourceSpec  *jsschema.Schema
@@ -263,7 +270,7 @@ func (ctx *context) gatherResourceType() error {
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	for prop, spec := range ctx.resourceSpec.Properties {
-		sdkName := ToPropertyName(prop)
+		sdkName := ToSdkName(prop)
 		if sdkName == "id" {
 			continue
 		}
@@ -278,7 +285,7 @@ func (ctx *context) gatherResourceType() error {
 	}
 
 	for _, prop := range ctx.resourceSpec.Required {
-		sdkName := ToPropertyName(prop)
+		sdkName := ToSdkName(prop)
 		if _, has := properties[sdkName]; has {
 			required.Add(sdkName)
 		}
@@ -287,7 +294,7 @@ func (ctx *context) gatherResourceType() error {
 		}
 	}
 	for prop := range readOnlyProperties {
-		sdkName := ToPropertyName(prop)
+		sdkName := ToSdkName(prop)
 		if _, has := properties[sdkName]; has {
 			required.Add(sdkName)
 		}
@@ -302,6 +309,21 @@ func (ctx *context) gatherResourceType() error {
 		},
 		InputProperties: inputProperties,
 		RequiredInputs:  requiredInputs.SortedValues(),
+	}
+
+	createOnlyProperties := codegen.NewStringSet()
+	if rop, ok := ctx.resourceSpec.Extras["createOnlyProperties"].([]interface{}); ok {
+		for _, propRef := range rop {
+			cfName := strings.TrimPrefix(propRef.(string), "/properties/")
+			createOnlyProperties.Add(ToSdkName(cfName))
+		}
+	}
+	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
+		CfType:     ctx.resourceName,
+		Inputs:     inputProperties,
+		Outputs:    properties,
+		CreateOnly: createOnlyProperties.SortedValues(),
+		Required:   requiredInputs.SortedValues(),
 	}
 	return nil
 }
@@ -355,6 +377,9 @@ func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.Type
 						Properties:  specs,
 						Required:    requiredSpecs.SortedValues(),
 					},
+				}
+				ctx.metadata.Types[tok] = CloudAPIType{
+					Properties: specs,
 				}
 			}
 
@@ -413,7 +438,7 @@ func (ctx *context) genProperties(typeSchema *jsschema.Schema) (map[string]psche
 	requiredSpecs := codegen.NewStringSet()
 	for _, name := range codegen.SortedKeys(typeSchema.Properties) {
 		value := typeSchema.Properties[name]
-		sdkName := ToPropertyName(name)
+		sdkName := ToSdkName(name)
 
 		typeSpec, err := ctx.propertyTypeSpec(value)
 		if err != nil {
@@ -425,7 +450,7 @@ func (ctx *context) genProperties(typeSchema *jsschema.Schema) (map[string]psche
 		}
 	}
 	for _, name := range typeSchema.Required {
-		sdkName := ToPropertyName(name)
+		sdkName := ToSdkName(name)
 		if _, has := specs[sdkName]; has {
 			requiredSpecs.Add(sdkName)
 		}

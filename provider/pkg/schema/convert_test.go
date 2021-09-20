@@ -7,6 +7,7 @@ import (
 	"sort"
 	"testing"
 
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 )
@@ -17,8 +18,8 @@ func TestCfnToSdk(t *testing.T) {
 }
 
 func TestSdkToCfn(t *testing.T) {
-	actual, err := SdkToCfn(sampleSchema, "AWS::ECS::Service", sdkState)
-	assert.NoError(t, err)
+	res := sampleSchema.Resources["aws-native:ecs:Service"]
+	actual := SdkToCfn(&res, sampleSchema.Types, sdkState)
 	assert.Equal(t, cfnPayload, actual)
 }
 
@@ -52,7 +53,8 @@ func TestDiffToPatch(t *testing.T) {
 			"[{\"ContainerName\":\"my-app\",\"ContainerPort\":80}]"),
 		jsonpatch.NewPatch("remove", "/PlatformVersion", nil),
 	}
-	actual, err := DiffToPatch(sampleSchema, "AWS::ECS::Service", &diff)
+	res := sampleSchema.Resources["aws-native:ecs:Service"]
+	actual, err := DiffToPatch(&res, sampleSchema.Types, &diff)
 	assert.NoError(t, err)
 	sort.SliceStable(actual, func(i, j int) bool {
 		return actual[i].Path < actual[j].Path
@@ -142,72 +144,94 @@ var sdkState = map[string]interface{}{
 	"taskDefinition":     "arn:aws:ecs:us-west-2:12345:task-definition/fargate-task-definition:131",
 }
 
-var sampleSchema = CloudFormationSchema{
-	PropertyTypes: map[string]PropertyTypeSpec{
-		"AWS::ECS::Service.AwsVpcConfiguration": {
-			Properties: map[string]PropertySpec{
-				"AssignPublicIp": {PrimitiveType: "String"},
-				"SecurityGroups": {
-					Type:              "List",
-					PrimitiveItemType: "String",
+var sampleSchema = &CloudAPIMetadata{
+	Types: map[string]CloudAPIType{
+		"aws-native:ecs:AwsVpcConfiguration": {
+			Properties: map[string]pschema.PropertySpec{
+				"assignPublicIp": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"securityGroups": {
+					TypeSpec: pschema.TypeSpec{
+						Type: "array",
+						Items: &pschema.TypeSpec{Type: "string"},
+					},
 				},
-				"Subnets": {
-					Type:              "List",
-					PrimitiveItemType: "String",
+				"subnets": {
+					TypeSpec: pschema.TypeSpec{
+						Type: "array",
+						Items: &pschema.TypeSpec{Type: "string"},
+					},
 				},
 			},
 		},
-		"AWS::ECS::Service.DeploymentCircuitBreaker": {
-			Properties: map[string]PropertySpec{
-				"Enable":   {PrimitiveType: "Boolean"},
-				"Rollback": {PrimitiveType: "Boolean"},
+		"aws-native:ecs:DeploymentCircuitBreaker": {
+			Properties: map[string]pschema.PropertySpec{
+				"enable":   {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
+				"rollback": {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
 			},
 		},
-		"AWS::ECS::Service.DeploymentConfiguration": {
-			Properties: map[string]PropertySpec{
-				"DeploymentCircuitBreaker": {Type: "DeploymentCircuitBreaker"},
-				"MaximumPercent":           {PrimitiveType: "Integer"},
-				"MinimumHealthyPercent":    {PrimitiveType: "Integer"},
+		"aws-native:ecs:DeploymentConfiguration": {
+			Properties: map[string]pschema.PropertySpec{
+				"deploymentCircuitBreaker": {
+					TypeSpec: pschema.TypeSpec{
+						Ref: "#/types/aws-native:ecs:DeploymentCircuitBreaker",
+					},
+				},
+				"maximumPercent":           {TypeSpec: pschema.TypeSpec{Type: "integer"}},
+				"minimumHealthyPercent":    {TypeSpec: pschema.TypeSpec{Type: "integer"}},
 			},
 		},
-		"AWS::ECS::Service.LoadBalancer": {
-			Properties: map[string]PropertySpec{
-				"ContainerName":    {PrimitiveType: "String"},
-				"ContainerPort":    {PrimitiveType: "Integer"},
-				"LoadBalancerName": {PrimitiveType: "String"},
-				"TargetGroupArn":   {PrimitiveType: "String"},
+		"aws-native:ecs:LoadBalancer": {
+			Properties: map[string]pschema.PropertySpec{
+				"containerName":    {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"containerPort":    {TypeSpec: pschema.TypeSpec{Type: "integer"}},
+				"loadBalancerName": {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"targetGroupArn":   {TypeSpec: pschema.TypeSpec{Type: "string"}},
 			},
 		},
-		"AWS::ECS::Service.NetworkConfiguration": {
-			Properties: map[string]PropertySpec{
-				"AwsvpcConfiguration": {Type: "AwsVpcConfiguration"},
+		"aws-native:ecs:NetworkConfiguration": {
+			Properties: map[string]pschema.PropertySpec{
+				"awsvpcConfiguration": {
+					TypeSpec: pschema.TypeSpec{
+						Ref: "#/types/aws-native:ecs:AwsVpcConfiguration",
+					},
+				},
 			},
 		},
 	},
-	ResourceTypes: map[string]ResourceSpec{
-		"AWS::ECS::Service": {
-			PropertyTypeSpec: PropertyTypeSpec{
-				Properties: map[string]PropertySpec{
-					"ServiceArn":              {PrimitiveType: "String"},
-					"Cluster":                 {PrimitiveType: "String"},
-					"DeploymentConfiguration": {Type: "DeploymentConfiguration"},
-					"DesiredCount":            {PrimitiveType: "Integer"},
-					"EnableECSManagedTags":    {PrimitiveType: "Boolean"},
-					"LaunchType":              {PrimitiveType: "String"},
-					"LoadBalancers": {
-						Type:     "List",
-						ItemType: "LoadBalancer",
+	Resources: map[string]CloudAPIResource{
+		"aws-native:ecs:Service": {
+			Inputs: map[string]pschema.PropertySpec{
+				"serviceArn":              {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"cluster":                 {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"deploymentConfiguration": {
+					TypeSpec: pschema.TypeSpec{
+						Ref: "#/types/aws-native:ecs:DeploymentConfiguration",
 					},
-					"NetworkConfiguration": {Type: "NetworkConfiguration"},
-					"PlatformVersion":      {PrimitiveType: "String"},
-					"Role":                 {PrimitiveType: "String"},
-					"SchedulingStrategy":   {PrimitiveType: "String"},
-					"ServiceName":          {PrimitiveType: "String"},
-					"TaskDefinition":       {PrimitiveType: "String"},
 				},
+				"desiredCount":            {TypeSpec: pschema.TypeSpec{Type: "integer"}},
+				"enableECSManagedTags":    {TypeSpec: pschema.TypeSpec{Type: "boolean"}},
+				"launchType":              {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"loadBalancers": {
+					TypeSpec: pschema.TypeSpec{
+						Type: "array",
+						Items: &pschema.TypeSpec{
+							Ref: "#/types/aws-native:ecs:LoadBalancer",
+						},
+					},
+				},
+				"networkConfiguration": {
+					TypeSpec: pschema.TypeSpec{
+						Ref: "#/types/aws-native:ecs:NetworkConfiguration",
+					},
+				},
+				"platformVersion":      {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"role":                 {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"schedulingStrategy":   {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"serviceName":          {TypeSpec: pschema.TypeSpec{Type: "string"}},
+				"taskDefinition":       {TypeSpec: pschema.TypeSpec{Type: "string"}},
 			},
-			Attributes: map[string]AttributeSpec{
-				"Name": {PrimitiveType: "String"},
+			Outputs: map[string]pschema.PropertySpec{
+				"name": {TypeSpec: pschema.TypeSpec{Type: "string"}},
 			},
 		},
 	},

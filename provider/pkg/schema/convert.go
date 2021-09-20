@@ -5,119 +5,108 @@ package schema
 import (
 	"encoding/json"
 	"reflect"
+	"strings"
 
 	"github.com/mattbaird/jsonpatch"
-	"github.com/pkg/errors"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // SdkToCfn converts Pulumi-SDK-shaped state to CloudFormation-shaped payload. In particular, SDK properties
 // are lowerCamelCase, while CloudFormation is usually (but not always) PascalCase.
-func SdkToCfn(schema CloudFormationSchema, resourceType string, properties map[string]interface{}) (map[string]interface{}, error) {
-	if _, ok := schema.ResourceTypes[resourceType]; !ok {
-		return nil, errors.Errorf("unknown resource type %v", resourceType)
-	}
-	converter := sdkToCfnConverter{schema, resourceType}
-	result := converter.sdkToCfn(properties)
-	return result, nil
+func SdkToCfn(res *CloudAPIResource, types map[string]CloudAPIType, properties map[string]interface{}) map[string]interface{} {
+	converter := sdkToCfnConverter{res, types}
+	return converter.sdkToCfn(properties)
 }
 
 // DiffToPatch converts a Pulumi object diff to a CloudFormation-shaped patch operation slice. Update/add/delete operations are
 // mapped to corresponding patch terms, and SDK properties are translated to respective CFN names.
-func DiffToPatch(schema CloudFormationSchema, resourceType string, diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
-	if _, ok := schema.ResourceTypes[resourceType]; !ok {
-		return nil, errors.Errorf("unknown resource type %v", resourceType)
-	}
-	converter := sdkToCfnConverter{schema, resourceType}
+func DiffToPatch(res *CloudAPIResource, types map[string]CloudAPIType, diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
+	converter := sdkToCfnConverter{res, types}
 	return converter.diffToPatch(diff), nil
 }
 
 type sdkToCfnConverter struct {
-	schema       CloudFormationSchema
-	resourceType string
+	spec  *CloudAPIResource
+	types map[string]CloudAPIType
 }
 
 func (c *sdkToCfnConverter) sdkToCfn(properties map[string]interface{}) map[string]interface{} {
-	spec := c.schema.ResourceTypes[c.resourceType]
 	result := map[string]interface{}{}
-	for k, prop := range spec.PropertyTypeSpec.Properties {
-		if v, ok := properties[ToPropertyName(k)]; ok {
-			result[k] = c.convertTypedValue(prop.Type, prop.PrimitiveType, prop.ItemType, v)
+	for k, prop := range c.spec.Inputs {
+		if v, ok := properties[k]; ok {
+			result[ToCfnName(k)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
 		}
 	}
-	for k, attr := range spec.Attributes {
-		if v, ok := properties[ToPropertyName(k)]; ok {
-			result[k] = c.convertTypedValue(attr.Type, attr.PrimitiveType, attr.ItemType, v)
+	for k, attr := range c.spec.Outputs {
+		if v, ok := properties[k]; ok {
+			result[ToCfnName(k)] = c.sdkTypedValueToCfn(&attr.TypeSpec, v)
 		}
 	}
 	return result
 }
 
-func (c *sdkToCfnConverter) convertTypedValue(typ, primitiveType, itemType string, v interface{}) interface{} {
-	if primitiveType != "" {
-		return v
+func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interface{}) interface{} {
+	if spec.Ref != "" {
+		if spec.Ref == "pulumi.json#/Any" {
+			return v
+		}
+
+		typName := strings.TrimPrefix(spec.Ref, "#/types/")
+		return c.sdkObjectValueToCfn(typName, v)
 	}
 
-	switch typ {
-	case "List":
+	switch spec.Type {
+	case "array":
 		array := v.([]interface{})
 		vs := make([]interface{}, len(array))
 		for i, item := range array {
-			vs[i] = c.convertPropertyValue(itemType, item)
+			vs[i] = c.sdkTypedValueToCfn(spec.Items, item)
 		}
 		return vs
-	case "Map":
+	case "object":
 		sourceMap := v.(map[string]interface{})
 		vs := map[string]interface{}{}
 		for n, item := range sourceMap {
-			vs[n] = c.convertPropertyValue(itemType, item)
+			vs[n] = c.sdkTypedValueToCfn(spec.AdditionalProperties, item)
 		}
 		return vs
 	default:
-		return c.convertPropertyValue(typ, v)
+		return v
 	}
 }
 
-func (c *sdkToCfnConverter) convertPropertyValue(propertyType string, value interface{}) interface{} {
+func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, value interface{}) interface{} {
 	properties, ok := value.(map[string]interface{})
 	if !ok {
 		return value
 	}
 
-	spec := c.schema.ResourceTypes[c.resourceType]
-	propertySpec := spec.PropertyTypeSpec
-	if propertyType != "" {
-		propertyTypeName := c.resourceType + "." + propertyType
-		propertySpec, ok = c.schema.PropertyTypes[propertyTypeName]
-		if !ok {
-			return value
-		}
-	}
-
+	spec := c.types[typeName]
 	result := map[string]interface{}{}
-	for k, prop := range propertySpec.Properties {
-		if v, ok := properties[ToPropertyName(k)]; ok {
-			result[k] = c.convertTypedValue(prop.Type, prop.PrimitiveType, prop.ItemType, v)
+	for k, prop := range spec.Properties {
+		if v, ok := properties[k]; ok {
+			result[ToCfnName(k)] = c.sdkTypedValueToCfn(&prop.TypeSpec, v)
 		}
 	}
 	return result
 }
 
 func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.JsonPatchOperation {
-	resourceSpec := c.schema.ResourceTypes[c.resourceType]
 	var ops []jsonpatch.JsonPatchOperation
-	for cfnName, prop := range resourceSpec.Properties {
-		sdkName := resource.PropertyKey(ToPropertyName(cfnName))
-		if v, ok := diff.Updates[sdkName]; ok {
+	for sdkName, prop := range c.spec.Inputs {
+		cfnName := ToCfnName(sdkName)
+		key := resource.PropertyKey(sdkName)
+		if v, ok := diff.Updates[key]; ok {
 			op := c.valueToPatch("replace", cfnName, prop, v.New)
 			ops = append(ops, op)
 		}
-		if v, ok := diff.Adds[sdkName]; ok {
+		if v, ok := diff.Adds[key]; ok {
 			op := c.valueToPatch("add", cfnName, prop, v)
 			ops = append(ops, op)
 		}
-		if _, ok := diff.Deletes[sdkName]; ok {
+		if _, ok := diff.Deletes[key]; ok {
 			op := jsonpatch.NewPatch("remove", "/" + cfnName, nil)
 			ops = append(ops, op)
 		}
@@ -125,10 +114,10 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.J
 	return ops
 }
 
-func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertySpec, value resource.PropertyValue) jsonpatch.JsonPatchOperation {
+func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.PropertySpec, value resource.PropertyValue) jsonpatch.JsonPatchOperation {
 	op := jsonpatch.NewPatch(opName, "/" + propName, nil)
 	switch {
-	case value.IsNumber() && prop.PrimitiveType == "Integer":
+	case value.IsNumber() && prop.Type == "integer":
 		i := int32(value.NumberValue())
 		op.Value = i
 	case value.IsNumber():
@@ -139,7 +128,7 @@ func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertyS
 		op.Value = value.StringValue()
 	default:
 		sdkObj := value.MapRepl(nil, nil)
-		cfnObj := c.convertTypedValue(prop.Type, prop.PrimitiveType, prop.ItemType, sdkObj)
+		cfnObj := c.sdkTypedValueToCfn(&prop.TypeSpec, sdkObj)
 		jsonBytes, err := json.Marshal(cfnObj)
 		contract.AssertNoError(err)
 		op.Value = string(jsonBytes)
@@ -152,7 +141,7 @@ func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertyS
 func CfnToSdk(properties map[string]interface{}) map[string]interface{} {
 	result := map[string]interface{}{}
 	for n, v := range properties {
-		result[ToPropertyName(n)] = cfnValueToSdk(v)
+		result[ToSdkName(n)] = cfnValueToSdk(v)
 	}
 	return result
 }

@@ -12,11 +12,7 @@ WORKING_DIR     := $(shell pwd)
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION}"
 
-CFN_SCHEMA_REGION   ?= us-west-2
-CFN_SCHEMA_URL      ?= https://cfn-resource-specifications-${CFN_SCHEMA_REGION}-prod.s3.${CFN_SCHEMA_REGION}.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json
-CFN_SCHEMA_DIR      := provider/cmd/pulumi-gen-${PACK}
-CFN_SCHEMA_FILE     := ${CFN_SCHEMA_DIR}/cfn-spec-${CFN_SCHEMA_REGION}.json
-CFN_SCHEMA_FOLDER   := aws-cloudformation-schema
+CFN_SCHEMA_DIR  := aws-cloudformation-schema
 
 init_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -33,8 +29,7 @@ update_submodules:: init_submodules
 	done
 
 discovery:: update_submodules codegen
-	curl -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
-	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_FILE) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION}
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
@@ -42,12 +37,12 @@ ensure:: init_submodules
 	cd provider && GO111MODULE=on go mod tidy
 
 local_generate:: clean
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go $(CFN_SCHEMA_FOLDER) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go $(CFN_SCHEMA_DIR) ${VERSION}
 	echo "Finished generating."
 
 generate_schema::
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema $(CFN_SCHEMA_FOLDER) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) schema $(CFN_SCHEMA_DIR) ${VERSION}
 	echo "Finished generating schema."
 
 codegen::
@@ -66,7 +61,7 @@ lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 generate_nodejs::
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs $(CFN_SCHEMA_FOLDER) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) nodejs $(CFN_SCHEMA_DIR) ${VERSION}
 
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
@@ -77,7 +72,7 @@ build_nodejs::
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" -e "s/@pulumi\/aws-native/@pulumipreview\/aws-native/g" ./bin/package.json
 
 generate_python::
-	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_FOLDER) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) python $(CFN_SCHEMA_DIR) ${VERSION}
 
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python::
@@ -90,7 +85,7 @@ build_python::
         cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
-	$(WORKING_DIR)/bin/$(CODEGEN) dotnet $(CFN_SCHEMA_FOLDER) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) dotnet $(CFN_SCHEMA_DIR) ${VERSION}
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
@@ -100,7 +95,7 @@ build_dotnet::
 
 generate_go::
 	rm -rf sdk/go && mkdir sdk/go && touch sdk/go/tbd.txt
-	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_FOLDER) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_DIR) ${VERSION}
 
 build_go::
 	#cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
