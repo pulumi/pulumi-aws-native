@@ -33,7 +33,7 @@ discovery:: update_submodules codegen
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
-	cd aws-sdk-go-v2-cf-preview && GO111MODULE=on go mod tidy
+	cd aws-sdk-go-v2-cloudcontrol-preview && GO111MODULE=on go mod tidy
 	cd provider && GO111MODULE=on go mod tidy
 
 local_generate:: clean
