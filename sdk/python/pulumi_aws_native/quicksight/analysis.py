@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AnalysisArgs', 'Analysis']
@@ -384,7 +385,7 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['AnalysisResourceStatus']:
         return pulumi.get(self, "status")
 
     @property

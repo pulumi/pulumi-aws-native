@@ -13,11 +13,11 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class SpotFleetSpotFleetRequestConfigData
     {
-        public readonly string? AllocationStrategy;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataAllocationStrategy? AllocationStrategy;
         public readonly string? Context;
-        public readonly string? ExcessCapacityTerminationPolicy;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy? ExcessCapacityTerminationPolicy;
         public readonly string IamFleetRole;
-        public readonly string? InstanceInterruptionBehavior;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior? InstanceInterruptionBehavior;
         public readonly int? InstancePoolsToUseCount;
         public readonly ImmutableArray<Outputs.SpotFleetSpotFleetLaunchSpecification> LaunchSpecifications;
         public readonly ImmutableArray<Outputs.SpotFleetLaunchTemplateConfig> LaunchTemplateConfigs;
@@ -31,21 +31,21 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly string? SpotPrice;
         public readonly int TargetCapacity;
         public readonly bool? TerminateInstancesWithExpiration;
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataType? Type;
         public readonly string? ValidFrom;
         public readonly string? ValidUntil;
 
         [OutputConstructor]
         private SpotFleetSpotFleetRequestConfigData(
-            string? allocationStrategy,
+            Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataAllocationStrategy? allocationStrategy,
 
             string? context,
 
-            string? excessCapacityTerminationPolicy,
+            Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy? excessCapacityTerminationPolicy,
 
             string iamFleetRole,
 
-            string? instanceInterruptionBehavior,
+            Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior? instanceInterruptionBehavior,
 
             int? instancePoolsToUseCount,
 
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             bool? terminateInstancesWithExpiration,
 
-            string? type,
+            Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataType? type,
 
             string? validFrom,
 

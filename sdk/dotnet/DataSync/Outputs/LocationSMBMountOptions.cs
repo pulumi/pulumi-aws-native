@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// <summary>
         /// The specific SMB version that you want DataSync to use to mount your SMB share.
         /// </summary>
-        public readonly string? Version;
+        public readonly Pulumi.AwsNative.DataSync.LocationSMBMountOptionsVersion? Version;
 
         [OutputConstructor]
-        private LocationSMBMountOptions(string? version)
+        private LocationSMBMountOptions(Pulumi.AwsNative.DataSync.LocationSMBMountOptionsVersion? version)
         {
             Version = version;
         }

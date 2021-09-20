@@ -9,6 +9,9 @@ export * from "./accelerator";
 export * from "./endpointGroup";
 export * from "./listener";
 
+// Export enums:
+export * from "../types/enums/globalaccelerator";
+
 // Import resources to register:
 import { Accelerator } from "./accelerator";
 import { EndpointGroup } from "./endpointGroup";

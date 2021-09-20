@@ -320,8 +320,8 @@ func (o AssessmentAWSServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAWSS
 
 // The destination in which evidence reports are stored for the specified assessment.
 type AssessmentAssessmentReportsDestination struct {
-	Destination     *string `pulumi:"destination"`
-	DestinationType *string `pulumi:"destinationType"`
+	Destination     *string                                    `pulumi:"destination"`
+	DestinationType *AssessmentAssessmentReportDestinationType `pulumi:"destinationType"`
 }
 
 // AssessmentAssessmentReportsDestinationInput is an input type that accepts AssessmentAssessmentReportsDestinationArgs and AssessmentAssessmentReportsDestinationOutput values.
@@ -337,8 +337,8 @@ type AssessmentAssessmentReportsDestinationInput interface {
 
 // The destination in which evidence reports are stored for the specified assessment.
 type AssessmentAssessmentReportsDestinationArgs struct {
-	Destination     pulumi.StringPtrInput `pulumi:"destination"`
-	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
+	Destination     pulumi.StringPtrInput                             `pulumi:"destination"`
+	DestinationType AssessmentAssessmentReportDestinationTypePtrInput `pulumi:"destinationType"`
 }
 
 func (AssessmentAssessmentReportsDestinationArgs) ElementType() reflect.Type {
@@ -423,8 +423,10 @@ func (o AssessmentAssessmentReportsDestinationOutput) Destination() pulumi.Strin
 	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentAssessmentReportsDestinationOutput) DestinationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
+func (o AssessmentAssessmentReportsDestinationOutput) DestinationType() AssessmentAssessmentReportDestinationTypePtrOutput {
+	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) *AssessmentAssessmentReportDestinationType {
+		return v.DestinationType
+	}).(AssessmentAssessmentReportDestinationTypePtrOutput)
 }
 
 type AssessmentAssessmentReportsDestinationPtrOutput struct{ *pulumi.OutputState }
@@ -460,28 +462,28 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) Destination() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentAssessmentReportsDestinationPtrOutput) DestinationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *string {
+func (o AssessmentAssessmentReportsDestinationPtrOutput) DestinationType() AssessmentAssessmentReportDestinationTypePtrOutput {
+	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *AssessmentAssessmentReportDestinationType {
 		if v == nil {
 			return nil
 		}
 		return v.DestinationType
-	}).(pulumi.StringPtrOutput)
+	}).(AssessmentAssessmentReportDestinationTypePtrOutput)
 }
 
 // The assignment of a control set to a delegate for review.
 type AssessmentDelegation struct {
-	AssessmentId   *string  `pulumi:"assessmentId"`
-	AssessmentName *string  `pulumi:"assessmentName"`
-	Comment        *string  `pulumi:"comment"`
-	ControlSetId   *string  `pulumi:"controlSetId"`
-	CreatedBy      *string  `pulumi:"createdBy"`
-	CreationTime   *float64 `pulumi:"creationTime"`
-	Id             *string  `pulumi:"id"`
-	LastUpdated    *float64 `pulumi:"lastUpdated"`
-	RoleArn        *string  `pulumi:"roleArn"`
-	RoleType       *string  `pulumi:"roleType"`
-	Status         *string  `pulumi:"status"`
+	AssessmentId   *string                     `pulumi:"assessmentId"`
+	AssessmentName *string                     `pulumi:"assessmentName"`
+	Comment        *string                     `pulumi:"comment"`
+	ControlSetId   *string                     `pulumi:"controlSetId"`
+	CreatedBy      *string                     `pulumi:"createdBy"`
+	CreationTime   *float64                    `pulumi:"creationTime"`
+	Id             *string                     `pulumi:"id"`
+	LastUpdated    *float64                    `pulumi:"lastUpdated"`
+	RoleArn        *string                     `pulumi:"roleArn"`
+	RoleType       *AssessmentRoleType         `pulumi:"roleType"`
+	Status         *AssessmentDelegationStatus `pulumi:"status"`
 }
 
 // AssessmentDelegationInput is an input type that accepts AssessmentDelegationArgs and AssessmentDelegationOutput values.
@@ -497,17 +499,17 @@ type AssessmentDelegationInput interface {
 
 // The assignment of a control set to a delegate for review.
 type AssessmentDelegationArgs struct {
-	AssessmentId   pulumi.StringPtrInput  `pulumi:"assessmentId"`
-	AssessmentName pulumi.StringPtrInput  `pulumi:"assessmentName"`
-	Comment        pulumi.StringPtrInput  `pulumi:"comment"`
-	ControlSetId   pulumi.StringPtrInput  `pulumi:"controlSetId"`
-	CreatedBy      pulumi.StringPtrInput  `pulumi:"createdBy"`
-	CreationTime   pulumi.Float64PtrInput `pulumi:"creationTime"`
-	Id             pulumi.StringPtrInput  `pulumi:"id"`
-	LastUpdated    pulumi.Float64PtrInput `pulumi:"lastUpdated"`
-	RoleArn        pulumi.StringPtrInput  `pulumi:"roleArn"`
-	RoleType       pulumi.StringPtrInput  `pulumi:"roleType"`
-	Status         pulumi.StringPtrInput  `pulumi:"status"`
+	AssessmentId   pulumi.StringPtrInput              `pulumi:"assessmentId"`
+	AssessmentName pulumi.StringPtrInput              `pulumi:"assessmentName"`
+	Comment        pulumi.StringPtrInput              `pulumi:"comment"`
+	ControlSetId   pulumi.StringPtrInput              `pulumi:"controlSetId"`
+	CreatedBy      pulumi.StringPtrInput              `pulumi:"createdBy"`
+	CreationTime   pulumi.Float64PtrInput             `pulumi:"creationTime"`
+	Id             pulumi.StringPtrInput              `pulumi:"id"`
+	LastUpdated    pulumi.Float64PtrInput             `pulumi:"lastUpdated"`
+	RoleArn        pulumi.StringPtrInput              `pulumi:"roleArn"`
+	RoleType       AssessmentRoleTypePtrInput         `pulumi:"roleType"`
+	Status         AssessmentDelegationStatusPtrInput `pulumi:"status"`
 }
 
 func (AssessmentDelegationArgs) ElementType() reflect.Type {
@@ -598,12 +600,12 @@ func (o AssessmentDelegationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentDelegationOutput) RoleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentDelegation) *string { return v.RoleType }).(pulumi.StringPtrOutput)
+func (o AssessmentDelegationOutput) RoleType() AssessmentRoleTypePtrOutput {
+	return o.ApplyT(func(v AssessmentDelegation) *AssessmentRoleType { return v.RoleType }).(AssessmentRoleTypePtrOutput)
 }
 
-func (o AssessmentDelegationOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentDelegation) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o AssessmentDelegationOutput) Status() AssessmentDelegationStatusPtrOutput {
+	return o.ApplyT(func(v AssessmentDelegation) *AssessmentDelegationStatus { return v.Status }).(AssessmentDelegationStatusPtrOutput)
 }
 
 type AssessmentDelegationArrayOutput struct{ *pulumi.OutputState }
@@ -628,8 +630,8 @@ func (o AssessmentDelegationArrayOutput) Index(i pulumi.IntInput) AssessmentDele
 
 // The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRole struct {
-	RoleArn  *string `pulumi:"roleArn"`
-	RoleType *string `pulumi:"roleType"`
+	RoleArn  *string             `pulumi:"roleArn"`
+	RoleType *AssessmentRoleType `pulumi:"roleType"`
 }
 
 // AssessmentRoleInput is an input type that accepts AssessmentRoleArgs and AssessmentRoleOutput values.
@@ -645,8 +647,8 @@ type AssessmentRoleInput interface {
 
 // The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRoleArgs struct {
-	RoleArn  pulumi.StringPtrInput `pulumi:"roleArn"`
-	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
+	RoleArn  pulumi.StringPtrInput      `pulumi:"roleArn"`
+	RoleType AssessmentRoleTypePtrInput `pulumi:"roleType"`
 }
 
 func (AssessmentRoleArgs) ElementType() reflect.Type {
@@ -705,8 +707,8 @@ func (o AssessmentRoleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-func (o AssessmentRoleOutput) RoleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentRole) *string { return v.RoleType }).(pulumi.StringPtrOutput)
+func (o AssessmentRoleOutput) RoleType() AssessmentRoleTypePtrOutput {
+	return o.ApplyT(func(v AssessmentRole) *AssessmentRoleType { return v.RoleType }).(AssessmentRoleTypePtrOutput)
 }
 
 type AssessmentRoleArrayOutput struct{ *pulumi.OutputState }

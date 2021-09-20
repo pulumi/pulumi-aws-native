@@ -1143,7 +1143,7 @@ type AssetAssetProperty struct {
 	// Customer provided ID for property.
 	LogicalId string `pulumi:"logicalId"`
 	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
-	NotificationState *string `pulumi:"notificationState"`
+	NotificationState *AssetAssetPropertyNotificationState `pulumi:"notificationState"`
 }
 
 // AssetAssetPropertyInput is an input type that accepts AssetAssetPropertyArgs and AssetAssetPropertyOutput values.
@@ -1164,7 +1164,7 @@ type AssetAssetPropertyArgs struct {
 	// Customer provided ID for property.
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
 	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
-	NotificationState pulumi.StringPtrInput `pulumi:"notificationState"`
+	NotificationState AssetAssetPropertyNotificationStatePtrInput `pulumi:"notificationState"`
 }
 
 func (AssetAssetPropertyArgs) ElementType() reflect.Type {
@@ -1230,8 +1230,8 @@ func (o AssetAssetPropertyOutput) LogicalId() pulumi.StringOutput {
 }
 
 // The MQTT notification state (ENABLED or DISABLED) for this asset property.
-func (o AssetAssetPropertyOutput) NotificationState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssetAssetProperty) *string { return v.NotificationState }).(pulumi.StringPtrOutput)
+func (o AssetAssetPropertyOutput) NotificationState() AssetAssetPropertyNotificationStatePtrOutput {
+	return o.ApplyT(func(v AssetAssetProperty) *AssetAssetPropertyNotificationState { return v.NotificationState }).(AssetAssetPropertyNotificationStatePtrOutput)
 }
 
 type AssetAssetPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -1504,9 +1504,9 @@ func (o AssetModelAssetModelHierarchyArrayOutput) Index(i pulumi.IntInput) Asset
 // Contains information about an asset model property.
 type AssetModelAssetModelProperty struct {
 	// The data type of the asset model property.
-	DataType string `pulumi:"dataType"`
+	DataType AssetModelDataType `pulumi:"dataType"`
 	// The data type of the structure for this property.
-	DataTypeSpec *string `pulumi:"dataTypeSpec"`
+	DataTypeSpec *AssetModelDataTypeSpec `pulumi:"dataTypeSpec"`
 	// Customer provided ID for property.
 	LogicalId string `pulumi:"logicalId"`
 	// The name of the asset model property.
@@ -1531,9 +1531,9 @@ type AssetModelAssetModelPropertyInput interface {
 // Contains information about an asset model property.
 type AssetModelAssetModelPropertyArgs struct {
 	// The data type of the asset model property.
-	DataType pulumi.StringInput `pulumi:"dataType"`
+	DataType AssetModelDataTypeInput `pulumi:"dataType"`
 	// The data type of the structure for this property.
-	DataTypeSpec pulumi.StringPtrInput `pulumi:"dataTypeSpec"`
+	DataTypeSpec AssetModelDataTypeSpecPtrInput `pulumi:"dataTypeSpec"`
 	// Customer provided ID for property.
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
 	// The name of the asset model property.
@@ -1597,13 +1597,13 @@ func (o AssetModelAssetModelPropertyOutput) ToAssetModelAssetModelPropertyOutput
 }
 
 // The data type of the asset model property.
-func (o AssetModelAssetModelPropertyOutput) DataType() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) string { return v.DataType }).(pulumi.StringOutput)
+func (o AssetModelAssetModelPropertyOutput) DataType() AssetModelDataTypeOutput {
+	return o.ApplyT(func(v AssetModelAssetModelProperty) AssetModelDataType { return v.DataType }).(AssetModelDataTypeOutput)
 }
 
 // The data type of the structure for this property.
-func (o AssetModelAssetModelPropertyOutput) DataTypeSpec() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) *string { return v.DataTypeSpec }).(pulumi.StringPtrOutput)
+func (o AssetModelAssetModelPropertyOutput) DataTypeSpec() AssetModelDataTypeSpecPtrOutput {
+	return o.ApplyT(func(v AssetModelAssetModelProperty) *AssetModelDataTypeSpec { return v.DataTypeSpec }).(AssetModelDataTypeSpecPtrOutput)
 }
 
 // Customer provided ID for property.
@@ -2201,7 +2201,7 @@ type AssetModelPropertyType struct {
 	Attribute *AssetModelAttribute `pulumi:"attribute"`
 	Metric    *AssetModelMetric    `pulumi:"metric"`
 	Transform *AssetModelTransform `pulumi:"transform"`
-	TypeName  string               `pulumi:"typeName"`
+	TypeName  AssetModelTypeName   `pulumi:"typeName"`
 }
 
 // AssetModelPropertyTypeInput is an input type that accepts AssetModelPropertyTypeArgs and AssetModelPropertyTypeOutput values.
@@ -2220,7 +2220,7 @@ type AssetModelPropertyTypeArgs struct {
 	Attribute AssetModelAttributePtrInput `pulumi:"attribute"`
 	Metric    AssetModelMetricPtrInput    `pulumi:"metric"`
 	Transform AssetModelTransformPtrInput `pulumi:"transform"`
-	TypeName  pulumi.StringInput          `pulumi:"typeName"`
+	TypeName  AssetModelTypeNameInput     `pulumi:"typeName"`
 }
 
 func (AssetModelPropertyTypeArgs) ElementType() reflect.Type {
@@ -2262,8 +2262,8 @@ func (o AssetModelPropertyTypeOutput) Transform() AssetModelTransformPtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelTransform { return v.Transform }).(AssetModelTransformPtrOutput)
 }
 
-func (o AssetModelPropertyTypeOutput) TypeName() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelPropertyType) string { return v.TypeName }).(pulumi.StringOutput)
+func (o AssetModelPropertyTypeOutput) TypeName() AssetModelTypeNameOutput {
+	return o.ApplyT(func(v AssetModelPropertyType) AssetModelTypeName { return v.TypeName }).(AssetModelTypeNameOutput)
 }
 
 type AssetModelTag struct {

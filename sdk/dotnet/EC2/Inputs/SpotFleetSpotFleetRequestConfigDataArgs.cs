@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class SpotFleetSpotFleetRequestConfigDataArgs : Pulumi.ResourceArgs
     {
         [Input("allocationStrategy")]
-        public Input<string>? AllocationStrategy { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataAllocationStrategy>? AllocationStrategy { get; set; }
 
         [Input("context")]
         public Input<string>? Context { get; set; }
 
         [Input("excessCapacityTerminationPolicy")]
-        public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy>? ExcessCapacityTerminationPolicy { get; set; }
 
         [Input("iamFleetRole", required: true)]
         public Input<string> IamFleetRole { get; set; } = null!;
 
         [Input("instanceInterruptionBehavior")]
-        public Input<string>? InstanceInterruptionBehavior { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior>? InstanceInterruptionBehavior { get; set; }
 
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetSpotFleetRequestConfigDataType>? Type { get; set; }
 
         [Input("validFrom")]
         public Input<string>? ValidFrom { get; set; }

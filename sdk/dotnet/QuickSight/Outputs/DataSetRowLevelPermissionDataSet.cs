@@ -20,22 +20,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the permission dataset.&lt;/p&gt;
         /// </summary>
         public readonly string Arn;
-        public readonly string? FormatVersion;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionFormatVersion? FormatVersion;
         /// <summary>
         /// &lt;p&gt;The namespace associated with the row-level permissions dataset.&lt;/p&gt;
         /// </summary>
         public readonly string? Namespace;
-        public readonly string PermissionPolicy;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy PermissionPolicy;
 
         [OutputConstructor]
         private DataSetRowLevelPermissionDataSet(
             string arn,
 
-            string? formatVersion,
+            Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionFormatVersion? formatVersion,
 
             string? @namespace,
 
-            string permissionPolicy)
+            Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy permissionPolicy)
         {
             Arn = arn;
             FormatVersion = formatVersion;

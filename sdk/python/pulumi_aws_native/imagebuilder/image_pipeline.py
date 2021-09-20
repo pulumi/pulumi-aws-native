@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ImagePipelineArgs', 'ImagePipeline']
@@ -24,7 +25,7 @@ class ImagePipelineArgs:
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
@@ -37,7 +38,7 @@ class ImagePipelineArgs:
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         :param pulumi.Input[str] name: The name of the image pipeline.
         :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: The schedule of the image pipeline.
-        :param pulumi.Input[str] status: The status of the image pipeline.
+        :param pulumi.Input['ImagePipelineStatus'] status: The status of the image pipeline.
         :param Any tags: The tags of this image pipeline.
         """
         if container_recipe_arn is not None:
@@ -173,14 +174,14 @@ class ImagePipelineArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['ImagePipelineStatus']]:
         """
         The status of the image pipeline.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['ImagePipelineStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -210,7 +211,7 @@ class ImagePipeline(pulumi.CustomResource):
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         """
@@ -227,7 +228,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         :param pulumi.Input[str] name: The name of the image pipeline.
         :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: The schedule of the image pipeline.
-        :param pulumi.Input[str] status: The status of the image pipeline.
+        :param pulumi.Input['ImagePipelineStatus'] status: The status of the image pipeline.
         :param Any tags: The tags of this image pipeline.
         """
         ...
@@ -263,7 +264,7 @@ class ImagePipeline(pulumi.CustomResource):
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         if opts is None:
@@ -407,7 +408,7 @@ class ImagePipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def status(self) -> pulumi.Output[Optional['ImagePipelineStatus']]:
         """
         The status of the image pipeline.
         """

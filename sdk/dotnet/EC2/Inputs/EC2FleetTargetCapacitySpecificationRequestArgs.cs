@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class EC2FleetTargetCapacitySpecificationRequestArgs : Pulumi.ResourceArgs
     {
         [Input("defaultTargetCapacityType")]
-        public Input<string>? DefaultTargetCapacityType { get; set; }
+        public Input<Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType>? DefaultTargetCapacityType { get; set; }
 
         [Input("onDemandTargetCapacity")]
         public Input<int>? OnDemandTargetCapacity { get; set; }

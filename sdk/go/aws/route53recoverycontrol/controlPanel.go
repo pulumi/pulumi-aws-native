@@ -26,7 +26,7 @@ type ControlPanel struct {
 	// Count of associated routing controls
 	RoutingControlCount pulumi.IntOutput `pulumi:"routingControlCount"`
 	// The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status ControlPanelStatusOutput `pulumi:"status"`
 }
 
 // NewControlPanel registers a new resource with the given unique name, arguments, and options.

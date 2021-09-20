@@ -374,8 +374,8 @@ func (o GroupQueryPtrOutput) TagFilters() GroupTagFilterArrayOutput {
 }
 
 type GroupResourceQuery struct {
-	Query *GroupQuery `pulumi:"query"`
-	Type  *string     `pulumi:"type"`
+	Query *GroupQuery             `pulumi:"query"`
+	Type  *GroupResourceQueryType `pulumi:"type"`
 }
 
 // GroupResourceQueryInput is an input type that accepts GroupResourceQueryArgs and GroupResourceQueryOutput values.
@@ -390,8 +390,8 @@ type GroupResourceQueryInput interface {
 }
 
 type GroupResourceQueryArgs struct {
-	Query GroupQueryPtrInput    `pulumi:"query"`
-	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Query GroupQueryPtrInput             `pulumi:"query"`
+	Type  GroupResourceQueryTypePtrInput `pulumi:"type"`
 }
 
 func (GroupResourceQueryArgs) ElementType() reflect.Type {
@@ -475,8 +475,8 @@ func (o GroupResourceQueryOutput) Query() GroupQueryPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *GroupQuery { return v.Query }).(GroupQueryPtrOutput)
 }
 
-func (o GroupResourceQueryOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o GroupResourceQueryOutput) Type() GroupResourceQueryTypePtrOutput {
+	return o.ApplyT(func(v GroupResourceQuery) *GroupResourceQueryType { return v.Type }).(GroupResourceQueryTypePtrOutput)
 }
 
 type GroupResourceQueryPtrOutput struct{ *pulumi.OutputState }
@@ -512,13 +512,13 @@ func (o GroupResourceQueryPtrOutput) Query() GroupQueryPtrOutput {
 	}).(GroupQueryPtrOutput)
 }
 
-func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupResourceQuery) *string {
+func (o GroupResourceQueryPtrOutput) Type() GroupResourceQueryTypePtrOutput {
+	return o.ApplyT(func(v *GroupResourceQuery) *GroupResourceQueryType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(GroupResourceQueryTypePtrOutput)
 }
 
 type GroupTag struct {

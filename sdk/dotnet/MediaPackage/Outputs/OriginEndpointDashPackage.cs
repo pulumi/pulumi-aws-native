@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         /// </summary>
-        public readonly ImmutableArray<string> AdTriggers;
-        public readonly string? AdsOnDeliveryRestrictions;
+        public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageAdTriggersItem> AdTriggers;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
         public readonly Outputs.OriginEndpointDashEncryption? Encryption;
         /// <summary>
         /// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         /// </summary>
-        public readonly string? ManifestLayout;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageManifestLayout? ManifestLayout;
         /// <summary>
         /// Time window (in seconds) contained in each manifest.
         /// </summary>
@@ -41,11 +41,11 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
         /// </summary>
-        public readonly ImmutableArray<string> PeriodTriggers;
+        public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackagePeriodTriggersItem> PeriodTriggers;
         /// <summary>
         /// The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         /// </summary>
-        public readonly string? Profile;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageProfile? Profile;
         /// <summary>
         /// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         /// </summary>
-        public readonly string? SegmentTemplateFormat;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageSegmentTemplateFormat? SegmentTemplateFormat;
         public readonly Outputs.OriginEndpointStreamSelection? StreamSelection;
         /// <summary>
         /// Duration (in seconds) to delay live content before presentation.
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
         /// </summary>
-        public readonly string? UtcTiming;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageUtcTiming? UtcTiming;
         /// <summary>
         /// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
         /// </summary>
@@ -70,13 +70,13 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointDashPackage(
-            ImmutableArray<string> adTriggers,
+            ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageAdTriggersItem> adTriggers,
 
-            string? adsOnDeliveryRestrictions,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? adsOnDeliveryRestrictions,
 
             Outputs.OriginEndpointDashEncryption? encryption,
 
-            string? manifestLayout,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageManifestLayout? manifestLayout,
 
             int? manifestWindowSeconds,
 
@@ -84,19 +84,19 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             int? minUpdatePeriodSeconds,
 
-            ImmutableArray<string> periodTriggers,
+            ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackagePeriodTriggersItem> periodTriggers,
 
-            string? profile,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageProfile? profile,
 
             int? segmentDurationSeconds,
 
-            string? segmentTemplateFormat,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageSegmentTemplateFormat? segmentTemplateFormat,
 
             Outputs.OriginEndpointStreamSelection? streamSelection,
 
             int? suggestedPresentationDelaySeconds,
 
-            string? utcTiming,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointDashPackageUtcTiming? utcTiming,
 
             string? utcTimingUri)
         {

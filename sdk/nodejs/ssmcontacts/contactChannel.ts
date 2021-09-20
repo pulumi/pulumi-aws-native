@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +50,7 @@ export class ContactChannel extends pulumi.CustomResource {
     /**
      * Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
      */
-    public readonly channelType!: pulumi.Output<string | undefined>;
+    public readonly channelType!: pulumi.Output<enums.ssmcontacts.ContactChannelChannelType | undefined>;
     /**
      * ARN of the contact resource
      */
@@ -106,7 +107,7 @@ export interface ContactChannelArgs {
     /**
      * Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
      */
-    channelType?: pulumi.Input<string>;
+    channelType?: pulumi.Input<enums.ssmcontacts.ContactChannelChannelType>;
     /**
      * ARN of the contact resource
      */

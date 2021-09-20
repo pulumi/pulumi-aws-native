@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +50,7 @@ export class Agent extends pulumi.CustomResource {
     /**
      * The service endpoints that the agent will connect to.
      */
-    public /*out*/ readonly endpointType!: pulumi.Output<string>;
+    public /*out*/ readonly endpointType!: pulumi.Output<enums.datasync.AgentEndpointType>;
     /**
      * The ARNs of the security group used to protect your data transfer task subnets.
      */

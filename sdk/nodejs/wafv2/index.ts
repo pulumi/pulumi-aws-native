@@ -12,6 +12,9 @@ export * from "./ruleGroup";
 export * from "./webACL";
 export * from "./webACLAssociation";
 
+// Export enums:
+export * from "../types/enums/wafv2";
+
 // Import resources to register:
 import { IPSet } from "./ipset";
 import { LoggingConfiguration } from "./loggingConfiguration";

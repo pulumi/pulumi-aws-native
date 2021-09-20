@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'CapacityProviderAutoScalingGroupProviderArgs',
@@ -72,7 +73,7 @@ class CapacityProviderAutoScalingGroupProviderArgs:
     def __init__(__self__, *,
                  auto_scaling_group_arn: pulumi.Input[str],
                  managed_scaling: Optional[pulumi.Input['CapacityProviderManagedScalingArgs']] = None,
-                 managed_termination_protection: Optional[pulumi.Input[str]] = None):
+                 managed_termination_protection: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection']] = None):
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
         if managed_scaling is not None:
             pulumi.set(__self__, "managed_scaling", managed_scaling)
@@ -99,11 +100,11 @@ class CapacityProviderAutoScalingGroupProviderArgs:
 
     @property
     @pulumi.getter(name="managedTerminationProtection")
-    def managed_termination_protection(self) -> Optional[pulumi.Input[str]]:
+    def managed_termination_protection(self) -> Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection']]:
         return pulumi.get(self, "managed_termination_protection")
 
     @managed_termination_protection.setter
-    def managed_termination_protection(self, value: Optional[pulumi.Input[str]]):
+    def managed_termination_protection(self, value: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection']]):
         pulumi.set(self, "managed_termination_protection", value)
 
 
@@ -113,7 +114,7 @@ class CapacityProviderManagedScalingArgs:
                  instance_warmup_period: Optional[pulumi.Input[int]] = None,
                  maximum_scaling_step_size: Optional[pulumi.Input[int]] = None,
                  minimum_scaling_step_size: Optional[pulumi.Input[int]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['CapacityProviderManagedScalingStatus']] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None):
         """
         The managed scaling settings for the Auto Scaling group capacity provider.
@@ -158,11 +159,11 @@ class CapacityProviderManagedScalingArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['CapacityProviderManagedScalingStatus']]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['CapacityProviderManagedScalingStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -207,7 +208,7 @@ class CapacityProviderTagArgs:
 @pulumi.input_type
 class ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs:
     def __init__(__self__, *,
-                 capacity_provider: pulumi.Input[str],
+                 capacity_provider: pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]],
                  base: Optional[pulumi.Input[int]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "capacity_provider", capacity_provider)
@@ -218,11 +219,11 @@ class ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs:
 
     @property
     @pulumi.getter(name="capacityProvider")
-    def capacity_provider(self) -> pulumi.Input[str]:
+    def capacity_provider(self) -> pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]:
         return pulumi.get(self, "capacity_provider")
 
     @capacity_provider.setter
-    def capacity_provider(self, value: pulumi.Input[str]):
+    def capacity_provider(self, value: pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]):
         pulumi.set(self, "capacity_provider", value)
 
     @property
@@ -487,7 +488,7 @@ class ClusterTagArgs:
 @pulumi.input_type
 class ServiceAwsVpcConfigurationArgs:
     def __init__(__self__, *,
-                 assign_public_ip: Optional[pulumi.Input[str]] = None,
+                 assign_public_ip: Optional[pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         if assign_public_ip is not None:
@@ -499,11 +500,11 @@ class ServiceAwsVpcConfigurationArgs:
 
     @property
     @pulumi.getter(name="assignPublicIp")
-    def assign_public_ip(self) -> Optional[pulumi.Input[str]]:
+    def assign_public_ip(self) -> Optional[pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp']]:
         return pulumi.get(self, "assign_public_ip")
 
     @assign_public_ip.setter
-    def assign_public_ip(self, value: Optional[pulumi.Input[str]]):
+    def assign_public_ip(self, value: Optional[pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp']]):
         pulumi.set(self, "assign_public_ip", value)
 
     @property
@@ -637,17 +638,17 @@ class ServiceDeploymentConfigurationArgs:
 @pulumi.input_type
 class ServiceDeploymentControllerArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ServiceDeploymentControllerType']] = None):
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ServiceDeploymentControllerType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ServiceDeploymentControllerType']]):
         pulumi.set(self, "type", value)
 
 
@@ -724,7 +725,7 @@ class ServiceNetworkConfigurationArgs:
 @pulumi.input_type
 class ServicePlacementConstraintArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['ServicePlacementConstraintType'],
                  expression: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "type", type)
         if expression is not None:
@@ -732,11 +733,11 @@ class ServicePlacementConstraintArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ServicePlacementConstraintType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ServicePlacementConstraintType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -752,7 +753,7 @@ class ServicePlacementConstraintArgs:
 @pulumi.input_type
 class ServicePlacementStrategyArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['ServicePlacementStrategyType'],
                  field: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "type", type)
         if field is not None:
@@ -760,11 +761,11 @@ class ServicePlacementStrategyArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ServicePlacementStrategyType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ServicePlacementStrategyType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -863,7 +864,7 @@ class ServiceTagArgs:
 class TaskDefinitionAuthorizationConfigArgs:
     def __init__(__self__, *,
                  access_point_id: Optional[pulumi.Input[str]] = None,
-                 i_am: Optional[pulumi.Input[str]] = None):
+                 i_am: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']] = None):
         if access_point_id is not None:
             pulumi.set(__self__, "access_point_id", access_point_id)
         if i_am is not None:
@@ -880,11 +881,11 @@ class TaskDefinitionAuthorizationConfigArgs:
 
     @property
     @pulumi.getter(name="iAM")
-    def i_am(self) -> Optional[pulumi.Input[str]]:
+    def i_am(self) -> Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]:
         return pulumi.get(self, "i_am")
 
     @i_am.setter
-    def i_am(self, value: Optional[pulumi.Input[str]]):
+    def i_am(self, value: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigIAM']]):
         pulumi.set(self, "i_am", value)
 
 
@@ -1529,7 +1530,7 @@ class TaskDefinitionEFSVolumeConfigurationArgs:
                  filesystem_id: pulumi.Input[str],
                  authorization_config: Optional[pulumi.Input['TaskDefinitionAuthorizationConfigArgs']] = None,
                  root_directory: Optional[pulumi.Input[str]] = None,
-                 transit_encryption: Optional[pulumi.Input[str]] = None,
+                 transit_encryption: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationTransitEncryption']] = None,
                  transit_encryption_port: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         if authorization_config is not None:
@@ -1570,11 +1571,11 @@ class TaskDefinitionEFSVolumeConfigurationArgs:
 
     @property
     @pulumi.getter(name="transitEncryption")
-    def transit_encryption(self) -> Optional[pulumi.Input[str]]:
+    def transit_encryption(self) -> Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationTransitEncryption']]:
         return pulumi.get(self, "transit_encryption")
 
     @transit_encryption.setter
-    def transit_encryption(self, value: Optional[pulumi.Input[str]]):
+    def transit_encryption(self, value: Optional[pulumi.Input['TaskDefinitionEFSVolumeConfigurationTransitEncryption']]):
         pulumi.set(self, "transit_encryption", value)
 
     @property
@@ -2455,12 +2456,12 @@ class TaskDefinitionVolumeArgs:
 class TaskSetAwsVpcConfigurationArgs:
     def __init__(__self__, *,
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 assign_public_ip: Optional[pulumi.Input[str]] = None,
+                 assign_public_ip: Optional[pulumi.Input['TaskSetAwsVpcConfigurationAssignPublicIp']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
-        :param pulumi.Input[str] assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
+        :param pulumi.Input['TaskSetAwsVpcConfigurationAssignPublicIp'] assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
         """
         pulumi.set(__self__, "subnets", subnets)
@@ -2483,14 +2484,14 @@ class TaskSetAwsVpcConfigurationArgs:
 
     @property
     @pulumi.getter(name="assignPublicIp")
-    def assign_public_ip(self) -> Optional[pulumi.Input[str]]:
+    def assign_public_ip(self) -> Optional[pulumi.Input['TaskSetAwsVpcConfigurationAssignPublicIp']]:
         """
         Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
         """
         return pulumi.get(self, "assign_public_ip")
 
     @assign_public_ip.setter
-    def assign_public_ip(self, value: Optional[pulumi.Input[str]]):
+    def assign_public_ip(self, value: Optional[pulumi.Input['TaskSetAwsVpcConfigurationAssignPublicIp']]):
         pulumi.set(self, "assign_public_ip", value)
 
     @property
@@ -2601,10 +2602,10 @@ class TaskSetNetworkConfigurationArgs:
 @pulumi.input_type
 class TaskSetScaleArgs:
     def __init__(__self__, *,
-                 unit: Optional[pulumi.Input[str]] = None,
+                 unit: Optional[pulumi.Input['TaskSetScaleUnit']] = None,
                  value: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[str] unit: The unit of measure for the scale value.
+        :param pulumi.Input['TaskSetScaleUnit'] unit: The unit of measure for the scale value.
         :param pulumi.Input[float] value: The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
         """
         if unit is not None:
@@ -2614,14 +2615,14 @@ class TaskSetScaleArgs:
 
     @property
     @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[str]]:
+    def unit(self) -> Optional[pulumi.Input['TaskSetScaleUnit']]:
         """
         The unit of measure for the scale value.
         """
         return pulumi.get(self, "unit")
 
     @unit.setter
-    def unit(self, value: Optional[pulumi.Input[str]]):
+    def unit(self, value: Optional[pulumi.Input['TaskSetScaleUnit']]):
         pulumi.set(self, "unit", value)
 
     @property

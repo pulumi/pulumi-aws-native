@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     public sealed class ServiceAwsVpcConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("assignPublicIp")]
-        public Input<string>? AssignPublicIp { get; set; }
+        public Input<Pulumi.AwsNative.ECS.ServiceAwsVpcConfigurationAssignPublicIp>? AssignPublicIp { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

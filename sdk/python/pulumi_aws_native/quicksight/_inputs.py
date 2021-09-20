@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AnalysisAnalysisErrorArgs',
@@ -94,7 +95,7 @@ __all__ = [
 class AnalysisAnalysisErrorArgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['AnalysisAnalysisErrorType']] = None):
         """
         <p>A metadata error structure for an analysis.</p>
         :param pulumi.Input[str] message: <p>The message associated with the analysis error.</p>
@@ -118,11 +119,11 @@ class AnalysisAnalysisErrorArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['AnalysisAnalysisErrorType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['AnalysisAnalysisErrorType']]):
         pulumi.set(self, "type", value)
 
 
@@ -554,7 +555,7 @@ class AnalysisTagArgs:
 @pulumi.input_type
 class DashboardAdHocFilteringOptionArgs:
     def __init__(__self__, *,
-                 availability_status: Optional[pulumi.Input[str]] = None):
+                 availability_status: Optional[pulumi.Input['DashboardDashboardBehavior']] = None):
         """
         <p>Ad hoc (one-time) filtering option.</p>
         """
@@ -563,11 +564,11 @@ class DashboardAdHocFilteringOptionArgs:
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional[pulumi.Input[str]]:
+    def availability_status(self) -> Optional[pulumi.Input['DashboardDashboardBehavior']]:
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
-    def availability_status(self, value: Optional[pulumi.Input[str]]):
+    def availability_status(self, value: Optional[pulumi.Input['DashboardDashboardBehavior']]):
         pulumi.set(self, "availability_status", value)
 
 
@@ -790,7 +791,7 @@ class DashboardDecimalParameterArgs:
 @pulumi.input_type
 class DashboardExportToCSVOptionArgs:
     def __init__(__self__, *,
-                 availability_status: Optional[pulumi.Input[str]] = None):
+                 availability_status: Optional[pulumi.Input['DashboardDashboardBehavior']] = None):
         """
         <p>Export to .csv option.</p>
         """
@@ -799,11 +800,11 @@ class DashboardExportToCSVOptionArgs:
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional[pulumi.Input[str]]:
+    def availability_status(self) -> Optional[pulumi.Input['DashboardDashboardBehavior']]:
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
-    def availability_status(self, value: Optional[pulumi.Input[str]]):
+    def availability_status(self, value: Optional[pulumi.Input['DashboardDashboardBehavior']]):
         pulumi.set(self, "availability_status", value)
 
 
@@ -986,7 +987,7 @@ class DashboardResourcePermissionArgs:
 @pulumi.input_type
 class DashboardSheetControlsOptionArgs:
     def __init__(__self__, *,
-                 visibility_state: Optional[pulumi.Input[str]] = None):
+                 visibility_state: Optional[pulumi.Input['DashboardDashboardUIState']] = None):
         """
         <p>Sheet controls option.</p>
         """
@@ -995,11 +996,11 @@ class DashboardSheetControlsOptionArgs:
 
     @property
     @pulumi.getter(name="visibilityState")
-    def visibility_state(self) -> Optional[pulumi.Input[str]]:
+    def visibility_state(self) -> Optional[pulumi.Input['DashboardDashboardUIState']]:
         return pulumi.get(self, "visibility_state")
 
     @visibility_state.setter
-    def visibility_state(self, value: Optional[pulumi.Input[str]]):
+    def visibility_state(self, value: Optional[pulumi.Input['DashboardDashboardUIState']]):
         pulumi.set(self, "visibility_state", value)
 
 
@@ -1142,7 +1143,7 @@ class DataSetGeoSpatialColumnGroupArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
-                 country_code: Optional[pulumi.Input[str]] = None):
+                 country_code: Optional[pulumi.Input['DataSetGeoSpatialCountryCode']] = None):
         """
         <p>Geospatial column group that denotes a hierarchy.</p>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: <p>Columns in this hierarchy.</p>
@@ -1179,11 +1180,11 @@ class DataSetGeoSpatialColumnGroupArgs:
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[str]]:
+    def country_code(self) -> Optional[pulumi.Input['DataSetGeoSpatialCountryCode']]:
         return pulumi.get(self, "country_code")
 
     @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[str]]):
+    def country_code(self, value: Optional[pulumi.Input['DataSetGeoSpatialCountryCode']]):
         pulumi.set(self, "country_code", value)
 
 
@@ -1313,8 +1314,8 @@ class DataSetResourcePermissionArgs:
 class DataSetRowLevelPermissionDataSetArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
-                 permission_policy: pulumi.Input[str],
-                 format_version: Optional[pulumi.Input[str]] = None,
+                 permission_policy: pulumi.Input['DataSetRowLevelPermissionPolicy'],
+                 format_version: Optional[pulumi.Input['DataSetRowLevelPermissionFormatVersion']] = None,
                  namespace: Optional[pulumi.Input[str]] = None):
         """
         <p>The row-level security configuration for the dataset.</p>
@@ -1342,20 +1343,20 @@ class DataSetRowLevelPermissionDataSetArgs:
 
     @property
     @pulumi.getter(name="permissionPolicy")
-    def permission_policy(self) -> pulumi.Input[str]:
+    def permission_policy(self) -> pulumi.Input['DataSetRowLevelPermissionPolicy']:
         return pulumi.get(self, "permission_policy")
 
     @permission_policy.setter
-    def permission_policy(self, value: pulumi.Input[str]):
+    def permission_policy(self, value: pulumi.Input['DataSetRowLevelPermissionPolicy']):
         pulumi.set(self, "permission_policy", value)
 
     @property
     @pulumi.getter(name="formatVersion")
-    def format_version(self) -> Optional[pulumi.Input[str]]:
+    def format_version(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionFormatVersion']]:
         return pulumi.get(self, "format_version")
 
     @format_version.setter
-    def format_version(self, value: Optional[pulumi.Input[str]]):
+    def format_version(self, value: Optional[pulumi.Input['DataSetRowLevelPermissionFormatVersion']]):
         pulumi.set(self, "format_version", value)
 
     @property
@@ -1680,7 +1681,7 @@ class DataSourceDataSourceCredentialsArgs:
 class DataSourceDataSourceErrorInfoArgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['DataSourceDataSourceErrorInfoType']] = None):
         """
         <p>Error information for the data source creation or update.</p>
         :param pulumi.Input[str] message: <p>Error message.</p>
@@ -1704,11 +1705,11 @@ class DataSourceDataSourceErrorInfoArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['DataSourceDataSourceErrorInfoType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['DataSourceDataSourceErrorInfoType']]):
         pulumi.set(self, "type", value)
 
 

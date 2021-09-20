@@ -20,7 +20,7 @@ type TaskSet struct {
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
-	LaunchType           pulumi.StringPtrOutput               `pulumi:"launchType"`
+	LaunchType           TaskSetLaunchTypePtrOutput           `pulumi:"launchType"`
 	LoadBalancers        TaskSetLoadBalancerArrayOutput       `pulumi:"loadBalancers"`
 	NetworkConfiguration TaskSetNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
@@ -88,7 +88,7 @@ type taskSetArgs struct {
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
 	ExternalId *string `pulumi:"externalId"`
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
-	LaunchType           *string                      `pulumi:"launchType"`
+	LaunchType           *TaskSetLaunchType           `pulumi:"launchType"`
 	LoadBalancers        []TaskSetLoadBalancer        `pulumi:"loadBalancers"`
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
@@ -110,7 +110,7 @@ type TaskSetArgs struct {
 	// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value.
 	ExternalId pulumi.StringPtrInput
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
-	LaunchType           pulumi.StringPtrInput
+	LaunchType           TaskSetLaunchTypePtrInput
 	LoadBalancers        TaskSetLoadBalancerArrayInput
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.

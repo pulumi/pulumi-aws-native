@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['IndexArgs', 'Index']
@@ -15,7 +16,7 @@ __all__ = ['IndexArgs', 'Index']
 @pulumi.input_type
 class IndexArgs:
     def __init__(__self__, *,
-                 edition: pulumi.Input[str],
+                 edition: pulumi.Input['IndexEdition'],
                  name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  capacity_units: Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']] = None,
@@ -23,7 +24,7 @@ class IndexArgs:
                  document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]] = None,
-                 user_context_policy: Optional[pulumi.Input[str]] = None,
+                 user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Index resource.
@@ -53,11 +54,11 @@ class IndexArgs:
 
     @property
     @pulumi.getter
-    def edition(self) -> pulumi.Input[str]:
+    def edition(self) -> pulumi.Input['IndexEdition']:
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: pulumi.Input[str]):
+    def edition(self, value: pulumi.Input['IndexEdition']):
         pulumi.set(self, "edition", value)
 
     @property
@@ -140,11 +141,11 @@ class IndexArgs:
 
     @property
     @pulumi.getter(name="userContextPolicy")
-    def user_context_policy(self) -> Optional[pulumi.Input[str]]:
+    def user_context_policy(self) -> Optional[pulumi.Input['IndexUserContextPolicy']]:
         return pulumi.get(self, "user_context_policy")
 
     @user_context_policy.setter
-    def user_context_policy(self, value: Optional[pulumi.Input[str]]):
+    def user_context_policy(self, value: Optional[pulumi.Input['IndexUserContextPolicy']]):
         pulumi.set(self, "user_context_policy", value)
 
     @property
@@ -165,12 +166,12 @@ class Index(pulumi.CustomResource):
                  capacity_units: Optional[pulumi.Input[pulumi.InputType['IndexCapacityUnitsConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationArgs']]]]] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input['IndexEdition']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexTagArgs']]]]] = None,
-                 user_context_policy: Optional[pulumi.Input[str]] = None,
+                 user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationArgs']]]]] = None,
                  __props__=None):
         """
@@ -211,12 +212,12 @@ class Index(pulumi.CustomResource):
                  capacity_units: Optional[pulumi.Input[pulumi.InputType['IndexCapacityUnitsConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationArgs']]]]] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input['IndexEdition']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexTagArgs']]]]] = None,
-                 user_context_policy: Optional[pulumi.Input[str]] = None,
+                 user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -313,7 +314,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def edition(self) -> pulumi.Output[str]:
+    def edition(self) -> pulumi.Output['IndexEdition']:
         return pulumi.get(self, "edition")
 
     @property
@@ -344,7 +345,7 @@ class Index(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userContextPolicy")
-    def user_context_policy(self) -> pulumi.Output[Optional[str]]:
+    def user_context_policy(self) -> pulumi.Output[Optional['IndexUserContextPolicy']]:
         return pulumi.get(self, "user_context_policy")
 
     @property

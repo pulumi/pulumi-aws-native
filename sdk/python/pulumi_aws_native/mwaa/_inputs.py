@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'EnvironmentLoggingConfigurationArgs',
@@ -88,7 +89,7 @@ class EnvironmentModuleLoggingConfigurationArgs:
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_level: Optional[pulumi.Input[str]] = None):
+                 log_level: Optional[pulumi.Input['EnvironmentLoggingLevel']] = None):
         """
         Logging configuration for a specific airflow component.
         """
@@ -119,11 +120,11 @@ class EnvironmentModuleLoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[str]]:
+    def log_level(self) -> Optional[pulumi.Input['EnvironmentLoggingLevel']]:
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[str]]):
+    def log_level(self, value: Optional[pulumi.Input['EnvironmentLoggingLevel']]):
         pulumi.set(self, "log_level", value)
 
 

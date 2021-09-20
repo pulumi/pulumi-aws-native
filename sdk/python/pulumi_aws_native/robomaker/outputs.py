@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'FleetTags',
@@ -48,11 +49,11 @@ class SimulationApplicationRenderingEngine(dict):
     Information about a rendering engine.
     """
     def __init__(__self__, *,
-                 name: str,
+                 name: 'SimulationApplicationRenderingEngineName',
                  version: str):
         """
         Information about a rendering engine.
-        :param str name: The name of the rendering engine.
+        :param 'SimulationApplicationRenderingEngineName' name: The name of the rendering engine.
         :param str version: The version of the rendering engine.
         """
         pulumi.set(__self__, "name", name)
@@ -60,7 +61,7 @@ class SimulationApplicationRenderingEngine(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> 'SimulationApplicationRenderingEngineName':
         """
         The name of the rendering engine.
         """
@@ -81,19 +82,19 @@ class SimulationApplicationRobotSoftwareSuite(dict):
     Information about a robot software suite (ROS distribution).
     """
     def __init__(__self__, *,
-                 name: str,
-                 version: str):
+                 name: 'SimulationApplicationRobotSoftwareSuiteName',
+                 version: 'SimulationApplicationRobotSoftwareSuiteVersion'):
         """
         Information about a robot software suite (ROS distribution).
-        :param str name: The name of the robot software suite (ROS distribution).
-        :param str version: The version of the robot software suite (ROS distribution).
+        :param 'SimulationApplicationRobotSoftwareSuiteName' name: The name of the robot software suite (ROS distribution).
+        :param 'SimulationApplicationRobotSoftwareSuiteVersion' version: The version of the robot software suite (ROS distribution).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> 'SimulationApplicationRobotSoftwareSuiteName':
         """
         The name of the robot software suite (ROS distribution).
         """
@@ -101,7 +102,7 @@ class SimulationApplicationRobotSoftwareSuite(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> 'SimulationApplicationRobotSoftwareSuiteVersion':
         """
         The version of the robot software suite (ROS distribution).
         """
@@ -114,19 +115,19 @@ class SimulationApplicationSimulationSoftwareSuite(dict):
     Information about a simulation software suite.
     """
     def __init__(__self__, *,
-                 name: str,
-                 version: str):
+                 name: 'SimulationApplicationSimulationSoftwareSuiteName',
+                 version: 'SimulationApplicationSimulationSoftwareSuiteVersion'):
         """
         Information about a simulation software suite.
-        :param str name: The name of the simulation software suite.
-        :param str version: The version of the simulation software suite.
+        :param 'SimulationApplicationSimulationSoftwareSuiteName' name: The name of the simulation software suite.
+        :param 'SimulationApplicationSimulationSoftwareSuiteVersion' version: The version of the simulation software suite.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> 'SimulationApplicationSimulationSoftwareSuiteName':
         """
         The name of the simulation software suite.
         """
@@ -134,7 +135,7 @@ class SimulationApplicationSimulationSoftwareSuite(dict):
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> 'SimulationApplicationSimulationSoftwareSuiteVersion':
         """
         The version of the simulation software suite.
         """
@@ -166,12 +167,12 @@ class SimulationApplicationSourceConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 architecture: str,
+                 architecture: 'SimulationApplicationSourceConfigArchitecture',
                  s3_bucket: str,
                  s3_key: str):
         """
         Information about a source configuration.
-        :param str architecture: The target processor architecture for the application.
+        :param 'SimulationApplicationSourceConfigArchitecture' architecture: The target processor architecture for the application.
         :param str s3_bucket: The Amazon S3 bucket name.
         :param str s3_key: The s3 object key.
         """
@@ -181,7 +182,7 @@ class SimulationApplicationSourceConfig(dict):
 
     @property
     @pulumi.getter
-    def architecture(self) -> str:
+    def architecture(self) -> 'SimulationApplicationSourceConfigArchitecture':
         """
         The target processor architecture for the application.
         """

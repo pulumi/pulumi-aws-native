@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("detailType")]
-        public Output<string> DetailType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CodeStarNotifications.NotificationRuleDetailType> DetailType { get; private set; } = null!;
 
         [Output("eventTypeIds")]
         public Output<ImmutableArray<string>> EventTypeIds { get; private set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public Output<string> Resource { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CodeStarNotifications.NotificationRuleStatus?> Status { get; private set; } = null!;
 
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
     public sealed class NotificationRuleArgs : Pulumi.ResourceArgs
     {
         [Input("detailType", required: true)]
-        public Input<string> DetailType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CodeStarNotifications.NotificationRuleDetailType> DetailType { get; set; } = null!;
 
         [Input("eventTypeIds", required: true)]
         private InputList<string>? _eventTypeIds;
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public Input<string> Resource { get; set; } = null!;
 
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.CodeStarNotifications.NotificationRuleStatus>? Status { get; set; }
 
         [Input("tags")]
         public Input<object>? Tags { get; set; }

@@ -16,13 +16,13 @@ type IPSet struct {
 	pulumi.CustomResourceState
 
 	// List of IPAddresses.
-	Addresses        pulumi.StringArrayOutput `pulumi:"addresses"`
-	Arn              pulumi.StringOutput      `pulumi:"arn"`
-	Description      pulumi.StringPtrOutput   `pulumi:"description"`
-	IPAddressVersion pulumi.StringOutput      `pulumi:"iPAddressVersion"`
-	Name             pulumi.StringPtrOutput   `pulumi:"name"`
-	Scope            pulumi.StringOutput      `pulumi:"scope"`
-	Tags             IPSetTagArrayOutput      `pulumi:"tags"`
+	Addresses        pulumi.StringArrayOutput    `pulumi:"addresses"`
+	Arn              pulumi.StringOutput         `pulumi:"arn"`
+	Description      pulumi.StringPtrOutput      `pulumi:"description"`
+	IPAddressVersion IPSetIPAddressVersionOutput `pulumi:"iPAddressVersion"`
+	Name             pulumi.StringPtrOutput      `pulumi:"name"`
+	Scope            IPSetScopeOutput            `pulumi:"scope"`
+	Tags             IPSetTagArrayOutput         `pulumi:"tags"`
 }
 
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
@@ -74,12 +74,12 @@ func (IPSetState) ElementType() reflect.Type {
 
 type ipsetArgs struct {
 	// List of IPAddresses.
-	Addresses        []string   `pulumi:"addresses"`
-	Description      *string    `pulumi:"description"`
-	IPAddressVersion string     `pulumi:"iPAddressVersion"`
-	Name             *string    `pulumi:"name"`
-	Scope            string     `pulumi:"scope"`
-	Tags             []IPSetTag `pulumi:"tags"`
+	Addresses        []string              `pulumi:"addresses"`
+	Description      *string               `pulumi:"description"`
+	IPAddressVersion IPSetIPAddressVersion `pulumi:"iPAddressVersion"`
+	Name             *string               `pulumi:"name"`
+	Scope            IPSetScope            `pulumi:"scope"`
+	Tags             []IPSetTag            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IPSet resource.
@@ -87,9 +87,9 @@ type IPSetArgs struct {
 	// List of IPAddresses.
 	Addresses        pulumi.StringArrayInput
 	Description      pulumi.StringPtrInput
-	IPAddressVersion pulumi.StringInput
+	IPAddressVersion IPSetIPAddressVersionInput
 	Name             pulumi.StringPtrInput
-	Scope            pulumi.StringInput
+	Scope            IPSetScopeInput
 	Tags             IPSetTagArrayInput
 }
 

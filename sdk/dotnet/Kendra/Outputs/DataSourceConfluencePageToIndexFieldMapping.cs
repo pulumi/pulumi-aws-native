@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfluencePageToIndexFieldMapping
     {
-        public readonly string DataSourceFieldName;
+        public readonly Pulumi.AwsNative.Kendra.DataSourceConfluencePageFieldName DataSourceFieldName;
         public readonly string? DateFieldFormat;
         public readonly string IndexFieldName;
 
         [OutputConstructor]
         private DataSourceConfluencePageToIndexFieldMapping(
-            string dataSourceFieldName,
+            Pulumi.AwsNative.Kendra.DataSourceConfluencePageFieldName dataSourceFieldName,
 
             string? dateFieldFormat,
 

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +40,7 @@ export class Connection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authParameters!: pulumi.Output<any>;
-    public readonly authorizationType!: pulumi.Output<string>;
+    public readonly authorizationType!: pulumi.Output<enums.events.ConnectionAuthorizationType>;
     /**
      * Description of the connection.
      */
@@ -96,7 +97,7 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionArgs {
     authParameters: any;
-    authorizationType: pulumi.Input<string>;
+    authorizationType: pulumi.Input<enums.events.ConnectionAuthorizationType>;
     /**
      * Description of the connection.
      */

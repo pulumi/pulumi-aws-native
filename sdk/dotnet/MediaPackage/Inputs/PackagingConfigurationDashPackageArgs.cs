@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         /// </summary>
         [Input("segmentTemplateFormat")]
-        public Input<string>? SegmentTemplateFormat { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackageSegmentTemplateFormat>? SegmentTemplateFormat { get; set; }
 
         public PackagingConfigurationDashPackageArgs()
         {

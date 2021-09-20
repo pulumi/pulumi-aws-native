@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BudgetsActionArgs', 'BudgetsAction']
@@ -16,12 +17,12 @@ __all__ = ['BudgetsActionArgs', 'BudgetsAction']
 class BudgetsActionArgs:
     def __init__(__self__, *,
                  action_threshold: pulumi.Input['BudgetsActionActionThresholdArgs'],
-                 action_type: pulumi.Input[str],
+                 action_type: pulumi.Input['BudgetsActionActionType'],
                  budget_name: pulumi.Input[str],
                  definition: pulumi.Input['BudgetsActionDefinitionArgs'],
                  execution_role_arn: pulumi.Input[str],
-                 notification_type: pulumi.Input[str],
-                 approval_model: Optional[pulumi.Input[str]] = None,
+                 notification_type: pulumi.Input['BudgetsActionNotificationType'],
+                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]] = None):
         """
         The set of arguments for constructing a BudgetsAction resource.
@@ -48,11 +49,11 @@ class BudgetsActionArgs:
 
     @property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> pulumi.Input[str]:
+    def action_type(self) -> pulumi.Input['BudgetsActionActionType']:
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: pulumi.Input[str]):
+    def action_type(self, value: pulumi.Input['BudgetsActionActionType']):
         pulumi.set(self, "action_type", value)
 
     @property
@@ -84,20 +85,20 @@ class BudgetsActionArgs:
 
     @property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> pulumi.Input[str]:
+    def notification_type(self) -> pulumi.Input['BudgetsActionNotificationType']:
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
-    def notification_type(self, value: pulumi.Input[str]):
+    def notification_type(self, value: pulumi.Input['BudgetsActionNotificationType']):
         pulumi.set(self, "notification_type", value)
 
     @property
     @pulumi.getter(name="approvalModel")
-    def approval_model(self) -> Optional[pulumi.Input[str]]:
+    def approval_model(self) -> Optional[pulumi.Input['BudgetsActionApprovalModel']]:
         return pulumi.get(self, "approval_model")
 
     @approval_model.setter
-    def approval_model(self, value: Optional[pulumi.Input[str]]):
+    def approval_model(self, value: Optional[pulumi.Input['BudgetsActionApprovalModel']]):
         pulumi.set(self, "approval_model", value)
 
     @property
@@ -116,12 +117,12 @@ class BudgetsAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_threshold: Optional[pulumi.Input[pulumi.InputType['BudgetsActionActionThresholdArgs']]] = None,
-                 action_type: Optional[pulumi.Input[str]] = None,
-                 approval_model: Optional[pulumi.Input[str]] = None,
+                 action_type: Optional[pulumi.Input['BudgetsActionActionType']] = None,
+                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
                  budget_name: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['BudgetsActionDefinitionArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 notification_type: Optional[pulumi.Input[str]] = None,
+                 notification_type: Optional[pulumi.Input['BudgetsActionNotificationType']] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetsActionSubscriberArgs']]]]] = None,
                  __props__=None):
         """
@@ -155,12 +156,12 @@ class BudgetsAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_threshold: Optional[pulumi.Input[pulumi.InputType['BudgetsActionActionThresholdArgs']]] = None,
-                 action_type: Optional[pulumi.Input[str]] = None,
-                 approval_model: Optional[pulumi.Input[str]] = None,
+                 action_type: Optional[pulumi.Input['BudgetsActionActionType']] = None,
+                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
                  budget_name: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['BudgetsActionDefinitionArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 notification_type: Optional[pulumi.Input[str]] = None,
+                 notification_type: Optional[pulumi.Input['BudgetsActionNotificationType']] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetsActionSubscriberArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -240,12 +241,12 @@ class BudgetsAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> pulumi.Output[str]:
+    def action_type(self) -> pulumi.Output['BudgetsActionActionType']:
         return pulumi.get(self, "action_type")
 
     @property
     @pulumi.getter(name="approvalModel")
-    def approval_model(self) -> pulumi.Output[Optional[str]]:
+    def approval_model(self) -> pulumi.Output[Optional['BudgetsActionApprovalModel']]:
         return pulumi.get(self, "approval_model")
 
     @property
@@ -265,7 +266,7 @@ class BudgetsAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="notificationType")
-    def notification_type(self) -> pulumi.Output[str]:
+    def notification_type(self) -> pulumi.Output['BudgetsActionNotificationType']:
         return pulumi.get(self, "notification_type")
 
     @property

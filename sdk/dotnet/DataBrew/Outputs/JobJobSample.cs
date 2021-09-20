@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobJobSample
     {
-        public readonly string? Mode;
+        public readonly Pulumi.AwsNative.DataBrew.JobSampleMode? Mode;
         public readonly int? Size;
 
         [OutputConstructor]
         private JobJobSample(
-            string? mode,
+            Pulumi.AwsNative.DataBrew.JobSampleMode? mode,
 
             int? size)
         {

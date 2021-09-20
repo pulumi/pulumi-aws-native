@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleStatus> Status { get; private set; } = null!;
 
 
         /// <summary>

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EC2FleetArgs', 'EC2Fleet']
@@ -18,13 +19,13 @@ class EC2FleetArgs:
                  launch_template_configs: pulumi.Input[Sequence[pulumi.Input['EC2FleetFleetLaunchTemplateConfigRequestArgs']]],
                  target_capacity_specification: pulumi.Input['EC2FleetTargetCapacitySpecificationRequestArgs'],
                  context: Optional[pulumi.Input[str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
+                 excess_capacity_termination_policy: Optional[pulumi.Input['EC2FleetExcessCapacityTerminationPolicy']] = None,
                  on_demand_options: Optional[pulumi.Input['EC2FleetOnDemandOptionsRequestArgs']] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input['EC2FleetSpotOptionsRequestArgs']] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['EC2FleetTagSpecificationArgs']]]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['EC2FleetType']] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None):
         """
@@ -82,11 +83,11 @@ class EC2FleetArgs:
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[str]]:
+    def excess_capacity_termination_policy(self) -> Optional[pulumi.Input['EC2FleetExcessCapacityTerminationPolicy']]:
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
-    def excess_capacity_termination_policy(self, value: Optional[pulumi.Input[str]]):
+    def excess_capacity_termination_policy(self, value: Optional[pulumi.Input['EC2FleetExcessCapacityTerminationPolicy']]):
         pulumi.set(self, "excess_capacity_termination_policy", value)
 
     @property
@@ -136,11 +137,11 @@ class EC2FleetArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['EC2FleetType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['EC2FleetType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -168,7 +169,7 @@ class EC2Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  context: Optional[pulumi.Input[str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
+                 excess_capacity_termination_policy: Optional[pulumi.Input['EC2FleetExcessCapacityTerminationPolicy']] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetFleetLaunchTemplateConfigRequestArgs']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[pulumi.InputType['EC2FleetOnDemandOptionsRequestArgs']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
@@ -176,7 +177,7 @@ class EC2Fleet(pulumi.CustomResource):
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetTagSpecificationArgs']]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['EC2FleetTargetCapacitySpecificationRequestArgs']]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['EC2FleetType']] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -211,7 +212,7 @@ class EC2Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  context: Optional[pulumi.Input[str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
+                 excess_capacity_termination_policy: Optional[pulumi.Input['EC2FleetExcessCapacityTerminationPolicy']] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetFleetLaunchTemplateConfigRequestArgs']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[pulumi.InputType['EC2FleetOnDemandOptionsRequestArgs']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
@@ -219,7 +220,7 @@ class EC2Fleet(pulumi.CustomResource):
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetTagSpecificationArgs']]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['EC2FleetTargetCapacitySpecificationRequestArgs']]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['EC2FleetType']] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -295,7 +296,7 @@ class EC2Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> pulumi.Output[Optional[str]]:
+    def excess_capacity_termination_policy(self) -> pulumi.Output[Optional['EC2FleetExcessCapacityTerminationPolicy']]:
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @property
@@ -340,7 +341,7 @@ class EC2Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[Optional['EC2FleetType']]:
         return pulumi.get(self, "type")
 
     @property

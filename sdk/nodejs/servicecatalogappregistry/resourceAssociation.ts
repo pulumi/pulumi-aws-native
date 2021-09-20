@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +48,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
     /**
      * The type of the CFN Resource for now it's enum CFN_STACK.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<enums.servicecatalogappregistry.ResourceAssociationResourceType>;
 
     /**
      * Create a ResourceAssociation resource with the given unique name, arguments, and options.
@@ -103,5 +104,5 @@ export interface ResourceAssociationArgs {
     /**
      * The type of the CFN Resource for now it's enum CFN_STACK.
      */
-    resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<enums.servicecatalogappregistry.ResourceAssociationResourceType>;
 }

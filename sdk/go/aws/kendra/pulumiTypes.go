@@ -622,9 +622,9 @@ func (o DataSourceConfluenceAttachmentConfigurationPtrOutput) CrawlAttachments()
 }
 
 type DataSourceConfluenceAttachmentToIndexFieldMapping struct {
-	DataSourceFieldName string  `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     *string `pulumi:"dateFieldFormat"`
-	IndexFieldName      string  `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluenceAttachmentFieldName `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     *string                                 `pulumi:"dateFieldFormat"`
+	IndexFieldName      string                                  `pulumi:"indexFieldName"`
 }
 
 // DataSourceConfluenceAttachmentToIndexFieldMappingInput is an input type that accepts DataSourceConfluenceAttachmentToIndexFieldMappingArgs and DataSourceConfluenceAttachmentToIndexFieldMappingOutput values.
@@ -639,9 +639,9 @@ type DataSourceConfluenceAttachmentToIndexFieldMappingInput interface {
 }
 
 type DataSourceConfluenceAttachmentToIndexFieldMappingArgs struct {
-	DataSourceFieldName pulumi.StringInput    `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     pulumi.StringPtrInput `pulumi:"dateFieldFormat"`
-	IndexFieldName      pulumi.StringInput    `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluenceAttachmentFieldNameInput `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     pulumi.StringPtrInput                        `pulumi:"dateFieldFormat"`
+	IndexFieldName      pulumi.StringInput                           `pulumi:"indexFieldName"`
 }
 
 func (DataSourceConfluenceAttachmentToIndexFieldMappingArgs) ElementType() reflect.Type {
@@ -695,8 +695,10 @@ func (o DataSourceConfluenceAttachmentToIndexFieldMappingOutput) ToDataSourceCon
 	return o
 }
 
-func (o DataSourceConfluenceAttachmentToIndexFieldMappingOutput) DataSourceFieldName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceConfluenceAttachmentToIndexFieldMapping) string { return v.DataSourceFieldName }).(pulumi.StringOutput)
+func (o DataSourceConfluenceAttachmentToIndexFieldMappingOutput) DataSourceFieldName() DataSourceConfluenceAttachmentFieldNameOutput {
+	return o.ApplyT(func(v DataSourceConfluenceAttachmentToIndexFieldMapping) DataSourceConfluenceAttachmentFieldName {
+		return v.DataSourceFieldName
+	}).(DataSourceConfluenceAttachmentFieldNameOutput)
 }
 
 func (o DataSourceConfluenceAttachmentToIndexFieldMappingOutput) DateFieldFormat() pulumi.StringPtrOutput {
@@ -863,9 +865,9 @@ func (o DataSourceConfluenceBlogConfigurationPtrOutput) BlogFieldMappings() Data
 }
 
 type DataSourceConfluenceBlogToIndexFieldMapping struct {
-	DataSourceFieldName string  `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     *string `pulumi:"dateFieldFormat"`
-	IndexFieldName      string  `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluenceBlogFieldName `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     *string                           `pulumi:"dateFieldFormat"`
+	IndexFieldName      string                            `pulumi:"indexFieldName"`
 }
 
 // DataSourceConfluenceBlogToIndexFieldMappingInput is an input type that accepts DataSourceConfluenceBlogToIndexFieldMappingArgs and DataSourceConfluenceBlogToIndexFieldMappingOutput values.
@@ -880,9 +882,9 @@ type DataSourceConfluenceBlogToIndexFieldMappingInput interface {
 }
 
 type DataSourceConfluenceBlogToIndexFieldMappingArgs struct {
-	DataSourceFieldName pulumi.StringInput    `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     pulumi.StringPtrInput `pulumi:"dateFieldFormat"`
-	IndexFieldName      pulumi.StringInput    `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluenceBlogFieldNameInput `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     pulumi.StringPtrInput                  `pulumi:"dateFieldFormat"`
+	IndexFieldName      pulumi.StringInput                     `pulumi:"indexFieldName"`
 }
 
 func (DataSourceConfluenceBlogToIndexFieldMappingArgs) ElementType() reflect.Type {
@@ -936,8 +938,10 @@ func (o DataSourceConfluenceBlogToIndexFieldMappingOutput) ToDataSourceConfluenc
 	return o
 }
 
-func (o DataSourceConfluenceBlogToIndexFieldMappingOutput) DataSourceFieldName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceConfluenceBlogToIndexFieldMapping) string { return v.DataSourceFieldName }).(pulumi.StringOutput)
+func (o DataSourceConfluenceBlogToIndexFieldMappingOutput) DataSourceFieldName() DataSourceConfluenceBlogFieldNameOutput {
+	return o.ApplyT(func(v DataSourceConfluenceBlogToIndexFieldMapping) DataSourceConfluenceBlogFieldName {
+		return v.DataSourceFieldName
+	}).(DataSourceConfluenceBlogFieldNameOutput)
 }
 
 func (o DataSourceConfluenceBlogToIndexFieldMappingOutput) DateFieldFormat() pulumi.StringPtrOutput {
@@ -977,7 +981,7 @@ type DataSourceConfluenceConfiguration struct {
 	SecretArn               string                                       `pulumi:"secretArn"`
 	ServerUrl               string                                       `pulumi:"serverUrl"`
 	SpaceConfiguration      *DataSourceConfluenceSpaceConfiguration      `pulumi:"spaceConfiguration"`
-	Version                 string                                       `pulumi:"version"`
+	Version                 DataSourceConfluenceVersion                  `pulumi:"version"`
 	VpcConfiguration        *DataSourceDataSourceVpcConfiguration        `pulumi:"vpcConfiguration"`
 }
 
@@ -1001,7 +1005,7 @@ type DataSourceConfluenceConfigurationArgs struct {
 	SecretArn               pulumi.StringInput                                  `pulumi:"secretArn"`
 	ServerUrl               pulumi.StringInput                                  `pulumi:"serverUrl"`
 	SpaceConfiguration      DataSourceConfluenceSpaceConfigurationPtrInput      `pulumi:"spaceConfiguration"`
-	Version                 pulumi.StringInput                                  `pulumi:"version"`
+	Version                 DataSourceConfluenceVersionInput                    `pulumi:"version"`
 	VpcConfiguration        DataSourceDataSourceVpcConfigurationPtrInput        `pulumi:"vpcConfiguration"`
 }
 
@@ -1122,8 +1126,8 @@ func (o DataSourceConfluenceConfigurationOutput) SpaceConfiguration() DataSource
 	}).(DataSourceConfluenceSpaceConfigurationPtrOutput)
 }
 
-func (o DataSourceConfluenceConfigurationOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceConfluenceConfiguration) string { return v.Version }).(pulumi.StringOutput)
+func (o DataSourceConfluenceConfigurationOutput) Version() DataSourceConfluenceVersionOutput {
+	return o.ApplyT(func(v DataSourceConfluenceConfiguration) DataSourceConfluenceVersion { return v.Version }).(DataSourceConfluenceVersionOutput)
 }
 
 func (o DataSourceConfluenceConfigurationOutput) VpcConfiguration() DataSourceDataSourceVpcConfigurationPtrOutput {
@@ -1228,13 +1232,13 @@ func (o DataSourceConfluenceConfigurationPtrOutput) SpaceConfiguration() DataSou
 	}).(DataSourceConfluenceSpaceConfigurationPtrOutput)
 }
 
-func (o DataSourceConfluenceConfigurationPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *string {
+func (o DataSourceConfluenceConfigurationPtrOutput) Version() DataSourceConfluenceVersionPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfluenceConfiguration) *DataSourceConfluenceVersion {
 		if v == nil {
 			return nil
 		}
 		return &v.Version
-	}).(pulumi.StringPtrOutput)
+	}).(DataSourceConfluenceVersionPtrOutput)
 }
 
 func (o DataSourceConfluenceConfigurationPtrOutput) VpcConfiguration() DataSourceDataSourceVpcConfigurationPtrOutput {
@@ -1382,9 +1386,9 @@ func (o DataSourceConfluencePageConfigurationPtrOutput) PageFieldMappings() Data
 }
 
 type DataSourceConfluencePageToIndexFieldMapping struct {
-	DataSourceFieldName string  `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     *string `pulumi:"dateFieldFormat"`
-	IndexFieldName      string  `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluencePageFieldName `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     *string                           `pulumi:"dateFieldFormat"`
+	IndexFieldName      string                            `pulumi:"indexFieldName"`
 }
 
 // DataSourceConfluencePageToIndexFieldMappingInput is an input type that accepts DataSourceConfluencePageToIndexFieldMappingArgs and DataSourceConfluencePageToIndexFieldMappingOutput values.
@@ -1399,9 +1403,9 @@ type DataSourceConfluencePageToIndexFieldMappingInput interface {
 }
 
 type DataSourceConfluencePageToIndexFieldMappingArgs struct {
-	DataSourceFieldName pulumi.StringInput    `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     pulumi.StringPtrInput `pulumi:"dateFieldFormat"`
-	IndexFieldName      pulumi.StringInput    `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluencePageFieldNameInput `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     pulumi.StringPtrInput                  `pulumi:"dateFieldFormat"`
+	IndexFieldName      pulumi.StringInput                     `pulumi:"indexFieldName"`
 }
 
 func (DataSourceConfluencePageToIndexFieldMappingArgs) ElementType() reflect.Type {
@@ -1455,8 +1459,10 @@ func (o DataSourceConfluencePageToIndexFieldMappingOutput) ToDataSourceConfluenc
 	return o
 }
 
-func (o DataSourceConfluencePageToIndexFieldMappingOutput) DataSourceFieldName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceConfluencePageToIndexFieldMapping) string { return v.DataSourceFieldName }).(pulumi.StringOutput)
+func (o DataSourceConfluencePageToIndexFieldMappingOutput) DataSourceFieldName() DataSourceConfluencePageFieldNameOutput {
+	return o.ApplyT(func(v DataSourceConfluencePageToIndexFieldMapping) DataSourceConfluencePageFieldName {
+		return v.DataSourceFieldName
+	}).(DataSourceConfluencePageFieldNameOutput)
 }
 
 func (o DataSourceConfluencePageToIndexFieldMappingOutput) DateFieldFormat() pulumi.StringPtrOutput {
@@ -1683,9 +1689,9 @@ func (o DataSourceConfluenceSpaceConfigurationPtrOutput) SpaceFieldMappings() Da
 }
 
 type DataSourceConfluenceSpaceToIndexFieldMapping struct {
-	DataSourceFieldName string  `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     *string `pulumi:"dateFieldFormat"`
-	IndexFieldName      string  `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluenceSpaceFieldName `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     *string                            `pulumi:"dateFieldFormat"`
+	IndexFieldName      string                             `pulumi:"indexFieldName"`
 }
 
 // DataSourceConfluenceSpaceToIndexFieldMappingInput is an input type that accepts DataSourceConfluenceSpaceToIndexFieldMappingArgs and DataSourceConfluenceSpaceToIndexFieldMappingOutput values.
@@ -1700,9 +1706,9 @@ type DataSourceConfluenceSpaceToIndexFieldMappingInput interface {
 }
 
 type DataSourceConfluenceSpaceToIndexFieldMappingArgs struct {
-	DataSourceFieldName pulumi.StringInput    `pulumi:"dataSourceFieldName"`
-	DateFieldFormat     pulumi.StringPtrInput `pulumi:"dateFieldFormat"`
-	IndexFieldName      pulumi.StringInput    `pulumi:"indexFieldName"`
+	DataSourceFieldName DataSourceConfluenceSpaceFieldNameInput `pulumi:"dataSourceFieldName"`
+	DateFieldFormat     pulumi.StringPtrInput                   `pulumi:"dateFieldFormat"`
+	IndexFieldName      pulumi.StringInput                      `pulumi:"indexFieldName"`
 }
 
 func (DataSourceConfluenceSpaceToIndexFieldMappingArgs) ElementType() reflect.Type {
@@ -1756,8 +1762,10 @@ func (o DataSourceConfluenceSpaceToIndexFieldMappingOutput) ToDataSourceConfluen
 	return o
 }
 
-func (o DataSourceConfluenceSpaceToIndexFieldMappingOutput) DataSourceFieldName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceConfluenceSpaceToIndexFieldMapping) string { return v.DataSourceFieldName }).(pulumi.StringOutput)
+func (o DataSourceConfluenceSpaceToIndexFieldMappingOutput) DataSourceFieldName() DataSourceConfluenceSpaceFieldNameOutput {
+	return o.ApplyT(func(v DataSourceConfluenceSpaceToIndexFieldMapping) DataSourceConfluenceSpaceFieldName {
+		return v.DataSourceFieldName
+	}).(DataSourceConfluenceSpaceFieldNameOutput)
 }
 
 func (o DataSourceConfluenceSpaceToIndexFieldMappingOutput) DateFieldFormat() pulumi.StringPtrOutput {
@@ -2493,7 +2501,7 @@ type DataSourceDatabaseConfiguration struct {
 	AclConfiguration        *DataSourceAclConfiguration           `pulumi:"aclConfiguration"`
 	ColumnConfiguration     DataSourceColumnConfiguration         `pulumi:"columnConfiguration"`
 	ConnectionConfiguration DataSourceConnectionConfiguration     `pulumi:"connectionConfiguration"`
-	DatabaseEngineType      string                                `pulumi:"databaseEngineType"`
+	DatabaseEngineType      DataSourceDatabaseEngineType          `pulumi:"databaseEngineType"`
 	SqlConfiguration        *DataSourceSqlConfiguration           `pulumi:"sqlConfiguration"`
 	VpcConfiguration        *DataSourceDataSourceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -2513,7 +2521,7 @@ type DataSourceDatabaseConfigurationArgs struct {
 	AclConfiguration        DataSourceAclConfigurationPtrInput           `pulumi:"aclConfiguration"`
 	ColumnConfiguration     DataSourceColumnConfigurationInput           `pulumi:"columnConfiguration"`
 	ConnectionConfiguration DataSourceConnectionConfigurationInput       `pulumi:"connectionConfiguration"`
-	DatabaseEngineType      pulumi.StringInput                           `pulumi:"databaseEngineType"`
+	DatabaseEngineType      DataSourceDatabaseEngineTypeInput            `pulumi:"databaseEngineType"`
 	SqlConfiguration        DataSourceSqlConfigurationPtrInput           `pulumi:"sqlConfiguration"`
 	VpcConfiguration        DataSourceDataSourceVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
 }
@@ -2609,8 +2617,8 @@ func (o DataSourceDatabaseConfigurationOutput) ConnectionConfiguration() DataSou
 	}).(DataSourceConnectionConfigurationOutput)
 }
 
-func (o DataSourceDatabaseConfigurationOutput) DatabaseEngineType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceDatabaseConfiguration) string { return v.DatabaseEngineType }).(pulumi.StringOutput)
+func (o DataSourceDatabaseConfigurationOutput) DatabaseEngineType() DataSourceDatabaseEngineTypeOutput {
+	return o.ApplyT(func(v DataSourceDatabaseConfiguration) DataSourceDatabaseEngineType { return v.DatabaseEngineType }).(DataSourceDatabaseEngineTypeOutput)
 }
 
 func (o DataSourceDatabaseConfigurationOutput) SqlConfiguration() DataSourceSqlConfigurationPtrOutput {
@@ -2674,13 +2682,13 @@ func (o DataSourceDatabaseConfigurationPtrOutput) ConnectionConfiguration() Data
 	}).(DataSourceConnectionConfigurationPtrOutput)
 }
 
-func (o DataSourceDatabaseConfigurationPtrOutput) DatabaseEngineType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *string {
+func (o DataSourceDatabaseConfigurationPtrOutput) DatabaseEngineType() DataSourceDatabaseEngineTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceDatabaseConfiguration) *DataSourceDatabaseEngineType {
 		if v == nil {
 			return nil
 		}
 		return &v.DatabaseEngineType
-	}).(pulumi.StringPtrOutput)
+	}).(DataSourceDatabaseEngineTypePtrOutput)
 }
 
 func (o DataSourceDatabaseConfigurationPtrOutput) SqlConfiguration() DataSourceSqlConfigurationPtrOutput {
@@ -3796,10 +3804,10 @@ func (o DataSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type DataSourceSalesforceChatterFeedConfiguration struct {
-	DocumentDataFieldName  string                                    `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName *string                                   `pulumi:"documentTitleFieldName"`
-	FieldMappings          []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	IncludeFilterTypes     []string                                  `pulumi:"includeFilterTypes"`
+	DocumentDataFieldName  string                                             `pulumi:"documentDataFieldName"`
+	DocumentTitleFieldName *string                                            `pulumi:"documentTitleFieldName"`
+	FieldMappings          []DataSourceDataSourceToIndexFieldMapping          `pulumi:"fieldMappings"`
+	IncludeFilterTypes     []DataSourceSalesforceChatterFeedIncludeFilterType `pulumi:"includeFilterTypes"`
 }
 
 // DataSourceSalesforceChatterFeedConfigurationInput is an input type that accepts DataSourceSalesforceChatterFeedConfigurationArgs and DataSourceSalesforceChatterFeedConfigurationOutput values.
@@ -3814,10 +3822,10 @@ type DataSourceSalesforceChatterFeedConfigurationInput interface {
 }
 
 type DataSourceSalesforceChatterFeedConfigurationArgs struct {
-	DocumentDataFieldName  pulumi.StringInput                                `pulumi:"documentDataFieldName"`
-	DocumentTitleFieldName pulumi.StringPtrInput                             `pulumi:"documentTitleFieldName"`
-	FieldMappings          DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	IncludeFilterTypes     pulumi.StringArrayInput                           `pulumi:"includeFilterTypes"`
+	DocumentDataFieldName  pulumi.StringInput                                         `pulumi:"documentDataFieldName"`
+	DocumentTitleFieldName pulumi.StringPtrInput                                      `pulumi:"documentTitleFieldName"`
+	FieldMappings          DataSourceDataSourceToIndexFieldMappingArrayInput          `pulumi:"fieldMappings"`
+	IncludeFilterTypes     DataSourceSalesforceChatterFeedIncludeFilterTypeArrayInput `pulumi:"includeFilterTypes"`
 }
 
 func (DataSourceSalesforceChatterFeedConfigurationArgs) ElementType() reflect.Type {
@@ -3911,8 +3919,10 @@ func (o DataSourceSalesforceChatterFeedConfigurationOutput) FieldMappings() Data
 	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
-func (o DataSourceSalesforceChatterFeedConfigurationOutput) IncludeFilterTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) []string { return v.IncludeFilterTypes }).(pulumi.StringArrayOutput)
+func (o DataSourceSalesforceChatterFeedConfigurationOutput) IncludeFilterTypes() DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceChatterFeedConfiguration) []DataSourceSalesforceChatterFeedIncludeFilterType {
+		return v.IncludeFilterTypes
+	}).(DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput)
 }
 
 type DataSourceSalesforceChatterFeedConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3966,13 +3976,13 @@ func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) FieldMappings() D
 	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
-func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) IncludeFilterTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) []string {
+func (o DataSourceSalesforceChatterFeedConfigurationPtrOutput) IncludeFilterTypes() DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceChatterFeedConfiguration) []DataSourceSalesforceChatterFeedIncludeFilterType {
 		if v == nil {
 			return nil
 		}
 		return v.IncludeFilterTypes
-	}).(pulumi.StringArrayOutput)
+	}).(DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput)
 }
 
 type DataSourceSalesforceConfiguration struct {
@@ -4356,7 +4366,7 @@ func (o DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput) 
 
 type DataSourceSalesforceKnowledgeArticleConfiguration struct {
 	CustomKnowledgeArticleTypeConfigurations  []DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration  `pulumi:"customKnowledgeArticleTypeConfigurations"`
-	IncludedStates                            []string                                                       `pulumi:"includedStates"`
+	IncludedStates                            []DataSourceSalesforceKnowledgeArticleState                    `pulumi:"includedStates"`
 	StandardKnowledgeArticleTypeConfiguration *DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration `pulumi:"standardKnowledgeArticleTypeConfiguration"`
 }
 
@@ -4373,7 +4383,7 @@ type DataSourceSalesforceKnowledgeArticleConfigurationInput interface {
 
 type DataSourceSalesforceKnowledgeArticleConfigurationArgs struct {
 	CustomKnowledgeArticleTypeConfigurations  DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayInput `pulumi:"customKnowledgeArticleTypeConfigurations"`
-	IncludedStates                            pulumi.StringArrayInput                                               `pulumi:"includedStates"`
+	IncludedStates                            DataSourceSalesforceKnowledgeArticleStateArrayInput                   `pulumi:"includedStates"`
 	StandardKnowledgeArticleTypeConfiguration DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrInput `pulumi:"standardKnowledgeArticleTypeConfiguration"`
 }
 
@@ -4460,8 +4470,10 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) CustomKnowledge
 	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
 }
 
-func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) IncludedStates() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) []string { return v.IncludedStates }).(pulumi.StringArrayOutput)
+func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) IncludedStates() DataSourceSalesforceKnowledgeArticleStateArrayOutput {
+	return o.ApplyT(func(v DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceKnowledgeArticleState {
+		return v.IncludedStates
+	}).(DataSourceSalesforceKnowledgeArticleStateArrayOutput)
 }
 
 func (o DataSourceSalesforceKnowledgeArticleConfigurationOutput) StandardKnowledgeArticleTypeConfiguration() DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput {
@@ -4503,13 +4515,13 @@ func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) CustomKnowle
 	}).(DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArrayOutput)
 }
 
-func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) IncludedStates() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) []string {
+func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) IncludedStates() DataSourceSalesforceKnowledgeArticleStateArrayOutput {
+	return o.ApplyT(func(v *DataSourceSalesforceKnowledgeArticleConfiguration) []DataSourceSalesforceKnowledgeArticleState {
 		if v == nil {
 			return nil
 		}
 		return v.IncludedStates
-	}).(pulumi.StringArrayOutput)
+	}).(DataSourceSalesforceKnowledgeArticleStateArrayOutput)
 }
 
 func (o DataSourceSalesforceKnowledgeArticleConfigurationPtrOutput) StandardKnowledgeArticleTypeConfiguration() DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationPtrOutput {
@@ -4846,7 +4858,7 @@ type DataSourceSalesforceStandardObjectConfiguration struct {
 	DocumentDataFieldName  string                                    `pulumi:"documentDataFieldName"`
 	DocumentTitleFieldName *string                                   `pulumi:"documentTitleFieldName"`
 	FieldMappings          []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	Name                   string                                    `pulumi:"name"`
+	Name                   DataSourceSalesforceStandardObjectName    `pulumi:"name"`
 }
 
 // DataSourceSalesforceStandardObjectConfigurationInput is an input type that accepts DataSourceSalesforceStandardObjectConfigurationArgs and DataSourceSalesforceStandardObjectConfigurationOutput values.
@@ -4864,7 +4876,7 @@ type DataSourceSalesforceStandardObjectConfigurationArgs struct {
 	DocumentDataFieldName  pulumi.StringInput                                `pulumi:"documentDataFieldName"`
 	DocumentTitleFieldName pulumi.StringPtrInput                             `pulumi:"documentTitleFieldName"`
 	FieldMappings          DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	Name                   pulumi.StringInput                                `pulumi:"name"`
+	Name                   DataSourceSalesforceStandardObjectNameInput       `pulumi:"name"`
 }
 
 func (DataSourceSalesforceStandardObjectConfigurationArgs) ElementType() reflect.Type {
@@ -4932,8 +4944,10 @@ func (o DataSourceSalesforceStandardObjectConfigurationOutput) FieldMappings() D
 	}).(DataSourceDataSourceToIndexFieldMappingArrayOutput)
 }
 
-func (o DataSourceSalesforceStandardObjectConfigurationOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceSalesforceStandardObjectConfiguration) string { return v.Name }).(pulumi.StringOutput)
+func (o DataSourceSalesforceStandardObjectConfigurationOutput) Name() DataSourceSalesforceStandardObjectNameOutput {
+	return o.ApplyT(func(v DataSourceSalesforceStandardObjectConfiguration) DataSourceSalesforceStandardObjectName {
+		return v.Name
+	}).(DataSourceSalesforceStandardObjectNameOutput)
 }
 
 type DataSourceSalesforceStandardObjectConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -4961,7 +4975,7 @@ type DataSourceServiceNowConfiguration struct {
 	KnowledgeArticleConfiguration *DataSourceServiceNowKnowledgeArticleConfiguration `pulumi:"knowledgeArticleConfiguration"`
 	SecretArn                     string                                             `pulumi:"secretArn"`
 	ServiceCatalogConfiguration   *DataSourceServiceNowServiceCatalogConfiguration   `pulumi:"serviceCatalogConfiguration"`
-	ServiceNowBuildVersion        string                                             `pulumi:"serviceNowBuildVersion"`
+	ServiceNowBuildVersion        DataSourceServiceNowBuildVersionType               `pulumi:"serviceNowBuildVersion"`
 }
 
 // DataSourceServiceNowConfigurationInput is an input type that accepts DataSourceServiceNowConfigurationArgs and DataSourceServiceNowConfigurationOutput values.
@@ -4980,7 +4994,7 @@ type DataSourceServiceNowConfigurationArgs struct {
 	KnowledgeArticleConfiguration DataSourceServiceNowKnowledgeArticleConfigurationPtrInput `pulumi:"knowledgeArticleConfiguration"`
 	SecretArn                     pulumi.StringInput                                        `pulumi:"secretArn"`
 	ServiceCatalogConfiguration   DataSourceServiceNowServiceCatalogConfigurationPtrInput   `pulumi:"serviceCatalogConfiguration"`
-	ServiceNowBuildVersion        pulumi.StringInput                                        `pulumi:"serviceNowBuildVersion"`
+	ServiceNowBuildVersion        DataSourceServiceNowBuildVersionTypeInput                 `pulumi:"serviceNowBuildVersion"`
 }
 
 func (DataSourceServiceNowConfigurationArgs) ElementType() reflect.Type {
@@ -5080,8 +5094,10 @@ func (o DataSourceServiceNowConfigurationOutput) ServiceCatalogConfiguration() D
 	}).(DataSourceServiceNowServiceCatalogConfigurationPtrOutput)
 }
 
-func (o DataSourceServiceNowConfigurationOutput) ServiceNowBuildVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceServiceNowConfiguration) string { return v.ServiceNowBuildVersion }).(pulumi.StringOutput)
+func (o DataSourceServiceNowConfigurationOutput) ServiceNowBuildVersion() DataSourceServiceNowBuildVersionTypeOutput {
+	return o.ApplyT(func(v DataSourceServiceNowConfiguration) DataSourceServiceNowBuildVersionType {
+		return v.ServiceNowBuildVersion
+	}).(DataSourceServiceNowBuildVersionTypeOutput)
 }
 
 type DataSourceServiceNowConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5144,13 +5160,13 @@ func (o DataSourceServiceNowConfigurationPtrOutput) ServiceCatalogConfiguration(
 	}).(DataSourceServiceNowServiceCatalogConfigurationPtrOutput)
 }
 
-func (o DataSourceServiceNowConfigurationPtrOutput) ServiceNowBuildVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *string {
+func (o DataSourceServiceNowConfigurationPtrOutput) ServiceNowBuildVersion() DataSourceServiceNowBuildVersionTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowConfiguration) *DataSourceServiceNowBuildVersionType {
 		if v == nil {
 			return nil
 		}
 		return &v.ServiceNowBuildVersion
-	}).(pulumi.StringPtrOutput)
+	}).(DataSourceServiceNowBuildVersionTypePtrOutput)
 }
 
 type DataSourceServiceNowKnowledgeArticleConfiguration struct {
@@ -5583,17 +5599,17 @@ func (o DataSourceServiceNowServiceCatalogConfigurationPtrOutput) IncludeAttachm
 
 // SharePoint configuration
 type DataSourceSharePointConfiguration struct {
-	CrawlAttachments       *bool                                     `pulumi:"crawlAttachments"`
-	DisableLocalGroups     *bool                                     `pulumi:"disableLocalGroups"`
-	DocumentTitleFieldName *string                                   `pulumi:"documentTitleFieldName"`
-	ExclusionPatterns      []string                                  `pulumi:"exclusionPatterns"`
-	FieldMappings          []DataSourceDataSourceToIndexFieldMapping `pulumi:"fieldMappings"`
-	InclusionPatterns      []string                                  `pulumi:"inclusionPatterns"`
-	SecretArn              string                                    `pulumi:"secretArn"`
-	SharePointVersion      string                                    `pulumi:"sharePointVersion"`
-	Urls                   []string                                  `pulumi:"urls"`
-	UseChangeLog           *bool                                     `pulumi:"useChangeLog"`
-	VpcConfiguration       *DataSourceDataSourceVpcConfiguration     `pulumi:"vpcConfiguration"`
+	CrawlAttachments       *bool                                              `pulumi:"crawlAttachments"`
+	DisableLocalGroups     *bool                                              `pulumi:"disableLocalGroups"`
+	DocumentTitleFieldName *string                                            `pulumi:"documentTitleFieldName"`
+	ExclusionPatterns      []string                                           `pulumi:"exclusionPatterns"`
+	FieldMappings          []DataSourceDataSourceToIndexFieldMapping          `pulumi:"fieldMappings"`
+	InclusionPatterns      []string                                           `pulumi:"inclusionPatterns"`
+	SecretArn              string                                             `pulumi:"secretArn"`
+	SharePointVersion      DataSourceSharePointConfigurationSharePointVersion `pulumi:"sharePointVersion"`
+	Urls                   []string                                           `pulumi:"urls"`
+	UseChangeLog           *bool                                              `pulumi:"useChangeLog"`
+	VpcConfiguration       *DataSourceDataSourceVpcConfiguration              `pulumi:"vpcConfiguration"`
 }
 
 // DataSourceSharePointConfigurationInput is an input type that accepts DataSourceSharePointConfigurationArgs and DataSourceSharePointConfigurationOutput values.
@@ -5609,17 +5625,17 @@ type DataSourceSharePointConfigurationInput interface {
 
 // SharePoint configuration
 type DataSourceSharePointConfigurationArgs struct {
-	CrawlAttachments       pulumi.BoolPtrInput                               `pulumi:"crawlAttachments"`
-	DisableLocalGroups     pulumi.BoolPtrInput                               `pulumi:"disableLocalGroups"`
-	DocumentTitleFieldName pulumi.StringPtrInput                             `pulumi:"documentTitleFieldName"`
-	ExclusionPatterns      pulumi.StringArrayInput                           `pulumi:"exclusionPatterns"`
-	FieldMappings          DataSourceDataSourceToIndexFieldMappingArrayInput `pulumi:"fieldMappings"`
-	InclusionPatterns      pulumi.StringArrayInput                           `pulumi:"inclusionPatterns"`
-	SecretArn              pulumi.StringInput                                `pulumi:"secretArn"`
-	SharePointVersion      pulumi.StringInput                                `pulumi:"sharePointVersion"`
-	Urls                   pulumi.StringArrayInput                           `pulumi:"urls"`
-	UseChangeLog           pulumi.BoolPtrInput                               `pulumi:"useChangeLog"`
-	VpcConfiguration       DataSourceDataSourceVpcConfigurationPtrInput      `pulumi:"vpcConfiguration"`
+	CrawlAttachments       pulumi.BoolPtrInput                                     `pulumi:"crawlAttachments"`
+	DisableLocalGroups     pulumi.BoolPtrInput                                     `pulumi:"disableLocalGroups"`
+	DocumentTitleFieldName pulumi.StringPtrInput                                   `pulumi:"documentTitleFieldName"`
+	ExclusionPatterns      pulumi.StringArrayInput                                 `pulumi:"exclusionPatterns"`
+	FieldMappings          DataSourceDataSourceToIndexFieldMappingArrayInput       `pulumi:"fieldMappings"`
+	InclusionPatterns      pulumi.StringArrayInput                                 `pulumi:"inclusionPatterns"`
+	SecretArn              pulumi.StringInput                                      `pulumi:"secretArn"`
+	SharePointVersion      DataSourceSharePointConfigurationSharePointVersionInput `pulumi:"sharePointVersion"`
+	Urls                   pulumi.StringArrayInput                                 `pulumi:"urls"`
+	UseChangeLog           pulumi.BoolPtrInput                                     `pulumi:"useChangeLog"`
+	VpcConfiguration       DataSourceDataSourceVpcConfigurationPtrInput            `pulumi:"vpcConfiguration"`
 }
 
 func (DataSourceSharePointConfigurationArgs) ElementType() reflect.Type {
@@ -5730,8 +5746,10 @@ func (o DataSourceSharePointConfigurationOutput) SecretArn() pulumi.StringOutput
 	return o.ApplyT(func(v DataSourceSharePointConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
-func (o DataSourceSharePointConfigurationOutput) SharePointVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSourceSharePointConfiguration) string { return v.SharePointVersion }).(pulumi.StringOutput)
+func (o DataSourceSharePointConfigurationOutput) SharePointVersion() DataSourceSharePointConfigurationSharePointVersionOutput {
+	return o.ApplyT(func(v DataSourceSharePointConfiguration) DataSourceSharePointConfigurationSharePointVersion {
+		return v.SharePointVersion
+	}).(DataSourceSharePointConfigurationSharePointVersionOutput)
 }
 
 func (o DataSourceSharePointConfigurationOutput) Urls() pulumi.StringArrayOutput {
@@ -5835,13 +5853,13 @@ func (o DataSourceSharePointConfigurationPtrOutput) SecretArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceSharePointConfigurationPtrOutput) SharePointVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *string {
+func (o DataSourceSharePointConfigurationPtrOutput) SharePointVersion() DataSourceSharePointConfigurationSharePointVersionPtrOutput {
+	return o.ApplyT(func(v *DataSourceSharePointConfiguration) *DataSourceSharePointConfigurationSharePointVersion {
 		if v == nil {
 			return nil
 		}
 		return &v.SharePointVersion
-	}).(pulumi.StringPtrOutput)
+	}).(DataSourceSharePointConfigurationSharePointVersionPtrOutput)
 }
 
 func (o DataSourceSharePointConfigurationPtrOutput) Urls() pulumi.StringArrayOutput {
@@ -5872,7 +5890,7 @@ func (o DataSourceSharePointConfigurationPtrOutput) VpcConfiguration() DataSourc
 }
 
 type DataSourceSqlConfiguration struct {
-	QueryIdentifiersEnclosingOption *string `pulumi:"queryIdentifiersEnclosingOption"`
+	QueryIdentifiersEnclosingOption *DataSourceQueryIdentifiersEnclosingOption `pulumi:"queryIdentifiersEnclosingOption"`
 }
 
 // DataSourceSqlConfigurationInput is an input type that accepts DataSourceSqlConfigurationArgs and DataSourceSqlConfigurationOutput values.
@@ -5887,7 +5905,7 @@ type DataSourceSqlConfigurationInput interface {
 }
 
 type DataSourceSqlConfigurationArgs struct {
-	QueryIdentifiersEnclosingOption pulumi.StringPtrInput `pulumi:"queryIdentifiersEnclosingOption"`
+	QueryIdentifiersEnclosingOption DataSourceQueryIdentifiersEnclosingOptionPtrInput `pulumi:"queryIdentifiersEnclosingOption"`
 }
 
 func (DataSourceSqlConfigurationArgs) ElementType() reflect.Type {
@@ -5967,8 +5985,10 @@ func (o DataSourceSqlConfigurationOutput) ToDataSourceSqlConfigurationPtrOutputW
 	}).(DataSourceSqlConfigurationPtrOutput)
 }
 
-func (o DataSourceSqlConfigurationOutput) QueryIdentifiersEnclosingOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSourceSqlConfiguration) *string { return v.QueryIdentifiersEnclosingOption }).(pulumi.StringPtrOutput)
+func (o DataSourceSqlConfigurationOutput) QueryIdentifiersEnclosingOption() DataSourceQueryIdentifiersEnclosingOptionPtrOutput {
+	return o.ApplyT(func(v DataSourceSqlConfiguration) *DataSourceQueryIdentifiersEnclosingOption {
+		return v.QueryIdentifiersEnclosingOption
+	}).(DataSourceQueryIdentifiersEnclosingOptionPtrOutput)
 }
 
 type DataSourceSqlConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -5995,13 +6015,13 @@ func (o DataSourceSqlConfigurationPtrOutput) Elem() DataSourceSqlConfigurationOu
 	}).(DataSourceSqlConfigurationOutput)
 }
 
-func (o DataSourceSqlConfigurationPtrOutput) QueryIdentifiersEnclosingOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceSqlConfiguration) *string {
+func (o DataSourceSqlConfigurationPtrOutput) QueryIdentifiersEnclosingOption() DataSourceQueryIdentifiersEnclosingOptionPtrOutput {
+	return o.ApplyT(func(v *DataSourceSqlConfiguration) *DataSourceQueryIdentifiersEnclosingOption {
 		if v == nil {
 			return nil
 		}
 		return v.QueryIdentifiersEnclosingOption
-	}).(pulumi.StringPtrOutput)
+	}).(DataSourceQueryIdentifiersEnclosingOptionPtrOutput)
 }
 
 // A label for tagging Kendra resources
@@ -6519,10 +6539,10 @@ func (o IndexCapacityUnitsConfigurationPtrOutput) StorageCapacityUnits() pulumi.
 }
 
 type IndexDocumentMetadataConfiguration struct {
-	Name      string          `pulumi:"name"`
-	Relevance *IndexRelevance `pulumi:"relevance"`
-	Search    *IndexSearch    `pulumi:"search"`
-	Type      string          `pulumi:"type"`
+	Name      string                          `pulumi:"name"`
+	Relevance *IndexRelevance                 `pulumi:"relevance"`
+	Search    *IndexSearch                    `pulumi:"search"`
+	Type      IndexDocumentAttributeValueType `pulumi:"type"`
 }
 
 // IndexDocumentMetadataConfigurationInput is an input type that accepts IndexDocumentMetadataConfigurationArgs and IndexDocumentMetadataConfigurationOutput values.
@@ -6537,10 +6557,10 @@ type IndexDocumentMetadataConfigurationInput interface {
 }
 
 type IndexDocumentMetadataConfigurationArgs struct {
-	Name      pulumi.StringInput     `pulumi:"name"`
-	Relevance IndexRelevancePtrInput `pulumi:"relevance"`
-	Search    IndexSearchPtrInput    `pulumi:"search"`
-	Type      pulumi.StringInput     `pulumi:"type"`
+	Name      pulumi.StringInput                   `pulumi:"name"`
+	Relevance IndexRelevancePtrInput               `pulumi:"relevance"`
+	Search    IndexSearchPtrInput                  `pulumi:"search"`
+	Type      IndexDocumentAttributeValueTypeInput `pulumi:"type"`
 }
 
 func (IndexDocumentMetadataConfigurationArgs) ElementType() reflect.Type {
@@ -6606,8 +6626,8 @@ func (o IndexDocumentMetadataConfigurationOutput) Search() IndexSearchPtrOutput 
 	return o.ApplyT(func(v IndexDocumentMetadataConfiguration) *IndexSearch { return v.Search }).(IndexSearchPtrOutput)
 }
 
-func (o IndexDocumentMetadataConfigurationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IndexDocumentMetadataConfiguration) string { return v.Type }).(pulumi.StringOutput)
+func (o IndexDocumentMetadataConfigurationOutput) Type() IndexDocumentAttributeValueTypeOutput {
+	return o.ApplyT(func(v IndexDocumentMetadataConfiguration) IndexDocumentAttributeValueType { return v.Type }).(IndexDocumentAttributeValueTypeOutput)
 }
 
 type IndexDocumentMetadataConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -6779,13 +6799,13 @@ func (o IndexJsonTokenTypeConfigurationPtrOutput) UserNameAttributeField() pulum
 }
 
 type IndexJwtTokenTypeConfiguration struct {
-	ClaimRegex             *string `pulumi:"claimRegex"`
-	GroupAttributeField    *string `pulumi:"groupAttributeField"`
-	Issuer                 *string `pulumi:"issuer"`
-	KeyLocation            string  `pulumi:"keyLocation"`
-	SecretManagerArn       *string `pulumi:"secretManagerArn"`
-	URL                    *string `pulumi:"uRL"`
-	UserNameAttributeField *string `pulumi:"userNameAttributeField"`
+	ClaimRegex             *string          `pulumi:"claimRegex"`
+	GroupAttributeField    *string          `pulumi:"groupAttributeField"`
+	Issuer                 *string          `pulumi:"issuer"`
+	KeyLocation            IndexKeyLocation `pulumi:"keyLocation"`
+	SecretManagerArn       *string          `pulumi:"secretManagerArn"`
+	URL                    *string          `pulumi:"uRL"`
+	UserNameAttributeField *string          `pulumi:"userNameAttributeField"`
 }
 
 // IndexJwtTokenTypeConfigurationInput is an input type that accepts IndexJwtTokenTypeConfigurationArgs and IndexJwtTokenTypeConfigurationOutput values.
@@ -6803,7 +6823,7 @@ type IndexJwtTokenTypeConfigurationArgs struct {
 	ClaimRegex             pulumi.StringPtrInput `pulumi:"claimRegex"`
 	GroupAttributeField    pulumi.StringPtrInput `pulumi:"groupAttributeField"`
 	Issuer                 pulumi.StringPtrInput `pulumi:"issuer"`
-	KeyLocation            pulumi.StringInput    `pulumi:"keyLocation"`
+	KeyLocation            IndexKeyLocationInput `pulumi:"keyLocation"`
 	SecretManagerArn       pulumi.StringPtrInput `pulumi:"secretManagerArn"`
 	URL                    pulumi.StringPtrInput `pulumi:"uRL"`
 	UserNameAttributeField pulumi.StringPtrInput `pulumi:"userNameAttributeField"`
@@ -6898,8 +6918,8 @@ func (o IndexJwtTokenTypeConfigurationOutput) Issuer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IndexJwtTokenTypeConfiguration) *string { return v.Issuer }).(pulumi.StringPtrOutput)
 }
 
-func (o IndexJwtTokenTypeConfigurationOutput) KeyLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v IndexJwtTokenTypeConfiguration) string { return v.KeyLocation }).(pulumi.StringOutput)
+func (o IndexJwtTokenTypeConfigurationOutput) KeyLocation() IndexKeyLocationOutput {
+	return o.ApplyT(func(v IndexJwtTokenTypeConfiguration) IndexKeyLocation { return v.KeyLocation }).(IndexKeyLocationOutput)
 }
 
 func (o IndexJwtTokenTypeConfigurationOutput) SecretManagerArn() pulumi.StringPtrOutput {
@@ -6965,13 +6985,13 @@ func (o IndexJwtTokenTypeConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o IndexJwtTokenTypeConfigurationPtrOutput) KeyLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IndexJwtTokenTypeConfiguration) *string {
+func (o IndexJwtTokenTypeConfigurationPtrOutput) KeyLocation() IndexKeyLocationPtrOutput {
+	return o.ApplyT(func(v *IndexJwtTokenTypeConfiguration) *IndexKeyLocation {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyLocation
-	}).(pulumi.StringPtrOutput)
+	}).(IndexKeyLocationPtrOutput)
 }
 
 func (o IndexJwtTokenTypeConfigurationPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
@@ -7005,7 +7025,7 @@ type IndexRelevance struct {
 	Duration             *string                    `pulumi:"duration"`
 	Freshness            *bool                      `pulumi:"freshness"`
 	Importance           *int                       `pulumi:"importance"`
-	RankOrder            *string                    `pulumi:"rankOrder"`
+	RankOrder            *IndexOrder                `pulumi:"rankOrder"`
 	ValueImportanceItems []IndexValueImportanceItem `pulumi:"valueImportanceItems"`
 }
 
@@ -7024,7 +7044,7 @@ type IndexRelevanceArgs struct {
 	Duration             pulumi.StringPtrInput              `pulumi:"duration"`
 	Freshness            pulumi.BoolPtrInput                `pulumi:"freshness"`
 	Importance           pulumi.IntPtrInput                 `pulumi:"importance"`
-	RankOrder            pulumi.StringPtrInput              `pulumi:"rankOrder"`
+	RankOrder            IndexOrderPtrInput                 `pulumi:"rankOrder"`
 	ValueImportanceItems IndexValueImportanceItemArrayInput `pulumi:"valueImportanceItems"`
 }
 
@@ -7117,8 +7137,8 @@ func (o IndexRelevanceOutput) Importance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexRelevance) *int { return v.Importance }).(pulumi.IntPtrOutput)
 }
 
-func (o IndexRelevanceOutput) RankOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IndexRelevance) *string { return v.RankOrder }).(pulumi.StringPtrOutput)
+func (o IndexRelevanceOutput) RankOrder() IndexOrderPtrOutput {
+	return o.ApplyT(func(v IndexRelevance) *IndexOrder { return v.RankOrder }).(IndexOrderPtrOutput)
 }
 
 func (o IndexRelevanceOutput) ValueImportanceItems() IndexValueImportanceItemArrayOutput {
@@ -7176,13 +7196,13 @@ func (o IndexRelevancePtrOutput) Importance() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o IndexRelevancePtrOutput) RankOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IndexRelevance) *string {
+func (o IndexRelevancePtrOutput) RankOrder() IndexOrderPtrOutput {
+	return o.ApplyT(func(v *IndexRelevance) *IndexOrder {
 		if v == nil {
 			return nil
 		}
 		return v.RankOrder
-	}).(pulumi.StringPtrOutput)
+	}).(IndexOrderPtrOutput)
 }
 
 func (o IndexRelevancePtrOutput) ValueImportanceItems() IndexValueImportanceItemArrayOutput {

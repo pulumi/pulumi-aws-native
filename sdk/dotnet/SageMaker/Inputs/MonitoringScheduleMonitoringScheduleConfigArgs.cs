@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<string>? MonitoringJobDefinitionName { get; set; }
 
         [Input("monitoringType")]
-        public Input<string>? MonitoringType { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringType>? MonitoringType { get; set; }
 
         [Input("scheduleConfig")]
         public Input<Inputs.MonitoringScheduleScheduleConfigArgs>? ScheduleConfig { get; set; }

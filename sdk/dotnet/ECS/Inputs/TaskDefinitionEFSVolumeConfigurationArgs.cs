@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public Input<string>? RootDirectory { get; set; }
 
         [Input("transitEncryption")]
-        public Input<string>? TransitEncryption { get; set; }
+        public Input<Pulumi.AwsNative.ECS.TaskDefinitionEFSVolumeConfigurationTransitEncryption>? TransitEncryption { get; set; }
 
         [Input("transitEncryptionPort")]
         public Input<int>? TransitEncryptionPort { get; set; }

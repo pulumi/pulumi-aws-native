@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// Sample type
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.DataBrew.ProjectSampleType> Type { get; set; } = null!;
 
         public ProjectSampleArgs()
         {

@@ -1109,8 +1109,8 @@ func (o ConfigDemodulationConfigPtrOutput) UnvalidatedJSON() pulumi.StringPtrOut
 }
 
 type ConfigEirp struct {
-	Units *string  `pulumi:"units"`
-	Value *float64 `pulumi:"value"`
+	Units *ConfigEirpUnits `pulumi:"units"`
+	Value *float64         `pulumi:"value"`
 }
 
 // ConfigEirpInput is an input type that accepts ConfigEirpArgs and ConfigEirpOutput values.
@@ -1125,8 +1125,8 @@ type ConfigEirpInput interface {
 }
 
 type ConfigEirpArgs struct {
-	Units pulumi.StringPtrInput  `pulumi:"units"`
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Units ConfigEirpUnitsPtrInput `pulumi:"units"`
+	Value pulumi.Float64PtrInput  `pulumi:"value"`
 }
 
 func (ConfigEirpArgs) ElementType() reflect.Type {
@@ -1206,8 +1206,8 @@ func (o ConfigEirpOutput) ToConfigEirpPtrOutputWithContext(ctx context.Context) 
 	}).(ConfigEirpPtrOutput)
 }
 
-func (o ConfigEirpOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigEirp) *string { return v.Units }).(pulumi.StringPtrOutput)
+func (o ConfigEirpOutput) Units() ConfigEirpUnitsPtrOutput {
+	return o.ApplyT(func(v ConfigEirp) *ConfigEirpUnits { return v.Units }).(ConfigEirpUnitsPtrOutput)
 }
 
 func (o ConfigEirpOutput) Value() pulumi.Float64PtrOutput {
@@ -1238,13 +1238,13 @@ func (o ConfigEirpPtrOutput) Elem() ConfigEirpOutput {
 	}).(ConfigEirpOutput)
 }
 
-func (o ConfigEirpPtrOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigEirp) *string {
+func (o ConfigEirpPtrOutput) Units() ConfigEirpUnitsPtrOutput {
+	return o.ApplyT(func(v *ConfigEirp) *ConfigEirpUnits {
 		if v == nil {
 			return nil
 		}
 		return v.Units
-	}).(pulumi.StringPtrOutput)
+	}).(ConfigEirpUnitsPtrOutput)
 }
 
 func (o ConfigEirpPtrOutput) Value() pulumi.Float64PtrOutput {
@@ -1257,8 +1257,8 @@ func (o ConfigEirpPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type ConfigFrequency struct {
-	Units *string  `pulumi:"units"`
-	Value *float64 `pulumi:"value"`
+	Units *ConfigFrequencyUnits `pulumi:"units"`
+	Value *float64              `pulumi:"value"`
 }
 
 // ConfigFrequencyInput is an input type that accepts ConfigFrequencyArgs and ConfigFrequencyOutput values.
@@ -1273,8 +1273,8 @@ type ConfigFrequencyInput interface {
 }
 
 type ConfigFrequencyArgs struct {
-	Units pulumi.StringPtrInput  `pulumi:"units"`
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Units ConfigFrequencyUnitsPtrInput `pulumi:"units"`
+	Value pulumi.Float64PtrInput       `pulumi:"value"`
 }
 
 func (ConfigFrequencyArgs) ElementType() reflect.Type {
@@ -1354,8 +1354,8 @@ func (o ConfigFrequencyOutput) ToConfigFrequencyPtrOutputWithContext(ctx context
 	}).(ConfigFrequencyPtrOutput)
 }
 
-func (o ConfigFrequencyOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigFrequency) *string { return v.Units }).(pulumi.StringPtrOutput)
+func (o ConfigFrequencyOutput) Units() ConfigFrequencyUnitsPtrOutput {
+	return o.ApplyT(func(v ConfigFrequency) *ConfigFrequencyUnits { return v.Units }).(ConfigFrequencyUnitsPtrOutput)
 }
 
 func (o ConfigFrequencyOutput) Value() pulumi.Float64PtrOutput {
@@ -1386,13 +1386,13 @@ func (o ConfigFrequencyPtrOutput) Elem() ConfigFrequencyOutput {
 	}).(ConfigFrequencyOutput)
 }
 
-func (o ConfigFrequencyPtrOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigFrequency) *string {
+func (o ConfigFrequencyPtrOutput) Units() ConfigFrequencyUnitsPtrOutput {
+	return o.ApplyT(func(v *ConfigFrequency) *ConfigFrequencyUnits {
 		if v == nil {
 			return nil
 		}
 		return v.Units
-	}).(pulumi.StringPtrOutput)
+	}).(ConfigFrequencyUnitsPtrOutput)
 }
 
 func (o ConfigFrequencyPtrOutput) Value() pulumi.Float64PtrOutput {
@@ -1405,8 +1405,8 @@ func (o ConfigFrequencyPtrOutput) Value() pulumi.Float64PtrOutput {
 }
 
 type ConfigFrequencyBandwidth struct {
-	Units *string  `pulumi:"units"`
-	Value *float64 `pulumi:"value"`
+	Units *ConfigBandwidthUnits `pulumi:"units"`
+	Value *float64              `pulumi:"value"`
 }
 
 // ConfigFrequencyBandwidthInput is an input type that accepts ConfigFrequencyBandwidthArgs and ConfigFrequencyBandwidthOutput values.
@@ -1421,8 +1421,8 @@ type ConfigFrequencyBandwidthInput interface {
 }
 
 type ConfigFrequencyBandwidthArgs struct {
-	Units pulumi.StringPtrInput  `pulumi:"units"`
-	Value pulumi.Float64PtrInput `pulumi:"value"`
+	Units ConfigBandwidthUnitsPtrInput `pulumi:"units"`
+	Value pulumi.Float64PtrInput       `pulumi:"value"`
 }
 
 func (ConfigFrequencyBandwidthArgs) ElementType() reflect.Type {
@@ -1502,8 +1502,8 @@ func (o ConfigFrequencyBandwidthOutput) ToConfigFrequencyBandwidthPtrOutputWithC
 	}).(ConfigFrequencyBandwidthPtrOutput)
 }
 
-func (o ConfigFrequencyBandwidthOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigFrequencyBandwidth) *string { return v.Units }).(pulumi.StringPtrOutput)
+func (o ConfigFrequencyBandwidthOutput) Units() ConfigBandwidthUnitsPtrOutput {
+	return o.ApplyT(func(v ConfigFrequencyBandwidth) *ConfigBandwidthUnits { return v.Units }).(ConfigBandwidthUnitsPtrOutput)
 }
 
 func (o ConfigFrequencyBandwidthOutput) Value() pulumi.Float64PtrOutput {
@@ -1534,13 +1534,13 @@ func (o ConfigFrequencyBandwidthPtrOutput) Elem() ConfigFrequencyBandwidthOutput
 	}).(ConfigFrequencyBandwidthOutput)
 }
 
-func (o ConfigFrequencyBandwidthPtrOutput) Units() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigFrequencyBandwidth) *string {
+func (o ConfigFrequencyBandwidthPtrOutput) Units() ConfigBandwidthUnitsPtrOutput {
+	return o.ApplyT(func(v *ConfigFrequencyBandwidth) *ConfigBandwidthUnits {
 		if v == nil {
 			return nil
 		}
 		return v.Units
-	}).(pulumi.StringPtrOutput)
+	}).(ConfigBandwidthUnitsPtrOutput)
 }
 
 func (o ConfigFrequencyBandwidthPtrOutput) Value() pulumi.Float64PtrOutput {
@@ -1718,7 +1718,7 @@ func (o ConfigS3RecordingConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 type ConfigSpectrumConfig struct {
 	Bandwidth       *ConfigFrequencyBandwidth `pulumi:"bandwidth"`
 	CenterFrequency *ConfigFrequency          `pulumi:"centerFrequency"`
-	Polarization    *string                   `pulumi:"polarization"`
+	Polarization    *ConfigPolarization       `pulumi:"polarization"`
 }
 
 // ConfigSpectrumConfigInput is an input type that accepts ConfigSpectrumConfigArgs and ConfigSpectrumConfigOutput values.
@@ -1735,7 +1735,7 @@ type ConfigSpectrumConfigInput interface {
 type ConfigSpectrumConfigArgs struct {
 	Bandwidth       ConfigFrequencyBandwidthPtrInput `pulumi:"bandwidth"`
 	CenterFrequency ConfigFrequencyPtrInput          `pulumi:"centerFrequency"`
-	Polarization    pulumi.StringPtrInput            `pulumi:"polarization"`
+	Polarization    ConfigPolarizationPtrInput       `pulumi:"polarization"`
 }
 
 func (ConfigSpectrumConfigArgs) ElementType() reflect.Type {
@@ -1823,8 +1823,8 @@ func (o ConfigSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
 }
 
-func (o ConfigSpectrumConfigOutput) Polarization() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigSpectrumConfig) *string { return v.Polarization }).(pulumi.StringPtrOutput)
+func (o ConfigSpectrumConfigOutput) Polarization() ConfigPolarizationPtrOutput {
+	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigPolarization { return v.Polarization }).(ConfigPolarizationPtrOutput)
 }
 
 type ConfigSpectrumConfigPtrOutput struct{ *pulumi.OutputState }
@@ -1869,13 +1869,13 @@ func (o ConfigSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutpu
 	}).(ConfigFrequencyPtrOutput)
 }
 
-func (o ConfigSpectrumConfigPtrOutput) Polarization() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigSpectrumConfig) *string {
+func (o ConfigSpectrumConfigPtrOutput) Polarization() ConfigPolarizationPtrOutput {
+	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigPolarization {
 		if v == nil {
 			return nil
 		}
 		return v.Polarization
-	}).(pulumi.StringPtrOutput)
+	}).(ConfigPolarizationPtrOutput)
 }
 
 type ConfigTag struct {
@@ -1979,7 +1979,7 @@ func (o ConfigTagArrayOutput) Index(i pulumi.IntInput) ConfigTagOutput {
 }
 
 type ConfigTrackingConfig struct {
-	Autotrack *string `pulumi:"autotrack"`
+	Autotrack *ConfigTrackingConfigAutotrack `pulumi:"autotrack"`
 }
 
 // ConfigTrackingConfigInput is an input type that accepts ConfigTrackingConfigArgs and ConfigTrackingConfigOutput values.
@@ -1994,7 +1994,7 @@ type ConfigTrackingConfigInput interface {
 }
 
 type ConfigTrackingConfigArgs struct {
-	Autotrack pulumi.StringPtrInput `pulumi:"autotrack"`
+	Autotrack ConfigTrackingConfigAutotrackPtrInput `pulumi:"autotrack"`
 }
 
 func (ConfigTrackingConfigArgs) ElementType() reflect.Type {
@@ -2074,8 +2074,8 @@ func (o ConfigTrackingConfigOutput) ToConfigTrackingConfigPtrOutputWithContext(c
 	}).(ConfigTrackingConfigPtrOutput)
 }
 
-func (o ConfigTrackingConfigOutput) Autotrack() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigTrackingConfig) *string { return v.Autotrack }).(pulumi.StringPtrOutput)
+func (o ConfigTrackingConfigOutput) Autotrack() ConfigTrackingConfigAutotrackPtrOutput {
+	return o.ApplyT(func(v ConfigTrackingConfig) *ConfigTrackingConfigAutotrack { return v.Autotrack }).(ConfigTrackingConfigAutotrackPtrOutput)
 }
 
 type ConfigTrackingConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2102,13 +2102,13 @@ func (o ConfigTrackingConfigPtrOutput) Elem() ConfigTrackingConfigOutput {
 	}).(ConfigTrackingConfigOutput)
 }
 
-func (o ConfigTrackingConfigPtrOutput) Autotrack() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigTrackingConfig) *string {
+func (o ConfigTrackingConfigPtrOutput) Autotrack() ConfigTrackingConfigAutotrackPtrOutput {
+	return o.ApplyT(func(v *ConfigTrackingConfig) *ConfigTrackingConfigAutotrack {
 		if v == nil {
 			return nil
 		}
 		return v.Autotrack
-	}).(pulumi.StringPtrOutput)
+	}).(ConfigTrackingConfigAutotrackPtrOutput)
 }
 
 type ConfigUplinkEchoConfig struct {
@@ -2260,8 +2260,8 @@ func (o ConfigUplinkEchoConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ConfigUplinkSpectrumConfig struct {
-	CenterFrequency *ConfigFrequency `pulumi:"centerFrequency"`
-	Polarization    *string          `pulumi:"polarization"`
+	CenterFrequency *ConfigFrequency    `pulumi:"centerFrequency"`
+	Polarization    *ConfigPolarization `pulumi:"polarization"`
 }
 
 // ConfigUplinkSpectrumConfigInput is an input type that accepts ConfigUplinkSpectrumConfigArgs and ConfigUplinkSpectrumConfigOutput values.
@@ -2276,8 +2276,8 @@ type ConfigUplinkSpectrumConfigInput interface {
 }
 
 type ConfigUplinkSpectrumConfigArgs struct {
-	CenterFrequency ConfigFrequencyPtrInput `pulumi:"centerFrequency"`
-	Polarization    pulumi.StringPtrInput   `pulumi:"polarization"`
+	CenterFrequency ConfigFrequencyPtrInput    `pulumi:"centerFrequency"`
+	Polarization    ConfigPolarizationPtrInput `pulumi:"polarization"`
 }
 
 func (ConfigUplinkSpectrumConfigArgs) ElementType() reflect.Type {
@@ -2361,8 +2361,8 @@ func (o ConfigUplinkSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOu
 	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
 }
 
-func (o ConfigUplinkSpectrumConfigOutput) Polarization() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *string { return v.Polarization }).(pulumi.StringPtrOutput)
+func (o ConfigUplinkSpectrumConfigOutput) Polarization() ConfigPolarizationPtrOutput {
+	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *ConfigPolarization { return v.Polarization }).(ConfigPolarizationPtrOutput)
 }
 
 type ConfigUplinkSpectrumConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2398,13 +2398,13 @@ func (o ConfigUplinkSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPt
 	}).(ConfigFrequencyPtrOutput)
 }
 
-func (o ConfigUplinkSpectrumConfigPtrOutput) Polarization() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) *string {
+func (o ConfigUplinkSpectrumConfigPtrOutput) Polarization() ConfigPolarizationPtrOutput {
+	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) *ConfigPolarization {
 		if v == nil {
 			return nil
 		}
 		return v.Polarization
-	}).(pulumi.StringPtrOutput)
+	}).(ConfigPolarizationPtrOutput)
 }
 
 type DataflowEndpointGroupDataflowEndpoint struct {

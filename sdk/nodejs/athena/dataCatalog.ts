@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class DataCatalog extends pulumi.CustomResource {
     /**
      * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.athena.DataCatalogType>;
 
     /**
      * Create a DataCatalog resource with the given unique name, arguments, and options.
@@ -115,5 +115,5 @@ export interface DataCatalogArgs {
     /**
      * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
      */
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.athena.DataCatalogType>;
 }

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Macie
         /// A enumeration value that specifies how frequently finding updates are published.
         /// </summary>
         [Output("findingPublishingFrequency")]
-        public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Macie.SessionFindingPublishingFrequency?> FindingPublishingFrequency { get; private set; } = null!;
 
         /// <summary>
         /// Service role used by Macie
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Macie
         /// A enumeration value that specifies the status of the Macie Session.
         /// </summary>
         [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Macie.SessionStatus?> Status { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,13 +88,13 @@ namespace Pulumi.AwsNative.Macie
         /// A enumeration value that specifies how frequently finding updates are published.
         /// </summary>
         [Input("findingPublishingFrequency")]
-        public Input<string>? FindingPublishingFrequency { get; set; }
+        public Input<Pulumi.AwsNative.Macie.SessionFindingPublishingFrequency>? FindingPublishingFrequency { get; set; }
 
         /// <summary>
         /// A enumeration value that specifies the status of the Macie Session.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.Macie.SessionStatus>? Status { get; set; }
 
         public SessionArgs()
         {

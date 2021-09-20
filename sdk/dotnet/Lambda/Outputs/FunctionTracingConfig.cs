@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// <summary>
         /// The tracing mode.
         /// </summary>
-        public readonly string? Mode;
+        public readonly Pulumi.AwsNative.Lambda.FunctionTracingConfigMode? Mode;
 
         [OutputConstructor]
-        private FunctionTracingConfig(string? mode)
+        private FunctionTracingConfig(Pulumi.AwsNative.Lambda.FunctionTracingConfigMode? mode)
         {
             Mode = mode;
         }

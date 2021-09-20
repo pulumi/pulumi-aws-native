@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ResourceVersionArgs', 'ResourceVersion']
@@ -236,7 +237,7 @@ class ResourceVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningType")
-    def provisioning_type(self) -> pulumi.Output[str]:
+    def provisioning_type(self) -> pulumi.Output['ResourceVersionProvisioningType']:
         """
         The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
         """
@@ -280,7 +281,7 @@ class ResourceVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def visibility(self) -> pulumi.Output[str]:
+    def visibility(self) -> pulumi.Output['ResourceVersionVisibility']:
         """
         The scope at which the type is visible and usable in CloudFormation operations.
 

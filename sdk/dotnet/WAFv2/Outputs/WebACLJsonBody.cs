@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLJsonBody
     {
-        public readonly string? InvalidFallbackBehavior;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLBodyParsingFallbackBehavior? InvalidFallbackBehavior;
         public readonly Outputs.WebACLJsonMatchPattern MatchPattern;
-        public readonly string MatchScope;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLJsonMatchScope MatchScope;
 
         [OutputConstructor]
         private WebACLJsonBody(
-            string? invalidFallbackBehavior,
+            Pulumi.AwsNative.WAFv2.WebACLBodyParsingFallbackBehavior? invalidFallbackBehavior,
 
             Outputs.WebACLJsonMatchPattern matchPattern,
 
-            string matchScope)
+            Pulumi.AwsNative.WAFv2.WebACLJsonMatchScope matchScope)
         {
             InvalidFallbackBehavior = invalidFallbackBehavior;
             MatchPattern = matchPattern;

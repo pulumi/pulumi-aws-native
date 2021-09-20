@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     /**
      * The status of a modelpackage group job.
      */
-    public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<string>;
+    public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<enums.sagemaker.ModelPackageGroupModelPackageGroupStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

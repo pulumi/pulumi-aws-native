@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AcceleratorArgs', 'Accelerator']
@@ -17,14 +18,14 @@ class AcceleratorArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AcceleratorTagArgs']]]] = None):
         """
         The set of arguments for constructing a Accelerator resource.
         :param pulumi.Input[str] name: Name of accelerator.
         :param pulumi.Input[bool] enabled: Indicates whether an accelerator is enabled. The value is true or false.
-        :param pulumi.Input[str] ip_address_type: IP Address type.
+        :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
         """
         pulumi.set(__self__, "name", name)
@@ -63,14 +64,14 @@ class AcceleratorArgs:
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+    def ip_address_type(self) -> Optional[pulumi.Input['AcceleratorIpAddressType']]:
         """
         IP Address type.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+    def ip_address_type(self, value: Optional[pulumi.Input['AcceleratorIpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
 
     @property
@@ -101,7 +102,7 @@ class Accelerator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceleratorTagArgs']]]]] = None,
@@ -112,7 +113,7 @@ class Accelerator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Indicates whether an accelerator is enabled. The value is true or false.
-        :param pulumi.Input[str] ip_address_type: IP Address type.
+        :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
         :param pulumi.Input[str] name: Name of accelerator.
         """
@@ -141,7 +142,7 @@ class Accelerator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 ip_address_type: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceleratorTagArgs']]]]] = None,
@@ -223,7 +224,7 @@ class Accelerator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> pulumi.Output[Optional[str]]:
+    def ip_address_type(self) -> pulumi.Output[Optional['AcceleratorIpAddressType']]:
         """
         IP Address type.
         """

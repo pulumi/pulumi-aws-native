@@ -16,9 +16,9 @@ type Connection struct {
 	pulumi.CustomResourceState
 
 	// The arn of the connection resource.
-	Arn               pulumi.StringOutput `pulumi:"arn"`
-	AuthParameters    pulumi.AnyOutput    `pulumi:"authParameters"`
-	AuthorizationType pulumi.StringOutput `pulumi:"authorizationType"`
+	Arn               pulumi.StringOutput               `pulumi:"arn"`
+	AuthParameters    pulumi.AnyOutput                  `pulumi:"authParameters"`
+	AuthorizationType ConnectionAuthorizationTypeOutput `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the connection.
@@ -72,8 +72,8 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	AuthParameters    interface{} `pulumi:"authParameters"`
-	AuthorizationType string      `pulumi:"authorizationType"`
+	AuthParameters    interface{}                 `pulumi:"authParameters"`
+	AuthorizationType ConnectionAuthorizationType `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
 	// Name of the connection.
@@ -83,7 +83,7 @@ type connectionArgs struct {
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
 	AuthParameters    pulumi.Input
-	AuthorizationType pulumi.StringInput
+	AuthorizationType ConnectionAuthorizationTypeInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
 	// Name of the connection.

@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./quickConnect";
 
+// Export enums:
+export * from "../types/enums/connect";
+
 // Import resources to register:
 import { QuickConnect } from "./quickConnect";
 

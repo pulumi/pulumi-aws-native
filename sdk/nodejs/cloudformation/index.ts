@@ -14,6 +14,9 @@ export * from "./resourceVersion";
 export * from "./stackSet";
 export * from "./typeActivation";
 
+// Export enums:
+export * from "../types/enums/cloudformation";
+
 // Import resources to register:
 import { ModuleDefaultVersion } from "./moduleDefaultVersion";
 import { ModuleVersion } from "./moduleVersion";

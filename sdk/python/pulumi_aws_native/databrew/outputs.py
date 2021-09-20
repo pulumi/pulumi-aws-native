@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DatasetCsvOptions',
@@ -259,12 +260,12 @@ class DatasetDatasetParameter(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 type: str,
+                 type: 'DatasetDatasetParameterType',
                  create_column: Optional[bool] = None,
                  datetime_options: Optional['outputs.DatasetDatetimeOptions'] = None,
                  filter: Optional['outputs.DatasetFilterExpression'] = None):
         """
-        :param str type: Parameter type
+        :param 'DatasetDatasetParameterType' type: Parameter type
         :param bool create_column: Add the value of this parameter as a column in a dataset.
         """
         pulumi.set(__self__, "name", name)
@@ -283,7 +284,7 @@ class DatasetDatasetParameter(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'DatasetDatasetParameterType':
         """
         Parameter type
         """
@@ -442,12 +443,12 @@ class DatasetFilesLimit(dict):
 
     def __init__(__self__, *,
                  max_files: int,
-                 order: Optional[str] = None,
-                 ordered_by: Optional[str] = None):
+                 order: Optional['DatasetFilesLimitOrder'] = None,
+                 ordered_by: Optional['DatasetFilesLimitOrderedBy'] = None):
         """
         :param int max_files: Maximum number of files
-        :param str order: Order
-        :param str ordered_by: Ordered by
+        :param 'DatasetFilesLimitOrder' order: Order
+        :param 'DatasetFilesLimitOrderedBy' ordered_by: Ordered by
         """
         pulumi.set(__self__, "max_files", max_files)
         if order is not None:
@@ -465,7 +466,7 @@ class DatasetFilesLimit(dict):
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[str]:
+    def order(self) -> Optional['DatasetFilesLimitOrder']:
         """
         Order
         """
@@ -473,7 +474,7 @@ class DatasetFilesLimit(dict):
 
     @property
     @pulumi.getter(name="orderedBy")
-    def ordered_by(self) -> Optional[str]:
+    def ordered_by(self) -> Optional['DatasetFilesLimitOrderedBy']:
         """
         Ordered by
         """
@@ -1006,10 +1007,10 @@ class JobDatabaseOutput(dict):
     def __init__(__self__, *,
                  database_options: 'outputs.JobDatabaseTableOutputOptions',
                  glue_connection_name: str,
-                 database_output_mode: Optional[str] = None):
+                 database_output_mode: Optional['JobDatabaseOutputDatabaseOutputMode'] = None):
         """
         :param str glue_connection_name: Glue connection name
-        :param str database_output_mode: Database table name
+        :param 'JobDatabaseOutputDatabaseOutputMode' database_output_mode: Database table name
         """
         pulumi.set(__self__, "database_options", database_options)
         pulumi.set(__self__, "glue_connection_name", glue_connection_name)
@@ -1031,7 +1032,7 @@ class JobDatabaseOutput(dict):
 
     @property
     @pulumi.getter(name="databaseOutputMode")
-    def database_output_mode(self) -> Optional[str]:
+    def database_output_mode(self) -> Optional['JobDatabaseOutputDatabaseOutputMode']:
         """
         Database table name
         """
@@ -1083,7 +1084,7 @@ class JobJobSample(dict):
     Job Sample
     """
     def __init__(__self__, *,
-                 mode: Optional[str] = None,
+                 mode: Optional['JobSampleMode'] = None,
                  size: Optional[int] = None):
         """
         Job Sample
@@ -1095,7 +1096,7 @@ class JobJobSample(dict):
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[str]:
+    def mode(self) -> Optional['JobSampleMode']:
         return pulumi.get(self, "mode")
 
     @property
@@ -1129,8 +1130,8 @@ class JobOutput(dict):
 
     def __init__(__self__, *,
                  location: 'outputs.JobS3Location',
-                 compression_format: Optional[str] = None,
-                 format: Optional[str] = None,
+                 compression_format: Optional['JobOutputCompressionFormat'] = None,
+                 format: Optional['JobOutputFormat'] = None,
                  format_options: Optional['outputs.JobOutputFormatOptions'] = None,
                  overwrite: Optional[bool] = None,
                  partition_columns: Optional[Sequence[str]] = None):
@@ -1153,12 +1154,12 @@ class JobOutput(dict):
 
     @property
     @pulumi.getter(name="compressionFormat")
-    def compression_format(self) -> Optional[str]:
+    def compression_format(self) -> Optional['JobOutputCompressionFormat']:
         return pulumi.get(self, "compression_format")
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[str]:
+    def format(self) -> Optional['JobOutputFormat']:
         return pulumi.get(self, "format")
 
     @property
@@ -1431,10 +1432,10 @@ class JobTag(dict):
 @pulumi.output_type
 class ProjectSample(dict):
     def __init__(__self__, *,
-                 type: str,
+                 type: 'ProjectSampleType',
                  size: Optional[int] = None):
         """
-        :param str type: Sample type
+        :param 'ProjectSampleType' type: Sample type
         :param int size: Sample size
         """
         pulumi.set(__self__, "type", type)
@@ -1443,7 +1444,7 @@ class ProjectSample(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'ProjectSampleType':
         """
         Sample type
         """

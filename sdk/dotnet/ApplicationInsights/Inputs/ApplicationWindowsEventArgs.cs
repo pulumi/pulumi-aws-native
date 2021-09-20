@@ -16,14 +16,14 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
     public sealed class ApplicationWindowsEventArgs : Pulumi.ResourceArgs
     {
         [Input("eventLevels", required: true)]
-        private InputList<string>? _eventLevels;
+        private InputList<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel>? _eventLevels;
 
         /// <summary>
         /// The levels of event to log. 
         /// </summary>
-        public InputList<string> EventLevels
+        public InputList<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel> EventLevels
         {
-            get => _eventLevels ?? (_eventLevels = new InputList<string>());
+            get => _eventLevels ?? (_eventLevels = new InputList<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel>());
             set => _eventLevels = value;
         }
 

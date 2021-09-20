@@ -301,7 +301,7 @@ func (o QuickConnectQueueQuickConnectConfigPtrOutput) QueueArn() pulumi.StringPt
 type QuickConnectQuickConnectConfig struct {
 	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
 	QueueConfig      *QuickConnectQueueQuickConnectConfig       `pulumi:"queueConfig"`
-	QuickConnectType string                                     `pulumi:"quickConnectType"`
+	QuickConnectType QuickConnectQuickConnectType               `pulumi:"quickConnectType"`
 	UserConfig       *QuickConnectUserQuickConnectConfig        `pulumi:"userConfig"`
 }
 
@@ -320,7 +320,7 @@ type QuickConnectQuickConnectConfigInput interface {
 type QuickConnectQuickConnectConfigArgs struct {
 	PhoneConfig      QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
 	QueueConfig      QuickConnectQueueQuickConnectConfigPtrInput       `pulumi:"queueConfig"`
-	QuickConnectType pulumi.StringInput                                `pulumi:"quickConnectType"`
+	QuickConnectType QuickConnectQuickConnectTypeInput                 `pulumi:"quickConnectType"`
 	UserConfig       QuickConnectUserQuickConnectConfigPtrInput        `pulumi:"userConfig"`
 }
 
@@ -412,8 +412,8 @@ func (o QuickConnectQuickConnectConfigOutput) QueueConfig() QuickConnectQueueQui
 	return o.ApplyT(func(v QuickConnectQuickConnectConfig) *QuickConnectQueueQuickConnectConfig { return v.QueueConfig }).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-func (o QuickConnectQuickConnectConfigOutput) QuickConnectType() pulumi.StringOutput {
-	return o.ApplyT(func(v QuickConnectQuickConnectConfig) string { return v.QuickConnectType }).(pulumi.StringOutput)
+func (o QuickConnectQuickConnectConfigOutput) QuickConnectType() QuickConnectQuickConnectTypeOutput {
+	return o.ApplyT(func(v QuickConnectQuickConnectConfig) QuickConnectQuickConnectType { return v.QuickConnectType }).(QuickConnectQuickConnectTypeOutput)
 }
 
 func (o QuickConnectQuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
@@ -462,13 +462,13 @@ func (o QuickConnectQuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueue
 	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-func (o QuickConnectQuickConnectConfigPtrOutput) QuickConnectType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *string {
+func (o QuickConnectQuickConnectConfigPtrOutput) QuickConnectType() QuickConnectQuickConnectTypePtrOutput {
+	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectQuickConnectType {
 		if v == nil {
 			return nil
 		}
 		return &v.QuickConnectType
-	}).(pulumi.StringPtrOutput)
+	}).(QuickConnectQuickConnectTypePtrOutput)
 }
 
 func (o QuickConnectQuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AssessmentAWSAccountArgs',
@@ -85,7 +86,7 @@ class AssessmentAWSServiceArgs:
 class AssessmentAssessmentReportsDestinationArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
-                 destination_type: Optional[pulumi.Input[str]] = None):
+                 destination_type: Optional[pulumi.Input['AssessmentAssessmentReportDestinationType']] = None):
         """
         The destination in which evidence reports are stored for the specified assessment.
         """
@@ -105,11 +106,11 @@ class AssessmentAssessmentReportsDestinationArgs:
 
     @property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> Optional[pulumi.Input[str]]:
+    def destination_type(self) -> Optional[pulumi.Input['AssessmentAssessmentReportDestinationType']]:
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
-    def destination_type(self, value: Optional[pulumi.Input[str]]):
+    def destination_type(self, value: Optional[pulumi.Input['AssessmentAssessmentReportDestinationType']]):
         pulumi.set(self, "destination_type", value)
 
 
@@ -117,7 +118,7 @@ class AssessmentAssessmentReportsDestinationArgs:
 class AssessmentRoleArgs:
     def __init__(__self__, *,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 role_type: Optional[pulumi.Input[str]] = None):
+                 role_type: Optional[pulumi.Input['AssessmentRoleType']] = None):
         """
         The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
         """
@@ -137,11 +138,11 @@ class AssessmentRoleArgs:
 
     @property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input[str]]:
+    def role_type(self) -> Optional[pulumi.Input['AssessmentRoleType']]:
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input[str]]):
+    def role_type(self, value: Optional[pulumi.Input['AssessmentRoleType']]):
         pulumi.set(self, "role_type", value)
 
 

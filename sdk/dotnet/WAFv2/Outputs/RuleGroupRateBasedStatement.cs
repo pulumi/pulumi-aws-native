@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class RuleGroupRateBasedStatement
     {
-        public readonly string AggregateKeyType;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupRateBasedStatementAggregateKeyType AggregateKeyType;
         public readonly Outputs.RuleGroupForwardedIPConfiguration? ForwardedIPConfig;
         public readonly int Limit;
         public readonly Outputs.RuleGroupStatement? ScopeDownStatement;
 
         [OutputConstructor]
         private RuleGroupRateBasedStatement(
-            string aggregateKeyType,
+            Pulumi.AwsNative.WAFv2.RuleGroupRateBasedStatementAggregateKeyType aggregateKeyType,
 
             Outputs.RuleGroupForwardedIPConfiguration? forwardedIPConfig,
 

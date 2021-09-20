@@ -18,9 +18,9 @@ type ScheduledAudit struct {
 	// The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
 	DayOfMonth pulumi.StringPtrOutput `pulumi:"dayOfMonth"`
 	// The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
-	DayOfWeek pulumi.StringPtrOutput `pulumi:"dayOfWeek"`
+	DayOfWeek ScheduledAuditDayOfWeekPtrOutput `pulumi:"dayOfWeek"`
 	// How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
-	Frequency pulumi.StringOutput `pulumi:"frequency"`
+	Frequency ScheduledAuditFrequencyOutput `pulumi:"frequency"`
 	// The ARN (Amazon resource name) of the scheduled audit.
 	ScheduledAuditArn pulumi.StringOutput `pulumi:"scheduledAuditArn"`
 	// The name you want to give to the scheduled audit.
@@ -79,9 +79,9 @@ type scheduledAuditArgs struct {
 	// The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
 	DayOfMonth *string `pulumi:"dayOfMonth"`
 	// The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
-	DayOfWeek *string `pulumi:"dayOfWeek"`
+	DayOfWeek *ScheduledAuditDayOfWeek `pulumi:"dayOfWeek"`
 	// How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
-	Frequency string `pulumi:"frequency"`
+	Frequency ScheduledAuditFrequency `pulumi:"frequency"`
 	// The name you want to give to the scheduled audit.
 	ScheduledAuditName *string `pulumi:"scheduledAuditName"`
 	// An array of key-value pairs to apply to this resource.
@@ -95,9 +95,9 @@ type ScheduledAuditArgs struct {
 	// The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
 	DayOfMonth pulumi.StringPtrInput
 	// The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
-	DayOfWeek pulumi.StringPtrInput
+	DayOfWeek ScheduledAuditDayOfWeekPtrInput
 	// How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
-	Frequency pulumi.StringInput
+	Frequency ScheduledAuditFrequencyInput
 	// The name you want to give to the scheduled audit.
 	ScheduledAuditName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.

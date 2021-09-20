@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
         /// </summary>
         [Output("visibility")]
-        public Output<string> Visibility { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.ModuleVersionVisibility> Visibility { get; private set; } = null!;
 
 
         /// <summary>

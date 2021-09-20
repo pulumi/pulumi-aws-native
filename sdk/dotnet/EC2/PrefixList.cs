@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2
         /// Ip Version of Prefix List.
         /// </summary>
         [Output("addressFamily")]
-        public Output<string> AddressFamily { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.PrefixListAddressFamily> AddressFamily { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Prefix List.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.EC2
         /// Ip Version of Prefix List.
         /// </summary>
         [Input("addressFamily", required: true)]
-        public Input<string> AddressFamily { get; set; } = null!;
+        public Input<Pulumi.AwsNative.EC2.PrefixListAddressFamily> AddressFamily { get; set; } = null!;
 
         [Input("entries")]
         private InputList<Inputs.PrefixListEntryArgs>? _entries;

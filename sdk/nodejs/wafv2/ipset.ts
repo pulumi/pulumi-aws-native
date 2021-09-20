@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,9 +41,9 @@ export class IPSet extends pulumi.CustomResource {
     public readonly addresses!: pulumi.Output<string[]>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly iPAddressVersion!: pulumi.Output<string>;
+    public readonly iPAddressVersion!: pulumi.Output<enums.wafv2.IPSetIPAddressVersion>;
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly scope!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<enums.wafv2.IPSetScope>;
     public readonly tags!: pulumi.Output<outputs.wafv2.IPSetTag[] | undefined>;
 
     /**
@@ -98,8 +98,8 @@ export interface IPSetArgs {
      */
     addresses: pulumi.Input<pulumi.Input<string>[]>;
     description?: pulumi.Input<string>;
-    iPAddressVersion: pulumi.Input<string>;
+    iPAddressVersion: pulumi.Input<enums.wafv2.IPSetIPAddressVersion>;
     name?: pulumi.Input<string>;
-    scope: pulumi.Input<string>;
+    scope: pulumi.Input<enums.wafv2.IPSetScope>;
     tags?: pulumi.Input<pulumi.Input<inputs.wafv2.IPSetTagArgs>[]>;
 }

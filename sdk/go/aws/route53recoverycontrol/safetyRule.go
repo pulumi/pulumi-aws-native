@@ -23,7 +23,7 @@ type SafetyRule struct {
 	// The Amazon Resource Name (ARN) of the safety rule.
 	SafetyRuleArn pulumi.StringOutput `pulumi:"safetyRuleArn"`
 	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status SafetyRuleStatusOutput `pulumi:"status"`
 }
 
 // NewSafetyRule registers a new resource with the given unique name, arguments, and options.

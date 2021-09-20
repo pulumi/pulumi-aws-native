@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ListenerArgs', 'Listener']
@@ -17,13 +18,13 @@ class ListenerArgs:
     def __init__(__self__, *,
                  accelerator_arn: pulumi.Input[str],
                  port_ranges: pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]],
-                 protocol: pulumi.Input[str],
-                 client_affinity: Optional[pulumi.Input[str]] = None):
+                 protocol: pulumi.Input['ListenerProtocol'],
+                 client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None):
         """
         The set of arguments for constructing a Listener resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
-        :param pulumi.Input[str] protocol: The protocol for the listener.
-        :param pulumi.Input[str] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
+        :param pulumi.Input['ListenerProtocol'] protocol: The protocol for the listener.
+        :param pulumi.Input['ListenerClientAffinity'] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
         """
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
         pulumi.set(__self__, "port_ranges", port_ranges)
@@ -54,26 +55,26 @@ class ListenerArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input['ListenerProtocol']:
         """
         The protocol for the listener.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input['ListenerProtocol']):
         pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter(name="clientAffinity")
-    def client_affinity(self) -> Optional[pulumi.Input[str]]:
+    def client_affinity(self) -> Optional[pulumi.Input['ListenerClientAffinity']]:
         """
         Client affinity lets you direct all requests from a user to the same endpoint.
         """
         return pulumi.get(self, "client_affinity")
 
     @client_affinity.setter
-    def client_affinity(self, value: Optional[pulumi.Input[str]]):
+    def client_affinity(self, value: Optional[pulumi.Input['ListenerClientAffinity']]):
         pulumi.set(self, "client_affinity", value)
 
 
@@ -83,9 +84,9 @@ class Listener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: Optional[pulumi.Input[str]] = None,
-                 client_affinity: Optional[pulumi.Input[str]] = None,
+                 client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerPortRangeArgs']]]]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['ListenerProtocol']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GlobalAccelerator::Listener
@@ -93,8 +94,8 @@ class Listener(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
-        :param pulumi.Input[str] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
-        :param pulumi.Input[str] protocol: The protocol for the listener.
+        :param pulumi.Input['ListenerClientAffinity'] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
+        :param pulumi.Input['ListenerProtocol'] protocol: The protocol for the listener.
         """
         ...
     @overload
@@ -121,9 +122,9 @@ class Listener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: Optional[pulumi.Input[str]] = None,
-                 client_affinity: Optional[pulumi.Input[str]] = None,
+                 client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerPortRangeArgs']]]]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['ListenerProtocol']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -186,7 +187,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientAffinity")
-    def client_affinity(self) -> pulumi.Output[Optional[str]]:
+    def client_affinity(self) -> pulumi.Output[Optional['ListenerClientAffinity']]:
         """
         Client affinity lets you direct all requests from a user to the same endpoint.
         """
@@ -207,7 +208,7 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[str]:
+    def protocol(self) -> pulumi.Output['ListenerProtocol']:
         """
         The protocol for the listener.
         """

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfluenceAttachmentToIndexFieldMapping
     {
-        public readonly string DataSourceFieldName;
+        public readonly Pulumi.AwsNative.Kendra.DataSourceConfluenceAttachmentFieldName DataSourceFieldName;
         public readonly string? DateFieldFormat;
         public readonly string IndexFieldName;
 
         [OutputConstructor]
         private DataSourceConfluenceAttachmentToIndexFieldMapping(
-            string dataSourceFieldName,
+            Pulumi.AwsNative.Kendra.DataSourceConfluenceAttachmentFieldName dataSourceFieldName,
 
             string? dateFieldFormat,
 

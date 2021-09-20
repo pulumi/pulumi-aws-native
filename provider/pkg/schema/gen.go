@@ -328,8 +328,8 @@ func (ctx *context) gatherResourceType() error {
 	return nil
 }
 
-func (ctx *context) propertySpec(name, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
-	typeSpec, err := ctx.propertyTypeSpec(spec)
+func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
+	typeSpec, err := ctx.propertyTypeSpec(propName, spec)
 	if err != nil {
 		return nil, err
 	}
@@ -337,10 +337,10 @@ func (ctx *context) propertySpec(name, resourceTypeName string, spec *jsschema.S
 		TypeSpec:    *typeSpec,
 		Description: spec.Description,
 	}
-	if resourceTypeName == name {
+	if resourceTypeName == propName {
 		propertySpec.Language = map[string]pschema.RawMessage{
 			"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
-				Name: name + "Value",
+				Name: propName + "Value",
 			}),
 		}
 	}
@@ -348,7 +348,7 @@ func (ctx *context) propertySpec(name, resourceTypeName string, spec *jsschema.S
 }
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.
-func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
 	// References to other type definitions.
 	if propSchema.Reference != "" {
 		schemaName := strings.TrimPrefix(propSchema.Reference, "#/definitions/")
@@ -365,7 +365,7 @@ func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.Type
 		if baseType == "object" {
 			if !ctx.visitedTypes.Has(tok) {
 				ctx.visitedTypes.Add(tok)
-				specs, requiredSpecs, err := ctx.genProperties(typeSchema)
+				specs, requiredSpecs, err := ctx.genProperties(schemaName, typeSchema)
 				if err != nil {
 					return nil, err
 				}
@@ -386,7 +386,7 @@ func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.Type
 			referencedTypeName := fmt.Sprintf("#/types/%s", tok)
 			return &pschema.TypeSpec{Ref: referencedTypeName}, nil
 		} else {
-			return ctx.propertyTypeSpec(typeSchema)
+			return ctx.propertyTypeSpec(schemaName, typeSchema)
 		}
 	}
 
@@ -394,7 +394,7 @@ func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.Type
 	if len(propSchema.AnyOf) > 0 {
 		var types []pschema.TypeSpec
 		for _, sch := range propSchema.AnyOf {
-			typ, err := ctx.propertyTypeSpec(sch)
+			typ, err := ctx.propertyTypeSpec(parentName, sch)
 			if err != nil {
 				return nil, err
 			}
@@ -403,6 +403,16 @@ func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.Type
 		return &pschema.TypeSpec{
 			OneOf: types,
 		}, nil
+	}
+
+	if len(propSchema.Enum) > 0 {
+		enum, err := ctx.genEnumType(parentName, propSchema)
+		if err != nil {
+			return nil, err
+		}
+		if enum != nil {
+			return enum, nil
+		}
 	}
 
 	// All other types.
@@ -419,7 +429,7 @@ func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.Type
 		case jsschema.ObjectType:
 			return &pschema.TypeSpec{Ref: "pulumi.json#/Any"}, nil
 		case jsschema.ArrayType:
-			elementType, err := ctx.propertyTypeSpec(propSchema.Items.Schemas[0])
+			elementType, err := ctx.propertyTypeSpec(parentName+"Item", propSchema.Items.Schemas[0])
 			if err != nil {
 				return nil, err
 			}
@@ -433,14 +443,14 @@ func (ctx *context) propertyTypeSpec(propSchema *jsschema.Schema) (*pschema.Type
 	return nil, errors.New("failed to generate property types")
 }
 
-func (ctx *context) genProperties(typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, error) {
+func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, error) {
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
 	for _, name := range codegen.SortedKeys(typeSchema.Properties) {
 		value := typeSchema.Properties[name]
 		sdkName := ToSdkName(name)
 
-		typeSpec, err := ctx.propertyTypeSpec(value)
+		typeSpec, err := ctx.propertyTypeSpec(parentName+name, value)
 		if err != nil {
 			return nil, nil, errors.Wrapf(err, "property %s", name)
 		}
@@ -456,6 +466,59 @@ func (ctx *context) genProperties(typeSchema *jsschema.Schema) (map[string]psche
 		}
 	}
 	return specs, requiredSpecs, nil
+}
+
+// genEnumType generates the enum type for a given schema.
+func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+	if len(propSchema.Type) == 0 {
+		return nil, nil
+	}
+	if propSchema.Type[0] != jsschema.StringType {
+		return nil, nil
+	}
+	tok := ctx.resourceToken + enumName
+
+	enumSpec := &pschema.ComplexTypeSpec{
+		Enum: []pschema.EnumValueSpec{},
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: propSchema.Description,
+			Type:        "string",
+		},
+	}
+
+	values := codegen.NewStringSet()
+	for _, val := range propSchema.Enum {
+		str := ToUpperCamel(val.(string))
+		if values.Has(str) {
+			continue
+		}
+		values.Add(str)
+		enumVal := pschema.EnumValueSpec{
+			Value: val,
+			Name:  str,
+		}
+		enumSpec.Enum = append(enumSpec.Enum, enumVal)
+	}
+
+	// Make sure that the type name we composed doesn't clash with another type
+	// already defined in the schema earlier. The same enum does show up in multiple
+	// places of specs, so we want to error only if they a) have the same name
+	// b) the list of values does not match.
+	if other, ok := ctx.pkg.Types[tok]; ok {
+		same := len(enumSpec.Enum) == len(other.Enum)
+		for _, val := range other.Enum {
+			same = same && values.Has(val.Name)
+		}
+		if !same {
+			return nil, errors.Errorf("duplicate enum %q: %+v vs. %+v", tok, enumSpec.Enum, other.Enum)
+		}
+	}
+	ctx.pkg.Types[tok] = *enumSpec
+
+	referencedTypeName := fmt.Sprintf("#/types/%s", tok)
+	return &pschema.TypeSpec{
+		Ref: referencedTypeName,
+	}, nil
 }
 
 var pseudoParameters = map[string]string{

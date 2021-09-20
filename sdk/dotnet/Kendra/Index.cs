@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Kendra
         public Output<ImmutableArray<Outputs.IndexDocumentMetadataConfiguration>> DocumentMetadataConfigurations { get; private set; } = null!;
 
         [Output("edition")]
-        public Output<string> Edition { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Kendra.IndexEdition> Edition { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Kendra
         public Output<ImmutableArray<Outputs.IndexTag>> Tags { get; private set; } = null!;
 
         [Output("userContextPolicy")]
-        public Output<string?> UserContextPolicy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Kendra.IndexUserContextPolicy?> UserContextPolicy { get; private set; } = null!;
 
         [Output("userTokenConfigurations")]
         public Output<ImmutableArray<Outputs.IndexUserTokenConfiguration>> UserTokenConfigurations { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.Kendra
         }
 
         [Input("edition", required: true)]
-        public Input<string> Edition { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.IndexEdition> Edition { get; set; } = null!;
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.Kendra
         }
 
         [Input("userContextPolicy")]
-        public Input<string>? UserContextPolicy { get; set; }
+        public Input<Pulumi.AwsNative.Kendra.IndexUserContextPolicy>? UserContextPolicy { get; set; }
 
         [Input("userTokenConfigurations")]
         private InputList<Inputs.IndexUserTokenConfigurationArgs>? _userTokenConfigurations;

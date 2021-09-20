@@ -12,6 +12,9 @@ export * from "./taskDefinition";
 export * from "./wirelessDevice";
 export * from "./wirelessGateway";
 
+// Export enums:
+export * from "../types/enums/iotwireless";
+
 // Import resources to register:
 import { Destination } from "./destination";
 import { DeviceProfile } from "./deviceProfile";

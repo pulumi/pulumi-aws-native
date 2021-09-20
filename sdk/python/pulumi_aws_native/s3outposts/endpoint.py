@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['EndpointArgs', 'Endpoint']
 
@@ -17,14 +18,14 @@ class EndpointArgs:
                  outpost_id: pulumi.Input[str],
                  security_group_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
-                 access_type: Optional[pulumi.Input[str]] = None,
+                 access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[str] security_group_id: The ID of the security group to use with the endpoint.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
-        :param pulumi.Input[str] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
+        :param pulumi.Input['EndpointAccessType'] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         """
         pulumi.set(__self__, "outpost_id", outpost_id)
@@ -73,14 +74,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> Optional[pulumi.Input[str]]:
+    def access_type(self) -> Optional[pulumi.Input['EndpointAccessType']]:
         """
         The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
-    def access_type(self, value: Optional[pulumi.Input[str]]):
+    def access_type(self, value: Optional[pulumi.Input['EndpointAccessType']]):
         pulumi.set(self, "access_type", value)
 
     @property
@@ -101,7 +102,7 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_type: Optional[pulumi.Input[str]] = None,
+                 access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
@@ -112,7 +113,7 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
+        :param pulumi.Input['EndpointAccessType'] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
         :param pulumi.Input[str] security_group_id: The ID of the security group to use with the endpoint.
@@ -142,7 +143,7 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_type: Optional[pulumi.Input[str]] = None,
+                 access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
@@ -211,7 +212,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> pulumi.Output[Optional[str]]:
+    def access_type(self) -> pulumi.Output[Optional['EndpointAccessType']]:
         """
         The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         """
@@ -275,7 +276,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['EndpointStatus']:
         return pulumi.get(self, "status")
 
     @property

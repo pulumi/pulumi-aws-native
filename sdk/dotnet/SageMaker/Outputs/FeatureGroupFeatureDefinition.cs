@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class FeatureGroupFeatureDefinition
     {
         public readonly string FeatureName;
-        public readonly string FeatureType;
+        public readonly Pulumi.AwsNative.SageMaker.FeatureGroupFeatureDefinitionFeatureType FeatureType;
 
         [OutputConstructor]
         private FeatureGroupFeatureDefinition(
             string featureName,
 
-            string featureType)
+            Pulumi.AwsNative.SageMaker.FeatureGroupFeatureDefinitionFeatureType featureType)
         {
             FeatureName = featureName;
             FeatureType = featureType;

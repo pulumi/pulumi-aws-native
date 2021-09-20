@@ -18,12 +18,12 @@ type Listener struct {
 	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn pulumi.StringOutput `pulumi:"acceleratorArn"`
 	// Client affinity lets you direct all requests from a user to the same endpoint.
-	ClientAffinity pulumi.StringPtrOutput `pulumi:"clientAffinity"`
+	ClientAffinity ListenerClientAffinityPtrOutput `pulumi:"clientAffinity"`
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn pulumi.StringOutput          `pulumi:"listenerArn"`
 	PortRanges  ListenerPortRangeArrayOutput `pulumi:"portRanges"`
 	// The protocol for the listener.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	Protocol ListenerProtocolOutput `pulumi:"protocol"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -77,10 +77,10 @@ type listenerArgs struct {
 	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn string `pulumi:"acceleratorArn"`
 	// Client affinity lets you direct all requests from a user to the same endpoint.
-	ClientAffinity *string             `pulumi:"clientAffinity"`
-	PortRanges     []ListenerPortRange `pulumi:"portRanges"`
+	ClientAffinity *ListenerClientAffinity `pulumi:"clientAffinity"`
+	PortRanges     []ListenerPortRange     `pulumi:"portRanges"`
 	// The protocol for the listener.
-	Protocol string `pulumi:"protocol"`
+	Protocol ListenerProtocol `pulumi:"protocol"`
 }
 
 // The set of arguments for constructing a Listener resource.
@@ -88,10 +88,10 @@ type ListenerArgs struct {
 	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn pulumi.StringInput
 	// Client affinity lets you direct all requests from a user to the same endpoint.
-	ClientAffinity pulumi.StringPtrInput
+	ClientAffinity ListenerClientAffinityPtrInput
 	PortRanges     ListenerPortRangeArrayInput
 	// The protocol for the listener.
-	Protocol pulumi.StringInput
+	Protocol ListenerProtocolInput
 }
 
 func (ListenerArgs) ElementType() reflect.Type {

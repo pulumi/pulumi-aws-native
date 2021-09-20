@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +90,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * PackageType.
      */
-    public readonly packageType!: pulumi.Output<string | undefined>;
+    public readonly packageType!: pulumi.Output<enums.lambda.FunctionPackageType | undefined>;
     /**
      * The number of simultaneous executions to reserve for the function.
      */
@@ -243,7 +243,7 @@ export interface FunctionArgs {
     /**
      * PackageType.
      */
-    packageType?: pulumi.Input<string>;
+    packageType?: pulumi.Input<enums.lambda.FunctionPackageType>;
     /**
      * The number of simultaneous executions to reserve for the function.
      */

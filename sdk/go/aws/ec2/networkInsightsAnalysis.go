@@ -25,7 +25,7 @@ type NetworkInsightsAnalysis struct {
 	NetworkPathFound           pulumi.BoolOutput                                   `pulumi:"networkPathFound"`
 	ReturnPathComponents       NetworkInsightsAnalysisPathComponentArrayOutput     `pulumi:"returnPathComponents"`
 	StartDate                  pulumi.StringOutput                                 `pulumi:"startDate"`
-	Status                     pulumi.StringOutput                                 `pulumi:"status"`
+	Status                     NetworkInsightsAnalysisStatusOutput                 `pulumi:"status"`
 	StatusMessage              pulumi.StringOutput                                 `pulumi:"statusMessage"`
 	Tags                       NetworkInsightsAnalysisTagArrayOutput               `pulumi:"tags"`
 }

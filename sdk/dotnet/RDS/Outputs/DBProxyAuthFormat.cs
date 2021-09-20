@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// <summary>
         /// The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         /// </summary>
-        public readonly string? AuthScheme;
+        public readonly Pulumi.AwsNative.RDS.DBProxyAuthFormatAuthScheme? AuthScheme;
         /// <summary>
         /// A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// <summary>
         /// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
         /// </summary>
-        public readonly string? IAMAuth;
+        public readonly Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? IAMAuth;
         /// <summary>
         /// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
         [OutputConstructor]
         private DBProxyAuthFormat(
-            string? authScheme,
+            Pulumi.AwsNative.RDS.DBProxyAuthFormatAuthScheme? authScheme,
 
             string? description,
 
-            string? iAMAuth,
+            Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? iAMAuth,
 
             string? secretArn,
 

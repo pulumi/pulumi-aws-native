@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public Input<Inputs.TableColumnArgs> Column { get; set; } = null!;
 
         [Input("orderBy")]
-        public Input<string>? OrderBy { get; set; }
+        public Input<Pulumi.AwsNative.Cassandra.TableClusteringKeyColumnOrderBy>? OrderBy { get; set; }
 
         public TableClusteringKeyColumnArgs()
         {

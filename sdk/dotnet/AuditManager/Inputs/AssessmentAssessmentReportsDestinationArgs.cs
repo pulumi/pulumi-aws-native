@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         public Input<string>? Destination { get; set; }
 
         [Input("destinationType")]
-        public Input<string>? DestinationType { get; set; }
+        public Input<Pulumi.AwsNative.AuditManager.AssessmentAssessmentReportDestinationType>? DestinationType { get; set; }
 
         public AssessmentAssessmentReportsDestinationArgs()
         {

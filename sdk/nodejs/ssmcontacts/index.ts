@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./contact";
 export * from "./contactChannel";
 
+// Export enums:
+export * from "../types/enums/ssmcontacts";
+
 // Import resources to register:
 import { Contact } from "./contact";
 import { ContactChannel } from "./contactChannel";

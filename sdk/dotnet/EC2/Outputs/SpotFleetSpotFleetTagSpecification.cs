@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class SpotFleetSpotFleetTagSpecification
     {
-        public readonly string? ResourceType;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetSpotFleetTagSpecificationResourceType? ResourceType;
         public readonly ImmutableArray<Outputs.SpotFleetTag> Tags;
 
         [OutputConstructor]
         private SpotFleetSpotFleetTagSpecification(
-            string? resourceType,
+            Pulumi.AwsNative.EC2.SpotFleetSpotFleetTagSpecificationResourceType? resourceType,
 
             ImmutableArray<Outputs.SpotFleetTag> tags)
         {

@@ -10,6 +10,9 @@ export * from "./firewallPolicy";
 export * from "./loggingConfiguration";
 export * from "./ruleGroup";
 
+// Export enums:
+export * from "../types/enums/networkfirewall";
+
 // Import resources to register:
 import { Firewall } from "./firewall";
 import { FirewallPolicy } from "./firewallPolicy";

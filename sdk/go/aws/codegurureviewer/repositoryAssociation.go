@@ -28,7 +28,7 @@ type RepositoryAssociation struct {
 	// The tags associated with a repository association.
 	Tags RepositoryAssociationTagArrayOutput `pulumi:"tags"`
 	// The type of repository to be associated.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type RepositoryAssociationTypeOutput `pulumi:"type"`
 }
 
 // NewRepositoryAssociation registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ type repositoryAssociationArgs struct {
 	// The tags associated with a repository association.
 	Tags []RepositoryAssociationTag `pulumi:"tags"`
 	// The type of repository to be associated.
-	Type string `pulumi:"type"`
+	Type RepositoryAssociationType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RepositoryAssociation resource.
@@ -103,7 +103,7 @@ type RepositoryAssociationArgs struct {
 	// The tags associated with a repository association.
 	Tags RepositoryAssociationTagArrayInput
 	// The type of repository to be associated.
-	Type pulumi.StringInput
+	Type RepositoryAssociationTypeInput
 }
 
 func (RepositoryAssociationArgs) ElementType() reflect.Type {

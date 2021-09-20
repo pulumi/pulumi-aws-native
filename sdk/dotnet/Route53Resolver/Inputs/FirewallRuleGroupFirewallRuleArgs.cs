@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         /// Rule Action
         /// </summary>
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleAction> Action { get; set; } = null!;
 
         /// <summary>
         /// BlockOverrideDnsType
         /// </summary>
         [Input("blockOverrideDnsType")]
-        public Input<string>? BlockOverrideDnsType { get; set; }
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockOverrideDnsType>? BlockOverrideDnsType { get; set; }
 
         /// <summary>
         /// BlockOverrideDomain
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         /// BlockResponse
         /// </summary>
         [Input("blockResponse")]
-        public Input<string>? BlockResponse { get; set; }
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse>? BlockResponse { get; set; }
 
         /// <summary>
         /// ResourceId

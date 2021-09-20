@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         /// The content type of the field. Used for determining equality when searching.
         /// </summary>
         [Input("contentType")]
-        public Input<string>? ContentType { get; set; }
+        public Input<Pulumi.AwsNative.CustomerProfiles.ObjectTypeObjectTypeFieldContentType>? ContentType { get; set; }
 
         /// <summary>
         /// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.

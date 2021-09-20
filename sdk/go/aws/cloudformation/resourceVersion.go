@@ -24,7 +24,7 @@ type ResourceVersion struct {
 	// Specifies logging configuration information for a type.
 	LoggingConfig ResourceVersionLoggingConfigPtrOutput `pulumi:"loggingConfig"`
 	// The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
-	ProvisioningType pulumi.StringOutput `pulumi:"provisioningType"`
+	ProvisioningType ResourceVersionProvisioningTypeOutput `pulumi:"provisioningType"`
 	// A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
 	//
 	// For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
@@ -44,7 +44,7 @@ type ResourceVersion struct {
 	// PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
 	//
 	// PUBLIC: The type is publically visible and usable within any Amazon account.
-	Visibility pulumi.StringOutput `pulumi:"visibility"`
+	Visibility ResourceVersionVisibilityOutput `pulumi:"visibility"`
 }
 
 // NewResourceVersion registers a new resource with the given unique name, arguments, and options.

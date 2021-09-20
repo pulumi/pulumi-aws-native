@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -48,7 +48,7 @@ export class Index extends pulumi.CustomResource {
      * Document metadata configurations
      */
     public readonly documentMetadataConfigurations!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfiguration[] | undefined>;
-    public readonly edition!: pulumi.Output<string>;
+    public readonly edition!: pulumi.Output<enums.kendra.IndexEdition>;
     public readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
     /**
@@ -59,7 +59,7 @@ export class Index extends pulumi.CustomResource {
      * Tags for labeling the index
      */
     public readonly tags!: pulumi.Output<outputs.kendra.IndexTag[] | undefined>;
-    public readonly userContextPolicy!: pulumi.Output<string | undefined>;
+    public readonly userContextPolicy!: pulumi.Output<enums.kendra.IndexUserContextPolicy | undefined>;
     public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfiguration[] | undefined>;
 
     /**
@@ -129,7 +129,7 @@ export interface IndexArgs {
      * Document metadata configurations
      */
     documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationArgs>[]>;
-    edition: pulumi.Input<string>;
+    edition: pulumi.Input<enums.kendra.IndexEdition>;
     name: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
     /**
@@ -140,6 +140,6 @@ export interface IndexArgs {
      * Tags for labeling the index
      */
     tags?: pulumi.Input<pulumi.Input<inputs.kendra.IndexTagArgs>[]>;
-    userContextPolicy?: pulumi.Input<string>;
+    userContextPolicy?: pulumi.Input<enums.kendra.IndexUserContextPolicy>;
     userTokenConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexUserTokenConfigurationArgs>[]>;
 }

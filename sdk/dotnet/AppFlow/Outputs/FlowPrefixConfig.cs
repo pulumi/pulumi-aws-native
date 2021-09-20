@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowPrefixConfig
     {
-        public readonly string? PrefixFormat;
-        public readonly string? PrefixType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowPrefixFormat? PrefixFormat;
+        public readonly Pulumi.AwsNative.AppFlow.FlowPrefixType? PrefixType;
 
         [OutputConstructor]
         private FlowPrefixConfig(
-            string? prefixFormat,
+            Pulumi.AwsNative.AppFlow.FlowPrefixFormat? prefixFormat,
 
-            string? prefixType)
+            Pulumi.AwsNative.AppFlow.FlowPrefixType? prefixType)
         {
             PrefixFormat = prefixFormat;
             PrefixType = prefixType;

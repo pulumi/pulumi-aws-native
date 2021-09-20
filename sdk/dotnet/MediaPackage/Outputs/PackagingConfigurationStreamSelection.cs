@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// A directive that determines the order of streams in the output.
         /// </summary>
-        public readonly string? StreamOrder;
+        public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationStreamSelectionStreamOrder? StreamOrder;
 
         [OutputConstructor]
         private PackagingConfigurationStreamSelection(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             int? minVideoBitsPerSecond,
 
-            string? streamOrder)
+            Pulumi.AwsNative.MediaPackage.PackagingConfigurationStreamSelectionStreamOrder? streamOrder)
         {
             MaxVideoBitsPerSecond = maxVideoBitsPerSecond;
             MinVideoBitsPerSecond = minVideoBitsPerSecond;

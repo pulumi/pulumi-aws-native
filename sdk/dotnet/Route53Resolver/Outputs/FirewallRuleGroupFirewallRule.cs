@@ -19,11 +19,11 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// <summary>
         /// Rule Action
         /// </summary>
-        public readonly string Action;
+        public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleAction Action;
         /// <summary>
         /// BlockOverrideDnsType
         /// </summary>
-        public readonly string? BlockOverrideDnsType;
+        public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockOverrideDnsType? BlockOverrideDnsType;
         /// <summary>
         /// BlockOverrideDomain
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// <summary>
         /// BlockResponse
         /// </summary>
-        public readonly string? BlockResponse;
+        public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse? BlockResponse;
         /// <summary>
         /// ResourceId
         /// </summary>
@@ -47,15 +47,15 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
         [OutputConstructor]
         private FirewallRuleGroupFirewallRule(
-            string action,
+            Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleAction action,
 
-            string? blockOverrideDnsType,
+            Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockOverrideDnsType? blockOverrideDnsType,
 
             string? blockOverrideDomain,
 
             int? blockOverrideTtl,
 
-            string? blockResponse,
+            Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse? blockResponse,
 
             string firewallDomainListId,
 

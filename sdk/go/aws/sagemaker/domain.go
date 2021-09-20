@@ -16,9 +16,9 @@ type Domain struct {
 	pulumi.CustomResourceState
 
 	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
-	AppNetworkAccessType pulumi.StringPtrOutput `pulumi:"appNetworkAccessType"`
+	AppNetworkAccessType DomainAppNetworkAccessTypePtrOutput `pulumi:"appNetworkAccessType"`
 	// The mode of authentication that members use to access the domain.
-	AuthMode pulumi.StringOutput `pulumi:"authMode"`
+	AuthMode DomainAuthModeOutput `pulumi:"authMode"`
 	// The default user settings.
 	DefaultUserSettings DomainUserSettingsOutput `pulumi:"defaultUserSettings"`
 	// The Amazon Resource Name (ARN) of the created domain.
@@ -98,9 +98,9 @@ func (DomainState) ElementType() reflect.Type {
 
 type domainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
-	AppNetworkAccessType *string `pulumi:"appNetworkAccessType"`
+	AppNetworkAccessType *DomainAppNetworkAccessType `pulumi:"appNetworkAccessType"`
 	// The mode of authentication that members use to access the domain.
-	AuthMode string `pulumi:"authMode"`
+	AuthMode DomainAuthMode `pulumi:"authMode"`
 	// The default user settings.
 	DefaultUserSettings DomainUserSettings `pulumi:"defaultUserSettings"`
 	// A name for the domain.
@@ -118,9 +118,9 @@ type domainArgs struct {
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
 	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
-	AppNetworkAccessType pulumi.StringPtrInput
+	AppNetworkAccessType DomainAppNetworkAccessTypePtrInput
 	// The mode of authentication that members use to access the domain.
-	AuthMode pulumi.StringInput
+	AuthMode DomainAuthModeInput
 	// The default user settings.
 	DefaultUserSettings DomainUserSettingsInput
 	// A name for the domain.

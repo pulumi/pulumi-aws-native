@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IVS
         /// Channel latency mode.
         /// </summary>
         [Output("latencyMode")]
-        public Output<string?> LatencyMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IVS.ChannelLatencyMode?> LatencyMode { get; private set; } = null!;
 
         /// <summary>
         /// Channel
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IVS
         /// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IVS.ChannelType?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.IVS
         /// Channel latency mode.
         /// </summary>
         [Input("latencyMode")]
-        public Input<string>? LatencyMode { get; set; }
+        public Input<Pulumi.AwsNative.IVS.ChannelLatencyMode>? LatencyMode { get; set; }
 
         /// <summary>
         /// Channel
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.IVS
         /// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.IVS.ChannelType>? Type { get; set; }
 
         public ChannelArgs()
         {

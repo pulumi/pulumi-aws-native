@@ -22,7 +22,7 @@ type Map struct {
 	Description   pulumi.StringPtrOutput    `pulumi:"description"`
 	MapArn        pulumi.StringOutput       `pulumi:"mapArn"`
 	MapName       pulumi.StringOutput       `pulumi:"mapName"`
-	PricingPlan   pulumi.StringOutput       `pulumi:"pricingPlan"`
+	PricingPlan   MapPricingPlanOutput      `pulumi:"pricingPlan"`
 	UpdateTime    pulumi.StringOutput       `pulumi:"updateTime"`
 }
 
@@ -77,7 +77,7 @@ type mapArgs struct {
 	Configuration MapMapConfiguration `pulumi:"configuration"`
 	Description   *string             `pulumi:"description"`
 	MapName       string              `pulumi:"mapName"`
-	PricingPlan   string              `pulumi:"pricingPlan"`
+	PricingPlan   MapPricingPlan      `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a Map resource.
@@ -85,7 +85,7 @@ type MapArgs struct {
 	Configuration MapMapConfigurationInput
 	Description   pulumi.StringPtrInput
 	MapName       pulumi.StringInput
-	PricingPlan   pulumi.StringInput
+	PricingPlan   MapPricingPlanInput
 }
 
 func (MapArgs) ElementType() reflect.Type {

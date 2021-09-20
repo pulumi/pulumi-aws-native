@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// Order
         /// </summary>
         [Input("order")]
-        public Input<string>? Order { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.DatasetFilesLimitOrder>? Order { get; set; }
 
         /// <summary>
         /// Ordered by
         /// </summary>
         [Input("orderedBy")]
-        public Input<string>? OrderedBy { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.DatasetFilesLimitOrderedBy>? OrderedBy { get; set; }
 
         public DatasetFilesLimitArgs()
         {

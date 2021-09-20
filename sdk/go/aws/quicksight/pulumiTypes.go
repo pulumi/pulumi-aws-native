@@ -13,8 +13,8 @@ import (
 // <p>A metadata error structure for an analysis.</p>
 type AnalysisAnalysisError struct {
 	// <p>The message associated with the analysis error.</p>
-	Message *string `pulumi:"message"`
-	Type    *string `pulumi:"type"`
+	Message *string                    `pulumi:"message"`
+	Type    *AnalysisAnalysisErrorType `pulumi:"type"`
 }
 
 // AnalysisAnalysisErrorInput is an input type that accepts AnalysisAnalysisErrorArgs and AnalysisAnalysisErrorOutput values.
@@ -31,8 +31,8 @@ type AnalysisAnalysisErrorInput interface {
 // <p>A metadata error structure for an analysis.</p>
 type AnalysisAnalysisErrorArgs struct {
 	// <p>The message associated with the analysis error.</p>
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Message pulumi.StringPtrInput             `pulumi:"message"`
+	Type    AnalysisAnalysisErrorTypePtrInput `pulumi:"type"`
 }
 
 func (AnalysisAnalysisErrorArgs) ElementType() reflect.Type {
@@ -92,8 +92,8 @@ func (o AnalysisAnalysisErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisAnalysisError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o AnalysisAnalysisErrorOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalysisAnalysisError) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AnalysisAnalysisErrorOutput) Type() AnalysisAnalysisErrorTypePtrOutput {
+	return o.ApplyT(func(v AnalysisAnalysisError) *AnalysisAnalysisErrorType { return v.Type }).(AnalysisAnalysisErrorTypePtrOutput)
 }
 
 type AnalysisAnalysisErrorArrayOutput struct{ *pulumi.OutputState }
@@ -1542,7 +1542,7 @@ func (o AnalysisTagArrayOutput) Index(i pulumi.IntInput) AnalysisTagOutput {
 
 // <p>Ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOption struct {
-	AvailabilityStatus *string `pulumi:"availabilityStatus"`
+	AvailabilityStatus *DashboardDashboardBehavior `pulumi:"availabilityStatus"`
 }
 
 // DashboardAdHocFilteringOptionInput is an input type that accepts DashboardAdHocFilteringOptionArgs and DashboardAdHocFilteringOptionOutput values.
@@ -1558,7 +1558,7 @@ type DashboardAdHocFilteringOptionInput interface {
 
 // <p>Ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOptionArgs struct {
-	AvailabilityStatus pulumi.StringPtrInput `pulumi:"availabilityStatus"`
+	AvailabilityStatus DashboardDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
 
 func (DashboardAdHocFilteringOptionArgs) ElementType() reflect.Type {
@@ -1639,8 +1639,8 @@ func (o DashboardAdHocFilteringOptionOutput) ToDashboardAdHocFilteringOptionPtrO
 	}).(DashboardAdHocFilteringOptionPtrOutput)
 }
 
-func (o DashboardAdHocFilteringOptionOutput) AvailabilityStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardAdHocFilteringOption) *string { return v.AvailabilityStatus }).(pulumi.StringPtrOutput)
+func (o DashboardAdHocFilteringOptionOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v DashboardAdHocFilteringOption) *DashboardDashboardBehavior { return v.AvailabilityStatus }).(DashboardDashboardBehaviorPtrOutput)
 }
 
 type DashboardAdHocFilteringOptionPtrOutput struct{ *pulumi.OutputState }
@@ -1667,20 +1667,20 @@ func (o DashboardAdHocFilteringOptionPtrOutput) Elem() DashboardAdHocFilteringOp
 	}).(DashboardAdHocFilteringOptionOutput)
 }
 
-func (o DashboardAdHocFilteringOptionPtrOutput) AvailabilityStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardAdHocFilteringOption) *string {
+func (o DashboardAdHocFilteringOptionPtrOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *DashboardAdHocFilteringOption) *DashboardDashboardBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.AvailabilityStatus
-	}).(pulumi.StringPtrOutput)
+	}).(DashboardDashboardBehaviorPtrOutput)
 }
 
 // <p>Dashboard error.</p>
 type DashboardDashboardError struct {
 	// <p>Message.</p>
-	Message *string `pulumi:"message"`
-	Type    *string `pulumi:"type"`
+	Message *string                      `pulumi:"message"`
+	Type    *DashboardDashboardErrorType `pulumi:"type"`
 }
 
 // DashboardDashboardErrorInput is an input type that accepts DashboardDashboardErrorArgs and DashboardDashboardErrorOutput values.
@@ -1697,8 +1697,8 @@ type DashboardDashboardErrorInput interface {
 // <p>Dashboard error.</p>
 type DashboardDashboardErrorArgs struct {
 	// <p>Message.</p>
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Message pulumi.StringPtrInput               `pulumi:"message"`
+	Type    DashboardDashboardErrorTypePtrInput `pulumi:"type"`
 }
 
 func (DashboardDashboardErrorArgs) ElementType() reflect.Type {
@@ -1758,8 +1758,8 @@ func (o DashboardDashboardErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o DashboardDashboardErrorOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardError) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o DashboardDashboardErrorOutput) Type() DashboardDashboardErrorTypePtrOutput {
+	return o.ApplyT(func(v DashboardDashboardError) *DashboardDashboardErrorType { return v.Type }).(DashboardDashboardErrorTypePtrOutput)
 }
 
 type DashboardDashboardErrorArrayOutput struct{ *pulumi.OutputState }
@@ -2259,8 +2259,8 @@ type DashboardDashboardVersion struct {
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets []DashboardSheet `pulumi:"sheets"`
 	// <p>Source entity ARN.</p>
-	SourceEntityArn *string `pulumi:"sourceEntityArn"`
-	Status          *string `pulumi:"status"`
+	SourceEntityArn *string                  `pulumi:"sourceEntityArn"`
+	Status          *DashboardResourceStatus `pulumi:"status"`
 	// <p>The ARN of the theme associated with a version of the dashboard.</p>
 	ThemeArn *string `pulumi:"themeArn"`
 	// <p>Version number for this version of the dashboard.</p>
@@ -2294,8 +2294,8 @@ type DashboardDashboardVersionArgs struct {
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets DashboardSheetArrayInput `pulumi:"sheets"`
 	// <p>Source entity ARN.</p>
-	SourceEntityArn pulumi.StringPtrInput `pulumi:"sourceEntityArn"`
-	Status          pulumi.StringPtrInput `pulumi:"status"`
+	SourceEntityArn pulumi.StringPtrInput           `pulumi:"sourceEntityArn"`
+	Status          DashboardResourceStatusPtrInput `pulumi:"status"`
 	// <p>The ARN of the theme associated with a version of the dashboard.</p>
 	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
 	// <p>Version number for this version of the dashboard.</p>
@@ -2416,8 +2416,8 @@ func (o DashboardDashboardVersionOutput) SourceEntityArn() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DashboardDashboardVersionOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o DashboardDashboardVersionOutput) Status() DashboardResourceStatusPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *DashboardResourceStatus { return v.Status }).(DashboardResourceStatusPtrOutput)
 }
 
 // <p>The ARN of the theme associated with a version of the dashboard.</p>
@@ -2525,13 +2525,13 @@ func (o DashboardDashboardVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DashboardDashboardVersionPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
+func (o DashboardDashboardVersionPtrOutput) Status() DashboardResourceStatusPtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *DashboardResourceStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringPtrOutput)
+	}).(DashboardResourceStatusPtrOutput)
 }
 
 // <p>The ARN of the theme associated with a version of the dashboard.</p>
@@ -2883,7 +2883,7 @@ func (o DashboardDecimalParameterArrayOutput) Index(i pulumi.IntInput) Dashboard
 
 // <p>Export to .csv option.</p>
 type DashboardExportToCSVOption struct {
-	AvailabilityStatus *string `pulumi:"availabilityStatus"`
+	AvailabilityStatus *DashboardDashboardBehavior `pulumi:"availabilityStatus"`
 }
 
 // DashboardExportToCSVOptionInput is an input type that accepts DashboardExportToCSVOptionArgs and DashboardExportToCSVOptionOutput values.
@@ -2899,7 +2899,7 @@ type DashboardExportToCSVOptionInput interface {
 
 // <p>Export to .csv option.</p>
 type DashboardExportToCSVOptionArgs struct {
-	AvailabilityStatus pulumi.StringPtrInput `pulumi:"availabilityStatus"`
+	AvailabilityStatus DashboardDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
 
 func (DashboardExportToCSVOptionArgs) ElementType() reflect.Type {
@@ -2980,8 +2980,8 @@ func (o DashboardExportToCSVOptionOutput) ToDashboardExportToCSVOptionPtrOutputW
 	}).(DashboardExportToCSVOptionPtrOutput)
 }
 
-func (o DashboardExportToCSVOptionOutput) AvailabilityStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardExportToCSVOption) *string { return v.AvailabilityStatus }).(pulumi.StringPtrOutput)
+func (o DashboardExportToCSVOptionOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v DashboardExportToCSVOption) *DashboardDashboardBehavior { return v.AvailabilityStatus }).(DashboardDashboardBehaviorPtrOutput)
 }
 
 type DashboardExportToCSVOptionPtrOutput struct{ *pulumi.OutputState }
@@ -3008,13 +3008,13 @@ func (o DashboardExportToCSVOptionPtrOutput) Elem() DashboardExportToCSVOptionOu
 	}).(DashboardExportToCSVOptionOutput)
 }
 
-func (o DashboardExportToCSVOptionPtrOutput) AvailabilityStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardExportToCSVOption) *string {
+func (o DashboardExportToCSVOptionPtrOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *DashboardExportToCSVOption) *DashboardDashboardBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.AvailabilityStatus
-	}).(pulumi.StringPtrOutput)
+	}).(DashboardDashboardBehaviorPtrOutput)
 }
 
 // <p>An integer parameter.</p>
@@ -3600,7 +3600,7 @@ func (o DashboardSheetArrayOutput) Index(i pulumi.IntInput) DashboardSheetOutput
 
 // <p>Sheet controls option.</p>
 type DashboardSheetControlsOption struct {
-	VisibilityState *string `pulumi:"visibilityState"`
+	VisibilityState *DashboardDashboardUIState `pulumi:"visibilityState"`
 }
 
 // DashboardSheetControlsOptionInput is an input type that accepts DashboardSheetControlsOptionArgs and DashboardSheetControlsOptionOutput values.
@@ -3616,7 +3616,7 @@ type DashboardSheetControlsOptionInput interface {
 
 // <p>Sheet controls option.</p>
 type DashboardSheetControlsOptionArgs struct {
-	VisibilityState pulumi.StringPtrInput `pulumi:"visibilityState"`
+	VisibilityState DashboardDashboardUIStatePtrInput `pulumi:"visibilityState"`
 }
 
 func (DashboardSheetControlsOptionArgs) ElementType() reflect.Type {
@@ -3697,8 +3697,8 @@ func (o DashboardSheetControlsOptionOutput) ToDashboardSheetControlsOptionPtrOut
 	}).(DashboardSheetControlsOptionPtrOutput)
 }
 
-func (o DashboardSheetControlsOptionOutput) VisibilityState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardSheetControlsOption) *string { return v.VisibilityState }).(pulumi.StringPtrOutput)
+func (o DashboardSheetControlsOptionOutput) VisibilityState() DashboardDashboardUIStatePtrOutput {
+	return o.ApplyT(func(v DashboardSheetControlsOption) *DashboardDashboardUIState { return v.VisibilityState }).(DashboardDashboardUIStatePtrOutput)
 }
 
 type DashboardSheetControlsOptionPtrOutput struct{ *pulumi.OutputState }
@@ -3725,13 +3725,13 @@ func (o DashboardSheetControlsOptionPtrOutput) Elem() DashboardSheetControlsOpti
 	}).(DashboardSheetControlsOptionOutput)
 }
 
-func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardSheetControlsOption) *string {
+func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() DashboardDashboardUIStatePtrOutput {
+	return o.ApplyT(func(v *DashboardSheetControlsOption) *DashboardDashboardUIState {
 		if v == nil {
 			return nil
 		}
 		return v.VisibilityState
-	}).(pulumi.StringPtrOutput)
+	}).(DashboardDashboardUIStatePtrOutput)
 }
 
 // <p>A string parameter.</p>
@@ -4279,8 +4279,8 @@ func (o DataSetFieldFolderMapPtrOutput) Elem() DataSetFieldFolderMapOutput {
 // <p>Geospatial column group that denotes a hierarchy.</p>
 type DataSetGeoSpatialColumnGroup struct {
 	// <p>Columns in this hierarchy.</p>
-	Columns     []string `pulumi:"columns"`
-	CountryCode *string  `pulumi:"countryCode"`
+	Columns     []string                      `pulumi:"columns"`
+	CountryCode *DataSetGeoSpatialCountryCode `pulumi:"countryCode"`
 	// <p>A display name for the hierarchy.</p>
 	Name string `pulumi:"name"`
 }
@@ -4299,8 +4299,8 @@ type DataSetGeoSpatialColumnGroupInput interface {
 // <p>Geospatial column group that denotes a hierarchy.</p>
 type DataSetGeoSpatialColumnGroupArgs struct {
 	// <p>Columns in this hierarchy.</p>
-	Columns     pulumi.StringArrayInput `pulumi:"columns"`
-	CountryCode pulumi.StringPtrInput   `pulumi:"countryCode"`
+	Columns     pulumi.StringArrayInput              `pulumi:"columns"`
+	CountryCode DataSetGeoSpatialCountryCodePtrInput `pulumi:"countryCode"`
 	// <p>A display name for the hierarchy.</p>
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -4388,8 +4388,8 @@ func (o DataSetGeoSpatialColumnGroupOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetGeoSpatialColumnGroup) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
 
-func (o DataSetGeoSpatialColumnGroupOutput) CountryCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetGeoSpatialColumnGroup) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
+func (o DataSetGeoSpatialColumnGroupOutput) CountryCode() DataSetGeoSpatialCountryCodePtrOutput {
+	return o.ApplyT(func(v DataSetGeoSpatialColumnGroup) *DataSetGeoSpatialCountryCode { return v.CountryCode }).(DataSetGeoSpatialCountryCodePtrOutput)
 }
 
 // <p>A display name for the hierarchy.</p>
@@ -4431,13 +4431,13 @@ func (o DataSetGeoSpatialColumnGroupPtrOutput) Columns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o DataSetGeoSpatialColumnGroupPtrOutput) CountryCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetGeoSpatialColumnGroup) *string {
+func (o DataSetGeoSpatialColumnGroupPtrOutput) CountryCode() DataSetGeoSpatialCountryCodePtrOutput {
+	return o.ApplyT(func(v *DataSetGeoSpatialColumnGroup) *DataSetGeoSpatialCountryCode {
 		if v == nil {
 			return nil
 		}
 		return v.CountryCode
-	}).(pulumi.StringPtrOutput)
+	}).(DataSetGeoSpatialCountryCodePtrOutput)
 }
 
 // <p>A display name for the hierarchy.</p>
@@ -4740,8 +4740,8 @@ type DataSetOutputColumn struct {
 	// <p>A description for a column.</p>
 	Description *string `pulumi:"description"`
 	// <p>A display name for the dataset.</p>
-	Name *string `pulumi:"name"`
-	Type *string `pulumi:"type"`
+	Name *string                `pulumi:"name"`
+	Type *DataSetColumnDataType `pulumi:"type"`
 }
 
 // DataSetOutputColumnInput is an input type that accepts DataSetOutputColumnArgs and DataSetOutputColumnOutput values.
@@ -4760,8 +4760,8 @@ type DataSetOutputColumnArgs struct {
 	// <p>A description for a column.</p>
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// <p>A display name for the dataset.</p>
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Name pulumi.StringPtrInput         `pulumi:"name"`
+	Type DataSetColumnDataTypePtrInput `pulumi:"type"`
 }
 
 func (DataSetOutputColumnArgs) ElementType() reflect.Type {
@@ -4826,8 +4826,8 @@ func (o DataSetOutputColumnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o DataSetOutputColumnOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o DataSetOutputColumnOutput) Type() DataSetColumnDataTypePtrOutput {
+	return o.ApplyT(func(v DataSetOutputColumn) *DataSetColumnDataType { return v.Type }).(DataSetColumnDataTypePtrOutput)
 }
 
 type DataSetOutputColumnArrayOutput struct{ *pulumi.OutputState }
@@ -5122,11 +5122,11 @@ func (o DataSetResourcePermissionArrayOutput) Index(i pulumi.IntInput) DataSetRe
 // <p>The row-level security configuration for the dataset.</p>
 type DataSetRowLevelPermissionDataSet struct {
 	// <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
-	Arn           string  `pulumi:"arn"`
-	FormatVersion *string `pulumi:"formatVersion"`
+	Arn           string                                  `pulumi:"arn"`
+	FormatVersion *DataSetRowLevelPermissionFormatVersion `pulumi:"formatVersion"`
 	// <p>The namespace associated with the row-level permissions dataset.</p>
-	Namespace        *string `pulumi:"namespace"`
-	PermissionPolicy string  `pulumi:"permissionPolicy"`
+	Namespace        *string                         `pulumi:"namespace"`
+	PermissionPolicy DataSetRowLevelPermissionPolicy `pulumi:"permissionPolicy"`
 }
 
 // DataSetRowLevelPermissionDataSetInput is an input type that accepts DataSetRowLevelPermissionDataSetArgs and DataSetRowLevelPermissionDataSetOutput values.
@@ -5143,11 +5143,11 @@ type DataSetRowLevelPermissionDataSetInput interface {
 // <p>The row-level security configuration for the dataset.</p>
 type DataSetRowLevelPermissionDataSetArgs struct {
 	// <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
-	Arn           pulumi.StringInput    `pulumi:"arn"`
-	FormatVersion pulumi.StringPtrInput `pulumi:"formatVersion"`
+	Arn           pulumi.StringInput                             `pulumi:"arn"`
+	FormatVersion DataSetRowLevelPermissionFormatVersionPtrInput `pulumi:"formatVersion"`
 	// <p>The namespace associated with the row-level permissions dataset.</p>
-	Namespace        pulumi.StringPtrInput `pulumi:"namespace"`
-	PermissionPolicy pulumi.StringInput    `pulumi:"permissionPolicy"`
+	Namespace        pulumi.StringPtrInput                `pulumi:"namespace"`
+	PermissionPolicy DataSetRowLevelPermissionPolicyInput `pulumi:"permissionPolicy"`
 }
 
 func (DataSetRowLevelPermissionDataSetArgs) ElementType() reflect.Type {
@@ -5233,8 +5233,10 @@ func (o DataSetRowLevelPermissionDataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o DataSetRowLevelPermissionDataSetOutput) FormatVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *string { return v.FormatVersion }).(pulumi.StringPtrOutput)
+func (o DataSetRowLevelPermissionDataSetOutput) FormatVersion() DataSetRowLevelPermissionFormatVersionPtrOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *DataSetRowLevelPermissionFormatVersion {
+		return v.FormatVersion
+	}).(DataSetRowLevelPermissionFormatVersionPtrOutput)
 }
 
 // <p>The namespace associated with the row-level permissions dataset.</p>
@@ -5242,8 +5244,8 @@ func (o DataSetRowLevelPermissionDataSetOutput) Namespace() pulumi.StringPtrOutp
 	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-func (o DataSetRowLevelPermissionDataSetOutput) PermissionPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) string { return v.PermissionPolicy }).(pulumi.StringOutput)
+func (o DataSetRowLevelPermissionDataSetOutput) PermissionPolicy() DataSetRowLevelPermissionPolicyOutput {
+	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) DataSetRowLevelPermissionPolicy { return v.PermissionPolicy }).(DataSetRowLevelPermissionPolicyOutput)
 }
 
 type DataSetRowLevelPermissionDataSetPtrOutput struct{ *pulumi.OutputState }
@@ -5280,13 +5282,13 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) Arn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DataSetRowLevelPermissionDataSetPtrOutput) FormatVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
+func (o DataSetRowLevelPermissionDataSetPtrOutput) FormatVersion() DataSetRowLevelPermissionFormatVersionPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *DataSetRowLevelPermissionFormatVersion {
 		if v == nil {
 			return nil
 		}
 		return v.FormatVersion
-	}).(pulumi.StringPtrOutput)
+	}).(DataSetRowLevelPermissionFormatVersionPtrOutput)
 }
 
 // <p>The namespace associated with the row-level permissions dataset.</p>
@@ -5299,13 +5301,13 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) Namespace() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DataSetRowLevelPermissionDataSetPtrOutput) PermissionPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
+func (o DataSetRowLevelPermissionDataSetPtrOutput) PermissionPolicy() DataSetRowLevelPermissionPolicyPtrOutput {
+	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *DataSetRowLevelPermissionPolicy {
 		if v == nil {
 			return nil
 		}
 		return &v.PermissionPolicy
-	}).(pulumi.StringPtrOutput)
+	}).(DataSetRowLevelPermissionPolicyPtrOutput)
 }
 
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
@@ -6441,8 +6443,8 @@ func (o DataSourceDataSourceCredentialsPtrOutput) CredentialPair() DataSourceCre
 // <p>Error information for the data source creation or update.</p>
 type DataSourceDataSourceErrorInfo struct {
 	// <p>Error message.</p>
-	Message *string `pulumi:"message"`
-	Type    *string `pulumi:"type"`
+	Message *string                            `pulumi:"message"`
+	Type    *DataSourceDataSourceErrorInfoType `pulumi:"type"`
 }
 
 // DataSourceDataSourceErrorInfoInput is an input type that accepts DataSourceDataSourceErrorInfoArgs and DataSourceDataSourceErrorInfoOutput values.
@@ -6459,8 +6461,8 @@ type DataSourceDataSourceErrorInfoInput interface {
 // <p>Error information for the data source creation or update.</p>
 type DataSourceDataSourceErrorInfoArgs struct {
 	// <p>Error message.</p>
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Message pulumi.StringPtrInput                     `pulumi:"message"`
+	Type    DataSourceDataSourceErrorInfoTypePtrInput `pulumi:"type"`
 }
 
 func (DataSourceDataSourceErrorInfoArgs) ElementType() reflect.Type {
@@ -6546,8 +6548,8 @@ func (o DataSourceDataSourceErrorInfoOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceErrorInfo) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceDataSourceErrorInfoOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceErrorInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o DataSourceDataSourceErrorInfoOutput) Type() DataSourceDataSourceErrorInfoTypePtrOutput {
+	return o.ApplyT(func(v DataSourceDataSourceErrorInfo) *DataSourceDataSourceErrorInfoType { return v.Type }).(DataSourceDataSourceErrorInfoTypePtrOutput)
 }
 
 type DataSourceDataSourceErrorInfoPtrOutput struct{ *pulumi.OutputState }
@@ -6584,13 +6586,13 @@ func (o DataSourceDataSourceErrorInfoPtrOutput) Message() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceDataSourceErrorInfoPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceErrorInfo) *string {
+func (o DataSourceDataSourceErrorInfoPtrOutput) Type() DataSourceDataSourceErrorInfoTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceDataSourceErrorInfo) *DataSourceDataSourceErrorInfoType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(DataSourceDataSourceErrorInfoTypePtrOutput)
 }
 
 // <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
@@ -10867,8 +10869,8 @@ func (o TemplateTagArrayOutput) Index(i pulumi.IntInput) TemplateTagOutput {
 // <p>List of errors that occurred when the template version creation failed.</p>
 type TemplateTemplateError struct {
 	// <p>Description of the error type.</p>
-	Message *string `pulumi:"message"`
-	Type    *string `pulumi:"type"`
+	Message *string                    `pulumi:"message"`
+	Type    *TemplateTemplateErrorType `pulumi:"type"`
 }
 
 // TemplateTemplateErrorInput is an input type that accepts TemplateTemplateErrorArgs and TemplateTemplateErrorOutput values.
@@ -10885,8 +10887,8 @@ type TemplateTemplateErrorInput interface {
 // <p>List of errors that occurred when the template version creation failed.</p>
 type TemplateTemplateErrorArgs struct {
 	// <p>Description of the error type.</p>
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Message pulumi.StringPtrInput             `pulumi:"message"`
+	Type    TemplateTemplateErrorTypePtrInput `pulumi:"type"`
 }
 
 func (TemplateTemplateErrorArgs) ElementType() reflect.Type {
@@ -10946,8 +10948,8 @@ func (o TemplateTemplateErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTemplateError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateErrorOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateError) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o TemplateTemplateErrorOutput) Type() TemplateTemplateErrorTypePtrOutput {
+	return o.ApplyT(func(v TemplateTemplateError) *TemplateTemplateErrorType { return v.Type }).(TemplateTemplateErrorTypePtrOutput)
 }
 
 type TemplateTemplateErrorArrayOutput struct{ *pulumi.OutputState }
@@ -11440,8 +11442,8 @@ type TemplateTemplateVersion struct {
 	Sheets []TemplateSheet `pulumi:"sheets"`
 	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
 	//             template.</p>
-	SourceEntityArn *string `pulumi:"sourceEntityArn"`
-	Status          *string `pulumi:"status"`
+	SourceEntityArn *string                 `pulumi:"sourceEntityArn"`
+	Status          *TemplateResourceStatus `pulumi:"status"`
 	// <p>The ARN of the theme associated with this version of the template.</p>
 	ThemeArn *string `pulumi:"themeArn"`
 	// <p>The version number of the template version.</p>
@@ -11475,8 +11477,8 @@ type TemplateTemplateVersionArgs struct {
 	Sheets TemplateSheetArrayInput `pulumi:"sheets"`
 	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
 	//             template.</p>
-	SourceEntityArn pulumi.StringPtrInput `pulumi:"sourceEntityArn"`
-	Status          pulumi.StringPtrInput `pulumi:"status"`
+	SourceEntityArn pulumi.StringPtrInput          `pulumi:"sourceEntityArn"`
+	Status          TemplateResourceStatusPtrInput `pulumi:"status"`
 	// <p>The ARN of the theme associated with this version of the template.</p>
 	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
 	// <p>The version number of the template version.</p>
@@ -11594,8 +11596,8 @@ func (o TemplateTemplateVersionOutput) SourceEntityArn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateVersionOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o TemplateTemplateVersionOutput) Status() TemplateResourceStatusPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) *TemplateResourceStatus { return v.Status }).(TemplateResourceStatusPtrOutput)
 }
 
 // <p>The ARN of the theme associated with this version of the template.</p>
@@ -11695,13 +11697,13 @@ func (o TemplateTemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateVersionPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+func (o TemplateTemplateVersionPtrOutput) Status() TemplateResourceStatusPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) *TemplateResourceStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringPtrOutput)
+	}).(TemplateResourceStatusPtrOutput)
 }
 
 // <p>The ARN of the theme associated with this version of the template.</p>
@@ -13031,8 +13033,8 @@ func (o ThemeThemeConfigurationPtrOutput) UIColorPalette() ThemeUIColorPalettePt
 // <p>Theme error.</p>
 type ThemeThemeError struct {
 	// <p>The error message.</p>
-	Message *string `pulumi:"message"`
-	Type    *string `pulumi:"type"`
+	Message *string              `pulumi:"message"`
+	Type    *ThemeThemeErrorType `pulumi:"type"`
 }
 
 // ThemeThemeErrorInput is an input type that accepts ThemeThemeErrorArgs and ThemeThemeErrorOutput values.
@@ -13049,8 +13051,8 @@ type ThemeThemeErrorInput interface {
 // <p>Theme error.</p>
 type ThemeThemeErrorArgs struct {
 	// <p>The error message.</p>
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	Message pulumi.StringPtrInput       `pulumi:"message"`
+	Type    ThemeThemeErrorTypePtrInput `pulumi:"type"`
 }
 
 func (ThemeThemeErrorArgs) ElementType() reflect.Type {
@@ -13110,8 +13112,8 @@ func (o ThemeThemeErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeThemeError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o ThemeThemeErrorOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeThemeError) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ThemeThemeErrorOutput) Type() ThemeThemeErrorTypePtrOutput {
+	return o.ApplyT(func(v ThemeThemeError) *ThemeThemeErrorType { return v.Type }).(ThemeThemeErrorTypePtrOutput)
 }
 
 type ThemeThemeErrorArrayOutput struct{ *pulumi.OutputState }
@@ -13147,8 +13149,8 @@ type ThemeThemeVersion struct {
 	// <p>The description of the theme.</p>
 	Description *string `pulumi:"description"`
 	// <p>Errors associated with the theme.</p>
-	Errors []ThemeThemeError `pulumi:"errors"`
-	Status *string           `pulumi:"status"`
+	Errors []ThemeThemeError    `pulumi:"errors"`
+	Status *ThemeResourceStatus `pulumi:"status"`
 	// <p>The version number of the theme.</p>
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
@@ -13177,8 +13179,8 @@ type ThemeThemeVersionArgs struct {
 	// <p>The description of the theme.</p>
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// <p>Errors associated with the theme.</p>
-	Errors ThemeThemeErrorArrayInput `pulumi:"errors"`
-	Status pulumi.StringPtrInput     `pulumi:"status"`
+	Errors ThemeThemeErrorArrayInput   `pulumi:"errors"`
+	Status ThemeResourceStatusPtrInput `pulumi:"status"`
 	// <p>The version number of the theme.</p>
 	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
 }
@@ -13291,8 +13293,8 @@ func (o ThemeThemeVersionOutput) Errors() ThemeThemeErrorArrayOutput {
 	return o.ApplyT(func(v ThemeThemeVersion) []ThemeThemeError { return v.Errors }).(ThemeThemeErrorArrayOutput)
 }
 
-func (o ThemeThemeVersionOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o ThemeThemeVersionOutput) Status() ThemeResourceStatusPtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *ThemeResourceStatus { return v.Status }).(ThemeResourceStatusPtrOutput)
 }
 
 // <p>The version number of the theme.</p>
@@ -13384,13 +13386,13 @@ func (o ThemeThemeVersionPtrOutput) Errors() ThemeThemeErrorArrayOutput {
 	}).(ThemeThemeErrorArrayOutput)
 }
 
-func (o ThemeThemeVersionPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *string {
+func (o ThemeThemeVersionPtrOutput) Status() ThemeResourceStatusPtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *ThemeResourceStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringPtrOutput)
+	}).(ThemeResourceStatusPtrOutput)
 }
 
 // <p>The version number of the theme.</p>

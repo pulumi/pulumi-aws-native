@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLRateBasedStatement
     {
-        public readonly string AggregateKeyType;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLRateBasedStatementAggregateKeyType AggregateKeyType;
         public readonly Outputs.WebACLForwardedIPConfiguration? ForwardedIPConfig;
         public readonly int Limit;
         public readonly Outputs.WebACLStatement? ScopeDownStatement;
 
         [OutputConstructor]
         private WebACLRateBasedStatement(
-            string aggregateKeyType,
+            Pulumi.AwsNative.WAFv2.WebACLRateBasedStatementAggregateKeyType aggregateKeyType,
 
             Outputs.WebACLForwardedIPConfiguration? forwardedIPConfig,
 

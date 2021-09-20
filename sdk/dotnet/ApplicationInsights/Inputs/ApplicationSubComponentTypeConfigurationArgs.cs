@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// The sub component type.
         /// </summary>
         [Input("subComponentType", required: true)]
-        public Input<string> SubComponentType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ApplicationInsights.ApplicationSubComponentTypeConfigurationSubComponentType> SubComponentType { get; set; } = null!;
 
         public ApplicationSubComponentTypeConfigurationArgs()
         {

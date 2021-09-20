@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
         public readonly string Object;
-        public readonly string? WriteOperationType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowWriteOperationType? WriteOperationType;
 
         [OutputConstructor]
         private FlowSalesforceDestinationProperties(
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             string @object,
 
-            string? writeOperationType)
+            Pulumi.AwsNative.AppFlow.FlowWriteOperationType? writeOperationType)
         {
             ErrorHandlingConfig = errorHandlingConfig;
             IdFieldNames = idFieldNames;

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Budgets.Inputs
     public sealed class BudgetsActionActionThresholdArgs : Pulumi.ResourceArgs
     {
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Budgets.BudgetsActionActionThresholdType> Type { get; set; } = null!;
 
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;

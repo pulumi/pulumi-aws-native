@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
         /// </summary>
         [Output("provisioningType")]
-        public Output<string> ProvisioningType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.ResourceVersionProvisioningType> ProvisioningType { get; private set; } = null!;
 
         /// <summary>
         /// A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// PUBLIC: The type is publically visible and usable within any Amazon account.
         /// </summary>
         [Output("visibility")]
-        public Output<string> Visibility { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.ResourceVersionVisibility> Visibility { get; private set; } = null!;
 
 
         /// <summary>

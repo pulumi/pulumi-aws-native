@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GroupConfigurationItemArgs',
@@ -120,7 +121,7 @@ class GroupQueryArgs:
 class GroupResourceQueryArgs:
     def __init__(__self__, *,
                  query: Optional[pulumi.Input['GroupQueryArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['GroupResourceQueryType']] = None):
         if query is not None:
             pulumi.set(__self__, "query", query)
         if type is not None:
@@ -137,11 +138,11 @@ class GroupResourceQueryArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['GroupResourceQueryType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['GroupResourceQueryType']]):
         pulumi.set(self, "type", value)
 
 

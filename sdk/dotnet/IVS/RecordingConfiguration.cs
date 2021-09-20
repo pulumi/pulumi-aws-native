@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.IVS
         /// Recording Configuration State.
         /// </summary>
         [Output("state")]
-        public Output<string> State { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IVS.RecordingConfigurationState> State { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.

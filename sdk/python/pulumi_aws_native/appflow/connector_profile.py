@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectorProfileArgs', 'ConnectorProfile']
@@ -15,16 +16,16 @@ __all__ = ['ConnectorProfileArgs', 'ConnectorProfile']
 @pulumi.input_type
 class ConnectorProfileArgs:
     def __init__(__self__, *,
-                 connection_mode: pulumi.Input[str],
+                 connection_mode: pulumi.Input['ConnectorProfileConnectionMode'],
                  connector_profile_name: pulumi.Input[str],
-                 connector_type: pulumi.Input[str],
+                 connector_type: pulumi.Input['ConnectorProfileConnectorType'],
                  connector_profile_config: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
-        :param pulumi.Input[str] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
+        :param pulumi.Input['ConnectorProfileConnectionMode'] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
-        :param pulumi.Input[str] connector_type: List of Saas providers that need connector profile to be created
+        :param pulumi.Input['ConnectorProfileConnectorType'] connector_type: List of Saas providers that need connector profile to be created
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Connector specific configurations needed to create connector profile
         :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
@@ -38,14 +39,14 @@ class ConnectorProfileArgs:
 
     @property
     @pulumi.getter(name="connectionMode")
-    def connection_mode(self) -> pulumi.Input[str]:
+    def connection_mode(self) -> pulumi.Input['ConnectorProfileConnectionMode']:
         """
         Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         """
         return pulumi.get(self, "connection_mode")
 
     @connection_mode.setter
-    def connection_mode(self, value: pulumi.Input[str]):
+    def connection_mode(self, value: pulumi.Input['ConnectorProfileConnectionMode']):
         pulumi.set(self, "connection_mode", value)
 
     @property
@@ -62,14 +63,14 @@ class ConnectorProfileArgs:
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> pulumi.Input[str]:
+    def connector_type(self) -> pulumi.Input['ConnectorProfileConnectorType']:
         """
         List of Saas providers that need connector profile to be created
         """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
-    def connector_type(self, value: pulumi.Input[str]):
+    def connector_type(self, value: pulumi.Input['ConnectorProfileConnectorType']):
         pulumi.set(self, "connector_type", value)
 
     @property
@@ -102,10 +103,10 @@ class ConnectorProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_mode: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input['ConnectorProfileConnectionMode']] = None,
                  connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
-                 connector_type: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input['ConnectorProfileConnectorType']] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -113,10 +114,10 @@ class ConnectorProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
+        :param pulumi.Input['ConnectorProfileConnectionMode'] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Connector specific configurations needed to create connector profile
         :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
-        :param pulumi.Input[str] connector_type: List of Saas providers that need connector profile to be created
+        :param pulumi.Input['ConnectorProfileConnectorType'] connector_type: List of Saas providers that need connector profile to be created
         :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         ...
@@ -143,10 +144,10 @@ class ConnectorProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_mode: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input['ConnectorProfileConnectionMode']] = None,
                  connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
-                 connector_type: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input['ConnectorProfileConnectorType']] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -206,7 +207,7 @@ class ConnectorProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionMode")
-    def connection_mode(self) -> pulumi.Output[str]:
+    def connection_mode(self) -> pulumi.Output['ConnectorProfileConnectionMode']:
         """
         Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         """
@@ -238,7 +239,7 @@ class ConnectorProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> pulumi.Output[str]:
+    def connector_type(self) -> pulumi.Output['ConnectorProfileConnectorType']:
         """
         List of Saas providers that need connector profile to be created
         """

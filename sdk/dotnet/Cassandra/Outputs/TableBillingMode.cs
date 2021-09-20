@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableBillingMode
     {
-        public readonly string Mode;
+        public readonly Pulumi.AwsNative.Cassandra.TableMode Mode;
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;
 
         [OutputConstructor]
         private TableBillingMode(
-            string mode,
+            Pulumi.AwsNative.Cassandra.TableMode mode,
 
             Outputs.TableProvisionedThroughput? provisionedThroughput)
         {

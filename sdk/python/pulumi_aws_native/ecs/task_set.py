@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['TaskSetArgs', 'TaskSet']
@@ -19,7 +20,7 @@ class TaskSetArgs:
                  service: pulumi.Input[str],
                  task_definition: pulumi.Input[str],
                  external_id: Optional[pulumi.Input[str]] = None,
-                 launch_type: Optional[pulumi.Input[str]] = None,
+                 launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
                  network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
@@ -31,7 +32,7 @@ class TaskSetArgs:
         :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         :param pulumi.Input[str] task_definition: The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
-        :param pulumi.Input[str] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
+        :param pulumi.Input['TaskSetLaunchType'] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         :param pulumi.Input[str] platform_version: The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
@@ -104,14 +105,14 @@ class TaskSetArgs:
 
     @property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> Optional[pulumi.Input[str]]:
+    def launch_type(self) -> Optional[pulumi.Input['TaskSetLaunchType']]:
         """
         The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
-    def launch_type(self, value: Optional[pulumi.Input[str]]):
+    def launch_type(self, value: Optional[pulumi.Input['TaskSetLaunchType']]):
         pulumi.set(self, "launch_type", value)
 
     @property
@@ -176,7 +177,7 @@ class TaskSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
-                 launch_type: Optional[pulumi.Input[str]] = None,
+                 launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
@@ -192,7 +193,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
-        :param pulumi.Input[str] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
+        :param pulumi.Input['TaskSetLaunchType'] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         :param pulumi.Input[str] platform_version: The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
@@ -225,7 +226,7 @@ class TaskSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
-                 launch_type: Optional[pulumi.Input[str]] = None,
+                 launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
@@ -313,7 +314,7 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> pulumi.Output[Optional[str]]:
+    def launch_type(self) -> pulumi.Output[Optional['TaskSetLaunchType']]:
         """
         The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         """

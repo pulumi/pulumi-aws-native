@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         /// Frequency of anomaly detection
         /// </summary>
         [Input("anomalyDetectorFrequency", required: true)]
-        public Input<string> AnomalyDetectorFrequency { get; set; } = null!;
+        public Input<Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorAnomalyDetectorFrequency> AnomalyDetectorFrequency { get; set; } = null!;
 
         public AnomalyDetectorAnomalyDetectorConfigArgs()
         {

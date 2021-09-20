@@ -18,7 +18,7 @@ type UserGroup struct {
 	// The Amazon Resource Name (ARN) of the user account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Must be redis.
-	Engine pulumi.StringOutput `pulumi:"engine"`
+	Engine UserGroupEngineOutput `pulumi:"engine"`
 	// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The ID of the user group.
@@ -73,7 +73,7 @@ func (UserGroupState) ElementType() reflect.Type {
 
 type userGroupArgs struct {
 	// Must be redis.
-	Engine string `pulumi:"engine"`
+	Engine UserGroupEngine `pulumi:"engine"`
 	// The ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
 	// List of users associated to this user group.
@@ -83,7 +83,7 @@ type userGroupArgs struct {
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
 	// Must be redis.
-	Engine pulumi.StringInput
+	Engine UserGroupEngineInput
 	// The ID of the user group.
 	UserGroupId pulumi.StringInput
 	// List of users associated to this user group.

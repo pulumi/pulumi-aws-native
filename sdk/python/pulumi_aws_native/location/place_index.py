@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PlaceIndexArgs', 'PlaceIndex']
@@ -17,7 +18,7 @@ class PlaceIndexArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[str],
                  index_name: pulumi.Input[str],
-                 pricing_plan: pulumi.Input[str],
+                 pricing_plan: pulumi.Input['PlaceIndexPricingPlan'],
                  data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
@@ -51,11 +52,11 @@ class PlaceIndexArgs:
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input[str]:
+    def pricing_plan(self) -> pulumi.Input['PlaceIndexPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input[str]):
+    def pricing_plan(self, value: pulumi.Input['PlaceIndexPricingPlan']):
         pulumi.set(self, "pricing_plan", value)
 
     @property
@@ -86,7 +87,7 @@ class PlaceIndex(pulumi.CustomResource):
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['PlaceIndexDataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_name: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
                  __props__=None):
         """
         Definition of AWS::Location::PlaceIndex Resource Type
@@ -122,7 +123,7 @@ class PlaceIndex(pulumi.CustomResource):
                  data_source_configuration: Optional[pulumi.Input[pulumi.InputType['PlaceIndexDataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_name: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -220,7 +221,7 @@ class PlaceIndex(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output[str]:
+    def pricing_plan(self) -> pulumi.Output['PlaceIndexPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @property

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ContainerRecipeComponentConfiguration',
@@ -107,7 +108,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
-                 volume_type: Optional[str] = None):
+                 volume_type: Optional['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
         :param bool delete_on_termination: Use to configure delete on termination of the associated device.
@@ -116,7 +117,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
         :param str kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param str snapshot_id: The snapshot that defines the device contents.
         :param int volume_size: Use to override the device's volume size.
-        :param str volume_type: Use to override the device's volume type.
+        :param 'ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType' volume_type: Use to override the device's volume type.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -183,7 +184,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[str]:
+    def volume_type(self) -> Optional['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType']:
         """
         Use to override the device's volume type.
         """
@@ -346,11 +347,11 @@ class ContainerRecipeTargetContainerRepository(dict):
 
     def __init__(__self__, *,
                  repository_name: Optional[str] = None,
-                 service: Optional[str] = None):
+                 service: Optional['ContainerRecipeTargetContainerRepositoryService'] = None):
         """
         The container repository where the output container image is stored.
         :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-        :param str service: Specifies the service in which this image was registered.
+        :param 'ContainerRecipeTargetContainerRepositoryService' service: Specifies the service in which this image was registered.
         """
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
@@ -367,7 +368,7 @@ class ContainerRecipeTargetContainerRepository(dict):
 
     @property
     @pulumi.getter
-    def service(self) -> Optional[str]:
+    def service(self) -> Optional['ContainerRecipeTargetContainerRepositoryService']:
         """
         Specifies the service in which this image was registered.
         """
@@ -668,11 +669,11 @@ class ImagePipelineSchedule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 pipeline_execution_start_condition: Optional[str] = None,
+                 pipeline_execution_start_condition: Optional['ImagePipelineSchedulePipelineExecutionStartCondition'] = None,
                  schedule_expression: Optional[str] = None):
         """
         The schedule of the image pipeline.
-        :param str pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
+        :param 'ImagePipelineSchedulePipelineExecutionStartCondition' pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param str schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
         if pipeline_execution_start_condition is not None:
@@ -682,7 +683,7 @@ class ImagePipelineSchedule(dict):
 
     @property
     @pulumi.getter(name="pipelineExecutionStartCondition")
-    def pipeline_execution_start_condition(self) -> Optional[str]:
+    def pipeline_execution_start_condition(self) -> Optional['ImagePipelineSchedulePipelineExecutionStartCondition']:
         """
         The condition configures when the pipeline should trigger a new image build.
         """
@@ -872,7 +873,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
                  kms_key_id: Optional[str] = None,
                  snapshot_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
-                 volume_type: Optional[str] = None):
+                 volume_type: Optional['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
         :param bool delete_on_termination: Use to configure delete on termination of the associated device.
@@ -881,7 +882,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
         :param str kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param str snapshot_id: The snapshot that defines the device contents.
         :param int volume_size: Use to override the device's volume size.
-        :param str volume_type: Use to override the device's volume type.
+        :param 'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType' volume_type: Use to override the device's volume type.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -948,7 +949,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[str]:
+    def volume_type(self) -> Optional['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType']:
         """
         Use to override the device's volume type.
         """

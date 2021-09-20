@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The service endpoints that the agent will connect to.
         /// </summary>
         [Output("endpointType")]
-        public Output<string> EndpointType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataSync.AgentEndpointType> EndpointType { get; private set; } = null!;
 
         /// <summary>
         /// The ARNs of the security group used to protect your data transfer task subnets.

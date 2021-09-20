@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AssetTagArgs',
@@ -328,34 +329,34 @@ class OriginEndpointDashEncryptionArgs:
 @pulumi.input_type
 class OriginEndpointDashPackageArgs:
     def __init__(__self__, *,
-                 ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ads_on_delivery_restrictions: Optional[pulumi.Input[str]] = None,
+                 ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]]] = None,
+                 ads_on_delivery_restrictions: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']] = None,
                  encryption: Optional[pulumi.Input['OriginEndpointDashEncryptionArgs']] = None,
-                 manifest_layout: Optional[pulumi.Input[str]] = None,
+                 manifest_layout: Optional[pulumi.Input['OriginEndpointDashPackageManifestLayout']] = None,
                  manifest_window_seconds: Optional[pulumi.Input[int]] = None,
                  min_buffer_time_seconds: Optional[pulumi.Input[int]] = None,
                  min_update_period_seconds: Optional[pulumi.Input[int]] = None,
-                 period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 profile: Optional[pulumi.Input[str]] = None,
+                 period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackagePeriodTriggersItem']]]] = None,
+                 profile: Optional[pulumi.Input['OriginEndpointDashPackageProfile']] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 segment_template_format: Optional[pulumi.Input[str]] = None,
+                 segment_template_format: Optional[pulumi.Input['OriginEndpointDashPackageSegmentTemplateFormat']] = None,
                  stream_selection: Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']] = None,
                  suggested_presentation_delay_seconds: Optional[pulumi.Input[int]] = None,
-                 utc_timing: Optional[pulumi.Input[str]] = None,
+                 utc_timing: Optional[pulumi.Input['OriginEndpointDashPackageUtcTiming']] = None,
                  utc_timing_uri: Optional[pulumi.Input[str]] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-        :param pulumi.Input[str] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input['OriginEndpointDashPackageManifestLayout'] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         :param pulumi.Input[int] manifest_window_seconds: Time window (in seconds) contained in each manifest.
         :param pulumi.Input[int] min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
         :param pulumi.Input[int] min_update_period_seconds: Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-        :param pulumi.Input[str] profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackagePeriodTriggersItem']]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
+        :param pulumi.Input['OriginEndpointDashPackageProfile'] profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
-        :param pulumi.Input[str] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+        :param pulumi.Input['OriginEndpointDashPackageSegmentTemplateFormat'] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         :param pulumi.Input[int] suggested_presentation_delay_seconds: Duration (in seconds) to delay live content before presentation.
-        :param pulumi.Input[str] utc_timing: Determines the type of UTCTiming included in the Media Presentation Description (MPD)
+        :param pulumi.Input['OriginEndpointDashPackageUtcTiming'] utc_timing: Determines the type of UTCTiming included in the Media Presentation Description (MPD)
         :param pulumi.Input[str] utc_timing_uri: Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
         """
         if ad_triggers is not None:
@@ -391,23 +392,23 @@ class OriginEndpointDashPackageArgs:
 
     @property
     @pulumi.getter(name="adTriggers")
-    def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]]]:
         """
         A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         """
         return pulumi.get(self, "ad_triggers")
 
     @ad_triggers.setter
-    def ad_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def ad_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]]]):
         pulumi.set(self, "ad_triggers", value)
 
     @property
     @pulumi.getter(name="adsOnDeliveryRestrictions")
-    def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input[str]]:
+    def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]:
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @ads_on_delivery_restrictions.setter
-    def ads_on_delivery_restrictions(self, value: Optional[pulumi.Input[str]]):
+    def ads_on_delivery_restrictions(self, value: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]):
         pulumi.set(self, "ads_on_delivery_restrictions", value)
 
     @property
@@ -421,14 +422,14 @@ class OriginEndpointDashPackageArgs:
 
     @property
     @pulumi.getter(name="manifestLayout")
-    def manifest_layout(self) -> Optional[pulumi.Input[str]]:
+    def manifest_layout(self) -> Optional[pulumi.Input['OriginEndpointDashPackageManifestLayout']]:
         """
         Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         """
         return pulumi.get(self, "manifest_layout")
 
     @manifest_layout.setter
-    def manifest_layout(self, value: Optional[pulumi.Input[str]]):
+    def manifest_layout(self, value: Optional[pulumi.Input['OriginEndpointDashPackageManifestLayout']]):
         pulumi.set(self, "manifest_layout", value)
 
     @property
@@ -469,26 +470,26 @@ class OriginEndpointDashPackageArgs:
 
     @property
     @pulumi.getter(name="periodTriggers")
-    def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackagePeriodTriggersItem']]]]:
         """
         A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
         """
         return pulumi.get(self, "period_triggers")
 
     @period_triggers.setter
-    def period_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def period_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackagePeriodTriggersItem']]]]):
         pulumi.set(self, "period_triggers", value)
 
     @property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[str]]:
+    def profile(self) -> Optional[pulumi.Input['OriginEndpointDashPackageProfile']]:
         """
         The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[str]]):
+    def profile(self, value: Optional[pulumi.Input['OriginEndpointDashPackageProfile']]):
         pulumi.set(self, "profile", value)
 
     @property
@@ -505,14 +506,14 @@ class OriginEndpointDashPackageArgs:
 
     @property
     @pulumi.getter(name="segmentTemplateFormat")
-    def segment_template_format(self) -> Optional[pulumi.Input[str]]:
+    def segment_template_format(self) -> Optional[pulumi.Input['OriginEndpointDashPackageSegmentTemplateFormat']]:
         """
         Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         return pulumi.get(self, "segment_template_format")
 
     @segment_template_format.setter
-    def segment_template_format(self, value: Optional[pulumi.Input[str]]):
+    def segment_template_format(self, value: Optional[pulumi.Input['OriginEndpointDashPackageSegmentTemplateFormat']]):
         pulumi.set(self, "segment_template_format", value)
 
     @property
@@ -538,14 +539,14 @@ class OriginEndpointDashPackageArgs:
 
     @property
     @pulumi.getter(name="utcTiming")
-    def utc_timing(self) -> Optional[pulumi.Input[str]]:
+    def utc_timing(self) -> Optional[pulumi.Input['OriginEndpointDashPackageUtcTiming']]:
         """
         Determines the type of UTCTiming included in the Media Presentation Description (MPD)
         """
         return pulumi.get(self, "utc_timing")
 
     @utc_timing.setter
-    def utc_timing(self, value: Optional[pulumi.Input[str]]):
+    def utc_timing(self, value: Optional[pulumi.Input['OriginEndpointDashPackageUtcTiming']]):
         pulumi.set(self, "utc_timing", value)
 
     @property
@@ -566,13 +567,13 @@ class OriginEndpointHlsEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
-                 encryption_method: Optional[pulumi.Input[str]] = None,
+                 encryption_method: Optional[pulumi.Input['OriginEndpointHlsEncryptionEncryptionMethod']] = None,
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None,
                  repeat_ext_x_key: Optional[pulumi.Input[bool]] = None):
         """
         An HTTP Live Streaming (HLS) encryption configuration.
         :param pulumi.Input[str] constant_initialization_vector: A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
-        :param pulumi.Input[str] encryption_method: The encryption method to use.
+        :param pulumi.Input['OriginEndpointHlsEncryptionEncryptionMethod'] encryption_method: The encryption method to use.
         :param pulumi.Input[int] key_rotation_interval_seconds: Interval (in seconds) between each encryption key rotation.
         :param pulumi.Input[bool] repeat_ext_x_key: When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         """
@@ -609,14 +610,14 @@ class OriginEndpointHlsEncryptionArgs:
 
     @property
     @pulumi.getter(name="encryptionMethod")
-    def encryption_method(self) -> Optional[pulumi.Input[str]]:
+    def encryption_method(self) -> Optional[pulumi.Input['OriginEndpointHlsEncryptionEncryptionMethod']]:
         """
         The encryption method to use.
         """
         return pulumi.get(self, "encryption_method")
 
     @encryption_method.setter
-    def encryption_method(self, value: Optional[pulumi.Input[str]]):
+    def encryption_method(self, value: Optional[pulumi.Input['OriginEndpointHlsEncryptionEncryptionMethod']]):
         pulumi.set(self, "encryption_method", value)
 
     @property
@@ -648,23 +649,23 @@ class OriginEndpointHlsEncryptionArgs:
 class OriginEndpointHlsManifestArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 ad_markers: Optional[pulumi.Input[str]] = None,
-                 ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ads_on_delivery_restrictions: Optional[pulumi.Input[str]] = None,
+                 ad_markers: Optional[pulumi.Input['OriginEndpointHlsManifestAdMarkers']] = None,
+                 ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestAdTriggersItem']]]] = None,
+                 ads_on_delivery_restrictions: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']] = None,
                  include_iframe_only_stream: Optional[pulumi.Input[bool]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
-                 playlist_type: Optional[pulumi.Input[str]] = None,
+                 playlist_type: Optional[pulumi.Input['OriginEndpointHlsManifestPlaylistType']] = None,
                  playlist_window_seconds: Optional[pulumi.Input[int]] = None,
                  program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         A HTTP Live Streaming (HLS) manifest configuration.
         :param pulumi.Input[str] id: The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
-        :param pulumi.Input[str] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input['OriginEndpointHlsManifestAdMarkers'] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestAdTriggersItem']]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input[str] manifest_name: An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
-        :param pulumi.Input[str] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
+        :param pulumi.Input['OriginEndpointHlsManifestPlaylistType'] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         :param pulumi.Input[int] playlist_window_seconds: Time window (in seconds) contained in each parent manifest.
         :param pulumi.Input[int] program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         :param pulumi.Input[str] url: The URL of the packaged OriginEndpoint for consumption.
@@ -703,35 +704,35 @@ class OriginEndpointHlsManifestArgs:
 
     @property
     @pulumi.getter(name="adMarkers")
-    def ad_markers(self) -> Optional[pulumi.Input[str]]:
+    def ad_markers(self) -> Optional[pulumi.Input['OriginEndpointHlsManifestAdMarkers']]:
         """
         This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         """
         return pulumi.get(self, "ad_markers")
 
     @ad_markers.setter
-    def ad_markers(self, value: Optional[pulumi.Input[str]]):
+    def ad_markers(self, value: Optional[pulumi.Input['OriginEndpointHlsManifestAdMarkers']]):
         pulumi.set(self, "ad_markers", value)
 
     @property
     @pulumi.getter(name="adTriggers")
-    def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestAdTriggersItem']]]]:
         """
         A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         """
         return pulumi.get(self, "ad_triggers")
 
     @ad_triggers.setter
-    def ad_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def ad_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestAdTriggersItem']]]]):
         pulumi.set(self, "ad_triggers", value)
 
     @property
     @pulumi.getter(name="adsOnDeliveryRestrictions")
-    def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input[str]]:
+    def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]:
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @ads_on_delivery_restrictions.setter
-    def ads_on_delivery_restrictions(self, value: Optional[pulumi.Input[str]]):
+    def ads_on_delivery_restrictions(self, value: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]):
         pulumi.set(self, "ads_on_delivery_restrictions", value)
 
     @property
@@ -760,14 +761,14 @@ class OriginEndpointHlsManifestArgs:
 
     @property
     @pulumi.getter(name="playlistType")
-    def playlist_type(self) -> Optional[pulumi.Input[str]]:
+    def playlist_type(self) -> Optional[pulumi.Input['OriginEndpointHlsManifestPlaylistType']]:
         """
         The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         """
         return pulumi.get(self, "playlist_type")
 
     @playlist_type.setter
-    def playlist_type(self, value: Optional[pulumi.Input[str]]):
+    def playlist_type(self, value: Optional[pulumi.Input['OriginEndpointHlsManifestPlaylistType']]):
         pulumi.set(self, "playlist_type", value)
 
     @property
@@ -810,12 +811,12 @@ class OriginEndpointHlsManifestArgs:
 @pulumi.input_type
 class OriginEndpointHlsPackageArgs:
     def __init__(__self__, *,
-                 ad_markers: Optional[pulumi.Input[str]] = None,
-                 ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ads_on_delivery_restrictions: Optional[pulumi.Input[str]] = None,
+                 ad_markers: Optional[pulumi.Input['OriginEndpointHlsPackageAdMarkers']] = None,
+                 ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]]] = None,
+                 ads_on_delivery_restrictions: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']] = None,
                  encryption: Optional[pulumi.Input['OriginEndpointHlsEncryptionArgs']] = None,
                  include_iframe_only_stream: Optional[pulumi.Input[bool]] = None,
-                 playlist_type: Optional[pulumi.Input[str]] = None,
+                 playlist_type: Optional[pulumi.Input['OriginEndpointHlsPackagePlaylistType']] = None,
                  playlist_window_seconds: Optional[pulumi.Input[int]] = None,
                  program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
@@ -823,10 +824,10 @@ class OriginEndpointHlsPackageArgs:
                  use_audio_rendition_group: Optional[pulumi.Input[bool]] = None):
         """
         An HTTP Live Streaming (HLS) packaging configuration.
-        :param pulumi.Input[str] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input['OriginEndpointHlsPackageAdMarkers'] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
-        :param pulumi.Input[str] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
+        :param pulumi.Input['OriginEndpointHlsPackagePlaylistType'] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         :param pulumi.Input[int] playlist_window_seconds: Time window (in seconds) contained in each parent manifest.
         :param pulumi.Input[int] program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
@@ -857,35 +858,35 @@ class OriginEndpointHlsPackageArgs:
 
     @property
     @pulumi.getter(name="adMarkers")
-    def ad_markers(self) -> Optional[pulumi.Input[str]]:
+    def ad_markers(self) -> Optional[pulumi.Input['OriginEndpointHlsPackageAdMarkers']]:
         """
         This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         """
         return pulumi.get(self, "ad_markers")
 
     @ad_markers.setter
-    def ad_markers(self, value: Optional[pulumi.Input[str]]):
+    def ad_markers(self, value: Optional[pulumi.Input['OriginEndpointHlsPackageAdMarkers']]):
         pulumi.set(self, "ad_markers", value)
 
     @property
     @pulumi.getter(name="adTriggers")
-    def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]]]:
         """
         A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         """
         return pulumi.get(self, "ad_triggers")
 
     @ad_triggers.setter
-    def ad_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def ad_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]]]):
         pulumi.set(self, "ad_triggers", value)
 
     @property
     @pulumi.getter(name="adsOnDeliveryRestrictions")
-    def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input[str]]:
+    def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]:
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @ads_on_delivery_restrictions.setter
-    def ads_on_delivery_restrictions(self, value: Optional[pulumi.Input[str]]):
+    def ads_on_delivery_restrictions(self, value: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']]):
         pulumi.set(self, "ads_on_delivery_restrictions", value)
 
     @property
@@ -911,14 +912,14 @@ class OriginEndpointHlsPackageArgs:
 
     @property
     @pulumi.getter(name="playlistType")
-    def playlist_type(self) -> Optional[pulumi.Input[str]]:
+    def playlist_type(self) -> Optional[pulumi.Input['OriginEndpointHlsPackagePlaylistType']]:
         """
         The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         """
         return pulumi.get(self, "playlist_type")
 
     @playlist_type.setter
-    def playlist_type(self, value: Optional[pulumi.Input[str]]):
+    def playlist_type(self, value: Optional[pulumi.Input['OriginEndpointHlsPackagePlaylistType']]):
         pulumi.set(self, "playlist_type", value)
 
     @property
@@ -1151,12 +1152,12 @@ class OriginEndpointStreamSelectionArgs:
     def __init__(__self__, *,
                  max_video_bits_per_second: Optional[pulumi.Input[int]] = None,
                  min_video_bits_per_second: Optional[pulumi.Input[int]] = None,
-                 stream_order: Optional[pulumi.Input[str]] = None):
+                 stream_order: Optional[pulumi.Input['OriginEndpointStreamSelectionStreamOrder']] = None):
         """
         A StreamSelection configuration.
         :param pulumi.Input[int] max_video_bits_per_second: The maximum video bitrate (bps) to include in output.
         :param pulumi.Input[int] min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
-        :param pulumi.Input[str] stream_order: A directive that determines the order of streams in the output.
+        :param pulumi.Input['OriginEndpointStreamSelectionStreamOrder'] stream_order: A directive that determines the order of streams in the output.
         """
         if max_video_bits_per_second is not None:
             pulumi.set(__self__, "max_video_bits_per_second", max_video_bits_per_second)
@@ -1191,14 +1192,14 @@ class OriginEndpointStreamSelectionArgs:
 
     @property
     @pulumi.getter(name="streamOrder")
-    def stream_order(self) -> Optional[pulumi.Input[str]]:
+    def stream_order(self) -> Optional[pulumi.Input['OriginEndpointStreamSelectionStreamOrder']]:
         """
         A directive that determines the order of streams in the output.
         """
         return pulumi.get(self, "stream_order")
 
     @stream_order.setter
-    def stream_order(self, value: Optional[pulumi.Input[str]]):
+    def stream_order(self, value: Optional[pulumi.Input['OriginEndpointStreamSelectionStreamOrder']]):
         pulumi.set(self, "stream_order", value)
 
 
@@ -1333,16 +1334,16 @@ class PackagingConfigurationDashEncryptionArgs:
 @pulumi.input_type
 class PackagingConfigurationDashManifestArgs:
     def __init__(__self__, *,
-                 manifest_layout: Optional[pulumi.Input[str]] = None,
+                 manifest_layout: Optional[pulumi.Input['PackagingConfigurationDashManifestManifestLayout']] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  min_buffer_time_seconds: Optional[pulumi.Input[int]] = None,
-                 profile: Optional[pulumi.Input[str]] = None,
+                 profile: Optional[pulumi.Input['PackagingConfigurationDashManifestProfile']] = None,
                  stream_selection: Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']] = None):
         """
         A DASH manifest configuration.
-        :param pulumi.Input[str] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+        :param pulumi.Input['PackagingConfigurationDashManifestManifestLayout'] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         :param pulumi.Input[int] min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
-        :param pulumi.Input[str] profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+        :param pulumi.Input['PackagingConfigurationDashManifestProfile'] profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         """
         if manifest_layout is not None:
             pulumi.set(__self__, "manifest_layout", manifest_layout)
@@ -1357,14 +1358,14 @@ class PackagingConfigurationDashManifestArgs:
 
     @property
     @pulumi.getter(name="manifestLayout")
-    def manifest_layout(self) -> Optional[pulumi.Input[str]]:
+    def manifest_layout(self) -> Optional[pulumi.Input['PackagingConfigurationDashManifestManifestLayout']]:
         """
         Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         """
         return pulumi.get(self, "manifest_layout")
 
     @manifest_layout.setter
-    def manifest_layout(self, value: Optional[pulumi.Input[str]]):
+    def manifest_layout(self, value: Optional[pulumi.Input['PackagingConfigurationDashManifestManifestLayout']]):
         pulumi.set(self, "manifest_layout", value)
 
     @property
@@ -1390,14 +1391,14 @@ class PackagingConfigurationDashManifestArgs:
 
     @property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[str]]:
+    def profile(self) -> Optional[pulumi.Input['PackagingConfigurationDashManifestProfile']]:
         """
         The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[str]]):
+    def profile(self, value: Optional[pulumi.Input['PackagingConfigurationDashManifestProfile']]):
         pulumi.set(self, "profile", value)
 
     @property
@@ -1418,13 +1419,13 @@ class PackagingConfigurationDashPackageArgs:
                  include_encoder_configuration_in_segments: Optional[pulumi.Input[bool]] = None,
                  period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 segment_template_format: Optional[pulumi.Input[str]] = None):
+                 segment_template_format: Optional[pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat']] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]] dash_manifests: A list of DASH manifest configurations.
         :param pulumi.Input[bool] include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
-        :param pulumi.Input[str] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+        :param pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat'] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         pulumi.set(__self__, "dash_manifests", dash_manifests)
         if encryption is not None:
@@ -1494,14 +1495,14 @@ class PackagingConfigurationDashPackageArgs:
 
     @property
     @pulumi.getter(name="segmentTemplateFormat")
-    def segment_template_format(self) -> Optional[pulumi.Input[str]]:
+    def segment_template_format(self) -> Optional[pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat']]:
         """
         Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         return pulumi.get(self, "segment_template_format")
 
     @segment_template_format.setter
-    def segment_template_format(self, value: Optional[pulumi.Input[str]]):
+    def segment_template_format(self, value: Optional[pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat']]):
         pulumi.set(self, "segment_template_format", value)
 
 
@@ -1510,11 +1511,11 @@ class PackagingConfigurationHlsEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'],
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
-                 encryption_method: Optional[pulumi.Input[str]] = None):
+                 encryption_method: Optional[pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod']] = None):
         """
         An HTTP Live Streaming (HLS) encryption configuration.
         :param pulumi.Input[str] constant_initialization_vector: An HTTP Live Streaming (HLS) encryption configuration.
-        :param pulumi.Input[str] encryption_method: The encryption method to use.
+        :param pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod'] encryption_method: The encryption method to use.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
@@ -1545,21 +1546,21 @@ class PackagingConfigurationHlsEncryptionArgs:
 
     @property
     @pulumi.getter(name="encryptionMethod")
-    def encryption_method(self) -> Optional[pulumi.Input[str]]:
+    def encryption_method(self) -> Optional[pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod']]:
         """
         The encryption method to use.
         """
         return pulumi.get(self, "encryption_method")
 
     @encryption_method.setter
-    def encryption_method(self, value: Optional[pulumi.Input[str]]):
+    def encryption_method(self, value: Optional[pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod']]):
         pulumi.set(self, "encryption_method", value)
 
 
 @pulumi.input_type
 class PackagingConfigurationHlsManifestArgs:
     def __init__(__self__, *,
-                 ad_markers: Optional[pulumi.Input[str]] = None,
+                 ad_markers: Optional[pulumi.Input['PackagingConfigurationHlsManifestAdMarkers']] = None,
                  include_iframe_only_stream: Optional[pulumi.Input[bool]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
@@ -1567,7 +1568,7 @@ class PackagingConfigurationHlsManifestArgs:
                  stream_selection: Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']] = None):
         """
         An HTTP Live Streaming (HLS) manifest configuration.
-        :param pulumi.Input[str] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
+        :param pulumi.Input['PackagingConfigurationHlsManifestAdMarkers'] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
         :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input[int] program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         :param pulumi.Input[bool] repeat_ext_x_key: When enabled, the EXT-X-KEY tag will be repeated in output manifests.
@@ -1587,14 +1588,14 @@ class PackagingConfigurationHlsManifestArgs:
 
     @property
     @pulumi.getter(name="adMarkers")
-    def ad_markers(self) -> Optional[pulumi.Input[str]]:
+    def ad_markers(self) -> Optional[pulumi.Input['PackagingConfigurationHlsManifestAdMarkers']]:
         """
         This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
         """
         return pulumi.get(self, "ad_markers")
 
     @ad_markers.setter
-    def ad_markers(self, value: Optional[pulumi.Input[str]]):
+    def ad_markers(self, value: Optional[pulumi.Input['PackagingConfigurationHlsManifestAdMarkers']]):
         pulumi.set(self, "ad_markers", value)
 
     @property
@@ -1867,12 +1868,12 @@ class PackagingConfigurationStreamSelectionArgs:
     def __init__(__self__, *,
                  max_video_bits_per_second: Optional[pulumi.Input[int]] = None,
                  min_video_bits_per_second: Optional[pulumi.Input[int]] = None,
-                 stream_order: Optional[pulumi.Input[str]] = None):
+                 stream_order: Optional[pulumi.Input['PackagingConfigurationStreamSelectionStreamOrder']] = None):
         """
         A StreamSelection configuration.
         :param pulumi.Input[int] max_video_bits_per_second: The maximum video bitrate (bps) to include in output.
         :param pulumi.Input[int] min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
-        :param pulumi.Input[str] stream_order: A directive that determines the order of streams in the output.
+        :param pulumi.Input['PackagingConfigurationStreamSelectionStreamOrder'] stream_order: A directive that determines the order of streams in the output.
         """
         if max_video_bits_per_second is not None:
             pulumi.set(__self__, "max_video_bits_per_second", max_video_bits_per_second)
@@ -1907,14 +1908,14 @@ class PackagingConfigurationStreamSelectionArgs:
 
     @property
     @pulumi.getter(name="streamOrder")
-    def stream_order(self) -> Optional[pulumi.Input[str]]:
+    def stream_order(self) -> Optional[pulumi.Input['PackagingConfigurationStreamSelectionStreamOrder']]:
         """
         A directive that determines the order of streams in the output.
         """
         return pulumi.get(self, "stream_order")
 
     @stream_order.setter
-    def stream_order(self, value: Optional[pulumi.Input[str]]):
+    def stream_order(self, value: Optional[pulumi.Input['PackagingConfigurationStreamSelectionStreamOrder']]):
         pulumi.set(self, "stream_order", value)
 
 

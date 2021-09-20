@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +38,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
      */
-    public readonly accessType!: pulumi.Output<string | undefined>;
+    public readonly accessType!: pulumi.Output<enums.s3outposts.EndpointAccessType | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the endpoint.
      */
@@ -67,7 +67,7 @@ export class Endpoint extends pulumi.CustomResource {
      * The ID of the security group to use with the endpoint.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<enums.s3outposts.EndpointStatus>;
     /**
      * The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
      */
@@ -129,7 +129,7 @@ export interface EndpointArgs {
     /**
      * The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
      */
-    accessType?: pulumi.Input<string>;
+    accessType?: pulumi.Input<enums.s3outposts.EndpointAccessType>;
     /**
      * The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
      */

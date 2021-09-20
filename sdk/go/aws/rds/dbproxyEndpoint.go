@@ -28,7 +28,7 @@ type DBProxyEndpoint struct {
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags DBProxyEndpointTagFormatArrayOutput `pulumi:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	TargetRole pulumi.StringPtrOutput `pulumi:"targetRole"`
+	TargetRole DBProxyEndpointTargetRolePtrOutput `pulumi:"targetRole"`
 	// VPC ID to associate with the new DB proxy endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new DB proxy endpoint.
@@ -92,7 +92,7 @@ type dbproxyEndpointArgs struct {
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags []DBProxyEndpointTagFormat `pulumi:"tags"`
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	TargetRole *string `pulumi:"targetRole"`
+	TargetRole *DBProxyEndpointTargetRole `pulumi:"targetRole"`
 	// VPC security group IDs to associate with the new DB proxy endpoint.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// VPC subnet IDs to associate with the new DB proxy endpoint.
@@ -108,7 +108,7 @@ type DBProxyEndpointArgs struct {
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
 	Tags DBProxyEndpointTagFormatArrayInput
 	// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
-	TargetRole pulumi.StringPtrInput
+	TargetRole DBProxyEndpointTargetRolePtrInput
 	// VPC security group IDs to associate with the new DB proxy endpoint.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 	// VPC subnet IDs to associate with the new DB proxy endpoint.

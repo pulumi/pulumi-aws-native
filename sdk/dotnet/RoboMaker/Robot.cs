@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RoboMaker
         /// The target architecture of the robot.
         /// </summary>
         [Output("architecture")]
-        public Output<string> Architecture { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RoboMaker.RobotArchitecture> Architecture { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.RoboMaker
         /// The target architecture of the robot.
         /// </summary>
         [Input("architecture", required: true)]
-        public Input<string> Architecture { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.RobotArchitecture> Architecture { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the fleet.

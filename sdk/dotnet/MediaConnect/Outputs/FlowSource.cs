@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// <summary>
         /// The protocol that is used by the source or output.
         /// </summary>
-        public readonly string? Protocol;
+        public readonly Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? Protocol;
         /// <summary>
         /// The ARN of the source.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             string? name,
 
-            string? protocol,
+            Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? protocol,
 
             string? sourceArn,
 

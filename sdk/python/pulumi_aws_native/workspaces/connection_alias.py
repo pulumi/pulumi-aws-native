@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectionAliasArgs', 'ConnectionAlias']
@@ -143,7 +144,7 @@ class ConnectionAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionAliasState")
-    def connection_alias_state(self) -> pulumi.Output[str]:
+    def connection_alias_state(self) -> pulumi.Output['ConnectionAliasConnectionAliasState']:
         return pulumi.get(self, "connection_alias_state")
 
     @property

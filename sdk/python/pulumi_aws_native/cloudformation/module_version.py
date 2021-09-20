@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ModuleVersionArgs', 'ModuleVersion']
 
@@ -232,7 +233,7 @@ class ModuleVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def visibility(self) -> pulumi.Output[str]:
+    def visibility(self) -> pulumi.Output['ModuleVersionVisibility']:
         """
         The scope at which the type is visible and usable in CloudFormation operations.
 

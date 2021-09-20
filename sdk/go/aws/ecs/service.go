@@ -22,16 +22,16 @@ type Service struct {
 	EnableECSManagedTags          pulumi.BoolPtrOutput                           `pulumi:"enableECSManagedTags"`
 	EnableExecuteCommand          pulumi.BoolPtrOutput                           `pulumi:"enableExecuteCommand"`
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput                            `pulumi:"healthCheckGracePeriodSeconds"`
-	LaunchType                    pulumi.StringPtrOutput                         `pulumi:"launchType"`
+	LaunchType                    ServiceLaunchTypePtrOutput                     `pulumi:"launchType"`
 	LoadBalancers                 ServiceLoadBalancerArrayOutput                 `pulumi:"loadBalancers"`
 	Name                          pulumi.StringOutput                            `pulumi:"name"`
 	NetworkConfiguration          ServiceNetworkConfigurationPtrOutput           `pulumi:"networkConfiguration"`
 	PlacementConstraints          ServicePlacementConstraintArrayOutput          `pulumi:"placementConstraints"`
 	PlacementStrategies           ServicePlacementStrategyArrayOutput            `pulumi:"placementStrategies"`
 	PlatformVersion               pulumi.StringPtrOutput                         `pulumi:"platformVersion"`
-	PropagateTags                 pulumi.StringPtrOutput                         `pulumi:"propagateTags"`
+	PropagateTags                 ServicePropagateTagsPtrOutput                  `pulumi:"propagateTags"`
 	Role                          pulumi.StringPtrOutput                         `pulumi:"role"`
-	SchedulingStrategy            pulumi.StringPtrOutput                         `pulumi:"schedulingStrategy"`
+	SchedulingStrategy            ServiceSchedulingStrategyPtrOutput             `pulumi:"schedulingStrategy"`
 	ServiceArn                    pulumi.StringOutput                            `pulumi:"serviceArn"`
 	ServiceName                   pulumi.StringPtrOutput                         `pulumi:"serviceName"`
 	ServiceRegistries             ServiceServiceRegistryArrayOutput              `pulumi:"serviceRegistries"`
@@ -86,15 +86,15 @@ type serviceArgs struct {
 	EnableECSManagedTags          *bool                                 `pulumi:"enableECSManagedTags"`
 	EnableExecuteCommand          *bool                                 `pulumi:"enableExecuteCommand"`
 	HealthCheckGracePeriodSeconds *int                                  `pulumi:"healthCheckGracePeriodSeconds"`
-	LaunchType                    *string                               `pulumi:"launchType"`
+	LaunchType                    *ServiceLaunchType                    `pulumi:"launchType"`
 	LoadBalancers                 []ServiceLoadBalancer                 `pulumi:"loadBalancers"`
 	NetworkConfiguration          *ServiceNetworkConfiguration          `pulumi:"networkConfiguration"`
 	PlacementConstraints          []ServicePlacementConstraint          `pulumi:"placementConstraints"`
 	PlacementStrategies           []ServicePlacementStrategy            `pulumi:"placementStrategies"`
 	PlatformVersion               *string                               `pulumi:"platformVersion"`
-	PropagateTags                 *string                               `pulumi:"propagateTags"`
+	PropagateTags                 *ServicePropagateTags                 `pulumi:"propagateTags"`
 	Role                          *string                               `pulumi:"role"`
-	SchedulingStrategy            *string                               `pulumi:"schedulingStrategy"`
+	SchedulingStrategy            *ServiceSchedulingStrategy            `pulumi:"schedulingStrategy"`
 	ServiceName                   *string                               `pulumi:"serviceName"`
 	ServiceRegistries             []ServiceServiceRegistry              `pulumi:"serviceRegistries"`
 	Tags                          []ServiceTag                          `pulumi:"tags"`
@@ -111,15 +111,15 @@ type ServiceArgs struct {
 	EnableECSManagedTags          pulumi.BoolPtrInput
 	EnableExecuteCommand          pulumi.BoolPtrInput
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
-	LaunchType                    pulumi.StringPtrInput
+	LaunchType                    ServiceLaunchTypePtrInput
 	LoadBalancers                 ServiceLoadBalancerArrayInput
 	NetworkConfiguration          ServiceNetworkConfigurationPtrInput
 	PlacementConstraints          ServicePlacementConstraintArrayInput
 	PlacementStrategies           ServicePlacementStrategyArrayInput
 	PlatformVersion               pulumi.StringPtrInput
-	PropagateTags                 pulumi.StringPtrInput
+	PropagateTags                 ServicePropagateTagsPtrInput
 	Role                          pulumi.StringPtrInput
-	SchedulingStrategy            pulumi.StringPtrInput
+	SchedulingStrategy            ServiceSchedulingStrategyPtrInput
 	ServiceName                   pulumi.StringPtrInput
 	ServiceRegistries             ServiceServiceRegistryArrayInput
 	Tags                          ServiceTagArrayInput

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,12 +38,12 @@ export class DomainConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
     public readonly domainConfigurationName!: pulumi.Output<string | undefined>;
-    public readonly domainConfigurationStatus!: pulumi.Output<string | undefined>;
+    public readonly domainConfigurationStatus!: pulumi.Output<enums.iot.DomainConfigurationDomainConfigurationStatus | undefined>;
     public readonly domainName!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly domainType!: pulumi.Output<string>;
+    public /*out*/ readonly domainType!: pulumi.Output<enums.iot.DomainConfigurationDomainType>;
     public readonly serverCertificateArns!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly serverCertificates!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateSummary[]>;
-    public readonly serviceType!: pulumi.Output<string | undefined>;
+    public readonly serviceType!: pulumi.Output<enums.iot.DomainConfigurationServiceType | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.DomainConfigurationTag[] | undefined>;
     public readonly validationCertificateArn!: pulumi.Output<string | undefined>;
 
@@ -95,10 +95,10 @@ export class DomainConfiguration extends pulumi.CustomResource {
 export interface DomainConfigurationArgs {
     authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfigArgs>;
     domainConfigurationName?: pulumi.Input<string>;
-    domainConfigurationStatus?: pulumi.Input<string>;
+    domainConfigurationStatus?: pulumi.Input<enums.iot.DomainConfigurationDomainConfigurationStatus>;
     domainName?: pulumi.Input<string>;
     serverCertificateArns?: pulumi.Input<pulumi.Input<string>[]>;
-    serviceType?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<enums.iot.DomainConfigurationServiceType>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.DomainConfigurationTagArgs>[]>;
     validationCertificateArn?: pulumi.Input<string>;
 }

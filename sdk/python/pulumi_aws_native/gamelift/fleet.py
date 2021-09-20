@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FleetArgs', 'Fleet']
@@ -21,7 +22,7 @@ class FleetArgs:
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
                  e_c2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]] = None,
                  e_c2_instance_type: Optional[pulumi.Input[str]] = None,
-                 fleet_type: Optional[pulumi.Input[str]] = None,
+                 fleet_type: Optional[pulumi.Input['FleetFleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -29,7 +30,7 @@ class FleetArgs:
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
+                 new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
@@ -45,14 +46,14 @@ class FleetArgs:
         :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         :param pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]] e_c2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[str] e_c2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-        :param pulumi.Input[str] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+        :param pulumi.Input['FleetFleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         :param pulumi.Input[int] min_size: [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         :param pulumi.Input[str] name: A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
-        :param pulumi.Input[str] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+        :param pulumi.Input['FleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[str] peer_vpc_aws_account_id: A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
         :param pulumi.Input[str] peer_vpc_id: A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
         :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
@@ -184,14 +185,14 @@ class FleetArgs:
 
     @property
     @pulumi.getter(name="fleetType")
-    def fleet_type(self) -> Optional[pulumi.Input[str]]:
+    def fleet_type(self) -> Optional[pulumi.Input['FleetFleetType']]:
         """
         Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         """
         return pulumi.get(self, "fleet_type")
 
     @fleet_type.setter
-    def fleet_type(self, value: Optional[pulumi.Input[str]]):
+    def fleet_type(self, value: Optional[pulumi.Input['FleetFleetType']]):
         pulumi.set(self, "fleet_type", value)
 
     @property
@@ -277,14 +278,14 @@ class FleetArgs:
 
     @property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
-    def new_game_session_protection_policy(self) -> Optional[pulumi.Input[str]]:
+    def new_game_session_protection_policy(self) -> Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']]:
         """
         A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         """
         return pulumi.get(self, "new_game_session_protection_policy")
 
     @new_game_session_protection_policy.setter
-    def new_game_session_protection_policy(self, value: Optional[pulumi.Input[str]]):
+    def new_game_session_protection_policy(self, value: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']]):
         pulumi.set(self, "new_game_session_protection_policy", value)
 
     @property
@@ -387,7 +388,7 @@ class Fleet(pulumi.CustomResource):
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
                  e_c2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
                  e_c2_instance_type: Optional[pulumi.Input[str]] = None,
-                 fleet_type: Optional[pulumi.Input[str]] = None,
+                 fleet_type: Optional[pulumi.Input['FleetFleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -395,7 +396,7 @@ class Fleet(pulumi.CustomResource):
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
+                 new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
@@ -415,14 +416,14 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]] e_c2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[str] e_c2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-        :param pulumi.Input[str] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+        :param pulumi.Input['FleetFleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         :param pulumi.Input[int] min_size: [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         :param pulumi.Input[str] name: A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
-        :param pulumi.Input[str] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+        :param pulumi.Input['FleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[str] peer_vpc_aws_account_id: A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
         :param pulumi.Input[str] peer_vpc_id: A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
         :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
@@ -465,7 +466,7 @@ class Fleet(pulumi.CustomResource):
                  desired_ec2_instances: Optional[pulumi.Input[int]] = None,
                  e_c2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]]] = None,
                  e_c2_instance_type: Optional[pulumi.Input[str]] = None,
-                 fleet_type: Optional[pulumi.Input[str]] = None,
+                 fleet_type: Optional[pulumi.Input['FleetFleetType']] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
                  log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -473,7 +474,7 @@ class Fleet(pulumi.CustomResource):
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
+                 new_game_session_protection_policy: Optional[pulumi.Input['FleetNewGameSessionProtectionPolicy']] = None,
                  peer_vpc_aws_account_id: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
@@ -621,7 +622,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fleetType")
-    def fleet_type(self) -> pulumi.Output[Optional[str]]:
+    def fleet_type(self) -> pulumi.Output[Optional['FleetFleetType']]:
         """
         Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         """
@@ -682,7 +683,7 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="newGameSessionProtectionPolicy")
-    def new_game_session_protection_policy(self) -> pulumi.Output[Optional[str]]:
+    def new_game_session_protection_policy(self) -> pulumi.Output[Optional['FleetNewGameSessionProtectionPolicy']]:
         """
         A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         """

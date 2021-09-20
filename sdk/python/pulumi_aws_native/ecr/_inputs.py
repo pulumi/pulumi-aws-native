@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ReplicationConfigurationReplicationConfigurationArgs',
@@ -97,7 +98,7 @@ class ReplicationConfigurationReplicationRuleArgs:
 @pulumi.input_type
 class RepositoryEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 encryption_type: pulumi.Input[str],
+                 encryption_type: pulumi.Input['RepositoryEncryptionType'],
                  kms_key: Optional[pulumi.Input[str]] = None):
         """
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
@@ -112,11 +113,11 @@ class RepositoryEncryptionConfigurationArgs:
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> pulumi.Input[str]:
+    def encryption_type(self) -> pulumi.Input['RepositoryEncryptionType']:
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: pulumi.Input[str]):
+    def encryption_type(self, value: pulumi.Input['RepositoryEncryptionType']):
         pulumi.set(self, "encryption_type", value)
 
     @property

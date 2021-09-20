@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     public sealed class ConfigUplinkSpectrumConfig
     {
         public readonly Outputs.ConfigFrequency? CenterFrequency;
-        public readonly string? Polarization;
+        public readonly Pulumi.AwsNative.GroundStation.ConfigPolarization? Polarization;
 
         [OutputConstructor]
         private ConfigUplinkSpectrumConfig(
             Outputs.ConfigFrequency? centerFrequency,
 
-            string? polarization)
+            Pulumi.AwsNative.GroundStation.ConfigPolarization? polarization)
         {
             CenterFrequency = centerFrequency;
             Polarization = polarization;

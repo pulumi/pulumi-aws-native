@@ -22,7 +22,7 @@ type ModelPackageGroup struct {
 	ModelPackageGroupName        pulumi.StringOutput    `pulumi:"modelPackageGroupName"`
 	ModelPackageGroupPolicy      pulumi.AnyOutput       `pulumi:"modelPackageGroupPolicy"`
 	// The status of a modelpackage group job.
-	ModelPackageGroupStatus pulumi.StringOutput `pulumi:"modelPackageGroupStatus"`
+	ModelPackageGroupStatus ModelPackageGroupModelPackageGroupStatusOutput `pulumi:"modelPackageGroupStatus"`
 	// An array of key-value pairs to apply to this resource.
 	Tags ModelPackageGroupTagArrayOutput `pulumi:"tags"`
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Signer.Inputs
     public sealed class SigningProfileSignatureValidityPeriodArgs : Pulumi.ResourceArgs
     {
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.Signer.SigningProfileSignatureValidityPeriodType>? Type { get; set; }
 
         [Input("value")]
         public Input<int>? Value { get; set; }

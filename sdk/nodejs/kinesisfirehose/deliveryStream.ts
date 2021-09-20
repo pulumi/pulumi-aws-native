@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +38,7 @@ export class DeliveryStream extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly deliveryStreamEncryptionConfigurationInput!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInput | undefined>;
     public readonly deliveryStreamName!: pulumi.Output<string | undefined>;
-    public readonly deliveryStreamType!: pulumi.Output<string | undefined>;
+    public readonly deliveryStreamType!: pulumi.Output<enums.kinesisfirehose.DeliveryStreamDeliveryStreamType | undefined>;
     public readonly elasticsearchDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration | undefined>;
     public readonly extendedS3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration | undefined>;
     public readonly httpEndpointDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
@@ -98,7 +98,7 @@ export class DeliveryStream extends pulumi.CustomResource {
 export interface DeliveryStreamArgs {
     deliveryStreamEncryptionConfigurationInput?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs>;
     deliveryStreamName?: pulumi.Input<string>;
-    deliveryStreamType?: pulumi.Input<string>;
+    deliveryStreamType?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamDeliveryStreamType>;
     elasticsearchDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationArgs>;
     extendedS3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationArgs>;
     httpEndpointDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfigurationArgs>;

@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Message.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardDashboardErrorType? Type;
 
         [OutputConstructor]
         private DashboardDashboardError(
             string? message,
 
-            string? type)
+            Pulumi.AwsNative.QuickSight.DashboardDashboardErrorType? type)
         {
             Message = message;
             Type = type;

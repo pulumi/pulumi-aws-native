@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
         public readonly int? FailureTolerancePercentage;
         public readonly int? MaxConcurrentCount;
         public readonly int? MaxConcurrentPercentage;
-        public readonly string? RegionConcurrencyType;
+        public readonly Pulumi.AwsNative.CloudFormation.StackSetRegionConcurrencyType? RegionConcurrencyType;
         public readonly ImmutableArray<string> RegionOrder;
 
         [OutputConstructor]
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 
             int? maxConcurrentPercentage,
 
-            string? regionConcurrencyType,
+            Pulumi.AwsNative.CloudFormation.StackSetRegionConcurrencyType? regionConcurrencyType,
 
             ImmutableArray<string> regionOrder)
         {

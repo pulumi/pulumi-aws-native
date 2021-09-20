@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +58,7 @@ export class DBProxy extends pulumi.CustomResource {
     /**
      * The kinds of databases that the proxy can connect to.
      */
-    public readonly engineFamily!: pulumi.Output<string>;
+    public readonly engineFamily!: pulumi.Output<enums.rds.DBProxyEngineFamily>;
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
      */
@@ -168,7 +168,7 @@ export interface DBProxyArgs {
     /**
      * The kinds of databases that the proxy can connect to.
      */
-    engineFamily: pulumi.Input<string>;
+    engineFamily: pulumi.Input<enums.rds.DBProxyEngineFamily>;
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
      */

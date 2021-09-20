@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['GameServerGroupArgs', 'GameServerGroup']
@@ -20,9 +21,9 @@ class GameServerGroupArgs:
                  launch_template: pulumi.Input['GameServerGroupLaunchTemplateArgs'],
                  role_arn: pulumi.Input[str],
                  auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
-                 balancing_strategy: Optional[pulumi.Input[str]] = None,
-                 delete_option: Optional[pulumi.Input[str]] = None,
-                 game_server_protection_policy: Optional[pulumi.Input[str]] = None,
+                 balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
+                 delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
+                 game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]] = None,
@@ -34,9 +35,9 @@ class GameServerGroupArgs:
         :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
-        :param pulumi.Input[str] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
-        :param pulumi.Input[str] delete_option: The type of delete to perform.
-        :param pulumi.Input[str] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
+        :param pulumi.Input['GameServerGroupBalancingStrategy'] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
+        :param pulumi.Input['GameServerGroupDeleteOption'] delete_option: The type of delete to perform.
+        :param pulumi.Input['GameServerGroupGameServerProtectionPolicy'] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
         :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
         :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]] tags: A list of labels to assign to the new game server group resource.
@@ -125,38 +126,38 @@ class GameServerGroupArgs:
 
     @property
     @pulumi.getter(name="balancingStrategy")
-    def balancing_strategy(self) -> Optional[pulumi.Input[str]]:
+    def balancing_strategy(self) -> Optional[pulumi.Input['GameServerGroupBalancingStrategy']]:
         """
         The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         """
         return pulumi.get(self, "balancing_strategy")
 
     @balancing_strategy.setter
-    def balancing_strategy(self, value: Optional[pulumi.Input[str]]):
+    def balancing_strategy(self, value: Optional[pulumi.Input['GameServerGroupBalancingStrategy']]):
         pulumi.set(self, "balancing_strategy", value)
 
     @property
     @pulumi.getter(name="deleteOption")
-    def delete_option(self) -> Optional[pulumi.Input[str]]:
+    def delete_option(self) -> Optional[pulumi.Input['GameServerGroupDeleteOption']]:
         """
         The type of delete to perform.
         """
         return pulumi.get(self, "delete_option")
 
     @delete_option.setter
-    def delete_option(self, value: Optional[pulumi.Input[str]]):
+    def delete_option(self, value: Optional[pulumi.Input['GameServerGroupDeleteOption']]):
         pulumi.set(self, "delete_option", value)
 
     @property
     @pulumi.getter(name="gameServerProtectionPolicy")
-    def game_server_protection_policy(self) -> Optional[pulumi.Input[str]]:
+    def game_server_protection_policy(self) -> Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']]:
         """
         A flag that indicates whether instances in the game server group are protected from early termination.
         """
         return pulumi.get(self, "game_server_protection_policy")
 
     @game_server_protection_policy.setter
-    def game_server_protection_policy(self, value: Optional[pulumi.Input[str]]):
+    def game_server_protection_policy(self, value: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']]):
         pulumi.set(self, "game_server_protection_policy", value)
 
     @property
@@ -214,10 +215,10 @@ class GameServerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_policy: Optional[pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']]] = None,
-                 balancing_strategy: Optional[pulumi.Input[str]] = None,
-                 delete_option: Optional[pulumi.Input[str]] = None,
+                 balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
+                 delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
                  game_server_group_name: Optional[pulumi.Input[str]] = None,
-                 game_server_protection_policy: Optional[pulumi.Input[str]] = None,
+                 game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
                  instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']]] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
@@ -232,10 +233,10 @@ class GameServerGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
-        :param pulumi.Input[str] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
-        :param pulumi.Input[str] delete_option: The type of delete to perform.
+        :param pulumi.Input['GameServerGroupBalancingStrategy'] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
+        :param pulumi.Input['GameServerGroupDeleteOption'] delete_option: The type of delete to perform.
         :param pulumi.Input[str] game_server_group_name: An identifier for the new game server group.
-        :param pulumi.Input[str] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
+        :param pulumi.Input['GameServerGroupGameServerProtectionPolicy'] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]] instance_definitions: A set of EC2 instance types to use when creating instances in the group.
         :param pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
@@ -269,10 +270,10 @@ class GameServerGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_policy: Optional[pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']]] = None,
-                 balancing_strategy: Optional[pulumi.Input[str]] = None,
-                 delete_option: Optional[pulumi.Input[str]] = None,
+                 balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
+                 delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
                  game_server_group_name: Optional[pulumi.Input[str]] = None,
-                 game_server_protection_policy: Optional[pulumi.Input[str]] = None,
+                 game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
                  instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']]] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
@@ -370,7 +371,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="balancingStrategy")
-    def balancing_strategy(self) -> pulumi.Output[Optional[str]]:
+    def balancing_strategy(self) -> pulumi.Output[Optional['GameServerGroupBalancingStrategy']]:
         """
         The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         """
@@ -378,7 +379,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deleteOption")
-    def delete_option(self) -> pulumi.Output[Optional[str]]:
+    def delete_option(self) -> pulumi.Output[Optional['GameServerGroupDeleteOption']]:
         """
         The type of delete to perform.
         """
@@ -402,7 +403,7 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="gameServerProtectionPolicy")
-    def game_server_protection_policy(self) -> pulumi.Output[Optional[str]]:
+    def game_server_protection_policy(self) -> pulumi.Output[Optional['GameServerGroupGameServerProtectionPolicy']]:
         """
         A flag that indicates whether instances in the game server group are protected from early termination.
         """

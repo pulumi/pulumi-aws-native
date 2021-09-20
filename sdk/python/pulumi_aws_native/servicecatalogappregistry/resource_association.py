@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ResourceAssociationArgs', 'ResourceAssociation']
 
@@ -15,12 +16,12 @@ class ResourceAssociationArgs:
     def __init__(__self__, *,
                  application: pulumi.Input[str],
                  resource: pulumi.Input[str],
-                 resource_type: pulumi.Input[str]):
+                 resource_type: pulumi.Input['ResourceAssociationResourceType']):
         """
         The set of arguments for constructing a ResourceAssociation resource.
         :param pulumi.Input[str] application: The name or the Id of the Application.
         :param pulumi.Input[str] resource: The name or the Id of the Resource.
-        :param pulumi.Input[str] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
+        :param pulumi.Input['ResourceAssociationResourceType'] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
         """
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "resource", resource)
@@ -52,14 +53,14 @@ class ResourceAssociationArgs:
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Input[str]:
+    def resource_type(self) -> pulumi.Input['ResourceAssociationResourceType']:
         """
         The type of the CFN Resource for now it's enum CFN_STACK.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: pulumi.Input[str]):
+    def resource_type(self, value: pulumi.Input['ResourceAssociationResourceType']):
         pulumi.set(self, "resource_type", value)
 
 
@@ -70,7 +71,7 @@ class ResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
-                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
                  __props__=None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
@@ -79,7 +80,7 @@ class ResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: The name or the Id of the Application.
         :param pulumi.Input[str] resource: The name or the Id of the Resource.
-        :param pulumi.Input[str] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
+        :param pulumi.Input['ResourceAssociationResourceType'] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
         """
         ...
     @overload
@@ -107,7 +108,7 @@ class ResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
-                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -188,7 +189,7 @@ class ResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output['ResourceAssociationResourceType']:
         """
         The type of the CFN Resource for now it's enum CFN_STACK.
         """

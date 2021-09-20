@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,11 +46,11 @@ export class Document extends pulumi.CustomResource {
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */
-    public readonly documentFormat!: pulumi.Output<string | undefined>;
+    public readonly documentFormat!: pulumi.Output<enums.ssm.DocumentDocumentFormat | undefined>;
     /**
      * The type of document to create.
      */
-    public readonly documentType!: pulumi.Output<string | undefined>;
+    public readonly documentType!: pulumi.Output<enums.ssm.DocumentDocumentType | undefined>;
     /**
      * A name for the Systems Manager document.
      */
@@ -128,11 +128,11 @@ export interface DocumentArgs {
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */
-    documentFormat?: pulumi.Input<string>;
+    documentFormat?: pulumi.Input<enums.ssm.DocumentDocumentFormat>;
     /**
      * The type of document to create.
      */
-    documentType?: pulumi.Input<string>;
+    documentType?: pulumi.Input<enums.ssm.DocumentDocumentType>;
     /**
      * A name for the Systems Manager document.
      */

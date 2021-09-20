@@ -24,7 +24,7 @@ type DataCatalog struct {
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags DataCatalogTagArrayOutput `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type DataCatalogTypeOutput `pulumi:"type"`
 }
 
 // NewDataCatalog registers a new resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ type dataCatalogArgs struct {
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags []DataCatalogTag `pulumi:"tags"`
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
-	Type string `pulumi:"type"`
+	Type DataCatalogType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataCatalog resource.
@@ -95,7 +95,7 @@ type DataCatalogArgs struct {
 	// A list of comma separated tags to add to the data catalog that is created.
 	Tags DataCatalogTagArrayInput
 	// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore.
-	Type pulumi.StringInput
+	Type DataCatalogTypeInput
 }
 
 func (DataCatalogArgs) ElementType() reflect.Type {

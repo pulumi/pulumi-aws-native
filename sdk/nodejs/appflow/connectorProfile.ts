@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +38,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
      */
-    public readonly connectionMode!: pulumi.Output<string>;
+    public readonly connectionMode!: pulumi.Output<enums.appflow.ConnectorProfileConnectionMode>;
     /**
      * Unique identifier for connector profile resources
      */
@@ -54,7 +54,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * List of Saas providers that need connector profile to be created
      */
-    public readonly connectorType!: pulumi.Output<string>;
+    public readonly connectorType!: pulumi.Output<enums.appflow.ConnectorProfileConnectorType>;
     /**
      * A unique Arn for Connector-Profile resource
      */
@@ -114,7 +114,7 @@ export interface ConnectorProfileArgs {
     /**
      * Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
      */
-    connectionMode: pulumi.Input<string>;
+    connectionMode: pulumi.Input<enums.appflow.ConnectorProfileConnectionMode>;
     /**
      * Connector specific configurations needed to create connector profile
      */
@@ -126,7 +126,7 @@ export interface ConnectorProfileArgs {
     /**
      * List of Saas providers that need connector profile to be created
      */
-    connectorType: pulumi.Input<string>;
+    connectorType: pulumi.Input<enums.appflow.ConnectorProfileConnectorType>;
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl.Inputs
         public Input<int> Threshold { get; set; } = null!;
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleRuleType> Type { get; set; } = null!;
 
         public SafetyRuleRuleConfigArgs()
         {

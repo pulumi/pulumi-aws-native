@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The protocol that is used by the source.
         /// </summary>
         [Output("protocol")]
-        public Output<string?> Protocol { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the source.
@@ -196,7 +196,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The protocol that is used by the source.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public Input<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.

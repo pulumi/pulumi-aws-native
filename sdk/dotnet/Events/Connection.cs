@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Events
         public Output<object> AuthParameters { get; private set; } = null!;
 
         [Output("authorizationType")]
-        public Output<string> AuthorizationType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Events.ConnectionAuthorizationType> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
         /// Description of the connection.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Events
         public Input<object> AuthParameters { get; set; } = null!;
 
         [Input("authorizationType", required: true)]
-        public Input<string> AuthorizationType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Events.ConnectionAuthorizationType> AuthorizationType { get; set; } = null!;
 
         /// <summary>
         /// Description of the connection.

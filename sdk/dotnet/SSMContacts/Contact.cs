@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.SSMContacts
         /// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSMContacts.ContactType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.SSMContacts
         /// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SSMContacts.ContactType> Type { get; set; } = null!;
 
         public ContactArgs()
         {

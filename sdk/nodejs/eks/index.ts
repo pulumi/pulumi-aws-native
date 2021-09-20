@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./addon";
 export * from "./fargateProfile";
 
+// Export enums:
+export * from "../types/enums/eks";
+
 // Import resources to register:
 import { Addon } from "./addon";
 import { FargateProfile } from "./fargateProfile";

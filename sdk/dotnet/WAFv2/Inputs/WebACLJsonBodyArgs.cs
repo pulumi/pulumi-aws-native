@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     public sealed class WebACLJsonBodyArgs : Pulumi.ResourceArgs
     {
         [Input("invalidFallbackBehavior")]
-        public Input<string>? InvalidFallbackBehavior { get; set; }
+        public Input<Pulumi.AwsNative.WAFv2.WebACLBodyParsingFallbackBehavior>? InvalidFallbackBehavior { get; set; }
 
         [Input("matchPattern", required: true)]
         public Input<Inputs.WebACLJsonMatchPatternArgs> MatchPattern { get; set; } = null!;
 
         [Input("matchScope", required: true)]
-        public Input<string> MatchScope { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.WebACLJsonMatchScope> MatchScope { get; set; } = null!;
 
         public WebACLJsonBodyArgs()
         {

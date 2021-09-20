@@ -11,6 +11,9 @@ export * from "./project";
 export * from "./recipe";
 export * from "./schedule";
 
+// Export enums:
+export * from "../types/enums/databrew";
+
 // Import resources to register:
 import { Dataset } from "./dataset";
 import { Job } from "./job";

@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// Specifies the service in which this image was registered.
         /// </summary>
-        public readonly string? Service;
+        public readonly Pulumi.AwsNative.ImageBuilder.ContainerRecipeTargetContainerRepositoryService? Service;
 
         [OutputConstructor]
         private ContainerRecipeTargetContainerRepository(
             string? repositoryName,
 
-            string? service)
+            Pulumi.AwsNative.ImageBuilder.ContainerRecipeTargetContainerRepositoryService? service)
         {
             RepositoryName = repositoryName;
             Service = service;

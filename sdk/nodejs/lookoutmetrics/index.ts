@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./alert";
 export * from "./anomalyDetector";
 
+// Export enums:
+export * from "../types/enums/lookoutmetrics";
+
 // Import resources to register:
 import { Alert } from "./alert";
 import { AnomalyDetector } from "./anomalyDetector";

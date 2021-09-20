@@ -10,6 +10,9 @@ export * from "./playbackKeyPair";
 export * from "./recordingConfiguration";
 export * from "./streamKey";
 
+// Export enums:
+export * from "../types/enums/ivs";
+
 // Import resources to register:
 import { Channel } from "./channel";
 import { PlaybackKeyPair } from "./playbackKeyPair";

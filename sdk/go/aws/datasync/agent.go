@@ -22,7 +22,7 @@ type Agent struct {
 	// The name configured for the agent. Text reference used to identify the agent in the console.
 	AgentName pulumi.StringPtrOutput `pulumi:"agentName"`
 	// The service endpoints that the agent will connect to.
-	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
+	EndpointType AgentEndpointTypeOutput `pulumi:"endpointType"`
 	// The ARNs of the security group used to protect your data transfer task subnets.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ChannelArgs', 'Channel']
@@ -16,19 +17,19 @@ __all__ = ['ChannelArgs', 'Channel']
 class ChannelArgs:
     def __init__(__self__, *,
                  authorized: Optional[pulumi.Input[bool]] = None,
-                 latency_mode: Optional[pulumi.Input[str]] = None,
+                 latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ChannelType']] = None):
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
-        :param pulumi.Input[str] latency_mode: Channel latency mode.
+        :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
         :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
-        :param pulumi.Input[str] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
+        :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
         if authorized is not None:
             pulumi.set(__self__, "authorized", authorized)
@@ -57,14 +58,14 @@ class ChannelArgs:
 
     @property
     @pulumi.getter(name="latencyMode")
-    def latency_mode(self) -> Optional[pulumi.Input[str]]:
+    def latency_mode(self) -> Optional[pulumi.Input['ChannelLatencyMode']]:
         """
         Channel latency mode.
         """
         return pulumi.get(self, "latency_mode")
 
     @latency_mode.setter
-    def latency_mode(self, value: Optional[pulumi.Input[str]]):
+    def latency_mode(self, value: Optional[pulumi.Input['ChannelLatencyMode']]):
         pulumi.set(self, "latency_mode", value)
 
     @property
@@ -105,14 +106,14 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ChannelType']]:
         """
         Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ChannelType']]):
         pulumi.set(self, "type", value)
 
 
@@ -122,11 +123,11 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized: Optional[pulumi.Input[bool]] = None,
-                 latency_mode: Optional[pulumi.Input[str]] = None,
+                 latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ChannelType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::Channel
@@ -134,11 +135,11 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
-        :param pulumi.Input[str] latency_mode: Channel latency mode.
+        :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
         :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
-        :param pulumi.Input[str] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
+        :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
         ...
     @overload
@@ -165,11 +166,11 @@ class Channel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized: Optional[pulumi.Input[bool]] = None,
-                 latency_mode: Optional[pulumi.Input[str]] = None,
+                 latency_mode: Optional[pulumi.Input['ChannelLatencyMode']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ChannelType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -250,7 +251,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="latencyMode")
-    def latency_mode(self) -> pulumi.Output[Optional[str]]:
+    def latency_mode(self) -> pulumi.Output[Optional['ChannelLatencyMode']]:
         """
         Channel latency mode.
         """
@@ -290,7 +291,7 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[Optional['ChannelType']]:
         """
         Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DBProxyTargetGroupArgs', 'DBProxyTargetGroup']
@@ -16,14 +17,14 @@ __all__ = ['DBProxyTargetGroupArgs', 'DBProxyTargetGroup']
 class DBProxyTargetGroupArgs:
     def __init__(__self__, *,
                  d_b_proxy_name: pulumi.Input[str],
-                 target_group_name: pulumi.Input[str],
+                 target_group_name: pulumi.Input['DBProxyTargetGroupTargetGroupName'],
                  connection_pool_configuration_info: Optional[pulumi.Input['DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
                  d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBProxyTargetGroup resource.
         :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy.
-        :param pulumi.Input[str] target_group_name: The identifier for the DBProxyTargetGroup
+        :param pulumi.Input['DBProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
         pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
         pulumi.set(__self__, "target_group_name", target_group_name)
@@ -48,14 +49,14 @@ class DBProxyTargetGroupArgs:
 
     @property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> pulumi.Input[str]:
+    def target_group_name(self) -> pulumi.Input['DBProxyTargetGroupTargetGroupName']:
         """
         The identifier for the DBProxyTargetGroup
         """
         return pulumi.get(self, "target_group_name")
 
     @target_group_name.setter
-    def target_group_name(self, value: pulumi.Input[str]):
+    def target_group_name(self, value: pulumi.Input['DBProxyTargetGroupTargetGroupName']):
         pulumi.set(self, "target_group_name", value)
 
     @property
@@ -95,7 +96,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
                  d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  d_b_proxy_name: Optional[pulumi.Input[str]] = None,
-                 target_group_name: Optional[pulumi.Input[str]] = None,
+                 target_group_name: Optional[pulumi.Input['DBProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         """
         Resource schema for AWS::RDS::DBProxyTargetGroup
@@ -103,7 +104,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy.
-        :param pulumi.Input[str] target_group_name: The identifier for the DBProxyTargetGroup
+        :param pulumi.Input['DBProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
         ...
     @overload
@@ -133,7 +134,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
                  d_b_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  d_b_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  d_b_proxy_name: Optional[pulumi.Input[str]] = None,
-                 target_group_name: Optional[pulumi.Input[str]] = None,
+                 target_group_name: Optional[pulumi.Input['DBProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -219,7 +220,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> pulumi.Output[str]:
+    def target_group_name(self) -> pulumi.Output['DBProxyTargetGroupTargetGroupName']:
         """
         The identifier for the DBProxyTargetGroup
         """

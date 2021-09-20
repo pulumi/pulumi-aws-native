@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./application";
 
+// Export enums:
+export * from "../types/enums/applicationinsights";
+
 // Import resources to register:
 import { Application } from "./application";
 

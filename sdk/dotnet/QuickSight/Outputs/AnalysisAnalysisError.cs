@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The message associated with the analysis error.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisAnalysisErrorType? Type;
 
         [OutputConstructor]
         private AnalysisAnalysisError(
             string? message,
 
-            string? type)
+            Pulumi.AwsNative.QuickSight.AnalysisAnalysisErrorType? type)
         {
             Message = message;
             Type = type;

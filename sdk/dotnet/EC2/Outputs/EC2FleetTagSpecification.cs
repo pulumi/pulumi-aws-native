@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class EC2FleetTagSpecification
     {
-        public readonly string? ResourceType;
+        public readonly Pulumi.AwsNative.EC2.EC2FleetTagSpecificationResourceType? ResourceType;
         public readonly ImmutableArray<Outputs.EC2FleetTag> Tags;
 
         [OutputConstructor]
         private EC2FleetTagSpecification(
-            string? resourceType,
+            Pulumi.AwsNative.EC2.EC2FleetTagSpecificationResourceType? resourceType,
 
             ImmutableArray<Outputs.EC2FleetTag> tags)
         {

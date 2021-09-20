@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         /// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
         /// </summary>
         [Input("atime")]
-        public Input<string>? Atime { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsAtime>? Atime { get; set; }
 
         /// <summary>
         /// A value that limits the bandwidth used by AWS DataSync.
@@ -31,73 +31,73 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         /// The group ID (GID) of the file's owners.
         /// </summary>
         [Input("gid")]
-        public Input<string>? Gid { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsGid>? Gid { get; set; }
 
         /// <summary>
         /// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         /// </summary>
         [Input("logLevel")]
-        public Input<string>? LogLevel { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsLogLevel>? LogLevel { get; set; }
 
         /// <summary>
         /// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
         /// </summary>
         [Input("mtime")]
-        public Input<string>? Mtime { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsMtime>? Mtime { get; set; }
 
         /// <summary>
         /// A value that determines whether files at the destination should be overwritten or preserved when copying files.
         /// </summary>
         [Input("overwriteMode")]
-        public Input<string>? OverwriteMode { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsOverwriteMode>? OverwriteMode { get; set; }
 
         /// <summary>
         /// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
         /// </summary>
         [Input("posixPermissions")]
-        public Input<string>? PosixPermissions { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsPosixPermissions>? PosixPermissions { get; set; }
 
         /// <summary>
         /// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
         /// </summary>
         [Input("preserveDeletedFiles")]
-        public Input<string>? PreserveDeletedFiles { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsPreserveDeletedFiles>? PreserveDeletedFiles { get; set; }
 
         /// <summary>
         /// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
         /// </summary>
         [Input("preserveDevices")]
-        public Input<string>? PreserveDevices { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsPreserveDevices>? PreserveDevices { get; set; }
 
         /// <summary>
         /// A value that determines which components of the SMB security descriptor are copied during transfer.
         /// </summary>
         [Input("securityDescriptorCopyFlags")]
-        public Input<string>? SecurityDescriptorCopyFlags { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsSecurityDescriptorCopyFlags>? SecurityDescriptorCopyFlags { get; set; }
 
         /// <summary>
         /// A value that determines whether tasks should be queued before executing the tasks.
         /// </summary>
         [Input("taskQueueing")]
-        public Input<string>? TaskQueueing { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsTaskQueueing>? TaskQueueing { get; set; }
 
         /// <summary>
         /// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
         /// </summary>
         [Input("transferMode")]
-        public Input<string>? TransferMode { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsTransferMode>? TransferMode { get; set; }
 
         /// <summary>
         /// The user ID (UID) of the file's owner.
         /// </summary>
         [Input("uid")]
-        public Input<string>? Uid { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsUid>? Uid { get; set; }
 
         /// <summary>
         /// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         /// </summary>
         [Input("verifyMode")]
-        public Input<string>? VerifyMode { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsVerifyMode>? VerifyMode { get; set; }
 
         public TaskOptionsArgs()
         {

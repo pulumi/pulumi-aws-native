@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./costCategory";
 
+// Export enums:
+export * from "../types/enums/ce";
+
 // Import resources to register:
 import { CostCategory } from "./costCategory";
 

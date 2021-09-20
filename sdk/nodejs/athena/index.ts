@@ -10,6 +10,9 @@ export * from "./namedQuery";
 export * from "./preparedStatement";
 export * from "./workGroup";
 
+// Export enums:
+export * from "../types/enums/athena";
+
 // Import resources to register:
 import { DataCatalog } from "./dataCatalog";
 import { NamedQuery } from "./namedQuery";

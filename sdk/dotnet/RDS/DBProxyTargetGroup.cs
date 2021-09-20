@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.RDS
         /// The identifier for the DBProxyTargetGroup
         /// </summary>
         [Output("targetGroupName")]
-        public Output<string> TargetGroupName { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RDS.DBProxyTargetGroupTargetGroupName> TargetGroupName { get; private set; } = null!;
 
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.RDS
         /// The identifier for the DBProxyTargetGroup
         /// </summary>
         [Input("targetGroupName", required: true)]
-        public Input<string> TargetGroupName { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RDS.DBProxyTargetGroupTargetGroupName> TargetGroupName { get; set; } = null!;
 
         public DBProxyTargetGroupArgs()
         {

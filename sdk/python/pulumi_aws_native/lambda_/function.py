@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FunctionArgs', 'Function']
@@ -28,7 +29,7 @@ class FunctionArgs:
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
-                 package_type: Optional[pulumi.Input[str]] = None,
+                 package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]] = None,
@@ -50,7 +51,7 @@ class FunctionArgs:
         :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
-        :param pulumi.Input[str] package_type: PackageType.
+        :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]] tags: A list of tags to apply to the function.
@@ -255,14 +256,14 @@ class FunctionArgs:
 
     @property
     @pulumi.getter(name="packageType")
-    def package_type(self) -> Optional[pulumi.Input[str]]:
+    def package_type(self) -> Optional[pulumi.Input['FunctionPackageType']]:
         """
         PackageType.
         """
         return pulumi.get(self, "package_type")
 
     @package_type.setter
-    def package_type(self, value: Optional[pulumi.Input[str]]):
+    def package_type(self, value: Optional[pulumi.Input['FunctionPackageType']]):
         pulumi.set(self, "package_type", value)
 
     @property
@@ -355,7 +356,7 @@ class Function(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
-                 package_type: Optional[pulumi.Input[str]] = None,
+                 package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -381,7 +382,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
-        :param pulumi.Input[str] package_type: PackageType.
+        :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
@@ -426,7 +427,7 @@ class Function(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
-                 package_type: Optional[pulumi.Input[str]] = None,
+                 package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -622,7 +623,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="packageType")
-    def package_type(self) -> pulumi.Output[Optional[str]]:
+    def package_type(self) -> pulumi.Output[Optional['FunctionPackageType']]:
         """
         PackageType.
         """

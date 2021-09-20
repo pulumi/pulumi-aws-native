@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +51,7 @@ export class LocationS3 extends pulumi.CustomResource {
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
      */
-    public readonly s3StorageClass!: pulumi.Output<string | undefined>;
+    public readonly s3StorageClass!: pulumi.Output<enums.datasync.LocationS3S3StorageClass | undefined>;
     /**
      * A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
      */
@@ -113,7 +113,7 @@ export interface LocationS3Args {
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
      */
-    s3StorageClass?: pulumi.Input<string>;
+    s3StorageClass?: pulumi.Input<enums.datasync.LocationS3S3StorageClass>;
     /**
      * A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
      */

@@ -408,7 +408,7 @@ func (o AssociationTargetArrayOutput) Index(i pulumi.IntInput) AssociationTarget
 
 type DocumentAttachmentsSource struct {
 	// The key of a key-value pair that identifies the location of an attachment to a document.
-	Key *string `pulumi:"key"`
+	Key *DocumentAttachmentsSourceKey `pulumi:"key"`
 	// The name of the document attachment file.
 	Name *string `pulumi:"name"`
 	// The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
@@ -428,7 +428,7 @@ type DocumentAttachmentsSourceInput interface {
 
 type DocumentAttachmentsSourceArgs struct {
 	// The key of a key-value pair that identifies the location of an attachment to a document.
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Key DocumentAttachmentsSourceKeyPtrInput `pulumi:"key"`
 	// The name of the document attachment file.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
@@ -487,8 +487,8 @@ func (o DocumentAttachmentsSourceOutput) ToDocumentAttachmentsSourceOutputWithCo
 }
 
 // The key of a key-value pair that identifies the location of an attachment to a document.
-func (o DocumentAttachmentsSourceOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DocumentAttachmentsSource) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o DocumentAttachmentsSourceOutput) Key() DocumentAttachmentsSourceKeyPtrOutput {
+	return o.ApplyT(func(v DocumentAttachmentsSource) *DocumentAttachmentsSourceKey { return v.Key }).(DocumentAttachmentsSourceKeyPtrOutput)
 }
 
 // The name of the document attachment file.

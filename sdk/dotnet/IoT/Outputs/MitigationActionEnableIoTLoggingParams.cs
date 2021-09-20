@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// <summary>
         ///  Specifies which types of information are logged.
         /// </summary>
-        public readonly string LogLevel;
+        public readonly Pulumi.AwsNative.IoT.MitigationActionEnableIoTLoggingParamsLogLevel LogLevel;
         /// <summary>
         ///  The ARN of the IAM role used for logging.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private MitigationActionEnableIoTLoggingParams(
-            string logLevel,
+            Pulumi.AwsNative.IoT.MitigationActionEnableIoTLoggingParamsLogLevel logLevel,
 
             string roleArnForLogging)
         {

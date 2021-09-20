@@ -24,7 +24,7 @@ type RoutingControl struct {
 	// The Amazon Resource Name (ARN) of the routing control.
 	RoutingControlArn pulumi.StringOutput `pulumi:"routingControlArn"`
 	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status RoutingControlStatusOutput `pulumi:"status"`
 }
 
 // NewRoutingControl registers a new resource with the given unique name, arguments, and options.

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of a modelpackage group job.
         /// </summary>
         [Output("modelPackageGroupStatus")]
-        public Output<string> ModelPackageGroupStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SageMaker.ModelPackageGroupModelPackageGroupStatus> ModelPackageGroupStatus { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         /// </summary>
         [Input("untrustedArtifactOnDeployment", required: true)]
-        public Input<string> UntrustedArtifactOnDeployment { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment> UntrustedArtifactOnDeployment { get; set; } = null!;
 
         public CodeSigningConfigCodeSigningPoliciesArgs()
         {

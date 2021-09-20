@@ -34,7 +34,7 @@ type FlowOutput struct {
 	// The port to use when content is distributed to this output.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The protocol that is used by the source or output.
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	Protocol FlowOutputProtocolOutput `pulumi:"protocol"`
 	// The remote ID for the Zixi-pull stream.
 	RemoteId pulumi.StringPtrOutput `pulumi:"remoteId"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -107,7 +107,7 @@ type flowOutputArgs struct {
 	// The port to use when content is distributed to this output.
 	Port *int `pulumi:"port"`
 	// The protocol that is used by the source or output.
-	Protocol string `pulumi:"protocol"`
+	Protocol FlowOutputProtocol `pulumi:"protocol"`
 	// The remote ID for the Zixi-pull stream.
 	RemoteId *string `pulumi:"remoteId"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -137,7 +137,7 @@ type FlowOutputArgs struct {
 	// The port to use when content is distributed to this output.
 	Port pulumi.IntPtrInput
 	// The protocol that is used by the source or output.
-	Protocol pulumi.StringInput
+	Protocol FlowOutputProtocolInput
 	// The remote ID for the Zixi-pull stream.
 	RemoteId pulumi.StringPtrInput
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +74,7 @@ export class WirelessDevice extends pulumi.CustomResource {
     /**
      * Wireless device type, currently only Sidewalk and LoRa
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.iotwireless.WirelessDeviceType>;
 
     /**
      * Create a WirelessDevice resource with the given unique name, arguments, and options.
@@ -157,5 +157,5 @@ export interface WirelessDeviceArgs {
     /**
      * Wireless device type, currently only Sidewalk and LoRa
      */
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.iotwireless.WirelessDeviceType>;
 }

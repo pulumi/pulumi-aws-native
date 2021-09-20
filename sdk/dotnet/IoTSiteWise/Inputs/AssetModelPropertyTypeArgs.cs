@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         public Input<Inputs.AssetModelTransformArgs>? Transform { get; set; }
 
         [Input("typeName", required: true)]
-        public Input<string> TypeName { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoTSiteWise.AssetModelTypeName> TypeName { get; set; } = null!;
 
         public AssetModelPropertyTypeArgs()
         {

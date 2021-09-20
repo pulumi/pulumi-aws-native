@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     public sealed class FleetCertificateConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("certificateType", required: true)]
-        public Input<string> CertificateType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.GameLift.FleetCertificateConfigurationCertificateType> CertificateType { get; set; } = null!;
 
         public FleetCertificateConfigurationArgs()
         {

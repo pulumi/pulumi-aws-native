@@ -210,9 +210,9 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentModule
 
 // Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfiguration struct {
-	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	Enabled               *bool   `pulumi:"enabled"`
-	LogLevel              *string `pulumi:"logLevel"`
+	CloudWatchLogGroupArn *string                  `pulumi:"cloudWatchLogGroupArn"`
+	Enabled               *bool                    `pulumi:"enabled"`
+	LogLevel              *EnvironmentLoggingLevel `pulumi:"logLevel"`
 }
 
 // EnvironmentModuleLoggingConfigurationInput is an input type that accepts EnvironmentModuleLoggingConfigurationArgs and EnvironmentModuleLoggingConfigurationOutput values.
@@ -228,9 +228,9 @@ type EnvironmentModuleLoggingConfigurationInput interface {
 
 // Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfigurationArgs struct {
-	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
-	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
-	LogLevel              pulumi.StringPtrInput `pulumi:"logLevel"`
+	CloudWatchLogGroupArn pulumi.StringPtrInput           `pulumi:"cloudWatchLogGroupArn"`
+	Enabled               pulumi.BoolPtrInput             `pulumi:"enabled"`
+	LogLevel              EnvironmentLoggingLevelPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentModuleLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -319,8 +319,8 @@ func (o EnvironmentModuleLoggingConfigurationOutput) Enabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-func (o EnvironmentModuleLoggingConfigurationOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+func (o EnvironmentModuleLoggingConfigurationOutput) LogLevel() EnvironmentLoggingLevelPtrOutput {
+	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *EnvironmentLoggingLevel { return v.LogLevel }).(EnvironmentLoggingLevelPtrOutput)
 }
 
 type EnvironmentModuleLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -365,13 +365,13 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o EnvironmentModuleLoggingConfigurationPtrOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *string {
+func (o EnvironmentModuleLoggingConfigurationPtrOutput) LogLevel() EnvironmentLoggingLevelPtrOutput {
+	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *EnvironmentLoggingLevel {
 		if v == nil {
 			return nil
 		}
 		return v.LogLevel
-	}).(pulumi.StringPtrOutput)
+	}).(EnvironmentLoggingLevelPtrOutput)
 }
 
 // Configures the network resources of the environment.

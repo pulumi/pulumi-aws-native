@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         /// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
         /// </summary>
         [Input("filterType")]
-        public Input<string>? FilterType { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.TaskFilterRuleFilterType>? FilterType { get; set; }
 
         /// <summary>
         /// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".

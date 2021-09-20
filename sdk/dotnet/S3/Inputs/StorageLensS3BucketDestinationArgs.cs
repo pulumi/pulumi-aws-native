@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
         /// </summary>
         [Input("format", required: true)]
-        public Input<string> Format { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.StorageLensS3BucketDestinationFormat> Format { get; set; } = null!;
 
         /// <summary>
         /// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
         /// </summary>
         [Input("outputSchemaVersion", required: true)]
-        public Input<string> OutputSchemaVersion { get; set; } = null!;
+        public Input<Pulumi.AwsNative.S3.StorageLensS3BucketDestinationOutputSchemaVersion> OutputSchemaVersion { get; set; } = null!;
 
         /// <summary>
         /// The prefix to use for Amazon S3 Storage Lens export.

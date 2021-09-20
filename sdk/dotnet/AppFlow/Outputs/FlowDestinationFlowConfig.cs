@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// <summary>
         /// Destination connector type
         /// </summary>
-        public readonly string ConnectorType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowConnectorType ConnectorType;
         /// <summary>
         /// Destination connector details
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         private FlowDestinationFlowConfig(
             string? connectorProfileName,
 
-            string connectorType,
+            Pulumi.AwsNative.AppFlow.FlowConnectorType connectorType,
 
             Outputs.FlowDestinationConnectorProperties destinationConnectorProperties)
         {

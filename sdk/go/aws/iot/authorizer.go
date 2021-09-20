@@ -15,14 +15,14 @@ import (
 type Authorizer struct {
 	pulumi.CustomResourceState
 
-	Arn                    pulumi.StringOutput      `pulumi:"arn"`
-	AuthorizerFunctionArn  pulumi.StringOutput      `pulumi:"authorizerFunctionArn"`
-	AuthorizerName         pulumi.StringPtrOutput   `pulumi:"authorizerName"`
-	SigningDisabled        pulumi.BoolPtrOutput     `pulumi:"signingDisabled"`
-	Status                 pulumi.StringPtrOutput   `pulumi:"status"`
-	Tags                   AuthorizerTagArrayOutput `pulumi:"tags"`
-	TokenKeyName           pulumi.StringPtrOutput   `pulumi:"tokenKeyName"`
-	TokenSigningPublicKeys pulumi.AnyOutput         `pulumi:"tokenSigningPublicKeys"`
+	Arn                    pulumi.StringOutput       `pulumi:"arn"`
+	AuthorizerFunctionArn  pulumi.StringOutput       `pulumi:"authorizerFunctionArn"`
+	AuthorizerName         pulumi.StringPtrOutput    `pulumi:"authorizerName"`
+	SigningDisabled        pulumi.BoolPtrOutput      `pulumi:"signingDisabled"`
+	Status                 AuthorizerStatusPtrOutput `pulumi:"status"`
+	Tags                   AuthorizerTagArrayOutput  `pulumi:"tags"`
+	TokenKeyName           pulumi.StringPtrOutput    `pulumi:"tokenKeyName"`
+	TokenSigningPublicKeys pulumi.AnyOutput          `pulumi:"tokenSigningPublicKeys"`
 }
 
 // NewAuthorizer registers a new resource with the given unique name, arguments, and options.
@@ -67,13 +67,13 @@ func (AuthorizerState) ElementType() reflect.Type {
 }
 
 type authorizerArgs struct {
-	AuthorizerFunctionArn  string          `pulumi:"authorizerFunctionArn"`
-	AuthorizerName         *string         `pulumi:"authorizerName"`
-	SigningDisabled        *bool           `pulumi:"signingDisabled"`
-	Status                 *string         `pulumi:"status"`
-	Tags                   []AuthorizerTag `pulumi:"tags"`
-	TokenKeyName           *string         `pulumi:"tokenKeyName"`
-	TokenSigningPublicKeys interface{}     `pulumi:"tokenSigningPublicKeys"`
+	AuthorizerFunctionArn  string            `pulumi:"authorizerFunctionArn"`
+	AuthorizerName         *string           `pulumi:"authorizerName"`
+	SigningDisabled        *bool             `pulumi:"signingDisabled"`
+	Status                 *AuthorizerStatus `pulumi:"status"`
+	Tags                   []AuthorizerTag   `pulumi:"tags"`
+	TokenKeyName           *string           `pulumi:"tokenKeyName"`
+	TokenSigningPublicKeys interface{}       `pulumi:"tokenSigningPublicKeys"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
@@ -81,7 +81,7 @@ type AuthorizerArgs struct {
 	AuthorizerFunctionArn  pulumi.StringInput
 	AuthorizerName         pulumi.StringPtrInput
 	SigningDisabled        pulumi.BoolPtrInput
-	Status                 pulumi.StringPtrInput
+	Status                 AuthorizerStatusPtrInput
 	Tags                   AuthorizerTagArrayInput
 	TokenKeyName           pulumi.StringPtrInput
 	TokenSigningPublicKeys pulumi.Input

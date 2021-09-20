@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// <summary>
         /// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
         /// </summary>
-        public readonly string? Atime;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsAtime? Atime;
         /// <summary>
         /// A value that limits the bandwidth used by AWS DataSync.
         /// </summary>
@@ -27,81 +27,81 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// <summary>
         /// The group ID (GID) of the file's owners.
         /// </summary>
-        public readonly string? Gid;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsGid? Gid;
         /// <summary>
         /// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         /// </summary>
-        public readonly string? LogLevel;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsLogLevel? LogLevel;
         /// <summary>
         /// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
         /// </summary>
-        public readonly string? Mtime;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsMtime? Mtime;
         /// <summary>
         /// A value that determines whether files at the destination should be overwritten or preserved when copying files.
         /// </summary>
-        public readonly string? OverwriteMode;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsOverwriteMode? OverwriteMode;
         /// <summary>
         /// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
         /// </summary>
-        public readonly string? PosixPermissions;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsPosixPermissions? PosixPermissions;
         /// <summary>
         /// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
         /// </summary>
-        public readonly string? PreserveDeletedFiles;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsPreserveDeletedFiles? PreserveDeletedFiles;
         /// <summary>
         /// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
         /// </summary>
-        public readonly string? PreserveDevices;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsPreserveDevices? PreserveDevices;
         /// <summary>
         /// A value that determines which components of the SMB security descriptor are copied during transfer.
         /// </summary>
-        public readonly string? SecurityDescriptorCopyFlags;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsSecurityDescriptorCopyFlags? SecurityDescriptorCopyFlags;
         /// <summary>
         /// A value that determines whether tasks should be queued before executing the tasks.
         /// </summary>
-        public readonly string? TaskQueueing;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsTaskQueueing? TaskQueueing;
         /// <summary>
         /// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
         /// </summary>
-        public readonly string? TransferMode;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsTransferMode? TransferMode;
         /// <summary>
         /// The user ID (UID) of the file's owner.
         /// </summary>
-        public readonly string? Uid;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsUid? Uid;
         /// <summary>
         /// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         /// </summary>
-        public readonly string? VerifyMode;
+        public readonly Pulumi.AwsNative.DataSync.TaskOptionsVerifyMode? VerifyMode;
 
         [OutputConstructor]
         private TaskOptions(
-            string? atime,
+            Pulumi.AwsNative.DataSync.TaskOptionsAtime? atime,
 
             int? bytesPerSecond,
 
-            string? gid,
+            Pulumi.AwsNative.DataSync.TaskOptionsGid? gid,
 
-            string? logLevel,
+            Pulumi.AwsNative.DataSync.TaskOptionsLogLevel? logLevel,
 
-            string? mtime,
+            Pulumi.AwsNative.DataSync.TaskOptionsMtime? mtime,
 
-            string? overwriteMode,
+            Pulumi.AwsNative.DataSync.TaskOptionsOverwriteMode? overwriteMode,
 
-            string? posixPermissions,
+            Pulumi.AwsNative.DataSync.TaskOptionsPosixPermissions? posixPermissions,
 
-            string? preserveDeletedFiles,
+            Pulumi.AwsNative.DataSync.TaskOptionsPreserveDeletedFiles? preserveDeletedFiles,
 
-            string? preserveDevices,
+            Pulumi.AwsNative.DataSync.TaskOptionsPreserveDevices? preserveDevices,
 
-            string? securityDescriptorCopyFlags,
+            Pulumi.AwsNative.DataSync.TaskOptionsSecurityDescriptorCopyFlags? securityDescriptorCopyFlags,
 
-            string? taskQueueing,
+            Pulumi.AwsNative.DataSync.TaskOptionsTaskQueueing? taskQueueing,
 
-            string? transferMode,
+            Pulumi.AwsNative.DataSync.TaskOptionsTransferMode? transferMode,
 
-            string? uid,
+            Pulumi.AwsNative.DataSync.TaskOptionsUid? uid,
 
-            string? verifyMode)
+            Pulumi.AwsNative.DataSync.TaskOptionsVerifyMode? verifyMode)
         {
             Atime = atime;
             BytesPerSecond = bytesPerSecond;

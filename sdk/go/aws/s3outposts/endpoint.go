@@ -16,7 +16,7 @@ type Endpoint struct {
 	pulumi.CustomResourceState
 
 	// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
-	AccessType pulumi.StringPtrOutput `pulumi:"accessType"`
+	AccessType EndpointAccessTypePtrOutput `pulumi:"accessType"`
 	// The Amazon Resource Name (ARN) of the endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The VPC CIDR committed by this endpoint.
@@ -30,8 +30,8 @@ type Endpoint struct {
 	// The id of the customer outpost on which the bucket resides.
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
 	// The ID of the security group to use with the endpoint.
-	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
-	Status          pulumi.StringOutput `pulumi:"status"`
+	SecurityGroupId pulumi.StringOutput  `pulumi:"securityGroupId"`
+	Status          EndpointStatusOutput `pulumi:"status"`
 	// The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 }
@@ -85,7 +85,7 @@ func (EndpointState) ElementType() reflect.Type {
 
 type endpointArgs struct {
 	// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
-	AccessType *string `pulumi:"accessType"`
+	AccessType *EndpointAccessType `pulumi:"accessType"`
 	// The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// The id of the customer outpost on which the bucket resides.
@@ -99,7 +99,7 @@ type endpointArgs struct {
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
 	// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
-	AccessType pulumi.StringPtrInput
+	AccessType EndpointAccessTypePtrInput
 	// The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// The id of the customer outpost on which the bucket resides.

@@ -435,8 +435,8 @@ type BucketRule struct {
 	// The container for the filter of the lifecycle rule.
 	Filter interface{} `pulumi:"filter"`
 	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
-	Id     *string `pulumi:"id"`
-	Status *string `pulumi:"status"`
+	Id     *string           `pulumi:"id"`
+	Status *BucketRuleStatus `pulumi:"status"`
 }
 
 // BucketRuleInput is an input type that accepts BucketRuleArgs and BucketRuleOutput values.
@@ -461,8 +461,8 @@ type BucketRuleArgs struct {
 	// The container for the filter of the lifecycle rule.
 	Filter pulumi.Input `pulumi:"filter"`
 	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
-	Id     pulumi.StringPtrInput `pulumi:"id"`
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	Id     pulumi.StringPtrInput    `pulumi:"id"`
+	Status BucketRuleStatusPtrInput `pulumi:"status"`
 }
 
 func (BucketRuleArgs) ElementType() reflect.Type {
@@ -542,8 +542,8 @@ func (o BucketRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-func (o BucketRuleOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BucketRule) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o BucketRuleOutput) Status() BucketRuleStatusPtrOutput {
+	return o.ApplyT(func(v BucketRule) *BucketRuleStatus { return v.Status }).(BucketRuleStatusPtrOutput)
 }
 
 type BucketRuleArrayOutput struct{ *pulumi.OutputState }

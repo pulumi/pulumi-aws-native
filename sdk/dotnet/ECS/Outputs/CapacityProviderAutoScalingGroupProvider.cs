@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
     {
         public readonly string AutoScalingGroupArn;
         public readonly Outputs.CapacityProviderManagedScaling? ManagedScaling;
-        public readonly string? ManagedTerminationProtection;
+        public readonly Pulumi.AwsNative.ECS.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection? ManagedTerminationProtection;
 
         [OutputConstructor]
         private CapacityProviderAutoScalingGroupProvider(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
             Outputs.CapacityProviderManagedScaling? managedScaling,
 
-            string? managedTerminationProtection)
+            Pulumi.AwsNative.ECS.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection? managedTerminationProtection)
         {
             AutoScalingGroupArn = autoScalingGroupArn;
             ManagedScaling = managedScaling;

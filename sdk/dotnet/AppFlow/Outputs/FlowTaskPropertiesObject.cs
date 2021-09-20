@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowTaskPropertiesObject
     {
-        public readonly string Key;
+        public readonly Pulumi.AwsNative.AppFlow.FlowOperatorPropertiesKeys Key;
         public readonly string Value;
 
         [OutputConstructor]
         private FlowTaskPropertiesObject(
-            string key,
+            Pulumi.AwsNative.AppFlow.FlowOperatorPropertiesKeys key,
 
             string value)
         {

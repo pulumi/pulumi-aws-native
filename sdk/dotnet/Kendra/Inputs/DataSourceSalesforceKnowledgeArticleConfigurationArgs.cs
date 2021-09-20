@@ -21,10 +21,10 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         [Input("includedStates", required: true)]
-        private InputList<string>? _includedStates;
-        public InputList<string> IncludedStates
+        private InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState>? _includedStates;
+        public InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState> IncludedStates
         {
-            get => _includedStates ?? (_includedStates = new InputList<string>());
+            get => _includedStates ?? (_includedStates = new InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState>());
             set => _includedStates = value;
         }
 

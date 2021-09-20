@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MapArgs', 'Map']
@@ -17,7 +18,7 @@ class MapArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['MapMapConfigurationArgs'],
                  map_name: pulumi.Input[str],
-                 pricing_plan: pulumi.Input[str],
+                 pricing_plan: pulumi.Input['MapPricingPlan'],
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Map resource.
@@ -48,11 +49,11 @@ class MapArgs:
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input[str]:
+    def pricing_plan(self) -> pulumi.Input['MapPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input[str]):
+    def pricing_plan(self, value: pulumi.Input['MapPricingPlan']):
         pulumi.set(self, "pricing_plan", value)
 
     @property
@@ -73,7 +74,7 @@ class Map(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['MapMapConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
                  __props__=None):
         """
         Definition of AWS::Location::Map Resource Type
@@ -108,7 +109,7 @@ class Map(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['MapMapConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -206,7 +207,7 @@ class Map(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output[str]:
+    def pricing_plan(self) -> pulumi.Output['MapPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @property

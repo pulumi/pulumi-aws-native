@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +74,7 @@ export class FlowSource extends pulumi.CustomResource {
     /**
      * The protocol that is used by the source.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    public readonly protocol!: pulumi.Output<enums.mediaconnect.FlowSourceProtocol | undefined>;
     /**
      * The ARN of the source.
      */
@@ -185,7 +185,7 @@ export interface FlowSourceArgs {
     /**
      * The protocol that is used by the source.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<enums.mediaconnect.FlowSourceProtocol>;
     /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */

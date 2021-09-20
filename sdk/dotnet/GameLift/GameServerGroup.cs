@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.GameLift
         /// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         /// </summary>
         [Output("balancingStrategy")]
-        public Output<string?> BalancingStrategy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GameLift.GameServerGroupBalancingStrategy?> BalancingStrategy { get; private set; } = null!;
 
         /// <summary>
         /// The type of delete to perform.
         /// </summary>
         [Output("deleteOption")]
-        public Output<string?> DeleteOption { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GameLift.GameServerGroupDeleteOption?> DeleteOption { get; private set; } = null!;
 
         /// <summary>
         /// A generated unique ID for the game server group.
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A flag that indicates whether instances in the game server group are protected from early termination.
         /// </summary>
         [Output("gameServerProtectionPolicy")]
-        public Output<string?> GameServerProtectionPolicy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GameLift.GameServerGroupGameServerProtectionPolicy?> GameServerProtectionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A set of EC2 instance types to use when creating instances in the group.
@@ -154,13 +154,13 @@ namespace Pulumi.AwsNative.GameLift
         /// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         /// </summary>
         [Input("balancingStrategy")]
-        public Input<string>? BalancingStrategy { get; set; }
+        public Input<Pulumi.AwsNative.GameLift.GameServerGroupBalancingStrategy>? BalancingStrategy { get; set; }
 
         /// <summary>
         /// The type of delete to perform.
         /// </summary>
         [Input("deleteOption")]
-        public Input<string>? DeleteOption { get; set; }
+        public Input<Pulumi.AwsNative.GameLift.GameServerGroupDeleteOption>? DeleteOption { get; set; }
 
         /// <summary>
         /// An identifier for the new game server group.
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A flag that indicates whether instances in the game server group are protected from early termination.
         /// </summary>
         [Input("gameServerProtectionPolicy")]
-        public Input<string>? GameServerProtectionPolicy { get; set; }
+        public Input<Pulumi.AwsNative.GameLift.GameServerGroupGameServerProtectionPolicy>? GameServerProtectionPolicy { get; set; }
 
         [Input("instanceDefinitions", required: true)]
         private InputList<Inputs.GameServerGroupInstanceDefinitionArgs>? _instanceDefinitions;

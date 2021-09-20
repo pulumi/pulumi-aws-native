@@ -22,14 +22,14 @@ type Index struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Document metadata configurations
 	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationArrayOutput `pulumi:"documentMetadataConfigurations"`
-	Edition                        pulumi.StringOutput                           `pulumi:"edition"`
+	Edition                        IndexEditionOutput                            `pulumi:"edition"`
 	Name                           pulumi.StringOutput                           `pulumi:"name"`
 	RoleArn                        pulumi.StringOutput                           `pulumi:"roleArn"`
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// Tags for labeling the index
 	Tags                    IndexTagArrayOutput                    `pulumi:"tags"`
-	UserContextPolicy       pulumi.StringPtrOutput                 `pulumi:"userContextPolicy"`
+	UserContextPolicy       IndexUserContextPolicyPtrOutput        `pulumi:"userContextPolicy"`
 	UserTokenConfigurations IndexUserTokenConfigurationArrayOutput `pulumi:"userTokenConfigurations"`
 }
 
@@ -87,14 +87,14 @@ type indexArgs struct {
 	Description *string `pulumi:"description"`
 	// Document metadata configurations
 	DocumentMetadataConfigurations []IndexDocumentMetadataConfiguration `pulumi:"documentMetadataConfigurations"`
-	Edition                        string                               `pulumi:"edition"`
+	Edition                        IndexEdition                         `pulumi:"edition"`
 	Name                           string                               `pulumi:"name"`
 	RoleArn                        string                               `pulumi:"roleArn"`
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// Tags for labeling the index
 	Tags                    []IndexTag                    `pulumi:"tags"`
-	UserContextPolicy       *string                       `pulumi:"userContextPolicy"`
+	UserContextPolicy       *IndexUserContextPolicy       `pulumi:"userContextPolicy"`
 	UserTokenConfigurations []IndexUserTokenConfiguration `pulumi:"userTokenConfigurations"`
 }
 
@@ -106,14 +106,14 @@ type IndexArgs struct {
 	Description pulumi.StringPtrInput
 	// Document metadata configurations
 	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationArrayInput
-	Edition                        pulumi.StringInput
+	Edition                        IndexEditionInput
 	Name                           pulumi.StringInput
 	RoleArn                        pulumi.StringInput
 	// Server side encryption configuration
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput
 	// Tags for labeling the index
 	Tags                    IndexTagArrayInput
-	UserContextPolicy       pulumi.StringPtrInput
+	UserContextPolicy       IndexUserContextPolicyPtrInput
 	UserTokenConfigurations IndexUserTokenConfigurationArrayInput
 }
 

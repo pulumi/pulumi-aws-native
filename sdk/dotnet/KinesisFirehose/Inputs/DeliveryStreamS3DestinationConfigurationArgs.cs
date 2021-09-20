@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
         [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat>? CompressionFormat { get; set; }
 
         [Input("encryptionConfiguration")]
         public Input<Inputs.DeliveryStreamEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }

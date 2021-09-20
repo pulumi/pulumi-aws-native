@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.WAFv2
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("iPAddressVersion")]
-        public Output<string> IPAddressVersion { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion> IPAddressVersion { get; private set; } = null!;
 
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         [Output("scope")]
-        public Output<string> Scope { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.WAFv2.IPSetScope> Scope { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.IPSetTag>> Tags { get; private set; } = null!;
@@ -100,13 +100,13 @@ namespace Pulumi.AwsNative.WAFv2
         public Input<string>? Description { get; set; }
 
         [Input("iPAddressVersion", required: true)]
-        public Input<string> IPAddressVersion { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.IPSetIPAddressVersion> IPAddressVersion { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("scope", required: true)]
-        public Input<string> Scope { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.IPSetScope> Scope { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.IPSetTagArgs>? _tags;

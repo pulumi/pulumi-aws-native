@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DestinationArgs', 'Destination']
@@ -16,7 +17,7 @@ __all__ = ['DestinationArgs', 'Destination']
 class DestinationArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[str],
-                 expression_type: pulumi.Input[str],
+                 expression_type: pulumi.Input['DestinationExpressionType'],
                  name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -24,7 +25,7 @@ class DestinationArgs:
         """
         The set of arguments for constructing a Destination resource.
         :param pulumi.Input[str] expression: Destination expression
-        :param pulumi.Input[str] expression_type: Must be RuleName
+        :param pulumi.Input['DestinationExpressionType'] expression_type: Must be RuleName
         :param pulumi.Input[str] name: Unique name of destination
         :param pulumi.Input[str] role_arn: AWS role ARN that grants access
         :param pulumi.Input[str] description: Destination description
@@ -53,14 +54,14 @@ class DestinationArgs:
 
     @property
     @pulumi.getter(name="expressionType")
-    def expression_type(self) -> pulumi.Input[str]:
+    def expression_type(self) -> pulumi.Input['DestinationExpressionType']:
         """
         Must be RuleName
         """
         return pulumi.get(self, "expression_type")
 
     @expression_type.setter
-    def expression_type(self, value: pulumi.Input[str]):
+    def expression_type(self, value: pulumi.Input['DestinationExpressionType']):
         pulumi.set(self, "expression_type", value)
 
     @property
@@ -119,7 +120,7 @@ class Destination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expression: Optional[pulumi.Input[str]] = None,
-                 expression_type: Optional[pulumi.Input[str]] = None,
+                 expression_type: Optional[pulumi.Input['DestinationExpressionType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]]] = None,
@@ -131,7 +132,7 @@ class Destination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Destination description
         :param pulumi.Input[str] expression: Destination expression
-        :param pulumi.Input[str] expression_type: Must be RuleName
+        :param pulumi.Input['DestinationExpressionType'] expression_type: Must be RuleName
         :param pulumi.Input[str] name: Unique name of destination
         :param pulumi.Input[str] role_arn: AWS role ARN that grants access
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
@@ -162,7 +163,7 @@ class Destination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expression: Optional[pulumi.Input[str]] = None,
-                 expression_type: Optional[pulumi.Input[str]] = None,
+                 expression_type: Optional[pulumi.Input['DestinationExpressionType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]]] = None,
@@ -250,7 +251,7 @@ class Destination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expressionType")
-    def expression_type(self) -> pulumi.Output[str]:
+    def expression_type(self) -> pulumi.Output['DestinationExpressionType']:
         """
         Must be RuleName
         """

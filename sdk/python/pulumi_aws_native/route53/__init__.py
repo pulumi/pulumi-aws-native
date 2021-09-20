@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .dnssec import *
 from .health_check import *
 from .hosted_zone import *

@@ -22,7 +22,7 @@ type ResourceAssociation struct {
 	Resource    pulumi.StringOutput `pulumi:"resource"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The type of the CFN Resource for now it's enum CFN_STACK.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType ResourceAssociationResourceTypeOutput `pulumi:"resourceType"`
 }
 
 // NewResourceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ type resourceAssociationArgs struct {
 	// The name or the Id of the Resource.
 	Resource string `pulumi:"resource"`
 	// The type of the CFN Resource for now it's enum CFN_STACK.
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType ResourceAssociationResourceType `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ResourceAssociation resource.
@@ -88,7 +88,7 @@ type ResourceAssociationArgs struct {
 	// The name or the Id of the Resource.
 	Resource pulumi.StringInput
 	// The type of the CFN Resource for now it's enum CFN_STACK.
-	ResourceType pulumi.StringInput
+	ResourceType ResourceAssociationResourceTypeInput
 }
 
 func (ResourceAssociationArgs) ElementType() reflect.Type {

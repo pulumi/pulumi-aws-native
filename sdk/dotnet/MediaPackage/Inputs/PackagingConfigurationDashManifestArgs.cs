@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         /// </summary>
         [Input("manifestLayout")]
-        public Input<string>? ManifestLayout { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestManifestLayout>? ManifestLayout { get; set; }
 
         [Input("manifestName")]
         public Input<string>? ManifestName { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         /// </summary>
         [Input("profile")]
-        public Input<string>? Profile { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashManifestProfile>? Profile { get; set; }
 
         [Input("streamSelection")]
         public Input<Inputs.PackagingConfigurationStreamSelectionArgs>? StreamSelection { get; set; }

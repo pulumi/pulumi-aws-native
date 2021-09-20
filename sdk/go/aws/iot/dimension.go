@@ -24,7 +24,7 @@ type Dimension struct {
 	// Metadata that can be used to manage the dimension.
 	Tags DimensionTagArrayOutput `pulumi:"tags"`
 	// Specifies the type of the dimension.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type DimensionTypeOutput `pulumi:"type"`
 }
 
 // NewDimension registers a new resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ type dimensionArgs struct {
 	// Metadata that can be used to manage the dimension.
 	Tags []DimensionTag `pulumi:"tags"`
 	// Specifies the type of the dimension.
-	Type string `pulumi:"type"`
+	Type DimensionType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Dimension resource.
@@ -91,7 +91,7 @@ type DimensionArgs struct {
 	// Metadata that can be used to manage the dimension.
 	Tags DimensionTagArrayInput
 	// Specifies the type of the dimension.
-	Type pulumi.StringInput
+	Type DimensionTypeInput
 }
 
 func (DimensionArgs) ElementType() reflect.Type {

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RuleGroupArgs', 'RuleGroup']
@@ -17,7 +18,7 @@ class RuleGroupArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  rule_group_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['RuleGroupType'],
                  description: Optional[pulumi.Input[str]] = None,
                  rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None):
@@ -54,11 +55,11 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['RuleGroupType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['RuleGroupType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -99,7 +100,7 @@ class RuleGroup(pulumi.CustomResource):
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['RuleGroupType']] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::RuleGroup
@@ -136,7 +137,7 @@ class RuleGroup(pulumi.CustomResource):
                  rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
                  rule_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['RuleGroupType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -232,6 +233,6 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['RuleGroupType']:
         return pulumi.get(self, "type")
 

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<int>? RecoveryWindow { get; set; }
 
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public Input<Pulumi.AwsNative.MediaConnect.FlowFailoverConfigState>? State { get; set; }
 
         public FlowFailoverConfigArgs()
         {

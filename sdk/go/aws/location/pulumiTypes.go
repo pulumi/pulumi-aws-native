@@ -144,7 +144,7 @@ func (o MapMapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 }
 
 type PlaceIndexDataSourceConfiguration struct {
-	IntendedUse *string `pulumi:"intendedUse"`
+	IntendedUse *PlaceIndexIntendedUse `pulumi:"intendedUse"`
 }
 
 // PlaceIndexDataSourceConfigurationInput is an input type that accepts PlaceIndexDataSourceConfigurationArgs and PlaceIndexDataSourceConfigurationOutput values.
@@ -159,7 +159,7 @@ type PlaceIndexDataSourceConfigurationInput interface {
 }
 
 type PlaceIndexDataSourceConfigurationArgs struct {
-	IntendedUse pulumi.StringPtrInput `pulumi:"intendedUse"`
+	IntendedUse PlaceIndexIntendedUsePtrInput `pulumi:"intendedUse"`
 }
 
 func (PlaceIndexDataSourceConfigurationArgs) ElementType() reflect.Type {
@@ -239,8 +239,8 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *string { return v.IntendedUse }).(pulumi.StringPtrOutput)
+func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() PlaceIndexIntendedUsePtrOutput {
+	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *PlaceIndexIntendedUse { return v.IntendedUse }).(PlaceIndexIntendedUsePtrOutput)
 }
 
 type PlaceIndexDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -267,13 +267,13 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceC
 	}).(PlaceIndexDataSourceConfigurationOutput)
 }
 
-func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) *string {
+func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() PlaceIndexIntendedUsePtrOutput {
+	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) *PlaceIndexIntendedUse {
 		if v == nil {
 			return nil
 		}
 		return v.IntendedUse
-	}).(pulumi.StringPtrOutput)
+	}).(PlaceIndexIntendedUsePtrOutput)
 }
 
 func init() {

@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class EC2FleetTargetCapacitySpecificationRequest
     {
-        public readonly string? DefaultTargetCapacityType;
+        public readonly Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType? DefaultTargetCapacityType;
         public readonly int? OnDemandTargetCapacity;
         public readonly int? SpotTargetCapacity;
         public readonly int TotalTargetCapacity;
 
         [OutputConstructor]
         private EC2FleetTargetCapacitySpecificationRequest(
-            string? defaultTargetCapacityType,
+            Pulumi.AwsNative.EC2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType? defaultTargetCapacityType,
 
             int? onDemandTargetCapacity,
 

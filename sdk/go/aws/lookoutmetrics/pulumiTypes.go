@@ -478,7 +478,7 @@ func (o AlertSNSConfigurationPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
 
 type AnomalyDetectorAnomalyDetectorConfig struct {
 	// Frequency of anomaly detection
-	AnomalyDetectorFrequency string `pulumi:"anomalyDetectorFrequency"`
+	AnomalyDetectorFrequency AnomalyDetectorAnomalyDetectorFrequency `pulumi:"anomalyDetectorFrequency"`
 }
 
 // AnomalyDetectorAnomalyDetectorConfigInput is an input type that accepts AnomalyDetectorAnomalyDetectorConfigArgs and AnomalyDetectorAnomalyDetectorConfigOutput values.
@@ -494,7 +494,7 @@ type AnomalyDetectorAnomalyDetectorConfigInput interface {
 
 type AnomalyDetectorAnomalyDetectorConfigArgs struct {
 	// Frequency of anomaly detection
-	AnomalyDetectorFrequency pulumi.StringInput `pulumi:"anomalyDetectorFrequency"`
+	AnomalyDetectorFrequency AnomalyDetectorAnomalyDetectorFrequencyInput `pulumi:"anomalyDetectorFrequency"`
 }
 
 func (AnomalyDetectorAnomalyDetectorConfigArgs) ElementType() reflect.Type {
@@ -575,8 +575,10 @@ func (o AnomalyDetectorAnomalyDetectorConfigOutput) ToAnomalyDetectorAnomalyDete
 }
 
 // Frequency of anomaly detection
-func (o AnomalyDetectorAnomalyDetectorConfigOutput) AnomalyDetectorFrequency() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorAnomalyDetectorConfig) string { return v.AnomalyDetectorFrequency }).(pulumi.StringOutput)
+func (o AnomalyDetectorAnomalyDetectorConfigOutput) AnomalyDetectorFrequency() AnomalyDetectorAnomalyDetectorFrequencyOutput {
+	return o.ApplyT(func(v AnomalyDetectorAnomalyDetectorConfig) AnomalyDetectorAnomalyDetectorFrequency {
+		return v.AnomalyDetectorFrequency
+	}).(AnomalyDetectorAnomalyDetectorFrequencyOutput)
 }
 
 type AnomalyDetectorAnomalyDetectorConfigPtrOutput struct{ *pulumi.OutputState }
@@ -604,13 +606,13 @@ func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) Elem() AnomalyDetectorAno
 }
 
 // Frequency of anomaly detection
-func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorAnomalyDetectorConfig) *string {
+func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency() AnomalyDetectorAnomalyDetectorFrequencyPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorAnomalyDetectorConfig) *AnomalyDetectorAnomalyDetectorFrequency {
 		if v == nil {
 			return nil
 		}
 		return &v.AnomalyDetectorFrequency
-	}).(pulumi.StringPtrOutput)
+	}).(AnomalyDetectorAnomalyDetectorFrequencyPtrOutput)
 }
 
 type AnomalyDetectorAppFlowConfig struct {
@@ -895,12 +897,12 @@ func (o AnomalyDetectorCloudwatchConfigPtrOutput) RoleArn() pulumi.StringPtrOutp
 }
 
 type AnomalyDetectorCsvFormatDescriptor struct {
-	Charset         *string  `pulumi:"charset"`
-	ContainsHeader  *bool    `pulumi:"containsHeader"`
-	Delimiter       *string  `pulumi:"delimiter"`
-	FileCompression *string  `pulumi:"fileCompression"`
-	HeaderList      []string `pulumi:"headerList"`
-	QuoteSymbol     *string  `pulumi:"quoteSymbol"`
+	Charset         *string                                            `pulumi:"charset"`
+	ContainsHeader  *bool                                              `pulumi:"containsHeader"`
+	Delimiter       *string                                            `pulumi:"delimiter"`
+	FileCompression *AnomalyDetectorCsvFormatDescriptorFileCompression `pulumi:"fileCompression"`
+	HeaderList      []string                                           `pulumi:"headerList"`
+	QuoteSymbol     *string                                            `pulumi:"quoteSymbol"`
 }
 
 // AnomalyDetectorCsvFormatDescriptorInput is an input type that accepts AnomalyDetectorCsvFormatDescriptorArgs and AnomalyDetectorCsvFormatDescriptorOutput values.
@@ -915,12 +917,12 @@ type AnomalyDetectorCsvFormatDescriptorInput interface {
 }
 
 type AnomalyDetectorCsvFormatDescriptorArgs struct {
-	Charset         pulumi.StringPtrInput   `pulumi:"charset"`
-	ContainsHeader  pulumi.BoolPtrInput     `pulumi:"containsHeader"`
-	Delimiter       pulumi.StringPtrInput   `pulumi:"delimiter"`
-	FileCompression pulumi.StringPtrInput   `pulumi:"fileCompression"`
-	HeaderList      pulumi.StringArrayInput `pulumi:"headerList"`
-	QuoteSymbol     pulumi.StringPtrInput   `pulumi:"quoteSymbol"`
+	Charset         pulumi.StringPtrInput                                     `pulumi:"charset"`
+	ContainsHeader  pulumi.BoolPtrInput                                       `pulumi:"containsHeader"`
+	Delimiter       pulumi.StringPtrInput                                     `pulumi:"delimiter"`
+	FileCompression AnomalyDetectorCsvFormatDescriptorFileCompressionPtrInput `pulumi:"fileCompression"`
+	HeaderList      pulumi.StringArrayInput                                   `pulumi:"headerList"`
+	QuoteSymbol     pulumi.StringPtrInput                                     `pulumi:"quoteSymbol"`
 }
 
 func (AnomalyDetectorCsvFormatDescriptorArgs) ElementType() reflect.Type {
@@ -1012,8 +1014,10 @@ func (o AnomalyDetectorCsvFormatDescriptorOutput) Delimiter() pulumi.StringPtrOu
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorCsvFormatDescriptorOutput) FileCompression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.FileCompression }).(pulumi.StringPtrOutput)
+func (o AnomalyDetectorCsvFormatDescriptorOutput) FileCompression() AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *AnomalyDetectorCsvFormatDescriptorFileCompression {
+		return v.FileCompression
+	}).(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput)
 }
 
 func (o AnomalyDetectorCsvFormatDescriptorOutput) HeaderList() pulumi.StringArrayOutput {
@@ -1075,13 +1079,13 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Delimiter() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) FileCompression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
+func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) FileCompression() AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *AnomalyDetectorCsvFormatDescriptorFileCompression {
 		if v == nil {
 			return nil
 		}
 		return v.FileCompression
-	}).(pulumi.StringPtrOutput)
+	}).(AnomalyDetectorCsvFormatDescriptorFileCompressionPtrOutput)
 }
 
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) HeaderList() pulumi.StringArrayOutput {
@@ -1255,8 +1259,8 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) JsonFormatDescriptor() Ano
 }
 
 type AnomalyDetectorJsonFormatDescriptor struct {
-	Charset         *string `pulumi:"charset"`
-	FileCompression *string `pulumi:"fileCompression"`
+	Charset         *string                                             `pulumi:"charset"`
+	FileCompression *AnomalyDetectorJsonFormatDescriptorFileCompression `pulumi:"fileCompression"`
 }
 
 // AnomalyDetectorJsonFormatDescriptorInput is an input type that accepts AnomalyDetectorJsonFormatDescriptorArgs and AnomalyDetectorJsonFormatDescriptorOutput values.
@@ -1271,8 +1275,8 @@ type AnomalyDetectorJsonFormatDescriptorInput interface {
 }
 
 type AnomalyDetectorJsonFormatDescriptorArgs struct {
-	Charset         pulumi.StringPtrInput `pulumi:"charset"`
-	FileCompression pulumi.StringPtrInput `pulumi:"fileCompression"`
+	Charset         pulumi.StringPtrInput                                      `pulumi:"charset"`
+	FileCompression AnomalyDetectorJsonFormatDescriptorFileCompressionPtrInput `pulumi:"fileCompression"`
 }
 
 func (AnomalyDetectorJsonFormatDescriptorArgs) ElementType() reflect.Type {
@@ -1356,8 +1360,10 @@ func (o AnomalyDetectorJsonFormatDescriptorOutput) Charset() pulumi.StringPtrOut
 	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *string { return v.Charset }).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorJsonFormatDescriptorOutput) FileCompression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *string { return v.FileCompression }).(pulumi.StringPtrOutput)
+func (o AnomalyDetectorJsonFormatDescriptorOutput) FileCompression() AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *AnomalyDetectorJsonFormatDescriptorFileCompression {
+		return v.FileCompression
+	}).(AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput)
 }
 
 type AnomalyDetectorJsonFormatDescriptorPtrOutput struct{ *pulumi.OutputState }
@@ -1393,20 +1399,20 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Charset() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) FileCompression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnomalyDetectorJsonFormatDescriptor) *string {
+func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) FileCompression() AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorJsonFormatDescriptor) *AnomalyDetectorJsonFormatDescriptorFileCompression {
 		if v == nil {
 			return nil
 		}
 		return v.FileCompression
-	}).(pulumi.StringPtrOutput)
+	}).(AnomalyDetectorJsonFormatDescriptorFileCompressionPtrOutput)
 }
 
 type AnomalyDetectorMetric struct {
 	// Operator used to aggregate metric values
-	AggregationFunction string  `pulumi:"aggregationFunction"`
-	MetricName          string  `pulumi:"metricName"`
-	Namespace           *string `pulumi:"namespace"`
+	AggregationFunction AnomalyDetectorMetricAggregationFunction `pulumi:"aggregationFunction"`
+	MetricName          string                                   `pulumi:"metricName"`
+	Namespace           *string                                  `pulumi:"namespace"`
 }
 
 // AnomalyDetectorMetricInput is an input type that accepts AnomalyDetectorMetricArgs and AnomalyDetectorMetricOutput values.
@@ -1422,9 +1428,9 @@ type AnomalyDetectorMetricInput interface {
 
 type AnomalyDetectorMetricArgs struct {
 	// Operator used to aggregate metric values
-	AggregationFunction pulumi.StringInput    `pulumi:"aggregationFunction"`
-	MetricName          pulumi.StringInput    `pulumi:"metricName"`
-	Namespace           pulumi.StringPtrInput `pulumi:"namespace"`
+	AggregationFunction AnomalyDetectorMetricAggregationFunctionInput `pulumi:"aggregationFunction"`
+	MetricName          pulumi.StringInput                            `pulumi:"metricName"`
+	Namespace           pulumi.StringPtrInput                         `pulumi:"namespace"`
 }
 
 func (AnomalyDetectorMetricArgs) ElementType() reflect.Type {
@@ -1479,8 +1485,8 @@ func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricOutputWithContext(ct
 }
 
 // Operator used to aggregate metric values
-func (o AnomalyDetectorMetricOutput) AggregationFunction() pulumi.StringOutput {
-	return o.ApplyT(func(v AnomalyDetectorMetric) string { return v.AggregationFunction }).(pulumi.StringOutput)
+func (o AnomalyDetectorMetricOutput) AggregationFunction() AnomalyDetectorMetricAggregationFunctionOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetric) AnomalyDetectorMetricAggregationFunction { return v.AggregationFunction }).(AnomalyDetectorMetricAggregationFunctionOutput)
 }
 
 func (o AnomalyDetectorMetricOutput) MetricName() pulumi.StringOutput {
@@ -1519,7 +1525,7 @@ type AnomalyDetectorMetricSet struct {
 	// A description for the MetricSet.
 	MetricSetDescription *string `pulumi:"metricSetDescription"`
 	// A frequency period to aggregate the data
-	MetricSetFrequency *string `pulumi:"metricSetFrequency"`
+	MetricSetFrequency *AnomalyDetectorMetricSetMetricSetFrequency `pulumi:"metricSetFrequency"`
 	// The name of the MetricSet.
 	MetricSetName string                      `pulumi:"metricSetName"`
 	MetricSource  AnomalyDetectorMetricSource `pulumi:"metricSource"`
@@ -1548,7 +1554,7 @@ type AnomalyDetectorMetricSetArgs struct {
 	// A description for the MetricSet.
 	MetricSetDescription pulumi.StringPtrInput `pulumi:"metricSetDescription"`
 	// A frequency period to aggregate the data
-	MetricSetFrequency pulumi.StringPtrInput `pulumi:"metricSetFrequency"`
+	MetricSetFrequency AnomalyDetectorMetricSetMetricSetFrequencyPtrInput `pulumi:"metricSetFrequency"`
 	// The name of the MetricSet.
 	MetricSetName pulumi.StringInput               `pulumi:"metricSetName"`
 	MetricSource  AnomalyDetectorMetricSourceInput `pulumi:"metricSource"`
@@ -1625,8 +1631,10 @@ func (o AnomalyDetectorMetricSetOutput) MetricSetDescription() pulumi.StringPtrO
 }
 
 // A frequency period to aggregate the data
-func (o AnomalyDetectorMetricSetOutput) MetricSetFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnomalyDetectorMetricSet) *string { return v.MetricSetFrequency }).(pulumi.StringPtrOutput)
+func (o AnomalyDetectorMetricSetOutput) MetricSetFrequency() AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMetricSet) *AnomalyDetectorMetricSetMetricSetFrequency {
+		return v.MetricSetFrequency
+	}).(AnomalyDetectorMetricSetMetricSetFrequencyPtrOutput)
 }
 
 // The name of the MetricSet.

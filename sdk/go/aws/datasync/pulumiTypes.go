@@ -499,7 +499,7 @@ func (o LocationFSxWindowsTagArrayOutput) Index(i pulumi.IntInput) LocationFSxWi
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationNFSMountOptions struct {
 	// The specific NFS version that you want DataSync to use to mount your NFS share.
-	Version *string `pulumi:"version"`
+	Version *LocationNFSMountOptionsVersion `pulumi:"version"`
 }
 
 // LocationNFSMountOptionsInput is an input type that accepts LocationNFSMountOptionsArgs and LocationNFSMountOptionsOutput values.
@@ -516,7 +516,7 @@ type LocationNFSMountOptionsInput interface {
 // The NFS mount options that DataSync can use to mount your NFS share.
 type LocationNFSMountOptionsArgs struct {
 	// The specific NFS version that you want DataSync to use to mount your NFS share.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version LocationNFSMountOptionsVersionPtrInput `pulumi:"version"`
 }
 
 func (LocationNFSMountOptionsArgs) ElementType() reflect.Type {
@@ -598,8 +598,8 @@ func (o LocationNFSMountOptionsOutput) ToLocationNFSMountOptionsPtrOutputWithCon
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
-func (o LocationNFSMountOptionsOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationNFSMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o LocationNFSMountOptionsOutput) Version() LocationNFSMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v LocationNFSMountOptions) *LocationNFSMountOptionsVersion { return v.Version }).(LocationNFSMountOptionsVersionPtrOutput)
 }
 
 type LocationNFSMountOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -627,13 +627,13 @@ func (o LocationNFSMountOptionsPtrOutput) Elem() LocationNFSMountOptionsOutput {
 }
 
 // The specific NFS version that you want DataSync to use to mount your NFS share.
-func (o LocationNFSMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationNFSMountOptions) *string {
+func (o LocationNFSMountOptionsPtrOutput) Version() LocationNFSMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v *LocationNFSMountOptions) *LocationNFSMountOptionsVersion {
 		if v == nil {
 			return nil
 		}
 		return v.Version
-	}).(pulumi.StringPtrOutput)
+	}).(LocationNFSMountOptionsVersionPtrOutput)
 }
 
 // Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
@@ -1246,7 +1246,7 @@ func (o LocationS3TagArrayOutput) Index(i pulumi.IntInput) LocationS3TagOutput {
 // The mount options used by DataSync to access the SMB server.
 type LocationSMBMountOptions struct {
 	// The specific SMB version that you want DataSync to use to mount your SMB share.
-	Version *string `pulumi:"version"`
+	Version *LocationSMBMountOptionsVersion `pulumi:"version"`
 }
 
 // LocationSMBMountOptionsInput is an input type that accepts LocationSMBMountOptionsArgs and LocationSMBMountOptionsOutput values.
@@ -1263,7 +1263,7 @@ type LocationSMBMountOptionsInput interface {
 // The mount options used by DataSync to access the SMB server.
 type LocationSMBMountOptionsArgs struct {
 	// The specific SMB version that you want DataSync to use to mount your SMB share.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version LocationSMBMountOptionsVersionPtrInput `pulumi:"version"`
 }
 
 func (LocationSMBMountOptionsArgs) ElementType() reflect.Type {
@@ -1345,8 +1345,8 @@ func (o LocationSMBMountOptionsOutput) ToLocationSMBMountOptionsPtrOutputWithCon
 }
 
 // The specific SMB version that you want DataSync to use to mount your SMB share.
-func (o LocationSMBMountOptionsOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocationSMBMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o LocationSMBMountOptionsOutput) Version() LocationSMBMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v LocationSMBMountOptions) *LocationSMBMountOptionsVersion { return v.Version }).(LocationSMBMountOptionsVersionPtrOutput)
 }
 
 type LocationSMBMountOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1374,13 +1374,13 @@ func (o LocationSMBMountOptionsPtrOutput) Elem() LocationSMBMountOptionsOutput {
 }
 
 // The specific SMB version that you want DataSync to use to mount your SMB share.
-func (o LocationSMBMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocationSMBMountOptions) *string {
+func (o LocationSMBMountOptionsPtrOutput) Version() LocationSMBMountOptionsVersionPtrOutput {
+	return o.ApplyT(func(v *LocationSMBMountOptions) *LocationSMBMountOptionsVersion {
 		if v == nil {
 			return nil
 		}
 		return v.Version
-	}).(pulumi.StringPtrOutput)
+	}).(LocationSMBMountOptionsVersionPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1495,7 +1495,7 @@ func (o LocationSMBTagArrayOutput) Index(i pulumi.IntInput) LocationSMBTagOutput
 // Specifies which files folders and objects to include or exclude when transferring files from source to destination.
 type TaskFilterRule struct {
 	// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
-	FilterType *string `pulumi:"filterType"`
+	FilterType *TaskFilterRuleFilterType `pulumi:"filterType"`
 	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
 	Value *string `pulumi:"value"`
 }
@@ -1514,7 +1514,7 @@ type TaskFilterRuleInput interface {
 // Specifies which files folders and objects to include or exclude when transferring files from source to destination.
 type TaskFilterRuleArgs struct {
 	// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
-	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
+	FilterType TaskFilterRuleFilterTypePtrInput `pulumi:"filterType"`
 	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -1572,8 +1572,8 @@ func (o TaskFilterRuleOutput) ToTaskFilterRuleOutputWithContext(ctx context.Cont
 }
 
 // The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
-func (o TaskFilterRuleOutput) FilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskFilterRule) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+func (o TaskFilterRuleOutput) FilterType() TaskFilterRuleFilterTypePtrOutput {
+	return o.ApplyT(func(v TaskFilterRule) *TaskFilterRuleFilterType { return v.FilterType }).(TaskFilterRuleFilterTypePtrOutput)
 }
 
 // A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
@@ -1604,33 +1604,33 @@ func (o TaskFilterRuleArrayOutput) Index(i pulumi.IntInput) TaskFilterRuleOutput
 // Represents the options that are available to control the behavior of a StartTaskExecution operation.
 type TaskOptions struct {
 	// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
-	Atime *string `pulumi:"atime"`
+	Atime *TaskOptionsAtime `pulumi:"atime"`
 	// A value that limits the bandwidth used by AWS DataSync.
 	BytesPerSecond *int `pulumi:"bytesPerSecond"`
 	// The group ID (GID) of the file's owners.
-	Gid *string `pulumi:"gid"`
+	Gid *TaskOptionsGid `pulumi:"gid"`
 	// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
-	LogLevel *string `pulumi:"logLevel"`
+	LogLevel *TaskOptionsLogLevel `pulumi:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
-	Mtime *string `pulumi:"mtime"`
+	Mtime *TaskOptionsMtime `pulumi:"mtime"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
-	OverwriteMode *string `pulumi:"overwriteMode"`
+	OverwriteMode *TaskOptionsOverwriteMode `pulumi:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
-	PosixPermissions *string `pulumi:"posixPermissions"`
+	PosixPermissions *TaskOptionsPosixPermissions `pulumi:"posixPermissions"`
 	// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
-	PreserveDeletedFiles *string `pulumi:"preserveDeletedFiles"`
+	PreserveDeletedFiles *TaskOptionsPreserveDeletedFiles `pulumi:"preserveDeletedFiles"`
 	// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
-	PreserveDevices *string `pulumi:"preserveDevices"`
+	PreserveDevices *TaskOptionsPreserveDevices `pulumi:"preserveDevices"`
 	// A value that determines which components of the SMB security descriptor are copied during transfer.
-	SecurityDescriptorCopyFlags *string `pulumi:"securityDescriptorCopyFlags"`
+	SecurityDescriptorCopyFlags *TaskOptionsSecurityDescriptorCopyFlags `pulumi:"securityDescriptorCopyFlags"`
 	// A value that determines whether tasks should be queued before executing the tasks.
-	TaskQueueing *string `pulumi:"taskQueueing"`
+	TaskQueueing *TaskOptionsTaskQueueing `pulumi:"taskQueueing"`
 	// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
-	TransferMode *string `pulumi:"transferMode"`
+	TransferMode *TaskOptionsTransferMode `pulumi:"transferMode"`
 	// The user ID (UID) of the file's owner.
-	Uid *string `pulumi:"uid"`
+	Uid *TaskOptionsUid `pulumi:"uid"`
 	// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
-	VerifyMode *string `pulumi:"verifyMode"`
+	VerifyMode *TaskOptionsVerifyMode `pulumi:"verifyMode"`
 }
 
 // TaskOptionsInput is an input type that accepts TaskOptionsArgs and TaskOptionsOutput values.
@@ -1647,33 +1647,33 @@ type TaskOptionsInput interface {
 // Represents the options that are available to control the behavior of a StartTaskExecution operation.
 type TaskOptionsArgs struct {
 	// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
-	Atime pulumi.StringPtrInput `pulumi:"atime"`
+	Atime TaskOptionsAtimePtrInput `pulumi:"atime"`
 	// A value that limits the bandwidth used by AWS DataSync.
 	BytesPerSecond pulumi.IntPtrInput `pulumi:"bytesPerSecond"`
 	// The group ID (GID) of the file's owners.
-	Gid pulumi.StringPtrInput `pulumi:"gid"`
+	Gid TaskOptionsGidPtrInput `pulumi:"gid"`
 	// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	LogLevel TaskOptionsLogLevelPtrInput `pulumi:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
-	Mtime pulumi.StringPtrInput `pulumi:"mtime"`
+	Mtime TaskOptionsMtimePtrInput `pulumi:"mtime"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
-	OverwriteMode pulumi.StringPtrInput `pulumi:"overwriteMode"`
+	OverwriteMode TaskOptionsOverwriteModePtrInput `pulumi:"overwriteMode"`
 	// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
-	PosixPermissions pulumi.StringPtrInput `pulumi:"posixPermissions"`
+	PosixPermissions TaskOptionsPosixPermissionsPtrInput `pulumi:"posixPermissions"`
 	// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
-	PreserveDeletedFiles pulumi.StringPtrInput `pulumi:"preserveDeletedFiles"`
+	PreserveDeletedFiles TaskOptionsPreserveDeletedFilesPtrInput `pulumi:"preserveDeletedFiles"`
 	// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
-	PreserveDevices pulumi.StringPtrInput `pulumi:"preserveDevices"`
+	PreserveDevices TaskOptionsPreserveDevicesPtrInput `pulumi:"preserveDevices"`
 	// A value that determines which components of the SMB security descriptor are copied during transfer.
-	SecurityDescriptorCopyFlags pulumi.StringPtrInput `pulumi:"securityDescriptorCopyFlags"`
+	SecurityDescriptorCopyFlags TaskOptionsSecurityDescriptorCopyFlagsPtrInput `pulumi:"securityDescriptorCopyFlags"`
 	// A value that determines whether tasks should be queued before executing the tasks.
-	TaskQueueing pulumi.StringPtrInput `pulumi:"taskQueueing"`
+	TaskQueueing TaskOptionsTaskQueueingPtrInput `pulumi:"taskQueueing"`
 	// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
-	TransferMode pulumi.StringPtrInput `pulumi:"transferMode"`
+	TransferMode TaskOptionsTransferModePtrInput `pulumi:"transferMode"`
 	// The user ID (UID) of the file's owner.
-	Uid pulumi.StringPtrInput `pulumi:"uid"`
+	Uid TaskOptionsUidPtrInput `pulumi:"uid"`
 	// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
-	VerifyMode pulumi.StringPtrInput `pulumi:"verifyMode"`
+	VerifyMode TaskOptionsVerifyModePtrInput `pulumi:"verifyMode"`
 }
 
 func (TaskOptionsArgs) ElementType() reflect.Type {
@@ -1755,8 +1755,8 @@ func (o TaskOptionsOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context
 }
 
 // A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
-func (o TaskOptionsOutput) Atime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Atime }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) Atime() TaskOptionsAtimePtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsAtime { return v.Atime }).(TaskOptionsAtimePtrOutput)
 }
 
 // A value that limits the bandwidth used by AWS DataSync.
@@ -1765,63 +1765,63 @@ func (o TaskOptionsOutput) BytesPerSecond() pulumi.IntPtrOutput {
 }
 
 // The group ID (GID) of the file's owners.
-func (o TaskOptionsOutput) Gid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Gid }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) Gid() TaskOptionsGidPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsGid { return v.Gid }).(TaskOptionsGidPtrOutput)
 }
 
 // A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
-func (o TaskOptionsOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) LogLevel() TaskOptionsLogLevelPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsLogLevel { return v.LogLevel }).(TaskOptionsLogLevelPtrOutput)
 }
 
 // A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
-func (o TaskOptionsOutput) Mtime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Mtime }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) Mtime() TaskOptionsMtimePtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsMtime { return v.Mtime }).(TaskOptionsMtimePtrOutput)
 }
 
 // A value that determines whether files at the destination should be overwritten or preserved when copying files.
-func (o TaskOptionsOutput) OverwriteMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.OverwriteMode }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) OverwriteMode() TaskOptionsOverwriteModePtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsOverwriteMode { return v.OverwriteMode }).(TaskOptionsOverwriteModePtrOutput)
 }
 
 // A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
-func (o TaskOptionsOutput) PosixPermissions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.PosixPermissions }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) PosixPermissions() TaskOptionsPosixPermissionsPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsPosixPermissions { return v.PosixPermissions }).(TaskOptionsPosixPermissionsPtrOutput)
 }
 
 // A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
-func (o TaskOptionsOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDeletedFiles }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) PreserveDeletedFiles() TaskOptionsPreserveDeletedFilesPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsPreserveDeletedFiles { return v.PreserveDeletedFiles }).(TaskOptionsPreserveDeletedFilesPtrOutput)
 }
 
 // A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
-func (o TaskOptionsOutput) PreserveDevices() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDevices }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) PreserveDevices() TaskOptionsPreserveDevicesPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsPreserveDevices { return v.PreserveDevices }).(TaskOptionsPreserveDevicesPtrOutput)
 }
 
 // A value that determines which components of the SMB security descriptor are copied during transfer.
-func (o TaskOptionsOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.SecurityDescriptorCopyFlags }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) SecurityDescriptorCopyFlags() TaskOptionsSecurityDescriptorCopyFlagsPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsSecurityDescriptorCopyFlags { return v.SecurityDescriptorCopyFlags }).(TaskOptionsSecurityDescriptorCopyFlagsPtrOutput)
 }
 
 // A value that determines whether tasks should be queued before executing the tasks.
-func (o TaskOptionsOutput) TaskQueueing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.TaskQueueing }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) TaskQueueing() TaskOptionsTaskQueueingPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsTaskQueueing { return v.TaskQueueing }).(TaskOptionsTaskQueueingPtrOutput)
 }
 
 // A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
-func (o TaskOptionsOutput) TransferMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.TransferMode }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) TransferMode() TaskOptionsTransferModePtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsTransferMode { return v.TransferMode }).(TaskOptionsTransferModePtrOutput)
 }
 
 // The user ID (UID) of the file's owner.
-func (o TaskOptionsOutput) Uid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.Uid }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) Uid() TaskOptionsUidPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsUid { return v.Uid }).(TaskOptionsUidPtrOutput)
 }
 
 // A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
-func (o TaskOptionsOutput) VerifyMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *string { return v.VerifyMode }).(pulumi.StringPtrOutput)
+func (o TaskOptionsOutput) VerifyMode() TaskOptionsVerifyModePtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsVerifyMode { return v.VerifyMode }).(TaskOptionsVerifyModePtrOutput)
 }
 
 type TaskOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1849,13 +1849,13 @@ func (o TaskOptionsPtrOutput) Elem() TaskOptionsOutput {
 }
 
 // A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
-func (o TaskOptionsPtrOutput) Atime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) Atime() TaskOptionsAtimePtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsAtime {
 		if v == nil {
 			return nil
 		}
 		return v.Atime
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsAtimePtrOutput)
 }
 
 // A value that limits the bandwidth used by AWS DataSync.
@@ -1869,123 +1869,123 @@ func (o TaskOptionsPtrOutput) BytesPerSecond() pulumi.IntPtrOutput {
 }
 
 // The group ID (GID) of the file's owners.
-func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) Gid() TaskOptionsGidPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsGid {
 		if v == nil {
 			return nil
 		}
 		return v.Gid
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsGidPtrOutput)
 }
 
 // A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
-func (o TaskOptionsPtrOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) LogLevel() TaskOptionsLogLevelPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsLogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.LogLevel
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsLogLevelPtrOutput)
 }
 
 // A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
-func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) Mtime() TaskOptionsMtimePtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsMtime {
 		if v == nil {
 			return nil
 		}
 		return v.Mtime
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsMtimePtrOutput)
 }
 
 // A value that determines whether files at the destination should be overwritten or preserved when copying files.
-func (o TaskOptionsPtrOutput) OverwriteMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) OverwriteMode() TaskOptionsOverwriteModePtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsOverwriteMode {
 		if v == nil {
 			return nil
 		}
 		return v.OverwriteMode
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsOverwriteModePtrOutput)
 }
 
 // A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
-func (o TaskOptionsPtrOutput) PosixPermissions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) PosixPermissions() TaskOptionsPosixPermissionsPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsPosixPermissions {
 		if v == nil {
 			return nil
 		}
 		return v.PosixPermissions
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsPosixPermissionsPtrOutput)
 }
 
 // A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
-func (o TaskOptionsPtrOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) PreserveDeletedFiles() TaskOptionsPreserveDeletedFilesPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsPreserveDeletedFiles {
 		if v == nil {
 			return nil
 		}
 		return v.PreserveDeletedFiles
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsPreserveDeletedFilesPtrOutput)
 }
 
 // A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
-func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) PreserveDevices() TaskOptionsPreserveDevicesPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsPreserveDevices {
 		if v == nil {
 			return nil
 		}
 		return v.PreserveDevices
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsPreserveDevicesPtrOutput)
 }
 
 // A value that determines which components of the SMB security descriptor are copied during transfer.
-func (o TaskOptionsPtrOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) SecurityDescriptorCopyFlags() TaskOptionsSecurityDescriptorCopyFlagsPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsSecurityDescriptorCopyFlags {
 		if v == nil {
 			return nil
 		}
 		return v.SecurityDescriptorCopyFlags
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsSecurityDescriptorCopyFlagsPtrOutput)
 }
 
 // A value that determines whether tasks should be queued before executing the tasks.
-func (o TaskOptionsPtrOutput) TaskQueueing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) TaskQueueing() TaskOptionsTaskQueueingPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsTaskQueueing {
 		if v == nil {
 			return nil
 		}
 		return v.TaskQueueing
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsTaskQueueingPtrOutput)
 }
 
 // A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
-func (o TaskOptionsPtrOutput) TransferMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) TransferMode() TaskOptionsTransferModePtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsTransferMode {
 		if v == nil {
 			return nil
 		}
 		return v.TransferMode
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsTransferModePtrOutput)
 }
 
 // The user ID (UID) of the file's owner.
-func (o TaskOptionsPtrOutput) Uid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) Uid() TaskOptionsUidPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsUid {
 		if v == nil {
 			return nil
 		}
 		return v.Uid
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsUidPtrOutput)
 }
 
 // A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
-func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskOptions) *string {
+func (o TaskOptionsPtrOutput) VerifyMode() TaskOptionsVerifyModePtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsVerifyMode {
 		if v == nil {
 			return nil
 		}
 		return v.VerifyMode
-	}).(pulumi.StringPtrOutput)
+	}).(TaskOptionsVerifyModePtrOutput)
 }
 
 // A key-value pair to associate with a resource.

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? Message { get; set; }
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSourceDataSourceErrorInfoType>? Type { get; set; }
 
         public DataSourceDataSourceErrorInfoArgs()
         {

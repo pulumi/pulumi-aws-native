@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public Input<Inputs.CapacityProviderManagedScalingArgs>? ManagedScaling { get; set; }
 
         [Input("managedTerminationProtection")]
-        public Input<string>? ManagedTerminationProtection { get; set; }
+        public Input<Pulumi.AwsNative.ECS.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection>? ManagedTerminationProtection { get; set; }
 
         public CapacityProviderAutoScalingGroupProviderArgs()
         {

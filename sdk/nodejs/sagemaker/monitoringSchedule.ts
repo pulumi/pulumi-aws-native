@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +61,7 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     /**
      * The status of a schedule job.
      */
-    public readonly monitoringScheduleStatus!: pulumi.Output<string | undefined>;
+    public readonly monitoringScheduleStatus!: pulumi.Output<enums.sagemaker.MonitoringScheduleMonitoringScheduleStatus | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -131,7 +131,7 @@ export interface MonitoringScheduleArgs {
     /**
      * The status of a schedule job.
      */
-    monitoringScheduleStatus?: pulumi.Input<string>;
+    monitoringScheduleStatus?: pulumi.Input<enums.sagemaker.MonitoringScheduleMonitoringScheduleStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

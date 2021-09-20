@@ -17,7 +17,7 @@ type ResourceCollection struct {
 
 	ResourceCollectionFilter ResourceCollectionResourceCollectionFilterOutput `pulumi:"resourceCollectionFilter"`
 	// The type of ResourceCollection
-	ResourceCollectionType pulumi.StringOutput `pulumi:"resourceCollectionType"`
+	ResourceCollectionType ResourceCollectionResourceCollectionTypeOutput `pulumi:"resourceCollectionType"`
 }
 
 // NewResourceCollection registers a new resource with the given unique name, arguments, and options.

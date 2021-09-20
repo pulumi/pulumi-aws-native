@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public Input<string>? Path { get; set; }
 
         [Input("permission")]
-        public Input<string>? Permission { get; set; }
+        public Input<Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaFilesystemPermission>? Permission { get; set; }
 
         public ComponentVersionLambdaDeviceMountArgs()
         {

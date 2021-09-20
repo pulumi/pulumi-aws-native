@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ServiceAuthenticationConfigurationArgs',
@@ -67,14 +68,14 @@ class ServiceAuthenticationConfigurationArgs:
 @pulumi.input_type
 class ServiceCodeConfigurationValuesArgs:
     def __init__(__self__, *,
-                 runtime: pulumi.Input[str],
+                 runtime: pulumi.Input['ServiceCodeConfigurationValuesRuntime'],
                  build_command: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  runtime_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
         Code Configuration Values
-        :param pulumi.Input[str] runtime: Runtime
+        :param pulumi.Input['ServiceCodeConfigurationValuesRuntime'] runtime: Runtime
         :param pulumi.Input[str] build_command: Build Command
         :param pulumi.Input[str] port: Port
         :param pulumi.Input[str] start_command: Start Command
@@ -91,14 +92,14 @@ class ServiceCodeConfigurationValuesArgs:
 
     @property
     @pulumi.getter
-    def runtime(self) -> pulumi.Input[str]:
+    def runtime(self) -> pulumi.Input['ServiceCodeConfigurationValuesRuntime']:
         """
         Runtime
         """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
-    def runtime(self, value: pulumi.Input[str]):
+    def runtime(self, value: pulumi.Input['ServiceCodeConfigurationValuesRuntime']):
         pulumi.set(self, "runtime", value)
 
     @property
@@ -150,11 +151,11 @@ class ServiceCodeConfigurationValuesArgs:
 @pulumi.input_type
 class ServiceCodeConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_source: pulumi.Input[str],
+                 configuration_source: pulumi.Input['ServiceCodeConfigurationConfigurationSource'],
                  code_configuration_values: Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']] = None):
         """
         Code Configuration
-        :param pulumi.Input[str] configuration_source: Configuration Source
+        :param pulumi.Input['ServiceCodeConfigurationConfigurationSource'] configuration_source: Configuration Source
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
         if code_configuration_values is not None:
@@ -162,14 +163,14 @@ class ServiceCodeConfigurationArgs:
 
     @property
     @pulumi.getter(name="configurationSource")
-    def configuration_source(self) -> pulumi.Input[str]:
+    def configuration_source(self) -> pulumi.Input['ServiceCodeConfigurationConfigurationSource']:
         """
         Configuration Source
         """
         return pulumi.get(self, "configuration_source")
 
     @configuration_source.setter
-    def configuration_source(self, value: pulumi.Input[str]):
+    def configuration_source(self, value: pulumi.Input['ServiceCodeConfigurationConfigurationSource']):
         pulumi.set(self, "configuration_source", value)
 
     @property
@@ -257,7 +258,7 @@ class ServiceHealthCheckConfigurationArgs:
                  healthy_threshold: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['ServiceHealthCheckConfigurationProtocol']] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  unhealthy_threshold: Optional[pulumi.Input[int]] = None):
         """
@@ -265,7 +266,7 @@ class ServiceHealthCheckConfigurationArgs:
         :param pulumi.Input[int] healthy_threshold: Health check Healthy Threshold
         :param pulumi.Input[int] interval: Health check Interval
         :param pulumi.Input[str] path: Health check Path
-        :param pulumi.Input[str] protocol: Health Check Protocol
+        :param pulumi.Input['ServiceHealthCheckConfigurationProtocol'] protocol: Health Check Protocol
         :param pulumi.Input[int] timeout: Health check Timeout
         :param pulumi.Input[int] unhealthy_threshold: Health check Unhealthy Threshold
         """
@@ -320,14 +321,14 @@ class ServiceHealthCheckConfigurationArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigurationProtocol']]:
         """
         Health Check Protocol
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input['ServiceHealthCheckConfigurationProtocol']]):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -411,12 +412,12 @@ class ServiceImageConfigurationArgs:
 class ServiceImageRepositoryArgs:
     def __init__(__self__, *,
                  image_identifier: pulumi.Input[str],
-                 image_repository_type: pulumi.Input[str],
+                 image_repository_type: pulumi.Input['ServiceImageRepositoryImageRepositoryType'],
                  image_configuration: Optional[pulumi.Input['ServiceImageConfigurationArgs']] = None):
         """
         Image Repository
         :param pulumi.Input[str] image_identifier: Image Identifier
-        :param pulumi.Input[str] image_repository_type: Image Repository Type
+        :param pulumi.Input['ServiceImageRepositoryImageRepositoryType'] image_repository_type: Image Repository Type
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
         pulumi.set(__self__, "image_repository_type", image_repository_type)
@@ -437,14 +438,14 @@ class ServiceImageRepositoryArgs:
 
     @property
     @pulumi.getter(name="imageRepositoryType")
-    def image_repository_type(self) -> pulumi.Input[str]:
+    def image_repository_type(self) -> pulumi.Input['ServiceImageRepositoryImageRepositoryType']:
         """
         Image Repository Type
         """
         return pulumi.get(self, "image_repository_type")
 
     @image_repository_type.setter
-    def image_repository_type(self, value: pulumi.Input[str]):
+    def image_repository_type(self, value: pulumi.Input['ServiceImageRepositoryImageRepositoryType']):
         pulumi.set(self, "image_repository_type", value)
 
     @property
@@ -545,11 +546,11 @@ class ServiceKeyValuePairArgs:
 @pulumi.input_type
 class ServiceSourceCodeVersionArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['ServiceSourceCodeVersionType'],
                  value: pulumi.Input[str]):
         """
         Source Code Version
-        :param pulumi.Input[str] type: Source Code Version Type
+        :param pulumi.Input['ServiceSourceCodeVersionType'] type: Source Code Version Type
         :param pulumi.Input[str] value: Source Code Version Value
         """
         pulumi.set(__self__, "type", type)
@@ -557,14 +558,14 @@ class ServiceSourceCodeVersionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ServiceSourceCodeVersionType']:
         """
         Source Code Version Type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ServiceSourceCodeVersionType']):
         pulumi.set(self, "type", value)
 
     @property

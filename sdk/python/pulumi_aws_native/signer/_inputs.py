@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'SigningProfileSignatureValidityPeriodArgs',
@@ -16,7 +17,7 @@ __all__ = [
 @pulumi.input_type
 class SigningProfileSignatureValidityPeriodArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodType']] = None,
                  value: Optional[pulumi.Input[int]] = None):
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -25,11 +26,11 @@ class SigningProfileSignatureValidityPeriodArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['SigningProfileSignatureValidityPeriodType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodType']]):
         pulumi.set(self, "type", value)
 
     @property

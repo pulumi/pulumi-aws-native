@@ -21,7 +21,7 @@ type RecordingConfiguration struct {
 	// Recording Configuration Name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Recording Configuration State.
-	State pulumi.StringOutput `pulumi:"state"`
+	State RecordingConfigurationStateEnumOutput `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags RecordingConfigurationTagArrayOutput `pulumi:"tags"`
 }

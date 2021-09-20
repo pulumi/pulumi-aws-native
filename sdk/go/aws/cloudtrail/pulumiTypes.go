@@ -127,7 +127,7 @@ type TrailEventSelector struct {
 	// Specify if you want your event selector to include management events for your trail.
 	IncludeManagementEvents *bool `pulumi:"includeManagementEvents"`
 	// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
-	ReadWriteType *string `pulumi:"readWriteType"`
+	ReadWriteType *TrailEventSelectorReadWriteType `pulumi:"readWriteType"`
 }
 
 // TrailEventSelectorInput is an input type that accepts TrailEventSelectorArgs and TrailEventSelectorOutput values.
@@ -149,7 +149,7 @@ type TrailEventSelectorArgs struct {
 	// Specify if you want your event selector to include management events for your trail.
 	IncludeManagementEvents pulumi.BoolPtrInput `pulumi:"includeManagementEvents"`
 	// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
-	ReadWriteType pulumi.StringPtrInput `pulumi:"readWriteType"`
+	ReadWriteType TrailEventSelectorReadWriteTypePtrInput `pulumi:"readWriteType"`
 }
 
 func (TrailEventSelectorArgs) ElementType() reflect.Type {
@@ -219,8 +219,8 @@ func (o TrailEventSelectorOutput) IncludeManagementEvents() pulumi.BoolPtrOutput
 }
 
 // Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
-func (o TrailEventSelectorOutput) ReadWriteType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TrailEventSelector) *string { return v.ReadWriteType }).(pulumi.StringPtrOutput)
+func (o TrailEventSelectorOutput) ReadWriteType() TrailEventSelectorReadWriteTypePtrOutput {
+	return o.ApplyT(func(v TrailEventSelector) *TrailEventSelectorReadWriteType { return v.ReadWriteType }).(TrailEventSelectorReadWriteTypePtrOutput)
 }
 
 type TrailEventSelectorArrayOutput struct{ *pulumi.OutputState }

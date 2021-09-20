@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DimensionArgs', 'Dimension']
@@ -16,13 +17,13 @@ __all__ = ['DimensionArgs', 'Dimension']
 class DimensionArgs:
     def __init__(__self__, *,
                  string_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['DimensionType'],
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]]] = None):
         """
         The set of arguments for constructing a Dimension resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] string_values: Specifies the value or list of values for the dimension.
-        :param pulumi.Input[str] type: Specifies the type of the dimension.
+        :param pulumi.Input['DimensionType'] type: Specifies the type of the dimension.
         :param pulumi.Input[str] name: A unique identifier for the dimension.
         :param pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]] tags: Metadata that can be used to manage the dimension.
         """
@@ -47,14 +48,14 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['DimensionType']:
         """
         Specifies the type of the dimension.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['DimensionType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -90,7 +91,7 @@ class Dimension(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  string_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DimensionTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DimensionType']] = None,
                  __props__=None):
         """
         A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
@@ -100,7 +101,7 @@ class Dimension(pulumi.CustomResource):
         :param pulumi.Input[str] name: A unique identifier for the dimension.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] string_values: Specifies the value or list of values for the dimension.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DimensionTagArgs']]]] tags: Metadata that can be used to manage the dimension.
-        :param pulumi.Input[str] type: Specifies the type of the dimension.
+        :param pulumi.Input['DimensionType'] type: Specifies the type of the dimension.
         """
         ...
     @overload
@@ -129,7 +130,7 @@ class Dimension(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  string_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DimensionTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DimensionType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -214,7 +215,7 @@ class Dimension(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['DimensionType']:
         """
         Specifies the type of the dimension.
         """

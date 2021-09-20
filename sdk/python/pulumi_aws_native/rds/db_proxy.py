@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DBProxyArgs', 'DBProxy']
@@ -17,7 +18,7 @@ class DBProxyArgs:
     def __init__(__self__, *,
                  auth: pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]],
                  d_b_proxy_name: pulumi.Input[str],
-                 engine_family: pulumi.Input[str],
+                 engine_family: pulumi.Input['DBProxyEngineFamily'],
                  role_arn: pulumi.Input[str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  debug_logging: Optional[pulumi.Input[bool]] = None,
@@ -29,7 +30,7 @@ class DBProxyArgs:
         The set of arguments for constructing a DBProxy resource.
         :param pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]] auth: The authorization mechanism that the proxy uses.
         :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
-        :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to.
+        :param pulumi.Input['DBProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
@@ -80,14 +81,14 @@ class DBProxyArgs:
 
     @property
     @pulumi.getter(name="engineFamily")
-    def engine_family(self) -> pulumi.Input[str]:
+    def engine_family(self) -> pulumi.Input['DBProxyEngineFamily']:
         """
         The kinds of databases that the proxy can connect to.
         """
         return pulumi.get(self, "engine_family")
 
     @engine_family.setter
-    def engine_family(self, value: pulumi.Input[str]):
+    def engine_family(self, value: pulumi.Input['DBProxyEngineFamily']):
         pulumi.set(self, "engine_family", value)
 
     @property
@@ -183,7 +184,7 @@ class DBProxy(pulumi.CustomResource):
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
                  d_b_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
-                 engine_family: Optional[pulumi.Input[str]] = None,
+                 engine_family: Optional[pulumi.Input['DBProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -199,7 +200,7 @@ class DBProxy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]] auth: The authorization mechanism that the proxy uses.
         :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
-        :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to.
+        :param pulumi.Input['DBProxyEngineFamily'] engine_family: The kinds of databases that the proxy can connect to.
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
@@ -234,7 +235,7 @@ class DBProxy(pulumi.CustomResource):
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]]] = None,
                  d_b_proxy_name: Optional[pulumi.Input[str]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
-                 engine_family: Optional[pulumi.Input[str]] = None,
+                 engine_family: Optional[pulumi.Input['DBProxyEngineFamily']] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
                  require_tls: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -355,7 +356,7 @@ class DBProxy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineFamily")
-    def engine_family(self) -> pulumi.Output[str]:
+    def engine_family(self) -> pulumi.Output['DBProxyEngineFamily']:
         """
         The kinds of databases that the proxy can connect to.
         """

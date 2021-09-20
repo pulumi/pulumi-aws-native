@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./trail";
 
+// Export enums:
+export * from "../types/enums/cloudtrail";
+
 // Import resources to register:
 import { Trail } from "./trail";
 

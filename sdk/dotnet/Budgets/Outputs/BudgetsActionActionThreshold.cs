@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     [OutputType]
     public sealed class BudgetsActionActionThreshold
     {
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.Budgets.BudgetsActionActionThresholdType Type;
         public readonly double Value;
 
         [OutputConstructor]
         private BudgetsActionActionThreshold(
-            string type,
+            Pulumi.AwsNative.Budgets.BudgetsActionActionThresholdType type,
 
             double value)
         {

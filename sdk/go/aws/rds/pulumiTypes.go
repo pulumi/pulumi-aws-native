@@ -12,11 +12,11 @@ import (
 
 type DBProxyAuthFormat struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-	AuthScheme *string `pulumi:"authScheme"`
+	AuthScheme *DBProxyAuthFormatAuthScheme `pulumi:"authScheme"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-	IAMAuth *string `pulumi:"iAMAuth"`
+	IAMAuth *DBProxyAuthFormatIAMAuth `pulumi:"iAMAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
 	// The name of the database user to which the proxy connects.
@@ -36,11 +36,11 @@ type DBProxyAuthFormatInput interface {
 
 type DBProxyAuthFormatArgs struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-	AuthScheme pulumi.StringPtrInput `pulumi:"authScheme"`
+	AuthScheme DBProxyAuthFormatAuthSchemePtrInput `pulumi:"authScheme"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-	IAMAuth pulumi.StringPtrInput `pulumi:"iAMAuth"`
+	IAMAuth DBProxyAuthFormatIAMAuthPtrInput `pulumi:"iAMAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// The name of the database user to which the proxy connects.
@@ -99,8 +99,8 @@ func (o DBProxyAuthFormatOutput) ToDBProxyAuthFormatOutputWithContext(ctx contex
 }
 
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-func (o DBProxyAuthFormatOutput) AuthScheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.AuthScheme }).(pulumi.StringPtrOutput)
+func (o DBProxyAuthFormatOutput) AuthScheme() DBProxyAuthFormatAuthSchemePtrOutput {
+	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatAuthScheme { return v.AuthScheme }).(DBProxyAuthFormatAuthSchemePtrOutput)
 }
 
 // A user-specified description about the authentication used by a proxy to log in as a specific database user.
@@ -109,8 +109,8 @@ func (o DBProxyAuthFormatOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-func (o DBProxyAuthFormatOutput) IAMAuth() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.IAMAuth }).(pulumi.StringPtrOutput)
+func (o DBProxyAuthFormatOutput) IAMAuth() DBProxyAuthFormatIAMAuthPtrOutput {
+	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatIAMAuth { return v.IAMAuth }).(DBProxyAuthFormatIAMAuthPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.

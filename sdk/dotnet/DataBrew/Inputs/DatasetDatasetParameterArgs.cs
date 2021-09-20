@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// Parameter type
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.DataBrew.DatasetDatasetParameterType> Type { get; set; } = null!;
 
         public DatasetDatasetParameterArgs()
         {

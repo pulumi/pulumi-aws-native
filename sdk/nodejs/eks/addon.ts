@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class Addon extends pulumi.CustomResource {
     /**
      * Resolve parameter value conflicts
      */
-    public readonly resolveConflicts!: pulumi.Output<string | undefined>;
+    public readonly resolveConflicts!: pulumi.Output<enums.eks.AddonResolveConflicts | undefined>;
     /**
      * IAM role to bind to the add-on's service account
      */
@@ -123,7 +123,7 @@ export interface AddonArgs {
     /**
      * Resolve parameter value conflicts
      */
-    resolveConflicts?: pulumi.Input<string>;
+    resolveConflicts?: pulumi.Input<enums.eks.AddonResolveConflicts>;
     /**
      * IAM role to bind to the add-on's service account
      */

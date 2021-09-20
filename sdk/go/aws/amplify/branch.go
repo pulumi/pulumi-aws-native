@@ -26,7 +26,7 @@ type Branch struct {
 	EnablePullRequestPreview   pulumi.BoolPtrOutput                 `pulumi:"enablePullRequestPreview"`
 	EnvironmentVariables       BranchEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
 	PullRequestEnvironmentName pulumi.StringPtrOutput               `pulumi:"pullRequestEnvironmentName"`
-	Stage                      pulumi.StringPtrOutput               `pulumi:"stage"`
+	Stage                      BranchStagePtrOutput                 `pulumi:"stage"`
 	Tags                       BranchTagArrayOutput                 `pulumi:"tags"`
 }
 
@@ -85,7 +85,7 @@ type branchArgs struct {
 	EnablePullRequestPreview   *bool                       `pulumi:"enablePullRequestPreview"`
 	EnvironmentVariables       []BranchEnvironmentVariable `pulumi:"environmentVariables"`
 	PullRequestEnvironmentName *string                     `pulumi:"pullRequestEnvironmentName"`
-	Stage                      *string                     `pulumi:"stage"`
+	Stage                      *BranchStage                `pulumi:"stage"`
 	Tags                       []BranchTag                 `pulumi:"tags"`
 }
 
@@ -101,7 +101,7 @@ type BranchArgs struct {
 	EnablePullRequestPreview   pulumi.BoolPtrInput
 	EnvironmentVariables       BranchEnvironmentVariableArrayInput
 	PullRequestEnvironmentName pulumi.StringPtrInput
-	Stage                      pulumi.StringPtrInput
+	Stage                      BranchStagePtrInput
 	Tags                       BranchTagArrayInput
 }
 

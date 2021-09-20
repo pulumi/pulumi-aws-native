@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .destination import *
 from .device_profile import *
 from .service_profile import *

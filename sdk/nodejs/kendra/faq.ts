@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +43,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * FAQ file format
      */
-    public readonly fileFormat!: pulumi.Output<string | undefined>;
+    public readonly fileFormat!: pulumi.Output<enums.kendra.FaqFileFormat | undefined>;
     /**
      * Index ID
      */
@@ -124,7 +124,7 @@ export interface FaqArgs {
     /**
      * FAQ file format
      */
-    fileFormat?: pulumi.Input<string>;
+    fileFormat?: pulumi.Input<enums.kendra.FaqFileFormat>;
     /**
      * Index ID
      */

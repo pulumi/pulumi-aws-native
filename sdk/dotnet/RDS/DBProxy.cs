@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.RDS
         /// The kinds of databases that the proxy can connect to.
         /// </summary>
         [Output("engineFamily")]
-        public Output<string> EngineFamily { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RDS.DBProxyEngineFamily> EngineFamily { get; private set; } = null!;
 
         /// <summary>
         /// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.RDS
         /// The kinds of databases that the proxy can connect to.
         /// </summary>
         [Input("engineFamily", required: true)]
-        public Input<string> EngineFamily { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RDS.DBProxyEngineFamily> EngineFamily { get; set; } = null!;
 
         /// <summary>
         /// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.

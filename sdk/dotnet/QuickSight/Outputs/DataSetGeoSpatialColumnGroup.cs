@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Columns in this hierarchy.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> Columns;
-        public readonly string? CountryCode;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetGeoSpatialCountryCode? CountryCode;
         /// <summary>
         /// &lt;p&gt;A display name for the hierarchy.&lt;/p&gt;
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private DataSetGeoSpatialColumnGroup(
             ImmutableArray<string> columns,
 
-            string? countryCode,
+            Pulumi.AwsNative.QuickSight.DataSetGeoSpatialCountryCode? countryCode,
 
             string name)
         {

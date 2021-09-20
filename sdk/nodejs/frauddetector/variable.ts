@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,11 +46,11 @@ export class Variable extends pulumi.CustomResource {
     /**
      * The source of the data.
      */
-    public readonly dataSource!: pulumi.Output<string>;
+    public readonly dataSource!: pulumi.Output<enums.frauddetector.VariableDataSource>;
     /**
      * The data type.
      */
-    public readonly dataType!: pulumi.Output<string>;
+    public readonly dataType!: pulumi.Output<enums.frauddetector.VariableDataType>;
     /**
      * The default value for the variable when no value is received.
      */
@@ -74,7 +74,7 @@ export class Variable extends pulumi.CustomResource {
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */
-    public readonly variableType!: pulumi.Output<string | undefined>;
+    public readonly variableType!: pulumi.Output<enums.frauddetector.VariableVariableType | undefined>;
 
     /**
      * Create a Variable resource with the given unique name, arguments, and options.
@@ -135,11 +135,11 @@ export interface VariableArgs {
     /**
      * The source of the data.
      */
-    dataSource: pulumi.Input<string>;
+    dataSource: pulumi.Input<enums.frauddetector.VariableDataSource>;
     /**
      * The data type.
      */
-    dataType: pulumi.Input<string>;
+    dataType: pulumi.Input<enums.frauddetector.VariableDataType>;
     /**
      * The default value for the variable when no value is received.
      */
@@ -159,5 +159,5 @@ export interface VariableArgs {
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */
-    variableType?: pulumi.Input<string>;
+    variableType?: pulumi.Input<enums.frauddetector.VariableVariableType>;
 }

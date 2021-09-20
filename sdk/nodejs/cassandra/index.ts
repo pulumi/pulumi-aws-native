@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./keyspace";
 export * from "./table";
 
+// Export enums:
+export * from "../types/enums/cassandra";
+
 // Import resources to register:
 import { Keyspace } from "./keyspace";
 import { Table } from "./table";

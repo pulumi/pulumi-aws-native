@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
     {
         public readonly ImmutableArray<Outputs.StateMachineLogDestination> Destinations;
         public readonly bool? IncludeExecutionData;
-        public readonly string? Level;
+        public readonly Pulumi.AwsNative.StepFunctions.StateMachineLoggingConfigurationLevel? Level;
 
         [OutputConstructor]
         private StateMachineLoggingConfiguration(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
 
             bool? includeExecutionData,
 
-            string? level)
+            Pulumi.AwsNative.StepFunctions.StateMachineLoggingConfigurationLevel? level)
         {
             Destinations = destinations;
             IncludeExecutionData = includeExecutionData;

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         /// Configuration Source
         /// </summary>
         [Input("configurationSource", required: true)]
-        public Input<string> ConfigurationSource { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationConfigurationSource> ConfigurationSource { get; set; } = null!;
 
         public ServiceCodeConfigurationArgs()
         {

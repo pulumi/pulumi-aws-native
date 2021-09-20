@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     public sealed class IntegrationTriggerConfig
     {
         public readonly Outputs.IntegrationTriggerProperties? TriggerProperties;
-        public readonly string TriggerType;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationTriggerType TriggerType;
 
         [OutputConstructor]
         private IntegrationTriggerConfig(
             Outputs.IntegrationTriggerProperties? triggerProperties,
 
-            string triggerType)
+            Pulumi.AwsNative.CustomerProfiles.IntegrationTriggerType triggerType)
         {
             TriggerProperties = triggerProperties;
             TriggerType = triggerType;

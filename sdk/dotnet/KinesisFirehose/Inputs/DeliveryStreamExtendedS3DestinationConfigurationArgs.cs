@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 
         [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat>? CompressionFormat { get; set; }
 
         [Input("dataFormatConversionConfiguration")]
         public Input<Inputs.DeliveryStreamDataFormatConversionConfigurationArgs>? DataFormatConversionConfiguration { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3BackupConfiguration { get; set; }
 
         [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }
 
         public DeliveryStreamExtendedS3DestinationConfigurationArgs()
         {

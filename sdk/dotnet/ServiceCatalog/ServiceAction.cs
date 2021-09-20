@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
     public partial class ServiceAction : Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
-        public Output<string?> AcceptLanguage { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage?> AcceptLanguage { get; private set; } = null!;
 
         [Output("definition")]
         public Output<ImmutableArray<Outputs.ServiceActionDefinitionParameter>> Definition { get; private set; } = null!;
 
         [Output("definitionType")]
-        public Output<string> DefinitionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ServiceCatalog.ServiceActionDefinitionType> DefinitionType { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     public sealed class ServiceActionArgs : Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
-        public Input<string>? AcceptLanguage { get; set; }
+        public Input<Pulumi.AwsNative.ServiceCatalog.ServiceActionAcceptLanguage>? AcceptLanguage { get; set; }
 
         [Input("definition", required: true)]
         private InputList<Inputs.ServiceActionDefinitionParameterArgs>? _definition;
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         }
 
         [Input("definitionType", required: true)]
-        public Input<string> DefinitionType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ServiceCatalog.ServiceActionDefinitionType> DefinitionType { get; set; } = null!;
 
         [Input("description")]
         public Input<string>? Description { get; set; }

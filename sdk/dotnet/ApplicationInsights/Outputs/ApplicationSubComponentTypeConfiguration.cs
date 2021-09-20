@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// The sub component type.
         /// </summary>
-        public readonly string SubComponentType;
+        public readonly Pulumi.AwsNative.ApplicationInsights.ApplicationSubComponentTypeConfigurationSubComponentType SubComponentType;
 
         [OutputConstructor]
         private ApplicationSubComponentTypeConfiguration(
             Outputs.ApplicationSubComponentConfigurationDetails subComponentConfigurationDetails,
 
-            string subComponentType)
+            Pulumi.AwsNative.ApplicationInsights.ApplicationSubComponentTypeConfigurationSubComponentType subComponentType)
         {
             SubComponentConfigurationDetails = subComponentConfigurationDetails;
             SubComponentType = subComponentType;

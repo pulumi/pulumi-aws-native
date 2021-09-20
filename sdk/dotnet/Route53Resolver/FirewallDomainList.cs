@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.FirewallDomainListStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// FirewallDomainListAssociationStatus

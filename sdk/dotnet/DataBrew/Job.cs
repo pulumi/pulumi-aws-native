@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Encryption mode
         /// </summary>
         [Output("encryptionMode")]
-        public Output<string?> EncryptionMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataBrew.JobEncryptionMode?> EncryptionMode { get; private set; } = null!;
 
         /// <summary>
         /// Job Sample
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Log subscription
         /// </summary>
         [Output("logSubscription")]
-        public Output<string?> LogSubscription { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataBrew.JobLogSubscription?> LogSubscription { get; private set; } = null!;
 
         /// <summary>
         /// Max capacity
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Job type
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataBrew.JobType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Encryption mode
         /// </summary>
         [Input("encryptionMode")]
-        public Input<string>? EncryptionMode { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.JobEncryptionMode>? EncryptionMode { get; set; }
 
         /// <summary>
         /// Job Sample
@@ -203,7 +203,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Log subscription
         /// </summary>
         [Input("logSubscription")]
-        public Input<string>? LogSubscription { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.JobLogSubscription>? LogSubscription { get; set; }
 
         /// <summary>
         /// Max capacity
@@ -276,7 +276,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Job type
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.DataBrew.JobType> Type { get; set; } = null!;
 
         public JobArgs()
         {

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     public sealed class JobJobSampleArgs : Pulumi.ResourceArgs
     {
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.JobSampleMode>? Mode { get; set; }
 
         [Input("size")]
         public Input<int>? Size { get; set; }

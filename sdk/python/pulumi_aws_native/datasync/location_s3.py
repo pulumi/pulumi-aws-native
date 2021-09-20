@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LocationS3Args', 'LocationS3']
@@ -17,13 +18,13 @@ class LocationS3Args:
     def __init__(__self__, *,
                  s3_bucket_arn: pulumi.Input[str],
                  s3_config: pulumi.Input['LocationS3S3ConfigArgs'],
-                 s3_storage_class: Optional[pulumi.Input[str]] = None,
+                 s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationS3 resource.
         :param pulumi.Input[str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+        :param pulumi.Input['LocationS3S3StorageClass'] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -59,14 +60,14 @@ class LocationS3Args:
 
     @property
     @pulumi.getter(name="s3StorageClass")
-    def s3_storage_class(self) -> Optional[pulumi.Input[str]]:
+    def s3_storage_class(self) -> Optional[pulumi.Input['LocationS3S3StorageClass']]:
         """
         The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         """
         return pulumi.get(self, "s3_storage_class")
 
     @s3_storage_class.setter
-    def s3_storage_class(self, value: Optional[pulumi.Input[str]]):
+    def s3_storage_class(self, value: Optional[pulumi.Input['LocationS3S3StorageClass']]):
         pulumi.set(self, "s3_storage_class", value)
 
     @property
@@ -101,7 +102,7 @@ class LocationS3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3S3ConfigArgs']]] = None,
-                 s3_storage_class: Optional[pulumi.Input[str]] = None,
+                 s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]]] = None,
                  __props__=None):
@@ -111,7 +112,7 @@ class LocationS3(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
-        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+        :param pulumi.Input['LocationS3S3StorageClass'] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -141,7 +142,7 @@ class LocationS3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
                  s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3S3ConfigArgs']]] = None,
-                 s3_storage_class: Optional[pulumi.Input[str]] = None,
+                 s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]]] = None,
                  __props__=None):
@@ -229,7 +230,7 @@ class LocationS3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3StorageClass")
-    def s3_storage_class(self) -> pulumi.Output[Optional[str]]:
+    def s3_storage_class(self) -> pulumi.Output[Optional['LocationS3S3StorageClass']]:
         """
         The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         """

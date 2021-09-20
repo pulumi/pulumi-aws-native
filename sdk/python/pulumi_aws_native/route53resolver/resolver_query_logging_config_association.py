@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ResolverQueryLoggingConfigAssociationArgs', 'ResolverQueryLoggingConfigAssociation']
 
@@ -150,7 +151,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def error(self) -> pulumi.Output[str]:
+    def error(self) -> pulumi.Output['ResolverQueryLoggingConfigAssociationError']:
         """
         ResolverQueryLogConfigAssociationError
         """
@@ -182,7 +183,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['ResolverQueryLoggingConfigAssociationStatus']:
         """
         ResolverQueryLogConfigAssociationStatus
         """

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['CostCategoryArgs', 'CostCategory']
 
@@ -14,7 +15,7 @@ __all__ = ['CostCategoryArgs', 'CostCategory']
 class CostCategoryArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 rule_version: pulumi.Input[str],
+                 rule_version: pulumi.Input['CostCategoryRuleVersion'],
                  rules: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
                  split_charge_rules: Optional[pulumi.Input[str]] = None):
@@ -43,11 +44,11 @@ class CostCategoryArgs:
 
     @property
     @pulumi.getter(name="ruleVersion")
-    def rule_version(self) -> pulumi.Input[str]:
+    def rule_version(self) -> pulumi.Input['CostCategoryRuleVersion']:
         return pulumi.get(self, "rule_version")
 
     @rule_version.setter
-    def rule_version(self, value: pulumi.Input[str]):
+    def rule_version(self, value: pulumi.Input['CostCategoryRuleVersion']):
         pulumi.set(self, "rule_version", value)
 
     @property
@@ -94,7 +95,7 @@ class CostCategory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_value: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_version: Optional[pulumi.Input[str]] = None,
+                 rule_version: Optional[pulumi.Input['CostCategoryRuleVersion']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  split_charge_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -133,7 +134,7 @@ class CostCategory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_value: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_version: Optional[pulumi.Input[str]] = None,
+                 rule_version: Optional[pulumi.Input['CostCategoryRuleVersion']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  split_charge_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -220,7 +221,7 @@ class CostCategory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleVersion")
-    def rule_version(self) -> pulumi.Output[str]:
+    def rule_version(self) -> pulumi.Output['CostCategoryRuleVersion']:
         return pulumi.get(self, "rule_version")
 
     @property

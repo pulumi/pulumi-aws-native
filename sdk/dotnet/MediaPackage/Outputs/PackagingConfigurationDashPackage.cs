@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         /// </summary>
-        public readonly string? SegmentTemplateFormat;
+        public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackageSegmentTemplateFormat? SegmentTemplateFormat;
 
         [OutputConstructor]
         private PackagingConfigurationDashPackage(
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             int? segmentDurationSeconds,
 
-            string? segmentTemplateFormat)
+            Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackageSegmentTemplateFormat? segmentTemplateFormat)
         {
             DashManifests = dashManifests;
             Encryption = encryption;

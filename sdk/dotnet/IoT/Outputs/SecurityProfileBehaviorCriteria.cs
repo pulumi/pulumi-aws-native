@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// <summary>
         /// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
         /// </summary>
-        public readonly string? ComparisonOperator;
+        public readonly Pulumi.AwsNative.IoT.SecurityProfileBehaviorCriteriaComparisonOperator? ComparisonOperator;
         /// <summary>
         /// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private SecurityProfileBehaviorCriteria(
-            string? comparisonOperator,
+            Pulumi.AwsNative.IoT.SecurityProfileBehaviorCriteriaComparisonOperator? comparisonOperator,
 
             int? consecutiveDatapointsToAlarm,
 

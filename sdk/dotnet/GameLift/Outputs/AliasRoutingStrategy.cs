@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// <summary>
         /// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
         /// </summary>
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.GameLift.AliasRoutingStrategyType Type;
 
         [OutputConstructor]
         private AliasRoutingStrategy(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             string? message,
 
-            string type)
+            Pulumi.AwsNative.GameLift.AliasRoutingStrategyType type)
         {
             FleetId = fleetId;
             Message = message;

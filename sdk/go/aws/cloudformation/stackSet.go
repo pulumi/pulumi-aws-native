@@ -20,9 +20,9 @@ type StackSet struct {
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
 	AutoDeployment StackSetAutoDeploymentPtrOutput `pulumi:"autoDeployment"`
 	// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
-	CallAs pulumi.StringPtrOutput `pulumi:"callAs"`
+	CallAs StackSetCallAsPtrOutput `pulumi:"callAs"`
 	// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
-	Capabilities pulumi.StringArrayOutput `pulumi:"capabilities"`
+	Capabilities StackSetCapabilityArrayOutput `pulumi:"capabilities"`
 	// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
@@ -31,7 +31,7 @@ type StackSet struct {
 	// The input parameters for the stack set template.
 	Parameters StackSetParameterArrayOutput `pulumi:"parameters"`
 	// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
-	PermissionModel pulumi.StringOutput `pulumi:"permissionModel"`
+	PermissionModel StackSetPermissionModelOutput `pulumi:"permissionModel"`
 	// A group of stack instances with parameters in some specific accounts and regions.
 	StackInstancesGroup StackSetStackInstancesArrayOutput `pulumi:"stackInstancesGroup"`
 	// The ID of the stack set that you're creating.
@@ -96,9 +96,9 @@ type stackSetArgs struct {
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
 	AutoDeployment *StackSetAutoDeployment `pulumi:"autoDeployment"`
 	// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
-	CallAs *string `pulumi:"callAs"`
+	CallAs *StackSetCallAs `pulumi:"callAs"`
 	// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
-	Capabilities []string `pulumi:"capabilities"`
+	Capabilities []StackSetCapability `pulumi:"capabilities"`
 	// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
 	Description *string `pulumi:"description"`
 	// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
@@ -107,7 +107,7 @@ type stackSetArgs struct {
 	// The input parameters for the stack set template.
 	Parameters []StackSetParameter `pulumi:"parameters"`
 	// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
-	PermissionModel string `pulumi:"permissionModel"`
+	PermissionModel StackSetPermissionModel `pulumi:"permissionModel"`
 	// A group of stack instances with parameters in some specific accounts and regions.
 	StackInstancesGroup []StackSetStackInstances `pulumi:"stackInstancesGroup"`
 	// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
@@ -127,9 +127,9 @@ type StackSetArgs struct {
 	// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
 	AutoDeployment StackSetAutoDeploymentPtrInput
 	// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
-	CallAs pulumi.StringPtrInput
+	CallAs StackSetCallAsPtrInput
 	// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
-	Capabilities pulumi.StringArrayInput
+	Capabilities StackSetCapabilityArrayInput
 	// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
 	Description pulumi.StringPtrInput
 	// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
@@ -138,7 +138,7 @@ type StackSetArgs struct {
 	// The input parameters for the stack set template.
 	Parameters StackSetParameterArrayInput
 	// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
-	PermissionModel pulumi.StringInput
+	PermissionModel StackSetPermissionModelInput
 	// A group of stack instances with parameters in some specific accounts and regions.
 	StackInstancesGroup StackSetStackInstancesArrayInput
 	// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.

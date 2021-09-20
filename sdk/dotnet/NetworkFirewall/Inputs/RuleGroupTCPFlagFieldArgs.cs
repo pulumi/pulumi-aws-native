@@ -13,18 +13,18 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class RuleGroupTCPFlagFieldArgs : Pulumi.ResourceArgs
     {
         [Input("flags", required: true)]
-        private InputList<string>? _flags;
-        public InputList<string> Flags
+        private InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag>? _flags;
+        public InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag> Flags
         {
-            get => _flags ?? (_flags = new InputList<string>());
+            get => _flags ?? (_flags = new InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag>());
             set => _flags = value;
         }
 
         [Input("masks")]
-        private InputList<string>? _masks;
-        public InputList<string> Masks
+        private InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag>? _masks;
+        public InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag> Masks
         {
-            get => _masks ?? (_masks = new InputList<string>());
+            get => _masks ?? (_masks = new InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag>());
             set => _masks = value;
         }
 

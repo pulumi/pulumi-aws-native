@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.SSM
         /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         /// </summary>
         [Output("documentFormat")]
-        public Output<string?> DocumentFormat { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSM.DocumentDocumentFormat?> DocumentFormat { get; private set; } = null!;
 
         /// <summary>
         /// The type of document to create.
         /// </summary>
         [Output("documentType")]
-        public Output<string?> DocumentType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSM.DocumentDocumentType?> DocumentType { get; private set; } = null!;
 
         /// <summary>
         /// A name for the Systems Manager document.
@@ -136,13 +136,13 @@ namespace Pulumi.AwsNative.SSM
         /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         /// </summary>
         [Input("documentFormat")]
-        public Input<string>? DocumentFormat { get; set; }
+        public Input<Pulumi.AwsNative.SSM.DocumentDocumentFormat>? DocumentFormat { get; set; }
 
         /// <summary>
         /// The type of document to create.
         /// </summary>
         [Input("documentType")]
-        public Input<string>? DocumentType { get; set; }
+        public Input<Pulumi.AwsNative.SSM.DocumentDocumentType>? DocumentType { get; set; }
 
         /// <summary>
         /// A name for the Systems Manager document.

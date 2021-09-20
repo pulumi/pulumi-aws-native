@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AssociationInstanceAssociationOutputLocation',
@@ -123,11 +124,11 @@ class AssociationTarget(dict):
 @pulumi.output_type
 class DocumentAttachmentsSource(dict):
     def __init__(__self__, *,
-                 key: Optional[str] = None,
+                 key: Optional['DocumentAttachmentsSourceKey'] = None,
                  name: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
         """
-        :param str key: The key of a key-value pair that identifies the location of an attachment to a document.
+        :param 'DocumentAttachmentsSourceKey' key: The key of a key-value pair that identifies the location of an attachment to a document.
         :param str name: The name of the document attachment file.
         :param Sequence[str] values: The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
         """
@@ -140,7 +141,7 @@ class DocumentAttachmentsSource(dict):
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> Optional['DocumentAttachmentsSourceKey']:
         """
         The key of a key-value pair that identifies the location of an attachment to a document.
         """

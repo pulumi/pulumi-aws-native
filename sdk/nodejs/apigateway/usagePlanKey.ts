@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +42,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
     /**
      * The type of usage plan key. Currently, the only valid key type is API_KEY.
      */
-    public readonly keyType!: pulumi.Output<string>;
+    public readonly keyType!: pulumi.Output<enums.apigateway.UsagePlanKeyKeyType>;
     /**
      * The ID of the usage plan.
      */
@@ -93,7 +94,7 @@ export interface UsagePlanKeyArgs {
     /**
      * The type of usage plan key. Currently, the only valid key type is API_KEY.
      */
-    keyType: pulumi.Input<string>;
+    keyType: pulumi.Input<enums.apigateway.UsagePlanKeyKeyType>;
     /**
      * The ID of the usage plan.
      */

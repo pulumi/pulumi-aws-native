@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +42,7 @@ export class Studio extends pulumi.CustomResource {
     /**
      * Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
      */
-    public readonly authMode!: pulumi.Output<string>;
+    public readonly authMode!: pulumi.Output<enums.emr.StudioAuthMode>;
     /**
      * The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
      */
@@ -183,7 +183,7 @@ export interface StudioArgs {
     /**
      * Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
      */
-    authMode: pulumi.Input<string>;
+    authMode: pulumi.Input<enums.emr.StudioAuthMode>;
     /**
      * The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
      */

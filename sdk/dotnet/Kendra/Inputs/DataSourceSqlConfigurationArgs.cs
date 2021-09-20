@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     public sealed class DataSourceSqlConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("queryIdentifiersEnclosingOption")]
-        public Input<string>? QueryIdentifiersEnclosingOption { get; set; }
+        public Input<Pulumi.AwsNative.Kendra.DataSourceQueryIdentifiersEnclosingOption>? QueryIdentifiersEnclosingOption { get; set; }
 
         public DataSourceSqlConfigurationArgs()
         {

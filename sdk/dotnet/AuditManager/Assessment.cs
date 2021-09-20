@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Output<Outputs.AssessmentScope?> Scope { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.AuditManager.AssessmentAssessmentStatus?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags associated with the assessment.
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Input<Inputs.AssessmentScopeArgs>? Scope { get; set; }
 
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.AuditManager.AssessmentAssessmentStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AssessmentTagArgs>? _tags;

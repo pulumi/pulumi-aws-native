@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.WAFv2
         /// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         /// </summary>
         [Output("scope")]
-        public Output<string> Scope { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.WAFv2.RegexPatternSetScope> Scope { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.RegexPatternSetTag>> Tags { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.WAFv2
         /// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         /// </summary>
         [Input("scope", required: true)]
-        public Input<string> Scope { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.RegexPatternSetScope> Scope { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.RegexPatternSetTagArgs>? _tags;

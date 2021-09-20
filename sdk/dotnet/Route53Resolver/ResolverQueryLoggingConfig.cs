@@ -61,13 +61,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
         /// </summary>
         [Output("shareStatus")]
-        public Output<string> ShareStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.ResolverQueryLoggingConfigShareStatus> ShareStatus { get; private set; } = null!;
 
         /// <summary>
         /// ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.ResolverQueryLoggingConfigStatus> Status { get; private set; } = null!;
 
 
         /// <summary>

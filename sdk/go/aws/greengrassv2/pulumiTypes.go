@@ -289,9 +289,9 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) Volumes() ComponentVersi
 }
 
 type ComponentVersionLambdaDeviceMount struct {
-	AddGroupOwner *bool   `pulumi:"addGroupOwner"`
-	Path          *string `pulumi:"path"`
-	Permission    *string `pulumi:"permission"`
+	AddGroupOwner *bool                                       `pulumi:"addGroupOwner"`
+	Path          *string                                     `pulumi:"path"`
+	Permission    *ComponentVersionLambdaFilesystemPermission `pulumi:"permission"`
 }
 
 // ComponentVersionLambdaDeviceMountInput is an input type that accepts ComponentVersionLambdaDeviceMountArgs and ComponentVersionLambdaDeviceMountOutput values.
@@ -306,9 +306,9 @@ type ComponentVersionLambdaDeviceMountInput interface {
 }
 
 type ComponentVersionLambdaDeviceMountArgs struct {
-	AddGroupOwner pulumi.BoolPtrInput   `pulumi:"addGroupOwner"`
-	Path          pulumi.StringPtrInput `pulumi:"path"`
-	Permission    pulumi.StringPtrInput `pulumi:"permission"`
+	AddGroupOwner pulumi.BoolPtrInput                                `pulumi:"addGroupOwner"`
+	Path          pulumi.StringPtrInput                              `pulumi:"path"`
+	Permission    ComponentVersionLambdaFilesystemPermissionPtrInput `pulumi:"permission"`
 }
 
 func (ComponentVersionLambdaDeviceMountArgs) ElementType() reflect.Type {
@@ -370,8 +370,10 @@ func (o ComponentVersionLambdaDeviceMountOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaDeviceMount) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentVersionLambdaDeviceMountOutput) Permission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaDeviceMount) *string { return v.Permission }).(pulumi.StringPtrOutput)
+func (o ComponentVersionLambdaDeviceMountOutput) Permission() ComponentVersionLambdaFilesystemPermissionPtrOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaDeviceMount) *ComponentVersionLambdaFilesystemPermission {
+		return v.Permission
+	}).(ComponentVersionLambdaFilesystemPermissionPtrOutput)
 }
 
 type ComponentVersionLambdaDeviceMountArrayOutput struct{ *pulumi.OutputState }
@@ -395,8 +397,8 @@ func (o ComponentVersionLambdaDeviceMountArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ComponentVersionLambdaEventSource struct {
-	Topic *string `pulumi:"topic"`
-	Type  *string `pulumi:"type"`
+	Topic *string                                `pulumi:"topic"`
+	Type  *ComponentVersionLambdaEventSourceType `pulumi:"type"`
 }
 
 // ComponentVersionLambdaEventSourceInput is an input type that accepts ComponentVersionLambdaEventSourceArgs and ComponentVersionLambdaEventSourceOutput values.
@@ -411,8 +413,8 @@ type ComponentVersionLambdaEventSourceInput interface {
 }
 
 type ComponentVersionLambdaEventSourceArgs struct {
-	Topic pulumi.StringPtrInput `pulumi:"topic"`
-	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Topic pulumi.StringPtrInput                         `pulumi:"topic"`
+	Type  ComponentVersionLambdaEventSourceTypePtrInput `pulumi:"type"`
 }
 
 func (ComponentVersionLambdaEventSourceArgs) ElementType() reflect.Type {
@@ -470,8 +472,8 @@ func (o ComponentVersionLambdaEventSourceOutput) Topic() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ComponentVersionLambdaEventSource) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentVersionLambdaEventSourceOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaEventSource) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ComponentVersionLambdaEventSourceOutput) Type() ComponentVersionLambdaEventSourceTypePtrOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaEventSource) *ComponentVersionLambdaEventSourceType { return v.Type }).(ComponentVersionLambdaEventSourceTypePtrOutput)
 }
 
 type ComponentVersionLambdaEventSourceArrayOutput struct{ *pulumi.OutputState }
@@ -495,17 +497,17 @@ func (o ComponentVersionLambdaEventSourceArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ComponentVersionLambdaExecutionParameters struct {
-	EnvironmentVariables     interface{}                               `pulumi:"environmentVariables"`
-	EventSources             []ComponentVersionLambdaEventSource       `pulumi:"eventSources"`
-	ExecArgs                 []string                                  `pulumi:"execArgs"`
-	InputPayloadEncodingType *string                                   `pulumi:"inputPayloadEncodingType"`
-	LinuxProcessParams       *ComponentVersionLambdaLinuxProcessParams `pulumi:"linuxProcessParams"`
-	MaxIdleTimeInSeconds     *int                                      `pulumi:"maxIdleTimeInSeconds"`
-	MaxInstancesCount        *int                                      `pulumi:"maxInstancesCount"`
-	MaxQueueSize             *int                                      `pulumi:"maxQueueSize"`
-	Pinned                   *bool                                     `pulumi:"pinned"`
-	StatusTimeoutInSeconds   *int                                      `pulumi:"statusTimeoutInSeconds"`
-	TimeoutInSeconds         *int                                      `pulumi:"timeoutInSeconds"`
+	EnvironmentVariables     interface{}                                                        `pulumi:"environmentVariables"`
+	EventSources             []ComponentVersionLambdaEventSource                                `pulumi:"eventSources"`
+	ExecArgs                 []string                                                           `pulumi:"execArgs"`
+	InputPayloadEncodingType *ComponentVersionLambdaExecutionParametersInputPayloadEncodingType `pulumi:"inputPayloadEncodingType"`
+	LinuxProcessParams       *ComponentVersionLambdaLinuxProcessParams                          `pulumi:"linuxProcessParams"`
+	MaxIdleTimeInSeconds     *int                                                               `pulumi:"maxIdleTimeInSeconds"`
+	MaxInstancesCount        *int                                                               `pulumi:"maxInstancesCount"`
+	MaxQueueSize             *int                                                               `pulumi:"maxQueueSize"`
+	Pinned                   *bool                                                              `pulumi:"pinned"`
+	StatusTimeoutInSeconds   *int                                                               `pulumi:"statusTimeoutInSeconds"`
+	TimeoutInSeconds         *int                                                               `pulumi:"timeoutInSeconds"`
 }
 
 // ComponentVersionLambdaExecutionParametersInput is an input type that accepts ComponentVersionLambdaExecutionParametersArgs and ComponentVersionLambdaExecutionParametersOutput values.
@@ -520,17 +522,17 @@ type ComponentVersionLambdaExecutionParametersInput interface {
 }
 
 type ComponentVersionLambdaExecutionParametersArgs struct {
-	EnvironmentVariables     pulumi.Input                                     `pulumi:"environmentVariables"`
-	EventSources             ComponentVersionLambdaEventSourceArrayInput      `pulumi:"eventSources"`
-	ExecArgs                 pulumi.StringArrayInput                          `pulumi:"execArgs"`
-	InputPayloadEncodingType pulumi.StringPtrInput                            `pulumi:"inputPayloadEncodingType"`
-	LinuxProcessParams       ComponentVersionLambdaLinuxProcessParamsPtrInput `pulumi:"linuxProcessParams"`
-	MaxIdleTimeInSeconds     pulumi.IntPtrInput                               `pulumi:"maxIdleTimeInSeconds"`
-	MaxInstancesCount        pulumi.IntPtrInput                               `pulumi:"maxInstancesCount"`
-	MaxQueueSize             pulumi.IntPtrInput                               `pulumi:"maxQueueSize"`
-	Pinned                   pulumi.BoolPtrInput                              `pulumi:"pinned"`
-	StatusTimeoutInSeconds   pulumi.IntPtrInput                               `pulumi:"statusTimeoutInSeconds"`
-	TimeoutInSeconds         pulumi.IntPtrInput                               `pulumi:"timeoutInSeconds"`
+	EnvironmentVariables     pulumi.Input                                                              `pulumi:"environmentVariables"`
+	EventSources             ComponentVersionLambdaEventSourceArrayInput                               `pulumi:"eventSources"`
+	ExecArgs                 pulumi.StringArrayInput                                                   `pulumi:"execArgs"`
+	InputPayloadEncodingType ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrInput `pulumi:"inputPayloadEncodingType"`
+	LinuxProcessParams       ComponentVersionLambdaLinuxProcessParamsPtrInput                          `pulumi:"linuxProcessParams"`
+	MaxIdleTimeInSeconds     pulumi.IntPtrInput                                                        `pulumi:"maxIdleTimeInSeconds"`
+	MaxInstancesCount        pulumi.IntPtrInput                                                        `pulumi:"maxInstancesCount"`
+	MaxQueueSize             pulumi.IntPtrInput                                                        `pulumi:"maxQueueSize"`
+	Pinned                   pulumi.BoolPtrInput                                                       `pulumi:"pinned"`
+	StatusTimeoutInSeconds   pulumi.IntPtrInput                                                        `pulumi:"statusTimeoutInSeconds"`
+	TimeoutInSeconds         pulumi.IntPtrInput                                                        `pulumi:"timeoutInSeconds"`
 }
 
 func (ComponentVersionLambdaExecutionParametersArgs) ElementType() reflect.Type {
@@ -624,8 +626,10 @@ func (o ComponentVersionLambdaExecutionParametersOutput) ExecArgs() pulumi.Strin
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) []string { return v.ExecArgs }).(pulumi.StringArrayOutput)
 }
 
-func (o ComponentVersionLambdaExecutionParametersOutput) InputPayloadEncodingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *string { return v.InputPayloadEncodingType }).(pulumi.StringPtrOutput)
+func (o ComponentVersionLambdaExecutionParametersOutput) InputPayloadEncodingType() ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *ComponentVersionLambdaExecutionParametersInputPayloadEncodingType {
+		return v.InputPayloadEncodingType
+	}).(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput)
 }
 
 func (o ComponentVersionLambdaExecutionParametersOutput) LinuxProcessParams() ComponentVersionLambdaLinuxProcessParamsPtrOutput {
@@ -709,13 +713,13 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) ExecArgs() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o ComponentVersionLambdaExecutionParametersPtrOutput) InputPayloadEncodingType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *string {
+func (o ComponentVersionLambdaExecutionParametersPtrOutput) InputPayloadEncodingType() ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput {
+	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *ComponentVersionLambdaExecutionParametersInputPayloadEncodingType {
 		if v == nil {
 			return nil
 		}
 		return v.InputPayloadEncodingType
-	}).(pulumi.StringPtrOutput)
+	}).(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput)
 }
 
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) LinuxProcessParams() ComponentVersionLambdaLinuxProcessParamsPtrOutput {
@@ -994,8 +998,8 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) LambdaArn() pulumi.
 }
 
 type ComponentVersionLambdaLinuxProcessParams struct {
-	ContainerParams *ComponentVersionLambdaContainerParams `pulumi:"containerParams"`
-	IsolationMode   *string                                `pulumi:"isolationMode"`
+	ContainerParams *ComponentVersionLambdaContainerParams                 `pulumi:"containerParams"`
+	IsolationMode   *ComponentVersionLambdaLinuxProcessParamsIsolationMode `pulumi:"isolationMode"`
 }
 
 // ComponentVersionLambdaLinuxProcessParamsInput is an input type that accepts ComponentVersionLambdaLinuxProcessParamsArgs and ComponentVersionLambdaLinuxProcessParamsOutput values.
@@ -1010,8 +1014,8 @@ type ComponentVersionLambdaLinuxProcessParamsInput interface {
 }
 
 type ComponentVersionLambdaLinuxProcessParamsArgs struct {
-	ContainerParams ComponentVersionLambdaContainerParamsPtrInput `pulumi:"containerParams"`
-	IsolationMode   pulumi.StringPtrInput                         `pulumi:"isolationMode"`
+	ContainerParams ComponentVersionLambdaContainerParamsPtrInput                 `pulumi:"containerParams"`
+	IsolationMode   ComponentVersionLambdaLinuxProcessParamsIsolationModePtrInput `pulumi:"isolationMode"`
 }
 
 func (ComponentVersionLambdaLinuxProcessParamsArgs) ElementType() reflect.Type {
@@ -1097,8 +1101,10 @@ func (o ComponentVersionLambdaLinuxProcessParamsOutput) ContainerParams() Compon
 	}).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-func (o ComponentVersionLambdaLinuxProcessParamsOutput) IsolationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaLinuxProcessParams) *string { return v.IsolationMode }).(pulumi.StringPtrOutput)
+func (o ComponentVersionLambdaLinuxProcessParamsOutput) IsolationMode() ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaLinuxProcessParams) *ComponentVersionLambdaLinuxProcessParamsIsolationMode {
+		return v.IsolationMode
+	}).(ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput)
 }
 
 type ComponentVersionLambdaLinuxProcessParamsPtrOutput struct{ *pulumi.OutputState }
@@ -1134,20 +1140,20 @@ func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) ContainerParams() Com
 	}).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) IsolationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ComponentVersionLambdaLinuxProcessParams) *string {
+func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) IsolationMode() ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput {
+	return o.ApplyT(func(v *ComponentVersionLambdaLinuxProcessParams) *ComponentVersionLambdaLinuxProcessParamsIsolationMode {
 		if v == nil {
 			return nil
 		}
 		return v.IsolationMode
-	}).(pulumi.StringPtrOutput)
+	}).(ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput)
 }
 
 type ComponentVersionLambdaVolumeMount struct {
-	AddGroupOwner   *bool   `pulumi:"addGroupOwner"`
-	DestinationPath *string `pulumi:"destinationPath"`
-	Permission      *string `pulumi:"permission"`
-	SourcePath      *string `pulumi:"sourcePath"`
+	AddGroupOwner   *bool                                       `pulumi:"addGroupOwner"`
+	DestinationPath *string                                     `pulumi:"destinationPath"`
+	Permission      *ComponentVersionLambdaFilesystemPermission `pulumi:"permission"`
+	SourcePath      *string                                     `pulumi:"sourcePath"`
 }
 
 // ComponentVersionLambdaVolumeMountInput is an input type that accepts ComponentVersionLambdaVolumeMountArgs and ComponentVersionLambdaVolumeMountOutput values.
@@ -1162,10 +1168,10 @@ type ComponentVersionLambdaVolumeMountInput interface {
 }
 
 type ComponentVersionLambdaVolumeMountArgs struct {
-	AddGroupOwner   pulumi.BoolPtrInput   `pulumi:"addGroupOwner"`
-	DestinationPath pulumi.StringPtrInput `pulumi:"destinationPath"`
-	Permission      pulumi.StringPtrInput `pulumi:"permission"`
-	SourcePath      pulumi.StringPtrInput `pulumi:"sourcePath"`
+	AddGroupOwner   pulumi.BoolPtrInput                                `pulumi:"addGroupOwner"`
+	DestinationPath pulumi.StringPtrInput                              `pulumi:"destinationPath"`
+	Permission      ComponentVersionLambdaFilesystemPermissionPtrInput `pulumi:"permission"`
+	SourcePath      pulumi.StringPtrInput                              `pulumi:"sourcePath"`
 }
 
 func (ComponentVersionLambdaVolumeMountArgs) ElementType() reflect.Type {
@@ -1227,8 +1233,10 @@ func (o ComponentVersionLambdaVolumeMountOutput) DestinationPath() pulumi.String
 	return o.ApplyT(func(v ComponentVersionLambdaVolumeMount) *string { return v.DestinationPath }).(pulumi.StringPtrOutput)
 }
 
-func (o ComponentVersionLambdaVolumeMountOutput) Permission() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaVolumeMount) *string { return v.Permission }).(pulumi.StringPtrOutput)
+func (o ComponentVersionLambdaVolumeMountOutput) Permission() ComponentVersionLambdaFilesystemPermissionPtrOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaVolumeMount) *ComponentVersionLambdaFilesystemPermission {
+		return v.Permission
+	}).(ComponentVersionLambdaFilesystemPermissionPtrOutput)
 }
 
 func (o ComponentVersionLambdaVolumeMountOutput) SourcePath() pulumi.StringPtrOutput {

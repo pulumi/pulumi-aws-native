@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .agent import *
 from .location_efs import *
 from .location_f_sx_windows import *

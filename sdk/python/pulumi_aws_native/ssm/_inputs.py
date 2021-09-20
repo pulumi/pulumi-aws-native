@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AssociationInstanceAssociationOutputLocationArgs',
@@ -108,11 +109,11 @@ class AssociationTargetArgs:
 @pulumi.input_type
 class DocumentAttachmentsSourceArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input['DocumentAttachmentsSourceKey']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] key: The key of a key-value pair that identifies the location of an attachment to a document.
+        :param pulumi.Input['DocumentAttachmentsSourceKey'] key: The key of a key-value pair that identifies the location of an attachment to a document.
         :param pulumi.Input[str] name: The name of the document attachment file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
         """
@@ -125,14 +126,14 @@ class DocumentAttachmentsSourceArgs:
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[str]]:
+    def key(self) -> Optional[pulumi.Input['DocumentAttachmentsSourceKey']]:
         """
         The key of a key-value pair that identifies the location of an attachment to a document.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[str]]):
+    def key(self, value: Optional[pulumi.Input['DocumentAttachmentsSourceKey']]):
         pulumi.set(self, "key", value)
 
     @property

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'BudgetsActionActionThresholdArgs',
@@ -20,18 +21,18 @@ __all__ = [
 @pulumi.input_type
 class BudgetsActionActionThresholdArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['BudgetsActionActionThresholdType'],
                  value: pulumi.Input[float]):
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['BudgetsActionActionThresholdType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['BudgetsActionActionThresholdType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -169,7 +170,7 @@ class BudgetsActionSsmActionDefinitionArgs:
     def __init__(__self__, *,
                  instance_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  region: pulumi.Input[str],
-                 subtype: pulumi.Input[str]):
+                 subtype: pulumi.Input['BudgetsActionSsmActionDefinitionSubtype']):
         pulumi.set(__self__, "instance_ids", instance_ids)
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "subtype", subtype)
@@ -194,11 +195,11 @@ class BudgetsActionSsmActionDefinitionArgs:
 
     @property
     @pulumi.getter
-    def subtype(self) -> pulumi.Input[str]:
+    def subtype(self) -> pulumi.Input['BudgetsActionSsmActionDefinitionSubtype']:
         return pulumi.get(self, "subtype")
 
     @subtype.setter
-    def subtype(self, value: pulumi.Input[str]):
+    def subtype(self, value: pulumi.Input['BudgetsActionSsmActionDefinitionSubtype']):
         pulumi.set(self, "subtype", value)
 
 
@@ -206,7 +207,7 @@ class BudgetsActionSsmActionDefinitionArgs:
 class BudgetsActionSubscriberArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['BudgetsActionSubscriberType']):
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "type", type)
 
@@ -221,11 +222,11 @@ class BudgetsActionSubscriberArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['BudgetsActionSubscriberType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['BudgetsActionSubscriberType']):
         pulumi.set(self, "type", value)
 
 

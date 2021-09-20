@@ -11,6 +11,9 @@ export * from "./flowOutput";
 export * from "./flowSource";
 export * from "./flowVpcInterface";
 
+// Export enums:
+export * from "../types/enums/mediaconnect";
+
 // Import resources to register:
 import { Flow } from "./flow";
 import { FlowEntitlement } from "./flowEntitlement";

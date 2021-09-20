@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         /// Database table name
         /// </summary>
         [Input("databaseOutputMode")]
-        public Input<string>? DatabaseOutputMode { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.JobDatabaseOutputDatabaseOutputMode>? DatabaseOutputMode { get; set; }
 
         /// <summary>
         /// Glue connection name

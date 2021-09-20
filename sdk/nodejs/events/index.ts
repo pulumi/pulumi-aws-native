@@ -9,6 +9,9 @@ export * from "./apiDestination";
 export * from "./archive";
 export * from "./connection";
 
+// Export enums:
+export * from "../types/enums/events";
+
 // Import resources to register:
 import { ApiDestination } from "./apiDestination";
 import { Archive } from "./archive";

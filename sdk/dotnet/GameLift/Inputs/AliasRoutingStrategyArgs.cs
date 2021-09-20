@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.GameLift.AliasRoutingStrategyType> Type { get; set; } = null!;
 
         public AliasRoutingStrategyArgs()
         {

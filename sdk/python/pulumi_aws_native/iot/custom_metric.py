@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CustomMetricArgs', 'CustomMetric']
@@ -15,13 +16,13 @@ __all__ = ['CustomMetricArgs', 'CustomMetric']
 @pulumi.input_type
 class CustomMetricArgs:
     def __init__(__self__, *,
-                 metric_type: pulumi.Input[str],
+                 metric_type: pulumi.Input['CustomMetricMetricType'],
                  display_name: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomMetricTagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomMetric resource.
-        :param pulumi.Input[str] metric_type: The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
+        :param pulumi.Input['CustomMetricMetricType'] metric_type: The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
         :param pulumi.Input[str] display_name: Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.
         :param pulumi.Input[str] metric_name: The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
         :param pulumi.Input[Sequence[pulumi.Input['CustomMetricTagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -36,14 +37,14 @@ class CustomMetricArgs:
 
     @property
     @pulumi.getter(name="metricType")
-    def metric_type(self) -> pulumi.Input[str]:
+    def metric_type(self) -> pulumi.Input['CustomMetricMetricType']:
         """
         The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
         """
         return pulumi.get(self, "metric_type")
 
     @metric_type.setter
-    def metric_type(self, value: pulumi.Input[str]):
+    def metric_type(self, value: pulumi.Input['CustomMetricMetricType']):
         pulumi.set(self, "metric_type", value)
 
     @property
@@ -90,7 +91,7 @@ class CustomMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_type: Optional[pulumi.Input[str]] = None,
+                 metric_type: Optional[pulumi.Input['CustomMetricMetricType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomMetricTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -100,7 +101,7 @@ class CustomMetric(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.
         :param pulumi.Input[str] metric_name: The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
-        :param pulumi.Input[str] metric_type: The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
+        :param pulumi.Input['CustomMetricMetricType'] metric_type: The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomMetricTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -129,7 +130,7 @@ class CustomMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_type: Optional[pulumi.Input[str]] = None,
+                 metric_type: Optional[pulumi.Input['CustomMetricMetricType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomMetricTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -205,7 +206,7 @@ class CustomMetric(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="metricType")
-    def metric_type(self) -> pulumi.Output[str]:
+    def metric_type(self) -> pulumi.Output['CustomMetricMetricType']:
         """
         The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
         """

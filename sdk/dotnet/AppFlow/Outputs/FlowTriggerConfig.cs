@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// <summary>
         /// Trigger type of the flow
         /// </summary>
-        public readonly string TriggerType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowTriggerType TriggerType;
 
         [OutputConstructor]
         private FlowTriggerConfig(
             Outputs.FlowScheduledTriggerProperties? triggerProperties,
 
-            string triggerType)
+            Pulumi.AwsNative.AppFlow.FlowTriggerType triggerType)
         {
             TriggerProperties = triggerProperties;
             TriggerType = triggerType;

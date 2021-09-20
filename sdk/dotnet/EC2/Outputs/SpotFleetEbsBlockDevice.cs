@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly int? Iops;
         public readonly string? SnapshotId;
         public readonly int? VolumeSize;
-        public readonly string? VolumeType;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetEbsBlockDeviceVolumeType? VolumeType;
 
         [OutputConstructor]
         private SpotFleetEbsBlockDevice(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             int? volumeSize,
 
-            string? volumeType)
+            Pulumi.AwsNative.EC2.SpotFleetEbsBlockDeviceVolumeType? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
             Encrypted = encrypted;

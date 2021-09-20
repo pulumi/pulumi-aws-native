@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// The type of repository to be associated.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CodeGuruReviewer.RepositoryAssociationType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// The type of repository to be associated.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CodeGuruReviewer.RepositoryAssociationType> Type { get; set; } = null!;
 
         public RepositoryAssociationArgs()
         {

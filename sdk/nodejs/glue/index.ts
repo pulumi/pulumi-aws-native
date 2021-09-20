@@ -10,6 +10,9 @@ export * from "./schema";
 export * from "./schemaVersion";
 export * from "./schemaVersionMetadata";
 
+// Export enums:
+export * from "../types/enums/glue";
+
 // Import resources to register:
 import { Registry } from "./registry";
 import { Schema } from "./schema";

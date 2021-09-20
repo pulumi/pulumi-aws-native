@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowTaskPropertiesObjectArgs : Pulumi.ResourceArgs
     {
         [Input("key", required: true)]
-        public Input<string> Key { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppFlow.FlowOperatorPropertiesKeys> Key { get; set; } = null!;
 
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

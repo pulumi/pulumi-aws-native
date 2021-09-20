@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StackSetArgs', 'StackSet']
@@ -15,12 +16,12 @@ __all__ = ['StackSetArgs', 'StackSet']
 @pulumi.input_type
 class StackSetArgs:
     def __init__(__self__, *,
-                 permission_model: pulumi.Input[str],
+                 permission_model: pulumi.Input['StackSetPermissionModel'],
                  stack_set_name: pulumi.Input[str],
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
-                 call_as: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 call_as: Optional[pulumi.Input['StackSetCallAs']] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
@@ -31,12 +32,12 @@ class StackSetArgs:
                  template_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StackSet resource.
-        :param pulumi.Input[str] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
+        :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         :param pulumi.Input[str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
-        :param pulumi.Input[str] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
+        :param pulumi.Input['StackSetCallAs'] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
+        :param pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: The input parameters for the stack set template.
@@ -74,14 +75,14 @@ class StackSetArgs:
 
     @property
     @pulumi.getter(name="permissionModel")
-    def permission_model(self) -> pulumi.Input[str]:
+    def permission_model(self) -> pulumi.Input['StackSetPermissionModel']:
         """
         Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         """
         return pulumi.get(self, "permission_model")
 
     @permission_model.setter
-    def permission_model(self, value: pulumi.Input[str]):
+    def permission_model(self, value: pulumi.Input['StackSetPermissionModel']):
         pulumi.set(self, "permission_model", value)
 
     @property
@@ -122,26 +123,26 @@ class StackSetArgs:
 
     @property
     @pulumi.getter(name="callAs")
-    def call_as(self) -> Optional[pulumi.Input[str]]:
+    def call_as(self) -> Optional[pulumi.Input['StackSetCallAs']]:
         """
         Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         """
         return pulumi.get(self, "call_as")
 
     @call_as.setter
-    def call_as(self, value: Optional[pulumi.Input[str]]):
+    def call_as(self, value: Optional[pulumi.Input['StackSetCallAs']]):
         pulumi.set(self, "call_as", value)
 
     @property
     @pulumi.getter
-    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]]:
         """
         In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
-    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]]):
         pulumi.set(self, "capabilities", value)
 
     @property
@@ -245,13 +246,13 @@ class StackSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_deployment: Optional[pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']]] = None,
-                 call_as: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 call_as: Optional[pulumi.Input['StackSetCallAs']] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]]] = None,
-                 permission_model: Optional[pulumi.Input[str]] = None,
+                 permission_model: Optional[pulumi.Input['StackSetPermissionModel']] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]]] = None,
@@ -265,12 +266,12 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         :param pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
-        :param pulumi.Input[str] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
+        :param pulumi.Input['StackSetCallAs'] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
+        :param pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]] parameters: The input parameters for the stack set template.
-        :param pulumi.Input[str] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
+        :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
         :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
@@ -303,13 +304,13 @@ class StackSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: Optional[pulumi.Input[str]] = None,
                  auto_deployment: Optional[pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']]] = None,
-                 call_as: Optional[pulumi.Input[str]] = None,
-                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 call_as: Optional[pulumi.Input['StackSetCallAs']] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]]] = None,
-                 permission_model: Optional[pulumi.Input[str]] = None,
+                 permission_model: Optional[pulumi.Input['StackSetPermissionModel']] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]]] = None,
@@ -403,7 +404,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callAs")
-    def call_as(self) -> pulumi.Output[Optional[str]]:
+    def call_as(self) -> pulumi.Output[Optional['StackSetCallAs']]:
         """
         Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         """
@@ -411,7 +412,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def capabilities(self) -> pulumi.Output[Optional[Sequence['StackSetCapability']]]:
         """
         In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         """
@@ -448,7 +449,7 @@ class StackSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="permissionModel")
-    def permission_model(self) -> pulumi.Output[str]:
+    def permission_model(self) -> pulumi.Output['StackSetPermissionModel']:
         """
         Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         """

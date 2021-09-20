@@ -11,8 +11,8 @@ import (
 )
 
 type SigningProfileSignatureValidityPeriod struct {
-	Type  *string `pulumi:"type"`
-	Value *int    `pulumi:"value"`
+	Type  *SigningProfileSignatureValidityPeriodType `pulumi:"type"`
+	Value *int                                       `pulumi:"value"`
 }
 
 // SigningProfileSignatureValidityPeriodInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs and SigningProfileSignatureValidityPeriodOutput values.
@@ -27,8 +27,8 @@ type SigningProfileSignatureValidityPeriodInput interface {
 }
 
 type SigningProfileSignatureValidityPeriodArgs struct {
-	Type  pulumi.StringPtrInput `pulumi:"type"`
-	Value pulumi.IntPtrInput    `pulumi:"value"`
+	Type  SigningProfileSignatureValidityPeriodTypePtrInput `pulumi:"type"`
+	Value pulumi.IntPtrInput                                `pulumi:"value"`
 }
 
 func (SigningProfileSignatureValidityPeriodArgs) ElementType() reflect.Type {
@@ -108,8 +108,10 @@ func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureVa
 	}).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
-func (o SigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o SigningProfileSignatureValidityPeriodOutput) Type() SigningProfileSignatureValidityPeriodTypePtrOutput {
+	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) *SigningProfileSignatureValidityPeriodType {
+		return v.Type
+	}).(SigningProfileSignatureValidityPeriodTypePtrOutput)
 }
 
 func (o SigningProfileSignatureValidityPeriodOutput) Value() pulumi.IntPtrOutput {
@@ -140,13 +142,13 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Elem() SigningProfileSig
 	}).(SigningProfileSignatureValidityPeriodOutput)
 }
 
-func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *string {
+func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() SigningProfileSignatureValidityPeriodTypePtrOutput {
+	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *SigningProfileSignatureValidityPeriodType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(SigningProfileSignatureValidityPeriodTypePtrOutput)
 }
 
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOutput {

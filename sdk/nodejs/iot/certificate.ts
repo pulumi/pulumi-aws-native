@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,10 +37,10 @@ export class Certificate extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly cACertificatePem!: pulumi.Output<string | undefined>;
-    public readonly certificateMode!: pulumi.Output<string | undefined>;
+    public readonly certificateMode!: pulumi.Output<enums.iot.CertificateCertificateMode | undefined>;
     public readonly certificatePem!: pulumi.Output<string | undefined>;
     public readonly certificateSigningRequest!: pulumi.Output<string | undefined>;
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<enums.iot.CertificateStatus>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -81,8 +82,8 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     cACertificatePem?: pulumi.Input<string>;
-    certificateMode?: pulumi.Input<string>;
+    certificateMode?: pulumi.Input<enums.iot.CertificateCertificateMode>;
     certificatePem?: pulumi.Input<string>;
     certificateSigningRequest?: pulumi.Input<string>;
-    status: pulumi.Input<string>;
+    status: pulumi.Input<enums.iot.CertificateStatus>;
 }

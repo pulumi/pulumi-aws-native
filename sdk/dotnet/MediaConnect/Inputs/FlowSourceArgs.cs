@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         /// The protocol that is used by the source or output.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public Input<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The ARN of the source.

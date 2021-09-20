@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ComponentVersionComponentPlatform',
@@ -119,7 +120,7 @@ class ComponentVersionLambdaDeviceMount(dict):
     def __init__(__self__, *,
                  add_group_owner: Optional[bool] = None,
                  path: Optional[str] = None,
-                 permission: Optional[str] = None):
+                 permission: Optional['ComponentVersionLambdaFilesystemPermission'] = None):
         if add_group_owner is not None:
             pulumi.set(__self__, "add_group_owner", add_group_owner)
         if path is not None:
@@ -139,7 +140,7 @@ class ComponentVersionLambdaDeviceMount(dict):
 
     @property
     @pulumi.getter
-    def permission(self) -> Optional[str]:
+    def permission(self) -> Optional['ComponentVersionLambdaFilesystemPermission']:
         return pulumi.get(self, "permission")
 
 
@@ -147,7 +148,7 @@ class ComponentVersionLambdaDeviceMount(dict):
 class ComponentVersionLambdaEventSource(dict):
     def __init__(__self__, *,
                  topic: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['ComponentVersionLambdaEventSourceType'] = None):
         if topic is not None:
             pulumi.set(__self__, "topic", topic)
         if type is not None:
@@ -160,7 +161,7 @@ class ComponentVersionLambdaEventSource(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['ComponentVersionLambdaEventSourceType']:
         return pulumi.get(self, "type")
 
 
@@ -205,7 +206,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
                  environment_variables: Optional[Any] = None,
                  event_sources: Optional[Sequence['outputs.ComponentVersionLambdaEventSource']] = None,
                  exec_args: Optional[Sequence[str]] = None,
-                 input_payload_encoding_type: Optional[str] = None,
+                 input_payload_encoding_type: Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType'] = None,
                  linux_process_params: Optional['outputs.ComponentVersionLambdaLinuxProcessParams'] = None,
                  max_idle_time_in_seconds: Optional[int] = None,
                  max_instances_count: Optional[int] = None,
@@ -253,7 +254,7 @@ class ComponentVersionLambdaExecutionParameters(dict):
 
     @property
     @pulumi.getter(name="inputPayloadEncodingType")
-    def input_payload_encoding_type(self) -> Optional[str]:
+    def input_payload_encoding_type(self) -> Optional['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']:
         return pulumi.get(self, "input_payload_encoding_type")
 
     @property
@@ -395,7 +396,7 @@ class ComponentVersionLambdaLinuxProcessParams(dict):
 
     def __init__(__self__, *,
                  container_params: Optional['outputs.ComponentVersionLambdaContainerParams'] = None,
-                 isolation_mode: Optional[str] = None):
+                 isolation_mode: Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode'] = None):
         if container_params is not None:
             pulumi.set(__self__, "container_params", container_params)
         if isolation_mode is not None:
@@ -408,7 +409,7 @@ class ComponentVersionLambdaLinuxProcessParams(dict):
 
     @property
     @pulumi.getter(name="isolationMode")
-    def isolation_mode(self) -> Optional[str]:
+    def isolation_mode(self) -> Optional['ComponentVersionLambdaLinuxProcessParamsIsolationMode']:
         return pulumi.get(self, "isolation_mode")
 
 
@@ -438,7 +439,7 @@ class ComponentVersionLambdaVolumeMount(dict):
     def __init__(__self__, *,
                  add_group_owner: Optional[bool] = None,
                  destination_path: Optional[str] = None,
-                 permission: Optional[str] = None,
+                 permission: Optional['ComponentVersionLambdaFilesystemPermission'] = None,
                  source_path: Optional[str] = None):
         if add_group_owner is not None:
             pulumi.set(__self__, "add_group_owner", add_group_owner)
@@ -461,7 +462,7 @@ class ComponentVersionLambdaVolumeMount(dict):
 
     @property
     @pulumi.getter
-    def permission(self) -> Optional[str]:
+    def permission(self) -> Optional['ComponentVersionLambdaFilesystemPermission']:
         return pulumi.get(self, "permission")
 
     @property

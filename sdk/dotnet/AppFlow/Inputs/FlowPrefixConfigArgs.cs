@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowPrefixConfigArgs : Pulumi.ResourceArgs
     {
         [Input("prefixFormat")]
-        public Input<string>? PrefixFormat { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowPrefixFormat>? PrefixFormat { get; set; }
 
         [Input("prefixType")]
-        public Input<string>? PrefixType { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowPrefixType>? PrefixType { get; set; }
 
         public FlowPrefixConfigArgs()
         {

@@ -29,7 +29,7 @@ type MonitoringSchedule struct {
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
 	MonitoringScheduleName   pulumi.StringOutput                              `pulumi:"monitoringScheduleName"`
 	// The status of a schedule job.
-	MonitoringScheduleStatus pulumi.StringPtrOutput `pulumi:"monitoringScheduleStatus"`
+	MonitoringScheduleStatus MonitoringScheduleMonitoringScheduleStatusPtrOutput `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
 	Tags MonitoringScheduleTagArrayOutput `pulumi:"tags"`
 }
@@ -87,7 +87,7 @@ type monitoringScheduleArgs struct {
 	MonitoringScheduleConfig       MonitoringScheduleMonitoringScheduleConfig    `pulumi:"monitoringScheduleConfig"`
 	MonitoringScheduleName         string                                        `pulumi:"monitoringScheduleName"`
 	// The status of a schedule job.
-	MonitoringScheduleStatus *string `pulumi:"monitoringScheduleStatus"`
+	MonitoringScheduleStatus *MonitoringScheduleMonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []MonitoringScheduleTag `pulumi:"tags"`
 }
@@ -102,7 +102,7 @@ type MonitoringScheduleArgs struct {
 	MonitoringScheduleConfig       MonitoringScheduleMonitoringScheduleConfigInput
 	MonitoringScheduleName         pulumi.StringInput
 	// The status of a schedule job.
-	MonitoringScheduleStatus pulumi.StringPtrInput
+	MonitoringScheduleStatus MonitoringScheduleMonitoringScheduleStatusPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags MonitoringScheduleTagArrayInput
 }

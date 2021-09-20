@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         }
 
         [Input("inputPayloadEncodingType")]
-        public Input<string>? InputPayloadEncodingType { get; set; }
+        public Input<Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType>? InputPayloadEncodingType { get; set; }
 
         [Input("linuxProcessParams")]
         public Input<Inputs.ComponentVersionLambdaLinuxProcessParamsArgs>? LinuxProcessParams { get; set; }

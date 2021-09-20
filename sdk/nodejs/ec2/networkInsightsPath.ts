@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +41,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     public readonly destinationPort!: pulumi.Output<number | undefined>;
     public /*out*/ readonly networkInsightsPathArn!: pulumi.Output<string>;
     public /*out*/ readonly networkInsightsPathId!: pulumi.Output<string>;
-    public readonly protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<enums.ec2.NetworkInsightsPathProtocol>;
     public readonly source!: pulumi.Output<string>;
     public readonly sourceIp!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.ec2.NetworkInsightsPathTag[] | undefined>;
@@ -102,7 +102,7 @@ export interface NetworkInsightsPathArgs {
     destination: pulumi.Input<string>;
     destinationIp?: pulumi.Input<string>;
     destinationPort?: pulumi.Input<number>;
-    protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<enums.ec2.NetworkInsightsPathProtocol>;
     source: pulumi.Input<string>;
     sourceIp?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsPathTagArgs>[]>;

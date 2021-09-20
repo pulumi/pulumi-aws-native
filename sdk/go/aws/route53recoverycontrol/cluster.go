@@ -21,7 +21,7 @@ type Cluster struct {
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status ClusterStatusOutput `pulumi:"status"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.

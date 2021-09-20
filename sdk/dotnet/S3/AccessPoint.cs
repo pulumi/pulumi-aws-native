@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.S3
         /// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
         /// </summary>
         [Output("networkOrigin")]
-        public Output<string> NetworkOrigin { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.S3.AccessPointNetworkOrigin> NetworkOrigin { get; private set; } = null!;
 
         /// <summary>
         /// The Access Point Policy you want to apply to this access point.

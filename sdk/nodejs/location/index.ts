@@ -12,6 +12,9 @@ export * from "./routeCalculator";
 export * from "./tracker";
 export * from "./trackerConsumer";
 
+// Export enums:
+export * from "../types/enums/location";
+
 // Import resources to register:
 import { GeofenceCollection } from "./geofenceCollection";
 import { Map } from "./map";

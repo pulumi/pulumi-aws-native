@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['GeofenceCollectionArgs', 'GeofenceCollection']
 
@@ -14,7 +15,7 @@ __all__ = ['GeofenceCollectionArgs', 'GeofenceCollection']
 class GeofenceCollectionArgs:
     def __init__(__self__, *,
                  collection_name: pulumi.Input[str],
-                 pricing_plan: pulumi.Input[str],
+                 pricing_plan: pulumi.Input['GeofenceCollectionPricingPlan'],
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None):
@@ -41,11 +42,11 @@ class GeofenceCollectionArgs:
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input[str]:
+    def pricing_plan(self) -> pulumi.Input['GeofenceCollectionPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input[str]):
+    def pricing_plan(self, value: pulumi.Input['GeofenceCollectionPricingPlan']):
         pulumi.set(self, "pricing_plan", value)
 
     @property
@@ -84,7 +85,7 @@ class GeofenceCollection(pulumi.CustomResource):
                  collection_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -120,7 +121,7 @@ class GeofenceCollection(pulumi.CustomResource):
                  collection_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -212,7 +213,7 @@ class GeofenceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output[str]:
+    def pricing_plan(self) -> pulumi.Output['GeofenceCollectionPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @property

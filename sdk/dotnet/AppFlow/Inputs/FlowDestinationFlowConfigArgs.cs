@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// Destination connector type
         /// </summary>
         [Input("connectorType", required: true)]
-        public Input<string> ConnectorType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppFlow.FlowConnectorType> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// Destination connector details

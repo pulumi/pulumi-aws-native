@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoT
         /// Specifies the type of the dimension.
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.DimensionType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.IoT
         /// Specifies the type of the dimension.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoT.DimensionType> Type { get; set; } = null!;
 
         public DimensionArgs()
         {

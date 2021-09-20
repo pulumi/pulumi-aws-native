@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NetworkInsightsPathArgs', 'NetworkInsightsPath']
@@ -16,7 +17,7 @@ __all__ = ['NetworkInsightsPathArgs', 'NetworkInsightsPath']
 class NetworkInsightsPathArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
-                 protocol: pulumi.Input[str],
+                 protocol: pulumi.Input['NetworkInsightsPathProtocol'],
                  source: pulumi.Input[str],
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
@@ -48,11 +49,11 @@ class NetworkInsightsPathArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input['NetworkInsightsPathProtocol']:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input['NetworkInsightsPathProtocol']):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -109,7 +110,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['NetworkInsightsPathProtocol']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsPathTagArgs']]]]] = None,
@@ -147,7 +148,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['NetworkInsightsPathProtocol']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsPathTagArgs']]]]] = None,
@@ -245,7 +246,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[str]:
+    def protocol(self) -> pulumi.Output['NetworkInsightsPathProtocol']:
         return pulumi.get(self, "protocol")
 
     @property

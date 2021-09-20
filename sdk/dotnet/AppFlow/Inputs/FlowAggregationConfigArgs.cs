@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowAggregationConfigArgs : Pulumi.ResourceArgs
     {
         [Input("aggregationType")]
-        public Input<string>? AggregationType { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowAggregationType>? AggregationType { get; set; }
 
         public FlowAggregationConfigArgs()
         {

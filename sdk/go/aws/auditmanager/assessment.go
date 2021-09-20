@@ -25,9 +25,9 @@ type Assessment struct {
 	FrameworkId pulumi.StringPtrOutput          `pulumi:"frameworkId"`
 	Name        pulumi.StringPtrOutput          `pulumi:"name"`
 	// The list of roles for the specified assessment.
-	Roles  AssessmentRoleArrayOutput `pulumi:"roles"`
-	Scope  AssessmentScopePtrOutput  `pulumi:"scope"`
-	Status pulumi.StringPtrOutput    `pulumi:"status"`
+	Roles  AssessmentRoleArrayOutput           `pulumi:"roles"`
+	Scope  AssessmentScopePtrOutput            `pulumi:"scope"`
+	Status AssessmentAssessmentStatusPtrOutput `pulumi:"status"`
 	// The tags associated with the assessment.
 	Tags AssessmentTagArrayOutput `pulumi:"tags"`
 }
@@ -77,9 +77,9 @@ type assessmentArgs struct {
 	FrameworkId                  *string                                 `pulumi:"frameworkId"`
 	Name                         *string                                 `pulumi:"name"`
 	// The list of roles for the specified assessment.
-	Roles  []AssessmentRole `pulumi:"roles"`
-	Scope  *AssessmentScope `pulumi:"scope"`
-	Status *string          `pulumi:"status"`
+	Roles  []AssessmentRole            `pulumi:"roles"`
+	Scope  *AssessmentScope            `pulumi:"scope"`
+	Status *AssessmentAssessmentStatus `pulumi:"status"`
 	// The tags associated with the assessment.
 	Tags []AssessmentTag `pulumi:"tags"`
 }
@@ -94,7 +94,7 @@ type AssessmentArgs struct {
 	// The list of roles for the specified assessment.
 	Roles  AssessmentRoleArrayInput
 	Scope  AssessmentScopePtrInput
-	Status pulumi.StringPtrInput
+	Status AssessmentAssessmentStatusPtrInput
 	// The tags associated with the assessment.
 	Tags AssessmentTagArrayInput
 }

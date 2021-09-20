@@ -16,8 +16,8 @@ type Robot struct {
 	pulumi.CustomResourceState
 
 	// The target architecture of the robot.
-	Architecture pulumi.StringOutput `pulumi:"architecture"`
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Architecture RobotArchitectureOutput `pulumi:"architecture"`
+	Arn          pulumi.StringOutput     `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the fleet.
 	Fleet pulumi.StringPtrOutput `pulumi:"fleet"`
 	// The Greengrass group id.
@@ -73,7 +73,7 @@ func (RobotState) ElementType() reflect.Type {
 
 type robotArgs struct {
 	// The target architecture of the robot.
-	Architecture string `pulumi:"architecture"`
+	Architecture RobotArchitecture `pulumi:"architecture"`
 	// The Amazon Resource Name (ARN) of the fleet.
 	Fleet *string `pulumi:"fleet"`
 	// The Greengrass group id.
@@ -86,7 +86,7 @@ type robotArgs struct {
 // The set of arguments for constructing a Robot resource.
 type RobotArgs struct {
 	// The target architecture of the robot.
-	Architecture pulumi.StringInput
+	Architecture RobotArchitectureInput
 	// The Amazon Resource Name (ARN) of the fleet.
 	Fleet pulumi.StringPtrInput
 	// The Greengrass group id.

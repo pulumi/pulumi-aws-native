@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RepositoryAssociationArgs', 'RepositoryAssociation']
@@ -16,7 +17,7 @@ __all__ = ['RepositoryAssociationArgs', 'RepositoryAssociation']
 class RepositoryAssociationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['RepositoryAssociationType'],
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -24,7 +25,7 @@ class RepositoryAssociationArgs:
         """
         The set of arguments for constructing a RepositoryAssociation resource.
         :param pulumi.Input[str] name: Name of the repository to be associated.
-        :param pulumi.Input[str] type: The type of repository to be associated.
+        :param pulumi.Input['RepositoryAssociationType'] type: The type of repository to be associated.
         :param pulumi.Input[str] bucket_name: The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
         :param pulumi.Input[str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
         :param pulumi.Input[str] owner: The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
@@ -55,14 +56,14 @@ class RepositoryAssociationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['RepositoryAssociationType']:
         """
         The type of repository to be associated.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['RepositoryAssociationType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -124,7 +125,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryAssociationTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['RepositoryAssociationType']] = None,
                  __props__=None):
         """
         This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
@@ -136,7 +137,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the repository to be associated.
         :param pulumi.Input[str] owner: The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryAssociationTagArgs']]]] tags: The tags associated with a repository association.
-        :param pulumi.Input[str] type: The type of repository to be associated.
+        :param pulumi.Input['RepositoryAssociationType'] type: The type of repository to be associated.
         """
         ...
     @overload
@@ -167,7 +168,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryAssociationTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['RepositoryAssociationType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -272,7 +273,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['RepositoryAssociationType']:
         """
         The type of repository to be associated.
         """

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         /// The specific NFS version that you want DataSync to use to mount your NFS share.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.LocationNFSMountOptionsVersion>? Version { get; set; }
 
         public LocationNFSMountOptionsArgs()
         {

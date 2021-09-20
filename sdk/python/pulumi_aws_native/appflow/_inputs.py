@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ConnectorProfileAmplitudeConnectorProfileCredentialsArgs',
@@ -1593,17 +1594,17 @@ class ConnectorProfileZendeskConnectorProfilePropertiesArgs:
 @pulumi.input_type
 class FlowAggregationConfigArgs:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input[str]] = None):
+                 aggregation_type: Optional[pulumi.Input['FlowAggregationType']] = None):
         if aggregation_type is not None:
             pulumi.set(__self__, "aggregation_type", aggregation_type)
 
     @property
     @pulumi.getter(name="aggregationType")
-    def aggregation_type(self) -> Optional[pulumi.Input[str]]:
+    def aggregation_type(self) -> Optional[pulumi.Input['FlowAggregationType']]:
         return pulumi.get(self, "aggregation_type")
 
     @aggregation_type.setter
-    def aggregation_type(self, value: Optional[pulumi.Input[str]]):
+    def aggregation_type(self, value: Optional[pulumi.Input['FlowAggregationType']]):
         pulumi.set(self, "aggregation_type", value)
 
 
@@ -1626,20 +1627,20 @@ class FlowAmplitudeSourcePropertiesArgs:
 @pulumi.input_type
 class FlowConnectorOperatorArgs:
     def __init__(__self__, *,
-                 amplitude: Optional[pulumi.Input[str]] = None,
-                 datadog: Optional[pulumi.Input[str]] = None,
-                 dynatrace: Optional[pulumi.Input[str]] = None,
-                 google_analytics: Optional[pulumi.Input[str]] = None,
-                 infor_nexus: Optional[pulumi.Input[str]] = None,
-                 marketo: Optional[pulumi.Input[str]] = None,
-                 s3: Optional[pulumi.Input[str]] = None,
-                 salesforce: Optional[pulumi.Input[str]] = None,
-                 service_now: Optional[pulumi.Input[str]] = None,
-                 singular: Optional[pulumi.Input[str]] = None,
-                 slack: Optional[pulumi.Input[str]] = None,
-                 trendmicro: Optional[pulumi.Input[str]] = None,
-                 veeva: Optional[pulumi.Input[str]] = None,
-                 zendesk: Optional[pulumi.Input[str]] = None):
+                 amplitude: Optional[pulumi.Input['FlowAmplitudeConnectorOperator']] = None,
+                 datadog: Optional[pulumi.Input['FlowDatadogConnectorOperator']] = None,
+                 dynatrace: Optional[pulumi.Input['FlowDynatraceConnectorOperator']] = None,
+                 google_analytics: Optional[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']] = None,
+                 infor_nexus: Optional[pulumi.Input['FlowInforNexusConnectorOperator']] = None,
+                 marketo: Optional[pulumi.Input['FlowMarketoConnectorOperator']] = None,
+                 s3: Optional[pulumi.Input['FlowS3ConnectorOperator']] = None,
+                 salesforce: Optional[pulumi.Input['FlowSalesforceConnectorOperator']] = None,
+                 service_now: Optional[pulumi.Input['FlowServiceNowConnectorOperator']] = None,
+                 singular: Optional[pulumi.Input['FlowSingularConnectorOperator']] = None,
+                 slack: Optional[pulumi.Input['FlowSlackConnectorOperator']] = None,
+                 trendmicro: Optional[pulumi.Input['FlowTrendmicroConnectorOperator']] = None,
+                 veeva: Optional[pulumi.Input['FlowVeevaConnectorOperator']] = None,
+                 zendesk: Optional[pulumi.Input['FlowZendeskConnectorOperator']] = None):
         """
         Operation to be performed on provided source fields
         """
@@ -1674,128 +1675,128 @@ class FlowConnectorOperatorArgs:
 
     @property
     @pulumi.getter
-    def amplitude(self) -> Optional[pulumi.Input[str]]:
+    def amplitude(self) -> Optional[pulumi.Input['FlowAmplitudeConnectorOperator']]:
         return pulumi.get(self, "amplitude")
 
     @amplitude.setter
-    def amplitude(self, value: Optional[pulumi.Input[str]]):
+    def amplitude(self, value: Optional[pulumi.Input['FlowAmplitudeConnectorOperator']]):
         pulumi.set(self, "amplitude", value)
 
     @property
     @pulumi.getter
-    def datadog(self) -> Optional[pulumi.Input[str]]:
+    def datadog(self) -> Optional[pulumi.Input['FlowDatadogConnectorOperator']]:
         return pulumi.get(self, "datadog")
 
     @datadog.setter
-    def datadog(self, value: Optional[pulumi.Input[str]]):
+    def datadog(self, value: Optional[pulumi.Input['FlowDatadogConnectorOperator']]):
         pulumi.set(self, "datadog", value)
 
     @property
     @pulumi.getter
-    def dynatrace(self) -> Optional[pulumi.Input[str]]:
+    def dynatrace(self) -> Optional[pulumi.Input['FlowDynatraceConnectorOperator']]:
         return pulumi.get(self, "dynatrace")
 
     @dynatrace.setter
-    def dynatrace(self, value: Optional[pulumi.Input[str]]):
+    def dynatrace(self, value: Optional[pulumi.Input['FlowDynatraceConnectorOperator']]):
         pulumi.set(self, "dynatrace", value)
 
     @property
     @pulumi.getter(name="googleAnalytics")
-    def google_analytics(self) -> Optional[pulumi.Input[str]]:
+    def google_analytics(self) -> Optional[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']]:
         return pulumi.get(self, "google_analytics")
 
     @google_analytics.setter
-    def google_analytics(self, value: Optional[pulumi.Input[str]]):
+    def google_analytics(self, value: Optional[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']]):
         pulumi.set(self, "google_analytics", value)
 
     @property
     @pulumi.getter(name="inforNexus")
-    def infor_nexus(self) -> Optional[pulumi.Input[str]]:
+    def infor_nexus(self) -> Optional[pulumi.Input['FlowInforNexusConnectorOperator']]:
         return pulumi.get(self, "infor_nexus")
 
     @infor_nexus.setter
-    def infor_nexus(self, value: Optional[pulumi.Input[str]]):
+    def infor_nexus(self, value: Optional[pulumi.Input['FlowInforNexusConnectorOperator']]):
         pulumi.set(self, "infor_nexus", value)
 
     @property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input[str]]:
+    def marketo(self) -> Optional[pulumi.Input['FlowMarketoConnectorOperator']]:
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input[str]]):
+    def marketo(self, value: Optional[pulumi.Input['FlowMarketoConnectorOperator']]):
         pulumi.set(self, "marketo", value)
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input[str]]:
+    def s3(self) -> Optional[pulumi.Input['FlowS3ConnectorOperator']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input[str]]):
+    def s3(self, value: Optional[pulumi.Input['FlowS3ConnectorOperator']]):
         pulumi.set(self, "s3", value)
 
     @property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input[str]]:
+    def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceConnectorOperator']]:
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input[str]]):
+    def salesforce(self, value: Optional[pulumi.Input['FlowSalesforceConnectorOperator']]):
         pulumi.set(self, "salesforce", value)
 
     @property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input[str]]:
+    def service_now(self) -> Optional[pulumi.Input['FlowServiceNowConnectorOperator']]:
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input[str]]):
+    def service_now(self, value: Optional[pulumi.Input['FlowServiceNowConnectorOperator']]):
         pulumi.set(self, "service_now", value)
 
     @property
     @pulumi.getter
-    def singular(self) -> Optional[pulumi.Input[str]]:
+    def singular(self) -> Optional[pulumi.Input['FlowSingularConnectorOperator']]:
         return pulumi.get(self, "singular")
 
     @singular.setter
-    def singular(self, value: Optional[pulumi.Input[str]]):
+    def singular(self, value: Optional[pulumi.Input['FlowSingularConnectorOperator']]):
         pulumi.set(self, "singular", value)
 
     @property
     @pulumi.getter
-    def slack(self) -> Optional[pulumi.Input[str]]:
+    def slack(self) -> Optional[pulumi.Input['FlowSlackConnectorOperator']]:
         return pulumi.get(self, "slack")
 
     @slack.setter
-    def slack(self, value: Optional[pulumi.Input[str]]):
+    def slack(self, value: Optional[pulumi.Input['FlowSlackConnectorOperator']]):
         pulumi.set(self, "slack", value)
 
     @property
     @pulumi.getter
-    def trendmicro(self) -> Optional[pulumi.Input[str]]:
+    def trendmicro(self) -> Optional[pulumi.Input['FlowTrendmicroConnectorOperator']]:
         return pulumi.get(self, "trendmicro")
 
     @trendmicro.setter
-    def trendmicro(self, value: Optional[pulumi.Input[str]]):
+    def trendmicro(self, value: Optional[pulumi.Input['FlowTrendmicroConnectorOperator']]):
         pulumi.set(self, "trendmicro", value)
 
     @property
     @pulumi.getter
-    def veeva(self) -> Optional[pulumi.Input[str]]:
+    def veeva(self) -> Optional[pulumi.Input['FlowVeevaConnectorOperator']]:
         return pulumi.get(self, "veeva")
 
     @veeva.setter
-    def veeva(self, value: Optional[pulumi.Input[str]]):
+    def veeva(self, value: Optional[pulumi.Input['FlowVeevaConnectorOperator']]):
         pulumi.set(self, "veeva", value)
 
     @property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input[str]]:
+    def zendesk(self) -> Optional[pulumi.Input['FlowZendeskConnectorOperator']]:
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input[str]]):
+    def zendesk(self, value: Optional[pulumi.Input['FlowZendeskConnectorOperator']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -1922,12 +1923,12 @@ class FlowDestinationConnectorPropertiesArgs:
 @pulumi.input_type
 class FlowDestinationFlowConfigArgs:
     def __init__(__self__, *,
-                 connector_type: pulumi.Input[str],
+                 connector_type: pulumi.Input['FlowConnectorType'],
                  destination_connector_properties: pulumi.Input['FlowDestinationConnectorPropertiesArgs'],
                  connector_profile_name: Optional[pulumi.Input[str]] = None):
         """
         Configurations of destination connector.
-        :param pulumi.Input[str] connector_type: Destination connector type
+        :param pulumi.Input['FlowConnectorType'] connector_type: Destination connector type
         :param pulumi.Input['FlowDestinationConnectorPropertiesArgs'] destination_connector_properties: Destination connector details
         :param pulumi.Input[str] connector_profile_name: Name of destination connector profile
         """
@@ -1938,14 +1939,14 @@ class FlowDestinationFlowConfigArgs:
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> pulumi.Input[str]:
+    def connector_type(self) -> pulumi.Input['FlowConnectorType']:
         """
         Destination connector type
         """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
-    def connector_type(self, value: pulumi.Input[str]):
+    def connector_type(self, value: pulumi.Input['FlowConnectorType']):
         pulumi.set(self, "connector_type", value)
 
     @property
@@ -2146,8 +2147,8 @@ class FlowMarketoSourcePropertiesArgs:
 @pulumi.input_type
 class FlowPrefixConfigArgs:
     def __init__(__self__, *,
-                 prefix_format: Optional[pulumi.Input[str]] = None,
-                 prefix_type: Optional[pulumi.Input[str]] = None):
+                 prefix_format: Optional[pulumi.Input['FlowPrefixFormat']] = None,
+                 prefix_type: Optional[pulumi.Input['FlowPrefixType']] = None):
         if prefix_format is not None:
             pulumi.set(__self__, "prefix_format", prefix_format)
         if prefix_type is not None:
@@ -2155,20 +2156,20 @@ class FlowPrefixConfigArgs:
 
     @property
     @pulumi.getter(name="prefixFormat")
-    def prefix_format(self) -> Optional[pulumi.Input[str]]:
+    def prefix_format(self) -> Optional[pulumi.Input['FlowPrefixFormat']]:
         return pulumi.get(self, "prefix_format")
 
     @prefix_format.setter
-    def prefix_format(self, value: Optional[pulumi.Input[str]]):
+    def prefix_format(self, value: Optional[pulumi.Input['FlowPrefixFormat']]):
         pulumi.set(self, "prefix_format", value)
 
     @property
     @pulumi.getter(name="prefixType")
-    def prefix_type(self) -> Optional[pulumi.Input[str]]:
+    def prefix_type(self) -> Optional[pulumi.Input['FlowPrefixType']]:
         return pulumi.get(self, "prefix_type")
 
     @prefix_type.setter
-    def prefix_type(self, value: Optional[pulumi.Input[str]]):
+    def prefix_type(self, value: Optional[pulumi.Input['FlowPrefixType']]):
         pulumi.set(self, "prefix_type", value)
 
 
@@ -2267,7 +2268,7 @@ class FlowS3DestinationPropertiesArgs:
 class FlowS3OutputFormatConfigArgs:
     def __init__(__self__, *,
                  aggregation_config: Optional[pulumi.Input['FlowAggregationConfigArgs']] = None,
-                 file_type: Optional[pulumi.Input[str]] = None,
+                 file_type: Optional[pulumi.Input['FlowFileType']] = None,
                  prefix_config: Optional[pulumi.Input['FlowPrefixConfigArgs']] = None):
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
@@ -2287,11 +2288,11 @@ class FlowS3OutputFormatConfigArgs:
 
     @property
     @pulumi.getter(name="fileType")
-    def file_type(self) -> Optional[pulumi.Input[str]]:
+    def file_type(self) -> Optional[pulumi.Input['FlowFileType']]:
         return pulumi.get(self, "file_type")
 
     @file_type.setter
-    def file_type(self, value: Optional[pulumi.Input[str]]):
+    def file_type(self, value: Optional[pulumi.Input['FlowFileType']]):
         pulumi.set(self, "file_type", value)
 
     @property
@@ -2337,7 +2338,7 @@ class FlowSalesforceDestinationPropertiesArgs:
                  object: pulumi.Input[str],
                  error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
                  id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 write_operation_type: Optional[pulumi.Input[str]] = None):
+                 write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: List of fields used as ID when performing a write operation.
         """
@@ -2381,11 +2382,11 @@ class FlowSalesforceDestinationPropertiesArgs:
 
     @property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[pulumi.Input[str]]:
+    def write_operation_type(self) -> Optional[pulumi.Input['FlowWriteOperationType']]:
         return pulumi.get(self, "write_operation_type")
 
     @write_operation_type.setter
-    def write_operation_type(self, value: Optional[pulumi.Input[str]]):
+    def write_operation_type(self, value: Optional[pulumi.Input['FlowWriteOperationType']]):
         pulumi.set(self, "write_operation_type", value)
 
 
@@ -2433,7 +2434,7 @@ class FlowSalesforceSourcePropertiesArgs:
 class FlowScheduledTriggerPropertiesArgs:
     def __init__(__self__, *,
                  schedule_expression: pulumi.Input[str],
-                 data_pull_mode: Optional[pulumi.Input[str]] = None,
+                 data_pull_mode: Optional[pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode']] = None,
                  schedule_end_time: Optional[pulumi.Input[float]] = None,
                  schedule_offset: Optional[pulumi.Input[float]] = None,
                  schedule_start_time: Optional[pulumi.Input[float]] = None,
@@ -2464,11 +2465,11 @@ class FlowScheduledTriggerPropertiesArgs:
 
     @property
     @pulumi.getter(name="dataPullMode")
-    def data_pull_mode(self) -> Optional[pulumi.Input[str]]:
+    def data_pull_mode(self) -> Optional[pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode']]:
         return pulumi.get(self, "data_pull_mode")
 
     @data_pull_mode.setter
-    def data_pull_mode(self, value: Optional[pulumi.Input[str]]):
+    def data_pull_mode(self, value: Optional[pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode']]):
         pulumi.set(self, "data_pull_mode", value)
 
     @property
@@ -2786,13 +2787,13 @@ class FlowSourceConnectorPropertiesArgs:
 @pulumi.input_type
 class FlowSourceFlowConfigArgs:
     def __init__(__self__, *,
-                 connector_type: pulumi.Input[str],
+                 connector_type: pulumi.Input['FlowConnectorType'],
                  source_connector_properties: pulumi.Input['FlowSourceConnectorPropertiesArgs'],
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  incremental_pull_config: Optional[pulumi.Input['FlowIncrementalPullConfigArgs']] = None):
         """
         Configurations of Source connector of the flow.
-        :param pulumi.Input[str] connector_type: Type of source connector
+        :param pulumi.Input['FlowConnectorType'] connector_type: Type of source connector
         :param pulumi.Input['FlowSourceConnectorPropertiesArgs'] source_connector_properties: Source connector details required to query a connector
         :param pulumi.Input[str] connector_profile_name: Name of source connector profile
         :param pulumi.Input['FlowIncrementalPullConfigArgs'] incremental_pull_config: Configuration for scheduled incremental data pull
@@ -2806,14 +2807,14 @@ class FlowSourceFlowConfigArgs:
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> pulumi.Input[str]:
+    def connector_type(self) -> pulumi.Input['FlowConnectorType']:
         """
         Type of source connector
         """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
-    def connector_type(self, value: pulumi.Input[str]):
+    def connector_type(self, value: pulumi.Input['FlowConnectorType']):
         pulumi.set(self, "connector_type", value)
 
     @property
@@ -2894,7 +2895,7 @@ class FlowTagArgs:
 @pulumi.input_type
 class FlowTaskPropertiesObjectArgs:
     def __init__(__self__, *,
-                 key: pulumi.Input[str],
+                 key: pulumi.Input['FlowOperatorPropertiesKeys'],
                  value: pulumi.Input[str]):
         """
         An object used to store task related info
@@ -2904,11 +2905,11 @@ class FlowTaskPropertiesObjectArgs:
 
     @property
     @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
+    def key(self) -> pulumi.Input['FlowOperatorPropertiesKeys']:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: pulumi.Input[str]):
+    def key(self, value: pulumi.Input['FlowOperatorPropertiesKeys']):
         pulumi.set(self, "key", value)
 
     @property
@@ -2925,13 +2926,13 @@ class FlowTaskPropertiesObjectArgs:
 class FlowTaskArgs:
     def __init__(__self__, *,
                  source_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 task_type: pulumi.Input[str],
+                 task_type: pulumi.Input['FlowTaskType'],
                  connector_operator: Optional[pulumi.Input['FlowConnectorOperatorArgs']] = None,
                  destination_field: Optional[pulumi.Input[str]] = None,
                  task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_fields: Source fields on which particular task will be applied
-        :param pulumi.Input[str] task_type: Type of task
+        :param pulumi.Input['FlowTaskType'] task_type: Type of task
         :param pulumi.Input['FlowConnectorOperatorArgs'] connector_operator: Operation to be performed on provided source fields
         :param pulumi.Input[str] destination_field: A field value on which source field should be validated
         :param pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]] task_properties: A Map used to store task related info
@@ -2959,14 +2960,14 @@ class FlowTaskArgs:
 
     @property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> pulumi.Input[str]:
+    def task_type(self) -> pulumi.Input['FlowTaskType']:
         """
         Type of task
         """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
-    def task_type(self, value: pulumi.Input[str]):
+    def task_type(self, value: pulumi.Input['FlowTaskType']):
         pulumi.set(self, "task_type", value)
 
     @property
@@ -3025,11 +3026,11 @@ class FlowTrendmicroSourcePropertiesArgs:
 @pulumi.input_type
 class FlowTriggerConfigArgs:
     def __init__(__self__, *,
-                 trigger_type: pulumi.Input[str],
+                 trigger_type: pulumi.Input['FlowTriggerType'],
                  trigger_properties: Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']] = None):
         """
         Trigger settings of the flow.
-        :param pulumi.Input[str] trigger_type: Trigger type of the flow
+        :param pulumi.Input['FlowTriggerType'] trigger_type: Trigger type of the flow
         :param pulumi.Input['FlowScheduledTriggerPropertiesArgs'] trigger_properties: Details required based on the type of trigger
         """
         pulumi.set(__self__, "trigger_type", trigger_type)
@@ -3038,14 +3039,14 @@ class FlowTriggerConfigArgs:
 
     @property
     @pulumi.getter(name="triggerType")
-    def trigger_type(self) -> pulumi.Input[str]:
+    def trigger_type(self) -> pulumi.Input['FlowTriggerType']:
         """
         Trigger type of the flow
         """
         return pulumi.get(self, "trigger_type")
 
     @trigger_type.setter
-    def trigger_type(self, value: pulumi.Input[str]):
+    def trigger_type(self, value: pulumi.Input['FlowTriggerType']):
         pulumi.set(self, "trigger_type", value)
 
     @property
@@ -3105,7 +3106,7 @@ class FlowUpsolverS3OutputFormatConfigArgs:
     def __init__(__self__, *,
                  prefix_config: pulumi.Input['FlowPrefixConfigArgs'],
                  aggregation_config: Optional[pulumi.Input['FlowAggregationConfigArgs']] = None,
-                 file_type: Optional[pulumi.Input[str]] = None):
+                 file_type: Optional[pulumi.Input['FlowFileType']] = None):
         pulumi.set(__self__, "prefix_config", prefix_config)
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
@@ -3132,11 +3133,11 @@ class FlowUpsolverS3OutputFormatConfigArgs:
 
     @property
     @pulumi.getter(name="fileType")
-    def file_type(self) -> Optional[pulumi.Input[str]]:
+    def file_type(self) -> Optional[pulumi.Input['FlowFileType']]:
         return pulumi.get(self, "file_type")
 
     @file_type.setter
-    def file_type(self, value: Optional[pulumi.Input[str]]):
+    def file_type(self, value: Optional[pulumi.Input['FlowFileType']]):
         pulumi.set(self, "file_type", value)
 
 
@@ -3210,7 +3211,7 @@ class FlowZendeskDestinationPropertiesArgs:
                  object: pulumi.Input[str],
                  error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
                  id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 write_operation_type: Optional[pulumi.Input[str]] = None):
+                 write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: List of fields used as ID when performing a write operation.
         """
@@ -3254,11 +3255,11 @@ class FlowZendeskDestinationPropertiesArgs:
 
     @property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[pulumi.Input[str]]:
+    def write_operation_type(self) -> Optional[pulumi.Input['FlowWriteOperationType']]:
         return pulumi.get(self, "write_operation_type")
 
     @write_operation_type.setter
-    def write_operation_type(self, value: Optional[pulumi.Input[str]]):
+    def write_operation_type(self, value: Optional[pulumi.Input['FlowWriteOperationType']]):
         pulumi.set(self, "write_operation_type", value)
 
 

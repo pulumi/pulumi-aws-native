@@ -153,7 +153,7 @@ func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns()
 // Policies to control how to act if a signature is invalid
 type CodeSigningConfigCodeSigningPolicies struct {
 	// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
-	UntrustedArtifactOnDeployment string `pulumi:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment `pulumi:"untrustedArtifactOnDeployment"`
 }
 
 // CodeSigningConfigCodeSigningPoliciesInput is an input type that accepts CodeSigningConfigCodeSigningPoliciesArgs and CodeSigningConfigCodeSigningPoliciesOutput values.
@@ -170,7 +170,7 @@ type CodeSigningConfigCodeSigningPoliciesInput interface {
 // Policies to control how to act if a signature is invalid
 type CodeSigningConfigCodeSigningPoliciesArgs struct {
 	// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
-	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"untrustedArtifactOnDeployment"`
+	UntrustedArtifactOnDeployment CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput `pulumi:"untrustedArtifactOnDeployment"`
 }
 
 func (CodeSigningConfigCodeSigningPoliciesArgs) ElementType() reflect.Type {
@@ -252,8 +252,10 @@ func (o CodeSigningConfigCodeSigningPoliciesOutput) ToCodeSigningConfigCodeSigni
 }
 
 // Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
-func (o CodeSigningConfigCodeSigningPoliciesOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
-	return o.ApplyT(func(v CodeSigningConfigCodeSigningPolicies) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
+func (o CodeSigningConfigCodeSigningPoliciesOutput) UntrustedArtifactOnDeployment() CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput {
+	return o.ApplyT(func(v CodeSigningConfigCodeSigningPolicies) CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment {
+		return v.UntrustedArtifactOnDeployment
+	}).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput)
 }
 
 type CodeSigningConfigCodeSigningPoliciesPtrOutput struct{ *pulumi.OutputState }
@@ -281,13 +283,13 @@ func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) Elem() CodeSigningConfigC
 }
 
 // Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
-func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CodeSigningConfigCodeSigningPolicies) *string {
+func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeployment() CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput {
+	return o.ApplyT(func(v *CodeSigningConfigCodeSigningPolicies) *CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment {
 		if v == nil {
 			return nil
 		}
 		return &v.UntrustedArtifactOnDeployment
-	}).(pulumi.StringPtrOutput)
+	}).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
 }
 
 // (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
@@ -853,7 +855,7 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() EventSour
 // The configuration used by AWS Lambda to access event source
 type EventSourceMappingSourceAccessConfiguration struct {
 	// The type of source access configuration.
-	Type *string `pulumi:"type"`
+	Type *EventSourceMappingSourceAccessConfigurationType `pulumi:"type"`
 	// The URI for the source access configuration resource.
 	URI *string `pulumi:"uRI"`
 }
@@ -872,7 +874,7 @@ type EventSourceMappingSourceAccessConfigurationInput interface {
 // The configuration used by AWS Lambda to access event source
 type EventSourceMappingSourceAccessConfigurationArgs struct {
 	// The type of source access configuration.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type EventSourceMappingSourceAccessConfigurationTypePtrInput `pulumi:"type"`
 	// The URI for the source access configuration resource.
 	URI pulumi.StringPtrInput `pulumi:"uRI"`
 }
@@ -930,8 +932,10 @@ func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingS
 }
 
 // The type of source access configuration.
-func (o EventSourceMappingSourceAccessConfigurationOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o EventSourceMappingSourceAccessConfigurationOutput) Type() EventSourceMappingSourceAccessConfigurationTypePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) *EventSourceMappingSourceAccessConfigurationType {
+		return v.Type
+	}).(EventSourceMappingSourceAccessConfigurationTypePtrOutput)
 }
 
 // The URI for the source access configuration resource.
@@ -1842,7 +1846,7 @@ func (o FunctionTagArrayOutput) Index(i pulumi.IntInput) FunctionTagOutput {
 // The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
 type FunctionTracingConfig struct {
 	// The tracing mode.
-	Mode *string `pulumi:"mode"`
+	Mode *FunctionTracingConfigMode `pulumi:"mode"`
 }
 
 // FunctionTracingConfigInput is an input type that accepts FunctionTracingConfigArgs and FunctionTracingConfigOutput values.
@@ -1859,7 +1863,7 @@ type FunctionTracingConfigInput interface {
 // The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
 type FunctionTracingConfigArgs struct {
 	// The tracing mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode FunctionTracingConfigModePtrInput `pulumi:"mode"`
 }
 
 func (FunctionTracingConfigArgs) ElementType() reflect.Type {
@@ -1941,8 +1945,8 @@ func (o FunctionTracingConfigOutput) ToFunctionTracingConfigPtrOutputWithContext
 }
 
 // The tracing mode.
-func (o FunctionTracingConfigOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionTracingConfig) *string { return v.Mode }).(pulumi.StringPtrOutput)
+func (o FunctionTracingConfigOutput) Mode() FunctionTracingConfigModePtrOutput {
+	return o.ApplyT(func(v FunctionTracingConfig) *FunctionTracingConfigMode { return v.Mode }).(FunctionTracingConfigModePtrOutput)
 }
 
 type FunctionTracingConfigPtrOutput struct{ *pulumi.OutputState }
@@ -1970,13 +1974,13 @@ func (o FunctionTracingConfigPtrOutput) Elem() FunctionTracingConfigOutput {
 }
 
 // The tracing mode.
-func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionTracingConfig) *string {
+func (o FunctionTracingConfigPtrOutput) Mode() FunctionTracingConfigModePtrOutput {
+	return o.ApplyT(func(v *FunctionTracingConfig) *FunctionTracingConfigMode {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(pulumi.StringPtrOutput)
+	}).(FunctionTracingConfigModePtrOutput)
 }
 
 // The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.

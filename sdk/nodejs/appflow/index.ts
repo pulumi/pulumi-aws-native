@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./connectorProfile";
 export * from "./flow";
 
+// Export enums:
+export * from "../types/enums/appflow";
+
 // Import resources to register:
 import { ConnectorProfile } from "./connectorProfile";
 import { Flow } from "./flow";

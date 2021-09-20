@@ -22,7 +22,7 @@ type Destination struct {
 	// Destination expression
 	Expression pulumi.StringOutput `pulumi:"expression"`
 	// Must be RuleName
-	ExpressionType pulumi.StringOutput `pulumi:"expressionType"`
+	ExpressionType DestinationExpressionTypeOutput `pulumi:"expressionType"`
 	// Unique name of destination
 	Name pulumi.StringOutput `pulumi:"name"`
 	// AWS role ARN that grants access
@@ -87,7 +87,7 @@ type destinationArgs struct {
 	// Destination expression
 	Expression string `pulumi:"expression"`
 	// Must be RuleName
-	ExpressionType string `pulumi:"expressionType"`
+	ExpressionType DestinationExpressionType `pulumi:"expressionType"`
 	// Unique name of destination
 	Name string `pulumi:"name"`
 	// AWS role ARN that grants access
@@ -103,7 +103,7 @@ type DestinationArgs struct {
 	// Destination expression
 	Expression pulumi.StringInput
 	// Must be RuleName
-	ExpressionType pulumi.StringInput
+	ExpressionType DestinationExpressionTypeInput
 	// Unique name of destination
 	Name pulumi.StringInput
 	// AWS role ARN that grants access

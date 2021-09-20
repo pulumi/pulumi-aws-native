@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -56,11 +56,11 @@ export class Key extends pulumi.CustomResource {
     /**
      * Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
      */
-    public readonly keySpec!: pulumi.Output<string | undefined>;
+    public readonly keySpec!: pulumi.Output<enums.kms.KeyKeySpec | undefined>;
     /**
      * Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
      */
-    public readonly keyUsage!: pulumi.Output<string | undefined>;
+    public readonly keyUsage!: pulumi.Output<enums.kms.KeyKeyUsage | undefined>;
     /**
      * Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
      */
@@ -142,11 +142,11 @@ export interface KeyArgs {
     /**
      * Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
      */
-    keySpec?: pulumi.Input<string>;
+    keySpec?: pulumi.Input<enums.kms.KeyKeySpec>;
     /**
      * Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
      */
-    keyUsage?: pulumi.Input<string>;
+    keyUsage?: pulumi.Input<enums.kms.KeyKeyUsage>;
     /**
      * Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
      */

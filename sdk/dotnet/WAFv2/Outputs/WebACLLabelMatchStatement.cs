@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLLabelMatchStatement
     {
         public readonly string Key;
-        public readonly string Scope;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLLabelMatchScope Scope;
 
         [OutputConstructor]
         private WebACLLabelMatchStatement(
             string key,
 
-            string scope)
+            Pulumi.AwsNative.WAFv2.WebACLLabelMatchScope scope)
         {
             Key = key;
             Scope = scope;

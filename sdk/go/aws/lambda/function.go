@@ -42,7 +42,7 @@ type Function struct {
 	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// PackageType.
-	PackageType pulumi.StringPtrOutput `pulumi:"packageType"`
+	PackageType FunctionPackageTypePtrOutput `pulumi:"packageType"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -129,7 +129,7 @@ type functionArgs struct {
 	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	MemorySize *int `pulumi:"memorySize"`
 	// PackageType.
-	PackageType *string `pulumi:"packageType"`
+	PackageType *FunctionPackageType `pulumi:"packageType"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -173,7 +173,7 @@ type FunctionArgs struct {
 	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	MemorySize pulumi.IntPtrInput
 	// PackageType.
-	PackageType pulumi.StringPtrInput
+	PackageType FunctionPackageTypePtrInput
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the function's execution role.

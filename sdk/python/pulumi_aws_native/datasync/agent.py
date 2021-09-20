@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AgentArgs', 'Agent']
@@ -249,7 +250,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Output[str]:
+    def endpoint_type(self) -> pulumi.Output['AgentEndpointType']:
         """
         The service endpoints that the agent will connect to.
         """

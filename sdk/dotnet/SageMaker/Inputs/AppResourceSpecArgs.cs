@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// The instance type that the image version runs on.
         /// </summary>
         [Input("instanceType")]
-        public Input<string>? InstanceType { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.AppResourceSpecInstanceType>? InstanceType { get; set; }
 
         /// <summary>
         /// The ARN of the SageMaker image that the image version belongs to.

@@ -18,7 +18,7 @@ type UsagePlanKey struct {
 	// The ID of the usage plan key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
 	// The type of usage plan key. Currently, the only valid key type is API_KEY.
-	KeyType pulumi.StringOutput `pulumi:"keyType"`
+	KeyType UsagePlanKeyKeyTypeOutput `pulumi:"keyType"`
 	// The ID of the usage plan.
 	UsagePlanId pulumi.StringOutput `pulumi:"usagePlanId"`
 }
@@ -74,7 +74,7 @@ type usagePlanKeyArgs struct {
 	// The ID of the usage plan key.
 	KeyId string `pulumi:"keyId"`
 	// The type of usage plan key. Currently, the only valid key type is API_KEY.
-	KeyType string `pulumi:"keyType"`
+	KeyType UsagePlanKeyKeyType `pulumi:"keyType"`
 	// The ID of the usage plan.
 	UsagePlanId string `pulumi:"usagePlanId"`
 }
@@ -84,7 +84,7 @@ type UsagePlanKeyArgs struct {
 	// The ID of the usage plan key.
 	KeyId pulumi.StringInput
 	// The type of usage plan key. Currently, the only valid key type is API_KEY.
-	KeyType pulumi.StringInput
+	KeyType UsagePlanKeyKeyTypeInput
 	// The ID of the usage plan.
 	UsagePlanId pulumi.StringInput
 }

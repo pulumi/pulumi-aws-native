@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     public sealed class IntegrationSourceFlowConfig
     {
         public readonly string? ConnectorProfileName;
-        public readonly string ConnectorType;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationConnectorType ConnectorType;
         public readonly Outputs.IntegrationIncrementalPullConfig? IncrementalPullConfig;
         public readonly Outputs.IntegrationSourceConnectorProperties SourceConnectorProperties;
 
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         private IntegrationSourceFlowConfig(
             string? connectorProfileName,
 
-            string connectorType,
+            Pulumi.AwsNative.CustomerProfiles.IntegrationConnectorType connectorType,
 
             Outputs.IntegrationIncrementalPullConfig? incrementalPullConfig,
 

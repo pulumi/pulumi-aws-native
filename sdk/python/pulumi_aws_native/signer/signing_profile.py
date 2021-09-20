@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SigningProfileArgs', 'SigningProfile']
@@ -15,12 +16,12 @@ __all__ = ['SigningProfileArgs', 'SigningProfile']
 @pulumi.input_type
 class SigningProfileArgs:
     def __init__(__self__, *,
-                 platform_id: pulumi.Input[str],
+                 platform_id: pulumi.Input['SigningProfilePlatformId'],
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
-        :param pulumi.Input[str] platform_id: The ID of the target signing platform.
+        :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: Signature validity period of the profile.
         :param pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]] tags: A list of tags associated with the signing profile.
         """
@@ -32,14 +33,14 @@ class SigningProfileArgs:
 
     @property
     @pulumi.getter(name="platformId")
-    def platform_id(self) -> pulumi.Input[str]:
+    def platform_id(self) -> pulumi.Input['SigningProfilePlatformId']:
         """
         The ID of the target signing platform.
         """
         return pulumi.get(self, "platform_id")
 
     @platform_id.setter
-    def platform_id(self, value: pulumi.Input[str]):
+    def platform_id(self, value: pulumi.Input['SigningProfilePlatformId']):
         pulumi.set(self, "platform_id", value)
 
     @property
@@ -72,7 +73,7 @@ class SigningProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 platform_id: Optional[pulumi.Input[str]] = None,
+                 platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]]] = None,
                  __props__=None):
@@ -81,7 +82,7 @@ class SigningProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] platform_id: The ID of the target signing platform.
+        :param pulumi.Input['SigningProfilePlatformId'] platform_id: The ID of the target signing platform.
         :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: Signature validity period of the profile.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]] tags: A list of tags associated with the signing profile.
         """
@@ -109,7 +110,7 @@ class SigningProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 platform_id: Optional[pulumi.Input[str]] = None,
+                 platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]]] = None,
                  __props__=None):
@@ -174,7 +175,7 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformId")
-    def platform_id(self) -> pulumi.Output[str]:
+    def platform_id(self) -> pulumi.Output['SigningProfilePlatformId']:
         """
         The ID of the target signing platform.
         """

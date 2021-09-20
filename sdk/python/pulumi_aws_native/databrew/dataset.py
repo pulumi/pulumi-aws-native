@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DatasetArgs', 'Dataset']
@@ -17,7 +18,7 @@ class DatasetArgs:
     def __init__(__self__, *,
                  input: pulumi.Input['DatasetInputArgs'],
                  name: pulumi.Input[str],
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input['DatasetFormat']] = None,
                  format_options: Optional[pulumi.Input['DatasetFormatOptionsArgs']] = None,
                  path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None):
@@ -25,7 +26,7 @@ class DatasetArgs:
         The set of arguments for constructing a Dataset resource.
         :param pulumi.Input['DatasetInputArgs'] input: Input
         :param pulumi.Input[str] name: Dataset name
-        :param pulumi.Input[str] format: Dataset format
+        :param pulumi.Input['DatasetFormat'] format: Dataset format
         :param pulumi.Input['DatasetFormatOptionsArgs'] format_options: Format options for dataset
         :param pulumi.Input['DatasetPathOptionsArgs'] path_options: PathOptions
         """
@@ -66,14 +67,14 @@ class DatasetArgs:
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
+    def format(self) -> Optional[pulumi.Input['DatasetFormat']]:
         """
         Dataset format
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
+    def format(self, value: Optional[pulumi.Input['DatasetFormat']]):
         pulumi.set(self, "format", value)
 
     @property
@@ -115,7 +116,7 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input['DatasetFormat']] = None,
                  format_options: Optional[pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']]] = None,
                  input: Optional[pulumi.Input[pulumi.InputType['DatasetInputArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -127,7 +128,7 @@ class Dataset(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] format: Dataset format
+        :param pulumi.Input['DatasetFormat'] format: Dataset format
         :param pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']] format_options: Format options for dataset
         :param pulumi.Input[pulumi.InputType['DatasetInputArgs']] input: Input
         :param pulumi.Input[str] name: Dataset name
@@ -157,7 +158,7 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input['DatasetFormat']] = None,
                  format_options: Optional[pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']]] = None,
                  input: Optional[pulumi.Input[pulumi.InputType['DatasetInputArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -217,7 +218,7 @@ class Dataset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def format(self) -> pulumi.Output[Optional[str]]:
+    def format(self) -> pulumi.Output[Optional['DatasetFormat']]:
         """
         Dataset format
         """

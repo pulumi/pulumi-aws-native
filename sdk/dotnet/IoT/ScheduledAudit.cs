@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.IoT
         /// The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         /// </summary>
         [Output("dayOfWeek")]
-        public Output<string?> DayOfWeek { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.ScheduledAuditDayOfWeek?> DayOfWeek { get; private set; } = null!;
 
         /// <summary>
         /// How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         /// </summary>
         [Output("frequency")]
-        public Output<string> Frequency { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.ScheduledAuditFrequency> Frequency { get; private set; } = null!;
 
         /// <summary>
         /// The ARN (Amazon resource name) of the scheduled audit.
@@ -112,13 +112,13 @@ namespace Pulumi.AwsNative.IoT
         /// The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         /// </summary>
         [Input("dayOfWeek")]
-        public Input<string>? DayOfWeek { get; set; }
+        public Input<Pulumi.AwsNative.IoT.ScheduledAuditDayOfWeek>? DayOfWeek { get; set; }
 
         /// <summary>
         /// How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         /// </summary>
         [Input("frequency", required: true)]
-        public Input<string> Frequency { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoT.ScheduledAuditFrequency> Frequency { get; set; } = null!;
 
         /// <summary>
         /// The name you want to give to the scheduled audit.

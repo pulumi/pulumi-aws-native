@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'CloudFormationProvisionedProductProvisioningParameter',
@@ -71,7 +72,7 @@ class CloudFormationProvisionedProductProvisioningPreferences(dict):
                  stack_set_failure_tolerance_percentage: Optional[int] = None,
                  stack_set_max_concurrency_count: Optional[int] = None,
                  stack_set_max_concurrency_percentage: Optional[int] = None,
-                 stack_set_operation_type: Optional[str] = None,
+                 stack_set_operation_type: Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType'] = None,
                  stack_set_regions: Optional[Sequence[str]] = None):
         if stack_set_accounts is not None:
             pulumi.set(__self__, "stack_set_accounts", stack_set_accounts)
@@ -115,7 +116,7 @@ class CloudFormationProvisionedProductProvisioningPreferences(dict):
 
     @property
     @pulumi.getter(name="stackSetOperationType")
-    def stack_set_operation_type(self) -> Optional[str]:
+    def stack_set_operation_type(self) -> Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']:
         return pulumi.get(self, "stack_set_operation_type")
 
     @property

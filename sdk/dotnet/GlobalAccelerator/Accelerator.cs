@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// IP Address type.
         /// </summary>
         [Output("ipAddressType")]
-        public Output<string?> IpAddressType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GlobalAccelerator.AcceleratorIpAddressType?> IpAddressType { get; private set; } = null!;
 
         /// <summary>
         /// The IP addresses from BYOIP Prefix pool.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// IP Address type.
         /// </summary>
         [Input("ipAddressType")]
-        public Input<string>? IpAddressType { get; set; }
+        public Input<Pulumi.AwsNative.GlobalAccelerator.AcceleratorIpAddressType>? IpAddressType { get; set; }
 
         [Input("ipAddresses")]
         private InputList<string>? _ipAddresses;

@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     public sealed class DataSourceSalesforceKnowledgeArticleConfiguration
     {
         public readonly ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> CustomKnowledgeArticleTypeConfigurations;
-        public readonly ImmutableArray<string> IncludedStates;
+        public readonly ImmutableArray<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState> IncludedStates;
         public readonly Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? StandardKnowledgeArticleTypeConfiguration;
 
         [OutputConstructor]
         private DataSourceSalesforceKnowledgeArticleConfiguration(
             ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> customKnowledgeArticleTypeConfigurations,
 
-            ImmutableArray<string> includedStates,
+            ImmutableArray<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState> includedStates,
 
             Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? standardKnowledgeArticleTypeConfiguration)
         {

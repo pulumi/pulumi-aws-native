@@ -1954,9 +1954,9 @@ type StorageLensS3BucketDestination struct {
 	Arn        string                 `pulumi:"arn"`
 	Encryption *StorageLensEncryption `pulumi:"encryption"`
 	// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
-	Format string `pulumi:"format"`
+	Format StorageLensS3BucketDestinationFormat `pulumi:"format"`
 	// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
-	OutputSchemaVersion string `pulumi:"outputSchemaVersion"`
+	OutputSchemaVersion StorageLensS3BucketDestinationOutputSchemaVersion `pulumi:"outputSchemaVersion"`
 	// The prefix to use for Amazon S3 Storage Lens export.
 	Prefix *string `pulumi:"prefix"`
 }
@@ -1980,9 +1980,9 @@ type StorageLensS3BucketDestinationArgs struct {
 	Arn        pulumi.StringInput            `pulumi:"arn"`
 	Encryption StorageLensEncryptionPtrInput `pulumi:"encryption"`
 	// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
-	Format pulumi.StringInput `pulumi:"format"`
+	Format StorageLensS3BucketDestinationFormatInput `pulumi:"format"`
 	// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
-	OutputSchemaVersion pulumi.StringInput `pulumi:"outputSchemaVersion"`
+	OutputSchemaVersion StorageLensS3BucketDestinationOutputSchemaVersionInput `pulumi:"outputSchemaVersion"`
 	// The prefix to use for Amazon S3 Storage Lens export.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
@@ -2080,13 +2080,15 @@ func (o StorageLensS3BucketDestinationOutput) Encryption() StorageLensEncryption
 }
 
 // Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
-func (o StorageLensS3BucketDestinationOutput) Format() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.Format }).(pulumi.StringOutput)
+func (o StorageLensS3BucketDestinationOutput) Format() StorageLensS3BucketDestinationFormatOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) StorageLensS3BucketDestinationFormat { return v.Format }).(StorageLensS3BucketDestinationFormatOutput)
 }
 
 // The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
-func (o StorageLensS3BucketDestinationOutput) OutputSchemaVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.OutputSchemaVersion }).(pulumi.StringOutput)
+func (o StorageLensS3BucketDestinationOutput) OutputSchemaVersion() StorageLensS3BucketDestinationOutputSchemaVersionOutput {
+	return o.ApplyT(func(v StorageLensS3BucketDestination) StorageLensS3BucketDestinationOutputSchemaVersion {
+		return v.OutputSchemaVersion
+	}).(StorageLensS3BucketDestinationOutputSchemaVersionOutput)
 }
 
 // The prefix to use for Amazon S3 Storage Lens export.
@@ -2148,23 +2150,23 @@ func (o StorageLensS3BucketDestinationPtrOutput) Encryption() StorageLensEncrypt
 }
 
 // Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
-func (o StorageLensS3BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
+func (o StorageLensS3BucketDestinationPtrOutput) Format() StorageLensS3BucketDestinationFormatPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *StorageLensS3BucketDestinationFormat {
 		if v == nil {
 			return nil
 		}
 		return &v.Format
-	}).(pulumi.StringPtrOutput)
+	}).(StorageLensS3BucketDestinationFormatPtrOutput)
 }
 
 // The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
-func (o StorageLensS3BucketDestinationPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
+func (o StorageLensS3BucketDestinationPtrOutput) OutputSchemaVersion() StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput {
+	return o.ApplyT(func(v *StorageLensS3BucketDestination) *StorageLensS3BucketDestinationOutputSchemaVersion {
 		if v == nil {
 			return nil
 		}
 		return &v.OutputSchemaVersion
-	}).(pulumi.StringPtrOutput)
+	}).(StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput)
 }
 
 // The prefix to use for Amazon S3 Storage Lens export.

@@ -29,7 +29,7 @@ type Fleet struct {
 	// Unique fleet ID
 	FleetId pulumi.StringOutput `pulumi:"fleetId"`
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-	FleetType pulumi.StringPtrOutput `pulumi:"fleetType"`
+	FleetType FleetFleetTypePtrOutput `pulumi:"fleetType"`
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
 	InstanceRoleARN pulumi.StringPtrOutput                `pulumi:"instanceRoleARN"`
 	Locations       FleetLocationConfigurationArrayOutput `pulumi:"locations"`
@@ -44,7 +44,7 @@ type Fleet struct {
 	// A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
-	NewGameSessionProtectionPolicy pulumi.StringPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
+	NewGameSessionProtectionPolicy FleetNewGameSessionProtectionPolicyPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
 	// A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
 	PeerVpcAwsAccountId pulumi.StringPtrOutput `pulumi:"peerVpcAwsAccountId"`
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
@@ -117,7 +117,7 @@ type fleetArgs struct {
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
 	EC2InstanceType *string `pulumi:"eC2InstanceType"`
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-	FleetType *string `pulumi:"fleetType"`
+	FleetType *FleetFleetType `pulumi:"fleetType"`
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
 	InstanceRoleARN *string                      `pulumi:"instanceRoleARN"`
 	Locations       []FleetLocationConfiguration `pulumi:"locations"`
@@ -132,7 +132,7 @@ type fleetArgs struct {
 	// A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 	Name *string `pulumi:"name"`
 	// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
-	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
+	NewGameSessionProtectionPolicy *FleetNewGameSessionProtectionPolicy `pulumi:"newGameSessionProtectionPolicy"`
 	// A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
 	PeerVpcAwsAccountId *string `pulumi:"peerVpcAwsAccountId"`
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
@@ -168,7 +168,7 @@ type FleetArgs struct {
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
 	EC2InstanceType pulumi.StringPtrInput
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-	FleetType pulumi.StringPtrInput
+	FleetType FleetFleetTypePtrInput
 	// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
 	InstanceRoleARN pulumi.StringPtrInput
 	Locations       FleetLocationConfigurationArrayInput
@@ -183,7 +183,7 @@ type FleetArgs struct {
 	// A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
 	Name pulumi.StringPtrInput
 	// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
-	NewGameSessionProtectionPolicy pulumi.StringPtrInput
+	NewGameSessionProtectionPolicy FleetNewGameSessionProtectionPolicyPtrInput
 	// A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
 	PeerVpcAwsAccountId pulumi.StringPtrInput
 	// A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.

@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Athena
         /// The state of the workgroup: ENABLED or DISABLED.
         /// </summary>
         [Output("state")]
-        public Output<string?> State { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Athena.WorkGroupState?> State { get; private set; } = null!;
 
         /// <summary>
         /// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Athena
         /// The state of the workgroup: ENABLED or DISABLED.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public Input<Pulumi.AwsNative.Athena.WorkGroupState>? State { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.WorkGroupTagArgs>? _tags;

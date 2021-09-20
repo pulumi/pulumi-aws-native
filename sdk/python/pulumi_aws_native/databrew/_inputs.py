@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'DatasetCsvOptionsArgs',
@@ -211,12 +212,12 @@ class DatasetDatabaseInputDefinitionArgs:
 class DatasetDatasetParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['DatasetDatasetParameterType'],
                  create_column: Optional[pulumi.Input[bool]] = None,
                  datetime_options: Optional[pulumi.Input['DatasetDatetimeOptionsArgs']] = None,
                  filter: Optional[pulumi.Input['DatasetFilterExpressionArgs']] = None):
         """
-        :param pulumi.Input[str] type: Parameter type
+        :param pulumi.Input['DatasetDatasetParameterType'] type: Parameter type
         :param pulumi.Input[bool] create_column: Add the value of this parameter as a column in a dataset.
         """
         pulumi.set(__self__, "name", name)
@@ -239,14 +240,14 @@ class DatasetDatasetParameterArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['DatasetDatasetParameterType']:
         """
         Parameter type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['DatasetDatasetParameterType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -379,12 +380,12 @@ class DatasetExcelOptionsArgs:
 class DatasetFilesLimitArgs:
     def __init__(__self__, *,
                  max_files: pulumi.Input[int],
-                 order: Optional[pulumi.Input[str]] = None,
-                 ordered_by: Optional[pulumi.Input[str]] = None):
+                 order: Optional[pulumi.Input['DatasetFilesLimitOrder']] = None,
+                 ordered_by: Optional[pulumi.Input['DatasetFilesLimitOrderedBy']] = None):
         """
         :param pulumi.Input[int] max_files: Maximum number of files
-        :param pulumi.Input[str] order: Order
-        :param pulumi.Input[str] ordered_by: Ordered by
+        :param pulumi.Input['DatasetFilesLimitOrder'] order: Order
+        :param pulumi.Input['DatasetFilesLimitOrderedBy'] ordered_by: Ordered by
         """
         pulumi.set(__self__, "max_files", max_files)
         if order is not None:
@@ -406,26 +407,26 @@ class DatasetFilesLimitArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
+    def order(self) -> Optional[pulumi.Input['DatasetFilesLimitOrder']]:
         """
         Order
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
+    def order(self, value: Optional[pulumi.Input['DatasetFilesLimitOrder']]):
         pulumi.set(self, "order", value)
 
     @property
     @pulumi.getter(name="orderedBy")
-    def ordered_by(self) -> Optional[pulumi.Input[str]]:
+    def ordered_by(self) -> Optional[pulumi.Input['DatasetFilesLimitOrderedBy']]:
         """
         Ordered by
         """
         return pulumi.get(self, "ordered_by")
 
     @ordered_by.setter
-    def ordered_by(self, value: Optional[pulumi.Input[str]]):
+    def ordered_by(self, value: Optional[pulumi.Input['DatasetFilesLimitOrderedBy']]):
         pulumi.set(self, "ordered_by", value)
 
 
@@ -896,10 +897,10 @@ class JobDatabaseOutputArgs:
     def __init__(__self__, *,
                  database_options: pulumi.Input['JobDatabaseTableOutputOptionsArgs'],
                  glue_connection_name: pulumi.Input[str],
-                 database_output_mode: Optional[pulumi.Input[str]] = None):
+                 database_output_mode: Optional[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']] = None):
         """
         :param pulumi.Input[str] glue_connection_name: Glue connection name
-        :param pulumi.Input[str] database_output_mode: Database table name
+        :param pulumi.Input['JobDatabaseOutputDatabaseOutputMode'] database_output_mode: Database table name
         """
         pulumi.set(__self__, "database_options", database_options)
         pulumi.set(__self__, "glue_connection_name", glue_connection_name)
@@ -929,14 +930,14 @@ class JobDatabaseOutputArgs:
 
     @property
     @pulumi.getter(name="databaseOutputMode")
-    def database_output_mode(self) -> Optional[pulumi.Input[str]]:
+    def database_output_mode(self) -> Optional[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']]:
         """
         Database table name
         """
         return pulumi.get(self, "database_output_mode")
 
     @database_output_mode.setter
-    def database_output_mode(self, value: Optional[pulumi.Input[str]]):
+    def database_output_mode(self, value: Optional[pulumi.Input['JobDatabaseOutputDatabaseOutputMode']]):
         pulumi.set(self, "database_output_mode", value)
 
 
@@ -971,7 +972,7 @@ class JobDatabaseTableOutputOptionsArgs:
 @pulumi.input_type
 class JobJobSampleArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input['JobSampleMode']] = None,
                  size: Optional[pulumi.Input[int]] = None):
         """
         Job Sample
@@ -983,11 +984,11 @@ class JobJobSampleArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input['JobSampleMode']]:
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input['JobSampleMode']]):
         pulumi.set(self, "mode", value)
 
     @property
@@ -1055,8 +1056,8 @@ class JobOutputLocationArgs:
 class JobOutputArgs:
     def __init__(__self__, *,
                  location: pulumi.Input['JobS3LocationArgs'],
-                 compression_format: Optional[pulumi.Input[str]] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 compression_format: Optional[pulumi.Input['JobOutputCompressionFormat']] = None,
+                 format: Optional[pulumi.Input['JobOutputFormat']] = None,
                  format_options: Optional[pulumi.Input['JobOutputFormatOptionsArgs']] = None,
                  overwrite: Optional[pulumi.Input[bool]] = None,
                  partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1083,20 +1084,20 @@ class JobOutputArgs:
 
     @property
     @pulumi.getter(name="compressionFormat")
-    def compression_format(self) -> Optional[pulumi.Input[str]]:
+    def compression_format(self) -> Optional[pulumi.Input['JobOutputCompressionFormat']]:
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
-    def compression_format(self, value: Optional[pulumi.Input[str]]):
+    def compression_format(self, value: Optional[pulumi.Input['JobOutputCompressionFormat']]):
         pulumi.set(self, "compression_format", value)
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
+    def format(self) -> Optional[pulumi.Input['JobOutputFormat']]:
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
+    def format(self, value: Optional[pulumi.Input['JobOutputFormat']]):
         pulumi.set(self, "format", value)
 
     @property
@@ -1348,10 +1349,10 @@ class JobTagArgs:
 @pulumi.input_type
 class ProjectSampleArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['ProjectSampleType'],
                  size: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] type: Sample type
+        :param pulumi.Input['ProjectSampleType'] type: Sample type
         :param pulumi.Input[int] size: Sample size
         """
         pulumi.set(__self__, "type", type)
@@ -1360,14 +1361,14 @@ class ProjectSampleArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ProjectSampleType']:
         """
         Sample type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ProjectSampleType']):
         pulumi.set(self, "type", value)
 
     @property

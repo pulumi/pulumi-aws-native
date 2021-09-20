@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class DataSource extends pulumi.CustomResource {
      * Tags for labeling the data source
      */
     public readonly tags!: pulumi.Output<outputs.kendra.DataSourceTag[] | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.kendra.DataSourceType>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -109,5 +109,5 @@ export interface DataSourceArgs {
      * Tags for labeling the data source
      */
     tags?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceTagArgs>[]>;
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.kendra.DataSourceType>;
 }

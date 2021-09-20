@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Wireless device type, currently only Sidewalk and LoRa
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoTWireless.WirelessDeviceType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Wireless device type, currently only Sidewalk and LoRa
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoTWireless.WirelessDeviceType> Type { get; set; } = null!;
 
         public WirelessDeviceArgs()
         {

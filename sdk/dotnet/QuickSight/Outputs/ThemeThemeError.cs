@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;The error message.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.QuickSight.ThemeThemeErrorType? Type;
 
         [OutputConstructor]
         private ThemeThemeError(
             string? message,
 
-            string? type)
+            Pulumi.AwsNative.QuickSight.ThemeThemeErrorType? type)
         {
             Message = message;
             Type = type;

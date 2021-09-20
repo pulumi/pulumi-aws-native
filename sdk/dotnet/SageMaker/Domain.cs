@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         /// </summary>
         [Output("appNetworkAccessType")]
-        public Output<string?> AppNetworkAccessType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SageMaker.DomainAppNetworkAccessType?> AppNetworkAccessType { get; private set; } = null!;
 
         /// <summary>
         /// The mode of authentication that members use to access the domain.
         /// </summary>
         [Output("authMode")]
-        public Output<string> AuthMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SageMaker.DomainAuthMode> AuthMode { get; private set; } = null!;
 
         /// <summary>
         /// The default user settings.
@@ -142,13 +142,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         /// </summary>
         [Input("appNetworkAccessType")]
-        public Input<string>? AppNetworkAccessType { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.DomainAppNetworkAccessType>? AppNetworkAccessType { get; set; }
 
         /// <summary>
         /// The mode of authentication that members use to access the domain.
         /// </summary>
         [Input("authMode", required: true)]
-        public Input<string> AuthMode { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SageMaker.DomainAuthMode> AuthMode { get; set; } = null!;
 
         /// <summary>
         /// The default user settings.

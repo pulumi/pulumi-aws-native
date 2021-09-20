@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of a schedule job.
         /// </summary>
         [Output("monitoringScheduleStatus")]
-        public Output<string?> MonitoringScheduleStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringScheduleStatus?> MonitoringScheduleStatus { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of a schedule job.
         /// </summary>
         [Input("monitoringScheduleStatus")]
-        public Input<string>? MonitoringScheduleStatus { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringScheduleStatus>? MonitoringScheduleStatus { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.MonitoringScheduleTagArgs>? _tags;

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupStatefulRule
     {
-        public readonly string Action;
+        public readonly Pulumi.AwsNative.NetworkFirewall.RuleGroupStatefulRuleAction Action;
         public readonly Outputs.RuleGroupHeader Header;
         public readonly ImmutableArray<Outputs.RuleGroupRuleOption> RuleOptions;
 
         [OutputConstructor]
         private RuleGroupStatefulRule(
-            string action,
+            Pulumi.AwsNative.NetworkFirewall.RuleGroupStatefulRuleAction action,
 
             Outputs.RuleGroupHeader header,
 

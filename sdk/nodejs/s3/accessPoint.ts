@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
      */
-    public /*out*/ readonly networkOrigin!: pulumi.Output<string>;
+    public /*out*/ readonly networkOrigin!: pulumi.Output<enums.s3.AccessPointNetworkOrigin>;
     /**
      * The Access Point Policy you want to apply to this access point.
      */

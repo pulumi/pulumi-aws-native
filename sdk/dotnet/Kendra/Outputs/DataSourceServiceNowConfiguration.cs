@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly Outputs.DataSourceServiceNowKnowledgeArticleConfiguration? KnowledgeArticleConfiguration;
         public readonly string SecretArn;
         public readonly Outputs.DataSourceServiceNowServiceCatalogConfiguration? ServiceCatalogConfiguration;
-        public readonly string ServiceNowBuildVersion;
+        public readonly Pulumi.AwsNative.Kendra.DataSourceServiceNowBuildVersionType ServiceNowBuildVersion;
 
         [OutputConstructor]
         private DataSourceServiceNowConfiguration(
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceServiceNowServiceCatalogConfiguration? serviceCatalogConfiguration,
 
-            string serviceNowBuildVersion)
+            Pulumi.AwsNative.Kendra.DataSourceServiceNowBuildVersionType serviceNowBuildVersion)
         {
             HostUrl = hostUrl;
             KnowledgeArticleConfiguration = knowledgeArticleConfiguration;

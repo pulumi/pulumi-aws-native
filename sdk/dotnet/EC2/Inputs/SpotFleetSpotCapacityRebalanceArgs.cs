@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class SpotFleetSpotCapacityRebalanceArgs : Pulumi.ResourceArgs
     {
         [Input("replacementStrategy")]
-        public Input<string>? ReplacementStrategy { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy>? ReplacementStrategy { get; set; }
 
         public SpotFleetSpotCapacityRebalanceArgs()
         {

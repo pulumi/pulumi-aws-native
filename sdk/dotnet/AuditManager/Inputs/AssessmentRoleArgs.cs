@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         public Input<string>? RoleArn { get; set; }
 
         [Input("roleType")]
-        public Input<string>? RoleType { get; set; }
+        public Input<Pulumi.AwsNative.AuditManager.AssessmentRoleType>? RoleType { get; set; }
 
         public AssessmentRoleArgs()
         {

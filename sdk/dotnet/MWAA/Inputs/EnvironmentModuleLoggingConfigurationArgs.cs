@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         public Input<bool>? Enabled { get; set; }
 
         [Input("logLevel")]
-        public Input<string>? LogLevel { get; set; }
+        public Input<Pulumi.AwsNative.MWAA.EnvironmentLoggingLevel>? LogLevel { get; set; }
 
         public EnvironmentModuleLoggingConfigurationArgs()
         {

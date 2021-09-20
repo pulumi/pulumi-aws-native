@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// A filter to list only the wireless gateway task definitions that use this task definition type
         /// </summary>
         [Output("taskDefinitionType")]
-        public Output<string?> TaskDefinitionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoTWireless.TaskDefinitionTaskDefinitionType?> TaskDefinitionType { get; private set; } = null!;
 
         /// <summary>
         /// Information about the gateways to update.
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// A filter to list only the wireless gateway task definitions that use this task definition type
         /// </summary>
         [Input("taskDefinitionType")]
-        public Input<string>? TaskDefinitionType { get; set; }
+        public Input<Pulumi.AwsNative.IoTWireless.TaskDefinitionTaskDefinitionType>? TaskDefinitionType { get; set; }
 
         /// <summary>
         /// Information about the gateways to update.

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ServiceArgs', 'Service']
@@ -23,15 +24,15 @@ class ServiceArgs:
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
-                 launch_type: Optional[pulumi.Input[str]] = None,
+                 launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
                  network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
                  placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 propagate_tags: Optional[pulumi.Input[str]] = None,
+                 propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 scheduling_strategy: Optional[pulumi.Input[str]] = None,
+                 scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceRegistryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
@@ -156,11 +157,11 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> Optional[pulumi.Input[str]]:
+    def launch_type(self) -> Optional[pulumi.Input['ServiceLaunchType']]:
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
-    def launch_type(self, value: Optional[pulumi.Input[str]]):
+    def launch_type(self, value: Optional[pulumi.Input['ServiceLaunchType']]):
         pulumi.set(self, "launch_type", value)
 
     @property
@@ -210,11 +211,11 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="propagateTags")
-    def propagate_tags(self) -> Optional[pulumi.Input[str]]:
+    def propagate_tags(self) -> Optional[pulumi.Input['ServicePropagateTags']]:
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
-    def propagate_tags(self, value: Optional[pulumi.Input[str]]):
+    def propagate_tags(self, value: Optional[pulumi.Input['ServicePropagateTags']]):
         pulumi.set(self, "propagate_tags", value)
 
     @property
@@ -228,11 +229,11 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="schedulingStrategy")
-    def scheduling_strategy(self) -> Optional[pulumi.Input[str]]:
+    def scheduling_strategy(self) -> Optional[pulumi.Input['ServiceSchedulingStrategy']]:
         return pulumi.get(self, "scheduling_strategy")
 
     @scheduling_strategy.setter
-    def scheduling_strategy(self, value: Optional[pulumi.Input[str]]):
+    def scheduling_strategy(self, value: Optional[pulumi.Input['ServiceSchedulingStrategy']]):
         pulumi.set(self, "scheduling_strategy", value)
 
     @property
@@ -285,15 +286,15 @@ class Service(pulumi.CustomResource):
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
-                 launch_type: Optional[pulumi.Input[str]] = None,
+                 launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]]] = None,
                  placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementStrategyArgs']]]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 propagate_tags: Optional[pulumi.Input[str]] = None,
+                 propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 scheduling_strategy: Optional[pulumi.Input[str]] = None,
+                 scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -337,15 +338,15 @@ class Service(pulumi.CustomResource):
                  enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
                  enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
-                 launch_type: Optional[pulumi.Input[str]] = None,
+                 launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]]] = None,
                  placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementStrategyArgs']]]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 propagate_tags: Optional[pulumi.Input[str]] = None,
+                 propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 scheduling_strategy: Optional[pulumi.Input[str]] = None,
+                 scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -474,7 +475,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> pulumi.Output[Optional[str]]:
+    def launch_type(self) -> pulumi.Output[Optional['ServiceLaunchType']]:
         return pulumi.get(self, "launch_type")
 
     @property
@@ -509,7 +510,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="propagateTags")
-    def propagate_tags(self) -> pulumi.Output[Optional[str]]:
+    def propagate_tags(self) -> pulumi.Output[Optional['ServicePropagateTags']]:
         return pulumi.get(self, "propagate_tags")
 
     @property
@@ -519,7 +520,7 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schedulingStrategy")
-    def scheduling_strategy(self) -> pulumi.Output[Optional[str]]:
+    def scheduling_strategy(self) -> pulumi.Output[Optional['ServiceSchedulingStrategy']]:
         return pulumi.get(self, "scheduling_strategy")
 
     @property

@@ -23,14 +23,14 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// The encryption method to use.
         /// </summary>
-        public readonly string? EncryptionMethod;
+        public readonly Pulumi.AwsNative.MediaPackage.PackagingConfigurationHlsEncryptionEncryptionMethod? EncryptionMethod;
         public readonly Outputs.PackagingConfigurationSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]
         private PackagingConfigurationHlsEncryption(
             string? constantInitializationVector,
 
-            string? encryptionMethod,
+            Pulumi.AwsNative.MediaPackage.PackagingConfigurationHlsEncryptionEncryptionMethod? encryptionMethod,
 
             Outputs.PackagingConfigurationSpekeKeyProvider spekeKeyProvider)
         {

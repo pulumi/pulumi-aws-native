@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AddonArgs', 'Addon']
@@ -18,7 +19,7 @@ class AddonArgs:
                  addon_name: pulumi.Input[str],
                  cluster_name: pulumi.Input[str],
                  addon_version: Optional[pulumi.Input[str]] = None,
-                 resolve_conflicts: Optional[pulumi.Input[str]] = None,
+                 resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]] = None):
         """
@@ -26,7 +27,7 @@ class AddonArgs:
         :param pulumi.Input[str] addon_name: Name of Addon
         :param pulumi.Input[str] cluster_name: Name of Cluster
         :param pulumi.Input[str] addon_version: Version of Addon
-        :param pulumi.Input[str] resolve_conflicts: Resolve parameter value conflicts
+        :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
         :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
         :param pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -79,14 +80,14 @@ class AddonArgs:
 
     @property
     @pulumi.getter(name="resolveConflicts")
-    def resolve_conflicts(self) -> Optional[pulumi.Input[str]]:
+    def resolve_conflicts(self) -> Optional[pulumi.Input['AddonResolveConflicts']]:
         """
         Resolve parameter value conflicts
         """
         return pulumi.get(self, "resolve_conflicts")
 
     @resolve_conflicts.setter
-    def resolve_conflicts(self, value: Optional[pulumi.Input[str]]):
+    def resolve_conflicts(self, value: Optional[pulumi.Input['AddonResolveConflicts']]):
         pulumi.set(self, "resolve_conflicts", value)
 
     @property
@@ -122,7 +123,7 @@ class Addon(pulumi.CustomResource):
                  addon_name: Optional[pulumi.Input[str]] = None,
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 resolve_conflicts: Optional[pulumi.Input[str]] = None,
+                 resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]]] = None,
                  __props__=None):
@@ -134,7 +135,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] addon_name: Name of Addon
         :param pulumi.Input[str] addon_version: Version of Addon
         :param pulumi.Input[str] cluster_name: Name of Cluster
-        :param pulumi.Input[str] resolve_conflicts: Resolve parameter value conflicts
+        :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
         :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -165,7 +166,7 @@ class Addon(pulumi.CustomResource):
                  addon_name: Optional[pulumi.Input[str]] = None,
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 resolve_conflicts: Optional[pulumi.Input[str]] = None,
+                 resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]]] = None,
                  __props__=None):
@@ -256,7 +257,7 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resolveConflicts")
-    def resolve_conflicts(self) -> pulumi.Output[Optional[str]]:
+    def resolve_conflicts(self) -> pulumi.Output[Optional['AddonResolveConflicts']]:
         """
         Resolve parameter value conflicts
         """

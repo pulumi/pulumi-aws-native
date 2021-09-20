@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RobotArgs', 'Robot']
@@ -15,14 +16,14 @@ __all__ = ['RobotArgs', 'Robot']
 @pulumi.input_type
 class RobotArgs:
     def __init__(__self__, *,
-                 architecture: pulumi.Input[str],
+                 architecture: pulumi.Input['RobotArchitecture'],
                  greengrass_group_id: pulumi.Input[str],
                  fleet: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['RobotTagsArgs']] = None):
         """
         The set of arguments for constructing a Robot resource.
-        :param pulumi.Input[str] architecture: The target architecture of the robot.
+        :param pulumi.Input['RobotArchitecture'] architecture: The target architecture of the robot.
         :param pulumi.Input[str] greengrass_group_id: The Greengrass group id.
         :param pulumi.Input[str] fleet: The Amazon Resource Name (ARN) of the fleet.
         :param pulumi.Input[str] name: The name for the robot.
@@ -38,14 +39,14 @@ class RobotArgs:
 
     @property
     @pulumi.getter
-    def architecture(self) -> pulumi.Input[str]:
+    def architecture(self) -> pulumi.Input['RobotArchitecture']:
         """
         The target architecture of the robot.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: pulumi.Input[str]):
+    def architecture(self, value: pulumi.Input['RobotArchitecture']):
         pulumi.set(self, "architecture", value)
 
     @property
@@ -99,7 +100,7 @@ class Robot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[str]] = None,
+                 architecture: Optional[pulumi.Input['RobotArchitecture']] = None,
                  fleet: Optional[pulumi.Input[str]] = None,
                  greengrass_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -110,7 +111,7 @@ class Robot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] architecture: The target architecture of the robot.
+        :param pulumi.Input['RobotArchitecture'] architecture: The target architecture of the robot.
         :param pulumi.Input[str] fleet: The Amazon Resource Name (ARN) of the fleet.
         :param pulumi.Input[str] greengrass_group_id: The Greengrass group id.
         :param pulumi.Input[str] name: The name for the robot.
@@ -139,7 +140,7 @@ class Robot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architecture: Optional[pulumi.Input[str]] = None,
+                 architecture: Optional[pulumi.Input['RobotArchitecture']] = None,
                  fleet: Optional[pulumi.Input[str]] = None,
                  greengrass_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -198,7 +199,7 @@ class Robot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def architecture(self) -> pulumi.Output[str]:
+    def architecture(self) -> pulumi.Output['RobotArchitecture']:
         """
         The target architecture of the robot.
         """

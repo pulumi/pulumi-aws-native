@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EnvironmentArgs', 'Environment']
@@ -17,14 +18,14 @@ class EnvironmentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 federation_mode: Optional[pulumi.Input[str]] = None,
+                 federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
                  federation_parameters: Optional[pulumi.Input['EnvironmentFederationParametersArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] name: Name of the Environment
         :param pulumi.Input[str] description: Description of the Environment
-        :param pulumi.Input[str] federation_mode: Federation mode used with the Environment
+        :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         """
         pulumi.set(__self__, "name", name)
@@ -63,14 +64,14 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter(name="federationMode")
-    def federation_mode(self) -> Optional[pulumi.Input[str]]:
+    def federation_mode(self) -> Optional[pulumi.Input['EnvironmentFederationMode']]:
         """
         Federation mode used with the Environment
         """
         return pulumi.get(self, "federation_mode")
 
     @federation_mode.setter
-    def federation_mode(self, value: Optional[pulumi.Input[str]]):
+    def federation_mode(self, value: Optional[pulumi.Input['EnvironmentFederationMode']]):
         pulumi.set(self, "federation_mode", value)
 
     @property
@@ -101,7 +102,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 federation_mode: Optional[pulumi.Input[str]] = None,
+                 federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
                  federation_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +113,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Environment
-        :param pulumi.Input[str] federation_mode: Federation mode used with the Environment
+        :param pulumi.Input['EnvironmentFederationMode'] federation_mode: Federation mode used with the Environment
         :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         :param pulumi.Input[str] name: Name of the Environment
         """
@@ -141,7 +142,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 federation_mode: Optional[pulumi.Input[str]] = None,
+                 federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
                  federation_parameters: Optional[pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -257,7 +258,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="federationMode")
-    def federation_mode(self) -> pulumi.Output[Optional[str]]:
+    def federation_mode(self) -> pulumi.Output[Optional['EnvironmentFederationMode']]:
         """
         Federation mode used with the Environment
         """
@@ -294,7 +295,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['EnvironmentStatus']:
         """
         State of the Environment
         """

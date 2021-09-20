@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
     public sealed class AssessmentRole
     {
         public readonly string? RoleArn;
-        public readonly string? RoleType;
+        public readonly Pulumi.AwsNative.AuditManager.AssessmentRoleType? RoleType;
 
         [OutputConstructor]
         private AssessmentRole(
             string? roleArn,
 
-            string? roleType)
+            Pulumi.AwsNative.AuditManager.AssessmentRoleType? roleType)
         {
             RoleArn = roleArn;
             RoleType = roleType;

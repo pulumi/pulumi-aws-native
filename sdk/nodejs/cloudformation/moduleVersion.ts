@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +80,7 @@ export class ModuleVersion extends pulumi.CustomResource {
      *
      * PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
      */
-    public /*out*/ readonly visibility!: pulumi.Output<string>;
+    public /*out*/ readonly visibility!: pulumi.Output<enums.cloudformation.ModuleVersionVisibility>;
 
     /**
      * Create a ModuleVersion resource with the given unique name, arguments, and options.

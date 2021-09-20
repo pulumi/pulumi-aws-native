@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowAggregationConfig
     {
-        public readonly string? AggregationType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowAggregationType? AggregationType;
 
         [OutputConstructor]
-        private FlowAggregationConfig(string? aggregationType)
+        private FlowAggregationConfig(Pulumi.AwsNative.AppFlow.FlowAggregationType? aggregationType)
         {
             AggregationType = aggregationType;
         }

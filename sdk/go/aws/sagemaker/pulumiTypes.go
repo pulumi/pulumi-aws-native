@@ -557,7 +557,7 @@ func (o AppImageConfigTagArrayOutput) Index(i pulumi.IntInput) AppImageConfigTag
 
 type AppResourceSpec struct {
 	// The instance type that the image version runs on.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType *AppResourceSpecInstanceType `pulumi:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -577,7 +577,7 @@ type AppResourceSpecInput interface {
 
 type AppResourceSpecArgs struct {
 	// The instance type that the image version runs on.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	InstanceType AppResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -662,8 +662,8 @@ func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutputWithContext(ctx context
 }
 
 // The instance type that the image version runs on.
-func (o AppResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+func (o AppResourceSpecOutput) InstanceType() AppResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *AppResourceSpecInstanceType { return v.InstanceType }).(AppResourceSpecInstanceTypePtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -701,13 +701,13 @@ func (o AppResourceSpecPtrOutput) Elem() AppResourceSpecOutput {
 }
 
 // The instance type that the image version runs on.
-func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppResourceSpec) *string {
+func (o AppResourceSpecPtrOutput) InstanceType() AppResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *AppResourceSpecInstanceType {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
+	}).(AppResourceSpecInstanceTypePtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -1720,9 +1720,9 @@ type DataQualityJobDefinitionEndpointInput struct {
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType *DataQualityJobDefinitionEndpointInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode *string `pulumi:"s3InputMode"`
+	S3InputMode *DataQualityJobDefinitionEndpointInputS3InputMode `pulumi:"s3InputMode"`
 }
 
 // DataQualityJobDefinitionEndpointInputInput is an input type that accepts DataQualityJobDefinitionEndpointInputArgs and DataQualityJobDefinitionEndpointInputOutput values.
@@ -1742,9 +1742,9 @@ type DataQualityJobDefinitionEndpointInputArgs struct {
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
+	S3InputMode DataQualityJobDefinitionEndpointInputS3InputModePtrInput `pulumi:"s3InputMode"`
 }
 
 func (DataQualityJobDefinitionEndpointInputArgs) ElementType() reflect.Type {
@@ -1835,13 +1835,17 @@ func (o DataQualityJobDefinitionEndpointInputOutput) LocalPath() pulumi.StringOu
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o DataQualityJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
+func (o DataQualityJobDefinitionEndpointInputOutput) S3DataDistributionType() DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o DataQualityJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
+func (o DataQualityJobDefinitionEndpointInputOutput) S3InputMode() DataQualityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3InputMode {
+		return v.S3InputMode
+	}).(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 type DataQualityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
@@ -1888,23 +1892,23 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.Strin
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3DataDistributionType {
 		if v == nil {
 			return nil
 		}
 		return v.S3DataDistributionType
-	}).(pulumi.StringPtrOutput)
+	}).(DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() DataQualityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3InputMode {
 		if v == nil {
 			return nil
 		}
 		return v.S3InputMode
-	}).(pulumi.StringPtrOutput)
+	}).(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 // The output object for a monitoring job.
@@ -2482,7 +2486,7 @@ type DataQualityJobDefinitionS3Output struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `pulumi:"s3UploadMode"`
+	S3UploadMode *DataQualityJobDefinitionS3OutputS3UploadMode `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
@@ -2503,7 +2507,7 @@ type DataQualityJobDefinitionS3OutputArgs struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
+	S3UploadMode DataQualityJobDefinitionS3OutputS3UploadModePtrInput `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
@@ -2541,8 +2545,10 @@ func (o DataQualityJobDefinitionS3OutputOutput) LocalPath() pulumi.StringOutput 
 }
 
 // Whether to upload the results of the monitoring job continuously or after the job completes.
-func (o DataQualityJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
+func (o DataQualityJobDefinitionS3OutputOutput) S3UploadMode() DataQualityJobDefinitionS3OutputS3UploadModePtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionS3Output) *DataQualityJobDefinitionS3OutputS3UploadMode {
+		return v.S3UploadMode
+	}).(DataQualityJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
 // A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
@@ -4062,7 +4068,7 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 
 type DomainResourceSpec struct {
 	// The instance type that the image version runs on.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType *DomainResourceSpecInstanceType `pulumi:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -4082,7 +4088,7 @@ type DomainResourceSpecInput interface {
 
 type DomainResourceSpecArgs struct {
 	// The instance type that the image version runs on.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	InstanceType DomainResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -4167,8 +4173,8 @@ func (o DomainResourceSpecOutput) ToDomainResourceSpecPtrOutputWithContext(ctx c
 }
 
 // The instance type that the image version runs on.
-func (o DomainResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+func (o DomainResourceSpecOutput) InstanceType() DomainResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v DomainResourceSpec) *DomainResourceSpecInstanceType { return v.InstanceType }).(DomainResourceSpecInstanceTypePtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -4206,13 +4212,13 @@ func (o DomainResourceSpecPtrOutput) Elem() DomainResourceSpecOutput {
 }
 
 // The instance type that the image version runs on.
-func (o DomainResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainResourceSpec) *string {
+func (o DomainResourceSpecPtrOutput) InstanceType() DomainResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) *DomainResourceSpecInstanceType {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
+	}).(DomainResourceSpecInstanceTypePtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -4238,7 +4244,7 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtr
 // Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type DomainSharingSettings struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
+	NotebookOutputOption *DomainSharingSettingsNotebookOutputOption `pulumi:"notebookOutputOption"`
 	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
 	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -4259,7 +4265,7 @@ type DomainSharingSettingsInput interface {
 // Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type DomainSharingSettingsArgs struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
+	NotebookOutputOption DomainSharingSettingsNotebookOutputOptionPtrInput `pulumi:"notebookOutputOption"`
 	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
 	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -4345,8 +4351,10 @@ func (o DomainSharingSettingsOutput) ToDomainSharingSettingsPtrOutputWithContext
 }
 
 // Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-func (o DomainSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
+func (o DomainSharingSettingsOutput) NotebookOutputOption() DomainSharingSettingsNotebookOutputOptionPtrOutput {
+	return o.ApplyT(func(v DomainSharingSettings) *DomainSharingSettingsNotebookOutputOption {
+		return v.NotebookOutputOption
+	}).(DomainSharingSettingsNotebookOutputOptionPtrOutput)
 }
 
 // When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
@@ -4384,13 +4392,13 @@ func (o DomainSharingSettingsPtrOutput) Elem() DomainSharingSettingsOutput {
 }
 
 // Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-func (o DomainSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainSharingSettings) *string {
+func (o DomainSharingSettingsPtrOutput) NotebookOutputOption() DomainSharingSettingsNotebookOutputOptionPtrOutput {
+	return o.ApplyT(func(v *DomainSharingSettings) *DomainSharingSettingsNotebookOutputOption {
 		if v == nil {
 			return nil
 		}
 		return v.NotebookOutputOption
-	}).(pulumi.StringPtrOutput)
+	}).(DomainSharingSettingsNotebookOutputOptionPtrOutput)
 }
 
 // When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
@@ -4730,8 +4738,8 @@ func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrO
 }
 
 type FeatureGroupFeatureDefinition struct {
-	FeatureName string `pulumi:"featureName"`
-	FeatureType string `pulumi:"featureType"`
+	FeatureName string                                   `pulumi:"featureName"`
+	FeatureType FeatureGroupFeatureDefinitionFeatureType `pulumi:"featureType"`
 }
 
 // FeatureGroupFeatureDefinitionInput is an input type that accepts FeatureGroupFeatureDefinitionArgs and FeatureGroupFeatureDefinitionOutput values.
@@ -4746,8 +4754,8 @@ type FeatureGroupFeatureDefinitionInput interface {
 }
 
 type FeatureGroupFeatureDefinitionArgs struct {
-	FeatureName pulumi.StringInput `pulumi:"featureName"`
-	FeatureType pulumi.StringInput `pulumi:"featureType"`
+	FeatureName pulumi.StringInput                            `pulumi:"featureName"`
+	FeatureType FeatureGroupFeatureDefinitionFeatureTypeInput `pulumi:"featureType"`
 }
 
 func (FeatureGroupFeatureDefinitionArgs) ElementType() reflect.Type {
@@ -4805,8 +4813,8 @@ func (o FeatureGroupFeatureDefinitionOutput) FeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v FeatureGroupFeatureDefinition) string { return v.FeatureName }).(pulumi.StringOutput)
 }
 
-func (o FeatureGroupFeatureDefinitionOutput) FeatureType() pulumi.StringOutput {
-	return o.ApplyT(func(v FeatureGroupFeatureDefinition) string { return v.FeatureType }).(pulumi.StringOutput)
+func (o FeatureGroupFeatureDefinitionOutput) FeatureType() FeatureGroupFeatureDefinitionFeatureTypeOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinition) FeatureGroupFeatureDefinitionFeatureType { return v.FeatureType }).(FeatureGroupFeatureDefinitionFeatureTypeOutput)
 }
 
 type FeatureGroupFeatureDefinitionArrayOutput struct{ *pulumi.OutputState }
@@ -5393,9 +5401,9 @@ type ModelBiasJobDefinitionEndpointInput struct {
 	ProbabilityAttribute          *string  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType *ModelBiasJobDefinitionEndpointInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode *string `pulumi:"s3InputMode"`
+	S3InputMode *ModelBiasJobDefinitionEndpointInputS3InputMode `pulumi:"s3InputMode"`
 	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset *string `pulumi:"startTimeOffset"`
 }
@@ -5426,9 +5434,9 @@ type ModelBiasJobDefinitionEndpointInputArgs struct {
 	ProbabilityAttribute          pulumi.StringPtrInput  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
+	S3InputMode ModelBiasJobDefinitionEndpointInputS3InputModePtrInput `pulumi:"s3InputMode"`
 	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
 }
@@ -5545,13 +5553,17 @@ func (o ModelBiasJobDefinitionEndpointInputOutput) ProbabilityThresholdAttribute
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelBiasJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
+func (o ModelBiasJobDefinitionEndpointInputOutput) S3DataDistributionType() ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelBiasJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
+func (o ModelBiasJobDefinitionEndpointInputOutput) S3InputMode() ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3InputMode {
+		return v.S3InputMode
+	}).(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 // Monitoring start time offset, e.g. -PT1H
@@ -5652,23 +5664,23 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttrib
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3DataDistributionType {
 		if v == nil {
 			return nil
 		}
 		return v.S3DataDistributionType
-	}).(pulumi.StringPtrOutput)
+	}).(ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3InputMode {
 		if v == nil {
 			return nil
 		}
 		return v.S3InputMode
-	}).(pulumi.StringPtrOutput)
+	}).(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 // Monitoring start time offset, e.g. -PT1H
@@ -6882,7 +6894,7 @@ type ModelBiasJobDefinitionS3Output struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `pulumi:"s3UploadMode"`
+	S3UploadMode *ModelBiasJobDefinitionS3OutputS3UploadMode `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
@@ -6903,7 +6915,7 @@ type ModelBiasJobDefinitionS3OutputArgs struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
+	S3UploadMode ModelBiasJobDefinitionS3OutputS3UploadModePtrInput `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
@@ -6941,8 +6953,10 @@ func (o ModelBiasJobDefinitionS3OutputOutput) LocalPath() pulumi.StringOutput {
 }
 
 // Whether to upload the results of the monitoring job continuously or after the job completes.
-func (o ModelBiasJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
+func (o ModelBiasJobDefinitionS3OutputOutput) S3UploadMode() ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionS3Output) *ModelBiasJobDefinitionS3OutputS3UploadMode {
+		return v.S3UploadMode
+	}).(ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
 // A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
@@ -7707,9 +7721,9 @@ type ModelExplainabilityJobDefinitionEndpointInput struct {
 	// Index or JSONpath to locate probabilities
 	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType *ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode *string `pulumi:"s3InputMode"`
+	S3InputMode *ModelExplainabilityJobDefinitionEndpointInputS3InputMode `pulumi:"s3InputMode"`
 }
 
 // ModelExplainabilityJobDefinitionEndpointInputInput is an input type that accepts ModelExplainabilityJobDefinitionEndpointInputArgs and ModelExplainabilityJobDefinitionEndpointInputOutput values.
@@ -7735,9 +7749,9 @@ type ModelExplainabilityJobDefinitionEndpointInputArgs struct {
 	// Index or JSONpath to locate probabilities
 	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
+	S3InputMode ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrInput `pulumi:"s3InputMode"`
 }
 
 func (ModelExplainabilityJobDefinitionEndpointInputArgs) ElementType() reflect.Type {
@@ -7843,13 +7857,17 @@ func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ProbabilityAttribut
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
+func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3DataDistributionType() ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
+func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3InputMode() ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3InputMode {
+		return v.S3InputMode
+	}).(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 type ModelExplainabilityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
@@ -7926,23 +7944,23 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ProbabilityAttri
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType {
 		if v == nil {
 			return nil
 		}
 		return v.S3DataDistributionType
-	}).(pulumi.StringPtrOutput)
+	}).(ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3InputMode {
 		if v == nil {
 			return nil
 		}
 		return v.S3InputMode
-	}).(pulumi.StringPtrOutput)
+	}).(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -8999,7 +9017,7 @@ type ModelExplainabilityJobDefinitionS3Output struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `pulumi:"s3UploadMode"`
+	S3UploadMode *ModelExplainabilityJobDefinitionS3OutputS3UploadMode `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
@@ -9020,7 +9038,7 @@ type ModelExplainabilityJobDefinitionS3OutputArgs struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
+	S3UploadMode ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrInput `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
@@ -9058,8 +9076,10 @@ func (o ModelExplainabilityJobDefinitionS3OutputOutput) LocalPath() pulumi.Strin
 }
 
 // Whether to upload the results of the monitoring job continuously or after the job completes.
-func (o ModelExplainabilityJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
+func (o ModelExplainabilityJobDefinitionS3OutputOutput) S3UploadMode() ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionS3Output) *ModelExplainabilityJobDefinitionS3OutputS3UploadMode {
+		return v.S3UploadMode
+	}).(ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
 // A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
@@ -9934,9 +9954,9 @@ type ModelQualityJobDefinitionEndpointInput struct {
 	ProbabilityAttribute          *string  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType *ModelQualityJobDefinitionEndpointInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode *string `pulumi:"s3InputMode"`
+	S3InputMode *ModelQualityJobDefinitionEndpointInputS3InputMode `pulumi:"s3InputMode"`
 	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset *string `pulumi:"startTimeOffset"`
 }
@@ -9965,9 +9985,9 @@ type ModelQualityJobDefinitionEndpointInputArgs struct {
 	ProbabilityAttribute          pulumi.StringPtrInput  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
+	S3InputMode ModelQualityJobDefinitionEndpointInputS3InputModePtrInput `pulumi:"s3InputMode"`
 	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
 }
@@ -10079,13 +10099,17 @@ func (o ModelQualityJobDefinitionEndpointInputOutput) ProbabilityThresholdAttrib
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelQualityJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
+func (o ModelQualityJobDefinitionEndpointInputOutput) S3DataDistributionType() ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelQualityJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
+func (o ModelQualityJobDefinitionEndpointInputOutput) S3InputMode() ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3InputMode {
+		return v.S3InputMode
+	}).(ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 // Monitoring start time offset, e.g. -PT1H
@@ -10176,23 +10200,23 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAtt
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3DataDistributionType {
 		if v == nil {
 			return nil
 		}
 		return v.S3DataDistributionType
-	}).(pulumi.StringPtrOutput)
+	}).(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3InputMode {
 		if v == nil {
 			return nil
 		}
 		return v.S3InputMode
-	}).(pulumi.StringPtrOutput)
+	}).(ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
 // Monitoring start time offset, e.g. -PT1H
@@ -10216,8 +10240,8 @@ type ModelQualityJobDefinitionModelQualityAppSpecification struct {
 	// The container image to be run by the monitoring job.
 	ImageUri string `pulumi:"imageUri"`
 	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-	PostAnalyticsProcessorSourceUri *string `pulumi:"postAnalyticsProcessorSourceUri"`
-	ProblemType                     string  `pulumi:"problemType"`
+	PostAnalyticsProcessorSourceUri *string                              `pulumi:"postAnalyticsProcessorSourceUri"`
+	ProblemType                     ModelQualityJobDefinitionProblemType `pulumi:"problemType"`
 	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri *string `pulumi:"recordPreprocessorSourceUri"`
 }
@@ -10244,8 +10268,8 @@ type ModelQualityJobDefinitionModelQualityAppSpecificationArgs struct {
 	// The container image to be run by the monitoring job.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
-	PostAnalyticsProcessorSourceUri pulumi.StringPtrInput `pulumi:"postAnalyticsProcessorSourceUri"`
-	ProblemType                     pulumi.StringInput    `pulumi:"problemType"`
+	PostAnalyticsProcessorSourceUri pulumi.StringPtrInput                     `pulumi:"postAnalyticsProcessorSourceUri"`
+	ProblemType                     ModelQualityJobDefinitionProblemTypeInput `pulumi:"problemType"`
 	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri pulumi.StringPtrInput `pulumi:"recordPreprocessorSourceUri"`
 }
@@ -10355,8 +10379,10 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) PostAnalyti
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ProblemType() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) string { return v.ProblemType }).(pulumi.StringOutput)
+func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ProblemType() ModelQualityJobDefinitionProblemTypeOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) ModelQualityJobDefinitionProblemType {
+		return v.ProblemType
+	}).(ModelQualityJobDefinitionProblemTypeOutput)
 }
 
 // An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
@@ -10440,13 +10466,13 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) PostAnal
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ProblemType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
+func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ProblemType() ModelQualityJobDefinitionProblemTypePtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *ModelQualityJobDefinitionProblemType {
 		if v == nil {
 			return nil
 		}
 		return &v.ProblemType
-	}).(pulumi.StringPtrOutput)
+	}).(ModelQualityJobDefinitionProblemTypePtrOutput)
 }
 
 // An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
@@ -11482,7 +11508,7 @@ type ModelQualityJobDefinitionS3Output struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `pulumi:"s3UploadMode"`
+	S3UploadMode *ModelQualityJobDefinitionS3OutputS3UploadMode `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
@@ -11503,7 +11529,7 @@ type ModelQualityJobDefinitionS3OutputArgs struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
+	S3UploadMode ModelQualityJobDefinitionS3OutputS3UploadModePtrInput `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
@@ -11541,8 +11567,10 @@ func (o ModelQualityJobDefinitionS3OutputOutput) LocalPath() pulumi.StringOutput
 }
 
 // Whether to upload the results of the monitoring job continuously or after the job completes.
-func (o ModelQualityJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
+func (o ModelQualityJobDefinitionS3OutputOutput) S3UploadMode() ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionS3Output) *ModelQualityJobDefinitionS3OutputS3UploadMode {
+		return v.S3UploadMode
+	}).(ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
 // A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
@@ -12456,9 +12484,9 @@ type MonitoringScheduleEndpointInput struct {
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType *MonitoringScheduleEndpointInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode *string `pulumi:"s3InputMode"`
+	S3InputMode *MonitoringScheduleEndpointInputS3InputMode `pulumi:"s3InputMode"`
 }
 
 // MonitoringScheduleEndpointInputInput is an input type that accepts MonitoringScheduleEndpointInputArgs and MonitoringScheduleEndpointInputOutput values.
@@ -12478,9 +12506,9 @@ type MonitoringScheduleEndpointInputArgs struct {
 	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	S3DataDistributionType MonitoringScheduleEndpointInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
 	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
+	S3InputMode MonitoringScheduleEndpointInputS3InputModePtrInput `pulumi:"s3InputMode"`
 }
 
 func (MonitoringScheduleEndpointInputArgs) ElementType() reflect.Type {
@@ -12520,13 +12548,17 @@ func (o MonitoringScheduleEndpointInputOutput) LocalPath() pulumi.StringOutput {
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-func (o MonitoringScheduleEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
+func (o MonitoringScheduleEndpointInputOutput) S3DataDistributionType() MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *MonitoringScheduleEndpointInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput)
 }
 
 // Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
-func (o MonitoringScheduleEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
+func (o MonitoringScheduleEndpointInputOutput) S3InputMode() MonitoringScheduleEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *MonitoringScheduleEndpointInputS3InputMode {
+		return v.S3InputMode
+	}).(MonitoringScheduleEndpointInputS3InputModePtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -12755,8 +12787,8 @@ type MonitoringScheduleMonitoringExecutionSummary struct {
 	// A timestamp that indicates the last time the monitoring job was modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The status of the monitoring job.
-	MonitoringExecutionStatus string `pulumi:"monitoringExecutionStatus"`
-	MonitoringScheduleName    string `pulumi:"monitoringScheduleName"`
+	MonitoringExecutionStatus MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus `pulumi:"monitoringExecutionStatus"`
+	MonitoringScheduleName    string                                                                `pulumi:"monitoringScheduleName"`
 	// The Amazon Resource Name (ARN) of the monitoring job.
 	ProcessingJobArn *string `pulumi:"processingJobArn"`
 	// The time the monitoring job was scheduled.
@@ -12784,8 +12816,8 @@ type MonitoringScheduleMonitoringExecutionSummaryArgs struct {
 	// A timestamp that indicates the last time the monitoring job was modified.
 	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
 	// The status of the monitoring job.
-	MonitoringExecutionStatus pulumi.StringInput `pulumi:"monitoringExecutionStatus"`
-	MonitoringScheduleName    pulumi.StringInput `pulumi:"monitoringScheduleName"`
+	MonitoringExecutionStatus MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusInput `pulumi:"monitoringExecutionStatus"`
+	MonitoringScheduleName    pulumi.StringInput                                                         `pulumi:"monitoringScheduleName"`
 	// The Amazon Resource Name (ARN) of the monitoring job.
 	ProcessingJobArn pulumi.StringPtrInput `pulumi:"processingJobArn"`
 	// The time the monitoring job was scheduled.
@@ -12890,8 +12922,10 @@ func (o MonitoringScheduleMonitoringExecutionSummaryOutput) LastModifiedTime() p
 }
 
 // The status of the monitoring job.
-func (o MonitoringScheduleMonitoringExecutionSummaryOutput) MonitoringExecutionStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) string { return v.MonitoringExecutionStatus }).(pulumi.StringOutput)
+func (o MonitoringScheduleMonitoringExecutionSummaryOutput) MonitoringExecutionStatus() MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus {
+		return v.MonitoringExecutionStatus
+	}).(MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOutput)
 }
 
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) MonitoringScheduleName() pulumi.StringOutput {
@@ -12972,13 +13006,13 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) LastModifiedTime(
 }
 
 // The status of the monitoring job.
-func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) MonitoringExecutionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
+func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) MonitoringExecutionStatus() MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus {
 		if v == nil {
 			return nil
 		}
 		return &v.MonitoringExecutionStatus
-	}).(pulumi.StringPtrOutput)
+	}).(MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput)
 }
 
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) MonitoringScheduleName() pulumi.StringPtrOutput {
@@ -13784,7 +13818,7 @@ type MonitoringScheduleMonitoringScheduleConfig struct {
 	MonitoringJobDefinition *MonitoringScheduleMonitoringJobDefinition `pulumi:"monitoringJobDefinition"`
 	// Name of the job definition
 	MonitoringJobDefinitionName *string                           `pulumi:"monitoringJobDefinitionName"`
-	MonitoringType              *string                           `pulumi:"monitoringType"`
+	MonitoringType              *MonitoringScheduleMonitoringType `pulumi:"monitoringType"`
 	ScheduleConfig              *MonitoringScheduleScheduleConfig `pulumi:"scheduleConfig"`
 }
 
@@ -13804,7 +13838,7 @@ type MonitoringScheduleMonitoringScheduleConfigArgs struct {
 	MonitoringJobDefinition MonitoringScheduleMonitoringJobDefinitionPtrInput `pulumi:"monitoringJobDefinition"`
 	// Name of the job definition
 	MonitoringJobDefinitionName pulumi.StringPtrInput                    `pulumi:"monitoringJobDefinitionName"`
-	MonitoringType              pulumi.StringPtrInput                    `pulumi:"monitoringType"`
+	MonitoringType              MonitoringScheduleMonitoringTypePtrInput `pulumi:"monitoringType"`
 	ScheduleConfig              MonitoringScheduleScheduleConfigPtrInput `pulumi:"scheduleConfig"`
 }
 
@@ -13897,8 +13931,10 @@ func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinitio
 	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *string { return v.MonitoringJobDefinitionName }).(pulumi.StringPtrOutput)
 }
 
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *string { return v.MonitoringType }).(pulumi.StringPtrOutput)
+func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringType {
+		return v.MonitoringType
+	}).(MonitoringScheduleMonitoringTypePtrOutput)
 }
 
 func (o MonitoringScheduleMonitoringScheduleConfigOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
@@ -13950,13 +13986,13 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefini
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *string {
+func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringType {
 		if v == nil {
 			return nil
 		}
 		return v.MonitoringType
-	}).(pulumi.StringPtrOutput)
+	}).(MonitoringScheduleMonitoringTypePtrOutput)
 }
 
 func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
@@ -14147,7 +14183,7 @@ type MonitoringScheduleS3Output struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode *string `pulumi:"s3UploadMode"`
+	S3UploadMode *MonitoringScheduleS3OutputS3UploadMode `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
@@ -14168,7 +14204,7 @@ type MonitoringScheduleS3OutputArgs struct {
 	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
 	// Whether to upload the results of the monitoring job continuously or after the job completes.
-	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
+	S3UploadMode MonitoringScheduleS3OutputS3UploadModePtrInput `pulumi:"s3UploadMode"`
 	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
@@ -14206,8 +14242,8 @@ func (o MonitoringScheduleS3OutputOutput) LocalPath() pulumi.StringOutput {
 }
 
 // Whether to upload the results of the monitoring job continuously or after the job completes.
-func (o MonitoringScheduleS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
+func (o MonitoringScheduleS3OutputOutput) S3UploadMode() MonitoringScheduleS3OutputS3UploadModePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleS3Output) *MonitoringScheduleS3OutputS3UploadMode { return v.S3UploadMode }).(MonitoringScheduleS3OutputS3UploadModePtrOutput)
 }
 
 // A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
@@ -15527,7 +15563,7 @@ func (o UserProfileKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() User
 
 type UserProfileResourceSpec struct {
 	// The instance type that the image version runs on.
-	InstanceType *string `pulumi:"instanceType"`
+	InstanceType *UserProfileResourceSpecInstanceType `pulumi:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -15547,7 +15583,7 @@ type UserProfileResourceSpecInput interface {
 
 type UserProfileResourceSpecArgs struct {
 	// The instance type that the image version runs on.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	InstanceType UserProfileResourceSpecInstanceTypePtrInput `pulumi:"instanceType"`
 	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
 	// The ARN of the image version created on the instance.
@@ -15632,8 +15668,8 @@ func (o UserProfileResourceSpecOutput) ToUserProfileResourceSpecPtrOutputWithCon
 }
 
 // The instance type that the image version runs on.
-func (o UserProfileResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+func (o UserProfileResourceSpecOutput) InstanceType() UserProfileResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v UserProfileResourceSpec) *UserProfileResourceSpecInstanceType { return v.InstanceType }).(UserProfileResourceSpecInstanceTypePtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -15671,13 +15707,13 @@ func (o UserProfileResourceSpecPtrOutput) Elem() UserProfileResourceSpecOutput {
 }
 
 // The instance type that the image version runs on.
-func (o UserProfileResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
+func (o UserProfileResourceSpecPtrOutput) InstanceType() UserProfileResourceSpecInstanceTypePtrOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) *UserProfileResourceSpecInstanceType {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
+	}).(UserProfileResourceSpecInstanceTypePtrOutput)
 }
 
 // The ARN of the SageMaker image that the image version belongs to.
@@ -15703,7 +15739,7 @@ func (o UserProfileResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.Stri
 // Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type UserProfileSharingSettings struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
+	NotebookOutputOption *UserProfileSharingSettingsNotebookOutputOption `pulumi:"notebookOutputOption"`
 	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
 	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -15724,7 +15760,7 @@ type UserProfileSharingSettingsInput interface {
 // Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type UserProfileSharingSettingsArgs struct {
 	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
+	NotebookOutputOption UserProfileSharingSettingsNotebookOutputOptionPtrInput `pulumi:"notebookOutputOption"`
 	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
 	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
@@ -15810,8 +15846,10 @@ func (o UserProfileSharingSettingsOutput) ToUserProfileSharingSettingsPtrOutputW
 }
 
 // Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-func (o UserProfileSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserProfileSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
+func (o UserProfileSharingSettingsOutput) NotebookOutputOption() UserProfileSharingSettingsNotebookOutputOptionPtrOutput {
+	return o.ApplyT(func(v UserProfileSharingSettings) *UserProfileSharingSettingsNotebookOutputOption {
+		return v.NotebookOutputOption
+	}).(UserProfileSharingSettingsNotebookOutputOptionPtrOutput)
 }
 
 // When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
@@ -15849,13 +15887,13 @@ func (o UserProfileSharingSettingsPtrOutput) Elem() UserProfileSharingSettingsOu
 }
 
 // Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
-func (o UserProfileSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserProfileSharingSettings) *string {
+func (o UserProfileSharingSettingsPtrOutput) NotebookOutputOption() UserProfileSharingSettingsNotebookOutputOptionPtrOutput {
+	return o.ApplyT(func(v *UserProfileSharingSettings) *UserProfileSharingSettingsNotebookOutputOption {
 		if v == nil {
 			return nil
 		}
 		return v.NotebookOutputOption
-	}).(pulumi.StringPtrOutput)
+	}).(UserProfileSharingSettingsNotebookOutputOptionPtrOutput)
 }
 
 // When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.

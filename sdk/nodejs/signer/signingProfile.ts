@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +42,7 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * The ID of the target signing platform.
      */
-    public readonly platformId!: pulumi.Output<string>;
+    public readonly platformId!: pulumi.Output<enums.signer.SigningProfilePlatformId>;
     /**
      * A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
      */
@@ -108,7 +108,7 @@ export interface SigningProfileArgs {
     /**
      * The ID of the target signing platform.
      */
-    platformId: pulumi.Input<string>;
+    platformId: pulumi.Input<enums.signer.SigningProfilePlatformId>;
     /**
      * Signature validity period of the profile.
      */

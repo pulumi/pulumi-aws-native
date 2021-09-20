@@ -13,6 +13,9 @@ export * from "./service";
 export * from "./taskDefinition";
 export * from "./taskSet";
 
+// Export enums:
+export * from "../types/enums/ecs";
+
 // Import resources to register:
 import { CapacityProvider } from "./capacityProvider";
 import { Cluster } from "./cluster";

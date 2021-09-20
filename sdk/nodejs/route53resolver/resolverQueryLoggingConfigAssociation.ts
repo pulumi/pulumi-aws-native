@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +42,7 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
     /**
      * ResolverQueryLogConfigAssociationError
      */
-    public /*out*/ readonly error!: pulumi.Output<string>;
+    public /*out*/ readonly error!: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigAssociationError>;
     /**
      * ResolverQueryLogConfigAssociationErrorMessage
      */
@@ -57,7 +58,7 @@ export class ResolverQueryLoggingConfigAssociation extends pulumi.CustomResource
     /**
      * ResolverQueryLogConfigAssociationStatus
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.ResolverQueryLoggingConfigAssociationStatus>;
 
     /**
      * Create a ResolverQueryLoggingConfigAssociation resource with the given unique name, arguments, and options.

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
      */
-    public readonly logDestinationType!: pulumi.Output<string | undefined>;
+    public readonly logDestinationType!: pulumi.Output<enums.ec2.FlowLogLogDestinationType | undefined>;
     /**
      * The fields to include in the flow log record, in the order in which they should appear.
      */
@@ -66,7 +66,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
      */
-    public readonly resourceType!: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<enums.ec2.FlowLogResourceType>;
     /**
      * The tags to apply to the flow logs.
      */
@@ -74,7 +74,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */
-    public readonly trafficType!: pulumi.Output<string>;
+    public readonly trafficType!: pulumi.Output<enums.ec2.FlowLogTrafficType>;
 
     /**
      * Create a FlowLog resource with the given unique name, arguments, and options.
@@ -140,7 +140,7 @@ export interface FlowLogArgs {
     /**
      * Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
      */
-    logDestinationType?: pulumi.Input<string>;
+    logDestinationType?: pulumi.Input<enums.ec2.FlowLogLogDestinationType>;
     /**
      * The fields to include in the flow log record, in the order in which they should appear.
      */
@@ -160,7 +160,7 @@ export interface FlowLogArgs {
     /**
      * The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
      */
-    resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<enums.ec2.FlowLogResourceType>;
     /**
      * The tags to apply to the flow logs.
      */
@@ -168,5 +168,5 @@ export interface FlowLogArgs {
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */
-    trafficType: pulumi.Input<string>;
+    trafficType: pulumi.Input<enums.ec2.FlowLogTrafficType>;
 }

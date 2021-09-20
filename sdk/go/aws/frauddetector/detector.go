@@ -28,13 +28,13 @@ type Detector struct {
 	// The active version ID of the detector
 	DetectorVersionId pulumi.StringOutput `pulumi:"detectorVersionId"`
 	// The desired detector version status for the detector
-	DetectorVersionStatus pulumi.StringPtrOutput `pulumi:"detectorVersionStatus"`
+	DetectorVersionStatus DetectorDetectorVersionStatusPtrOutput `pulumi:"detectorVersionStatus"`
 	// The event type to associate this detector with.
 	EventType DetectorEventTypeOutput `pulumi:"eventType"`
 	// The time when the detector was last updated.
-	LastUpdatedTime   pulumi.StringOutput     `pulumi:"lastUpdatedTime"`
-	RuleExecutionMode pulumi.StringPtrOutput  `pulumi:"ruleExecutionMode"`
-	Rules             DetectorRuleArrayOutput `pulumi:"rules"`
+	LastUpdatedTime   pulumi.StringOutput                `pulumi:"lastUpdatedTime"`
+	RuleExecutionMode DetectorRuleExecutionModePtrOutput `pulumi:"ruleExecutionMode"`
+	Rules             DetectorRuleArrayOutput            `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags DetectorTagArrayOutput `pulumi:"tags"`
 }
@@ -94,11 +94,11 @@ type detectorArgs struct {
 	// The ID of the detector
 	DetectorId string `pulumi:"detectorId"`
 	// The desired detector version status for the detector
-	DetectorVersionStatus *string `pulumi:"detectorVersionStatus"`
+	DetectorVersionStatus *DetectorDetectorVersionStatus `pulumi:"detectorVersionStatus"`
 	// The event type to associate this detector with.
-	EventType         DetectorEventType `pulumi:"eventType"`
-	RuleExecutionMode *string           `pulumi:"ruleExecutionMode"`
-	Rules             []DetectorRule    `pulumi:"rules"`
+	EventType         DetectorEventType          `pulumi:"eventType"`
+	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
+	Rules             []DetectorRule             `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags []DetectorTag `pulumi:"tags"`
 }
@@ -112,10 +112,10 @@ type DetectorArgs struct {
 	// The ID of the detector
 	DetectorId pulumi.StringInput
 	// The desired detector version status for the detector
-	DetectorVersionStatus pulumi.StringPtrInput
+	DetectorVersionStatus DetectorDetectorVersionStatusPtrInput
 	// The event type to associate this detector with.
 	EventType         DetectorEventTypeInput
-	RuleExecutionMode pulumi.StringPtrInput
+	RuleExecutionMode DetectorRuleExecutionModePtrInput
 	Rules             DetectorRuleArrayInput
 	// Tags associated with this detector.
 	Tags DetectorTagArrayInput

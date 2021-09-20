@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -48,7 +48,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Encryption mode
      */
-    public readonly encryptionMode!: pulumi.Output<string | undefined>;
+    public readonly encryptionMode!: pulumi.Output<enums.databrew.JobEncryptionMode | undefined>;
     /**
      * Job Sample
      */
@@ -56,7 +56,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Log subscription
      */
-    public readonly logSubscription!: pulumi.Output<string | undefined>;
+    public readonly logSubscription!: pulumi.Output<enums.databrew.JobLogSubscription | undefined>;
     /**
      * Max capacity
      */
@@ -95,7 +95,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Job type
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.databrew.JobType>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -181,7 +181,7 @@ export interface JobArgs {
     /**
      * Encryption mode
      */
-    encryptionMode?: pulumi.Input<string>;
+    encryptionMode?: pulumi.Input<enums.databrew.JobEncryptionMode>;
     /**
      * Job Sample
      */
@@ -189,7 +189,7 @@ export interface JobArgs {
     /**
      * Log subscription
      */
-    logSubscription?: pulumi.Input<string>;
+    logSubscription?: pulumi.Input<enums.databrew.JobLogSubscription>;
     /**
      * Max capacity
      */
@@ -228,5 +228,5 @@ export interface JobArgs {
     /**
      * Job type
      */
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.databrew.JobType>;
 }

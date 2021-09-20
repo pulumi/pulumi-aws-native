@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,11 +36,11 @@ export class NotificationRule extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly detailType!: pulumi.Output<string>;
+    public readonly detailType!: pulumi.Output<enums.codestarnotifications.NotificationRuleDetailType>;
     public readonly eventTypeIds!: pulumi.Output<string[]>;
     public readonly name!: pulumi.Output<string>;
     public readonly resource!: pulumi.Output<string>;
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<enums.codestarnotifications.NotificationRuleStatus | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
 
@@ -99,11 +99,11 @@ export class NotificationRule extends pulumi.CustomResource {
  * The set of arguments for constructing a NotificationRule resource.
  */
 export interface NotificationRuleArgs {
-    detailType: pulumi.Input<string>;
+    detailType: pulumi.Input<enums.codestarnotifications.NotificationRuleDetailType>;
     eventTypeIds: pulumi.Input<pulumi.Input<string>[]>;
     name: pulumi.Input<string>;
     resource: pulumi.Input<string>;
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<enums.codestarnotifications.NotificationRuleStatus>;
     tags?: any;
     targets: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTargetArgs>[]>;
 }

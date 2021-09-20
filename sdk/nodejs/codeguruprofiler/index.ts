@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./profilingGroup";
 
+// Export enums:
+export * from "../types/enums/codeguruprofiler";
+
 // Import resources to register:
 import { ProfilingGroup } from "./profilingGroup";
 

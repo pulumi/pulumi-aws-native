@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
         /// <summary>
         /// Frequency of anomaly detection
         /// </summary>
-        public readonly string AnomalyDetectorFrequency;
+        public readonly Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorAnomalyDetectorFrequency AnomalyDetectorFrequency;
 
         [OutputConstructor]
-        private AnomalyDetectorAnomalyDetectorConfig(string anomalyDetectorFrequency)
+        private AnomalyDetectorAnomalyDetectorConfig(Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorAnomalyDetectorFrequency anomalyDetectorFrequency)
         {
             AnomalyDetectorFrequency = anomalyDetectorFrequency;
         }

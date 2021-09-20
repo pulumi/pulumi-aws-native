@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         /// </summary>
         [Input("algorithm", required: true)]
-        public Input<string> Algorithm { get; set; } = null!;
+        public Input<Pulumi.AwsNative.MediaConnect.FlowEntitlementEncryptionAlgorithm> Algorithm { get; set; } = null!;
 
         /// <summary>
         /// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         /// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         /// </summary>
         [Input("keyType")]
-        public Input<string>? KeyType { get; set; }
+        public Input<Pulumi.AwsNative.MediaConnect.FlowEntitlementEncryptionKeyType>? KeyType { get; set; }
 
         /// <summary>
         /// The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.

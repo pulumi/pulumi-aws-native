@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataSourceArgs', 'DataSource']
@@ -17,7 +18,7 @@ class DataSourceArgs:
     def __init__(__self__, *,
                  index_id: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['DataSourceType'],
                  data_source_configuration: Optional[pulumi.Input['DataSourceDataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -61,11 +62,11 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['DataSourceType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['DataSourceType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -129,7 +130,7 @@ class DataSource(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DataSourceType']] = None,
                  __props__=None):
         """
         Kendra DataSource
@@ -169,7 +170,7 @@ class DataSource(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DataSourceType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -275,6 +276,6 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['DataSourceType']:
         return pulumi.get(self, "type")
 

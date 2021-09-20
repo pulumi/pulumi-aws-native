@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +42,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * Client affinity lets you direct all requests from a user to the same endpoint.
      */
-    public readonly clientAffinity!: pulumi.Output<string | undefined>;
+    public readonly clientAffinity!: pulumi.Output<enums.globalaccelerator.ListenerClientAffinity | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
@@ -51,7 +51,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * The protocol for the listener.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<enums.globalaccelerator.ListenerProtocol>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -103,10 +103,10 @@ export interface ListenerArgs {
     /**
      * Client affinity lets you direct all requests from a user to the same endpoint.
      */
-    clientAffinity?: pulumi.Input<string>;
+    clientAffinity?: pulumi.Input<enums.globalaccelerator.ListenerClientAffinity>;
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRangeArgs>[]>;
     /**
      * The protocol for the listener.
      */
-    protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<enums.globalaccelerator.ListenerProtocol>;
 }

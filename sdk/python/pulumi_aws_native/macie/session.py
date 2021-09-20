@@ -7,18 +7,19 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['SessionArgs', 'Session']
 
 @pulumi.input_type
 class SessionArgs:
     def __init__(__self__, *,
-                 finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
+                 status: Optional[pulumi.Input['SessionStatus']] = None):
         """
         The set of arguments for constructing a Session resource.
-        :param pulumi.Input[str] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
-        :param pulumi.Input[str] status: A enumeration value that specifies the status of the Macie Session.
+        :param pulumi.Input['SessionFindingPublishingFrequency'] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
+        :param pulumi.Input['SessionStatus'] status: A enumeration value that specifies the status of the Macie Session.
         """
         if finding_publishing_frequency is not None:
             pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
@@ -27,26 +28,26 @@ class SessionArgs:
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
-    def finding_publishing_frequency(self) -> Optional[pulumi.Input[str]]:
+    def finding_publishing_frequency(self) -> Optional[pulumi.Input['SessionFindingPublishingFrequency']]:
         """
         A enumeration value that specifies how frequently finding updates are published.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @finding_publishing_frequency.setter
-    def finding_publishing_frequency(self, value: Optional[pulumi.Input[str]]):
+    def finding_publishing_frequency(self, value: Optional[pulumi.Input['SessionFindingPublishingFrequency']]):
         pulumi.set(self, "finding_publishing_frequency", value)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['SessionStatus']]:
         """
         A enumeration value that specifies the status of the Macie Session.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['SessionStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -55,16 +56,16 @@ class Session(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
+                 status: Optional[pulumi.Input['SessionStatus']] = None,
                  __props__=None):
         """
         The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
-        :param pulumi.Input[str] status: A enumeration value that specifies the status of the Macie Session.
+        :param pulumi.Input['SessionFindingPublishingFrequency'] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
+        :param pulumi.Input['SessionStatus'] status: A enumeration value that specifies the status of the Macie Session.
         """
         ...
     @overload
@@ -90,8 +91,8 @@ class Session(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 finding_publishing_frequency: Optional[pulumi.Input['SessionFindingPublishingFrequency']] = None,
+                 status: Optional[pulumi.Input['SessionStatus']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -146,7 +147,7 @@ class Session(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
-    def finding_publishing_frequency(self) -> pulumi.Output[Optional[str]]:
+    def finding_publishing_frequency(self) -> pulumi.Output[Optional['SessionFindingPublishingFrequency']]:
         """
         A enumeration value that specifies how frequently finding updates are published.
         """
@@ -162,7 +163,7 @@ class Session(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def status(self) -> pulumi.Output[Optional['SessionStatus']]:
         """
         A enumeration value that specifies the status of the Macie Session.
         """

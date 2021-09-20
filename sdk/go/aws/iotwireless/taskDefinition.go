@@ -26,7 +26,7 @@ type TaskDefinition struct {
 	// A list of key-value pairs that contain metadata for the destination.
 	Tags TaskDefinitionTagArrayOutput `pulumi:"tags"`
 	// A filter to list only the wireless gateway task definitions that use this task definition type
-	TaskDefinitionType pulumi.StringPtrOutput `pulumi:"taskDefinitionType"`
+	TaskDefinitionType TaskDefinitionTaskDefinitionTypePtrOutput `pulumi:"taskDefinitionType"`
 	// Information about the gateways to update.
 	Update TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput `pulumi:"update"`
 }
@@ -82,7 +82,7 @@ type taskDefinitionArgs struct {
 	// A list of key-value pairs that contain metadata for the destination.
 	Tags []TaskDefinitionTag `pulumi:"tags"`
 	// A filter to list only the wireless gateway task definitions that use this task definition type
-	TaskDefinitionType *string `pulumi:"taskDefinitionType"`
+	TaskDefinitionType *TaskDefinitionTaskDefinitionType `pulumi:"taskDefinitionType"`
 	// Information about the gateways to update.
 	Update *TaskDefinitionUpdateWirelessGatewayTaskCreate `pulumi:"update"`
 }
@@ -98,7 +98,7 @@ type TaskDefinitionArgs struct {
 	// A list of key-value pairs that contain metadata for the destination.
 	Tags TaskDefinitionTagArrayInput
 	// A filter to list only the wireless gateway task definitions that use this task definition type
-	TaskDefinitionType pulumi.StringPtrInput
+	TaskDefinitionType TaskDefinitionTaskDefinitionTypePtrInput
 	// Information about the gateways to update.
 	Update TaskDefinitionUpdateWirelessGatewayTaskCreatePtrInput
 }

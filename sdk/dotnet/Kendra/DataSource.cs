@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Kendra
         public Output<ImmutableArray<Outputs.DataSourceTag>> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Kendra.DataSourceType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.Kendra
         }
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.DataSourceType> Type { get; set; } = null!;
 
         public DataSourceArgs()
         {

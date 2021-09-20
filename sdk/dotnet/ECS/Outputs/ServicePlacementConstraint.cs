@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ECS.Outputs
     public sealed class ServicePlacementConstraint
     {
         public readonly string? Expression;
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.ECS.ServicePlacementConstraintType Type;
 
         [OutputConstructor]
         private ServicePlacementConstraint(
             string? expression,
 
-            string type)
+            Pulumi.AwsNative.ECS.ServicePlacementConstraintType type)
         {
             Expression = expression;
             Type = type;

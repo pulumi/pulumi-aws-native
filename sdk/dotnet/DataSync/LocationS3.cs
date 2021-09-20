@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         /// </summary>
         [Output("s3StorageClass")]
-        public Output<string?> S3StorageClass { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataSync.LocationS3S3StorageClass?> S3StorageClass { get; private set; } = null!;
 
         /// <summary>
         /// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         /// </summary>
         [Input("s3StorageClass")]
-        public Input<string>? S3StorageClass { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.LocationS3S3StorageClass>? S3StorageClass { get; set; }
 
         /// <summary>
         /// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.

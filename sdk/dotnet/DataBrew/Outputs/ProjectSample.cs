@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// <summary>
         /// Sample type
         /// </summary>
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.DataBrew.ProjectSampleType Type;
 
         [OutputConstructor]
         private ProjectSample(
             int? size,
 
-            string type)
+            Pulumi.AwsNative.DataBrew.ProjectSampleType type)
         {
             Size = size;
             Type = type;

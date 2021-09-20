@@ -67,13 +67,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
         /// </summary>
         [Output("shareStatus")]
-        public Output<string> ShareStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupShareStatus> ShareStatus { get; private set; } = null!;
 
         /// <summary>
         /// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// FirewallRuleGroupStatus

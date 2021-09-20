@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// <summary>
         /// The specific NFS version that you want DataSync to use to mount your NFS share.
         /// </summary>
-        public readonly string? Version;
+        public readonly Pulumi.AwsNative.DataSync.LocationNFSMountOptionsVersion? Version;
 
         [OutputConstructor]
-        private LocationNFSMountOptions(string? version)
+        private LocationNFSMountOptions(Pulumi.AwsNative.DataSync.LocationNFSMountOptionsVersion? version)
         {
             Version = version;
         }

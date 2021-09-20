@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'KeyspaceTag',
@@ -58,7 +59,7 @@ class TableBillingMode(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 mode: str,
+                 mode: 'TableMode',
                  provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None):
         pulumi.set(__self__, "mode", mode)
         if provisioned_throughput is not None:
@@ -66,7 +67,7 @@ class TableBillingMode(dict):
 
     @property
     @pulumi.getter
-    def mode(self) -> str:
+    def mode(self) -> 'TableMode':
         return pulumi.get(self, "mode")
 
     @property
@@ -96,7 +97,7 @@ class TableClusteringKeyColumn(dict):
 
     def __init__(__self__, *,
                  column: 'outputs.TableColumn',
-                 order_by: Optional[str] = None):
+                 order_by: Optional['TableClusteringKeyColumnOrderBy'] = None):
         pulumi.set(__self__, "column", column)
         if order_by is not None:
             pulumi.set(__self__, "order_by", order_by)
@@ -108,7 +109,7 @@ class TableClusteringKeyColumn(dict):
 
     @property
     @pulumi.getter(name="orderBy")
-    def order_by(self) -> Optional[str]:
+    def order_by(self) -> Optional['TableClusteringKeyColumnOrderBy']:
         return pulumi.get(self, "order_by")
 
 
@@ -175,7 +176,7 @@ class TableEncryptionSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_type: str,
+                 encryption_type: 'TableEncryptionType',
                  kms_key_identifier: Optional[str] = None):
         """
         Represents the settings used to enable server-side encryption
@@ -186,7 +187,7 @@ class TableEncryptionSpecification(dict):
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> str:
+    def encryption_type(self) -> 'TableEncryptionType':
         return pulumi.get(self, "encryption_type")
 
     @property

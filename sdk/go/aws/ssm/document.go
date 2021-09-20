@@ -20,9 +20,9 @@ type Document struct {
 	// The content for the Systems Manager document in JSON, YAML or String format.
 	Content pulumi.AnyOutput `pulumi:"content"`
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-	DocumentFormat pulumi.StringPtrOutput `pulumi:"documentFormat"`
+	DocumentFormat DocumentDocumentFormatPtrOutput `pulumi:"documentFormat"`
 	// The type of document to create.
-	DocumentType pulumi.StringPtrOutput `pulumi:"documentType"`
+	DocumentType DocumentDocumentTypePtrOutput `pulumi:"documentType"`
 	// A name for the Systems Manager document.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
@@ -82,9 +82,9 @@ type documentArgs struct {
 	// The content for the Systems Manager document in JSON, YAML or String format.
 	Content interface{} `pulumi:"content"`
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-	DocumentFormat *string `pulumi:"documentFormat"`
+	DocumentFormat *DocumentDocumentFormat `pulumi:"documentFormat"`
 	// The type of document to create.
-	DocumentType *string `pulumi:"documentType"`
+	DocumentType *DocumentDocumentType `pulumi:"documentType"`
 	// A name for the Systems Manager document.
 	Name *string `pulumi:"name"`
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
@@ -104,9 +104,9 @@ type DocumentArgs struct {
 	// The content for the Systems Manager document in JSON, YAML or String format.
 	Content pulumi.Input
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-	DocumentFormat pulumi.StringPtrInput
+	DocumentFormat DocumentDocumentFormatPtrInput
 	// The type of document to create.
-	DocumentType pulumi.StringPtrInput
+	DocumentType DocumentDocumentTypePtrInput
 	// A name for the Systems Manager document.
 	Name pulumi.StringPtrInput
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.

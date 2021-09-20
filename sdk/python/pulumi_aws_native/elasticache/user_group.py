@@ -7,18 +7,19 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['UserGroupArgs', 'UserGroup']
 
 @pulumi.input_type
 class UserGroupArgs:
     def __init__(__self__, *,
-                 engine: pulumi.Input[str],
+                 engine: pulumi.Input['UserGroupEngine'],
                  user_group_id: pulumi.Input[str],
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
-        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input['UserGroupEngine'] engine: Must be redis.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
         """
@@ -29,14 +30,14 @@ class UserGroupArgs:
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Input[str]:
+    def engine(self) -> pulumi.Input['UserGroupEngine']:
         """
         Must be redis.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: pulumi.Input[str]):
+    def engine(self, value: pulumi.Input['UserGroupEngine']):
         pulumi.set(self, "engine", value)
 
     @property
@@ -69,7 +70,7 @@ class UserGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input['UserGroupEngine']] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -78,7 +79,7 @@ class UserGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input['UserGroupEngine'] engine: Must be redis.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
         """
@@ -106,7 +107,7 @@ class UserGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input['UserGroupEngine']] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -169,7 +170,7 @@ class UserGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output['UserGroupEngine']:
         """
         Must be redis.
         """

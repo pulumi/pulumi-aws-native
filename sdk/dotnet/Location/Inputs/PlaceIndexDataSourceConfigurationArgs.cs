@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Location.Inputs
     public sealed class PlaceIndexDataSourceConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("intendedUse")]
-        public Input<string>? IntendedUse { get; set; }
+        public Input<Pulumi.AwsNative.Location.PlaceIndexIntendedUse>? IntendedUse { get; set; }
 
         public PlaceIndexDataSourceConfigurationArgs()
         {

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AssessmentAWSAccount',
@@ -131,7 +132,7 @@ class AssessmentAssessmentReportsDestination(dict):
 
     def __init__(__self__, *,
                  destination: Optional[str] = None,
-                 destination_type: Optional[str] = None):
+                 destination_type: Optional['AssessmentAssessmentReportDestinationType'] = None):
         """
         The destination in which evidence reports are stored for the specified assessment.
         """
@@ -147,7 +148,7 @@ class AssessmentAssessmentReportsDestination(dict):
 
     @property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> Optional[str]:
+    def destination_type(self) -> Optional['AssessmentAssessmentReportDestinationType']:
         return pulumi.get(self, "destination_type")
 
 
@@ -197,8 +198,8 @@ class AssessmentDelegation(dict):
                  id: Optional[str] = None,
                  last_updated: Optional[float] = None,
                  role_arn: Optional[str] = None,
-                 role_type: Optional[str] = None,
-                 status: Optional[str] = None):
+                 role_type: Optional['AssessmentRoleType'] = None,
+                 status: Optional['AssessmentDelegationStatus'] = None):
         """
         The assignment of a control set to a delegate for review.
         """
@@ -272,12 +273,12 @@ class AssessmentDelegation(dict):
 
     @property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[str]:
+    def role_type(self) -> Optional['AssessmentRoleType']:
         return pulumi.get(self, "role_type")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> Optional['AssessmentDelegationStatus']:
         return pulumi.get(self, "status")
 
 
@@ -307,7 +308,7 @@ class AssessmentRole(dict):
 
     def __init__(__self__, *,
                  role_arn: Optional[str] = None,
-                 role_type: Optional[str] = None):
+                 role_type: Optional['AssessmentRoleType'] = None):
         """
         The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
         """
@@ -323,7 +324,7 @@ class AssessmentRole(dict):
 
     @property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[str]:
+    def role_type(self) -> Optional['AssessmentRoleType']:
         return pulumi.get(self, "role_type")
 
 

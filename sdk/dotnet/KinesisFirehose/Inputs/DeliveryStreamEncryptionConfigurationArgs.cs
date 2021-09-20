@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamKMSEncryptionConfigArgs>? KMSEncryptionConfig { get; set; }
 
         [Input("noEncryptionConfig")]
-        public Input<string>? NoEncryptionConfig { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig>? NoEncryptionConfig { get; set; }
 
         public DeliveryStreamEncryptionConfigurationArgs()
         {

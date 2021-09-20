@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
         public readonly ImmutableArray<string> InclusionPatterns;
         public readonly string SecretArn;
-        public readonly string SharePointVersion;
+        public readonly Pulumi.AwsNative.Kendra.DataSourceSharePointConfigurationSharePointVersion SharePointVersion;
         public readonly ImmutableArray<string> Urls;
         public readonly bool? UseChangeLog;
         public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string secretArn,
 
-            string sharePointVersion,
+            Pulumi.AwsNative.Kendra.DataSourceSharePointConfigurationSharePointVersion sharePointVersion,
 
             ImmutableArray<string> urls,
 

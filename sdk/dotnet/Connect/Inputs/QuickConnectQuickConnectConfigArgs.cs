@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<Inputs.QuickConnectQueueQuickConnectConfigArgs>? QueueConfig { get; set; }
 
         [Input("quickConnectType", required: true)]
-        public Input<string> QuickConnectType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Connect.QuickConnectQuickConnectType> QuickConnectType { get; set; } = null!;
 
         [Input("userConfig")]
         public Input<Inputs.QuickConnectUserQuickConnectConfigArgs>? UserConfig { get; set; }

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AssociationArgs', 'Association']
@@ -20,7 +21,7 @@ class AssociationArgs:
                  association_name: Optional[pulumi.Input[str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
                  calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 compliance_severity: Optional[pulumi.Input[str]] = None,
+                 compliance_severity: Optional[pulumi.Input['AssociationComplianceSeverity']] = None,
                  document_version: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
@@ -28,7 +29,7 @@ class AssociationArgs:
                  output_location: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']] = None,
                  parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
-                 sync_compliance: Optional[pulumi.Input[str]] = None,
+                 sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -126,11 +127,11 @@ class AssociationArgs:
 
     @property
     @pulumi.getter(name="complianceSeverity")
-    def compliance_severity(self) -> Optional[pulumi.Input[str]]:
+    def compliance_severity(self) -> Optional[pulumi.Input['AssociationComplianceSeverity']]:
         return pulumi.get(self, "compliance_severity")
 
     @compliance_severity.setter
-    def compliance_severity(self, value: Optional[pulumi.Input[str]]):
+    def compliance_severity(self, value: Optional[pulumi.Input['AssociationComplianceSeverity']]):
         pulumi.set(self, "compliance_severity", value)
 
     @property
@@ -210,11 +211,11 @@ class AssociationArgs:
 
     @property
     @pulumi.getter(name="syncCompliance")
-    def sync_compliance(self) -> Optional[pulumi.Input[str]]:
+    def sync_compliance(self) -> Optional[pulumi.Input['AssociationSyncCompliance']]:
         return pulumi.get(self, "sync_compliance")
 
     @sync_compliance.setter
-    def sync_compliance(self, value: Optional[pulumi.Input[str]]):
+    def sync_compliance(self, value: Optional[pulumi.Input['AssociationSyncCompliance']]):
         pulumi.set(self, "sync_compliance", value)
 
     @property
@@ -248,7 +249,7 @@ class Association(pulumi.CustomResource):
                  association_name: Optional[pulumi.Input[str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
                  calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 compliance_severity: Optional[pulumi.Input[str]] = None,
+                 compliance_severity: Optional[pulumi.Input['AssociationComplianceSeverity']] = None,
                  document_version: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
@@ -257,7 +258,7 @@ class Association(pulumi.CustomResource):
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
                  parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
-                 sync_compliance: Optional[pulumi.Input[str]] = None,
+                 sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -302,7 +303,7 @@ class Association(pulumi.CustomResource):
                  association_name: Optional[pulumi.Input[str]] = None,
                  automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
                  calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 compliance_severity: Optional[pulumi.Input[str]] = None,
+                 compliance_severity: Optional[pulumi.Input['AssociationComplianceSeverity']] = None,
                  document_version: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
@@ -311,7 +312,7 @@ class Association(pulumi.CustomResource):
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
                  parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
-                 sync_compliance: Optional[pulumi.Input[str]] = None,
+                 sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -419,7 +420,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="complianceSeverity")
-    def compliance_severity(self) -> pulumi.Output[Optional[str]]:
+    def compliance_severity(self) -> pulumi.Output[Optional['AssociationComplianceSeverity']]:
         return pulumi.get(self, "compliance_severity")
 
     @property
@@ -479,7 +480,7 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="syncCompliance")
-    def sync_compliance(self) -> pulumi.Output[Optional[str]]:
+    def sync_compliance(self) -> pulumi.Output[Optional['AssociationSyncCompliance']]:
         return pulumi.get(self, "sync_compliance")
 
     @property

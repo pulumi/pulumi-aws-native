@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .app import *
 from .app_image_config import *
 from .data_quality_job_definition import *

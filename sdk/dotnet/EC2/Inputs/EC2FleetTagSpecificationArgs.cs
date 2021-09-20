@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class EC2FleetTagSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
+        public Input<Pulumi.AwsNative.EC2.EC2FleetTagSpecificationResourceType>? ResourceType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.EC2FleetTagArgs>? _tags;

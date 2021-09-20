@@ -24,7 +24,7 @@ type WebACL struct {
 	Name                 pulumi.StringPtrOutput              `pulumi:"name"`
 	// Collection of Rules.
 	Rules            WebACLRuleArrayOutput        `pulumi:"rules"`
-	Scope            pulumi.StringOutput          `pulumi:"scope"`
+	Scope            WebACLScopeOutput            `pulumi:"scope"`
 	Tags             WebACLTagArrayOutput         `pulumi:"tags"`
 	VisibilityConfig WebACLVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
@@ -83,7 +83,7 @@ type webACLArgs struct {
 	Name                 *string                     `pulumi:"name"`
 	// Collection of Rules.
 	Rules            []WebACLRule           `pulumi:"rules"`
-	Scope            string                 `pulumi:"scope"`
+	Scope            WebACLScope            `pulumi:"scope"`
 	Tags             []WebACLTag            `pulumi:"tags"`
 	VisibilityConfig WebACLVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -96,7 +96,7 @@ type WebACLArgs struct {
 	Name                 pulumi.StringPtrInput
 	// Collection of Rules.
 	Rules            WebACLRuleArrayInput
-	Scope            pulumi.StringInput
+	Scope            WebACLScopeInput
 	Tags             WebACLTagArrayInput
 	VisibilityConfig WebACLVisibilityConfigInput
 }

@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ECS
         public Output<int?> HealthCheckGracePeriodSeconds { get; private set; } = null!;
 
         [Output("launchType")]
-        public Output<string?> LaunchType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ECS.ServiceLaunchType?> LaunchType { get; private set; } = null!;
 
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.AwsNative.ECS
         public Output<string?> PlatformVersion { get; private set; } = null!;
 
         [Output("propagateTags")]
-        public Output<string?> PropagateTags { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ECS.ServicePropagateTags?> PropagateTags { get; private set; } = null!;
 
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
         [Output("schedulingStrategy")]
-        public Output<string?> SchedulingStrategy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ECS.ServiceSchedulingStrategy?> SchedulingStrategy { get; private set; } = null!;
 
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.ECS
         public Input<int>? HealthCheckGracePeriodSeconds { get; set; }
 
         [Input("launchType")]
-        public Input<string>? LaunchType { get; set; }
+        public Input<Pulumi.AwsNative.ECS.ServiceLaunchType>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
         private InputList<Inputs.ServiceLoadBalancerArgs>? _loadBalancers;
@@ -192,13 +192,13 @@ namespace Pulumi.AwsNative.ECS
         public Input<string>? PlatformVersion { get; set; }
 
         [Input("propagateTags")]
-        public Input<string>? PropagateTags { get; set; }
+        public Input<Pulumi.AwsNative.ECS.ServicePropagateTags>? PropagateTags { get; set; }
 
         [Input("role")]
         public Input<string>? Role { get; set; }
 
         [Input("schedulingStrategy")]
-        public Input<string>? SchedulingStrategy { get; set; }
+        public Input<Pulumi.AwsNative.ECS.ServiceSchedulingStrategy>? SchedulingStrategy { get; set; }
 
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }

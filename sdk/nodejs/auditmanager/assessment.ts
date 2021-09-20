@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -52,7 +52,7 @@ export class Assessment extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<enums.auditmanager.AssessmentAssessmentStatus | undefined>;
     /**
      * The tags associated with the assessment.
      */
@@ -118,7 +118,7 @@ export interface AssessmentArgs {
      */
     roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRoleArgs>[]>;
     scope?: pulumi.Input<inputs.auditmanager.AssessmentScopeArgs>;
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<enums.auditmanager.AssessmentAssessmentStatus>;
     /**
      * The tags associated with the assessment.
      */

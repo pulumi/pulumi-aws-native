@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DataCatalogTag',
@@ -64,7 +65,7 @@ class WorkGroupEncryptionConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_option: str,
+                 encryption_option: 'WorkGroupEncryptionOption',
                  kms_key: Optional[str] = None):
         """
         If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
@@ -75,7 +76,7 @@ class WorkGroupEncryptionConfiguration(dict):
 
     @property
     @pulumi.getter(name="encryptionOption")
-    def encryption_option(self) -> str:
+    def encryption_option(self) -> 'WorkGroupEncryptionOption':
         return pulumi.get(self, "encryption_option")
 
     @property

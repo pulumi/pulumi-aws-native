@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<int>? Importance { get; set; }
 
         [Input("rankOrder")]
-        public Input<string>? RankOrder { get; set; }
+        public Input<Pulumi.AwsNative.Kendra.IndexOrder>? RankOrder { get; set; }
 
         [Input("valueImportanceItems")]
         private InputList<Inputs.IndexValueImportanceItemArgs>? _valueImportanceItems;

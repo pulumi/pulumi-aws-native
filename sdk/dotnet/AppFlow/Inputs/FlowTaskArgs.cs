@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// Type of task
         /// </summary>
         [Input("taskType", required: true)]
-        public Input<string> TaskType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppFlow.FlowTaskType> TaskType { get; set; } = null!;
 
         public FlowTaskArgs()
         {

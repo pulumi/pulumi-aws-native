@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Lambda
         /// (Streams) A list of response types supported by the function.
         /// </summary>
         [Output("functionResponseTypes")]
-        public Output<ImmutableArray<string>> FunctionResponseTypes { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>> FunctionResponseTypes { get; private set; } = null!;
 
         /// <summary>
         /// (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
@@ -205,14 +205,14 @@ namespace Pulumi.AwsNative.Lambda
         public Input<string> FunctionName { get; set; } = null!;
 
         [Input("functionResponseTypes")]
-        private InputList<string>? _functionResponseTypes;
+        private InputList<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>? _functionResponseTypes;
 
         /// <summary>
         /// (Streams) A list of response types supported by the function.
         /// </summary>
-        public InputList<string> FunctionResponseTypes
+        public InputList<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem> FunctionResponseTypes
         {
-            get => _functionResponseTypes ?? (_functionResponseTypes = new InputList<string>());
+            get => _functionResponseTypes ?? (_functionResponseTypes = new InputList<Pulumi.AwsNative.Lambda.EventSourceMappingFunctionResponseTypesItem>());
             set => _functionResponseTypes = value;
         }
 

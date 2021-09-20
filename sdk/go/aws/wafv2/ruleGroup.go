@@ -27,7 +27,7 @@ type RuleGroup struct {
 	Name                 pulumi.StringPtrOutput                 `pulumi:"name"`
 	// Collection of Rules.
 	Rules            RuleGroupRuleArrayOutput        `pulumi:"rules"`
-	Scope            pulumi.StringOutput             `pulumi:"scope"`
+	Scope            RuleGroupScopeOutput            `pulumi:"scope"`
 	Tags             RuleGroupTagArrayOutput         `pulumi:"tags"`
 	VisibilityConfig RuleGroupVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
@@ -86,7 +86,7 @@ type ruleGroupArgs struct {
 	Name                 *string                        `pulumi:"name"`
 	// Collection of Rules.
 	Rules            []RuleGroupRule           `pulumi:"rules"`
-	Scope            string                    `pulumi:"scope"`
+	Scope            RuleGroupScope            `pulumi:"scope"`
 	Tags             []RuleGroupTag            `pulumi:"tags"`
 	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -99,7 +99,7 @@ type RuleGroupArgs struct {
 	Name                 pulumi.StringPtrInput
 	// Collection of Rules.
 	Rules            RuleGroupRuleArrayInput
-	Scope            pulumi.StringInput
+	Scope            RuleGroupScopeInput
 	Tags             RuleGroupTagArrayInput
 	VisibilityConfig RuleGroupVisibilityConfigInput
 }

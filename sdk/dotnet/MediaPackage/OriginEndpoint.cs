@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         /// </summary>
         [Output("origination")]
-        public Output<string?> Origination { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MediaPackage.OriginEndpointOrigination?> Origination { get; private set; } = null!;
 
         /// <summary>
         /// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         /// </summary>
         [Input("origination")]
-        public Input<string>? Origination { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointOrigination>? Origination { get; set; }
 
         /// <summary>
         /// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.

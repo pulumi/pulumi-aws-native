@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// <summary>
         /// The network communication protocol used by the fleet.
         /// </summary>
-        public readonly string Protocol;
+        public readonly Pulumi.AwsNative.GameLift.FleetIpPermissionProtocol Protocol;
         /// <summary>
         /// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             string ipRange,
 
-            string protocol,
+            Pulumi.AwsNative.GameLift.FleetIpPermissionProtocol protocol,
 
             int toPort)
         {

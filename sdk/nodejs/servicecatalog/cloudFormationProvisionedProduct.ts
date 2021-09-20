@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,7 +35,7 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudFormationProvisionedProduct.__pulumiType;
     }
 
-    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<enums.servicecatalog.CloudFormationProvisionedProductAcceptLanguage | undefined>;
     public /*out*/ readonly cloudformationStackArn!: pulumi.Output<string>;
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
@@ -111,7 +111,7 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
  * The set of arguments for constructing a CloudFormationProvisionedProduct resource.
  */
 export interface CloudFormationProvisionedProductArgs {
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<enums.servicecatalog.CloudFormationProvisionedProductAcceptLanguage>;
     notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
     pathId?: pulumi.Input<string>;
     pathName?: pulumi.Input<string>;

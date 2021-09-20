@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
         [Input("positionalConstraint", required: true)]
-        public Input<string> PositionalConstraint { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.WebACLPositionalConstraint> PositionalConstraint { get; set; } = null!;
 
         [Input("searchString")]
         public Input<string>? SearchString { get; set; }

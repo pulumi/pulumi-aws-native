@@ -22,11 +22,11 @@ type Assignment struct {
 	// The assignee's identifier, user id/group id
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The assignee's type, user/group
-	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
+	PrincipalType AssignmentPrincipalTypeOutput `pulumi:"principalType"`
 	// The account id to be provisioned.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 	// The type of resource to be provsioned to, only aws account now
-	TargetType pulumi.StringOutput `pulumi:"targetType"`
+	TargetType AssignmentTargetTypeOutput `pulumi:"targetType"`
 }
 
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
@@ -93,11 +93,11 @@ type assignmentArgs struct {
 	// The assignee's identifier, user id/group id
 	PrincipalId string `pulumi:"principalId"`
 	// The assignee's type, user/group
-	PrincipalType string `pulumi:"principalType"`
+	PrincipalType AssignmentPrincipalType `pulumi:"principalType"`
 	// The account id to be provisioned.
 	TargetId string `pulumi:"targetId"`
 	// The type of resource to be provsioned to, only aws account now
-	TargetType string `pulumi:"targetType"`
+	TargetType AssignmentTargetType `pulumi:"targetType"`
 }
 
 // The set of arguments for constructing a Assignment resource.
@@ -109,11 +109,11 @@ type AssignmentArgs struct {
 	// The assignee's identifier, user id/group id
 	PrincipalId pulumi.StringInput
 	// The assignee's type, user/group
-	PrincipalType pulumi.StringInput
+	PrincipalType AssignmentPrincipalTypeInput
 	// The account id to be provisioned.
 	TargetId pulumi.StringInput
 	// The type of resource to be provsioned to, only aws account now
-	TargetType pulumi.StringInput
+	TargetType AssignmentTargetTypeInput
 }
 
 func (AssignmentArgs) ElementType() reflect.Type {

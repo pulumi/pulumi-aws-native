@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'StreamStreamEncryption',
@@ -38,11 +39,11 @@ class StreamStreamEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_type: str,
+                 encryption_type: 'StreamStreamEncryptionEncryptionType',
                  key_id: str):
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
-        :param str encryption_type: The encryption type to use. The only valid value is KMS. 
+        :param 'StreamStreamEncryptionEncryptionType' encryption_type: The encryption type to use. The only valid value is KMS. 
         :param str key_id: The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -50,7 +51,7 @@ class StreamStreamEncryption(dict):
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> str:
+    def encryption_type(self) -> 'StreamStreamEncryptionEncryptionType':
         """
         The encryption type to use. The only valid value is KMS. 
         """

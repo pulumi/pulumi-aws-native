@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RuleGroupArgs', 'RuleGroup']
@@ -16,7 +17,7 @@ __all__ = ['RuleGroupArgs', 'RuleGroup']
 class RuleGroupArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
-                 scope: pulumi.Input[str],
+                 scope: pulumi.Input['RuleGroupScope'],
                  visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
                  custom_response_bodies: Optional[pulumi.Input['RuleGroupCustomResponseBodiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -52,11 +53,11 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Input[str]:
+    def scope(self) -> pulumi.Input['RuleGroupScope']:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input[str]):
+    def scope(self, value: pulumi.Input['RuleGroupScope']):
         pulumi.set(self, "scope", value)
 
     @property
@@ -127,7 +128,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['RuleGroupScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupTagArgs']]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']]] = None,
                  __props__=None):
@@ -167,7 +168,7 @@ class RuleGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['RuleGroupScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupTagArgs']]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']]] = None,
                  __props__=None):
@@ -292,7 +293,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[str]:
+    def scope(self) -> pulumi.Output['RuleGroupScope']:
         return pulumi.get(self, "scope")
 
     @property

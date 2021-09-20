@@ -15,15 +15,15 @@ import (
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput    `pulumi:"arn"`
-	CollectionArn         pulumi.StringOutput    `pulumi:"collectionArn"`
-	CollectionName        pulumi.StringOutput    `pulumi:"collectionName"`
-	CreateTime            pulumi.StringOutput    `pulumi:"createTime"`
-	Description           pulumi.StringPtrOutput `pulumi:"description"`
-	KmsKeyId              pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	PricingPlan           pulumi.StringOutput    `pulumi:"pricingPlan"`
-	PricingPlanDataSource pulumi.StringPtrOutput `pulumi:"pricingPlanDataSource"`
-	UpdateTime            pulumi.StringOutput    `pulumi:"updateTime"`
+	Arn                   pulumi.StringOutput                 `pulumi:"arn"`
+	CollectionArn         pulumi.StringOutput                 `pulumi:"collectionArn"`
+	CollectionName        pulumi.StringOutput                 `pulumi:"collectionName"`
+	CreateTime            pulumi.StringOutput                 `pulumi:"createTime"`
+	Description           pulumi.StringPtrOutput              `pulumi:"description"`
+	KmsKeyId              pulumi.StringPtrOutput              `pulumi:"kmsKeyId"`
+	PricingPlan           GeofenceCollectionPricingPlanOutput `pulumi:"pricingPlan"`
+	PricingPlanDataSource pulumi.StringPtrOutput              `pulumi:"pricingPlanDataSource"`
+	UpdateTime            pulumi.StringOutput                 `pulumi:"updateTime"`
 }
 
 // NewGeofenceCollection registers a new resource with the given unique name, arguments, and options.
@@ -71,11 +71,11 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 }
 
 type geofenceCollectionArgs struct {
-	CollectionName        string  `pulumi:"collectionName"`
-	Description           *string `pulumi:"description"`
-	KmsKeyId              *string `pulumi:"kmsKeyId"`
-	PricingPlan           string  `pulumi:"pricingPlan"`
-	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
+	CollectionName        string                        `pulumi:"collectionName"`
+	Description           *string                       `pulumi:"description"`
+	KmsKeyId              *string                       `pulumi:"kmsKeyId"`
+	PricingPlan           GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
+	PricingPlanDataSource *string                       `pulumi:"pricingPlanDataSource"`
 }
 
 // The set of arguments for constructing a GeofenceCollection resource.
@@ -83,7 +83,7 @@ type GeofenceCollectionArgs struct {
 	CollectionName        pulumi.StringInput
 	Description           pulumi.StringPtrInput
 	KmsKeyId              pulumi.StringPtrInput
-	PricingPlan           pulumi.StringInput
+	PricingPlan           GeofenceCollectionPricingPlanInput
 	PricingPlanDataSource pulumi.StringPtrInput
 }
 

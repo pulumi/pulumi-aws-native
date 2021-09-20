@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.WAFv2
         public Output<ImmutableArray<Outputs.RuleGroupRule>> Rules { get; private set; } = null!;
 
         [Output("scope")]
-        public Output<string> Scope { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.WAFv2.RuleGroupScope> Scope { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.RuleGroupTag>> Tags { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.WAFv2
         }
 
         [Input("scope", required: true)]
-        public Input<string> Scope { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.RuleGroupScope> Scope { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.RuleGroupTagArgs>? _tags;

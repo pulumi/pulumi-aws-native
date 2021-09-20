@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['GlobalClusterArgs', 'GlobalCluster']
 
@@ -14,7 +15,7 @@ __all__ = ['GlobalClusterArgs', 'GlobalCluster']
 class GlobalClusterArgs:
     def __init__(__self__, *,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input['GlobalClusterEngine']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -22,7 +23,7 @@ class GlobalClusterArgs:
         """
         The set of arguments for constructing a GlobalCluster resource.
         :param pulumi.Input[bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
-        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+        :param pulumi.Input['GlobalClusterEngine'] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -57,7 +58,7 @@ class GlobalClusterArgs:
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[str]]:
+    def engine(self) -> Optional[pulumi.Input['GlobalClusterEngine']]:
         """
         The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
         If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
@@ -65,7 +66,7 @@ class GlobalClusterArgs:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[str]]):
+    def engine(self, value: Optional[pulumi.Input['GlobalClusterEngine']]):
         pulumi.set(self, "engine", value)
 
     @property
@@ -124,7 +125,7 @@ class GlobalCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input['GlobalClusterEngine']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -136,7 +137,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
-        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+        :param pulumi.Input['GlobalClusterEngine'] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -169,7 +170,7 @@ class GlobalCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input['GlobalClusterEngine']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -232,7 +233,7 @@ class GlobalCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[Optional[str]]:
+    def engine(self) -> pulumi.Output[Optional['GlobalClusterEngine']]:
         """
         The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
         If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.

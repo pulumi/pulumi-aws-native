@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Kendra
         /// FAQ file format
         /// </summary>
         [Output("fileFormat")]
-        public Output<string?> FileFormat { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Kendra.FaqFileFormat?> FileFormat { get; private set; } = null!;
 
         /// <summary>
         /// Index ID
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Kendra
         /// FAQ file format
         /// </summary>
         [Input("fileFormat")]
-        public Input<string>? FileFormat { get; set; }
+        public Input<Pulumi.AwsNative.Kendra.FaqFileFormat>? FileFormat { get; set; }
 
         /// <summary>
         /// Index ID

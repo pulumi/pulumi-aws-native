@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -56,7 +56,7 @@ export class DataSet extends pulumi.CustomResource {
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dataSetId!: pulumi.Output<string | undefined>;
     public readonly fieldFolders!: pulumi.Output<outputs.quicksight.DataSetFieldFolderMap | undefined>;
-    public readonly importMode!: pulumi.Output<string | undefined>;
+    public readonly importMode!: pulumi.Output<enums.quicksight.DataSetDataSetImportMode | undefined>;
     public readonly ingestionWaitPolicy!: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
     /**
      * <p>The last time that this dataset was updated.</p>
@@ -151,7 +151,7 @@ export interface DataSetArgs {
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
     dataSetId?: pulumi.Input<string>;
     fieldFolders?: pulumi.Input<inputs.quicksight.DataSetFieldFolderMapArgs>;
-    importMode?: pulumi.Input<string>;
+    importMode?: pulumi.Input<enums.quicksight.DataSetDataSetImportMode>;
     ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;
     logicalTableMap?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapArgs>;
     /**

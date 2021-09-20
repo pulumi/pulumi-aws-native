@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DetectorArgs', 'Detector']
@@ -20,8 +21,8 @@ class DetectorArgs:
                  rules: pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]],
                  associated_models: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 detector_version_status: Optional[pulumi.Input[str]] = None,
-                 rule_execution_mode: Optional[pulumi.Input[str]] = None,
+                 detector_version_status: Optional[pulumi.Input['DetectorDetectorVersionStatus']] = None,
+                 rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         The set of arguments for constructing a Detector resource.
@@ -29,7 +30,7 @@ class DetectorArgs:
         :param pulumi.Input['DetectorEventTypeArgs'] event_type: The event type to associate this detector with.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]] associated_models: The models to associate with this detector.
         :param pulumi.Input[str] description: The description of the detector.
-        :param pulumi.Input[str] detector_version_status: The desired detector version status for the detector
+        :param pulumi.Input['DetectorDetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
         :param pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]] tags: Tags associated with this detector.
         """
         pulumi.set(__self__, "detector_id", detector_id)
@@ -105,23 +106,23 @@ class DetectorArgs:
 
     @property
     @pulumi.getter(name="detectorVersionStatus")
-    def detector_version_status(self) -> Optional[pulumi.Input[str]]:
+    def detector_version_status(self) -> Optional[pulumi.Input['DetectorDetectorVersionStatus']]:
         """
         The desired detector version status for the detector
         """
         return pulumi.get(self, "detector_version_status")
 
     @detector_version_status.setter
-    def detector_version_status(self, value: Optional[pulumi.Input[str]]):
+    def detector_version_status(self, value: Optional[pulumi.Input['DetectorDetectorVersionStatus']]):
         pulumi.set(self, "detector_version_status", value)
 
     @property
     @pulumi.getter(name="ruleExecutionMode")
-    def rule_execution_mode(self) -> Optional[pulumi.Input[str]]:
+    def rule_execution_mode(self) -> Optional[pulumi.Input['DetectorRuleExecutionMode']]:
         return pulumi.get(self, "rule_execution_mode")
 
     @rule_execution_mode.setter
-    def rule_execution_mode(self, value: Optional[pulumi.Input[str]]):
+    def rule_execution_mode(self, value: Optional[pulumi.Input['DetectorRuleExecutionMode']]):
         pulumi.set(self, "rule_execution_mode", value)
 
     @property
@@ -145,9 +146,9 @@ class Detector(pulumi.CustomResource):
                  associated_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
-                 detector_version_status: Optional[pulumi.Input[str]] = None,
+                 detector_version_status: Optional[pulumi.Input['DetectorDetectorVersionStatus']] = None,
                  event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
-                 rule_execution_mode: Optional[pulumi.Input[str]] = None,
+                 rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
@@ -159,7 +160,7 @@ class Detector(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]] associated_models: The models to associate with this detector.
         :param pulumi.Input[str] description: The description of the detector.
         :param pulumi.Input[str] detector_id: The ID of the detector
-        :param pulumi.Input[str] detector_version_status: The desired detector version status for the detector
+        :param pulumi.Input['DetectorDetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
         :param pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']] event_type: The event type to associate this detector with.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]] tags: Tags associated with this detector.
         """
@@ -190,9 +191,9 @@ class Detector(pulumi.CustomResource):
                  associated_models: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
-                 detector_version_status: Optional[pulumi.Input[str]] = None,
+                 detector_version_status: Optional[pulumi.Input['DetectorDetectorVersionStatus']] = None,
                  event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
-                 rule_execution_mode: Optional[pulumi.Input[str]] = None,
+                 rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
@@ -311,7 +312,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detectorVersionStatus")
-    def detector_version_status(self) -> pulumi.Output[Optional[str]]:
+    def detector_version_status(self) -> pulumi.Output[Optional['DetectorDetectorVersionStatus']]:
         """
         The desired detector version status for the detector
         """
@@ -335,7 +336,7 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleExecutionMode")
-    def rule_execution_mode(self) -> pulumi.Output[Optional[str]]:
+    def rule_execution_mode(self) -> pulumi.Output[Optional['DetectorRuleExecutionMode']]:
         return pulumi.get(self, "rule_execution_mode")
 
     @property

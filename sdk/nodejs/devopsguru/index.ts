@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./notificationChannel";
 export * from "./resourceCollection";
 
+// Export enums:
+export * from "../types/enums/devopsguru";
+
 // Import resources to register:
 import { NotificationChannel } from "./notificationChannel";
 import { ResourceCollection } from "./resourceCollection";

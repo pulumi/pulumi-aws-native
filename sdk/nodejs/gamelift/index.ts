@@ -9,6 +9,9 @@ export * from "./alias";
 export * from "./fleet";
 export * from "./gameServerGroup";
 
+// Export enums:
+export * from "../types/enums/gamelift";
+
 // Import resources to register:
 import { Alias } from "./alias";
 import { Fleet } from "./fleet";

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
         /// <summary>
         /// The name of the rendering engine.
         /// </summary>
-        public readonly string Name;
+        public readonly Pulumi.AwsNative.RoboMaker.SimulationApplicationRenderingEngineName Name;
         /// <summary>
         /// The version of the rendering engine.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
 
         [OutputConstructor]
         private SimulationApplicationRenderingEngine(
-            string name,
+            Pulumi.AwsNative.RoboMaker.SimulationApplicationRenderingEngineName name,
 
             string version)
         {

@@ -9,6 +9,9 @@ export * from "./cloudFormationProvisionedProduct";
 export * from "./serviceAction";
 export * from "./serviceActionAssociation";
 
+// Export enums:
+export * from "../types/enums/servicecatalog";
+
 // Import resources to register:
 import { CloudFormationProvisionedProduct } from "./cloudFormationProvisionedProduct";
 import { ServiceAction } from "./serviceAction";

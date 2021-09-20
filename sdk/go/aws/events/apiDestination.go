@@ -18,9 +18,9 @@ type ApiDestination struct {
 	// The arn of the api destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The arn of the connection.
-	ConnectionArn pulumi.StringOutput    `pulumi:"connectionArn"`
-	Description   pulumi.StringPtrOutput `pulumi:"description"`
-	HttpMethod    pulumi.StringOutput    `pulumi:"httpMethod"`
+	ConnectionArn pulumi.StringOutput            `pulumi:"connectionArn"`
+	Description   pulumi.StringPtrOutput         `pulumi:"description"`
+	HttpMethod    ApiDestinationHttpMethodOutput `pulumi:"httpMethod"`
 	// Url endpoint to invoke.
 	InvocationEndpoint           pulumi.StringOutput `pulumi:"invocationEndpoint"`
 	InvocationRateLimitPerSecond pulumi.IntPtrOutput `pulumi:"invocationRateLimitPerSecond"`
@@ -77,9 +77,9 @@ func (ApiDestinationState) ElementType() reflect.Type {
 
 type apiDestinationArgs struct {
 	// The arn of the connection.
-	ConnectionArn string  `pulumi:"connectionArn"`
-	Description   *string `pulumi:"description"`
-	HttpMethod    string  `pulumi:"httpMethod"`
+	ConnectionArn string                   `pulumi:"connectionArn"`
+	Description   *string                  `pulumi:"description"`
+	HttpMethod    ApiDestinationHttpMethod `pulumi:"httpMethod"`
 	// Url endpoint to invoke.
 	InvocationEndpoint           string `pulumi:"invocationEndpoint"`
 	InvocationRateLimitPerSecond *int   `pulumi:"invocationRateLimitPerSecond"`
@@ -92,7 +92,7 @@ type ApiDestinationArgs struct {
 	// The arn of the connection.
 	ConnectionArn pulumi.StringInput
 	Description   pulumi.StringPtrInput
-	HttpMethod    pulumi.StringInput
+	HttpMethod    ApiDestinationHttpMethodInput
 	// Url endpoint to invoke.
 	InvocationEndpoint           pulumi.StringInput
 	InvocationRateLimitPerSecond pulumi.IntPtrInput

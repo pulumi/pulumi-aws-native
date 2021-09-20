@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     {
         public readonly bool? AddGroupOwner;
         public readonly string? DestinationPath;
-        public readonly string? Permission;
+        public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaFilesystemPermission? Permission;
         public readonly string? SourcePath;
 
         [OutputConstructor]
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
             string? destinationPath,
 
-            string? permission,
+            Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaFilesystemPermission? permission,
 
             string? sourcePath)
         {

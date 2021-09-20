@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .carrier_gateway import *
 from .dhcp_options import *
 from .ec2_fleet import *

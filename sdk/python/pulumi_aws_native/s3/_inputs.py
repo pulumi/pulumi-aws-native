@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AccessPointPublicAccessBlockConfigurationArgs',
@@ -455,16 +456,16 @@ class StorageLensS3BucketDestinationArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  arn: pulumi.Input[str],
-                 format: pulumi.Input[str],
-                 output_schema_version: pulumi.Input[str],
+                 format: pulumi.Input['StorageLensS3BucketDestinationFormat'],
+                 output_schema_version: pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion'],
                  encryption: Optional[pulumi.Input['StorageLensEncryptionArgs']] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
         :param pulumi.Input[str] account_id: The AWS account ID that owns the destination S3 bucket.
         :param pulumi.Input[str] arn: The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
-        :param pulumi.Input[str] format: Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
-        :param pulumi.Input[str] output_schema_version: The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
+        :param pulumi.Input['StorageLensS3BucketDestinationFormat'] format: Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
+        :param pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion'] output_schema_version: The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
         :param pulumi.Input[str] prefix: The prefix to use for Amazon S3 Storage Lens export.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -502,26 +503,26 @@ class StorageLensS3BucketDestinationArgs:
 
     @property
     @pulumi.getter
-    def format(self) -> pulumi.Input[str]:
+    def format(self) -> pulumi.Input['StorageLensS3BucketDestinationFormat']:
         """
         Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: pulumi.Input[str]):
+    def format(self, value: pulumi.Input['StorageLensS3BucketDestinationFormat']):
         pulumi.set(self, "format", value)
 
     @property
     @pulumi.getter(name="outputSchemaVersion")
-    def output_schema_version(self) -> pulumi.Input[str]:
+    def output_schema_version(self) -> pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion']:
         """
         The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
         """
         return pulumi.get(self, "output_schema_version")
 
     @output_schema_version.setter
-    def output_schema_version(self, value: pulumi.Input[str]):
+    def output_schema_version(self, value: pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion']):
         pulumi.set(self, "output_schema_version", value)
 
     @property

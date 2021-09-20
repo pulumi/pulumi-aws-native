@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The protocol that the object storage server uses to communicate.
         /// </summary>
         [Output("serverProtocol")]
-        public Output<string?> ServerProtocol { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataSync.LocationObjectStorageServerProtocol?> ServerProtocol { get; private set; } = null!;
 
         /// <summary>
         /// The subdirectory in the self-managed object storage server that is used to read data from.
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The protocol that the object storage server uses to communicate.
         /// </summary>
         [Input("serverProtocol")]
-        public Input<string>? ServerProtocol { get; set; }
+        public Input<Pulumi.AwsNative.DataSync.LocationObjectStorageServerProtocol>? ServerProtocol { get; set; }
 
         /// <summary>
         /// The subdirectory in the self-managed object storage server that is used to read data from.

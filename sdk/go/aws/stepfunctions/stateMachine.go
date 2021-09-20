@@ -24,7 +24,7 @@ type StateMachine struct {
 	Name                    pulumi.StringOutput                          `pulumi:"name"`
 	RoleArn                 pulumi.StringOutput                          `pulumi:"roleArn"`
 	StateMachineName        pulumi.StringPtrOutput                       `pulumi:"stateMachineName"`
-	StateMachineType        pulumi.StringPtrOutput                       `pulumi:"stateMachineType"`
+	StateMachineType        StateMachineStateMachineTypePtrOutput        `pulumi:"stateMachineType"`
 	Tags                    StateMachineTagsEntryArrayOutput             `pulumi:"tags"`
 	TracingConfiguration    StateMachineTracingConfigurationPtrOutput    `pulumi:"tracingConfiguration"`
 }
@@ -78,7 +78,7 @@ type stateMachineArgs struct {
 	LoggingConfiguration    *StateMachineLoggingConfiguration    `pulumi:"loggingConfiguration"`
 	RoleArn                 string                               `pulumi:"roleArn"`
 	StateMachineName        *string                              `pulumi:"stateMachineName"`
-	StateMachineType        *string                              `pulumi:"stateMachineType"`
+	StateMachineType        *StateMachineStateMachineType        `pulumi:"stateMachineType"`
 	Tags                    []StateMachineTagsEntry              `pulumi:"tags"`
 	TracingConfiguration    *StateMachineTracingConfiguration    `pulumi:"tracingConfiguration"`
 }
@@ -92,7 +92,7 @@ type StateMachineArgs struct {
 	LoggingConfiguration    StateMachineLoggingConfigurationPtrInput
 	RoleArn                 pulumi.StringInput
 	StateMachineName        pulumi.StringPtrInput
-	StateMachineType        pulumi.StringPtrInput
+	StateMachineType        StateMachineStateMachineTypePtrInput
 	Tags                    StateMachineTagsEntryArrayInput
 	TracingConfiguration    StateMachineTracingConfigurationPtrInput
 }

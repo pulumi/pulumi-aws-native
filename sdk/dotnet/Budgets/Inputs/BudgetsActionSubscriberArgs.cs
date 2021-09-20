@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public Input<string> Address { get; set; } = null!;
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Budgets.BudgetsActionSubscriberType> Type { get; set; } = null!;
 
         public BudgetsActionSubscriberArgs()
         {

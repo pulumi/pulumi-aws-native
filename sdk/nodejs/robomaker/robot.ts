@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +38,7 @@ export class Robot extends pulumi.CustomResource {
     /**
      * The target architecture of the robot.
      */
-    public readonly architecture!: pulumi.Output<string>;
+    public readonly architecture!: pulumi.Output<enums.robomaker.RobotArchitecture>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the fleet.
@@ -99,7 +99,7 @@ export interface RobotArgs {
     /**
      * The target architecture of the robot.
      */
-    architecture: pulumi.Input<string>;
+    architecture: pulumi.Input<enums.robomaker.RobotArchitecture>;
     /**
      * The Amazon Resource Name (ARN) of the fleet.
      */

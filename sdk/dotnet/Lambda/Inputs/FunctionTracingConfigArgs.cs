@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// The tracing mode.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public Input<Pulumi.AwsNative.Lambda.FunctionTracingConfigMode>? Mode { get; set; }
 
         public FunctionTracingConfigArgs()
         {

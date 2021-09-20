@@ -447,10 +447,10 @@ func (o DetectorEventTypePtrOutput) Tags() DetectorTagArrayOutput {
 type DetectorEventVariable struct {
 	Arn *string `pulumi:"arn"`
 	// The time when the event variable was created.
-	CreatedTime  *string `pulumi:"createdTime"`
-	DataSource   *string `pulumi:"dataSource"`
-	DataType     *string `pulumi:"dataType"`
-	DefaultValue *string `pulumi:"defaultValue"`
+	CreatedTime  *string                          `pulumi:"createdTime"`
+	DataSource   *DetectorEventVariableDataSource `pulumi:"dataSource"`
+	DataType     *DetectorEventVariableDataType   `pulumi:"dataType"`
+	DefaultValue *string                          `pulumi:"defaultValue"`
 	// The description.
 	Description *string `pulumi:"description"`
 	Inline      *bool   `pulumi:"inline"`
@@ -458,8 +458,8 @@ type DetectorEventVariable struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	Name            *string `pulumi:"name"`
 	// Tags associated with this event variable.
-	Tags         []DetectorTag `pulumi:"tags"`
-	VariableType *string       `pulumi:"variableType"`
+	Tags         []DetectorTag                      `pulumi:"tags"`
+	VariableType *DetectorEventVariableVariableType `pulumi:"variableType"`
 }
 
 // DetectorEventVariableInput is an input type that accepts DetectorEventVariableArgs and DetectorEventVariableOutput values.
@@ -476,10 +476,10 @@ type DetectorEventVariableInput interface {
 type DetectorEventVariableArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the event variable was created.
-	CreatedTime  pulumi.StringPtrInput `pulumi:"createdTime"`
-	DataSource   pulumi.StringPtrInput `pulumi:"dataSource"`
-	DataType     pulumi.StringPtrInput `pulumi:"dataType"`
-	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	CreatedTime  pulumi.StringPtrInput                   `pulumi:"createdTime"`
+	DataSource   DetectorEventVariableDataSourcePtrInput `pulumi:"dataSource"`
+	DataType     DetectorEventVariableDataTypePtrInput   `pulumi:"dataType"`
+	DefaultValue pulumi.StringPtrInput                   `pulumi:"defaultValue"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
@@ -487,8 +487,8 @@ type DetectorEventVariableArgs struct {
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
 	Name            pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this event variable.
-	Tags         DetectorTagArrayInput `pulumi:"tags"`
-	VariableType pulumi.StringPtrInput `pulumi:"variableType"`
+	Tags         DetectorTagArrayInput                     `pulumi:"tags"`
+	VariableType DetectorEventVariableVariableTypePtrInput `pulumi:"variableType"`
 }
 
 func (DetectorEventVariableArgs) ElementType() reflect.Type {
@@ -551,12 +551,12 @@ func (o DetectorEventVariableOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o DetectorEventVariableOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorEventVariable) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+func (o DetectorEventVariableOutput) DataSource() DetectorEventVariableDataSourcePtrOutput {
+	return o.ApplyT(func(v DetectorEventVariable) *DetectorEventVariableDataSource { return v.DataSource }).(DetectorEventVariableDataSourcePtrOutput)
 }
 
-func (o DetectorEventVariableOutput) DataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorEventVariable) *string { return v.DataType }).(pulumi.StringPtrOutput)
+func (o DetectorEventVariableOutput) DataType() DetectorEventVariableDataTypePtrOutput {
+	return o.ApplyT(func(v DetectorEventVariable) *DetectorEventVariableDataType { return v.DataType }).(DetectorEventVariableDataTypePtrOutput)
 }
 
 func (o DetectorEventVariableOutput) DefaultValue() pulumi.StringPtrOutput {
@@ -586,8 +586,8 @@ func (o DetectorEventVariableOutput) Tags() DetectorTagArrayOutput {
 	return o.ApplyT(func(v DetectorEventVariable) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
-func (o DetectorEventVariableOutput) VariableType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorEventVariable) *string { return v.VariableType }).(pulumi.StringPtrOutput)
+func (o DetectorEventVariableOutput) VariableType() DetectorEventVariableVariableTypePtrOutput {
+	return o.ApplyT(func(v DetectorEventVariable) *DetectorEventVariableVariableType { return v.VariableType }).(DetectorEventVariableVariableTypePtrOutput)
 }
 
 type DetectorEventVariableArrayOutput struct{ *pulumi.OutputState }
@@ -996,10 +996,10 @@ type DetectorRule struct {
 	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description.
-	Description *string `pulumi:"description"`
-	DetectorId  *string `pulumi:"detectorId"`
-	Expression  *string `pulumi:"expression"`
-	Language    *string `pulumi:"language"`
+	Description *string               `pulumi:"description"`
+	DetectorId  *string               `pulumi:"detectorId"`
+	Expression  *string               `pulumi:"expression"`
+	Language    *DetectorRuleLanguage `pulumi:"language"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string           `pulumi:"lastUpdatedTime"`
 	Outcomes        []DetectorOutcome `pulumi:"outcomes"`
@@ -1025,10 +1025,10 @@ type DetectorRuleArgs struct {
 	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	DetectorId  pulumi.StringPtrInput `pulumi:"detectorId"`
-	Expression  pulumi.StringPtrInput `pulumi:"expression"`
-	Language    pulumi.StringPtrInput `pulumi:"language"`
+	Description pulumi.StringPtrInput        `pulumi:"description"`
+	DetectorId  pulumi.StringPtrInput        `pulumi:"detectorId"`
+	Expression  pulumi.StringPtrInput        `pulumi:"expression"`
+	Language    DetectorRuleLanguagePtrInput `pulumi:"language"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput     `pulumi:"lastUpdatedTime"`
 	Outcomes        DetectorOutcomeArrayInput `pulumi:"outcomes"`
@@ -1111,8 +1111,8 @@ func (o DetectorRuleOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-func (o DetectorRuleOutput) Language() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DetectorRule) *string { return v.Language }).(pulumi.StringPtrOutput)
+func (o DetectorRuleOutput) Language() DetectorRuleLanguagePtrOutput {
+	return o.ApplyT(func(v DetectorRule) *DetectorRuleLanguage { return v.Language }).(DetectorRuleLanguagePtrOutput)
 }
 
 // The time when the event type was last updated.
@@ -1502,10 +1502,10 @@ func (o EventTypeEntityTypeArrayOutput) Index(i pulumi.IntInput) EventTypeEntity
 type EventTypeEventVariable struct {
 	Arn *string `pulumi:"arn"`
 	// The time when the event type was created.
-	CreatedTime  *string `pulumi:"createdTime"`
-	DataSource   *string `pulumi:"dataSource"`
-	DataType     *string `pulumi:"dataType"`
-	DefaultValue *string `pulumi:"defaultValue"`
+	CreatedTime  *string                           `pulumi:"createdTime"`
+	DataSource   *EventTypeEventVariableDataSource `pulumi:"dataSource"`
+	DataType     *EventTypeEventVariableDataType   `pulumi:"dataType"`
+	DefaultValue *string                           `pulumi:"defaultValue"`
 	// The description.
 	Description *string `pulumi:"description"`
 	Inline      *bool   `pulumi:"inline"`
@@ -1513,8 +1513,8 @@ type EventTypeEventVariable struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	Name            *string `pulumi:"name"`
 	// Tags associated with this event type.
-	Tags         []EventTypeTag `pulumi:"tags"`
-	VariableType *string        `pulumi:"variableType"`
+	Tags         []EventTypeTag                      `pulumi:"tags"`
+	VariableType *EventTypeEventVariableVariableType `pulumi:"variableType"`
 }
 
 // EventTypeEventVariableInput is an input type that accepts EventTypeEventVariableArgs and EventTypeEventVariableOutput values.
@@ -1531,10 +1531,10 @@ type EventTypeEventVariableInput interface {
 type EventTypeEventVariableArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The time when the event type was created.
-	CreatedTime  pulumi.StringPtrInput `pulumi:"createdTime"`
-	DataSource   pulumi.StringPtrInput `pulumi:"dataSource"`
-	DataType     pulumi.StringPtrInput `pulumi:"dataType"`
-	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	CreatedTime  pulumi.StringPtrInput                    `pulumi:"createdTime"`
+	DataSource   EventTypeEventVariableDataSourcePtrInput `pulumi:"dataSource"`
+	DataType     EventTypeEventVariableDataTypePtrInput   `pulumi:"dataType"`
+	DefaultValue pulumi.StringPtrInput                    `pulumi:"defaultValue"`
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
@@ -1542,8 +1542,8 @@ type EventTypeEventVariableArgs struct {
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
 	Name            pulumi.StringPtrInput `pulumi:"name"`
 	// Tags associated with this event type.
-	Tags         EventTypeTagArrayInput `pulumi:"tags"`
-	VariableType pulumi.StringPtrInput  `pulumi:"variableType"`
+	Tags         EventTypeTagArrayInput                     `pulumi:"tags"`
+	VariableType EventTypeEventVariableVariableTypePtrInput `pulumi:"variableType"`
 }
 
 func (EventTypeEventVariableArgs) ElementType() reflect.Type {
@@ -1606,12 +1606,12 @@ func (o EventTypeEventVariableOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-func (o EventTypeEventVariableOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+func (o EventTypeEventVariableOutput) DataSource() EventTypeEventVariableDataSourcePtrOutput {
+	return o.ApplyT(func(v EventTypeEventVariable) *EventTypeEventVariableDataSource { return v.DataSource }).(EventTypeEventVariableDataSourcePtrOutput)
 }
 
-func (o EventTypeEventVariableOutput) DataType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.DataType }).(pulumi.StringPtrOutput)
+func (o EventTypeEventVariableOutput) DataType() EventTypeEventVariableDataTypePtrOutput {
+	return o.ApplyT(func(v EventTypeEventVariable) *EventTypeEventVariableDataType { return v.DataType }).(EventTypeEventVariableDataTypePtrOutput)
 }
 
 func (o EventTypeEventVariableOutput) DefaultValue() pulumi.StringPtrOutput {
@@ -1641,8 +1641,8 @@ func (o EventTypeEventVariableOutput) Tags() EventTypeTagArrayOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) []EventTypeTag { return v.Tags }).(EventTypeTagArrayOutput)
 }
 
-func (o EventTypeEventVariableOutput) VariableType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.VariableType }).(pulumi.StringPtrOutput)
+func (o EventTypeEventVariableOutput) VariableType() EventTypeEventVariableVariableTypePtrOutput {
+	return o.ApplyT(func(v EventTypeEventVariable) *EventTypeEventVariableVariableType { return v.VariableType }).(EventTypeEventVariableVariableTypePtrOutput)
 }
 
 type EventTypeEventVariableArrayOutput struct{ *pulumi.OutputState }

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['PublisherArgs', 'Publisher']
 
@@ -159,7 +160,7 @@ class Publisher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityProvider")
-    def identity_provider(self) -> pulumi.Output[str]:
+    def identity_provider(self) -> pulumi.Output['PublisherIdentityProvider']:
         """
         The type of account used as the identity provider when registering this publisher with CloudFormation.
         """
@@ -183,7 +184,7 @@ class Publisher(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publisherStatus")
-    def publisher_status(self) -> pulumi.Output[str]:
+    def publisher_status(self) -> pulumi.Output['PublisherPublisherStatus']:
         """
         Whether the publisher is verified.
         """

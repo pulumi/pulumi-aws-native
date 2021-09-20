@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
         public readonly object? EnvironmentVariables;
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaEventSource> EventSources;
         public readonly ImmutableArray<string> ExecArgs;
-        public readonly string? InputPayloadEncodingType;
+        public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType? InputPayloadEncodingType;
         public readonly Outputs.ComponentVersionLambdaLinuxProcessParams? LinuxProcessParams;
         public readonly int? MaxIdleTimeInSeconds;
         public readonly int? MaxInstancesCount;
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
             ImmutableArray<string> execArgs,
 
-            string? inputPayloadEncodingType,
+            Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType? inputPayloadEncodingType,
 
             Outputs.ComponentVersionLambdaLinuxProcessParams? linuxProcessParams,
 

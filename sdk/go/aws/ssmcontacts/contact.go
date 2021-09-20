@@ -24,7 +24,7 @@ type Contact struct {
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan ContactStageArrayOutput `pulumi:"plan"`
 	// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type ContactTypeOutput `pulumi:"type"`
 }
 
 // NewContact registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ type contactArgs struct {
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan []ContactStage `pulumi:"plan"`
 	// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
-	Type string `pulumi:"type"`
+	Type ContactType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Contact resource.
@@ -97,7 +97,7 @@ type ContactArgs struct {
 	// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
 	Plan ContactStageArrayInput
 	// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
-	Type pulumi.StringInput
+	Type ContactTypeInput
 }
 
 func (ContactArgs) ElementType() reflect.Type {

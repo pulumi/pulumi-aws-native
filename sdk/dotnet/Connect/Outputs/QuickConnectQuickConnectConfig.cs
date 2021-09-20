@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     {
         public readonly Outputs.QuickConnectPhoneNumberQuickConnectConfig? PhoneConfig;
         public readonly Outputs.QuickConnectQueueQuickConnectConfig? QueueConfig;
-        public readonly string QuickConnectType;
+        public readonly Pulumi.AwsNative.Connect.QuickConnectQuickConnectType QuickConnectType;
         public readonly Outputs.QuickConnectUserQuickConnectConfig? UserConfig;
 
         [OutputConstructor]
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             Outputs.QuickConnectQueueQuickConnectConfig? queueConfig,
 
-            string quickConnectType,
+            Pulumi.AwsNative.Connect.QuickConnectQuickConnectType quickConnectType,
 
             Outputs.QuickConnectUserQuickConnectConfig? userConfig)
         {

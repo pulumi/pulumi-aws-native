@@ -810,7 +810,7 @@ type ResponsePlanSsmAutomation struct {
 	// The role ARN to use when starting the SSM automation document.
 	RoleArn string `pulumi:"roleArn"`
 	// The account type to use when starting the SSM automation document.
-	TargetAccount *string `pulumi:"targetAccount"`
+	TargetAccount *ResponsePlanSsmAutomationTargetAccount `pulumi:"targetAccount"`
 }
 
 // ResponsePlanSsmAutomationInput is an input type that accepts ResponsePlanSsmAutomationArgs and ResponsePlanSsmAutomationOutput values.
@@ -835,7 +835,7 @@ type ResponsePlanSsmAutomationArgs struct {
 	// The role ARN to use when starting the SSM automation document.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The account type to use when starting the SSM automation document.
-	TargetAccount pulumi.StringPtrInput `pulumi:"targetAccount"`
+	TargetAccount ResponsePlanSsmAutomationTargetAccountPtrInput `pulumi:"targetAccount"`
 }
 
 func (ResponsePlanSsmAutomationArgs) ElementType() reflect.Type {
@@ -937,8 +937,8 @@ func (o ResponsePlanSsmAutomationOutput) RoleArn() pulumi.StringOutput {
 }
 
 // The account type to use when starting the SSM automation document.
-func (o ResponsePlanSsmAutomationOutput) TargetAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResponsePlanSsmAutomation) *string { return v.TargetAccount }).(pulumi.StringPtrOutput)
+func (o ResponsePlanSsmAutomationOutput) TargetAccount() ResponsePlanSsmAutomationTargetAccountPtrOutput {
+	return o.ApplyT(func(v ResponsePlanSsmAutomation) *ResponsePlanSsmAutomationTargetAccount { return v.TargetAccount }).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
 }
 
 type ResponsePlanSsmAutomationPtrOutput struct{ *pulumi.OutputState }
@@ -1006,13 +1006,13 @@ func (o ResponsePlanSsmAutomationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 // The account type to use when starting the SSM automation document.
-func (o ResponsePlanSsmAutomationPtrOutput) TargetAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResponsePlanSsmAutomation) *string {
+func (o ResponsePlanSsmAutomationPtrOutput) TargetAccount() ResponsePlanSsmAutomationTargetAccountPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanSsmAutomation) *ResponsePlanSsmAutomationTargetAccount {
 		if v == nil {
 			return nil
 		}
 		return v.TargetAccount
-	}).(pulumi.StringPtrOutput)
+	}).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
 }
 
 // A parameter to set when starting the SSM automation document.

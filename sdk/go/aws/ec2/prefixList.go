@@ -16,7 +16,7 @@ type PrefixList struct {
 	pulumi.CustomResourceState
 
 	// Ip Version of Prefix List.
-	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
+	AddressFamily PrefixListAddressFamilyOutput `pulumi:"addressFamily"`
 	// The Amazon Resource Name (ARN) of the Prefix List.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Entries of Prefix List.
@@ -84,7 +84,7 @@ func (PrefixListState) ElementType() reflect.Type {
 
 type prefixListArgs struct {
 	// Ip Version of Prefix List.
-	AddressFamily string `pulumi:"addressFamily"`
+	AddressFamily PrefixListAddressFamily `pulumi:"addressFamily"`
 	// Entries of Prefix List.
 	Entries []PrefixListEntry `pulumi:"entries"`
 	// Max Entries of Prefix List.
@@ -98,7 +98,7 @@ type prefixListArgs struct {
 // The set of arguments for constructing a PrefixList resource.
 type PrefixListArgs struct {
 	// Ip Version of Prefix List.
-	AddressFamily pulumi.StringInput
+	AddressFamily PrefixListAddressFamilyInput
 	// Entries of Prefix List.
 	Entries PrefixListEntryArrayInput
 	// Max Entries of Prefix List.

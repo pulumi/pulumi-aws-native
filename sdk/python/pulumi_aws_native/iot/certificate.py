@@ -7,15 +7,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['CertificateArgs', 'Certificate']
 
 @pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
-                 status: pulumi.Input[str],
+                 status: pulumi.Input['CertificateStatus'],
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input[str]] = None,
+                 certificate_mode: Optional[pulumi.Input['CertificateCertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None):
         """
@@ -33,11 +34,11 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input['CertificateStatus']:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input['CertificateStatus']):
         pulumi.set(self, "status", value)
 
     @property
@@ -51,11 +52,11 @@ class CertificateArgs:
 
     @property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> Optional[pulumi.Input[str]]:
+    def certificate_mode(self) -> Optional[pulumi.Input['CertificateCertificateMode']]:
         return pulumi.get(self, "certificate_mode")
 
     @certificate_mode.setter
-    def certificate_mode(self, value: Optional[pulumi.Input[str]]):
+    def certificate_mode(self, value: Optional[pulumi.Input['CertificateCertificateMode']]):
         pulumi.set(self, "certificate_mode", value)
 
     @property
@@ -83,10 +84,10 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input[str]] = None,
+                 certificate_mode: Optional[pulumi.Input['CertificateCertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['CertificateStatus']] = None,
                  __props__=None):
         """
         Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
@@ -119,10 +120,10 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
-                 certificate_mode: Optional[pulumi.Input[str]] = None,
+                 certificate_mode: Optional[pulumi.Input['CertificateCertificateMode']] = None,
                  certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['CertificateStatus']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -185,7 +186,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateMode")
-    def certificate_mode(self) -> pulumi.Output[Optional[str]]:
+    def certificate_mode(self) -> pulumi.Output[Optional['CertificateCertificateMode']]:
         return pulumi.get(self, "certificate_mode")
 
     @property
@@ -200,6 +201,6 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['CertificateStatus']:
         return pulumi.get(self, "status")
 

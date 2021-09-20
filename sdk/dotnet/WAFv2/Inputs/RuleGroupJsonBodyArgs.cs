@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     public sealed class RuleGroupJsonBodyArgs : Pulumi.ResourceArgs
     {
         [Input("invalidFallbackBehavior")]
-        public Input<string>? InvalidFallbackBehavior { get; set; }
+        public Input<Pulumi.AwsNative.WAFv2.RuleGroupBodyParsingFallbackBehavior>? InvalidFallbackBehavior { get; set; }
 
         [Input("matchPattern", required: true)]
         public Input<Inputs.RuleGroupJsonMatchPatternArgs> MatchPattern { get; set; } = null!;
 
         [Input("matchScope", required: true)]
-        public Input<string> MatchScope { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.RuleGroupJsonMatchScope> MatchScope { get; set; } = null!;
 
         public RuleGroupJsonBodyArgs()
         {

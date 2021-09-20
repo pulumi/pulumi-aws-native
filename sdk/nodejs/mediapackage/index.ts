@@ -11,6 +11,9 @@ export * from "./originEndpoint";
 export * from "./packagingConfiguration";
 export * from "./packagingGroup";
 
+// Export enums:
+export * from "../types/enums/mediapackage";
+
 // Import resources to register:
 import { Asset } from "./asset";
 import { Channel } from "./channel";

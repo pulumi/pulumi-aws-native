@@ -111,13 +111,13 @@ func (o CloudFormationProvisionedProductProvisioningParameterArrayOutput) Index(
 }
 
 type CloudFormationProvisionedProductProvisioningPreferences struct {
-	StackSetAccounts                   []string `pulumi:"stackSetAccounts"`
-	StackSetFailureToleranceCount      *int     `pulumi:"stackSetFailureToleranceCount"`
-	StackSetFailureTolerancePercentage *int     `pulumi:"stackSetFailureTolerancePercentage"`
-	StackSetMaxConcurrencyCount        *int     `pulumi:"stackSetMaxConcurrencyCount"`
-	StackSetMaxConcurrencyPercentage   *int     `pulumi:"stackSetMaxConcurrencyPercentage"`
-	StackSetOperationType              *string  `pulumi:"stackSetOperationType"`
-	StackSetRegions                    []string `pulumi:"stackSetRegions"`
+	StackSetAccounts                   []string                                                                      `pulumi:"stackSetAccounts"`
+	StackSetFailureToleranceCount      *int                                                                          `pulumi:"stackSetFailureToleranceCount"`
+	StackSetFailureTolerancePercentage *int                                                                          `pulumi:"stackSetFailureTolerancePercentage"`
+	StackSetMaxConcurrencyCount        *int                                                                          `pulumi:"stackSetMaxConcurrencyCount"`
+	StackSetMaxConcurrencyPercentage   *int                                                                          `pulumi:"stackSetMaxConcurrencyPercentage"`
+	StackSetOperationType              *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType `pulumi:"stackSetOperationType"`
+	StackSetRegions                    []string                                                                      `pulumi:"stackSetRegions"`
 }
 
 // CloudFormationProvisionedProductProvisioningPreferencesInput is an input type that accepts CloudFormationProvisionedProductProvisioningPreferencesArgs and CloudFormationProvisionedProductProvisioningPreferencesOutput values.
@@ -132,13 +132,13 @@ type CloudFormationProvisionedProductProvisioningPreferencesInput interface {
 }
 
 type CloudFormationProvisionedProductProvisioningPreferencesArgs struct {
-	StackSetAccounts                   pulumi.StringArrayInput `pulumi:"stackSetAccounts"`
-	StackSetFailureToleranceCount      pulumi.IntPtrInput      `pulumi:"stackSetFailureToleranceCount"`
-	StackSetFailureTolerancePercentage pulumi.IntPtrInput      `pulumi:"stackSetFailureTolerancePercentage"`
-	StackSetMaxConcurrencyCount        pulumi.IntPtrInput      `pulumi:"stackSetMaxConcurrencyCount"`
-	StackSetMaxConcurrencyPercentage   pulumi.IntPtrInput      `pulumi:"stackSetMaxConcurrencyPercentage"`
-	StackSetOperationType              pulumi.StringPtrInput   `pulumi:"stackSetOperationType"`
-	StackSetRegions                    pulumi.StringArrayInput `pulumi:"stackSetRegions"`
+	StackSetAccounts                   pulumi.StringArrayInput                                                              `pulumi:"stackSetAccounts"`
+	StackSetFailureToleranceCount      pulumi.IntPtrInput                                                                   `pulumi:"stackSetFailureToleranceCount"`
+	StackSetFailureTolerancePercentage pulumi.IntPtrInput                                                                   `pulumi:"stackSetFailureTolerancePercentage"`
+	StackSetMaxConcurrencyCount        pulumi.IntPtrInput                                                                   `pulumi:"stackSetMaxConcurrencyCount"`
+	StackSetMaxConcurrencyPercentage   pulumi.IntPtrInput                                                                   `pulumi:"stackSetMaxConcurrencyPercentage"`
+	StackSetOperationType              CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrInput `pulumi:"stackSetOperationType"`
+	StackSetRegions                    pulumi.StringArrayInput                                                              `pulumi:"stackSetRegions"`
 }
 
 func (CloudFormationProvisionedProductProvisioningPreferencesArgs) ElementType() reflect.Type {
@@ -246,10 +246,10 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetM
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *string {
+func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetOperationType() CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput {
+	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType {
 		return v.StackSetOperationType
-	}).(pulumi.StringPtrOutput)
+	}).(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput)
 }
 
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetRegions() pulumi.StringArrayOutput {
@@ -325,13 +325,13 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *string {
+func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetOperationType() CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput {
+	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType {
 		if v == nil {
 			return nil
 		}
 		return v.StackSetOperationType
-	}).(pulumi.StringPtrOutput)
+	}).(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput)
 }
 
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetRegions() pulumi.StringArrayOutput {

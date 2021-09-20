@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// ResolverQueryLogConfigAssociationError
         /// </summary>
         [Output("error")]
-        public Output<string> Error { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.ResolverQueryLoggingConfigAssociationError> Error { get; private set; } = null!;
 
         /// <summary>
         /// ResolverQueryLogConfigAssociationErrorMessage
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// ResolverQueryLogConfigAssociationStatus
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.ResolverQueryLoggingConfigAssociationStatus> Status { get; private set; } = null!;
 
 
         /// <summary>

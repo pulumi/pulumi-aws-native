@@ -12,6 +12,9 @@ export * from "./label";
 export * from "./outcome";
 export * from "./variable";
 
+// Export enums:
+export * from "../types/enums/frauddetector";
+
 // Import resources to register:
 import { Detector } from "./detector";
 import { EntityType } from "./entityType";

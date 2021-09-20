@@ -7,13 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['UserArgs', 'User']
 
 @pulumi.input_type
 class UserArgs:
     def __init__(__self__, *,
-                 engine: pulumi.Input[str],
+                 engine: pulumi.Input['UserEngine'],
                  user_id: pulumi.Input[str],
                  user_name: pulumi.Input[str],
                  access_string: Optional[pulumi.Input[str]] = None,
@@ -21,7 +22,7 @@ class UserArgs:
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input['UserEngine'] engine: Must be redis.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
@@ -40,14 +41,14 @@ class UserArgs:
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Input[str]:
+    def engine(self) -> pulumi.Input['UserEngine']:
         """
         Must be redis.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: pulumi.Input[str]):
+    def engine(self, value: pulumi.Input['UserEngine']):
         pulumi.set(self, "engine", value)
 
     @property
@@ -117,7 +118,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
@@ -129,7 +130,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
-        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input['UserEngine'] engine: Must be redis.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         :param pulumi.Input[str] user_id: The ID of the user.
@@ -160,7 +161,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
@@ -241,7 +242,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def engine(self) -> pulumi.Output[str]:
+    def engine(self) -> pulumi.Output['UserEngine']:
         """
         Must be redis.
         """

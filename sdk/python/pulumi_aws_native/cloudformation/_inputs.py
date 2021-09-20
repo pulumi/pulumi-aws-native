@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ResourceVersionLoggingConfigArgs',
@@ -144,7 +145,7 @@ class StackSetOperationPreferencesArgs:
                  failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
                  max_concurrent_count: Optional[pulumi.Input[int]] = None,
                  max_concurrent_percentage: Optional[pulumi.Input[int]] = None,
-                 region_concurrency_type: Optional[pulumi.Input[str]] = None,
+                 region_concurrency_type: Optional[pulumi.Input['StackSetRegionConcurrencyType']] = None,
                  region_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The user-specified preferences for how AWS CloudFormation performs a stack set operation.
@@ -200,11 +201,11 @@ class StackSetOperationPreferencesArgs:
 
     @property
     @pulumi.getter(name="regionConcurrencyType")
-    def region_concurrency_type(self) -> Optional[pulumi.Input[str]]:
+    def region_concurrency_type(self) -> Optional[pulumi.Input['StackSetRegionConcurrencyType']]:
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
-    def region_concurrency_type(self, value: Optional[pulumi.Input[str]]):
+    def region_concurrency_type(self, value: Optional[pulumi.Input['StackSetRegionConcurrencyType']]):
         pulumi.set(self, "region_concurrency_type", value)
 
     @property

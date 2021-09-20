@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         /// The time when the event variable was created.
         /// </summary>
         public readonly string? CreatedTime;
-        public readonly string? DataSource;
-        public readonly string? DataType;
+        public readonly Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataSource? DataSource;
+        public readonly Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataType? DataType;
         public readonly string? DefaultValue;
         /// <summary>
         /// The description.
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         /// Tags associated with this event variable.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorTag> Tags;
-        public readonly string? VariableType;
+        public readonly Pulumi.AwsNative.FraudDetector.DetectorEventVariableVariableType? VariableType;
 
         [OutputConstructor]
         private DetectorEventVariable(
@@ -43,9 +43,9 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
 
             string? createdTime,
 
-            string? dataSource,
+            Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataSource? dataSource,
 
-            string? dataType,
+            Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataType? dataType,
 
             string? defaultValue,
 
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
 
             ImmutableArray<Outputs.DetectorTag> tags,
 
-            string? variableType)
+            Pulumi.AwsNative.FraudDetector.DetectorEventVariableVariableType? variableType)
         {
             Arn = arn;
             CreatedTime = createdTime;

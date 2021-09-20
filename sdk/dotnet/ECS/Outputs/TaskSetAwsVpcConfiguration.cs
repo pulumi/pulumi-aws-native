@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
         /// <summary>
         /// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
         /// </summary>
-        public readonly string? AssignPublicIp;
+        public readonly Pulumi.AwsNative.ECS.TaskSetAwsVpcConfigurationAssignPublicIp? AssignPublicIp;
         /// <summary>
         /// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskSetAwsVpcConfiguration(
-            string? assignPublicIp,
+            Pulumi.AwsNative.ECS.TaskSetAwsVpcConfigurationAssignPublicIp? assignPublicIp,
 
             ImmutableArray<string> securityGroups,
 

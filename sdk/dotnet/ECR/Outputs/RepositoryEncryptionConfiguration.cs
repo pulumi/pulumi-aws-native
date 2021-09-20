@@ -20,12 +20,12 @@ namespace Pulumi.AwsNative.ECR.Outputs
     [OutputType]
     public sealed class RepositoryEncryptionConfiguration
     {
-        public readonly string EncryptionType;
+        public readonly Pulumi.AwsNative.ECR.RepositoryEncryptionType EncryptionType;
         public readonly string? KmsKey;
 
         [OutputConstructor]
         private RepositoryEncryptionConfiguration(
-            string encryptionType,
+            Pulumi.AwsNative.ECR.RepositoryEncryptionType encryptionType,
 
             string? kmsKey)
         {

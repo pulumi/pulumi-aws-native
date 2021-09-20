@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ProjectArgs', 'Project']
@@ -208,7 +209,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectStatus")
-    def project_status(self) -> pulumi.Output[str]:
+    def project_status(self) -> pulumi.Output['ProjectProjectStatus']:
         """
         The status of a project.
         """

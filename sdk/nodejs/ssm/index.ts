@@ -9,6 +9,9 @@ export * from "./association";
 export * from "./document";
 export * from "./resourceDataSync";
 
+// Export enums:
+export * from "../types/enums/ssm";
+
 // Import resources to register:
 import { Association } from "./association";
 import { Document } from "./document";

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public Input<Inputs.ConfigFrequencyArgs>? CenterFrequency { get; set; }
 
         [Input("polarization")]
-        public Input<string>? Polarization { get; set; }
+        public Input<Pulumi.AwsNative.GroundStation.ConfigPolarization>? Polarization { get; set; }
 
         public ConfigSpectrumConfigArgs()
         {

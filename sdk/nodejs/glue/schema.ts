@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -43,11 +43,11 @@ export class Schema extends pulumi.CustomResource {
     /**
      * Compatibility setting for the schema.
      */
-    public readonly compatibility!: pulumi.Output<string>;
+    public readonly compatibility!: pulumi.Output<enums.glue.SchemaCompatibility>;
     /**
      * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
      */
-    public readonly dataFormat!: pulumi.Output<string>;
+    public readonly dataFormat!: pulumi.Output<enums.glue.SchemaDataFormat>;
     /**
      * A description of the schema. If description is not provided, there will not be any default value for this.
      */
@@ -130,11 +130,11 @@ export interface SchemaArgs {
     /**
      * Compatibility setting for the schema.
      */
-    compatibility: pulumi.Input<string>;
+    compatibility: pulumi.Input<enums.glue.SchemaCompatibility>;
     /**
      * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
      */
-    dataFormat: pulumi.Input<string>;
+    dataFormat: pulumi.Input<enums.glue.SchemaDataFormat>;
     /**
      * A description of the schema. If description is not provided, there will not be any default value for this.
      */

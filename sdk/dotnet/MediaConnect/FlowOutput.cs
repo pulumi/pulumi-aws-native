@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The protocol that is used by the source or output.
         /// </summary>
         [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MediaConnect.FlowOutputProtocol> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// The remote ID for the Zixi-pull stream.
@@ -202,7 +202,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The protocol that is used by the source or output.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The remote ID for the Zixi-pull stream.

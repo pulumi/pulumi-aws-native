@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FlowOutputArgs', 'FlowOutput']
@@ -16,7 +17,7 @@ __all__ = ['FlowOutputArgs', 'FlowOutput']
 class FlowOutputArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[str],
-                 protocol: pulumi.Input[str],
+                 protocol: pulumi.Input['FlowOutputProtocol'],
                  cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
@@ -31,7 +32,7 @@ class FlowOutputArgs:
         """
         The set of arguments for constructing a FlowOutput resource.
         :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-        :param pulumi.Input[str] protocol: The protocol that is used by the source or output.
+        :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[str] description: A description of the output.
         :param pulumi.Input[str] destination: The address where you want to send the output.
@@ -83,14 +84,14 @@ class FlowOutputArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input['FlowOutputProtocol']:
         """
         The protocol that is used by the source or output.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input['FlowOutputProtocol']):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -239,7 +240,7 @@ class FlowOutput(pulumi.CustomResource):
                  max_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
                  remote_id: Optional[pulumi.Input[str]] = None,
                  smoothing_latency: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
@@ -258,7 +259,7 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
         :param pulumi.Input[int] port: The port to use when content is distributed to this output.
-        :param pulumi.Input[str] protocol: The protocol that is used by the source or output.
+        :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[str] remote_id: The remote ID for the Zixi-pull stream.
         :param pulumi.Input[int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -296,7 +297,7 @@ class FlowOutput(pulumi.CustomResource):
                  max_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
                  remote_id: Optional[pulumi.Input[str]] = None,
                  smoothing_latency: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
@@ -443,7 +444,7 @@ class FlowOutput(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[str]:
+    def protocol(self) -> pulumi.Output['FlowOutputProtocol']:
         """
         The protocol that is used by the source or output.
         """

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +38,7 @@ export class PrefixList extends pulumi.CustomResource {
     /**
      * Ip Version of Prefix List.
      */
-    public readonly addressFamily!: pulumi.Output<string>;
+    public readonly addressFamily!: pulumi.Output<enums.ec2.PrefixListAddressFamily>;
     /**
      * The Amazon Resource Name (ARN) of the Prefix List.
      */
@@ -126,7 +126,7 @@ export interface PrefixListArgs {
     /**
      * Ip Version of Prefix List.
      */
-    addressFamily: pulumi.Input<string>;
+    addressFamily: pulumi.Input<enums.ec2.PrefixListAddressFamily>;
     /**
      * Entries of Prefix List.
      */

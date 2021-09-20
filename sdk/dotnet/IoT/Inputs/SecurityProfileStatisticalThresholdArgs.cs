@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// The percentile which resolves to a threshold value by which compliance with a behavior is determined
         /// </summary>
         [Input("statistic")]
-        public Input<string>? Statistic { get; set; }
+        public Input<Pulumi.AwsNative.IoT.SecurityProfileStatisticalThresholdStatistic>? Statistic { get; set; }
 
         public SecurityProfileStatisticalThresholdArgs()
         {

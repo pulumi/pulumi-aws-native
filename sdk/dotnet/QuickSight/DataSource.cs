@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<Outputs.DataSourceSslProperties?> SslProperties { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.DataSourceResourceStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.DataSourceTag>> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.DataSourceDataSourceType?> Type { get; private set; } = null!;
 
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSourceDataSourceType>? Type { get; set; }
 
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }

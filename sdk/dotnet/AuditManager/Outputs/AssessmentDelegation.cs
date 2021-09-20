@@ -25,8 +25,8 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
         public readonly string? Id;
         public readonly double? LastUpdated;
         public readonly string? RoleArn;
-        public readonly string? RoleType;
-        public readonly string? Status;
+        public readonly Pulumi.AwsNative.AuditManager.AssessmentRoleType? RoleType;
+        public readonly Pulumi.AwsNative.AuditManager.AssessmentDelegationStatus? Status;
 
         [OutputConstructor]
         private AssessmentDelegation(
@@ -48,9 +48,9 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
 
             string? roleArn,
 
-            string? roleType,
+            Pulumi.AwsNative.AuditManager.AssessmentRoleType? roleType,
 
-            string? status)
+            Pulumi.AwsNative.AuditManager.AssessmentDelegationStatus? status)
         {
             AssessmentId = assessmentId;
             AssessmentName = assessmentName;

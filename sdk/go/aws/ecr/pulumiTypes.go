@@ -363,8 +363,8 @@ func (o ReplicationConfigurationReplicationRuleArrayOutput) Index(i pulumi.IntIn
 //
 // For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 type RepositoryEncryptionConfiguration struct {
-	EncryptionType string  `pulumi:"encryptionType"`
-	KmsKey         *string `pulumi:"kmsKey"`
+	EncryptionType RepositoryEncryptionType `pulumi:"encryptionType"`
+	KmsKey         *string                  `pulumi:"kmsKey"`
 }
 
 // RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
@@ -384,8 +384,8 @@ type RepositoryEncryptionConfigurationInput interface {
 //
 // For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 type RepositoryEncryptionConfigurationArgs struct {
-	EncryptionType pulumi.StringInput    `pulumi:"encryptionType"`
-	KmsKey         pulumi.StringPtrInput `pulumi:"kmsKey"`
+	EncryptionType RepositoryEncryptionTypeInput `pulumi:"encryptionType"`
+	KmsKey         pulumi.StringPtrInput         `pulumi:"kmsKey"`
 }
 
 func (RepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -470,8 +470,8 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 	}).(RepositoryEncryptionConfigurationPtrOutput)
 }
 
-func (o RepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
+func (o RepositoryEncryptionConfigurationOutput) EncryptionType() RepositoryEncryptionTypeOutput {
+	return o.ApplyT(func(v RepositoryEncryptionConfiguration) RepositoryEncryptionType { return v.EncryptionType }).(RepositoryEncryptionTypeOutput)
 }
 
 func (o RepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
@@ -502,13 +502,13 @@ func (o RepositoryEncryptionConfigurationPtrOutput) Elem() RepositoryEncryptionC
 	}).(RepositoryEncryptionConfigurationOutput)
 }
 
-func (o RepositoryEncryptionConfigurationPtrOutput) EncryptionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *string {
+func (o RepositoryEncryptionConfigurationPtrOutput) EncryptionType() RepositoryEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *RepositoryEncryptionType {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionType
-	}).(pulumi.StringPtrOutput)
+	}).(RepositoryEncryptionTypePtrOutput)
 }
 
 func (o RepositoryEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {

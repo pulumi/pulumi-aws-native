@@ -13,13 +13,13 @@ import (
 // Information about the encryption of the flow.
 type FlowEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm string `pulumi:"algorithm"`
+	Algorithm FlowEncryptionAlgorithm `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	DeviceId *string `pulumi:"deviceId"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType *string `pulumi:"keyType"`
+	KeyType *FlowEncryptionKeyType `pulumi:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Region *string `pulumi:"region"`
 	// An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -46,13 +46,13 @@ type FlowEncryptionInput interface {
 // Information about the encryption of the flow.
 type FlowEncryptionArgs struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	Algorithm FlowEncryptionAlgorithmInput `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
+	KeyType FlowEncryptionKeyTypePtrInput `pulumi:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -144,8 +144,8 @@ func (o FlowEncryptionOutput) ToFlowEncryptionPtrOutputWithContext(ctx context.C
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowEncryptionOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowEncryption) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o FlowEncryptionOutput) Algorithm() FlowEncryptionAlgorithmOutput {
+	return o.ApplyT(func(v FlowEncryption) FlowEncryptionAlgorithm { return v.Algorithm }).(FlowEncryptionAlgorithmOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -159,8 +159,8 @@ func (o FlowEncryptionOutput) DeviceId() pulumi.StringPtrOutput {
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowEncryptionOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowEncryption) *string { return v.KeyType }).(pulumi.StringPtrOutput)
+func (o FlowEncryptionOutput) KeyType() FlowEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v FlowEncryption) *FlowEncryptionKeyType { return v.KeyType }).(FlowEncryptionKeyTypePtrOutput)
 }
 
 // The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -213,13 +213,13 @@ func (o FlowEncryptionPtrOutput) Elem() FlowEncryptionOutput {
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowEncryptionPtrOutput) Algorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowEncryption) *string {
+func (o FlowEncryptionPtrOutput) Algorithm() FlowEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *FlowEncryption) *FlowEncryptionAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.Algorithm
-	}).(pulumi.StringPtrOutput)
+	}).(FlowEncryptionAlgorithmPtrOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -243,13 +243,13 @@ func (o FlowEncryptionPtrOutput) DeviceId() pulumi.StringPtrOutput {
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowEncryptionPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowEncryption) *string {
+func (o FlowEncryptionPtrOutput) KeyType() FlowEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v *FlowEncryption) *FlowEncryptionKeyType {
 		if v == nil {
 			return nil
 		}
 		return v.KeyType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowEncryptionKeyTypePtrOutput)
 }
 
 // The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -305,13 +305,13 @@ func (o FlowEncryptionPtrOutput) Url() pulumi.StringPtrOutput {
 // Information about the encryption of the flow.
 type FlowEntitlementEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm string `pulumi:"algorithm"`
+	Algorithm FlowEntitlementEncryptionAlgorithm `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	DeviceId *string `pulumi:"deviceId"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType *string `pulumi:"keyType"`
+	KeyType *FlowEntitlementEncryptionKeyType `pulumi:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Region *string `pulumi:"region"`
 	// An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -338,13 +338,13 @@ type FlowEntitlementEncryptionInput interface {
 // Information about the encryption of the flow.
 type FlowEntitlementEncryptionArgs struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	Algorithm FlowEntitlementEncryptionAlgorithmInput `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
+	KeyType FlowEntitlementEncryptionKeyTypePtrInput `pulumi:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -436,8 +436,8 @@ func (o FlowEntitlementEncryptionOutput) ToFlowEntitlementEncryptionPtrOutputWit
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowEntitlementEncryptionOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowEntitlementEncryption) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o FlowEntitlementEncryptionOutput) Algorithm() FlowEntitlementEncryptionAlgorithmOutput {
+	return o.ApplyT(func(v FlowEntitlementEncryption) FlowEntitlementEncryptionAlgorithm { return v.Algorithm }).(FlowEntitlementEncryptionAlgorithmOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -451,8 +451,8 @@ func (o FlowEntitlementEncryptionOutput) DeviceId() pulumi.StringPtrOutput {
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowEntitlementEncryptionOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowEntitlementEncryption) *string { return v.KeyType }).(pulumi.StringPtrOutput)
+func (o FlowEntitlementEncryptionOutput) KeyType() FlowEntitlementEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v FlowEntitlementEncryption) *FlowEntitlementEncryptionKeyType { return v.KeyType }).(FlowEntitlementEncryptionKeyTypePtrOutput)
 }
 
 // The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -505,13 +505,13 @@ func (o FlowEntitlementEncryptionPtrOutput) Elem() FlowEntitlementEncryptionOutp
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowEntitlementEncryptionPtrOutput) Algorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowEntitlementEncryption) *string {
+func (o FlowEntitlementEncryptionPtrOutput) Algorithm() FlowEntitlementEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *FlowEntitlementEncryption) *FlowEntitlementEncryptionAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.Algorithm
-	}).(pulumi.StringPtrOutput)
+	}).(FlowEntitlementEncryptionAlgorithmPtrOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -535,13 +535,13 @@ func (o FlowEntitlementEncryptionPtrOutput) DeviceId() pulumi.StringPtrOutput {
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowEntitlementEncryptionPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowEntitlementEncryption) *string {
+func (o FlowEntitlementEncryptionPtrOutput) KeyType() FlowEntitlementEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v *FlowEntitlementEncryption) *FlowEntitlementEncryptionKeyType {
 		if v == nil {
 			return nil
 		}
 		return v.KeyType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowEntitlementEncryptionKeyTypePtrOutput)
 }
 
 // The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -597,8 +597,8 @@ func (o FlowEntitlementEncryptionPtrOutput) Url() pulumi.StringPtrOutput {
 // The settings for source failover
 type FlowFailoverConfig struct {
 	// Search window time to look for dash-7 packets
-	RecoveryWindow *int    `pulumi:"recoveryWindow"`
-	State          *string `pulumi:"state"`
+	RecoveryWindow *int                     `pulumi:"recoveryWindow"`
+	State          *FlowFailoverConfigState `pulumi:"state"`
 }
 
 // FlowFailoverConfigInput is an input type that accepts FlowFailoverConfigArgs and FlowFailoverConfigOutput values.
@@ -615,8 +615,8 @@ type FlowFailoverConfigInput interface {
 // The settings for source failover
 type FlowFailoverConfigArgs struct {
 	// Search window time to look for dash-7 packets
-	RecoveryWindow pulumi.IntPtrInput    `pulumi:"recoveryWindow"`
-	State          pulumi.StringPtrInput `pulumi:"state"`
+	RecoveryWindow pulumi.IntPtrInput              `pulumi:"recoveryWindow"`
+	State          FlowFailoverConfigStatePtrInput `pulumi:"state"`
 }
 
 func (FlowFailoverConfigArgs) ElementType() reflect.Type {
@@ -702,8 +702,8 @@ func (o FlowFailoverConfigOutput) RecoveryWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowFailoverConfig) *int { return v.RecoveryWindow }).(pulumi.IntPtrOutput)
 }
 
-func (o FlowFailoverConfigOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowFailoverConfig) *string { return v.State }).(pulumi.StringPtrOutput)
+func (o FlowFailoverConfigOutput) State() FlowFailoverConfigStatePtrOutput {
+	return o.ApplyT(func(v FlowFailoverConfig) *FlowFailoverConfigState { return v.State }).(FlowFailoverConfigStatePtrOutput)
 }
 
 type FlowFailoverConfigPtrOutput struct{ *pulumi.OutputState }
@@ -740,21 +740,21 @@ func (o FlowFailoverConfigPtrOutput) RecoveryWindow() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o FlowFailoverConfigPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowFailoverConfig) *string {
+func (o FlowFailoverConfigPtrOutput) State() FlowFailoverConfigStatePtrOutput {
+	return o.ApplyT(func(v *FlowFailoverConfig) *FlowFailoverConfigState {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(pulumi.StringPtrOutput)
+	}).(FlowFailoverConfigStatePtrOutput)
 }
 
 // Information about the encryption of the flow.
 type FlowOutputEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm string `pulumi:"algorithm"`
+	Algorithm FlowOutputEncryptionAlgorithm `pulumi:"algorithm"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType *string `pulumi:"keyType"`
+	KeyType *FlowOutputEncryptionKeyType `pulumi:"keyType"`
 	// The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
 	RoleArn string `pulumi:"roleArn"`
 	//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
@@ -775,9 +775,9 @@ type FlowOutputEncryptionInput interface {
 // Information about the encryption of the flow.
 type FlowOutputEncryptionArgs struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	Algorithm FlowOutputEncryptionAlgorithmInput `pulumi:"algorithm"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
+	KeyType FlowOutputEncryptionKeyTypePtrInput `pulumi:"keyType"`
 	// The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	//  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
@@ -863,13 +863,13 @@ func (o FlowOutputEncryptionOutput) ToFlowOutputEncryptionPtrOutputWithContext(c
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowOutputEncryptionOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowOutputEncryption) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o FlowOutputEncryptionOutput) Algorithm() FlowOutputEncryptionAlgorithmOutput {
+	return o.ApplyT(func(v FlowOutputEncryption) FlowOutputEncryptionAlgorithm { return v.Algorithm }).(FlowOutputEncryptionAlgorithmOutput)
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowOutputEncryptionOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowOutputEncryption) *string { return v.KeyType }).(pulumi.StringPtrOutput)
+func (o FlowOutputEncryptionOutput) KeyType() FlowOutputEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v FlowOutputEncryption) *FlowOutputEncryptionKeyType { return v.KeyType }).(FlowOutputEncryptionKeyTypePtrOutput)
 }
 
 // The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
@@ -907,23 +907,23 @@ func (o FlowOutputEncryptionPtrOutput) Elem() FlowOutputEncryptionOutput {
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowOutputEncryptionPtrOutput) Algorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowOutputEncryption) *string {
+func (o FlowOutputEncryptionPtrOutput) Algorithm() FlowOutputEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *FlowOutputEncryption) *FlowOutputEncryptionAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.Algorithm
-	}).(pulumi.StringPtrOutput)
+	}).(FlowOutputEncryptionAlgorithmPtrOutput)
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowOutputEncryptionPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowOutputEncryption) *string {
+func (o FlowOutputEncryptionPtrOutput) KeyType() FlowOutputEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v *FlowOutputEncryption) *FlowOutputEncryptionKeyType {
 		if v == nil {
 			return nil
 		}
 		return v.KeyType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowOutputEncryptionKeyTypePtrOutput)
 }
 
 // The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
@@ -1105,7 +1105,7 @@ type FlowSourceType struct {
 	// The name of the source.
 	Name *string `pulumi:"name"`
 	// The protocol that is used by the source or output.
-	Protocol *string `pulumi:"protocol"`
+	Protocol *FlowSourceProtocol `pulumi:"protocol"`
 	// The ARN of the source.
 	SourceArn *string `pulumi:"sourceArn"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -1146,7 +1146,7 @@ type FlowSourceTypeArgs struct {
 	// The name of the source.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The protocol that is used by the source or output.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	Protocol FlowSourceProtocolPtrInput `pulumi:"protocol"`
 	// The ARN of the source.
 	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -1276,8 +1276,8 @@ func (o FlowSourceTypeOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The protocol that is used by the source or output.
-func (o FlowSourceTypeOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowSourceType) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+func (o FlowSourceTypeOutput) Protocol() FlowSourceProtocolPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *FlowSourceProtocol { return v.Protocol }).(FlowSourceProtocolPtrOutput)
 }
 
 // The ARN of the source.
@@ -1405,13 +1405,13 @@ func (o FlowSourceTypePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The protocol that is used by the source or output.
-func (o FlowSourceTypePtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSourceType) *string {
+func (o FlowSourceTypePtrOutput) Protocol() FlowSourceProtocolPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *FlowSourceProtocol {
 		if v == nil {
 			return nil
 		}
 		return v.Protocol
-	}).(pulumi.StringPtrOutput)
+	}).(FlowSourceProtocolPtrOutput)
 }
 
 // The ARN of the source.
@@ -1457,13 +1457,13 @@ func (o FlowSourceTypePtrOutput) WhitelistCidr() pulumi.StringPtrOutput {
 // Information about the encryption of the flow.
 type FlowSourceEncryption struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm string `pulumi:"algorithm"`
+	Algorithm FlowSourceEncryptionAlgorithm `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	DeviceId *string `pulumi:"deviceId"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType *string `pulumi:"keyType"`
+	KeyType *FlowSourceEncryptionKeyType `pulumi:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Region *string `pulumi:"region"`
 	// An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -1490,13 +1490,13 @@ type FlowSourceEncryptionInput interface {
 // Information about the encryption of the flow.
 type FlowSourceEncryptionArgs struct {
 	// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	Algorithm FlowSourceEncryptionAlgorithmInput `pulumi:"algorithm"`
 	// A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	DeviceId pulumi.StringPtrInput `pulumi:"deviceId"`
 	// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
+	KeyType FlowSourceEncryptionKeyTypePtrInput `pulumi:"keyType"`
 	// The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -1588,8 +1588,8 @@ func (o FlowSourceEncryptionOutput) ToFlowSourceEncryptionPtrOutputWithContext(c
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowSourceEncryptionOutput) Algorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowSourceEncryption) string { return v.Algorithm }).(pulumi.StringOutput)
+func (o FlowSourceEncryptionOutput) Algorithm() FlowSourceEncryptionAlgorithmOutput {
+	return o.ApplyT(func(v FlowSourceEncryption) FlowSourceEncryptionAlgorithm { return v.Algorithm }).(FlowSourceEncryptionAlgorithmOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1603,8 +1603,8 @@ func (o FlowSourceEncryptionOutput) DeviceId() pulumi.StringPtrOutput {
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowSourceEncryptionOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowSourceEncryption) *string { return v.KeyType }).(pulumi.StringPtrOutput)
+func (o FlowSourceEncryptionOutput) KeyType() FlowSourceEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v FlowSourceEncryption) *FlowSourceEncryptionKeyType { return v.KeyType }).(FlowSourceEncryptionKeyTypePtrOutput)
 }
 
 // The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
@@ -1657,13 +1657,13 @@ func (o FlowSourceEncryptionPtrOutput) Elem() FlowSourceEncryptionOutput {
 }
 
 // The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-func (o FlowSourceEncryptionPtrOutput) Algorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSourceEncryption) *string {
+func (o FlowSourceEncryptionPtrOutput) Algorithm() FlowSourceEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *FlowSourceEncryption) *FlowSourceEncryptionAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.Algorithm
-	}).(pulumi.StringPtrOutput)
+	}).(FlowSourceEncryptionAlgorithmPtrOutput)
 }
 
 // A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
@@ -1687,13 +1687,13 @@ func (o FlowSourceEncryptionPtrOutput) DeviceId() pulumi.StringPtrOutput {
 }
 
 // The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-func (o FlowSourceEncryptionPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSourceEncryption) *string {
+func (o FlowSourceEncryptionPtrOutput) KeyType() FlowSourceEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v *FlowSourceEncryption) *FlowSourceEncryptionKeyType {
 		if v == nil {
 			return nil
 		}
 		return v.KeyType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowSourceEncryptionKeyTypePtrOutput)
 }
 
 // The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.

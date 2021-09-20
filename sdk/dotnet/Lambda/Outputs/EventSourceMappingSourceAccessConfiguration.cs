@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// <summary>
         /// The type of source access configuration.
         /// </summary>
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.Lambda.EventSourceMappingSourceAccessConfigurationType? Type;
         /// <summary>
         /// The URI for the source access configuration resource.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 
         [OutputConstructor]
         private EventSourceMappingSourceAccessConfiguration(
-            string? type,
+            Pulumi.AwsNative.Lambda.EventSourceMappingSourceAccessConfigurationType? type,
 
             string? uRI)
         {

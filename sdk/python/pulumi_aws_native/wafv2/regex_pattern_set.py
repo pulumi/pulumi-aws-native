@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
@@ -16,13 +17,13 @@ __all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
 class RegexPatternSetArgs:
     def __init__(__self__, *,
                  regular_expression_list: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 scope: pulumi.Input[str],
+                 scope: pulumi.Input['RegexPatternSetScope'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a RegexPatternSet resource.
-        :param pulumi.Input[str] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
+        :param pulumi.Input['RegexPatternSetScope'] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         :param pulumi.Input[str] description: Description of the entity.
         :param pulumi.Input[str] name: Name of the RegexPatternSet.
         """
@@ -46,14 +47,14 @@ class RegexPatternSetArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Input[str]:
+    def scope(self) -> pulumi.Input['RegexPatternSetScope']:
         """
         Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input[str]):
+    def scope(self, value: pulumi.Input['RegexPatternSetScope']):
         pulumi.set(self, "scope", value)
 
     @property
@@ -98,7 +99,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regular_expression_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['RegexPatternSetScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -108,7 +109,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the entity.
         :param pulumi.Input[str] name: Name of the RegexPatternSet.
-        :param pulumi.Input[str] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
+        :param pulumi.Input['RegexPatternSetScope'] scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         """
         ...
     @overload
@@ -137,7 +138,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  regular_expression_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['RegexPatternSetScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -222,7 +223,7 @@ class RegexPatternSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[str]:
+    def scope(self) -> pulumi.Output['RegexPatternSetScope']:
         """
         Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
         """

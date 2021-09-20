@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// The type of encoding of the logs to be monitored.
         /// </summary>
         [Input("encoding")]
-        public Input<string>? Encoding { get; set; }
+        public Input<Pulumi.AwsNative.ApplicationInsights.ApplicationLogEncoding>? Encoding { get; set; }
 
         /// <summary>
         /// The CloudWatch log group name to be associated to the monitored log.

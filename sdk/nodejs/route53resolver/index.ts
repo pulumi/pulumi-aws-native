@@ -12,6 +12,9 @@ export * from "./resolverDNSSECConfig";
 export * from "./resolverQueryLoggingConfig";
 export * from "./resolverQueryLoggingConfigAssociation";
 
+// Export enums:
+export * from "../types/enums/route53resolver";
+
 // Import resources to register:
 import { FirewallDomainList } from "./firewallDomainList";
 import { FirewallRuleGroup } from "./firewallRuleGroup";

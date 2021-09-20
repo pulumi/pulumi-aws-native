@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.IndexSearchArgs>? Search { get; set; }
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.IndexDocumentAttributeValueType> Type { get; set; } = null!;
 
         public IndexDocumentMetadataConfigurationArgs()
         {

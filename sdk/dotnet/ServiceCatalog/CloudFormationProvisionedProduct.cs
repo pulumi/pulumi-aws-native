@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     public partial class CloudFormationProvisionedProduct : Pulumi.CustomResource
     {
         [Output("acceptLanguage")]
-        public Output<string?> AcceptLanguage { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductAcceptLanguage?> AcceptLanguage { get; private set; } = null!;
 
         [Output("cloudformationStackArn")]
         public Output<string> CloudformationStackArn { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     public sealed class CloudFormationProvisionedProductArgs : Pulumi.ResourceArgs
     {
         [Input("acceptLanguage")]
-        public Input<string>? AcceptLanguage { get; set; }
+        public Input<Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductAcceptLanguage>? AcceptLanguage { get; set; }
 
         [Input("notificationArns")]
         private InputList<string>? _notificationArns;

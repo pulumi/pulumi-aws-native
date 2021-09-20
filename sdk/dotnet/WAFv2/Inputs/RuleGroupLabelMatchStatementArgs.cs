@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<string> Key { get; set; } = null!;
 
         [Input("scope", required: true)]
-        public Input<string> Scope { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.RuleGroupLabelMatchScope> Scope { get; set; } = null!;
 
         public RuleGroupLabelMatchStatementArgs()
         {

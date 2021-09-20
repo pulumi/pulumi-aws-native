@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['AssignmentArgs', 'Assignment']
 
@@ -16,17 +17,17 @@ class AssignmentArgs:
                  instance_arn: pulumi.Input[str],
                  permission_set_arn: pulumi.Input[str],
                  principal_id: pulumi.Input[str],
-                 principal_type: pulumi.Input[str],
+                 principal_type: pulumi.Input['AssignmentPrincipalType'],
                  target_id: pulumi.Input[str],
-                 target_type: pulumi.Input[str]):
+                 target_type: pulumi.Input['AssignmentTargetType']):
         """
         The set of arguments for constructing a Assignment resource.
         :param pulumi.Input[str] instance_arn: The sso instance that the permission set is owned.
         :param pulumi.Input[str] permission_set_arn: The permission set that the assignemt will be assigned
         :param pulumi.Input[str] principal_id: The assignee's identifier, user id/group id
-        :param pulumi.Input[str] principal_type: The assignee's type, user/group
+        :param pulumi.Input['AssignmentPrincipalType'] principal_type: The assignee's type, user/group
         :param pulumi.Input[str] target_id: The account id to be provisioned.
-        :param pulumi.Input[str] target_type: The type of resource to be provsioned to, only aws account now
+        :param pulumi.Input['AssignmentTargetType'] target_type: The type of resource to be provsioned to, only aws account now
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "permission_set_arn", permission_set_arn)
@@ -73,14 +74,14 @@ class AssignmentArgs:
 
     @property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> pulumi.Input[str]:
+    def principal_type(self) -> pulumi.Input['AssignmentPrincipalType']:
         """
         The assignee's type, user/group
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: pulumi.Input[str]):
+    def principal_type(self, value: pulumi.Input['AssignmentPrincipalType']):
         pulumi.set(self, "principal_type", value)
 
     @property
@@ -97,14 +98,14 @@ class AssignmentArgs:
 
     @property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> pulumi.Input[str]:
+    def target_type(self) -> pulumi.Input['AssignmentTargetType']:
         """
         The type of resource to be provsioned to, only aws account now
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: pulumi.Input[str]):
+    def target_type(self, value: pulumi.Input['AssignmentTargetType']):
         pulumi.set(self, "target_type", value)
 
 
@@ -116,9 +117,9 @@ class Assignment(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_type: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input['AssignmentPrincipalType']] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 target_type: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input['AssignmentTargetType']] = None,
                  __props__=None):
         """
         Resource Type definition for SSO assignmet
@@ -128,9 +129,9 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] instance_arn: The sso instance that the permission set is owned.
         :param pulumi.Input[str] permission_set_arn: The permission set that the assignemt will be assigned
         :param pulumi.Input[str] principal_id: The assignee's identifier, user id/group id
-        :param pulumi.Input[str] principal_type: The assignee's type, user/group
+        :param pulumi.Input['AssignmentPrincipalType'] principal_type: The assignee's type, user/group
         :param pulumi.Input[str] target_id: The account id to be provisioned.
-        :param pulumi.Input[str] target_type: The type of resource to be provsioned to, only aws account now
+        :param pulumi.Input['AssignmentTargetType'] target_type: The type of resource to be provsioned to, only aws account now
         """
         ...
     @overload
@@ -159,9 +160,9 @@ class Assignment(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_type: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input['AssignmentPrincipalType']] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
-                 target_type: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input['AssignmentTargetType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -248,7 +249,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> pulumi.Output[str]:
+    def principal_type(self) -> pulumi.Output['AssignmentPrincipalType']:
         """
         The assignee's type, user/group
         """
@@ -264,7 +265,7 @@ class Assignment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> pulumi.Output[str]:
+    def target_type(self) -> pulumi.Output['AssignmentTargetType']:
         """
         The type of resource to be provsioned to, only aws account now
         """

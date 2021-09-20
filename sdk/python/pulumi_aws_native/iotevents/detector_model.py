@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DetectorModelArgs', 'DetectorModel']
@@ -19,7 +20,7 @@ class DetectorModelArgs:
                  role_arn: pulumi.Input[str],
                  detector_model_description: Optional[pulumi.Input[str]] = None,
                  detector_model_name: Optional[pulumi.Input[str]] = None,
-                 evaluation_method: Optional[pulumi.Input[str]] = None,
+                 evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTagArgs']]]] = None):
         """
@@ -27,7 +28,7 @@ class DetectorModelArgs:
         :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT Events to perform its operations.
         :param pulumi.Input[str] detector_model_description: A brief description of the detector model.
         :param pulumi.Input[str] detector_model_name: The name of the detector model.
-        :param pulumi.Input[str] evaluation_method: Information about the order in which events are evaluated and how actions are executed.
+        :param pulumi.Input['DetectorModelEvaluationMethod'] evaluation_method: Information about the order in which events are evaluated and how actions are executed.
         :param pulumi.Input[str] key: The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
                
                This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
@@ -95,14 +96,14 @@ class DetectorModelArgs:
 
     @property
     @pulumi.getter(name="evaluationMethod")
-    def evaluation_method(self) -> Optional[pulumi.Input[str]]:
+    def evaluation_method(self) -> Optional[pulumi.Input['DetectorModelEvaluationMethod']]:
         """
         Information about the order in which events are evaluated and how actions are executed.
         """
         return pulumi.get(self, "evaluation_method")
 
     @evaluation_method.setter
-    def evaluation_method(self, value: Optional[pulumi.Input[str]]):
+    def evaluation_method(self, value: Optional[pulumi.Input['DetectorModelEvaluationMethod']]):
         pulumi.set(self, "evaluation_method", value)
 
     @property
@@ -142,7 +143,7 @@ class DetectorModel(pulumi.CustomResource):
                  detector_model_definition: Optional[pulumi.Input[pulumi.InputType['DetectorModelDetectorModelDefinitionArgs']]] = None,
                  detector_model_description: Optional[pulumi.Input[str]] = None,
                  detector_model_name: Optional[pulumi.Input[str]] = None,
-                 evaluation_method: Optional[pulumi.Input[str]] = None,
+                 evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelTagArgs']]]]] = None,
@@ -154,7 +155,7 @@ class DetectorModel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] detector_model_description: A brief description of the detector model.
         :param pulumi.Input[str] detector_model_name: The name of the detector model.
-        :param pulumi.Input[str] evaluation_method: Information about the order in which events are evaluated and how actions are executed.
+        :param pulumi.Input['DetectorModelEvaluationMethod'] evaluation_method: Information about the order in which events are evaluated and how actions are executed.
         :param pulumi.Input[str] key: The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
                
                This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
@@ -190,7 +191,7 @@ class DetectorModel(pulumi.CustomResource):
                  detector_model_definition: Optional[pulumi.Input[pulumi.InputType['DetectorModelDetectorModelDefinitionArgs']]] = None,
                  detector_model_description: Optional[pulumi.Input[str]] = None,
                  detector_model_name: Optional[pulumi.Input[str]] = None,
-                 evaluation_method: Optional[pulumi.Input[str]] = None,
+                 evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelTagArgs']]]]] = None,
@@ -271,7 +272,7 @@ class DetectorModel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="evaluationMethod")
-    def evaluation_method(self) -> pulumi.Output[Optional[str]]:
+    def evaluation_method(self) -> pulumi.Output[Optional['DetectorModelEvaluationMethod']]:
         """
         Information about the order in which events are evaluated and how actions are executed.
         """

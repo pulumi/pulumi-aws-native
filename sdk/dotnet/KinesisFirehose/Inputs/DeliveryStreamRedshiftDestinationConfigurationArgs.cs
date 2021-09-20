@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3BackupConfiguration { get; set; }
 
         [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }
 
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;

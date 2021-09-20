@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class Branch extends pulumi.CustomResource {
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
     public readonly environmentVariables!: pulumi.Output<outputs.amplify.BranchEnvironmentVariable[] | undefined>;
     public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
-    public readonly stage!: pulumi.Output<string | undefined>;
+    public readonly stage!: pulumi.Output<enums.amplify.BranchStage | undefined>;
     public readonly tags!: pulumi.Output<outputs.amplify.BranchTag[] | undefined>;
 
     /**
@@ -115,6 +115,6 @@ export interface BranchArgs {
     enablePullRequestPreview?: pulumi.Input<boolean>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.BranchEnvironmentVariableArgs>[]>;
     pullRequestEnvironmentName?: pulumi.Input<string>;
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<enums.amplify.BranchStage>;
     tags?: pulumi.Input<pulumi.Input<inputs.amplify.BranchTagArgs>[]>;
 }

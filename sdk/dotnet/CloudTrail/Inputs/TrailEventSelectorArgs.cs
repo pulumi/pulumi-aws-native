@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
         /// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         /// </summary>
         [Input("readWriteType")]
-        public Input<string>? ReadWriteType { get; set; }
+        public Input<Pulumi.AwsNative.CloudTrail.TrailEventSelectorReadWriteType>? ReadWriteType { get; set; }
 
         public TrailEventSelectorArgs()
         {

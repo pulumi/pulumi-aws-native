@@ -13,23 +13,23 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationConnectorOperator
     {
-        public readonly string? Marketo;
-        public readonly string? S3;
-        public readonly string? Salesforce;
-        public readonly string? ServiceNow;
-        public readonly string? Zendesk;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationMarketoConnectorOperator? Marketo;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationS3ConnectorOperator? S3;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationSalesforceConnectorOperator? Salesforce;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationServiceNowConnectorOperator? ServiceNow;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationZendeskConnectorOperator? Zendesk;
 
         [OutputConstructor]
         private IntegrationConnectorOperator(
-            string? marketo,
+            Pulumi.AwsNative.CustomerProfiles.IntegrationMarketoConnectorOperator? marketo,
 
-            string? s3,
+            Pulumi.AwsNative.CustomerProfiles.IntegrationS3ConnectorOperator? s3,
 
-            string? salesforce,
+            Pulumi.AwsNative.CustomerProfiles.IntegrationSalesforceConnectorOperator? salesforce,
 
-            string? serviceNow,
+            Pulumi.AwsNative.CustomerProfiles.IntegrationServiceNowConnectorOperator? serviceNow,
 
-            string? zendesk)
+            Pulumi.AwsNative.CustomerProfiles.IntegrationZendeskConnectorOperator? zendesk)
         {
             Marketo = marketo;
             S3 = s3;

@@ -19,9 +19,9 @@ type Schema struct {
 	Arn               pulumi.StringOutput          `pulumi:"arn"`
 	CheckpointVersion SchemaSchemaVersionPtrOutput `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
-	Compatibility pulumi.StringOutput `pulumi:"compatibility"`
+	Compatibility SchemaCompatibilityOutput `pulumi:"compatibility"`
 	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
-	DataFormat pulumi.StringOutput `pulumi:"dataFormat"`
+	DataFormat SchemaDataFormatOutput `pulumi:"dataFormat"`
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Represents the version ID associated with the initial schema version.
@@ -88,9 +88,9 @@ func (SchemaState) ElementType() reflect.Type {
 type schemaArgs struct {
 	CheckpointVersion *SchemaSchemaVersion `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
-	Compatibility string `pulumi:"compatibility"`
+	Compatibility SchemaCompatibility `pulumi:"compatibility"`
 	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
-	DataFormat string `pulumi:"dataFormat"`
+	DataFormat SchemaDataFormat `pulumi:"dataFormat"`
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description *string `pulumi:"description"`
 	// Name of the schema.
@@ -106,9 +106,9 @@ type schemaArgs struct {
 type SchemaArgs struct {
 	CheckpointVersion SchemaSchemaVersionPtrInput
 	// Compatibility setting for the schema.
-	Compatibility pulumi.StringInput
+	Compatibility SchemaCompatibilityInput
 	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
-	DataFormat pulumi.StringInput
+	DataFormat SchemaDataFormatInput
 	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrInput
 	// Name of the schema.

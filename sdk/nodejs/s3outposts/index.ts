@@ -10,6 +10,9 @@ export * from "./bucket";
 export * from "./bucketPolicy";
 export * from "./endpoint";
 
+// Export enums:
+export * from "../types/enums/s3outposts";
+
 // Import resources to register:
 import { AccessPoint } from "./accessPoint";
 import { Bucket } from "./bucket";

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         /// The type of source access configuration.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.Lambda.EventSourceMappingSourceAccessConfigurationType>? Type { get; set; }
 
         /// <summary>
         /// The URI for the source access configuration resource.

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ComponentVersionComponentPlatformArgs',
@@ -106,7 +107,7 @@ class ComponentVersionLambdaDeviceMountArgs:
     def __init__(__self__, *,
                  add_group_owner: Optional[pulumi.Input[bool]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 permission: Optional[pulumi.Input[str]] = None):
+                 permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None):
         if add_group_owner is not None:
             pulumi.set(__self__, "add_group_owner", add_group_owner)
         if path is not None:
@@ -134,11 +135,11 @@ class ComponentVersionLambdaDeviceMountArgs:
 
     @property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[str]]:
+    def permission(self) -> Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[str]]):
+    def permission(self, value: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]):
         pulumi.set(self, "permission", value)
 
 
@@ -146,7 +147,7 @@ class ComponentVersionLambdaDeviceMountArgs:
 class ComponentVersionLambdaEventSourceArgs:
     def __init__(__self__, *,
                  topic: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']] = None):
         if topic is not None:
             pulumi.set(__self__, "topic", topic)
         if type is not None:
@@ -163,11 +164,11 @@ class ComponentVersionLambdaEventSourceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']]):
         pulumi.set(self, "type", value)
 
 
@@ -177,7 +178,7 @@ class ComponentVersionLambdaExecutionParametersArgs:
                  environment_variables: Optional[Any] = None,
                  event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaEventSourceArgs']]]] = None,
                  exec_args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 input_payload_encoding_type: Optional[pulumi.Input[str]] = None,
+                 input_payload_encoding_type: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']] = None,
                  linux_process_params: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsArgs']] = None,
                  max_idle_time_in_seconds: Optional[pulumi.Input[int]] = None,
                  max_instances_count: Optional[pulumi.Input[int]] = None,
@@ -237,11 +238,11 @@ class ComponentVersionLambdaExecutionParametersArgs:
 
     @property
     @pulumi.getter(name="inputPayloadEncodingType")
-    def input_payload_encoding_type(self) -> Optional[pulumi.Input[str]]:
+    def input_payload_encoding_type(self) -> Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]:
         return pulumi.get(self, "input_payload_encoding_type")
 
     @input_payload_encoding_type.setter
-    def input_payload_encoding_type(self, value: Optional[pulumi.Input[str]]):
+    def input_payload_encoding_type(self, value: Optional[pulumi.Input['ComponentVersionLambdaExecutionParametersInputPayloadEncodingType']]):
         pulumi.set(self, "input_payload_encoding_type", value)
 
     @property
@@ -389,7 +390,7 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
 class ComponentVersionLambdaLinuxProcessParamsArgs:
     def __init__(__self__, *,
                  container_params: Optional[pulumi.Input['ComponentVersionLambdaContainerParamsArgs']] = None,
-                 isolation_mode: Optional[pulumi.Input[str]] = None):
+                 isolation_mode: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']] = None):
         if container_params is not None:
             pulumi.set(__self__, "container_params", container_params)
         if isolation_mode is not None:
@@ -406,11 +407,11 @@ class ComponentVersionLambdaLinuxProcessParamsArgs:
 
     @property
     @pulumi.getter(name="isolationMode")
-    def isolation_mode(self) -> Optional[pulumi.Input[str]]:
+    def isolation_mode(self) -> Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]:
         return pulumi.get(self, "isolation_mode")
 
     @isolation_mode.setter
-    def isolation_mode(self, value: Optional[pulumi.Input[str]]):
+    def isolation_mode(self, value: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']]):
         pulumi.set(self, "isolation_mode", value)
 
 
@@ -419,7 +420,7 @@ class ComponentVersionLambdaVolumeMountArgs:
     def __init__(__self__, *,
                  add_group_owner: Optional[pulumi.Input[bool]] = None,
                  destination_path: Optional[pulumi.Input[str]] = None,
-                 permission: Optional[pulumi.Input[str]] = None,
+                 permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None,
                  source_path: Optional[pulumi.Input[str]] = None):
         if add_group_owner is not None:
             pulumi.set(__self__, "add_group_owner", add_group_owner)
@@ -450,11 +451,11 @@ class ComponentVersionLambdaVolumeMountArgs:
 
     @property
     @pulumi.getter
-    def permission(self) -> Optional[pulumi.Input[str]]:
+    def permission(self) -> Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]:
         return pulumi.get(self, "permission")
 
     @permission.setter
-    def permission(self, value: Optional[pulumi.Input[str]]):
+    def permission(self, value: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']]):
         pulumi.set(self, "permission", value)
 
     @property

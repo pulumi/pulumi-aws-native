@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceConnectionConfigurationArgs> ConnectionConfiguration { get; set; } = null!;
 
         [Input("databaseEngineType", required: true)]
-        public Input<string> DatabaseEngineType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.DataSourceDatabaseEngineType> DatabaseEngineType { get; set; } = null!;
 
         [Input("sqlConfiguration")]
         public Input<Inputs.DataSourceSqlConfigurationArgs>? SqlConfiguration { get; set; }

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'CarrierGatewayTag',
@@ -131,13 +132,13 @@ class EC2FleetCapacityReservationOptionsRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 usage_strategy: Optional[str] = None):
+                 usage_strategy: Optional['EC2FleetCapacityReservationOptionsRequestUsageStrategy'] = None):
         if usage_strategy is not None:
             pulumi.set(__self__, "usage_strategy", usage_strategy)
 
     @property
     @pulumi.getter(name="usageStrategy")
-    def usage_strategy(self) -> Optional[str]:
+    def usage_strategy(self) -> Optional['EC2FleetCapacityReservationOptionsRequestUsageStrategy']:
         return pulumi.get(self, "usage_strategy")
 
 
@@ -521,8 +522,8 @@ class EC2FleetSpotOptionsRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allocation_strategy: Optional[str] = None,
-                 instance_interruption_behavior: Optional[str] = None,
+                 allocation_strategy: Optional['EC2FleetSpotOptionsRequestAllocationStrategy'] = None,
+                 instance_interruption_behavior: Optional['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior'] = None,
                  instance_pools_to_use_count: Optional[int] = None,
                  max_total_price: Optional[str] = None,
                  min_target_capacity: Optional[int] = None,
@@ -545,12 +546,12 @@ class EC2FleetSpotOptionsRequest(dict):
 
     @property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional[str]:
+    def allocation_strategy(self) -> Optional['EC2FleetSpotOptionsRequestAllocationStrategy']:
         return pulumi.get(self, "allocation_strategy")
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional[str]:
+    def instance_interruption_behavior(self) -> Optional['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior']:
         return pulumi.get(self, "instance_interruption_behavior")
 
     @property
@@ -618,7 +619,7 @@ class EC2FleetTagSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_type: Optional[str] = None,
+                 resource_type: Optional['EC2FleetTagSpecificationResourceType'] = None,
                  tags: Optional[Sequence['outputs.EC2FleetTag']] = None):
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -627,7 +628,7 @@ class EC2FleetTagSpecification(dict):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[str]:
+    def resource_type(self) -> Optional['EC2FleetTagSpecificationResourceType']:
         return pulumi.get(self, "resource_type")
 
     @property
@@ -663,7 +664,7 @@ class EC2FleetTargetCapacitySpecificationRequest(dict):
 
     def __init__(__self__, *,
                  total_target_capacity: int,
-                 default_target_capacity_type: Optional[str] = None,
+                 default_target_capacity_type: Optional['EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType'] = None,
                  on_demand_target_capacity: Optional[int] = None,
                  spot_target_capacity: Optional[int] = None):
         pulumi.set(__self__, "total_target_capacity", total_target_capacity)
@@ -681,7 +682,7 @@ class EC2FleetTargetCapacitySpecificationRequest(dict):
 
     @property
     @pulumi.getter(name="defaultTargetCapacityType")
-    def default_target_capacity_type(self) -> Optional[str]:
+    def default_target_capacity_type(self) -> Optional['EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']:
         return pulumi.get(self, "default_target_capacity_type")
 
     @property
@@ -2060,7 +2061,7 @@ class SpotFleetEbsBlockDevice(dict):
                  iops: Optional[int] = None,
                  snapshot_id: Optional[str] = None,
                  volume_size: Optional[int] = None,
-                 volume_type: Optional[str] = None):
+                 volume_type: Optional['SpotFleetEbsBlockDeviceVolumeType'] = None):
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -2101,7 +2102,7 @@ class SpotFleetEbsBlockDevice(dict):
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[str]:
+    def volume_type(self) -> Optional['SpotFleetEbsBlockDeviceVolumeType']:
         return pulumi.get(self, "volume_type")
 
 
@@ -2554,13 +2555,13 @@ class SpotFleetSpotCapacityRebalance(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 replacement_strategy: Optional[str] = None):
+                 replacement_strategy: Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy'] = None):
         if replacement_strategy is not None:
             pulumi.set(__self__, "replacement_strategy", replacement_strategy)
 
     @property
     @pulumi.getter(name="replacementStrategy")
-    def replacement_strategy(self) -> Optional[str]:
+    def replacement_strategy(self) -> Optional['SpotFleetSpotCapacityRebalanceReplacementStrategy']:
         return pulumi.get(self, "replacement_strategy")
 
 
@@ -2819,10 +2820,10 @@ class SpotFleetSpotFleetRequestConfigData(dict):
     def __init__(__self__, *,
                  iam_fleet_role: str,
                  target_capacity: int,
-                 allocation_strategy: Optional[str] = None,
+                 allocation_strategy: Optional['SpotFleetSpotFleetRequestConfigDataAllocationStrategy'] = None,
                  context: Optional[str] = None,
-                 excess_capacity_termination_policy: Optional[str] = None,
-                 instance_interruption_behavior: Optional[str] = None,
+                 excess_capacity_termination_policy: Optional['SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy'] = None,
+                 instance_interruption_behavior: Optional['SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior'] = None,
                  instance_pools_to_use_count: Optional[int] = None,
                  launch_specifications: Optional[Sequence['outputs.SpotFleetSpotFleetLaunchSpecification']] = None,
                  launch_template_configs: Optional[Sequence['outputs.SpotFleetLaunchTemplateConfig']] = None,
@@ -2835,7 +2836,7 @@ class SpotFleetSpotFleetRequestConfigData(dict):
                  spot_max_total_price: Optional[str] = None,
                  spot_price: Optional[str] = None,
                  terminate_instances_with_expiration: Optional[bool] = None,
-                 type: Optional[str] = None,
+                 type: Optional['SpotFleetSpotFleetRequestConfigDataType'] = None,
                  valid_from: Optional[str] = None,
                  valid_until: Optional[str] = None):
         pulumi.set(__self__, "iam_fleet_role", iam_fleet_role)
@@ -2891,7 +2892,7 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
     @property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional[str]:
+    def allocation_strategy(self) -> Optional['SpotFleetSpotFleetRequestConfigDataAllocationStrategy']:
         return pulumi.get(self, "allocation_strategy")
 
     @property
@@ -2901,12 +2902,12 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional[str]:
+    def excess_capacity_termination_policy(self) -> Optional['SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy']:
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional[str]:
+    def instance_interruption_behavior(self) -> Optional['SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior']:
         return pulumi.get(self, "instance_interruption_behavior")
 
     @property
@@ -2971,7 +2972,7 @@ class SpotFleetSpotFleetRequestConfigData(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['SpotFleetSpotFleetRequestConfigDataType']:
         return pulumi.get(self, "type")
 
     @property
@@ -3005,7 +3006,7 @@ class SpotFleetSpotFleetTagSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_type: Optional[str] = None,
+                 resource_type: Optional['SpotFleetSpotFleetTagSpecificationResourceType'] = None,
                  tags: Optional[Sequence['outputs.SpotFleetTag']] = None):
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -3014,7 +3015,7 @@ class SpotFleetSpotFleetTagSpecification(dict):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[str]:
+    def resource_type(self) -> Optional['SpotFleetSpotFleetTagSpecificationResourceType']:
         return pulumi.get(self, "resource_type")
 
     @property
@@ -3077,7 +3078,7 @@ class SpotFleetSpotPlacement(dict):
     def __init__(__self__, *,
                  availability_zone: Optional[str] = None,
                  group_name: Optional[str] = None,
-                 tenancy: Optional[str] = None):
+                 tenancy: Optional['SpotFleetSpotPlacementTenancy'] = None):
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if group_name is not None:
@@ -3097,7 +3098,7 @@ class SpotFleetSpotPlacement(dict):
 
     @property
     @pulumi.getter
-    def tenancy(self) -> Optional[str]:
+    def tenancy(self) -> Optional['SpotFleetSpotPlacementTenancy']:
         return pulumi.get(self, "tenancy")
 
 

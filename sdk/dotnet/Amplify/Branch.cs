@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string?> PullRequestEnvironmentName { get; private set; } = null!;
 
         [Output("stage")]
-        public Output<string?> Stage { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Amplify.BranchStage?> Stage { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.BranchTag>> Tags { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.Amplify
         public Input<string>? PullRequestEnvironmentName { get; set; }
 
         [Input("stage")]
-        public Input<string>? Stage { get; set; }
+        public Input<Pulumi.AwsNative.Amplify.BranchStage>? Stage { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.BranchTagArgs>? _tags;

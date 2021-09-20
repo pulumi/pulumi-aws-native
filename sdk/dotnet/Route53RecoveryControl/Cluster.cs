@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53RecoveryControl.ClusterStatus> Status { get; private set; } = null!;
 
 
         /// <summary>

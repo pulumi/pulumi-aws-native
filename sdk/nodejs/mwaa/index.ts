@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./environment";
 
+// Export enums:
+export * from "../types/enums/mwaa";
+
 // Import resources to register:
 import { Environment } from "./environment";
 

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -44,7 +45,7 @@ export class CostCategory extends pulumi.CustomResource {
     public readonly defaultValue!: pulumi.Output<string | undefined>;
     public /*out*/ readonly effectiveStart!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
-    public readonly ruleVersion!: pulumi.Output<string>;
+    public readonly ruleVersion!: pulumi.Output<enums.ce.CostCategoryRuleVersion>;
     /**
      * JSON array format of Expression in Billing and Cost Management API
      */
@@ -106,7 +107,7 @@ export interface CostCategoryArgs {
      */
     defaultValue?: pulumi.Input<string>;
     name: pulumi.Input<string>;
-    ruleVersion: pulumi.Input<string>;
+    ruleVersion: pulumi.Input<enums.ce.CostCategoryRuleVersion>;
     /**
      * JSON array format of Expression in Billing and Cost Management API
      */

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// <summary>
         /// Health Check Protocol
         /// </summary>
-        public readonly string? Protocol;
+        public readonly Pulumi.AwsNative.AppRunner.ServiceHealthCheckConfigurationProtocol? Protocol;
         /// <summary>
         /// Health check Timeout
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 
             string? path,
 
-            string? protocol,
+            Pulumi.AwsNative.AppRunner.ServiceHealthCheckConfigurationProtocol? protocol,
 
             int? timeout,
 

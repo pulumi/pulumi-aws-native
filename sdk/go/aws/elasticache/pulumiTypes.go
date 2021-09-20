@@ -16,7 +16,7 @@ type GlobalReplicationGroupGlobalReplicationGroupMember struct {
 	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion *string `pulumi:"replicationGroupRegion"`
 	// Indicates the role of the member, primary or secondary.
-	Role *string `pulumi:"role"`
+	Role *GlobalReplicationGroupGlobalReplicationGroupMemberRole `pulumi:"role"`
 }
 
 // GlobalReplicationGroupGlobalReplicationGroupMemberInput is an input type that accepts GlobalReplicationGroupGlobalReplicationGroupMemberArgs and GlobalReplicationGroupGlobalReplicationGroupMemberOutput values.
@@ -36,7 +36,7 @@ type GlobalReplicationGroupGlobalReplicationGroupMemberArgs struct {
 	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion pulumi.StringPtrInput `pulumi:"replicationGroupRegion"`
 	// Indicates the role of the member, primary or secondary.
-	Role pulumi.StringPtrInput `pulumi:"role"`
+	Role GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrInput `pulumi:"role"`
 }
 
 func (GlobalReplicationGroupGlobalReplicationGroupMemberArgs) ElementType() reflect.Type {
@@ -101,8 +101,10 @@ func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ReplicationGro
 }
 
 // Indicates the role of the member, primary or secondary.
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.Role }).(pulumi.StringPtrOutput)
+func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) Role() GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *GlobalReplicationGroupGlobalReplicationGroupMemberRole {
+		return v.Role
+	}).(GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput)
 }
 
 type GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput struct{ *pulumi.OutputState }

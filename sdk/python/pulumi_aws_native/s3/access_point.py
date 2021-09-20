@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AccessPointArgs', 'AccessPoint']
@@ -235,7 +236,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkOrigin")
-    def network_origin(self) -> pulumi.Output[str]:
+    def network_origin(self) -> pulumi.Output['AccessPointNetworkOrigin']:
         """
         Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
         """

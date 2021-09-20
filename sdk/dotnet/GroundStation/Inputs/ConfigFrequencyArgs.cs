@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     public sealed class ConfigFrequencyArgs : Pulumi.ResourceArgs
     {
         [Input("units")]
-        public Input<string>? Units { get; set; }
+        public Input<Pulumi.AwsNative.GroundStation.ConfigFrequencyUnits>? Units { get; set; }
 
         [Input("value")]
         public Input<double>? Value { get; set; }

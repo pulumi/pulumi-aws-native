@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class ResourceVersion extends pulumi.CustomResource {
     /**
      * The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
      */
-    public /*out*/ readonly provisioningType!: pulumi.Output<string>;
+    public /*out*/ readonly provisioningType!: pulumi.Output<enums.cloudformation.ResourceVersionProvisioningType>;
     /**
      * A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
      *
@@ -84,7 +84,7 @@ export class ResourceVersion extends pulumi.CustomResource {
      *
      * PUBLIC: The type is publically visible and usable within any Amazon account.
      */
-    public /*out*/ readonly visibility!: pulumi.Output<string>;
+    public /*out*/ readonly visibility!: pulumi.Output<enums.cloudformation.ResourceVersionVisibility>;
 
     /**
      * Create a ResourceVersion resource with the given unique name, arguments, and options.

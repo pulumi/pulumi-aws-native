@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AccessPolicyAccessPolicyIdentity',
@@ -316,12 +317,12 @@ class AssetAssetProperty(dict):
     def __init__(__self__, *,
                  logical_id: str,
                  alias: Optional[str] = None,
-                 notification_state: Optional[str] = None):
+                 notification_state: Optional['AssetAssetPropertyNotificationState'] = None):
         """
         The asset property's definition, alias, and notification state.
         :param str logical_id: Customer provided ID for property.
         :param str alias: The property alias that identifies the property.
-        :param str notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        :param 'AssetAssetPropertyNotificationState' notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
         """
         pulumi.set(__self__, "logical_id", logical_id)
         if alias is not None:
@@ -347,7 +348,7 @@ class AssetAssetProperty(dict):
 
     @property
     @pulumi.getter(name="notificationState")
-    def notification_state(self) -> Optional[str]:
+    def notification_state(self) -> Optional['AssetAssetPropertyNotificationState']:
         """
         The MQTT notification state (ENABLED or DISABLED) for this asset property.
         """
@@ -518,19 +519,19 @@ class AssetModelAssetModelProperty(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_type: str,
+                 data_type: 'AssetModelDataType',
                  logical_id: str,
                  name: str,
                  type: 'outputs.AssetModelPropertyType',
-                 data_type_spec: Optional[str] = None,
+                 data_type_spec: Optional['AssetModelDataTypeSpec'] = None,
                  unit: Optional[str] = None):
         """
         Contains information about an asset model property.
-        :param str data_type: The data type of the asset model property.
+        :param 'AssetModelDataType' data_type: The data type of the asset model property.
         :param str logical_id: Customer provided ID for property.
         :param str name: The name of the asset model property.
         :param 'AssetModelPropertyType' type: The property type
-        :param str data_type_spec: The data type of the structure for this property.
+        :param 'AssetModelDataTypeSpec' data_type_spec: The data type of the structure for this property.
         :param str unit: The unit of the asset model property, such as Newtons or RPM.
         """
         pulumi.set(__self__, "data_type", data_type)
@@ -544,7 +545,7 @@ class AssetModelAssetModelProperty(dict):
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> str:
+    def data_type(self) -> 'AssetModelDataType':
         """
         The data type of the asset model property.
         """
@@ -576,7 +577,7 @@ class AssetModelAssetModelProperty(dict):
 
     @property
     @pulumi.getter(name="dataTypeSpec")
-    def data_type_spec(self) -> Optional[str]:
+    def data_type_spec(self) -> Optional['AssetModelDataTypeSpec']:
         """
         The data type of the structure for this property.
         """
@@ -732,7 +733,7 @@ class AssetModelPropertyType(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type_name: str,
+                 type_name: 'AssetModelTypeName',
                  attribute: Optional['outputs.AssetModelAttribute'] = None,
                  metric: Optional['outputs.AssetModelMetric'] = None,
                  transform: Optional['outputs.AssetModelTransform'] = None):
@@ -749,7 +750,7 @@ class AssetModelPropertyType(dict):
 
     @property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> str:
+    def type_name(self) -> 'AssetModelTypeName':
         return pulumi.get(self, "type_name")
 
     @property

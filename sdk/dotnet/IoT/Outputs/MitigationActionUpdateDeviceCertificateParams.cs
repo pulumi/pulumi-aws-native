@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionUpdateDeviceCertificateParams
     {
-        public readonly string Action;
+        public readonly Pulumi.AwsNative.IoT.MitigationActionUpdateDeviceCertificateParamsAction Action;
 
         [OutputConstructor]
-        private MitigationActionUpdateDeviceCertificateParams(string action)
+        private MitigationActionUpdateDeviceCertificateParams(Pulumi.AwsNative.IoT.MitigationActionUpdateDeviceCertificateParamsAction action)
         {
             Action = action;
         }

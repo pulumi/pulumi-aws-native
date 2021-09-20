@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.MWAA.Outputs
     {
         public readonly string? CloudWatchLogGroupArn;
         public readonly bool? Enabled;
-        public readonly string? LogLevel;
+        public readonly Pulumi.AwsNative.MWAA.EnvironmentLoggingLevel? LogLevel;
 
         [OutputConstructor]
         private EnvironmentModuleLoggingConfiguration(
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.MWAA.Outputs
 
             bool? enabled,
 
-            string? logLevel)
+            Pulumi.AwsNative.MWAA.EnvironmentLoggingLevel? logLevel)
         {
             CloudWatchLogGroupArn = cloudWatchLogGroupArn;
             Enabled = enabled;

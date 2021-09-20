@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['PublicTypeVersionArgs', 'PublicTypeVersion']
 
@@ -16,14 +17,14 @@ class PublicTypeVersionArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  log_delivery_bucket: Optional[pulumi.Input[str]] = None,
                  public_version_number: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PublicTypeVersion resource.
         :param pulumi.Input[str] arn: The Amazon Resource Number (ARN) of the extension.
         :param pulumi.Input[str] log_delivery_bucket: A url to the S3 bucket where logs for the testType run will be available
         :param pulumi.Input[str] public_version_number: The version number of a public third-party extension
-        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input['PublicTypeVersionType'] type: The kind of extension
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -77,14 +78,14 @@ class PublicTypeVersionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['PublicTypeVersionType']]:
         """
         The kind of extension
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['PublicTypeVersionType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -110,7 +111,7 @@ class PublicTypeVersion(pulumi.CustomResource):
                  arn: Optional[pulumi.Input[str]] = None,
                  log_delivery_bucket: Optional[pulumi.Input[str]] = None,
                  public_version_number: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -121,7 +122,7 @@ class PublicTypeVersion(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Number (ARN) of the extension.
         :param pulumi.Input[str] log_delivery_bucket: A url to the S3 bucket where logs for the testType run will be available
         :param pulumi.Input[str] public_version_number: The version number of a public third-party extension
-        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input['PublicTypeVersionType'] type: The kind of extension
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -153,7 +154,7 @@ class PublicTypeVersion(pulumi.CustomResource):
                  arn: Optional[pulumi.Input[str]] = None,
                  log_delivery_bucket: Optional[pulumi.Input[str]] = None,
                  public_version_number: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -249,7 +250,7 @@ class PublicTypeVersion(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[Optional['PublicTypeVersionType']]:
         """
         The kind of extension
         """

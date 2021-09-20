@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +58,7 @@ export class PublicTypeVersion extends pulumi.CustomResource {
     /**
      * The kind of extension
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<enums.cloudformation.PublicTypeVersionType | undefined>;
     /**
      * The name of the type being registered.
      *
@@ -124,7 +125,7 @@ export interface PublicTypeVersionArgs {
     /**
      * The kind of extension
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<enums.cloudformation.PublicTypeVersionType>;
     /**
      * The name of the type being registered.
      *

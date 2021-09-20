@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CE
         public Output<string> Name { get; private set; } = null!;
 
         [Output("ruleVersion")]
-        public Output<string> RuleVersion { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CE.CostCategoryRuleVersion> RuleVersion { get; private set; } = null!;
 
         /// <summary>
         /// JSON array format of Expression in Billing and Cost Management API
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.CE
         public Input<string> Name { get; set; } = null!;
 
         [Input("ruleVersion", required: true)]
-        public Input<string> RuleVersion { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CE.CostCategoryRuleVersion> RuleVersion { get; set; } = null!;
 
         /// <summary>
         /// JSON array format of Expression in Billing and Cost Management API

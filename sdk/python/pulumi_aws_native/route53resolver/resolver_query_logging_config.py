@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ResolverQueryLoggingConfigArgs', 'ResolverQueryLoggingConfig']
 
@@ -204,7 +205,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Output[str]:
+    def share_status(self) -> pulumi.Output['ResolverQueryLoggingConfigShareStatus']:
         """
         ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
         """
@@ -212,7 +213,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['ResolverQueryLoggingConfigStatus']:
         """
         ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
         """

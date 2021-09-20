@@ -31,9 +31,9 @@ type FirewallRuleGroup struct {
 	// Count
 	RuleCount pulumi.IntOutput `pulumi:"ruleCount"`
 	// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
-	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
+	ShareStatus FirewallRuleGroupShareStatusOutput `pulumi:"shareStatus"`
 	// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status FirewallRuleGroupStatusOutput `pulumi:"status"`
 	// FirewallRuleGroupStatus
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Tags

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// Must be redis.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ElastiCache.UserGroupEngine> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// Must be redis.
         /// </summary>
         [Input("engine", required: true)]
-        public Input<string> Engine { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ElastiCache.UserGroupEngine> Engine { get; set; } = null!;
 
         /// <summary>
         /// The ID of the user group.

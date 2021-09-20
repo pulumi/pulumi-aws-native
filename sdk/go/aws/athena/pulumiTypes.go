@@ -112,8 +112,8 @@ func (o DataCatalogTagArrayOutput) Index(i pulumi.IntInput) DataCatalogTagOutput
 
 // If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
 type WorkGroupEncryptionConfiguration struct {
-	EncryptionOption string  `pulumi:"encryptionOption"`
-	KmsKey           *string `pulumi:"kmsKey"`
+	EncryptionOption WorkGroupEncryptionOption `pulumi:"encryptionOption"`
+	KmsKey           *string                   `pulumi:"kmsKey"`
 }
 
 // WorkGroupEncryptionConfigurationInput is an input type that accepts WorkGroupEncryptionConfigurationArgs and WorkGroupEncryptionConfigurationOutput values.
@@ -129,8 +129,8 @@ type WorkGroupEncryptionConfigurationInput interface {
 
 // If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
 type WorkGroupEncryptionConfigurationArgs struct {
-	EncryptionOption pulumi.StringInput    `pulumi:"encryptionOption"`
-	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
+	EncryptionOption WorkGroupEncryptionOptionInput `pulumi:"encryptionOption"`
+	KmsKey           pulumi.StringPtrInput          `pulumi:"kmsKey"`
 }
 
 func (WorkGroupEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -211,8 +211,8 @@ func (o WorkGroupEncryptionConfigurationOutput) ToWorkGroupEncryptionConfigurati
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
-func (o WorkGroupEncryptionConfigurationOutput) EncryptionOption() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkGroupEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
+func (o WorkGroupEncryptionConfigurationOutput) EncryptionOption() WorkGroupEncryptionOptionOutput {
+	return o.ApplyT(func(v WorkGroupEncryptionConfiguration) WorkGroupEncryptionOption { return v.EncryptionOption }).(WorkGroupEncryptionOptionOutput)
 }
 
 func (o WorkGroupEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
@@ -243,13 +243,13 @@ func (o WorkGroupEncryptionConfigurationPtrOutput) Elem() WorkGroupEncryptionCon
 	}).(WorkGroupEncryptionConfigurationOutput)
 }
 
-func (o WorkGroupEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkGroupEncryptionConfiguration) *string {
+func (o WorkGroupEncryptionConfigurationPtrOutput) EncryptionOption() WorkGroupEncryptionOptionPtrOutput {
+	return o.ApplyT(func(v *WorkGroupEncryptionConfiguration) *WorkGroupEncryptionOption {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionOption
-	}).(pulumi.StringPtrOutput)
+	}).(WorkGroupEncryptionOptionPtrOutput)
 }
 
 func (o WorkGroupEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class MitigationActionUpdateCACertificateParamsArgs : Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoT.MitigationActionUpdateCACertificateParamsAction> Action { get; set; } = null!;
 
         public MitigationActionUpdateCACertificateParamsArgs()
         {

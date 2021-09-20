@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<string> SecretArn { get; set; } = null!;
 
         [Input("sharePointVersion", required: true)]
-        public Input<string> SharePointVersion { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.DataSourceSharePointConfigurationSharePointVersion> SharePointVersion { get; set; } = null!;
 
         [Input("urls", required: true)]
         private InputList<string>? _urls;

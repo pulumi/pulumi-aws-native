@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         /// The name of the simulation software suite.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteName> Name { get; set; } = null!;
 
         /// <summary>
         /// The version of the simulation software suite.
         /// </summary>
         [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteVersion> Version { get; set; } = null!;
 
         public SimulationApplicationSimulationSoftwareSuiteArgs()
         {

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EnvironmentArgs', 'Environment']
@@ -33,7 +34,7 @@ class EnvironmentArgs:
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['EnvironmentTagMapArgs']] = None,
-                 webserver_access_mode: Optional[pulumi.Input[str]] = None,
+                 webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
@@ -262,11 +263,11 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter(name="webserverAccessMode")
-    def webserver_access_mode(self) -> Optional[pulumi.Input[str]]:
+    def webserver_access_mode(self) -> Optional[pulumi.Input['EnvironmentWebserverAccessMode']]:
         return pulumi.get(self, "webserver_access_mode")
 
     @webserver_access_mode.setter
-    def webserver_access_mode(self, value: Optional[pulumi.Input[str]]):
+    def webserver_access_mode(self, value: Optional[pulumi.Input['EnvironmentWebserverAccessMode']]):
         pulumi.set(self, "webserver_access_mode", value)
 
     @property
@@ -302,7 +303,7 @@ class Environment(pulumi.CustomResource):
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
-                 webserver_access_mode: Optional[pulumi.Input[str]] = None,
+                 webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -362,7 +363,7 @@ class Environment(pulumi.CustomResource):
                  schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['EnvironmentTagMapArgs']]] = None,
-                 webserver_access_mode: Optional[pulumi.Input[str]] = None,
+                 webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -554,7 +555,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webserverAccessMode")
-    def webserver_access_mode(self) -> pulumi.Output[Optional[str]]:
+    def webserver_access_mode(self) -> pulumi.Output[Optional['EnvironmentWebserverAccessMode']]:
         return pulumi.get(self, "webserver_access_mode")
 
     @property

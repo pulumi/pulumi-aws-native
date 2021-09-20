@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly string? ClusterEndpoint;
         public readonly string? DomainARN;
         public readonly string IndexName;
-        public readonly string? IndexRotationPeriod;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod? IndexRotationPeriod;
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly Outputs.DeliveryStreamElasticsearchRetryOptions? RetryOptions;
         public readonly string RoleARN;
-        public readonly string? S3BackupMode;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
         public readonly string? TypeName;
         public readonly Outputs.DeliveryStreamVpcConfiguration? VpcConfiguration;
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string indexName,
 
-            string? indexRotationPeriod,
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod? indexRotationPeriod,
 
             Outputs.DeliveryStreamProcessingConfiguration? processingConfiguration,
 
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             string roleARN,
 
-            string? s3BackupMode,
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode? s3BackupMode,
 
             Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration,
 

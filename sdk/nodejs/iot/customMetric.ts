@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +50,7 @@ export class CustomMetric extends pulumi.CustomResource {
     /**
      * The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
      */
-    public readonly metricType!: pulumi.Output<string>;
+    public readonly metricType!: pulumi.Output<enums.iot.CustomMetricMetricType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -104,7 +104,7 @@ export interface CustomMetricArgs {
     /**
      * The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
      */
-    metricType: pulumi.Input<string>;
+    metricType: pulumi.Input<enums.iot.CustomMetricMetricType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

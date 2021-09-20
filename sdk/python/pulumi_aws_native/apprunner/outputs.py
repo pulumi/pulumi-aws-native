@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ServiceAuthenticationConfiguration',
@@ -104,11 +105,11 @@ class ServiceCodeConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 configuration_source: str,
+                 configuration_source: 'ServiceCodeConfigurationConfigurationSource',
                  code_configuration_values: Optional['outputs.ServiceCodeConfigurationValues'] = None):
         """
         Code Configuration
-        :param str configuration_source: Configuration Source
+        :param 'ServiceCodeConfigurationConfigurationSource' configuration_source: Configuration Source
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
         if code_configuration_values is not None:
@@ -116,7 +117,7 @@ class ServiceCodeConfiguration(dict):
 
     @property
     @pulumi.getter(name="configurationSource")
-    def configuration_source(self) -> str:
+    def configuration_source(self) -> 'ServiceCodeConfigurationConfigurationSource':
         """
         Configuration Source
         """
@@ -155,14 +156,14 @@ class ServiceCodeConfigurationValues(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 runtime: str,
+                 runtime: 'ServiceCodeConfigurationValuesRuntime',
                  build_command: Optional[str] = None,
                  port: Optional[str] = None,
                  runtime_environment_variables: Optional[Sequence['outputs.ServiceKeyValuePair']] = None,
                  start_command: Optional[str] = None):
         """
         Code Configuration Values
-        :param str runtime: Runtime
+        :param 'ServiceCodeConfigurationValuesRuntime' runtime: Runtime
         :param str build_command: Build Command
         :param str port: Port
         :param str start_command: Start Command
@@ -179,7 +180,7 @@ class ServiceCodeConfigurationValues(dict):
 
     @property
     @pulumi.getter
-    def runtime(self) -> str:
+    def runtime(self) -> 'ServiceCodeConfigurationValuesRuntime':
         """
         Runtime
         """
@@ -340,7 +341,7 @@ class ServiceHealthCheckConfiguration(dict):
                  healthy_threshold: Optional[int] = None,
                  interval: Optional[int] = None,
                  path: Optional[str] = None,
-                 protocol: Optional[str] = None,
+                 protocol: Optional['ServiceHealthCheckConfigurationProtocol'] = None,
                  timeout: Optional[int] = None,
                  unhealthy_threshold: Optional[int] = None):
         """
@@ -348,7 +349,7 @@ class ServiceHealthCheckConfiguration(dict):
         :param int healthy_threshold: Health check Healthy Threshold
         :param int interval: Health check Interval
         :param str path: Health check Path
-        :param str protocol: Health Check Protocol
+        :param 'ServiceHealthCheckConfigurationProtocol' protocol: Health Check Protocol
         :param int timeout: Health check Timeout
         :param int unhealthy_threshold: Health check Unhealthy Threshold
         """
@@ -391,7 +392,7 @@ class ServiceHealthCheckConfiguration(dict):
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[str]:
+    def protocol(self) -> Optional['ServiceHealthCheckConfigurationProtocol']:
         """
         Health Check Protocol
         """
@@ -504,12 +505,12 @@ class ServiceImageRepository(dict):
 
     def __init__(__self__, *,
                  image_identifier: str,
-                 image_repository_type: str,
+                 image_repository_type: 'ServiceImageRepositoryImageRepositoryType',
                  image_configuration: Optional['outputs.ServiceImageConfiguration'] = None):
         """
         Image Repository
         :param str image_identifier: Image Identifier
-        :param str image_repository_type: Image Repository Type
+        :param 'ServiceImageRepositoryImageRepositoryType' image_repository_type: Image Repository Type
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
         pulumi.set(__self__, "image_repository_type", image_repository_type)
@@ -526,7 +527,7 @@ class ServiceImageRepository(dict):
 
     @property
     @pulumi.getter(name="imageRepositoryType")
-    def image_repository_type(self) -> str:
+    def image_repository_type(self) -> 'ServiceImageRepositoryImageRepositoryType':
         """
         Image Repository Type
         """
@@ -629,11 +630,11 @@ class ServiceSourceCodeVersion(dict):
     Source Code Version
     """
     def __init__(__self__, *,
-                 type: str,
+                 type: 'ServiceSourceCodeVersionType',
                  value: str):
         """
         Source Code Version
-        :param str type: Source Code Version Type
+        :param 'ServiceSourceCodeVersionType' type: Source Code Version Type
         :param str value: Source Code Version Value
         """
         pulumi.set(__self__, "type", type)
@@ -641,7 +642,7 @@ class ServiceSourceCodeVersion(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'ServiceSourceCodeVersionType':
         """
         Source Code Version Type
         """

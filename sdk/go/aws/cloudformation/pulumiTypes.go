@@ -388,12 +388,12 @@ func (o StackSetDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringAr
 
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferences struct {
-	FailureToleranceCount      *int     `pulumi:"failureToleranceCount"`
-	FailureTolerancePercentage *int     `pulumi:"failureTolerancePercentage"`
-	MaxConcurrentCount         *int     `pulumi:"maxConcurrentCount"`
-	MaxConcurrentPercentage    *int     `pulumi:"maxConcurrentPercentage"`
-	RegionConcurrencyType      *string  `pulumi:"regionConcurrencyType"`
-	RegionOrder                []string `pulumi:"regionOrder"`
+	FailureToleranceCount      *int                           `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage *int                           `pulumi:"failureTolerancePercentage"`
+	MaxConcurrentCount         *int                           `pulumi:"maxConcurrentCount"`
+	MaxConcurrentPercentage    *int                           `pulumi:"maxConcurrentPercentage"`
+	RegionConcurrencyType      *StackSetRegionConcurrencyType `pulumi:"regionConcurrencyType"`
+	RegionOrder                []string                       `pulumi:"regionOrder"`
 }
 
 // StackSetOperationPreferencesInput is an input type that accepts StackSetOperationPreferencesArgs and StackSetOperationPreferencesOutput values.
@@ -409,12 +409,12 @@ type StackSetOperationPreferencesInput interface {
 
 // The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferencesArgs struct {
-	FailureToleranceCount      pulumi.IntPtrInput      `pulumi:"failureToleranceCount"`
-	FailureTolerancePercentage pulumi.IntPtrInput      `pulumi:"failureTolerancePercentage"`
-	MaxConcurrentCount         pulumi.IntPtrInput      `pulumi:"maxConcurrentCount"`
-	MaxConcurrentPercentage    pulumi.IntPtrInput      `pulumi:"maxConcurrentPercentage"`
-	RegionConcurrencyType      pulumi.StringPtrInput   `pulumi:"regionConcurrencyType"`
-	RegionOrder                pulumi.StringArrayInput `pulumi:"regionOrder"`
+	FailureToleranceCount      pulumi.IntPtrInput                    `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage pulumi.IntPtrInput                    `pulumi:"failureTolerancePercentage"`
+	MaxConcurrentCount         pulumi.IntPtrInput                    `pulumi:"maxConcurrentCount"`
+	MaxConcurrentPercentage    pulumi.IntPtrInput                    `pulumi:"maxConcurrentPercentage"`
+	RegionConcurrencyType      StackSetRegionConcurrencyTypePtrInput `pulumi:"regionConcurrencyType"`
+	RegionOrder                pulumi.StringArrayInput               `pulumi:"regionOrder"`
 }
 
 func (StackSetOperationPreferencesArgs) ElementType() reflect.Type {
@@ -511,8 +511,8 @@ func (o StackSetOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.Int
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
 }
 
-func (o StackSetOperationPreferencesOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StackSetOperationPreferences) *string { return v.RegionConcurrencyType }).(pulumi.StringPtrOutput)
+func (o StackSetOperationPreferencesOutput) RegionConcurrencyType() StackSetRegionConcurrencyTypePtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *StackSetRegionConcurrencyType { return v.RegionConcurrencyType }).(StackSetRegionConcurrencyTypePtrOutput)
 }
 
 func (o StackSetOperationPreferencesOutput) RegionOrder() pulumi.StringArrayOutput {
@@ -579,13 +579,13 @@ func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o StackSetOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StackSetOperationPreferences) *string {
+func (o StackSetOperationPreferencesPtrOutput) RegionConcurrencyType() StackSetRegionConcurrencyTypePtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *StackSetRegionConcurrencyType {
 		if v == nil {
 			return nil
 		}
 		return v.RegionConcurrencyType
-	}).(pulumi.StringPtrOutput)
+	}).(StackSetRegionConcurrencyTypePtrOutput)
 }
 
 func (o StackSetOperationPreferencesPtrOutput) RegionOrder() pulumi.StringArrayOutput {

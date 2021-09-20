@@ -22,7 +22,7 @@ type ProfilingGroup struct {
 	// The Amazon Resource Name (ARN) of the specified profiling group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The compute platform of the profiling group.
-	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
+	ComputePlatform ProfilingGroupComputePlatformPtrOutput `pulumi:"computePlatform"`
 	// The name of the profiling group.
 	ProfilingGroupName pulumi.StringOutput `pulumi:"profilingGroupName"`
 	// The tags associated with a profiling group.
@@ -76,7 +76,7 @@ type profilingGroupArgs struct {
 	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration []ProfilingGroupChannel `pulumi:"anomalyDetectionNotificationConfiguration"`
 	// The compute platform of the profiling group.
-	ComputePlatform *string `pulumi:"computePlatform"`
+	ComputePlatform *ProfilingGroupComputePlatform `pulumi:"computePlatform"`
 	// The name of the profiling group.
 	ProfilingGroupName string `pulumi:"profilingGroupName"`
 	// The tags associated with a profiling group.
@@ -90,7 +90,7 @@ type ProfilingGroupArgs struct {
 	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration ProfilingGroupChannelArrayInput
 	// The compute platform of the profiling group.
-	ComputePlatform pulumi.StringPtrInput
+	ComputePlatform ProfilingGroupComputePlatformPtrInput
 	// The name of the profiling group.
 	ProfilingGroupName pulumi.StringInput
 	// The tags associated with a profiling group.

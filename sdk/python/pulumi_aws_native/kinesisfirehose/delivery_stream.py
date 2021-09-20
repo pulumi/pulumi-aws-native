@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DeliveryStreamArgs', 'DeliveryStream']
@@ -17,7 +18,7 @@ class DeliveryStreamArgs:
     def __init__(__self__, *,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
-                 delivery_stream_type: Optional[pulumi.Input[str]] = None,
+                 delivery_stream_type: Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']] = None,
                  elasticsearch_destination_configuration: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationArgs']] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationArgs']] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input['DeliveryStreamHttpEndpointDestinationConfigurationArgs']] = None,
@@ -72,11 +73,11 @@ class DeliveryStreamArgs:
 
     @property
     @pulumi.getter(name="deliveryStreamType")
-    def delivery_stream_type(self) -> Optional[pulumi.Input[str]]:
+    def delivery_stream_type(self) -> Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']]:
         return pulumi.get(self, "delivery_stream_type")
 
     @delivery_stream_type.setter
-    def delivery_stream_type(self, value: Optional[pulumi.Input[str]]):
+    def delivery_stream_type(self, value: Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']]):
         pulumi.set(self, "delivery_stream_type", value)
 
     @property
@@ -159,7 +160,7 @@ class DeliveryStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
-                 delivery_stream_type: Optional[pulumi.Input[str]] = None,
+                 delivery_stream_type: Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']] = None,
                  elasticsearch_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamElasticsearchDestinationConfigurationArgs']]] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamExtendedS3DestinationConfigurationArgs']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]] = None,
@@ -201,7 +202,7 @@ class DeliveryStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
-                 delivery_stream_type: Optional[pulumi.Input[str]] = None,
+                 delivery_stream_type: Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']] = None,
                  elasticsearch_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamElasticsearchDestinationConfigurationArgs']]] = None,
                  extended_s3_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamExtendedS3DestinationConfigurationArgs']]] = None,
                  http_endpoint_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamHttpEndpointDestinationConfigurationArgs']]] = None,
@@ -287,7 +288,7 @@ class DeliveryStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryStreamType")
-    def delivery_stream_type(self) -> pulumi.Output[Optional[str]]:
+    def delivery_stream_type(self) -> pulumi.Output[Optional['DeliveryStreamDeliveryStreamType']]:
         return pulumi.get(self, "delivery_stream_type")
 
     @property

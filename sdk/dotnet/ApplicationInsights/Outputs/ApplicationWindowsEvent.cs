@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// The levels of event to log. 
         /// </summary>
-        public readonly ImmutableArray<string> EventLevels;
+        public readonly ImmutableArray<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel> EventLevels;
         /// <summary>
         /// The type of Windows Events to log.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationWindowsEvent(
-            ImmutableArray<string> eventLevels,
+            ImmutableArray<Pulumi.AwsNative.ApplicationInsights.ApplicationEventLevel> eventLevels,
 
             string eventName,
 

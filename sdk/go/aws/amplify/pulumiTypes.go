@@ -11,16 +11,16 @@ import (
 )
 
 type AppAutoBranchCreationConfig struct {
-	AutoBranchCreationPatterns []string                 `pulumi:"autoBranchCreationPatterns"`
-	BasicAuthConfig            *AppBasicAuthConfig      `pulumi:"basicAuthConfig"`
-	BuildSpec                  *string                  `pulumi:"buildSpec"`
-	EnableAutoBranchCreation   *bool                    `pulumi:"enableAutoBranchCreation"`
-	EnableAutoBuild            *bool                    `pulumi:"enableAutoBuild"`
-	EnablePerformanceMode      *bool                    `pulumi:"enablePerformanceMode"`
-	EnablePullRequestPreview   *bool                    `pulumi:"enablePullRequestPreview"`
-	EnvironmentVariables       []AppEnvironmentVariable `pulumi:"environmentVariables"`
-	PullRequestEnvironmentName *string                  `pulumi:"pullRequestEnvironmentName"`
-	Stage                      *string                  `pulumi:"stage"`
+	AutoBranchCreationPatterns []string                          `pulumi:"autoBranchCreationPatterns"`
+	BasicAuthConfig            *AppBasicAuthConfig               `pulumi:"basicAuthConfig"`
+	BuildSpec                  *string                           `pulumi:"buildSpec"`
+	EnableAutoBranchCreation   *bool                             `pulumi:"enableAutoBranchCreation"`
+	EnableAutoBuild            *bool                             `pulumi:"enableAutoBuild"`
+	EnablePerformanceMode      *bool                             `pulumi:"enablePerformanceMode"`
+	EnablePullRequestPreview   *bool                             `pulumi:"enablePullRequestPreview"`
+	EnvironmentVariables       []AppEnvironmentVariable          `pulumi:"environmentVariables"`
+	PullRequestEnvironmentName *string                           `pulumi:"pullRequestEnvironmentName"`
+	Stage                      *AppAutoBranchCreationConfigStage `pulumi:"stage"`
 }
 
 // AppAutoBranchCreationConfigInput is an input type that accepts AppAutoBranchCreationConfigArgs and AppAutoBranchCreationConfigOutput values.
@@ -35,16 +35,16 @@ type AppAutoBranchCreationConfigInput interface {
 }
 
 type AppAutoBranchCreationConfigArgs struct {
-	AutoBranchCreationPatterns pulumi.StringArrayInput          `pulumi:"autoBranchCreationPatterns"`
-	BasicAuthConfig            AppBasicAuthConfigPtrInput       `pulumi:"basicAuthConfig"`
-	BuildSpec                  pulumi.StringPtrInput            `pulumi:"buildSpec"`
-	EnableAutoBranchCreation   pulumi.BoolPtrInput              `pulumi:"enableAutoBranchCreation"`
-	EnableAutoBuild            pulumi.BoolPtrInput              `pulumi:"enableAutoBuild"`
-	EnablePerformanceMode      pulumi.BoolPtrInput              `pulumi:"enablePerformanceMode"`
-	EnablePullRequestPreview   pulumi.BoolPtrInput              `pulumi:"enablePullRequestPreview"`
-	EnvironmentVariables       AppEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	PullRequestEnvironmentName pulumi.StringPtrInput            `pulumi:"pullRequestEnvironmentName"`
-	Stage                      pulumi.StringPtrInput            `pulumi:"stage"`
+	AutoBranchCreationPatterns pulumi.StringArrayInput                  `pulumi:"autoBranchCreationPatterns"`
+	BasicAuthConfig            AppBasicAuthConfigPtrInput               `pulumi:"basicAuthConfig"`
+	BuildSpec                  pulumi.StringPtrInput                    `pulumi:"buildSpec"`
+	EnableAutoBranchCreation   pulumi.BoolPtrInput                      `pulumi:"enableAutoBranchCreation"`
+	EnableAutoBuild            pulumi.BoolPtrInput                      `pulumi:"enableAutoBuild"`
+	EnablePerformanceMode      pulumi.BoolPtrInput                      `pulumi:"enablePerformanceMode"`
+	EnablePullRequestPreview   pulumi.BoolPtrInput                      `pulumi:"enablePullRequestPreview"`
+	EnvironmentVariables       AppEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
+	PullRequestEnvironmentName pulumi.StringPtrInput                    `pulumi:"pullRequestEnvironmentName"`
+	Stage                      AppAutoBranchCreationConfigStagePtrInput `pulumi:"stage"`
 }
 
 func (AppAutoBranchCreationConfigArgs) ElementType() reflect.Type {
@@ -160,8 +160,8 @@ func (o AppAutoBranchCreationConfigOutput) PullRequestEnvironmentName() pulumi.S
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-func (o AppAutoBranchCreationConfigOutput) Stage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.Stage }).(pulumi.StringPtrOutput)
+func (o AppAutoBranchCreationConfigOutput) Stage() AppAutoBranchCreationConfigStagePtrOutput {
+	return o.ApplyT(func(v AppAutoBranchCreationConfig) *AppAutoBranchCreationConfigStage { return v.Stage }).(AppAutoBranchCreationConfigStagePtrOutput)
 }
 
 type AppAutoBranchCreationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -269,13 +269,13 @@ func (o AppAutoBranchCreationConfigPtrOutput) PullRequestEnvironmentName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppAutoBranchCreationConfigPtrOutput) Stage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
+func (o AppAutoBranchCreationConfigPtrOutput) Stage() AppAutoBranchCreationConfigStagePtrOutput {
+	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *AppAutoBranchCreationConfigStage {
 		if v == nil {
 			return nil
 		}
 		return v.Stage
-	}).(pulumi.StringPtrOutput)
+	}).(AppAutoBranchCreationConfigStagePtrOutput)
 }
 
 type AppBasicAuthConfig struct {

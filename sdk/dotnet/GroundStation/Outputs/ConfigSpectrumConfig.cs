@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     {
         public readonly Outputs.ConfigFrequencyBandwidth? Bandwidth;
         public readonly Outputs.ConfigFrequency? CenterFrequency;
-        public readonly string? Polarization;
+        public readonly Pulumi.AwsNative.GroundStation.ConfigPolarization? Polarization;
 
         [OutputConstructor]
         private ConfigSpectrumConfig(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
 
             Outputs.ConfigFrequency? centerFrequency,
 
-            string? polarization)
+            Pulumi.AwsNative.GroundStation.ConfigPolarization? polarization)
         {
             Bandwidth = bandwidth;
             CenterFrequency = centerFrequency;

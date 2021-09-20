@@ -9,6 +9,9 @@ export * from "./dataSource";
 export * from "./faq";
 export * from "./index_";
 
+// Export enums:
+export * from "../types/enums/kendra";
+
 // Import resources to register:
 import { DataSource } from "./dataSource";
 import { Faq } from "./faq";

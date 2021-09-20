@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'DeliveryStreamBufferingHintsArgs',
@@ -214,7 +215,7 @@ class DeliveryStreamDataFormatConversionConfigurationArgs:
 @pulumi.input_type
 class DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs:
     def __init__(__self__, *,
-                 key_type: pulumi.Input[str],
+                 key_type: pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType'],
                  key_arn: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
@@ -222,11 +223,11 @@ class DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> pulumi.Input[str]:
+    def key_type(self) -> pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType']:
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: pulumi.Input[str]):
+    def key_type(self, value: pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType']):
         pulumi.set(self, "key_type", value)
 
     @property
@@ -336,10 +337,10 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  cluster_endpoint: Optional[pulumi.Input[str]] = None,
                  domain_arn: Optional[pulumi.Input[str]] = None,
-                 index_rotation_period: Optional[pulumi.Input[str]] = None,
+                 index_rotation_period: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod']] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamElasticsearchRetryOptionsArgs']] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None,
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode']] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  vpc_configuration: Optional[pulumi.Input['DeliveryStreamVpcConfigurationArgs']] = None):
         pulumi.set(__self__, "index_name", index_name)
@@ -431,11 +432,11 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="indexRotationPeriod")
-    def index_rotation_period(self) -> Optional[pulumi.Input[str]]:
+    def index_rotation_period(self) -> Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod']]:
         return pulumi.get(self, "index_rotation_period")
 
     @index_rotation_period.setter
-    def index_rotation_period(self, value: Optional[pulumi.Input[str]]):
+    def index_rotation_period(self, value: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod']]):
         pulumi.set(self, "index_rotation_period", value)
 
     @property
@@ -458,11 +459,11 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="s3BackupMode")
-    def s3_backup_mode(self) -> Optional[pulumi.Input[str]]:
+    def s3_backup_mode(self) -> Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode']]:
         return pulumi.get(self, "s3_backup_mode")
 
     @s3_backup_mode.setter
-    def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
+    def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode']]):
         pulumi.set(self, "s3_backup_mode", value)
 
     @property
@@ -505,7 +506,7 @@ class DeliveryStreamElasticsearchRetryOptionsArgs:
 class DeliveryStreamEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  k_ms_encryption_config: Optional[pulumi.Input['DeliveryStreamKMSEncryptionConfigArgs']] = None,
-                 no_encryption_config: Optional[pulumi.Input[str]] = None):
+                 no_encryption_config: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']] = None):
         if k_ms_encryption_config is not None:
             pulumi.set(__self__, "k_ms_encryption_config", k_ms_encryption_config)
         if no_encryption_config is not None:
@@ -522,11 +523,11 @@ class DeliveryStreamEncryptionConfigurationArgs:
 
     @property
     @pulumi.getter(name="noEncryptionConfig")
-    def no_encryption_config(self) -> Optional[pulumi.Input[str]]:
+    def no_encryption_config(self) -> Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']]:
         return pulumi.get(self, "no_encryption_config")
 
     @no_encryption_config.setter
-    def no_encryption_config(self, value: Optional[pulumi.Input[str]]):
+    def no_encryption_config(self, value: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']]):
         pulumi.set(self, "no_encryption_config", value)
 
 
@@ -537,7 +538,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
                  role_arn: pulumi.Input[str],
                  buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
-                 compression_format: Optional[pulumi.Input[str]] = None,
+                 compression_format: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat']] = None,
                  data_format_conversion_configuration: Optional[pulumi.Input['DeliveryStreamDataFormatConversionConfigurationArgs']] = None,
                  dynamic_partitioning_configuration: Optional[pulumi.Input['DeliveryStreamDynamicPartitioningConfigurationArgs']] = None,
                  encryption_configuration: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationArgs']] = None,
@@ -545,7 +546,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
                  prefix: Optional[pulumi.Input[str]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  s3_backup_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode']] = None):
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_hints is not None:
@@ -609,11 +610,11 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="compressionFormat")
-    def compression_format(self) -> Optional[pulumi.Input[str]]:
+    def compression_format(self) -> Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat']]:
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
-    def compression_format(self, value: Optional[pulumi.Input[str]]):
+    def compression_format(self, value: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat']]):
         pulumi.set(self, "compression_format", value)
 
     @property
@@ -681,11 +682,11 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="s3BackupMode")
-    def s3_backup_mode(self) -> Optional[pulumi.Input[str]]:
+    def s3_backup_mode(self) -> Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode']]:
         return pulumi.get(self, "s3_backup_mode")
 
     @s3_backup_mode.setter
-    def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
+    def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode']]):
         pulumi.set(self, "s3_backup_mode", value)
 
 
@@ -888,7 +889,7 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
 class DeliveryStreamHttpEndpointRequestConfigurationArgs:
     def __init__(__self__, *,
                  common_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamHttpEndpointCommonAttributeArgs']]]] = None,
-                 content_encoding: Optional[pulumi.Input[str]] = None):
+                 content_encoding: Optional[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding']] = None):
         if common_attributes is not None:
             pulumi.set(__self__, "common_attributes", common_attributes)
         if content_encoding is not None:
@@ -905,11 +906,11 @@ class DeliveryStreamHttpEndpointRequestConfigurationArgs:
 
     @property
     @pulumi.getter(name="contentEncoding")
-    def content_encoding(self) -> Optional[pulumi.Input[str]]:
+    def content_encoding(self) -> Optional[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding']]:
         return pulumi.get(self, "content_encoding")
 
     @content_encoding.setter
-    def content_encoding(self, value: Optional[pulumi.Input[str]]):
+    def content_encoding(self, value: Optional[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding']]):
         pulumi.set(self, "content_encoding", value)
 
 
@@ -1292,7 +1293,7 @@ class DeliveryStreamProcessorParameterArgs:
 @pulumi.input_type
 class DeliveryStreamProcessorArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['DeliveryStreamProcessorType'],
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamProcessorParameterArgs']]]] = None):
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -1300,11 +1301,11 @@ class DeliveryStreamProcessorArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['DeliveryStreamProcessorType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['DeliveryStreamProcessorType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -1330,7 +1331,7 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
                  retry_options: Optional[pulumi.Input['DeliveryStreamRedshiftRetryOptionsArgs']] = None,
                  s3_backup_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
-                 s3_backup_mode: Optional[pulumi.Input[str]] = None):
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']] = None):
         pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
         pulumi.set(__self__, "copy_command", copy_command)
         pulumi.set(__self__, "password", password)
@@ -1440,11 +1441,11 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="s3BackupMode")
-    def s3_backup_mode(self) -> Optional[pulumi.Input[str]]:
+    def s3_backup_mode(self) -> Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']]:
         return pulumi.get(self, "s3_backup_mode")
 
     @s3_backup_mode.setter
-    def s3_backup_mode(self, value: Optional[pulumi.Input[str]]):
+    def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']]):
         pulumi.set(self, "s3_backup_mode", value)
 
 
@@ -1489,7 +1490,7 @@ class DeliveryStreamS3DestinationConfigurationArgs:
                  role_arn: pulumi.Input[str],
                  buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
-                 compression_format: Optional[pulumi.Input[str]] = None,
+                 compression_format: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationCompressionFormat']] = None,
                  encryption_configuration: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationArgs']] = None,
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
@@ -1546,11 +1547,11 @@ class DeliveryStreamS3DestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="compressionFormat")
-    def compression_format(self) -> Optional[pulumi.Input[str]]:
+    def compression_format(self) -> Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationCompressionFormat']]:
         return pulumi.get(self, "compression_format")
 
     @compression_format.setter
-    def compression_format(self, value: Optional[pulumi.Input[str]]):
+    def compression_format(self, value: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationCompressionFormat']]):
         pulumi.set(self, "compression_format", value)
 
     @property
@@ -1691,7 +1692,7 @@ class DeliveryStreamSerializerArgs:
 class DeliveryStreamSplunkDestinationConfigurationArgs:
     def __init__(__self__, *,
                  h_ec_endpoint: pulumi.Input[str],
-                 h_ec_endpoint_type: pulumi.Input[str],
+                 h_ec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType'],
                  h_ec_token: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
@@ -1725,11 +1726,11 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="hECEndpointType")
-    def h_ec_endpoint_type(self) -> pulumi.Input[str]:
+    def h_ec_endpoint_type(self) -> pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']:
         return pulumi.get(self, "h_ec_endpoint_type")
 
     @h_ec_endpoint_type.setter
-    def h_ec_endpoint_type(self, value: pulumi.Input[str]):
+    def h_ec_endpoint_type(self, value: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHECEndpointType']):
         pulumi.set(self, "h_ec_endpoint_type", value)
 
     @property

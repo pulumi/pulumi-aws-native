@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ResourceGroups.Outputs
     public sealed class GroupResourceQuery
     {
         public readonly Outputs.GroupQuery? Query;
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.ResourceGroups.GroupResourceQueryType? Type;
 
         [OutputConstructor]
         private GroupResourceQuery(
             Outputs.GroupQuery? query,
 
-            string? type)
+            Pulumi.AwsNative.ResourceGroups.GroupResourceQueryType? type)
         {
             Query = query;
             Type = type;

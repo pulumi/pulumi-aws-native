@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'IPSetTag',
@@ -257,7 +258,7 @@ class RuleGroupByteMatchStatement(dict):
 
     def __init__(__self__, *,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
-                 positional_constraint: str,
+                 positional_constraint: 'RuleGroupPositionalConstraint',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
                  search_string: Optional[str] = None,
                  search_string_base64: Optional[str] = None):
@@ -279,7 +280,7 @@ class RuleGroupByteMatchStatement(dict):
 
     @property
     @pulumi.getter(name="positionalConstraint")
-    def positional_constraint(self) -> str:
+    def positional_constraint(self) -> 'RuleGroupPositionalConstraint':
         return pulumi.get(self, "positional_constraint")
 
     @property
@@ -458,14 +459,14 @@ class RuleGroupForwardedIPConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 fallback_behavior: str,
+                 fallback_behavior: 'RuleGroupForwardedIPConfigurationFallbackBehavior',
                  header_name: str):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> str:
+    def fallback_behavior(self) -> 'RuleGroupForwardedIPConfigurationFallbackBehavior':
         return pulumi.get(self, "fallback_behavior")
 
     @property
@@ -536,16 +537,16 @@ class RuleGroupIPSetForwardedIPConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 fallback_behavior: str,
+                 fallback_behavior: 'RuleGroupIPSetForwardedIPConfigurationFallbackBehavior',
                  header_name: str,
-                 position: str):
+                 position: 'RuleGroupIPSetForwardedIPConfigurationPosition'):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> str:
+    def fallback_behavior(self) -> 'RuleGroupIPSetForwardedIPConfigurationFallbackBehavior':
         return pulumi.get(self, "fallback_behavior")
 
     @property
@@ -555,7 +556,7 @@ class RuleGroupIPSetForwardedIPConfiguration(dict):
 
     @property
     @pulumi.getter
-    def position(self) -> str:
+    def position(self) -> 'RuleGroupIPSetForwardedIPConfigurationPosition':
         return pulumi.get(self, "position")
 
 
@@ -624,8 +625,8 @@ class RuleGroupJsonBody(dict):
 
     def __init__(__self__, *,
                  match_pattern: 'outputs.RuleGroupJsonMatchPattern',
-                 match_scope: str,
-                 invalid_fallback_behavior: Optional[str] = None):
+                 match_scope: 'RuleGroupJsonMatchScope',
+                 invalid_fallback_behavior: Optional['RuleGroupBodyParsingFallbackBehavior'] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -641,12 +642,12 @@ class RuleGroupJsonBody(dict):
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> str:
+    def match_scope(self) -> 'RuleGroupJsonMatchScope':
         return pulumi.get(self, "match_scope")
 
     @property
     @pulumi.getter(name="invalidFallbackBehavior")
-    def invalid_fallback_behavior(self) -> Optional[str]:
+    def invalid_fallback_behavior(self) -> Optional['RuleGroupBodyParsingFallbackBehavior']:
         return pulumi.get(self, "invalid_fallback_behavior")
 
 
@@ -714,7 +715,7 @@ class RuleGroupLabel(dict):
 class RuleGroupLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
-                 scope: str):
+                 scope: 'RuleGroupLabelMatchScope'):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "scope", scope)
 
@@ -725,7 +726,7 @@ class RuleGroupLabelMatchStatement(dict):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> 'RuleGroupLabelMatchScope':
         return pulumi.get(self, "scope")
 
 
@@ -790,7 +791,7 @@ class RuleGroupRateBasedStatement(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregate_key_type: str,
+                 aggregate_key_type: 'RuleGroupRateBasedStatementAggregateKeyType',
                  limit: int,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIPConfiguration'] = None,
                  scope_down_statement: Optional['outputs.RuleGroupStatement'] = None):
@@ -803,7 +804,7 @@ class RuleGroupRateBasedStatement(dict):
 
     @property
     @pulumi.getter(name="aggregateKeyType")
-    def aggregate_key_type(self) -> str:
+    def aggregate_key_type(self) -> 'RuleGroupRateBasedStatementAggregateKeyType':
         return pulumi.get(self, "aggregate_key_type")
 
     @property
@@ -1019,7 +1020,7 @@ class RuleGroupSizeConstraintStatement(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 comparison_operator: str,
+                 comparison_operator: 'RuleGroupSizeConstraintStatementComparisonOperator',
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  size: float,
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
@@ -1033,7 +1034,7 @@ class RuleGroupSizeConstraintStatement(dict):
 
     @property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> str:
+    def comparison_operator(self) -> 'RuleGroupSizeConstraintStatementComparisonOperator':
         return pulumi.get(self, "comparison_operator")
 
     @property
@@ -1270,7 +1271,7 @@ class RuleGroupTextTransformation(dict):
     """
     def __init__(__self__, *,
                  priority: int,
-                 type: str):
+                 type: 'RuleGroupTextTransformationType'):
         """
         Text Transformation on the Search String before match.
         """
@@ -1284,7 +1285,7 @@ class RuleGroupTextTransformation(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'RuleGroupTextTransformationType':
         return pulumi.get(self, "type")
 
 
@@ -1501,7 +1502,7 @@ class WebACLByteMatchStatement(dict):
 
     def __init__(__self__, *,
                  field_to_match: 'outputs.WebACLFieldToMatch',
-                 positional_constraint: str,
+                 positional_constraint: 'WebACLPositionalConstraint',
                  text_transformations: Sequence['outputs.WebACLTextTransformation'],
                  search_string: Optional[str] = None,
                  search_string_base64: Optional[str] = None):
@@ -1523,7 +1524,7 @@ class WebACLByteMatchStatement(dict):
 
     @property
     @pulumi.getter(name="positionalConstraint")
-    def positional_constraint(self) -> str:
+    def positional_constraint(self) -> 'WebACLPositionalConstraint':
         return pulumi.get(self, "positional_constraint")
 
     @property
@@ -1910,14 +1911,14 @@ class WebACLForwardedIPConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 fallback_behavior: str,
+                 fallback_behavior: 'WebACLForwardedIPConfigurationFallbackBehavior',
                  header_name: str):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> str:
+    def fallback_behavior(self) -> 'WebACLForwardedIPConfigurationFallbackBehavior':
         return pulumi.get(self, "fallback_behavior")
 
     @property
@@ -1988,16 +1989,16 @@ class WebACLIPSetForwardedIPConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 fallback_behavior: str,
+                 fallback_behavior: 'WebACLIPSetForwardedIPConfigurationFallbackBehavior',
                  header_name: str,
-                 position: str):
+                 position: 'WebACLIPSetForwardedIPConfigurationPosition'):
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
-    def fallback_behavior(self) -> str:
+    def fallback_behavior(self) -> 'WebACLIPSetForwardedIPConfigurationFallbackBehavior':
         return pulumi.get(self, "fallback_behavior")
 
     @property
@@ -2007,7 +2008,7 @@ class WebACLIPSetForwardedIPConfiguration(dict):
 
     @property
     @pulumi.getter
-    def position(self) -> str:
+    def position(self) -> 'WebACLIPSetForwardedIPConfigurationPosition':
         return pulumi.get(self, "position")
 
 
@@ -2076,8 +2077,8 @@ class WebACLJsonBody(dict):
 
     def __init__(__self__, *,
                  match_pattern: 'outputs.WebACLJsonMatchPattern',
-                 match_scope: str,
-                 invalid_fallback_behavior: Optional[str] = None):
+                 match_scope: 'WebACLJsonMatchScope',
+                 invalid_fallback_behavior: Optional['WebACLBodyParsingFallbackBehavior'] = None):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
@@ -2093,12 +2094,12 @@ class WebACLJsonBody(dict):
 
     @property
     @pulumi.getter(name="matchScope")
-    def match_scope(self) -> str:
+    def match_scope(self) -> 'WebACLJsonMatchScope':
         return pulumi.get(self, "match_scope")
 
     @property
     @pulumi.getter(name="invalidFallbackBehavior")
-    def invalid_fallback_behavior(self) -> Optional[str]:
+    def invalid_fallback_behavior(self) -> Optional['WebACLBodyParsingFallbackBehavior']:
         return pulumi.get(self, "invalid_fallback_behavior")
 
 
@@ -2166,7 +2167,7 @@ class WebACLLabel(dict):
 class WebACLLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
-                 scope: str):
+                 scope: 'WebACLLabelMatchScope'):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "scope", scope)
 
@@ -2177,7 +2178,7 @@ class WebACLLabelMatchStatement(dict):
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def scope(self) -> 'WebACLLabelMatchScope':
         return pulumi.get(self, "scope")
 
 
@@ -2328,7 +2329,7 @@ class WebACLRateBasedStatement(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregate_key_type: str,
+                 aggregate_key_type: 'WebACLRateBasedStatementAggregateKeyType',
                  limit: int,
                  forwarded_ip_config: Optional['outputs.WebACLForwardedIPConfiguration'] = None,
                  scope_down_statement: Optional['outputs.WebACLStatement'] = None):
@@ -2341,7 +2342,7 @@ class WebACLRateBasedStatement(dict):
 
     @property
     @pulumi.getter(name="aggregateKeyType")
-    def aggregate_key_type(self) -> str:
+    def aggregate_key_type(self) -> 'WebACLRateBasedStatementAggregateKeyType':
         return pulumi.get(self, "aggregate_key_type")
 
     @property
@@ -2592,7 +2593,7 @@ class WebACLSizeConstraintStatement(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 comparison_operator: str,
+                 comparison_operator: 'WebACLSizeConstraintStatementComparisonOperator',
                  field_to_match: 'outputs.WebACLFieldToMatch',
                  size: float,
                  text_transformations: Sequence['outputs.WebACLTextTransformation']):
@@ -2606,7 +2607,7 @@ class WebACLSizeConstraintStatement(dict):
 
     @property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> str:
+    def comparison_operator(self) -> 'WebACLSizeConstraintStatementComparisonOperator':
         return pulumi.get(self, "comparison_operator")
 
     @property
@@ -2863,7 +2864,7 @@ class WebACLTextTransformation(dict):
     """
     def __init__(__self__, *,
                  priority: int,
-                 type: str):
+                 type: 'WebACLTextTransformationType'):
         """
         Text Transformation on the Search String before match.
         """
@@ -2877,7 +2878,7 @@ class WebACLTextTransformation(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'WebACLTextTransformationType':
         return pulumi.get(self, "type")
 
 

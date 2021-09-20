@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
         public readonly Outputs.TaskDefinitionAuthorizationConfig? AuthorizationConfig;
         public readonly string FilesystemId;
         public readonly string? RootDirectory;
-        public readonly string? TransitEncryption;
+        public readonly Pulumi.AwsNative.ECS.TaskDefinitionEFSVolumeConfigurationTransitEncryption? TransitEncryption;
         public readonly int? TransitEncryptionPort;
 
         [OutputConstructor]
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
             string? rootDirectory,
 
-            string? transitEncryption,
+            Pulumi.AwsNative.ECS.TaskDefinitionEFSVolumeConfigurationTransitEncryption? transitEncryption,
 
             int? transitEncryptionPort)
         {

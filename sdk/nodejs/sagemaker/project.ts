@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The status of a project.
      */
-    public /*out*/ readonly projectStatus!: pulumi.Output<string>;
+    public /*out*/ readonly projectStatus!: pulumi.Output<enums.sagemaker.ProjectProjectStatus>;
     /**
      * Provisioned ServiceCatalog  Details
      */

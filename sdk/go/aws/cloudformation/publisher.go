@@ -20,13 +20,13 @@ type Publisher struct {
 	// If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
 	ConnectionArn pulumi.StringPtrOutput `pulumi:"connectionArn"`
 	// The type of account used as the identity provider when registering this publisher with CloudFormation.
-	IdentityProvider pulumi.StringOutput `pulumi:"identityProvider"`
+	IdentityProvider PublisherIdentityProviderOutput `pulumi:"identityProvider"`
 	// The publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringOutput `pulumi:"publisherId"`
 	// The URL to the publisher's profile with the identity provider.
 	PublisherProfile pulumi.StringOutput `pulumi:"publisherProfile"`
 	// Whether the publisher is verified.
-	PublisherStatus pulumi.StringOutput `pulumi:"publisherStatus"`
+	PublisherStatus PublisherPublisherStatusOutput `pulumi:"publisherStatus"`
 }
 
 // NewPublisher registers a new resource with the given unique name, arguments, and options.

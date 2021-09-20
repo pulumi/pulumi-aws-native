@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +41,7 @@ export class RouteCalculator extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly dataSource!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly pricingPlan!: pulumi.Output<string>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.RouteCalculatorPricingPlan>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -95,5 +96,5 @@ export interface RouteCalculatorArgs {
     calculatorName: pulumi.Input<string>;
     dataSource: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<string>;
+    pricingPlan: pulumi.Input<enums.location.RouteCalculatorPricingPlan>;
 }

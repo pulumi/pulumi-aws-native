@@ -476,9 +476,9 @@ func (o StateMachineLogDestinationArrayOutput) Index(i pulumi.IntInput) StateMac
 }
 
 type StateMachineLoggingConfiguration struct {
-	Destinations         []StateMachineLogDestination `pulumi:"destinations"`
-	IncludeExecutionData *bool                        `pulumi:"includeExecutionData"`
-	Level                *string                      `pulumi:"level"`
+	Destinations         []StateMachineLogDestination           `pulumi:"destinations"`
+	IncludeExecutionData *bool                                  `pulumi:"includeExecutionData"`
+	Level                *StateMachineLoggingConfigurationLevel `pulumi:"level"`
 }
 
 // StateMachineLoggingConfigurationInput is an input type that accepts StateMachineLoggingConfigurationArgs and StateMachineLoggingConfigurationOutput values.
@@ -493,9 +493,9 @@ type StateMachineLoggingConfigurationInput interface {
 }
 
 type StateMachineLoggingConfigurationArgs struct {
-	Destinations         StateMachineLogDestinationArrayInput `pulumi:"destinations"`
-	IncludeExecutionData pulumi.BoolPtrInput                  `pulumi:"includeExecutionData"`
-	Level                pulumi.StringPtrInput                `pulumi:"level"`
+	Destinations         StateMachineLogDestinationArrayInput          `pulumi:"destinations"`
+	IncludeExecutionData pulumi.BoolPtrInput                           `pulumi:"includeExecutionData"`
+	Level                StateMachineLoggingConfigurationLevelPtrInput `pulumi:"level"`
 }
 
 func (StateMachineLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -583,8 +583,8 @@ func (o StateMachineLoggingConfigurationOutput) IncludeExecutionData() pulumi.Bo
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *bool { return v.IncludeExecutionData }).(pulumi.BoolPtrOutput)
 }
 
-func (o StateMachineLoggingConfigurationOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o StateMachineLoggingConfigurationOutput) Level() StateMachineLoggingConfigurationLevelPtrOutput {
+	return o.ApplyT(func(v StateMachineLoggingConfiguration) *StateMachineLoggingConfigurationLevel { return v.Level }).(StateMachineLoggingConfigurationLevelPtrOutput)
 }
 
 type StateMachineLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -629,13 +629,13 @@ func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *string {
+func (o StateMachineLoggingConfigurationPtrOutput) Level() StateMachineLoggingConfigurationLevelPtrOutput {
+	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *StateMachineLoggingConfigurationLevel {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(pulumi.StringPtrOutput)
+	}).(StateMachineLoggingConfigurationLevelPtrOutput)
 }
 
 type StateMachineS3Location struct {

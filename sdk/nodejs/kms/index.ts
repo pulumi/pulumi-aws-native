@@ -9,6 +9,9 @@ export * from "./alias";
 export * from "./key";
 export * from "./replicaKey";
 
+// Export enums:
+export * from "../types/enums/kms";
+
 // Import resources to register:
 import { Alias } from "./alias";
 import { Key } from "./key";

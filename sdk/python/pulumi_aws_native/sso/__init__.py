@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .assignment import *
 from .instance_access_control_attribute_configuration import *
 from .permission_set import *

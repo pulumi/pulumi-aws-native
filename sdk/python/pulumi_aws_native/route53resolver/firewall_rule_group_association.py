@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FirewallRuleGroupAssociationArgs', 'FirewallRuleGroupAssociation']
@@ -18,7 +19,7 @@ class FirewallRuleGroupAssociationArgs:
                  firewall_rule_group_id: pulumi.Input[str],
                  priority: pulumi.Input[int],
                  vpc_id: pulumi.Input[str],
-                 mutation_protection: Optional[pulumi.Input[str]] = None,
+                 mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]]] = None):
         """
@@ -26,7 +27,7 @@ class FirewallRuleGroupAssociationArgs:
         :param pulumi.Input[str] firewall_rule_group_id: FirewallRuleGroupId
         :param pulumi.Input[int] priority: Priority
         :param pulumi.Input[str] vpc_id: VpcId
-        :param pulumi.Input[str] mutation_protection: MutationProtectionStatus
+        :param pulumi.Input['FirewallRuleGroupAssociationMutationProtection'] mutation_protection: MutationProtectionStatus
         :param pulumi.Input[str] name: FirewallRuleGroupAssociationName
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]] tags: Tags
         """
@@ -78,14 +79,14 @@ class FirewallRuleGroupAssociationArgs:
 
     @property
     @pulumi.getter(name="mutationProtection")
-    def mutation_protection(self) -> Optional[pulumi.Input[str]]:
+    def mutation_protection(self) -> Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']]:
         """
         MutationProtectionStatus
         """
         return pulumi.get(self, "mutation_protection")
 
     @mutation_protection.setter
-    def mutation_protection(self, value: Optional[pulumi.Input[str]]):
+    def mutation_protection(self, value: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']]):
         pulumi.set(self, "mutation_protection", value)
 
     @property
@@ -119,7 +120,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
-                 mutation_protection: Optional[pulumi.Input[str]] = None,
+                 mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupAssociationTagArgs']]]]] = None,
@@ -131,7 +132,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] firewall_rule_group_id: FirewallRuleGroupId
-        :param pulumi.Input[str] mutation_protection: MutationProtectionStatus
+        :param pulumi.Input['FirewallRuleGroupAssociationMutationProtection'] mutation_protection: MutationProtectionStatus
         :param pulumi.Input[str] name: FirewallRuleGroupAssociationName
         :param pulumi.Input[int] priority: Priority
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupAssociationTagArgs']]]] tags: Tags
@@ -162,7 +163,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
-                 mutation_protection: Optional[pulumi.Input[str]] = None,
+                 mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupAssociationTagArgs']]]]] = None,
@@ -285,7 +286,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mutationProtection")
-    def mutation_protection(self) -> pulumi.Output[Optional[str]]:
+    def mutation_protection(self) -> pulumi.Output[Optional['FirewallRuleGroupAssociationMutationProtection']]:
         """
         MutationProtectionStatus
         """
@@ -309,7 +310,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['FirewallRuleGroupAssociationStatus']:
         """
         ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
         """

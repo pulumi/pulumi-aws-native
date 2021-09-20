@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .addon import *
 from .fargate_profile import *
 from ._inputs import *

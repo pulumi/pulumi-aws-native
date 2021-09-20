@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         /// Health Check Protocol
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public Input<Pulumi.AwsNative.AppRunner.ServiceHealthCheckConfigurationProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Health check Timeout

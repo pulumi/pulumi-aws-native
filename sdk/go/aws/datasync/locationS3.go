@@ -23,7 +23,7 @@ type LocationS3 struct {
 	S3BucketArn pulumi.StringOutput      `pulumi:"s3BucketArn"`
 	S3Config    LocationS3S3ConfigOutput `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
-	S3StorageClass pulumi.StringPtrOutput `pulumi:"s3StorageClass"`
+	S3StorageClass LocationS3S3StorageClassPtrOutput `pulumi:"s3StorageClass"`
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -79,7 +79,7 @@ type locationS3Args struct {
 	S3BucketArn string             `pulumi:"s3BucketArn"`
 	S3Config    LocationS3S3Config `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
-	S3StorageClass *string `pulumi:"s3StorageClass"`
+	S3StorageClass *LocationS3S3StorageClass `pulumi:"s3StorageClass"`
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -92,7 +92,7 @@ type LocationS3Args struct {
 	S3BucketArn pulumi.StringInput
 	S3Config    LocationS3S3ConfigInput
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
-	S3StorageClass pulumi.StringPtrInput
+	S3StorageClass LocationS3S3StorageClassPtrInput
 	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.

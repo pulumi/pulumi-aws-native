@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     public sealed class TableEncryptionSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("encryptionType", required: true)]
-        public Input<string> EncryptionType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Cassandra.TableEncryptionType> EncryptionType { get; set; } = null!;
 
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }

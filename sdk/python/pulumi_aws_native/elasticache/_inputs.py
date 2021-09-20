@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GlobalReplicationGroupGlobalReplicationGroupMemberArgs',
@@ -19,11 +20,11 @@ class GlobalReplicationGroupGlobalReplicationGroupMemberArgs:
     def __init__(__self__, *,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  replication_group_region: Optional[pulumi.Input[str]] = None,
-                 role: Optional[pulumi.Input[str]] = None):
+                 role: Optional[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole']] = None):
         """
         :param pulumi.Input[str] replication_group_id: Regionally unique identifier for the member i.e. ReplicationGroupId.
         :param pulumi.Input[str] replication_group_region: The AWS region of the Global Datastore member.
-        :param pulumi.Input[str] role: Indicates the role of the member, primary or secondary.
+        :param pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole'] role: Indicates the role of the member, primary or secondary.
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -58,14 +59,14 @@ class GlobalReplicationGroupGlobalReplicationGroupMemberArgs:
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[str]]:
+    def role(self) -> Optional[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole']]:
         """
         Indicates the role of the member, primary or secondary.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[str]]):
+    def role(self, value: Optional[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole']]):
         pulumi.set(self, "role", value)
 
 

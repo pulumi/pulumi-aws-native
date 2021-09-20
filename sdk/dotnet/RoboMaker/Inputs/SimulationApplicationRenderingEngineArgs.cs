@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         /// The name of the rendering engine.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationRenderingEngineName> Name { get; set; } = null!;
 
         /// <summary>
         /// The version of the rendering engine.

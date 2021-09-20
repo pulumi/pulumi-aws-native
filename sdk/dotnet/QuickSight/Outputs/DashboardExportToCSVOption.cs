@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardExportToCSVOption
     {
-        public readonly string? AvailabilityStatus;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardDashboardBehavior? AvailabilityStatus;
 
         [OutputConstructor]
-        private DashboardExportToCSVOption(string? availabilityStatus)
+        private DashboardExportToCSVOption(Pulumi.AwsNative.QuickSight.DashboardDashboardBehavior? availabilityStatus)
         {
             AvailabilityStatus = availabilityStatus;
         }

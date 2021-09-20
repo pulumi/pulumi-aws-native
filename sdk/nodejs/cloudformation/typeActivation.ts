@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +66,7 @@ export class TypeActivation extends pulumi.CustomResource {
     /**
      * The kind of extension
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<enums.cloudformation.TypeActivationType | undefined>;
     /**
      * The name of the type being registered.
      *
@@ -80,7 +80,7 @@ export class TypeActivation extends pulumi.CustomResource {
     /**
      * Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
      */
-    public readonly versionBump!: pulumi.Output<string | undefined>;
+    public readonly versionBump!: pulumi.Output<enums.cloudformation.TypeActivationVersionBump | undefined>;
 
     /**
      * Create a TypeActivation resource with the given unique name, arguments, and options.
@@ -155,7 +155,7 @@ export interface TypeActivationArgs {
     /**
      * The kind of extension
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<enums.cloudformation.TypeActivationType>;
     /**
      * The name of the type being registered.
      *
@@ -169,5 +169,5 @@ export interface TypeActivationArgs {
     /**
      * Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
      */
-    versionBump?: pulumi.Input<string>;
+    versionBump?: pulumi.Input<enums.cloudformation.TypeActivationVersionBump>;
 }

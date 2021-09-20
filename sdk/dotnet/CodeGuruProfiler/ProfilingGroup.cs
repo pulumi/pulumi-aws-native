@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// The compute platform of the profiling group.
         /// </summary>
         [Output("computePlatform")]
-        public Output<string?> ComputePlatform { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CodeGuruProfiler.ProfilingGroupComputePlatform?> ComputePlatform { get; private set; } = null!;
 
         /// <summary>
         /// The name of the profiling group.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// The compute platform of the profiling group.
         /// </summary>
         [Input("computePlatform")]
-        public Input<string>? ComputePlatform { get; set; }
+        public Input<Pulumi.AwsNative.CodeGuruProfiler.ProfilingGroupComputePlatform>? ComputePlatform { get; set; }
 
         /// <summary>
         /// The name of the profiling group.

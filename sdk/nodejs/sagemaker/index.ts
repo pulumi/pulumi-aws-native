@@ -23,6 +23,9 @@ export * from "./pipeline";
 export * from "./project";
 export * from "./userProfile";
 
+// Export enums:
+export * from "../types/enums/sagemaker";
+
 // Import resources to register:
 import { App } from "./app";
 import { AppImageConfig } from "./appImageConfig";

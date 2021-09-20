@@ -35,7 +35,7 @@ type ImagePipeline struct {
 	// The schedule of the image pipeline.
 	Schedule ImagePipelineSchedulePtrOutput `pulumi:"schedule"`
 	// The status of the image pipeline.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
+	Status ImagePipelineStatusPtrOutput `pulumi:"status"`
 	// The tags of this image pipeline.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
@@ -98,7 +98,7 @@ type imagePipelineArgs struct {
 	// The schedule of the image pipeline.
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// The status of the image pipeline.
-	Status *string `pulumi:"status"`
+	Status *ImagePipelineStatus `pulumi:"status"`
 	// The tags of this image pipeline.
 	Tags interface{} `pulumi:"tags"`
 }
@@ -124,7 +124,7 @@ type ImagePipelineArgs struct {
 	// The schedule of the image pipeline.
 	Schedule ImagePipelineSchedulePtrInput
 	// The status of the image pipeline.
-	Status pulumi.StringPtrInput
+	Status ImagePipelineStatusPtrInput
 	// The tags of this image pipeline.
 	Tags pulumi.Input
 }

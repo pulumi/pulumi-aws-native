@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
         public Input<Inputs.GroupQueryArgs>? Query { get; set; }
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.ResourceGroups.GroupResourceQueryType>? Type { get; set; }
 
         public GroupResourceQueryArgs()
         {

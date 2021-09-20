@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public Input<int>? MinimumScalingStepSize { get; set; }
 
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.ECS.CapacityProviderManagedScalingStatus>? Status { get; set; }
 
         [Input("targetCapacity")]
         public Input<int>? TargetCapacity { get; set; }

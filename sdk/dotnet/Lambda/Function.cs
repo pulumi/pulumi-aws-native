@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Lambda
         /// PackageType.
         /// </summary>
         [Output("packageType")]
-        public Output<string?> PackageType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Lambda.FunctionPackageType?> PackageType { get; private set; } = null!;
 
         /// <summary>
         /// The number of simultaneous executions to reserve for the function.
@@ -274,7 +274,7 @@ namespace Pulumi.AwsNative.Lambda
         /// PackageType.
         /// </summary>
         [Input("packageType")]
-        public Input<string>? PackageType { get; set; }
+        public Input<Pulumi.AwsNative.Lambda.FunctionPackageType>? PackageType { get; set; }
 
         /// <summary>
         /// The number of simultaneous executions to reserve for the function.

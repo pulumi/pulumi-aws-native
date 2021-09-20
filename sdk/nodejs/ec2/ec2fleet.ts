@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -36,7 +36,7 @@ export class EC2Fleet extends pulumi.CustomResource {
     }
 
     public readonly context!: pulumi.Output<string | undefined>;
-    public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
+    public readonly excessCapacityTerminationPolicy!: pulumi.Output<enums.ec2.EC2FleetExcessCapacityTerminationPolicy | undefined>;
     public /*out*/ readonly fleetId!: pulumi.Output<string>;
     public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.EC2FleetFleetLaunchTemplateConfigRequest[]>;
     public readonly onDemandOptions!: pulumi.Output<outputs.ec2.EC2FleetOnDemandOptionsRequest | undefined>;
@@ -45,7 +45,7 @@ export class EC2Fleet extends pulumi.CustomResource {
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.EC2FleetTagSpecification[] | undefined>;
     public readonly targetCapacitySpecification!: pulumi.Output<outputs.ec2.EC2FleetTargetCapacitySpecificationRequest>;
     public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<enums.ec2.EC2FleetType | undefined>;
     public readonly validFrom!: pulumi.Output<string | undefined>;
     public readonly validUntil!: pulumi.Output<string | undefined>;
 
@@ -106,7 +106,7 @@ export class EC2Fleet extends pulumi.CustomResource {
  */
 export interface EC2FleetArgs {
     context?: pulumi.Input<string>;
-    excessCapacityTerminationPolicy?: pulumi.Input<string>;
+    excessCapacityTerminationPolicy?: pulumi.Input<enums.ec2.EC2FleetExcessCapacityTerminationPolicy>;
     launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.ec2.EC2FleetFleetLaunchTemplateConfigRequestArgs>[]>;
     onDemandOptions?: pulumi.Input<inputs.ec2.EC2FleetOnDemandOptionsRequestArgs>;
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
@@ -114,7 +114,7 @@ export interface EC2FleetArgs {
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.EC2FleetTagSpecificationArgs>[]>;
     targetCapacitySpecification: pulumi.Input<inputs.ec2.EC2FleetTargetCapacitySpecificationRequestArgs>;
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<enums.ec2.EC2FleetType>;
     validFrom?: pulumi.Input<string>;
     validUntil?: pulumi.Input<string>;
 }

@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLTextTransformation
     {
         public readonly int Priority;
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLTextTransformationType Type;
 
         [OutputConstructor]
         private WebACLTextTransformation(
             int priority,
 
-            string type)
+            Pulumi.AwsNative.WAFv2.WebACLTextTransformationType type)
         {
             Priority = priority;
             Type = type;

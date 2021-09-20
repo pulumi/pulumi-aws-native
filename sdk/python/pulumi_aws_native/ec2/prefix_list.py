@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PrefixListArgs', 'PrefixList']
@@ -15,14 +16,14 @@ __all__ = ['PrefixListArgs', 'PrefixList']
 @pulumi.input_type
 class PrefixListArgs:
     def __init__(__self__, *,
-                 address_family: pulumi.Input[str],
+                 address_family: pulumi.Input['PrefixListAddressFamily'],
                  max_entries: pulumi.Input[int],
                  prefix_list_name: pulumi.Input[str],
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListTagArgs']]]] = None):
         """
         The set of arguments for constructing a PrefixList resource.
-        :param pulumi.Input[str] address_family: Ip Version of Prefix List.
+        :param pulumi.Input['PrefixListAddressFamily'] address_family: Ip Version of Prefix List.
         :param pulumi.Input[int] max_entries: Max Entries of Prefix List.
         :param pulumi.Input[str] prefix_list_name: Name of Prefix List.
         :param pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]] entries: Entries of Prefix List.
@@ -38,14 +39,14 @@ class PrefixListArgs:
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> pulumi.Input[str]:
+    def address_family(self) -> pulumi.Input['PrefixListAddressFamily']:
         """
         Ip Version of Prefix List.
         """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
-    def address_family(self, value: pulumi.Input[str]):
+    def address_family(self, value: pulumi.Input['PrefixListAddressFamily']):
         pulumi.set(self, "address_family", value)
 
     @property
@@ -102,7 +103,7 @@ class PrefixList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input[str]] = None,
+                 address_family: Optional[pulumi.Input['PrefixListAddressFamily']] = None,
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrefixListEntryArgs']]]]] = None,
                  max_entries: Optional[pulumi.Input[int]] = None,
                  prefix_list_name: Optional[pulumi.Input[str]] = None,
@@ -113,7 +114,7 @@ class PrefixList(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address_family: Ip Version of Prefix List.
+        :param pulumi.Input['PrefixListAddressFamily'] address_family: Ip Version of Prefix List.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrefixListEntryArgs']]]] entries: Entries of Prefix List.
         :param pulumi.Input[int] max_entries: Max Entries of Prefix List.
         :param pulumi.Input[str] prefix_list_name: Name of Prefix List.
@@ -143,7 +144,7 @@ class PrefixList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input[str]] = None,
+                 address_family: Optional[pulumi.Input['PrefixListAddressFamily']] = None,
                  entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrefixListEntryArgs']]]]] = None,
                  max_entries: Optional[pulumi.Input[int]] = None,
                  prefix_list_name: Optional[pulumi.Input[str]] = None,
@@ -210,7 +211,7 @@ class PrefixList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressFamily")
-    def address_family(self) -> pulumi.Output[str]:
+    def address_family(self) -> pulumi.Output['PrefixListAddressFamily']:
         """
         Ip Version of Prefix List.
         """

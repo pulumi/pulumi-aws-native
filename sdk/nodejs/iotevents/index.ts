@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./detectorModel";
 export * from "./input";
 
+// Export enums:
+export * from "../types/enums/iotevents";
+
 // Import resources to register:
 import { DetectorModel } from "./detectorModel";
 import { Input } from "./input";

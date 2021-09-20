@@ -21,7 +21,7 @@ type NetworkInsightsPath struct {
 	DestinationPort        pulumi.IntPtrOutput               `pulumi:"destinationPort"`
 	NetworkInsightsPathArn pulumi.StringOutput               `pulumi:"networkInsightsPathArn"`
 	NetworkInsightsPathId  pulumi.StringOutput               `pulumi:"networkInsightsPathId"`
-	Protocol               pulumi.StringOutput               `pulumi:"protocol"`
+	Protocol               NetworkInsightsPathProtocolOutput `pulumi:"protocol"`
 	Source                 pulumi.StringOutput               `pulumi:"source"`
 	SourceIp               pulumi.StringPtrOutput            `pulumi:"sourceIp"`
 	Tags                   NetworkInsightsPathTagArrayOutput `pulumi:"tags"`
@@ -75,13 +75,13 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 }
 
 type networkInsightsPathArgs struct {
-	Destination     string                   `pulumi:"destination"`
-	DestinationIp   *string                  `pulumi:"destinationIp"`
-	DestinationPort *int                     `pulumi:"destinationPort"`
-	Protocol        string                   `pulumi:"protocol"`
-	Source          string                   `pulumi:"source"`
-	SourceIp        *string                  `pulumi:"sourceIp"`
-	Tags            []NetworkInsightsPathTag `pulumi:"tags"`
+	Destination     string                      `pulumi:"destination"`
+	DestinationIp   *string                     `pulumi:"destinationIp"`
+	DestinationPort *int                        `pulumi:"destinationPort"`
+	Protocol        NetworkInsightsPathProtocol `pulumi:"protocol"`
+	Source          string                      `pulumi:"source"`
+	SourceIp        *string                     `pulumi:"sourceIp"`
+	Tags            []NetworkInsightsPathTag    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
@@ -89,7 +89,7 @@ type NetworkInsightsPathArgs struct {
 	Destination     pulumi.StringInput
 	DestinationIp   pulumi.StringPtrInput
 	DestinationPort pulumi.IntPtrInput
-	Protocol        pulumi.StringInput
+	Protocol        NetworkInsightsPathProtocolInput
 	Source          pulumi.StringInput
 	SourceIp        pulumi.StringPtrInput
 	Tags            NetworkInsightsPathTagArrayInput

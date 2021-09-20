@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         /// The target processor architecture for the application.
         /// </summary>
         [Input("architecture", required: true)]
-        public Input<string> Architecture { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationSourceConfigArchitecture> Architecture { get; set; } = null!;
 
         /// <summary>
         /// The Amazon S3 bucket name.

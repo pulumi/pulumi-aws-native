@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// <summary>
         /// Source Code Version Type
         /// </summary>
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.AppRunner.ServiceSourceCodeVersionType Type;
         /// <summary>
         /// Source Code Version Value
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 
         [OutputConstructor]
         private ServiceSourceCodeVersion(
-            string type,
+            Pulumi.AwsNative.AppRunner.ServiceSourceCodeVersionType type,
 
             string value)
         {

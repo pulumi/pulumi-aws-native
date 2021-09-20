@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.Glue
         /// Compatibility setting for the schema.
         /// </summary>
         [Output("compatibility")]
-        public Output<string> Compatibility { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Glue.SchemaCompatibility> Compatibility { get; private set; } = null!;
 
         /// <summary>
         /// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         /// </summary>
         [Output("dataFormat")]
-        public Output<string> DataFormat { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Glue.SchemaDataFormat> DataFormat { get; private set; } = null!;
 
         /// <summary>
         /// A description of the schema. If description is not provided, there will not be any default value for this.
@@ -121,13 +121,13 @@ namespace Pulumi.AwsNative.Glue
         /// Compatibility setting for the schema.
         /// </summary>
         [Input("compatibility", required: true)]
-        public Input<string> Compatibility { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Glue.SchemaCompatibility> Compatibility { get; set; } = null!;
 
         /// <summary>
         /// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         /// </summary>
         [Input("dataFormat", required: true)]
-        public Input<string> DataFormat { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Glue.SchemaDataFormat> DataFormat { get; set; } = null!;
 
         /// <summary>
         /// A description of the schema. If description is not provided, there will not be any default value for this.

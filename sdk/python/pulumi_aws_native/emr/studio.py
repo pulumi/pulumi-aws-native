@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StudioArgs', 'Studio']
@@ -15,7 +16,7 @@ __all__ = ['StudioArgs', 'Studio']
 @pulumi.input_type
 class StudioArgs:
     def __init__(__self__, *,
-                 auth_mode: pulumi.Input[str],
+                 auth_mode: pulumi.Input['StudioAuthMode'],
                  default_s3_location: pulumi.Input[str],
                  engine_security_group_id: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -30,7 +31,7 @@ class StudioArgs:
                  user_role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Studio resource.
-        :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
+        :param pulumi.Input['StudioAuthMode'] auth_mode: Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         :param pulumi.Input[str] default_s3_location: The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
         :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
         :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
@@ -65,14 +66,14 @@ class StudioArgs:
 
     @property
     @pulumi.getter(name="authMode")
-    def auth_mode(self) -> pulumi.Input[str]:
+    def auth_mode(self) -> pulumi.Input['StudioAuthMode']:
         """
         Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
-    def auth_mode(self, value: pulumi.Input[str]):
+    def auth_mode(self, value: pulumi.Input['StudioAuthMode']):
         pulumi.set(self, "auth_mode", value)
 
     @property
@@ -225,7 +226,7 @@ class Studio(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_mode: Optional[pulumi.Input[str]] = None,
+                 auth_mode: Optional[pulumi.Input['StudioAuthMode']] = None,
                  default_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -244,7 +245,7 @@ class Studio(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_mode: Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
+        :param pulumi.Input['StudioAuthMode'] auth_mode: Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         :param pulumi.Input[str] default_s3_location: The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
         :param pulumi.Input[str] description: A detailed description of the Studio.
         :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
@@ -282,7 +283,7 @@ class Studio(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_mode: Optional[pulumi.Input[str]] = None,
+                 auth_mode: Optional[pulumi.Input['StudioAuthMode']] = None,
                  default_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -389,7 +390,7 @@ class Studio(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authMode")
-    def auth_mode(self) -> pulumi.Output[str]:
+    def auth_mode(self) -> pulumi.Output['StudioAuthMode']:
         """
         Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         """

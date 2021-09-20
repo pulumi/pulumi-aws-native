@@ -9,6 +9,9 @@ export * from "./config";
 export * from "./dataflowEndpointGroup";
 export * from "./missionProfile";
 
+// Export enums:
+export * from "../types/enums/groundstation";
+
 // Import resources to register:
 import { Config } from "./config";
 import { DataflowEndpointGroup } from "./dataflowEndpointGroup";

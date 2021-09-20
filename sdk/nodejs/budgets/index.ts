@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./budgetsAction";
 
+// Export enums:
+export * from "../types/enums/budgets";
+
 // Import resources to register:
 import { BudgetsAction } from "./budgetsAction";
 

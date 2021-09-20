@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         [Input("countryCode")]
-        public Input<string>? CountryCode { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSetGeoSpatialCountryCode>? CountryCode { get; set; }
 
         /// <summary>
         /// &lt;p&gt;A display name for the hierarchy.&lt;/p&gt;

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +39,7 @@ export class ResourceCollection extends pulumi.CustomResource {
     /**
      * The type of ResourceCollection
      */
-    public /*out*/ readonly resourceCollectionType!: pulumi.Output<string>;
+    public /*out*/ readonly resourceCollectionType!: pulumi.Output<enums.devopsguru.ResourceCollectionResourceCollectionType>;
 
     /**
      * Create a ResourceCollection resource with the given unique name, arguments, and options.

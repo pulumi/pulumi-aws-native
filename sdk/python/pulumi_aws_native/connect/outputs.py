@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'QuickConnectPhoneNumberQuickConnectConfig',
@@ -125,7 +126,7 @@ class QuickConnectQuickConnectConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 quick_connect_type: str,
+                 quick_connect_type: 'QuickConnectQuickConnectType',
                  phone_config: Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig'] = None,
                  queue_config: Optional['outputs.QuickConnectQueueQuickConnectConfig'] = None,
                  user_config: Optional['outputs.QuickConnectUserQuickConnectConfig'] = None):
@@ -142,7 +143,7 @@ class QuickConnectQuickConnectConfig(dict):
 
     @property
     @pulumi.getter(name="quickConnectType")
-    def quick_connect_type(self) -> str:
+    def quick_connect_type(self) -> 'QuickConnectQuickConnectType':
         return pulumi.get(self, "quick_connect_type")
 
     @property

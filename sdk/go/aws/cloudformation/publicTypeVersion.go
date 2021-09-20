@@ -25,7 +25,7 @@ type PublicTypeVersion struct {
 	// The publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringOutput `pulumi:"publisherId"`
 	// The kind of extension
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type PublicTypeVersionTypePtrOutput `pulumi:"type"`
 	// The name of the type being registered.
 	//
 	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -80,7 +80,7 @@ type publicTypeVersionArgs struct {
 	// The version number of a public third-party extension
 	PublicVersionNumber *string `pulumi:"publicVersionNumber"`
 	// The kind of extension
-	Type *string `pulumi:"type"`
+	Type *PublicTypeVersionType `pulumi:"type"`
 	// The name of the type being registered.
 	//
 	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -96,7 +96,7 @@ type PublicTypeVersionArgs struct {
 	// The version number of a public third-party extension
 	PublicVersionNumber pulumi.StringPtrInput
 	// The kind of extension
-	Type pulumi.StringPtrInput
+	Type PublicTypeVersionTypePtrInput
 	// The name of the type being registered.
 	//
 	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.

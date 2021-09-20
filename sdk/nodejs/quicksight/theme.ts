@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +71,7 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.quicksight.ThemeTag[] | undefined>;
     public readonly themeId!: pulumi.Output<string>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeThemeType>;
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeThemeVersion>;
     /**
      * <p>A description of the first version of the theme that you're creating. Every time

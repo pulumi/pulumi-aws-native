@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly string BucketARN;
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
-        public readonly string? CompressionFormat;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat? CompressionFormat;
         public readonly Outputs.DeliveryStreamEncryptionConfiguration? EncryptionConfiguration;
         public readonly string? ErrorOutputPrefix;
         public readonly string? Prefix;
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            string? compressionFormat,
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat? compressionFormat,
 
             Outputs.DeliveryStreamEncryptionConfiguration? encryptionConfiguration,
 

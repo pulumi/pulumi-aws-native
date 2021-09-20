@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         }
 
         [Input("taskType", required: true)]
-        public Input<string> TaskType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationTaskType> TaskType { get; set; } = null!;
 
         public IntegrationTaskArgs()
         {

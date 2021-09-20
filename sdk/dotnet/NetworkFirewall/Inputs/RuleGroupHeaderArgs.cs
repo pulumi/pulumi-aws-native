@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public Input<string> DestinationPort { get; set; } = null!;
 
         [Input("direction", required: true)]
-        public Input<string> Direction { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupHeaderDirection> Direction { get; set; } = null!;
 
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupHeaderProtocol> Protocol { get; set; } = null!;
 
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;

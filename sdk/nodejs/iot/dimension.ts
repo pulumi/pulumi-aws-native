@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class Dimension extends pulumi.CustomResource {
     /**
      * Specifies the type of the dimension.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.iot.DimensionType>;
 
     /**
      * Create a Dimension resource with the given unique name, arguments, and options.
@@ -111,5 +111,5 @@ export interface DimensionArgs {
     /**
      * Specifies the type of the dimension.
      */
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.iot.DimensionType>;
 }

@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// <summary>
         /// Parameter type
         /// </summary>
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.DataBrew.DatasetDatasetParameterType Type;
 
         [OutputConstructor]
         private DatasetDatasetParameter(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
             string name,
 
-            string type)
+            Pulumi.AwsNative.DataBrew.DatasetDatasetParameterType type)
         {
             CreateColumn = createColumn;
             DatetimeOptions = datetimeOptions;

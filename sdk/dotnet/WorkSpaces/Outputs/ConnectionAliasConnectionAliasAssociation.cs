@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WorkSpaces.Outputs
     public sealed class ConnectionAliasConnectionAliasAssociation
     {
         public readonly string? AssociatedAccountId;
-        public readonly string? AssociationStatus;
+        public readonly Pulumi.AwsNative.WorkSpaces.ConnectionAliasConnectionAliasAssociationAssociationStatus? AssociationStatus;
         public readonly string? ConnectionIdentifier;
         public readonly string? ResourceId;
 
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.WorkSpaces.Outputs
         private ConnectionAliasConnectionAliasAssociation(
             string? associatedAccountId,
 
-            string? associationStatus,
+            Pulumi.AwsNative.WorkSpaces.ConnectionAliasConnectionAliasAssociationAssociationStatus? associationStatus,
 
             string? connectionIdentifier,
 

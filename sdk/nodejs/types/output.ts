@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 
 export namespace accessanalyzer {
     /**
@@ -297,7 +297,7 @@ export namespace amplify {
         enablePullRequestPreview?: boolean;
         environmentVariables?: outputs.amplify.AppEnvironmentVariable[];
         pullRequestEnvironmentName?: string;
-        stage?: string;
+        stage?: enums.amplify.AppAutoBranchCreationConfigStage;
     }
 
     export interface AppBasicAuthConfig {
@@ -819,7 +819,7 @@ export namespace appflow {
     }
 
     export interface FlowAggregationConfig {
-        aggregationType?: string;
+        aggregationType?: enums.appflow.FlowAggregationType;
     }
 
     export interface FlowAmplitudeSourceProperties {
@@ -830,20 +830,20 @@ export namespace appflow {
      * Operation to be performed on provided source fields
      */
     export interface FlowConnectorOperator {
-        amplitude?: string;
-        datadog?: string;
-        dynatrace?: string;
-        googleAnalytics?: string;
-        inforNexus?: string;
-        marketo?: string;
-        s3?: string;
-        salesforce?: string;
-        serviceNow?: string;
-        singular?: string;
-        slack?: string;
-        trendmicro?: string;
-        veeva?: string;
-        zendesk?: string;
+        amplitude?: enums.appflow.FlowAmplitudeConnectorOperator;
+        datadog?: enums.appflow.FlowDatadogConnectorOperator;
+        dynatrace?: enums.appflow.FlowDynatraceConnectorOperator;
+        googleAnalytics?: enums.appflow.FlowGoogleAnalyticsConnectorOperator;
+        inforNexus?: enums.appflow.FlowInforNexusConnectorOperator;
+        marketo?: enums.appflow.FlowMarketoConnectorOperator;
+        s3?: enums.appflow.FlowS3ConnectorOperator;
+        salesforce?: enums.appflow.FlowSalesforceConnectorOperator;
+        serviceNow?: enums.appflow.FlowServiceNowConnectorOperator;
+        singular?: enums.appflow.FlowSingularConnectorOperator;
+        slack?: enums.appflow.FlowSlackConnectorOperator;
+        trendmicro?: enums.appflow.FlowTrendmicroConnectorOperator;
+        veeva?: enums.appflow.FlowVeevaConnectorOperator;
+        zendesk?: enums.appflow.FlowZendeskConnectorOperator;
     }
 
     export interface FlowDatadogSourceProperties {
@@ -875,7 +875,7 @@ export namespace appflow {
         /**
          * Destination connector type
          */
-        connectorType: string;
+        connectorType: enums.appflow.FlowConnectorType;
         /**
          * Destination connector details
          */
@@ -921,8 +921,8 @@ export namespace appflow {
     }
 
     export interface FlowPrefixConfig {
-        prefixFormat?: string;
-        prefixType?: string;
+        prefixFormat?: enums.appflow.FlowPrefixFormat;
+        prefixType?: enums.appflow.FlowPrefixType;
     }
 
     export interface FlowRedshiftDestinationProperties {
@@ -940,7 +940,7 @@ export namespace appflow {
 
     export interface FlowS3OutputFormatConfig {
         aggregationConfig?: outputs.appflow.FlowAggregationConfig;
-        fileType?: string;
+        fileType?: enums.appflow.FlowFileType;
         prefixConfig?: outputs.appflow.FlowPrefixConfig;
     }
 
@@ -956,7 +956,7 @@ export namespace appflow {
          */
         idFieldNames?: string[];
         object: string;
-        writeOperationType?: string;
+        writeOperationType?: enums.appflow.FlowWriteOperationType;
     }
 
     export interface FlowSalesforceSourceProperties {
@@ -969,7 +969,7 @@ export namespace appflow {
      * Details required for scheduled trigger type
      */
     export interface FlowScheduledTriggerProperties {
-        dataPullMode?: string;
+        dataPullMode?: enums.appflow.FlowScheduledTriggerPropertiesDataPullMode;
         scheduleEndTime?: number;
         scheduleExpression: string;
         scheduleOffset?: number;
@@ -1027,7 +1027,7 @@ export namespace appflow {
         /**
          * Type of source connector
          */
-        connectorType: string;
+        connectorType: enums.appflow.FlowConnectorType;
         /**
          * Configuration for scheduled incremental data pull
          */
@@ -1072,14 +1072,14 @@ export namespace appflow {
         /**
          * Type of task
          */
-        taskType: string;
+        taskType: enums.appflow.FlowTaskType;
     }
 
     /**
      * An object used to store task related info
      */
     export interface FlowTaskPropertiesObject {
-        key: string;
+        key: enums.appflow.FlowOperatorPropertiesKeys;
         value: string;
     }
 
@@ -1098,7 +1098,7 @@ export namespace appflow {
         /**
          * Trigger type of the flow
          */
-        triggerType: string;
+        triggerType: enums.appflow.FlowTriggerType;
     }
 
     export interface FlowUpsolverDestinationProperties {
@@ -1109,7 +1109,7 @@ export namespace appflow {
 
     export interface FlowUpsolverS3OutputFormatConfig {
         aggregationConfig?: outputs.appflow.FlowAggregationConfig;
-        fileType?: string;
+        fileType?: enums.appflow.FlowFileType;
         prefixConfig: outputs.appflow.FlowPrefixConfig;
     }
 
@@ -1128,7 +1128,7 @@ export namespace appflow {
          */
         idFieldNames?: string[];
         object: string;
-        writeOperationType?: string;
+        writeOperationType?: enums.appflow.FlowWriteOperationType;
     }
 
     export interface FlowZendeskSourceProperties {
@@ -1204,7 +1204,7 @@ export namespace applicationinsights {
         /**
          * Indicates the degree of outage when the alarm goes off.
          */
-        severity?: string;
+        severity?: enums.applicationinsights.ApplicationAlarmSeverity;
     }
 
     /**
@@ -1242,7 +1242,7 @@ export namespace applicationinsights {
         /**
          * The component monitoring configuration mode.
          */
-        componentConfigurationMode: string;
+        componentConfigurationMode: enums.applicationinsights.ApplicationComponentMonitoringSettingComponentConfigurationMode;
         /**
          * The name of the component.
          */
@@ -1326,7 +1326,7 @@ export namespace applicationinsights {
         /**
          * The type of encoding of the logs to be monitored.
          */
-        encoding?: string;
+        encoding?: enums.applicationinsights.ApplicationLogEncoding;
         /**
          * The CloudWatch log group name to be associated to the monitored log.
          */
@@ -1406,7 +1406,7 @@ export namespace applicationinsights {
         /**
          * The sub component type.
          */
-        subComponentType: string;
+        subComponentType: enums.applicationinsights.ApplicationSubComponentTypeConfigurationSubComponentType;
     }
 
     /**
@@ -1430,7 +1430,7 @@ export namespace applicationinsights {
         /**
          * The levels of event to log. 
          */
-        eventLevels: string[];
+        eventLevels: enums.applicationinsights.ApplicationEventLevel[];
         /**
          * The type of Windows Events to log.
          */
@@ -1470,7 +1470,7 @@ export namespace apprunner {
         /**
          * Configuration Source
          */
-        configurationSource: string;
+        configurationSource: enums.apprunner.ServiceCodeConfigurationConfigurationSource;
     }
 
     /**
@@ -1488,7 +1488,7 @@ export namespace apprunner {
         /**
          * Runtime
          */
-        runtime: string;
+        runtime: enums.apprunner.ServiceCodeConfigurationValuesRuntime;
         runtimeEnvironmentVariables?: outputs.apprunner.ServiceKeyValuePair[];
         /**
          * Start Command
@@ -1537,7 +1537,7 @@ export namespace apprunner {
         /**
          * Health Check Protocol
          */
-        protocol?: string;
+        protocol?: enums.apprunner.ServiceHealthCheckConfigurationProtocol;
         /**
          * Health check Timeout
          */
@@ -1575,7 +1575,7 @@ export namespace apprunner {
         /**
          * Image Repository Type
          */
-        imageRepositoryType: string;
+        imageRepositoryType: enums.apprunner.ServiceImageRepositoryImageRepositoryType;
     }
 
     /**
@@ -1608,7 +1608,7 @@ export namespace apprunner {
         /**
          * Source Code Version Type
          */
-        type: string;
+        type: enums.apprunner.ServiceSourceCodeVersionType;
         /**
          * Source Code Version Value
          */
@@ -1645,7 +1645,7 @@ export namespace athena {
      * If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
      */
     export interface WorkGroupEncryptionConfiguration {
-        encryptionOption: string;
+        encryptionOption: enums.athena.WorkGroupEncryptionOption;
         kmsKey?: string;
     }
 
@@ -1726,7 +1726,7 @@ export namespace auditmanager {
      */
     export interface AssessmentAssessmentReportsDestination {
         destination?: string;
-        destinationType?: string;
+        destinationType?: enums.auditmanager.AssessmentAssessmentReportDestinationType;
     }
 
     /**
@@ -1742,8 +1742,8 @@ export namespace auditmanager {
         id?: string;
         lastUpdated?: number;
         roleArn?: string;
-        roleType?: string;
-        status?: string;
+        roleType?: enums.auditmanager.AssessmentRoleType;
+        status?: enums.auditmanager.AssessmentDelegationStatus;
     }
 
     /**
@@ -1751,7 +1751,7 @@ export namespace auditmanager {
      */
     export interface AssessmentRole {
         roleArn?: string;
-        roleType?: string;
+        roleType?: enums.auditmanager.AssessmentRoleType;
     }
 
     /**
@@ -1840,7 +1840,7 @@ export namespace backup {
 
 export namespace budgets {
     export interface BudgetsActionActionThreshold {
-        type: string;
+        type: enums.budgets.BudgetsActionActionThresholdType;
         value: number;
     }
 
@@ -1865,12 +1865,12 @@ export namespace budgets {
     export interface BudgetsActionSsmActionDefinition {
         instanceIds: string[];
         region: string;
-        subtype: string;
+        subtype: enums.budgets.BudgetsActionSsmActionDefinitionSubtype;
     }
 
     export interface BudgetsActionSubscriber {
         address: string;
-        type: string;
+        type: enums.budgets.BudgetsActionSubscriberType;
     }
 
 }
@@ -1882,13 +1882,13 @@ export namespace cassandra {
     }
 
     export interface TableBillingMode {
-        mode: string;
+        mode: enums.cassandra.TableMode;
         provisionedThroughput?: outputs.cassandra.TableProvisionedThroughput;
     }
 
     export interface TableClusteringKeyColumn {
         column: outputs.cassandra.TableColumn;
-        orderBy?: string;
+        orderBy?: enums.cassandra.TableClusteringKeyColumnOrderBy;
     }
 
     export interface TableColumn {
@@ -1900,7 +1900,7 @@ export namespace cassandra {
      * Represents the settings used to enable server-side encryption
      */
     export interface TableEncryptionSpecification {
-        encryptionType: string;
+        encryptionType: enums.cassandra.TableEncryptionType;
         kmsKeyIdentifier?: string;
     }
 
@@ -1974,7 +1974,7 @@ export namespace cloudformation {
         failureTolerancePercentage?: number;
         maxConcurrentCount?: number;
         maxConcurrentPercentage?: number;
-        regionConcurrencyType?: string;
+        regionConcurrencyType?: enums.cloudformation.StackSetRegionConcurrencyType;
         regionOrder?: string[];
     }
 
@@ -2356,7 +2356,7 @@ export namespace cloudtrail {
         /**
          * Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
          */
-        readWriteType?: string;
+        readWriteType?: enums.cloudtrail.TrailEventSelectorReadWriteType;
     }
 
     /**
@@ -2591,7 +2591,7 @@ export namespace connect {
     export interface QuickConnectQuickConnectConfig {
         phoneConfig?: outputs.connect.QuickConnectPhoneNumberQuickConnectConfig;
         queueConfig?: outputs.connect.QuickConnectQueueQuickConnectConfig;
-        quickConnectType: string;
+        quickConnectType: enums.connect.QuickConnectQuickConnectType;
         userConfig?: outputs.connect.QuickConnectUserQuickConnectConfig;
     }
 
@@ -2626,11 +2626,11 @@ export namespace customerprofiles {
     }
 
     export interface IntegrationConnectorOperator {
-        marketo?: string;
-        s3?: string;
-        salesforce?: string;
-        serviceNow?: string;
-        zendesk?: string;
+        marketo?: enums.customerprofiles.IntegrationMarketoConnectorOperator;
+        s3?: enums.customerprofiles.IntegrationS3ConnectorOperator;
+        salesforce?: enums.customerprofiles.IntegrationSalesforceConnectorOperator;
+        serviceNow?: enums.customerprofiles.IntegrationServiceNowConnectorOperator;
+        zendesk?: enums.customerprofiles.IntegrationZendeskConnectorOperator;
     }
 
     export interface IntegrationFlowDefinition {
@@ -2662,7 +2662,7 @@ export namespace customerprofiles {
     }
 
     export interface IntegrationScheduledTriggerProperties {
-        dataPullMode?: string;
+        dataPullMode?: enums.customerprofiles.IntegrationScheduledTriggerPropertiesDataPullMode;
         firstExecutionFrom?: number;
         scheduleEndTime?: number;
         scheduleExpression: string;
@@ -2685,7 +2685,7 @@ export namespace customerprofiles {
 
     export interface IntegrationSourceFlowConfig {
         connectorProfileName?: string;
-        connectorType: string;
+        connectorType: enums.customerprofiles.IntegrationConnectorType;
         incrementalPullConfig?: outputs.customerprofiles.IntegrationIncrementalPullConfig;
         sourceConnectorProperties: outputs.customerprofiles.IntegrationSourceConnectorProperties;
     }
@@ -2700,17 +2700,17 @@ export namespace customerprofiles {
         destinationField?: string;
         sourceFields: string[];
         taskProperties?: outputs.customerprofiles.IntegrationTaskPropertiesMap[];
-        taskType: string;
+        taskType: enums.customerprofiles.IntegrationTaskType;
     }
 
     export interface IntegrationTaskPropertiesMap {
-        operatorPropertyKey: string;
+        operatorPropertyKey: enums.customerprofiles.IntegrationOperatorPropertiesKeys;
         property: string;
     }
 
     export interface IntegrationTriggerConfig {
         triggerProperties?: outputs.customerprofiles.IntegrationTriggerProperties;
-        triggerType: string;
+        triggerType: enums.customerprofiles.IntegrationTriggerType;
     }
 
     export interface IntegrationTriggerProperties {
@@ -2738,7 +2738,7 @@ export namespace customerprofiles {
         /**
          * The content type of the field. Used for determining equality when searching.
          */
-        contentType?: string;
+        contentType?: enums.customerprofiles.ObjectTypeObjectTypeFieldContentType;
         /**
          * A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
          */
@@ -2760,7 +2760,7 @@ export namespace customerprofiles {
         /**
          * The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
          */
-        standardIdentifiers?: string[];
+        standardIdentifiers?: enums.customerprofiles.ObjectTypeObjectTypeKeyStandardIdentifiersItem[];
     }
 
     export interface ObjectTypeTag {
@@ -2818,7 +2818,7 @@ export namespace databrew {
         /**
          * Parameter type
          */
-        type: string;
+        type: enums.databrew.DatasetDatasetParameterType;
     }
 
     export interface DatasetDatetimeOptions {
@@ -2850,11 +2850,11 @@ export namespace databrew {
         /**
          * Order
          */
-        order?: string;
+        order?: enums.databrew.DatasetFilesLimitOrder;
         /**
          * Ordered by
          */
-        orderedBy?: string;
+        orderedBy?: enums.databrew.DatasetFilesLimitOrderedBy;
     }
 
     export interface DatasetFilterExpression {
@@ -2965,7 +2965,7 @@ export namespace databrew {
         /**
          * Database table name
          */
-        databaseOutputMode?: string;
+        databaseOutputMode?: enums.databrew.JobDatabaseOutputDatabaseOutputMode;
         /**
          * Glue connection name
          */
@@ -2981,13 +2981,13 @@ export namespace databrew {
      * Job Sample
      */
     export interface JobJobSample {
-        mode?: string;
+        mode?: enums.databrew.JobSampleMode;
         size?: number;
     }
 
     export interface JobOutput {
-        compressionFormat?: string;
-        format?: string;
+        compressionFormat?: enums.databrew.JobOutputCompressionFormat;
+        format?: enums.databrew.JobOutputFormat;
         formatOptions?: outputs.databrew.JobOutputFormatOptions;
         location: outputs.databrew.JobS3Location;
         overwrite?: boolean;
@@ -3067,7 +3067,7 @@ export namespace databrew {
         /**
          * Sample type
          */
-        type: string;
+        type: enums.databrew.ProjectSampleType;
     }
 
     /**
@@ -3336,7 +3336,7 @@ export namespace datasync {
         /**
          * The specific NFS version that you want DataSync to use to mount your NFS share.
          */
-        version?: string;
+        version?: enums.datasync.LocationNFSMountOptionsVersion;
     }
 
     /**
@@ -3408,7 +3408,7 @@ export namespace datasync {
         /**
          * The specific SMB version that you want DataSync to use to mount your SMB share.
          */
-        version?: string;
+        version?: enums.datasync.LocationSMBMountOptionsVersion;
     }
 
     /**
@@ -3432,7 +3432,7 @@ export namespace datasync {
         /**
          * The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
          */
-        filterType?: string;
+        filterType?: enums.datasync.TaskFilterRuleFilterType;
         /**
          * A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
          */
@@ -3446,7 +3446,7 @@ export namespace datasync {
         /**
          * A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
          */
-        atime?: string;
+        atime?: enums.datasync.TaskOptionsAtime;
         /**
          * A value that limits the bandwidth used by AWS DataSync.
          */
@@ -3454,51 +3454,51 @@ export namespace datasync {
         /**
          * The group ID (GID) of the file's owners.
          */
-        gid?: string;
+        gid?: enums.datasync.TaskOptionsGid;
         /**
          * A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
          */
-        logLevel?: string;
+        logLevel?: enums.datasync.TaskOptionsLogLevel;
         /**
          * A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
          */
-        mtime?: string;
+        mtime?: enums.datasync.TaskOptionsMtime;
         /**
          * A value that determines whether files at the destination should be overwritten or preserved when copying files.
          */
-        overwriteMode?: string;
+        overwriteMode?: enums.datasync.TaskOptionsOverwriteMode;
         /**
          * A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
          */
-        posixPermissions?: string;
+        posixPermissions?: enums.datasync.TaskOptionsPosixPermissions;
         /**
          * A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
          */
-        preserveDeletedFiles?: string;
+        preserveDeletedFiles?: enums.datasync.TaskOptionsPreserveDeletedFiles;
         /**
          * A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
          */
-        preserveDevices?: string;
+        preserveDevices?: enums.datasync.TaskOptionsPreserveDevices;
         /**
          * A value that determines which components of the SMB security descriptor are copied during transfer.
          */
-        securityDescriptorCopyFlags?: string;
+        securityDescriptorCopyFlags?: enums.datasync.TaskOptionsSecurityDescriptorCopyFlags;
         /**
          * A value that determines whether tasks should be queued before executing the tasks.
          */
-        taskQueueing?: string;
+        taskQueueing?: enums.datasync.TaskOptionsTaskQueueing;
         /**
          * A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
          */
-        transferMode?: string;
+        transferMode?: enums.datasync.TaskOptionsTransferMode;
         /**
          * The user ID (UID) of the file's owner.
          */
-        uid?: string;
+        uid?: enums.datasync.TaskOptionsUid;
         /**
          * A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
          */
-        verifyMode?: string;
+        verifyMode?: enums.datasync.TaskOptionsVerifyMode;
     }
 
     /**
@@ -3691,7 +3691,7 @@ export namespace ec2 {
     }
 
     export interface EC2FleetCapacityReservationOptionsRequest {
-        usageStrategy?: string;
+        usageStrategy?: enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy;
     }
 
     export interface EC2FleetFleetLaunchTemplateConfigRequest {
@@ -3736,8 +3736,8 @@ export namespace ec2 {
     }
 
     export interface EC2FleetSpotOptionsRequest {
-        allocationStrategy?: string;
-        instanceInterruptionBehavior?: string;
+        allocationStrategy?: enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy;
+        instanceInterruptionBehavior?: enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior;
         instancePoolsToUseCount?: number;
         maxTotalPrice?: string;
         minTargetCapacity?: number;
@@ -3751,12 +3751,12 @@ export namespace ec2 {
     }
 
     export interface EC2FleetTagSpecification {
-        resourceType?: string;
+        resourceType?: enums.ec2.EC2FleetTagSpecificationResourceType;
         tags?: outputs.ec2.EC2FleetTag[];
     }
 
     export interface EC2FleetTargetCapacitySpecificationRequest {
-        defaultTargetCapacityType?: string;
+        defaultTargetCapacityType?: enums.ec2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType;
         onDemandTargetCapacity?: number;
         spotTargetCapacity?: number;
         totalTargetCapacity: number;
@@ -3946,7 +3946,7 @@ export namespace ec2 {
         iops?: number;
         snapshotId?: string;
         volumeSize?: number;
-        volumeType?: string;
+        volumeType?: enums.ec2.SpotFleetEbsBlockDeviceVolumeType;
     }
 
     export interface SpotFleetFleetLaunchTemplateSpecification {
@@ -4005,7 +4005,7 @@ export namespace ec2 {
     }
 
     export interface SpotFleetSpotCapacityRebalance {
-        replacementStrategy?: string;
+        replacementStrategy?: enums.ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy;
     }
 
     export interface SpotFleetSpotFleetLaunchSpecification {
@@ -4033,11 +4033,11 @@ export namespace ec2 {
     }
 
     export interface SpotFleetSpotFleetRequestConfigData {
-        allocationStrategy?: string;
+        allocationStrategy?: enums.ec2.SpotFleetSpotFleetRequestConfigDataAllocationStrategy;
         context?: string;
-        excessCapacityTerminationPolicy?: string;
+        excessCapacityTerminationPolicy?: enums.ec2.SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy;
         iamFleetRole: string;
-        instanceInterruptionBehavior?: string;
+        instanceInterruptionBehavior?: enums.ec2.SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior;
         instancePoolsToUseCount?: number;
         launchSpecifications?: outputs.ec2.SpotFleetSpotFleetLaunchSpecification[];
         launchTemplateConfigs?: outputs.ec2.SpotFleetLaunchTemplateConfig[];
@@ -4051,13 +4051,13 @@ export namespace ec2 {
         spotPrice?: string;
         targetCapacity: number;
         terminateInstancesWithExpiration?: boolean;
-        type?: string;
+        type?: enums.ec2.SpotFleetSpotFleetRequestConfigDataType;
         validFrom?: string;
         validUntil?: string;
     }
 
     export interface SpotFleetSpotFleetTagSpecification {
-        resourceType?: string;
+        resourceType?: enums.ec2.SpotFleetSpotFleetTagSpecificationResourceType;
         tags?: outputs.ec2.SpotFleetTag[];
     }
 
@@ -4068,7 +4068,7 @@ export namespace ec2 {
     export interface SpotFleetSpotPlacement {
         availabilityZone?: string;
         groupName?: string;
-        tenancy?: string;
+        tenancy?: enums.ec2.SpotFleetSpotPlacementTenancy;
     }
 
     export interface SpotFleetTag {
@@ -4179,7 +4179,7 @@ export namespace ecr {
      * For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
      */
     export interface RepositoryEncryptionConfiguration {
-        encryptionType: string;
+        encryptionType: enums.ecr.RepositoryEncryptionType;
         kmsKey?: string;
     }
 
@@ -4218,7 +4218,7 @@ export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProvider {
         autoScalingGroupArn: string;
         managedScaling?: outputs.ecs.CapacityProviderManagedScaling;
-        managedTerminationProtection?: string;
+        managedTerminationProtection?: enums.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection;
     }
 
     /**
@@ -4228,7 +4228,7 @@ export namespace ecs {
         instanceWarmupPeriod?: number;
         maximumScalingStepSize?: number;
         minimumScalingStepSize?: number;
-        status?: string;
+        status?: enums.ecs.CapacityProviderManagedScalingStatus;
         targetCapacity?: number;
     }
 
@@ -4239,7 +4239,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategy {
         base?: number;
-        capacityProvider: string | string;
+        capacityProvider: enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string;
         weight?: number;
     }
 
@@ -4296,7 +4296,7 @@ export namespace ecs {
     }
 
     export interface ServiceAwsVpcConfiguration {
-        assignPublicIp?: string;
+        assignPublicIp?: enums.ecs.ServiceAwsVpcConfigurationAssignPublicIp;
         securityGroups?: string[];
         subnets?: string[];
     }
@@ -4319,7 +4319,7 @@ export namespace ecs {
     }
 
     export interface ServiceDeploymentController {
-        type?: string;
+        type?: enums.ecs.ServiceDeploymentControllerType;
     }
 
     export interface ServiceLoadBalancer {
@@ -4335,12 +4335,12 @@ export namespace ecs {
 
     export interface ServicePlacementConstraint {
         expression?: string;
-        type: string;
+        type: enums.ecs.ServicePlacementConstraintType;
     }
 
     export interface ServicePlacementStrategy {
         field?: string;
-        type: string;
+        type: enums.ecs.ServicePlacementStrategyType;
     }
 
     export interface ServiceServiceRegistry {
@@ -4357,7 +4357,7 @@ export namespace ecs {
 
     export interface TaskDefinitionAuthorizationConfig {
         accessPointId?: string;
-        iAM?: string;
+        iAM?: enums.ecs.TaskDefinitionAuthorizationConfigIAM;
     }
 
     /**
@@ -4446,7 +4446,7 @@ export namespace ecs {
         authorizationConfig?: outputs.ecs.TaskDefinitionAuthorizationConfig;
         filesystemId: string;
         rootDirectory?: string;
-        transitEncryption?: string;
+        transitEncryption?: enums.ecs.TaskDefinitionEFSVolumeConfigurationTransitEncryption;
         transitEncryptionPort?: number;
     }
 
@@ -4608,7 +4608,7 @@ export namespace ecs {
         /**
          * Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
          */
-        assignPublicIp?: string;
+        assignPublicIp?: enums.ecs.TaskSetAwsVpcConfigurationAssignPublicIp;
         /**
          * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
          */
@@ -4652,7 +4652,7 @@ export namespace ecs {
         /**
          * The unit of measure for the scale value.
          */
-        unit?: string;
+        unit?: enums.ecs.TaskSetScaleUnit;
         /**
          * The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
          */
@@ -4806,7 +4806,7 @@ export namespace elasticache {
         /**
          * Indicates the role of the member, primary or secondary.
          */
-        role?: string;
+        role?: enums.elasticache.GlobalReplicationGroupGlobalReplicationGroupMemberRole;
     }
 
     export interface GlobalReplicationGroupRegionalConfiguration {
@@ -5212,8 +5212,8 @@ export namespace frauddetector {
          * The time when the event variable was created.
          */
         createdTime?: string;
-        dataSource?: string;
-        dataType?: string;
+        dataSource?: enums.frauddetector.DetectorEventVariableDataSource;
+        dataType?: enums.frauddetector.DetectorEventVariableDataType;
         defaultValue?: string;
         /**
          * The description.
@@ -5229,7 +5229,7 @@ export namespace frauddetector {
          * Tags associated with this event variable.
          */
         tags?: outputs.frauddetector.DetectorTag[];
-        variableType?: string;
+        variableType?: enums.frauddetector.DetectorEventVariableVariableType;
     }
 
     export interface DetectorLabel {
@@ -5295,7 +5295,7 @@ export namespace frauddetector {
         description?: string;
         detectorId?: string;
         expression?: string;
-        language?: string;
+        language?: enums.frauddetector.DetectorRuleLanguage;
         /**
          * The time when the event type was last updated.
          */
@@ -5347,8 +5347,8 @@ export namespace frauddetector {
          * The time when the event type was created.
          */
         createdTime?: string;
-        dataSource?: string;
-        dataType?: string;
+        dataSource?: enums.frauddetector.EventTypeEventVariableDataSource;
+        dataType?: enums.frauddetector.EventTypeEventVariableDataType;
         defaultValue?: string;
         /**
          * The description.
@@ -5364,7 +5364,7 @@ export namespace frauddetector {
          * Tags associated with this event type.
          */
         tags?: outputs.frauddetector.EventTypeTag[];
-        variableType?: string;
+        variableType?: enums.frauddetector.EventTypeEventVariableVariableType;
     }
 
     export interface EventTypeLabel {
@@ -5424,14 +5424,14 @@ export namespace gamelift {
         /**
          * Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
          */
-        type: string;
+        type: enums.gamelift.AliasRoutingStrategyType;
     }
 
     /**
      * Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
      */
     export interface FleetCertificateConfiguration {
-        certificateType: string;
+        certificateType: enums.gamelift.FleetCertificateConfigurationCertificateType;
     }
 
     /**
@@ -5449,7 +5449,7 @@ export namespace gamelift {
         /**
          * The network communication protocol used by the fleet.
          */
-        protocol: string;
+        protocol: enums.gamelift.FleetIpPermissionProtocol;
         /**
          * An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
          */
@@ -5725,19 +5725,19 @@ export namespace greengrassv2 {
     export interface ComponentVersionLambdaDeviceMount {
         addGroupOwner?: boolean;
         path?: string;
-        permission?: string;
+        permission?: enums.greengrassv2.ComponentVersionLambdaFilesystemPermission;
     }
 
     export interface ComponentVersionLambdaEventSource {
         topic?: string;
-        type?: string;
+        type?: enums.greengrassv2.ComponentVersionLambdaEventSourceType;
     }
 
     export interface ComponentVersionLambdaExecutionParameters {
         environmentVariables?: any;
         eventSources?: outputs.greengrassv2.ComponentVersionLambdaEventSource[];
         execArgs?: string[];
-        inputPayloadEncodingType?: string;
+        inputPayloadEncodingType?: enums.greengrassv2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType;
         linuxProcessParams?: outputs.greengrassv2.ComponentVersionLambdaLinuxProcessParams;
         maxIdleTimeInSeconds?: number;
         maxInstancesCount?: number;
@@ -5758,13 +5758,13 @@ export namespace greengrassv2 {
 
     export interface ComponentVersionLambdaLinuxProcessParams {
         containerParams?: outputs.greengrassv2.ComponentVersionLambdaContainerParams;
-        isolationMode?: string;
+        isolationMode?: enums.greengrassv2.ComponentVersionLambdaLinuxProcessParamsIsolationMode;
     }
 
     export interface ComponentVersionLambdaVolumeMount {
         addGroupOwner?: boolean;
         destinationPath?: string;
-        permission?: string;
+        permission?: enums.greengrassv2.ComponentVersionLambdaFilesystemPermission;
         sourcePath?: string;
     }
 
@@ -5811,17 +5811,17 @@ export namespace groundstation {
     }
 
     export interface ConfigEirp {
-        units?: string;
+        units?: enums.groundstation.ConfigEirpUnits;
         value?: number;
     }
 
     export interface ConfigFrequency {
-        units?: string;
+        units?: enums.groundstation.ConfigFrequencyUnits;
         value?: number;
     }
 
     export interface ConfigFrequencyBandwidth {
-        units?: string;
+        units?: enums.groundstation.ConfigBandwidthUnits;
         value?: number;
     }
 
@@ -5834,7 +5834,7 @@ export namespace groundstation {
     export interface ConfigSpectrumConfig {
         bandwidth?: outputs.groundstation.ConfigFrequencyBandwidth;
         centerFrequency?: outputs.groundstation.ConfigFrequency;
-        polarization?: string;
+        polarization?: enums.groundstation.ConfigPolarization;
     }
 
     export interface ConfigTag {
@@ -5843,7 +5843,7 @@ export namespace groundstation {
     }
 
     export interface ConfigTrackingConfig {
-        autotrack?: string;
+        autotrack?: enums.groundstation.ConfigTrackingConfigAutotrack;
     }
 
     export interface ConfigUplinkEchoConfig {
@@ -5853,7 +5853,7 @@ export namespace groundstation {
 
     export interface ConfigUplinkSpectrumConfig {
         centerFrequency?: outputs.groundstation.ConfigFrequency;
-        polarization?: string;
+        polarization?: enums.groundstation.ConfigPolarization;
     }
 
     export interface DataflowEndpointGroupDataflowEndpoint {
@@ -5996,7 +5996,7 @@ export namespace imagebuilder {
         /**
          * Use to override the device's volume type.
          */
-        volumeType?: string;
+        volumeType?: enums.imagebuilder.ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType;
     }
 
     /**
@@ -6046,7 +6046,7 @@ export namespace imagebuilder {
         /**
          * Specifies the service in which this image was registered.
          */
-        service?: string;
+        service?: enums.imagebuilder.ContainerRecipeTargetContainerRepositoryService;
     }
 
     /**
@@ -6128,7 +6128,7 @@ export namespace imagebuilder {
         /**
          * The condition configures when the pipeline should trigger a new image build.
          */
-        pipelineExecutionStartCondition?: string;
+        pipelineExecutionStartCondition?: enums.imagebuilder.ImagePipelineSchedulePipelineExecutionStartCondition;
         /**
          * The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
          */
@@ -6208,7 +6208,7 @@ export namespace imagebuilder {
         /**
          * Use to override the device's volume type.
          */
-        volumeType?: string;
+        volumeType?: enums.imagebuilder.ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType;
     }
 
     /**
@@ -6359,7 +6359,7 @@ export namespace iot {
 
     export interface DomainConfigurationServerCertificateSummary {
         serverCertificateArn?: string;
-        serverCertificateStatus?: string;
+        serverCertificateStatus?: enums.iot.DomainConfigurationServerCertificateSummaryServerCertificateStatus;
         serverCertificateStatusDetail?: string;
     }
 
@@ -6429,7 +6429,7 @@ export namespace iot {
         /**
          *  Specifies which types of information are logged.
          */
-        logLevel: string;
+        logLevel: enums.iot.MitigationActionEnableIoTLoggingParamsLogLevel;
         /**
          *  The ARN of the IAM role used for logging.
          */
@@ -6450,7 +6450,7 @@ export namespace iot {
      * Parameters to define a mitigation action that adds a blank policy to restrict permissions.
      */
     export interface MitigationActionReplaceDefaultPolicyVersionParams {
-        templateName: string;
+        templateName: enums.iot.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName;
     }
 
     /**
@@ -6471,14 +6471,14 @@ export namespace iot {
      * Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
      */
     export interface MitigationActionUpdateCACertificateParams {
-        action: string;
+        action: enums.iot.MitigationActionUpdateCACertificateParamsAction;
     }
 
     /**
      * Parameters to define a mitigation action that changes the state of the device certificate to inactive.
      */
     export interface MitigationActionUpdateDeviceCertificateParams {
-        action: string;
+        action: enums.iot.MitigationActionUpdateDeviceCertificateParamsAction;
     }
 
     export interface ProvisioningTemplateProvisioningHook {
@@ -6532,7 +6532,7 @@ export namespace iot {
         /**
          * The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
          */
-        comparisonOperator?: string;
+        comparisonOperator?: enums.iot.SecurityProfileBehaviorCriteriaComparisonOperator;
         /**
          * If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
          */
@@ -6557,7 +6557,7 @@ export namespace iot {
         /**
          * The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
          */
-        confidenceLevel?: string;
+        confidenceLevel?: enums.iot.SecurityProfileMachineLearningDetectionConfigConfidenceLevel;
     }
 
     /**
@@ -6571,7 +6571,7 @@ export namespace iot {
         /**
          * Defines how the dimensionValues of a dimension are interpreted.
          */
-        operator?: string;
+        operator?: enums.iot.SecurityProfileMetricDimensionOperator;
     }
 
     /**
@@ -6622,7 +6622,7 @@ export namespace iot {
         /**
          * The percentile which resolves to a threshold value by which compliance with a behavior is determined
          */
-        statistic?: string;
+        statistic?: enums.iot.SecurityProfileStatisticalThresholdStatistic;
     }
 
     /**
@@ -6816,7 +6816,7 @@ export namespace iot {
 
     export interface TopicRuleS3Action {
         bucketName: string;
-        cannedAcl?: string;
+        cannedAcl?: enums.iot.TopicRuleCannedAccessControlList;
         key: string;
         roleArn: string;
     }
@@ -7466,7 +7466,7 @@ export namespace iotsitewise {
         /**
          * The MQTT notification state (ENABLED or DISABLED) for this asset property.
          */
-        notificationState?: string;
+        notificationState?: enums.iotsitewise.AssetAssetPropertyNotificationState;
     }
 
     /**
@@ -7516,11 +7516,11 @@ export namespace iotsitewise {
         /**
          * The data type of the asset model property.
          */
-        dataType: string;
+        dataType: enums.iotsitewise.AssetModelDataType;
         /**
          * The data type of the structure for this property.
          */
-        dataTypeSpec?: string;
+        dataTypeSpec?: enums.iotsitewise.AssetModelDataTypeSpec;
         /**
          * Customer provided ID for property.
          */
@@ -7583,7 +7583,7 @@ export namespace iotsitewise {
         attribute?: outputs.iotsitewise.AssetModelAttribute;
         metric?: outputs.iotsitewise.AssetModelMetric;
         transform?: outputs.iotsitewise.AssetModelTransform;
-        typeName: string;
+        typeName: enums.iotsitewise.AssetModelTypeName;
     }
 
     export interface AssetModelTag {
@@ -7886,7 +7886,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluenceAttachmentToIndexFieldMapping {
-        dataSourceFieldName: string;
+        dataSourceFieldName: enums.kendra.DataSourceConfluenceAttachmentFieldName;
         dateFieldFormat?: string;
         indexFieldName: string;
     }
@@ -7896,7 +7896,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluenceBlogToIndexFieldMapping {
-        dataSourceFieldName: string;
+        dataSourceFieldName: enums.kendra.DataSourceConfluenceBlogFieldName;
         dateFieldFormat?: string;
         indexFieldName: string;
     }
@@ -7910,7 +7910,7 @@ export namespace kendra {
         secretArn: string;
         serverUrl: string;
         spaceConfiguration?: outputs.kendra.DataSourceConfluenceSpaceConfiguration;
-        version: string;
+        version: enums.kendra.DataSourceConfluenceVersion;
         vpcConfiguration?: outputs.kendra.DataSourceDataSourceVpcConfiguration;
     }
 
@@ -7919,7 +7919,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluencePageToIndexFieldMapping {
-        dataSourceFieldName: string;
+        dataSourceFieldName: enums.kendra.DataSourceConfluencePageFieldName;
         dateFieldFormat?: string;
         indexFieldName: string;
     }
@@ -7933,7 +7933,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluenceSpaceToIndexFieldMapping {
-        dataSourceFieldName: string;
+        dataSourceFieldName: enums.kendra.DataSourceConfluenceSpaceFieldName;
         dateFieldFormat?: string;
         indexFieldName: string;
     }
@@ -7972,7 +7972,7 @@ export namespace kendra {
         aclConfiguration?: outputs.kendra.DataSourceAclConfiguration;
         columnConfiguration: outputs.kendra.DataSourceColumnConfiguration;
         connectionConfiguration: outputs.kendra.DataSourceConnectionConfiguration;
-        databaseEngineType: string;
+        databaseEngineType: enums.kendra.DataSourceDatabaseEngineType;
         sqlConfiguration?: outputs.kendra.DataSourceSqlConfiguration;
         vpcConfiguration?: outputs.kendra.DataSourceDataSourceVpcConfiguration;
     }
@@ -8027,7 +8027,7 @@ export namespace kendra {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
         fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
-        includeFilterTypes?: string[];
+        includeFilterTypes?: enums.kendra.DataSourceSalesforceChatterFeedIncludeFilterType[];
     }
 
     export interface DataSourceSalesforceConfiguration {
@@ -8051,7 +8051,7 @@ export namespace kendra {
 
     export interface DataSourceSalesforceKnowledgeArticleConfiguration {
         customKnowledgeArticleTypeConfigurations?: outputs.kendra.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration[];
-        includedStates: string[];
+        includedStates: enums.kendra.DataSourceSalesforceKnowledgeArticleState[];
         standardKnowledgeArticleTypeConfiguration?: outputs.kendra.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration;
     }
 
@@ -8070,7 +8070,7 @@ export namespace kendra {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
         fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
-        name: string;
+        name: enums.kendra.DataSourceSalesforceStandardObjectName;
     }
 
     export interface DataSourceServiceNowConfiguration {
@@ -8078,7 +8078,7 @@ export namespace kendra {
         knowledgeArticleConfiguration?: outputs.kendra.DataSourceServiceNowKnowledgeArticleConfiguration;
         secretArn: string;
         serviceCatalogConfiguration?: outputs.kendra.DataSourceServiceNowServiceCatalogConfiguration;
-        serviceNowBuildVersion: string;
+        serviceNowBuildVersion: enums.kendra.DataSourceServiceNowBuildVersionType;
     }
 
     export interface DataSourceServiceNowKnowledgeArticleConfiguration {
@@ -8110,14 +8110,14 @@ export namespace kendra {
         fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
         inclusionPatterns?: string[];
         secretArn: string;
-        sharePointVersion: string;
+        sharePointVersion: enums.kendra.DataSourceSharePointConfigurationSharePointVersion;
         urls: string[];
         useChangeLog?: boolean;
         vpcConfiguration?: outputs.kendra.DataSourceDataSourceVpcConfiguration;
     }
 
     export interface DataSourceSqlConfiguration {
-        queryIdentifiersEnclosingOption?: string;
+        queryIdentifiersEnclosingOption?: enums.kendra.DataSourceQueryIdentifiersEnclosingOption;
     }
 
     /**
@@ -8162,7 +8162,7 @@ export namespace kendra {
         name: string;
         relevance?: outputs.kendra.IndexRelevance;
         search?: outputs.kendra.IndexSearch;
-        type: string;
+        type: enums.kendra.IndexDocumentAttributeValueType;
     }
 
     export interface IndexJsonTokenTypeConfiguration {
@@ -8174,7 +8174,7 @@ export namespace kendra {
         claimRegex?: string;
         groupAttributeField?: string;
         issuer?: string;
-        keyLocation: string;
+        keyLocation: enums.kendra.IndexKeyLocation;
         secretManagerArn?: string;
         uRL?: string;
         userNameAttributeField?: string;
@@ -8184,7 +8184,7 @@ export namespace kendra {
         duration?: string;
         freshness?: boolean;
         importance?: number;
-        rankOrder?: string;
+        rankOrder?: enums.kendra.IndexOrder;
         valueImportanceItems?: outputs.kendra.IndexValueImportanceItem[];
     }
 
@@ -8233,7 +8233,7 @@ export namespace kinesis {
         /**
          * The encryption type to use. The only valid value is KMS. 
          */
-        encryptionType: string;
+        encryptionType: enums.kinesis.StreamStreamEncryptionEncryptionType;
         /**
          * The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
          */
@@ -8283,7 +8283,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamDeliveryStreamEncryptionConfigurationInput {
         keyARN?: string;
-        keyType: string;
+        keyType: enums.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType;
     }
 
     export interface DeliveryStreamDeserializer {
@@ -8307,11 +8307,11 @@ export namespace kinesisfirehose {
         clusterEndpoint?: string;
         domainARN?: string;
         indexName: string;
-        indexRotationPeriod?: string;
+        indexRotationPeriod?: enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamElasticsearchRetryOptions;
         roleARN: string;
-        s3BackupMode?: string;
+        s3BackupMode?: enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode;
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
         typeName?: string;
         vpcConfiguration?: outputs.kinesisfirehose.DeliveryStreamVpcConfiguration;
@@ -8323,14 +8323,14 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamEncryptionConfiguration {
         kMSEncryptionConfig?: outputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfig;
-        noEncryptionConfig?: string;
+        noEncryptionConfig?: enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig;
     }
 
     export interface DeliveryStreamExtendedS3DestinationConfiguration {
         bucketARN: string;
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamBufferingHints;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
-        compressionFormat?: string;
+        compressionFormat?: enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat;
         dataFormatConversionConfiguration?: outputs.kinesisfirehose.DeliveryStreamDataFormatConversionConfiguration;
         dynamicPartitioningConfiguration?: outputs.kinesisfirehose.DeliveryStreamDynamicPartitioningConfiguration;
         encryptionConfiguration?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfiguration;
@@ -8339,7 +8339,7 @@ export namespace kinesisfirehose {
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         roleARN: string;
         s3BackupConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
-        s3BackupMode?: string;
+        s3BackupMode?: enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode;
     }
 
     export interface DeliveryStreamHiveJsonSerDe {
@@ -8371,7 +8371,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamHttpEndpointRequestConfiguration {
         commonAttributes?: outputs.kinesisfirehose.DeliveryStreamHttpEndpointCommonAttribute[];
-        contentEncoding?: string;
+        contentEncoding?: enums.kinesisfirehose.DeliveryStreamHttpEndpointRequestConfigurationContentEncoding;
     }
 
     export interface DeliveryStreamInputFormatConfiguration {
@@ -8426,7 +8426,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamProcessor {
         parameters?: outputs.kinesisfirehose.DeliveryStreamProcessorParameter[];
-        type: string;
+        type: enums.kinesisfirehose.DeliveryStreamProcessorType;
     }
 
     export interface DeliveryStreamProcessorParameter {
@@ -8443,7 +8443,7 @@ export namespace kinesisfirehose {
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamRedshiftRetryOptions;
         roleARN: string;
         s3BackupConfiguration?: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
-        s3BackupMode?: string;
+        s3BackupMode?: enums.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode;
         s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
         username: string;
     }
@@ -8460,7 +8460,7 @@ export namespace kinesisfirehose {
         bucketARN: string;
         bufferingHints?: outputs.kinesisfirehose.DeliveryStreamBufferingHints;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
-        compressionFormat?: string;
+        compressionFormat?: enums.kinesisfirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat;
         encryptionConfiguration?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfiguration;
         errorOutputPrefix?: string;
         prefix?: string;
@@ -8485,7 +8485,7 @@ export namespace kinesisfirehose {
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         hECAcknowledgmentTimeoutInSeconds?: number;
         hECEndpoint: string;
-        hECEndpointType: string;
+        hECEndpointType: enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType;
         hECToken: string;
         processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
         retryOptions?: outputs.kinesisfirehose.DeliveryStreamSplunkRetryOptions;
@@ -8559,7 +8559,7 @@ export namespace lambda {
         /**
          * Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
          */
-        untrustedArtifactOnDeployment: string;
+        untrustedArtifactOnDeployment: enums.lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment;
     }
 
     /**
@@ -8609,7 +8609,7 @@ export namespace lambda {
         /**
          * The type of source access configuration.
          */
-        type?: string;
+        type?: enums.lambda.EventSourceMappingSourceAccessConfigurationType;
         /**
          * The URI for the source access configuration resource.
          */
@@ -8703,7 +8703,7 @@ export namespace lambda {
         /**
          * The tracing mode.
          */
-        mode?: string;
+        mode?: enums.lambda.FunctionTracingConfigMode;
     }
 
     /**
@@ -8776,7 +8776,7 @@ export namespace location {
     }
 
     export interface PlaceIndexDataSourceConfiguration {
-        intendedUse?: string;
+        intendedUse?: enums.location.PlaceIndexIntendedUse;
     }
 
 }
@@ -8819,7 +8819,7 @@ export namespace lookoutmetrics {
         /**
          * Frequency of anomaly detection
          */
-        anomalyDetectorFrequency: string;
+        anomalyDetectorFrequency: enums.lookoutmetrics.AnomalyDetectorAnomalyDetectorFrequency;
     }
 
     export interface AnomalyDetectorAppFlowConfig {
@@ -8835,7 +8835,7 @@ export namespace lookoutmetrics {
         charset?: string;
         containsHeader?: boolean;
         delimiter?: string;
-        fileCompression?: string;
+        fileCompression?: enums.lookoutmetrics.AnomalyDetectorCsvFormatDescriptorFileCompression;
         headerList?: string[];
         quoteSymbol?: string;
     }
@@ -8847,14 +8847,14 @@ export namespace lookoutmetrics {
 
     export interface AnomalyDetectorJsonFormatDescriptor {
         charset?: string;
-        fileCompression?: string;
+        fileCompression?: enums.lookoutmetrics.AnomalyDetectorJsonFormatDescriptorFileCompression;
     }
 
     export interface AnomalyDetectorMetric {
         /**
          * Operator used to aggregate metric values
          */
-        aggregationFunction: string;
+        aggregationFunction: enums.lookoutmetrics.AnomalyDetectorMetricAggregationFunction;
         metricName: string;
         namespace?: string;
     }
@@ -8875,7 +8875,7 @@ export namespace lookoutmetrics {
         /**
          * A frequency period to aggregate the data
          */
-        metricSetFrequency?: string;
+        metricSetFrequency?: enums.lookoutmetrics.AnomalyDetectorMetricSetMetricSetFrequency;
         /**
          * The name of the MetricSet.
          */
@@ -8970,7 +8970,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: string;
+        algorithm: enums.mediaconnect.FlowEncryptionAlgorithm;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -8982,7 +8982,7 @@ export namespace mediaconnect {
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: string;
+        keyType?: enums.mediaconnect.FlowEncryptionKeyType;
         /**
          * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
@@ -9012,7 +9012,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: string;
+        algorithm: enums.mediaconnect.FlowEntitlementEncryptionAlgorithm;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -9024,7 +9024,7 @@ export namespace mediaconnect {
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: string;
+        keyType?: enums.mediaconnect.FlowEntitlementEncryptionKeyType;
         /**
          * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
@@ -9055,7 +9055,7 @@ export namespace mediaconnect {
          * Search window time to look for dash-7 packets
          */
         recoveryWindow?: number;
-        state?: string;
+        state?: enums.mediaconnect.FlowFailoverConfigState;
     }
 
     /**
@@ -9065,11 +9065,11 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: string;
+        algorithm: enums.mediaconnect.FlowOutputEncryptionAlgorithm;
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: string;
+        keyType?: enums.mediaconnect.FlowOutputEncryptionKeyType;
         /**
          * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
          */
@@ -9129,7 +9129,7 @@ export namespace mediaconnect {
         /**
          * The protocol that is used by the source or output.
          */
-        protocol?: string;
+        protocol?: enums.mediaconnect.FlowSourceProtocol;
         /**
          * The ARN of the source.
          */
@@ -9155,7 +9155,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: string;
+        algorithm: enums.mediaconnect.FlowSourceEncryptionAlgorithm;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -9167,7 +9167,7 @@ export namespace mediaconnect {
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: string;
+        keyType?: enums.mediaconnect.FlowSourceEncryptionKeyType;
         /**
          * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
@@ -9323,13 +9323,13 @@ export namespace mediapackage {
         /**
          * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
          */
-        adTriggers?: string[];
-        adsOnDeliveryRestrictions?: string;
+        adTriggers?: enums.mediapackage.OriginEndpointDashPackageAdTriggersItem[];
+        adsOnDeliveryRestrictions?: enums.mediapackage.OriginEndpointAdsOnDeliveryRestrictions;
         encryption?: outputs.mediapackage.OriginEndpointDashEncryption;
         /**
          * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
          */
-        manifestLayout?: string;
+        manifestLayout?: enums.mediapackage.OriginEndpointDashPackageManifestLayout;
         /**
          * Time window (in seconds) contained in each manifest.
          */
@@ -9345,11 +9345,11 @@ export namespace mediapackage {
         /**
          * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
          */
-        periodTriggers?: string[];
+        periodTriggers?: enums.mediapackage.OriginEndpointDashPackagePeriodTriggersItem[];
         /**
          * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
          */
-        profile?: string;
+        profile?: enums.mediapackage.OriginEndpointDashPackageProfile;
         /**
          * Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
          */
@@ -9357,7 +9357,7 @@ export namespace mediapackage {
         /**
          * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
          */
-        segmentTemplateFormat?: string;
+        segmentTemplateFormat?: enums.mediapackage.OriginEndpointDashPackageSegmentTemplateFormat;
         streamSelection?: outputs.mediapackage.OriginEndpointStreamSelection;
         /**
          * Duration (in seconds) to delay live content before presentation.
@@ -9366,7 +9366,7 @@ export namespace mediapackage {
         /**
          * Determines the type of UTCTiming included in the Media Presentation Description (MPD)
          */
-        utcTiming?: string;
+        utcTiming?: enums.mediapackage.OriginEndpointDashPackageUtcTiming;
         /**
          * Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
          */
@@ -9384,7 +9384,7 @@ export namespace mediapackage {
         /**
          * The encryption method to use.
          */
-        encryptionMethod?: string;
+        encryptionMethod?: enums.mediapackage.OriginEndpointHlsEncryptionEncryptionMethod;
         /**
          * Interval (in seconds) between each encryption key rotation.
          */
@@ -9403,12 +9403,12 @@ export namespace mediapackage {
         /**
          * This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
          */
-        adMarkers?: string;
+        adMarkers?: enums.mediapackage.OriginEndpointHlsManifestAdMarkers;
         /**
          * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
          */
-        adTriggers?: string[];
-        adsOnDeliveryRestrictions?: string;
+        adTriggers?: enums.mediapackage.OriginEndpointHlsManifestAdTriggersItem[];
+        adsOnDeliveryRestrictions?: enums.mediapackage.OriginEndpointAdsOnDeliveryRestrictions;
         /**
          * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
          */
@@ -9424,7 +9424,7 @@ export namespace mediapackage {
         /**
          * The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
          */
-        playlistType?: string;
+        playlistType?: enums.mediapackage.OriginEndpointHlsManifestPlaylistType;
         /**
          * Time window (in seconds) contained in each parent manifest.
          */
@@ -9446,12 +9446,12 @@ export namespace mediapackage {
         /**
          * This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
          */
-        adMarkers?: string;
+        adMarkers?: enums.mediapackage.OriginEndpointHlsPackageAdMarkers;
         /**
          * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
          */
-        adTriggers?: string[];
-        adsOnDeliveryRestrictions?: string;
+        adTriggers?: enums.mediapackage.OriginEndpointHlsPackageAdTriggersItem[];
+        adsOnDeliveryRestrictions?: enums.mediapackage.OriginEndpointAdsOnDeliveryRestrictions;
         encryption?: outputs.mediapackage.OriginEndpointHlsEncryption;
         /**
          * When enabled, an I-Frame only stream will be included in the output.
@@ -9460,7 +9460,7 @@ export namespace mediapackage {
         /**
          * The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
          */
-        playlistType?: string;
+        playlistType?: enums.mediapackage.OriginEndpointHlsPackagePlaylistType;
         /**
          * Time window (in seconds) contained in each parent manifest.
          */
@@ -9544,7 +9544,7 @@ export namespace mediapackage {
         /**
          * A directive that determines the order of streams in the output.
          */
-        streamOrder?: string;
+        streamOrder?: enums.mediapackage.OriginEndpointStreamSelectionStreamOrder;
     }
 
     export interface OriginEndpointTag {
@@ -9589,7 +9589,7 @@ export namespace mediapackage {
         /**
          * Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
          */
-        manifestLayout?: string;
+        manifestLayout?: enums.mediapackage.PackagingConfigurationDashManifestManifestLayout;
         manifestName?: string;
         /**
          * Minimum duration (in seconds) that a player will buffer media before starting the presentation.
@@ -9598,7 +9598,7 @@ export namespace mediapackage {
         /**
          * The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
          */
-        profile?: string;
+        profile?: enums.mediapackage.PackagingConfigurationDashManifestProfile;
         streamSelection?: outputs.mediapackage.PackagingConfigurationStreamSelection;
     }
 
@@ -9623,7 +9623,7 @@ export namespace mediapackage {
         /**
          * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
          */
-        segmentTemplateFormat?: string;
+        segmentTemplateFormat?: enums.mediapackage.PackagingConfigurationDashPackageSegmentTemplateFormat;
     }
 
     /**
@@ -9637,7 +9637,7 @@ export namespace mediapackage {
         /**
          * The encryption method to use.
          */
-        encryptionMethod?: string;
+        encryptionMethod?: enums.mediapackage.PackagingConfigurationHlsEncryptionEncryptionMethod;
         spekeKeyProvider: outputs.mediapackage.PackagingConfigurationSpekeKeyProvider;
     }
 
@@ -9648,7 +9648,7 @@ export namespace mediapackage {
         /**
          * This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
          */
-        adMarkers?: string;
+        adMarkers?: enums.mediapackage.PackagingConfigurationHlsManifestAdMarkers;
         /**
          * When enabled, an I-Frame only stream will be included in the output.
          */
@@ -9738,7 +9738,7 @@ export namespace mediapackage {
         /**
          * A directive that determines the order of streams in the output.
          */
-        streamOrder?: string;
+        streamOrder?: enums.mediapackage.PackagingConfigurationStreamSelectionStreamOrder;
     }
 
     export interface PackagingConfigurationTag {
@@ -9789,7 +9789,7 @@ export namespace mwaa {
     export interface EnvironmentModuleLoggingConfiguration {
         cloudWatchLogGroupArn?: string;
         enabled?: boolean;
-        logLevel?: string;
+        logLevel?: enums.mwaa.EnvironmentLoggingLevel;
     }
 
     /**
@@ -9871,8 +9871,8 @@ export namespace networkfirewall {
          * A key-value pair to configure the logDestinations.
          */
         logDestination: any;
-        logDestinationType: string;
-        logType: string;
+        logDestinationType: enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogDestinationType;
+        logType: enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogType;
     }
 
     export interface LoggingConfigurationLoggingConfiguration {
@@ -9899,8 +9899,8 @@ export namespace networkfirewall {
     export interface RuleGroupHeader {
         destination: string;
         destinationPort: string;
-        direction: string;
-        protocol: string;
+        direction: enums.networkfirewall.RuleGroupHeaderDirection;
+        protocol: enums.networkfirewall.RuleGroupHeaderProtocol;
         source: string;
         sourcePort: string;
     }
@@ -9951,13 +9951,13 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRulesSourceList {
-        generatedRulesType: string;
-        targetTypes: string[];
+        generatedRulesType: enums.networkfirewall.RuleGroupGeneratedRulesType;
+        targetTypes: enums.networkfirewall.RuleGroupTargetType[];
         targets: string[];
     }
 
     export interface RuleGroupStatefulRule {
-        action: string;
+        action: enums.networkfirewall.RuleGroupStatefulRuleAction;
         header: outputs.networkfirewall.RuleGroupHeader;
         ruleOptions: outputs.networkfirewall.RuleGroupRuleOption[];
     }
@@ -9973,8 +9973,8 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupTCPFlagField {
-        flags: string[];
-        masks?: string[];
+        flags: enums.networkfirewall.RuleGroupTCPFlag[];
+        masks?: enums.networkfirewall.RuleGroupTCPFlag[];
     }
 
     export interface RuleGroupTag {
@@ -10180,7 +10180,7 @@ export namespace quicksight {
          * <p>The message associated with the analysis error.</p>
          */
         message?: string;
-        type?: string;
+        type?: enums.quicksight.AnalysisAnalysisErrorType;
     }
 
     /**
@@ -10362,7 +10362,7 @@ export namespace quicksight {
      * <p>Ad hoc (one-time) filtering option.</p>
      */
     export interface DashboardAdHocFilteringOption {
-        availabilityStatus?: string;
+        availabilityStatus?: enums.quicksight.DashboardDashboardBehavior;
     }
 
     /**
@@ -10373,7 +10373,7 @@ export namespace quicksight {
          * <p>Message.</p>
          */
         message?: string;
-        type?: string;
+        type?: enums.quicksight.DashboardDashboardErrorType;
     }
 
     /**
@@ -10439,7 +10439,7 @@ export namespace quicksight {
          * <p>Source entity ARN.</p>
          */
         sourceEntityArn?: string;
-        status?: string;
+        status?: enums.quicksight.DashboardResourceStatus;
         /**
          * <p>The ARN of the theme associated with a version of the dashboard.</p>
          */
@@ -10496,7 +10496,7 @@ export namespace quicksight {
      * <p>Export to .csv option.</p>
      */
     export interface DashboardExportToCSVOption {
-        availabilityStatus?: string;
+        availabilityStatus?: enums.quicksight.DashboardDashboardBehavior;
     }
 
     /**
@@ -10586,7 +10586,7 @@ export namespace quicksight {
      * <p>Sheet controls option.</p>
      */
     export interface DashboardSheetControlsOption {
-        visibilityState?: string;
+        visibilityState?: enums.quicksight.DashboardDashboardUIState;
     }
 
     /**
@@ -10643,7 +10643,7 @@ export namespace quicksight {
          * <p>Columns in this hierarchy.</p>
          */
         columns: string[];
-        countryCode?: string;
+        countryCode?: enums.quicksight.DataSetGeoSpatialCountryCode;
         /**
          * <p>A display name for the hierarchy.</p>
          */
@@ -10681,7 +10681,7 @@ export namespace quicksight {
          * <p>A display name for the dataset.</p>
          */
         name?: string;
-        type?: string;
+        type?: enums.quicksight.DataSetColumnDataType;
     }
 
     export interface DataSetPhysicalTableMap {
@@ -10723,12 +10723,12 @@ export namespace quicksight {
          * <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
          */
         arn: string;
-        formatVersion?: string;
+        formatVersion?: enums.quicksight.DataSetRowLevelPermissionFormatVersion;
         /**
          * <p>The namespace associated with the row-level permissions dataset.</p>
          */
         namespace?: string;
-        permissionPolicy: string;
+        permissionPolicy: enums.quicksight.DataSetRowLevelPermissionPolicy;
     }
 
     /**
@@ -10851,7 +10851,7 @@ export namespace quicksight {
          * <p>Error message.</p>
          */
         message?: string;
-        type?: string;
+        type?: enums.quicksight.DataSourceDataSourceErrorInfoType;
     }
 
     /**
@@ -11299,7 +11299,7 @@ export namespace quicksight {
          * <p>Description of the error type.</p>
          */
         message?: string;
-        type?: string;
+        type?: enums.quicksight.TemplateTemplateErrorType;
     }
 
     /**
@@ -11366,7 +11366,7 @@ export namespace quicksight {
          *             template.</p>
          */
         sourceEntityArn?: string;
-        status?: string;
+        status?: enums.quicksight.TemplateResourceStatus;
         /**
          * <p>The ARN of the theme associated with this version of the template.</p>
          */
@@ -11503,7 +11503,7 @@ export namespace quicksight {
          * <p>The error message.</p>
          */
         message?: string;
-        type?: string;
+        type?: enums.quicksight.ThemeThemeErrorType;
     }
 
     /**
@@ -11532,7 +11532,7 @@ export namespace quicksight {
          * <p>Errors associated with the theme.</p>
          */
         errors?: outputs.quicksight.ThemeThemeError[];
-        status?: string;
+        status?: enums.quicksight.ThemeResourceStatus;
         /**
          * <p>The version number of the theme.</p>
          */
@@ -11649,7 +11649,7 @@ export namespace rds {
         /**
          * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
          */
-        authScheme?: string;
+        authScheme?: enums.rds.DBProxyAuthFormatAuthScheme;
         /**
          * A user-specified description about the authentication used by a proxy to log in as a specific database user. 
          */
@@ -11657,7 +11657,7 @@ export namespace rds {
         /**
          * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
          */
-        iAMAuth?: string;
+        iAMAuth?: enums.rds.DBProxyAuthFormatIAMAuth;
         /**
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
@@ -11749,7 +11749,7 @@ export namespace resourcegroups {
 
     export interface GroupResourceQuery {
         query?: outputs.resourcegroups.GroupQuery;
-        type?: string;
+        type?: enums.resourcegroups.GroupResourceQueryType;
     }
 
     export interface GroupTag {
@@ -11784,7 +11784,7 @@ export namespace robomaker {
         /**
          * The name of the rendering engine.
          */
-        name: string;
+        name: enums.robomaker.SimulationApplicationRenderingEngineName;
         /**
          * The version of the rendering engine.
          */
@@ -11798,11 +11798,11 @@ export namespace robomaker {
         /**
          * The name of the robot software suite (ROS distribution).
          */
-        name: string;
+        name: enums.robomaker.SimulationApplicationRobotSoftwareSuiteName;
         /**
          * The version of the robot software suite (ROS distribution).
          */
-        version: string;
+        version: enums.robomaker.SimulationApplicationRobotSoftwareSuiteVersion;
     }
 
     /**
@@ -11812,11 +11812,11 @@ export namespace robomaker {
         /**
          * The name of the simulation software suite.
          */
-        name: string;
+        name: enums.robomaker.SimulationApplicationSimulationSoftwareSuiteName;
         /**
          * The version of the simulation software suite.
          */
-        version: string;
+        version: enums.robomaker.SimulationApplicationSimulationSoftwareSuiteVersion;
     }
 
     /**
@@ -11826,7 +11826,7 @@ export namespace robomaker {
         /**
          * The target processor architecture for the application.
          */
-        architecture: string;
+        architecture: enums.robomaker.SimulationApplicationSourceConfigArchitecture;
         /**
          * The Amazon S3 bucket name.
          */
@@ -11963,7 +11963,7 @@ export namespace route53recoverycontrol {
          * The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
          */
         threshold: number;
-        type: string;
+        type: enums.route53recoverycontrol.SafetyRuleRuleType;
     }
 
 }
@@ -12101,11 +12101,11 @@ export namespace route53resolver {
         /**
          * Rule Action
          */
-        action: string;
+        action: enums.route53resolver.FirewallRuleGroupFirewallRuleAction;
         /**
          * BlockOverrideDnsType
          */
-        blockOverrideDnsType?: string;
+        blockOverrideDnsType?: enums.route53resolver.FirewallRuleGroupFirewallRuleBlockOverrideDnsType;
         /**
          * BlockOverrideDomain
          */
@@ -12117,7 +12117,7 @@ export namespace route53resolver {
         /**
          * BlockResponse
          */
-        blockResponse?: string;
+        blockResponse?: enums.route53resolver.FirewallRuleGroupFirewallRuleBlockResponse;
         /**
          * ResourceId
          */
@@ -12292,11 +12292,11 @@ export namespace s3 {
         /**
          * Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
          */
-        format: string;
+        format: enums.s3.StorageLensS3BucketDestinationFormat;
         /**
          * The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
          */
-        outputSchemaVersion: string;
+        outputSchemaVersion: enums.s3.StorageLensS3BucketDestinationOutputSchemaVersion;
         /**
          * The prefix to use for Amazon S3 Storage Lens export.
          */
@@ -12445,7 +12445,7 @@ export namespace s3outposts {
          * Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
          */
         id?: string;
-        status?: string;
+        status?: enums.s3outposts.BucketRuleStatus;
     }
 
     export interface BucketTag {
@@ -12515,7 +12515,7 @@ export namespace sagemaker {
         /**
          * The instance type that the image version runs on.
          */
-        instanceType?: string;
+        instanceType?: enums.sagemaker.AppResourceSpecInstanceType;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -12621,11 +12621,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: string;
+        s3DataDistributionType?: enums.sagemaker.DataQualityJobDefinitionEndpointInputS3DataDistributionType;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: string;
+        s3InputMode?: enums.sagemaker.DataQualityJobDefinitionEndpointInputS3InputMode;
     }
 
     /**
@@ -12682,7 +12682,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: string;
+        s3UploadMode?: enums.sagemaker.DataQualityJobDefinitionS3OutputS3UploadMode;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -12834,7 +12834,7 @@ export namespace sagemaker {
         /**
          * The instance type that the image version runs on.
          */
-        instanceType?: string;
+        instanceType?: enums.sagemaker.DomainResourceSpecInstanceType;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -12852,7 +12852,7 @@ export namespace sagemaker {
         /**
          * Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
          */
-        notebookOutputOption?: string;
+        notebookOutputOption?: enums.sagemaker.DomainSharingSettingsNotebookOutputOption;
         /**
          * When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          */
@@ -12896,7 +12896,7 @@ export namespace sagemaker {
 
     export interface FeatureGroupFeatureDefinition {
         featureName: string;
-        featureType: string;
+        featureType: enums.sagemaker.FeatureGroupFeatureDefinitionFeatureType;
     }
 
     /**
@@ -12982,11 +12982,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: string;
+        s3DataDistributionType?: enums.sagemaker.ModelBiasJobDefinitionEndpointInputS3DataDistributionType;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: string;
+        s3InputMode?: enums.sagemaker.ModelBiasJobDefinitionEndpointInputS3InputMode;
         /**
          * Monitoring start time offset, e.g. -PT1H
          */
@@ -13091,7 +13091,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: string;
+        s3UploadMode?: enums.sagemaker.ModelBiasJobDefinitionS3OutputS3UploadMode;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -13192,11 +13192,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: string;
+        s3DataDistributionType?: enums.sagemaker.ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: string;
+        s3InputMode?: enums.sagemaker.ModelExplainabilityJobDefinitionEndpointInputS3InputMode;
     }
 
     /**
@@ -13286,7 +13286,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: string;
+        s3UploadMode?: enums.sagemaker.ModelExplainabilityJobDefinitionS3OutputS3UploadMode;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -13402,11 +13402,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: string;
+        s3DataDistributionType?: enums.sagemaker.ModelQualityJobDefinitionEndpointInputS3DataDistributionType;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: string;
+        s3InputMode?: enums.sagemaker.ModelQualityJobDefinitionEndpointInputS3InputMode;
         /**
          * Monitoring start time offset, e.g. -PT1H
          */
@@ -13437,7 +13437,7 @@ export namespace sagemaker {
          * An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
          */
         postAnalyticsProcessorSourceUri?: string;
-        problemType: string;
+        problemType: enums.sagemaker.ModelQualityJobDefinitionProblemType;
         /**
          * An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
          */
@@ -13524,7 +13524,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: string;
+        s3UploadMode?: enums.sagemaker.ModelQualityJobDefinitionS3OutputS3UploadMode;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -13621,11 +13621,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: string;
+        s3DataDistributionType?: enums.sagemaker.MonitoringScheduleEndpointInputS3DataDistributionType;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: string;
+        s3InputMode?: enums.sagemaker.MonitoringScheduleEndpointInputS3InputMode;
     }
 
     /**
@@ -13674,7 +13674,7 @@ export namespace sagemaker {
         /**
          * The status of the monitoring job.
          */
-        monitoringExecutionStatus: string;
+        monitoringExecutionStatus: enums.sagemaker.MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus;
         monitoringScheduleName: string;
         /**
          * The Amazon Resource Name (ARN) of the monitoring job.
@@ -13751,7 +13751,7 @@ export namespace sagemaker {
          * Name of the job definition
          */
         monitoringJobDefinitionName?: string;
-        monitoringType?: string;
+        monitoringType?: enums.sagemaker.MonitoringScheduleMonitoringType;
         scheduleConfig?: outputs.sagemaker.MonitoringScheduleScheduleConfig;
     }
 
@@ -13781,7 +13781,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: string;
+        s3UploadMode?: enums.sagemaker.MonitoringScheduleS3OutputS3UploadMode;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -13908,7 +13908,7 @@ export namespace sagemaker {
         /**
          * The instance type that the image version runs on.
          */
-        instanceType?: string;
+        instanceType?: enums.sagemaker.UserProfileResourceSpecInstanceType;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -13926,7 +13926,7 @@ export namespace sagemaker {
         /**
          * Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
          */
-        notebookOutputOption?: string;
+        notebookOutputOption?: enums.sagemaker.UserProfileSharingSettingsNotebookOutputOption;
         /**
          * When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          */
@@ -13982,7 +13982,7 @@ export namespace servicecatalog {
         stackSetFailureTolerancePercentage?: number;
         stackSetMaxConcurrencyCount?: number;
         stackSetMaxConcurrencyPercentage?: number;
-        stackSetOperationType?: string;
+        stackSetOperationType?: enums.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType;
         stackSetRegions?: string[];
     }
 
@@ -14033,7 +14033,7 @@ export namespace ses {
 
 export namespace signer {
     export interface SigningProfileSignatureValidityPeriod {
-        type?: string;
+        type?: enums.signer.SigningProfileSignatureValidityPeriodType;
         value?: number;
     }
 
@@ -14064,7 +14064,7 @@ export namespace ssm {
         /**
          * The key of a key-value pair that identifies the location of an attachment to a document.
          */
-        key?: string;
+        key?: enums.ssm.DocumentAttachmentsSourceKey;
         /**
          * The name of the document attachment file.
          */
@@ -14258,7 +14258,7 @@ export namespace ssmincidents {
         /**
          * The account type to use when starting the SSM automation document.
          */
-        targetAccount?: string;
+        targetAccount?: enums.ssmincidents.ResponsePlanSsmAutomationTargetAccount;
     }
 
     /**
@@ -14317,7 +14317,7 @@ export namespace stepfunctions {
     export interface StateMachineLoggingConfiguration {
         destinations?: outputs.stepfunctions.StateMachineLogDestination[];
         includeExecutionData?: boolean;
-        level?: string;
+        level?: enums.stepfunctions.StateMachineLoggingConfigurationLevel;
     }
 
     export interface StateMachineS3Location {
@@ -14479,7 +14479,7 @@ export namespace wafv2 {
      */
     export interface RuleGroupByteMatchStatement {
         fieldToMatch: outputs.wafv2.RuleGroupFieldToMatch;
-        positionalConstraint: string;
+        positionalConstraint: enums.wafv2.RuleGroupPositionalConstraint;
         searchString?: string;
         searchStringBase64?: string;
         textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
@@ -14524,7 +14524,7 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupForwardedIPConfiguration {
-        fallbackBehavior: string;
+        fallbackBehavior: enums.wafv2.RuleGroupForwardedIPConfigurationFallbackBehavior;
         headerName: string;
     }
 
@@ -14534,9 +14534,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupIPSetForwardedIPConfiguration {
-        fallbackBehavior: string;
+        fallbackBehavior: enums.wafv2.RuleGroupIPSetForwardedIPConfigurationFallbackBehavior;
         headerName: string;
-        position: string;
+        position: enums.wafv2.RuleGroupIPSetForwardedIPConfigurationPosition;
     }
 
     export interface RuleGroupIPSetReferenceStatement {
@@ -14548,9 +14548,9 @@ export namespace wafv2 {
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
     export interface RuleGroupJsonBody {
-        invalidFallbackBehavior?: string;
+        invalidFallbackBehavior?: enums.wafv2.RuleGroupBodyParsingFallbackBehavior;
         matchPattern: outputs.wafv2.RuleGroupJsonMatchPattern;
-        matchScope: string;
+        matchScope: enums.wafv2.RuleGroupJsonMatchScope;
     }
 
     /**
@@ -14570,7 +14570,7 @@ export namespace wafv2 {
 
     export interface RuleGroupLabelMatchStatement {
         key: string;
-        scope: string;
+        scope: enums.wafv2.RuleGroupLabelMatchScope;
     }
 
     export interface RuleGroupLabelSummary {
@@ -14586,7 +14586,7 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRateBasedStatement {
-        aggregateKeyType: string;
+        aggregateKeyType: enums.wafv2.RuleGroupRateBasedStatementAggregateKeyType;
         forwardedIPConfig?: outputs.wafv2.RuleGroupForwardedIPConfiguration;
         limit: number;
         scopeDownStatement?: outputs.wafv2.RuleGroupStatement;
@@ -14635,7 +14635,7 @@ export namespace wafv2 {
      * Size Constraint statement.
      */
     export interface RuleGroupSizeConstraintStatement {
-        comparisonOperator: string;
+        comparisonOperator: enums.wafv2.RuleGroupSizeConstraintStatementComparisonOperator;
         fieldToMatch: outputs.wafv2.RuleGroupFieldToMatch;
         size: number;
         textTransformations: outputs.wafv2.RuleGroupTextTransformation[];
@@ -14677,7 +14677,7 @@ export namespace wafv2 {
      */
     export interface RuleGroupTextTransformation {
         priority: number;
-        type: string;
+        type: enums.wafv2.RuleGroupTextTransformationType;
     }
 
     /**
@@ -14720,7 +14720,7 @@ export namespace wafv2 {
      */
     export interface WebACLByteMatchStatement {
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
-        positionalConstraint: string;
+        positionalConstraint: enums.wafv2.WebACLPositionalConstraint;
         searchString?: string;
         searchStringBase64?: string;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
@@ -14820,7 +14820,7 @@ export namespace wafv2 {
     }
 
     export interface WebACLForwardedIPConfiguration {
-        fallbackBehavior: string;
+        fallbackBehavior: enums.wafv2.WebACLForwardedIPConfigurationFallbackBehavior;
         headerName: string;
     }
 
@@ -14830,9 +14830,9 @@ export namespace wafv2 {
     }
 
     export interface WebACLIPSetForwardedIPConfiguration {
-        fallbackBehavior: string;
+        fallbackBehavior: enums.wafv2.WebACLIPSetForwardedIPConfigurationFallbackBehavior;
         headerName: string;
-        position: string;
+        position: enums.wafv2.WebACLIPSetForwardedIPConfigurationPosition;
     }
 
     export interface WebACLIPSetReferenceStatement {
@@ -14844,9 +14844,9 @@ export namespace wafv2 {
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
     export interface WebACLJsonBody {
-        invalidFallbackBehavior?: string;
+        invalidFallbackBehavior?: enums.wafv2.WebACLBodyParsingFallbackBehavior;
         matchPattern: outputs.wafv2.WebACLJsonMatchPattern;
-        matchScope: string;
+        matchScope: enums.wafv2.WebACLJsonMatchScope;
     }
 
     /**
@@ -14866,7 +14866,7 @@ export namespace wafv2 {
 
     export interface WebACLLabelMatchStatement {
         key: string;
-        scope: string;
+        scope: enums.wafv2.WebACLLabelMatchScope;
     }
 
     export interface WebACLManagedRuleGroupStatement {
@@ -14900,7 +14900,7 @@ export namespace wafv2 {
     }
 
     export interface WebACLRateBasedStatement {
-        aggregateKeyType: string;
+        aggregateKeyType: enums.wafv2.WebACLRateBasedStatementAggregateKeyType;
         forwardedIPConfig?: outputs.wafv2.WebACLForwardedIPConfiguration;
         limit: number;
         scopeDownStatement?: outputs.wafv2.WebACLStatement;
@@ -14946,7 +14946,7 @@ export namespace wafv2 {
      * Size Constraint statement.
      */
     export interface WebACLSizeConstraintStatement {
-        comparisonOperator: string;
+        comparisonOperator: enums.wafv2.WebACLSizeConstraintStatementComparisonOperator;
         fieldToMatch: outputs.wafv2.WebACLFieldToMatch;
         size: number;
         textTransformations: outputs.wafv2.WebACLTextTransformation[];
@@ -14990,7 +14990,7 @@ export namespace wafv2 {
      */
     export interface WebACLTextTransformation {
         priority: number;
-        type: string;
+        type: enums.wafv2.WebACLTextTransformationType;
     }
 
     /**
@@ -15015,7 +15015,7 @@ export namespace wafv2 {
 export namespace workspaces {
     export interface ConnectionAliasConnectionAliasAssociation {
         associatedAccountId?: string;
-        associationStatus?: string;
+        associationStatus?: enums.workspaces.ConnectionAliasConnectionAliasAssociationAssociationStatus;
         connectionIdentifier?: string;
         resourceId?: string;
     }

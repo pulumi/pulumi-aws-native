@@ -19,11 +19,11 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// <summary>
         /// The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         /// </summary>
-        public readonly string Algorithm;
+        public readonly Pulumi.AwsNative.MediaConnect.FlowOutputEncryptionAlgorithm Algorithm;
         /// <summary>
         /// The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         /// </summary>
-        public readonly string? KeyType;
+        public readonly Pulumi.AwsNative.MediaConnect.FlowOutputEncryptionKeyType? KeyType;
         /// <summary>
         /// The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         /// </summary>
@@ -35,9 +35,9 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
         [OutputConstructor]
         private FlowOutputEncryption(
-            string algorithm,
+            Pulumi.AwsNative.MediaConnect.FlowOutputEncryptionAlgorithm algorithm,
 
-            string? keyType,
+            Pulumi.AwsNative.MediaConnect.FlowOutputEncryptionKeyType? keyType,
 
             string roleArn,
 

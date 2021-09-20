@@ -43,7 +43,7 @@ type Environment struct {
 	Schedulers                   pulumi.IntPtrOutput                      `pulumi:"schedulers"`
 	SourceBucketArn              pulumi.StringPtrOutput                   `pulumi:"sourceBucketArn"`
 	Tags                         EnvironmentTagMapPtrOutput               `pulumi:"tags"`
-	WebserverAccessMode          pulumi.StringPtrOutput                   `pulumi:"webserverAccessMode"`
+	WebserverAccessMode          EnvironmentWebserverAccessModePtrOutput  `pulumi:"webserverAccessMode"`
 	WebserverUrl                 pulumi.StringOutput                      `pulumi:"webserverUrl"`
 	WeeklyMaintenanceWindowStart pulumi.StringPtrOutput                   `pulumi:"weeklyMaintenanceWindowStart"`
 }
@@ -117,7 +117,7 @@ type environmentArgs struct {
 	Schedulers                   *int                             `pulumi:"schedulers"`
 	SourceBucketArn              *string                          `pulumi:"sourceBucketArn"`
 	Tags                         *EnvironmentTagMap               `pulumi:"tags"`
-	WebserverAccessMode          *string                          `pulumi:"webserverAccessMode"`
+	WebserverAccessMode          *EnvironmentWebserverAccessMode  `pulumi:"webserverAccessMode"`
 	WeeklyMaintenanceWindowStart *string                          `pulumi:"weeklyMaintenanceWindowStart"`
 }
 
@@ -150,7 +150,7 @@ type EnvironmentArgs struct {
 	Schedulers                   pulumi.IntPtrInput
 	SourceBucketArn              pulumi.StringPtrInput
 	Tags                         EnvironmentTagMapPtrInput
-	WebserverAccessMode          pulumi.StringPtrInput
+	WebserverAccessMode          EnvironmentWebserverAccessModePtrInput
 	WeeklyMaintenanceWindowStart pulumi.StringPtrInput
 }
 

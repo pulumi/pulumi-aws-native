@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public Input<Inputs.ComponentVersionLambdaContainerParamsArgs>? ContainerParams { get; set; }
 
         [Input("isolationMode")]
-        public Input<string>? IsolationMode { get; set; }
+        public Input<Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaLinuxProcessParamsIsolationMode>? IsolationMode { get; set; }
 
         public ComponentVersionLambdaLinuxProcessParamsArgs()
         {

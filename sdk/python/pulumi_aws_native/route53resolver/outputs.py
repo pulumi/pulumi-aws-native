@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'FirewallDomainListTag',
@@ -112,22 +113,22 @@ class FirewallRuleGroupFirewallRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action: str,
+                 action: 'FirewallRuleGroupFirewallRuleAction',
                  firewall_domain_list_id: str,
                  priority: int,
-                 block_override_dns_type: Optional[str] = None,
+                 block_override_dns_type: Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType'] = None,
                  block_override_domain: Optional[str] = None,
                  block_override_ttl: Optional[int] = None,
-                 block_response: Optional[str] = None):
+                 block_response: Optional['FirewallRuleGroupFirewallRuleBlockResponse'] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
-        :param str action: Rule Action
+        :param 'FirewallRuleGroupFirewallRuleAction' action: Rule Action
         :param str firewall_domain_list_id: ResourceId
         :param int priority: Rule Priority
-        :param str block_override_dns_type: BlockOverrideDnsType
+        :param 'FirewallRuleGroupFirewallRuleBlockOverrideDnsType' block_override_dns_type: BlockOverrideDnsType
         :param str block_override_domain: BlockOverrideDomain
         :param int block_override_ttl: BlockOverrideTtl
-        :param str block_response: BlockResponse
+        :param 'FirewallRuleGroupFirewallRuleBlockResponse' block_response: BlockResponse
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
@@ -143,7 +144,7 @@ class FirewallRuleGroupFirewallRule(dict):
 
     @property
     @pulumi.getter
-    def action(self) -> str:
+    def action(self) -> 'FirewallRuleGroupFirewallRuleAction':
         """
         Rule Action
         """
@@ -167,7 +168,7 @@ class FirewallRuleGroupFirewallRule(dict):
 
     @property
     @pulumi.getter(name="blockOverrideDnsType")
-    def block_override_dns_type(self) -> Optional[str]:
+    def block_override_dns_type(self) -> Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']:
         """
         BlockOverrideDnsType
         """
@@ -191,7 +192,7 @@ class FirewallRuleGroupFirewallRule(dict):
 
     @property
     @pulumi.getter(name="blockResponse")
-    def block_response(self) -> Optional[str]:
+    def block_response(self) -> Optional['FirewallRuleGroupFirewallRuleBlockResponse']:
         """
         BlockResponse
         """

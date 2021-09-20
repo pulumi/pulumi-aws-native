@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +66,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * The platform of the component.
      */
-    public readonly platform!: pulumi.Output<string>;
+    public readonly platform!: pulumi.Output<enums.imagebuilder.ComponentPlatform>;
     /**
      * The operating system (OS) version supported by the component.
      */
@@ -77,7 +78,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * The type of the component denotes whether the component is used to build the image or only to test it. 
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<enums.imagebuilder.ComponentType>;
     /**
      * The uri of the component.
      */
@@ -169,7 +170,7 @@ export interface ComponentArgs {
     /**
      * The platform of the component.
      */
-    platform: pulumi.Input<string>;
+    platform: pulumi.Input<enums.imagebuilder.ComponentPlatform>;
     /**
      * The operating system (OS) version supported by the component.
      */
