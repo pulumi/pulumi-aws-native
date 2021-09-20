@@ -15,7 +15,7 @@ type ApplicationAlarm struct {
 	// The name of the CloudWatch alarm to be monitored for the component.
 	AlarmName string `pulumi:"alarmName"`
 	// Indicates the degree of outage when the alarm goes off.
-	Severity *string `pulumi:"severity"`
+	Severity *ApplicationAlarmSeverity `pulumi:"severity"`
 }
 
 // ApplicationAlarmInput is an input type that accepts ApplicationAlarmArgs and ApplicationAlarmOutput values.
@@ -34,7 +34,7 @@ type ApplicationAlarmArgs struct {
 	// The name of the CloudWatch alarm to be monitored for the component.
 	AlarmName pulumi.StringInput `pulumi:"alarmName"`
 	// Indicates the degree of outage when the alarm goes off.
-	Severity pulumi.StringPtrInput `pulumi:"severity"`
+	Severity ApplicationAlarmSeverityPtrInput `pulumi:"severity"`
 }
 
 func (ApplicationAlarmArgs) ElementType() reflect.Type {
@@ -95,8 +95,8 @@ func (o ApplicationAlarmOutput) AlarmName() pulumi.StringOutput {
 }
 
 // Indicates the degree of outage when the alarm goes off.
-func (o ApplicationAlarmOutput) Severity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationAlarm) *string { return v.Severity }).(pulumi.StringPtrOutput)
+func (o ApplicationAlarmOutput) Severity() ApplicationAlarmSeverityPtrOutput {
+	return o.ApplyT(func(v ApplicationAlarm) *ApplicationAlarmSeverity { return v.Severity }).(ApplicationAlarmSeverityPtrOutput)
 }
 
 type ApplicationAlarmArrayOutput struct{ *pulumi.OutputState }
@@ -387,7 +387,7 @@ type ApplicationComponentMonitoringSetting struct {
 	// The ARN of the compnonent.
 	ComponentARN *string `pulumi:"componentARN"`
 	// The component monitoring configuration mode.
-	ComponentConfigurationMode string `pulumi:"componentConfigurationMode"`
+	ComponentConfigurationMode ApplicationComponentMonitoringSettingComponentConfigurationMode `pulumi:"componentConfigurationMode"`
 	// The name of the component.
 	ComponentName *string `pulumi:"componentName"`
 	// The monitoring configuration of the component.
@@ -414,7 +414,7 @@ type ApplicationComponentMonitoringSettingArgs struct {
 	// The ARN of the compnonent.
 	ComponentARN pulumi.StringPtrInput `pulumi:"componentARN"`
 	// The component monitoring configuration mode.
-	ComponentConfigurationMode pulumi.StringInput `pulumi:"componentConfigurationMode"`
+	ComponentConfigurationMode ApplicationComponentMonitoringSettingComponentConfigurationModeInput `pulumi:"componentConfigurationMode"`
 	// The name of the component.
 	ComponentName pulumi.StringPtrInput `pulumi:"componentName"`
 	// The monitoring configuration of the component.
@@ -483,8 +483,10 @@ func (o ApplicationComponentMonitoringSettingOutput) ComponentARN() pulumi.Strin
 }
 
 // The component monitoring configuration mode.
-func (o ApplicationComponentMonitoringSettingOutput) ComponentConfigurationMode() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) string { return v.ComponentConfigurationMode }).(pulumi.StringOutput)
+func (o ApplicationComponentMonitoringSettingOutput) ComponentConfigurationMode() ApplicationComponentMonitoringSettingComponentConfigurationModeOutput {
+	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) ApplicationComponentMonitoringSettingComponentConfigurationMode {
+		return v.ComponentConfigurationMode
+	}).(ApplicationComponentMonitoringSettingComponentConfigurationModeOutput)
 }
 
 // The name of the component.
@@ -1039,7 +1041,7 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) PrometheusPort() pulumi.Strin
 // A log to be monitored for the component.
 type ApplicationLog struct {
 	// The type of encoding of the logs to be monitored.
-	Encoding *string `pulumi:"encoding"`
+	Encoding *ApplicationLogEncoding `pulumi:"encoding"`
 	// The CloudWatch log group name to be associated to the monitored log.
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The path of the logs to be monitored.
@@ -1064,7 +1066,7 @@ type ApplicationLogInput interface {
 // A log to be monitored for the component.
 type ApplicationLogArgs struct {
 	// The type of encoding of the logs to be monitored.
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	Encoding ApplicationLogEncodingPtrInput `pulumi:"encoding"`
 	// The CloudWatch log group name to be associated to the monitored log.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
 	// The path of the logs to be monitored.
@@ -1128,8 +1130,8 @@ func (o ApplicationLogOutput) ToApplicationLogOutputWithContext(ctx context.Cont
 }
 
 // The type of encoding of the logs to be monitored.
-func (o ApplicationLogOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationLog) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+func (o ApplicationLogOutput) Encoding() ApplicationLogEncodingPtrOutput {
+	return o.ApplyT(func(v ApplicationLog) *ApplicationLogEncoding { return v.Encoding }).(ApplicationLogEncodingPtrOutput)
 }
 
 // The CloudWatch log group name to be associated to the monitored log.
@@ -1477,7 +1479,7 @@ type ApplicationSubComponentTypeConfiguration struct {
 	// The configuration settings of sub components.
 	SubComponentConfigurationDetails ApplicationSubComponentConfigurationDetails `pulumi:"subComponentConfigurationDetails"`
 	// The sub component type.
-	SubComponentType string `pulumi:"subComponentType"`
+	SubComponentType ApplicationSubComponentTypeConfigurationSubComponentType `pulumi:"subComponentType"`
 }
 
 // ApplicationSubComponentTypeConfigurationInput is an input type that accepts ApplicationSubComponentTypeConfigurationArgs and ApplicationSubComponentTypeConfigurationOutput values.
@@ -1496,7 +1498,7 @@ type ApplicationSubComponentTypeConfigurationArgs struct {
 	// The configuration settings of sub components.
 	SubComponentConfigurationDetails ApplicationSubComponentConfigurationDetailsInput `pulumi:"subComponentConfigurationDetails"`
 	// The sub component type.
-	SubComponentType pulumi.StringInput `pulumi:"subComponentType"`
+	SubComponentType ApplicationSubComponentTypeConfigurationSubComponentTypeInput `pulumi:"subComponentType"`
 }
 
 func (ApplicationSubComponentTypeConfigurationArgs) ElementType() reflect.Type {
@@ -1559,8 +1561,10 @@ func (o ApplicationSubComponentTypeConfigurationOutput) SubComponentConfiguratio
 }
 
 // The sub component type.
-func (o ApplicationSubComponentTypeConfigurationOutput) SubComponentType() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationSubComponentTypeConfiguration) string { return v.SubComponentType }).(pulumi.StringOutput)
+func (o ApplicationSubComponentTypeConfigurationOutput) SubComponentType() ApplicationSubComponentTypeConfigurationSubComponentTypeOutput {
+	return o.ApplyT(func(v ApplicationSubComponentTypeConfiguration) ApplicationSubComponentTypeConfigurationSubComponentType {
+		return v.SubComponentType
+	}).(ApplicationSubComponentTypeConfigurationSubComponentTypeOutput)
 }
 
 type ApplicationSubComponentTypeConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1695,7 +1699,7 @@ func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput
 // A Windows Event to be monitored for the component.
 type ApplicationWindowsEvent struct {
 	// The levels of event to log.
-	EventLevels []string `pulumi:"eventLevels"`
+	EventLevels []ApplicationEventLevel `pulumi:"eventLevels"`
 	// The type of Windows Events to log.
 	EventName string `pulumi:"eventName"`
 	// The CloudWatch log group name to be associated to the monitored log.
@@ -1718,7 +1722,7 @@ type ApplicationWindowsEventInput interface {
 // A Windows Event to be monitored for the component.
 type ApplicationWindowsEventArgs struct {
 	// The levels of event to log.
-	EventLevels pulumi.StringArrayInput `pulumi:"eventLevels"`
+	EventLevels ApplicationEventLevelArrayInput `pulumi:"eventLevels"`
 	// The type of Windows Events to log.
 	EventName pulumi.StringInput `pulumi:"eventName"`
 	// The CloudWatch log group name to be associated to the monitored log.
@@ -1780,8 +1784,8 @@ func (o ApplicationWindowsEventOutput) ToApplicationWindowsEventOutputWithContex
 }
 
 // The levels of event to log.
-func (o ApplicationWindowsEventOutput) EventLevels() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationWindowsEvent) []string { return v.EventLevels }).(pulumi.StringArrayOutput)
+func (o ApplicationWindowsEventOutput) EventLevels() ApplicationEventLevelArrayOutput {
+	return o.ApplyT(func(v ApplicationWindowsEvent) []ApplicationEventLevel { return v.EventLevels }).(ApplicationEventLevelArrayOutput)
 }
 
 // The type of Windows Events to log.

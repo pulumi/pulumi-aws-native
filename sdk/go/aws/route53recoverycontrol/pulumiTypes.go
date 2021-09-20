@@ -456,8 +456,8 @@ type SafetyRuleRuleConfig struct {
 	// Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
 	Inverted bool `pulumi:"inverted"`
 	// The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
-	Threshold int    `pulumi:"threshold"`
-	Type      string `pulumi:"type"`
+	Threshold int                `pulumi:"threshold"`
+	Type      SafetyRuleRuleType `pulumi:"type"`
 }
 
 // SafetyRuleRuleConfigInput is an input type that accepts SafetyRuleRuleConfigArgs and SafetyRuleRuleConfigOutput values.
@@ -476,8 +476,8 @@ type SafetyRuleRuleConfigArgs struct {
 	// Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
 	Inverted pulumi.BoolInput `pulumi:"inverted"`
 	// The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
-	Threshold pulumi.IntInput    `pulumi:"threshold"`
-	Type      pulumi.StringInput `pulumi:"type"`
+	Threshold pulumi.IntInput         `pulumi:"threshold"`
+	Type      SafetyRuleRuleTypeInput `pulumi:"type"`
 }
 
 func (SafetyRuleRuleConfigArgs) ElementType() reflect.Type {
@@ -568,8 +568,8 @@ func (o SafetyRuleRuleConfigOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v SafetyRuleRuleConfig) int { return v.Threshold }).(pulumi.IntOutput)
 }
 
-func (o SafetyRuleRuleConfigOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SafetyRuleRuleConfig) string { return v.Type }).(pulumi.StringOutput)
+func (o SafetyRuleRuleConfigOutput) Type() SafetyRuleRuleTypeOutput {
+	return o.ApplyT(func(v SafetyRuleRuleConfig) SafetyRuleRuleType { return v.Type }).(SafetyRuleRuleTypeOutput)
 }
 
 type SafetyRuleRuleConfigPtrOutput struct{ *pulumi.OutputState }
@@ -616,13 +616,13 @@ func (o SafetyRuleRuleConfigPtrOutput) Threshold() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o SafetyRuleRuleConfigPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SafetyRuleRuleConfig) *string {
+func (o SafetyRuleRuleConfigPtrOutput) Type() SafetyRuleRuleTypePtrOutput {
+	return o.ApplyT(func(v *SafetyRuleRuleConfig) *SafetyRuleRuleType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(SafetyRuleRuleTypePtrOutput)
 }
 
 func init() {

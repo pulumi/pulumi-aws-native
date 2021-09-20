@@ -34,7 +34,7 @@ type FlowSource struct {
 	// The name of the source.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The protocol that is used by the source.
-	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
+	Protocol FlowSourceProtocolPtrOutput `pulumi:"protocol"`
 	// The ARN of the source.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -107,7 +107,7 @@ type flowSourceArgs struct {
 	// The name of the source.
 	Name string `pulumi:"name"`
 	// The protocol that is used by the source.
-	Protocol *string `pulumi:"protocol"`
+	Protocol *FlowSourceProtocol `pulumi:"protocol"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
 	// The name of the VPC Interface this Source is configured with.
@@ -135,7 +135,7 @@ type FlowSourceArgs struct {
 	// The name of the source.
 	Name pulumi.StringInput
 	// The protocol that is used by the source.
-	Protocol pulumi.StringPtrInput
+	Protocol FlowSourceProtocolPtrInput
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrInput
 	// The name of the VPC Interface this Source is configured with.

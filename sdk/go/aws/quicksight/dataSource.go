@@ -40,10 +40,10 @@ type DataSource struct {
 	// <p>A list of resource permissions on the data source.</p>
 	Permissions   DataSourceResourcePermissionArrayOutput `pulumi:"permissions"`
 	SslProperties DataSourceSslPropertiesPtrOutput        `pulumi:"sslProperties"`
-	Status        pulumi.StringOutput                     `pulumi:"status"`
+	Status        DataSourceResourceStatusOutput          `pulumi:"status"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 	Tags                    DataSourceTagArrayOutput                   `pulumi:"tags"`
-	Type                    pulumi.StringPtrOutput                     `pulumi:"type"`
+	Type                    DataSourceDataSourceTypePtrOutput          `pulumi:"type"`
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrOutput `pulumi:"vpcConnectionProperties"`
 }
 
@@ -108,7 +108,7 @@ type dataSourceArgs struct {
 	SslProperties *DataSourceSslProperties       `pulumi:"sslProperties"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 	Tags                    []DataSourceTag                    `pulumi:"tags"`
-	Type                    *string                            `pulumi:"type"`
+	Type                    *DataSourceDataSourceType          `pulumi:"type"`
 	VpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"vpcConnectionProperties"`
 }
 
@@ -136,7 +136,7 @@ type DataSourceArgs struct {
 	SslProperties DataSourceSslPropertiesPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
 	Tags                    DataSourceTagArrayInput
-	Type                    pulumi.StringPtrInput
+	Type                    DataSourceDataSourceTypePtrInput
 	VpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput
 }
 

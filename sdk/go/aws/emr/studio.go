@@ -18,7 +18,7 @@ type Studio struct {
 	// The Amazon Resource Name (ARN) of the EMR Studio.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
-	AuthMode pulumi.StringOutput `pulumi:"authMode"`
+	AuthMode StudioAuthModeOutput `pulumi:"authMode"`
 	// The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
 	DefaultS3Location pulumi.StringOutput `pulumi:"defaultS3Location"`
 	// A detailed description of the Studio.
@@ -113,7 +113,7 @@ func (StudioState) ElementType() reflect.Type {
 
 type studioArgs struct {
 	// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
-	AuthMode string `pulumi:"authMode"`
+	AuthMode StudioAuthMode `pulumi:"authMode"`
 	// The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
 	DefaultS3Location string `pulumi:"defaultS3Location"`
 	// A detailed description of the Studio.
@@ -143,7 +143,7 @@ type studioArgs struct {
 // The set of arguments for constructing a Studio resource.
 type StudioArgs struct {
 	// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
-	AuthMode pulumi.StringInput
+	AuthMode StudioAuthModeInput
 	// The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
 	DefaultS3Location pulumi.StringInput
 	// A detailed description of the Studio.

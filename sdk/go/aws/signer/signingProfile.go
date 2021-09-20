@@ -18,7 +18,7 @@ type SigningProfile struct {
 	// The Amazon Resource Name (ARN) of the specified signing profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the target signing platform.
-	PlatformId pulumi.StringOutput `pulumi:"platformId"`
+	PlatformId SigningProfilePlatformIdOutput `pulumi:"platformId"`
 	// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
 	ProfileName pulumi.StringOutput `pulumi:"profileName"`
 	// A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
@@ -74,7 +74,7 @@ func (SigningProfileState) ElementType() reflect.Type {
 
 type signingProfileArgs struct {
 	// The ID of the target signing platform.
-	PlatformId string `pulumi:"platformId"`
+	PlatformId SigningProfilePlatformId `pulumi:"platformId"`
 	// Signature validity period of the profile.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
 	// A list of tags associated with the signing profile.
@@ -84,7 +84,7 @@ type signingProfileArgs struct {
 // The set of arguments for constructing a SigningProfile resource.
 type SigningProfileArgs struct {
 	// The ID of the target signing platform.
-	PlatformId pulumi.StringInput
+	PlatformId SigningProfilePlatformIdInput
 	// Signature validity period of the profile.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
 	// A list of tags associated with the signing profile.

@@ -28,7 +28,7 @@ type Environment struct {
 	// URL used to login to the Environment
 	EnvironmentUrl pulumi.StringOutput `pulumi:"environmentUrl"`
 	// Federation mode used with the Environment
-	FederationMode       pulumi.StringPtrOutput                   `pulumi:"federationMode"`
+	FederationMode       EnvironmentFederationModePtrOutput       `pulumi:"federationMode"`
 	FederationParameters EnvironmentFederationParametersPtrOutput `pulumi:"federationParameters"`
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
@@ -37,7 +37,7 @@ type Environment struct {
 	// SageMaker Studio Domain URL associated with the Environment
 	SageMakerStudioDomainUrl pulumi.StringOutput `pulumi:"sageMakerStudioDomainUrl"`
 	// State of the Environment
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status EnvironmentStatusOutput `pulumi:"status"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ type environmentArgs struct {
 	// Description of the Environment
 	Description *string `pulumi:"description"`
 	// Federation mode used with the Environment
-	FederationMode       *string                          `pulumi:"federationMode"`
+	FederationMode       *EnvironmentFederationMode       `pulumi:"federationMode"`
 	FederationParameters *EnvironmentFederationParameters `pulumi:"federationParameters"`
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -98,7 +98,7 @@ type EnvironmentArgs struct {
 	// Description of the Environment
 	Description pulumi.StringPtrInput
 	// Federation mode used with the Environment
-	FederationMode       pulumi.StringPtrInput
+	FederationMode       EnvironmentFederationModePtrInput
 	FederationParameters EnvironmentFederationParametersPtrInput
 	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrInput

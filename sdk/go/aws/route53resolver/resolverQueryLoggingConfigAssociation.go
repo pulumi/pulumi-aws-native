@@ -17,7 +17,7 @@ type ResolverQueryLoggingConfigAssociation struct {
 	// Rfc3339TimeString
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// ResolverQueryLogConfigAssociationError
-	Error pulumi.StringOutput `pulumi:"error"`
+	Error ResolverQueryLoggingConfigAssociationErrorOutput `pulumi:"error"`
 	// ResolverQueryLogConfigAssociationErrorMessage
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
 	// ResolverQueryLogConfigId
@@ -25,7 +25,7 @@ type ResolverQueryLoggingConfigAssociation struct {
 	// ResourceId
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// ResolverQueryLogConfigAssociationStatus
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status ResolverQueryLoggingConfigAssociationStatusOutput `pulumi:"status"`
 }
 
 // NewResolverQueryLoggingConfigAssociation registers a new resource with the given unique name, arguments, and options.

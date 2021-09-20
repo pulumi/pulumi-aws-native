@@ -255,7 +255,7 @@ func (o RobotTagsPtrOutput) Elem() RobotTagsOutput {
 // Information about a rendering engine.
 type SimulationApplicationRenderingEngine struct {
 	// The name of the rendering engine.
-	Name string `pulumi:"name"`
+	Name SimulationApplicationRenderingEngineName `pulumi:"name"`
 	// The version of the rendering engine.
 	Version string `pulumi:"version"`
 }
@@ -274,7 +274,7 @@ type SimulationApplicationRenderingEngineInput interface {
 // Information about a rendering engine.
 type SimulationApplicationRenderingEngineArgs struct {
 	// The name of the rendering engine.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SimulationApplicationRenderingEngineNameInput `pulumi:"name"`
 	// The version of the rendering engine.
 	Version pulumi.StringInput `pulumi:"version"`
 }
@@ -358,8 +358,8 @@ func (o SimulationApplicationRenderingEngineOutput) ToSimulationApplicationRende
 }
 
 // The name of the rendering engine.
-func (o SimulationApplicationRenderingEngineOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SimulationApplicationRenderingEngine) string { return v.Name }).(pulumi.StringOutput)
+func (o SimulationApplicationRenderingEngineOutput) Name() SimulationApplicationRenderingEngineNameOutput {
+	return o.ApplyT(func(v SimulationApplicationRenderingEngine) SimulationApplicationRenderingEngineName { return v.Name }).(SimulationApplicationRenderingEngineNameOutput)
 }
 
 // The version of the rendering engine.
@@ -392,13 +392,13 @@ func (o SimulationApplicationRenderingEnginePtrOutput) Elem() SimulationApplicat
 }
 
 // The name of the rendering engine.
-func (o SimulationApplicationRenderingEnginePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationRenderingEngine) *string {
+func (o SimulationApplicationRenderingEnginePtrOutput) Name() SimulationApplicationRenderingEngineNamePtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationRenderingEngine) *SimulationApplicationRenderingEngineName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SimulationApplicationRenderingEngineNamePtrOutput)
 }
 
 // The version of the rendering engine.
@@ -414,9 +414,9 @@ func (o SimulationApplicationRenderingEnginePtrOutput) Version() pulumi.StringPt
 // Information about a robot software suite (ROS distribution).
 type SimulationApplicationRobotSoftwareSuite struct {
 	// The name of the robot software suite (ROS distribution).
-	Name string `pulumi:"name"`
+	Name SimulationApplicationRobotSoftwareSuiteName `pulumi:"name"`
 	// The version of the robot software suite (ROS distribution).
-	Version string `pulumi:"version"`
+	Version SimulationApplicationRobotSoftwareSuiteVersion `pulumi:"version"`
 }
 
 // SimulationApplicationRobotSoftwareSuiteInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteArgs and SimulationApplicationRobotSoftwareSuiteOutput values.
@@ -433,9 +433,9 @@ type SimulationApplicationRobotSoftwareSuiteInput interface {
 // Information about a robot software suite (ROS distribution).
 type SimulationApplicationRobotSoftwareSuiteArgs struct {
 	// The name of the robot software suite (ROS distribution).
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SimulationApplicationRobotSoftwareSuiteNameInput `pulumi:"name"`
 	// The version of the robot software suite (ROS distribution).
-	Version pulumi.StringInput `pulumi:"version"`
+	Version SimulationApplicationRobotSoftwareSuiteVersionInput `pulumi:"version"`
 }
 
 func (SimulationApplicationRobotSoftwareSuiteArgs) ElementType() reflect.Type {
@@ -517,13 +517,17 @@ func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRo
 }
 
 // The name of the robot software suite (ROS distribution).
-func (o SimulationApplicationRobotSoftwareSuiteOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) string { return v.Name }).(pulumi.StringOutput)
+func (o SimulationApplicationRobotSoftwareSuiteOutput) Name() SimulationApplicationRobotSoftwareSuiteNameOutput {
+	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) SimulationApplicationRobotSoftwareSuiteName {
+		return v.Name
+	}).(SimulationApplicationRobotSoftwareSuiteNameOutput)
 }
 
 // The version of the robot software suite (ROS distribution).
-func (o SimulationApplicationRobotSoftwareSuiteOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) string { return v.Version }).(pulumi.StringOutput)
+func (o SimulationApplicationRobotSoftwareSuiteOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionOutput {
+	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) SimulationApplicationRobotSoftwareSuiteVersion {
+		return v.Version
+	}).(SimulationApplicationRobotSoftwareSuiteVersionOutput)
 }
 
 type SimulationApplicationRobotSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
@@ -551,31 +555,31 @@ func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Elem() SimulationAppli
 }
 
 // The name of the robot software suite (ROS distribution).
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *string {
+func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() SimulationApplicationRobotSoftwareSuiteNamePtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SimulationApplicationRobotSoftwareSuiteNamePtrOutput)
 }
 
 // The version of the robot software suite (ROS distribution).
-func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *string {
+func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Version() SimulationApplicationRobotSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *SimulationApplicationRobotSoftwareSuiteVersion {
 		if v == nil {
 			return nil
 		}
 		return &v.Version
-	}).(pulumi.StringPtrOutput)
+	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
 // Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuite struct {
 	// The name of the simulation software suite.
-	Name string `pulumi:"name"`
+	Name SimulationApplicationSimulationSoftwareSuiteName `pulumi:"name"`
 	// The version of the simulation software suite.
-	Version string `pulumi:"version"`
+	Version SimulationApplicationSimulationSoftwareSuiteVersion `pulumi:"version"`
 }
 
 // SimulationApplicationSimulationSoftwareSuiteInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteArgs and SimulationApplicationSimulationSoftwareSuiteOutput values.
@@ -592,9 +596,9 @@ type SimulationApplicationSimulationSoftwareSuiteInput interface {
 // Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuiteArgs struct {
 	// The name of the simulation software suite.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SimulationApplicationSimulationSoftwareSuiteNameInput `pulumi:"name"`
 	// The version of the simulation software suite.
-	Version pulumi.StringInput `pulumi:"version"`
+	Version SimulationApplicationSimulationSoftwareSuiteVersionInput `pulumi:"version"`
 }
 
 func (SimulationApplicationSimulationSoftwareSuiteArgs) ElementType() reflect.Type {
@@ -676,13 +680,17 @@ func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToSimulationApplicat
 }
 
 // The name of the simulation software suite.
-func (o SimulationApplicationSimulationSoftwareSuiteOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) string { return v.Name }).(pulumi.StringOutput)
+func (o SimulationApplicationSimulationSoftwareSuiteOutput) Name() SimulationApplicationSimulationSoftwareSuiteNameOutput {
+	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) SimulationApplicationSimulationSoftwareSuiteName {
+		return v.Name
+	}).(SimulationApplicationSimulationSoftwareSuiteNameOutput)
 }
 
 // The version of the simulation software suite.
-func (o SimulationApplicationSimulationSoftwareSuiteOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) string { return v.Version }).(pulumi.StringOutput)
+func (o SimulationApplicationSimulationSoftwareSuiteOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionOutput {
+	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) SimulationApplicationSimulationSoftwareSuiteVersion {
+		return v.Version
+	}).(SimulationApplicationSimulationSoftwareSuiteVersionOutput)
 }
 
 type SimulationApplicationSimulationSoftwareSuitePtrOutput struct{ *pulumi.OutputState }
@@ -710,29 +718,29 @@ func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Elem() Simulation
 }
 
 // The name of the simulation software suite.
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *string {
+func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Name() SimulationApplicationSimulationSoftwareSuiteNamePtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SimulationApplicationSimulationSoftwareSuiteNamePtrOutput)
 }
 
 // The version of the simulation software suite.
-func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *string {
+func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Version() SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput {
+	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *SimulationApplicationSimulationSoftwareSuiteVersion {
 		if v == nil {
 			return nil
 		}
 		return &v.Version
-	}).(pulumi.StringPtrOutput)
+	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
 }
 
 // Information about a source configuration.
 type SimulationApplicationSourceConfig struct {
 	// The target processor architecture for the application.
-	Architecture string `pulumi:"architecture"`
+	Architecture SimulationApplicationSourceConfigArchitecture `pulumi:"architecture"`
 	// The Amazon S3 bucket name.
 	S3Bucket string `pulumi:"s3Bucket"`
 	// The s3 object key.
@@ -753,7 +761,7 @@ type SimulationApplicationSourceConfigInput interface {
 // Information about a source configuration.
 type SimulationApplicationSourceConfigArgs struct {
 	// The target processor architecture for the application.
-	Architecture pulumi.StringInput `pulumi:"architecture"`
+	Architecture SimulationApplicationSourceConfigArchitectureInput `pulumi:"architecture"`
 	// The Amazon S3 bucket name.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
 	// The s3 object key.
@@ -813,8 +821,10 @@ func (o SimulationApplicationSourceConfigOutput) ToSimulationApplicationSourceCo
 }
 
 // The target processor architecture for the application.
-func (o SimulationApplicationSourceConfigOutput) Architecture() pulumi.StringOutput {
-	return o.ApplyT(func(v SimulationApplicationSourceConfig) string { return v.Architecture }).(pulumi.StringOutput)
+func (o SimulationApplicationSourceConfigOutput) Architecture() SimulationApplicationSourceConfigArchitectureOutput {
+	return o.ApplyT(func(v SimulationApplicationSourceConfig) SimulationApplicationSourceConfigArchitecture {
+		return v.Architecture
+	}).(SimulationApplicationSourceConfigArchitectureOutput)
 }
 
 // The Amazon S3 bucket name.

@@ -22,7 +22,7 @@ type Accelerator struct {
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// IP Address type.
-	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
+	IpAddressType AcceleratorIpAddressTypePtrOutput `pulumi:"ipAddressType"`
 	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
 	// Name of accelerator.
@@ -75,7 +75,7 @@ type acceleratorArgs struct {
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled *bool `pulumi:"enabled"`
 	// IP Address type.
-	IpAddressType *string `pulumi:"ipAddressType"`
+	IpAddressType *AcceleratorIpAddressType `pulumi:"ipAddressType"`
 	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Name of accelerator.
@@ -88,7 +88,7 @@ type AcceleratorArgs struct {
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled pulumi.BoolPtrInput
 	// IP Address type.
-	IpAddressType pulumi.StringPtrInput
+	IpAddressType AcceleratorIpAddressTypePtrInput
 	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses pulumi.StringArrayInput
 	// Name of accelerator.

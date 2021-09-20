@@ -18,7 +18,7 @@ type StudioSessionMapping struct {
 	// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
 	IdentityName pulumi.StringOutput `pulumi:"identityName"`
 	// Specifies whether the identity to map to the Studio is a user or a group.
-	IdentityType pulumi.StringOutput `pulumi:"identityType"`
+	IdentityType StudioSessionMappingIdentityTypeOutput `pulumi:"identityType"`
 	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
 	SessionPolicyArn pulumi.StringOutput `pulumi:"sessionPolicyArn"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
@@ -79,7 +79,7 @@ type studioSessionMappingArgs struct {
 	// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
 	IdentityName string `pulumi:"identityName"`
 	// Specifies whether the identity to map to the Studio is a user or a group.
-	IdentityType string `pulumi:"identityType"`
+	IdentityType StudioSessionMappingIdentityType `pulumi:"identityType"`
 	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
 	SessionPolicyArn string `pulumi:"sessionPolicyArn"`
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.
@@ -91,7 +91,7 @@ type StudioSessionMappingArgs struct {
 	// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
 	IdentityName pulumi.StringInput
 	// Specifies whether the identity to map to the Studio is a user or a group.
-	IdentityType pulumi.StringInput
+	IdentityType StudioSessionMappingIdentityTypeInput
 	// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
 	SessionPolicyArn pulumi.StringInput
 	// The ID of the Amazon EMR Studio to which the user or group will be mapped.

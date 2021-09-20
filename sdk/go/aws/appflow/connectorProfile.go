@@ -16,7 +16,7 @@ type ConnectorProfile struct {
 	pulumi.CustomResourceState
 
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
-	ConnectionMode pulumi.StringOutput `pulumi:"connectionMode"`
+	ConnectionMode ConnectorProfileConnectionModeOutput `pulumi:"connectionMode"`
 	// Unique identifier for connector profile resources
 	ConnectorProfileArn pulumi.StringOutput `pulumi:"connectorProfileArn"`
 	// Connector specific configurations needed to create connector profile
@@ -24,7 +24,7 @@ type ConnectorProfile struct {
 	// The maximum number of items to retrieve in a single batch.
 	ConnectorProfileName pulumi.StringOutput `pulumi:"connectorProfileName"`
 	// List of Saas providers that need connector profile to be created
-	ConnectorType pulumi.StringOutput `pulumi:"connectorType"`
+	ConnectorType ConnectorProfileConnectorTypeOutput `pulumi:"connectorType"`
 	// A unique Arn for Connector-Profile resource
 	CredentialsArn pulumi.StringOutput `pulumi:"credentialsArn"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
@@ -80,13 +80,13 @@ func (ConnectorProfileState) ElementType() reflect.Type {
 
 type connectorProfileArgs struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
-	ConnectionMode string `pulumi:"connectionMode"`
+	ConnectionMode ConnectorProfileConnectionMode `pulumi:"connectionMode"`
 	// Connector specific configurations needed to create connector profile
 	ConnectorProfileConfig *ConnectorProfileConnectorProfileConfig `pulumi:"connectorProfileConfig"`
 	// The maximum number of items to retrieve in a single batch.
 	ConnectorProfileName string `pulumi:"connectorProfileName"`
 	// List of Saas providers that need connector profile to be created
-	ConnectorType string `pulumi:"connectorType"`
+	ConnectorType ConnectorProfileConnectorType `pulumi:"connectorType"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn *string `pulumi:"kMSArn"`
 }
@@ -94,13 +94,13 @@ type connectorProfileArgs struct {
 // The set of arguments for constructing a ConnectorProfile resource.
 type ConnectorProfileArgs struct {
 	// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
-	ConnectionMode pulumi.StringInput
+	ConnectionMode ConnectorProfileConnectionModeInput
 	// Connector specific configurations needed to create connector profile
 	ConnectorProfileConfig ConnectorProfileConnectorProfileConfigPtrInput
 	// The maximum number of items to retrieve in a single batch.
 	ConnectorProfileName pulumi.StringInput
 	// List of Saas providers that need connector profile to be created
-	ConnectorType pulumi.StringInput
+	ConnectorType ConnectorProfileConnectorTypeInput
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn pulumi.StringPtrInput
 }

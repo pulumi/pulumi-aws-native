@@ -28,7 +28,7 @@ type EventSourceMapping struct {
 	// The name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// (Streams) A list of response types supported by the function.
-	FunctionResponseTypes pulumi.StringArrayOutput `pulumi:"functionResponseTypes"`
+	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayOutput `pulumi:"functionResponseTypes"`
 	// (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrOutput `pulumi:"maximumBatchingWindowInSeconds"`
 	// (Streams) The maximum age of a record that Lambda sends to a function for processing.
@@ -108,7 +108,7 @@ type eventSourceMappingArgs struct {
 	// The name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// (Streams) A list of response types supported by the function.
-	FunctionResponseTypes []string `pulumi:"functionResponseTypes"`
+	FunctionResponseTypes []EventSourceMappingFunctionResponseTypesItem `pulumi:"functionResponseTypes"`
 	// (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
 	MaximumBatchingWindowInSeconds *int `pulumi:"maximumBatchingWindowInSeconds"`
 	// (Streams) The maximum age of a record that Lambda sends to a function for processing.
@@ -148,7 +148,7 @@ type EventSourceMappingArgs struct {
 	// The name of the Lambda function.
 	FunctionName pulumi.StringInput
 	// (Streams) A list of response types supported by the function.
-	FunctionResponseTypes pulumi.StringArrayInput
+	FunctionResponseTypes EventSourceMappingFunctionResponseTypesItemArrayInput
 	// (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
 	MaximumBatchingWindowInSeconds pulumi.IntPtrInput
 	// (Streams) The maximum age of a record that Lambda sends to a function for processing.

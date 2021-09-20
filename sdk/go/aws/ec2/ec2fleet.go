@@ -16,7 +16,7 @@ type EC2Fleet struct {
 	pulumi.CustomResourceState
 
 	Context                          pulumi.StringPtrOutput                              `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  pulumi.StringPtrOutput                              `pulumi:"excessCapacityTerminationPolicy"`
+	ExcessCapacityTerminationPolicy  EC2FleetExcessCapacityTerminationPolicyPtrOutput    `pulumi:"excessCapacityTerminationPolicy"`
 	FleetId                          pulumi.StringOutput                                 `pulumi:"fleetId"`
 	LaunchTemplateConfigs            EC2FleetFleetLaunchTemplateConfigRequestArrayOutput `pulumi:"launchTemplateConfigs"`
 	OnDemandOptions                  EC2FleetOnDemandOptionsRequestPtrOutput             `pulumi:"onDemandOptions"`
@@ -25,7 +25,7 @@ type EC2Fleet struct {
 	TagSpecifications                EC2FleetTagSpecificationArrayOutput                 `pulumi:"tagSpecifications"`
 	TargetCapacitySpecification      EC2FleetTargetCapacitySpecificationRequestOutput    `pulumi:"targetCapacitySpecification"`
 	TerminateInstancesWithExpiration pulumi.BoolPtrOutput                                `pulumi:"terminateInstancesWithExpiration"`
-	Type                             pulumi.StringPtrOutput                              `pulumi:"type"`
+	Type                             EC2FleetTypePtrOutput                               `pulumi:"type"`
 	ValidFrom                        pulumi.StringPtrOutput                              `pulumi:"validFrom"`
 	ValidUntil                       pulumi.StringPtrOutput                              `pulumi:"validUntil"`
 }
@@ -76,7 +76,7 @@ func (EC2FleetState) ElementType() reflect.Type {
 
 type ec2fleetArgs struct {
 	Context                          *string                                    `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  *string                                    `pulumi:"excessCapacityTerminationPolicy"`
+	ExcessCapacityTerminationPolicy  *EC2FleetExcessCapacityTerminationPolicy   `pulumi:"excessCapacityTerminationPolicy"`
 	LaunchTemplateConfigs            []EC2FleetFleetLaunchTemplateConfigRequest `pulumi:"launchTemplateConfigs"`
 	OnDemandOptions                  *EC2FleetOnDemandOptionsRequest            `pulumi:"onDemandOptions"`
 	ReplaceUnhealthyInstances        *bool                                      `pulumi:"replaceUnhealthyInstances"`
@@ -84,7 +84,7 @@ type ec2fleetArgs struct {
 	TagSpecifications                []EC2FleetTagSpecification                 `pulumi:"tagSpecifications"`
 	TargetCapacitySpecification      EC2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
 	TerminateInstancesWithExpiration *bool                                      `pulumi:"terminateInstancesWithExpiration"`
-	Type                             *string                                    `pulumi:"type"`
+	Type                             *EC2FleetType                              `pulumi:"type"`
 	ValidFrom                        *string                                    `pulumi:"validFrom"`
 	ValidUntil                       *string                                    `pulumi:"validUntil"`
 }
@@ -92,7 +92,7 @@ type ec2fleetArgs struct {
 // The set of arguments for constructing a EC2Fleet resource.
 type EC2FleetArgs struct {
 	Context                          pulumi.StringPtrInput
-	ExcessCapacityTerminationPolicy  pulumi.StringPtrInput
+	ExcessCapacityTerminationPolicy  EC2FleetExcessCapacityTerminationPolicyPtrInput
 	LaunchTemplateConfigs            EC2FleetFleetLaunchTemplateConfigRequestArrayInput
 	OnDemandOptions                  EC2FleetOnDemandOptionsRequestPtrInput
 	ReplaceUnhealthyInstances        pulumi.BoolPtrInput
@@ -100,7 +100,7 @@ type EC2FleetArgs struct {
 	TagSpecifications                EC2FleetTagSpecificationArrayInput
 	TargetCapacitySpecification      EC2FleetTargetCapacitySpecificationRequestInput
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
-	Type                             pulumi.StringPtrInput
+	Type                             EC2FleetTypePtrInput
 	ValidFrom                        pulumi.StringPtrInput
 	ValidUntil                       pulumi.StringPtrInput
 }

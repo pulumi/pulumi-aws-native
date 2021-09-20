@@ -18,10 +18,10 @@ type CostCategory struct {
 	// Cost category ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The default value for the cost category
-	DefaultValue   pulumi.StringPtrOutput `pulumi:"defaultValue"`
-	EffectiveStart pulumi.StringOutput    `pulumi:"effectiveStart"`
-	Name           pulumi.StringOutput    `pulumi:"name"`
-	RuleVersion    pulumi.StringOutput    `pulumi:"ruleVersion"`
+	DefaultValue   pulumi.StringPtrOutput        `pulumi:"defaultValue"`
+	EffectiveStart pulumi.StringOutput           `pulumi:"effectiveStart"`
+	Name           pulumi.StringOutput           `pulumi:"name"`
+	RuleVersion    CostCategoryRuleVersionOutput `pulumi:"ruleVersion"`
 	// JSON array format of Expression in Billing and Cost Management API
 	Rules pulumi.StringOutput `pulumi:"rules"`
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
@@ -77,9 +77,9 @@ func (CostCategoryState) ElementType() reflect.Type {
 
 type costCategoryArgs struct {
 	// The default value for the cost category
-	DefaultValue *string `pulumi:"defaultValue"`
-	Name         string  `pulumi:"name"`
-	RuleVersion  string  `pulumi:"ruleVersion"`
+	DefaultValue *string                 `pulumi:"defaultValue"`
+	Name         string                  `pulumi:"name"`
+	RuleVersion  CostCategoryRuleVersion `pulumi:"ruleVersion"`
 	// JSON array format of Expression in Billing and Cost Management API
 	Rules string `pulumi:"rules"`
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
@@ -91,7 +91,7 @@ type CostCategoryArgs struct {
 	// The default value for the cost category
 	DefaultValue pulumi.StringPtrInput
 	Name         pulumi.StringInput
-	RuleVersion  pulumi.StringInput
+	RuleVersion  CostCategoryRuleVersionInput
 	// JSON array format of Expression in Billing and Cost Management API
 	Rules pulumi.StringInput
 	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API

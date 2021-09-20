@@ -26,7 +26,7 @@ type DBProxy struct {
 	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The kinds of databases that the proxy can connect to.
-	EngineFamily pulumi.StringOutput `pulumi:"engineFamily"`
+	EngineFamily DBProxyEngineFamilyOutput `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout pulumi.IntPtrOutput `pulumi:"idleClientTimeout"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
@@ -104,7 +104,7 @@ type dbproxyArgs struct {
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
 	// The kinds of databases that the proxy can connect to.
-	EngineFamily string `pulumi:"engineFamily"`
+	EngineFamily DBProxyEngineFamily `pulumi:"engineFamily"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
@@ -128,7 +128,7 @@ type DBProxyArgs struct {
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrInput
 	// The kinds of databases that the proxy can connect to.
-	EngineFamily pulumi.StringInput
+	EngineFamily DBProxyEngineFamilyInput
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout pulumi.IntPtrInput
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.

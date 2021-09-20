@@ -11,10 +11,10 @@ import (
 )
 
 type ConnectionAliasConnectionAliasAssociation struct {
-	AssociatedAccountId  *string `pulumi:"associatedAccountId"`
-	AssociationStatus    *string `pulumi:"associationStatus"`
-	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
-	ResourceId           *string `pulumi:"resourceId"`
+	AssociatedAccountId  *string                                                     `pulumi:"associatedAccountId"`
+	AssociationStatus    *ConnectionAliasConnectionAliasAssociationAssociationStatus `pulumi:"associationStatus"`
+	ConnectionIdentifier *string                                                     `pulumi:"connectionIdentifier"`
+	ResourceId           *string                                                     `pulumi:"resourceId"`
 }
 
 // ConnectionAliasConnectionAliasAssociationInput is an input type that accepts ConnectionAliasConnectionAliasAssociationArgs and ConnectionAliasConnectionAliasAssociationOutput values.
@@ -29,10 +29,10 @@ type ConnectionAliasConnectionAliasAssociationInput interface {
 }
 
 type ConnectionAliasConnectionAliasAssociationArgs struct {
-	AssociatedAccountId  pulumi.StringPtrInput `pulumi:"associatedAccountId"`
-	AssociationStatus    pulumi.StringPtrInput `pulumi:"associationStatus"`
-	ConnectionIdentifier pulumi.StringPtrInput `pulumi:"connectionIdentifier"`
-	ResourceId           pulumi.StringPtrInput `pulumi:"resourceId"`
+	AssociatedAccountId  pulumi.StringPtrInput                                              `pulumi:"associatedAccountId"`
+	AssociationStatus    ConnectionAliasConnectionAliasAssociationAssociationStatusPtrInput `pulumi:"associationStatus"`
+	ConnectionIdentifier pulumi.StringPtrInput                                              `pulumi:"connectionIdentifier"`
+	ResourceId           pulumi.StringPtrInput                                              `pulumi:"resourceId"`
 }
 
 func (ConnectionAliasConnectionAliasAssociationArgs) ElementType() reflect.Type {
@@ -90,8 +90,10 @@ func (o ConnectionAliasConnectionAliasAssociationOutput) AssociatedAccountId() p
 	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.AssociatedAccountId }).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionAliasConnectionAliasAssociationOutput) AssociationStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.AssociationStatus }).(pulumi.StringPtrOutput)
+func (o ConnectionAliasConnectionAliasAssociationOutput) AssociationStatus() ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *ConnectionAliasConnectionAliasAssociationAssociationStatus {
+		return v.AssociationStatus
+	}).(ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput)
 }
 
 func (o ConnectionAliasConnectionAliasAssociationOutput) ConnectionIdentifier() pulumi.StringPtrOutput {

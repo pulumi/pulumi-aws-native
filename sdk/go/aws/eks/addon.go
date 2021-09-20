@@ -24,7 +24,7 @@ type Addon struct {
 	// Name of Cluster
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Resolve parameter value conflicts
-	ResolveConflicts pulumi.StringPtrOutput `pulumi:"resolveConflicts"`
+	ResolveConflicts AddonResolveConflictsPtrOutput `pulumi:"resolveConflicts"`
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
 	// An array of key-value pairs to apply to this resource.
@@ -83,7 +83,7 @@ type addonArgs struct {
 	// Name of Cluster
 	ClusterName string `pulumi:"clusterName"`
 	// Resolve parameter value conflicts
-	ResolveConflicts *string `pulumi:"resolveConflicts"`
+	ResolveConflicts *AddonResolveConflicts `pulumi:"resolveConflicts"`
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
 	// An array of key-value pairs to apply to this resource.
@@ -99,7 +99,7 @@ type AddonArgs struct {
 	// Name of Cluster
 	ClusterName pulumi.StringInput
 	// Resolve parameter value conflicts
-	ResolveConflicts pulumi.StringPtrInput
+	ResolveConflicts AddonResolveConflictsPtrInput
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.

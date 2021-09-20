@@ -18,7 +18,7 @@ type GlobalCluster struct {
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
-	Engine pulumi.StringPtrOutput `pulumi:"engine"`
+	Engine GlobalClusterEnginePtrOutput `pulumi:"engine"`
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -73,7 +73,7 @@ type globalClusterArgs struct {
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
-	Engine *string `pulumi:"engine"`
+	Engine *GlobalClusterEngine `pulumi:"engine"`
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
@@ -91,7 +91,7 @@ type GlobalClusterArgs struct {
 	DeletionProtection pulumi.BoolPtrInput
 	// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
 	// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
-	Engine pulumi.StringPtrInput
+	Engine GlobalClusterEnginePtrInput
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 	EngineVersion pulumi.StringPtrInput
 	// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.

@@ -34,7 +34,7 @@ type WirelessDevice struct {
 	// Thing Arn. If there is a Thing created, this can be returned with a Get call.
 	ThingName pulumi.StringOutput `pulumi:"thingName"`
 	// Wireless device type, currently only Sidewalk and LoRa
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type WirelessDeviceTypeOutput `pulumi:"type"`
 }
 
 // NewWirelessDevice registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +97,7 @@ type wirelessDeviceArgs struct {
 	// Thing arn. Passed into update to associate Thing with Wireless device.
 	ThingArn *string `pulumi:"thingArn"`
 	// Wireless device type, currently only Sidewalk and LoRa
-	Type string `pulumi:"type"`
+	Type WirelessDeviceType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a WirelessDevice resource.
@@ -117,7 +117,7 @@ type WirelessDeviceArgs struct {
 	// Thing arn. Passed into update to associate Thing with Wireless device.
 	ThingArn pulumi.StringPtrInput
 	// Wireless device type, currently only Sidewalk and LoRa
-	Type pulumi.StringInput
+	Type WirelessDeviceTypeInput
 }
 
 func (WirelessDeviceArgs) ElementType() reflect.Type {

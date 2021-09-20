@@ -24,7 +24,7 @@ type DataSource struct {
 	Schedule                pulumi.StringPtrOutput                     `pulumi:"schedule"`
 	// Tags for labeling the data source
 	Tags DataSourceTagArrayOutput `pulumi:"tags"`
-	Type pulumi.StringOutput      `pulumi:"type"`
+	Type DataSourceTypeOutput     `pulumi:"type"`
 }
 
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ type dataSourceArgs struct {
 	Schedule                *string                            `pulumi:"schedule"`
 	// Tags for labeling the data source
 	Tags []DataSourceTag `pulumi:"tags"`
-	Type string          `pulumi:"type"`
+	Type DataSourceType  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataSource resource.
@@ -96,7 +96,7 @@ type DataSourceArgs struct {
 	Schedule                pulumi.StringPtrInput
 	// Tags for labeling the data source
 	Tags DataSourceTagArrayInput
-	Type pulumi.StringInput
+	Type DataSourceTypeInput
 }
 
 func (DataSourceArgs) ElementType() reflect.Type {

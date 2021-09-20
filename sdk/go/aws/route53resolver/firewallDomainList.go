@@ -32,7 +32,7 @@ type FirewallDomainList struct {
 	// FirewallDomainListName
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status FirewallDomainListStatusOutput `pulumi:"status"`
 	// FirewallDomainListAssociationStatus
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Tags

@@ -11,9 +11,9 @@ import (
 )
 
 type CapacityProviderAutoScalingGroupProvider struct {
-	AutoScalingGroupArn          string                          `pulumi:"autoScalingGroupArn"`
-	ManagedScaling               *CapacityProviderManagedScaling `pulumi:"managedScaling"`
-	ManagedTerminationProtection *string                         `pulumi:"managedTerminationProtection"`
+	AutoScalingGroupArn          string                                                                `pulumi:"autoScalingGroupArn"`
+	ManagedScaling               *CapacityProviderManagedScaling                                       `pulumi:"managedScaling"`
+	ManagedTerminationProtection *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection `pulumi:"managedTerminationProtection"`
 }
 
 // CapacityProviderAutoScalingGroupProviderInput is an input type that accepts CapacityProviderAutoScalingGroupProviderArgs and CapacityProviderAutoScalingGroupProviderOutput values.
@@ -28,9 +28,9 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 }
 
 type CapacityProviderAutoScalingGroupProviderArgs struct {
-	AutoScalingGroupArn          pulumi.StringInput                     `pulumi:"autoScalingGroupArn"`
-	ManagedScaling               CapacityProviderManagedScalingPtrInput `pulumi:"managedScaling"`
-	ManagedTerminationProtection pulumi.StringPtrInput                  `pulumi:"managedTerminationProtection"`
+	AutoScalingGroupArn          pulumi.StringInput                                                           `pulumi:"autoScalingGroupArn"`
+	ManagedScaling               CapacityProviderManagedScalingPtrInput                                       `pulumi:"managedScaling"`
+	ManagedTerminationProtection CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput `pulumi:"managedTerminationProtection"`
 }
 
 func (CapacityProviderAutoScalingGroupProviderArgs) ElementType() reflect.Type {
@@ -120,8 +120,10 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() Capacit
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
-func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *string { return v.ManagedTerminationProtection }).(pulumi.StringPtrOutput)
+func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtection() CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection {
+		return v.ManagedTerminationProtection
+	}).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
 }
 
 type CapacityProviderAutoScalingGroupProviderPtrOutput struct{ *pulumi.OutputState }
@@ -166,22 +168,22 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() Capa
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection {
 		if v == nil {
 			return nil
 		}
 		return v.ManagedTerminationProtection
-	}).(pulumi.StringPtrOutput)
+	}).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
 }
 
 // The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScaling struct {
-	InstanceWarmupPeriod   *int    `pulumi:"instanceWarmupPeriod"`
-	MaximumScalingStepSize *int    `pulumi:"maximumScalingStepSize"`
-	MinimumScalingStepSize *int    `pulumi:"minimumScalingStepSize"`
-	Status                 *string `pulumi:"status"`
-	TargetCapacity         *int    `pulumi:"targetCapacity"`
+	InstanceWarmupPeriod   *int                                  `pulumi:"instanceWarmupPeriod"`
+	MaximumScalingStepSize *int                                  `pulumi:"maximumScalingStepSize"`
+	MinimumScalingStepSize *int                                  `pulumi:"minimumScalingStepSize"`
+	Status                 *CapacityProviderManagedScalingStatus `pulumi:"status"`
+	TargetCapacity         *int                                  `pulumi:"targetCapacity"`
 }
 
 // CapacityProviderManagedScalingInput is an input type that accepts CapacityProviderManagedScalingArgs and CapacityProviderManagedScalingOutput values.
@@ -197,11 +199,11 @@ type CapacityProviderManagedScalingInput interface {
 
 // The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScalingArgs struct {
-	InstanceWarmupPeriod   pulumi.IntPtrInput    `pulumi:"instanceWarmupPeriod"`
-	MaximumScalingStepSize pulumi.IntPtrInput    `pulumi:"maximumScalingStepSize"`
-	MinimumScalingStepSize pulumi.IntPtrInput    `pulumi:"minimumScalingStepSize"`
-	Status                 pulumi.StringPtrInput `pulumi:"status"`
-	TargetCapacity         pulumi.IntPtrInput    `pulumi:"targetCapacity"`
+	InstanceWarmupPeriod   pulumi.IntPtrInput                           `pulumi:"instanceWarmupPeriod"`
+	MaximumScalingStepSize pulumi.IntPtrInput                           `pulumi:"maximumScalingStepSize"`
+	MinimumScalingStepSize pulumi.IntPtrInput                           `pulumi:"minimumScalingStepSize"`
+	Status                 CapacityProviderManagedScalingStatusPtrInput `pulumi:"status"`
+	TargetCapacity         pulumi.IntPtrInput                           `pulumi:"targetCapacity"`
 }
 
 func (CapacityProviderManagedScalingArgs) ElementType() reflect.Type {
@@ -294,8 +296,8 @@ func (o CapacityProviderManagedScalingOutput) MinimumScalingStepSize() pulumi.In
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MinimumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
-func (o CapacityProviderManagedScalingOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CapacityProviderManagedScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o CapacityProviderManagedScalingOutput) Status() CapacityProviderManagedScalingStatusPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedScaling) *CapacityProviderManagedScalingStatus { return v.Status }).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
 func (o CapacityProviderManagedScalingOutput) TargetCapacity() pulumi.IntPtrOutput {
@@ -353,13 +355,13 @@ func (o CapacityProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o CapacityProviderManagedScalingPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CapacityProviderManagedScaling) *string {
+func (o CapacityProviderManagedScalingPtrOutput) Status() CapacityProviderManagedScalingStatusPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedScaling) *CapacityProviderManagedScalingStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringPtrOutput)
+	}).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
 func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
@@ -472,9 +474,9 @@ func (o CapacityProviderTagArrayOutput) Index(i pulumi.IntInput) CapacityProvide
 }
 
 type ClusterCapacityProviderAssociationsCapacityProviderStrategy struct {
-	Base             *int        `pulumi:"base"`
-	CapacityProvider interface{} `pulumi:"capacityProvider"`
-	Weight           *int        `pulumi:"weight"`
+	Base             *int   `pulumi:"base"`
+	CapacityProvider string `pulumi:"capacityProvider"`
+	Weight           *int   `pulumi:"weight"`
 }
 
 // ClusterCapacityProviderAssociationsCapacityProviderStrategyInput is an input type that accepts ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs and ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput values.
@@ -490,7 +492,7 @@ type ClusterCapacityProviderAssociationsCapacityProviderStrategyInput interface 
 
 type ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs struct {
 	Base             pulumi.IntPtrInput `pulumi:"base"`
-	CapacityProvider pulumi.Input       `pulumi:"capacityProvider"`
+	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
 	Weight           pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -549,10 +551,8 @@ func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) Base(
 	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) CapacityProvider() pulumi.AnyOutput {
-	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) interface{} {
-		return v.CapacityProvider
-	}).(pulumi.AnyOutput)
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
 }
 
 func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
@@ -1397,9 +1397,9 @@ func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
 }
 
 type ServiceAwsVpcConfiguration struct {
-	AssignPublicIp *string  `pulumi:"assignPublicIp"`
-	SecurityGroups []string `pulumi:"securityGroups"`
-	Subnets        []string `pulumi:"subnets"`
+	AssignPublicIp *ServiceAwsVpcConfigurationAssignPublicIp `pulumi:"assignPublicIp"`
+	SecurityGroups []string                                  `pulumi:"securityGroups"`
+	Subnets        []string                                  `pulumi:"subnets"`
 }
 
 // ServiceAwsVpcConfigurationInput is an input type that accepts ServiceAwsVpcConfigurationArgs and ServiceAwsVpcConfigurationOutput values.
@@ -1414,9 +1414,9 @@ type ServiceAwsVpcConfigurationInput interface {
 }
 
 type ServiceAwsVpcConfigurationArgs struct {
-	AssignPublicIp pulumi.StringPtrInput   `pulumi:"assignPublicIp"`
-	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
+	AssignPublicIp ServiceAwsVpcConfigurationAssignPublicIpPtrInput `pulumi:"assignPublicIp"`
+	SecurityGroups pulumi.StringArrayInput                          `pulumi:"securityGroups"`
+	Subnets        pulumi.StringArrayInput                          `pulumi:"subnets"`
 }
 
 func (ServiceAwsVpcConfigurationArgs) ElementType() reflect.Type {
@@ -1496,8 +1496,8 @@ func (o ServiceAwsVpcConfigurationOutput) ToServiceAwsVpcConfigurationPtrOutputW
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
-func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *string { return v.AssignPublicIp }).(pulumi.StringPtrOutput)
+func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
+	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp { return v.AssignPublicIp }).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
 func (o ServiceAwsVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
@@ -1532,13 +1532,13 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Elem() ServiceAwsVpcConfigurationOu
 	}).(ServiceAwsVpcConfigurationOutput)
 }
 
-func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) *string {
+func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
+	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp {
 		if v == nil {
 			return nil
 		}
 		return v.AssignPublicIp
-	}).(pulumi.StringPtrOutput)
+	}).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
 func (o ServiceAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
@@ -1979,7 +1979,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.
 }
 
 type ServiceDeploymentController struct {
-	Type *string `pulumi:"type"`
+	Type *ServiceDeploymentControllerType `pulumi:"type"`
 }
 
 // ServiceDeploymentControllerInput is an input type that accepts ServiceDeploymentControllerArgs and ServiceDeploymentControllerOutput values.
@@ -1994,7 +1994,7 @@ type ServiceDeploymentControllerInput interface {
 }
 
 type ServiceDeploymentControllerArgs struct {
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ServiceDeploymentControllerTypePtrInput `pulumi:"type"`
 }
 
 func (ServiceDeploymentControllerArgs) ElementType() reflect.Type {
@@ -2074,8 +2074,8 @@ func (o ServiceDeploymentControllerOutput) ToServiceDeploymentControllerPtrOutpu
 	}).(ServiceDeploymentControllerPtrOutput)
 }
 
-func (o ServiceDeploymentControllerOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceDeploymentController) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceDeploymentControllerOutput) Type() ServiceDeploymentControllerTypePtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentController) *ServiceDeploymentControllerType { return v.Type }).(ServiceDeploymentControllerTypePtrOutput)
 }
 
 type ServiceDeploymentControllerPtrOutput struct{ *pulumi.OutputState }
@@ -2102,13 +2102,13 @@ func (o ServiceDeploymentControllerPtrOutput) Elem() ServiceDeploymentController
 	}).(ServiceDeploymentControllerOutput)
 }
 
-func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceDeploymentController) *string {
+func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentControllerTypePtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentController) *ServiceDeploymentControllerType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
 type ServiceLoadBalancer struct {
@@ -2357,8 +2357,8 @@ func (o ServiceNetworkConfigurationPtrOutput) AwsvpcConfiguration() ServiceAwsVp
 }
 
 type ServicePlacementConstraint struct {
-	Expression *string `pulumi:"expression"`
-	Type       string  `pulumi:"type"`
+	Expression *string                        `pulumi:"expression"`
+	Type       ServicePlacementConstraintType `pulumi:"type"`
 }
 
 // ServicePlacementConstraintInput is an input type that accepts ServicePlacementConstraintArgs and ServicePlacementConstraintOutput values.
@@ -2373,8 +2373,8 @@ type ServicePlacementConstraintInput interface {
 }
 
 type ServicePlacementConstraintArgs struct {
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	Type       pulumi.StringInput    `pulumi:"type"`
+	Expression pulumi.StringPtrInput               `pulumi:"expression"`
+	Type       ServicePlacementConstraintTypeInput `pulumi:"type"`
 }
 
 func (ServicePlacementConstraintArgs) ElementType() reflect.Type {
@@ -2432,8 +2432,8 @@ func (o ServicePlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-func (o ServicePlacementConstraintOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
+func (o ServicePlacementConstraintOutput) Type() ServicePlacementConstraintTypeOutput {
+	return o.ApplyT(func(v ServicePlacementConstraint) ServicePlacementConstraintType { return v.Type }).(ServicePlacementConstraintTypeOutput)
 }
 
 type ServicePlacementConstraintArrayOutput struct{ *pulumi.OutputState }
@@ -2457,8 +2457,8 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 }
 
 type ServicePlacementStrategy struct {
-	Field *string `pulumi:"field"`
-	Type  string  `pulumi:"type"`
+	Field *string                      `pulumi:"field"`
+	Type  ServicePlacementStrategyType `pulumi:"type"`
 }
 
 // ServicePlacementStrategyInput is an input type that accepts ServicePlacementStrategyArgs and ServicePlacementStrategyOutput values.
@@ -2473,8 +2473,8 @@ type ServicePlacementStrategyInput interface {
 }
 
 type ServicePlacementStrategyArgs struct {
-	Field pulumi.StringPtrInput `pulumi:"field"`
-	Type  pulumi.StringInput    `pulumi:"type"`
+	Field pulumi.StringPtrInput             `pulumi:"field"`
+	Type  ServicePlacementStrategyTypeInput `pulumi:"type"`
 }
 
 func (ServicePlacementStrategyArgs) ElementType() reflect.Type {
@@ -2532,8 +2532,8 @@ func (o ServicePlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-func (o ServicePlacementStrategyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
+func (o ServicePlacementStrategyOutput) Type() ServicePlacementStrategyTypeOutput {
+	return o.ApplyT(func(v ServicePlacementStrategy) ServicePlacementStrategyType { return v.Type }).(ServicePlacementStrategyTypeOutput)
 }
 
 type ServicePlacementStrategyArrayOutput struct{ *pulumi.OutputState }
@@ -2769,8 +2769,8 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 }
 
 type TaskDefinitionAuthorizationConfig struct {
-	AccessPointId *string `pulumi:"accessPointId"`
-	IAM           *string `pulumi:"iAM"`
+	AccessPointId *string                               `pulumi:"accessPointId"`
+	IAM           *TaskDefinitionAuthorizationConfigIAM `pulumi:"iAM"`
 }
 
 // TaskDefinitionAuthorizationConfigInput is an input type that accepts TaskDefinitionAuthorizationConfigArgs and TaskDefinitionAuthorizationConfigOutput values.
@@ -2785,8 +2785,8 @@ type TaskDefinitionAuthorizationConfigInput interface {
 }
 
 type TaskDefinitionAuthorizationConfigArgs struct {
-	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
-	IAM           pulumi.StringPtrInput `pulumi:"iAM"`
+	AccessPointId pulumi.StringPtrInput                        `pulumi:"accessPointId"`
+	IAM           TaskDefinitionAuthorizationConfigIAMPtrInput `pulumi:"iAM"`
 }
 
 func (TaskDefinitionAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -2870,8 +2870,8 @@ func (o TaskDefinitionAuthorizationConfigOutput) AccessPointId() pulumi.StringPt
 	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigOutput) IAM() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *string { return v.IAM }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionAuthorizationConfigOutput) IAM() TaskDefinitionAuthorizationConfigIAMPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIAM { return v.IAM }).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
 }
 
 type TaskDefinitionAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2907,13 +2907,13 @@ func (o TaskDefinitionAuthorizationConfigPtrOutput) AccessPointId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigPtrOutput) IAM() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) *string {
+func (o TaskDefinitionAuthorizationConfigPtrOutput) IAM() TaskDefinitionAuthorizationConfigIAMPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfigIAM {
 		if v == nil {
 			return nil
 		}
 		return v.IAM
-	}).(pulumi.StringPtrOutput)
+	}).(TaskDefinitionAuthorizationConfigIAMPtrOutput)
 }
 
 // List of container definitions that are passed to the Docker daemon on a container instance
@@ -3665,11 +3665,11 @@ func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringP
 }
 
 type TaskDefinitionEFSVolumeConfiguration struct {
-	AuthorizationConfig   *TaskDefinitionAuthorizationConfig `pulumi:"authorizationConfig"`
-	FilesystemId          string                             `pulumi:"filesystemId"`
-	RootDirectory         *string                            `pulumi:"rootDirectory"`
-	TransitEncryption     *string                            `pulumi:"transitEncryption"`
-	TransitEncryptionPort *int                               `pulumi:"transitEncryptionPort"`
+	AuthorizationConfig   *TaskDefinitionAuthorizationConfig                     `pulumi:"authorizationConfig"`
+	FilesystemId          string                                                 `pulumi:"filesystemId"`
+	RootDirectory         *string                                                `pulumi:"rootDirectory"`
+	TransitEncryption     *TaskDefinitionEFSVolumeConfigurationTransitEncryption `pulumi:"transitEncryption"`
+	TransitEncryptionPort *int                                                   `pulumi:"transitEncryptionPort"`
 }
 
 // TaskDefinitionEFSVolumeConfigurationInput is an input type that accepts TaskDefinitionEFSVolumeConfigurationArgs and TaskDefinitionEFSVolumeConfigurationOutput values.
@@ -3684,11 +3684,11 @@ type TaskDefinitionEFSVolumeConfigurationInput interface {
 }
 
 type TaskDefinitionEFSVolumeConfigurationArgs struct {
-	AuthorizationConfig   TaskDefinitionAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
-	FilesystemId          pulumi.StringInput                        `pulumi:"filesystemId"`
-	RootDirectory         pulumi.StringPtrInput                     `pulumi:"rootDirectory"`
-	TransitEncryption     pulumi.StringPtrInput                     `pulumi:"transitEncryption"`
-	TransitEncryptionPort pulumi.IntPtrInput                        `pulumi:"transitEncryptionPort"`
+	AuthorizationConfig   TaskDefinitionAuthorizationConfigPtrInput                     `pulumi:"authorizationConfig"`
+	FilesystemId          pulumi.StringInput                                            `pulumi:"filesystemId"`
+	RootDirectory         pulumi.StringPtrInput                                         `pulumi:"rootDirectory"`
+	TransitEncryption     TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrInput `pulumi:"transitEncryption"`
+	TransitEncryptionPort pulumi.IntPtrInput                                            `pulumi:"transitEncryptionPort"`
 }
 
 func (TaskDefinitionEFSVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -3782,8 +3782,10 @@ func (o TaskDefinitionEFSVolumeConfigurationOutput) RootDirectory() pulumi.Strin
 	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationOutput) TransitEncryption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *string { return v.TransitEncryption }).(pulumi.StringPtrOutput)
+func (o TaskDefinitionEFSVolumeConfigurationOutput) TransitEncryption() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionEFSVolumeConfigurationTransitEncryption {
+		return v.TransitEncryption
+	}).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
 func (o TaskDefinitionEFSVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
@@ -3841,13 +3843,13 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) RootDirectory() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *string {
+func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryption() TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionEFSVolumeConfigurationTransitEncryption {
 		if v == nil {
 			return nil
 		}
 		return v.TransitEncryption
-	}).(pulumi.StringPtrOutput)
+	}).(TaskDefinitionEFSVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
 func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
@@ -6862,7 +6864,7 @@ func (o TaskDefinitionVolumeFromArrayOutput) Index(i pulumi.IntInput) TaskDefini
 // The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
 type TaskSetAwsVpcConfiguration struct {
 	// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
-	AssignPublicIp *string `pulumi:"assignPublicIp"`
+	AssignPublicIp *TaskSetAwsVpcConfigurationAssignPublicIp `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
@@ -6883,7 +6885,7 @@ type TaskSetAwsVpcConfigurationInput interface {
 // The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
 type TaskSetAwsVpcConfigurationArgs struct {
 	// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
-	AssignPublicIp pulumi.StringPtrInput `pulumi:"assignPublicIp"`
+	AssignPublicIp TaskSetAwsVpcConfigurationAssignPublicIpPtrInput `pulumi:"assignPublicIp"`
 	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
@@ -6969,8 +6971,8 @@ func (o TaskSetAwsVpcConfigurationOutput) ToTaskSetAwsVpcConfigurationPtrOutputW
 }
 
 // Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
-func (o TaskSetAwsVpcConfigurationOutput) AssignPublicIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskSetAwsVpcConfiguration) *string { return v.AssignPublicIp }).(pulumi.StringPtrOutput)
+func (o TaskSetAwsVpcConfigurationOutput) AssignPublicIp() TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput {
+	return o.ApplyT(func(v TaskSetAwsVpcConfiguration) *TaskSetAwsVpcConfigurationAssignPublicIp { return v.AssignPublicIp }).(TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
 // The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
@@ -7008,13 +7010,13 @@ func (o TaskSetAwsVpcConfigurationPtrOutput) Elem() TaskSetAwsVpcConfigurationOu
 }
 
 // Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
-func (o TaskSetAwsVpcConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskSetAwsVpcConfiguration) *string {
+func (o TaskSetAwsVpcConfigurationPtrOutput) AssignPublicIp() TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput {
+	return o.ApplyT(func(v *TaskSetAwsVpcConfiguration) *TaskSetAwsVpcConfigurationAssignPublicIp {
 		if v == nil {
 			return nil
 		}
 		return v.AssignPublicIp
-	}).(pulumi.StringPtrOutput)
+	}).(TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
 // The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
@@ -7302,7 +7304,7 @@ func (o TaskSetNetworkConfigurationPtrOutput) AwsVpcConfiguration() TaskSetAwsVp
 
 type TaskSetScale struct {
 	// The unit of measure for the scale value.
-	Unit *string `pulumi:"unit"`
+	Unit *TaskSetScaleUnit `pulumi:"unit"`
 	// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
 	Value *float64 `pulumi:"value"`
 }
@@ -7320,7 +7322,7 @@ type TaskSetScaleInput interface {
 
 type TaskSetScaleArgs struct {
 	// The unit of measure for the scale value.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	Unit TaskSetScaleUnitPtrInput `pulumi:"unit"`
 	// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
 	Value pulumi.Float64PtrInput `pulumi:"value"`
 }
@@ -7403,8 +7405,8 @@ func (o TaskSetScaleOutput) ToTaskSetScalePtrOutputWithContext(ctx context.Conte
 }
 
 // The unit of measure for the scale value.
-func (o TaskSetScaleOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskSetScale) *string { return v.Unit }).(pulumi.StringPtrOutput)
+func (o TaskSetScaleOutput) Unit() TaskSetScaleUnitPtrOutput {
+	return o.ApplyT(func(v TaskSetScale) *TaskSetScaleUnit { return v.Unit }).(TaskSetScaleUnitPtrOutput)
 }
 
 // The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
@@ -7437,13 +7439,13 @@ func (o TaskSetScalePtrOutput) Elem() TaskSetScaleOutput {
 }
 
 // The unit of measure for the scale value.
-func (o TaskSetScalePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskSetScale) *string {
+func (o TaskSetScalePtrOutput) Unit() TaskSetScaleUnitPtrOutput {
+	return o.ApplyT(func(v *TaskSetScale) *TaskSetScaleUnit {
 		if v == nil {
 			return nil
 		}
 		return v.Unit
-	}).(pulumi.StringPtrOutput)
+	}).(TaskSetScaleUnitPtrOutput)
 }
 
 // The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.

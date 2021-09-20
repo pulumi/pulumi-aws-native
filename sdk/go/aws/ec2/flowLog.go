@@ -20,7 +20,7 @@ type FlowLog struct {
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination pulumi.StringPtrOutput `pulumi:"logDestination"`
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
-	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
+	LogDestinationType FlowLogLogDestinationTypePtrOutput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrOutput `pulumi:"logFormat"`
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
@@ -30,11 +30,11 @@ type FlowLog struct {
 	// The ID of the subnet, network interface, or VPC for which you want to create a flow log.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	ResourceType FlowLogResourceTypeOutput `pulumi:"resourceType"`
 	// The tags to apply to the flow logs.
 	Tags FlowLogTagArrayOutput `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType pulumi.StringOutput `pulumi:"trafficType"`
+	TrafficType FlowLogTrafficTypeOutput `pulumi:"trafficType"`
 }
 
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ type flowLogArgs struct {
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination *string `pulumi:"logDestination"`
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
-	LogDestinationType *string `pulumi:"logDestinationType"`
+	LogDestinationType *FlowLogLogDestinationType `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
@@ -100,11 +100,11 @@ type flowLogArgs struct {
 	// The ID of the subnet, network interface, or VPC for which you want to create a flow log.
 	ResourceId string `pulumi:"resourceId"`
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType FlowLogResourceType `pulumi:"resourceType"`
 	// The tags to apply to the flow logs.
 	Tags []FlowLogTag `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType string `pulumi:"trafficType"`
+	TrafficType FlowLogTrafficType `pulumi:"trafficType"`
 }
 
 // The set of arguments for constructing a FlowLog resource.
@@ -114,7 +114,7 @@ type FlowLogArgs struct {
 	// Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
 	LogDestination pulumi.StringPtrInput
 	// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
-	LogDestinationType pulumi.StringPtrInput
+	LogDestinationType FlowLogLogDestinationTypePtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
 	// The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
@@ -124,11 +124,11 @@ type FlowLogArgs struct {
 	// The ID of the subnet, network interface, or VPC for which you want to create a flow log.
 	ResourceId pulumi.StringInput
 	// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
-	ResourceType pulumi.StringInput
+	ResourceType FlowLogResourceTypeInput
 	// The tags to apply to the flow logs.
 	Tags FlowLogTagArrayInput
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType pulumi.StringInput
+	TrafficType FlowLogTrafficTypeInput
 }
 
 func (FlowLogArgs) ElementType() reflect.Type {

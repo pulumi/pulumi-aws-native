@@ -16,11 +16,11 @@ type NotificationRule struct {
 	pulumi.CustomResourceState
 
 	Arn          pulumi.StringOutput               `pulumi:"arn"`
-	DetailType   pulumi.StringOutput               `pulumi:"detailType"`
+	DetailType   NotificationRuleDetailTypeOutput  `pulumi:"detailType"`
 	EventTypeIds pulumi.StringArrayOutput          `pulumi:"eventTypeIds"`
 	Name         pulumi.StringOutput               `pulumi:"name"`
 	Resource     pulumi.StringOutput               `pulumi:"resource"`
-	Status       pulumi.StringPtrOutput            `pulumi:"status"`
+	Status       NotificationRuleStatusPtrOutput   `pulumi:"status"`
 	Tags         pulumi.AnyOutput                  `pulumi:"tags"`
 	Targets      NotificationRuleTargetArrayOutput `pulumi:"targets"`
 }
@@ -79,22 +79,22 @@ func (NotificationRuleState) ElementType() reflect.Type {
 }
 
 type notificationRuleArgs struct {
-	DetailType   string                   `pulumi:"detailType"`
-	EventTypeIds []string                 `pulumi:"eventTypeIds"`
-	Name         string                   `pulumi:"name"`
-	Resource     string                   `pulumi:"resource"`
-	Status       *string                  `pulumi:"status"`
-	Tags         interface{}              `pulumi:"tags"`
-	Targets      []NotificationRuleTarget `pulumi:"targets"`
+	DetailType   NotificationRuleDetailType `pulumi:"detailType"`
+	EventTypeIds []string                   `pulumi:"eventTypeIds"`
+	Name         string                     `pulumi:"name"`
+	Resource     string                     `pulumi:"resource"`
+	Status       *NotificationRuleStatus    `pulumi:"status"`
+	Tags         interface{}                `pulumi:"tags"`
+	Targets      []NotificationRuleTarget   `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a NotificationRule resource.
 type NotificationRuleArgs struct {
-	DetailType   pulumi.StringInput
+	DetailType   NotificationRuleDetailTypeInput
 	EventTypeIds pulumi.StringArrayInput
 	Name         pulumi.StringInput
 	Resource     pulumi.StringInput
-	Status       pulumi.StringPtrInput
+	Status       NotificationRuleStatusPtrInput
 	Tags         pulumi.Input
 	Targets      NotificationRuleTargetArrayInput
 }

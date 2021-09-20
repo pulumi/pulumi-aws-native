@@ -20,7 +20,7 @@ type User struct {
 	// The Amazon Resource Name (ARN) of the user account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Must be redis.
-	Engine pulumi.StringOutput `pulumi:"engine"`
+	Engine UserEngineOutput `pulumi:"engine"`
 	// Indicates a password is not required for this user account.
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
 	// Passwords used for this user account. You can create up to two passwords for each user.
@@ -84,7 +84,7 @@ type userArgs struct {
 	// Access permissions string used for this user account.
 	AccessString *string `pulumi:"accessString"`
 	// Must be redis.
-	Engine string `pulumi:"engine"`
+	Engine UserEngine `pulumi:"engine"`
 	// Indicates a password is not required for this user account.
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
 	// Passwords used for this user account. You can create up to two passwords for each user.
@@ -100,7 +100,7 @@ type UserArgs struct {
 	// Access permissions string used for this user account.
 	AccessString pulumi.StringPtrInput
 	// Must be redis.
-	Engine pulumi.StringInput
+	Engine UserEngineInput
 	// Indicates a password is not required for this user account.
 	NoPasswordRequired pulumi.BoolPtrInput
 	// Passwords used for this user account. You can create up to two passwords for each user.

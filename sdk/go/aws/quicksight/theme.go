@@ -37,7 +37,7 @@ type Theme struct {
 	// 			resource.</p>
 	Tags    ThemeTagArrayOutput     `pulumi:"tags"`
 	ThemeId pulumi.StringOutput     `pulumi:"themeId"`
-	Type    pulumi.StringOutput     `pulumi:"type"`
+	Type    ThemeThemeTypeOutput    `pulumi:"type"`
 	Version ThemeThemeVersionOutput `pulumi:"version"`
 	// <p>A description of the first version of the theme that you're creating. Every time
 	// 				<code>UpdateTheme</code> is called, a new version is created. Each version of the

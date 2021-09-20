@@ -669,8 +669,8 @@ func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) SchemaConfigur
 }
 
 type DeliveryStreamDeliveryStreamEncryptionConfigurationInput struct {
-	KeyARN  *string `pulumi:"keyARN"`
-	KeyType string  `pulumi:"keyType"`
+	KeyARN  *string                                                         `pulumi:"keyARN"`
+	KeyType DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType `pulumi:"keyType"`
 }
 
 // DeliveryStreamDeliveryStreamEncryptionConfigurationInputInput is an input type that accepts DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs and DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput values.
@@ -685,8 +685,8 @@ type DeliveryStreamDeliveryStreamEncryptionConfigurationInputInput interface {
 }
 
 type DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs struct {
-	KeyARN  pulumi.StringPtrInput `pulumi:"keyARN"`
-	KeyType pulumi.StringInput    `pulumi:"keyType"`
+	KeyARN  pulumi.StringPtrInput                                                `pulumi:"keyARN"`
+	KeyType DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeInput `pulumi:"keyType"`
 }
 
 func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs) ElementType() reflect.Type {
@@ -770,8 +770,10 @@ func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) KeyARN()
 	return o.ApplyT(func(v DeliveryStreamDeliveryStreamEncryptionConfigurationInput) *string { return v.KeyARN }).(pulumi.StringPtrOutput)
 }
 
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) KeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamDeliveryStreamEncryptionConfigurationInput) string { return v.KeyType }).(pulumi.StringOutput)
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputOutput) KeyType() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput {
+	return o.ApplyT(func(v DeliveryStreamDeliveryStreamEncryptionConfigurationInput) DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType {
+		return v.KeyType
+	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeOutput)
 }
 
 type DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput struct{ *pulumi.OutputState }
@@ -807,13 +809,13 @@ func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) KeyAR
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) KeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamDeliveryStreamEncryptionConfigurationInput) *string {
+func (o DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput) KeyType() DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDeliveryStreamEncryptionConfigurationInput) *DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyType
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtrOutput)
 }
 
 type DeliveryStreamDeserializer struct {
@@ -1263,19 +1265,19 @@ func (o DeliveryStreamElasticsearchBufferingHintsPtrOutput) SizeInMBs() pulumi.I
 }
 
 type DeliveryStreamElasticsearchDestinationConfiguration struct {
-	BufferingHints           *DeliveryStreamElasticsearchBufferingHints `pulumi:"bufferingHints"`
-	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions    `pulumi:"cloudWatchLoggingOptions"`
-	ClusterEndpoint          *string                                    `pulumi:"clusterEndpoint"`
-	DomainARN                *string                                    `pulumi:"domainARN"`
-	IndexName                string                                     `pulumi:"indexName"`
-	IndexRotationPeriod      *string                                    `pulumi:"indexRotationPeriod"`
-	ProcessingConfiguration  *DeliveryStreamProcessingConfiguration     `pulumi:"processingConfiguration"`
-	RetryOptions             *DeliveryStreamElasticsearchRetryOptions   `pulumi:"retryOptions"`
-	RoleARN                  string                                     `pulumi:"roleARN"`
-	S3BackupMode             *string                                    `pulumi:"s3BackupMode"`
-	S3Configuration          DeliveryStreamS3DestinationConfiguration   `pulumi:"s3Configuration"`
-	TypeName                 *string                                    `pulumi:"typeName"`
-	VpcConfiguration         *DeliveryStreamVpcConfiguration            `pulumi:"vpcConfiguration"`
+	BufferingHints           *DeliveryStreamElasticsearchBufferingHints                              `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions                                 `pulumi:"cloudWatchLoggingOptions"`
+	ClusterEndpoint          *string                                                                 `pulumi:"clusterEndpoint"`
+	DomainARN                *string                                                                 `pulumi:"domainARN"`
+	IndexName                string                                                                  `pulumi:"indexName"`
+	IndexRotationPeriod      *DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod `pulumi:"indexRotationPeriod"`
+	ProcessingConfiguration  *DeliveryStreamProcessingConfiguration                                  `pulumi:"processingConfiguration"`
+	RetryOptions             *DeliveryStreamElasticsearchRetryOptions                                `pulumi:"retryOptions"`
+	RoleARN                  string                                                                  `pulumi:"roleARN"`
+	S3BackupMode             *DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode        `pulumi:"s3BackupMode"`
+	S3Configuration          DeliveryStreamS3DestinationConfiguration                                `pulumi:"s3Configuration"`
+	TypeName                 *string                                                                 `pulumi:"typeName"`
+	VpcConfiguration         *DeliveryStreamVpcConfiguration                                         `pulumi:"vpcConfiguration"`
 }
 
 // DeliveryStreamElasticsearchDestinationConfigurationInput is an input type that accepts DeliveryStreamElasticsearchDestinationConfigurationArgs and DeliveryStreamElasticsearchDestinationConfigurationOutput values.
@@ -1290,19 +1292,19 @@ type DeliveryStreamElasticsearchDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamElasticsearchDestinationConfigurationArgs struct {
-	BufferingHints           DeliveryStreamElasticsearchBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput    `pulumi:"cloudWatchLoggingOptions"`
-	ClusterEndpoint          pulumi.StringPtrInput                             `pulumi:"clusterEndpoint"`
-	DomainARN                pulumi.StringPtrInput                             `pulumi:"domainARN"`
-	IndexName                pulumi.StringInput                                `pulumi:"indexName"`
-	IndexRotationPeriod      pulumi.StringPtrInput                             `pulumi:"indexRotationPeriod"`
-	ProcessingConfiguration  DeliveryStreamProcessingConfigurationPtrInput     `pulumi:"processingConfiguration"`
-	RetryOptions             DeliveryStreamElasticsearchRetryOptionsPtrInput   `pulumi:"retryOptions"`
-	RoleARN                  pulumi.StringInput                                `pulumi:"roleARN"`
-	S3BackupMode             pulumi.StringPtrInput                             `pulumi:"s3BackupMode"`
-	S3Configuration          DeliveryStreamS3DestinationConfigurationInput     `pulumi:"s3Configuration"`
-	TypeName                 pulumi.StringPtrInput                             `pulumi:"typeName"`
-	VpcConfiguration         DeliveryStreamVpcConfigurationPtrInput            `pulumi:"vpcConfiguration"`
+	BufferingHints           DeliveryStreamElasticsearchBufferingHintsPtrInput                              `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput                                 `pulumi:"cloudWatchLoggingOptions"`
+	ClusterEndpoint          pulumi.StringPtrInput                                                          `pulumi:"clusterEndpoint"`
+	DomainARN                pulumi.StringPtrInput                                                          `pulumi:"domainARN"`
+	IndexName                pulumi.StringInput                                                             `pulumi:"indexName"`
+	IndexRotationPeriod      DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrInput `pulumi:"indexRotationPeriod"`
+	ProcessingConfiguration  DeliveryStreamProcessingConfigurationPtrInput                                  `pulumi:"processingConfiguration"`
+	RetryOptions             DeliveryStreamElasticsearchRetryOptionsPtrInput                                `pulumi:"retryOptions"`
+	RoleARN                  pulumi.StringInput                                                             `pulumi:"roleARN"`
+	S3BackupMode             DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrInput        `pulumi:"s3BackupMode"`
+	S3Configuration          DeliveryStreamS3DestinationConfigurationInput                                  `pulumi:"s3Configuration"`
+	TypeName                 pulumi.StringPtrInput                                                          `pulumi:"typeName"`
+	VpcConfiguration         DeliveryStreamVpcConfigurationPtrInput                                         `pulumi:"vpcConfiguration"`
 }
 
 func (DeliveryStreamElasticsearchDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -1406,8 +1408,10 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) IndexName() p
 	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *string { return v.IndexRotationPeriod }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) IndexRotationPeriod() DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod {
+		return v.IndexRotationPeriod
+	}).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
@@ -1426,8 +1430,10 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) RoleARN() pul
 	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) string { return v.RoleARN }).(pulumi.StringOutput)
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) S3BackupMode() DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode {
+		return v.S3BackupMode
+	}).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
@@ -1515,13 +1521,13 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) IndexName(
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) IndexRotationPeriod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *string {
+func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) IndexRotationPeriod() DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod {
 		if v == nil {
 			return nil
 		}
 		return v.IndexRotationPeriod
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
@@ -1551,13 +1557,13 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) RoleARN() 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *string {
+func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode {
 		if v == nil {
 			return nil
 		}
 		return v.S3BackupMode
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
 }
 
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
@@ -1721,8 +1727,8 @@ func (o DeliveryStreamElasticsearchRetryOptionsPtrOutput) DurationInSeconds() pu
 }
 
 type DeliveryStreamEncryptionConfiguration struct {
-	KMSEncryptionConfig *DeliveryStreamKMSEncryptionConfig `pulumi:"kMSEncryptionConfig"`
-	NoEncryptionConfig  *string                            `pulumi:"noEncryptionConfig"`
+	KMSEncryptionConfig *DeliveryStreamKMSEncryptionConfig                       `pulumi:"kMSEncryptionConfig"`
+	NoEncryptionConfig  *DeliveryStreamEncryptionConfigurationNoEncryptionConfig `pulumi:"noEncryptionConfig"`
 }
 
 // DeliveryStreamEncryptionConfigurationInput is an input type that accepts DeliveryStreamEncryptionConfigurationArgs and DeliveryStreamEncryptionConfigurationOutput values.
@@ -1737,8 +1743,8 @@ type DeliveryStreamEncryptionConfigurationInput interface {
 }
 
 type DeliveryStreamEncryptionConfigurationArgs struct {
-	KMSEncryptionConfig DeliveryStreamKMSEncryptionConfigPtrInput `pulumi:"kMSEncryptionConfig"`
-	NoEncryptionConfig  pulumi.StringPtrInput                     `pulumi:"noEncryptionConfig"`
+	KMSEncryptionConfig DeliveryStreamKMSEncryptionConfigPtrInput                       `pulumi:"kMSEncryptionConfig"`
+	NoEncryptionConfig  DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrInput `pulumi:"noEncryptionConfig"`
 }
 
 func (DeliveryStreamEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -1824,8 +1830,10 @@ func (o DeliveryStreamEncryptionConfigurationOutput) KMSEncryptionConfig() Deliv
 	}).(DeliveryStreamKMSEncryptionConfigPtrOutput)
 }
 
-func (o DeliveryStreamEncryptionConfigurationOutput) NoEncryptionConfig() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamEncryptionConfiguration) *string { return v.NoEncryptionConfig }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamEncryptionConfigurationOutput) NoEncryptionConfig() DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamEncryptionConfiguration) *DeliveryStreamEncryptionConfigurationNoEncryptionConfig {
+		return v.NoEncryptionConfig
+	}).(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput)
 }
 
 type DeliveryStreamEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1861,29 +1869,29 @@ func (o DeliveryStreamEncryptionConfigurationPtrOutput) KMSEncryptionConfig() De
 	}).(DeliveryStreamKMSEncryptionConfigPtrOutput)
 }
 
-func (o DeliveryStreamEncryptionConfigurationPtrOutput) NoEncryptionConfig() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamEncryptionConfiguration) *string {
+func (o DeliveryStreamEncryptionConfigurationPtrOutput) NoEncryptionConfig() DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamEncryptionConfiguration) *DeliveryStreamEncryptionConfigurationNoEncryptionConfig {
 		if v == nil {
 			return nil
 		}
 		return v.NoEncryptionConfig
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrOutput)
 }
 
 type DeliveryStreamExtendedS3DestinationConfiguration struct {
-	BucketARN                         string                                           `pulumi:"bucketARN"`
-	BufferingHints                    *DeliveryStreamBufferingHints                    `pulumi:"bufferingHints"`
-	CloudWatchLoggingOptions          *DeliveryStreamCloudWatchLoggingOptions          `pulumi:"cloudWatchLoggingOptions"`
-	CompressionFormat                 *string                                          `pulumi:"compressionFormat"`
-	DataFormatConversionConfiguration *DeliveryStreamDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
-	DynamicPartitioningConfiguration  *DeliveryStreamDynamicPartitioningConfiguration  `pulumi:"dynamicPartitioningConfiguration"`
-	EncryptionConfiguration           *DeliveryStreamEncryptionConfiguration           `pulumi:"encryptionConfiguration"`
-	ErrorOutputPrefix                 *string                                          `pulumi:"errorOutputPrefix"`
-	Prefix                            *string                                          `pulumi:"prefix"`
-	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration           `pulumi:"processingConfiguration"`
-	RoleARN                           string                                           `pulumi:"roleARN"`
-	S3BackupConfiguration             *DeliveryStreamS3DestinationConfiguration        `pulumi:"s3BackupConfiguration"`
-	S3BackupMode                      *string                                          `pulumi:"s3BackupMode"`
+	BucketARN                         string                                                             `pulumi:"bucketARN"`
+	BufferingHints                    *DeliveryStreamBufferingHints                                      `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions          *DeliveryStreamCloudWatchLoggingOptions                            `pulumi:"cloudWatchLoggingOptions"`
+	CompressionFormat                 *DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat `pulumi:"compressionFormat"`
+	DataFormatConversionConfiguration *DeliveryStreamDataFormatConversionConfiguration                   `pulumi:"dataFormatConversionConfiguration"`
+	DynamicPartitioningConfiguration  *DeliveryStreamDynamicPartitioningConfiguration                    `pulumi:"dynamicPartitioningConfiguration"`
+	EncryptionConfiguration           *DeliveryStreamEncryptionConfiguration                             `pulumi:"encryptionConfiguration"`
+	ErrorOutputPrefix                 *string                                                            `pulumi:"errorOutputPrefix"`
+	Prefix                            *string                                                            `pulumi:"prefix"`
+	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration                             `pulumi:"processingConfiguration"`
+	RoleARN                           string                                                             `pulumi:"roleARN"`
+	S3BackupConfiguration             *DeliveryStreamS3DestinationConfiguration                          `pulumi:"s3BackupConfiguration"`
+	S3BackupMode                      *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode      `pulumi:"s3BackupMode"`
 }
 
 // DeliveryStreamExtendedS3DestinationConfigurationInput is an input type that accepts DeliveryStreamExtendedS3DestinationConfigurationArgs and DeliveryStreamExtendedS3DestinationConfigurationOutput values.
@@ -1898,19 +1906,19 @@ type DeliveryStreamExtendedS3DestinationConfigurationInput interface {
 }
 
 type DeliveryStreamExtendedS3DestinationConfigurationArgs struct {
-	BucketARN                         pulumi.StringInput                                      `pulumi:"bucketARN"`
-	BufferingHints                    DeliveryStreamBufferingHintsPtrInput                    `pulumi:"bufferingHints"`
-	CloudWatchLoggingOptions          DeliveryStreamCloudWatchLoggingOptionsPtrInput          `pulumi:"cloudWatchLoggingOptions"`
-	CompressionFormat                 pulumi.StringPtrInput                                   `pulumi:"compressionFormat"`
-	DataFormatConversionConfiguration DeliveryStreamDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
-	DynamicPartitioningConfiguration  DeliveryStreamDynamicPartitioningConfigurationPtrInput  `pulumi:"dynamicPartitioningConfiguration"`
-	EncryptionConfiguration           DeliveryStreamEncryptionConfigurationPtrInput           `pulumi:"encryptionConfiguration"`
-	ErrorOutputPrefix                 pulumi.StringPtrInput                                   `pulumi:"errorOutputPrefix"`
-	Prefix                            pulumi.StringPtrInput                                   `pulumi:"prefix"`
-	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput           `pulumi:"processingConfiguration"`
-	RoleARN                           pulumi.StringInput                                      `pulumi:"roleARN"`
-	S3BackupConfiguration             DeliveryStreamS3DestinationConfigurationPtrInput        `pulumi:"s3BackupConfiguration"`
-	S3BackupMode                      pulumi.StringPtrInput                                   `pulumi:"s3BackupMode"`
+	BucketARN                         pulumi.StringInput                                                        `pulumi:"bucketARN"`
+	BufferingHints                    DeliveryStreamBufferingHintsPtrInput                                      `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions          DeliveryStreamCloudWatchLoggingOptionsPtrInput                            `pulumi:"cloudWatchLoggingOptions"`
+	CompressionFormat                 DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrInput `pulumi:"compressionFormat"`
+	DataFormatConversionConfiguration DeliveryStreamDataFormatConversionConfigurationPtrInput                   `pulumi:"dataFormatConversionConfiguration"`
+	DynamicPartitioningConfiguration  DeliveryStreamDynamicPartitioningConfigurationPtrInput                    `pulumi:"dynamicPartitioningConfiguration"`
+	EncryptionConfiguration           DeliveryStreamEncryptionConfigurationPtrInput                             `pulumi:"encryptionConfiguration"`
+	ErrorOutputPrefix                 pulumi.StringPtrInput                                                     `pulumi:"errorOutputPrefix"`
+	Prefix                            pulumi.StringPtrInput                                                     `pulumi:"prefix"`
+	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput                             `pulumi:"processingConfiguration"`
+	RoleARN                           pulumi.StringInput                                                        `pulumi:"roleARN"`
+	S3BackupConfiguration             DeliveryStreamS3DestinationConfigurationPtrInput                          `pulumi:"s3BackupConfiguration"`
+	S3BackupMode                      DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrInput      `pulumi:"s3BackupMode"`
 }
 
 func (DeliveryStreamExtendedS3DestinationConfigurationArgs) ElementType() reflect.Type {
@@ -2006,8 +2014,10 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CloudWatchLoggin
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CompressionFormat() DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat {
+		return v.CompressionFormat
+	}).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) DataFormatConversionConfiguration() DeliveryStreamDataFormatConversionConfigurationPtrOutput {
@@ -2052,8 +2062,10 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) S3BackupConfigur
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) S3BackupMode() DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode {
+		return v.S3BackupMode
+	}).(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput)
 }
 
 type DeliveryStreamExtendedS3DestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2107,13 +2119,13 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CloudWatchLog
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *string {
+func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CompressionFormat() DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat {
 		if v == nil {
 			return nil
 		}
 		return v.CompressionFormat
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DataFormatConversionConfiguration() DeliveryStreamDataFormatConversionConfigurationPtrOutput {
@@ -2188,13 +2200,13 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) S3BackupConfi
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *string {
+func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode {
 		if v == nil {
 			return nil
 		}
 		return v.S3BackupMode
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrOutput)
 }
 
 type DeliveryStreamHiveJsonSerDe struct {
@@ -2861,8 +2873,8 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3Configura
 }
 
 type DeliveryStreamHttpEndpointRequestConfiguration struct {
-	CommonAttributes []DeliveryStreamHttpEndpointCommonAttribute `pulumi:"commonAttributes"`
-	ContentEncoding  *string                                     `pulumi:"contentEncoding"`
+	CommonAttributes []DeliveryStreamHttpEndpointCommonAttribute                    `pulumi:"commonAttributes"`
+	ContentEncoding  *DeliveryStreamHttpEndpointRequestConfigurationContentEncoding `pulumi:"contentEncoding"`
 }
 
 // DeliveryStreamHttpEndpointRequestConfigurationInput is an input type that accepts DeliveryStreamHttpEndpointRequestConfigurationArgs and DeliveryStreamHttpEndpointRequestConfigurationOutput values.
@@ -2877,8 +2889,8 @@ type DeliveryStreamHttpEndpointRequestConfigurationInput interface {
 }
 
 type DeliveryStreamHttpEndpointRequestConfigurationArgs struct {
-	CommonAttributes DeliveryStreamHttpEndpointCommonAttributeArrayInput `pulumi:"commonAttributes"`
-	ContentEncoding  pulumi.StringPtrInput                               `pulumi:"contentEncoding"`
+	CommonAttributes DeliveryStreamHttpEndpointCommonAttributeArrayInput                   `pulumi:"commonAttributes"`
+	ContentEncoding  DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrInput `pulumi:"contentEncoding"`
 }
 
 func (DeliveryStreamHttpEndpointRequestConfigurationArgs) ElementType() reflect.Type {
@@ -2964,8 +2976,10 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) CommonAttributes()
 	}).(DeliveryStreamHttpEndpointCommonAttributeArrayOutput)
 }
 
-func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ContentEncoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamHttpEndpointRequestConfiguration) *string { return v.ContentEncoding }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ContentEncoding() DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamHttpEndpointRequestConfiguration) *DeliveryStreamHttpEndpointRequestConfigurationContentEncoding {
+		return v.ContentEncoding
+	}).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
 }
 
 type DeliveryStreamHttpEndpointRequestConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3001,13 +3015,13 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) CommonAttribute
 	}).(DeliveryStreamHttpEndpointCommonAttributeArrayOutput)
 }
 
-func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamHttpEndpointRequestConfiguration) *string {
+func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding() DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamHttpEndpointRequestConfiguration) *DeliveryStreamHttpEndpointRequestConfigurationContentEncoding {
 		if v == nil {
 			return nil
 		}
 		return v.ContentEncoding
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrOutput)
 }
 
 type DeliveryStreamInputFormatConfiguration struct {
@@ -4346,7 +4360,7 @@ func (o DeliveryStreamProcessingConfigurationPtrOutput) Processors() DeliveryStr
 
 type DeliveryStreamProcessor struct {
 	Parameters []DeliveryStreamProcessorParameter `pulumi:"parameters"`
-	Type       string                             `pulumi:"type"`
+	Type       DeliveryStreamProcessorType        `pulumi:"type"`
 }
 
 // DeliveryStreamProcessorInput is an input type that accepts DeliveryStreamProcessorArgs and DeliveryStreamProcessorOutput values.
@@ -4362,7 +4376,7 @@ type DeliveryStreamProcessorInput interface {
 
 type DeliveryStreamProcessorArgs struct {
 	Parameters DeliveryStreamProcessorParameterArrayInput `pulumi:"parameters"`
-	Type       pulumi.StringInput                         `pulumi:"type"`
+	Type       DeliveryStreamProcessorTypeInput           `pulumi:"type"`
 }
 
 func (DeliveryStreamProcessorArgs) ElementType() reflect.Type {
@@ -4420,8 +4434,8 @@ func (o DeliveryStreamProcessorOutput) Parameters() DeliveryStreamProcessorParam
 	return o.ApplyT(func(v DeliveryStreamProcessor) []DeliveryStreamProcessorParameter { return v.Parameters }).(DeliveryStreamProcessorParameterArrayOutput)
 }
 
-func (o DeliveryStreamProcessorOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamProcessor) string { return v.Type }).(pulumi.StringOutput)
+func (o DeliveryStreamProcessorOutput) Type() DeliveryStreamProcessorTypeOutput {
+	return o.ApplyT(func(v DeliveryStreamProcessor) DeliveryStreamProcessorType { return v.Type }).(DeliveryStreamProcessorTypeOutput)
 }
 
 type DeliveryStreamProcessorArrayOutput struct{ *pulumi.OutputState }
@@ -4545,17 +4559,17 @@ func (o DeliveryStreamProcessorParameterArrayOutput) Index(i pulumi.IntInput) De
 }
 
 type DeliveryStreamRedshiftDestinationConfiguration struct {
-	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions   `pulumi:"cloudWatchLoggingOptions"`
-	ClusterJDBCURL           string                                    `pulumi:"clusterJDBCURL"`
-	CopyCommand              DeliveryStreamCopyCommand                 `pulumi:"copyCommand"`
-	Password                 string                                    `pulumi:"password"`
-	ProcessingConfiguration  *DeliveryStreamProcessingConfiguration    `pulumi:"processingConfiguration"`
-	RetryOptions             *DeliveryStreamRedshiftRetryOptions       `pulumi:"retryOptions"`
-	RoleARN                  string                                    `pulumi:"roleARN"`
-	S3BackupConfiguration    *DeliveryStreamS3DestinationConfiguration `pulumi:"s3BackupConfiguration"`
-	S3BackupMode             *string                                   `pulumi:"s3BackupMode"`
-	S3Configuration          DeliveryStreamS3DestinationConfiguration  `pulumi:"s3Configuration"`
-	Username                 string                                    `pulumi:"username"`
+	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions                     `pulumi:"cloudWatchLoggingOptions"`
+	ClusterJDBCURL           string                                                      `pulumi:"clusterJDBCURL"`
+	CopyCommand              DeliveryStreamCopyCommand                                   `pulumi:"copyCommand"`
+	Password                 string                                                      `pulumi:"password"`
+	ProcessingConfiguration  *DeliveryStreamProcessingConfiguration                      `pulumi:"processingConfiguration"`
+	RetryOptions             *DeliveryStreamRedshiftRetryOptions                         `pulumi:"retryOptions"`
+	RoleARN                  string                                                      `pulumi:"roleARN"`
+	S3BackupConfiguration    *DeliveryStreamS3DestinationConfiguration                   `pulumi:"s3BackupConfiguration"`
+	S3BackupMode             *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
+	S3Configuration          DeliveryStreamS3DestinationConfiguration                    `pulumi:"s3Configuration"`
+	Username                 string                                                      `pulumi:"username"`
 }
 
 // DeliveryStreamRedshiftDestinationConfigurationInput is an input type that accepts DeliveryStreamRedshiftDestinationConfigurationArgs and DeliveryStreamRedshiftDestinationConfigurationOutput values.
@@ -4570,17 +4584,17 @@ type DeliveryStreamRedshiftDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamRedshiftDestinationConfigurationArgs struct {
-	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput   `pulumi:"cloudWatchLoggingOptions"`
-	ClusterJDBCURL           pulumi.StringInput                               `pulumi:"clusterJDBCURL"`
-	CopyCommand              DeliveryStreamCopyCommandInput                   `pulumi:"copyCommand"`
-	Password                 pulumi.StringInput                               `pulumi:"password"`
-	ProcessingConfiguration  DeliveryStreamProcessingConfigurationPtrInput    `pulumi:"processingConfiguration"`
-	RetryOptions             DeliveryStreamRedshiftRetryOptionsPtrInput       `pulumi:"retryOptions"`
-	RoleARN                  pulumi.StringInput                               `pulumi:"roleARN"`
-	S3BackupConfiguration    DeliveryStreamS3DestinationConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
-	S3BackupMode             pulumi.StringPtrInput                            `pulumi:"s3BackupMode"`
-	S3Configuration          DeliveryStreamS3DestinationConfigurationInput    `pulumi:"s3Configuration"`
-	Username                 pulumi.StringInput                               `pulumi:"username"`
+	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput                     `pulumi:"cloudWatchLoggingOptions"`
+	ClusterJDBCURL           pulumi.StringInput                                                 `pulumi:"clusterJDBCURL"`
+	CopyCommand              DeliveryStreamCopyCommandInput                                     `pulumi:"copyCommand"`
+	Password                 pulumi.StringInput                                                 `pulumi:"password"`
+	ProcessingConfiguration  DeliveryStreamProcessingConfigurationPtrInput                      `pulumi:"processingConfiguration"`
+	RetryOptions             DeliveryStreamRedshiftRetryOptionsPtrInput                         `pulumi:"retryOptions"`
+	RoleARN                  pulumi.StringInput                                                 `pulumi:"roleARN"`
+	S3BackupConfiguration    DeliveryStreamS3DestinationConfigurationPtrInput                   `pulumi:"s3BackupConfiguration"`
+	S3BackupMode             DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
+	S3Configuration          DeliveryStreamS3DestinationConfigurationInput                      `pulumi:"s3Configuration"`
+	Username                 pulumi.StringInput                                                 `pulumi:"username"`
 }
 
 func (DeliveryStreamRedshiftDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -4700,8 +4714,10 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3BackupConfigurat
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3BackupMode() DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode {
+		return v.S3BackupMode
+	}).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
 }
 
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
@@ -4810,13 +4826,13 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3BackupConfigu
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3BackupMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *string {
+func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode {
 		if v == nil {
 			return nil
 		}
 		return v.S3BackupMode
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
 }
 
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
@@ -5104,14 +5120,14 @@ func (o DeliveryStreamRetryOptionsPtrOutput) DurationInSeconds() pulumi.IntPtrOu
 }
 
 type DeliveryStreamS3DestinationConfiguration struct {
-	BucketARN                string                                  `pulumi:"bucketARN"`
-	BufferingHints           *DeliveryStreamBufferingHints           `pulumi:"bufferingHints"`
-	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
-	CompressionFormat        *string                                 `pulumi:"compressionFormat"`
-	EncryptionConfiguration  *DeliveryStreamEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
-	ErrorOutputPrefix        *string                                 `pulumi:"errorOutputPrefix"`
-	Prefix                   *string                                 `pulumi:"prefix"`
-	RoleARN                  string                                  `pulumi:"roleARN"`
+	BucketARN                string                                                     `pulumi:"bucketARN"`
+	BufferingHints           *DeliveryStreamBufferingHints                              `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions                    `pulumi:"cloudWatchLoggingOptions"`
+	CompressionFormat        *DeliveryStreamS3DestinationConfigurationCompressionFormat `pulumi:"compressionFormat"`
+	EncryptionConfiguration  *DeliveryStreamEncryptionConfiguration                     `pulumi:"encryptionConfiguration"`
+	ErrorOutputPrefix        *string                                                    `pulumi:"errorOutputPrefix"`
+	Prefix                   *string                                                    `pulumi:"prefix"`
+	RoleARN                  string                                                     `pulumi:"roleARN"`
 }
 
 // DeliveryStreamS3DestinationConfigurationInput is an input type that accepts DeliveryStreamS3DestinationConfigurationArgs and DeliveryStreamS3DestinationConfigurationOutput values.
@@ -5126,14 +5142,14 @@ type DeliveryStreamS3DestinationConfigurationInput interface {
 }
 
 type DeliveryStreamS3DestinationConfigurationArgs struct {
-	BucketARN                pulumi.StringInput                             `pulumi:"bucketARN"`
-	BufferingHints           DeliveryStreamBufferingHintsPtrInput           `pulumi:"bufferingHints"`
-	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
-	CompressionFormat        pulumi.StringPtrInput                          `pulumi:"compressionFormat"`
-	EncryptionConfiguration  DeliveryStreamEncryptionConfigurationPtrInput  `pulumi:"encryptionConfiguration"`
-	ErrorOutputPrefix        pulumi.StringPtrInput                          `pulumi:"errorOutputPrefix"`
-	Prefix                   pulumi.StringPtrInput                          `pulumi:"prefix"`
-	RoleARN                  pulumi.StringInput                             `pulumi:"roleARN"`
+	BucketARN                pulumi.StringInput                                                `pulumi:"bucketARN"`
+	BufferingHints           DeliveryStreamBufferingHintsPtrInput                              `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput                    `pulumi:"cloudWatchLoggingOptions"`
+	CompressionFormat        DeliveryStreamS3DestinationConfigurationCompressionFormatPtrInput `pulumi:"compressionFormat"`
+	EncryptionConfiguration  DeliveryStreamEncryptionConfigurationPtrInput                     `pulumi:"encryptionConfiguration"`
+	ErrorOutputPrefix        pulumi.StringPtrInput                                             `pulumi:"errorOutputPrefix"`
+	Prefix                   pulumi.StringPtrInput                                             `pulumi:"prefix"`
+	RoleARN                  pulumi.StringInput                                                `pulumi:"roleARN"`
 }
 
 func (DeliveryStreamS3DestinationConfigurationArgs) ElementType() reflect.Type {
@@ -5229,8 +5245,10 @@ func (o DeliveryStreamS3DestinationConfigurationOutput) CloudWatchLoggingOptions
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-func (o DeliveryStreamS3DestinationConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryStreamS3DestinationConfiguration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
+func (o DeliveryStreamS3DestinationConfigurationOutput) CompressionFormat() DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamS3DestinationConfiguration) *DeliveryStreamS3DestinationConfigurationCompressionFormat {
+		return v.CompressionFormat
+	}).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
 func (o DeliveryStreamS3DestinationConfigurationOutput) EncryptionConfiguration() DeliveryStreamEncryptionConfigurationPtrOutput {
@@ -5302,13 +5320,13 @@ func (o DeliveryStreamS3DestinationConfigurationPtrOutput) CloudWatchLoggingOpti
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-func (o DeliveryStreamS3DestinationConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamS3DestinationConfiguration) *string {
+func (o DeliveryStreamS3DestinationConfigurationPtrOutput) CompressionFormat() DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamS3DestinationConfiguration) *DeliveryStreamS3DestinationConfigurationCompressionFormat {
 		if v == nil {
 			return nil
 		}
 		return v.CompressionFormat
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
 func (o DeliveryStreamS3DestinationConfigurationPtrOutput) EncryptionConfiguration() DeliveryStreamEncryptionConfigurationPtrOutput {
@@ -5704,15 +5722,15 @@ func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetS
 }
 
 type DeliveryStreamSplunkDestinationConfiguration struct {
-	CloudWatchLoggingOptions          *DeliveryStreamCloudWatchLoggingOptions  `pulumi:"cloudWatchLoggingOptions"`
-	HECAcknowledgmentTimeoutInSeconds *int                                     `pulumi:"hECAcknowledgmentTimeoutInSeconds"`
-	HECEndpoint                       string                                   `pulumi:"hECEndpoint"`
-	HECEndpointType                   string                                   `pulumi:"hECEndpointType"`
-	HECToken                          string                                   `pulumi:"hECToken"`
-	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration   `pulumi:"processingConfiguration"`
-	RetryOptions                      *DeliveryStreamSplunkRetryOptions        `pulumi:"retryOptions"`
-	S3BackupMode                      *string                                  `pulumi:"s3BackupMode"`
-	S3Configuration                   DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	CloudWatchLoggingOptions          *DeliveryStreamCloudWatchLoggingOptions                     `pulumi:"cloudWatchLoggingOptions"`
+	HECAcknowledgmentTimeoutInSeconds *int                                                        `pulumi:"hECAcknowledgmentTimeoutInSeconds"`
+	HECEndpoint                       string                                                      `pulumi:"hECEndpoint"`
+	HECEndpointType                   DeliveryStreamSplunkDestinationConfigurationHECEndpointType `pulumi:"hECEndpointType"`
+	HECToken                          string                                                      `pulumi:"hECToken"`
+	ProcessingConfiguration           *DeliveryStreamProcessingConfiguration                      `pulumi:"processingConfiguration"`
+	RetryOptions                      *DeliveryStreamSplunkRetryOptions                           `pulumi:"retryOptions"`
+	S3BackupMode                      *string                                                     `pulumi:"s3BackupMode"`
+	S3Configuration                   DeliveryStreamS3DestinationConfiguration                    `pulumi:"s3Configuration"`
 }
 
 // DeliveryStreamSplunkDestinationConfigurationInput is an input type that accepts DeliveryStreamSplunkDestinationConfigurationArgs and DeliveryStreamSplunkDestinationConfigurationOutput values.
@@ -5727,15 +5745,15 @@ type DeliveryStreamSplunkDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamSplunkDestinationConfigurationArgs struct {
-	CloudWatchLoggingOptions          DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
-	HECAcknowledgmentTimeoutInSeconds pulumi.IntPtrInput                             `pulumi:"hECAcknowledgmentTimeoutInSeconds"`
-	HECEndpoint                       pulumi.StringInput                             `pulumi:"hECEndpoint"`
-	HECEndpointType                   pulumi.StringInput                             `pulumi:"hECEndpointType"`
-	HECToken                          pulumi.StringInput                             `pulumi:"hECToken"`
-	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput  `pulumi:"processingConfiguration"`
-	RetryOptions                      DeliveryStreamSplunkRetryOptionsPtrInput       `pulumi:"retryOptions"`
-	S3BackupMode                      pulumi.StringPtrInput                          `pulumi:"s3BackupMode"`
-	S3Configuration                   DeliveryStreamS3DestinationConfigurationInput  `pulumi:"s3Configuration"`
+	CloudWatchLoggingOptions          DeliveryStreamCloudWatchLoggingOptionsPtrInput                   `pulumi:"cloudWatchLoggingOptions"`
+	HECAcknowledgmentTimeoutInSeconds pulumi.IntPtrInput                                               `pulumi:"hECAcknowledgmentTimeoutInSeconds"`
+	HECEndpoint                       pulumi.StringInput                                               `pulumi:"hECEndpoint"`
+	HECEndpointType                   DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeInput `pulumi:"hECEndpointType"`
+	HECToken                          pulumi.StringInput                                               `pulumi:"hECToken"`
+	ProcessingConfiguration           DeliveryStreamProcessingConfigurationPtrInput                    `pulumi:"processingConfiguration"`
+	RetryOptions                      DeliveryStreamSplunkRetryOptionsPtrInput                         `pulumi:"retryOptions"`
+	S3BackupMode                      pulumi.StringPtrInput                                            `pulumi:"s3BackupMode"`
+	S3Configuration                   DeliveryStreamS3DestinationConfigurationInput                    `pulumi:"s3Configuration"`
 }
 
 func (DeliveryStreamSplunkDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -5829,8 +5847,10 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) HECEndpoint() pulumi
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) string { return v.HECEndpoint }).(pulumi.StringOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationOutput) HECEndpointType() pulumi.StringOutput {
-	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) string { return v.HECEndpointType }).(pulumi.StringOutput)
+func (o DeliveryStreamSplunkDestinationConfigurationOutput) HECEndpointType() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput {
+	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) DeliveryStreamSplunkDestinationConfigurationHECEndpointType {
+		return v.HECEndpointType
+	}).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeOutput)
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) HECToken() pulumi.StringOutput {
@@ -5910,13 +5930,13 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HECEndpoint() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HECEndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *string {
+func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HECEndpointType() DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkDestinationConfigurationHECEndpointType {
 		if v == nil {
 			return nil
 		}
 		return &v.HECEndpointType
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrOutput)
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HECToken() pulumi.StringPtrOutput {

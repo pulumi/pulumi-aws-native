@@ -5243,7 +5243,7 @@ func (o ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput) InstanceUrl(
 }
 
 type FlowAggregationConfig struct {
-	AggregationType *string `pulumi:"aggregationType"`
+	AggregationType *FlowAggregationType `pulumi:"aggregationType"`
 }
 
 // FlowAggregationConfigInput is an input type that accepts FlowAggregationConfigArgs and FlowAggregationConfigOutput values.
@@ -5258,7 +5258,7 @@ type FlowAggregationConfigInput interface {
 }
 
 type FlowAggregationConfigArgs struct {
-	AggregationType pulumi.StringPtrInput `pulumi:"aggregationType"`
+	AggregationType FlowAggregationTypePtrInput `pulumi:"aggregationType"`
 }
 
 func (FlowAggregationConfigArgs) ElementType() reflect.Type {
@@ -5338,8 +5338,8 @@ func (o FlowAggregationConfigOutput) ToFlowAggregationConfigPtrOutputWithContext
 	}).(FlowAggregationConfigPtrOutput)
 }
 
-func (o FlowAggregationConfigOutput) AggregationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowAggregationConfig) *string { return v.AggregationType }).(pulumi.StringPtrOutput)
+func (o FlowAggregationConfigOutput) AggregationType() FlowAggregationTypePtrOutput {
+	return o.ApplyT(func(v FlowAggregationConfig) *FlowAggregationType { return v.AggregationType }).(FlowAggregationTypePtrOutput)
 }
 
 type FlowAggregationConfigPtrOutput struct{ *pulumi.OutputState }
@@ -5366,13 +5366,13 @@ func (o FlowAggregationConfigPtrOutput) Elem() FlowAggregationConfigOutput {
 	}).(FlowAggregationConfigOutput)
 }
 
-func (o FlowAggregationConfigPtrOutput) AggregationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowAggregationConfig) *string {
+func (o FlowAggregationConfigPtrOutput) AggregationType() FlowAggregationTypePtrOutput {
+	return o.ApplyT(func(v *FlowAggregationConfig) *FlowAggregationType {
 		if v == nil {
 			return nil
 		}
 		return v.AggregationType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowAggregationTypePtrOutput)
 }
 
 type FlowAmplitudeSourceProperties struct {
@@ -5510,20 +5510,20 @@ func (o FlowAmplitudeSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput 
 
 // Operation to be performed on provided source fields
 type FlowConnectorOperator struct {
-	Amplitude       *string `pulumi:"amplitude"`
-	Datadog         *string `pulumi:"datadog"`
-	Dynatrace       *string `pulumi:"dynatrace"`
-	GoogleAnalytics *string `pulumi:"googleAnalytics"`
-	InforNexus      *string `pulumi:"inforNexus"`
-	Marketo         *string `pulumi:"marketo"`
-	S3              *string `pulumi:"s3"`
-	Salesforce      *string `pulumi:"salesforce"`
-	ServiceNow      *string `pulumi:"serviceNow"`
-	Singular        *string `pulumi:"singular"`
-	Slack           *string `pulumi:"slack"`
-	Trendmicro      *string `pulumi:"trendmicro"`
-	Veeva           *string `pulumi:"veeva"`
-	Zendesk         *string `pulumi:"zendesk"`
+	Amplitude       *FlowAmplitudeConnectorOperator       `pulumi:"amplitude"`
+	Datadog         *FlowDatadogConnectorOperator         `pulumi:"datadog"`
+	Dynatrace       *FlowDynatraceConnectorOperator       `pulumi:"dynatrace"`
+	GoogleAnalytics *FlowGoogleAnalyticsConnectorOperator `pulumi:"googleAnalytics"`
+	InforNexus      *FlowInforNexusConnectorOperator      `pulumi:"inforNexus"`
+	Marketo         *FlowMarketoConnectorOperator         `pulumi:"marketo"`
+	S3              *FlowS3ConnectorOperator              `pulumi:"s3"`
+	Salesforce      *FlowSalesforceConnectorOperator      `pulumi:"salesforce"`
+	ServiceNow      *FlowServiceNowConnectorOperator      `pulumi:"serviceNow"`
+	Singular        *FlowSingularConnectorOperator        `pulumi:"singular"`
+	Slack           *FlowSlackConnectorOperator           `pulumi:"slack"`
+	Trendmicro      *FlowTrendmicroConnectorOperator      `pulumi:"trendmicro"`
+	Veeva           *FlowVeevaConnectorOperator           `pulumi:"veeva"`
+	Zendesk         *FlowZendeskConnectorOperator         `pulumi:"zendesk"`
 }
 
 // FlowConnectorOperatorInput is an input type that accepts FlowConnectorOperatorArgs and FlowConnectorOperatorOutput values.
@@ -5539,20 +5539,20 @@ type FlowConnectorOperatorInput interface {
 
 // Operation to be performed on provided source fields
 type FlowConnectorOperatorArgs struct {
-	Amplitude       pulumi.StringPtrInput `pulumi:"amplitude"`
-	Datadog         pulumi.StringPtrInput `pulumi:"datadog"`
-	Dynatrace       pulumi.StringPtrInput `pulumi:"dynatrace"`
-	GoogleAnalytics pulumi.StringPtrInput `pulumi:"googleAnalytics"`
-	InforNexus      pulumi.StringPtrInput `pulumi:"inforNexus"`
-	Marketo         pulumi.StringPtrInput `pulumi:"marketo"`
-	S3              pulumi.StringPtrInput `pulumi:"s3"`
-	Salesforce      pulumi.StringPtrInput `pulumi:"salesforce"`
-	ServiceNow      pulumi.StringPtrInput `pulumi:"serviceNow"`
-	Singular        pulumi.StringPtrInput `pulumi:"singular"`
-	Slack           pulumi.StringPtrInput `pulumi:"slack"`
-	Trendmicro      pulumi.StringPtrInput `pulumi:"trendmicro"`
-	Veeva           pulumi.StringPtrInput `pulumi:"veeva"`
-	Zendesk         pulumi.StringPtrInput `pulumi:"zendesk"`
+	Amplitude       FlowAmplitudeConnectorOperatorPtrInput       `pulumi:"amplitude"`
+	Datadog         FlowDatadogConnectorOperatorPtrInput         `pulumi:"datadog"`
+	Dynatrace       FlowDynatraceConnectorOperatorPtrInput       `pulumi:"dynatrace"`
+	GoogleAnalytics FlowGoogleAnalyticsConnectorOperatorPtrInput `pulumi:"googleAnalytics"`
+	InforNexus      FlowInforNexusConnectorOperatorPtrInput      `pulumi:"inforNexus"`
+	Marketo         FlowMarketoConnectorOperatorPtrInput         `pulumi:"marketo"`
+	S3              FlowS3ConnectorOperatorPtrInput              `pulumi:"s3"`
+	Salesforce      FlowSalesforceConnectorOperatorPtrInput      `pulumi:"salesforce"`
+	ServiceNow      FlowServiceNowConnectorOperatorPtrInput      `pulumi:"serviceNow"`
+	Singular        FlowSingularConnectorOperatorPtrInput        `pulumi:"singular"`
+	Slack           FlowSlackConnectorOperatorPtrInput           `pulumi:"slack"`
+	Trendmicro      FlowTrendmicroConnectorOperatorPtrInput      `pulumi:"trendmicro"`
+	Veeva           FlowVeevaConnectorOperatorPtrInput           `pulumi:"veeva"`
+	Zendesk         FlowZendeskConnectorOperatorPtrInput         `pulumi:"zendesk"`
 }
 
 func (FlowConnectorOperatorArgs) ElementType() reflect.Type {
@@ -5633,60 +5633,60 @@ func (o FlowConnectorOperatorOutput) ToFlowConnectorOperatorPtrOutputWithContext
 	}).(FlowConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Amplitude() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Amplitude }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Amplitude() FlowAmplitudeConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowAmplitudeConnectorOperator { return v.Amplitude }).(FlowAmplitudeConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Datadog() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Datadog }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Datadog() FlowDatadogConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowDatadogConnectorOperator { return v.Datadog }).(FlowDatadogConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Dynatrace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Dynatrace }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Dynatrace() FlowDynatraceConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowDynatraceConnectorOperator { return v.Dynatrace }).(FlowDynatraceConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) GoogleAnalytics() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.GoogleAnalytics }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) GoogleAnalytics() FlowGoogleAnalyticsConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowGoogleAnalyticsConnectorOperator { return v.GoogleAnalytics }).(FlowGoogleAnalyticsConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) InforNexus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.InforNexus }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) InforNexus() FlowInforNexusConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowInforNexusConnectorOperator { return v.InforNexus }).(FlowInforNexusConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Marketo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Marketo }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Marketo() FlowMarketoConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowMarketoConnectorOperator { return v.Marketo }).(FlowMarketoConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) S3() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.S3 }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) S3() FlowS3ConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowS3ConnectorOperator { return v.S3 }).(FlowS3ConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Salesforce() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Salesforce }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Salesforce() FlowSalesforceConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowSalesforceConnectorOperator { return v.Salesforce }).(FlowSalesforceConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) ServiceNow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.ServiceNow }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) ServiceNow() FlowServiceNowConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowServiceNowConnectorOperator { return v.ServiceNow }).(FlowServiceNowConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Singular() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Singular }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Singular() FlowSingularConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowSingularConnectorOperator { return v.Singular }).(FlowSingularConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Slack() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Slack }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Slack() FlowSlackConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowSlackConnectorOperator { return v.Slack }).(FlowSlackConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Trendmicro() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Trendmicro }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Trendmicro() FlowTrendmicroConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowTrendmicroConnectorOperator { return v.Trendmicro }).(FlowTrendmicroConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Veeva() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Veeva }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Veeva() FlowVeevaConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowVeevaConnectorOperator { return v.Veeva }).(FlowVeevaConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorOutput) Zendesk() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Zendesk }).(pulumi.StringPtrOutput)
+func (o FlowConnectorOperatorOutput) Zendesk() FlowZendeskConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowZendeskConnectorOperator { return v.Zendesk }).(FlowZendeskConnectorOperatorPtrOutput)
 }
 
 type FlowConnectorOperatorPtrOutput struct{ *pulumi.OutputState }
@@ -5713,130 +5713,130 @@ func (o FlowConnectorOperatorPtrOutput) Elem() FlowConnectorOperatorOutput {
 	}).(FlowConnectorOperatorOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Amplitude() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Amplitude() FlowAmplitudeConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowAmplitudeConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Amplitude
-	}).(pulumi.StringPtrOutput)
+	}).(FlowAmplitudeConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Datadog() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Datadog() FlowDatadogConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowDatadogConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Datadog
-	}).(pulumi.StringPtrOutput)
+	}).(FlowDatadogConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Dynatrace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Dynatrace() FlowDynatraceConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowDynatraceConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Dynatrace
-	}).(pulumi.StringPtrOutput)
+	}).(FlowDynatraceConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) GoogleAnalytics() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) GoogleAnalytics() FlowGoogleAnalyticsConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowGoogleAnalyticsConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.GoogleAnalytics
-	}).(pulumi.StringPtrOutput)
+	}).(FlowGoogleAnalyticsConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) InforNexus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) InforNexus() FlowInforNexusConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowInforNexusConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.InforNexus
-	}).(pulumi.StringPtrOutput)
+	}).(FlowInforNexusConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Marketo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Marketo() FlowMarketoConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowMarketoConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Marketo
-	}).(pulumi.StringPtrOutput)
+	}).(FlowMarketoConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) S3() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) S3() FlowS3ConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowS3ConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.S3
-	}).(pulumi.StringPtrOutput)
+	}).(FlowS3ConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Salesforce() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Salesforce() FlowSalesforceConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSalesforceConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Salesforce
-	}).(pulumi.StringPtrOutput)
+	}).(FlowSalesforceConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) ServiceNow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) ServiceNow() FlowServiceNowConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowServiceNowConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.ServiceNow
-	}).(pulumi.StringPtrOutput)
+	}).(FlowServiceNowConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Singular() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Singular() FlowSingularConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSingularConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Singular
-	}).(pulumi.StringPtrOutput)
+	}).(FlowSingularConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Slack() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Slack() FlowSlackConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowSlackConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Slack
-	}).(pulumi.StringPtrOutput)
+	}).(FlowSlackConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Trendmicro() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Trendmicro() FlowTrendmicroConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowTrendmicroConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Trendmicro
-	}).(pulumi.StringPtrOutput)
+	}).(FlowTrendmicroConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Veeva() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Veeva() FlowVeevaConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowVeevaConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Veeva
-	}).(pulumi.StringPtrOutput)
+	}).(FlowVeevaConnectorOperatorPtrOutput)
 }
 
-func (o FlowConnectorOperatorPtrOutput) Zendesk() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowConnectorOperator) *string {
+func (o FlowConnectorOperatorPtrOutput) Zendesk() FlowZendeskConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowZendeskConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Zendesk
-	}).(pulumi.StringPtrOutput)
+	}).(FlowZendeskConnectorOperatorPtrOutput)
 }
 
 type FlowDatadogSourceProperties struct {
@@ -6073,7 +6073,7 @@ type FlowDestinationFlowConfig struct {
 	// Name of destination connector profile
 	ConnectorProfileName *string `pulumi:"connectorProfileName"`
 	// Destination connector type
-	ConnectorType string `pulumi:"connectorType"`
+	ConnectorType FlowConnectorType `pulumi:"connectorType"`
 	// Destination connector details
 	DestinationConnectorProperties FlowDestinationConnectorProperties `pulumi:"destinationConnectorProperties"`
 }
@@ -6094,7 +6094,7 @@ type FlowDestinationFlowConfigArgs struct {
 	// Name of destination connector profile
 	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
 	// Destination connector type
-	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
+	ConnectorType FlowConnectorTypeInput `pulumi:"connectorType"`
 	// Destination connector details
 	DestinationConnectorProperties FlowDestinationConnectorPropertiesInput `pulumi:"destinationConnectorProperties"`
 }
@@ -6157,8 +6157,8 @@ func (o FlowDestinationFlowConfigOutput) ConnectorProfileName() pulumi.StringPtr
 }
 
 // Destination connector type
-func (o FlowDestinationFlowConfigOutput) ConnectorType() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowDestinationFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
+func (o FlowDestinationFlowConfigOutput) ConnectorType() FlowConnectorTypeOutput {
+	return o.ApplyT(func(v FlowDestinationFlowConfig) FlowConnectorType { return v.ConnectorType }).(FlowConnectorTypeOutput)
 }
 
 // Destination connector details
@@ -7301,8 +7301,8 @@ func (o FlowMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 }
 
 type FlowPrefixConfig struct {
-	PrefixFormat *string `pulumi:"prefixFormat"`
-	PrefixType   *string `pulumi:"prefixType"`
+	PrefixFormat *FlowPrefixFormat `pulumi:"prefixFormat"`
+	PrefixType   *FlowPrefixType   `pulumi:"prefixType"`
 }
 
 // FlowPrefixConfigInput is an input type that accepts FlowPrefixConfigArgs and FlowPrefixConfigOutput values.
@@ -7317,8 +7317,8 @@ type FlowPrefixConfigInput interface {
 }
 
 type FlowPrefixConfigArgs struct {
-	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
-	PrefixType   pulumi.StringPtrInput `pulumi:"prefixType"`
+	PrefixFormat FlowPrefixFormatPtrInput `pulumi:"prefixFormat"`
+	PrefixType   FlowPrefixTypePtrInput   `pulumi:"prefixType"`
 }
 
 func (FlowPrefixConfigArgs) ElementType() reflect.Type {
@@ -7398,12 +7398,12 @@ func (o FlowPrefixConfigOutput) ToFlowPrefixConfigPtrOutputWithContext(ctx conte
 	}).(FlowPrefixConfigPtrOutput)
 }
 
-func (o FlowPrefixConfigOutput) PrefixFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowPrefixConfig) *string { return v.PrefixFormat }).(pulumi.StringPtrOutput)
+func (o FlowPrefixConfigOutput) PrefixFormat() FlowPrefixFormatPtrOutput {
+	return o.ApplyT(func(v FlowPrefixConfig) *FlowPrefixFormat { return v.PrefixFormat }).(FlowPrefixFormatPtrOutput)
 }
 
-func (o FlowPrefixConfigOutput) PrefixType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowPrefixConfig) *string { return v.PrefixType }).(pulumi.StringPtrOutput)
+func (o FlowPrefixConfigOutput) PrefixType() FlowPrefixTypePtrOutput {
+	return o.ApplyT(func(v FlowPrefixConfig) *FlowPrefixType { return v.PrefixType }).(FlowPrefixTypePtrOutput)
 }
 
 type FlowPrefixConfigPtrOutput struct{ *pulumi.OutputState }
@@ -7430,22 +7430,22 @@ func (o FlowPrefixConfigPtrOutput) Elem() FlowPrefixConfigOutput {
 	}).(FlowPrefixConfigOutput)
 }
 
-func (o FlowPrefixConfigPtrOutput) PrefixFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowPrefixConfig) *string {
+func (o FlowPrefixConfigPtrOutput) PrefixFormat() FlowPrefixFormatPtrOutput {
+	return o.ApplyT(func(v *FlowPrefixConfig) *FlowPrefixFormat {
 		if v == nil {
 			return nil
 		}
 		return v.PrefixFormat
-	}).(pulumi.StringPtrOutput)
+	}).(FlowPrefixFormatPtrOutput)
 }
 
-func (o FlowPrefixConfigPtrOutput) PrefixType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowPrefixConfig) *string {
+func (o FlowPrefixConfigPtrOutput) PrefixType() FlowPrefixTypePtrOutput {
+	return o.ApplyT(func(v *FlowPrefixConfig) *FlowPrefixType {
 		if v == nil {
 			return nil
 		}
 		return v.PrefixType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowPrefixTypePtrOutput)
 }
 
 type FlowRedshiftDestinationProperties struct {
@@ -7791,7 +7791,7 @@ func (o FlowS3DestinationPropertiesPtrOutput) S3OutputFormatConfig() FlowS3Outpu
 
 type FlowS3OutputFormatConfig struct {
 	AggregationConfig *FlowAggregationConfig `pulumi:"aggregationConfig"`
-	FileType          *string                `pulumi:"fileType"`
+	FileType          *FlowFileType          `pulumi:"fileType"`
 	PrefixConfig      *FlowPrefixConfig      `pulumi:"prefixConfig"`
 }
 
@@ -7808,7 +7808,7 @@ type FlowS3OutputFormatConfigInput interface {
 
 type FlowS3OutputFormatConfigArgs struct {
 	AggregationConfig FlowAggregationConfigPtrInput `pulumi:"aggregationConfig"`
-	FileType          pulumi.StringPtrInput         `pulumi:"fileType"`
+	FileType          FlowFileTypePtrInput          `pulumi:"fileType"`
 	PrefixConfig      FlowPrefixConfigPtrInput      `pulumi:"prefixConfig"`
 }
 
@@ -7893,8 +7893,8 @@ func (o FlowS3OutputFormatConfigOutput) AggregationConfig() FlowAggregationConfi
 	return o.ApplyT(func(v FlowS3OutputFormatConfig) *FlowAggregationConfig { return v.AggregationConfig }).(FlowAggregationConfigPtrOutput)
 }
 
-func (o FlowS3OutputFormatConfigOutput) FileType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowS3OutputFormatConfig) *string { return v.FileType }).(pulumi.StringPtrOutput)
+func (o FlowS3OutputFormatConfigOutput) FileType() FlowFileTypePtrOutput {
+	return o.ApplyT(func(v FlowS3OutputFormatConfig) *FlowFileType { return v.FileType }).(FlowFileTypePtrOutput)
 }
 
 func (o FlowS3OutputFormatConfigOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
@@ -7934,13 +7934,13 @@ func (o FlowS3OutputFormatConfigPtrOutput) AggregationConfig() FlowAggregationCo
 	}).(FlowAggregationConfigPtrOutput)
 }
 
-func (o FlowS3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowS3OutputFormatConfig) *string {
+func (o FlowS3OutputFormatConfigPtrOutput) FileType() FlowFileTypePtrOutput {
+	return o.ApplyT(func(v *FlowS3OutputFormatConfig) *FlowFileType {
 		if v == nil {
 			return nil
 		}
 		return v.FileType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowFileTypePtrOutput)
 }
 
 func (o FlowS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
@@ -8103,9 +8103,9 @@ func (o FlowS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 type FlowSalesforceDestinationProperties struct {
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
-	IdFieldNames       []string `pulumi:"idFieldNames"`
-	Object             string   `pulumi:"object"`
-	WriteOperationType *string  `pulumi:"writeOperationType"`
+	IdFieldNames       []string                `pulumi:"idFieldNames"`
+	Object             string                  `pulumi:"object"`
+	WriteOperationType *FlowWriteOperationType `pulumi:"writeOperationType"`
 }
 
 // FlowSalesforceDestinationPropertiesInput is an input type that accepts FlowSalesforceDestinationPropertiesArgs and FlowSalesforceDestinationPropertiesOutput values.
@@ -8122,9 +8122,9 @@ type FlowSalesforceDestinationPropertiesInput interface {
 type FlowSalesforceDestinationPropertiesArgs struct {
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
-	IdFieldNames       pulumi.StringArrayInput `pulumi:"idFieldNames"`
-	Object             pulumi.StringInput      `pulumi:"object"`
-	WriteOperationType pulumi.StringPtrInput   `pulumi:"writeOperationType"`
+	IdFieldNames       pulumi.StringArrayInput        `pulumi:"idFieldNames"`
+	Object             pulumi.StringInput             `pulumi:"object"`
+	WriteOperationType FlowWriteOperationTypePtrInput `pulumi:"writeOperationType"`
 }
 
 func (FlowSalesforceDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -8217,8 +8217,8 @@ func (o FlowSalesforceDestinationPropertiesOutput) Object() pulumi.StringOutput 
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
 }
 
-func (o FlowSalesforceDestinationPropertiesOutput) WriteOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *string { return v.WriteOperationType }).(pulumi.StringPtrOutput)
+func (o FlowSalesforceDestinationPropertiesOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *FlowWriteOperationType { return v.WriteOperationType }).(FlowWriteOperationTypePtrOutput)
 }
 
 type FlowSalesforceDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -8273,13 +8273,13 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) Object() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FlowSalesforceDestinationPropertiesPtrOutput) WriteOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *string {
+func (o FlowSalesforceDestinationPropertiesPtrOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *FlowWriteOperationType {
 		if v == nil {
 			return nil
 		}
 		return v.WriteOperationType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowWriteOperationTypePtrOutput)
 }
 
 type FlowSalesforceSourceProperties struct {
@@ -8447,12 +8447,12 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 
 // Details required for scheduled trigger type
 type FlowScheduledTriggerProperties struct {
-	DataPullMode       *string  `pulumi:"dataPullMode"`
-	ScheduleEndTime    *float64 `pulumi:"scheduleEndTime"`
-	ScheduleExpression string   `pulumi:"scheduleExpression"`
-	ScheduleOffset     *float64 `pulumi:"scheduleOffset"`
-	ScheduleStartTime  *float64 `pulumi:"scheduleStartTime"`
-	TimeZone           *string  `pulumi:"timeZone"`
+	DataPullMode       *FlowScheduledTriggerPropertiesDataPullMode `pulumi:"dataPullMode"`
+	ScheduleEndTime    *float64                                    `pulumi:"scheduleEndTime"`
+	ScheduleExpression string                                      `pulumi:"scheduleExpression"`
+	ScheduleOffset     *float64                                    `pulumi:"scheduleOffset"`
+	ScheduleStartTime  *float64                                    `pulumi:"scheduleStartTime"`
+	TimeZone           *string                                     `pulumi:"timeZone"`
 }
 
 // FlowScheduledTriggerPropertiesInput is an input type that accepts FlowScheduledTriggerPropertiesArgs and FlowScheduledTriggerPropertiesOutput values.
@@ -8468,12 +8468,12 @@ type FlowScheduledTriggerPropertiesInput interface {
 
 // Details required for scheduled trigger type
 type FlowScheduledTriggerPropertiesArgs struct {
-	DataPullMode       pulumi.StringPtrInput  `pulumi:"dataPullMode"`
-	ScheduleEndTime    pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
-	ScheduleExpression pulumi.StringInput     `pulumi:"scheduleExpression"`
-	ScheduleOffset     pulumi.Float64PtrInput `pulumi:"scheduleOffset"`
-	ScheduleStartTime  pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
-	TimeZone           pulumi.StringPtrInput  `pulumi:"timeZone"`
+	DataPullMode       FlowScheduledTriggerPropertiesDataPullModePtrInput `pulumi:"dataPullMode"`
+	ScheduleEndTime    pulumi.Float64PtrInput                             `pulumi:"scheduleEndTime"`
+	ScheduleExpression pulumi.StringInput                                 `pulumi:"scheduleExpression"`
+	ScheduleOffset     pulumi.Float64PtrInput                             `pulumi:"scheduleOffset"`
+	ScheduleStartTime  pulumi.Float64PtrInput                             `pulumi:"scheduleStartTime"`
+	TimeZone           pulumi.StringPtrInput                              `pulumi:"timeZone"`
 }
 
 func (FlowScheduledTriggerPropertiesArgs) ElementType() reflect.Type {
@@ -8554,8 +8554,10 @@ func (o FlowScheduledTriggerPropertiesOutput) ToFlowScheduledTriggerPropertiesPt
 	}).(FlowScheduledTriggerPropertiesPtrOutput)
 }
 
-func (o FlowScheduledTriggerPropertiesOutput) DataPullMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowScheduledTriggerProperties) *string { return v.DataPullMode }).(pulumi.StringPtrOutput)
+func (o FlowScheduledTriggerPropertiesOutput) DataPullMode() FlowScheduledTriggerPropertiesDataPullModePtrOutput {
+	return o.ApplyT(func(v FlowScheduledTriggerProperties) *FlowScheduledTriggerPropertiesDataPullMode {
+		return v.DataPullMode
+	}).(FlowScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
 func (o FlowScheduledTriggerPropertiesOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
@@ -8602,13 +8604,13 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) Elem() FlowScheduledTriggerProp
 	}).(FlowScheduledTriggerPropertiesOutput)
 }
 
-func (o FlowScheduledTriggerPropertiesPtrOutput) DataPullMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *string {
+func (o FlowScheduledTriggerPropertiesPtrOutput) DataPullMode() FlowScheduledTriggerPropertiesDataPullModePtrOutput {
+	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *FlowScheduledTriggerPropertiesDataPullMode {
 		if v == nil {
 			return nil
 		}
 		return v.DataPullMode
-	}).(pulumi.StringPtrOutput)
+	}).(FlowScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
 func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
@@ -9569,7 +9571,7 @@ type FlowSourceFlowConfig struct {
 	// Name of source connector profile
 	ConnectorProfileName *string `pulumi:"connectorProfileName"`
 	// Type of source connector
-	ConnectorType string `pulumi:"connectorType"`
+	ConnectorType FlowConnectorType `pulumi:"connectorType"`
 	// Configuration for scheduled incremental data pull
 	IncrementalPullConfig *FlowIncrementalPullConfig `pulumi:"incrementalPullConfig"`
 	// Source connector details required to query a connector
@@ -9592,7 +9594,7 @@ type FlowSourceFlowConfigArgs struct {
 	// Name of source connector profile
 	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
 	// Type of source connector
-	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
+	ConnectorType FlowConnectorTypeInput `pulumi:"connectorType"`
 	// Configuration for scheduled incremental data pull
 	IncrementalPullConfig FlowIncrementalPullConfigPtrInput `pulumi:"incrementalPullConfig"`
 	// Source connector details required to query a connector
@@ -9683,8 +9685,8 @@ func (o FlowSourceFlowConfigOutput) ConnectorProfileName() pulumi.StringPtrOutpu
 }
 
 // Type of source connector
-func (o FlowSourceFlowConfigOutput) ConnectorType() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowSourceFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
+func (o FlowSourceFlowConfigOutput) ConnectorType() FlowConnectorTypeOutput {
+	return o.ApplyT(func(v FlowSourceFlowConfig) FlowConnectorType { return v.ConnectorType }).(FlowConnectorTypeOutput)
 }
 
 // Configuration for scheduled incremental data pull
@@ -9732,13 +9734,13 @@ func (o FlowSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOu
 }
 
 // Type of source connector
-func (o FlowSourceFlowConfigPtrOutput) ConnectorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowSourceFlowConfig) *string {
+func (o FlowSourceFlowConfigPtrOutput) ConnectorType() FlowConnectorTypePtrOutput {
+	return o.ApplyT(func(v *FlowSourceFlowConfig) *FlowConnectorType {
 		if v == nil {
 			return nil
 		}
 		return &v.ConnectorType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowConnectorTypePtrOutput)
 }
 
 // Configuration for scheduled incremental data pull
@@ -9880,7 +9882,7 @@ type FlowTask struct {
 	// A Map used to store task related info
 	TaskProperties []FlowTaskPropertiesObject `pulumi:"taskProperties"`
 	// Type of task
-	TaskType string `pulumi:"taskType"`
+	TaskType FlowTaskType `pulumi:"taskType"`
 }
 
 // FlowTaskInput is an input type that accepts FlowTaskArgs and FlowTaskOutput values.
@@ -9904,7 +9906,7 @@ type FlowTaskArgs struct {
 	// A Map used to store task related info
 	TaskProperties FlowTaskPropertiesObjectArrayInput `pulumi:"taskProperties"`
 	// Type of task
-	TaskType pulumi.StringInput `pulumi:"taskType"`
+	TaskType FlowTaskTypeInput `pulumi:"taskType"`
 }
 
 func (FlowTaskArgs) ElementType() reflect.Type {
@@ -9979,8 +9981,8 @@ func (o FlowTaskOutput) TaskProperties() FlowTaskPropertiesObjectArrayOutput {
 }
 
 // Type of task
-func (o FlowTaskOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowTask) string { return v.TaskType }).(pulumi.StringOutput)
+func (o FlowTaskOutput) TaskType() FlowTaskTypeOutput {
+	return o.ApplyT(func(v FlowTask) FlowTaskType { return v.TaskType }).(FlowTaskTypeOutput)
 }
 
 type FlowTaskArrayOutput struct{ *pulumi.OutputState }
@@ -10005,8 +10007,8 @@ func (o FlowTaskArrayOutput) Index(i pulumi.IntInput) FlowTaskOutput {
 
 // An object used to store task related info
 type FlowTaskPropertiesObject struct {
-	Key   string `pulumi:"key"`
-	Value string `pulumi:"value"`
+	Key   FlowOperatorPropertiesKeys `pulumi:"key"`
+	Value string                     `pulumi:"value"`
 }
 
 // FlowTaskPropertiesObjectInput is an input type that accepts FlowTaskPropertiesObjectArgs and FlowTaskPropertiesObjectOutput values.
@@ -10022,8 +10024,8 @@ type FlowTaskPropertiesObjectInput interface {
 
 // An object used to store task related info
 type FlowTaskPropertiesObjectArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Value pulumi.StringInput `pulumi:"value"`
+	Key   FlowOperatorPropertiesKeysInput `pulumi:"key"`
+	Value pulumi.StringInput              `pulumi:"value"`
 }
 
 func (FlowTaskPropertiesObjectArgs) ElementType() reflect.Type {
@@ -10078,8 +10080,8 @@ func (o FlowTaskPropertiesObjectOutput) ToFlowTaskPropertiesObjectOutputWithCont
 	return o
 }
 
-func (o FlowTaskPropertiesObjectOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowTaskPropertiesObject) string { return v.Key }).(pulumi.StringOutput)
+func (o FlowTaskPropertiesObjectOutput) Key() FlowOperatorPropertiesKeysOutput {
+	return o.ApplyT(func(v FlowTaskPropertiesObject) FlowOperatorPropertiesKeys { return v.Key }).(FlowOperatorPropertiesKeysOutput)
 }
 
 func (o FlowTaskPropertiesObjectOutput) Value() pulumi.StringOutput {
@@ -10244,7 +10246,7 @@ type FlowTriggerConfig struct {
 	// Details required based on the type of trigger
 	TriggerProperties *FlowScheduledTriggerProperties `pulumi:"triggerProperties"`
 	// Trigger type of the flow
-	TriggerType string `pulumi:"triggerType"`
+	TriggerType FlowTriggerType `pulumi:"triggerType"`
 }
 
 // FlowTriggerConfigInput is an input type that accepts FlowTriggerConfigArgs and FlowTriggerConfigOutput values.
@@ -10263,7 +10265,7 @@ type FlowTriggerConfigArgs struct {
 	// Details required based on the type of trigger
 	TriggerProperties FlowScheduledTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
 	// Trigger type of the flow
-	TriggerType pulumi.StringInput `pulumi:"triggerType"`
+	TriggerType FlowTriggerTypeInput `pulumi:"triggerType"`
 }
 
 func (FlowTriggerConfigArgs) ElementType() reflect.Type {
@@ -10350,8 +10352,8 @@ func (o FlowTriggerConfigOutput) TriggerProperties() FlowScheduledTriggerPropert
 }
 
 // Trigger type of the flow
-func (o FlowTriggerConfigOutput) TriggerType() pulumi.StringOutput {
-	return o.ApplyT(func(v FlowTriggerConfig) string { return v.TriggerType }).(pulumi.StringOutput)
+func (o FlowTriggerConfigOutput) TriggerType() FlowTriggerTypeOutput {
+	return o.ApplyT(func(v FlowTriggerConfig) FlowTriggerType { return v.TriggerType }).(FlowTriggerTypeOutput)
 }
 
 type FlowTriggerConfigPtrOutput struct{ *pulumi.OutputState }
@@ -10389,13 +10391,13 @@ func (o FlowTriggerConfigPtrOutput) TriggerProperties() FlowScheduledTriggerProp
 }
 
 // Trigger type of the flow
-func (o FlowTriggerConfigPtrOutput) TriggerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowTriggerConfig) *string {
+func (o FlowTriggerConfigPtrOutput) TriggerType() FlowTriggerTypePtrOutput {
+	return o.ApplyT(func(v *FlowTriggerConfig) *FlowTriggerType {
 		if v == nil {
 			return nil
 		}
 		return &v.TriggerType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowTriggerTypePtrOutput)
 }
 
 type FlowUpsolverDestinationProperties struct {
@@ -10565,7 +10567,7 @@ func (o FlowUpsolverDestinationPropertiesPtrOutput) S3OutputFormatConfig() FlowU
 
 type FlowUpsolverS3OutputFormatConfig struct {
 	AggregationConfig *FlowAggregationConfig `pulumi:"aggregationConfig"`
-	FileType          *string                `pulumi:"fileType"`
+	FileType          *FlowFileType          `pulumi:"fileType"`
 	PrefixConfig      FlowPrefixConfig       `pulumi:"prefixConfig"`
 }
 
@@ -10582,7 +10584,7 @@ type FlowUpsolverS3OutputFormatConfigInput interface {
 
 type FlowUpsolverS3OutputFormatConfigArgs struct {
 	AggregationConfig FlowAggregationConfigPtrInput `pulumi:"aggregationConfig"`
-	FileType          pulumi.StringPtrInput         `pulumi:"fileType"`
+	FileType          FlowFileTypePtrInput          `pulumi:"fileType"`
 	PrefixConfig      FlowPrefixConfigInput         `pulumi:"prefixConfig"`
 }
 
@@ -10667,8 +10669,8 @@ func (o FlowUpsolverS3OutputFormatConfigOutput) AggregationConfig() FlowAggregat
 	return o.ApplyT(func(v FlowUpsolverS3OutputFormatConfig) *FlowAggregationConfig { return v.AggregationConfig }).(FlowAggregationConfigPtrOutput)
 }
 
-func (o FlowUpsolverS3OutputFormatConfigOutput) FileType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowUpsolverS3OutputFormatConfig) *string { return v.FileType }).(pulumi.StringPtrOutput)
+func (o FlowUpsolverS3OutputFormatConfigOutput) FileType() FlowFileTypePtrOutput {
+	return o.ApplyT(func(v FlowUpsolverS3OutputFormatConfig) *FlowFileType { return v.FileType }).(FlowFileTypePtrOutput)
 }
 
 func (o FlowUpsolverS3OutputFormatConfigOutput) PrefixConfig() FlowPrefixConfigOutput {
@@ -10708,13 +10710,13 @@ func (o FlowUpsolverS3OutputFormatConfigPtrOutput) AggregationConfig() FlowAggre
 	}).(FlowAggregationConfigPtrOutput)
 }
 
-func (o FlowUpsolverS3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowUpsolverS3OutputFormatConfig) *string {
+func (o FlowUpsolverS3OutputFormatConfigPtrOutput) FileType() FlowFileTypePtrOutput {
+	return o.ApplyT(func(v *FlowUpsolverS3OutputFormatConfig) *FlowFileType {
 		if v == nil {
 			return nil
 		}
 		return v.FileType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowFileTypePtrOutput)
 }
 
 func (o FlowUpsolverS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
@@ -10922,9 +10924,9 @@ func (o FlowVeevaSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 type FlowZendeskDestinationProperties struct {
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
-	IdFieldNames       []string `pulumi:"idFieldNames"`
-	Object             string   `pulumi:"object"`
-	WriteOperationType *string  `pulumi:"writeOperationType"`
+	IdFieldNames       []string                `pulumi:"idFieldNames"`
+	Object             string                  `pulumi:"object"`
+	WriteOperationType *FlowWriteOperationType `pulumi:"writeOperationType"`
 }
 
 // FlowZendeskDestinationPropertiesInput is an input type that accepts FlowZendeskDestinationPropertiesArgs and FlowZendeskDestinationPropertiesOutput values.
@@ -10941,9 +10943,9 @@ type FlowZendeskDestinationPropertiesInput interface {
 type FlowZendeskDestinationPropertiesArgs struct {
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
-	IdFieldNames       pulumi.StringArrayInput `pulumi:"idFieldNames"`
-	Object             pulumi.StringInput      `pulumi:"object"`
-	WriteOperationType pulumi.StringPtrInput   `pulumi:"writeOperationType"`
+	IdFieldNames       pulumi.StringArrayInput        `pulumi:"idFieldNames"`
+	Object             pulumi.StringInput             `pulumi:"object"`
+	WriteOperationType FlowWriteOperationTypePtrInput `pulumi:"writeOperationType"`
 }
 
 func (FlowZendeskDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -11036,8 +11038,8 @@ func (o FlowZendeskDestinationPropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowZendeskDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
 }
 
-func (o FlowZendeskDestinationPropertiesOutput) WriteOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FlowZendeskDestinationProperties) *string { return v.WriteOperationType }).(pulumi.StringPtrOutput)
+func (o FlowZendeskDestinationPropertiesOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v FlowZendeskDestinationProperties) *FlowWriteOperationType { return v.WriteOperationType }).(FlowWriteOperationTypePtrOutput)
 }
 
 type FlowZendeskDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -11092,13 +11094,13 @@ func (o FlowZendeskDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FlowZendeskDestinationPropertiesPtrOutput) WriteOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *string {
+func (o FlowZendeskDestinationPropertiesPtrOutput) WriteOperationType() FlowWriteOperationTypePtrOutput {
+	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *FlowWriteOperationType {
 		if v == nil {
 			return nil
 		}
 		return v.WriteOperationType
-	}).(pulumi.StringPtrOutput)
+	}).(FlowWriteOperationTypePtrOutput)
 }
 
 type FlowZendeskSourceProperties struct {

@@ -1078,9 +1078,9 @@ func (o FirewallTagArrayOutput) Index(i pulumi.IntInput) FirewallTagOutput {
 
 type LoggingConfigurationLogDestinationConfig struct {
 	// A key-value pair to configure the logDestinations.
-	LogDestination     interface{} `pulumi:"logDestination"`
-	LogDestinationType string      `pulumi:"logDestinationType"`
-	LogType            string      `pulumi:"logType"`
+	LogDestination     interface{}                                                `pulumi:"logDestination"`
+	LogDestinationType LoggingConfigurationLogDestinationConfigLogDestinationType `pulumi:"logDestinationType"`
+	LogType            LoggingConfigurationLogDestinationConfigLogType            `pulumi:"logType"`
 }
 
 // LoggingConfigurationLogDestinationConfigInput is an input type that accepts LoggingConfigurationLogDestinationConfigArgs and LoggingConfigurationLogDestinationConfigOutput values.
@@ -1096,9 +1096,9 @@ type LoggingConfigurationLogDestinationConfigInput interface {
 
 type LoggingConfigurationLogDestinationConfigArgs struct {
 	// A key-value pair to configure the logDestinations.
-	LogDestination     pulumi.Input       `pulumi:"logDestination"`
-	LogDestinationType pulumi.StringInput `pulumi:"logDestinationType"`
-	LogType            pulumi.StringInput `pulumi:"logType"`
+	LogDestination     pulumi.Input                                                    `pulumi:"logDestination"`
+	LogDestinationType LoggingConfigurationLogDestinationConfigLogDestinationTypeInput `pulumi:"logDestinationType"`
+	LogType            LoggingConfigurationLogDestinationConfigLogTypeInput            `pulumi:"logType"`
 }
 
 func (LoggingConfigurationLogDestinationConfigArgs) ElementType() reflect.Type {
@@ -1157,12 +1157,16 @@ func (o LoggingConfigurationLogDestinationConfigOutput) LogDestination() pulumi.
 	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) interface{} { return v.LogDestination }).(pulumi.AnyOutput)
 }
 
-func (o LoggingConfigurationLogDestinationConfigOutput) LogDestinationType() pulumi.StringOutput {
-	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) string { return v.LogDestinationType }).(pulumi.StringOutput)
+func (o LoggingConfigurationLogDestinationConfigOutput) LogDestinationType() LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput {
+	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) LoggingConfigurationLogDestinationConfigLogDestinationType {
+		return v.LogDestinationType
+	}).(LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput)
 }
 
-func (o LoggingConfigurationLogDestinationConfigOutput) LogType() pulumi.StringOutput {
-	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) string { return v.LogType }).(pulumi.StringOutput)
+func (o LoggingConfigurationLogDestinationConfigOutput) LogType() LoggingConfigurationLogDestinationConfigLogTypeOutput {
+	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfig) LoggingConfigurationLogDestinationConfigLogType {
+		return v.LogType
+	}).(LoggingConfigurationLogDestinationConfigLogTypeOutput)
 }
 
 type LoggingConfigurationLogDestinationConfigArrayOutput struct{ *pulumi.OutputState }
@@ -1658,12 +1662,12 @@ func (o RuleGroupDimensionArrayOutput) Index(i pulumi.IntInput) RuleGroupDimensi
 }
 
 type RuleGroupHeader struct {
-	Destination     string `pulumi:"destination"`
-	DestinationPort string `pulumi:"destinationPort"`
-	Direction       string `pulumi:"direction"`
-	Protocol        string `pulumi:"protocol"`
-	Source          string `pulumi:"source"`
-	SourcePort      string `pulumi:"sourcePort"`
+	Destination     string                   `pulumi:"destination"`
+	DestinationPort string                   `pulumi:"destinationPort"`
+	Direction       RuleGroupHeaderDirection `pulumi:"direction"`
+	Protocol        RuleGroupHeaderProtocol  `pulumi:"protocol"`
+	Source          string                   `pulumi:"source"`
+	SourcePort      string                   `pulumi:"sourcePort"`
 }
 
 // RuleGroupHeaderInput is an input type that accepts RuleGroupHeaderArgs and RuleGroupHeaderOutput values.
@@ -1678,12 +1682,12 @@ type RuleGroupHeaderInput interface {
 }
 
 type RuleGroupHeaderArgs struct {
-	Destination     pulumi.StringInput `pulumi:"destination"`
-	DestinationPort pulumi.StringInput `pulumi:"destinationPort"`
-	Direction       pulumi.StringInput `pulumi:"direction"`
-	Protocol        pulumi.StringInput `pulumi:"protocol"`
-	Source          pulumi.StringInput `pulumi:"source"`
-	SourcePort      pulumi.StringInput `pulumi:"sourcePort"`
+	Destination     pulumi.StringInput            `pulumi:"destination"`
+	DestinationPort pulumi.StringInput            `pulumi:"destinationPort"`
+	Direction       RuleGroupHeaderDirectionInput `pulumi:"direction"`
+	Protocol        RuleGroupHeaderProtocolInput  `pulumi:"protocol"`
+	Source          pulumi.StringInput            `pulumi:"source"`
+	SourcePort      pulumi.StringInput            `pulumi:"sourcePort"`
 }
 
 func (RuleGroupHeaderArgs) ElementType() reflect.Type {
@@ -1720,12 +1724,12 @@ func (o RuleGroupHeaderOutput) DestinationPort() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupHeader) string { return v.DestinationPort }).(pulumi.StringOutput)
 }
 
-func (o RuleGroupHeaderOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupHeader) string { return v.Direction }).(pulumi.StringOutput)
+func (o RuleGroupHeaderOutput) Direction() RuleGroupHeaderDirectionOutput {
+	return o.ApplyT(func(v RuleGroupHeader) RuleGroupHeaderDirection { return v.Direction }).(RuleGroupHeaderDirectionOutput)
 }
 
-func (o RuleGroupHeaderOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupHeader) string { return v.Protocol }).(pulumi.StringOutput)
+func (o RuleGroupHeaderOutput) Protocol() RuleGroupHeaderProtocolOutput {
+	return o.ApplyT(func(v RuleGroupHeader) RuleGroupHeaderProtocol { return v.Protocol }).(RuleGroupHeaderProtocolOutput)
 }
 
 func (o RuleGroupHeaderOutput) Source() pulumi.StringOutput {
@@ -2680,9 +2684,9 @@ func (o RuleGroupRulesSourcePtrOutput) StatelessRulesAndCustomActions() RuleGrou
 }
 
 type RuleGroupRulesSourceList struct {
-	GeneratedRulesType string   `pulumi:"generatedRulesType"`
-	TargetTypes        []string `pulumi:"targetTypes"`
-	Targets            []string `pulumi:"targets"`
+	GeneratedRulesType RuleGroupGeneratedRulesType `pulumi:"generatedRulesType"`
+	TargetTypes        []RuleGroupTargetType       `pulumi:"targetTypes"`
+	Targets            []string                    `pulumi:"targets"`
 }
 
 // RuleGroupRulesSourceListInput is an input type that accepts RuleGroupRulesSourceListArgs and RuleGroupRulesSourceListOutput values.
@@ -2697,9 +2701,9 @@ type RuleGroupRulesSourceListInput interface {
 }
 
 type RuleGroupRulesSourceListArgs struct {
-	GeneratedRulesType pulumi.StringInput      `pulumi:"generatedRulesType"`
-	TargetTypes        pulumi.StringArrayInput `pulumi:"targetTypes"`
-	Targets            pulumi.StringArrayInput `pulumi:"targets"`
+	GeneratedRulesType RuleGroupGeneratedRulesTypeInput `pulumi:"generatedRulesType"`
+	TargetTypes        RuleGroupTargetTypeArrayInput    `pulumi:"targetTypes"`
+	Targets            pulumi.StringArrayInput          `pulumi:"targets"`
 }
 
 func (RuleGroupRulesSourceListArgs) ElementType() reflect.Type {
@@ -2779,12 +2783,12 @@ func (o RuleGroupRulesSourceListOutput) ToRuleGroupRulesSourceListPtrOutputWithC
 	}).(RuleGroupRulesSourceListPtrOutput)
 }
 
-func (o RuleGroupRulesSourceListOutput) GeneratedRulesType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupRulesSourceList) string { return v.GeneratedRulesType }).(pulumi.StringOutput)
+func (o RuleGroupRulesSourceListOutput) GeneratedRulesType() RuleGroupGeneratedRulesTypeOutput {
+	return o.ApplyT(func(v RuleGroupRulesSourceList) RuleGroupGeneratedRulesType { return v.GeneratedRulesType }).(RuleGroupGeneratedRulesTypeOutput)
 }
 
-func (o RuleGroupRulesSourceListOutput) TargetTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleGroupRulesSourceList) []string { return v.TargetTypes }).(pulumi.StringArrayOutput)
+func (o RuleGroupRulesSourceListOutput) TargetTypes() RuleGroupTargetTypeArrayOutput {
+	return o.ApplyT(func(v RuleGroupRulesSourceList) []RuleGroupTargetType { return v.TargetTypes }).(RuleGroupTargetTypeArrayOutput)
 }
 
 func (o RuleGroupRulesSourceListOutput) Targets() pulumi.StringArrayOutput {
@@ -2815,22 +2819,22 @@ func (o RuleGroupRulesSourceListPtrOutput) Elem() RuleGroupRulesSourceListOutput
 	}).(RuleGroupRulesSourceListOutput)
 }
 
-func (o RuleGroupRulesSourceListPtrOutput) GeneratedRulesType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRulesSourceList) *string {
+func (o RuleGroupRulesSourceListPtrOutput) GeneratedRulesType() RuleGroupGeneratedRulesTypePtrOutput {
+	return o.ApplyT(func(v *RuleGroupRulesSourceList) *RuleGroupGeneratedRulesType {
 		if v == nil {
 			return nil
 		}
 		return &v.GeneratedRulesType
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupGeneratedRulesTypePtrOutput)
 }
 
-func (o RuleGroupRulesSourceListPtrOutput) TargetTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RuleGroupRulesSourceList) []string {
+func (o RuleGroupRulesSourceListPtrOutput) TargetTypes() RuleGroupTargetTypeArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRulesSourceList) []RuleGroupTargetType {
 		if v == nil {
 			return nil
 		}
 		return v.TargetTypes
-	}).(pulumi.StringArrayOutput)
+	}).(RuleGroupTargetTypeArrayOutput)
 }
 
 func (o RuleGroupRulesSourceListPtrOutput) Targets() pulumi.StringArrayOutput {
@@ -2843,9 +2847,9 @@ func (o RuleGroupRulesSourceListPtrOutput) Targets() pulumi.StringArrayOutput {
 }
 
 type RuleGroupStatefulRule struct {
-	Action      string                `pulumi:"action"`
-	Header      RuleGroupHeader       `pulumi:"header"`
-	RuleOptions []RuleGroupRuleOption `pulumi:"ruleOptions"`
+	Action      RuleGroupStatefulRuleAction `pulumi:"action"`
+	Header      RuleGroupHeader             `pulumi:"header"`
+	RuleOptions []RuleGroupRuleOption       `pulumi:"ruleOptions"`
 }
 
 // RuleGroupStatefulRuleInput is an input type that accepts RuleGroupStatefulRuleArgs and RuleGroupStatefulRuleOutput values.
@@ -2860,9 +2864,9 @@ type RuleGroupStatefulRuleInput interface {
 }
 
 type RuleGroupStatefulRuleArgs struct {
-	Action      pulumi.StringInput            `pulumi:"action"`
-	Header      RuleGroupHeaderInput          `pulumi:"header"`
-	RuleOptions RuleGroupRuleOptionArrayInput `pulumi:"ruleOptions"`
+	Action      RuleGroupStatefulRuleActionInput `pulumi:"action"`
+	Header      RuleGroupHeaderInput             `pulumi:"header"`
+	RuleOptions RuleGroupRuleOptionArrayInput    `pulumi:"ruleOptions"`
 }
 
 func (RuleGroupStatefulRuleArgs) ElementType() reflect.Type {
@@ -2916,8 +2920,8 @@ func (o RuleGroupStatefulRuleOutput) ToRuleGroupStatefulRuleOutputWithContext(ct
 	return o
 }
 
-func (o RuleGroupStatefulRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupStatefulRule) string { return v.Action }).(pulumi.StringOutput)
+func (o RuleGroupStatefulRuleOutput) Action() RuleGroupStatefulRuleActionOutput {
+	return o.ApplyT(func(v RuleGroupStatefulRule) RuleGroupStatefulRuleAction { return v.Action }).(RuleGroupStatefulRuleActionOutput)
 }
 
 func (o RuleGroupStatefulRuleOutput) Header() RuleGroupHeaderOutput {
@@ -3197,8 +3201,8 @@ func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) StatelessRules() RuleG
 }
 
 type RuleGroupTCPFlagField struct {
-	Flags []string `pulumi:"flags"`
-	Masks []string `pulumi:"masks"`
+	Flags []RuleGroupTCPFlag `pulumi:"flags"`
+	Masks []RuleGroupTCPFlag `pulumi:"masks"`
 }
 
 // RuleGroupTCPFlagFieldInput is an input type that accepts RuleGroupTCPFlagFieldArgs and RuleGroupTCPFlagFieldOutput values.
@@ -3213,8 +3217,8 @@ type RuleGroupTCPFlagFieldInput interface {
 }
 
 type RuleGroupTCPFlagFieldArgs struct {
-	Flags pulumi.StringArrayInput `pulumi:"flags"`
-	Masks pulumi.StringArrayInput `pulumi:"masks"`
+	Flags RuleGroupTCPFlagArrayInput `pulumi:"flags"`
+	Masks RuleGroupTCPFlagArrayInput `pulumi:"masks"`
 }
 
 func (RuleGroupTCPFlagFieldArgs) ElementType() reflect.Type {
@@ -3268,12 +3272,12 @@ func (o RuleGroupTCPFlagFieldOutput) ToRuleGroupTCPFlagFieldOutputWithContext(ct
 	return o
 }
 
-func (o RuleGroupTCPFlagFieldOutput) Flags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleGroupTCPFlagField) []string { return v.Flags }).(pulumi.StringArrayOutput)
+func (o RuleGroupTCPFlagFieldOutput) Flags() RuleGroupTCPFlagArrayOutput {
+	return o.ApplyT(func(v RuleGroupTCPFlagField) []RuleGroupTCPFlag { return v.Flags }).(RuleGroupTCPFlagArrayOutput)
 }
 
-func (o RuleGroupTCPFlagFieldOutput) Masks() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleGroupTCPFlagField) []string { return v.Masks }).(pulumi.StringArrayOutput)
+func (o RuleGroupTCPFlagFieldOutput) Masks() RuleGroupTCPFlagArrayOutput {
+	return o.ApplyT(func(v RuleGroupTCPFlagField) []RuleGroupTCPFlag { return v.Masks }).(RuleGroupTCPFlagArrayOutput)
 }
 
 type RuleGroupTCPFlagFieldArrayOutput struct{ *pulumi.OutputState }

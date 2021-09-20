@@ -11,8 +11,8 @@ import (
 )
 
 type BudgetsActionActionThreshold struct {
-	Type  string  `pulumi:"type"`
-	Value float64 `pulumi:"value"`
+	Type  BudgetsActionActionThresholdType `pulumi:"type"`
+	Value float64                          `pulumi:"value"`
 }
 
 // BudgetsActionActionThresholdInput is an input type that accepts BudgetsActionActionThresholdArgs and BudgetsActionActionThresholdOutput values.
@@ -27,8 +27,8 @@ type BudgetsActionActionThresholdInput interface {
 }
 
 type BudgetsActionActionThresholdArgs struct {
-	Type  pulumi.StringInput  `pulumi:"type"`
-	Value pulumi.Float64Input `pulumi:"value"`
+	Type  BudgetsActionActionThresholdTypeInput `pulumi:"type"`
+	Value pulumi.Float64Input                   `pulumi:"value"`
 }
 
 func (BudgetsActionActionThresholdArgs) ElementType() reflect.Type {
@@ -108,8 +108,8 @@ func (o BudgetsActionActionThresholdOutput) ToBudgetsActionActionThresholdPtrOut
 	}).(BudgetsActionActionThresholdPtrOutput)
 }
 
-func (o BudgetsActionActionThresholdOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BudgetsActionActionThreshold) string { return v.Type }).(pulumi.StringOutput)
+func (o BudgetsActionActionThresholdOutput) Type() BudgetsActionActionThresholdTypeOutput {
+	return o.ApplyT(func(v BudgetsActionActionThreshold) BudgetsActionActionThresholdType { return v.Type }).(BudgetsActionActionThresholdTypeOutput)
 }
 
 func (o BudgetsActionActionThresholdOutput) Value() pulumi.Float64Output {
@@ -140,13 +140,13 @@ func (o BudgetsActionActionThresholdPtrOutput) Elem() BudgetsActionActionThresho
 	}).(BudgetsActionActionThresholdOutput)
 }
 
-func (o BudgetsActionActionThresholdPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetsActionActionThreshold) *string {
+func (o BudgetsActionActionThresholdPtrOutput) Type() BudgetsActionActionThresholdTypePtrOutput {
+	return o.ApplyT(func(v *BudgetsActionActionThreshold) *BudgetsActionActionThresholdType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(BudgetsActionActionThresholdTypePtrOutput)
 }
 
 func (o BudgetsActionActionThresholdPtrOutput) Value() pulumi.Float64PtrOutput {
@@ -648,9 +648,9 @@ func (o BudgetsActionScpActionDefinitionPtrOutput) TargetIds() pulumi.StringArra
 }
 
 type BudgetsActionSsmActionDefinition struct {
-	InstanceIds []string `pulumi:"instanceIds"`
-	Region      string   `pulumi:"region"`
-	Subtype     string   `pulumi:"subtype"`
+	InstanceIds []string                                `pulumi:"instanceIds"`
+	Region      string                                  `pulumi:"region"`
+	Subtype     BudgetsActionSsmActionDefinitionSubtype `pulumi:"subtype"`
 }
 
 // BudgetsActionSsmActionDefinitionInput is an input type that accepts BudgetsActionSsmActionDefinitionArgs and BudgetsActionSsmActionDefinitionOutput values.
@@ -665,9 +665,9 @@ type BudgetsActionSsmActionDefinitionInput interface {
 }
 
 type BudgetsActionSsmActionDefinitionArgs struct {
-	InstanceIds pulumi.StringArrayInput `pulumi:"instanceIds"`
-	Region      pulumi.StringInput      `pulumi:"region"`
-	Subtype     pulumi.StringInput      `pulumi:"subtype"`
+	InstanceIds pulumi.StringArrayInput                      `pulumi:"instanceIds"`
+	Region      pulumi.StringInput                           `pulumi:"region"`
+	Subtype     BudgetsActionSsmActionDefinitionSubtypeInput `pulumi:"subtype"`
 }
 
 func (BudgetsActionSsmActionDefinitionArgs) ElementType() reflect.Type {
@@ -755,8 +755,8 @@ func (o BudgetsActionSsmActionDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) string { return v.Region }).(pulumi.StringOutput)
 }
 
-func (o BudgetsActionSsmActionDefinitionOutput) Subtype() pulumi.StringOutput {
-	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) string { return v.Subtype }).(pulumi.StringOutput)
+func (o BudgetsActionSsmActionDefinitionOutput) Subtype() BudgetsActionSsmActionDefinitionSubtypeOutput {
+	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) BudgetsActionSsmActionDefinitionSubtype { return v.Subtype }).(BudgetsActionSsmActionDefinitionSubtypeOutput)
 }
 
 type BudgetsActionSsmActionDefinitionPtrOutput struct{ *pulumi.OutputState }
@@ -801,18 +801,18 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) Region() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BudgetsActionSsmActionDefinitionPtrOutput) Subtype() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) *string {
+func (o BudgetsActionSsmActionDefinitionPtrOutput) Subtype() BudgetsActionSsmActionDefinitionSubtypePtrOutput {
+	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) *BudgetsActionSsmActionDefinitionSubtype {
 		if v == nil {
 			return nil
 		}
 		return &v.Subtype
-	}).(pulumi.StringPtrOutput)
+	}).(BudgetsActionSsmActionDefinitionSubtypePtrOutput)
 }
 
 type BudgetsActionSubscriber struct {
-	Address string `pulumi:"address"`
-	Type    string `pulumi:"type"`
+	Address string                      `pulumi:"address"`
+	Type    BudgetsActionSubscriberType `pulumi:"type"`
 }
 
 // BudgetsActionSubscriberInput is an input type that accepts BudgetsActionSubscriberArgs and BudgetsActionSubscriberOutput values.
@@ -827,8 +827,8 @@ type BudgetsActionSubscriberInput interface {
 }
 
 type BudgetsActionSubscriberArgs struct {
-	Address pulumi.StringInput `pulumi:"address"`
-	Type    pulumi.StringInput `pulumi:"type"`
+	Address pulumi.StringInput               `pulumi:"address"`
+	Type    BudgetsActionSubscriberTypeInput `pulumi:"type"`
 }
 
 func (BudgetsActionSubscriberArgs) ElementType() reflect.Type {
@@ -886,8 +886,8 @@ func (o BudgetsActionSubscriberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSubscriber) string { return v.Address }).(pulumi.StringOutput)
 }
 
-func (o BudgetsActionSubscriberOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BudgetsActionSubscriber) string { return v.Type }).(pulumi.StringOutput)
+func (o BudgetsActionSubscriberOutput) Type() BudgetsActionSubscriberTypeOutput {
+	return o.ApplyT(func(v BudgetsActionSubscriber) BudgetsActionSubscriberType { return v.Type }).(BudgetsActionSubscriberTypeOutput)
 }
 
 type BudgetsActionSubscriberArrayOutput struct{ *pulumi.OutputState }

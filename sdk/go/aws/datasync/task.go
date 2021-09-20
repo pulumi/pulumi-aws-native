@@ -34,7 +34,7 @@ type Task struct {
 	SourceLocationArn          pulumi.StringOutput      `pulumi:"sourceLocationArn"`
 	SourceNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"sourceNetworkInterfaceArns"`
 	// The status of the task that was described.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status TaskStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags TaskTagArrayOutput `pulumi:"tags"`
 	// The ARN of the task.

@@ -24,7 +24,7 @@ type FlowEntitlement struct {
 	// The ARN of the entitlement.
 	EntitlementArn pulumi.StringOutput `pulumi:"entitlementArn"`
 	//  An indication of whether the entitlement is enabled.
-	EntitlementStatus pulumi.StringPtrOutput `pulumi:"entitlementStatus"`
+	EntitlementStatus FlowEntitlementEntitlementStatusPtrOutput `pulumi:"entitlementStatus"`
 	// The ARN of the flow.
 	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
 	// The name of the entitlement.
@@ -91,7 +91,7 @@ type flowEntitlementArgs struct {
 	// The type of encryption that will be used on the output that is associated with this entitlement.
 	Encryption *FlowEntitlementEncryption `pulumi:"encryption"`
 	//  An indication of whether the entitlement is enabled.
-	EntitlementStatus *string `pulumi:"entitlementStatus"`
+	EntitlementStatus *FlowEntitlementEntitlementStatus `pulumi:"entitlementStatus"`
 	// The ARN of the flow.
 	FlowArn string `pulumi:"flowArn"`
 	// The name of the entitlement.
@@ -109,7 +109,7 @@ type FlowEntitlementArgs struct {
 	// The type of encryption that will be used on the output that is associated with this entitlement.
 	Encryption FlowEntitlementEncryptionPtrInput
 	//  An indication of whether the entitlement is enabled.
-	EntitlementStatus pulumi.StringPtrInput
+	EntitlementStatus FlowEntitlementEntitlementStatusPtrInput
 	// The ARN of the flow.
 	FlowArn pulumi.StringInput
 	// The name of the entitlement.

@@ -111,7 +111,7 @@ func (o KeyspaceTagArrayOutput) Index(i pulumi.IntInput) KeyspaceTagOutput {
 }
 
 type TableBillingMode struct {
-	Mode                  string                      `pulumi:"mode"`
+	Mode                  TableMode                   `pulumi:"mode"`
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
 }
 
@@ -127,7 +127,7 @@ type TableBillingModeInput interface {
 }
 
 type TableBillingModeArgs struct {
-	Mode                  pulumi.StringInput                 `pulumi:"mode"`
+	Mode                  TableModeInput                     `pulumi:"mode"`
 	ProvisionedThroughput TableProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
 }
 
@@ -208,8 +208,8 @@ func (o TableBillingModeOutput) ToTableBillingModePtrOutputWithContext(ctx conte
 	}).(TableBillingModePtrOutput)
 }
 
-func (o TableBillingModeOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v TableBillingMode) string { return v.Mode }).(pulumi.StringOutput)
+func (o TableBillingModeOutput) Mode() TableModeOutput {
+	return o.ApplyT(func(v TableBillingMode) TableMode { return v.Mode }).(TableModeOutput)
 }
 
 func (o TableBillingModeOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
@@ -240,13 +240,13 @@ func (o TableBillingModePtrOutput) Elem() TableBillingModeOutput {
 	}).(TableBillingModeOutput)
 }
 
-func (o TableBillingModePtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableBillingMode) *string {
+func (o TableBillingModePtrOutput) Mode() TableModePtrOutput {
+	return o.ApplyT(func(v *TableBillingMode) *TableMode {
 		if v == nil {
 			return nil
 		}
 		return &v.Mode
-	}).(pulumi.StringPtrOutput)
+	}).(TableModePtrOutput)
 }
 
 func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
@@ -259,8 +259,8 @@ func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThrou
 }
 
 type TableClusteringKeyColumn struct {
-	Column  TableColumn `pulumi:"column"`
-	OrderBy *string     `pulumi:"orderBy"`
+	Column  TableColumn                      `pulumi:"column"`
+	OrderBy *TableClusteringKeyColumnOrderBy `pulumi:"orderBy"`
 }
 
 // TableClusteringKeyColumnInput is an input type that accepts TableClusteringKeyColumnArgs and TableClusteringKeyColumnOutput values.
@@ -275,8 +275,8 @@ type TableClusteringKeyColumnInput interface {
 }
 
 type TableClusteringKeyColumnArgs struct {
-	Column  TableColumnInput      `pulumi:"column"`
-	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
+	Column  TableColumnInput                        `pulumi:"column"`
+	OrderBy TableClusteringKeyColumnOrderByPtrInput `pulumi:"orderBy"`
 }
 
 func (TableClusteringKeyColumnArgs) ElementType() reflect.Type {
@@ -334,8 +334,8 @@ func (o TableClusteringKeyColumnOutput) Column() TableColumnOutput {
 	return o.ApplyT(func(v TableClusteringKeyColumn) TableColumn { return v.Column }).(TableColumnOutput)
 }
 
-func (o TableClusteringKeyColumnOutput) OrderBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableClusteringKeyColumn) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
+func (o TableClusteringKeyColumnOutput) OrderBy() TableClusteringKeyColumnOrderByPtrOutput {
+	return o.ApplyT(func(v TableClusteringKeyColumn) *TableClusteringKeyColumnOrderBy { return v.OrderBy }).(TableClusteringKeyColumnOrderByPtrOutput)
 }
 
 type TableClusteringKeyColumnArrayOutput struct{ *pulumi.OutputState }
@@ -460,8 +460,8 @@ func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
 
 // Represents the settings used to enable server-side encryption
 type TableEncryptionSpecification struct {
-	EncryptionType   string  `pulumi:"encryptionType"`
-	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	EncryptionType   TableEncryptionType `pulumi:"encryptionType"`
+	KmsKeyIdentifier *string             `pulumi:"kmsKeyIdentifier"`
 }
 
 // TableEncryptionSpecificationInput is an input type that accepts TableEncryptionSpecificationArgs and TableEncryptionSpecificationOutput values.
@@ -477,8 +477,8 @@ type TableEncryptionSpecificationInput interface {
 
 // Represents the settings used to enable server-side encryption
 type TableEncryptionSpecificationArgs struct {
-	EncryptionType   pulumi.StringInput    `pulumi:"encryptionType"`
-	KmsKeyIdentifier pulumi.StringPtrInput `pulumi:"kmsKeyIdentifier"`
+	EncryptionType   TableEncryptionTypeInput `pulumi:"encryptionType"`
+	KmsKeyIdentifier pulumi.StringPtrInput    `pulumi:"kmsKeyIdentifier"`
 }
 
 func (TableEncryptionSpecificationArgs) ElementType() reflect.Type {
@@ -559,8 +559,8 @@ func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationPtrOut
 	}).(TableEncryptionSpecificationPtrOutput)
 }
 
-func (o TableEncryptionSpecificationOutput) EncryptionType() pulumi.StringOutput {
-	return o.ApplyT(func(v TableEncryptionSpecification) string { return v.EncryptionType }).(pulumi.StringOutput)
+func (o TableEncryptionSpecificationOutput) EncryptionType() TableEncryptionTypeOutput {
+	return o.ApplyT(func(v TableEncryptionSpecification) TableEncryptionType { return v.EncryptionType }).(TableEncryptionTypeOutput)
 }
 
 func (o TableEncryptionSpecificationOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
@@ -591,13 +591,13 @@ func (o TableEncryptionSpecificationPtrOutput) Elem() TableEncryptionSpecificati
 	}).(TableEncryptionSpecificationOutput)
 }
 
-func (o TableEncryptionSpecificationPtrOutput) EncryptionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableEncryptionSpecification) *string {
+func (o TableEncryptionSpecificationPtrOutput) EncryptionType() TableEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *TableEncryptionSpecification) *TableEncryptionType {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionType
-	}).(pulumi.StringPtrOutput)
+	}).(TableEncryptionTypePtrOutput)
 }
 
 func (o TableEncryptionSpecificationPtrOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {

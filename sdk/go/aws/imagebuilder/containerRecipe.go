@@ -19,7 +19,7 @@ type ContainerRecipe struct {
 	// Components for build and test that are included in the container recipe.
 	Components ContainerRecipeComponentConfigurationArrayOutput `pulumi:"components"`
 	// Specifies the type of container, such as Docker.
-	ContainerType pulumi.StringPtrOutput `pulumi:"containerType"`
+	ContainerType ContainerRecipeContainerTypePtrOutput `pulumi:"containerType"`
 	// The description of the container recipe.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
@@ -37,7 +37,7 @@ type ContainerRecipe struct {
 	// The source image for the container recipe.
 	ParentImage pulumi.StringPtrOutput `pulumi:"parentImage"`
 	// Specifies the operating system platform when you use a custom source image.
-	PlatformOverride pulumi.StringPtrOutput `pulumi:"platformOverride"`
+	PlatformOverride ContainerRecipePlatformOverridePtrOutput `pulumi:"platformOverride"`
 	// Tags that are attached to the container recipe.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// The destination repository for the container image.
@@ -90,7 +90,7 @@ type containerRecipeArgs struct {
 	// Components for build and test that are included in the container recipe.
 	Components []ContainerRecipeComponentConfiguration `pulumi:"components"`
 	// Specifies the type of container, such as Docker.
-	ContainerType *string `pulumi:"containerType"`
+	ContainerType *ContainerRecipeContainerType `pulumi:"containerType"`
 	// The description of the container recipe.
 	Description *string `pulumi:"description"`
 	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
@@ -108,7 +108,7 @@ type containerRecipeArgs struct {
 	// The source image for the container recipe.
 	ParentImage *string `pulumi:"parentImage"`
 	// Specifies the operating system platform when you use a custom source image.
-	PlatformOverride *string `pulumi:"platformOverride"`
+	PlatformOverride *ContainerRecipePlatformOverride `pulumi:"platformOverride"`
 	// Tags that are attached to the container recipe.
 	Tags interface{} `pulumi:"tags"`
 	// The destination repository for the container image.
@@ -124,7 +124,7 @@ type ContainerRecipeArgs struct {
 	// Components for build and test that are included in the container recipe.
 	Components ContainerRecipeComponentConfigurationArrayInput
 	// Specifies the type of container, such as Docker.
-	ContainerType pulumi.StringPtrInput
+	ContainerType ContainerRecipeContainerTypePtrInput
 	// The description of the container recipe.
 	Description pulumi.StringPtrInput
 	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
@@ -142,7 +142,7 @@ type ContainerRecipeArgs struct {
 	// The source image for the container recipe.
 	ParentImage pulumi.StringPtrInput
 	// Specifies the operating system platform when you use a custom source image.
-	PlatformOverride pulumi.StringPtrInput
+	PlatformOverride ContainerRecipePlatformOverridePtrInput
 	// Tags that are attached to the container recipe.
 	Tags pulumi.Input
 	// The destination repository for the container image.

@@ -13,7 +13,7 @@ import (
 // When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
 type StreamStreamEncryption struct {
 	// The encryption type to use. The only valid value is KMS.
-	EncryptionType string `pulumi:"encryptionType"`
+	EncryptionType StreamStreamEncryptionEncryptionType `pulumi:"encryptionType"`
 	// The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
 	KeyId string `pulumi:"keyId"`
 }
@@ -32,7 +32,7 @@ type StreamStreamEncryptionInput interface {
 // When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
 type StreamStreamEncryptionArgs struct {
 	// The encryption type to use. The only valid value is KMS.
-	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	EncryptionType StreamStreamEncryptionEncryptionTypeInput `pulumi:"encryptionType"`
 	// The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
@@ -116,8 +116,8 @@ func (o StreamStreamEncryptionOutput) ToStreamStreamEncryptionPtrOutputWithConte
 }
 
 // The encryption type to use. The only valid value is KMS.
-func (o StreamStreamEncryptionOutput) EncryptionType() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamStreamEncryption) string { return v.EncryptionType }).(pulumi.StringOutput)
+func (o StreamStreamEncryptionOutput) EncryptionType() StreamStreamEncryptionEncryptionTypeOutput {
+	return o.ApplyT(func(v StreamStreamEncryption) StreamStreamEncryptionEncryptionType { return v.EncryptionType }).(StreamStreamEncryptionEncryptionTypeOutput)
 }
 
 // The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
@@ -150,13 +150,13 @@ func (o StreamStreamEncryptionPtrOutput) Elem() StreamStreamEncryptionOutput {
 }
 
 // The encryption type to use. The only valid value is KMS.
-func (o StreamStreamEncryptionPtrOutput) EncryptionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamStreamEncryption) *string {
+func (o StreamStreamEncryptionPtrOutput) EncryptionType() StreamStreamEncryptionEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *StreamStreamEncryption) *StreamStreamEncryptionEncryptionType {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionType
-	}).(pulumi.StringPtrOutput)
+	}).(StreamStreamEncryptionEncryptionTypePtrOutput)
 }
 
 // The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.

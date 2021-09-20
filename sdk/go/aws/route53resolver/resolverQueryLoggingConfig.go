@@ -29,9 +29,9 @@ type ResolverQueryLoggingConfig struct {
 	// AccountId
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
-	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
+	ShareStatus ResolverQueryLoggingConfigShareStatusOutput `pulumi:"shareStatus"`
 	// ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status ResolverQueryLoggingConfigStatusOutput `pulumi:"status"`
 }
 
 // NewResolverQueryLoggingConfig registers a new resource with the given unique name, arguments, and options.

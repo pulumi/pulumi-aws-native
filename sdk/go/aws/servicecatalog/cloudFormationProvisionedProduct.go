@@ -14,9 +14,9 @@ import (
 type CloudFormationProvisionedProduct struct {
 	pulumi.CustomResourceState
 
-	AcceptLanguage         pulumi.StringPtrOutput   `pulumi:"acceptLanguage"`
-	CloudformationStackArn pulumi.StringOutput      `pulumi:"cloudformationStackArn"`
-	NotificationArns       pulumi.StringArrayOutput `pulumi:"notificationArns"`
+	AcceptLanguage         CloudFormationProvisionedProductAcceptLanguagePtrOutput `pulumi:"acceptLanguage"`
+	CloudformationStackArn pulumi.StringOutput                                     `pulumi:"cloudformationStackArn"`
+	NotificationArns       pulumi.StringArrayOutput                                `pulumi:"notificationArns"`
 	// List of key-value pair outputs.
 	Outputs                  pulumi.AnyOutput                                                 `pulumi:"outputs"`
 	PathId                   pulumi.StringPtrOutput                                           `pulumi:"pathId"`
@@ -72,7 +72,7 @@ func (CloudFormationProvisionedProductState) ElementType() reflect.Type {
 }
 
 type cloudFormationProvisionedProductArgs struct {
-	AcceptLanguage           *string                                                  `pulumi:"acceptLanguage"`
+	AcceptLanguage           *CloudFormationProvisionedProductAcceptLanguage          `pulumi:"acceptLanguage"`
 	NotificationArns         []string                                                 `pulumi:"notificationArns"`
 	PathId                   *string                                                  `pulumi:"pathId"`
 	PathName                 *string                                                  `pulumi:"pathName"`
@@ -88,7 +88,7 @@ type cloudFormationProvisionedProductArgs struct {
 
 // The set of arguments for constructing a CloudFormationProvisionedProduct resource.
 type CloudFormationProvisionedProductArgs struct {
-	AcceptLanguage           pulumi.StringPtrInput
+	AcceptLanguage           CloudFormationProvisionedProductAcceptLanguagePtrInput
 	NotificationArns         pulumi.StringArrayInput
 	PathId                   pulumi.StringPtrInput
 	PathName                 pulumi.StringPtrInput

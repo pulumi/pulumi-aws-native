@@ -29,7 +29,7 @@ type TypeActivation struct {
 	// The publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringPtrOutput `pulumi:"publisherId"`
 	// The kind of extension
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type TypeActivationTypePtrOutput `pulumi:"type"`
 	// The name of the type being registered.
 	//
 	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -37,7 +37,7 @@ type TypeActivation struct {
 	// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
 	TypeNameAlias pulumi.StringPtrOutput `pulumi:"typeNameAlias"`
 	// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
-	VersionBump pulumi.StringPtrOutput `pulumi:"versionBump"`
+	VersionBump TypeActivationVersionBumpPtrOutput `pulumi:"versionBump"`
 }
 
 // NewTypeActivation registers a new resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ type typeActivationArgs struct {
 	// The publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId *string `pulumi:"publisherId"`
 	// The kind of extension
-	Type *string `pulumi:"type"`
+	Type *TypeActivationType `pulumi:"type"`
 	// The name of the type being registered.
 	//
 	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -100,7 +100,7 @@ type typeActivationArgs struct {
 	// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
 	TypeNameAlias *string `pulumi:"typeNameAlias"`
 	// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
-	VersionBump *string `pulumi:"versionBump"`
+	VersionBump *TypeActivationVersionBump `pulumi:"versionBump"`
 }
 
 // The set of arguments for constructing a TypeActivation resource.
@@ -118,7 +118,7 @@ type TypeActivationArgs struct {
 	// The publisher id assigned by CloudFormation for publishing in this region.
 	PublisherId pulumi.StringPtrInput
 	// The kind of extension
-	Type pulumi.StringPtrInput
+	Type TypeActivationTypePtrInput
 	// The name of the type being registered.
 	//
 	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
@@ -126,7 +126,7 @@ type TypeActivationArgs struct {
 	// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
 	TypeNameAlias pulumi.StringPtrInput
 	// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
-	VersionBump pulumi.StringPtrInput
+	VersionBump TypeActivationVersionBumpPtrInput
 }
 
 func (TypeActivationArgs) ElementType() reflect.Type {

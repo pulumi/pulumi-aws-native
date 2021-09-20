@@ -17,7 +17,7 @@ type ConnectionAlias struct {
 
 	AliasId              pulumi.StringOutput                                  `pulumi:"aliasId"`
 	Associations         ConnectionAliasConnectionAliasAssociationArrayOutput `pulumi:"associations"`
-	ConnectionAliasState pulumi.StringOutput                                  `pulumi:"connectionAliasState"`
+	ConnectionAliasState ConnectionAliasConnectionAliasStateOutput            `pulumi:"connectionAliasState"`
 	ConnectionString     pulumi.StringOutput                                  `pulumi:"connectionString"`
 	Tags                 ConnectionAliasTagArrayOutput                        `pulumi:"tags"`
 }

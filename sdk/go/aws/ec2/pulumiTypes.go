@@ -211,7 +211,7 @@ func (o DHCPOptionsTagArrayOutput) Index(i pulumi.IntInput) DHCPOptionsTagOutput
 }
 
 type EC2FleetCapacityReservationOptionsRequest struct {
-	UsageStrategy *string `pulumi:"usageStrategy"`
+	UsageStrategy *EC2FleetCapacityReservationOptionsRequestUsageStrategy `pulumi:"usageStrategy"`
 }
 
 // EC2FleetCapacityReservationOptionsRequestInput is an input type that accepts EC2FleetCapacityReservationOptionsRequestArgs and EC2FleetCapacityReservationOptionsRequestOutput values.
@@ -226,7 +226,7 @@ type EC2FleetCapacityReservationOptionsRequestInput interface {
 }
 
 type EC2FleetCapacityReservationOptionsRequestArgs struct {
-	UsageStrategy pulumi.StringPtrInput `pulumi:"usageStrategy"`
+	UsageStrategy EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrInput `pulumi:"usageStrategy"`
 }
 
 func (EC2FleetCapacityReservationOptionsRequestArgs) ElementType() reflect.Type {
@@ -306,8 +306,10 @@ func (o EC2FleetCapacityReservationOptionsRequestOutput) ToEC2FleetCapacityReser
 	}).(EC2FleetCapacityReservationOptionsRequestPtrOutput)
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestOutput) UsageStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetCapacityReservationOptionsRequest) *string { return v.UsageStrategy }).(pulumi.StringPtrOutput)
+func (o EC2FleetCapacityReservationOptionsRequestOutput) UsageStrategy() EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
+	return o.ApplyT(func(v EC2FleetCapacityReservationOptionsRequest) *EC2FleetCapacityReservationOptionsRequestUsageStrategy {
+		return v.UsageStrategy
+	}).(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
 type EC2FleetCapacityReservationOptionsRequestPtrOutput struct{ *pulumi.OutputState }
@@ -334,13 +336,13 @@ func (o EC2FleetCapacityReservationOptionsRequestPtrOutput) Elem() EC2FleetCapac
 	}).(EC2FleetCapacityReservationOptionsRequestOutput)
 }
 
-func (o EC2FleetCapacityReservationOptionsRequestPtrOutput) UsageStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetCapacityReservationOptionsRequest) *string {
+func (o EC2FleetCapacityReservationOptionsRequestPtrOutput) UsageStrategy() EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput {
+	return o.ApplyT(func(v *EC2FleetCapacityReservationOptionsRequest) *EC2FleetCapacityReservationOptionsRequestUsageStrategy {
 		if v == nil {
 			return nil
 		}
 		return v.UsageStrategy
-	}).(pulumi.StringPtrOutput)
+	}).(EC2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
 }
 
 type EC2FleetFleetLaunchTemplateConfigRequest struct {
@@ -1189,13 +1191,13 @@ func (o EC2FleetPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 }
 
 type EC2FleetSpotOptionsRequest struct {
-	AllocationStrategy           *string `pulumi:"allocationStrategy"`
-	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount      *int    `pulumi:"instancePoolsToUseCount"`
-	MaxTotalPrice                *string `pulumi:"maxTotalPrice"`
-	MinTargetCapacity            *int    `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone       *bool   `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType           *bool   `pulumi:"singleInstanceType"`
+	AllocationStrategy           *EC2FleetSpotOptionsRequestAllocationStrategy           `pulumi:"allocationStrategy"`
+	InstanceInterruptionBehavior *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount      *int                                                    `pulumi:"instancePoolsToUseCount"`
+	MaxTotalPrice                *string                                                 `pulumi:"maxTotalPrice"`
+	MinTargetCapacity            *int                                                    `pulumi:"minTargetCapacity"`
+	SingleAvailabilityZone       *bool                                                   `pulumi:"singleAvailabilityZone"`
+	SingleInstanceType           *bool                                                   `pulumi:"singleInstanceType"`
 }
 
 // EC2FleetSpotOptionsRequestInput is an input type that accepts EC2FleetSpotOptionsRequestArgs and EC2FleetSpotOptionsRequestOutput values.
@@ -1210,13 +1212,13 @@ type EC2FleetSpotOptionsRequestInput interface {
 }
 
 type EC2FleetSpotOptionsRequestArgs struct {
-	AllocationStrategy           pulumi.StringPtrInput `pulumi:"allocationStrategy"`
-	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount      pulumi.IntPtrInput    `pulumi:"instancePoolsToUseCount"`
-	MaxTotalPrice                pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
-	MinTargetCapacity            pulumi.IntPtrInput    `pulumi:"minTargetCapacity"`
-	SingleAvailabilityZone       pulumi.BoolPtrInput   `pulumi:"singleAvailabilityZone"`
-	SingleInstanceType           pulumi.BoolPtrInput   `pulumi:"singleInstanceType"`
+	AllocationStrategy           EC2FleetSpotOptionsRequestAllocationStrategyPtrInput           `pulumi:"allocationStrategy"`
+	InstanceInterruptionBehavior EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrInput `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount      pulumi.IntPtrInput                                             `pulumi:"instancePoolsToUseCount"`
+	MaxTotalPrice                pulumi.StringPtrInput                                          `pulumi:"maxTotalPrice"`
+	MinTargetCapacity            pulumi.IntPtrInput                                             `pulumi:"minTargetCapacity"`
+	SingleAvailabilityZone       pulumi.BoolPtrInput                                            `pulumi:"singleAvailabilityZone"`
+	SingleInstanceType           pulumi.BoolPtrInput                                            `pulumi:"singleInstanceType"`
 }
 
 func (EC2FleetSpotOptionsRequestArgs) ElementType() reflect.Type {
@@ -1296,12 +1298,16 @@ func (o EC2FleetSpotOptionsRequestOutput) ToEC2FleetSpotOptionsRequestPtrOutputW
 	}).(EC2FleetSpotOptionsRequestPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+func (o EC2FleetSpotOptionsRequestOutput) AllocationStrategy() EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestAllocationStrategy {
+		return v.AllocationStrategy
+	}).(EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+func (o EC2FleetSpotOptionsRequestOutput) InstanceInterruptionBehavior() EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior {
+		return v.InstanceInterruptionBehavior
+	}).(EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
 func (o EC2FleetSpotOptionsRequestOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
@@ -1348,22 +1354,22 @@ func (o EC2FleetSpotOptionsRequestPtrOutput) Elem() EC2FleetSpotOptionsRequestOu
 	}).(EC2FleetSpotOptionsRequestOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *string {
+func (o EC2FleetSpotOptionsRequestPtrOutput) AllocationStrategy() EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestAllocationStrategy {
 		if v == nil {
 			return nil
 		}
 		return v.AllocationStrategy
-	}).(pulumi.StringPtrOutput)
+	}).(EC2FleetSpotOptionsRequestAllocationStrategyPtrOutput)
 }
 
-func (o EC2FleetSpotOptionsRequestPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *string {
+func (o EC2FleetSpotOptionsRequestPtrOutput) InstanceInterruptionBehavior() EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v *EC2FleetSpotOptionsRequest) *EC2FleetSpotOptionsRequestInstanceInterruptionBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceInterruptionBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrOutput)
 }
 
 func (o EC2FleetSpotOptionsRequestPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
@@ -1512,8 +1518,8 @@ func (o EC2FleetTagArrayOutput) Index(i pulumi.IntInput) EC2FleetTagOutput {
 }
 
 type EC2FleetTagSpecification struct {
-	ResourceType *string       `pulumi:"resourceType"`
-	Tags         []EC2FleetTag `pulumi:"tags"`
+	ResourceType *EC2FleetTagSpecificationResourceType `pulumi:"resourceType"`
+	Tags         []EC2FleetTag                         `pulumi:"tags"`
 }
 
 // EC2FleetTagSpecificationInput is an input type that accepts EC2FleetTagSpecificationArgs and EC2FleetTagSpecificationOutput values.
@@ -1528,8 +1534,8 @@ type EC2FleetTagSpecificationInput interface {
 }
 
 type EC2FleetTagSpecificationArgs struct {
-	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	Tags         EC2FleetTagArrayInput `pulumi:"tags"`
+	ResourceType EC2FleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
+	Tags         EC2FleetTagArrayInput                        `pulumi:"tags"`
 }
 
 func (EC2FleetTagSpecificationArgs) ElementType() reflect.Type {
@@ -1583,8 +1589,8 @@ func (o EC2FleetTagSpecificationOutput) ToEC2FleetTagSpecificationOutputWithCont
 	return o
 }
 
-func (o EC2FleetTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+func (o EC2FleetTagSpecificationOutput) ResourceType() EC2FleetTagSpecificationResourceTypePtrOutput {
+	return o.ApplyT(func(v EC2FleetTagSpecification) *EC2FleetTagSpecificationResourceType { return v.ResourceType }).(EC2FleetTagSpecificationResourceTypePtrOutput)
 }
 
 func (o EC2FleetTagSpecificationOutput) Tags() EC2FleetTagArrayOutput {
@@ -1612,10 +1618,10 @@ func (o EC2FleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) EC2FleetTa
 }
 
 type EC2FleetTargetCapacitySpecificationRequest struct {
-	DefaultTargetCapacityType *string `pulumi:"defaultTargetCapacityType"`
-	OnDemandTargetCapacity    *int    `pulumi:"onDemandTargetCapacity"`
-	SpotTargetCapacity        *int    `pulumi:"spotTargetCapacity"`
-	TotalTargetCapacity       int     `pulumi:"totalTargetCapacity"`
+	DefaultTargetCapacityType *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType `pulumi:"defaultTargetCapacityType"`
+	OnDemandTargetCapacity    *int                                                                 `pulumi:"onDemandTargetCapacity"`
+	SpotTargetCapacity        *int                                                                 `pulumi:"spotTargetCapacity"`
+	TotalTargetCapacity       int                                                                  `pulumi:"totalTargetCapacity"`
 }
 
 // EC2FleetTargetCapacitySpecificationRequestInput is an input type that accepts EC2FleetTargetCapacitySpecificationRequestArgs and EC2FleetTargetCapacitySpecificationRequestOutput values.
@@ -1630,10 +1636,10 @@ type EC2FleetTargetCapacitySpecificationRequestInput interface {
 }
 
 type EC2FleetTargetCapacitySpecificationRequestArgs struct {
-	DefaultTargetCapacityType pulumi.StringPtrInput `pulumi:"defaultTargetCapacityType"`
-	OnDemandTargetCapacity    pulumi.IntPtrInput    `pulumi:"onDemandTargetCapacity"`
-	SpotTargetCapacity        pulumi.IntPtrInput    `pulumi:"spotTargetCapacity"`
-	TotalTargetCapacity       pulumi.IntInput       `pulumi:"totalTargetCapacity"`
+	DefaultTargetCapacityType EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrInput `pulumi:"defaultTargetCapacityType"`
+	OnDemandTargetCapacity    pulumi.IntPtrInput                                                          `pulumi:"onDemandTargetCapacity"`
+	SpotTargetCapacity        pulumi.IntPtrInput                                                          `pulumi:"spotTargetCapacity"`
+	TotalTargetCapacity       pulumi.IntInput                                                             `pulumi:"totalTargetCapacity"`
 }
 
 func (EC2FleetTargetCapacitySpecificationRequestArgs) ElementType() reflect.Type {
@@ -1713,8 +1719,10 @@ func (o EC2FleetTargetCapacitySpecificationRequestOutput) ToEC2FleetTargetCapaci
 	}).(EC2FleetTargetCapacitySpecificationRequestPtrOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestOutput) DefaultTargetCapacityType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) *string { return v.DefaultTargetCapacityType }).(pulumi.StringPtrOutput)
+func (o EC2FleetTargetCapacitySpecificationRequestOutput) DefaultTargetCapacityType() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
+	return o.ApplyT(func(v EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
+		return v.DefaultTargetCapacityType
+	}).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
 func (o EC2FleetTargetCapacitySpecificationRequestOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
@@ -1753,13 +1761,13 @@ func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) Elem() EC2FleetTarg
 	}).(EC2FleetTargetCapacitySpecificationRequestOutput)
 }
 
-func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapacityType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *string {
+func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) DefaultTargetCapacityType() EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput {
+	return o.ApplyT(func(v *EC2FleetTargetCapacitySpecificationRequest) *EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType {
 		if v == nil {
 			return nil
 		}
 		return v.DefaultTargetCapacityType
-	}).(pulumi.StringPtrOutput)
+	}).(EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtrOutput)
 }
 
 func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
@@ -5108,12 +5116,12 @@ func (o SpotFleetClassicLoadBalancersConfigPtrOutput) ClassicLoadBalancers() Spo
 }
 
 type SpotFleetEbsBlockDevice struct {
-	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
-	Encrypted           *bool   `pulumi:"encrypted"`
-	Iops                *int    `pulumi:"iops"`
-	SnapshotId          *string `pulumi:"snapshotId"`
-	VolumeSize          *int    `pulumi:"volumeSize"`
-	VolumeType          *string `pulumi:"volumeType"`
+	DeleteOnTermination *bool                              `pulumi:"deleteOnTermination"`
+	Encrypted           *bool                              `pulumi:"encrypted"`
+	Iops                *int                               `pulumi:"iops"`
+	SnapshotId          *string                            `pulumi:"snapshotId"`
+	VolumeSize          *int                               `pulumi:"volumeSize"`
+	VolumeType          *SpotFleetEbsBlockDeviceVolumeType `pulumi:"volumeType"`
 }
 
 // SpotFleetEbsBlockDeviceInput is an input type that accepts SpotFleetEbsBlockDeviceArgs and SpotFleetEbsBlockDeviceOutput values.
@@ -5128,12 +5136,12 @@ type SpotFleetEbsBlockDeviceInput interface {
 }
 
 type SpotFleetEbsBlockDeviceArgs struct {
-	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
-	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
-	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
-	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
-	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
-	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+	DeleteOnTermination pulumi.BoolPtrInput                       `pulumi:"deleteOnTermination"`
+	Encrypted           pulumi.BoolPtrInput                       `pulumi:"encrypted"`
+	Iops                pulumi.IntPtrInput                        `pulumi:"iops"`
+	SnapshotId          pulumi.StringPtrInput                     `pulumi:"snapshotId"`
+	VolumeSize          pulumi.IntPtrInput                        `pulumi:"volumeSize"`
+	VolumeType          SpotFleetEbsBlockDeviceVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 func (SpotFleetEbsBlockDeviceArgs) ElementType() reflect.Type {
@@ -5233,8 +5241,8 @@ func (o SpotFleetEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-func (o SpotFleetEbsBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+func (o SpotFleetEbsBlockDeviceOutput) VolumeType() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
+	return o.ApplyT(func(v SpotFleetEbsBlockDevice) *SpotFleetEbsBlockDeviceVolumeType { return v.VolumeType }).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
 }
 
 type SpotFleetEbsBlockDevicePtrOutput struct{ *pulumi.OutputState }
@@ -5306,13 +5314,13 @@ func (o SpotFleetEbsBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o SpotFleetEbsBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *string {
+func (o SpotFleetEbsBlockDevicePtrOutput) VolumeType() SpotFleetEbsBlockDeviceVolumeTypePtrOutput {
+	return o.ApplyT(func(v *SpotFleetEbsBlockDevice) *SpotFleetEbsBlockDeviceVolumeType {
 		if v == nil {
 			return nil
 		}
 		return v.VolumeType
-	}).(pulumi.StringPtrOutput)
+	}).(SpotFleetEbsBlockDeviceVolumeTypePtrOutput)
 }
 
 type SpotFleetFleetLaunchTemplateSpecification struct {
@@ -6428,7 +6436,7 @@ func (o SpotFleetPrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInp
 }
 
 type SpotFleetSpotCapacityRebalance struct {
-	ReplacementStrategy *string `pulumi:"replacementStrategy"`
+	ReplacementStrategy *SpotFleetSpotCapacityRebalanceReplacementStrategy `pulumi:"replacementStrategy"`
 }
 
 // SpotFleetSpotCapacityRebalanceInput is an input type that accepts SpotFleetSpotCapacityRebalanceArgs and SpotFleetSpotCapacityRebalanceOutput values.
@@ -6443,7 +6451,7 @@ type SpotFleetSpotCapacityRebalanceInput interface {
 }
 
 type SpotFleetSpotCapacityRebalanceArgs struct {
-	ReplacementStrategy pulumi.StringPtrInput `pulumi:"replacementStrategy"`
+	ReplacementStrategy SpotFleetSpotCapacityRebalanceReplacementStrategyPtrInput `pulumi:"replacementStrategy"`
 }
 
 func (SpotFleetSpotCapacityRebalanceArgs) ElementType() reflect.Type {
@@ -6523,8 +6531,10 @@ func (o SpotFleetSpotCapacityRebalanceOutput) ToSpotFleetSpotCapacityRebalancePt
 	}).(SpotFleetSpotCapacityRebalancePtrOutput)
 }
 
-func (o SpotFleetSpotCapacityRebalanceOutput) ReplacementStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotCapacityRebalance) *string { return v.ReplacementStrategy }).(pulumi.StringPtrOutput)
+func (o SpotFleetSpotCapacityRebalanceOutput) ReplacementStrategy() SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotCapacityRebalance) *SpotFleetSpotCapacityRebalanceReplacementStrategy {
+		return v.ReplacementStrategy
+	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
 type SpotFleetSpotCapacityRebalancePtrOutput struct{ *pulumi.OutputState }
@@ -6551,13 +6561,13 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) Elem() SpotFleetSpotCapacityReb
 	}).(SpotFleetSpotCapacityRebalanceOutput)
 }
 
-func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalance) *string {
+func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotCapacityRebalance) *SpotFleetSpotCapacityRebalanceReplacementStrategy {
 		if v == nil {
 			return nil
 		}
 		return v.ReplacementStrategy
-	}).(pulumi.StringPtrOutput)
+	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
 }
 
 type SpotFleetSpotFleetLaunchSpecification struct {
@@ -6892,27 +6902,27 @@ func (o SpotFleetSpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type SpotFleetSpotFleetRequestConfigData struct {
-	AllocationStrategy               *string                                 `pulumi:"allocationStrategy"`
-	Context                          *string                                 `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  *string                                 `pulumi:"excessCapacityTerminationPolicy"`
-	IamFleetRole                     string                                  `pulumi:"iamFleetRole"`
-	InstanceInterruptionBehavior     *string                                 `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount          *int                                    `pulumi:"instancePoolsToUseCount"`
-	LaunchSpecifications             []SpotFleetSpotFleetLaunchSpecification `pulumi:"launchSpecifications"`
-	LaunchTemplateConfigs            []SpotFleetLaunchTemplateConfig         `pulumi:"launchTemplateConfigs"`
-	LoadBalancersConfig              *SpotFleetLoadBalancersConfig           `pulumi:"loadBalancersConfig"`
-	OnDemandAllocationStrategy       *string                                 `pulumi:"onDemandAllocationStrategy"`
-	OnDemandMaxTotalPrice            *string                                 `pulumi:"onDemandMaxTotalPrice"`
-	OnDemandTargetCapacity           *int                                    `pulumi:"onDemandTargetCapacity"`
-	ReplaceUnhealthyInstances        *bool                                   `pulumi:"replaceUnhealthyInstances"`
-	SpotMaintenanceStrategies        *SpotFleetSpotMaintenanceStrategies     `pulumi:"spotMaintenanceStrategies"`
-	SpotMaxTotalPrice                *string                                 `pulumi:"spotMaxTotalPrice"`
-	SpotPrice                        *string                                 `pulumi:"spotPrice"`
-	TargetCapacity                   int                                     `pulumi:"targetCapacity"`
-	TerminateInstancesWithExpiration *bool                                   `pulumi:"terminateInstancesWithExpiration"`
-	Type                             *string                                 `pulumi:"type"`
-	ValidFrom                        *string                                 `pulumi:"validFrom"`
-	ValidUntil                       *string                                 `pulumi:"validUntil"`
+	AllocationStrategy               *SpotFleetSpotFleetRequestConfigDataAllocationStrategy              `pulumi:"allocationStrategy"`
+	Context                          *string                                                             `pulumi:"context"`
+	ExcessCapacityTerminationPolicy  *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
+	IamFleetRole                     string                                                              `pulumi:"iamFleetRole"`
+	InstanceInterruptionBehavior     *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior    `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount          *int                                                                `pulumi:"instancePoolsToUseCount"`
+	LaunchSpecifications             []SpotFleetSpotFleetLaunchSpecification                             `pulumi:"launchSpecifications"`
+	LaunchTemplateConfigs            []SpotFleetLaunchTemplateConfig                                     `pulumi:"launchTemplateConfigs"`
+	LoadBalancersConfig              *SpotFleetLoadBalancersConfig                                       `pulumi:"loadBalancersConfig"`
+	OnDemandAllocationStrategy       *string                                                             `pulumi:"onDemandAllocationStrategy"`
+	OnDemandMaxTotalPrice            *string                                                             `pulumi:"onDemandMaxTotalPrice"`
+	OnDemandTargetCapacity           *int                                                                `pulumi:"onDemandTargetCapacity"`
+	ReplaceUnhealthyInstances        *bool                                                               `pulumi:"replaceUnhealthyInstances"`
+	SpotMaintenanceStrategies        *SpotFleetSpotMaintenanceStrategies                                 `pulumi:"spotMaintenanceStrategies"`
+	SpotMaxTotalPrice                *string                                                             `pulumi:"spotMaxTotalPrice"`
+	SpotPrice                        *string                                                             `pulumi:"spotPrice"`
+	TargetCapacity                   int                                                                 `pulumi:"targetCapacity"`
+	TerminateInstancesWithExpiration *bool                                                               `pulumi:"terminateInstancesWithExpiration"`
+	Type                             *SpotFleetSpotFleetRequestConfigDataType                            `pulumi:"type"`
+	ValidFrom                        *string                                                             `pulumi:"validFrom"`
+	ValidUntil                       *string                                                             `pulumi:"validUntil"`
 }
 
 // SpotFleetSpotFleetRequestConfigDataInput is an input type that accepts SpotFleetSpotFleetRequestConfigDataArgs and SpotFleetSpotFleetRequestConfigDataOutput values.
@@ -6927,27 +6937,27 @@ type SpotFleetSpotFleetRequestConfigDataInput interface {
 }
 
 type SpotFleetSpotFleetRequestConfigDataArgs struct {
-	AllocationStrategy               pulumi.StringPtrInput                           `pulumi:"allocationStrategy"`
-	Context                          pulumi.StringPtrInput                           `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  pulumi.StringPtrInput                           `pulumi:"excessCapacityTerminationPolicy"`
-	IamFleetRole                     pulumi.StringInput                              `pulumi:"iamFleetRole"`
-	InstanceInterruptionBehavior     pulumi.StringPtrInput                           `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount          pulumi.IntPtrInput                              `pulumi:"instancePoolsToUseCount"`
-	LaunchSpecifications             SpotFleetSpotFleetLaunchSpecificationArrayInput `pulumi:"launchSpecifications"`
-	LaunchTemplateConfigs            SpotFleetLaunchTemplateConfigArrayInput         `pulumi:"launchTemplateConfigs"`
-	LoadBalancersConfig              SpotFleetLoadBalancersConfigPtrInput            `pulumi:"loadBalancersConfig"`
-	OnDemandAllocationStrategy       pulumi.StringPtrInput                           `pulumi:"onDemandAllocationStrategy"`
-	OnDemandMaxTotalPrice            pulumi.StringPtrInput                           `pulumi:"onDemandMaxTotalPrice"`
-	OnDemandTargetCapacity           pulumi.IntPtrInput                              `pulumi:"onDemandTargetCapacity"`
-	ReplaceUnhealthyInstances        pulumi.BoolPtrInput                             `pulumi:"replaceUnhealthyInstances"`
-	SpotMaintenanceStrategies        SpotFleetSpotMaintenanceStrategiesPtrInput      `pulumi:"spotMaintenanceStrategies"`
-	SpotMaxTotalPrice                pulumi.StringPtrInput                           `pulumi:"spotMaxTotalPrice"`
-	SpotPrice                        pulumi.StringPtrInput                           `pulumi:"spotPrice"`
-	TargetCapacity                   pulumi.IntInput                                 `pulumi:"targetCapacity"`
-	TerminateInstancesWithExpiration pulumi.BoolPtrInput                             `pulumi:"terminateInstancesWithExpiration"`
-	Type                             pulumi.StringPtrInput                           `pulumi:"type"`
-	ValidFrom                        pulumi.StringPtrInput                           `pulumi:"validFrom"`
-	ValidUntil                       pulumi.StringPtrInput                           `pulumi:"validUntil"`
+	AllocationStrategy               SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrInput              `pulumi:"allocationStrategy"`
+	Context                          pulumi.StringPtrInput                                                      `pulumi:"context"`
+	ExcessCapacityTerminationPolicy  SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput `pulumi:"excessCapacityTerminationPolicy"`
+	IamFleetRole                     pulumi.StringInput                                                         `pulumi:"iamFleetRole"`
+	InstanceInterruptionBehavior     SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput    `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount          pulumi.IntPtrInput                                                         `pulumi:"instancePoolsToUseCount"`
+	LaunchSpecifications             SpotFleetSpotFleetLaunchSpecificationArrayInput                            `pulumi:"launchSpecifications"`
+	LaunchTemplateConfigs            SpotFleetLaunchTemplateConfigArrayInput                                    `pulumi:"launchTemplateConfigs"`
+	LoadBalancersConfig              SpotFleetLoadBalancersConfigPtrInput                                       `pulumi:"loadBalancersConfig"`
+	OnDemandAllocationStrategy       pulumi.StringPtrInput                                                      `pulumi:"onDemandAllocationStrategy"`
+	OnDemandMaxTotalPrice            pulumi.StringPtrInput                                                      `pulumi:"onDemandMaxTotalPrice"`
+	OnDemandTargetCapacity           pulumi.IntPtrInput                                                         `pulumi:"onDemandTargetCapacity"`
+	ReplaceUnhealthyInstances        pulumi.BoolPtrInput                                                        `pulumi:"replaceUnhealthyInstances"`
+	SpotMaintenanceStrategies        SpotFleetSpotMaintenanceStrategiesPtrInput                                 `pulumi:"spotMaintenanceStrategies"`
+	SpotMaxTotalPrice                pulumi.StringPtrInput                                                      `pulumi:"spotMaxTotalPrice"`
+	SpotPrice                        pulumi.StringPtrInput                                                      `pulumi:"spotPrice"`
+	TargetCapacity                   pulumi.IntInput                                                            `pulumi:"targetCapacity"`
+	TerminateInstancesWithExpiration pulumi.BoolPtrInput                                                        `pulumi:"terminateInstancesWithExpiration"`
+	Type                             SpotFleetSpotFleetRequestConfigDataTypePtrInput                            `pulumi:"type"`
+	ValidFrom                        pulumi.StringPtrInput                                                      `pulumi:"validFrom"`
+	ValidUntil                       pulumi.StringPtrInput                                                      `pulumi:"validUntil"`
 }
 
 func (SpotFleetSpotFleetRequestConfigDataArgs) ElementType() reflect.Type {
@@ -7027,24 +7037,30 @@ func (o SpotFleetSpotFleetRequestConfigDataOutput) ToSpotFleetSpotFleetRequestCo
 	}).(SpotFleetSpotFleetRequestConfigDataPtrOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
+func (o SpotFleetSpotFleetRequestConfigDataOutput) AllocationStrategy() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataAllocationStrategy {
+		return v.AllocationStrategy
+	}).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.Context }).(pulumi.StringPtrOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ExcessCapacityTerminationPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.ExcessCapacityTerminationPolicy }).(pulumi.StringPtrOutput)
+func (o SpotFleetSpotFleetRequestConfigDataOutput) ExcessCapacityTerminationPolicy() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
+		return v.ExcessCapacityTerminationPolicy
+	}).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataOutput) IamFleetRole() pulumi.StringOutput {
 	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) string { return v.IamFleetRole }).(pulumi.StringOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+func (o SpotFleetSpotFleetRequestConfigDataOutput) InstanceInterruptionBehavior() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior {
+		return v.InstanceInterruptionBehavior
+	}).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
@@ -7107,8 +7123,8 @@ func (o SpotFleetSpotFleetRequestConfigDataOutput) TerminateInstancesWithExpirat
 	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *bool { return v.TerminateInstancesWithExpiration }).(pulumi.BoolPtrOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o SpotFleetSpotFleetRequestConfigDataOutput) Type() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataType { return v.Type }).(SpotFleetSpotFleetRequestConfigDataTypePtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataOutput) ValidFrom() pulumi.StringPtrOutput {
@@ -7143,13 +7159,13 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Elem() SpotFleetSpotFleetR
 	}).(SpotFleetSpotFleetRequestConfigDataOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) AllocationStrategy() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataAllocationStrategy {
 		if v == nil {
 			return nil
 		}
 		return v.AllocationStrategy
-	}).(pulumi.StringPtrOutput)
+	}).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
@@ -7161,13 +7177,13 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ExcessCapacityTerminationPolicy
-	}).(pulumi.StringPtrOutput)
+	}).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.StringPtrOutput {
@@ -7179,13 +7195,13 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.InstanceInterruptionBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
@@ -7305,13 +7321,13 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) TerminateInstancesWithExpi
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
+func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Type() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(SpotFleetSpotFleetRequestConfigDataTypePtrOutput)
 }
 
 func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ValidFrom() pulumi.StringPtrOutput {
@@ -7333,8 +7349,8 @@ func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.String
 }
 
 type SpotFleetSpotFleetTagSpecification struct {
-	ResourceType *string        `pulumi:"resourceType"`
-	Tags         []SpotFleetTag `pulumi:"tags"`
+	ResourceType *SpotFleetSpotFleetTagSpecificationResourceType `pulumi:"resourceType"`
+	Tags         []SpotFleetTag                                  `pulumi:"tags"`
 }
 
 // SpotFleetSpotFleetTagSpecificationInput is an input type that accepts SpotFleetSpotFleetTagSpecificationArgs and SpotFleetSpotFleetTagSpecificationOutput values.
@@ -7349,8 +7365,8 @@ type SpotFleetSpotFleetTagSpecificationInput interface {
 }
 
 type SpotFleetSpotFleetTagSpecificationArgs struct {
-	ResourceType pulumi.StringPtrInput  `pulumi:"resourceType"`
-	Tags         SpotFleetTagArrayInput `pulumi:"tags"`
+	ResourceType SpotFleetSpotFleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
+	Tags         SpotFleetTagArrayInput                                 `pulumi:"tags"`
 }
 
 func (SpotFleetSpotFleetTagSpecificationArgs) ElementType() reflect.Type {
@@ -7404,8 +7420,10 @@ func (o SpotFleetSpotFleetTagSpecificationOutput) ToSpotFleetSpotFleetTagSpecifi
 	return o
 }
 
-func (o SpotFleetSpotFleetTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+func (o SpotFleetSpotFleetTagSpecificationOutput) ResourceType() SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotFleetTagSpecification) *SpotFleetSpotFleetTagSpecificationResourceType {
+		return v.ResourceType
+	}).(SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
 func (o SpotFleetSpotFleetTagSpecificationOutput) Tags() SpotFleetTagArrayOutput {
@@ -7566,9 +7584,9 @@ func (o SpotFleetSpotMaintenanceStrategiesPtrOutput) CapacityRebalance() SpotFle
 }
 
 type SpotFleetSpotPlacement struct {
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	GroupName        *string `pulumi:"groupName"`
-	Tenancy          *string `pulumi:"tenancy"`
+	AvailabilityZone *string                        `pulumi:"availabilityZone"`
+	GroupName        *string                        `pulumi:"groupName"`
+	Tenancy          *SpotFleetSpotPlacementTenancy `pulumi:"tenancy"`
 }
 
 // SpotFleetSpotPlacementInput is an input type that accepts SpotFleetSpotPlacementArgs and SpotFleetSpotPlacementOutput values.
@@ -7583,9 +7601,9 @@ type SpotFleetSpotPlacementInput interface {
 }
 
 type SpotFleetSpotPlacementArgs struct {
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	GroupName        pulumi.StringPtrInput `pulumi:"groupName"`
-	Tenancy          pulumi.StringPtrInput `pulumi:"tenancy"`
+	AvailabilityZone pulumi.StringPtrInput                 `pulumi:"availabilityZone"`
+	GroupName        pulumi.StringPtrInput                 `pulumi:"groupName"`
+	Tenancy          SpotFleetSpotPlacementTenancyPtrInput `pulumi:"tenancy"`
 }
 
 func (SpotFleetSpotPlacementArgs) ElementType() reflect.Type {
@@ -7673,8 +7691,8 @@ func (o SpotFleetSpotPlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
 
-func (o SpotFleetSpotPlacementOutput) Tenancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
+func (o SpotFleetSpotPlacementOutput) Tenancy() SpotFleetSpotPlacementTenancyPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotPlacement) *SpotFleetSpotPlacementTenancy { return v.Tenancy }).(SpotFleetSpotPlacementTenancyPtrOutput)
 }
 
 type SpotFleetSpotPlacementPtrOutput struct{ *pulumi.OutputState }
@@ -7719,13 +7737,13 @@ func (o SpotFleetSpotPlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SpotFleetSpotPlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotPlacement) *string {
+func (o SpotFleetSpotPlacementPtrOutput) Tenancy() SpotFleetSpotPlacementTenancyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotPlacement) *SpotFleetSpotPlacementTenancy {
 		if v == nil {
 			return nil
 		}
 		return v.Tenancy
-	}).(pulumi.StringPtrOutput)
+	}).(SpotFleetSpotPlacementTenancyPtrOutput)
 }
 
 type SpotFleetTag struct {

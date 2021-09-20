@@ -40,7 +40,7 @@ type Analysis struct {
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets       AnalysisSheetArrayOutput              `pulumi:"sheets"`
 	SourceEntity AnalysisAnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	Status       pulumi.StringOutput                   `pulumi:"status"`
+	Status       AnalysisResourceStatusOutput          `pulumi:"status"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             analysis.</p>
 	Tags AnalysisTagArrayOutput `pulumi:"tags"`

@@ -20,9 +20,9 @@ type Variable struct {
 	// The time when the variable was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The source of the data.
-	DataSource pulumi.StringOutput `pulumi:"dataSource"`
+	DataSource VariableDataSourceOutput `pulumi:"dataSource"`
 	// The data type.
-	DataType pulumi.StringOutput `pulumi:"dataType"`
+	DataType VariableDataTypeOutput `pulumi:"dataType"`
 	// The default value for the variable when no value is received.
 	DefaultValue pulumi.StringOutput `pulumi:"defaultValue"`
 	// The description.
@@ -34,7 +34,7 @@ type Variable struct {
 	// Tags associated with this variable.
 	Tags VariableTagArrayOutput `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
-	VariableType pulumi.StringPtrOutput `pulumi:"variableType"`
+	VariableType VariableVariableTypePtrOutput `pulumi:"variableType"`
 }
 
 // NewVariable registers a new resource with the given unique name, arguments, and options.
@@ -89,9 +89,9 @@ func (VariableState) ElementType() reflect.Type {
 
 type variableArgs struct {
 	// The source of the data.
-	DataSource string `pulumi:"dataSource"`
+	DataSource VariableDataSource `pulumi:"dataSource"`
 	// The data type.
-	DataType string `pulumi:"dataType"`
+	DataType VariableDataType `pulumi:"dataType"`
 	// The default value for the variable when no value is received.
 	DefaultValue string `pulumi:"defaultValue"`
 	// The description.
@@ -101,15 +101,15 @@ type variableArgs struct {
 	// Tags associated with this variable.
 	Tags []VariableTag `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
-	VariableType *string `pulumi:"variableType"`
+	VariableType *VariableVariableType `pulumi:"variableType"`
 }
 
 // The set of arguments for constructing a Variable resource.
 type VariableArgs struct {
 	// The source of the data.
-	DataSource pulumi.StringInput
+	DataSource VariableDataSourceInput
 	// The data type.
-	DataType pulumi.StringInput
+	DataType VariableDataTypeInput
 	// The default value for the variable when no value is received.
 	DefaultValue pulumi.StringInput
 	// The description.
@@ -119,7 +119,7 @@ type VariableArgs struct {
 	// Tags associated with this variable.
 	Tags VariableTagArrayInput
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
-	VariableType pulumi.StringPtrInput
+	VariableType VariableVariableTypePtrInput
 }
 
 func (VariableArgs) ElementType() reflect.Type {

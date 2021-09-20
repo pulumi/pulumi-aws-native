@@ -15,15 +15,15 @@ import (
 type BudgetsAction struct {
 	pulumi.CustomResourceState
 
-	ActionId         pulumi.StringOutput                `pulumi:"actionId"`
-	ActionThreshold  BudgetsActionActionThresholdOutput `pulumi:"actionThreshold"`
-	ActionType       pulumi.StringOutput                `pulumi:"actionType"`
-	ApprovalModel    pulumi.StringPtrOutput             `pulumi:"approvalModel"`
-	BudgetName       pulumi.StringOutput                `pulumi:"budgetName"`
-	Definition       BudgetsActionDefinitionOutput      `pulumi:"definition"`
-	ExecutionRoleArn pulumi.StringOutput                `pulumi:"executionRoleArn"`
-	NotificationType pulumi.StringOutput                `pulumi:"notificationType"`
-	Subscribers      BudgetsActionSubscriberArrayOutput `pulumi:"subscribers"`
+	ActionId         pulumi.StringOutput                 `pulumi:"actionId"`
+	ActionThreshold  BudgetsActionActionThresholdOutput  `pulumi:"actionThreshold"`
+	ActionType       BudgetsActionActionTypeOutput       `pulumi:"actionType"`
+	ApprovalModel    BudgetsActionApprovalModelPtrOutput `pulumi:"approvalModel"`
+	BudgetName       pulumi.StringOutput                 `pulumi:"budgetName"`
+	Definition       BudgetsActionDefinitionOutput       `pulumi:"definition"`
+	ExecutionRoleArn pulumi.StringOutput                 `pulumi:"executionRoleArn"`
+	NotificationType BudgetsActionNotificationTypeOutput `pulumi:"notificationType"`
+	Subscribers      BudgetsActionSubscriberArrayOutput  `pulumi:"subscribers"`
 }
 
 // NewBudgetsAction registers a new resource with the given unique name, arguments, and options.
@@ -83,25 +83,25 @@ func (BudgetsActionState) ElementType() reflect.Type {
 }
 
 type budgetsActionArgs struct {
-	ActionThreshold  BudgetsActionActionThreshold `pulumi:"actionThreshold"`
-	ActionType       string                       `pulumi:"actionType"`
-	ApprovalModel    *string                      `pulumi:"approvalModel"`
-	BudgetName       string                       `pulumi:"budgetName"`
-	Definition       BudgetsActionDefinition      `pulumi:"definition"`
-	ExecutionRoleArn string                       `pulumi:"executionRoleArn"`
-	NotificationType string                       `pulumi:"notificationType"`
-	Subscribers      []BudgetsActionSubscriber    `pulumi:"subscribers"`
+	ActionThreshold  BudgetsActionActionThreshold  `pulumi:"actionThreshold"`
+	ActionType       BudgetsActionActionType       `pulumi:"actionType"`
+	ApprovalModel    *BudgetsActionApprovalModel   `pulumi:"approvalModel"`
+	BudgetName       string                        `pulumi:"budgetName"`
+	Definition       BudgetsActionDefinition       `pulumi:"definition"`
+	ExecutionRoleArn string                        `pulumi:"executionRoleArn"`
+	NotificationType BudgetsActionNotificationType `pulumi:"notificationType"`
+	Subscribers      []BudgetsActionSubscriber     `pulumi:"subscribers"`
 }
 
 // The set of arguments for constructing a BudgetsAction resource.
 type BudgetsActionArgs struct {
 	ActionThreshold  BudgetsActionActionThresholdInput
-	ActionType       pulumi.StringInput
-	ApprovalModel    pulumi.StringPtrInput
+	ActionType       BudgetsActionActionTypeInput
+	ApprovalModel    BudgetsActionApprovalModelPtrInput
 	BudgetName       pulumi.StringInput
 	Definition       BudgetsActionDefinitionInput
 	ExecutionRoleArn pulumi.StringInput
-	NotificationType pulumi.StringInput
+	NotificationType BudgetsActionNotificationTypeInput
 	Subscribers      BudgetsActionSubscriberArrayInput
 }
 

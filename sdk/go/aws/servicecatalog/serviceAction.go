@@ -15,9 +15,9 @@ import (
 type ServiceAction struct {
 	pulumi.CustomResourceState
 
-	AcceptLanguage pulumi.StringPtrOutput                      `pulumi:"acceptLanguage"`
+	AcceptLanguage ServiceActionAcceptLanguagePtrOutput        `pulumi:"acceptLanguage"`
 	Definition     ServiceActionDefinitionParameterArrayOutput `pulumi:"definition"`
-	DefinitionType pulumi.StringOutput                         `pulumi:"definitionType"`
+	DefinitionType ServiceActionDefinitionTypeOutput           `pulumi:"definitionType"`
 	Description    pulumi.StringPtrOutput                      `pulumi:"description"`
 	Name           pulumi.StringOutput                         `pulumi:"name"`
 }
@@ -70,18 +70,18 @@ func (ServiceActionState) ElementType() reflect.Type {
 }
 
 type serviceActionArgs struct {
-	AcceptLanguage *string                            `pulumi:"acceptLanguage"`
+	AcceptLanguage *ServiceActionAcceptLanguage       `pulumi:"acceptLanguage"`
 	Definition     []ServiceActionDefinitionParameter `pulumi:"definition"`
-	DefinitionType string                             `pulumi:"definitionType"`
+	DefinitionType ServiceActionDefinitionType        `pulumi:"definitionType"`
 	Description    *string                            `pulumi:"description"`
 	Name           string                             `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ServiceAction resource.
 type ServiceActionArgs struct {
-	AcceptLanguage pulumi.StringPtrInput
+	AcceptLanguage ServiceActionAcceptLanguagePtrInput
 	Definition     ServiceActionDefinitionParameterArrayInput
-	DefinitionType pulumi.StringInput
+	DefinitionType ServiceActionDefinitionTypeInput
 	Description    pulumi.StringPtrInput
 	Name           pulumi.StringInput
 }

@@ -29,7 +29,7 @@ type OriginEndpoint struct {
 	ManifestName pulumi.StringPtrOutput            `pulumi:"manifestName"`
 	MssPackage   OriginEndpointMssPackagePtrOutput `pulumi:"mssPackage"`
 	// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-	Origination pulumi.StringPtrOutput `pulumi:"origination"`
+	Origination OriginEndpointOriginationPtrOutput `pulumi:"origination"`
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
 	StartoverWindowSeconds pulumi.IntPtrOutput `pulumi:"startoverWindowSeconds"`
 	// A collection of tags associated with a resource
@@ -96,7 +96,7 @@ type originEndpointArgs struct {
 	ManifestName *string                   `pulumi:"manifestName"`
 	MssPackage   *OriginEndpointMssPackage `pulumi:"mssPackage"`
 	// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-	Origination *string `pulumi:"origination"`
+	Origination *OriginEndpointOrigination `pulumi:"origination"`
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
 	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
 	// A collection of tags associated with a resource
@@ -121,7 +121,7 @@ type OriginEndpointArgs struct {
 	ManifestName pulumi.StringPtrInput
 	MssPackage   OriginEndpointMssPackagePtrInput
 	// Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
-	Origination pulumi.StringPtrInput
+	Origination OriginEndpointOriginationPtrInput
 	// Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
 	StartoverWindowSeconds pulumi.IntPtrInput
 	// A collection of tags associated with a resource

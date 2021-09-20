@@ -231,15 +231,15 @@ func (o FirewallRuleGroupAssociationTagArrayOutput) Index(i pulumi.IntInput) Fir
 // Firewall Rule associating the Rule Group to a Domain List
 type FirewallRuleGroupFirewallRule struct {
 	// Rule Action
-	Action string `pulumi:"action"`
+	Action FirewallRuleGroupFirewallRuleAction `pulumi:"action"`
 	// BlockOverrideDnsType
-	BlockOverrideDnsType *string `pulumi:"blockOverrideDnsType"`
+	BlockOverrideDnsType *FirewallRuleGroupFirewallRuleBlockOverrideDnsType `pulumi:"blockOverrideDnsType"`
 	// BlockOverrideDomain
 	BlockOverrideDomain *string `pulumi:"blockOverrideDomain"`
 	// BlockOverrideTtl
 	BlockOverrideTtl *int `pulumi:"blockOverrideTtl"`
 	// BlockResponse
-	BlockResponse *string `pulumi:"blockResponse"`
+	BlockResponse *FirewallRuleGroupFirewallRuleBlockResponse `pulumi:"blockResponse"`
 	// ResourceId
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
 	// Rule Priority
@@ -260,15 +260,15 @@ type FirewallRuleGroupFirewallRuleInput interface {
 // Firewall Rule associating the Rule Group to a Domain List
 type FirewallRuleGroupFirewallRuleArgs struct {
 	// Rule Action
-	Action pulumi.StringInput `pulumi:"action"`
+	Action FirewallRuleGroupFirewallRuleActionInput `pulumi:"action"`
 	// BlockOverrideDnsType
-	BlockOverrideDnsType pulumi.StringPtrInput `pulumi:"blockOverrideDnsType"`
+	BlockOverrideDnsType FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrInput `pulumi:"blockOverrideDnsType"`
 	// BlockOverrideDomain
 	BlockOverrideDomain pulumi.StringPtrInput `pulumi:"blockOverrideDomain"`
 	// BlockOverrideTtl
 	BlockOverrideTtl pulumi.IntPtrInput `pulumi:"blockOverrideTtl"`
 	// BlockResponse
-	BlockResponse pulumi.StringPtrInput `pulumi:"blockResponse"`
+	BlockResponse FirewallRuleGroupFirewallRuleBlockResponsePtrInput `pulumi:"blockResponse"`
 	// ResourceId
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
 	// Rule Priority
@@ -328,13 +328,15 @@ func (o FirewallRuleGroupFirewallRuleOutput) ToFirewallRuleGroupFirewallRuleOutp
 }
 
 // Rule Action
-func (o FirewallRuleGroupFirewallRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) string { return v.Action }).(pulumi.StringOutput)
+func (o FirewallRuleGroupFirewallRuleOutput) Action() FirewallRuleGroupFirewallRuleActionOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) FirewallRuleGroupFirewallRuleAction { return v.Action }).(FirewallRuleGroupFirewallRuleActionOutput)
 }
 
 // BlockOverrideDnsType
-func (o FirewallRuleGroupFirewallRuleOutput) BlockOverrideDnsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.BlockOverrideDnsType }).(pulumi.StringPtrOutput)
+func (o FirewallRuleGroupFirewallRuleOutput) BlockOverrideDnsType() FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleBlockOverrideDnsType {
+		return v.BlockOverrideDnsType
+	}).(FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput)
 }
 
 // BlockOverrideDomain
@@ -348,8 +350,10 @@ func (o FirewallRuleGroupFirewallRuleOutput) BlockOverrideTtl() pulumi.IntPtrOut
 }
 
 // BlockResponse
-func (o FirewallRuleGroupFirewallRuleOutput) BlockResponse() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.BlockResponse }).(pulumi.StringPtrOutput)
+func (o FirewallRuleGroupFirewallRuleOutput) BlockResponse() FirewallRuleGroupFirewallRuleBlockResponsePtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleBlockResponse {
+		return v.BlockResponse
+	}).(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput)
 }
 
 // ResourceId

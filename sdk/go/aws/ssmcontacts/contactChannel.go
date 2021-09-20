@@ -21,7 +21,7 @@ type ContactChannel struct {
 	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 	ChannelName pulumi.StringPtrOutput `pulumi:"channelName"`
 	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
-	ChannelType pulumi.StringPtrOutput `pulumi:"channelType"`
+	ChannelType ContactChannelChannelTypePtrOutput `pulumi:"channelType"`
 	// ARN of the contact resource
 	ContactId pulumi.StringPtrOutput `pulumi:"contactId"`
 	// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
@@ -72,7 +72,7 @@ type contactChannelArgs struct {
 	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 	ChannelName *string `pulumi:"channelName"`
 	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
-	ChannelType *string `pulumi:"channelType"`
+	ChannelType *ContactChannelChannelType `pulumi:"channelType"`
 	// ARN of the contact resource
 	ContactId *string `pulumi:"contactId"`
 	// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
@@ -86,7 +86,7 @@ type ContactChannelArgs struct {
 	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
 	ChannelName pulumi.StringPtrInput
 	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
-	ChannelType pulumi.StringPtrInput
+	ChannelType ContactChannelChannelTypePtrInput
 	// ARN of the contact resource
 	ContactId pulumi.StringPtrInput
 	// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.

@@ -40,7 +40,7 @@ type ModuleVersion struct {
 	// The only allowed value at present is:
 	//
 	// PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
-	Visibility pulumi.StringOutput `pulumi:"visibility"`
+	Visibility ModuleVersionVisibilityOutput `pulumi:"visibility"`
 }
 
 // NewModuleVersion registers a new resource with the given unique name, arguments, and options.

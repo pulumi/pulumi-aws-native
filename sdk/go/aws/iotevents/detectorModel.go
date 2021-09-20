@@ -21,7 +21,7 @@ type DetectorModel struct {
 	// The name of the detector model.
 	DetectorModelName pulumi.StringPtrOutput `pulumi:"detectorModelName"`
 	// Information about the order in which events are evaluated and how actions are executed.
-	EvaluationMethod pulumi.StringPtrOutput `pulumi:"evaluationMethod"`
+	EvaluationMethod DetectorModelEvaluationMethodPtrOutput `pulumi:"evaluationMethod"`
 	// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
@@ -85,7 +85,7 @@ type detectorModelArgs struct {
 	// The name of the detector model.
 	DetectorModelName *string `pulumi:"detectorModelName"`
 	// Information about the order in which events are evaluated and how actions are executed.
-	EvaluationMethod *string `pulumi:"evaluationMethod"`
+	EvaluationMethod *DetectorModelEvaluationMethod `pulumi:"evaluationMethod"`
 	// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.
@@ -106,7 +106,7 @@ type DetectorModelArgs struct {
 	// The name of the detector model.
 	DetectorModelName pulumi.StringPtrInput
 	// Information about the order in which events are evaluated and how actions are executed.
-	EvaluationMethod pulumi.StringPtrInput
+	EvaluationMethod DetectorModelEvaluationMethodPtrInput
 	// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
 	//
 	// This parameter uses a JSON-path expression to select the attribute-value pair in the message payload that is used for identification. To route the message to the correct detector instance, the device must send a message payload that contains the same attribute-value.

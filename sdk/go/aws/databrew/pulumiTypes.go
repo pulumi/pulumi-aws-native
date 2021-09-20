@@ -529,7 +529,7 @@ type DatasetDatasetParameter struct {
 	Filter          *DatasetFilterExpression `pulumi:"filter"`
 	Name            string                   `pulumi:"name"`
 	// Parameter type
-	Type string `pulumi:"type"`
+	Type DatasetDatasetParameterType `pulumi:"type"`
 }
 
 // DatasetDatasetParameterInput is an input type that accepts DatasetDatasetParameterArgs and DatasetDatasetParameterOutput values.
@@ -550,7 +550,7 @@ type DatasetDatasetParameterArgs struct {
 	Filter          DatasetFilterExpressionPtrInput `pulumi:"filter"`
 	Name            pulumi.StringInput              `pulumi:"name"`
 	// Parameter type
-	Type pulumi.StringInput `pulumi:"type"`
+	Type DatasetDatasetParameterTypeInput `pulumi:"type"`
 }
 
 func (DatasetDatasetParameterArgs) ElementType() reflect.Type {
@@ -597,8 +597,8 @@ func (o DatasetDatasetParameterOutput) Name() pulumi.StringOutput {
 }
 
 // Parameter type
-func (o DatasetDatasetParameterOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatasetDatasetParameter) string { return v.Type }).(pulumi.StringOutput)
+func (o DatasetDatasetParameterOutput) Type() DatasetDatasetParameterTypeOutput {
+	return o.ApplyT(func(v DatasetDatasetParameter) DatasetDatasetParameterType { return v.Type }).(DatasetDatasetParameterTypeOutput)
 }
 
 type DatasetDatetimeOptions struct {
@@ -943,9 +943,9 @@ type DatasetFilesLimit struct {
 	// Maximum number of files
 	MaxFiles int `pulumi:"maxFiles"`
 	// Order
-	Order *string `pulumi:"order"`
+	Order *DatasetFilesLimitOrder `pulumi:"order"`
 	// Ordered by
-	OrderedBy *string `pulumi:"orderedBy"`
+	OrderedBy *DatasetFilesLimitOrderedBy `pulumi:"orderedBy"`
 }
 
 // DatasetFilesLimitInput is an input type that accepts DatasetFilesLimitArgs and DatasetFilesLimitOutput values.
@@ -963,9 +963,9 @@ type DatasetFilesLimitArgs struct {
 	// Maximum number of files
 	MaxFiles pulumi.IntInput `pulumi:"maxFiles"`
 	// Order
-	Order pulumi.StringPtrInput `pulumi:"order"`
+	Order DatasetFilesLimitOrderPtrInput `pulumi:"order"`
 	// Ordered by
-	OrderedBy pulumi.StringPtrInput `pulumi:"orderedBy"`
+	OrderedBy DatasetFilesLimitOrderedByPtrInput `pulumi:"orderedBy"`
 }
 
 func (DatasetFilesLimitArgs) ElementType() reflect.Type {
@@ -1051,13 +1051,13 @@ func (o DatasetFilesLimitOutput) MaxFiles() pulumi.IntOutput {
 }
 
 // Order
-func (o DatasetFilesLimitOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetFilesLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
+func (o DatasetFilesLimitOutput) Order() DatasetFilesLimitOrderPtrOutput {
+	return o.ApplyT(func(v DatasetFilesLimit) *DatasetFilesLimitOrder { return v.Order }).(DatasetFilesLimitOrderPtrOutput)
 }
 
 // Ordered by
-func (o DatasetFilesLimitOutput) OrderedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatasetFilesLimit) *string { return v.OrderedBy }).(pulumi.StringPtrOutput)
+func (o DatasetFilesLimitOutput) OrderedBy() DatasetFilesLimitOrderedByPtrOutput {
+	return o.ApplyT(func(v DatasetFilesLimit) *DatasetFilesLimitOrderedBy { return v.OrderedBy }).(DatasetFilesLimitOrderedByPtrOutput)
 }
 
 type DatasetFilesLimitPtrOutput struct{ *pulumi.OutputState }
@@ -1095,23 +1095,23 @@ func (o DatasetFilesLimitPtrOutput) MaxFiles() pulumi.IntPtrOutput {
 }
 
 // Order
-func (o DatasetFilesLimitPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetFilesLimit) *string {
+func (o DatasetFilesLimitPtrOutput) Order() DatasetFilesLimitOrderPtrOutput {
+	return o.ApplyT(func(v *DatasetFilesLimit) *DatasetFilesLimitOrder {
 		if v == nil {
 			return nil
 		}
 		return v.Order
-	}).(pulumi.StringPtrOutput)
+	}).(DatasetFilesLimitOrderPtrOutput)
 }
 
 // Ordered by
-func (o DatasetFilesLimitPtrOutput) OrderedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatasetFilesLimit) *string {
+func (o DatasetFilesLimitPtrOutput) OrderedBy() DatasetFilesLimitOrderedByPtrOutput {
+	return o.ApplyT(func(v *DatasetFilesLimit) *DatasetFilesLimitOrderedBy {
 		if v == nil {
 			return nil
 		}
 		return v.OrderedBy
-	}).(pulumi.StringPtrOutput)
+	}).(DatasetFilesLimitOrderedByPtrOutput)
 }
 
 type DatasetFilterExpression struct {
@@ -2826,7 +2826,7 @@ func (o JobDataCatalogOutputArrayOutput) Index(i pulumi.IntInput) JobDataCatalog
 type JobDatabaseOutput struct {
 	DatabaseOptions JobDatabaseTableOutputOptions `pulumi:"databaseOptions"`
 	// Database table name
-	DatabaseOutputMode *string `pulumi:"databaseOutputMode"`
+	DatabaseOutputMode *JobDatabaseOutputDatabaseOutputMode `pulumi:"databaseOutputMode"`
 	// Glue connection name
 	GlueConnectionName string `pulumi:"glueConnectionName"`
 }
@@ -2845,7 +2845,7 @@ type JobDatabaseOutputInput interface {
 type JobDatabaseOutputArgs struct {
 	DatabaseOptions JobDatabaseTableOutputOptionsInput `pulumi:"databaseOptions"`
 	// Database table name
-	DatabaseOutputMode pulumi.StringPtrInput `pulumi:"databaseOutputMode"`
+	DatabaseOutputMode JobDatabaseOutputDatabaseOutputModePtrInput `pulumi:"databaseOutputMode"`
 	// Glue connection name
 	GlueConnectionName pulumi.StringInput `pulumi:"glueConnectionName"`
 }
@@ -2906,8 +2906,8 @@ func (o JobDatabaseOutputOutput) DatabaseOptions() JobDatabaseTableOutputOptions
 }
 
 // Database table name
-func (o JobDatabaseOutputOutput) DatabaseOutputMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDatabaseOutput) *string { return v.DatabaseOutputMode }).(pulumi.StringPtrOutput)
+func (o JobDatabaseOutputOutput) DatabaseOutputMode() JobDatabaseOutputDatabaseOutputModePtrOutput {
+	return o.ApplyT(func(v JobDatabaseOutput) *JobDatabaseOutputDatabaseOutputMode { return v.DatabaseOutputMode }).(JobDatabaseOutputDatabaseOutputModePtrOutput)
 }
 
 // Glue connection name
@@ -3085,8 +3085,8 @@ func (o JobDatabaseTableOutputOptionsPtrOutput) TempDirectory() JobS3LocationPtr
 
 // Job Sample
 type JobJobSample struct {
-	Mode *string `pulumi:"mode"`
-	Size *int    `pulumi:"size"`
+	Mode *JobSampleMode `pulumi:"mode"`
+	Size *int           `pulumi:"size"`
 }
 
 // JobJobSampleInput is an input type that accepts JobJobSampleArgs and JobJobSampleOutput values.
@@ -3102,7 +3102,7 @@ type JobJobSampleInput interface {
 
 // Job Sample
 type JobJobSampleArgs struct {
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode JobSampleModePtrInput `pulumi:"mode"`
 	Size pulumi.IntPtrInput    `pulumi:"size"`
 }
 
@@ -3184,8 +3184,8 @@ func (o JobJobSampleOutput) ToJobJobSamplePtrOutputWithContext(ctx context.Conte
 	}).(JobJobSamplePtrOutput)
 }
 
-func (o JobJobSampleOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobJobSample) *string { return v.Mode }).(pulumi.StringPtrOutput)
+func (o JobJobSampleOutput) Mode() JobSampleModePtrOutput {
+	return o.ApplyT(func(v JobJobSample) *JobSampleMode { return v.Mode }).(JobSampleModePtrOutput)
 }
 
 func (o JobJobSampleOutput) Size() pulumi.IntPtrOutput {
@@ -3216,13 +3216,13 @@ func (o JobJobSamplePtrOutput) Elem() JobJobSampleOutput {
 	}).(JobJobSampleOutput)
 }
 
-func (o JobJobSamplePtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobJobSample) *string {
+func (o JobJobSamplePtrOutput) Mode() JobSampleModePtrOutput {
+	return o.ApplyT(func(v *JobJobSample) *JobSampleMode {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(pulumi.StringPtrOutput)
+	}).(JobSampleModePtrOutput)
 }
 
 func (o JobJobSamplePtrOutput) Size() pulumi.IntPtrOutput {
@@ -3235,12 +3235,12 @@ func (o JobJobSamplePtrOutput) Size() pulumi.IntPtrOutput {
 }
 
 type JobOutputType struct {
-	CompressionFormat *string                 `pulumi:"compressionFormat"`
-	Format            *string                 `pulumi:"format"`
-	FormatOptions     *JobOutputFormatOptions `pulumi:"formatOptions"`
-	Location          JobS3Location           `pulumi:"location"`
-	Overwrite         *bool                   `pulumi:"overwrite"`
-	PartitionColumns  []string                `pulumi:"partitionColumns"`
+	CompressionFormat *JobOutputCompressionFormat `pulumi:"compressionFormat"`
+	Format            *JobOutputFormat            `pulumi:"format"`
+	FormatOptions     *JobOutputFormatOptions     `pulumi:"formatOptions"`
+	Location          JobS3Location               `pulumi:"location"`
+	Overwrite         *bool                       `pulumi:"overwrite"`
+	PartitionColumns  []string                    `pulumi:"partitionColumns"`
 }
 
 // JobOutputTypeInput is an input type that accepts JobOutputTypeArgs and JobOutputTypeOutput values.
@@ -3255,12 +3255,12 @@ type JobOutputTypeInput interface {
 }
 
 type JobOutputTypeArgs struct {
-	CompressionFormat pulumi.StringPtrInput          `pulumi:"compressionFormat"`
-	Format            pulumi.StringPtrInput          `pulumi:"format"`
-	FormatOptions     JobOutputFormatOptionsPtrInput `pulumi:"formatOptions"`
-	Location          JobS3LocationInput             `pulumi:"location"`
-	Overwrite         pulumi.BoolPtrInput            `pulumi:"overwrite"`
-	PartitionColumns  pulumi.StringArrayInput        `pulumi:"partitionColumns"`
+	CompressionFormat JobOutputCompressionFormatPtrInput `pulumi:"compressionFormat"`
+	Format            JobOutputFormatPtrInput            `pulumi:"format"`
+	FormatOptions     JobOutputFormatOptionsPtrInput     `pulumi:"formatOptions"`
+	Location          JobS3LocationInput                 `pulumi:"location"`
+	Overwrite         pulumi.BoolPtrInput                `pulumi:"overwrite"`
+	PartitionColumns  pulumi.StringArrayInput            `pulumi:"partitionColumns"`
 }
 
 func (JobOutputTypeArgs) ElementType() reflect.Type {
@@ -3314,12 +3314,12 @@ func (o JobOutputTypeOutput) ToJobOutputTypeOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o JobOutputTypeOutput) CompressionFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobOutputType) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
+func (o JobOutputTypeOutput) CompressionFormat() JobOutputCompressionFormatPtrOutput {
+	return o.ApplyT(func(v JobOutputType) *JobOutputCompressionFormat { return v.CompressionFormat }).(JobOutputCompressionFormatPtrOutput)
 }
 
-func (o JobOutputTypeOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobOutputType) *string { return v.Format }).(pulumi.StringPtrOutput)
+func (o JobOutputTypeOutput) Format() JobOutputFormatPtrOutput {
+	return o.ApplyT(func(v JobOutputType) *JobOutputFormat { return v.Format }).(JobOutputFormatPtrOutput)
 }
 
 func (o JobOutputTypeOutput) FormatOptions() JobOutputFormatOptionsPtrOutput {
@@ -4648,7 +4648,7 @@ type ProjectSample struct {
 	// Sample size
 	Size *int `pulumi:"size"`
 	// Sample type
-	Type string `pulumi:"type"`
+	Type ProjectSampleType `pulumi:"type"`
 }
 
 // ProjectSampleInput is an input type that accepts ProjectSampleArgs and ProjectSampleOutput values.
@@ -4666,7 +4666,7 @@ type ProjectSampleArgs struct {
 	// Sample size
 	Size pulumi.IntPtrInput `pulumi:"size"`
 	// Sample type
-	Type pulumi.StringInput `pulumi:"type"`
+	Type ProjectSampleTypeInput `pulumi:"type"`
 }
 
 func (ProjectSampleArgs) ElementType() reflect.Type {
@@ -4752,8 +4752,8 @@ func (o ProjectSampleOutput) Size() pulumi.IntPtrOutput {
 }
 
 // Sample type
-func (o ProjectSampleOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectSample) string { return v.Type }).(pulumi.StringOutput)
+func (o ProjectSampleOutput) Type() ProjectSampleTypeOutput {
+	return o.ApplyT(func(v ProjectSample) ProjectSampleType { return v.Type }).(ProjectSampleTypeOutput)
 }
 
 type ProjectSamplePtrOutput struct{ *pulumi.OutputState }
@@ -4791,13 +4791,13 @@ func (o ProjectSamplePtrOutput) Size() pulumi.IntPtrOutput {
 }
 
 // Sample type
-func (o ProjectSamplePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSample) *string {
+func (o ProjectSamplePtrOutput) Type() ProjectSampleTypePtrOutput {
+	return o.ApplyT(func(v *ProjectSample) *ProjectSampleType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ProjectSampleTypePtrOutput)
 }
 
 // A key-value pair to associate with a resource.

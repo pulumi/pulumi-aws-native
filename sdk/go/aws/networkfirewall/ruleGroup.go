@@ -22,7 +22,7 @@ type RuleGroup struct {
 	RuleGroupId   pulumi.StringOutput         `pulumi:"ruleGroupId"`
 	RuleGroupName pulumi.StringOutput         `pulumi:"ruleGroupName"`
 	Tags          RuleGroupTagArrayOutput     `pulumi:"tags"`
-	Type          pulumi.StringOutput         `pulumi:"type"`
+	Type          RuleGroupTypeOutput         `pulumi:"type"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -78,7 +78,7 @@ type ruleGroupArgs struct {
 	RuleGroup     *RuleGroupRuleGroup `pulumi:"ruleGroup"`
 	RuleGroupName string              `pulumi:"ruleGroupName"`
 	Tags          []RuleGroupTag      `pulumi:"tags"`
-	Type          string              `pulumi:"type"`
+	Type          RuleGroupType       `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
@@ -88,7 +88,7 @@ type RuleGroupArgs struct {
 	RuleGroup     RuleGroupRuleGroupPtrInput
 	RuleGroupName pulumi.StringInput
 	Tags          RuleGroupTagArrayInput
-	Type          pulumi.StringInput
+	Type          RuleGroupTypeInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {

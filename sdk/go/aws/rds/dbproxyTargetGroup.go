@@ -23,7 +23,7 @@ type DBProxyTargetGroup struct {
 	// The Amazon Resource Name (ARN) representing the target group.
 	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
 	// The identifier for the DBProxyTargetGroup
-	TargetGroupName pulumi.StringOutput `pulumi:"targetGroupName"`
+	TargetGroupName DBProxyTargetGroupTargetGroupNameOutput `pulumi:"targetGroupName"`
 }
 
 // NewDBProxyTargetGroup registers a new resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ type dbproxyTargetGroupArgs struct {
 	// The identifier for the proxy.
 	DBProxyName string `pulumi:"dBProxyName"`
 	// The identifier for the DBProxyTargetGroup
-	TargetGroupName string `pulumi:"targetGroupName"`
+	TargetGroupName DBProxyTargetGroupTargetGroupName `pulumi:"targetGroupName"`
 }
 
 // The set of arguments for constructing a DBProxyTargetGroup resource.
@@ -88,7 +88,7 @@ type DBProxyTargetGroupArgs struct {
 	// The identifier for the proxy.
 	DBProxyName pulumi.StringInput
 	// The identifier for the DBProxyTargetGroup
-	TargetGroupName pulumi.StringInput
+	TargetGroupName DBProxyTargetGroupTargetGroupNameInput
 }
 
 func (DBProxyTargetGroupArgs) ElementType() reflect.Type {

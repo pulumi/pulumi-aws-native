@@ -16,7 +16,7 @@ type Dataset struct {
 	pulumi.CustomResourceState
 
 	// Dataset format
-	Format pulumi.StringPtrOutput `pulumi:"format"`
+	Format DatasetFormatPtrOutput `pulumi:"format"`
 	// Format options for dataset
 	FormatOptions DatasetFormatOptionsPtrOutput `pulumi:"formatOptions"`
 	// Input
@@ -74,7 +74,7 @@ func (DatasetState) ElementType() reflect.Type {
 
 type datasetArgs struct {
 	// Dataset format
-	Format *string `pulumi:"format"`
+	Format *DatasetFormat `pulumi:"format"`
 	// Format options for dataset
 	FormatOptions *DatasetFormatOptions `pulumi:"formatOptions"`
 	// Input
@@ -89,7 +89,7 @@ type datasetArgs struct {
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
 	// Dataset format
-	Format pulumi.StringPtrInput
+	Format DatasetFormatPtrInput
 	// Format options for dataset
 	FormatOptions DatasetFormatOptionsPtrInput
 	// Input

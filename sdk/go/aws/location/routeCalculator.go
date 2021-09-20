@@ -15,14 +15,14 @@ import (
 type RouteCalculator struct {
 	pulumi.CustomResourceState
 
-	Arn            pulumi.StringOutput    `pulumi:"arn"`
-	CalculatorArn  pulumi.StringOutput    `pulumi:"calculatorArn"`
-	CalculatorName pulumi.StringOutput    `pulumi:"calculatorName"`
-	CreateTime     pulumi.StringOutput    `pulumi:"createTime"`
-	DataSource     pulumi.StringOutput    `pulumi:"dataSource"`
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
-	PricingPlan    pulumi.StringOutput    `pulumi:"pricingPlan"`
-	UpdateTime     pulumi.StringOutput    `pulumi:"updateTime"`
+	Arn            pulumi.StringOutput              `pulumi:"arn"`
+	CalculatorArn  pulumi.StringOutput              `pulumi:"calculatorArn"`
+	CalculatorName pulumi.StringOutput              `pulumi:"calculatorName"`
+	CreateTime     pulumi.StringOutput              `pulumi:"createTime"`
+	DataSource     pulumi.StringOutput              `pulumi:"dataSource"`
+	Description    pulumi.StringPtrOutput           `pulumi:"description"`
+	PricingPlan    RouteCalculatorPricingPlanOutput `pulumi:"pricingPlan"`
+	UpdateTime     pulumi.StringOutput              `pulumi:"updateTime"`
 }
 
 // NewRouteCalculator registers a new resource with the given unique name, arguments, and options.
@@ -73,10 +73,10 @@ func (RouteCalculatorState) ElementType() reflect.Type {
 }
 
 type routeCalculatorArgs struct {
-	CalculatorName string  `pulumi:"calculatorName"`
-	DataSource     string  `pulumi:"dataSource"`
-	Description    *string `pulumi:"description"`
-	PricingPlan    string  `pulumi:"pricingPlan"`
+	CalculatorName string                     `pulumi:"calculatorName"`
+	DataSource     string                     `pulumi:"dataSource"`
+	Description    *string                    `pulumi:"description"`
+	PricingPlan    RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a RouteCalculator resource.
@@ -84,7 +84,7 @@ type RouteCalculatorArgs struct {
 	CalculatorName pulumi.StringInput
 	DataSource     pulumi.StringInput
 	Description    pulumi.StringPtrInput
-	PricingPlan    pulumi.StringInput
+	PricingPlan    RouteCalculatorPricingPlanInput
 }
 
 func (RouteCalculatorArgs) ElementType() reflect.Type {

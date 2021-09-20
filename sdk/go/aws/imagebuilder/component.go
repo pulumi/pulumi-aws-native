@@ -30,13 +30,13 @@ type Component struct {
 	// The name of the component.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The platform of the component.
-	Platform pulumi.StringOutput `pulumi:"platform"`
+	Platform ComponentPlatformOutput `pulumi:"platform"`
 	// The operating system (OS) version supported by the component.
 	SupportedOsVersions pulumi.StringArrayOutput `pulumi:"supportedOsVersions"`
 	// The tags associated with the component.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 	// The type of the component denotes whether the component is used to build the image or only to test it.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type ComponentTypeOutput `pulumi:"type"`
 	// The uri of the component.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 	// The version of the component.
@@ -102,7 +102,7 @@ type componentArgs struct {
 	// The name of the component.
 	Name string `pulumi:"name"`
 	// The platform of the component.
-	Platform string `pulumi:"platform"`
+	Platform ComponentPlatform `pulumi:"platform"`
 	// The operating system (OS) version supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// The tags associated with the component.
@@ -126,7 +126,7 @@ type ComponentArgs struct {
 	// The name of the component.
 	Name pulumi.StringInput
 	// The platform of the component.
-	Platform pulumi.StringInput
+	Platform ComponentPlatformInput
 	// The operating system (OS) version supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
 	// The tags associated with the component.

@@ -482,7 +482,7 @@ func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutp
 // Byte Match statement.
 type RuleGroupByteMatchStatement struct {
 	FieldToMatch         RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
-	PositionalConstraint string                        `pulumi:"positionalConstraint"`
+	PositionalConstraint RuleGroupPositionalConstraint `pulumi:"positionalConstraint"`
 	SearchString         *string                       `pulumi:"searchString"`
 	SearchStringBase64   *string                       `pulumi:"searchStringBase64"`
 	TextTransformations  []RuleGroupTextTransformation `pulumi:"textTransformations"`
@@ -502,7 +502,7 @@ type RuleGroupByteMatchStatementInput interface {
 // Byte Match statement.
 type RuleGroupByteMatchStatementArgs struct {
 	FieldToMatch         RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
-	PositionalConstraint pulumi.StringInput                    `pulumi:"positionalConstraint"`
+	PositionalConstraint RuleGroupPositionalConstraintInput    `pulumi:"positionalConstraint"`
 	SearchString         pulumi.StringPtrInput                 `pulumi:"searchString"`
 	SearchStringBase64   pulumi.StringPtrInput                 `pulumi:"searchStringBase64"`
 	TextTransformations  RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
@@ -590,8 +590,8 @@ func (o RuleGroupByteMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchO
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
-func (o RuleGroupByteMatchStatementOutput) PositionalConstraint() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupByteMatchStatement) string { return v.PositionalConstraint }).(pulumi.StringOutput)
+func (o RuleGroupByteMatchStatementOutput) PositionalConstraint() RuleGroupPositionalConstraintOutput {
+	return o.ApplyT(func(v RuleGroupByteMatchStatement) RuleGroupPositionalConstraint { return v.PositionalConstraint }).(RuleGroupPositionalConstraintOutput)
 }
 
 func (o RuleGroupByteMatchStatementOutput) SearchString() pulumi.StringPtrOutput {
@@ -639,13 +639,13 @@ func (o RuleGroupByteMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMat
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
-func (o RuleGroupByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupByteMatchStatement) *string {
+func (o RuleGroupByteMatchStatementPtrOutput) PositionalConstraint() RuleGroupPositionalConstraintPtrOutput {
+	return o.ApplyT(func(v *RuleGroupByteMatchStatement) *RuleGroupPositionalConstraint {
 		if v == nil {
 			return nil
 		}
 		return &v.PositionalConstraint
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupPositionalConstraintPtrOutput)
 }
 
 func (o RuleGroupByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput {
@@ -1062,8 +1062,8 @@ func (o RuleGroupFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 }
 
 type RuleGroupForwardedIPConfiguration struct {
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	HeaderName       string `pulumi:"headerName"`
+	FallbackBehavior RuleGroupForwardedIPConfigurationFallbackBehavior `pulumi:"fallbackBehavior"`
+	HeaderName       string                                            `pulumi:"headerName"`
 }
 
 // RuleGroupForwardedIPConfigurationInput is an input type that accepts RuleGroupForwardedIPConfigurationArgs and RuleGroupForwardedIPConfigurationOutput values.
@@ -1078,8 +1078,8 @@ type RuleGroupForwardedIPConfigurationInput interface {
 }
 
 type RuleGroupForwardedIPConfigurationArgs struct {
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	HeaderName       pulumi.StringInput `pulumi:"headerName"`
+	FallbackBehavior RuleGroupForwardedIPConfigurationFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+	HeaderName       pulumi.StringInput                                     `pulumi:"headerName"`
 }
 
 func (RuleGroupForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -1159,8 +1159,10 @@ func (o RuleGroupForwardedIPConfigurationOutput) ToRuleGroupForwardedIPConfigura
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-func (o RuleGroupForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+func (o RuleGroupForwardedIPConfigurationOutput) FallbackBehavior() RuleGroupForwardedIPConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v RuleGroupForwardedIPConfiguration) RuleGroupForwardedIPConfigurationFallbackBehavior {
+		return v.FallbackBehavior
+	}).(RuleGroupForwardedIPConfigurationFallbackBehaviorOutput)
 }
 
 func (o RuleGroupForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
@@ -1191,13 +1193,13 @@ func (o RuleGroupForwardedIPConfigurationPtrOutput) Elem() RuleGroupForwardedIPC
 	}).(RuleGroupForwardedIPConfigurationOutput)
 }
 
-func (o RuleGroupForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupForwardedIPConfiguration) *string {
+func (o RuleGroupForwardedIPConfigurationPtrOutput) FallbackBehavior() RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupForwardedIPConfiguration) *RuleGroupForwardedIPConfigurationFallbackBehavior {
 		if v == nil {
 			return nil
 		}
 		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
 func (o RuleGroupForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
@@ -1358,9 +1360,9 @@ func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIPConfig() RuleGroupForwar
 }
 
 type RuleGroupIPSetForwardedIPConfiguration struct {
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	HeaderName       string `pulumi:"headerName"`
-	Position         string `pulumi:"position"`
+	FallbackBehavior RuleGroupIPSetForwardedIPConfigurationFallbackBehavior `pulumi:"fallbackBehavior"`
+	HeaderName       string                                                 `pulumi:"headerName"`
+	Position         RuleGroupIPSetForwardedIPConfigurationPosition         `pulumi:"position"`
 }
 
 // RuleGroupIPSetForwardedIPConfigurationInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationArgs and RuleGroupIPSetForwardedIPConfigurationOutput values.
@@ -1375,9 +1377,9 @@ type RuleGroupIPSetForwardedIPConfigurationInput interface {
 }
 
 type RuleGroupIPSetForwardedIPConfigurationArgs struct {
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	HeaderName       pulumi.StringInput `pulumi:"headerName"`
-	Position         pulumi.StringInput `pulumi:"position"`
+	FallbackBehavior RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+	HeaderName       pulumi.StringInput                                          `pulumi:"headerName"`
+	Position         RuleGroupIPSetForwardedIPConfigurationPositionInput         `pulumi:"position"`
 }
 
 func (RuleGroupIPSetForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -1457,16 +1459,20 @@ func (o RuleGroupIPSetForwardedIPConfigurationOutput) ToRuleGroupIPSetForwardedI
 	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) FallbackBehavior() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) RuleGroupIPSetForwardedIPConfigurationFallbackBehavior {
+		return v.FallbackBehavior
+	}).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorOutput)
 }
 
 func (o RuleGroupIPSetForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationOutput) Position() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.Position }).(pulumi.StringOutput)
+func (o RuleGroupIPSetForwardedIPConfigurationOutput) Position() RuleGroupIPSetForwardedIPConfigurationPositionOutput {
+	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) RuleGroupIPSetForwardedIPConfigurationPosition {
+		return v.Position
+	}).(RuleGroupIPSetForwardedIPConfigurationPositionOutput)
 }
 
 type RuleGroupIPSetForwardedIPConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1493,13 +1499,13 @@ func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Elem() RuleGroupIPSetFo
 	}).(RuleGroupIPSetForwardedIPConfigurationOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *RuleGroupIPSetForwardedIPConfigurationFallbackBehavior {
 		if v == nil {
 			return nil
 		}
 		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
 func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
@@ -1511,13 +1517,13 @@ func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
+func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Position() RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput {
+	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *RuleGroupIPSetForwardedIPConfigurationPosition {
 		if v == nil {
 			return nil
 		}
 		return &v.Position
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupIPSetForwardedIPConfigurationPositionPtrOutput)
 }
 
 type RuleGroupIPSetReferenceStatement struct {
@@ -1672,9 +1678,9 @@ func (o RuleGroupIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() Rule
 
 // Inspect the request body as JSON. The request body immediately follows the request headers.
 type RuleGroupJsonBody struct {
-	InvalidFallbackBehavior *string                   `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            RuleGroupJsonMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                    `pulumi:"matchScope"`
+	InvalidFallbackBehavior *RuleGroupBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            RuleGroupJsonMatchPattern             `pulumi:"matchPattern"`
+	MatchScope              RuleGroupJsonMatchScope               `pulumi:"matchScope"`
 }
 
 // RuleGroupJsonBodyInput is an input type that accepts RuleGroupJsonBodyArgs and RuleGroupJsonBodyOutput values.
@@ -1690,9 +1696,9 @@ type RuleGroupJsonBodyInput interface {
 
 // Inspect the request body as JSON. The request body immediately follows the request headers.
 type RuleGroupJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput          `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            RuleGroupJsonMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput             `pulumi:"matchScope"`
+	InvalidFallbackBehavior RuleGroupBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            RuleGroupJsonMatchPatternInput               `pulumi:"matchPattern"`
+	MatchScope              RuleGroupJsonMatchScopeInput                 `pulumi:"matchScope"`
 }
 
 func (RuleGroupJsonBodyArgs) ElementType() reflect.Type {
@@ -1773,16 +1779,16 @@ func (o RuleGroupJsonBodyOutput) ToRuleGroupJsonBodyPtrOutputWithContext(ctx con
 	}).(RuleGroupJsonBodyPtrOutput)
 }
 
-func (o RuleGroupJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RuleGroupJsonBody) *string { return v.InvalidFallbackBehavior }).(pulumi.StringPtrOutput)
+func (o RuleGroupJsonBodyOutput) InvalidFallbackBehavior() RuleGroupBodyParsingFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v RuleGroupJsonBody) *RuleGroupBodyParsingFallbackBehavior { return v.InvalidFallbackBehavior }).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
 func (o RuleGroupJsonBodyOutput) MatchPattern() RuleGroupJsonMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupJsonBody) RuleGroupJsonMatchPattern { return v.MatchPattern }).(RuleGroupJsonMatchPatternOutput)
 }
 
-func (o RuleGroupJsonBodyOutput) MatchScope() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
+func (o RuleGroupJsonBodyOutput) MatchScope() RuleGroupJsonMatchScopeOutput {
+	return o.ApplyT(func(v RuleGroupJsonBody) RuleGroupJsonMatchScope { return v.MatchScope }).(RuleGroupJsonMatchScopeOutput)
 }
 
 type RuleGroupJsonBodyPtrOutput struct{ *pulumi.OutputState }
@@ -1809,13 +1815,13 @@ func (o RuleGroupJsonBodyPtrOutput) Elem() RuleGroupJsonBodyOutput {
 	}).(RuleGroupJsonBodyOutput)
 }
 
-func (o RuleGroupJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupJsonBody) *string {
+func (o RuleGroupJsonBodyPtrOutput) InvalidFallbackBehavior() RuleGroupBodyParsingFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupJsonBody) *RuleGroupBodyParsingFallbackBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
 func (o RuleGroupJsonBodyPtrOutput) MatchPattern() RuleGroupJsonMatchPatternPtrOutput {
@@ -1827,13 +1833,13 @@ func (o RuleGroupJsonBodyPtrOutput) MatchPattern() RuleGroupJsonMatchPatternPtrO
 	}).(RuleGroupJsonMatchPatternPtrOutput)
 }
 
-func (o RuleGroupJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupJsonBody) *string {
+func (o RuleGroupJsonBodyPtrOutput) MatchScope() RuleGroupJsonMatchScopePtrOutput {
+	return o.ApplyT(func(v *RuleGroupJsonBody) *RuleGroupJsonMatchScope {
 		if v == nil {
 			return nil
 		}
 		return &v.MatchScope
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupJsonMatchScopePtrOutput)
 }
 
 // The pattern to look for in the JSON body.
@@ -2086,8 +2092,8 @@ func (o RuleGroupLabelArrayOutput) Index(i pulumi.IntInput) RuleGroupLabelOutput
 }
 
 type RuleGroupLabelMatchStatement struct {
-	Key   string `pulumi:"key"`
-	Scope string `pulumi:"scope"`
+	Key   string                   `pulumi:"key"`
+	Scope RuleGroupLabelMatchScope `pulumi:"scope"`
 }
 
 // RuleGroupLabelMatchStatementInput is an input type that accepts RuleGroupLabelMatchStatementArgs and RuleGroupLabelMatchStatementOutput values.
@@ -2102,8 +2108,8 @@ type RuleGroupLabelMatchStatementInput interface {
 }
 
 type RuleGroupLabelMatchStatementArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Scope pulumi.StringInput `pulumi:"scope"`
+	Key   pulumi.StringInput            `pulumi:"key"`
+	Scope RuleGroupLabelMatchScopeInput `pulumi:"scope"`
 }
 
 func (RuleGroupLabelMatchStatementArgs) ElementType() reflect.Type {
@@ -2187,8 +2193,8 @@ func (o RuleGroupLabelMatchStatementOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o RuleGroupLabelMatchStatementOutput) Scope() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupLabelMatchStatement) string { return v.Scope }).(pulumi.StringOutput)
+func (o RuleGroupLabelMatchStatementOutput) Scope() RuleGroupLabelMatchScopeOutput {
+	return o.ApplyT(func(v RuleGroupLabelMatchStatement) RuleGroupLabelMatchScope { return v.Scope }).(RuleGroupLabelMatchScopeOutput)
 }
 
 type RuleGroupLabelMatchStatementPtrOutput struct{ *pulumi.OutputState }
@@ -2224,13 +2230,13 @@ func (o RuleGroupLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o RuleGroupLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupLabelMatchStatement) *string {
+func (o RuleGroupLabelMatchStatementPtrOutput) Scope() RuleGroupLabelMatchScopePtrOutput {
+	return o.ApplyT(func(v *RuleGroupLabelMatchStatement) *RuleGroupLabelMatchScope {
 		if v == nil {
 			return nil
 		}
 		return &v.Scope
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupLabelMatchScopePtrOutput)
 }
 
 type RuleGroupLabelSummary struct {
@@ -2594,10 +2600,10 @@ func (o RuleGroupOrStatementPtrOutput) Statements() RuleGroupStatementArrayOutpu
 }
 
 type RuleGroupRateBasedStatement struct {
-	AggregateKeyType   string                             `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	Limit              int                                `pulumi:"limit"`
-	ScopeDownStatement *RuleGroupStatement                `pulumi:"scopeDownStatement"`
+	AggregateKeyType   RuleGroupRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  *RuleGroupForwardedIPConfiguration          `pulumi:"forwardedIPConfig"`
+	Limit              int                                         `pulumi:"limit"`
+	ScopeDownStatement *RuleGroupStatement                         `pulumi:"scopeDownStatement"`
 }
 
 // RuleGroupRateBasedStatementInput is an input type that accepts RuleGroupRateBasedStatementArgs and RuleGroupRateBasedStatementOutput values.
@@ -2612,10 +2618,10 @@ type RuleGroupRateBasedStatementInput interface {
 }
 
 type RuleGroupRateBasedStatementArgs struct {
-	AggregateKeyType   pulumi.StringInput                        `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	Limit              pulumi.IntInput                           `pulumi:"limit"`
-	ScopeDownStatement RuleGroupStatementPtrInput                `pulumi:"scopeDownStatement"`
+	AggregateKeyType   RuleGroupRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  RuleGroupForwardedIPConfigurationPtrInput        `pulumi:"forwardedIPConfig"`
+	Limit              pulumi.IntInput                                  `pulumi:"limit"`
+	ScopeDownStatement RuleGroupStatementPtrInput                       `pulumi:"scopeDownStatement"`
 }
 
 func (RuleGroupRateBasedStatementArgs) ElementType() reflect.Type {
@@ -2695,8 +2701,10 @@ func (o RuleGroupRateBasedStatementOutput) ToRuleGroupRateBasedStatementPtrOutpu
 	}).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-func (o RuleGroupRateBasedStatementOutput) AggregateKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatement) string { return v.AggregateKeyType }).(pulumi.StringOutput)
+func (o RuleGroupRateBasedStatementOutput) AggregateKeyType() RuleGroupRateBasedStatementAggregateKeyTypeOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) RuleGroupRateBasedStatementAggregateKeyType {
+		return v.AggregateKeyType
+	}).(RuleGroupRateBasedStatementAggregateKeyTypeOutput)
 }
 
 func (o RuleGroupRateBasedStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
@@ -2735,13 +2743,13 @@ func (o RuleGroupRateBasedStatementPtrOutput) Elem() RuleGroupRateBasedStatement
 	}).(RuleGroupRateBasedStatementOutput)
 }
 
-func (o RuleGroupRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *string {
+func (o RuleGroupRateBasedStatementPtrOutput) AggregateKeyType() RuleGroupRateBasedStatementAggregateKeyTypePtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupRateBasedStatementAggregateKeyType {
 		if v == nil {
 			return nil
 		}
 		return &v.AggregateKeyType
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
 func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
@@ -3246,10 +3254,10 @@ func (o RuleGroupRuleActionPtrOutput) Count() pulumi.AnyOutput {
 
 // Size Constraint statement.
 type RuleGroupSizeConstraintStatement struct {
-	ComparisonOperator  string                        `pulumi:"comparisonOperator"`
-	FieldToMatch        RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
-	Size                float64                       `pulumi:"size"`
-	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
+	ComparisonOperator  RuleGroupSizeConstraintStatementComparisonOperator `pulumi:"comparisonOperator"`
+	FieldToMatch        RuleGroupFieldToMatch                              `pulumi:"fieldToMatch"`
+	Size                float64                                            `pulumi:"size"`
+	TextTransformations []RuleGroupTextTransformation                      `pulumi:"textTransformations"`
 }
 
 // RuleGroupSizeConstraintStatementInput is an input type that accepts RuleGroupSizeConstraintStatementArgs and RuleGroupSizeConstraintStatementOutput values.
@@ -3265,10 +3273,10 @@ type RuleGroupSizeConstraintStatementInput interface {
 
 // Size Constraint statement.
 type RuleGroupSizeConstraintStatementArgs struct {
-	ComparisonOperator  pulumi.StringInput                    `pulumi:"comparisonOperator"`
-	FieldToMatch        RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
-	Size                pulumi.Float64Input                   `pulumi:"size"`
-	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
+	ComparisonOperator  RuleGroupSizeConstraintStatementComparisonOperatorInput `pulumi:"comparisonOperator"`
+	FieldToMatch        RuleGroupFieldToMatchInput                              `pulumi:"fieldToMatch"`
+	Size                pulumi.Float64Input                                     `pulumi:"size"`
+	TextTransformations RuleGroupTextTransformationArrayInput                   `pulumi:"textTransformations"`
 }
 
 func (RuleGroupSizeConstraintStatementArgs) ElementType() reflect.Type {
@@ -3349,8 +3357,10 @@ func (o RuleGroupSizeConstraintStatementOutput) ToRuleGroupSizeConstraintStateme
 	}).(RuleGroupSizeConstraintStatementPtrOutput)
 }
 
-func (o RuleGroupSizeConstraintStatementOutput) ComparisonOperator() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) string { return v.ComparisonOperator }).(pulumi.StringOutput)
+func (o RuleGroupSizeConstraintStatementOutput) ComparisonOperator() RuleGroupSizeConstraintStatementComparisonOperatorOutput {
+	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) RuleGroupSizeConstraintStatementComparisonOperator {
+		return v.ComparisonOperator
+	}).(RuleGroupSizeConstraintStatementComparisonOperatorOutput)
 }
 
 func (o RuleGroupSizeConstraintStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
@@ -3389,13 +3399,13 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) Elem() RuleGroupSizeConstrain
 	}).(RuleGroupSizeConstraintStatementOutput)
 }
 
-func (o RuleGroupSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *string {
+func (o RuleGroupSizeConstraintStatementPtrOutput) ComparisonOperator() RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *RuleGroupSizeConstraintStatementComparisonOperator {
 		if v == nil {
 			return nil
 		}
 		return &v.ComparisonOperator
-	}).(pulumi.StringPtrOutput)
+	}).(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
 func (o RuleGroupSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
@@ -4026,8 +4036,8 @@ func (o RuleGroupTagArrayOutput) Index(i pulumi.IntInput) RuleGroupTagOutput {
 
 // Text Transformation on the Search String before match.
 type RuleGroupTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	Priority int                             `pulumi:"priority"`
+	Type     RuleGroupTextTransformationType `pulumi:"type"`
 }
 
 // RuleGroupTextTransformationInput is an input type that accepts RuleGroupTextTransformationArgs and RuleGroupTextTransformationOutput values.
@@ -4043,8 +4053,8 @@ type RuleGroupTextTransformationInput interface {
 
 // Text Transformation on the Search String before match.
 type RuleGroupTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	Priority pulumi.IntInput                      `pulumi:"priority"`
+	Type     RuleGroupTextTransformationTypeInput `pulumi:"type"`
 }
 
 func (RuleGroupTextTransformationArgs) ElementType() reflect.Type {
@@ -4103,8 +4113,8 @@ func (o RuleGroupTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-func (o RuleGroupTextTransformationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupTextTransformation) string { return v.Type }).(pulumi.StringOutput)
+func (o RuleGroupTextTransformationOutput) Type() RuleGroupTextTransformationTypeOutput {
+	return o.ApplyT(func(v RuleGroupTextTransformation) RuleGroupTextTransformationType { return v.Type }).(RuleGroupTextTransformationTypeOutput)
 }
 
 type RuleGroupTextTransformationArrayOutput struct{ *pulumi.OutputState }
@@ -4852,7 +4862,7 @@ func (o WebACLBlockActionPtrOutput) CustomResponse() WebACLCustomResponsePtrOutp
 // Byte Match statement.
 type WebACLByteMatchStatement struct {
 	FieldToMatch         WebACLFieldToMatch         `pulumi:"fieldToMatch"`
-	PositionalConstraint string                     `pulumi:"positionalConstraint"`
+	PositionalConstraint WebACLPositionalConstraint `pulumi:"positionalConstraint"`
 	SearchString         *string                    `pulumi:"searchString"`
 	SearchStringBase64   *string                    `pulumi:"searchStringBase64"`
 	TextTransformations  []WebACLTextTransformation `pulumi:"textTransformations"`
@@ -4872,7 +4882,7 @@ type WebACLByteMatchStatementInput interface {
 // Byte Match statement.
 type WebACLByteMatchStatementArgs struct {
 	FieldToMatch         WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
-	PositionalConstraint pulumi.StringInput                 `pulumi:"positionalConstraint"`
+	PositionalConstraint WebACLPositionalConstraintInput    `pulumi:"positionalConstraint"`
 	SearchString         pulumi.StringPtrInput              `pulumi:"searchString"`
 	SearchStringBase64   pulumi.StringPtrInput              `pulumi:"searchStringBase64"`
 	TextTransformations  WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
@@ -4960,8 +4970,8 @@ func (o WebACLByteMatchStatementOutput) FieldToMatch() WebACLFieldToMatchOutput 
 	return o.ApplyT(func(v WebACLByteMatchStatement) WebACLFieldToMatch { return v.FieldToMatch }).(WebACLFieldToMatchOutput)
 }
 
-func (o WebACLByteMatchStatementOutput) PositionalConstraint() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLByteMatchStatement) string { return v.PositionalConstraint }).(pulumi.StringOutput)
+func (o WebACLByteMatchStatementOutput) PositionalConstraint() WebACLPositionalConstraintOutput {
+	return o.ApplyT(func(v WebACLByteMatchStatement) WebACLPositionalConstraint { return v.PositionalConstraint }).(WebACLPositionalConstraintOutput)
 }
 
 func (o WebACLByteMatchStatementOutput) SearchString() pulumi.StringPtrOutput {
@@ -5009,13 +5019,13 @@ func (o WebACLByteMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrO
 	}).(WebACLFieldToMatchPtrOutput)
 }
 
-func (o WebACLByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLByteMatchStatement) *string {
+func (o WebACLByteMatchStatementPtrOutput) PositionalConstraint() WebACLPositionalConstraintPtrOutput {
+	return o.ApplyT(func(v *WebACLByteMatchStatement) *WebACLPositionalConstraint {
 		if v == nil {
 			return nil
 		}
 		return &v.PositionalConstraint
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLPositionalConstraintPtrOutput)
 }
 
 func (o WebACLByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput {
@@ -6233,8 +6243,8 @@ func (o WebACLFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 }
 
 type WebACLForwardedIPConfiguration struct {
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	HeaderName       string `pulumi:"headerName"`
+	FallbackBehavior WebACLForwardedIPConfigurationFallbackBehavior `pulumi:"fallbackBehavior"`
+	HeaderName       string                                         `pulumi:"headerName"`
 }
 
 // WebACLForwardedIPConfigurationInput is an input type that accepts WebACLForwardedIPConfigurationArgs and WebACLForwardedIPConfigurationOutput values.
@@ -6249,8 +6259,8 @@ type WebACLForwardedIPConfigurationInput interface {
 }
 
 type WebACLForwardedIPConfigurationArgs struct {
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	HeaderName       pulumi.StringInput `pulumi:"headerName"`
+	FallbackBehavior WebACLForwardedIPConfigurationFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+	HeaderName       pulumi.StringInput                                  `pulumi:"headerName"`
 }
 
 func (WebACLForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -6330,8 +6340,10 @@ func (o WebACLForwardedIPConfigurationOutput) ToWebACLForwardedIPConfigurationPt
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-func (o WebACLForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+func (o WebACLForwardedIPConfigurationOutput) FallbackBehavior() WebACLForwardedIPConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v WebACLForwardedIPConfiguration) WebACLForwardedIPConfigurationFallbackBehavior {
+		return v.FallbackBehavior
+	}).(WebACLForwardedIPConfigurationFallbackBehaviorOutput)
 }
 
 func (o WebACLForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
@@ -6362,13 +6374,13 @@ func (o WebACLForwardedIPConfigurationPtrOutput) Elem() WebACLForwardedIPConfigu
 	}).(WebACLForwardedIPConfigurationOutput)
 }
 
-func (o WebACLForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLForwardedIPConfiguration) *string {
+func (o WebACLForwardedIPConfigurationPtrOutput) FallbackBehavior() WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebACLForwardedIPConfiguration) *WebACLForwardedIPConfigurationFallbackBehavior {
 		if v == nil {
 			return nil
 		}
 		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
 func (o WebACLForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
@@ -6529,9 +6541,9 @@ func (o WebACLGeoMatchStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPC
 }
 
 type WebACLIPSetForwardedIPConfiguration struct {
-	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	HeaderName       string `pulumi:"headerName"`
-	Position         string `pulumi:"position"`
+	FallbackBehavior WebACLIPSetForwardedIPConfigurationFallbackBehavior `pulumi:"fallbackBehavior"`
+	HeaderName       string                                              `pulumi:"headerName"`
+	Position         WebACLIPSetForwardedIPConfigurationPosition         `pulumi:"position"`
 }
 
 // WebACLIPSetForwardedIPConfigurationInput is an input type that accepts WebACLIPSetForwardedIPConfigurationArgs and WebACLIPSetForwardedIPConfigurationOutput values.
@@ -6546,9 +6558,9 @@ type WebACLIPSetForwardedIPConfigurationInput interface {
 }
 
 type WebACLIPSetForwardedIPConfigurationArgs struct {
-	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	HeaderName       pulumi.StringInput `pulumi:"headerName"`
-	Position         pulumi.StringInput `pulumi:"position"`
+	FallbackBehavior WebACLIPSetForwardedIPConfigurationFallbackBehaviorInput `pulumi:"fallbackBehavior"`
+	HeaderName       pulumi.StringInput                                       `pulumi:"headerName"`
+	Position         WebACLIPSetForwardedIPConfigurationPositionInput         `pulumi:"position"`
 }
 
 func (WebACLIPSetForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -6628,16 +6640,20 @@ func (o WebACLIPSetForwardedIPConfigurationOutput) ToWebACLIPSetForwardedIPConfi
 	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+func (o WebACLIPSetForwardedIPConfigurationOutput) FallbackBehavior() WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput {
+	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) WebACLIPSetForwardedIPConfigurationFallbackBehavior {
+		return v.FallbackBehavior
+	}).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorOutput)
 }
 
 func (o WebACLIPSetForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationOutput) Position() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.Position }).(pulumi.StringOutput)
+func (o WebACLIPSetForwardedIPConfigurationOutput) Position() WebACLIPSetForwardedIPConfigurationPositionOutput {
+	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) WebACLIPSetForwardedIPConfigurationPosition {
+		return v.Position
+	}).(WebACLIPSetForwardedIPConfigurationPositionOutput)
 }
 
 type WebACLIPSetForwardedIPConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6664,13 +6680,13 @@ func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Elem() WebACLIPSetForwarde
 	}).(WebACLIPSetForwardedIPConfigurationOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *WebACLIPSetForwardedIPConfigurationFallbackBehavior {
 		if v == nil {
 			return nil
 		}
 		return &v.FallbackBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLIPSetForwardedIPConfigurationFallbackBehaviorPtrOutput)
 }
 
 func (o WebACLIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
@@ -6682,13 +6698,13 @@ func (o WebACLIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
+func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Position() WebACLIPSetForwardedIPConfigurationPositionPtrOutput {
+	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *WebACLIPSetForwardedIPConfigurationPosition {
 		if v == nil {
 			return nil
 		}
 		return &v.Position
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLIPSetForwardedIPConfigurationPositionPtrOutput)
 }
 
 type WebACLIPSetReferenceStatement struct {
@@ -6843,9 +6859,9 @@ func (o WebACLIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() WebACLI
 
 // Inspect the request body as JSON. The request body immediately follows the request headers.
 type WebACLJsonBody struct {
-	InvalidFallbackBehavior *string                `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebACLJsonMatchPattern `pulumi:"matchPattern"`
-	MatchScope              string                 `pulumi:"matchScope"`
+	InvalidFallbackBehavior *WebACLBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            WebACLJsonMatchPattern             `pulumi:"matchPattern"`
+	MatchScope              WebACLJsonMatchScope               `pulumi:"matchScope"`
 }
 
 // WebACLJsonBodyInput is an input type that accepts WebACLJsonBodyArgs and WebACLJsonBodyOutput values.
@@ -6861,9 +6877,9 @@ type WebACLJsonBodyInput interface {
 
 // Inspect the request body as JSON. The request body immediately follows the request headers.
 type WebACLJsonBodyArgs struct {
-	InvalidFallbackBehavior pulumi.StringPtrInput       `pulumi:"invalidFallbackBehavior"`
-	MatchPattern            WebACLJsonMatchPatternInput `pulumi:"matchPattern"`
-	MatchScope              pulumi.StringInput          `pulumi:"matchScope"`
+	InvalidFallbackBehavior WebACLBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            WebACLJsonMatchPatternInput               `pulumi:"matchPattern"`
+	MatchScope              WebACLJsonMatchScopeInput                 `pulumi:"matchScope"`
 }
 
 func (WebACLJsonBodyArgs) ElementType() reflect.Type {
@@ -6944,16 +6960,16 @@ func (o WebACLJsonBodyOutput) ToWebACLJsonBodyPtrOutputWithContext(ctx context.C
 	}).(WebACLJsonBodyPtrOutput)
 }
 
-func (o WebACLJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebACLJsonBody) *string { return v.InvalidFallbackBehavior }).(pulumi.StringPtrOutput)
+func (o WebACLJsonBodyOutput) InvalidFallbackBehavior() WebACLBodyParsingFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v WebACLJsonBody) *WebACLBodyParsingFallbackBehavior { return v.InvalidFallbackBehavior }).(WebACLBodyParsingFallbackBehaviorPtrOutput)
 }
 
 func (o WebACLJsonBodyOutput) MatchPattern() WebACLJsonMatchPatternOutput {
 	return o.ApplyT(func(v WebACLJsonBody) WebACLJsonMatchPattern { return v.MatchPattern }).(WebACLJsonMatchPatternOutput)
 }
 
-func (o WebACLJsonBodyOutput) MatchScope() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
+func (o WebACLJsonBodyOutput) MatchScope() WebACLJsonMatchScopeOutput {
+	return o.ApplyT(func(v WebACLJsonBody) WebACLJsonMatchScope { return v.MatchScope }).(WebACLJsonMatchScopeOutput)
 }
 
 type WebACLJsonBodyPtrOutput struct{ *pulumi.OutputState }
@@ -6980,13 +6996,13 @@ func (o WebACLJsonBodyPtrOutput) Elem() WebACLJsonBodyOutput {
 	}).(WebACLJsonBodyOutput)
 }
 
-func (o WebACLJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLJsonBody) *string {
+func (o WebACLJsonBodyPtrOutput) InvalidFallbackBehavior() WebACLBodyParsingFallbackBehaviorPtrOutput {
+	return o.ApplyT(func(v *WebACLJsonBody) *WebACLBodyParsingFallbackBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.InvalidFallbackBehavior
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLBodyParsingFallbackBehaviorPtrOutput)
 }
 
 func (o WebACLJsonBodyPtrOutput) MatchPattern() WebACLJsonMatchPatternPtrOutput {
@@ -6998,13 +7014,13 @@ func (o WebACLJsonBodyPtrOutput) MatchPattern() WebACLJsonMatchPatternPtrOutput 
 	}).(WebACLJsonMatchPatternPtrOutput)
 }
 
-func (o WebACLJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLJsonBody) *string {
+func (o WebACLJsonBodyPtrOutput) MatchScope() WebACLJsonMatchScopePtrOutput {
+	return o.ApplyT(func(v *WebACLJsonBody) *WebACLJsonMatchScope {
 		if v == nil {
 			return nil
 		}
 		return &v.MatchScope
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLJsonMatchScopePtrOutput)
 }
 
 // The pattern to look for in the JSON body.
@@ -7257,8 +7273,8 @@ func (o WebACLLabelArrayOutput) Index(i pulumi.IntInput) WebACLLabelOutput {
 }
 
 type WebACLLabelMatchStatement struct {
-	Key   string `pulumi:"key"`
-	Scope string `pulumi:"scope"`
+	Key   string                `pulumi:"key"`
+	Scope WebACLLabelMatchScope `pulumi:"scope"`
 }
 
 // WebACLLabelMatchStatementInput is an input type that accepts WebACLLabelMatchStatementArgs and WebACLLabelMatchStatementOutput values.
@@ -7273,8 +7289,8 @@ type WebACLLabelMatchStatementInput interface {
 }
 
 type WebACLLabelMatchStatementArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
-	Scope pulumi.StringInput `pulumi:"scope"`
+	Key   pulumi.StringInput         `pulumi:"key"`
+	Scope WebACLLabelMatchScopeInput `pulumi:"scope"`
 }
 
 func (WebACLLabelMatchStatementArgs) ElementType() reflect.Type {
@@ -7358,8 +7374,8 @@ func (o WebACLLabelMatchStatementOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o WebACLLabelMatchStatementOutput) Scope() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLLabelMatchStatement) string { return v.Scope }).(pulumi.StringOutput)
+func (o WebACLLabelMatchStatementOutput) Scope() WebACLLabelMatchScopeOutput {
+	return o.ApplyT(func(v WebACLLabelMatchStatement) WebACLLabelMatchScope { return v.Scope }).(WebACLLabelMatchScopeOutput)
 }
 
 type WebACLLabelMatchStatementPtrOutput struct{ *pulumi.OutputState }
@@ -7395,13 +7411,13 @@ func (o WebACLLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o WebACLLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLLabelMatchStatement) *string {
+func (o WebACLLabelMatchStatementPtrOutput) Scope() WebACLLabelMatchScopePtrOutput {
+	return o.ApplyT(func(v *WebACLLabelMatchStatement) *WebACLLabelMatchScope {
 		if v == nil {
 			return nil
 		}
 		return &v.Scope
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLLabelMatchScopePtrOutput)
 }
 
 type WebACLManagedRuleGroupStatement struct {
@@ -8023,10 +8039,10 @@ func (o WebACLOverrideActionPtrOutput) None() pulumi.AnyOutput {
 }
 
 type WebACLRateBasedStatement struct {
-	AggregateKeyType   string                          `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  *WebACLForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	Limit              int                             `pulumi:"limit"`
-	ScopeDownStatement *WebACLStatement                `pulumi:"scopeDownStatement"`
+	AggregateKeyType   WebACLRateBasedStatementAggregateKeyType `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  *WebACLForwardedIPConfiguration          `pulumi:"forwardedIPConfig"`
+	Limit              int                                      `pulumi:"limit"`
+	ScopeDownStatement *WebACLStatement                         `pulumi:"scopeDownStatement"`
 }
 
 // WebACLRateBasedStatementInput is an input type that accepts WebACLRateBasedStatementArgs and WebACLRateBasedStatementOutput values.
@@ -8041,10 +8057,10 @@ type WebACLRateBasedStatementInput interface {
 }
 
 type WebACLRateBasedStatementArgs struct {
-	AggregateKeyType   pulumi.StringInput                     `pulumi:"aggregateKeyType"`
-	ForwardedIPConfig  WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	Limit              pulumi.IntInput                        `pulumi:"limit"`
-	ScopeDownStatement WebACLStatementPtrInput                `pulumi:"scopeDownStatement"`
+	AggregateKeyType   WebACLRateBasedStatementAggregateKeyTypeInput `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  WebACLForwardedIPConfigurationPtrInput        `pulumi:"forwardedIPConfig"`
+	Limit              pulumi.IntInput                               `pulumi:"limit"`
+	ScopeDownStatement WebACLStatementPtrInput                       `pulumi:"scopeDownStatement"`
 }
 
 func (WebACLRateBasedStatementArgs) ElementType() reflect.Type {
@@ -8124,8 +8140,8 @@ func (o WebACLRateBasedStatementOutput) ToWebACLRateBasedStatementPtrOutputWithC
 	}).(WebACLRateBasedStatementPtrOutput)
 }
 
-func (o WebACLRateBasedStatementOutput) AggregateKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatement) string { return v.AggregateKeyType }).(pulumi.StringOutput)
+func (o WebACLRateBasedStatementOutput) AggregateKeyType() WebACLRateBasedStatementAggregateKeyTypeOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatement) WebACLRateBasedStatementAggregateKeyType { return v.AggregateKeyType }).(WebACLRateBasedStatementAggregateKeyTypeOutput)
 }
 
 func (o WebACLRateBasedStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
@@ -8164,13 +8180,13 @@ func (o WebACLRateBasedStatementPtrOutput) Elem() WebACLRateBasedStatementOutput
 	}).(WebACLRateBasedStatementOutput)
 }
 
-func (o WebACLRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatement) *string {
+func (o WebACLRateBasedStatementPtrOutput) AggregateKeyType() WebACLRateBasedStatementAggregateKeyTypePtrOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatement) *WebACLRateBasedStatementAggregateKeyType {
 		if v == nil {
 			return nil
 		}
 		return &v.AggregateKeyType
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLRateBasedStatementAggregateKeyTypePtrOutput)
 }
 
 func (o WebACLRateBasedStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
@@ -8817,10 +8833,10 @@ func (o WebACLRuleGroupReferenceStatementPtrOutput) ExcludedRules() WebACLExclud
 
 // Size Constraint statement.
 type WebACLSizeConstraintStatement struct {
-	ComparisonOperator  string                     `pulumi:"comparisonOperator"`
-	FieldToMatch        WebACLFieldToMatch         `pulumi:"fieldToMatch"`
-	Size                float64                    `pulumi:"size"`
-	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
+	ComparisonOperator  WebACLSizeConstraintStatementComparisonOperator `pulumi:"comparisonOperator"`
+	FieldToMatch        WebACLFieldToMatch                              `pulumi:"fieldToMatch"`
+	Size                float64                                         `pulumi:"size"`
+	TextTransformations []WebACLTextTransformation                      `pulumi:"textTransformations"`
 }
 
 // WebACLSizeConstraintStatementInput is an input type that accepts WebACLSizeConstraintStatementArgs and WebACLSizeConstraintStatementOutput values.
@@ -8836,10 +8852,10 @@ type WebACLSizeConstraintStatementInput interface {
 
 // Size Constraint statement.
 type WebACLSizeConstraintStatementArgs struct {
-	ComparisonOperator  pulumi.StringInput                 `pulumi:"comparisonOperator"`
-	FieldToMatch        WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
-	Size                pulumi.Float64Input                `pulumi:"size"`
-	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
+	ComparisonOperator  WebACLSizeConstraintStatementComparisonOperatorInput `pulumi:"comparisonOperator"`
+	FieldToMatch        WebACLFieldToMatchInput                              `pulumi:"fieldToMatch"`
+	Size                pulumi.Float64Input                                  `pulumi:"size"`
+	TextTransformations WebACLTextTransformationArrayInput                   `pulumi:"textTransformations"`
 }
 
 func (WebACLSizeConstraintStatementArgs) ElementType() reflect.Type {
@@ -8920,8 +8936,10 @@ func (o WebACLSizeConstraintStatementOutput) ToWebACLSizeConstraintStatementPtrO
 	}).(WebACLSizeConstraintStatementPtrOutput)
 }
 
-func (o WebACLSizeConstraintStatementOutput) ComparisonOperator() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLSizeConstraintStatement) string { return v.ComparisonOperator }).(pulumi.StringOutput)
+func (o WebACLSizeConstraintStatementOutput) ComparisonOperator() WebACLSizeConstraintStatementComparisonOperatorOutput {
+	return o.ApplyT(func(v WebACLSizeConstraintStatement) WebACLSizeConstraintStatementComparisonOperator {
+		return v.ComparisonOperator
+	}).(WebACLSizeConstraintStatementComparisonOperatorOutput)
 }
 
 func (o WebACLSizeConstraintStatementOutput) FieldToMatch() WebACLFieldToMatchOutput {
@@ -8960,13 +8978,13 @@ func (o WebACLSizeConstraintStatementPtrOutput) Elem() WebACLSizeConstraintState
 	}).(WebACLSizeConstraintStatementOutput)
 }
 
-func (o WebACLSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLSizeConstraintStatement) *string {
+func (o WebACLSizeConstraintStatementPtrOutput) ComparisonOperator() WebACLSizeConstraintStatementComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v *WebACLSizeConstraintStatement) *WebACLSizeConstraintStatementComparisonOperator {
 		if v == nil {
 			return nil
 		}
 		return &v.ComparisonOperator
-	}).(pulumi.StringPtrOutput)
+	}).(WebACLSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
 func (o WebACLSizeConstraintStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrOutput {
@@ -9627,8 +9645,8 @@ func (o WebACLTagArrayOutput) Index(i pulumi.IntInput) WebACLTagOutput {
 
 // Text Transformation on the Search String before match.
 type WebACLTextTransformation struct {
-	Priority int    `pulumi:"priority"`
-	Type     string `pulumi:"type"`
+	Priority int                          `pulumi:"priority"`
+	Type     WebACLTextTransformationType `pulumi:"type"`
 }
 
 // WebACLTextTransformationInput is an input type that accepts WebACLTextTransformationArgs and WebACLTextTransformationOutput values.
@@ -9644,8 +9662,8 @@ type WebACLTextTransformationInput interface {
 
 // Text Transformation on the Search String before match.
 type WebACLTextTransformationArgs struct {
-	Priority pulumi.IntInput    `pulumi:"priority"`
-	Type     pulumi.StringInput `pulumi:"type"`
+	Priority pulumi.IntInput                   `pulumi:"priority"`
+	Type     WebACLTextTransformationTypeInput `pulumi:"type"`
 }
 
 func (WebACLTextTransformationArgs) ElementType() reflect.Type {
@@ -9704,8 +9722,8 @@ func (o WebACLTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-func (o WebACLTextTransformationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLTextTransformation) string { return v.Type }).(pulumi.StringOutput)
+func (o WebACLTextTransformationOutput) Type() WebACLTextTransformationTypeOutput {
+	return o.ApplyT(func(v WebACLTextTransformation) WebACLTextTransformationType { return v.Type }).(WebACLTextTransformationTypeOutput)
 }
 
 type WebACLTextTransformationArrayOutput struct{ *pulumi.OutputState }

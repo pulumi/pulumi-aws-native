@@ -16,7 +16,7 @@ type AliasRoutingStrategy struct {
 	// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
 	Message *string `pulumi:"message"`
 	// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
-	Type string `pulumi:"type"`
+	Type AliasRoutingStrategyType `pulumi:"type"`
 }
 
 // AliasRoutingStrategyInput is an input type that accepts AliasRoutingStrategyArgs and AliasRoutingStrategyOutput values.
@@ -36,7 +36,7 @@ type AliasRoutingStrategyArgs struct {
 	// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type AliasRoutingStrategyTypeInput `pulumi:"type"`
 }
 
 func (AliasRoutingStrategyArgs) ElementType() reflect.Type {
@@ -127,8 +127,8 @@ func (o AliasRoutingStrategyOutput) Message() pulumi.StringPtrOutput {
 }
 
 // Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
-func (o AliasRoutingStrategyOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
+func (o AliasRoutingStrategyOutput) Type() AliasRoutingStrategyTypeOutput {
+	return o.ApplyT(func(v AliasRoutingStrategy) AliasRoutingStrategyType { return v.Type }).(AliasRoutingStrategyTypeOutput)
 }
 
 type AliasRoutingStrategyPtrOutput struct{ *pulumi.OutputState }
@@ -176,18 +176,18 @@ func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 // Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
-func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
+func (o AliasRoutingStrategyPtrOutput) Type() AliasRoutingStrategyTypePtrOutput {
+	return o.ApplyT(func(v *AliasRoutingStrategy) *AliasRoutingStrategyType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(AliasRoutingStrategyTypePtrOutput)
 }
 
 // Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfiguration struct {
-	CertificateType string `pulumi:"certificateType"`
+	CertificateType FleetCertificateConfigurationCertificateType `pulumi:"certificateType"`
 }
 
 // FleetCertificateConfigurationInput is an input type that accepts FleetCertificateConfigurationArgs and FleetCertificateConfigurationOutput values.
@@ -203,7 +203,7 @@ type FleetCertificateConfigurationInput interface {
 
 // Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfigurationArgs struct {
-	CertificateType pulumi.StringInput `pulumi:"certificateType"`
+	CertificateType FleetCertificateConfigurationCertificateTypeInput `pulumi:"certificateType"`
 }
 
 func (FleetCertificateConfigurationArgs) ElementType() reflect.Type {
@@ -284,8 +284,10 @@ func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrO
 	}).(FleetCertificateConfigurationPtrOutput)
 }
 
-func (o FleetCertificateConfigurationOutput) CertificateType() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetCertificateConfiguration) string { return v.CertificateType }).(pulumi.StringOutput)
+func (o FleetCertificateConfigurationOutput) CertificateType() FleetCertificateConfigurationCertificateTypeOutput {
+	return o.ApplyT(func(v FleetCertificateConfiguration) FleetCertificateConfigurationCertificateType {
+		return v.CertificateType
+	}).(FleetCertificateConfigurationCertificateTypeOutput)
 }
 
 type FleetCertificateConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -312,13 +314,13 @@ func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigura
 	}).(FleetCertificateConfigurationOutput)
 }
 
-func (o FleetCertificateConfigurationPtrOutput) CertificateType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FleetCertificateConfiguration) *string {
+func (o FleetCertificateConfigurationPtrOutput) CertificateType() FleetCertificateConfigurationCertificateTypePtrOutput {
+	return o.ApplyT(func(v *FleetCertificateConfiguration) *FleetCertificateConfigurationCertificateType {
 		if v == nil {
 			return nil
 		}
 		return &v.CertificateType
-	}).(pulumi.StringPtrOutput)
+	}).(FleetCertificateConfigurationCertificateTypePtrOutput)
 }
 
 // A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
@@ -328,7 +330,7 @@ type FleetIpPermission struct {
 	// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
 	IpRange string `pulumi:"ipRange"`
 	// The network communication protocol used by the fleet.
-	Protocol string `pulumi:"protocol"`
+	Protocol FleetIpPermissionProtocol `pulumi:"protocol"`
 	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
 	ToPort int `pulumi:"toPort"`
 }
@@ -351,7 +353,7 @@ type FleetIpPermissionArgs struct {
 	// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
 	IpRange pulumi.StringInput `pulumi:"ipRange"`
 	// The network communication protocol used by the fleet.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Protocol FleetIpPermissionProtocolInput `pulumi:"protocol"`
 	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
@@ -419,8 +421,8 @@ func (o FleetIpPermissionOutput) IpRange() pulumi.StringOutput {
 }
 
 // The network communication protocol used by the fleet.
-func (o FleetIpPermissionOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v FleetIpPermission) string { return v.Protocol }).(pulumi.StringOutput)
+func (o FleetIpPermissionOutput) Protocol() FleetIpPermissionProtocolOutput {
+	return o.ApplyT(func(v FleetIpPermission) FleetIpPermissionProtocol { return v.Protocol }).(FleetIpPermissionProtocolOutput)
 }
 
 // An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.

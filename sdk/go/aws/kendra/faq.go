@@ -19,7 +19,7 @@ type Faq struct {
 	// FAQ description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// FAQ file format
-	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
+	FileFormat FaqFileFormatPtrOutput `pulumi:"fileFormat"`
 	// Index ID
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// FAQ name
@@ -86,7 +86,7 @@ type faqArgs struct {
 	// FAQ description
 	Description *string `pulumi:"description"`
 	// FAQ file format
-	FileFormat *string `pulumi:"fileFormat"`
+	FileFormat *FaqFileFormat `pulumi:"fileFormat"`
 	// Index ID
 	IndexId string `pulumi:"indexId"`
 	// FAQ name
@@ -104,7 +104,7 @@ type FaqArgs struct {
 	// FAQ description
 	Description pulumi.StringPtrInput
 	// FAQ file format
-	FileFormat pulumi.StringPtrInput
+	FileFormat FaqFileFormatPtrInput
 	// Index ID
 	IndexId pulumi.StringInput
 	// FAQ name

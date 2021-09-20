@@ -22,7 +22,7 @@ type KeySigningKey struct {
 	// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status KeySigningKeyStatusOutput `pulumi:"status"`
 }
 
 // NewKeySigningKey registers a new resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ type keySigningKeyArgs struct {
 	// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
 	Name string `pulumi:"name"`
 	// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
-	Status string `pulumi:"status"`
+	Status KeySigningKeyStatus `pulumi:"status"`
 }
 
 // The set of arguments for constructing a KeySigningKey resource.
@@ -95,7 +95,7 @@ type KeySigningKeyArgs struct {
 	// An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
 	Name pulumi.StringInput
 	// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
-	Status pulumi.StringInput
+	Status KeySigningKeyStatusInput
 }
 
 func (KeySigningKeyArgs) ElementType() reflect.Type {

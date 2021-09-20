@@ -19,10 +19,10 @@ type Association struct {
 	// Unique identifier of the association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The name of the association.
-	AssociationName               pulumi.StringPtrOutput   `pulumi:"associationName"`
-	AutomationTargetParameterName pulumi.StringPtrOutput   `pulumi:"automationTargetParameterName"`
-	CalendarNames                 pulumi.StringArrayOutput `pulumi:"calendarNames"`
-	ComplianceSeverity            pulumi.StringPtrOutput   `pulumi:"complianceSeverity"`
+	AssociationName               pulumi.StringPtrOutput                 `pulumi:"associationName"`
+	AutomationTargetParameterName pulumi.StringPtrOutput                 `pulumi:"automationTargetParameterName"`
+	CalendarNames                 pulumi.StringArrayOutput               `pulumi:"calendarNames"`
+	ComplianceSeverity            AssociationComplianceSeverityPtrOutput `pulumi:"complianceSeverity"`
 	// The version of the SSM document to associate with the target.
 	DocumentVersion pulumi.StringPtrOutput `pulumi:"documentVersion"`
 	// The ID of the instance that the SSM document is associated with.
@@ -35,8 +35,8 @@ type Association struct {
 	// Parameter values that the SSM document uses at runtime.
 	Parameters pulumi.AnyOutput `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
-	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
-	SyncCompliance     pulumi.StringPtrOutput `pulumi:"syncCompliance"`
+	ScheduleExpression pulumi.StringPtrOutput             `pulumi:"scheduleExpression"`
+	SyncCompliance     AssociationSyncCompliancePtrOutput `pulumi:"syncCompliance"`
 	// The targets that the SSM document sends commands to.
 	Targets                      AssociationTargetArrayOutput `pulumi:"targets"`
 	WaitForSuccessTimeoutSeconds pulumi.IntPtrOutput          `pulumi:"waitForSuccessTimeoutSeconds"`
@@ -86,10 +86,10 @@ func (AssociationState) ElementType() reflect.Type {
 type associationArgs struct {
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
 	// The name of the association.
-	AssociationName               *string  `pulumi:"associationName"`
-	AutomationTargetParameterName *string  `pulumi:"automationTargetParameterName"`
-	CalendarNames                 []string `pulumi:"calendarNames"`
-	ComplianceSeverity            *string  `pulumi:"complianceSeverity"`
+	AssociationName               *string                        `pulumi:"associationName"`
+	AutomationTargetParameterName *string                        `pulumi:"automationTargetParameterName"`
+	CalendarNames                 []string                       `pulumi:"calendarNames"`
+	ComplianceSeverity            *AssociationComplianceSeverity `pulumi:"complianceSeverity"`
 	// The version of the SSM document to associate with the target.
 	DocumentVersion *string `pulumi:"documentVersion"`
 	// The ID of the instance that the SSM document is associated with.
@@ -102,8 +102,8 @@ type associationArgs struct {
 	// Parameter values that the SSM document uses at runtime.
 	Parameters interface{} `pulumi:"parameters"`
 	// A Cron or Rate expression that specifies when the association is applied to the target.
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	SyncCompliance     *string `pulumi:"syncCompliance"`
+	ScheduleExpression *string                    `pulumi:"scheduleExpression"`
+	SyncCompliance     *AssociationSyncCompliance `pulumi:"syncCompliance"`
 	// The targets that the SSM document sends commands to.
 	Targets                      []AssociationTarget `pulumi:"targets"`
 	WaitForSuccessTimeoutSeconds *int                `pulumi:"waitForSuccessTimeoutSeconds"`
@@ -116,7 +116,7 @@ type AssociationArgs struct {
 	AssociationName               pulumi.StringPtrInput
 	AutomationTargetParameterName pulumi.StringPtrInput
 	CalendarNames                 pulumi.StringArrayInput
-	ComplianceSeverity            pulumi.StringPtrInput
+	ComplianceSeverity            AssociationComplianceSeverityPtrInput
 	// The version of the SSM document to associate with the target.
 	DocumentVersion pulumi.StringPtrInput
 	// The ID of the instance that the SSM document is associated with.
@@ -130,7 +130,7 @@ type AssociationArgs struct {
 	Parameters pulumi.Input
 	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression pulumi.StringPtrInput
-	SyncCompliance     pulumi.StringPtrInput
+	SyncCompliance     AssociationSyncCompliancePtrInput
 	// The targets that the SSM document sends commands to.
 	Targets                      AssociationTargetArrayInput
 	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput

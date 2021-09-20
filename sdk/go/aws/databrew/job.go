@@ -22,11 +22,11 @@ type Job struct {
 	// Encryption Key Arn
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// Encryption mode
-	EncryptionMode pulumi.StringPtrOutput `pulumi:"encryptionMode"`
+	EncryptionMode JobEncryptionModePtrOutput `pulumi:"encryptionMode"`
 	// Job Sample
 	JobSample JobJobSamplePtrOutput `pulumi:"jobSample"`
 	// Log subscription
-	LogSubscription pulumi.StringPtrOutput `pulumi:"logSubscription"`
+	LogSubscription JobLogSubscriptionPtrOutput `pulumi:"logSubscription"`
 	// Max capacity
 	MaxCapacity pulumi.IntPtrOutput `pulumi:"maxCapacity"`
 	// Max retries
@@ -47,7 +47,7 @@ type Job struct {
 	// Timeout
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Job type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type JobTypeOutput `pulumi:"type"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -105,11 +105,11 @@ type jobArgs struct {
 	// Encryption Key Arn
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Encryption mode
-	EncryptionMode *string `pulumi:"encryptionMode"`
+	EncryptionMode *JobEncryptionMode `pulumi:"encryptionMode"`
 	// Job Sample
 	JobSample *JobJobSample `pulumi:"jobSample"`
 	// Log subscription
-	LogSubscription *string `pulumi:"logSubscription"`
+	LogSubscription *JobLogSubscription `pulumi:"logSubscription"`
 	// Max capacity
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	// Max retries
@@ -130,7 +130,7 @@ type jobArgs struct {
 	// Timeout
 	Timeout *int `pulumi:"timeout"`
 	// Job type
-	Type string `pulumi:"type"`
+	Type JobType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Job resource.
@@ -142,11 +142,11 @@ type JobArgs struct {
 	// Encryption Key Arn
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Encryption mode
-	EncryptionMode pulumi.StringPtrInput
+	EncryptionMode JobEncryptionModePtrInput
 	// Job Sample
 	JobSample JobJobSamplePtrInput
 	// Log subscription
-	LogSubscription pulumi.StringPtrInput
+	LogSubscription JobLogSubscriptionPtrInput
 	// Max capacity
 	MaxCapacity pulumi.IntPtrInput
 	// Max retries
@@ -167,7 +167,7 @@ type JobArgs struct {
 	// Timeout
 	Timeout pulumi.IntPtrInput
 	// Job type
-	Type pulumi.StringInput
+	Type JobTypeInput
 }
 
 func (JobArgs) ElementType() reflect.Type {

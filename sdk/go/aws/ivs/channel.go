@@ -21,7 +21,7 @@ type Channel struct {
 	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
 	IngestEndpoint pulumi.StringOutput `pulumi:"ingestEndpoint"`
 	// Channel latency mode.
-	LatencyMode pulumi.StringPtrOutput `pulumi:"latencyMode"`
+	LatencyMode ChannelLatencyModePtrOutput `pulumi:"latencyMode"`
 	// Channel
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Channel Playback URL.
@@ -31,7 +31,7 @@ type Channel struct {
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags ChannelTagArrayOutput `pulumi:"tags"`
 	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	Type ChannelTypePtrOutput `pulumi:"type"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ type channelArgs struct {
 	// Whether the channel is authorized.
 	Authorized *bool `pulumi:"authorized"`
 	// Channel latency mode.
-	LatencyMode *string `pulumi:"latencyMode"`
+	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
 	// Channel
 	Name *string `pulumi:"name"`
 	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
@@ -84,7 +84,7 @@ type channelArgs struct {
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []ChannelTag `pulumi:"tags"`
 	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
-	Type *string `pulumi:"type"`
+	Type *ChannelType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Channel resource.
@@ -92,7 +92,7 @@ type ChannelArgs struct {
 	// Whether the channel is authorized.
 	Authorized pulumi.BoolPtrInput
 	// Channel latency mode.
-	LatencyMode pulumi.StringPtrInput
+	LatencyMode ChannelLatencyModePtrInput
 	// Channel
 	Name pulumi.StringPtrInput
 	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
@@ -100,7 +100,7 @@ type ChannelArgs struct {
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags ChannelTagArrayInput
 	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
-	Type pulumi.StringPtrInput
+	Type ChannelTypePtrInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {

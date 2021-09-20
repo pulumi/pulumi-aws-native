@@ -16,7 +16,7 @@ type FindingsFilter struct {
 	pulumi.CustomResourceState
 
 	// Findings filter action.
-	Action pulumi.StringPtrOutput `pulumi:"action"`
+	Action FindingsFilterFindingFilterActionPtrOutput `pulumi:"action"`
 	// Findings filter ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Findings filter description
@@ -77,7 +77,7 @@ func (FindingsFilterState) ElementType() reflect.Type {
 
 type findingsFilterArgs struct {
 	// Findings filter action.
-	Action *string `pulumi:"action"`
+	Action *FindingsFilterFindingFilterAction `pulumi:"action"`
 	// Findings filter description
 	Description *string `pulumi:"description"`
 	// Findings filter criteria.
@@ -91,7 +91,7 @@ type findingsFilterArgs struct {
 // The set of arguments for constructing a FindingsFilter resource.
 type FindingsFilterArgs struct {
 	// Findings filter action.
-	Action pulumi.StringPtrInput
+	Action FindingsFilterFindingFilterActionPtrInput
 	// Findings filter description
 	Description pulumi.StringPtrInput
 	// Findings filter criteria.

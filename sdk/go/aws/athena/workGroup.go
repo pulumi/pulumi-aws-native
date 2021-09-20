@@ -24,7 +24,7 @@ type WorkGroup struct {
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption pulumi.BoolPtrOutput `pulumi:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State pulumi.StringPtrOutput `pulumi:"state"`
+	State WorkGroupStateEnumPtrOutput `pulumi:"state"`
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags WorkGroupTagArrayOutput `pulumi:"tags"`
 	// The workgroup configuration
@@ -82,7 +82,7 @@ type workGroupArgs struct {
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption *bool `pulumi:"recursiveDeleteOption"`
 	// The state of the workgroup: ENABLED or DISABLED.
-	State *string `pulumi:"state"`
+	State *WorkGroupStateEnum `pulumi:"state"`
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags []WorkGroupTag `pulumi:"tags"`
 	// The workgroup configuration
@@ -100,7 +100,7 @@ type WorkGroupArgs struct {
 	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption pulumi.BoolPtrInput
 	// The state of the workgroup: ENABLED or DISABLED.
-	State pulumi.StringPtrInput
+	State WorkGroupStateEnumPtrInput
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags WorkGroupTagArrayInput
 	// The workgroup configuration

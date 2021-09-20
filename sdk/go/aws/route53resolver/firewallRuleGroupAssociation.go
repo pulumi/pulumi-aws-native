@@ -28,13 +28,13 @@ type FirewallRuleGroupAssociation struct {
 	// Rfc3339TimeString
 	ModificationTime pulumi.StringOutput `pulumi:"modificationTime"`
 	// MutationProtectionStatus
-	MutationProtection pulumi.StringPtrOutput `pulumi:"mutationProtection"`
+	MutationProtection FirewallRuleGroupAssociationMutationProtectionPtrOutput `pulumi:"mutationProtection"`
 	// FirewallRuleGroupAssociationName
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Priority
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status FirewallRuleGroupAssociationStatusOutput `pulumi:"status"`
 	// FirewallDomainListAssociationStatus
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
 	// Tags
@@ -94,7 +94,7 @@ type firewallRuleGroupAssociationArgs struct {
 	// FirewallRuleGroupId
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 	// MutationProtectionStatus
-	MutationProtection *string `pulumi:"mutationProtection"`
+	MutationProtection *FirewallRuleGroupAssociationMutationProtection `pulumi:"mutationProtection"`
 	// FirewallRuleGroupAssociationName
 	Name *string `pulumi:"name"`
 	// Priority
@@ -110,7 +110,7 @@ type FirewallRuleGroupAssociationArgs struct {
 	// FirewallRuleGroupId
 	FirewallRuleGroupId pulumi.StringInput
 	// MutationProtectionStatus
-	MutationProtection pulumi.StringPtrInput
+	MutationProtection FirewallRuleGroupAssociationMutationProtectionPtrInput
 	// FirewallRuleGroupAssociationName
 	Name pulumi.StringPtrInput
 	// Priority

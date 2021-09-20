@@ -173,7 +173,7 @@ func (o ServiceAuthenticationConfigurationPtrOutput) ConnectionArn() pulumi.Stri
 type ServiceCodeConfiguration struct {
 	CodeConfigurationValues *ServiceCodeConfigurationValues `pulumi:"codeConfigurationValues"`
 	// Configuration Source
-	ConfigurationSource string `pulumi:"configurationSource"`
+	ConfigurationSource ServiceCodeConfigurationConfigurationSource `pulumi:"configurationSource"`
 }
 
 // ServiceCodeConfigurationInput is an input type that accepts ServiceCodeConfigurationArgs and ServiceCodeConfigurationOutput values.
@@ -191,7 +191,7 @@ type ServiceCodeConfigurationInput interface {
 type ServiceCodeConfigurationArgs struct {
 	CodeConfigurationValues ServiceCodeConfigurationValuesPtrInput `pulumi:"codeConfigurationValues"`
 	// Configuration Source
-	ConfigurationSource pulumi.StringInput `pulumi:"configurationSource"`
+	ConfigurationSource ServiceCodeConfigurationConfigurationSourceInput `pulumi:"configurationSource"`
 }
 
 func (ServiceCodeConfigurationArgs) ElementType() reflect.Type {
@@ -277,8 +277,10 @@ func (o ServiceCodeConfigurationOutput) CodeConfigurationValues() ServiceCodeCon
 }
 
 // Configuration Source
-func (o ServiceCodeConfigurationOutput) ConfigurationSource() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCodeConfiguration) string { return v.ConfigurationSource }).(pulumi.StringOutput)
+func (o ServiceCodeConfigurationOutput) ConfigurationSource() ServiceCodeConfigurationConfigurationSourceOutput {
+	return o.ApplyT(func(v ServiceCodeConfiguration) ServiceCodeConfigurationConfigurationSource {
+		return v.ConfigurationSource
+	}).(ServiceCodeConfigurationConfigurationSourceOutput)
 }
 
 type ServiceCodeConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -315,13 +317,13 @@ func (o ServiceCodeConfigurationPtrOutput) CodeConfigurationValues() ServiceCode
 }
 
 // Configuration Source
-func (o ServiceCodeConfigurationPtrOutput) ConfigurationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceCodeConfiguration) *string {
+func (o ServiceCodeConfigurationPtrOutput) ConfigurationSource() ServiceCodeConfigurationConfigurationSourcePtrOutput {
+	return o.ApplyT(func(v *ServiceCodeConfiguration) *ServiceCodeConfigurationConfigurationSource {
 		if v == nil {
 			return nil
 		}
 		return &v.ConfigurationSource
-	}).(pulumi.StringPtrOutput)
+	}).(ServiceCodeConfigurationConfigurationSourcePtrOutput)
 }
 
 // Code Configuration Values
@@ -331,8 +333,8 @@ type ServiceCodeConfigurationValues struct {
 	// Port
 	Port *string `pulumi:"port"`
 	// Runtime
-	Runtime                     string                `pulumi:"runtime"`
-	RuntimeEnvironmentVariables []ServiceKeyValuePair `pulumi:"runtimeEnvironmentVariables"`
+	Runtime                     ServiceCodeConfigurationValuesRuntime `pulumi:"runtime"`
+	RuntimeEnvironmentVariables []ServiceKeyValuePair                 `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand *string `pulumi:"startCommand"`
 }
@@ -355,8 +357,8 @@ type ServiceCodeConfigurationValuesArgs struct {
 	// Port
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Runtime
-	Runtime                     pulumi.StringInput            `pulumi:"runtime"`
-	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentVariables"`
+	Runtime                     ServiceCodeConfigurationValuesRuntimeInput `pulumi:"runtime"`
+	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput              `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
 }
@@ -450,8 +452,8 @@ func (o ServiceCodeConfigurationValuesOutput) Port() pulumi.StringPtrOutput {
 }
 
 // Runtime
-func (o ServiceCodeConfigurationValuesOutput) Runtime() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceCodeConfigurationValues) string { return v.Runtime }).(pulumi.StringOutput)
+func (o ServiceCodeConfigurationValuesOutput) Runtime() ServiceCodeConfigurationValuesRuntimeOutput {
+	return o.ApplyT(func(v ServiceCodeConfigurationValues) ServiceCodeConfigurationValuesRuntime { return v.Runtime }).(ServiceCodeConfigurationValuesRuntimeOutput)
 }
 
 func (o ServiceCodeConfigurationValuesOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
@@ -508,13 +510,13 @@ func (o ServiceCodeConfigurationValuesPtrOutput) Port() pulumi.StringPtrOutput {
 }
 
 // Runtime
-func (o ServiceCodeConfigurationValuesPtrOutput) Runtime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceCodeConfigurationValues) *string {
+func (o ServiceCodeConfigurationValuesPtrOutput) Runtime() ServiceCodeConfigurationValuesRuntimePtrOutput {
+	return o.ApplyT(func(v *ServiceCodeConfigurationValues) *ServiceCodeConfigurationValuesRuntime {
 		if v == nil {
 			return nil
 		}
 		return &v.Runtime
-	}).(pulumi.StringPtrOutput)
+	}).(ServiceCodeConfigurationValuesRuntimePtrOutput)
 }
 
 func (o ServiceCodeConfigurationValuesPtrOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
@@ -855,7 +857,7 @@ type ServiceHealthCheckConfiguration struct {
 	// Health check Path
 	Path *string `pulumi:"path"`
 	// Health Check Protocol
-	Protocol *string `pulumi:"protocol"`
+	Protocol *ServiceHealthCheckConfigurationProtocol `pulumi:"protocol"`
 	// Health check Timeout
 	Timeout *int `pulumi:"timeout"`
 	// Health check Unhealthy Threshold
@@ -882,7 +884,7 @@ type ServiceHealthCheckConfigurationArgs struct {
 	// Health check Path
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Health Check Protocol
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	Protocol ServiceHealthCheckConfigurationProtocolPtrInput `pulumi:"protocol"`
 	// Health check Timeout
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// Health check Unhealthy Threshold
@@ -983,8 +985,8 @@ func (o ServiceHealthCheckConfigurationOutput) Path() pulumi.StringPtrOutput {
 }
 
 // Health Check Protocol
-func (o ServiceHealthCheckConfigurationOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+func (o ServiceHealthCheckConfigurationOutput) Protocol() ServiceHealthCheckConfigurationProtocolPtrOutput {
+	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *ServiceHealthCheckConfigurationProtocol { return v.Protocol }).(ServiceHealthCheckConfigurationProtocolPtrOutput)
 }
 
 // Health check Timeout
@@ -1052,13 +1054,13 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Path() pulumi.StringPtrOutput 
 }
 
 // Health Check Protocol
-func (o ServiceHealthCheckConfigurationPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *string {
+func (o ServiceHealthCheckConfigurationPtrOutput) Protocol() ServiceHealthCheckConfigurationProtocolPtrOutput {
+	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *ServiceHealthCheckConfigurationProtocol {
 		if v == nil {
 			return nil
 		}
 		return v.Protocol
-	}).(pulumi.StringPtrOutput)
+	}).(ServiceHealthCheckConfigurationProtocolPtrOutput)
 }
 
 // Health check Timeout
@@ -1261,7 +1263,7 @@ type ServiceImageRepository struct {
 	// Image Identifier
 	ImageIdentifier string `pulumi:"imageIdentifier"`
 	// Image Repository Type
-	ImageRepositoryType string `pulumi:"imageRepositoryType"`
+	ImageRepositoryType ServiceImageRepositoryImageRepositoryType `pulumi:"imageRepositoryType"`
 }
 
 // ServiceImageRepositoryInput is an input type that accepts ServiceImageRepositoryArgs and ServiceImageRepositoryOutput values.
@@ -1281,7 +1283,7 @@ type ServiceImageRepositoryArgs struct {
 	// Image Identifier
 	ImageIdentifier pulumi.StringInput `pulumi:"imageIdentifier"`
 	// Image Repository Type
-	ImageRepositoryType pulumi.StringInput `pulumi:"imageRepositoryType"`
+	ImageRepositoryType ServiceImageRepositoryImageRepositoryTypeInput `pulumi:"imageRepositoryType"`
 }
 
 func (ServiceImageRepositoryArgs) ElementType() reflect.Type {
@@ -1372,8 +1374,8 @@ func (o ServiceImageRepositoryOutput) ImageIdentifier() pulumi.StringOutput {
 }
 
 // Image Repository Type
-func (o ServiceImageRepositoryOutput) ImageRepositoryType() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceImageRepository) string { return v.ImageRepositoryType }).(pulumi.StringOutput)
+func (o ServiceImageRepositoryOutput) ImageRepositoryType() ServiceImageRepositoryImageRepositoryTypeOutput {
+	return o.ApplyT(func(v ServiceImageRepository) ServiceImageRepositoryImageRepositoryType { return v.ImageRepositoryType }).(ServiceImageRepositoryImageRepositoryTypeOutput)
 }
 
 type ServiceImageRepositoryPtrOutput struct{ *pulumi.OutputState }
@@ -1420,13 +1422,13 @@ func (o ServiceImageRepositoryPtrOutput) ImageIdentifier() pulumi.StringPtrOutpu
 }
 
 // Image Repository Type
-func (o ServiceImageRepositoryPtrOutput) ImageRepositoryType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceImageRepository) *string {
+func (o ServiceImageRepositoryPtrOutput) ImageRepositoryType() ServiceImageRepositoryImageRepositoryTypePtrOutput {
+	return o.ApplyT(func(v *ServiceImageRepository) *ServiceImageRepositoryImageRepositoryType {
 		if v == nil {
 			return nil
 		}
 		return &v.ImageRepositoryType
-	}).(pulumi.StringPtrOutput)
+	}).(ServiceImageRepositoryImageRepositoryTypePtrOutput)
 }
 
 // Instance Configuration
@@ -1710,7 +1712,7 @@ func (o ServiceKeyValuePairArrayOutput) Index(i pulumi.IntInput) ServiceKeyValue
 // Source Code Version
 type ServiceSourceCodeVersion struct {
 	// Source Code Version Type
-	Type string `pulumi:"type"`
+	Type ServiceSourceCodeVersionType `pulumi:"type"`
 	// Source Code Version Value
 	Value string `pulumi:"value"`
 }
@@ -1729,7 +1731,7 @@ type ServiceSourceCodeVersionInput interface {
 // Source Code Version
 type ServiceSourceCodeVersionArgs struct {
 	// Source Code Version Type
-	Type pulumi.StringInput `pulumi:"type"`
+	Type ServiceSourceCodeVersionTypeInput `pulumi:"type"`
 	// Source Code Version Value
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -1813,8 +1815,8 @@ func (o ServiceSourceCodeVersionOutput) ToServiceSourceCodeVersionPtrOutputWithC
 }
 
 // Source Code Version Type
-func (o ServiceSourceCodeVersionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceSourceCodeVersion) string { return v.Type }).(pulumi.StringOutput)
+func (o ServiceSourceCodeVersionOutput) Type() ServiceSourceCodeVersionTypeOutput {
+	return o.ApplyT(func(v ServiceSourceCodeVersion) ServiceSourceCodeVersionType { return v.Type }).(ServiceSourceCodeVersionTypeOutput)
 }
 
 // Source Code Version Value
@@ -1847,13 +1849,13 @@ func (o ServiceSourceCodeVersionPtrOutput) Elem() ServiceSourceCodeVersionOutput
 }
 
 // Source Code Version Type
-func (o ServiceSourceCodeVersionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceCodeVersion) *string {
+func (o ServiceSourceCodeVersionPtrOutput) Type() ServiceSourceCodeVersionTypePtrOutput {
+	return o.ApplyT(func(v *ServiceSourceCodeVersion) *ServiceSourceCodeVersionType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ServiceSourceCodeVersionTypePtrOutput)
 }
 
 // Source Code Version Value

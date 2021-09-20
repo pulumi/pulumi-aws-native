@@ -1289,9 +1289,9 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pu
 }
 
 type DomainConfigurationServerCertificateSummary struct {
-	ServerCertificateArn          *string `pulumi:"serverCertificateArn"`
-	ServerCertificateStatus       *string `pulumi:"serverCertificateStatus"`
-	ServerCertificateStatusDetail *string `pulumi:"serverCertificateStatusDetail"`
+	ServerCertificateArn          *string                                                             `pulumi:"serverCertificateArn"`
+	ServerCertificateStatus       *DomainConfigurationServerCertificateSummaryServerCertificateStatus `pulumi:"serverCertificateStatus"`
+	ServerCertificateStatusDetail *string                                                             `pulumi:"serverCertificateStatusDetail"`
 }
 
 // DomainConfigurationServerCertificateSummaryInput is an input type that accepts DomainConfigurationServerCertificateSummaryArgs and DomainConfigurationServerCertificateSummaryOutput values.
@@ -1306,9 +1306,9 @@ type DomainConfigurationServerCertificateSummaryInput interface {
 }
 
 type DomainConfigurationServerCertificateSummaryArgs struct {
-	ServerCertificateArn          pulumi.StringPtrInput `pulumi:"serverCertificateArn"`
-	ServerCertificateStatus       pulumi.StringPtrInput `pulumi:"serverCertificateStatus"`
-	ServerCertificateStatusDetail pulumi.StringPtrInput `pulumi:"serverCertificateStatusDetail"`
+	ServerCertificateArn          pulumi.StringPtrInput                                                      `pulumi:"serverCertificateArn"`
+	ServerCertificateStatus       DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrInput `pulumi:"serverCertificateStatus"`
+	ServerCertificateStatusDetail pulumi.StringPtrInput                                                      `pulumi:"serverCertificateStatusDetail"`
 }
 
 func (DomainConfigurationServerCertificateSummaryArgs) ElementType() reflect.Type {
@@ -1366,8 +1366,10 @@ func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateArn(
 	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *string { return v.ServerCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *string { return v.ServerCertificateStatus }).(pulumi.StringPtrOutput)
+func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateStatus() DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput {
+	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *DomainConfigurationServerCertificateSummaryServerCertificateStatus {
+		return v.ServerCertificateStatus
+	}).(DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput)
 }
 
 func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateStatusDetail() pulumi.StringPtrOutput {
@@ -2147,7 +2149,7 @@ func (o MitigationActionAddThingsToThingGroupParamsPtrOutput) ThingGroupNames() 
 // Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
 type MitigationActionEnableIoTLoggingParams struct {
 	//  Specifies which types of information are logged.
-	LogLevel string `pulumi:"logLevel"`
+	LogLevel MitigationActionEnableIoTLoggingParamsLogLevel `pulumi:"logLevel"`
 	//  The ARN of the IAM role used for logging.
 	RoleArnForLogging string `pulumi:"roleArnForLogging"`
 }
@@ -2166,7 +2168,7 @@ type MitigationActionEnableIoTLoggingParamsInput interface {
 // Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
 type MitigationActionEnableIoTLoggingParamsArgs struct {
 	//  Specifies which types of information are logged.
-	LogLevel pulumi.StringInput `pulumi:"logLevel"`
+	LogLevel MitigationActionEnableIoTLoggingParamsLogLevelInput `pulumi:"logLevel"`
 	//  The ARN of the IAM role used for logging.
 	RoleArnForLogging pulumi.StringInput `pulumi:"roleArnForLogging"`
 }
@@ -2250,8 +2252,10 @@ func (o MitigationActionEnableIoTLoggingParamsOutput) ToMitigationActionEnableIo
 }
 
 //  Specifies which types of information are logged.
-func (o MitigationActionEnableIoTLoggingParamsOutput) LogLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v MitigationActionEnableIoTLoggingParams) string { return v.LogLevel }).(pulumi.StringOutput)
+func (o MitigationActionEnableIoTLoggingParamsOutput) LogLevel() MitigationActionEnableIoTLoggingParamsLogLevelOutput {
+	return o.ApplyT(func(v MitigationActionEnableIoTLoggingParams) MitigationActionEnableIoTLoggingParamsLogLevel {
+		return v.LogLevel
+	}).(MitigationActionEnableIoTLoggingParamsLogLevelOutput)
 }
 
 //  The ARN of the IAM role used for logging.
@@ -2284,13 +2288,13 @@ func (o MitigationActionEnableIoTLoggingParamsPtrOutput) Elem() MitigationAction
 }
 
 //  Specifies which types of information are logged.
-func (o MitigationActionEnableIoTLoggingParamsPtrOutput) LogLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MitigationActionEnableIoTLoggingParams) *string {
+func (o MitigationActionEnableIoTLoggingParamsPtrOutput) LogLevel() MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput {
+	return o.ApplyT(func(v *MitigationActionEnableIoTLoggingParams) *MitigationActionEnableIoTLoggingParamsLogLevel {
 		if v == nil {
 			return nil
 		}
 		return &v.LogLevel
-	}).(pulumi.StringPtrOutput)
+	}).(MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput)
 }
 
 //  The ARN of the IAM role used for logging.
@@ -2445,7 +2449,7 @@ func (o MitigationActionPublishFindingToSnsParamsPtrOutput) TopicArn() pulumi.St
 
 // Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 type MitigationActionReplaceDefaultPolicyVersionParams struct {
-	TemplateName string `pulumi:"templateName"`
+	TemplateName MitigationActionReplaceDefaultPolicyVersionParamsTemplateName `pulumi:"templateName"`
 }
 
 // MitigationActionReplaceDefaultPolicyVersionParamsInput is an input type that accepts MitigationActionReplaceDefaultPolicyVersionParamsArgs and MitigationActionReplaceDefaultPolicyVersionParamsOutput values.
@@ -2461,7 +2465,7 @@ type MitigationActionReplaceDefaultPolicyVersionParamsInput interface {
 
 // Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 type MitigationActionReplaceDefaultPolicyVersionParamsArgs struct {
-	TemplateName pulumi.StringInput `pulumi:"templateName"`
+	TemplateName MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameInput `pulumi:"templateName"`
 }
 
 func (MitigationActionReplaceDefaultPolicyVersionParamsArgs) ElementType() reflect.Type {
@@ -2542,8 +2546,10 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsOutput) ToMitigationAct
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-func (o MitigationActionReplaceDefaultPolicyVersionParamsOutput) TemplateName() pulumi.StringOutput {
-	return o.ApplyT(func(v MitigationActionReplaceDefaultPolicyVersionParams) string { return v.TemplateName }).(pulumi.StringOutput)
+func (o MitigationActionReplaceDefaultPolicyVersionParamsOutput) TemplateName() MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput {
+	return o.ApplyT(func(v MitigationActionReplaceDefaultPolicyVersionParams) MitigationActionReplaceDefaultPolicyVersionParamsTemplateName {
+		return v.TemplateName
+	}).(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput)
 }
 
 type MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput struct{ *pulumi.OutputState }
@@ -2570,13 +2576,13 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) Elem() Mitig
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsOutput)
 }
 
-func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) TemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MitigationActionReplaceDefaultPolicyVersionParams) *string {
+func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) TemplateName() MitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtrOutput {
+	return o.ApplyT(func(v *MitigationActionReplaceDefaultPolicyVersionParams) *MitigationActionReplaceDefaultPolicyVersionParamsTemplateName {
 		if v == nil {
 			return nil
 		}
 		return &v.TemplateName
-	}).(pulumi.StringPtrOutput)
+	}).(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2690,7 +2696,7 @@ func (o MitigationActionTagArrayOutput) Index(i pulumi.IntInput) MitigationActio
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 type MitigationActionUpdateCACertificateParams struct {
-	Action string `pulumi:"action"`
+	Action MitigationActionUpdateCACertificateParamsAction `pulumi:"action"`
 }
 
 // MitigationActionUpdateCACertificateParamsInput is an input type that accepts MitigationActionUpdateCACertificateParamsArgs and MitigationActionUpdateCACertificateParamsOutput values.
@@ -2706,7 +2712,7 @@ type MitigationActionUpdateCACertificateParamsInput interface {
 
 // Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 type MitigationActionUpdateCACertificateParamsArgs struct {
-	Action pulumi.StringInput `pulumi:"action"`
+	Action MitigationActionUpdateCACertificateParamsActionInput `pulumi:"action"`
 }
 
 func (MitigationActionUpdateCACertificateParamsArgs) ElementType() reflect.Type {
@@ -2787,8 +2793,10 @@ func (o MitigationActionUpdateCACertificateParamsOutput) ToMitigationActionUpdat
 	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
 }
 
-func (o MitigationActionUpdateCACertificateParamsOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v MitigationActionUpdateCACertificateParams) string { return v.Action }).(pulumi.StringOutput)
+func (o MitigationActionUpdateCACertificateParamsOutput) Action() MitigationActionUpdateCACertificateParamsActionOutput {
+	return o.ApplyT(func(v MitigationActionUpdateCACertificateParams) MitigationActionUpdateCACertificateParamsAction {
+		return v.Action
+	}).(MitigationActionUpdateCACertificateParamsActionOutput)
 }
 
 type MitigationActionUpdateCACertificateParamsPtrOutput struct{ *pulumi.OutputState }
@@ -2815,18 +2823,18 @@ func (o MitigationActionUpdateCACertificateParamsPtrOutput) Elem() MitigationAct
 	}).(MitigationActionUpdateCACertificateParamsOutput)
 }
 
-func (o MitigationActionUpdateCACertificateParamsPtrOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MitigationActionUpdateCACertificateParams) *string {
+func (o MitigationActionUpdateCACertificateParamsPtrOutput) Action() MitigationActionUpdateCACertificateParamsActionPtrOutput {
+	return o.ApplyT(func(v *MitigationActionUpdateCACertificateParams) *MitigationActionUpdateCACertificateParamsAction {
 		if v == nil {
 			return nil
 		}
 		return &v.Action
-	}).(pulumi.StringPtrOutput)
+	}).(MitigationActionUpdateCACertificateParamsActionPtrOutput)
 }
 
 // Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 type MitigationActionUpdateDeviceCertificateParams struct {
-	Action string `pulumi:"action"`
+	Action MitigationActionUpdateDeviceCertificateParamsAction `pulumi:"action"`
 }
 
 // MitigationActionUpdateDeviceCertificateParamsInput is an input type that accepts MitigationActionUpdateDeviceCertificateParamsArgs and MitigationActionUpdateDeviceCertificateParamsOutput values.
@@ -2842,7 +2850,7 @@ type MitigationActionUpdateDeviceCertificateParamsInput interface {
 
 // Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 type MitigationActionUpdateDeviceCertificateParamsArgs struct {
-	Action pulumi.StringInput `pulumi:"action"`
+	Action MitigationActionUpdateDeviceCertificateParamsActionInput `pulumi:"action"`
 }
 
 func (MitigationActionUpdateDeviceCertificateParamsArgs) ElementType() reflect.Type {
@@ -2923,8 +2931,10 @@ func (o MitigationActionUpdateDeviceCertificateParamsOutput) ToMitigationActionU
 	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
 }
 
-func (o MitigationActionUpdateDeviceCertificateParamsOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v MitigationActionUpdateDeviceCertificateParams) string { return v.Action }).(pulumi.StringOutput)
+func (o MitigationActionUpdateDeviceCertificateParamsOutput) Action() MitigationActionUpdateDeviceCertificateParamsActionOutput {
+	return o.ApplyT(func(v MitigationActionUpdateDeviceCertificateParams) MitigationActionUpdateDeviceCertificateParamsAction {
+		return v.Action
+	}).(MitigationActionUpdateDeviceCertificateParamsActionOutput)
 }
 
 type MitigationActionUpdateDeviceCertificateParamsPtrOutput struct{ *pulumi.OutputState }
@@ -2951,13 +2961,13 @@ func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Elem() Mitigatio
 	}).(MitigationActionUpdateDeviceCertificateParamsOutput)
 }
 
-func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MitigationActionUpdateDeviceCertificateParams) *string {
+func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() MitigationActionUpdateDeviceCertificateParamsActionPtrOutput {
+	return o.ApplyT(func(v *MitigationActionUpdateDeviceCertificateParams) *MitigationActionUpdateDeviceCertificateParamsAction {
 		if v == nil {
 			return nil
 		}
 		return &v.Action
-	}).(pulumi.StringPtrOutput)
+	}).(MitigationActionUpdateDeviceCertificateParamsActionPtrOutput)
 }
 
 type ProvisioningTemplateProvisioningHook struct {
@@ -3450,7 +3460,7 @@ func (o SecurityProfileBehaviorArrayOutput) Index(i pulumi.IntInput) SecurityPro
 // The criteria by which the behavior is determined to be normal.
 type SecurityProfileBehaviorCriteria struct {
 	// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
-	ComparisonOperator *string `pulumi:"comparisonOperator"`
+	ComparisonOperator *SecurityProfileBehaviorCriteriaComparisonOperator `pulumi:"comparisonOperator"`
 	// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
 	ConsecutiveDatapointsToAlarm *int `pulumi:"consecutiveDatapointsToAlarm"`
 	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
@@ -3476,7 +3486,7 @@ type SecurityProfileBehaviorCriteriaInput interface {
 // The criteria by which the behavior is determined to be normal.
 type SecurityProfileBehaviorCriteriaArgs struct {
 	// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
-	ComparisonOperator pulumi.StringPtrInput `pulumi:"comparisonOperator"`
+	ComparisonOperator SecurityProfileBehaviorCriteriaComparisonOperatorPtrInput `pulumi:"comparisonOperator"`
 	// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
 	ConsecutiveDatapointsToAlarm pulumi.IntPtrInput `pulumi:"consecutiveDatapointsToAlarm"`
 	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
@@ -3567,8 +3577,10 @@ func (o SecurityProfileBehaviorCriteriaOutput) ToSecurityProfileBehaviorCriteria
 }
 
 // The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
-func (o SecurityProfileBehaviorCriteriaOutput) ComparisonOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *string { return v.ComparisonOperator }).(pulumi.StringPtrOutput)
+func (o SecurityProfileBehaviorCriteriaOutput) ComparisonOperator() SecurityProfileBehaviorCriteriaComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileBehaviorCriteriaComparisonOperator {
+		return v.ComparisonOperator
+	}).(SecurityProfileBehaviorCriteriaComparisonOperatorPtrOutput)
 }
 
 // If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
@@ -3627,13 +3639,13 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) Elem() SecurityProfileBehavior
 }
 
 // The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
-func (o SecurityProfileBehaviorCriteriaPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *string {
+func (o SecurityProfileBehaviorCriteriaPtrOutput) ComparisonOperator() SecurityProfileBehaviorCriteriaComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileBehaviorCriteriaComparisonOperator {
 		if v == nil {
 			return nil
 		}
 		return v.ComparisonOperator
-	}).(pulumi.StringPtrOutput)
+	}).(SecurityProfileBehaviorCriteriaComparisonOperatorPtrOutput)
 }
 
 // If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
@@ -3696,7 +3708,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) Value() SecurityProfileMetricV
 // The configuration of an ML Detect Security Profile.
 type SecurityProfileMachineLearningDetectionConfig struct {
 	// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
-	ConfidenceLevel *string `pulumi:"confidenceLevel"`
+	ConfidenceLevel *SecurityProfileMachineLearningDetectionConfigConfidenceLevel `pulumi:"confidenceLevel"`
 }
 
 // SecurityProfileMachineLearningDetectionConfigInput is an input type that accepts SecurityProfileMachineLearningDetectionConfigArgs and SecurityProfileMachineLearningDetectionConfigOutput values.
@@ -3713,7 +3725,7 @@ type SecurityProfileMachineLearningDetectionConfigInput interface {
 // The configuration of an ML Detect Security Profile.
 type SecurityProfileMachineLearningDetectionConfigArgs struct {
 	// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
-	ConfidenceLevel pulumi.StringPtrInput `pulumi:"confidenceLevel"`
+	ConfidenceLevel SecurityProfileMachineLearningDetectionConfigConfidenceLevelPtrInput `pulumi:"confidenceLevel"`
 }
 
 func (SecurityProfileMachineLearningDetectionConfigArgs) ElementType() reflect.Type {
@@ -3795,8 +3807,10 @@ func (o SecurityProfileMachineLearningDetectionConfigOutput) ToSecurityProfileMa
 }
 
 // The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
-func (o SecurityProfileMachineLearningDetectionConfigOutput) ConfidenceLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityProfileMachineLearningDetectionConfig) *string { return v.ConfidenceLevel }).(pulumi.StringPtrOutput)
+func (o SecurityProfileMachineLearningDetectionConfigOutput) ConfidenceLevel() SecurityProfileMachineLearningDetectionConfigConfidenceLevelPtrOutput {
+	return o.ApplyT(func(v SecurityProfileMachineLearningDetectionConfig) *SecurityProfileMachineLearningDetectionConfigConfidenceLevel {
+		return v.ConfidenceLevel
+	}).(SecurityProfileMachineLearningDetectionConfigConfidenceLevelPtrOutput)
 }
 
 type SecurityProfileMachineLearningDetectionConfigPtrOutput struct{ *pulumi.OutputState }
@@ -3824,13 +3838,13 @@ func (o SecurityProfileMachineLearningDetectionConfigPtrOutput) Elem() SecurityP
 }
 
 // The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
-func (o SecurityProfileMachineLearningDetectionConfigPtrOutput) ConfidenceLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityProfileMachineLearningDetectionConfig) *string {
+func (o SecurityProfileMachineLearningDetectionConfigPtrOutput) ConfidenceLevel() SecurityProfileMachineLearningDetectionConfigConfidenceLevelPtrOutput {
+	return o.ApplyT(func(v *SecurityProfileMachineLearningDetectionConfig) *SecurityProfileMachineLearningDetectionConfigConfidenceLevel {
 		if v == nil {
 			return nil
 		}
 		return v.ConfidenceLevel
-	}).(pulumi.StringPtrOutput)
+	}).(SecurityProfileMachineLearningDetectionConfigConfidenceLevelPtrOutput)
 }
 
 // The dimension of a metric.
@@ -3838,7 +3852,7 @@ type SecurityProfileMetricDimension struct {
 	// A unique identifier for the dimension.
 	DimensionName string `pulumi:"dimensionName"`
 	// Defines how the dimensionValues of a dimension are interpreted.
-	Operator *string `pulumi:"operator"`
+	Operator *SecurityProfileMetricDimensionOperator `pulumi:"operator"`
 }
 
 // SecurityProfileMetricDimensionInput is an input type that accepts SecurityProfileMetricDimensionArgs and SecurityProfileMetricDimensionOutput values.
@@ -3857,7 +3871,7 @@ type SecurityProfileMetricDimensionArgs struct {
 	// A unique identifier for the dimension.
 	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
 	// Defines how the dimensionValues of a dimension are interpreted.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	Operator SecurityProfileMetricDimensionOperatorPtrInput `pulumi:"operator"`
 }
 
 func (SecurityProfileMetricDimensionArgs) ElementType() reflect.Type {
@@ -3944,8 +3958,8 @@ func (o SecurityProfileMetricDimensionOutput) DimensionName() pulumi.StringOutpu
 }
 
 // Defines how the dimensionValues of a dimension are interpreted.
-func (o SecurityProfileMetricDimensionOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityProfileMetricDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
+func (o SecurityProfileMetricDimensionOutput) Operator() SecurityProfileMetricDimensionOperatorPtrOutput {
+	return o.ApplyT(func(v SecurityProfileMetricDimension) *SecurityProfileMetricDimensionOperator { return v.Operator }).(SecurityProfileMetricDimensionOperatorPtrOutput)
 }
 
 type SecurityProfileMetricDimensionPtrOutput struct{ *pulumi.OutputState }
@@ -3983,13 +3997,13 @@ func (o SecurityProfileMetricDimensionPtrOutput) DimensionName() pulumi.StringPt
 }
 
 // Defines how the dimensionValues of a dimension are interpreted.
-func (o SecurityProfileMetricDimensionPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityProfileMetricDimension) *string {
+func (o SecurityProfileMetricDimensionPtrOutput) Operator() SecurityProfileMetricDimensionOperatorPtrOutput {
+	return o.ApplyT(func(v *SecurityProfileMetricDimension) *SecurityProfileMetricDimensionOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Operator
-	}).(pulumi.StringPtrOutput)
+	}).(SecurityProfileMetricDimensionOperatorPtrOutput)
 }
 
 // The metric you want to retain. Dimensions are optional.
@@ -4336,7 +4350,7 @@ func (o SecurityProfileMetricValuePtrOutput) Strings() pulumi.StringArrayOutput 
 // A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 type SecurityProfileStatisticalThreshold struct {
 	// The percentile which resolves to a threshold value by which compliance with a behavior is determined
-	Statistic *string `pulumi:"statistic"`
+	Statistic *SecurityProfileStatisticalThresholdStatistic `pulumi:"statistic"`
 }
 
 // SecurityProfileStatisticalThresholdInput is an input type that accepts SecurityProfileStatisticalThresholdArgs and SecurityProfileStatisticalThresholdOutput values.
@@ -4353,7 +4367,7 @@ type SecurityProfileStatisticalThresholdInput interface {
 // A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 type SecurityProfileStatisticalThresholdArgs struct {
 	// The percentile which resolves to a threshold value by which compliance with a behavior is determined
-	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
+	Statistic SecurityProfileStatisticalThresholdStatisticPtrInput `pulumi:"statistic"`
 }
 
 func (SecurityProfileStatisticalThresholdArgs) ElementType() reflect.Type {
@@ -4435,8 +4449,10 @@ func (o SecurityProfileStatisticalThresholdOutput) ToSecurityProfileStatisticalT
 }
 
 // The percentile which resolves to a threshold value by which compliance with a behavior is determined
-func (o SecurityProfileStatisticalThresholdOutput) Statistic() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityProfileStatisticalThreshold) *string { return v.Statistic }).(pulumi.StringPtrOutput)
+func (o SecurityProfileStatisticalThresholdOutput) Statistic() SecurityProfileStatisticalThresholdStatisticPtrOutput {
+	return o.ApplyT(func(v SecurityProfileStatisticalThreshold) *SecurityProfileStatisticalThresholdStatistic {
+		return v.Statistic
+	}).(SecurityProfileStatisticalThresholdStatisticPtrOutput)
 }
 
 type SecurityProfileStatisticalThresholdPtrOutput struct{ *pulumi.OutputState }
@@ -4464,13 +4480,13 @@ func (o SecurityProfileStatisticalThresholdPtrOutput) Elem() SecurityProfileStat
 }
 
 // The percentile which resolves to a threshold value by which compliance with a behavior is determined
-func (o SecurityProfileStatisticalThresholdPtrOutput) Statistic() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityProfileStatisticalThreshold) *string {
+func (o SecurityProfileStatisticalThresholdPtrOutput) Statistic() SecurityProfileStatisticalThresholdStatisticPtrOutput {
+	return o.ApplyT(func(v *SecurityProfileStatisticalThreshold) *SecurityProfileStatisticalThresholdStatistic {
 		if v == nil {
 			return nil
 		}
 		return v.Statistic
-	}).(pulumi.StringPtrOutput)
+	}).(SecurityProfileStatisticalThresholdStatisticPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -8696,10 +8712,10 @@ func (o TopicRuleRepublishActionPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type TopicRuleS3Action struct {
-	BucketName string  `pulumi:"bucketName"`
-	CannedAcl  *string `pulumi:"cannedAcl"`
-	Key        string  `pulumi:"key"`
-	RoleArn    string  `pulumi:"roleArn"`
+	BucketName string                            `pulumi:"bucketName"`
+	CannedAcl  *TopicRuleCannedAccessControlList `pulumi:"cannedAcl"`
+	Key        string                            `pulumi:"key"`
+	RoleArn    string                            `pulumi:"roleArn"`
 }
 
 // TopicRuleS3ActionInput is an input type that accepts TopicRuleS3ActionArgs and TopicRuleS3ActionOutput values.
@@ -8714,10 +8730,10 @@ type TopicRuleS3ActionInput interface {
 }
 
 type TopicRuleS3ActionArgs struct {
-	BucketName pulumi.StringInput    `pulumi:"bucketName"`
-	CannedAcl  pulumi.StringPtrInput `pulumi:"cannedAcl"`
-	Key        pulumi.StringInput    `pulumi:"key"`
-	RoleArn    pulumi.StringInput    `pulumi:"roleArn"`
+	BucketName pulumi.StringInput                       `pulumi:"bucketName"`
+	CannedAcl  TopicRuleCannedAccessControlListPtrInput `pulumi:"cannedAcl"`
+	Key        pulumi.StringInput                       `pulumi:"key"`
+	RoleArn    pulumi.StringInput                       `pulumi:"roleArn"`
 }
 
 func (TopicRuleS3ActionArgs) ElementType() reflect.Type {
@@ -8801,8 +8817,8 @@ func (o TopicRuleS3ActionOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-func (o TopicRuleS3ActionOutput) CannedAcl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleS3Action) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
+func (o TopicRuleS3ActionOutput) CannedAcl() TopicRuleCannedAccessControlListPtrOutput {
+	return o.ApplyT(func(v TopicRuleS3Action) *TopicRuleCannedAccessControlList { return v.CannedAcl }).(TopicRuleCannedAccessControlListPtrOutput)
 }
 
 func (o TopicRuleS3ActionOutput) Key() pulumi.StringOutput {
@@ -8846,13 +8862,13 @@ func (o TopicRuleS3ActionPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TopicRuleS3ActionPtrOutput) CannedAcl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleS3Action) *string {
+func (o TopicRuleS3ActionPtrOutput) CannedAcl() TopicRuleCannedAccessControlListPtrOutput {
+	return o.ApplyT(func(v *TopicRuleS3Action) *TopicRuleCannedAccessControlList {
 		if v == nil {
 			return nil
 		}
 		return v.CannedAcl
-	}).(pulumi.StringPtrOutput)
+	}).(TopicRuleCannedAccessControlListPtrOutput)
 }
 
 func (o TopicRuleS3ActionPtrOutput) Key() pulumi.StringPtrOutput {

@@ -20,15 +20,15 @@ type GameServerGroup struct {
 	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 	AutoScalingPolicy GameServerGroupAutoScalingPolicyPtrOutput `pulumi:"autoScalingPolicy"`
 	// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
-	BalancingStrategy pulumi.StringPtrOutput `pulumi:"balancingStrategy"`
+	BalancingStrategy GameServerGroupBalancingStrategyPtrOutput `pulumi:"balancingStrategy"`
 	// The type of delete to perform.
-	DeleteOption pulumi.StringPtrOutput `pulumi:"deleteOption"`
+	DeleteOption GameServerGroupDeleteOptionPtrOutput `pulumi:"deleteOption"`
 	// A generated unique ID for the game server group.
 	GameServerGroupArn pulumi.StringOutput `pulumi:"gameServerGroupArn"`
 	// An identifier for the new game server group.
 	GameServerGroupName pulumi.StringOutput `pulumi:"gameServerGroupName"`
 	// A flag that indicates whether instances in the game server group are protected from early termination.
-	GameServerProtectionPolicy pulumi.StringPtrOutput `pulumi:"gameServerProtectionPolicy"`
+	GameServerProtectionPolicy GameServerGroupGameServerProtectionPolicyPtrOutput `pulumi:"gameServerProtectionPolicy"`
 	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions GameServerGroupInstanceDefinitionArrayOutput `pulumi:"instanceDefinitions"`
 	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
@@ -99,13 +99,13 @@ type gameServerGroupArgs struct {
 	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 	AutoScalingPolicy *GameServerGroupAutoScalingPolicy `pulumi:"autoScalingPolicy"`
 	// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
-	BalancingStrategy *string `pulumi:"balancingStrategy"`
+	BalancingStrategy *GameServerGroupBalancingStrategy `pulumi:"balancingStrategy"`
 	// The type of delete to perform.
-	DeleteOption *string `pulumi:"deleteOption"`
+	DeleteOption *GameServerGroupDeleteOption `pulumi:"deleteOption"`
 	// An identifier for the new game server group.
 	GameServerGroupName string `pulumi:"gameServerGroupName"`
 	// A flag that indicates whether instances in the game server group are protected from early termination.
-	GameServerProtectionPolicy *string `pulumi:"gameServerProtectionPolicy"`
+	GameServerProtectionPolicy *GameServerGroupGameServerProtectionPolicy `pulumi:"gameServerProtectionPolicy"`
 	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"instanceDefinitions"`
 	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
@@ -127,13 +127,13 @@ type GameServerGroupArgs struct {
 	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 	AutoScalingPolicy GameServerGroupAutoScalingPolicyPtrInput
 	// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
-	BalancingStrategy pulumi.StringPtrInput
+	BalancingStrategy GameServerGroupBalancingStrategyPtrInput
 	// The type of delete to perform.
-	DeleteOption pulumi.StringPtrInput
+	DeleteOption GameServerGroupDeleteOptionPtrInput
 	// An identifier for the new game server group.
 	GameServerGroupName pulumi.StringInput
 	// A flag that indicates whether instances in the game server group are protected from early termination.
-	GameServerProtectionPolicy pulumi.StringPtrInput
+	GameServerProtectionPolicy GameServerGroupGameServerProtectionPolicyPtrInput
 	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions GameServerGroupInstanceDefinitionArrayInput
 	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.

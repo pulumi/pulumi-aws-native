@@ -32,7 +32,7 @@ type LocationObjectStorage struct {
 	// The port that your self-managed server accepts inbound network traffic on.
 	ServerPort pulumi.IntPtrOutput `pulumi:"serverPort"`
 	// The protocol that the object storage server uses to communicate.
-	ServerProtocol pulumi.StringPtrOutput `pulumi:"serverProtocol"`
+	ServerProtocol LocationObjectStorageServerProtocolPtrOutput `pulumi:"serverProtocol"`
 	// The subdirectory in the self-managed object storage server that is used to read data from.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -100,7 +100,7 @@ type locationObjectStorageArgs struct {
 	// The port that your self-managed server accepts inbound network traffic on.
 	ServerPort *int `pulumi:"serverPort"`
 	// The protocol that the object storage server uses to communicate.
-	ServerProtocol *string `pulumi:"serverProtocol"`
+	ServerProtocol *LocationObjectStorageServerProtocol `pulumi:"serverProtocol"`
 	// The subdirectory in the self-managed object storage server that is used to read data from.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -122,7 +122,7 @@ type LocationObjectStorageArgs struct {
 	// The port that your self-managed server accepts inbound network traffic on.
 	ServerPort pulumi.IntPtrInput
 	// The protocol that the object storage server uses to communicate.
-	ServerProtocol pulumi.StringPtrInput
+	ServerProtocol LocationObjectStorageServerProtocolPtrInput
 	// The subdirectory in the self-managed object storage server that is used to read data from.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.

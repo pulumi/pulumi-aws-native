@@ -15,7 +15,7 @@ import (
 type ClusterCapacityProviderAssociations struct {
 	pulumi.CustomResourceState
 
-	CapacityProviders               pulumi.ArrayOutput                                                     `pulumi:"capacityProviders"`
+	CapacityProviders               pulumi.StringArrayOutput                                               `pulumi:"capacityProviders"`
 	Cluster                         pulumi.StringOutput                                                    `pulumi:"cluster"`
 	DefaultCapacityProviderStrategy ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategy"`
 }
@@ -68,14 +68,14 @@ func (ClusterCapacityProviderAssociationsState) ElementType() reflect.Type {
 }
 
 type clusterCapacityProviderAssociationsArgs struct {
-	CapacityProviders               []interface{}                                                 `pulumi:"capacityProviders"`
+	CapacityProviders               []string                                                      `pulumi:"capacityProviders"`
 	Cluster                         string                                                        `pulumi:"cluster"`
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderAssociationsCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategy"`
 }
 
 // The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
 type ClusterCapacityProviderAssociationsArgs struct {
-	CapacityProviders               pulumi.ArrayInput
+	CapacityProviders               pulumi.StringArrayInput
 	Cluster                         pulumi.StringInput
 	DefaultCapacityProviderStrategy ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayInput
 }

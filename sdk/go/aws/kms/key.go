@@ -26,9 +26,9 @@ type Key struct {
 	// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
 	KeyPolicy pulumi.AnyOutput `pulumi:"keyPolicy"`
 	// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-	KeySpec pulumi.StringPtrOutput `pulumi:"keySpec"`
+	KeySpec KeyKeySpecPtrOutput `pulumi:"keySpec"`
 	// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
-	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
+	KeyUsage KeyKeyUsagePtrOutput `pulumi:"keyUsage"`
 	// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
 	MultiRegion pulumi.BoolPtrOutput `pulumi:"multiRegion"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
@@ -88,9 +88,9 @@ type keyArgs struct {
 	// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
 	KeyPolicy interface{} `pulumi:"keyPolicy"`
 	// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-	KeySpec *string `pulumi:"keySpec"`
+	KeySpec *KeyKeySpec `pulumi:"keySpec"`
 	// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
-	KeyUsage *string `pulumi:"keyUsage"`
+	KeyUsage *KeyKeyUsage `pulumi:"keyUsage"`
 	// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
@@ -110,9 +110,9 @@ type KeyArgs struct {
 	// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
 	KeyPolicy pulumi.Input
 	// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-	KeySpec pulumi.StringPtrInput
+	KeySpec KeyKeySpecPtrInput
 	// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
-	KeyUsage pulumi.StringPtrInput
+	KeyUsage KeyKeyUsagePtrInput
 	// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
 	MultiRegion pulumi.BoolPtrInput
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.

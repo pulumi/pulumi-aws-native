@@ -22,7 +22,7 @@ type PlaceIndex struct {
 	Description             pulumi.StringPtrOutput                     `pulumi:"description"`
 	IndexArn                pulumi.StringOutput                        `pulumi:"indexArn"`
 	IndexName               pulumi.StringOutput                        `pulumi:"indexName"`
-	PricingPlan             pulumi.StringOutput                        `pulumi:"pricingPlan"`
+	PricingPlan             PlaceIndexPricingPlanOutput                `pulumi:"pricingPlan"`
 	UpdateTime              pulumi.StringOutput                        `pulumi:"updateTime"`
 }
 
@@ -78,7 +78,7 @@ type placeIndexArgs struct {
 	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	Description             *string                            `pulumi:"description"`
 	IndexName               string                             `pulumi:"indexName"`
-	PricingPlan             string                             `pulumi:"pricingPlan"`
+	PricingPlan             PlaceIndexPricingPlan              `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
@@ -87,7 +87,7 @@ type PlaceIndexArgs struct {
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrInput
 	Description             pulumi.StringPtrInput
 	IndexName               pulumi.StringInput
-	PricingPlan             pulumi.StringInput
+	PricingPlan             PlaceIndexPricingPlanInput
 }
 
 func (PlaceIndexArgs) ElementType() reflect.Type {

@@ -111,11 +111,11 @@ func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
 }
 
 type IntegrationConnectorOperator struct {
-	Marketo    *string `pulumi:"marketo"`
-	S3         *string `pulumi:"s3"`
-	Salesforce *string `pulumi:"salesforce"`
-	ServiceNow *string `pulumi:"serviceNow"`
-	Zendesk    *string `pulumi:"zendesk"`
+	Marketo    *IntegrationMarketoConnectorOperator    `pulumi:"marketo"`
+	S3         *IntegrationS3ConnectorOperator         `pulumi:"s3"`
+	Salesforce *IntegrationSalesforceConnectorOperator `pulumi:"salesforce"`
+	ServiceNow *IntegrationServiceNowConnectorOperator `pulumi:"serviceNow"`
+	Zendesk    *IntegrationZendeskConnectorOperator    `pulumi:"zendesk"`
 }
 
 // IntegrationConnectorOperatorInput is an input type that accepts IntegrationConnectorOperatorArgs and IntegrationConnectorOperatorOutput values.
@@ -130,11 +130,11 @@ type IntegrationConnectorOperatorInput interface {
 }
 
 type IntegrationConnectorOperatorArgs struct {
-	Marketo    pulumi.StringPtrInput `pulumi:"marketo"`
-	S3         pulumi.StringPtrInput `pulumi:"s3"`
-	Salesforce pulumi.StringPtrInput `pulumi:"salesforce"`
-	ServiceNow pulumi.StringPtrInput `pulumi:"serviceNow"`
-	Zendesk    pulumi.StringPtrInput `pulumi:"zendesk"`
+	Marketo    IntegrationMarketoConnectorOperatorPtrInput    `pulumi:"marketo"`
+	S3         IntegrationS3ConnectorOperatorPtrInput         `pulumi:"s3"`
+	Salesforce IntegrationSalesforceConnectorOperatorPtrInput `pulumi:"salesforce"`
+	ServiceNow IntegrationServiceNowConnectorOperatorPtrInput `pulumi:"serviceNow"`
+	Zendesk    IntegrationZendeskConnectorOperatorPtrInput    `pulumi:"zendesk"`
 }
 
 func (IntegrationConnectorOperatorArgs) ElementType() reflect.Type {
@@ -214,24 +214,24 @@ func (o IntegrationConnectorOperatorOutput) ToIntegrationConnectorOperatorPtrOut
 	}).(IntegrationConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorOutput) Marketo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.Marketo }).(pulumi.StringPtrOutput)
+func (o IntegrationConnectorOperatorOutput) Marketo() IntegrationMarketoConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationMarketoConnectorOperator { return v.Marketo }).(IntegrationMarketoConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorOutput) S3() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.S3 }).(pulumi.StringPtrOutput)
+func (o IntegrationConnectorOperatorOutput) S3() IntegrationS3ConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationS3ConnectorOperator { return v.S3 }).(IntegrationS3ConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorOutput) Salesforce() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.Salesforce }).(pulumi.StringPtrOutput)
+func (o IntegrationConnectorOperatorOutput) Salesforce() IntegrationSalesforceConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationSalesforceConnectorOperator { return v.Salesforce }).(IntegrationSalesforceConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorOutput) ServiceNow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.ServiceNow }).(pulumi.StringPtrOutput)
+func (o IntegrationConnectorOperatorOutput) ServiceNow() IntegrationServiceNowConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationServiceNowConnectorOperator { return v.ServiceNow }).(IntegrationServiceNowConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorOutput) Zendesk() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.Zendesk }).(pulumi.StringPtrOutput)
+func (o IntegrationConnectorOperatorOutput) Zendesk() IntegrationZendeskConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v IntegrationConnectorOperator) *IntegrationZendeskConnectorOperator { return v.Zendesk }).(IntegrationZendeskConnectorOperatorPtrOutput)
 }
 
 type IntegrationConnectorOperatorPtrOutput struct{ *pulumi.OutputState }
@@ -258,49 +258,49 @@ func (o IntegrationConnectorOperatorPtrOutput) Elem() IntegrationConnectorOperat
 	}).(IntegrationConnectorOperatorOutput)
 }
 
-func (o IntegrationConnectorOperatorPtrOutput) Marketo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
+func (o IntegrationConnectorOperatorPtrOutput) Marketo() IntegrationMarketoConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationMarketoConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Marketo
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationMarketoConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorPtrOutput) S3() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
+func (o IntegrationConnectorOperatorPtrOutput) S3() IntegrationS3ConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationS3ConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.S3
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationS3ConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorPtrOutput) Salesforce() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
+func (o IntegrationConnectorOperatorPtrOutput) Salesforce() IntegrationSalesforceConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationSalesforceConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Salesforce
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationSalesforceConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorPtrOutput) ServiceNow() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
+func (o IntegrationConnectorOperatorPtrOutput) ServiceNow() IntegrationServiceNowConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationServiceNowConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.ServiceNow
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationServiceNowConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationConnectorOperatorPtrOutput) Zendesk() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
+func (o IntegrationConnectorOperatorPtrOutput) Zendesk() IntegrationZendeskConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *IntegrationConnectorOperator) *IntegrationZendeskConnectorOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Zendesk
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationZendeskConnectorOperatorPtrOutput)
 }
 
 type IntegrationFlowDefinition struct {
@@ -1089,13 +1089,13 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPt
 }
 
 type IntegrationScheduledTriggerProperties struct {
-	DataPullMode       *string  `pulumi:"dataPullMode"`
-	FirstExecutionFrom *float64 `pulumi:"firstExecutionFrom"`
-	ScheduleEndTime    *float64 `pulumi:"scheduleEndTime"`
-	ScheduleExpression string   `pulumi:"scheduleExpression"`
-	ScheduleOffset     *int     `pulumi:"scheduleOffset"`
-	ScheduleStartTime  *float64 `pulumi:"scheduleStartTime"`
-	Timezone           *string  `pulumi:"timezone"`
+	DataPullMode       *IntegrationScheduledTriggerPropertiesDataPullMode `pulumi:"dataPullMode"`
+	FirstExecutionFrom *float64                                           `pulumi:"firstExecutionFrom"`
+	ScheduleEndTime    *float64                                           `pulumi:"scheduleEndTime"`
+	ScheduleExpression string                                             `pulumi:"scheduleExpression"`
+	ScheduleOffset     *int                                               `pulumi:"scheduleOffset"`
+	ScheduleStartTime  *float64                                           `pulumi:"scheduleStartTime"`
+	Timezone           *string                                            `pulumi:"timezone"`
 }
 
 // IntegrationScheduledTriggerPropertiesInput is an input type that accepts IntegrationScheduledTriggerPropertiesArgs and IntegrationScheduledTriggerPropertiesOutput values.
@@ -1110,13 +1110,13 @@ type IntegrationScheduledTriggerPropertiesInput interface {
 }
 
 type IntegrationScheduledTriggerPropertiesArgs struct {
-	DataPullMode       pulumi.StringPtrInput  `pulumi:"dataPullMode"`
-	FirstExecutionFrom pulumi.Float64PtrInput `pulumi:"firstExecutionFrom"`
-	ScheduleEndTime    pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
-	ScheduleExpression pulumi.StringInput     `pulumi:"scheduleExpression"`
-	ScheduleOffset     pulumi.IntPtrInput     `pulumi:"scheduleOffset"`
-	ScheduleStartTime  pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
-	Timezone           pulumi.StringPtrInput  `pulumi:"timezone"`
+	DataPullMode       IntegrationScheduledTriggerPropertiesDataPullModePtrInput `pulumi:"dataPullMode"`
+	FirstExecutionFrom pulumi.Float64PtrInput                                    `pulumi:"firstExecutionFrom"`
+	ScheduleEndTime    pulumi.Float64PtrInput                                    `pulumi:"scheduleEndTime"`
+	ScheduleExpression pulumi.StringInput                                        `pulumi:"scheduleExpression"`
+	ScheduleOffset     pulumi.IntPtrInput                                        `pulumi:"scheduleOffset"`
+	ScheduleStartTime  pulumi.Float64PtrInput                                    `pulumi:"scheduleStartTime"`
+	Timezone           pulumi.StringPtrInput                                     `pulumi:"timezone"`
 }
 
 func (IntegrationScheduledTriggerPropertiesArgs) ElementType() reflect.Type {
@@ -1196,8 +1196,10 @@ func (o IntegrationScheduledTriggerPropertiesOutput) ToIntegrationScheduledTrigg
 	}).(IntegrationScheduledTriggerPropertiesPtrOutput)
 }
 
-func (o IntegrationScheduledTriggerPropertiesOutput) DataPullMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *string { return v.DataPullMode }).(pulumi.StringPtrOutput)
+func (o IntegrationScheduledTriggerPropertiesOutput) DataPullMode() IntegrationScheduledTriggerPropertiesDataPullModePtrOutput {
+	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *IntegrationScheduledTriggerPropertiesDataPullMode {
+		return v.DataPullMode
+	}).(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
 func (o IntegrationScheduledTriggerPropertiesOutput) FirstExecutionFrom() pulumi.Float64PtrOutput {
@@ -1248,13 +1250,13 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) Elem() IntegrationSchedu
 	}).(IntegrationScheduledTriggerPropertiesOutput)
 }
 
-func (o IntegrationScheduledTriggerPropertiesPtrOutput) DataPullMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *string {
+func (o IntegrationScheduledTriggerPropertiesPtrOutput) DataPullMode() IntegrationScheduledTriggerPropertiesDataPullModePtrOutput {
+	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *IntegrationScheduledTriggerPropertiesDataPullMode {
 		if v == nil {
 			return nil
 		}
 		return v.DataPullMode
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) FirstExecutionFrom() pulumi.Float64PtrOutput {
@@ -1643,7 +1645,7 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Zendesk() IntegrationZend
 
 type IntegrationSourceFlowConfig struct {
 	ConnectorProfileName      *string                              `pulumi:"connectorProfileName"`
-	ConnectorType             string                               `pulumi:"connectorType"`
+	ConnectorType             IntegrationConnectorType             `pulumi:"connectorType"`
 	IncrementalPullConfig     *IntegrationIncrementalPullConfig    `pulumi:"incrementalPullConfig"`
 	SourceConnectorProperties IntegrationSourceConnectorProperties `pulumi:"sourceConnectorProperties"`
 }
@@ -1661,7 +1663,7 @@ type IntegrationSourceFlowConfigInput interface {
 
 type IntegrationSourceFlowConfigArgs struct {
 	ConnectorProfileName      pulumi.StringPtrInput                     `pulumi:"connectorProfileName"`
-	ConnectorType             pulumi.StringInput                        `pulumi:"connectorType"`
+	ConnectorType             IntegrationConnectorTypeInput             `pulumi:"connectorType"`
 	IncrementalPullConfig     IntegrationIncrementalPullConfigPtrInput  `pulumi:"incrementalPullConfig"`
 	SourceConnectorProperties IntegrationSourceConnectorPropertiesInput `pulumi:"sourceConnectorProperties"`
 }
@@ -1747,8 +1749,8 @@ func (o IntegrationSourceFlowConfigOutput) ConnectorProfileName() pulumi.StringP
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) *string { return v.ConnectorProfileName }).(pulumi.StringPtrOutput)
 }
 
-func (o IntegrationSourceFlowConfigOutput) ConnectorType() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationSourceFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
+func (o IntegrationSourceFlowConfigOutput) ConnectorType() IntegrationConnectorTypeOutput {
+	return o.ApplyT(func(v IntegrationSourceFlowConfig) IntegrationConnectorType { return v.ConnectorType }).(IntegrationConnectorTypeOutput)
 }
 
 func (o IntegrationSourceFlowConfigOutput) IncrementalPullConfig() IntegrationIncrementalPullConfigPtrOutput {
@@ -1794,13 +1796,13 @@ func (o IntegrationSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o IntegrationSourceFlowConfigPtrOutput) ConnectorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *string {
+func (o IntegrationSourceFlowConfigPtrOutput) ConnectorType() IntegrationConnectorTypePtrOutput {
+	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *IntegrationConnectorType {
 		if v == nil {
 			return nil
 		}
 		return &v.ConnectorType
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationConnectorTypePtrOutput)
 }
 
 func (o IntegrationSourceFlowConfigPtrOutput) IncrementalPullConfig() IntegrationIncrementalPullConfigPtrOutput {
@@ -1926,7 +1928,7 @@ type IntegrationTask struct {
 	DestinationField  *string                        `pulumi:"destinationField"`
 	SourceFields      []string                       `pulumi:"sourceFields"`
 	TaskProperties    []IntegrationTaskPropertiesMap `pulumi:"taskProperties"`
-	TaskType          string                         `pulumi:"taskType"`
+	TaskType          IntegrationTaskType            `pulumi:"taskType"`
 }
 
 // IntegrationTaskInput is an input type that accepts IntegrationTaskArgs and IntegrationTaskOutput values.
@@ -1945,7 +1947,7 @@ type IntegrationTaskArgs struct {
 	DestinationField  pulumi.StringPtrInput                  `pulumi:"destinationField"`
 	SourceFields      pulumi.StringArrayInput                `pulumi:"sourceFields"`
 	TaskProperties    IntegrationTaskPropertiesMapArrayInput `pulumi:"taskProperties"`
-	TaskType          pulumi.StringInput                     `pulumi:"taskType"`
+	TaskType          IntegrationTaskTypeInput               `pulumi:"taskType"`
 }
 
 func (IntegrationTaskArgs) ElementType() reflect.Type {
@@ -2015,8 +2017,8 @@ func (o IntegrationTaskOutput) TaskProperties() IntegrationTaskPropertiesMapArra
 	return o.ApplyT(func(v IntegrationTask) []IntegrationTaskPropertiesMap { return v.TaskProperties }).(IntegrationTaskPropertiesMapArrayOutput)
 }
 
-func (o IntegrationTaskOutput) TaskType() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationTask) string { return v.TaskType }).(pulumi.StringOutput)
+func (o IntegrationTaskOutput) TaskType() IntegrationTaskTypeOutput {
+	return o.ApplyT(func(v IntegrationTask) IntegrationTaskType { return v.TaskType }).(IntegrationTaskTypeOutput)
 }
 
 type IntegrationTaskArrayOutput struct{ *pulumi.OutputState }
@@ -2040,8 +2042,8 @@ func (o IntegrationTaskArrayOutput) Index(i pulumi.IntInput) IntegrationTaskOutp
 }
 
 type IntegrationTaskPropertiesMap struct {
-	OperatorPropertyKey string `pulumi:"operatorPropertyKey"`
-	Property            string `pulumi:"property"`
+	OperatorPropertyKey IntegrationOperatorPropertiesKeys `pulumi:"operatorPropertyKey"`
+	Property            string                            `pulumi:"property"`
 }
 
 // IntegrationTaskPropertiesMapInput is an input type that accepts IntegrationTaskPropertiesMap and IntegrationTaskPropertiesMapOutput values.
@@ -2056,8 +2058,8 @@ type IntegrationTaskPropertiesMapInput interface {
 }
 
 type IntegrationTaskPropertiesMapArgs struct {
-	OperatorPropertyKey pulumi.StringInput `pulumi:"operatorPropertyKey"`
-	Property            pulumi.StringInput `pulumi:"property"`
+	OperatorPropertyKey IntegrationOperatorPropertiesKeysInput `pulumi:"operatorPropertyKey"`
+	Property            pulumi.StringInput                     `pulumi:"property"`
 }
 
 func (IntegrationTaskPropertiesMapArgs) ElementType() reflect.Type {
@@ -2111,8 +2113,8 @@ func (o IntegrationTaskPropertiesMapOutput) ToIntegrationTaskPropertiesMapOutput
 	return o
 }
 
-func (o IntegrationTaskPropertiesMapOutput) OperatorPropertyKey() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationTaskPropertiesMap) string { return v.OperatorPropertyKey }).(pulumi.StringOutput)
+func (o IntegrationTaskPropertiesMapOutput) OperatorPropertyKey() IntegrationOperatorPropertiesKeysOutput {
+	return o.ApplyT(func(v IntegrationTaskPropertiesMap) IntegrationOperatorPropertiesKeys { return v.OperatorPropertyKey }).(IntegrationOperatorPropertiesKeysOutput)
 }
 
 func (o IntegrationTaskPropertiesMapOutput) Property() pulumi.StringOutput {
@@ -2141,7 +2143,7 @@ func (o IntegrationTaskPropertiesMapArrayOutput) Index(i pulumi.IntInput) Integr
 
 type IntegrationTriggerConfig struct {
 	TriggerProperties *IntegrationTriggerProperties `pulumi:"triggerProperties"`
-	TriggerType       string                        `pulumi:"triggerType"`
+	TriggerType       IntegrationTriggerType        `pulumi:"triggerType"`
 }
 
 // IntegrationTriggerConfigInput is an input type that accepts IntegrationTriggerConfigArgs and IntegrationTriggerConfigOutput values.
@@ -2157,7 +2159,7 @@ type IntegrationTriggerConfigInput interface {
 
 type IntegrationTriggerConfigArgs struct {
 	TriggerProperties IntegrationTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
-	TriggerType       pulumi.StringInput                   `pulumi:"triggerType"`
+	TriggerType       IntegrationTriggerTypeInput          `pulumi:"triggerType"`
 }
 
 func (IntegrationTriggerConfigArgs) ElementType() reflect.Type {
@@ -2241,8 +2243,8 @@ func (o IntegrationTriggerConfigOutput) TriggerProperties() IntegrationTriggerPr
 	return o.ApplyT(func(v IntegrationTriggerConfig) *IntegrationTriggerProperties { return v.TriggerProperties }).(IntegrationTriggerPropertiesPtrOutput)
 }
 
-func (o IntegrationTriggerConfigOutput) TriggerType() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationTriggerConfig) string { return v.TriggerType }).(pulumi.StringOutput)
+func (o IntegrationTriggerConfigOutput) TriggerType() IntegrationTriggerTypeOutput {
+	return o.ApplyT(func(v IntegrationTriggerConfig) IntegrationTriggerType { return v.TriggerType }).(IntegrationTriggerTypeOutput)
 }
 
 type IntegrationTriggerConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2278,13 +2280,13 @@ func (o IntegrationTriggerConfigPtrOutput) TriggerProperties() IntegrationTrigge
 	}).(IntegrationTriggerPropertiesPtrOutput)
 }
 
-func (o IntegrationTriggerConfigPtrOutput) TriggerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationTriggerConfig) *string {
+func (o IntegrationTriggerConfigPtrOutput) TriggerType() IntegrationTriggerTypePtrOutput {
+	return o.ApplyT(func(v *IntegrationTriggerConfig) *IntegrationTriggerType {
 		if v == nil {
 			return nil
 		}
 		return &v.TriggerType
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationTriggerTypePtrOutput)
 }
 
 type IntegrationTriggerProperties struct {
@@ -2756,7 +2758,7 @@ func (o ObjectTypeKeyMapArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyMapOu
 // Represents a field in a ProfileObjectType.
 type ObjectTypeObjectTypeField struct {
 	// The content type of the field. Used for determining equality when searching.
-	ContentType *string `pulumi:"contentType"`
+	ContentType *ObjectTypeObjectTypeFieldContentType `pulumi:"contentType"`
 	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
 	Source *string `pulumi:"source"`
 	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
@@ -2777,7 +2779,7 @@ type ObjectTypeObjectTypeFieldInput interface {
 // Represents a field in a ProfileObjectType.
 type ObjectTypeObjectTypeFieldArgs struct {
 	// The content type of the field. Used for determining equality when searching.
-	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+	ContentType ObjectTypeObjectTypeFieldContentTypePtrInput `pulumi:"contentType"`
 	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
 	Source pulumi.StringPtrInput `pulumi:"source"`
 	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
@@ -2863,8 +2865,8 @@ func (o ObjectTypeObjectTypeFieldOutput) ToObjectTypeObjectTypeFieldPtrOutputWit
 }
 
 // The content type of the field. Used for determining equality when searching.
-func (o ObjectTypeObjectTypeFieldOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObjectTypeObjectTypeField) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+func (o ObjectTypeObjectTypeFieldOutput) ContentType() ObjectTypeObjectTypeFieldContentTypePtrOutput {
+	return o.ApplyT(func(v ObjectTypeObjectTypeField) *ObjectTypeObjectTypeFieldContentType { return v.ContentType }).(ObjectTypeObjectTypeFieldContentTypePtrOutput)
 }
 
 // A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
@@ -2902,13 +2904,13 @@ func (o ObjectTypeObjectTypeFieldPtrOutput) Elem() ObjectTypeObjectTypeFieldOutp
 }
 
 // The content type of the field. Used for determining equality when searching.
-func (o ObjectTypeObjectTypeFieldPtrOutput) ContentType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *string {
+func (o ObjectTypeObjectTypeFieldPtrOutput) ContentType() ObjectTypeObjectTypeFieldContentTypePtrOutput {
+	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *ObjectTypeObjectTypeFieldContentType {
 		if v == nil {
 			return nil
 		}
 		return v.ContentType
-	}).(pulumi.StringPtrOutput)
+	}).(ObjectTypeObjectTypeFieldContentTypePtrOutput)
 }
 
 // A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
@@ -2936,7 +2938,7 @@ type ObjectTypeObjectTypeKey struct {
 	// The reference for the key name of the fields map.
 	FieldNames []string `pulumi:"fieldNames"`
 	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-	StandardIdentifiers []string `pulumi:"standardIdentifiers"`
+	StandardIdentifiers []ObjectTypeObjectTypeKeyStandardIdentifiersItem `pulumi:"standardIdentifiers"`
 }
 
 // ObjectTypeObjectTypeKeyInput is an input type that accepts ObjectTypeObjectTypeKeyArgs and ObjectTypeObjectTypeKeyOutput values.
@@ -2955,7 +2957,7 @@ type ObjectTypeObjectTypeKeyArgs struct {
 	// The reference for the key name of the fields map.
 	FieldNames pulumi.StringArrayInput `pulumi:"fieldNames"`
 	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-	StandardIdentifiers pulumi.StringArrayInput `pulumi:"standardIdentifiers"`
+	StandardIdentifiers ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayInput `pulumi:"standardIdentifiers"`
 }
 
 func (ObjectTypeObjectTypeKeyArgs) ElementType() reflect.Type {
@@ -3016,8 +3018,10 @@ func (o ObjectTypeObjectTypeKeyOutput) FieldNames() pulumi.StringArrayOutput {
 }
 
 // The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-func (o ObjectTypeObjectTypeKeyOutput) StandardIdentifiers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ObjectTypeObjectTypeKey) []string { return v.StandardIdentifiers }).(pulumi.StringArrayOutput)
+func (o ObjectTypeObjectTypeKeyOutput) StandardIdentifiers() ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput {
+	return o.ApplyT(func(v ObjectTypeObjectTypeKey) []ObjectTypeObjectTypeKeyStandardIdentifiersItem {
+		return v.StandardIdentifiers
+	}).(ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput)
 }
 
 type ObjectTypeObjectTypeKeyArrayOutput struct{ *pulumi.OutputState }

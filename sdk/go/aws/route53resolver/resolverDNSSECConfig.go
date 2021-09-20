@@ -19,7 +19,7 @@ type ResolverDNSSECConfig struct {
 	// ResourceId
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
 	// ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
-	ValidationStatus pulumi.StringOutput `pulumi:"validationStatus"`
+	ValidationStatus ResolverDNSSECConfigValidationStatusOutput `pulumi:"validationStatus"`
 }
 
 // NewResolverDNSSECConfig registers a new resource with the given unique name, arguments, and options.

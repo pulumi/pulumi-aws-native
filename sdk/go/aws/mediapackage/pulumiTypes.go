@@ -1422,11 +1422,11 @@ func (o OriginEndpointDashEncryptionPtrOutput) SpekeKeyProvider() OriginEndpoint
 // A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackage struct {
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                []string                      `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions *string                       `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                *OriginEndpointDashEncryption `pulumi:"encryption"`
+	AdTriggers                []OriginEndpointDashPackageAdTriggersItem `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions  `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                *OriginEndpointDashEncryption             `pulumi:"encryption"`
 	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-	ManifestLayout *string `pulumi:"manifestLayout"`
+	ManifestLayout *OriginEndpointDashPackageManifestLayout `pulumi:"manifestLayout"`
 	// Time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
@@ -1434,18 +1434,18 @@ type OriginEndpointDashPackage struct {
 	// Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
 	MinUpdatePeriodSeconds *int `pulumi:"minUpdatePeriodSeconds"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-	PeriodTriggers []string `pulumi:"periodTriggers"`
+	PeriodTriggers []OriginEndpointDashPackagePeriodTriggersItem `pulumi:"periodTriggers"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile *string `pulumi:"profile"`
+	Profile *OriginEndpointDashPackageProfile `pulumi:"profile"`
 	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-	SegmentTemplateFormat *string                        `pulumi:"segmentTemplateFormat"`
-	StreamSelection       *OriginEndpointStreamSelection `pulumi:"streamSelection"`
+	SegmentTemplateFormat *OriginEndpointDashPackageSegmentTemplateFormat `pulumi:"segmentTemplateFormat"`
+	StreamSelection       *OriginEndpointStreamSelection                  `pulumi:"streamSelection"`
 	// Duration (in seconds) to delay live content before presentation.
 	SuggestedPresentationDelaySeconds *int `pulumi:"suggestedPresentationDelaySeconds"`
 	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
-	UtcTiming *string `pulumi:"utcTiming"`
+	UtcTiming *OriginEndpointDashPackageUtcTiming `pulumi:"utcTiming"`
 	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
 	UtcTimingUri *string `pulumi:"utcTimingUri"`
 }
@@ -1464,11 +1464,11 @@ type OriginEndpointDashPackageInput interface {
 // A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackageArgs struct {
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                pulumi.StringArrayInput              `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions pulumi.StringPtrInput                `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                OriginEndpointDashEncryptionPtrInput `pulumi:"encryption"`
+	AdTriggers                OriginEndpointDashPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput   `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                OriginEndpointDashEncryptionPtrInput              `pulumi:"encryption"`
 	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-	ManifestLayout pulumi.StringPtrInput `pulumi:"manifestLayout"`
+	ManifestLayout OriginEndpointDashPackageManifestLayoutPtrInput `pulumi:"manifestLayout"`
 	// Time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
@@ -1476,18 +1476,18 @@ type OriginEndpointDashPackageArgs struct {
 	// Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
 	MinUpdatePeriodSeconds pulumi.IntPtrInput `pulumi:"minUpdatePeriodSeconds"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-	PeriodTriggers pulumi.StringArrayInput `pulumi:"periodTriggers"`
+	PeriodTriggers OriginEndpointDashPackagePeriodTriggersItemArrayInput `pulumi:"periodTriggers"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
+	Profile OriginEndpointDashPackageProfilePtrInput `pulumi:"profile"`
 	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-	SegmentTemplateFormat pulumi.StringPtrInput                 `pulumi:"segmentTemplateFormat"`
-	StreamSelection       OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
+	SegmentTemplateFormat OriginEndpointDashPackageSegmentTemplateFormatPtrInput `pulumi:"segmentTemplateFormat"`
+	StreamSelection       OriginEndpointStreamSelectionPtrInput                  `pulumi:"streamSelection"`
 	// Duration (in seconds) to delay live content before presentation.
 	SuggestedPresentationDelaySeconds pulumi.IntPtrInput `pulumi:"suggestedPresentationDelaySeconds"`
 	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
-	UtcTiming pulumi.StringPtrInput `pulumi:"utcTiming"`
+	UtcTiming OriginEndpointDashPackageUtcTimingPtrInput `pulumi:"utcTiming"`
 	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
 	UtcTimingUri pulumi.StringPtrInput `pulumi:"utcTimingUri"`
 }
@@ -1571,12 +1571,14 @@ func (o OriginEndpointDashPackageOutput) ToOriginEndpointDashPackagePtrOutputWit
 }
 
 // A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-func (o OriginEndpointDashPackageOutput) AdTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OriginEndpointDashPackage) []string { return v.AdTriggers }).(pulumi.StringArrayOutput)
+func (o OriginEndpointDashPackageOutput) AdTriggers() OriginEndpointDashPackageAdTriggersItemArrayOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) []OriginEndpointDashPackageAdTriggersItem { return v.AdTriggers }).(OriginEndpointDashPackageAdTriggersItemArrayOutput)
 }
 
-func (o OriginEndpointDashPackageOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.AdsOnDeliveryRestrictions }).(pulumi.StringPtrOutput)
+func (o OriginEndpointDashPackageOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointAdsOnDeliveryRestrictions {
+		return v.AdsOnDeliveryRestrictions
+	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
 func (o OriginEndpointDashPackageOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
@@ -1584,8 +1586,8 @@ func (o OriginEndpointDashPackageOutput) Encryption() OriginEndpointDashEncrypti
 }
 
 // Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-func (o OriginEndpointDashPackageOutput) ManifestLayout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.ManifestLayout }).(pulumi.StringPtrOutput)
+func (o OriginEndpointDashPackageOutput) ManifestLayout() OriginEndpointDashPackageManifestLayoutPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashPackageManifestLayout { return v.ManifestLayout }).(OriginEndpointDashPackageManifestLayoutPtrOutput)
 }
 
 // Time window (in seconds) contained in each manifest.
@@ -1604,13 +1606,15 @@ func (o OriginEndpointDashPackageOutput) MinUpdatePeriodSeconds() pulumi.IntPtrO
 }
 
 // A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-func (o OriginEndpointDashPackageOutput) PeriodTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OriginEndpointDashPackage) []string { return v.PeriodTriggers }).(pulumi.StringArrayOutput)
+func (o OriginEndpointDashPackageOutput) PeriodTriggers() OriginEndpointDashPackagePeriodTriggersItemArrayOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) []OriginEndpointDashPackagePeriodTriggersItem {
+		return v.PeriodTriggers
+	}).(OriginEndpointDashPackagePeriodTriggersItemArrayOutput)
 }
 
 // The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-func (o OriginEndpointDashPackageOutput) Profile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.Profile }).(pulumi.StringPtrOutput)
+func (o OriginEndpointDashPackageOutput) Profile() OriginEndpointDashPackageProfilePtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashPackageProfile { return v.Profile }).(OriginEndpointDashPackageProfilePtrOutput)
 }
 
 // Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
@@ -1619,8 +1623,10 @@ func (o OriginEndpointDashPackageOutput) SegmentDurationSeconds() pulumi.IntPtrO
 }
 
 // Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-func (o OriginEndpointDashPackageOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.SegmentTemplateFormat }).(pulumi.StringPtrOutput)
+func (o OriginEndpointDashPackageOutput) SegmentTemplateFormat() OriginEndpointDashPackageSegmentTemplateFormatPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashPackageSegmentTemplateFormat {
+		return v.SegmentTemplateFormat
+	}).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
 }
 
 func (o OriginEndpointDashPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
@@ -1633,8 +1639,8 @@ func (o OriginEndpointDashPackageOutput) SuggestedPresentationDelaySeconds() pul
 }
 
 // Determines the type of UTCTiming included in the Media Presentation Description (MPD)
-func (o OriginEndpointDashPackageOutput) UtcTiming() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.UtcTiming }).(pulumi.StringPtrOutput)
+func (o OriginEndpointDashPackageOutput) UtcTiming() OriginEndpointDashPackageUtcTimingPtrOutput {
+	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashPackageUtcTiming { return v.UtcTiming }).(OriginEndpointDashPackageUtcTimingPtrOutput)
 }
 
 // Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
@@ -1667,22 +1673,22 @@ func (o OriginEndpointDashPackagePtrOutput) Elem() OriginEndpointDashPackageOutp
 }
 
 // A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-func (o OriginEndpointDashPackagePtrOutput) AdTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OriginEndpointDashPackage) []string {
+func (o OriginEndpointDashPackagePtrOutput) AdTriggers() OriginEndpointDashPackageAdTriggersItemArrayOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) []OriginEndpointDashPackageAdTriggersItem {
 		if v == nil {
 			return nil
 		}
 		return v.AdTriggers
-	}).(pulumi.StringArrayOutput)
+	}).(OriginEndpointDashPackageAdTriggersItemArrayOutput)
 }
 
-func (o OriginEndpointDashPackagePtrOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
+func (o OriginEndpointDashPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointAdsOnDeliveryRestrictions {
 		if v == nil {
 			return nil
 		}
 		return v.AdsOnDeliveryRestrictions
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
 func (o OriginEndpointDashPackagePtrOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
@@ -1695,13 +1701,13 @@ func (o OriginEndpointDashPackagePtrOutput) Encryption() OriginEndpointDashEncry
 }
 
 // Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-func (o OriginEndpointDashPackagePtrOutput) ManifestLayout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
+func (o OriginEndpointDashPackagePtrOutput) ManifestLayout() OriginEndpointDashPackageManifestLayoutPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointDashPackageManifestLayout {
 		if v == nil {
 			return nil
 		}
 		return v.ManifestLayout
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointDashPackageManifestLayoutPtrOutput)
 }
 
 // Time window (in seconds) contained in each manifest.
@@ -1735,23 +1741,23 @@ func (o OriginEndpointDashPackagePtrOutput) MinUpdatePeriodSeconds() pulumi.IntP
 }
 
 // A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
-func (o OriginEndpointDashPackagePtrOutput) PeriodTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OriginEndpointDashPackage) []string {
+func (o OriginEndpointDashPackagePtrOutput) PeriodTriggers() OriginEndpointDashPackagePeriodTriggersItemArrayOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) []OriginEndpointDashPackagePeriodTriggersItem {
 		if v == nil {
 			return nil
 		}
 		return v.PeriodTriggers
-	}).(pulumi.StringArrayOutput)
+	}).(OriginEndpointDashPackagePeriodTriggersItemArrayOutput)
 }
 
 // The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-func (o OriginEndpointDashPackagePtrOutput) Profile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
+func (o OriginEndpointDashPackagePtrOutput) Profile() OriginEndpointDashPackageProfilePtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointDashPackageProfile {
 		if v == nil {
 			return nil
 		}
 		return v.Profile
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointDashPackageProfilePtrOutput)
 }
 
 // Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
@@ -1765,13 +1771,13 @@ func (o OriginEndpointDashPackagePtrOutput) SegmentDurationSeconds() pulumi.IntP
 }
 
 // Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-func (o OriginEndpointDashPackagePtrOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
+func (o OriginEndpointDashPackagePtrOutput) SegmentTemplateFormat() OriginEndpointDashPackageSegmentTemplateFormatPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointDashPackageSegmentTemplateFormat {
 		if v == nil {
 			return nil
 		}
 		return v.SegmentTemplateFormat
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointDashPackageSegmentTemplateFormatPtrOutput)
 }
 
 func (o OriginEndpointDashPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
@@ -1794,13 +1800,13 @@ func (o OriginEndpointDashPackagePtrOutput) SuggestedPresentationDelaySeconds() 
 }
 
 // Determines the type of UTCTiming included in the Media Presentation Description (MPD)
-func (o OriginEndpointDashPackagePtrOutput) UtcTiming() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
+func (o OriginEndpointDashPackagePtrOutput) UtcTiming() OriginEndpointDashPackageUtcTimingPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointDashPackageUtcTiming {
 		if v == nil {
 			return nil
 		}
 		return v.UtcTiming
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointDashPackageUtcTimingPtrOutput)
 }
 
 // Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
@@ -1818,7 +1824,7 @@ type OriginEndpointHlsEncryption struct {
 	// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
-	EncryptionMethod *string `pulumi:"encryptionMethod"`
+	EncryptionMethod *OriginEndpointHlsEncryptionEncryptionMethod `pulumi:"encryptionMethod"`
 	// Interval (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
@@ -1842,7 +1848,7 @@ type OriginEndpointHlsEncryptionArgs struct {
 	// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
-	EncryptionMethod pulumi.StringPtrInput `pulumi:"encryptionMethod"`
+	EncryptionMethod OriginEndpointHlsEncryptionEncryptionMethodPtrInput `pulumi:"encryptionMethod"`
 	// Interval (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
@@ -1934,8 +1940,10 @@ func (o OriginEndpointHlsEncryptionOutput) ConstantInitializationVector() pulumi
 }
 
 // The encryption method to use.
-func (o OriginEndpointHlsEncryptionOutput) EncryptionMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointHlsEncryption) *string { return v.EncryptionMethod }).(pulumi.StringPtrOutput)
+func (o OriginEndpointHlsEncryptionOutput) EncryptionMethod() OriginEndpointHlsEncryptionEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsEncryption) *OriginEndpointHlsEncryptionEncryptionMethod {
+		return v.EncryptionMethod
+	}).(OriginEndpointHlsEncryptionEncryptionMethodPtrOutput)
 }
 
 // Interval (in seconds) between each encryption key rotation.
@@ -1987,13 +1995,13 @@ func (o OriginEndpointHlsEncryptionPtrOutput) ConstantInitializationVector() pul
 }
 
 // The encryption method to use.
-func (o OriginEndpointHlsEncryptionPtrOutput) EncryptionMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *string {
+func (o OriginEndpointHlsEncryptionPtrOutput) EncryptionMethod() OriginEndpointHlsEncryptionEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *OriginEndpointHlsEncryptionEncryptionMethod {
 		if v == nil {
 			return nil
 		}
 		return v.EncryptionMethod
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointHlsEncryptionEncryptionMethodPtrOutput)
 }
 
 // Interval (in seconds) between each encryption key rotation.
@@ -2028,10 +2036,10 @@ func (o OriginEndpointHlsEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointS
 // A HTTP Live Streaming (HLS) manifest configuration.
 type OriginEndpointHlsManifest struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-	AdMarkers *string `pulumi:"adMarkers"`
+	AdMarkers *OriginEndpointHlsManifestAdMarkers `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                []string `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions *string  `pulumi:"adsOnDeliveryRestrictions"`
+	AdTriggers                []OriginEndpointHlsManifestAdTriggersItem `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions  `pulumi:"adsOnDeliveryRestrictions"`
 	// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 	Id string `pulumi:"id"`
 	// When enabled, an I-Frame only stream will be included in the output.
@@ -2039,7 +2047,7 @@ type OriginEndpointHlsManifest struct {
 	// An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
 	ManifestName *string `pulumi:"manifestName"`
 	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-	PlaylistType *string `pulumi:"playlistType"`
+	PlaylistType *OriginEndpointHlsManifestPlaylistType `pulumi:"playlistType"`
 	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds *int `pulumi:"playlistWindowSeconds"`
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
@@ -2062,10 +2070,10 @@ type OriginEndpointHlsManifestInput interface {
 // A HTTP Live Streaming (HLS) manifest configuration.
 type OriginEndpointHlsManifestArgs struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-	AdMarkers pulumi.StringPtrInput `pulumi:"adMarkers"`
+	AdMarkers OriginEndpointHlsManifestAdMarkersPtrInput `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                pulumi.StringArrayInput `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions pulumi.StringPtrInput   `pulumi:"adsOnDeliveryRestrictions"`
+	AdTriggers                OriginEndpointHlsManifestAdTriggersItemArrayInput `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput   `pulumi:"adsOnDeliveryRestrictions"`
 	// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 	Id pulumi.StringInput `pulumi:"id"`
 	// When enabled, an I-Frame only stream will be included in the output.
@@ -2073,7 +2081,7 @@ type OriginEndpointHlsManifestArgs struct {
 	// An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
 	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
 	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-	PlaylistType pulumi.StringPtrInput `pulumi:"playlistType"`
+	PlaylistType OriginEndpointHlsManifestPlaylistTypePtrInput `pulumi:"playlistType"`
 	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds pulumi.IntPtrInput `pulumi:"playlistWindowSeconds"`
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
@@ -2135,17 +2143,19 @@ func (o OriginEndpointHlsManifestOutput) ToOriginEndpointHlsManifestOutputWithCo
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-func (o OriginEndpointHlsManifestOutput) AdMarkers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.AdMarkers }).(pulumi.StringPtrOutput)
+func (o OriginEndpointHlsManifestOutput) AdMarkers() OriginEndpointHlsManifestAdMarkersPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsManifest) *OriginEndpointHlsManifestAdMarkers { return v.AdMarkers }).(OriginEndpointHlsManifestAdMarkersPtrOutput)
 }
 
 // A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-func (o OriginEndpointHlsManifestOutput) AdTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OriginEndpointHlsManifest) []string { return v.AdTriggers }).(pulumi.StringArrayOutput)
+func (o OriginEndpointHlsManifestOutput) AdTriggers() OriginEndpointHlsManifestAdTriggersItemArrayOutput {
+	return o.ApplyT(func(v OriginEndpointHlsManifest) []OriginEndpointHlsManifestAdTriggersItem { return v.AdTriggers }).(OriginEndpointHlsManifestAdTriggersItemArrayOutput)
 }
 
-func (o OriginEndpointHlsManifestOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.AdsOnDeliveryRestrictions }).(pulumi.StringPtrOutput)
+func (o OriginEndpointHlsManifestOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsManifest) *OriginEndpointAdsOnDeliveryRestrictions {
+		return v.AdsOnDeliveryRestrictions
+	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
 // The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
@@ -2164,8 +2174,8 @@ func (o OriginEndpointHlsManifestOutput) ManifestName() pulumi.StringPtrOutput {
 }
 
 // The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-func (o OriginEndpointHlsManifestOutput) PlaylistType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.PlaylistType }).(pulumi.StringPtrOutput)
+func (o OriginEndpointHlsManifestOutput) PlaylistType() OriginEndpointHlsManifestPlaylistTypePtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsManifest) *OriginEndpointHlsManifestPlaylistType { return v.PlaylistType }).(OriginEndpointHlsManifestPlaylistTypePtrOutput)
 }
 
 // Time window (in seconds) contained in each parent manifest.
@@ -2206,15 +2216,15 @@ func (o OriginEndpointHlsManifestArrayOutput) Index(i pulumi.IntInput) OriginEnd
 // An HTTP Live Streaming (HLS) packaging configuration.
 type OriginEndpointHlsPackage struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-	AdMarkers *string `pulumi:"adMarkers"`
+	AdMarkers *OriginEndpointHlsPackageAdMarkers `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                []string                     `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions *string                      `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                *OriginEndpointHlsEncryption `pulumi:"encryption"`
+	AdTriggers                []OriginEndpointHlsPackageAdTriggersItem `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                *OriginEndpointHlsEncryption             `pulumi:"encryption"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
 	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-	PlaylistType *string `pulumi:"playlistType"`
+	PlaylistType *OriginEndpointHlsPackagePlaylistType `pulumi:"playlistType"`
 	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds *int `pulumi:"playlistWindowSeconds"`
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
@@ -2240,15 +2250,15 @@ type OriginEndpointHlsPackageInput interface {
 // An HTTP Live Streaming (HLS) packaging configuration.
 type OriginEndpointHlsPackageArgs struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-	AdMarkers pulumi.StringPtrInput `pulumi:"adMarkers"`
+	AdMarkers OriginEndpointHlsPackageAdMarkersPtrInput `pulumi:"adMarkers"`
 	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-	AdTriggers                pulumi.StringArrayInput             `pulumi:"adTriggers"`
-	AdsOnDeliveryRestrictions pulumi.StringPtrInput               `pulumi:"adsOnDeliveryRestrictions"`
-	Encryption                OriginEndpointHlsEncryptionPtrInput `pulumi:"encryption"`
+	AdTriggers                OriginEndpointHlsPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput  `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                OriginEndpointHlsEncryptionPtrInput              `pulumi:"encryption"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
 	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-	PlaylistType pulumi.StringPtrInput `pulumi:"playlistType"`
+	PlaylistType OriginEndpointHlsPackagePlaylistTypePtrInput `pulumi:"playlistType"`
 	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds pulumi.IntPtrInput `pulumi:"playlistWindowSeconds"`
 	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
@@ -2339,17 +2349,19 @@ func (o OriginEndpointHlsPackageOutput) ToOriginEndpointHlsPackagePtrOutputWithC
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-func (o OriginEndpointHlsPackageOutput) AdMarkers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointHlsPackage) *string { return v.AdMarkers }).(pulumi.StringPtrOutput)
+func (o OriginEndpointHlsPackageOutput) AdMarkers() OriginEndpointHlsPackageAdMarkersPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointHlsPackageAdMarkers { return v.AdMarkers }).(OriginEndpointHlsPackageAdMarkersPtrOutput)
 }
 
 // A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-func (o OriginEndpointHlsPackageOutput) AdTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v OriginEndpointHlsPackage) []string { return v.AdTriggers }).(pulumi.StringArrayOutput)
+func (o OriginEndpointHlsPackageOutput) AdTriggers() OriginEndpointHlsPackageAdTriggersItemArrayOutput {
+	return o.ApplyT(func(v OriginEndpointHlsPackage) []OriginEndpointHlsPackageAdTriggersItem { return v.AdTriggers }).(OriginEndpointHlsPackageAdTriggersItemArrayOutput)
 }
 
-func (o OriginEndpointHlsPackageOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointHlsPackage) *string { return v.AdsOnDeliveryRestrictions }).(pulumi.StringPtrOutput)
+func (o OriginEndpointHlsPackageOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointAdsOnDeliveryRestrictions {
+		return v.AdsOnDeliveryRestrictions
+	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
 func (o OriginEndpointHlsPackageOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
@@ -2362,8 +2374,8 @@ func (o OriginEndpointHlsPackageOutput) IncludeIframeOnlyStream() pulumi.BoolPtr
 }
 
 // The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-func (o OriginEndpointHlsPackageOutput) PlaylistType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointHlsPackage) *string { return v.PlaylistType }).(pulumi.StringPtrOutput)
+func (o OriginEndpointHlsPackageOutput) PlaylistType() OriginEndpointHlsPackagePlaylistTypePtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointHlsPackagePlaylistType { return v.PlaylistType }).(OriginEndpointHlsPackagePlaylistTypePtrOutput)
 }
 
 // Time window (in seconds) contained in each parent manifest.
@@ -2415,32 +2427,32 @@ func (o OriginEndpointHlsPackagePtrOutput) Elem() OriginEndpointHlsPackageOutput
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
-func (o OriginEndpointHlsPackagePtrOutput) AdMarkers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointHlsPackage) *string {
+func (o OriginEndpointHlsPackagePtrOutput) AdMarkers() OriginEndpointHlsPackageAdMarkersPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointHlsPackageAdMarkers {
 		if v == nil {
 			return nil
 		}
 		return v.AdMarkers
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointHlsPackageAdMarkersPtrOutput)
 }
 
 // A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
-func (o OriginEndpointHlsPackagePtrOutput) AdTriggers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *OriginEndpointHlsPackage) []string {
+func (o OriginEndpointHlsPackagePtrOutput) AdTriggers() OriginEndpointHlsPackageAdTriggersItemArrayOutput {
+	return o.ApplyT(func(v *OriginEndpointHlsPackage) []OriginEndpointHlsPackageAdTriggersItem {
 		if v == nil {
 			return nil
 		}
 		return v.AdTriggers
-	}).(pulumi.StringArrayOutput)
+	}).(OriginEndpointHlsPackageAdTriggersItemArrayOutput)
 }
 
-func (o OriginEndpointHlsPackagePtrOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointHlsPackage) *string {
+func (o OriginEndpointHlsPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEndpointAdsOnDeliveryRestrictionsPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointAdsOnDeliveryRestrictions {
 		if v == nil {
 			return nil
 		}
 		return v.AdsOnDeliveryRestrictions
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
 func (o OriginEndpointHlsPackagePtrOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
@@ -2463,13 +2475,13 @@ func (o OriginEndpointHlsPackagePtrOutput) IncludeIframeOnlyStream() pulumi.Bool
 }
 
 // The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
-func (o OriginEndpointHlsPackagePtrOutput) PlaylistType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointHlsPackage) *string {
+func (o OriginEndpointHlsPackagePtrOutput) PlaylistType() OriginEndpointHlsPackagePlaylistTypePtrOutput {
+	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointHlsPackagePlaylistType {
 		if v == nil {
 			return nil
 		}
 		return v.PlaylistType
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointHlsPackagePlaylistTypePtrOutput)
 }
 
 // Time window (in seconds) contained in each parent manifest.
@@ -3069,7 +3081,7 @@ type OriginEndpointStreamSelection struct {
 	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond *int `pulumi:"minVideoBitsPerSecond"`
 	// A directive that determines the order of streams in the output.
-	StreamOrder *string `pulumi:"streamOrder"`
+	StreamOrder *OriginEndpointStreamSelectionStreamOrder `pulumi:"streamOrder"`
 }
 
 // OriginEndpointStreamSelectionInput is an input type that accepts OriginEndpointStreamSelectionArgs and OriginEndpointStreamSelectionOutput values.
@@ -3090,7 +3102,7 @@ type OriginEndpointStreamSelectionArgs struct {
 	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond pulumi.IntPtrInput `pulumi:"minVideoBitsPerSecond"`
 	// A directive that determines the order of streams in the output.
-	StreamOrder pulumi.StringPtrInput `pulumi:"streamOrder"`
+	StreamOrder OriginEndpointStreamSelectionStreamOrderPtrInput `pulumi:"streamOrder"`
 }
 
 func (OriginEndpointStreamSelectionArgs) ElementType() reflect.Type {
@@ -3182,8 +3194,8 @@ func (o OriginEndpointStreamSelectionOutput) MinVideoBitsPerSecond() pulumi.IntP
 }
 
 // A directive that determines the order of streams in the output.
-func (o OriginEndpointStreamSelectionOutput) StreamOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginEndpointStreamSelection) *string { return v.StreamOrder }).(pulumi.StringPtrOutput)
+func (o OriginEndpointStreamSelectionOutput) StreamOrder() OriginEndpointStreamSelectionStreamOrderPtrOutput {
+	return o.ApplyT(func(v OriginEndpointStreamSelection) *OriginEndpointStreamSelectionStreamOrder { return v.StreamOrder }).(OriginEndpointStreamSelectionStreamOrderPtrOutput)
 }
 
 type OriginEndpointStreamSelectionPtrOutput struct{ *pulumi.OutputState }
@@ -3231,13 +3243,13 @@ func (o OriginEndpointStreamSelectionPtrOutput) MinVideoBitsPerSecond() pulumi.I
 }
 
 // A directive that determines the order of streams in the output.
-func (o OriginEndpointStreamSelectionPtrOutput) StreamOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginEndpointStreamSelection) *string {
+func (o OriginEndpointStreamSelectionPtrOutput) StreamOrder() OriginEndpointStreamSelectionStreamOrderPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointStreamSelection) *OriginEndpointStreamSelectionStreamOrder {
 		if v == nil {
 			return nil
 		}
 		return v.StreamOrder
-	}).(pulumi.StringPtrOutput)
+	}).(OriginEndpointStreamSelectionStreamOrderPtrOutput)
 }
 
 type OriginEndpointTag struct {
@@ -3808,13 +3820,13 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() Packag
 // A DASH manifest configuration.
 type PackagingConfigurationDashManifest struct {
 	// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-	ManifestLayout *string `pulumi:"manifestLayout"`
-	ManifestName   *string `pulumi:"manifestName"`
+	ManifestLayout *PackagingConfigurationDashManifestManifestLayout `pulumi:"manifestLayout"`
+	ManifestName   *string                                           `pulumi:"manifestName"`
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds *int `pulumi:"minBufferTimeSeconds"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile         *string                                `pulumi:"profile"`
-	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
+	Profile         *PackagingConfigurationDashManifestProfile `pulumi:"profile"`
+	StreamSelection *PackagingConfigurationStreamSelection     `pulumi:"streamSelection"`
 }
 
 // PackagingConfigurationDashManifestInput is an input type that accepts PackagingConfigurationDashManifestArgs and PackagingConfigurationDashManifestOutput values.
@@ -3831,13 +3843,13 @@ type PackagingConfigurationDashManifestInput interface {
 // A DASH manifest configuration.
 type PackagingConfigurationDashManifestArgs struct {
 	// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-	ManifestLayout pulumi.StringPtrInput `pulumi:"manifestLayout"`
-	ManifestName   pulumi.StringPtrInput `pulumi:"manifestName"`
+	ManifestLayout PackagingConfigurationDashManifestManifestLayoutPtrInput `pulumi:"manifestLayout"`
+	ManifestName   pulumi.StringPtrInput                                    `pulumi:"manifestName"`
 	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds pulumi.IntPtrInput `pulumi:"minBufferTimeSeconds"`
 	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-	Profile         pulumi.StringPtrInput                         `pulumi:"profile"`
-	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
+	Profile         PackagingConfigurationDashManifestProfilePtrInput `pulumi:"profile"`
+	StreamSelection PackagingConfigurationStreamSelectionPtrInput     `pulumi:"streamSelection"`
 }
 
 func (PackagingConfigurationDashManifestArgs) ElementType() reflect.Type {
@@ -3893,8 +3905,10 @@ func (o PackagingConfigurationDashManifestOutput) ToPackagingConfigurationDashMa
 }
 
 // Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
-func (o PackagingConfigurationDashManifestOutput) ManifestLayout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PackagingConfigurationDashManifest) *string { return v.ManifestLayout }).(pulumi.StringPtrOutput)
+func (o PackagingConfigurationDashManifestOutput) ManifestLayout() PackagingConfigurationDashManifestManifestLayoutPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashManifest) *PackagingConfigurationDashManifestManifestLayout {
+		return v.ManifestLayout
+	}).(PackagingConfigurationDashManifestManifestLayoutPtrOutput)
 }
 
 func (o PackagingConfigurationDashManifestOutput) ManifestName() pulumi.StringPtrOutput {
@@ -3907,8 +3921,10 @@ func (o PackagingConfigurationDashManifestOutput) MinBufferTimeSeconds() pulumi.
 }
 
 // The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
-func (o PackagingConfigurationDashManifestOutput) Profile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PackagingConfigurationDashManifest) *string { return v.Profile }).(pulumi.StringPtrOutput)
+func (o PackagingConfigurationDashManifestOutput) Profile() PackagingConfigurationDashManifestProfilePtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashManifest) *PackagingConfigurationDashManifestProfile {
+		return v.Profile
+	}).(PackagingConfigurationDashManifestProfilePtrOutput)
 }
 
 func (o PackagingConfigurationDashManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
@@ -3948,7 +3964,7 @@ type PackagingConfigurationDashPackage struct {
 	PeriodTriggers         []string `pulumi:"periodTriggers"`
 	SegmentDurationSeconds *int     `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-	SegmentTemplateFormat *string `pulumi:"segmentTemplateFormat"`
+	SegmentTemplateFormat *PackagingConfigurationDashPackageSegmentTemplateFormat `pulumi:"segmentTemplateFormat"`
 }
 
 // PackagingConfigurationDashPackageInput is an input type that accepts PackagingConfigurationDashPackageArgs and PackagingConfigurationDashPackageOutput values.
@@ -3973,7 +3989,7 @@ type PackagingConfigurationDashPackageArgs struct {
 	PeriodTriggers         pulumi.StringArrayInput `pulumi:"periodTriggers"`
 	SegmentDurationSeconds pulumi.IntPtrInput      `pulumi:"segmentDurationSeconds"`
 	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-	SegmentTemplateFormat pulumi.StringPtrInput `pulumi:"segmentTemplateFormat"`
+	SegmentTemplateFormat PackagingConfigurationDashPackageSegmentTemplateFormatPtrInput `pulumi:"segmentTemplateFormat"`
 }
 
 func (PackagingConfigurationDashPackageArgs) ElementType() reflect.Type {
@@ -4078,8 +4094,10 @@ func (o PackagingConfigurationDashPackageOutput) SegmentDurationSeconds() pulumi
 }
 
 // Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-func (o PackagingConfigurationDashPackageOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PackagingConfigurationDashPackage) *string { return v.SegmentTemplateFormat }).(pulumi.StringPtrOutput)
+func (o PackagingConfigurationDashPackageOutput) SegmentTemplateFormat() PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashPackage) *PackagingConfigurationDashPackageSegmentTemplateFormat {
+		return v.SegmentTemplateFormat
+	}).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
 }
 
 type PackagingConfigurationDashPackagePtrOutput struct{ *pulumi.OutputState }
@@ -4155,13 +4173,13 @@ func (o PackagingConfigurationDashPackagePtrOutput) SegmentDurationSeconds() pul
 }
 
 // Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
-func (o PackagingConfigurationDashPackagePtrOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *string {
+func (o PackagingConfigurationDashPackagePtrOutput) SegmentTemplateFormat() PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *PackagingConfigurationDashPackageSegmentTemplateFormat {
 		if v == nil {
 			return nil
 		}
 		return v.SegmentTemplateFormat
-	}).(pulumi.StringPtrOutput)
+	}).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
 }
 
 // An HTTP Live Streaming (HLS) encryption configuration.
@@ -4169,8 +4187,8 @@ type PackagingConfigurationHlsEncryption struct {
 	// An HTTP Live Streaming (HLS) encryption configuration.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
-	EncryptionMethod *string                                `pulumi:"encryptionMethod"`
-	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
+	EncryptionMethod *PackagingConfigurationHlsEncryptionEncryptionMethod `pulumi:"encryptionMethod"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider               `pulumi:"spekeKeyProvider"`
 }
 
 // PackagingConfigurationHlsEncryptionInput is an input type that accepts PackagingConfigurationHlsEncryptionArgs and PackagingConfigurationHlsEncryptionOutput values.
@@ -4189,8 +4207,8 @@ type PackagingConfigurationHlsEncryptionArgs struct {
 	// An HTTP Live Streaming (HLS) encryption configuration.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
-	EncryptionMethod pulumi.StringPtrInput                       `pulumi:"encryptionMethod"`
-	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
+	EncryptionMethod PackagingConfigurationHlsEncryptionEncryptionMethodPtrInput `pulumi:"encryptionMethod"`
+	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput                 `pulumi:"spekeKeyProvider"`
 }
 
 func (PackagingConfigurationHlsEncryptionArgs) ElementType() reflect.Type {
@@ -4277,8 +4295,10 @@ func (o PackagingConfigurationHlsEncryptionOutput) ConstantInitializationVector(
 }
 
 // The encryption method to use.
-func (o PackagingConfigurationHlsEncryptionOutput) EncryptionMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) *string { return v.EncryptionMethod }).(pulumi.StringPtrOutput)
+func (o PackagingConfigurationHlsEncryptionOutput) EncryptionMethod() PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) *PackagingConfigurationHlsEncryptionEncryptionMethod {
+		return v.EncryptionMethod
+	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
 func (o PackagingConfigurationHlsEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
@@ -4322,13 +4342,13 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) ConstantInitializationVect
 }
 
 // The encryption method to use.
-func (o PackagingConfigurationHlsEncryptionPtrOutput) EncryptionMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *string {
+func (o PackagingConfigurationHlsEncryptionPtrOutput) EncryptionMethod() PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *PackagingConfigurationHlsEncryptionEncryptionMethod {
 		if v == nil {
 			return nil
 		}
 		return v.EncryptionMethod
-	}).(pulumi.StringPtrOutput)
+	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
 func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
@@ -4343,7 +4363,7 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() Packagi
 // An HTTP Live Streaming (HLS) manifest configuration.
 type PackagingConfigurationHlsManifest struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
-	AdMarkers *string `pulumi:"adMarkers"`
+	AdMarkers *PackagingConfigurationHlsManifestAdMarkers `pulumi:"adMarkers"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool   `pulumi:"includeIframeOnlyStream"`
 	ManifestName            *string `pulumi:"manifestName"`
@@ -4368,7 +4388,7 @@ type PackagingConfigurationHlsManifestInput interface {
 // An HTTP Live Streaming (HLS) manifest configuration.
 type PackagingConfigurationHlsManifestArgs struct {
 	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
-	AdMarkers pulumi.StringPtrInput `pulumi:"adMarkers"`
+	AdMarkers PackagingConfigurationHlsManifestAdMarkersPtrInput `pulumi:"adMarkers"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput   `pulumi:"includeIframeOnlyStream"`
 	ManifestName            pulumi.StringPtrInput `pulumi:"manifestName"`
@@ -4432,8 +4452,10 @@ func (o PackagingConfigurationHlsManifestOutput) ToPackagingConfigurationHlsMani
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
-func (o PackagingConfigurationHlsManifestOutput) AdMarkers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *string { return v.AdMarkers }).(pulumi.StringPtrOutput)
+func (o PackagingConfigurationHlsManifestOutput) AdMarkers() PackagingConfigurationHlsManifestAdMarkersPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *PackagingConfigurationHlsManifestAdMarkers {
+		return v.AdMarkers
+	}).(PackagingConfigurationHlsManifestAdMarkersPtrOutput)
 }
 
 // When enabled, an I-Frame only stream will be included in the output.
@@ -5264,7 +5286,7 @@ type PackagingConfigurationStreamSelection struct {
 	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond *int `pulumi:"minVideoBitsPerSecond"`
 	// A directive that determines the order of streams in the output.
-	StreamOrder *string `pulumi:"streamOrder"`
+	StreamOrder *PackagingConfigurationStreamSelectionStreamOrder `pulumi:"streamOrder"`
 }
 
 // PackagingConfigurationStreamSelectionInput is an input type that accepts PackagingConfigurationStreamSelectionArgs and PackagingConfigurationStreamSelectionOutput values.
@@ -5285,7 +5307,7 @@ type PackagingConfigurationStreamSelectionArgs struct {
 	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond pulumi.IntPtrInput `pulumi:"minVideoBitsPerSecond"`
 	// A directive that determines the order of streams in the output.
-	StreamOrder pulumi.StringPtrInput `pulumi:"streamOrder"`
+	StreamOrder PackagingConfigurationStreamSelectionStreamOrderPtrInput `pulumi:"streamOrder"`
 }
 
 func (PackagingConfigurationStreamSelectionArgs) ElementType() reflect.Type {
@@ -5377,8 +5399,10 @@ func (o PackagingConfigurationStreamSelectionOutput) MinVideoBitsPerSecond() pul
 }
 
 // A directive that determines the order of streams in the output.
-func (o PackagingConfigurationStreamSelectionOutput) StreamOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PackagingConfigurationStreamSelection) *string { return v.StreamOrder }).(pulumi.StringPtrOutput)
+func (o PackagingConfigurationStreamSelectionOutput) StreamOrder() PackagingConfigurationStreamSelectionStreamOrderPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationStreamSelection) *PackagingConfigurationStreamSelectionStreamOrder {
+		return v.StreamOrder
+	}).(PackagingConfigurationStreamSelectionStreamOrderPtrOutput)
 }
 
 type PackagingConfigurationStreamSelectionPtrOutput struct{ *pulumi.OutputState }
@@ -5426,13 +5450,13 @@ func (o PackagingConfigurationStreamSelectionPtrOutput) MinVideoBitsPerSecond() 
 }
 
 // A directive that determines the order of streams in the output.
-func (o PackagingConfigurationStreamSelectionPtrOutput) StreamOrder() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PackagingConfigurationStreamSelection) *string {
+func (o PackagingConfigurationStreamSelectionPtrOutput) StreamOrder() PackagingConfigurationStreamSelectionStreamOrderPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationStreamSelection) *PackagingConfigurationStreamSelectionStreamOrder {
 		if v == nil {
 			return nil
 		}
 		return v.StreamOrder
-	}).(pulumi.StringPtrOutput)
+	}).(PackagingConfigurationStreamSelectionStreamOrderPtrOutput)
 }
 
 type PackagingConfigurationTag struct {

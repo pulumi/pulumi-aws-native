@@ -23,7 +23,7 @@ type RegexPatternSet struct {
 	Name                  pulumi.StringPtrOutput   `pulumi:"name"`
 	RegularExpressionList pulumi.StringArrayOutput `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
-	Scope pulumi.StringOutput           `pulumi:"scope"`
+	Scope RegexPatternSetScopeOutput    `pulumi:"scope"`
 	Tags  RegexPatternSetTagArrayOutput `pulumi:"tags"`
 }
 
@@ -78,7 +78,7 @@ type regexPatternSetArgs struct {
 	Name                  *string  `pulumi:"name"`
 	RegularExpressionList []string `pulumi:"regularExpressionList"`
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
-	Scope string               `pulumi:"scope"`
+	Scope RegexPatternSetScope `pulumi:"scope"`
 	Tags  []RegexPatternSetTag `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ type RegexPatternSetArgs struct {
 	Name                  pulumi.StringPtrInput
 	RegularExpressionList pulumi.StringArrayInput
 	// Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
-	Scope pulumi.StringInput
+	Scope RegexPatternSetScopeInput
 	Tags  RegexPatternSetTagArrayInput
 }
 

@@ -22,7 +22,7 @@ type CustomMetric struct {
 	// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
 	MetricName pulumi.StringPtrOutput `pulumi:"metricName"`
 	// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
-	MetricType pulumi.StringOutput `pulumi:"metricType"`
+	MetricType CustomMetricMetricTypeOutput `pulumi:"metricType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags CustomMetricTagArrayOutput `pulumi:"tags"`
 }
@@ -74,7 +74,7 @@ type customMetricArgs struct {
 	// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
 	MetricName *string `pulumi:"metricName"`
 	// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
-	MetricType string `pulumi:"metricType"`
+	MetricType CustomMetricMetricType `pulumi:"metricType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []CustomMetricTag `pulumi:"tags"`
 }
@@ -86,7 +86,7 @@ type CustomMetricArgs struct {
 	// The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
 	MetricName pulumi.StringPtrInput
 	// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
-	MetricType pulumi.StringInput
+	MetricType CustomMetricMetricTypeInput
 	// An array of key-value pairs to apply to this resource.
 	Tags CustomMetricTagArrayInput
 }

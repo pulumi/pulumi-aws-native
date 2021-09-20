@@ -17,7 +17,7 @@ type DeliveryStream struct {
 	Arn                                        pulumi.StringOutput                                               `pulumi:"arn"`
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
 	DeliveryStreamName                         pulumi.StringPtrOutput                                            `pulumi:"deliveryStreamName"`
-	DeliveryStreamType                         pulumi.StringPtrOutput                                            `pulumi:"deliveryStreamType"`
+	DeliveryStreamType                         DeliveryStreamDeliveryStreamTypePtrOutput                         `pulumi:"deliveryStreamType"`
 	ElasticsearchDestinationConfiguration      DeliveryStreamElasticsearchDestinationConfigurationPtrOutput      `pulumi:"elasticsearchDestinationConfiguration"`
 	ExtendedS3DestinationConfiguration         DeliveryStreamExtendedS3DestinationConfigurationPtrOutput         `pulumi:"extendedS3DestinationConfiguration"`
 	HttpEndpointDestinationConfiguration       DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput       `pulumi:"httpEndpointDestinationConfiguration"`
@@ -69,7 +69,7 @@ func (DeliveryStreamState) ElementType() reflect.Type {
 type deliveryStreamArgs struct {
 	DeliveryStreamEncryptionConfigurationInput *DeliveryStreamDeliveryStreamEncryptionConfigurationInput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
 	DeliveryStreamName                         *string                                                   `pulumi:"deliveryStreamName"`
-	DeliveryStreamType                         *string                                                   `pulumi:"deliveryStreamType"`
+	DeliveryStreamType                         *DeliveryStreamDeliveryStreamType                         `pulumi:"deliveryStreamType"`
 	ElasticsearchDestinationConfiguration      *DeliveryStreamElasticsearchDestinationConfiguration      `pulumi:"elasticsearchDestinationConfiguration"`
 	ExtendedS3DestinationConfiguration         *DeliveryStreamExtendedS3DestinationConfiguration         `pulumi:"extendedS3DestinationConfiguration"`
 	HttpEndpointDestinationConfiguration       *DeliveryStreamHttpEndpointDestinationConfiguration       `pulumi:"httpEndpointDestinationConfiguration"`
@@ -84,7 +84,7 @@ type deliveryStreamArgs struct {
 type DeliveryStreamArgs struct {
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput
 	DeliveryStreamName                         pulumi.StringPtrInput
-	DeliveryStreamType                         pulumi.StringPtrInput
+	DeliveryStreamType                         DeliveryStreamDeliveryStreamTypePtrInput
 	ElasticsearchDestinationConfiguration      DeliveryStreamElasticsearchDestinationConfigurationPtrInput
 	ExtendedS3DestinationConfiguration         DeliveryStreamExtendedS3DestinationConfigurationPtrInput
 	HttpEndpointDestinationConfiguration       DeliveryStreamHttpEndpointDestinationConfigurationPtrInput

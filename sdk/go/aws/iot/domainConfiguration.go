@@ -17,12 +17,12 @@ type DomainConfiguration struct {
 	Arn                       pulumi.StringOutput                                    `pulumi:"arn"`
 	AuthorizerConfig          DomainConfigurationAuthorizerConfigPtrOutput           `pulumi:"authorizerConfig"`
 	DomainConfigurationName   pulumi.StringPtrOutput                                 `pulumi:"domainConfigurationName"`
-	DomainConfigurationStatus pulumi.StringPtrOutput                                 `pulumi:"domainConfigurationStatus"`
+	DomainConfigurationStatus DomainConfigurationDomainConfigurationStatusPtrOutput  `pulumi:"domainConfigurationStatus"`
 	DomainName                pulumi.StringPtrOutput                                 `pulumi:"domainName"`
-	DomainType                pulumi.StringOutput                                    `pulumi:"domainType"`
+	DomainType                DomainConfigurationDomainTypeOutput                    `pulumi:"domainType"`
 	ServerCertificateArns     pulumi.StringArrayOutput                               `pulumi:"serverCertificateArns"`
 	ServerCertificates        DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
-	ServiceType               pulumi.StringPtrOutput                                 `pulumi:"serviceType"`
+	ServiceType               DomainConfigurationServiceTypePtrOutput                `pulumi:"serviceType"`
 	Tags                      DomainConfigurationTagArrayOutput                      `pulumi:"tags"`
 	ValidationCertificateArn  pulumi.StringPtrOutput                                 `pulumi:"validationCertificateArn"`
 }
@@ -66,24 +66,24 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 }
 
 type domainConfigurationArgs struct {
-	AuthorizerConfig          *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
-	DomainConfigurationName   *string                              `pulumi:"domainConfigurationName"`
-	DomainConfigurationStatus *string                              `pulumi:"domainConfigurationStatus"`
-	DomainName                *string                              `pulumi:"domainName"`
-	ServerCertificateArns     []string                             `pulumi:"serverCertificateArns"`
-	ServiceType               *string                              `pulumi:"serviceType"`
-	Tags                      []DomainConfigurationTag             `pulumi:"tags"`
-	ValidationCertificateArn  *string                              `pulumi:"validationCertificateArn"`
+	AuthorizerConfig          *DomainConfigurationAuthorizerConfig          `pulumi:"authorizerConfig"`
+	DomainConfigurationName   *string                                       `pulumi:"domainConfigurationName"`
+	DomainConfigurationStatus *DomainConfigurationDomainConfigurationStatus `pulumi:"domainConfigurationStatus"`
+	DomainName                *string                                       `pulumi:"domainName"`
+	ServerCertificateArns     []string                                      `pulumi:"serverCertificateArns"`
+	ServiceType               *DomainConfigurationServiceType               `pulumi:"serviceType"`
+	Tags                      []DomainConfigurationTag                      `pulumi:"tags"`
+	ValidationCertificateArn  *string                                       `pulumi:"validationCertificateArn"`
 }
 
 // The set of arguments for constructing a DomainConfiguration resource.
 type DomainConfigurationArgs struct {
 	AuthorizerConfig          DomainConfigurationAuthorizerConfigPtrInput
 	DomainConfigurationName   pulumi.StringPtrInput
-	DomainConfigurationStatus pulumi.StringPtrInput
+	DomainConfigurationStatus DomainConfigurationDomainConfigurationStatusPtrInput
 	DomainName                pulumi.StringPtrInput
 	ServerCertificateArns     pulumi.StringArrayInput
-	ServiceType               pulumi.StringPtrInput
+	ServiceType               DomainConfigurationServiceTypePtrInput
 	Tags                      DomainConfigurationTagArrayInput
 	ValidationCertificateArn  pulumi.StringPtrInput
 }

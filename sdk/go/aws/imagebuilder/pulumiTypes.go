@@ -125,7 +125,7 @@ type ContainerRecipeEbsInstanceBlockDeviceSpecification struct {
 	// Use to override the device's volume size.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
-	VolumeType *string `pulumi:"volumeType"`
+	VolumeType *ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType `pulumi:"volumeType"`
 }
 
 // ContainerRecipeEbsInstanceBlockDeviceSpecificationInput is an input type that accepts ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs and ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput values.
@@ -154,7 +154,7 @@ type ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs struct {
 	// Use to override the device's volume size.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
-	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+	VolumeType ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 func (ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ElementType() reflect.Type {
@@ -266,8 +266,10 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeSize() p
 }
 
 // Use to override the device's volume type.
-func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeType() ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType {
+		return v.VolumeType
+	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -355,13 +357,13 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeSize(
 }
 
 // Use to override the device's volume type.
-func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *string {
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType {
 		if v == nil {
 			return nil
 		}
 		return v.VolumeType
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
 // Defines block device mappings for the instance used to configure your image.
@@ -659,7 +661,7 @@ type ContainerRecipeTargetContainerRepository struct {
 	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName *string `pulumi:"repositoryName"`
 	// Specifies the service in which this image was registered.
-	Service *string `pulumi:"service"`
+	Service *ContainerRecipeTargetContainerRepositoryService `pulumi:"service"`
 }
 
 // ContainerRecipeTargetContainerRepositoryInput is an input type that accepts ContainerRecipeTargetContainerRepositoryArgs and ContainerRecipeTargetContainerRepositoryOutput values.
@@ -678,7 +680,7 @@ type ContainerRecipeTargetContainerRepositoryArgs struct {
 	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
 	// Specifies the service in which this image was registered.
-	Service pulumi.StringPtrInput `pulumi:"service"`
+	Service ContainerRecipeTargetContainerRepositoryServicePtrInput `pulumi:"service"`
 }
 
 func (ContainerRecipeTargetContainerRepositoryArgs) ElementType() reflect.Type {
@@ -765,8 +767,10 @@ func (o ContainerRecipeTargetContainerRepositoryOutput) RepositoryName() pulumi.
 }
 
 // Specifies the service in which this image was registered.
-func (o ContainerRecipeTargetContainerRepositoryOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerRecipeTargetContainerRepository) *string { return v.Service }).(pulumi.StringPtrOutput)
+func (o ContainerRecipeTargetContainerRepositoryOutput) Service() ContainerRecipeTargetContainerRepositoryServicePtrOutput {
+	return o.ApplyT(func(v ContainerRecipeTargetContainerRepository) *ContainerRecipeTargetContainerRepositoryService {
+		return v.Service
+	}).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
 }
 
 type ContainerRecipeTargetContainerRepositoryPtrOutput struct{ *pulumi.OutputState }
@@ -804,13 +808,13 @@ func (o ContainerRecipeTargetContainerRepositoryPtrOutput) RepositoryName() pulu
 }
 
 // Specifies the service in which this image was registered.
-func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepository) *string {
+func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Service() ContainerRecipeTargetContainerRepositoryServicePtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepository) *ContainerRecipeTargetContainerRepositoryService {
 		if v == nil {
 			return nil
 		}
 		return v.Service
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
 }
 
 // The distributions of the distribution configuration.
@@ -1390,7 +1394,7 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.I
 // The schedule of the image pipeline.
 type ImagePipelineSchedule struct {
 	// The condition configures when the pipeline should trigger a new image build.
-	PipelineExecutionStartCondition *string `pulumi:"pipelineExecutionStartCondition"`
+	PipelineExecutionStartCondition *ImagePipelineSchedulePipelineExecutionStartCondition `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 }
@@ -1409,7 +1413,7 @@ type ImagePipelineScheduleInput interface {
 // The schedule of the image pipeline.
 type ImagePipelineScheduleArgs struct {
 	// The condition configures when the pipeline should trigger a new image build.
-	PipelineExecutionStartCondition pulumi.StringPtrInput `pulumi:"pipelineExecutionStartCondition"`
+	PipelineExecutionStartCondition ImagePipelineSchedulePipelineExecutionStartConditionPtrInput `pulumi:"pipelineExecutionStartCondition"`
 	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
@@ -1493,8 +1497,10 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext
 }
 
 // The condition configures when the pipeline should trigger a new image build.
-func (o ImagePipelineScheduleOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.PipelineExecutionStartCondition }).(pulumi.StringPtrOutput)
+func (o ImagePipelineScheduleOutput) PipelineExecutionStartCondition() ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput {
+	return o.ApplyT(func(v ImagePipelineSchedule) *ImagePipelineSchedulePipelineExecutionStartCondition {
+		return v.PipelineExecutionStartCondition
+	}).(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput)
 }
 
 // The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -1527,13 +1533,13 @@ func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
 }
 
 // The condition configures when the pipeline should trigger a new image build.
-func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
+func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineSchedule) *ImagePipelineSchedulePipelineExecutionStartCondition {
 		if v == nil {
 			return nil
 		}
 		return v.PipelineExecutionStartCondition
-	}).(pulumi.StringPtrOutput)
+	}).(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput)
 }
 
 // The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
@@ -1940,7 +1946,7 @@ type ImageRecipeEbsInstanceBlockDeviceSpecification struct {
 	// Use to override the device's volume size.
 	VolumeSize *int `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
-	VolumeType *string `pulumi:"volumeType"`
+	VolumeType *ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType `pulumi:"volumeType"`
 }
 
 // ImageRecipeEbsInstanceBlockDeviceSpecificationInput is an input type that accepts ImageRecipeEbsInstanceBlockDeviceSpecificationArgs and ImageRecipeEbsInstanceBlockDeviceSpecificationOutput values.
@@ -1969,7 +1975,7 @@ type ImageRecipeEbsInstanceBlockDeviceSpecificationArgs struct {
 	// Use to override the device's volume size.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
 	// Use to override the device's volume type.
-	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+	VolumeType ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrInput `pulumi:"volumeType"`
 }
 
 func (ImageRecipeEbsInstanceBlockDeviceSpecificationArgs) ElementType() reflect.Type {
@@ -2081,8 +2087,10 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeSize() pulum
 }
 
 // Use to override the device's volume type.
-func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeType() ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
+	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType {
+		return v.VolumeType
+	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
 type ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -2170,13 +2178,13 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeSize() pu
 }
 
 // Use to override the device's volume type.
-func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *string {
+func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput {
+	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType {
 		if v == nil {
 			return nil
 		}
 		return v.VolumeType
-	}).(pulumi.StringPtrOutput)
+	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
 // Defines block device mappings for the instance used to configure your image.

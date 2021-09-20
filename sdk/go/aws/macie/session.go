@@ -17,11 +17,11 @@ type Session struct {
 	// AWS account ID of customer
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// A enumeration value that specifies how frequently finding updates are published.
-	FindingPublishingFrequency pulumi.StringPtrOutput `pulumi:"findingPublishingFrequency"`
+	FindingPublishingFrequency SessionFindingPublishingFrequencyPtrOutput `pulumi:"findingPublishingFrequency"`
 	// Service role used by Macie
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// A enumeration value that specifies the status of the Macie Session.
-	Status pulumi.StringPtrOutput `pulumi:"status"`
+	Status SessionStatusPtrOutput `pulumi:"status"`
 }
 
 // NewSession registers a new resource with the given unique name, arguments, and options.
@@ -64,17 +64,17 @@ func (SessionState) ElementType() reflect.Type {
 
 type sessionArgs struct {
 	// A enumeration value that specifies how frequently finding updates are published.
-	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
+	FindingPublishingFrequency *SessionFindingPublishingFrequency `pulumi:"findingPublishingFrequency"`
 	// A enumeration value that specifies the status of the Macie Session.
-	Status *string `pulumi:"status"`
+	Status *SessionStatus `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Session resource.
 type SessionArgs struct {
 	// A enumeration value that specifies how frequently finding updates are published.
-	FindingPublishingFrequency pulumi.StringPtrInput
+	FindingPublishingFrequency SessionFindingPublishingFrequencyPtrInput
 	// A enumeration value that specifies the status of the Macie Session.
-	Status pulumi.StringPtrInput
+	Status SessionStatusPtrInput
 }
 
 func (SessionArgs) ElementType() reflect.Type {
