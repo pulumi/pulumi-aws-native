@@ -37,7 +37,7 @@ ensure:: init_submodules
 	cd provider && GO111MODULE=on go mod tidy
 
 local_generate:: clean
-	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go $(CFN_SCHEMA_DIR) ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) nodejs,dotnet,python,go,schema $(CFN_SCHEMA_DIR) ${VERSION}
 	echo "Finished generating."
 
 generate_schema::
@@ -94,7 +94,7 @@ build_dotnet::
 		dotnet build /p:Version=${DOTNET_VERSION}
 
 generate_go::
-	rm -rf sdk/go && mkdir sdk/go && touch sdk/go/tbd.txt
+	rm -rf sdk/go && mkdir sdk/go
 	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_DIR) ${VERSION}
 
 build_go::
