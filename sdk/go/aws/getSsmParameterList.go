@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,4 +25,43 @@ type GetSsmParameterListArgs struct {
 
 type GetSsmParameterListResult struct {
 	Value []string `pulumi:"value"`
+}
+
+func GetSsmParameterListOutput(ctx *pulumi.Context, args GetSsmParameterListOutputArgs, opts ...pulumi.InvokeOption) GetSsmParameterListResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSsmParameterListResult, error) {
+			args := v.(GetSsmParameterListArgs)
+			r, err := GetSsmParameterList(ctx, &args, opts...)
+			return *r, err
+		}).(GetSsmParameterListResultOutput)
+}
+
+type GetSsmParameterListOutputArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetSsmParameterListOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSsmParameterListArgs)(nil)).Elem()
+}
+
+type GetSsmParameterListResultOutput struct{ *pulumi.OutputState }
+
+func (GetSsmParameterListResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSsmParameterListResult)(nil)).Elem()
+}
+
+func (o GetSsmParameterListResultOutput) ToGetSsmParameterListResultOutput() GetSsmParameterListResultOutput {
+	return o
+}
+
+func (o GetSsmParameterListResultOutput) ToGetSsmParameterListResultOutputWithContext(ctx context.Context) GetSsmParameterListResultOutput {
+	return o
+}
+
+func (o GetSsmParameterListResultOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSsmParameterListResult) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSsmParameterListResultOutput{})
 }

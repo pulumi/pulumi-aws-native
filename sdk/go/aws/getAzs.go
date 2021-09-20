@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,4 +25,43 @@ type GetAzsArgs struct {
 
 type GetAzsResult struct {
 	Azs []string `pulumi:"azs"`
+}
+
+func GetAzsOutput(ctx *pulumi.Context, args GetAzsOutputArgs, opts ...pulumi.InvokeOption) GetAzsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAzsResult, error) {
+			args := v.(GetAzsArgs)
+			r, err := GetAzs(ctx, &args, opts...)
+			return *r, err
+		}).(GetAzsResultOutput)
+}
+
+type GetAzsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetAzsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAzsArgs)(nil)).Elem()
+}
+
+type GetAzsResultOutput struct{ *pulumi.OutputState }
+
+func (GetAzsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAzsResult)(nil)).Elem()
+}
+
+func (o GetAzsResultOutput) ToGetAzsResultOutput() GetAzsResultOutput {
+	return o
+}
+
+func (o GetAzsResultOutput) ToGetAzsResultOutputWithContext(ctx context.Context) GetAzsResultOutput {
+	return o
+}
+
+func (o GetAzsResultOutput) Azs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAzsResult) []string { return v.Azs }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAzsResultOutput{})
 }

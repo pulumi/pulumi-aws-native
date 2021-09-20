@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,4 +25,43 @@ type ImportValueArgs struct {
 
 type ImportValueResult struct {
 	Value interface{} `pulumi:"value"`
+}
+
+func ImportValueOutput(ctx *pulumi.Context, args ImportValueOutputArgs, opts ...pulumi.InvokeOption) ImportValueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (ImportValueResult, error) {
+			args := v.(ImportValueArgs)
+			r, err := ImportValue(ctx, &args, opts...)
+			return *r, err
+		}).(ImportValueResultOutput)
+}
+
+type ImportValueOutputArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ImportValueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportValueArgs)(nil)).Elem()
+}
+
+type ImportValueResultOutput struct{ *pulumi.OutputState }
+
+func (ImportValueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImportValueResult)(nil)).Elem()
+}
+
+func (o ImportValueResultOutput) ToImportValueResultOutput() ImportValueResultOutput {
+	return o
+}
+
+func (o ImportValueResultOutput) ToImportValueResultOutputWithContext(ctx context.Context) ImportValueResultOutput {
+	return o
+}
+
+func (o ImportValueResultOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ImportValueResult) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ImportValueResultOutput{})
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // Resource schema for AWS::MediaConnect::FlowOutput
-type FlowOutput struct {
+type FlowOutputResource struct {
 	pulumi.CustomResourceState
 
 	// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -45,9 +45,9 @@ type FlowOutput struct {
 	VpcInterfaceAttachment FlowOutputVpcInterfaceAttachmentPtrOutput `pulumi:"vpcInterfaceAttachment"`
 }
 
-// NewFlowOutput registers a new resource with the given unique name, arguments, and options.
-func NewFlowOutput(ctx *pulumi.Context,
-	name string, args *FlowOutputArgs, opts ...pulumi.ResourceOption) (*FlowOutput, error) {
+// NewFlowOutputResource registers a new resource with the given unique name, arguments, and options.
+func NewFlowOutputResource(ctx *pulumi.Context,
+	name string, args *FlowOutputResourceArgs, opts ...pulumi.ResourceOption) (*FlowOutputResource, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -58,7 +58,7 @@ func NewFlowOutput(ctx *pulumi.Context,
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
-	var resource FlowOutput
+	var resource FlowOutputResource
 	err := ctx.RegisterResource("aws-native:mediaconnect:FlowOutput", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -66,11 +66,11 @@ func NewFlowOutput(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetFlowOutput gets an existing FlowOutput resource's state with the given name, ID, and optional
+// GetFlowOutputResource gets an existing FlowOutputResource resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetFlowOutput(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *FlowOutputState, opts ...pulumi.ResourceOption) (*FlowOutput, error) {
-	var resource FlowOutput
+func GetFlowOutputResource(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *FlowOutputResourceState, opts ...pulumi.ResourceOption) (*FlowOutputResource, error) {
+	var resource FlowOutputResource
 	err := ctx.ReadResource("aws-native:mediaconnect:FlowOutput", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -78,18 +78,18 @@ func GetFlowOutput(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering FlowOutput resources.
-type flowOutputState struct {
+// Input properties used for looking up and filtering FlowOutputResource resources.
+type flowOutputResourceState struct {
 }
 
-type FlowOutputState struct {
+type FlowOutputResourceState struct {
 }
 
-func (FlowOutputState) ElementType() reflect.Type {
-	return reflect.TypeOf((*flowOutputState)(nil)).Elem()
+func (FlowOutputResourceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*flowOutputResourceState)(nil)).Elem()
 }
 
-type flowOutputArgs struct {
+type flowOutputResourceArgs struct {
 	// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	CidrAllowList []string `pulumi:"cidrAllowList"`
 	// A description of the output.
@@ -118,8 +118,8 @@ type flowOutputArgs struct {
 	VpcInterfaceAttachment *FlowOutputVpcInterfaceAttachment `pulumi:"vpcInterfaceAttachment"`
 }
 
-// The set of arguments for constructing a FlowOutput resource.
-type FlowOutputArgs struct {
+// The set of arguments for constructing a FlowOutputResource resource.
+type FlowOutputResourceArgs struct {
 	// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
 	CidrAllowList pulumi.StringArrayInput
 	// A description of the output.
@@ -148,43 +148,43 @@ type FlowOutputArgs struct {
 	VpcInterfaceAttachment FlowOutputVpcInterfaceAttachmentPtrInput
 }
 
-func (FlowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*flowOutputArgs)(nil)).Elem()
+func (FlowOutputResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*flowOutputResourceArgs)(nil)).Elem()
 }
 
-type FlowOutputInput interface {
+type FlowOutputResourceInput interface {
 	pulumi.Input
 
-	ToFlowOutputOutput() FlowOutputOutput
-	ToFlowOutputOutputWithContext(ctx context.Context) FlowOutputOutput
+	ToFlowOutputResourceOutput() FlowOutputResourceOutput
+	ToFlowOutputResourceOutputWithContext(ctx context.Context) FlowOutputResourceOutput
 }
 
-func (*FlowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowOutput)(nil))
+func (*FlowOutputResource) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputResource)(nil))
 }
 
-func (i *FlowOutput) ToFlowOutputOutput() FlowOutputOutput {
-	return i.ToFlowOutputOutputWithContext(context.Background())
+func (i *FlowOutputResource) ToFlowOutputResourceOutput() FlowOutputResourceOutput {
+	return i.ToFlowOutputResourceOutputWithContext(context.Background())
 }
 
-func (i *FlowOutput) ToFlowOutputOutputWithContext(ctx context.Context) FlowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputOutput)
+func (i *FlowOutputResource) ToFlowOutputResourceOutputWithContext(ctx context.Context) FlowOutputResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowOutputResourceOutput)
 }
 
-type FlowOutputOutput struct{ *pulumi.OutputState }
+type FlowOutputResourceOutput struct{ *pulumi.OutputState }
 
-func (FlowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowOutput)(nil))
+func (FlowOutputResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowOutputResource)(nil))
 }
 
-func (o FlowOutputOutput) ToFlowOutputOutput() FlowOutputOutput {
+func (o FlowOutputResourceOutput) ToFlowOutputResourceOutput() FlowOutputResourceOutput {
 	return o
 }
 
-func (o FlowOutputOutput) ToFlowOutputOutputWithContext(ctx context.Context) FlowOutputOutput {
+func (o FlowOutputResourceOutput) ToFlowOutputResourceOutputWithContext(ctx context.Context) FlowOutputResourceOutput {
 	return o
 }
 
 func init() {
-	pulumi.RegisterOutputType(FlowOutputOutput{})
+	pulumi.RegisterOutputType(FlowOutputResourceOutput{})
 }

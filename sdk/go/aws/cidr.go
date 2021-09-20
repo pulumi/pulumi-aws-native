@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,4 +27,45 @@ type CidrArgs struct {
 
 type CidrResult struct {
 	Subnets []string `pulumi:"subnets"`
+}
+
+func CidrOutput(ctx *pulumi.Context, args CidrOutputArgs, opts ...pulumi.InvokeOption) CidrResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (CidrResult, error) {
+			args := v.(CidrArgs)
+			r, err := Cidr(ctx, &args, opts...)
+			return *r, err
+		}).(CidrResultOutput)
+}
+
+type CidrOutputArgs struct {
+	CidrBits pulumi.IntInput    `pulumi:"cidrBits"`
+	Count    pulumi.IntInput    `pulumi:"count"`
+	IpBlock  pulumi.StringInput `pulumi:"ipBlock"`
+}
+
+func (CidrOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CidrArgs)(nil)).Elem()
+}
+
+type CidrResultOutput struct{ *pulumi.OutputState }
+
+func (CidrResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CidrResult)(nil)).Elem()
+}
+
+func (o CidrResultOutput) ToCidrResultOutput() CidrResultOutput {
+	return o
+}
+
+func (o CidrResultOutput) ToCidrResultOutputWithContext(ctx context.Context) CidrResultOutput {
+	return o
+}
+
+func (o CidrResultOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CidrResult) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(CidrResultOutput{})
 }

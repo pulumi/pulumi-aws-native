@@ -12,6 +12,7 @@ __all__ = [
     'CidrResult',
     'AwaitableCidrResult',
     'cidr',
+    'cidr_output',
 ]
 
 @pulumi.output_type
@@ -55,3 +56,14 @@ def cidr(cidr_bits: Optional[int] = None,
 
     return AwaitableCidrResult(
         subnets=__ret__.subnets)
+
+
+@_utilities.lift_output_func(cidr)
+def cidr_output(cidr_bits: Optional[pulumi.Input[int]] = None,
+                count: Optional[pulumi.Input[int]] = None,
+                ip_block: Optional[pulumi.Input[str]] = None,
+                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[CidrResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

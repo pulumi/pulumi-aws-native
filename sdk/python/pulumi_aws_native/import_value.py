@@ -12,6 +12,7 @@ __all__ = [
     'ImportValueResult',
     'AwaitableImportValueResult',
     'import_value',
+    'import_value_output',
 ]
 
 @pulumi.output_type
@@ -51,3 +52,12 @@ def import_value(name: Optional[str] = None,
 
     return AwaitableImportValueResult(
         value=__ret__.value)
+
+
+@_utilities.lift_output_func(import_value)
+def import_value_output(name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ImportValueResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...
