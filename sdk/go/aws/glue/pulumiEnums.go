@@ -14,14 +14,14 @@ import (
 type SchemaCompatibility string
 
 const (
-	SchemaCompatibilityNone        = SchemaCompatibility("NONE")
-	SchemaCompatibilityDisabled    = SchemaCompatibility("DISABLED")
-	SchemaCompatibilityBackward    = SchemaCompatibility("BACKWARD")
-	SchemaCompatibilityBackwardAll = SchemaCompatibility("BACKWARD_ALL")
-	SchemaCompatibilityForward     = SchemaCompatibility("FORWARD")
-	SchemaCompatibilityForwardAll  = SchemaCompatibility("FORWARD_ALL")
-	SchemaCompatibilityFull        = SchemaCompatibility("FULL")
-	SchemaCompatibilityFullAll     = SchemaCompatibility("FULL_ALL")
+	SchemaCompatibilityNONE          = SchemaCompatibility("NONE")
+	SchemaCompatibilityDISABLED      = SchemaCompatibility("DISABLED")
+	SchemaCompatibilityBACKWARD      = SchemaCompatibility("BACKWARD")
+	SchemaCompatibility_BACKWARD_ALL = SchemaCompatibility("BACKWARD_ALL")
+	SchemaCompatibilityFORWARD       = SchemaCompatibility("FORWARD")
+	SchemaCompatibility_FORWARD_ALL  = SchemaCompatibility("FORWARD_ALL")
+	SchemaCompatibilityFULL          = SchemaCompatibility("FULL")
+	SchemaCompatibility_FULL_ALL     = SchemaCompatibility("FULL_ALL")
 )
 
 func (SchemaCompatibility) ElementType() reflect.Type {
@@ -185,8 +185,8 @@ func (in *schemaCompatibilityPtr) ToSchemaCompatibilityPtrOutputWithContext(ctx 
 type SchemaDataFormat string
 
 const (
-	SchemaDataFormatAvro = SchemaDataFormat("AVRO")
-	SchemaDataFormatJson = SchemaDataFormat("JSON")
+	SchemaDataFormatAVRO = SchemaDataFormat("AVRO")
+	SchemaDataFormatJSON = SchemaDataFormat("JSON")
 )
 
 func (SchemaDataFormat) ElementType() reflect.Type {

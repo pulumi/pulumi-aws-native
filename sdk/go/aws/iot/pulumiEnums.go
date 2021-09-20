@@ -13,8 +13,8 @@ import (
 type AuthorizerStatus string
 
 const (
-	AuthorizerStatusActive   = AuthorizerStatus("ACTIVE")
-	AuthorizerStatusInactive = AuthorizerStatus("INACTIVE")
+	AuthorizerStatusACTIVE   = AuthorizerStatus("ACTIVE")
+	AuthorizerStatusINACTIVE = AuthorizerStatus("INACTIVE")
 )
 
 func (AuthorizerStatus) ElementType() reflect.Type {
@@ -177,8 +177,8 @@ func (in *authorizerStatusPtr) ToAuthorizerStatusPtrOutputWithContext(ctx contex
 type CertificateCertificateMode string
 
 const (
-	CertificateCertificateModeDefault = CertificateCertificateMode("DEFAULT")
-	CertificateCertificateModeSniOnly = CertificateCertificateMode("SNI_ONLY")
+	CertificateCertificateModeDEFAULT   = CertificateCertificateMode("DEFAULT")
+	CertificateCertificateMode_SNI_ONLY = CertificateCertificateMode("SNI_ONLY")
 )
 
 func (CertificateCertificateMode) ElementType() reflect.Type {
@@ -341,11 +341,11 @@ func (in *certificateCertificateModePtr) ToCertificateCertificateModePtrOutputWi
 type CertificateStatus string
 
 const (
-	CertificateStatusActive            = CertificateStatus("ACTIVE")
-	CertificateStatusInactive          = CertificateStatus("INACTIVE")
-	CertificateStatusRevoked           = CertificateStatus("REVOKED")
-	CertificateStatusPendingTransfer   = CertificateStatus("PENDING_TRANSFER")
-	CertificateStatusPendingActivation = CertificateStatus("PENDING_ACTIVATION")
+	CertificateStatusACTIVE              = CertificateStatus("ACTIVE")
+	CertificateStatusINACTIVE            = CertificateStatus("INACTIVE")
+	CertificateStatusREVOKED             = CertificateStatus("REVOKED")
+	CertificateStatus_PENDING_TRANSFER   = CertificateStatus("PENDING_TRANSFER")
+	CertificateStatus_PENDING_ACTIVATION = CertificateStatus("PENDING_ACTIVATION")
 )
 
 func (CertificateStatus) ElementType() reflect.Type {
@@ -509,10 +509,10 @@ func (in *certificateStatusPtr) ToCertificateStatusPtrOutputWithContext(ctx cont
 type CustomMetricMetricType string
 
 const (
-	CustomMetricMetricTypeStringList    = CustomMetricMetricType("string-list")
-	CustomMetricMetricTypeIpAddressList = CustomMetricMetricType("ip-address-list")
-	CustomMetricMetricTypeNumberList    = CustomMetricMetricType("number-list")
-	CustomMetricMetricTypeNumber        = CustomMetricMetricType("number")
+	CustomMetricMetricType_STRING_LIST     = CustomMetricMetricType("string-list")
+	CustomMetricMetricType_IP_ADDRESS_LIST = CustomMetricMetricType("ip-address-list")
+	CustomMetricMetricType_NUMBER_LIST     = CustomMetricMetricType("number-list")
+	CustomMetricMetricTypeNUMBER           = CustomMetricMetricType("number")
 )
 
 func (CustomMetricMetricType) ElementType() reflect.Type {
@@ -676,7 +676,7 @@ func (in *customMetricMetricTypePtr) ToCustomMetricMetricTypePtrOutputWithContex
 type DimensionType string
 
 const (
-	DimensionTypeTopicFilter = DimensionType("TOPIC_FILTER")
+	DimensionType_TOPIC_FILTER = DimensionType("TOPIC_FILTER")
 )
 
 func (DimensionType) ElementType() reflect.Type {
@@ -839,8 +839,8 @@ func (in *dimensionTypePtr) ToDimensionTypePtrOutputWithContext(ctx context.Cont
 type DomainConfigurationDomainConfigurationStatus string
 
 const (
-	DomainConfigurationDomainConfigurationStatusEnabled  = DomainConfigurationDomainConfigurationStatus("ENABLED")
-	DomainConfigurationDomainConfigurationStatusDisabled = DomainConfigurationDomainConfigurationStatus("DISABLED")
+	DomainConfigurationDomainConfigurationStatusENABLED  = DomainConfigurationDomainConfigurationStatus("ENABLED")
+	DomainConfigurationDomainConfigurationStatusDISABLED = DomainConfigurationDomainConfigurationStatus("DISABLED")
 )
 
 func (DomainConfigurationDomainConfigurationStatus) ElementType() reflect.Type {
@@ -1003,9 +1003,9 @@ func (in *domainConfigurationDomainConfigurationStatusPtr) ToDomainConfiguration
 type DomainConfigurationDomainType string
 
 const (
-	DomainConfigurationDomainTypeEndpoint        = DomainConfigurationDomainType("ENDPOINT")
-	DomainConfigurationDomainTypeAwsManaged      = DomainConfigurationDomainType("AWS_MANAGED")
-	DomainConfigurationDomainTypeCustomerManaged = DomainConfigurationDomainType("CUSTOMER_MANAGED")
+	DomainConfigurationDomainTypeENDPOINT          = DomainConfigurationDomainType("ENDPOINT")
+	DomainConfigurationDomainType_AWS_MANAGED      = DomainConfigurationDomainType("AWS_MANAGED")
+	DomainConfigurationDomainType_CUSTOMER_MANAGED = DomainConfigurationDomainType("CUSTOMER_MANAGED")
 )
 
 func (DomainConfigurationDomainType) ElementType() reflect.Type {
@@ -1168,8 +1168,8 @@ func (in *domainConfigurationDomainTypePtr) ToDomainConfigurationDomainTypePtrOu
 type DomainConfigurationServerCertificateSummaryServerCertificateStatus string
 
 const (
-	DomainConfigurationServerCertificateSummaryServerCertificateStatusInvalid = DomainConfigurationServerCertificateSummaryServerCertificateStatus("INVALID")
-	DomainConfigurationServerCertificateSummaryServerCertificateStatusValid   = DomainConfigurationServerCertificateSummaryServerCertificateStatus("VALID")
+	DomainConfigurationServerCertificateSummaryServerCertificateStatusINVALID = DomainConfigurationServerCertificateSummaryServerCertificateStatus("INVALID")
+	DomainConfigurationServerCertificateSummaryServerCertificateStatusVALID   = DomainConfigurationServerCertificateSummaryServerCertificateStatus("VALID")
 )
 
 func (DomainConfigurationServerCertificateSummaryServerCertificateStatus) ElementType() reflect.Type {
@@ -1332,9 +1332,9 @@ func (in *domainConfigurationServerCertificateSummaryServerCertificateStatusPtr)
 type DomainConfigurationServiceType string
 
 const (
-	DomainConfigurationServiceTypeData               = DomainConfigurationServiceType("DATA")
-	DomainConfigurationServiceTypeCredentialProvider = DomainConfigurationServiceType("CREDENTIAL_PROVIDER")
-	DomainConfigurationServiceTypeJobs               = DomainConfigurationServiceType("JOBS")
+	DomainConfigurationServiceTypeDATA                 = DomainConfigurationServiceType("DATA")
+	DomainConfigurationServiceType_CREDENTIAL_PROVIDER = DomainConfigurationServiceType("CREDENTIAL_PROVIDER")
+	DomainConfigurationServiceTypeJOBS                 = DomainConfigurationServiceType("JOBS")
 )
 
 func (DomainConfigurationServiceType) ElementType() reflect.Type {
@@ -1498,10 +1498,10 @@ func (in *domainConfigurationServiceTypePtr) ToDomainConfigurationServiceTypePtr
 type MitigationActionEnableIoTLoggingParamsLogLevel string
 
 const (
-	MitigationActionEnableIoTLoggingParamsLogLevelDebug = MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG")
-	MitigationActionEnableIoTLoggingParamsLogLevelInfo  = MitigationActionEnableIoTLoggingParamsLogLevel("INFO")
-	MitigationActionEnableIoTLoggingParamsLogLevelError = MitigationActionEnableIoTLoggingParamsLogLevel("ERROR")
-	MitigationActionEnableIoTLoggingParamsLogLevelWarn  = MitigationActionEnableIoTLoggingParamsLogLevel("WARN")
+	MitigationActionEnableIoTLoggingParamsLogLevelDEBUG = MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG")
+	MitigationActionEnableIoTLoggingParamsLogLevelINFO  = MitigationActionEnableIoTLoggingParamsLogLevel("INFO")
+	MitigationActionEnableIoTLoggingParamsLogLevelERROR = MitigationActionEnableIoTLoggingParamsLogLevel("ERROR")
+	MitigationActionEnableIoTLoggingParamsLogLevelWARN  = MitigationActionEnableIoTLoggingParamsLogLevel("WARN")
 )
 
 func (MitigationActionEnableIoTLoggingParamsLogLevel) ElementType() reflect.Type {
@@ -1664,7 +1664,7 @@ func (in *mitigationActionEnableIoTLoggingParamsLogLevelPtr) ToMitigationActionE
 type MitigationActionReplaceDefaultPolicyVersionParamsTemplateName string
 
 const (
-	MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameBlankPolicy = MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY")
+	MitigationActionReplaceDefaultPolicyVersionParamsTemplateName_BLANK_POLICY = MitigationActionReplaceDefaultPolicyVersionParamsTemplateName("BLANK_POLICY")
 )
 
 func (MitigationActionReplaceDefaultPolicyVersionParamsTemplateName) ElementType() reflect.Type {
@@ -1827,7 +1827,7 @@ func (in *mitigationActionReplaceDefaultPolicyVersionParamsTemplateNamePtr) ToMi
 type MitigationActionUpdateCACertificateParamsAction string
 
 const (
-	MitigationActionUpdateCACertificateParamsActionDeactivate = MitigationActionUpdateCACertificateParamsAction("DEACTIVATE")
+	MitigationActionUpdateCACertificateParamsActionDEACTIVATE = MitigationActionUpdateCACertificateParamsAction("DEACTIVATE")
 )
 
 func (MitigationActionUpdateCACertificateParamsAction) ElementType() reflect.Type {
@@ -1990,7 +1990,7 @@ func (in *mitigationActionUpdateCACertificateParamsActionPtr) ToMitigationAction
 type MitigationActionUpdateDeviceCertificateParamsAction string
 
 const (
-	MitigationActionUpdateDeviceCertificateParamsActionDeactivate = MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE")
+	MitigationActionUpdateDeviceCertificateParamsActionDEACTIVATE = MitigationActionUpdateDeviceCertificateParamsAction("DEACTIVATE")
 )
 
 func (MitigationActionUpdateDeviceCertificateParamsAction) ElementType() reflect.Type {
@@ -2154,13 +2154,13 @@ func (in *mitigationActionUpdateDeviceCertificateParamsActionPtr) ToMitigationAc
 type ScheduledAuditDayOfWeek string
 
 const (
-	ScheduledAuditDayOfWeekSun = ScheduledAuditDayOfWeek("SUN")
-	ScheduledAuditDayOfWeekMon = ScheduledAuditDayOfWeek("MON")
-	ScheduledAuditDayOfWeekTue = ScheduledAuditDayOfWeek("TUE")
-	ScheduledAuditDayOfWeekWed = ScheduledAuditDayOfWeek("WED")
-	ScheduledAuditDayOfWeekThu = ScheduledAuditDayOfWeek("THU")
-	ScheduledAuditDayOfWeekFri = ScheduledAuditDayOfWeek("FRI")
-	ScheduledAuditDayOfWeekSat = ScheduledAuditDayOfWeek("SAT")
+	ScheduledAuditDayOfWeekSUN = ScheduledAuditDayOfWeek("SUN")
+	ScheduledAuditDayOfWeekMON = ScheduledAuditDayOfWeek("MON")
+	ScheduledAuditDayOfWeekTUE = ScheduledAuditDayOfWeek("TUE")
+	ScheduledAuditDayOfWeekWED = ScheduledAuditDayOfWeek("WED")
+	ScheduledAuditDayOfWeekTHU = ScheduledAuditDayOfWeek("THU")
+	ScheduledAuditDayOfWeekFRI = ScheduledAuditDayOfWeek("FRI")
+	ScheduledAuditDayOfWeekSAT = ScheduledAuditDayOfWeek("SAT")
 )
 
 func (ScheduledAuditDayOfWeek) ElementType() reflect.Type {
@@ -2324,10 +2324,10 @@ func (in *scheduledAuditDayOfWeekPtr) ToScheduledAuditDayOfWeekPtrOutputWithCont
 type ScheduledAuditFrequency string
 
 const (
-	ScheduledAuditFrequencyDaily    = ScheduledAuditFrequency("DAILY")
-	ScheduledAuditFrequencyWeekly   = ScheduledAuditFrequency("WEEKLY")
-	ScheduledAuditFrequencyBiweekly = ScheduledAuditFrequency("BIWEEKLY")
-	ScheduledAuditFrequencyMonthly  = ScheduledAuditFrequency("MONTHLY")
+	ScheduledAuditFrequencyDAILY    = ScheduledAuditFrequency("DAILY")
+	ScheduledAuditFrequencyWEEKLY   = ScheduledAuditFrequency("WEEKLY")
+	ScheduledAuditFrequencyBIWEEKLY = ScheduledAuditFrequency("BIWEEKLY")
+	ScheduledAuditFrequencyMONTHLY  = ScheduledAuditFrequency("MONTHLY")
 )
 
 func (ScheduledAuditFrequency) ElementType() reflect.Type {
@@ -2491,16 +2491,16 @@ func (in *scheduledAuditFrequencyPtr) ToScheduledAuditFrequencyPtrOutputWithCont
 type SecurityProfileBehaviorCriteriaComparisonOperator string
 
 const (
-	SecurityProfileBehaviorCriteriaComparisonOperatorLessThan          = SecurityProfileBehaviorCriteriaComparisonOperator("less-than")
-	SecurityProfileBehaviorCriteriaComparisonOperatorLessThanEquals    = SecurityProfileBehaviorCriteriaComparisonOperator("less-than-equals")
-	SecurityProfileBehaviorCriteriaComparisonOperatorGreaterThan       = SecurityProfileBehaviorCriteriaComparisonOperator("greater-than")
-	SecurityProfileBehaviorCriteriaComparisonOperatorGreaterThanEquals = SecurityProfileBehaviorCriteriaComparisonOperator("greater-than-equals")
-	SecurityProfileBehaviorCriteriaComparisonOperatorInCidrSet         = SecurityProfileBehaviorCriteriaComparisonOperator("in-cidr-set")
-	SecurityProfileBehaviorCriteriaComparisonOperatorNotInCidrSet      = SecurityProfileBehaviorCriteriaComparisonOperator("not-in-cidr-set")
-	SecurityProfileBehaviorCriteriaComparisonOperatorInPortSet         = SecurityProfileBehaviorCriteriaComparisonOperator("in-port-set")
-	SecurityProfileBehaviorCriteriaComparisonOperatorNotInPortSet      = SecurityProfileBehaviorCriteriaComparisonOperator("not-in-port-set")
-	SecurityProfileBehaviorCriteriaComparisonOperatorInSet             = SecurityProfileBehaviorCriteriaComparisonOperator("in-set")
-	SecurityProfileBehaviorCriteriaComparisonOperatorNotInSet          = SecurityProfileBehaviorCriteriaComparisonOperator("not-in-set")
+	SecurityProfileBehaviorCriteriaComparisonOperator_LESS_THAN           = SecurityProfileBehaviorCriteriaComparisonOperator("less-than")
+	SecurityProfileBehaviorCriteriaComparisonOperator_LESS_THAN_EQUALS    = SecurityProfileBehaviorCriteriaComparisonOperator("less-than-equals")
+	SecurityProfileBehaviorCriteriaComparisonOperator_GREATER_THAN        = SecurityProfileBehaviorCriteriaComparisonOperator("greater-than")
+	SecurityProfileBehaviorCriteriaComparisonOperator_GREATER_THAN_EQUALS = SecurityProfileBehaviorCriteriaComparisonOperator("greater-than-equals")
+	SecurityProfileBehaviorCriteriaComparisonOperator_IN_CIDR_SET         = SecurityProfileBehaviorCriteriaComparisonOperator("in-cidr-set")
+	SecurityProfileBehaviorCriteriaComparisonOperator_NOT_IN_CIDR_SET     = SecurityProfileBehaviorCriteriaComparisonOperator("not-in-cidr-set")
+	SecurityProfileBehaviorCriteriaComparisonOperator_IN_PORT_SET         = SecurityProfileBehaviorCriteriaComparisonOperator("in-port-set")
+	SecurityProfileBehaviorCriteriaComparisonOperator_NOT_IN_PORT_SET     = SecurityProfileBehaviorCriteriaComparisonOperator("not-in-port-set")
+	SecurityProfileBehaviorCriteriaComparisonOperator_IN_SET              = SecurityProfileBehaviorCriteriaComparisonOperator("in-set")
+	SecurityProfileBehaviorCriteriaComparisonOperator_NOT_IN_SET          = SecurityProfileBehaviorCriteriaComparisonOperator("not-in-set")
 )
 
 func (SecurityProfileBehaviorCriteriaComparisonOperator) ElementType() reflect.Type {
@@ -2664,9 +2664,9 @@ func (in *securityProfileBehaviorCriteriaComparisonOperatorPtr) ToSecurityProfil
 type SecurityProfileMachineLearningDetectionConfigConfidenceLevel string
 
 const (
-	SecurityProfileMachineLearningDetectionConfigConfidenceLevelLow    = SecurityProfileMachineLearningDetectionConfigConfidenceLevel("LOW")
-	SecurityProfileMachineLearningDetectionConfigConfidenceLevelMedium = SecurityProfileMachineLearningDetectionConfigConfidenceLevel("MEDIUM")
-	SecurityProfileMachineLearningDetectionConfigConfidenceLevelHigh   = SecurityProfileMachineLearningDetectionConfigConfidenceLevel("HIGH")
+	SecurityProfileMachineLearningDetectionConfigConfidenceLevelLOW    = SecurityProfileMachineLearningDetectionConfigConfidenceLevel("LOW")
+	SecurityProfileMachineLearningDetectionConfigConfidenceLevelMEDIUM = SecurityProfileMachineLearningDetectionConfigConfidenceLevel("MEDIUM")
+	SecurityProfileMachineLearningDetectionConfigConfidenceLevelHIGH   = SecurityProfileMachineLearningDetectionConfigConfidenceLevel("HIGH")
 )
 
 func (SecurityProfileMachineLearningDetectionConfigConfidenceLevel) ElementType() reflect.Type {
@@ -2830,8 +2830,8 @@ func (in *securityProfileMachineLearningDetectionConfigConfidenceLevelPtr) ToSec
 type SecurityProfileMetricDimensionOperator string
 
 const (
-	SecurityProfileMetricDimensionOperatorIn    = SecurityProfileMetricDimensionOperator("IN")
-	SecurityProfileMetricDimensionOperatorNotIn = SecurityProfileMetricDimensionOperator("NOT_IN")
+	SecurityProfileMetricDimensionOperator_IN_    = SecurityProfileMetricDimensionOperator("IN")
+	SecurityProfileMetricDimensionOperator_NOT_IN = SecurityProfileMetricDimensionOperator("NOT_IN")
 )
 
 func (SecurityProfileMetricDimensionOperator) ElementType() reflect.Type {
@@ -2995,7 +2995,7 @@ func (in *securityProfileMetricDimensionOperatorPtr) ToSecurityProfileMetricDime
 type SecurityProfileStatisticalThresholdStatistic string
 
 const (
-	SecurityProfileStatisticalThresholdStatisticAverage = SecurityProfileStatisticalThresholdStatistic("Average")
+	SecurityProfileStatisticalThresholdStatisticAVERAGE = SecurityProfileStatisticalThresholdStatistic("Average")
 	SecurityProfileStatisticalThresholdStatisticP0      = SecurityProfileStatisticalThresholdStatistic("p0")
 	SecurityProfileStatisticalThresholdStatisticP01     = SecurityProfileStatisticalThresholdStatistic("p0.1")
 	SecurityProfileStatisticalThresholdStatisticP001    = SecurityProfileStatisticalThresholdStatistic("p0.01")
@@ -3169,14 +3169,14 @@ func (in *securityProfileStatisticalThresholdStatisticPtr) ToSecurityProfileStat
 type TopicRuleCannedAccessControlList string
 
 const (
-	TopicRuleCannedAccessControlListPrivate                = TopicRuleCannedAccessControlList("private")
-	TopicRuleCannedAccessControlListPublicRead             = TopicRuleCannedAccessControlList("public-read")
-	TopicRuleCannedAccessControlListPublicReadWrite        = TopicRuleCannedAccessControlList("public-read-write")
-	TopicRuleCannedAccessControlListAwsExecRead            = TopicRuleCannedAccessControlList("aws-exec-read")
-	TopicRuleCannedAccessControlListAuthenticatedRead      = TopicRuleCannedAccessControlList("authenticated-read")
-	TopicRuleCannedAccessControlListBucketOwnerRead        = TopicRuleCannedAccessControlList("bucket-owner-read")
-	TopicRuleCannedAccessControlListBucketOwnerFullControl = TopicRuleCannedAccessControlList("bucket-owner-full-control")
-	TopicRuleCannedAccessControlListLogDeliveryWrite       = TopicRuleCannedAccessControlList("log-delivery-write")
+	TopicRuleCannedAccessControlListPRIVATE                    = TopicRuleCannedAccessControlList("private")
+	TopicRuleCannedAccessControlList_PUBLIC_READ               = TopicRuleCannedAccessControlList("public-read")
+	TopicRuleCannedAccessControlList_PUBLIC_READ_WRITE         = TopicRuleCannedAccessControlList("public-read-write")
+	TopicRuleCannedAccessControlList_AWS_EXEC_READ             = TopicRuleCannedAccessControlList("aws-exec-read")
+	TopicRuleCannedAccessControlList_AUTHENTICATED_READ        = TopicRuleCannedAccessControlList("authenticated-read")
+	TopicRuleCannedAccessControlList_BUCKET_OWNER_READ         = TopicRuleCannedAccessControlList("bucket-owner-read")
+	TopicRuleCannedAccessControlList_BUCKET_OWNER_FULL_CONTROL = TopicRuleCannedAccessControlList("bucket-owner-full-control")
+	TopicRuleCannedAccessControlList_LOG_DELIVERY_WRITE        = TopicRuleCannedAccessControlList("log-delivery-write")
 )
 
 func (TopicRuleCannedAccessControlList) ElementType() reflect.Type {
@@ -3339,9 +3339,9 @@ func (in *topicRuleCannedAccessControlListPtr) ToTopicRuleCannedAccessControlLis
 type TopicRuleDestinationTopicRuleDestinationStatus string
 
 const (
-	TopicRuleDestinationTopicRuleDestinationStatusEnabled    = TopicRuleDestinationTopicRuleDestinationStatus("ENABLED")
-	TopicRuleDestinationTopicRuleDestinationStatusInProgress = TopicRuleDestinationTopicRuleDestinationStatus("IN_PROGRESS")
-	TopicRuleDestinationTopicRuleDestinationStatusDisabled   = TopicRuleDestinationTopicRuleDestinationStatus("DISABLED")
+	TopicRuleDestinationTopicRuleDestinationStatusENABLED      = TopicRuleDestinationTopicRuleDestinationStatus("ENABLED")
+	TopicRuleDestinationTopicRuleDestinationStatus_IN_PROGRESS = TopicRuleDestinationTopicRuleDestinationStatus("IN_PROGRESS")
+	TopicRuleDestinationTopicRuleDestinationStatusDISABLED     = TopicRuleDestinationTopicRuleDestinationStatus("DISABLED")
 )
 
 func (TopicRuleDestinationTopicRuleDestinationStatus) ElementType() reflect.Type {

@@ -13,17 +13,17 @@ import (
 type DataSourceConfluenceAttachmentFieldName string
 
 const (
-	DataSourceConfluenceAttachmentFieldNameAuthor      = DataSourceConfluenceAttachmentFieldName("AUTHOR")
-	DataSourceConfluenceAttachmentFieldNameContentType = DataSourceConfluenceAttachmentFieldName("CONTENT_TYPE")
-	DataSourceConfluenceAttachmentFieldNameCreatedDate = DataSourceConfluenceAttachmentFieldName("CREATED_DATE")
-	DataSourceConfluenceAttachmentFieldNameDisplayUrl  = DataSourceConfluenceAttachmentFieldName("DISPLAY_URL")
-	DataSourceConfluenceAttachmentFieldNameFileSize    = DataSourceConfluenceAttachmentFieldName("FILE_SIZE")
-	DataSourceConfluenceAttachmentFieldNameItemType    = DataSourceConfluenceAttachmentFieldName("ITEM_TYPE")
-	DataSourceConfluenceAttachmentFieldNameParentId    = DataSourceConfluenceAttachmentFieldName("PARENT_ID")
-	DataSourceConfluenceAttachmentFieldNameSpaceKey    = DataSourceConfluenceAttachmentFieldName("SPACE_KEY")
-	DataSourceConfluenceAttachmentFieldNameSpaceName   = DataSourceConfluenceAttachmentFieldName("SPACE_NAME")
-	DataSourceConfluenceAttachmentFieldNameUrl         = DataSourceConfluenceAttachmentFieldName("URL")
-	DataSourceConfluenceAttachmentFieldNameVersion     = DataSourceConfluenceAttachmentFieldName("VERSION")
+	DataSourceConfluenceAttachmentFieldNameAUTHOR        = DataSourceConfluenceAttachmentFieldName("AUTHOR")
+	DataSourceConfluenceAttachmentFieldName_CONTENT_TYPE = DataSourceConfluenceAttachmentFieldName("CONTENT_TYPE")
+	DataSourceConfluenceAttachmentFieldName_CREATED_DATE = DataSourceConfluenceAttachmentFieldName("CREATED_DATE")
+	DataSourceConfluenceAttachmentFieldName_DISPLAY_URL  = DataSourceConfluenceAttachmentFieldName("DISPLAY_URL")
+	DataSourceConfluenceAttachmentFieldName_FILE_SIZE    = DataSourceConfluenceAttachmentFieldName("FILE_SIZE")
+	DataSourceConfluenceAttachmentFieldName_ITEM_TYPE    = DataSourceConfluenceAttachmentFieldName("ITEM_TYPE")
+	DataSourceConfluenceAttachmentFieldName_PARENT_ID    = DataSourceConfluenceAttachmentFieldName("PARENT_ID")
+	DataSourceConfluenceAttachmentFieldName_SPACE_KEY    = DataSourceConfluenceAttachmentFieldName("SPACE_KEY")
+	DataSourceConfluenceAttachmentFieldName_SPACE_NAME   = DataSourceConfluenceAttachmentFieldName("SPACE_NAME")
+	DataSourceConfluenceAttachmentFieldNameURL           = DataSourceConfluenceAttachmentFieldName("URL")
+	DataSourceConfluenceAttachmentFieldNameVERSION       = DataSourceConfluenceAttachmentFieldName("VERSION")
 )
 
 func (DataSourceConfluenceAttachmentFieldName) ElementType() reflect.Type {
@@ -186,15 +186,15 @@ func (in *dataSourceConfluenceAttachmentFieldNamePtr) ToDataSourceConfluenceAtta
 type DataSourceConfluenceBlogFieldName string
 
 const (
-	DataSourceConfluenceBlogFieldNameAuthor      = DataSourceConfluenceBlogFieldName("AUTHOR")
-	DataSourceConfluenceBlogFieldNameDisplayUrl  = DataSourceConfluenceBlogFieldName("DISPLAY_URL")
-	DataSourceConfluenceBlogFieldNameItemType    = DataSourceConfluenceBlogFieldName("ITEM_TYPE")
-	DataSourceConfluenceBlogFieldNameLabels      = DataSourceConfluenceBlogFieldName("LABELS")
-	DataSourceConfluenceBlogFieldNamePublishDate = DataSourceConfluenceBlogFieldName("PUBLISH_DATE")
-	DataSourceConfluenceBlogFieldNameSpaceKey    = DataSourceConfluenceBlogFieldName("SPACE_KEY")
-	DataSourceConfluenceBlogFieldNameSpaceName   = DataSourceConfluenceBlogFieldName("SPACE_NAME")
-	DataSourceConfluenceBlogFieldNameUrl         = DataSourceConfluenceBlogFieldName("URL")
-	DataSourceConfluenceBlogFieldNameVersion     = DataSourceConfluenceBlogFieldName("VERSION")
+	DataSourceConfluenceBlogFieldNameAUTHOR        = DataSourceConfluenceBlogFieldName("AUTHOR")
+	DataSourceConfluenceBlogFieldName_DISPLAY_URL  = DataSourceConfluenceBlogFieldName("DISPLAY_URL")
+	DataSourceConfluenceBlogFieldName_ITEM_TYPE    = DataSourceConfluenceBlogFieldName("ITEM_TYPE")
+	DataSourceConfluenceBlogFieldNameLABELS        = DataSourceConfluenceBlogFieldName("LABELS")
+	DataSourceConfluenceBlogFieldName_PUBLISH_DATE = DataSourceConfluenceBlogFieldName("PUBLISH_DATE")
+	DataSourceConfluenceBlogFieldName_SPACE_KEY    = DataSourceConfluenceBlogFieldName("SPACE_KEY")
+	DataSourceConfluenceBlogFieldName_SPACE_NAME   = DataSourceConfluenceBlogFieldName("SPACE_NAME")
+	DataSourceConfluenceBlogFieldNameURL           = DataSourceConfluenceBlogFieldName("URL")
+	DataSourceConfluenceBlogFieldNameVERSION       = DataSourceConfluenceBlogFieldName("VERSION")
 )
 
 func (DataSourceConfluenceBlogFieldName) ElementType() reflect.Type {
@@ -357,18 +357,18 @@ func (in *dataSourceConfluenceBlogFieldNamePtr) ToDataSourceConfluenceBlogFieldN
 type DataSourceConfluencePageFieldName string
 
 const (
-	DataSourceConfluencePageFieldNameAuthor        = DataSourceConfluencePageFieldName("AUTHOR")
-	DataSourceConfluencePageFieldNameContentStatus = DataSourceConfluencePageFieldName("CONTENT_STATUS")
-	DataSourceConfluencePageFieldNameCreatedDate   = DataSourceConfluencePageFieldName("CREATED_DATE")
-	DataSourceConfluencePageFieldNameDisplayUrl    = DataSourceConfluencePageFieldName("DISPLAY_URL")
-	DataSourceConfluencePageFieldNameItemType      = DataSourceConfluencePageFieldName("ITEM_TYPE")
-	DataSourceConfluencePageFieldNameLabels        = DataSourceConfluencePageFieldName("LABELS")
-	DataSourceConfluencePageFieldNameModifiedDate  = DataSourceConfluencePageFieldName("MODIFIED_DATE")
-	DataSourceConfluencePageFieldNameParentId      = DataSourceConfluencePageFieldName("PARENT_ID")
-	DataSourceConfluencePageFieldNameSpaceKey      = DataSourceConfluencePageFieldName("SPACE_KEY")
-	DataSourceConfluencePageFieldNameSpaceName     = DataSourceConfluencePageFieldName("SPACE_NAME")
-	DataSourceConfluencePageFieldNameUrl           = DataSourceConfluencePageFieldName("URL")
-	DataSourceConfluencePageFieldNameVersion       = DataSourceConfluencePageFieldName("VERSION")
+	DataSourceConfluencePageFieldNameAUTHOR          = DataSourceConfluencePageFieldName("AUTHOR")
+	DataSourceConfluencePageFieldName_CONTENT_STATUS = DataSourceConfluencePageFieldName("CONTENT_STATUS")
+	DataSourceConfluencePageFieldName_CREATED_DATE   = DataSourceConfluencePageFieldName("CREATED_DATE")
+	DataSourceConfluencePageFieldName_DISPLAY_URL    = DataSourceConfluencePageFieldName("DISPLAY_URL")
+	DataSourceConfluencePageFieldName_ITEM_TYPE      = DataSourceConfluencePageFieldName("ITEM_TYPE")
+	DataSourceConfluencePageFieldNameLABELS          = DataSourceConfluencePageFieldName("LABELS")
+	DataSourceConfluencePageFieldName_MODIFIED_DATE  = DataSourceConfluencePageFieldName("MODIFIED_DATE")
+	DataSourceConfluencePageFieldName_PARENT_ID      = DataSourceConfluencePageFieldName("PARENT_ID")
+	DataSourceConfluencePageFieldName_SPACE_KEY      = DataSourceConfluencePageFieldName("SPACE_KEY")
+	DataSourceConfluencePageFieldName_SPACE_NAME     = DataSourceConfluencePageFieldName("SPACE_NAME")
+	DataSourceConfluencePageFieldNameURL             = DataSourceConfluencePageFieldName("URL")
+	DataSourceConfluencePageFieldNameVERSION         = DataSourceConfluencePageFieldName("VERSION")
 )
 
 func (DataSourceConfluencePageFieldName) ElementType() reflect.Type {
@@ -531,10 +531,10 @@ func (in *dataSourceConfluencePageFieldNamePtr) ToDataSourceConfluencePageFieldN
 type DataSourceConfluenceSpaceFieldName string
 
 const (
-	DataSourceConfluenceSpaceFieldNameDisplayUrl = DataSourceConfluenceSpaceFieldName("DISPLAY_URL")
-	DataSourceConfluenceSpaceFieldNameItemType   = DataSourceConfluenceSpaceFieldName("ITEM_TYPE")
-	DataSourceConfluenceSpaceFieldNameSpaceKey   = DataSourceConfluenceSpaceFieldName("SPACE_KEY")
-	DataSourceConfluenceSpaceFieldNameUrl        = DataSourceConfluenceSpaceFieldName("URL")
+	DataSourceConfluenceSpaceFieldName_DISPLAY_URL = DataSourceConfluenceSpaceFieldName("DISPLAY_URL")
+	DataSourceConfluenceSpaceFieldName_ITEM_TYPE   = DataSourceConfluenceSpaceFieldName("ITEM_TYPE")
+	DataSourceConfluenceSpaceFieldName_SPACE_KEY   = DataSourceConfluenceSpaceFieldName("SPACE_KEY")
+	DataSourceConfluenceSpaceFieldNameURL          = DataSourceConfluenceSpaceFieldName("URL")
 )
 
 func (DataSourceConfluenceSpaceFieldName) ElementType() reflect.Type {
@@ -697,8 +697,8 @@ func (in *dataSourceConfluenceSpaceFieldNamePtr) ToDataSourceConfluenceSpaceFiel
 type DataSourceConfluenceVersion string
 
 const (
-	DataSourceConfluenceVersionCloud  = DataSourceConfluenceVersion("CLOUD")
-	DataSourceConfluenceVersionServer = DataSourceConfluenceVersion("SERVER")
+	DataSourceConfluenceVersionCLOUD  = DataSourceConfluenceVersion("CLOUD")
+	DataSourceConfluenceVersionSERVER = DataSourceConfluenceVersion("SERVER")
 )
 
 func (DataSourceConfluenceVersion) ElementType() reflect.Type {
@@ -861,10 +861,10 @@ func (in *dataSourceConfluenceVersionPtr) ToDataSourceConfluenceVersionPtrOutput
 type DataSourceDatabaseEngineType string
 
 const (
-	DataSourceDatabaseEngineTypeRdsAuroraMysql      = DataSourceDatabaseEngineType("RDS_AURORA_MYSQL")
-	DataSourceDatabaseEngineTypeRdsAuroraPostgresql = DataSourceDatabaseEngineType("RDS_AURORA_POSTGRESQL")
-	DataSourceDatabaseEngineTypeRdsMysql            = DataSourceDatabaseEngineType("RDS_MYSQL")
-	DataSourceDatabaseEngineTypeRdsPostgresql       = DataSourceDatabaseEngineType("RDS_POSTGRESQL")
+	DataSourceDatabaseEngineType_RDS_AURORA_MYSQL      = DataSourceDatabaseEngineType("RDS_AURORA_MYSQL")
+	DataSourceDatabaseEngineType_RDS_AURORA_POSTGRESQL = DataSourceDatabaseEngineType("RDS_AURORA_POSTGRESQL")
+	DataSourceDatabaseEngineType_RDS_MYSQL             = DataSourceDatabaseEngineType("RDS_MYSQL")
+	DataSourceDatabaseEngineType_RDS_POSTGRESQL        = DataSourceDatabaseEngineType("RDS_POSTGRESQL")
 )
 
 func (DataSourceDatabaseEngineType) ElementType() reflect.Type {
@@ -1027,8 +1027,8 @@ func (in *dataSourceDatabaseEngineTypePtr) ToDataSourceDatabaseEngineTypePtrOutp
 type DataSourceQueryIdentifiersEnclosingOption string
 
 const (
-	DataSourceQueryIdentifiersEnclosingOptionDoubleQuotes = DataSourceQueryIdentifiersEnclosingOption("DOUBLE_QUOTES")
-	DataSourceQueryIdentifiersEnclosingOptionNone         = DataSourceQueryIdentifiersEnclosingOption("NONE")
+	DataSourceQueryIdentifiersEnclosingOption_DOUBLE_QUOTES = DataSourceQueryIdentifiersEnclosingOption("DOUBLE_QUOTES")
+	DataSourceQueryIdentifiersEnclosingOptionNONE           = DataSourceQueryIdentifiersEnclosingOption("NONE")
 )
 
 func (DataSourceQueryIdentifiersEnclosingOption) ElementType() reflect.Type {
@@ -1191,8 +1191,8 @@ func (in *dataSourceQueryIdentifiersEnclosingOptionPtr) ToDataSourceQueryIdentif
 type DataSourceSalesforceChatterFeedIncludeFilterType string
 
 const (
-	DataSourceSalesforceChatterFeedIncludeFilterTypeActiveUser   = DataSourceSalesforceChatterFeedIncludeFilterType("ACTIVE_USER")
-	DataSourceSalesforceChatterFeedIncludeFilterTypeStandardUser = DataSourceSalesforceChatterFeedIncludeFilterType("STANDARD_USER")
+	DataSourceSalesforceChatterFeedIncludeFilterType_ACTIVE_USER   = DataSourceSalesforceChatterFeedIncludeFilterType("ACTIVE_USER")
+	DataSourceSalesforceChatterFeedIncludeFilterType_STANDARD_USER = DataSourceSalesforceChatterFeedIncludeFilterType("STANDARD_USER")
 )
 
 func (DataSourceSalesforceChatterFeedIncludeFilterType) ElementType() reflect.Type {
@@ -1400,9 +1400,9 @@ func (o DataSourceSalesforceChatterFeedIncludeFilterTypeArrayOutput) Index(i pul
 type DataSourceSalesforceKnowledgeArticleState string
 
 const (
-	DataSourceSalesforceKnowledgeArticleStateDraft     = DataSourceSalesforceKnowledgeArticleState("DRAFT")
-	DataSourceSalesforceKnowledgeArticleStatePublished = DataSourceSalesforceKnowledgeArticleState("PUBLISHED")
-	DataSourceSalesforceKnowledgeArticleStateArchived  = DataSourceSalesforceKnowledgeArticleState("ARCHIVED")
+	DataSourceSalesforceKnowledgeArticleStateDRAFT     = DataSourceSalesforceKnowledgeArticleState("DRAFT")
+	DataSourceSalesforceKnowledgeArticleStatePUBLISHED = DataSourceSalesforceKnowledgeArticleState("PUBLISHED")
+	DataSourceSalesforceKnowledgeArticleStateARCHIVED  = DataSourceSalesforceKnowledgeArticleState("ARCHIVED")
 )
 
 func (DataSourceSalesforceKnowledgeArticleState) ElementType() reflect.Type {
@@ -1610,23 +1610,23 @@ func (o DataSourceSalesforceKnowledgeArticleStateArrayOutput) Index(i pulumi.Int
 type DataSourceSalesforceStandardObjectName string
 
 const (
-	DataSourceSalesforceStandardObjectNameAccount     = DataSourceSalesforceStandardObjectName("ACCOUNT")
-	DataSourceSalesforceStandardObjectNameCampaign    = DataSourceSalesforceStandardObjectName("CAMPAIGN")
-	DataSourceSalesforceStandardObjectNameCase        = DataSourceSalesforceStandardObjectName("CASE")
-	DataSourceSalesforceStandardObjectNameContact     = DataSourceSalesforceStandardObjectName("CONTACT")
-	DataSourceSalesforceStandardObjectNameContract    = DataSourceSalesforceStandardObjectName("CONTRACT")
-	DataSourceSalesforceStandardObjectNameDocument    = DataSourceSalesforceStandardObjectName("DOCUMENT")
-	DataSourceSalesforceStandardObjectNameGroup       = DataSourceSalesforceStandardObjectName("GROUP")
-	DataSourceSalesforceStandardObjectNameIdea        = DataSourceSalesforceStandardObjectName("IDEA")
-	DataSourceSalesforceStandardObjectNameLead        = DataSourceSalesforceStandardObjectName("LEAD")
-	DataSourceSalesforceStandardObjectNameOpportunity = DataSourceSalesforceStandardObjectName("OPPORTUNITY")
-	DataSourceSalesforceStandardObjectNamePartner     = DataSourceSalesforceStandardObjectName("PARTNER")
-	DataSourceSalesforceStandardObjectNamePricebook   = DataSourceSalesforceStandardObjectName("PRICEBOOK")
-	DataSourceSalesforceStandardObjectNameProduct     = DataSourceSalesforceStandardObjectName("PRODUCT")
-	DataSourceSalesforceStandardObjectNameProfile     = DataSourceSalesforceStandardObjectName("PROFILE")
-	DataSourceSalesforceStandardObjectNameSolution    = DataSourceSalesforceStandardObjectName("SOLUTION")
-	DataSourceSalesforceStandardObjectNameTask        = DataSourceSalesforceStandardObjectName("TASK")
-	DataSourceSalesforceStandardObjectNameUser        = DataSourceSalesforceStandardObjectName("USER")
+	DataSourceSalesforceStandardObjectNameACCOUNT     = DataSourceSalesforceStandardObjectName("ACCOUNT")
+	DataSourceSalesforceStandardObjectNameCAMPAIGN    = DataSourceSalesforceStandardObjectName("CAMPAIGN")
+	DataSourceSalesforceStandardObjectNameCASE        = DataSourceSalesforceStandardObjectName("CASE")
+	DataSourceSalesforceStandardObjectNameCONTACT     = DataSourceSalesforceStandardObjectName("CONTACT")
+	DataSourceSalesforceStandardObjectNameCONTRACT    = DataSourceSalesforceStandardObjectName("CONTRACT")
+	DataSourceSalesforceStandardObjectNameDOCUMENT    = DataSourceSalesforceStandardObjectName("DOCUMENT")
+	DataSourceSalesforceStandardObjectNameGROUP       = DataSourceSalesforceStandardObjectName("GROUP")
+	DataSourceSalesforceStandardObjectNameIDEA        = DataSourceSalesforceStandardObjectName("IDEA")
+	DataSourceSalesforceStandardObjectNameLEAD        = DataSourceSalesforceStandardObjectName("LEAD")
+	DataSourceSalesforceStandardObjectNameOPPORTUNITY = DataSourceSalesforceStandardObjectName("OPPORTUNITY")
+	DataSourceSalesforceStandardObjectNamePARTNER     = DataSourceSalesforceStandardObjectName("PARTNER")
+	DataSourceSalesforceStandardObjectNamePRICEBOOK   = DataSourceSalesforceStandardObjectName("PRICEBOOK")
+	DataSourceSalesforceStandardObjectNamePRODUCT     = DataSourceSalesforceStandardObjectName("PRODUCT")
+	DataSourceSalesforceStandardObjectNamePROFILE     = DataSourceSalesforceStandardObjectName("PROFILE")
+	DataSourceSalesforceStandardObjectNameSOLUTION    = DataSourceSalesforceStandardObjectName("SOLUTION")
+	DataSourceSalesforceStandardObjectNameTASK        = DataSourceSalesforceStandardObjectName("TASK")
+	DataSourceSalesforceStandardObjectNameUSER        = DataSourceSalesforceStandardObjectName("USER")
 )
 
 func (DataSourceSalesforceStandardObjectName) ElementType() reflect.Type {
@@ -1789,8 +1789,8 @@ func (in *dataSourceSalesforceStandardObjectNamePtr) ToDataSourceSalesforceStand
 type DataSourceServiceNowBuildVersionType string
 
 const (
-	DataSourceServiceNowBuildVersionTypeLondon = DataSourceServiceNowBuildVersionType("LONDON")
-	DataSourceServiceNowBuildVersionTypeOthers = DataSourceServiceNowBuildVersionType("OTHERS")
+	DataSourceServiceNowBuildVersionTypeLONDON = DataSourceServiceNowBuildVersionType("LONDON")
+	DataSourceServiceNowBuildVersionTypeOTHERS = DataSourceServiceNowBuildVersionType("OTHERS")
 )
 
 func (DataSourceServiceNowBuildVersionType) ElementType() reflect.Type {
@@ -1953,7 +1953,7 @@ func (in *dataSourceServiceNowBuildVersionTypePtr) ToDataSourceServiceNowBuildVe
 type DataSourceSharePointConfigurationSharePointVersion string
 
 const (
-	DataSourceSharePointConfigurationSharePointVersionSharepointOnline = DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_ONLINE")
+	DataSourceSharePointConfigurationSharePointVersion_SHAREPOINT_ONLINE = DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_ONLINE")
 )
 
 func (DataSourceSharePointConfigurationSharePointVersion) ElementType() reflect.Type {
@@ -2118,14 +2118,14 @@ type DataSourceType string
 
 const (
 	DataSourceTypeS3          = DataSourceType("S3")
-	DataSourceTypeSharepoint  = DataSourceType("SHAREPOINT")
-	DataSourceTypeSalesforce  = DataSourceType("SALESFORCE")
-	DataSourceTypeOnedrive    = DataSourceType("ONEDRIVE")
-	DataSourceTypeServicenow  = DataSourceType("SERVICENOW")
-	DataSourceTypeDatabase    = DataSourceType("DATABASE")
-	DataSourceTypeCustom      = DataSourceType("CUSTOM")
-	DataSourceTypeConfluence  = DataSourceType("CONFLUENCE")
-	DataSourceTypeGoogledrive = DataSourceType("GOOGLEDRIVE")
+	DataSourceTypeSHAREPOINT  = DataSourceType("SHAREPOINT")
+	DataSourceTypeSALESFORCE  = DataSourceType("SALESFORCE")
+	DataSourceTypeONEDRIVE    = DataSourceType("ONEDRIVE")
+	DataSourceTypeSERVICENOW  = DataSourceType("SERVICENOW")
+	DataSourceTypeDATABASE    = DataSourceType("DATABASE")
+	DataSourceTypeCUSTOM      = DataSourceType("CUSTOM")
+	DataSourceTypeCONFLUENCE  = DataSourceType("CONFLUENCE")
+	DataSourceTypeGOOGLEDRIVE = DataSourceType("GOOGLEDRIVE")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -2289,9 +2289,9 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Co
 type FaqFileFormat string
 
 const (
-	FaqFileFormatCsv           = FaqFileFormat("CSV")
-	FaqFileFormatCsvWithHeader = FaqFileFormat("CSV_WITH_HEADER")
-	FaqFileFormatJson          = FaqFileFormat("JSON")
+	FaqFileFormatCSV              = FaqFileFormat("CSV")
+	FaqFileFormat_CSV_WITH_HEADER = FaqFileFormat("CSV_WITH_HEADER")
+	FaqFileFormatJSON             = FaqFileFormat("JSON")
 )
 
 func (FaqFileFormat) ElementType() reflect.Type {
@@ -2454,10 +2454,10 @@ func (in *faqFileFormatPtr) ToFaqFileFormatPtrOutputWithContext(ctx context.Cont
 type IndexDocumentAttributeValueType string
 
 const (
-	IndexDocumentAttributeValueTypeStringValue     = IndexDocumentAttributeValueType("STRING_VALUE")
-	IndexDocumentAttributeValueTypeStringListValue = IndexDocumentAttributeValueType("STRING_LIST_VALUE")
-	IndexDocumentAttributeValueTypeLongValue       = IndexDocumentAttributeValueType("LONG_VALUE")
-	IndexDocumentAttributeValueTypeDateValue       = IndexDocumentAttributeValueType("DATE_VALUE")
+	IndexDocumentAttributeValueType_STRING_VALUE      = IndexDocumentAttributeValueType("STRING_VALUE")
+	IndexDocumentAttributeValueType_STRING_LIST_VALUE = IndexDocumentAttributeValueType("STRING_LIST_VALUE")
+	IndexDocumentAttributeValueType_LONG_VALUE        = IndexDocumentAttributeValueType("LONG_VALUE")
+	IndexDocumentAttributeValueType_DATE_VALUE        = IndexDocumentAttributeValueType("DATE_VALUE")
 )
 
 func (IndexDocumentAttributeValueType) ElementType() reflect.Type {
@@ -2621,8 +2621,8 @@ func (in *indexDocumentAttributeValueTypePtr) ToIndexDocumentAttributeValueTypeP
 type IndexEdition string
 
 const (
-	IndexEditionDeveloperEdition  = IndexEdition("DEVELOPER_EDITION")
-	IndexEditionEnterpriseEdition = IndexEdition("ENTERPRISE_EDITION")
+	IndexEdition_DEVELOPER_EDITION  = IndexEdition("DEVELOPER_EDITION")
+	IndexEdition_ENTERPRISE_EDITION = IndexEdition("ENTERPRISE_EDITION")
 )
 
 func (IndexEdition) ElementType() reflect.Type {
@@ -2785,8 +2785,8 @@ func (in *indexEditionPtr) ToIndexEditionPtrOutputWithContext(ctx context.Contex
 type IndexKeyLocation string
 
 const (
-	IndexKeyLocationUrl           = IndexKeyLocation("URL")
-	IndexKeyLocationSecretManager = IndexKeyLocation("SECRET_MANAGER")
+	IndexKeyLocationURL             = IndexKeyLocation("URL")
+	IndexKeyLocation_SECRET_MANAGER = IndexKeyLocation("SECRET_MANAGER")
 )
 
 func (IndexKeyLocation) ElementType() reflect.Type {
@@ -2949,8 +2949,8 @@ func (in *indexKeyLocationPtr) ToIndexKeyLocationPtrOutputWithContext(ctx contex
 type IndexOrder string
 
 const (
-	IndexOrderAscending  = IndexOrder("ASCENDING")
-	IndexOrderDescending = IndexOrder("DESCENDING")
+	IndexOrderASCENDING  = IndexOrder("ASCENDING")
+	IndexOrderDESCENDING = IndexOrder("DESCENDING")
 )
 
 func (IndexOrder) ElementType() reflect.Type {
@@ -3113,8 +3113,8 @@ func (in *indexOrderPtr) ToIndexOrderPtrOutputWithContext(ctx context.Context) I
 type IndexUserContextPolicy string
 
 const (
-	IndexUserContextPolicyAttributeFilter = IndexUserContextPolicy("ATTRIBUTE_FILTER")
-	IndexUserContextPolicyUserToken       = IndexUserContextPolicy("USER_TOKEN")
+	IndexUserContextPolicy_ATTRIBUTE_FILTER = IndexUserContextPolicy("ATTRIBUTE_FILTER")
+	IndexUserContextPolicy_USER_TOKEN       = IndexUserContextPolicy("USER_TOKEN")
 )
 
 func (IndexUserContextPolicy) ElementType() reflect.Type {

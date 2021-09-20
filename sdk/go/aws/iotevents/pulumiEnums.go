@@ -14,8 +14,8 @@ import (
 type DetectorModelEvaluationMethod string
 
 const (
-	DetectorModelEvaluationMethodBatch  = DetectorModelEvaluationMethod("BATCH")
-	DetectorModelEvaluationMethodSerial = DetectorModelEvaluationMethod("SERIAL")
+	DetectorModelEvaluationMethodBATCH  = DetectorModelEvaluationMethod("BATCH")
+	DetectorModelEvaluationMethodSERIAL = DetectorModelEvaluationMethod("SERIAL")
 )
 
 func (DetectorModelEvaluationMethod) ElementType() reflect.Type {

@@ -14,8 +14,8 @@ import (
 type AccessPointNetworkOrigin string
 
 const (
-	AccessPointNetworkOriginInternet = AccessPointNetworkOrigin("Internet")
-	AccessPointNetworkOriginVpc      = AccessPointNetworkOrigin("VPC")
+	AccessPointNetworkOriginINTERNET = AccessPointNetworkOrigin("Internet")
+	AccessPointNetworkOriginVPC      = AccessPointNetworkOrigin("VPC")
 )
 
 func (AccessPointNetworkOrigin) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *accessPointNetworkOriginPtr) ToAccessPointNetworkOriginPtrOutputWithCo
 type StorageLensS3BucketDestinationFormat string
 
 const (
-	StorageLensS3BucketDestinationFormatCsv     = StorageLensS3BucketDestinationFormat("CSV")
-	StorageLensS3BucketDestinationFormatParquet = StorageLensS3BucketDestinationFormat("Parquet")
+	StorageLensS3BucketDestinationFormatCSV     = StorageLensS3BucketDestinationFormat("CSV")
+	StorageLensS3BucketDestinationFormatPARQUET = StorageLensS3BucketDestinationFormat("Parquet")
 )
 
 func (StorageLensS3BucketDestinationFormat) ElementType() reflect.Type {

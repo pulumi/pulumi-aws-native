@@ -14,8 +14,8 @@ import (
 type EnvironmentFederationMode string
 
 const (
-	EnvironmentFederationModeLocal     = EnvironmentFederationMode("LOCAL")
-	EnvironmentFederationModeFederated = EnvironmentFederationMode("FEDERATED")
+	EnvironmentFederationModeLOCAL     = EnvironmentFederationMode("LOCAL")
+	EnvironmentFederationModeFEDERATED = EnvironmentFederationMode("FEDERATED")
 )
 
 func (EnvironmentFederationMode) ElementType() reflect.Type {
@@ -179,16 +179,16 @@ func (in *environmentFederationModePtr) ToEnvironmentFederationModePtrOutputWith
 type EnvironmentStatus string
 
 const (
-	EnvironmentStatusCreateRequested = EnvironmentStatus("CREATE_REQUESTED")
-	EnvironmentStatusCreating        = EnvironmentStatus("CREATING")
-	EnvironmentStatusCreated         = EnvironmentStatus("CREATED")
-	EnvironmentStatusDeleteRequested = EnvironmentStatus("DELETE_REQUESTED")
-	EnvironmentStatusDeleting        = EnvironmentStatus("DELETING")
-	EnvironmentStatusDeleted         = EnvironmentStatus("DELETED")
-	EnvironmentStatusFailedCreation  = EnvironmentStatus("FAILED_CREATION")
-	EnvironmentStatusFailedDeletion  = EnvironmentStatus("FAILED_DELETION")
-	EnvironmentStatusRetryDeletion   = EnvironmentStatus("RETRY_DELETION")
-	EnvironmentStatusSuspended       = EnvironmentStatus("SUSPENDED")
+	EnvironmentStatus_CREATE_REQUESTED = EnvironmentStatus("CREATE_REQUESTED")
+	EnvironmentStatusCREATING          = EnvironmentStatus("CREATING")
+	EnvironmentStatusCREATED           = EnvironmentStatus("CREATED")
+	EnvironmentStatus_DELETE_REQUESTED = EnvironmentStatus("DELETE_REQUESTED")
+	EnvironmentStatusDELETING          = EnvironmentStatus("DELETING")
+	EnvironmentStatusDELETED           = EnvironmentStatus("DELETED")
+	EnvironmentStatus_FAILED_CREATION  = EnvironmentStatus("FAILED_CREATION")
+	EnvironmentStatus_FAILED_DELETION  = EnvironmentStatus("FAILED_DELETION")
+	EnvironmentStatus_RETRY_DELETION   = EnvironmentStatus("RETRY_DELETION")
+	EnvironmentStatusSUSPENDED         = EnvironmentStatus("SUSPENDED")
 )
 
 func (EnvironmentStatus) ElementType() reflect.Type {

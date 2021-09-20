@@ -14,8 +14,8 @@ import (
 type DestinationExpressionType string
 
 const (
-	DestinationExpressionTypeRuleName  = DestinationExpressionType("RuleName")
-	DestinationExpressionTypeMqttTopic = DestinationExpressionType("MqttTopic")
+	DestinationExpressionType_RULE_NAME  = DestinationExpressionType("RuleName")
+	DestinationExpressionType_MQTT_TOPIC = DestinationExpressionType("MqttTopic")
 )
 
 func (DestinationExpressionType) ElementType() reflect.Type {
@@ -179,7 +179,7 @@ func (in *destinationExpressionTypePtr) ToDestinationExpressionTypePtrOutputWith
 type TaskDefinitionTaskDefinitionType string
 
 const (
-	TaskDefinitionTaskDefinitionTypeUpdate = TaskDefinitionTaskDefinitionType("UPDATE")
+	TaskDefinitionTaskDefinitionTypeUPDATE = TaskDefinitionTaskDefinitionType("UPDATE")
 )
 
 func (TaskDefinitionTaskDefinitionType) ElementType() reflect.Type {
@@ -343,8 +343,8 @@ func (in *taskDefinitionTaskDefinitionTypePtr) ToTaskDefinitionTaskDefinitionTyp
 type WirelessDeviceType string
 
 const (
-	WirelessDeviceTypeSidewalk = WirelessDeviceType("Sidewalk")
-	WirelessDeviceTypeLoRaWAN  = WirelessDeviceType("LoRaWAN")
+	WirelessDeviceTypeSIDEWALK   = WirelessDeviceType("Sidewalk")
+	WirelessDeviceType_LO_RA_WAN = WirelessDeviceType("LoRaWAN")
 )
 
 func (WirelessDeviceType) ElementType() reflect.Type {

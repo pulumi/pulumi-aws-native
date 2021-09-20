@@ -13,9 +13,9 @@ import (
 type ConfigBandwidthUnits string
 
 const (
-	ConfigBandwidthUnitsGHz = ConfigBandwidthUnits("GHz")
-	ConfigBandwidthUnitsMHz = ConfigBandwidthUnits("MHz")
-	ConfigBandwidthUnitsKHz = ConfigBandwidthUnits("kHz")
+	ConfigBandwidthUnits_G_HZ = ConfigBandwidthUnits("GHz")
+	ConfigBandwidthUnits_M_HZ = ConfigBandwidthUnits("MHz")
+	ConfigBandwidthUnits_K_HZ = ConfigBandwidthUnits("kHz")
 )
 
 func (ConfigBandwidthUnits) ElementType() reflect.Type {
@@ -341,9 +341,9 @@ func (in *configEirpUnitsPtr) ToConfigEirpUnitsPtrOutputWithContext(ctx context.
 type ConfigFrequencyUnits string
 
 const (
-	ConfigFrequencyUnitsGHz = ConfigFrequencyUnits("GHz")
-	ConfigFrequencyUnitsMHz = ConfigFrequencyUnits("MHz")
-	ConfigFrequencyUnitsKHz = ConfigFrequencyUnits("kHz")
+	ConfigFrequencyUnits_G_HZ = ConfigFrequencyUnits("GHz")
+	ConfigFrequencyUnits_M_HZ = ConfigFrequencyUnits("MHz")
+	ConfigFrequencyUnits_K_HZ = ConfigFrequencyUnits("kHz")
 )
 
 func (ConfigFrequencyUnits) ElementType() reflect.Type {
@@ -506,9 +506,9 @@ func (in *configFrequencyUnitsPtr) ToConfigFrequencyUnitsPtrOutputWithContext(ct
 type ConfigPolarization string
 
 const (
-	ConfigPolarizationLeftHand  = ConfigPolarization("LEFT_HAND")
-	ConfigPolarizationRightHand = ConfigPolarization("RIGHT_HAND")
-	ConfigPolarizationNone      = ConfigPolarization("NONE")
+	ConfigPolarization_LEFT_HAND  = ConfigPolarization("LEFT_HAND")
+	ConfigPolarization_RIGHT_HAND = ConfigPolarization("RIGHT_HAND")
+	ConfigPolarizationNONE        = ConfigPolarization("NONE")
 )
 
 func (ConfigPolarization) ElementType() reflect.Type {
@@ -671,9 +671,9 @@ func (in *configPolarizationPtr) ToConfigPolarizationPtrOutputWithContext(ctx co
 type ConfigTrackingConfigAutotrack string
 
 const (
-	ConfigTrackingConfigAutotrackRequired  = ConfigTrackingConfigAutotrack("REQUIRED")
-	ConfigTrackingConfigAutotrackPreferred = ConfigTrackingConfigAutotrack("PREFERRED")
-	ConfigTrackingConfigAutotrackRemoved   = ConfigTrackingConfigAutotrack("REMOVED")
+	ConfigTrackingConfigAutotrackREQUIRED  = ConfigTrackingConfigAutotrack("REQUIRED")
+	ConfigTrackingConfigAutotrackPREFERRED = ConfigTrackingConfigAutotrack("PREFERRED")
+	ConfigTrackingConfigAutotrackREMOVED   = ConfigTrackingConfigAutotrack("REMOVED")
 )
 
 func (ConfigTrackingConfigAutotrack) ElementType() reflect.Type {

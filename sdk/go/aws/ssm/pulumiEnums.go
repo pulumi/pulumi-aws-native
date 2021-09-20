@@ -13,11 +13,11 @@ import (
 type AssociationComplianceSeverity string
 
 const (
-	AssociationComplianceSeverityCritical    = AssociationComplianceSeverity("CRITICAL")
-	AssociationComplianceSeverityHigh        = AssociationComplianceSeverity("HIGH")
-	AssociationComplianceSeverityMedium      = AssociationComplianceSeverity("MEDIUM")
-	AssociationComplianceSeverityLow         = AssociationComplianceSeverity("LOW")
-	AssociationComplianceSeverityUnspecified = AssociationComplianceSeverity("UNSPECIFIED")
+	AssociationComplianceSeverityCRITICAL    = AssociationComplianceSeverity("CRITICAL")
+	AssociationComplianceSeverityHIGH        = AssociationComplianceSeverity("HIGH")
+	AssociationComplianceSeverityMEDIUM      = AssociationComplianceSeverity("MEDIUM")
+	AssociationComplianceSeverityLOW         = AssociationComplianceSeverity("LOW")
+	AssociationComplianceSeverityUNSPECIFIED = AssociationComplianceSeverity("UNSPECIFIED")
 )
 
 func (AssociationComplianceSeverity) ElementType() reflect.Type {
@@ -180,8 +180,8 @@ func (in *associationComplianceSeverityPtr) ToAssociationComplianceSeverityPtrOu
 type AssociationSyncCompliance string
 
 const (
-	AssociationSyncComplianceAuto   = AssociationSyncCompliance("AUTO")
-	AssociationSyncComplianceManual = AssociationSyncCompliance("MANUAL")
+	AssociationSyncComplianceAUTO   = AssociationSyncCompliance("AUTO")
+	AssociationSyncComplianceMANUAL = AssociationSyncCompliance("MANUAL")
 )
 
 func (AssociationSyncCompliance) ElementType() reflect.Type {
@@ -345,9 +345,9 @@ func (in *associationSyncCompliancePtr) ToAssociationSyncCompliancePtrOutputWith
 type DocumentAttachmentsSourceKey string
 
 const (
-	DocumentAttachmentsSourceKeySourceUrl           = DocumentAttachmentsSourceKey("SourceUrl")
-	DocumentAttachmentsSourceKeyS3FileUrl           = DocumentAttachmentsSourceKey("S3FileUrl")
-	DocumentAttachmentsSourceKeyAttachmentReference = DocumentAttachmentsSourceKey("AttachmentReference")
+	DocumentAttachmentsSourceKey_SOURCE_URL           = DocumentAttachmentsSourceKey("SourceUrl")
+	DocumentAttachmentsSourceKey_S3_FILE_URL          = DocumentAttachmentsSourceKey("S3FileUrl")
+	DocumentAttachmentsSourceKey_ATTACHMENT_REFERENCE = DocumentAttachmentsSourceKey("AttachmentReference")
 )
 
 func (DocumentAttachmentsSourceKey) ElementType() reflect.Type {
@@ -511,9 +511,9 @@ func (in *documentAttachmentsSourceKeyPtr) ToDocumentAttachmentsSourceKeyPtrOutp
 type DocumentDocumentFormat string
 
 const (
-	DocumentDocumentFormatYaml = DocumentDocumentFormat("YAML")
-	DocumentDocumentFormatJson = DocumentDocumentFormat("JSON")
-	DocumentDocumentFormatText = DocumentDocumentFormat("TEXT")
+	DocumentDocumentFormatYAML = DocumentDocumentFormat("YAML")
+	DocumentDocumentFormatJSON = DocumentDocumentFormat("JSON")
+	DocumentDocumentFormatTEXT = DocumentDocumentFormat("TEXT")
 )
 
 func (DocumentDocumentFormat) ElementType() reflect.Type {
@@ -677,19 +677,19 @@ func (in *documentDocumentFormatPtr) ToDocumentDocumentFormatPtrOutputWithContex
 type DocumentDocumentType string
 
 const (
-	DocumentDocumentTypeApplicationConfiguration       = DocumentDocumentType("ApplicationConfiguration")
-	DocumentDocumentTypeApplicationConfigurationSchema = DocumentDocumentType("ApplicationConfigurationSchema")
-	DocumentDocumentTypeAutomation                     = DocumentDocumentType("Automation")
-	DocumentDocumentTypeAutomationChangeTemplate       = DocumentDocumentType("Automation.ChangeTemplate")
-	DocumentDocumentTypeChangeCalendar                 = DocumentDocumentType("ChangeCalendar")
-	DocumentDocumentTypeCloudFormation                 = DocumentDocumentType("CloudFormation")
-	DocumentDocumentTypeCommand                        = DocumentDocumentType("Command")
-	DocumentDocumentTypeDeploymentStrategy             = DocumentDocumentType("DeploymentStrategy")
-	DocumentDocumentTypePackage                        = DocumentDocumentType("Package")
-	DocumentDocumentTypePolicy                         = DocumentDocumentType("Policy")
-	DocumentDocumentTypeProblemAnalysis                = DocumentDocumentType("ProblemAnalysis")
-	DocumentDocumentTypeProblemAnalysisTemplate        = DocumentDocumentType("ProblemAnalysisTemplate")
-	DocumentDocumentTypeSession                        = DocumentDocumentType("Session")
+	DocumentDocumentType_APPLICATION_CONFIGURATION        = DocumentDocumentType("ApplicationConfiguration")
+	DocumentDocumentType_APPLICATION_CONFIGURATION_SCHEMA = DocumentDocumentType("ApplicationConfigurationSchema")
+	DocumentDocumentTypeAUTOMATION                        = DocumentDocumentType("Automation")
+	DocumentDocumentType_AUTOMATION_CHANGE_TEMPLATE       = DocumentDocumentType("Automation.ChangeTemplate")
+	DocumentDocumentType_CHANGE_CALENDAR                  = DocumentDocumentType("ChangeCalendar")
+	DocumentDocumentType_CLOUD_FORMATION                  = DocumentDocumentType("CloudFormation")
+	DocumentDocumentTypeCOMMAND                           = DocumentDocumentType("Command")
+	DocumentDocumentType_DEPLOYMENT_STRATEGY              = DocumentDocumentType("DeploymentStrategy")
+	DocumentDocumentTypePACKAGE                           = DocumentDocumentType("Package")
+	DocumentDocumentTypePOLICY                            = DocumentDocumentType("Policy")
+	DocumentDocumentType_PROBLEM_ANALYSIS                 = DocumentDocumentType("ProblemAnalysis")
+	DocumentDocumentType_PROBLEM_ANALYSIS_TEMPLATE        = DocumentDocumentType("ProblemAnalysisTemplate")
+	DocumentDocumentTypeSESSION                           = DocumentDocumentType("Session")
 )
 
 func (DocumentDocumentType) ElementType() reflect.Type {

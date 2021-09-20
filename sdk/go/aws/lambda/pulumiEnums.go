@@ -14,8 +14,8 @@ import (
 type CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment string
 
 const (
-	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentWarn    = CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn")
-	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentEnforce = CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Enforce")
+	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentWARN    = CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn")
+	CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentENFORCE = CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Enforce")
 )
 
 func (CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment) ElementType() reflect.Type {
@@ -178,7 +178,7 @@ func (in *codeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtr) 
 type EventSourceMappingFunctionResponseTypesItem string
 
 const (
-	EventSourceMappingFunctionResponseTypesItemReportBatchItemFailures = EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures")
+	EventSourceMappingFunctionResponseTypesItem_REPORT_BATCH_ITEM_FAILURES = EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures")
 )
 
 func (EventSourceMappingFunctionResponseTypesItem) ElementType() reflect.Type {
@@ -387,12 +387,12 @@ func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) Index(i pulumi.I
 type EventSourceMappingSourceAccessConfigurationType string
 
 const (
-	EventSourceMappingSourceAccessConfigurationTypeBasicAuth        = EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeVpcSubnet        = EventSourceMappingSourceAccessConfigurationType("VPC_SUBNET")
-	EventSourceMappingSourceAccessConfigurationTypeVpcSecurityGroup = EventSourceMappingSourceAccessConfigurationType("VPC_SECURITY_GROUP")
-	EventSourceMappingSourceAccessConfigurationTypeSaslScram512Auth = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_512_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeSaslScram256Auth = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_256_AUTH")
-	EventSourceMappingSourceAccessConfigurationTypeVirtualHost      = EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST")
+	EventSourceMappingSourceAccessConfigurationType_BASIC_AUTH         = EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH")
+	EventSourceMappingSourceAccessConfigurationType_VPC_SUBNET         = EventSourceMappingSourceAccessConfigurationType("VPC_SUBNET")
+	EventSourceMappingSourceAccessConfigurationType_VPC_SECURITY_GROUP = EventSourceMappingSourceAccessConfigurationType("VPC_SECURITY_GROUP")
+	EventSourceMappingSourceAccessConfigurationType_SASL_SCRAM512_AUTH = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_512_AUTH")
+	EventSourceMappingSourceAccessConfigurationType_SASL_SCRAM256_AUTH = EventSourceMappingSourceAccessConfigurationType("SASL_SCRAM_256_AUTH")
+	EventSourceMappingSourceAccessConfigurationType_VIRTUAL_HOST       = EventSourceMappingSourceAccessConfigurationType("VIRTUAL_HOST")
 )
 
 func (EventSourceMappingSourceAccessConfigurationType) ElementType() reflect.Type {
@@ -556,8 +556,8 @@ func (in *eventSourceMappingSourceAccessConfigurationTypePtr) ToEventSourceMappi
 type FunctionPackageType string
 
 const (
-	FunctionPackageTypeImage = FunctionPackageType("Image")
-	FunctionPackageTypeZip   = FunctionPackageType("Zip")
+	FunctionPackageTypeIMAGE = FunctionPackageType("Image")
+	FunctionPackageTypeZIP   = FunctionPackageType("Zip")
 )
 
 func (FunctionPackageType) ElementType() reflect.Type {
@@ -721,8 +721,8 @@ func (in *functionPackageTypePtr) ToFunctionPackageTypePtrOutputWithContext(ctx 
 type FunctionTracingConfigMode string
 
 const (
-	FunctionTracingConfigModeActive      = FunctionTracingConfigMode("Active")
-	FunctionTracingConfigModePassThrough = FunctionTracingConfigMode("PassThrough")
+	FunctionTracingConfigModeACTIVE        = FunctionTracingConfigMode("Active")
+	FunctionTracingConfigMode_PASS_THROUGH = FunctionTracingConfigMode("PassThrough")
 )
 
 func (FunctionTracingConfigMode) ElementType() reflect.Type {

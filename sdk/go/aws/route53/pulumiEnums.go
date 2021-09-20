@@ -14,8 +14,8 @@ import (
 type KeySigningKeyStatus string
 
 const (
-	KeySigningKeyStatusActive   = KeySigningKeyStatus("ACTIVE")
-	KeySigningKeyStatusInactive = KeySigningKeyStatus("INACTIVE")
+	KeySigningKeyStatusACTIVE   = KeySigningKeyStatus("ACTIVE")
+	KeySigningKeyStatusINACTIVE = KeySigningKeyStatus("INACTIVE")
 )
 
 func (KeySigningKeyStatus) ElementType() reflect.Type {

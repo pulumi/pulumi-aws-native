@@ -14,7 +14,7 @@ import (
 type DBProxyAuthFormatAuthScheme string
 
 const (
-	DBProxyAuthFormatAuthSchemeSecrets = DBProxyAuthFormatAuthScheme("SECRETS")
+	DBProxyAuthFormatAuthSchemeSECRETS = DBProxyAuthFormatAuthScheme("SECRETS")
 )
 
 func (DBProxyAuthFormatAuthScheme) ElementType() reflect.Type {
@@ -178,8 +178,8 @@ func (in *dbproxyAuthFormatAuthSchemePtr) ToDBProxyAuthFormatAuthSchemePtrOutput
 type DBProxyAuthFormatIAMAuth string
 
 const (
-	DBProxyAuthFormatIAMAuthDisabled = DBProxyAuthFormatIAMAuth("DISABLED")
-	DBProxyAuthFormatIAMAuthRequired = DBProxyAuthFormatIAMAuth("REQUIRED")
+	DBProxyAuthFormatIAMAuthDISABLED = DBProxyAuthFormatIAMAuth("DISABLED")
+	DBProxyAuthFormatIAMAuthREQUIRED = DBProxyAuthFormatIAMAuth("REQUIRED")
 )
 
 func (DBProxyAuthFormatIAMAuth) ElementType() reflect.Type {
@@ -343,8 +343,8 @@ func (in *dbproxyAuthFormatIAMAuthPtr) ToDBProxyAuthFormatIAMAuthPtrOutputWithCo
 type DBProxyEndpointTargetRole string
 
 const (
-	DBProxyEndpointTargetRoleReadWrite = DBProxyEndpointTargetRole("READ_WRITE")
-	DBProxyEndpointTargetRoleReadOnly  = DBProxyEndpointTargetRole("READ_ONLY")
+	DBProxyEndpointTargetRole_READ_WRITE = DBProxyEndpointTargetRole("READ_WRITE")
+	DBProxyEndpointTargetRole_READ_ONLY  = DBProxyEndpointTargetRole("READ_ONLY")
 )
 
 func (DBProxyEndpointTargetRole) ElementType() reflect.Type {
@@ -508,8 +508,8 @@ func (in *dbproxyEndpointTargetRolePtr) ToDBProxyEndpointTargetRolePtrOutputWith
 type DBProxyEngineFamily string
 
 const (
-	DBProxyEngineFamilyMysql      = DBProxyEngineFamily("MYSQL")
-	DBProxyEngineFamilyPostgresql = DBProxyEngineFamily("POSTGRESQL")
+	DBProxyEngineFamilyMYSQL      = DBProxyEngineFamily("MYSQL")
+	DBProxyEngineFamilyPOSTGRESQL = DBProxyEngineFamily("POSTGRESQL")
 )
 
 func (DBProxyEngineFamily) ElementType() reflect.Type {
@@ -673,7 +673,7 @@ func (in *dbproxyEngineFamilyPtr) ToDBProxyEngineFamilyPtrOutputWithContext(ctx 
 type DBProxyTargetGroupTargetGroupName string
 
 const (
-	DBProxyTargetGroupTargetGroupNameDefault = DBProxyTargetGroupTargetGroupName("default")
+	DBProxyTargetGroupTargetGroupNameDEFAULT = DBProxyTargetGroupTargetGroupName("default")
 )
 
 func (DBProxyTargetGroupTargetGroupName) ElementType() reflect.Type {
@@ -838,9 +838,9 @@ func (in *dbproxyTargetGroupTargetGroupNamePtr) ToDBProxyTargetGroupTargetGroupN
 type GlobalClusterEngine string
 
 const (
-	GlobalClusterEngineAurora           = GlobalClusterEngine("aurora")
-	GlobalClusterEngineAuroraMysql      = GlobalClusterEngine("aurora-mysql")
-	GlobalClusterEngineAuroraPostgresql = GlobalClusterEngine("aurora-postgresql")
+	GlobalClusterEngineAURORA             = GlobalClusterEngine("aurora")
+	GlobalClusterEngine_AURORA_MYSQL      = GlobalClusterEngine("aurora-mysql")
+	GlobalClusterEngine_AURORA_POSTGRESQL = GlobalClusterEngine("aurora-postgresql")
 )
 
 func (GlobalClusterEngine) ElementType() reflect.Type {

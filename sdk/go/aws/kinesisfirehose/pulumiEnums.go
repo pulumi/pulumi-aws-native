@@ -13,8 +13,8 @@ import (
 type DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType string
 
 const (
-	DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeAwsOwnedCmk        = DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("AWS_OWNED_CMK")
-	DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypeCustomerManagedCmk = DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("CUSTOMER_MANAGED_CMK")
+	DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType_AWS_OWNED_CMK        = DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("AWS_OWNED_CMK")
+	DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType_CUSTOMER_MANAGED_CMK = DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("CUSTOMER_MANAGED_CMK")
 )
 
 func (DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType) ElementType() reflect.Type {
@@ -177,8 +177,8 @@ func (in *deliveryStreamDeliveryStreamEncryptionConfigurationInputKeyTypePtr) To
 type DeliveryStreamDeliveryStreamType string
 
 const (
-	DeliveryStreamDeliveryStreamTypeDirectPut             = DeliveryStreamDeliveryStreamType("DirectPut")
-	DeliveryStreamDeliveryStreamTypeKinesisStreamAsSource = DeliveryStreamDeliveryStreamType("KinesisStreamAsSource")
+	DeliveryStreamDeliveryStreamType_DIRECT_PUT               = DeliveryStreamDeliveryStreamType("DirectPut")
+	DeliveryStreamDeliveryStreamType_KINESIS_STREAM_AS_SOURCE = DeliveryStreamDeliveryStreamType("KinesisStreamAsSource")
 )
 
 func (DeliveryStreamDeliveryStreamType) ElementType() reflect.Type {
@@ -341,11 +341,11 @@ func (in *deliveryStreamDeliveryStreamTypePtr) ToDeliveryStreamDeliveryStreamTyp
 type DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod string
 
 const (
-	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodNoRotation = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("NoRotation")
-	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneHour    = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneHour")
-	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneDay     = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneDay")
-	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneWeek    = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneWeek")
-	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOneMonth   = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneMonth")
+	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod_NO_ROTATION = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("NoRotation")
+	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod_ONE_HOUR    = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneHour")
+	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod_ONE_DAY     = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneDay")
+	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod_ONE_WEEK    = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneWeek")
+	DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod_ONE_MONTH   = DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("OneMonth")
 )
 
 func (DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod) ElementType() reflect.Type {
@@ -508,8 +508,8 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod
 type DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode string
 
 const (
-	DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeFailedDocumentsOnly = DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode("FailedDocumentsOnly")
-	DeliveryStreamElasticsearchDestinationConfigurationS3BackupModeAllDocuments        = DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode("AllDocuments")
+	DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode_FAILED_DOCUMENTS_ONLY = DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode("FailedDocumentsOnly")
+	DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode_ALL_DOCUMENTS         = DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode("AllDocuments")
 )
 
 func (DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode) ElementType() reflect.Type {
@@ -672,7 +672,7 @@ func (in *deliveryStreamElasticsearchDestinationConfigurationS3BackupModePtr) To
 type DeliveryStreamEncryptionConfigurationNoEncryptionConfig string
 
 const (
-	DeliveryStreamEncryptionConfigurationNoEncryptionConfigNoEncryption = DeliveryStreamEncryptionConfigurationNoEncryptionConfig("NoEncryption")
+	DeliveryStreamEncryptionConfigurationNoEncryptionConfig_NO_ENCRYPTION = DeliveryStreamEncryptionConfigurationNoEncryptionConfig("NoEncryption")
 )
 
 func (DeliveryStreamEncryptionConfigurationNoEncryptionConfig) ElementType() reflect.Type {
@@ -835,11 +835,11 @@ func (in *deliveryStreamEncryptionConfigurationNoEncryptionConfigPtr) ToDelivery
 type DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat string
 
 const (
-	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatUncompressed = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("UNCOMPRESSED")
-	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatGzip         = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("GZIP")
-	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatZip          = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("ZIP")
-	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatSnappy       = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("Snappy")
-	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatHadoopSnappy = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("HADOOP_SNAPPY")
+	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatUNCOMPRESSED   = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("UNCOMPRESSED")
+	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatGZIP           = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("GZIP")
+	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatZIP            = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("ZIP")
+	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatSNAPPY         = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("Snappy")
+	DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat_HADOOP_SNAPPY = DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat("HADOOP_SNAPPY")
 )
 
 func (DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat) ElementType() reflect.Type {
@@ -1002,8 +1002,8 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtr) 
 type DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode string
 
 const (
-	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeDisabled = DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode("Disabled")
-	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeEnabled  = DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode("Enabled")
+	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeDISABLED = DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode("Disabled")
+	DeliveryStreamExtendedS3DestinationConfigurationS3BackupModeENABLED  = DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode("Enabled")
 )
 
 func (DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode) ElementType() reflect.Type {
@@ -1166,8 +1166,8 @@ func (in *deliveryStreamExtendedS3DestinationConfigurationS3BackupModePtr) ToDel
 type DeliveryStreamHttpEndpointRequestConfigurationContentEncoding string
 
 const (
-	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingNone = DeliveryStreamHttpEndpointRequestConfigurationContentEncoding("NONE")
-	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingGzip = DeliveryStreamHttpEndpointRequestConfigurationContentEncoding("GZIP")
+	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingNONE = DeliveryStreamHttpEndpointRequestConfigurationContentEncoding("NONE")
+	DeliveryStreamHttpEndpointRequestConfigurationContentEncodingGZIP = DeliveryStreamHttpEndpointRequestConfigurationContentEncoding("GZIP")
 )
 
 func (DeliveryStreamHttpEndpointRequestConfigurationContentEncoding) ElementType() reflect.Type {
@@ -1330,10 +1330,10 @@ func (in *deliveryStreamHttpEndpointRequestConfigurationContentEncodingPtr) ToDe
 type DeliveryStreamProcessorType string
 
 const (
-	DeliveryStreamProcessorTypeRecordDeAggregation     = DeliveryStreamProcessorType("RecordDeAggregation")
-	DeliveryStreamProcessorTypeLambda                  = DeliveryStreamProcessorType("Lambda")
-	DeliveryStreamProcessorTypeMetadataExtraction      = DeliveryStreamProcessorType("MetadataExtraction")
-	DeliveryStreamProcessorTypeAppendDelimiterToRecord = DeliveryStreamProcessorType("AppendDelimiterToRecord")
+	DeliveryStreamProcessorType_RECORD_DE_AGGREGATION      = DeliveryStreamProcessorType("RecordDeAggregation")
+	DeliveryStreamProcessorType_LAMBDA_                    = DeliveryStreamProcessorType("Lambda")
+	DeliveryStreamProcessorType_METADATA_EXTRACTION        = DeliveryStreamProcessorType("MetadataExtraction")
+	DeliveryStreamProcessorType_APPEND_DELIMITER_TO_RECORD = DeliveryStreamProcessorType("AppendDelimiterToRecord")
 )
 
 func (DeliveryStreamProcessorType) ElementType() reflect.Type {
@@ -1496,8 +1496,8 @@ func (in *deliveryStreamProcessorTypePtr) ToDeliveryStreamProcessorTypePtrOutput
 type DeliveryStreamRedshiftDestinationConfigurationS3BackupMode string
 
 const (
-	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeDisabled = DeliveryStreamRedshiftDestinationConfigurationS3BackupMode("Disabled")
-	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeEnabled  = DeliveryStreamRedshiftDestinationConfigurationS3BackupMode("Enabled")
+	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeDISABLED = DeliveryStreamRedshiftDestinationConfigurationS3BackupMode("Disabled")
+	DeliveryStreamRedshiftDestinationConfigurationS3BackupModeENABLED  = DeliveryStreamRedshiftDestinationConfigurationS3BackupMode("Enabled")
 )
 
 func (DeliveryStreamRedshiftDestinationConfigurationS3BackupMode) ElementType() reflect.Type {
@@ -1660,11 +1660,11 @@ func (in *deliveryStreamRedshiftDestinationConfigurationS3BackupModePtr) ToDeliv
 type DeliveryStreamS3DestinationConfigurationCompressionFormat string
 
 const (
-	DeliveryStreamS3DestinationConfigurationCompressionFormatUncompressed = DeliveryStreamS3DestinationConfigurationCompressionFormat("UNCOMPRESSED")
-	DeliveryStreamS3DestinationConfigurationCompressionFormatGzip         = DeliveryStreamS3DestinationConfigurationCompressionFormat("GZIP")
-	DeliveryStreamS3DestinationConfigurationCompressionFormatZip          = DeliveryStreamS3DestinationConfigurationCompressionFormat("ZIP")
-	DeliveryStreamS3DestinationConfigurationCompressionFormatSnappy       = DeliveryStreamS3DestinationConfigurationCompressionFormat("Snappy")
-	DeliveryStreamS3DestinationConfigurationCompressionFormatHadoopSnappy = DeliveryStreamS3DestinationConfigurationCompressionFormat("HADOOP_SNAPPY")
+	DeliveryStreamS3DestinationConfigurationCompressionFormatUNCOMPRESSED   = DeliveryStreamS3DestinationConfigurationCompressionFormat("UNCOMPRESSED")
+	DeliveryStreamS3DestinationConfigurationCompressionFormatGZIP           = DeliveryStreamS3DestinationConfigurationCompressionFormat("GZIP")
+	DeliveryStreamS3DestinationConfigurationCompressionFormatZIP            = DeliveryStreamS3DestinationConfigurationCompressionFormat("ZIP")
+	DeliveryStreamS3DestinationConfigurationCompressionFormatSNAPPY         = DeliveryStreamS3DestinationConfigurationCompressionFormat("Snappy")
+	DeliveryStreamS3DestinationConfigurationCompressionFormat_HADOOP_SNAPPY = DeliveryStreamS3DestinationConfigurationCompressionFormat("HADOOP_SNAPPY")
 )
 
 func (DeliveryStreamS3DestinationConfigurationCompressionFormat) ElementType() reflect.Type {
@@ -1827,8 +1827,8 @@ func (in *deliveryStreamS3DestinationConfigurationCompressionFormatPtr) ToDelive
 type DeliveryStreamSplunkDestinationConfigurationHECEndpointType string
 
 const (
-	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeRaw   = DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Raw")
-	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeEvent = DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Event")
+	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeRAW   = DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Raw")
+	DeliveryStreamSplunkDestinationConfigurationHECEndpointTypeEVENT = DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Event")
 )
 
 func (DeliveryStreamSplunkDestinationConfigurationHECEndpointType) ElementType() reflect.Type {

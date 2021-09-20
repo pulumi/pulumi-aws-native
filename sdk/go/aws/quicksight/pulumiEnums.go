@@ -13,16 +13,16 @@ import (
 type AnalysisAnalysisErrorType string
 
 const (
-	AnalysisAnalysisErrorTypeAccessDenied                 = AnalysisAnalysisErrorType("ACCESS_DENIED")
-	AnalysisAnalysisErrorTypeSourceNotFound               = AnalysisAnalysisErrorType("SOURCE_NOT_FOUND")
-	AnalysisAnalysisErrorTypeDataSetNotFound              = AnalysisAnalysisErrorType("DATA_SET_NOT_FOUND")
-	AnalysisAnalysisErrorTypeInternalFailure              = AnalysisAnalysisErrorType("INTERNAL_FAILURE")
-	AnalysisAnalysisErrorTypeParameterValueIncompatible   = AnalysisAnalysisErrorType("PARAMETER_VALUE_INCOMPATIBLE")
-	AnalysisAnalysisErrorTypeParameterTypeInvalid         = AnalysisAnalysisErrorType("PARAMETER_TYPE_INVALID")
-	AnalysisAnalysisErrorTypeParameterNotFound            = AnalysisAnalysisErrorType("PARAMETER_NOT_FOUND")
-	AnalysisAnalysisErrorTypeColumnTypeMismatch           = AnalysisAnalysisErrorType("COLUMN_TYPE_MISMATCH")
-	AnalysisAnalysisErrorTypeColumnGeographicRoleMismatch = AnalysisAnalysisErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH")
-	AnalysisAnalysisErrorTypeColumnReplacementMissing     = AnalysisAnalysisErrorType("COLUMN_REPLACEMENT_MISSING")
+	AnalysisAnalysisErrorType_ACCESS_DENIED                   = AnalysisAnalysisErrorType("ACCESS_DENIED")
+	AnalysisAnalysisErrorType_SOURCE_NOT_FOUND                = AnalysisAnalysisErrorType("SOURCE_NOT_FOUND")
+	AnalysisAnalysisErrorType_DATA_SET_NOT_FOUND              = AnalysisAnalysisErrorType("DATA_SET_NOT_FOUND")
+	AnalysisAnalysisErrorType_INTERNAL_FAILURE                = AnalysisAnalysisErrorType("INTERNAL_FAILURE")
+	AnalysisAnalysisErrorType_PARAMETER_VALUE_INCOMPATIBLE    = AnalysisAnalysisErrorType("PARAMETER_VALUE_INCOMPATIBLE")
+	AnalysisAnalysisErrorType_PARAMETER_TYPE_INVALID          = AnalysisAnalysisErrorType("PARAMETER_TYPE_INVALID")
+	AnalysisAnalysisErrorType_PARAMETER_NOT_FOUND             = AnalysisAnalysisErrorType("PARAMETER_NOT_FOUND")
+	AnalysisAnalysisErrorType_COLUMN_TYPE_MISMATCH            = AnalysisAnalysisErrorType("COLUMN_TYPE_MISMATCH")
+	AnalysisAnalysisErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH = AnalysisAnalysisErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH")
+	AnalysisAnalysisErrorType_COLUMN_REPLACEMENT_MISSING      = AnalysisAnalysisErrorType("COLUMN_REPLACEMENT_MISSING")
 )
 
 func (AnalysisAnalysisErrorType) ElementType() reflect.Type {
@@ -185,13 +185,13 @@ func (in *analysisAnalysisErrorTypePtr) ToAnalysisAnalysisErrorTypePtrOutputWith
 type AnalysisResourceStatus string
 
 const (
-	AnalysisResourceStatusCreationInProgress = AnalysisResourceStatus("CREATION_IN_PROGRESS")
-	AnalysisResourceStatusCreationSuccessful = AnalysisResourceStatus("CREATION_SUCCESSFUL")
-	AnalysisResourceStatusCreationFailed     = AnalysisResourceStatus("CREATION_FAILED")
-	AnalysisResourceStatusUpdateInProgress   = AnalysisResourceStatus("UPDATE_IN_PROGRESS")
-	AnalysisResourceStatusUpdateSuccessful   = AnalysisResourceStatus("UPDATE_SUCCESSFUL")
-	AnalysisResourceStatusUpdateFailed       = AnalysisResourceStatus("UPDATE_FAILED")
-	AnalysisResourceStatusDeleted            = AnalysisResourceStatus("DELETED")
+	AnalysisResourceStatus_CREATION_IN_PROGRESS = AnalysisResourceStatus("CREATION_IN_PROGRESS")
+	AnalysisResourceStatus_CREATION_SUCCESSFUL  = AnalysisResourceStatus("CREATION_SUCCESSFUL")
+	AnalysisResourceStatus_CREATION_FAILED      = AnalysisResourceStatus("CREATION_FAILED")
+	AnalysisResourceStatus_UPDATE_IN_PROGRESS   = AnalysisResourceStatus("UPDATE_IN_PROGRESS")
+	AnalysisResourceStatus_UPDATE_SUCCESSFUL    = AnalysisResourceStatus("UPDATE_SUCCESSFUL")
+	AnalysisResourceStatus_UPDATE_FAILED        = AnalysisResourceStatus("UPDATE_FAILED")
+	AnalysisResourceStatusDELETED               = AnalysisResourceStatus("DELETED")
 )
 
 func (AnalysisResourceStatus) ElementType() reflect.Type {
@@ -354,8 +354,8 @@ func (in *analysisResourceStatusPtr) ToAnalysisResourceStatusPtrOutputWithContex
 type DashboardDashboardBehavior string
 
 const (
-	DashboardDashboardBehaviorEnabled  = DashboardDashboardBehavior("ENABLED")
-	DashboardDashboardBehaviorDisabled = DashboardDashboardBehavior("DISABLED")
+	DashboardDashboardBehaviorENABLED  = DashboardDashboardBehavior("ENABLED")
+	DashboardDashboardBehaviorDISABLED = DashboardDashboardBehavior("DISABLED")
 )
 
 func (DashboardDashboardBehavior) ElementType() reflect.Type {
@@ -518,16 +518,16 @@ func (in *dashboardDashboardBehaviorPtr) ToDashboardDashboardBehaviorPtrOutputWi
 type DashboardDashboardErrorType string
 
 const (
-	DashboardDashboardErrorTypeAccessDenied                 = DashboardDashboardErrorType("ACCESS_DENIED")
-	DashboardDashboardErrorTypeSourceNotFound               = DashboardDashboardErrorType("SOURCE_NOT_FOUND")
-	DashboardDashboardErrorTypeDataSetNotFound              = DashboardDashboardErrorType("DATA_SET_NOT_FOUND")
-	DashboardDashboardErrorTypeInternalFailure              = DashboardDashboardErrorType("INTERNAL_FAILURE")
-	DashboardDashboardErrorTypeParameterValueIncompatible   = DashboardDashboardErrorType("PARAMETER_VALUE_INCOMPATIBLE")
-	DashboardDashboardErrorTypeParameterTypeInvalid         = DashboardDashboardErrorType("PARAMETER_TYPE_INVALID")
-	DashboardDashboardErrorTypeParameterNotFound            = DashboardDashboardErrorType("PARAMETER_NOT_FOUND")
-	DashboardDashboardErrorTypeColumnTypeMismatch           = DashboardDashboardErrorType("COLUMN_TYPE_MISMATCH")
-	DashboardDashboardErrorTypeColumnGeographicRoleMismatch = DashboardDashboardErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH")
-	DashboardDashboardErrorTypeColumnReplacementMissing     = DashboardDashboardErrorType("COLUMN_REPLACEMENT_MISSING")
+	DashboardDashboardErrorType_ACCESS_DENIED                   = DashboardDashboardErrorType("ACCESS_DENIED")
+	DashboardDashboardErrorType_SOURCE_NOT_FOUND                = DashboardDashboardErrorType("SOURCE_NOT_FOUND")
+	DashboardDashboardErrorType_DATA_SET_NOT_FOUND              = DashboardDashboardErrorType("DATA_SET_NOT_FOUND")
+	DashboardDashboardErrorType_INTERNAL_FAILURE                = DashboardDashboardErrorType("INTERNAL_FAILURE")
+	DashboardDashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE    = DashboardDashboardErrorType("PARAMETER_VALUE_INCOMPATIBLE")
+	DashboardDashboardErrorType_PARAMETER_TYPE_INVALID          = DashboardDashboardErrorType("PARAMETER_TYPE_INVALID")
+	DashboardDashboardErrorType_PARAMETER_NOT_FOUND             = DashboardDashboardErrorType("PARAMETER_NOT_FOUND")
+	DashboardDashboardErrorType_COLUMN_TYPE_MISMATCH            = DashboardDashboardErrorType("COLUMN_TYPE_MISMATCH")
+	DashboardDashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH = DashboardDashboardErrorType("COLUMN_GEOGRAPHIC_ROLE_MISMATCH")
+	DashboardDashboardErrorType_COLUMN_REPLACEMENT_MISSING      = DashboardDashboardErrorType("COLUMN_REPLACEMENT_MISSING")
 )
 
 func (DashboardDashboardErrorType) ElementType() reflect.Type {
@@ -690,8 +690,8 @@ func (in *dashboardDashboardErrorTypePtr) ToDashboardDashboardErrorTypePtrOutput
 type DashboardDashboardUIState string
 
 const (
-	DashboardDashboardUIStateExpanded  = DashboardDashboardUIState("EXPANDED")
-	DashboardDashboardUIStateCollapsed = DashboardDashboardUIState("COLLAPSED")
+	DashboardDashboardUIStateEXPANDED  = DashboardDashboardUIState("EXPANDED")
+	DashboardDashboardUIStateCOLLAPSED = DashboardDashboardUIState("COLLAPSED")
 )
 
 func (DashboardDashboardUIState) ElementType() reflect.Type {
@@ -854,13 +854,13 @@ func (in *dashboardDashboardUIStatePtr) ToDashboardDashboardUIStatePtrOutputWith
 type DashboardResourceStatus string
 
 const (
-	DashboardResourceStatusCreationInProgress = DashboardResourceStatus("CREATION_IN_PROGRESS")
-	DashboardResourceStatusCreationSuccessful = DashboardResourceStatus("CREATION_SUCCESSFUL")
-	DashboardResourceStatusCreationFailed     = DashboardResourceStatus("CREATION_FAILED")
-	DashboardResourceStatusUpdateInProgress   = DashboardResourceStatus("UPDATE_IN_PROGRESS")
-	DashboardResourceStatusUpdateSuccessful   = DashboardResourceStatus("UPDATE_SUCCESSFUL")
-	DashboardResourceStatusUpdateFailed       = DashboardResourceStatus("UPDATE_FAILED")
-	DashboardResourceStatusDeleted            = DashboardResourceStatus("DELETED")
+	DashboardResourceStatus_CREATION_IN_PROGRESS = DashboardResourceStatus("CREATION_IN_PROGRESS")
+	DashboardResourceStatus_CREATION_SUCCESSFUL  = DashboardResourceStatus("CREATION_SUCCESSFUL")
+	DashboardResourceStatus_CREATION_FAILED      = DashboardResourceStatus("CREATION_FAILED")
+	DashboardResourceStatus_UPDATE_IN_PROGRESS   = DashboardResourceStatus("UPDATE_IN_PROGRESS")
+	DashboardResourceStatus_UPDATE_SUCCESSFUL    = DashboardResourceStatus("UPDATE_SUCCESSFUL")
+	DashboardResourceStatus_UPDATE_FAILED        = DashboardResourceStatus("UPDATE_FAILED")
+	DashboardResourceStatusDELETED               = DashboardResourceStatus("DELETED")
 )
 
 func (DashboardResourceStatus) ElementType() reflect.Type {
@@ -1023,10 +1023,10 @@ func (in *dashboardResourceStatusPtr) ToDashboardResourceStatusPtrOutputWithCont
 type DataSetColumnDataType string
 
 const (
-	DataSetColumnDataTypeString   = DataSetColumnDataType("STRING")
-	DataSetColumnDataTypeInteger  = DataSetColumnDataType("INTEGER")
-	DataSetColumnDataTypeDecimal  = DataSetColumnDataType("DECIMAL")
-	DataSetColumnDataTypeDatetime = DataSetColumnDataType("DATETIME")
+	DataSetColumnDataTypeSTRING   = DataSetColumnDataType("STRING")
+	DataSetColumnDataTypeINTEGER  = DataSetColumnDataType("INTEGER")
+	DataSetColumnDataTypeDECIMAL  = DataSetColumnDataType("DECIMAL")
+	DataSetColumnDataTypeDATETIME = DataSetColumnDataType("DATETIME")
 )
 
 func (DataSetColumnDataType) ElementType() reflect.Type {
@@ -1189,8 +1189,8 @@ func (in *dataSetColumnDataTypePtr) ToDataSetColumnDataTypePtrOutputWithContext(
 type DataSetDataSetImportMode string
 
 const (
-	DataSetDataSetImportModeSpice       = DataSetDataSetImportMode("SPICE")
-	DataSetDataSetImportModeDirectQuery = DataSetDataSetImportMode("DIRECT_QUERY")
+	DataSetDataSetImportModeSPICE         = DataSetDataSetImportMode("SPICE")
+	DataSetDataSetImportMode_DIRECT_QUERY = DataSetDataSetImportMode("DIRECT_QUERY")
 )
 
 func (DataSetDataSetImportMode) ElementType() reflect.Type {
@@ -1353,7 +1353,7 @@ func (in *dataSetDataSetImportModePtr) ToDataSetDataSetImportModePtrOutputWithCo
 type DataSetGeoSpatialCountryCode string
 
 const (
-	DataSetGeoSpatialCountryCodeUs = DataSetGeoSpatialCountryCode("US")
+	DataSetGeoSpatialCountryCodeUS = DataSetGeoSpatialCountryCode("US")
 )
 
 func (DataSetGeoSpatialCountryCode) ElementType() reflect.Type {
@@ -1516,8 +1516,8 @@ func (in *dataSetGeoSpatialCountryCodePtr) ToDataSetGeoSpatialCountryCodePtrOutp
 type DataSetRowLevelPermissionFormatVersion string
 
 const (
-	DataSetRowLevelPermissionFormatVersionVersion1 = DataSetRowLevelPermissionFormatVersion("VERSION_1")
-	DataSetRowLevelPermissionFormatVersionVersion2 = DataSetRowLevelPermissionFormatVersion("VERSION_2")
+	DataSetRowLevelPermissionFormatVersionVERSION1 = DataSetRowLevelPermissionFormatVersion("VERSION_1")
+	DataSetRowLevelPermissionFormatVersionVERSION2 = DataSetRowLevelPermissionFormatVersion("VERSION_2")
 )
 
 func (DataSetRowLevelPermissionFormatVersion) ElementType() reflect.Type {
@@ -1680,8 +1680,8 @@ func (in *dataSetRowLevelPermissionFormatVersionPtr) ToDataSetRowLevelPermission
 type DataSetRowLevelPermissionPolicy string
 
 const (
-	DataSetRowLevelPermissionPolicyGrantAccess = DataSetRowLevelPermissionPolicy("GRANT_ACCESS")
-	DataSetRowLevelPermissionPolicyDenyAccess  = DataSetRowLevelPermissionPolicy("DENY_ACCESS")
+	DataSetRowLevelPermissionPolicy_GRANT_ACCESS = DataSetRowLevelPermissionPolicy("GRANT_ACCESS")
+	DataSetRowLevelPermissionPolicy_DENY_ACCESS  = DataSetRowLevelPermissionPolicy("DENY_ACCESS")
 )
 
 func (DataSetRowLevelPermissionPolicy) ElementType() reflect.Type {
@@ -1844,14 +1844,14 @@ func (in *dataSetRowLevelPermissionPolicyPtr) ToDataSetRowLevelPermissionPolicyP
 type DataSourceDataSourceErrorInfoType string
 
 const (
-	DataSourceDataSourceErrorInfoTypeAccessDenied              = DataSourceDataSourceErrorInfoType("ACCESS_DENIED")
-	DataSourceDataSourceErrorInfoTypeCopySourceNotFound        = DataSourceDataSourceErrorInfoType("COPY_SOURCE_NOT_FOUND")
-	DataSourceDataSourceErrorInfoTypeTimeout                   = DataSourceDataSourceErrorInfoType("TIMEOUT")
-	DataSourceDataSourceErrorInfoTypeEngineVersionNotSupported = DataSourceDataSourceErrorInfoType("ENGINE_VERSION_NOT_SUPPORTED")
-	DataSourceDataSourceErrorInfoTypeUnknownHost               = DataSourceDataSourceErrorInfoType("UNKNOWN_HOST")
-	DataSourceDataSourceErrorInfoTypeGenericSqlFailure         = DataSourceDataSourceErrorInfoType("GENERIC_SQL_FAILURE")
-	DataSourceDataSourceErrorInfoTypeConflict                  = DataSourceDataSourceErrorInfoType("CONFLICT")
-	DataSourceDataSourceErrorInfoTypeUnknown                   = DataSourceDataSourceErrorInfoType("UNKNOWN")
+	DataSourceDataSourceErrorInfoType_ACCESS_DENIED                = DataSourceDataSourceErrorInfoType("ACCESS_DENIED")
+	DataSourceDataSourceErrorInfoType_COPY_SOURCE_NOT_FOUND        = DataSourceDataSourceErrorInfoType("COPY_SOURCE_NOT_FOUND")
+	DataSourceDataSourceErrorInfoTypeTIMEOUT                       = DataSourceDataSourceErrorInfoType("TIMEOUT")
+	DataSourceDataSourceErrorInfoType_ENGINE_VERSION_NOT_SUPPORTED = DataSourceDataSourceErrorInfoType("ENGINE_VERSION_NOT_SUPPORTED")
+	DataSourceDataSourceErrorInfoType_UNKNOWN_HOST                 = DataSourceDataSourceErrorInfoType("UNKNOWN_HOST")
+	DataSourceDataSourceErrorInfoType_GENERIC_SQL_FAILURE          = DataSourceDataSourceErrorInfoType("GENERIC_SQL_FAILURE")
+	DataSourceDataSourceErrorInfoTypeCONFLICT                      = DataSourceDataSourceErrorInfoType("CONFLICT")
+	DataSourceDataSourceErrorInfoTypeUNKNOWN                       = DataSourceDataSourceErrorInfoType("UNKNOWN")
 )
 
 func (DataSourceDataSourceErrorInfoType) ElementType() reflect.Type {
@@ -2014,29 +2014,29 @@ func (in *dataSourceDataSourceErrorInfoTypePtr) ToDataSourceDataSourceErrorInfoT
 type DataSourceDataSourceType string
 
 const (
-	DataSourceDataSourceTypeAdobeAnalytics      = DataSourceDataSourceType("ADOBE_ANALYTICS")
-	DataSourceDataSourceTypeAmazonElasticsearch = DataSourceDataSourceType("AMAZON_ELASTICSEARCH")
-	DataSourceDataSourceTypeAthena              = DataSourceDataSourceType("ATHENA")
-	DataSourceDataSourceTypeAurora              = DataSourceDataSourceType("AURORA")
-	DataSourceDataSourceTypeAuroraPostgresql    = DataSourceDataSourceType("AURORA_POSTGRESQL")
-	DataSourceDataSourceTypeAwsIotAnalytics     = DataSourceDataSourceType("AWS_IOT_ANALYTICS")
-	DataSourceDataSourceTypeGithub              = DataSourceDataSourceType("GITHUB")
-	DataSourceDataSourceTypeJira                = DataSourceDataSourceType("JIRA")
-	DataSourceDataSourceTypeMariadb             = DataSourceDataSourceType("MARIADB")
-	DataSourceDataSourceTypeMysql               = DataSourceDataSourceType("MYSQL")
-	DataSourceDataSourceTypeOracle              = DataSourceDataSourceType("ORACLE")
-	DataSourceDataSourceTypePostgresql          = DataSourceDataSourceType("POSTGRESQL")
-	DataSourceDataSourceTypePresto              = DataSourceDataSourceType("PRESTO")
-	DataSourceDataSourceTypeRedshift            = DataSourceDataSourceType("REDSHIFT")
-	DataSourceDataSourceTypeS3                  = DataSourceDataSourceType("S3")
-	DataSourceDataSourceTypeSalesforce          = DataSourceDataSourceType("SALESFORCE")
-	DataSourceDataSourceTypeServicenow          = DataSourceDataSourceType("SERVICENOW")
-	DataSourceDataSourceTypeSnowflake           = DataSourceDataSourceType("SNOWFLAKE")
-	DataSourceDataSourceTypeSpark               = DataSourceDataSourceType("SPARK")
-	DataSourceDataSourceTypeSqlserver           = DataSourceDataSourceType("SQLSERVER")
-	DataSourceDataSourceTypeTeradata            = DataSourceDataSourceType("TERADATA")
-	DataSourceDataSourceTypeTwitter             = DataSourceDataSourceType("TWITTER")
-	DataSourceDataSourceTypeTimestream          = DataSourceDataSourceType("TIMESTREAM")
+	DataSourceDataSourceType_ADOBE_ANALYTICS      = DataSourceDataSourceType("ADOBE_ANALYTICS")
+	DataSourceDataSourceType_AMAZON_ELASTICSEARCH = DataSourceDataSourceType("AMAZON_ELASTICSEARCH")
+	DataSourceDataSourceTypeATHENA                = DataSourceDataSourceType("ATHENA")
+	DataSourceDataSourceTypeAURORA                = DataSourceDataSourceType("AURORA")
+	DataSourceDataSourceType_AURORA_POSTGRESQL    = DataSourceDataSourceType("AURORA_POSTGRESQL")
+	DataSourceDataSourceType_AWS_IOT_ANALYTICS    = DataSourceDataSourceType("AWS_IOT_ANALYTICS")
+	DataSourceDataSourceTypeGITHUB                = DataSourceDataSourceType("GITHUB")
+	DataSourceDataSourceTypeJIRA                  = DataSourceDataSourceType("JIRA")
+	DataSourceDataSourceTypeMARIADB               = DataSourceDataSourceType("MARIADB")
+	DataSourceDataSourceTypeMYSQL                 = DataSourceDataSourceType("MYSQL")
+	DataSourceDataSourceTypeORACLE                = DataSourceDataSourceType("ORACLE")
+	DataSourceDataSourceTypePOSTGRESQL            = DataSourceDataSourceType("POSTGRESQL")
+	DataSourceDataSourceTypePRESTO                = DataSourceDataSourceType("PRESTO")
+	DataSourceDataSourceTypeREDSHIFT              = DataSourceDataSourceType("REDSHIFT")
+	DataSourceDataSourceTypeS3                    = DataSourceDataSourceType("S3")
+	DataSourceDataSourceTypeSALESFORCE            = DataSourceDataSourceType("SALESFORCE")
+	DataSourceDataSourceTypeSERVICENOW            = DataSourceDataSourceType("SERVICENOW")
+	DataSourceDataSourceTypeSNOWFLAKE             = DataSourceDataSourceType("SNOWFLAKE")
+	DataSourceDataSourceTypeSPARK                 = DataSourceDataSourceType("SPARK")
+	DataSourceDataSourceTypeSQLSERVER             = DataSourceDataSourceType("SQLSERVER")
+	DataSourceDataSourceTypeTERADATA              = DataSourceDataSourceType("TERADATA")
+	DataSourceDataSourceTypeTWITTER               = DataSourceDataSourceType("TWITTER")
+	DataSourceDataSourceTypeTIMESTREAM            = DataSourceDataSourceType("TIMESTREAM")
 )
 
 func (DataSourceDataSourceType) ElementType() reflect.Type {
@@ -2199,13 +2199,13 @@ func (in *dataSourceDataSourceTypePtr) ToDataSourceDataSourceTypePtrOutputWithCo
 type DataSourceResourceStatus string
 
 const (
-	DataSourceResourceStatusCreationInProgress = DataSourceResourceStatus("CREATION_IN_PROGRESS")
-	DataSourceResourceStatusCreationSuccessful = DataSourceResourceStatus("CREATION_SUCCESSFUL")
-	DataSourceResourceStatusCreationFailed     = DataSourceResourceStatus("CREATION_FAILED")
-	DataSourceResourceStatusUpdateInProgress   = DataSourceResourceStatus("UPDATE_IN_PROGRESS")
-	DataSourceResourceStatusUpdateSuccessful   = DataSourceResourceStatus("UPDATE_SUCCESSFUL")
-	DataSourceResourceStatusUpdateFailed       = DataSourceResourceStatus("UPDATE_FAILED")
-	DataSourceResourceStatusDeleted            = DataSourceResourceStatus("DELETED")
+	DataSourceResourceStatus_CREATION_IN_PROGRESS = DataSourceResourceStatus("CREATION_IN_PROGRESS")
+	DataSourceResourceStatus_CREATION_SUCCESSFUL  = DataSourceResourceStatus("CREATION_SUCCESSFUL")
+	DataSourceResourceStatus_CREATION_FAILED      = DataSourceResourceStatus("CREATION_FAILED")
+	DataSourceResourceStatus_UPDATE_IN_PROGRESS   = DataSourceResourceStatus("UPDATE_IN_PROGRESS")
+	DataSourceResourceStatus_UPDATE_SUCCESSFUL    = DataSourceResourceStatus("UPDATE_SUCCESSFUL")
+	DataSourceResourceStatus_UPDATE_FAILED        = DataSourceResourceStatus("UPDATE_FAILED")
+	DataSourceResourceStatusDELETED               = DataSourceResourceStatus("DELETED")
 )
 
 func (DataSourceResourceStatus) ElementType() reflect.Type {
@@ -2368,13 +2368,13 @@ func (in *dataSourceResourceStatusPtr) ToDataSourceResourceStatusPtrOutputWithCo
 type TemplateResourceStatus string
 
 const (
-	TemplateResourceStatusCreationInProgress = TemplateResourceStatus("CREATION_IN_PROGRESS")
-	TemplateResourceStatusCreationSuccessful = TemplateResourceStatus("CREATION_SUCCESSFUL")
-	TemplateResourceStatusCreationFailed     = TemplateResourceStatus("CREATION_FAILED")
-	TemplateResourceStatusUpdateInProgress   = TemplateResourceStatus("UPDATE_IN_PROGRESS")
-	TemplateResourceStatusUpdateSuccessful   = TemplateResourceStatus("UPDATE_SUCCESSFUL")
-	TemplateResourceStatusUpdateFailed       = TemplateResourceStatus("UPDATE_FAILED")
-	TemplateResourceStatusDeleted            = TemplateResourceStatus("DELETED")
+	TemplateResourceStatus_CREATION_IN_PROGRESS = TemplateResourceStatus("CREATION_IN_PROGRESS")
+	TemplateResourceStatus_CREATION_SUCCESSFUL  = TemplateResourceStatus("CREATION_SUCCESSFUL")
+	TemplateResourceStatus_CREATION_FAILED      = TemplateResourceStatus("CREATION_FAILED")
+	TemplateResourceStatus_UPDATE_IN_PROGRESS   = TemplateResourceStatus("UPDATE_IN_PROGRESS")
+	TemplateResourceStatus_UPDATE_SUCCESSFUL    = TemplateResourceStatus("UPDATE_SUCCESSFUL")
+	TemplateResourceStatus_UPDATE_FAILED        = TemplateResourceStatus("UPDATE_FAILED")
+	TemplateResourceStatusDELETED               = TemplateResourceStatus("DELETED")
 )
 
 func (TemplateResourceStatus) ElementType() reflect.Type {
@@ -2537,10 +2537,10 @@ func (in *templateResourceStatusPtr) ToTemplateResourceStatusPtrOutputWithContex
 type TemplateTemplateErrorType string
 
 const (
-	TemplateTemplateErrorTypeSourceNotFound  = TemplateTemplateErrorType("SOURCE_NOT_FOUND")
-	TemplateTemplateErrorTypeDataSetNotFound = TemplateTemplateErrorType("DATA_SET_NOT_FOUND")
-	TemplateTemplateErrorTypeInternalFailure = TemplateTemplateErrorType("INTERNAL_FAILURE")
-	TemplateTemplateErrorTypeAccessDenied    = TemplateTemplateErrorType("ACCESS_DENIED")
+	TemplateTemplateErrorType_SOURCE_NOT_FOUND   = TemplateTemplateErrorType("SOURCE_NOT_FOUND")
+	TemplateTemplateErrorType_DATA_SET_NOT_FOUND = TemplateTemplateErrorType("DATA_SET_NOT_FOUND")
+	TemplateTemplateErrorType_INTERNAL_FAILURE   = TemplateTemplateErrorType("INTERNAL_FAILURE")
+	TemplateTemplateErrorType_ACCESS_DENIED      = TemplateTemplateErrorType("ACCESS_DENIED")
 )
 
 func (TemplateTemplateErrorType) ElementType() reflect.Type {
@@ -2703,13 +2703,13 @@ func (in *templateTemplateErrorTypePtr) ToTemplateTemplateErrorTypePtrOutputWith
 type ThemeResourceStatus string
 
 const (
-	ThemeResourceStatusCreationInProgress = ThemeResourceStatus("CREATION_IN_PROGRESS")
-	ThemeResourceStatusCreationSuccessful = ThemeResourceStatus("CREATION_SUCCESSFUL")
-	ThemeResourceStatusCreationFailed     = ThemeResourceStatus("CREATION_FAILED")
-	ThemeResourceStatusUpdateInProgress   = ThemeResourceStatus("UPDATE_IN_PROGRESS")
-	ThemeResourceStatusUpdateSuccessful   = ThemeResourceStatus("UPDATE_SUCCESSFUL")
-	ThemeResourceStatusUpdateFailed       = ThemeResourceStatus("UPDATE_FAILED")
-	ThemeResourceStatusDeleted            = ThemeResourceStatus("DELETED")
+	ThemeResourceStatus_CREATION_IN_PROGRESS = ThemeResourceStatus("CREATION_IN_PROGRESS")
+	ThemeResourceStatus_CREATION_SUCCESSFUL  = ThemeResourceStatus("CREATION_SUCCESSFUL")
+	ThemeResourceStatus_CREATION_FAILED      = ThemeResourceStatus("CREATION_FAILED")
+	ThemeResourceStatus_UPDATE_IN_PROGRESS   = ThemeResourceStatus("UPDATE_IN_PROGRESS")
+	ThemeResourceStatus_UPDATE_SUCCESSFUL    = ThemeResourceStatus("UPDATE_SUCCESSFUL")
+	ThemeResourceStatus_UPDATE_FAILED        = ThemeResourceStatus("UPDATE_FAILED")
+	ThemeResourceStatusDELETED               = ThemeResourceStatus("DELETED")
 )
 
 func (ThemeResourceStatus) ElementType() reflect.Type {
@@ -2872,7 +2872,7 @@ func (in *themeResourceStatusPtr) ToThemeResourceStatusPtrOutputWithContext(ctx 
 type ThemeThemeErrorType string
 
 const (
-	ThemeThemeErrorTypeInternalFailure = ThemeThemeErrorType("INTERNAL_FAILURE")
+	ThemeThemeErrorType_INTERNAL_FAILURE = ThemeThemeErrorType("INTERNAL_FAILURE")
 )
 
 func (ThemeThemeErrorType) ElementType() reflect.Type {
@@ -3035,9 +3035,9 @@ func (in *themeThemeErrorTypePtr) ToThemeThemeErrorTypePtrOutputWithContext(ctx 
 type ThemeThemeType string
 
 const (
-	ThemeThemeTypeQuicksight = ThemeThemeType("QUICKSIGHT")
-	ThemeThemeTypeCustom     = ThemeThemeType("CUSTOM")
-	ThemeThemeTypeAll        = ThemeThemeType("ALL")
+	ThemeThemeTypeQUICKSIGHT = ThemeThemeType("QUICKSIGHT")
+	ThemeThemeTypeCUSTOM     = ThemeThemeType("CUSTOM")
+	ThemeThemeTypeALL        = ThemeThemeType("ALL")
 )
 
 func (ThemeThemeType) ElementType() reflect.Type {

@@ -14,10 +14,10 @@ import (
 type RepositoryAssociationType string
 
 const (
-	RepositoryAssociationTypeCodeCommit             = RepositoryAssociationType("CodeCommit")
-	RepositoryAssociationTypeBitbucket              = RepositoryAssociationType("Bitbucket")
-	RepositoryAssociationTypeGitHubEnterpriseServer = RepositoryAssociationType("GitHubEnterpriseServer")
-	RepositoryAssociationTypeS3Bucket               = RepositoryAssociationType("S3Bucket")
+	RepositoryAssociationType_CODE_COMMIT               = RepositoryAssociationType("CodeCommit")
+	RepositoryAssociationTypeBITBUCKET                  = RepositoryAssociationType("Bitbucket")
+	RepositoryAssociationType_GIT_HUB_ENTERPRISE_SERVER = RepositoryAssociationType("GitHubEnterpriseServer")
+	RepositoryAssociationType_S3_BUCKET                 = RepositoryAssociationType("S3Bucket")
 )
 
 func (RepositoryAssociationType) ElementType() reflect.Type {

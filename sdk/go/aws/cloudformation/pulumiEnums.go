@@ -18,7 +18,7 @@ import (
 type ModuleVersionVisibility string
 
 const (
-	ModuleVersionVisibilityPrivate = ModuleVersionVisibility("PRIVATE")
+	ModuleVersionVisibilityPRIVATE = ModuleVersionVisibility("PRIVATE")
 )
 
 func (ModuleVersionVisibility) ElementType() reflect.Type {
@@ -182,8 +182,8 @@ func (in *moduleVersionVisibilityPtr) ToModuleVersionVisibilityPtrOutputWithCont
 type PublicTypeVersionType string
 
 const (
-	PublicTypeVersionTypeResource = PublicTypeVersionType("RESOURCE")
-	PublicTypeVersionTypeModule   = PublicTypeVersionType("MODULE")
+	PublicTypeVersionTypeRESOURCE = PublicTypeVersionType("RESOURCE")
+	PublicTypeVersionTypeMODULE   = PublicTypeVersionType("MODULE")
 )
 
 func (PublicTypeVersionType) ElementType() reflect.Type {
@@ -347,9 +347,9 @@ func (in *publicTypeVersionTypePtr) ToPublicTypeVersionTypePtrOutputWithContext(
 type PublisherIdentityProvider string
 
 const (
-	PublisherIdentityProviderAWSMarketplace = PublisherIdentityProvider("AWS_Marketplace")
-	PublisherIdentityProviderGitHub         = PublisherIdentityProvider("GitHub")
-	PublisherIdentityProviderBitbucket      = PublisherIdentityProvider("Bitbucket")
+	PublisherIdentityProvider_AWS_MARKETPLACE = PublisherIdentityProvider("AWS_Marketplace")
+	PublisherIdentityProvider_GIT_HUB         = PublisherIdentityProvider("GitHub")
+	PublisherIdentityProviderBITBUCKET        = PublisherIdentityProvider("Bitbucket")
 )
 
 func (PublisherIdentityProvider) ElementType() reflect.Type {
@@ -513,8 +513,8 @@ func (in *publisherIdentityProviderPtr) ToPublisherIdentityProviderPtrOutputWith
 type PublisherPublisherStatus string
 
 const (
-	PublisherPublisherStatusVerified   = PublisherPublisherStatus("VERIFIED")
-	PublisherPublisherStatusUnverified = PublisherPublisherStatus("UNVERIFIED")
+	PublisherPublisherStatusVERIFIED   = PublisherPublisherStatus("VERIFIED")
+	PublisherPublisherStatusUNVERIFIED = PublisherPublisherStatus("UNVERIFIED")
 )
 
 func (PublisherPublisherStatus) ElementType() reflect.Type {
@@ -678,9 +678,9 @@ func (in *publisherPublisherStatusPtr) ToPublisherPublisherStatusPtrOutputWithCo
 type ResourceVersionProvisioningType string
 
 const (
-	ResourceVersionProvisioningTypeNonProvisionable = ResourceVersionProvisioningType("NON_PROVISIONABLE")
-	ResourceVersionProvisioningTypeImmutable        = ResourceVersionProvisioningType("IMMUTABLE")
-	ResourceVersionProvisioningTypeFullyMutable     = ResourceVersionProvisioningType("FULLY_MUTABLE")
+	ResourceVersionProvisioningType_NON_PROVISIONABLE = ResourceVersionProvisioningType("NON_PROVISIONABLE")
+	ResourceVersionProvisioningTypeIMMUTABLE          = ResourceVersionProvisioningType("IMMUTABLE")
+	ResourceVersionProvisioningType_FULLY_MUTABLE     = ResourceVersionProvisioningType("FULLY_MUTABLE")
 )
 
 func (ResourceVersionProvisioningType) ElementType() reflect.Type {
@@ -850,8 +850,8 @@ func (in *resourceVersionProvisioningTypePtr) ToResourceVersionProvisioningTypeP
 type ResourceVersionVisibility string
 
 const (
-	ResourceVersionVisibilityPublic  = ResourceVersionVisibility("PUBLIC")
-	ResourceVersionVisibilityPrivate = ResourceVersionVisibility("PRIVATE")
+	ResourceVersionVisibilityPUBLIC  = ResourceVersionVisibility("PUBLIC")
+	ResourceVersionVisibilityPRIVATE = ResourceVersionVisibility("PRIVATE")
 )
 
 func (ResourceVersionVisibility) ElementType() reflect.Type {
@@ -1015,8 +1015,8 @@ func (in *resourceVersionVisibilityPtr) ToResourceVersionVisibilityPtrOutputWith
 type StackSetCallAs string
 
 const (
-	StackSetCallAsSelf           = StackSetCallAs("SELF")
-	StackSetCallAsDelegatedAdmin = StackSetCallAs("DELEGATED_ADMIN")
+	StackSetCallAsSELF             = StackSetCallAs("SELF")
+	StackSetCallAs_DELEGATED_ADMIN = StackSetCallAs("DELEGATED_ADMIN")
 )
 
 func (StackSetCallAs) ElementType() reflect.Type {
@@ -1179,9 +1179,9 @@ func (in *stackSetCallAsPtr) ToStackSetCallAsPtrOutputWithContext(ctx context.Co
 type StackSetCapability string
 
 const (
-	StackSetCapabilityCapabilityIam        = StackSetCapability("CAPABILITY_IAM")
-	StackSetCapabilityCapabilityNamedIam   = StackSetCapability("CAPABILITY_NAMED_IAM")
-	StackSetCapabilityCapabilityAutoExpand = StackSetCapability("CAPABILITY_AUTO_EXPAND")
+	StackSetCapability_CAPABILITY_IAM         = StackSetCapability("CAPABILITY_IAM")
+	StackSetCapability_CAPABILITY_NAMED_IAM   = StackSetCapability("CAPABILITY_NAMED_IAM")
+	StackSetCapability_CAPABILITY_AUTO_EXPAND = StackSetCapability("CAPABILITY_AUTO_EXPAND")
 )
 
 func (StackSetCapability) ElementType() reflect.Type {
@@ -1390,8 +1390,8 @@ func (o StackSetCapabilityArrayOutput) Index(i pulumi.IntInput) StackSetCapabili
 type StackSetPermissionModel string
 
 const (
-	StackSetPermissionModelServiceManaged = StackSetPermissionModel("SERVICE_MANAGED")
-	StackSetPermissionModelSelfManaged    = StackSetPermissionModel("SELF_MANAGED")
+	StackSetPermissionModel_SERVICE_MANAGED = StackSetPermissionModel("SERVICE_MANAGED")
+	StackSetPermissionModel_SELF_MANAGED    = StackSetPermissionModel("SELF_MANAGED")
 )
 
 func (StackSetPermissionModel) ElementType() reflect.Type {
@@ -1555,8 +1555,8 @@ func (in *stackSetPermissionModelPtr) ToStackSetPermissionModelPtrOutputWithCont
 type StackSetRegionConcurrencyType string
 
 const (
-	StackSetRegionConcurrencyTypeSequential = StackSetRegionConcurrencyType("SEQUENTIAL")
-	StackSetRegionConcurrencyTypeParallel   = StackSetRegionConcurrencyType("PARALLEL")
+	StackSetRegionConcurrencyTypeSEQUENTIAL = StackSetRegionConcurrencyType("SEQUENTIAL")
+	StackSetRegionConcurrencyTypePARALLEL   = StackSetRegionConcurrencyType("PARALLEL")
 )
 
 func (StackSetRegionConcurrencyType) ElementType() reflect.Type {
@@ -1720,8 +1720,8 @@ func (in *stackSetRegionConcurrencyTypePtr) ToStackSetRegionConcurrencyTypePtrOu
 type TypeActivationType string
 
 const (
-	TypeActivationTypeResource = TypeActivationType("RESOURCE")
-	TypeActivationTypeModule   = TypeActivationType("MODULE")
+	TypeActivationTypeRESOURCE = TypeActivationType("RESOURCE")
+	TypeActivationTypeMODULE   = TypeActivationType("MODULE")
 )
 
 func (TypeActivationType) ElementType() reflect.Type {
@@ -1885,8 +1885,8 @@ func (in *typeActivationTypePtr) ToTypeActivationTypePtrOutputWithContext(ctx co
 type TypeActivationVersionBump string
 
 const (
-	TypeActivationVersionBumpMajor = TypeActivationVersionBump("MAJOR")
-	TypeActivationVersionBumpMinor = TypeActivationVersionBump("MINOR")
+	TypeActivationVersionBumpMAJOR = TypeActivationVersionBump("MAJOR")
+	TypeActivationVersionBumpMINOR = TypeActivationVersionBump("MINOR")
 )
 
 func (TypeActivationVersionBump) ElementType() reflect.Type {

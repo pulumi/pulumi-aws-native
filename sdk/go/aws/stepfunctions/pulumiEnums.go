@@ -13,10 +13,10 @@ import (
 type StateMachineLoggingConfigurationLevel string
 
 const (
-	StateMachineLoggingConfigurationLevelAll   = StateMachineLoggingConfigurationLevel("ALL")
-	StateMachineLoggingConfigurationLevelError = StateMachineLoggingConfigurationLevel("ERROR")
-	StateMachineLoggingConfigurationLevelFatal = StateMachineLoggingConfigurationLevel("FATAL")
-	StateMachineLoggingConfigurationLevelOff   = StateMachineLoggingConfigurationLevel("OFF")
+	StateMachineLoggingConfigurationLevelALL   = StateMachineLoggingConfigurationLevel("ALL")
+	StateMachineLoggingConfigurationLevelERROR = StateMachineLoggingConfigurationLevel("ERROR")
+	StateMachineLoggingConfigurationLevelFATAL = StateMachineLoggingConfigurationLevel("FATAL")
+	StateMachineLoggingConfigurationLevelOFF   = StateMachineLoggingConfigurationLevel("OFF")
 )
 
 func (StateMachineLoggingConfigurationLevel) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *stateMachineLoggingConfigurationLevelPtr) ToStateMachineLoggingConfigu
 type StateMachineStateMachineType string
 
 const (
-	StateMachineStateMachineTypeStandard = StateMachineStateMachineType("STANDARD")
-	StateMachineStateMachineTypeExpress  = StateMachineStateMachineType("EXPRESS")
+	StateMachineStateMachineTypeSTANDARD = StateMachineStateMachineType("STANDARD")
+	StateMachineStateMachineTypeEXPRESS  = StateMachineStateMachineType("EXPRESS")
 )
 
 func (StateMachineStateMachineType) ElementType() reflect.Type {

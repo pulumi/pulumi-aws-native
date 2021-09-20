@@ -14,7 +14,7 @@ import (
 type ResourceCollectionResourceCollectionType string
 
 const (
-	ResourceCollectionResourceCollectionTypeAwsCloudFormation = ResourceCollectionResourceCollectionType("AWS_CLOUD_FORMATION")
+	ResourceCollectionResourceCollectionType_AWS_CLOUD_FORMATION = ResourceCollectionResourceCollectionType("AWS_CLOUD_FORMATION")
 )
 
 func (ResourceCollectionResourceCollectionType) ElementType() reflect.Type {

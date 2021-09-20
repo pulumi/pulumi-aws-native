@@ -14,10 +14,10 @@ import (
 type OriginEndpointAdsOnDeliveryRestrictions string
 
 const (
-	OriginEndpointAdsOnDeliveryRestrictionsNone         = OriginEndpointAdsOnDeliveryRestrictions("NONE")
-	OriginEndpointAdsOnDeliveryRestrictionsRestricted   = OriginEndpointAdsOnDeliveryRestrictions("RESTRICTED")
-	OriginEndpointAdsOnDeliveryRestrictionsUnrestricted = OriginEndpointAdsOnDeliveryRestrictions("UNRESTRICTED")
-	OriginEndpointAdsOnDeliveryRestrictionsBoth         = OriginEndpointAdsOnDeliveryRestrictions("BOTH")
+	OriginEndpointAdsOnDeliveryRestrictionsNONE         = OriginEndpointAdsOnDeliveryRestrictions("NONE")
+	OriginEndpointAdsOnDeliveryRestrictionsRESTRICTED   = OriginEndpointAdsOnDeliveryRestrictions("RESTRICTED")
+	OriginEndpointAdsOnDeliveryRestrictionsUNRESTRICTED = OriginEndpointAdsOnDeliveryRestrictions("UNRESTRICTED")
+	OriginEndpointAdsOnDeliveryRestrictionsBOTH         = OriginEndpointAdsOnDeliveryRestrictions("BOTH")
 )
 
 func (OriginEndpointAdsOnDeliveryRestrictions) ElementType() reflect.Type {
@@ -180,14 +180,14 @@ func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOriginEndpointAdsOnDeliv
 type OriginEndpointDashPackageAdTriggersItem string
 
 const (
-	OriginEndpointDashPackageAdTriggersItemSpliceInsert                           = OriginEndpointDashPackageAdTriggersItem("SPLICE_INSERT")
-	OriginEndpointDashPackageAdTriggersItemBreak                                  = OriginEndpointDashPackageAdTriggersItem("BREAK")
-	OriginEndpointDashPackageAdTriggersItemProviderAdvertisement                  = OriginEndpointDashPackageAdTriggersItem("PROVIDER_ADVERTISEMENT")
-	OriginEndpointDashPackageAdTriggersItemDistributorAdvertisement               = OriginEndpointDashPackageAdTriggersItem("DISTRIBUTOR_ADVERTISEMENT")
-	OriginEndpointDashPackageAdTriggersItemProviderPlacementOpportunity           = OriginEndpointDashPackageAdTriggersItem("PROVIDER_PLACEMENT_OPPORTUNITY")
-	OriginEndpointDashPackageAdTriggersItemDistributorPlacementOpportunity        = OriginEndpointDashPackageAdTriggersItem("DISTRIBUTOR_PLACEMENT_OPPORTUNITY")
-	OriginEndpointDashPackageAdTriggersItemProviderOverlayPlacementOpportunity    = OriginEndpointDashPackageAdTriggersItem("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY")
-	OriginEndpointDashPackageAdTriggersItemDistributorOverlayPlacementOpportunity = OriginEndpointDashPackageAdTriggersItem("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY")
+	OriginEndpointDashPackageAdTriggersItem_SPLICE_INSERT                             = OriginEndpointDashPackageAdTriggersItem("SPLICE_INSERT")
+	OriginEndpointDashPackageAdTriggersItem_BREAK_                                    = OriginEndpointDashPackageAdTriggersItem("BREAK")
+	OriginEndpointDashPackageAdTriggersItem_PROVIDER_ADVERTISEMENT                    = OriginEndpointDashPackageAdTriggersItem("PROVIDER_ADVERTISEMENT")
+	OriginEndpointDashPackageAdTriggersItem_DISTRIBUTOR_ADVERTISEMENT                 = OriginEndpointDashPackageAdTriggersItem("DISTRIBUTOR_ADVERTISEMENT")
+	OriginEndpointDashPackageAdTriggersItem_PROVIDER_PLACEMENT_OPPORTUNITY            = OriginEndpointDashPackageAdTriggersItem("PROVIDER_PLACEMENT_OPPORTUNITY")
+	OriginEndpointDashPackageAdTriggersItem_DISTRIBUTOR_PLACEMENT_OPPORTUNITY         = OriginEndpointDashPackageAdTriggersItem("DISTRIBUTOR_PLACEMENT_OPPORTUNITY")
+	OriginEndpointDashPackageAdTriggersItem_PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY    = OriginEndpointDashPackageAdTriggersItem("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY")
+	OriginEndpointDashPackageAdTriggersItem_DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = OriginEndpointDashPackageAdTriggersItem("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY")
 )
 
 func (OriginEndpointDashPackageAdTriggersItem) ElementType() reflect.Type {
@@ -396,8 +396,8 @@ func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) Index(i pulumi.IntIn
 type OriginEndpointDashPackageManifestLayout string
 
 const (
-	OriginEndpointDashPackageManifestLayoutFull    = OriginEndpointDashPackageManifestLayout("FULL")
-	OriginEndpointDashPackageManifestLayoutCompact = OriginEndpointDashPackageManifestLayout("COMPACT")
+	OriginEndpointDashPackageManifestLayoutFULL    = OriginEndpointDashPackageManifestLayout("FULL")
+	OriginEndpointDashPackageManifestLayoutCOMPACT = OriginEndpointDashPackageManifestLayout("COMPACT")
 )
 
 func (OriginEndpointDashPackageManifestLayout) ElementType() reflect.Type {
@@ -560,7 +560,7 @@ func (in *originEndpointDashPackageManifestLayoutPtr) ToOriginEndpointDashPackag
 type OriginEndpointDashPackagePeriodTriggersItem string
 
 const (
-	OriginEndpointDashPackagePeriodTriggersItemAds = OriginEndpointDashPackagePeriodTriggersItem("ADS")
+	OriginEndpointDashPackagePeriodTriggersItemADS = OriginEndpointDashPackagePeriodTriggersItem("ADS")
 )
 
 func (OriginEndpointDashPackagePeriodTriggersItem) ElementType() reflect.Type {
@@ -769,8 +769,8 @@ func (o OriginEndpointDashPackagePeriodTriggersItemArrayOutput) Index(i pulumi.I
 type OriginEndpointDashPackageProfile string
 
 const (
-	OriginEndpointDashPackageProfileNone    = OriginEndpointDashPackageProfile("NONE")
-	OriginEndpointDashPackageProfileHbbtv15 = OriginEndpointDashPackageProfile("HBBTV_1_5")
+	OriginEndpointDashPackageProfileNONE    = OriginEndpointDashPackageProfile("NONE")
+	OriginEndpointDashPackageProfileHBBTV15 = OriginEndpointDashPackageProfile("HBBTV_1_5")
 )
 
 func (OriginEndpointDashPackageProfile) ElementType() reflect.Type {
@@ -934,9 +934,9 @@ func (in *originEndpointDashPackageProfilePtr) ToOriginEndpointDashPackageProfil
 type OriginEndpointDashPackageSegmentTemplateFormat string
 
 const (
-	OriginEndpointDashPackageSegmentTemplateFormatNumberWithTimeline = OriginEndpointDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE")
-	OriginEndpointDashPackageSegmentTemplateFormatTimeWithTimeline   = OriginEndpointDashPackageSegmentTemplateFormat("TIME_WITH_TIMELINE")
-	OriginEndpointDashPackageSegmentTemplateFormatNumberWithDuration = OriginEndpointDashPackageSegmentTemplateFormat("NUMBER_WITH_DURATION")
+	OriginEndpointDashPackageSegmentTemplateFormat_NUMBER_WITH_TIMELINE = OriginEndpointDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE")
+	OriginEndpointDashPackageSegmentTemplateFormat_TIME_WITH_TIMELINE   = OriginEndpointDashPackageSegmentTemplateFormat("TIME_WITH_TIMELINE")
+	OriginEndpointDashPackageSegmentTemplateFormat_NUMBER_WITH_DURATION = OriginEndpointDashPackageSegmentTemplateFormat("NUMBER_WITH_DURATION")
 )
 
 func (OriginEndpointDashPackageSegmentTemplateFormat) ElementType() reflect.Type {
@@ -1100,9 +1100,9 @@ func (in *originEndpointDashPackageSegmentTemplateFormatPtr) ToOriginEndpointDas
 type OriginEndpointDashPackageUtcTiming string
 
 const (
-	OriginEndpointDashPackageUtcTimingHttpIso  = OriginEndpointDashPackageUtcTiming("HTTP-ISO")
-	OriginEndpointDashPackageUtcTimingHttpHead = OriginEndpointDashPackageUtcTiming("HTTP-HEAD")
-	OriginEndpointDashPackageUtcTimingNone     = OriginEndpointDashPackageUtcTiming("NONE")
+	OriginEndpointDashPackageUtcTiming_HTTP_ISO  = OriginEndpointDashPackageUtcTiming("HTTP-ISO")
+	OriginEndpointDashPackageUtcTiming_HTTP_HEAD = OriginEndpointDashPackageUtcTiming("HTTP-HEAD")
+	OriginEndpointDashPackageUtcTimingNONE       = OriginEndpointDashPackageUtcTiming("NONE")
 )
 
 func (OriginEndpointDashPackageUtcTiming) ElementType() reflect.Type {
@@ -1266,8 +1266,8 @@ func (in *originEndpointDashPackageUtcTimingPtr) ToOriginEndpointDashPackageUtcT
 type OriginEndpointHlsEncryptionEncryptionMethod string
 
 const (
-	OriginEndpointHlsEncryptionEncryptionMethodAes128    = OriginEndpointHlsEncryptionEncryptionMethod("AES_128")
-	OriginEndpointHlsEncryptionEncryptionMethodSampleAes = OriginEndpointHlsEncryptionEncryptionMethod("SAMPLE_AES")
+	OriginEndpointHlsEncryptionEncryptionMethodAES128      = OriginEndpointHlsEncryptionEncryptionMethod("AES_128")
+	OriginEndpointHlsEncryptionEncryptionMethod_SAMPLE_AES = OriginEndpointHlsEncryptionEncryptionMethod("SAMPLE_AES")
 )
 
 func (OriginEndpointHlsEncryptionEncryptionMethod) ElementType() reflect.Type {
@@ -1431,10 +1431,10 @@ func (in *originEndpointHlsEncryptionEncryptionMethodPtr) ToOriginEndpointHlsEnc
 type OriginEndpointHlsManifestAdMarkers string
 
 const (
-	OriginEndpointHlsManifestAdMarkersNone           = OriginEndpointHlsManifestAdMarkers("NONE")
-	OriginEndpointHlsManifestAdMarkersScte35Enhanced = OriginEndpointHlsManifestAdMarkers("SCTE35_ENHANCED")
-	OriginEndpointHlsManifestAdMarkersPassthrough    = OriginEndpointHlsManifestAdMarkers("PASSTHROUGH")
-	OriginEndpointHlsManifestAdMarkersDaterange      = OriginEndpointHlsManifestAdMarkers("DATERANGE")
+	OriginEndpointHlsManifestAdMarkersNONE             = OriginEndpointHlsManifestAdMarkers("NONE")
+	OriginEndpointHlsManifestAdMarkers_SCTE35_ENHANCED = OriginEndpointHlsManifestAdMarkers("SCTE35_ENHANCED")
+	OriginEndpointHlsManifestAdMarkersPASSTHROUGH      = OriginEndpointHlsManifestAdMarkers("PASSTHROUGH")
+	OriginEndpointHlsManifestAdMarkersDATERANGE        = OriginEndpointHlsManifestAdMarkers("DATERANGE")
 )
 
 func (OriginEndpointHlsManifestAdMarkers) ElementType() reflect.Type {
@@ -1597,14 +1597,14 @@ func (in *originEndpointHlsManifestAdMarkersPtr) ToOriginEndpointHlsManifestAdMa
 type OriginEndpointHlsManifestAdTriggersItem string
 
 const (
-	OriginEndpointHlsManifestAdTriggersItemSpliceInsert                           = OriginEndpointHlsManifestAdTriggersItem("SPLICE_INSERT")
-	OriginEndpointHlsManifestAdTriggersItemBreak                                  = OriginEndpointHlsManifestAdTriggersItem("BREAK")
-	OriginEndpointHlsManifestAdTriggersItemProviderAdvertisement                  = OriginEndpointHlsManifestAdTriggersItem("PROVIDER_ADVERTISEMENT")
-	OriginEndpointHlsManifestAdTriggersItemDistributorAdvertisement               = OriginEndpointHlsManifestAdTriggersItem("DISTRIBUTOR_ADVERTISEMENT")
-	OriginEndpointHlsManifestAdTriggersItemProviderPlacementOpportunity           = OriginEndpointHlsManifestAdTriggersItem("PROVIDER_PLACEMENT_OPPORTUNITY")
-	OriginEndpointHlsManifestAdTriggersItemDistributorPlacementOpportunity        = OriginEndpointHlsManifestAdTriggersItem("DISTRIBUTOR_PLACEMENT_OPPORTUNITY")
-	OriginEndpointHlsManifestAdTriggersItemProviderOverlayPlacementOpportunity    = OriginEndpointHlsManifestAdTriggersItem("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY")
-	OriginEndpointHlsManifestAdTriggersItemDistributorOverlayPlacementOpportunity = OriginEndpointHlsManifestAdTriggersItem("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsManifestAdTriggersItem_SPLICE_INSERT                             = OriginEndpointHlsManifestAdTriggersItem("SPLICE_INSERT")
+	OriginEndpointHlsManifestAdTriggersItem_BREAK_                                    = OriginEndpointHlsManifestAdTriggersItem("BREAK")
+	OriginEndpointHlsManifestAdTriggersItem_PROVIDER_ADVERTISEMENT                    = OriginEndpointHlsManifestAdTriggersItem("PROVIDER_ADVERTISEMENT")
+	OriginEndpointHlsManifestAdTriggersItem_DISTRIBUTOR_ADVERTISEMENT                 = OriginEndpointHlsManifestAdTriggersItem("DISTRIBUTOR_ADVERTISEMENT")
+	OriginEndpointHlsManifestAdTriggersItem_PROVIDER_PLACEMENT_OPPORTUNITY            = OriginEndpointHlsManifestAdTriggersItem("PROVIDER_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsManifestAdTriggersItem_DISTRIBUTOR_PLACEMENT_OPPORTUNITY         = OriginEndpointHlsManifestAdTriggersItem("DISTRIBUTOR_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsManifestAdTriggersItem_PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY    = OriginEndpointHlsManifestAdTriggersItem("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsManifestAdTriggersItem_DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = OriginEndpointHlsManifestAdTriggersItem("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY")
 )
 
 func (OriginEndpointHlsManifestAdTriggersItem) ElementType() reflect.Type {
@@ -1813,9 +1813,9 @@ func (o OriginEndpointHlsManifestAdTriggersItemArrayOutput) Index(i pulumi.IntIn
 type OriginEndpointHlsManifestPlaylistType string
 
 const (
-	OriginEndpointHlsManifestPlaylistTypeNone  = OriginEndpointHlsManifestPlaylistType("NONE")
-	OriginEndpointHlsManifestPlaylistTypeEvent = OriginEndpointHlsManifestPlaylistType("EVENT")
-	OriginEndpointHlsManifestPlaylistTypeVod   = OriginEndpointHlsManifestPlaylistType("VOD")
+	OriginEndpointHlsManifestPlaylistTypeNONE  = OriginEndpointHlsManifestPlaylistType("NONE")
+	OriginEndpointHlsManifestPlaylistTypeEVENT = OriginEndpointHlsManifestPlaylistType("EVENT")
+	OriginEndpointHlsManifestPlaylistTypeVOD   = OriginEndpointHlsManifestPlaylistType("VOD")
 )
 
 func (OriginEndpointHlsManifestPlaylistType) ElementType() reflect.Type {
@@ -1979,10 +1979,10 @@ func (in *originEndpointHlsManifestPlaylistTypePtr) ToOriginEndpointHlsManifestP
 type OriginEndpointHlsPackageAdMarkers string
 
 const (
-	OriginEndpointHlsPackageAdMarkersNone           = OriginEndpointHlsPackageAdMarkers("NONE")
-	OriginEndpointHlsPackageAdMarkersScte35Enhanced = OriginEndpointHlsPackageAdMarkers("SCTE35_ENHANCED")
-	OriginEndpointHlsPackageAdMarkersPassthrough    = OriginEndpointHlsPackageAdMarkers("PASSTHROUGH")
-	OriginEndpointHlsPackageAdMarkersDaterange      = OriginEndpointHlsPackageAdMarkers("DATERANGE")
+	OriginEndpointHlsPackageAdMarkersNONE             = OriginEndpointHlsPackageAdMarkers("NONE")
+	OriginEndpointHlsPackageAdMarkers_SCTE35_ENHANCED = OriginEndpointHlsPackageAdMarkers("SCTE35_ENHANCED")
+	OriginEndpointHlsPackageAdMarkersPASSTHROUGH      = OriginEndpointHlsPackageAdMarkers("PASSTHROUGH")
+	OriginEndpointHlsPackageAdMarkersDATERANGE        = OriginEndpointHlsPackageAdMarkers("DATERANGE")
 )
 
 func (OriginEndpointHlsPackageAdMarkers) ElementType() reflect.Type {
@@ -2145,14 +2145,14 @@ func (in *originEndpointHlsPackageAdMarkersPtr) ToOriginEndpointHlsPackageAdMark
 type OriginEndpointHlsPackageAdTriggersItem string
 
 const (
-	OriginEndpointHlsPackageAdTriggersItemSpliceInsert                           = OriginEndpointHlsPackageAdTriggersItem("SPLICE_INSERT")
-	OriginEndpointHlsPackageAdTriggersItemBreak                                  = OriginEndpointHlsPackageAdTriggersItem("BREAK")
-	OriginEndpointHlsPackageAdTriggersItemProviderAdvertisement                  = OriginEndpointHlsPackageAdTriggersItem("PROVIDER_ADVERTISEMENT")
-	OriginEndpointHlsPackageAdTriggersItemDistributorAdvertisement               = OriginEndpointHlsPackageAdTriggersItem("DISTRIBUTOR_ADVERTISEMENT")
-	OriginEndpointHlsPackageAdTriggersItemProviderPlacementOpportunity           = OriginEndpointHlsPackageAdTriggersItem("PROVIDER_PLACEMENT_OPPORTUNITY")
-	OriginEndpointHlsPackageAdTriggersItemDistributorPlacementOpportunity        = OriginEndpointHlsPackageAdTriggersItem("DISTRIBUTOR_PLACEMENT_OPPORTUNITY")
-	OriginEndpointHlsPackageAdTriggersItemProviderOverlayPlacementOpportunity    = OriginEndpointHlsPackageAdTriggersItem("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY")
-	OriginEndpointHlsPackageAdTriggersItemDistributorOverlayPlacementOpportunity = OriginEndpointHlsPackageAdTriggersItem("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsPackageAdTriggersItem_SPLICE_INSERT                             = OriginEndpointHlsPackageAdTriggersItem("SPLICE_INSERT")
+	OriginEndpointHlsPackageAdTriggersItem_BREAK_                                    = OriginEndpointHlsPackageAdTriggersItem("BREAK")
+	OriginEndpointHlsPackageAdTriggersItem_PROVIDER_ADVERTISEMENT                    = OriginEndpointHlsPackageAdTriggersItem("PROVIDER_ADVERTISEMENT")
+	OriginEndpointHlsPackageAdTriggersItem_DISTRIBUTOR_ADVERTISEMENT                 = OriginEndpointHlsPackageAdTriggersItem("DISTRIBUTOR_ADVERTISEMENT")
+	OriginEndpointHlsPackageAdTriggersItem_PROVIDER_PLACEMENT_OPPORTUNITY            = OriginEndpointHlsPackageAdTriggersItem("PROVIDER_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsPackageAdTriggersItem_DISTRIBUTOR_PLACEMENT_OPPORTUNITY         = OriginEndpointHlsPackageAdTriggersItem("DISTRIBUTOR_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsPackageAdTriggersItem_PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY    = OriginEndpointHlsPackageAdTriggersItem("PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY")
+	OriginEndpointHlsPackageAdTriggersItem_DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = OriginEndpointHlsPackageAdTriggersItem("DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY")
 )
 
 func (OriginEndpointHlsPackageAdTriggersItem) ElementType() reflect.Type {
@@ -2361,9 +2361,9 @@ func (o OriginEndpointHlsPackageAdTriggersItemArrayOutput) Index(i pulumi.IntInp
 type OriginEndpointHlsPackagePlaylistType string
 
 const (
-	OriginEndpointHlsPackagePlaylistTypeNone  = OriginEndpointHlsPackagePlaylistType("NONE")
-	OriginEndpointHlsPackagePlaylistTypeEvent = OriginEndpointHlsPackagePlaylistType("EVENT")
-	OriginEndpointHlsPackagePlaylistTypeVod   = OriginEndpointHlsPackagePlaylistType("VOD")
+	OriginEndpointHlsPackagePlaylistTypeNONE  = OriginEndpointHlsPackagePlaylistType("NONE")
+	OriginEndpointHlsPackagePlaylistTypeEVENT = OriginEndpointHlsPackagePlaylistType("EVENT")
+	OriginEndpointHlsPackagePlaylistTypeVOD   = OriginEndpointHlsPackagePlaylistType("VOD")
 )
 
 func (OriginEndpointHlsPackagePlaylistType) ElementType() reflect.Type {
@@ -2527,8 +2527,8 @@ func (in *originEndpointHlsPackagePlaylistTypePtr) ToOriginEndpointHlsPackagePla
 type OriginEndpointOrigination string
 
 const (
-	OriginEndpointOriginationAllow = OriginEndpointOrigination("ALLOW")
-	OriginEndpointOriginationDeny  = OriginEndpointOrigination("DENY")
+	OriginEndpointOriginationALLOW = OriginEndpointOrigination("ALLOW")
+	OriginEndpointOriginationDENY  = OriginEndpointOrigination("DENY")
 )
 
 func (OriginEndpointOrigination) ElementType() reflect.Type {
@@ -2692,9 +2692,9 @@ func (in *originEndpointOriginationPtr) ToOriginEndpointOriginationPtrOutputWith
 type OriginEndpointStreamSelectionStreamOrder string
 
 const (
-	OriginEndpointStreamSelectionStreamOrderOriginal               = OriginEndpointStreamSelectionStreamOrder("ORIGINAL")
-	OriginEndpointStreamSelectionStreamOrderVideoBitrateAscending  = OriginEndpointStreamSelectionStreamOrder("VIDEO_BITRATE_ASCENDING")
-	OriginEndpointStreamSelectionStreamOrderVideoBitrateDescending = OriginEndpointStreamSelectionStreamOrder("VIDEO_BITRATE_DESCENDING")
+	OriginEndpointStreamSelectionStreamOrderORIGINAL                  = OriginEndpointStreamSelectionStreamOrder("ORIGINAL")
+	OriginEndpointStreamSelectionStreamOrder_VIDEO_BITRATE_ASCENDING  = OriginEndpointStreamSelectionStreamOrder("VIDEO_BITRATE_ASCENDING")
+	OriginEndpointStreamSelectionStreamOrder_VIDEO_BITRATE_DESCENDING = OriginEndpointStreamSelectionStreamOrder("VIDEO_BITRATE_DESCENDING")
 )
 
 func (OriginEndpointStreamSelectionStreamOrder) ElementType() reflect.Type {
@@ -2858,8 +2858,8 @@ func (in *originEndpointStreamSelectionStreamOrderPtr) ToOriginEndpointStreamSel
 type PackagingConfigurationDashManifestManifestLayout string
 
 const (
-	PackagingConfigurationDashManifestManifestLayoutFull    = PackagingConfigurationDashManifestManifestLayout("FULL")
-	PackagingConfigurationDashManifestManifestLayoutCompact = PackagingConfigurationDashManifestManifestLayout("COMPACT")
+	PackagingConfigurationDashManifestManifestLayoutFULL    = PackagingConfigurationDashManifestManifestLayout("FULL")
+	PackagingConfigurationDashManifestManifestLayoutCOMPACT = PackagingConfigurationDashManifestManifestLayout("COMPACT")
 )
 
 func (PackagingConfigurationDashManifestManifestLayout) ElementType() reflect.Type {
@@ -3023,8 +3023,8 @@ func (in *packagingConfigurationDashManifestManifestLayoutPtr) ToPackagingConfig
 type PackagingConfigurationDashManifestProfile string
 
 const (
-	PackagingConfigurationDashManifestProfileNone    = PackagingConfigurationDashManifestProfile("NONE")
-	PackagingConfigurationDashManifestProfileHbbtv15 = PackagingConfigurationDashManifestProfile("HBBTV_1_5")
+	PackagingConfigurationDashManifestProfileNONE    = PackagingConfigurationDashManifestProfile("NONE")
+	PackagingConfigurationDashManifestProfileHBBTV15 = PackagingConfigurationDashManifestProfile("HBBTV_1_5")
 )
 
 func (PackagingConfigurationDashManifestProfile) ElementType() reflect.Type {
@@ -3188,9 +3188,9 @@ func (in *packagingConfigurationDashManifestProfilePtr) ToPackagingConfiguration
 type PackagingConfigurationDashPackageSegmentTemplateFormat string
 
 const (
-	PackagingConfigurationDashPackageSegmentTemplateFormatNumberWithTimeline = PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE")
-	PackagingConfigurationDashPackageSegmentTemplateFormatTimeWithTimeline   = PackagingConfigurationDashPackageSegmentTemplateFormat("TIME_WITH_TIMELINE")
-	PackagingConfigurationDashPackageSegmentTemplateFormatNumberWithDuration = PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_DURATION")
+	PackagingConfigurationDashPackageSegmentTemplateFormat_NUMBER_WITH_TIMELINE = PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE")
+	PackagingConfigurationDashPackageSegmentTemplateFormat_TIME_WITH_TIMELINE   = PackagingConfigurationDashPackageSegmentTemplateFormat("TIME_WITH_TIMELINE")
+	PackagingConfigurationDashPackageSegmentTemplateFormat_NUMBER_WITH_DURATION = PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_DURATION")
 )
 
 func (PackagingConfigurationDashPackageSegmentTemplateFormat) ElementType() reflect.Type {
@@ -3354,8 +3354,8 @@ func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToPackaging
 type PackagingConfigurationHlsEncryptionEncryptionMethod string
 
 const (
-	PackagingConfigurationHlsEncryptionEncryptionMethodAes128    = PackagingConfigurationHlsEncryptionEncryptionMethod("AES_128")
-	PackagingConfigurationHlsEncryptionEncryptionMethodSampleAes = PackagingConfigurationHlsEncryptionEncryptionMethod("SAMPLE_AES")
+	PackagingConfigurationHlsEncryptionEncryptionMethodAES128      = PackagingConfigurationHlsEncryptionEncryptionMethod("AES_128")
+	PackagingConfigurationHlsEncryptionEncryptionMethod_SAMPLE_AES = PackagingConfigurationHlsEncryptionEncryptionMethod("SAMPLE_AES")
 )
 
 func (PackagingConfigurationHlsEncryptionEncryptionMethod) ElementType() reflect.Type {
@@ -3519,9 +3519,9 @@ func (in *packagingConfigurationHlsEncryptionEncryptionMethodPtr) ToPackagingCon
 type PackagingConfigurationHlsManifestAdMarkers string
 
 const (
-	PackagingConfigurationHlsManifestAdMarkersNone           = PackagingConfigurationHlsManifestAdMarkers("NONE")
-	PackagingConfigurationHlsManifestAdMarkersScte35Enhanced = PackagingConfigurationHlsManifestAdMarkers("SCTE35_ENHANCED")
-	PackagingConfigurationHlsManifestAdMarkersPassthrough    = PackagingConfigurationHlsManifestAdMarkers("PASSTHROUGH")
+	PackagingConfigurationHlsManifestAdMarkersNONE             = PackagingConfigurationHlsManifestAdMarkers("NONE")
+	PackagingConfigurationHlsManifestAdMarkers_SCTE35_ENHANCED = PackagingConfigurationHlsManifestAdMarkers("SCTE35_ENHANCED")
+	PackagingConfigurationHlsManifestAdMarkersPASSTHROUGH      = PackagingConfigurationHlsManifestAdMarkers("PASSTHROUGH")
 )
 
 func (PackagingConfigurationHlsManifestAdMarkers) ElementType() reflect.Type {
@@ -3685,9 +3685,9 @@ func (in *packagingConfigurationHlsManifestAdMarkersPtr) ToPackagingConfiguratio
 type PackagingConfigurationStreamSelectionStreamOrder string
 
 const (
-	PackagingConfigurationStreamSelectionStreamOrderOriginal               = PackagingConfigurationStreamSelectionStreamOrder("ORIGINAL")
-	PackagingConfigurationStreamSelectionStreamOrderVideoBitrateAscending  = PackagingConfigurationStreamSelectionStreamOrder("VIDEO_BITRATE_ASCENDING")
-	PackagingConfigurationStreamSelectionStreamOrderVideoBitrateDescending = PackagingConfigurationStreamSelectionStreamOrder("VIDEO_BITRATE_DESCENDING")
+	PackagingConfigurationStreamSelectionStreamOrderORIGINAL                  = PackagingConfigurationStreamSelectionStreamOrder("ORIGINAL")
+	PackagingConfigurationStreamSelectionStreamOrder_VIDEO_BITRATE_ASCENDING  = PackagingConfigurationStreamSelectionStreamOrder("VIDEO_BITRATE_ASCENDING")
+	PackagingConfigurationStreamSelectionStreamOrder_VIDEO_BITRATE_DESCENDING = PackagingConfigurationStreamSelectionStreamOrder("VIDEO_BITRATE_DESCENDING")
 )
 
 func (PackagingConfigurationStreamSelectionStreamOrder) ElementType() reflect.Type {

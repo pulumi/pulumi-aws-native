@@ -14,12 +14,12 @@ import (
 type FirewallDomainListStatus string
 
 const (
-	FirewallDomainListStatusComplete                   = FirewallDomainListStatus("COMPLETE")
-	FirewallDomainListStatusDeleting                   = FirewallDomainListStatus("DELETING")
-	FirewallDomainListStatusUpdating                   = FirewallDomainListStatus("UPDATING")
-	FirewallDomainListStatusCompleteImportFailed       = FirewallDomainListStatus("COMPLETE_IMPORT_FAILED")
-	FirewallDomainListStatusImporting                  = FirewallDomainListStatus("IMPORTING")
-	FirewallDomainListStatusInactiveOwnerAccountClosed = FirewallDomainListStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
+	FirewallDomainListStatusCOMPLETE                       = FirewallDomainListStatus("COMPLETE")
+	FirewallDomainListStatusDELETING                       = FirewallDomainListStatus("DELETING")
+	FirewallDomainListStatusUPDATING                       = FirewallDomainListStatus("UPDATING")
+	FirewallDomainListStatus_COMPLETE_IMPORT_FAILED        = FirewallDomainListStatus("COMPLETE_IMPORT_FAILED")
+	FirewallDomainListStatusIMPORTING                      = FirewallDomainListStatus("IMPORTING")
+	FirewallDomainListStatus_INACTIVE_OWNER_ACCOUNT_CLOSED = FirewallDomainListStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
 )
 
 func (FirewallDomainListStatus) ElementType() reflect.Type {
@@ -183,8 +183,8 @@ func (in *firewallDomainListStatusPtr) ToFirewallDomainListStatusPtrOutputWithCo
 type FirewallRuleGroupAssociationMutationProtection string
 
 const (
-	FirewallRuleGroupAssociationMutationProtectionEnabled  = FirewallRuleGroupAssociationMutationProtection("ENABLED")
-	FirewallRuleGroupAssociationMutationProtectionDisabled = FirewallRuleGroupAssociationMutationProtection("DISABLED")
+	FirewallRuleGroupAssociationMutationProtectionENABLED  = FirewallRuleGroupAssociationMutationProtection("ENABLED")
+	FirewallRuleGroupAssociationMutationProtectionDISABLED = FirewallRuleGroupAssociationMutationProtection("DISABLED")
 )
 
 func (FirewallRuleGroupAssociationMutationProtection) ElementType() reflect.Type {
@@ -348,10 +348,10 @@ func (in *firewallRuleGroupAssociationMutationProtectionPtr) ToFirewallRuleGroup
 type FirewallRuleGroupAssociationStatus string
 
 const (
-	FirewallRuleGroupAssociationStatusComplete                   = FirewallRuleGroupAssociationStatus("COMPLETE")
-	FirewallRuleGroupAssociationStatusDeleting                   = FirewallRuleGroupAssociationStatus("DELETING")
-	FirewallRuleGroupAssociationStatusUpdating                   = FirewallRuleGroupAssociationStatus("UPDATING")
-	FirewallRuleGroupAssociationStatusInactiveOwnerAccountClosed = FirewallRuleGroupAssociationStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
+	FirewallRuleGroupAssociationStatusCOMPLETE                       = FirewallRuleGroupAssociationStatus("COMPLETE")
+	FirewallRuleGroupAssociationStatusDELETING                       = FirewallRuleGroupAssociationStatus("DELETING")
+	FirewallRuleGroupAssociationStatusUPDATING                       = FirewallRuleGroupAssociationStatus("UPDATING")
+	FirewallRuleGroupAssociationStatus_INACTIVE_OWNER_ACCOUNT_CLOSED = FirewallRuleGroupAssociationStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
 )
 
 func (FirewallRuleGroupAssociationStatus) ElementType() reflect.Type {
@@ -515,9 +515,9 @@ func (in *firewallRuleGroupAssociationStatusPtr) ToFirewallRuleGroupAssociationS
 type FirewallRuleGroupFirewallRuleAction string
 
 const (
-	FirewallRuleGroupFirewallRuleActionAllow = FirewallRuleGroupFirewallRuleAction("ALLOW")
-	FirewallRuleGroupFirewallRuleActionBlock = FirewallRuleGroupFirewallRuleAction("BLOCK")
-	FirewallRuleGroupFirewallRuleActionAlert = FirewallRuleGroupFirewallRuleAction("ALERT")
+	FirewallRuleGroupFirewallRuleActionALLOW = FirewallRuleGroupFirewallRuleAction("ALLOW")
+	FirewallRuleGroupFirewallRuleActionBLOCK = FirewallRuleGroupFirewallRuleAction("BLOCK")
+	FirewallRuleGroupFirewallRuleActionALERT = FirewallRuleGroupFirewallRuleAction("ALERT")
 )
 
 func (FirewallRuleGroupFirewallRuleAction) ElementType() reflect.Type {
@@ -681,7 +681,7 @@ func (in *firewallRuleGroupFirewallRuleActionPtr) ToFirewallRuleGroupFirewallRul
 type FirewallRuleGroupFirewallRuleBlockOverrideDnsType string
 
 const (
-	FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeCname = FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME")
+	FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeCNAME = FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME")
 )
 
 func (FirewallRuleGroupFirewallRuleBlockOverrideDnsType) ElementType() reflect.Type {
@@ -845,9 +845,9 @@ func (in *firewallRuleGroupFirewallRuleBlockOverrideDnsTypePtr) ToFirewallRuleGr
 type FirewallRuleGroupFirewallRuleBlockResponse string
 
 const (
-	FirewallRuleGroupFirewallRuleBlockResponseNodata   = FirewallRuleGroupFirewallRuleBlockResponse("NODATA")
-	FirewallRuleGroupFirewallRuleBlockResponseNxdomain = FirewallRuleGroupFirewallRuleBlockResponse("NXDOMAIN")
-	FirewallRuleGroupFirewallRuleBlockResponseOverride = FirewallRuleGroupFirewallRuleBlockResponse("OVERRIDE")
+	FirewallRuleGroupFirewallRuleBlockResponseNODATA   = FirewallRuleGroupFirewallRuleBlockResponse("NODATA")
+	FirewallRuleGroupFirewallRuleBlockResponseNXDOMAIN = FirewallRuleGroupFirewallRuleBlockResponse("NXDOMAIN")
+	FirewallRuleGroupFirewallRuleBlockResponseOVERRIDE = FirewallRuleGroupFirewallRuleBlockResponse("OVERRIDE")
 )
 
 func (FirewallRuleGroupFirewallRuleBlockResponse) ElementType() reflect.Type {
@@ -1011,9 +1011,9 @@ func (in *firewallRuleGroupFirewallRuleBlockResponsePtr) ToFirewallRuleGroupFire
 type FirewallRuleGroupShareStatus string
 
 const (
-	FirewallRuleGroupShareStatusNotShared    = FirewallRuleGroupShareStatus("NOT_SHARED")
-	FirewallRuleGroupShareStatusSharedWithMe = FirewallRuleGroupShareStatus("SHARED_WITH_ME")
-	FirewallRuleGroupShareStatusSharedByMe   = FirewallRuleGroupShareStatus("SHARED_BY_ME")
+	FirewallRuleGroupShareStatus_NOT_SHARED     = FirewallRuleGroupShareStatus("NOT_SHARED")
+	FirewallRuleGroupShareStatus_SHARED_WITH_ME = FirewallRuleGroupShareStatus("SHARED_WITH_ME")
+	FirewallRuleGroupShareStatus_SHARED_BY_ME   = FirewallRuleGroupShareStatus("SHARED_BY_ME")
 )
 
 func (FirewallRuleGroupShareStatus) ElementType() reflect.Type {
@@ -1177,10 +1177,10 @@ func (in *firewallRuleGroupShareStatusPtr) ToFirewallRuleGroupShareStatusPtrOutp
 type FirewallRuleGroupStatus string
 
 const (
-	FirewallRuleGroupStatusComplete                   = FirewallRuleGroupStatus("COMPLETE")
-	FirewallRuleGroupStatusDeleting                   = FirewallRuleGroupStatus("DELETING")
-	FirewallRuleGroupStatusUpdating                   = FirewallRuleGroupStatus("UPDATING")
-	FirewallRuleGroupStatusInactiveOwnerAccountClosed = FirewallRuleGroupStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
+	FirewallRuleGroupStatusCOMPLETE                       = FirewallRuleGroupStatus("COMPLETE")
+	FirewallRuleGroupStatusDELETING                       = FirewallRuleGroupStatus("DELETING")
+	FirewallRuleGroupStatusUPDATING                       = FirewallRuleGroupStatus("UPDATING")
+	FirewallRuleGroupStatus_INACTIVE_OWNER_ACCOUNT_CLOSED = FirewallRuleGroupStatus("INACTIVE_OWNER_ACCOUNT_CLOSED")
 )
 
 func (FirewallRuleGroupStatus) ElementType() reflect.Type {
@@ -1344,10 +1344,10 @@ func (in *firewallRuleGroupStatusPtr) ToFirewallRuleGroupStatusPtrOutputWithCont
 type ResolverDNSSECConfigValidationStatus string
 
 const (
-	ResolverDNSSECConfigValidationStatusEnabling  = ResolverDNSSECConfigValidationStatus("ENABLING")
-	ResolverDNSSECConfigValidationStatusEnabled   = ResolverDNSSECConfigValidationStatus("ENABLED")
-	ResolverDNSSECConfigValidationStatusDisabling = ResolverDNSSECConfigValidationStatus("DISABLING")
-	ResolverDNSSECConfigValidationStatusDisabled  = ResolverDNSSECConfigValidationStatus("DISABLED")
+	ResolverDNSSECConfigValidationStatusENABLING  = ResolverDNSSECConfigValidationStatus("ENABLING")
+	ResolverDNSSECConfigValidationStatusENABLED   = ResolverDNSSECConfigValidationStatus("ENABLED")
+	ResolverDNSSECConfigValidationStatusDISABLING = ResolverDNSSECConfigValidationStatus("DISABLING")
+	ResolverDNSSECConfigValidationStatusDISABLED  = ResolverDNSSECConfigValidationStatus("DISABLED")
 )
 
 func (ResolverDNSSECConfigValidationStatus) ElementType() reflect.Type {
@@ -1511,9 +1511,9 @@ func (in *resolverDNSSECConfigValidationStatusPtr) ToResolverDNSSECConfigValidat
 type ResolverQueryLoggingConfigAssociationError string
 
 const (
-	ResolverQueryLoggingConfigAssociationErrorNone                = ResolverQueryLoggingConfigAssociationError("NONE")
-	ResolverQueryLoggingConfigAssociationErrorDestinationNotFound = ResolverQueryLoggingConfigAssociationError("DESTINATION_NOT_FOUND")
-	ResolverQueryLoggingConfigAssociationErrorAccessDenied        = ResolverQueryLoggingConfigAssociationError("ACCESS_DENIED")
+	ResolverQueryLoggingConfigAssociationErrorNONE                   = ResolverQueryLoggingConfigAssociationError("NONE")
+	ResolverQueryLoggingConfigAssociationError_DESTINATION_NOT_FOUND = ResolverQueryLoggingConfigAssociationError("DESTINATION_NOT_FOUND")
+	ResolverQueryLoggingConfigAssociationError_ACCESS_DENIED         = ResolverQueryLoggingConfigAssociationError("ACCESS_DENIED")
 )
 
 func (ResolverQueryLoggingConfigAssociationError) ElementType() reflect.Type {
@@ -1677,12 +1677,12 @@ func (in *resolverQueryLoggingConfigAssociationErrorPtr) ToResolverQueryLoggingC
 type ResolverQueryLoggingConfigAssociationStatus string
 
 const (
-	ResolverQueryLoggingConfigAssociationStatusCreating     = ResolverQueryLoggingConfigAssociationStatus("CREATING")
-	ResolverQueryLoggingConfigAssociationStatusActive       = ResolverQueryLoggingConfigAssociationStatus("ACTIVE")
-	ResolverQueryLoggingConfigAssociationStatusActionNeeded = ResolverQueryLoggingConfigAssociationStatus("ACTION_NEEDED")
-	ResolverQueryLoggingConfigAssociationStatusDeleting     = ResolverQueryLoggingConfigAssociationStatus("DELETING")
-	ResolverQueryLoggingConfigAssociationStatusFailed       = ResolverQueryLoggingConfigAssociationStatus("FAILED")
-	ResolverQueryLoggingConfigAssociationStatusOverridden   = ResolverQueryLoggingConfigAssociationStatus("OVERRIDDEN")
+	ResolverQueryLoggingConfigAssociationStatusCREATING       = ResolverQueryLoggingConfigAssociationStatus("CREATING")
+	ResolverQueryLoggingConfigAssociationStatusACTIVE         = ResolverQueryLoggingConfigAssociationStatus("ACTIVE")
+	ResolverQueryLoggingConfigAssociationStatus_ACTION_NEEDED = ResolverQueryLoggingConfigAssociationStatus("ACTION_NEEDED")
+	ResolverQueryLoggingConfigAssociationStatusDELETING       = ResolverQueryLoggingConfigAssociationStatus("DELETING")
+	ResolverQueryLoggingConfigAssociationStatusFAILED         = ResolverQueryLoggingConfigAssociationStatus("FAILED")
+	ResolverQueryLoggingConfigAssociationStatusOVERRIDDEN     = ResolverQueryLoggingConfigAssociationStatus("OVERRIDDEN")
 )
 
 func (ResolverQueryLoggingConfigAssociationStatus) ElementType() reflect.Type {
@@ -1846,9 +1846,9 @@ func (in *resolverQueryLoggingConfigAssociationStatusPtr) ToResolverQueryLogging
 type ResolverQueryLoggingConfigShareStatus string
 
 const (
-	ResolverQueryLoggingConfigShareStatusNotShared    = ResolverQueryLoggingConfigShareStatus("NOT_SHARED")
-	ResolverQueryLoggingConfigShareStatusSharedWithMe = ResolverQueryLoggingConfigShareStatus("SHARED_WITH_ME")
-	ResolverQueryLoggingConfigShareStatusSharedByMe   = ResolverQueryLoggingConfigShareStatus("SHARED_BY_ME")
+	ResolverQueryLoggingConfigShareStatus_NOT_SHARED     = ResolverQueryLoggingConfigShareStatus("NOT_SHARED")
+	ResolverQueryLoggingConfigShareStatus_SHARED_WITH_ME = ResolverQueryLoggingConfigShareStatus("SHARED_WITH_ME")
+	ResolverQueryLoggingConfigShareStatus_SHARED_BY_ME   = ResolverQueryLoggingConfigShareStatus("SHARED_BY_ME")
 )
 
 func (ResolverQueryLoggingConfigShareStatus) ElementType() reflect.Type {
@@ -2012,10 +2012,10 @@ func (in *resolverQueryLoggingConfigShareStatusPtr) ToResolverQueryLoggingConfig
 type ResolverQueryLoggingConfigStatus string
 
 const (
-	ResolverQueryLoggingConfigStatusCreating = ResolverQueryLoggingConfigStatus("CREATING")
-	ResolverQueryLoggingConfigStatusCreated  = ResolverQueryLoggingConfigStatus("CREATED")
-	ResolverQueryLoggingConfigStatusDeleting = ResolverQueryLoggingConfigStatus("DELETING")
-	ResolverQueryLoggingConfigStatusFailed   = ResolverQueryLoggingConfigStatus("FAILED")
+	ResolverQueryLoggingConfigStatusCREATING = ResolverQueryLoggingConfigStatus("CREATING")
+	ResolverQueryLoggingConfigStatusCREATED  = ResolverQueryLoggingConfigStatus("CREATED")
+	ResolverQueryLoggingConfigStatusDELETING = ResolverQueryLoggingConfigStatus("DELETING")
+	ResolverQueryLoggingConfigStatusFAILED   = ResolverQueryLoggingConfigStatus("FAILED")
 )
 
 func (ResolverQueryLoggingConfigStatus) ElementType() reflect.Type {

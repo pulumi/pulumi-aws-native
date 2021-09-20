@@ -14,8 +14,8 @@ import (
 type AcceleratorIpAddressType string
 
 const (
-	AcceleratorIpAddressTypeIpv4 = AcceleratorIpAddressType("IPV4")
-	AcceleratorIpAddressTypeIpv6 = AcceleratorIpAddressType("IPV6")
+	AcceleratorIpAddressTypeIPV4 = AcceleratorIpAddressType("IPV4")
+	AcceleratorIpAddressTypeIPV6 = AcceleratorIpAddressType("IPV6")
 )
 
 func (AcceleratorIpAddressType) ElementType() reflect.Type {
@@ -179,9 +179,9 @@ func (in *acceleratorIpAddressTypePtr) ToAcceleratorIpAddressTypePtrOutputWithCo
 type EndpointGroupHealthCheckProtocol string
 
 const (
-	EndpointGroupHealthCheckProtocolTcp   = EndpointGroupHealthCheckProtocol("TCP")
-	EndpointGroupHealthCheckProtocolHttp  = EndpointGroupHealthCheckProtocol("HTTP")
-	EndpointGroupHealthCheckProtocolHttps = EndpointGroupHealthCheckProtocol("HTTPS")
+	EndpointGroupHealthCheckProtocolTCP   = EndpointGroupHealthCheckProtocol("TCP")
+	EndpointGroupHealthCheckProtocolHTTP  = EndpointGroupHealthCheckProtocol("HTTP")
+	EndpointGroupHealthCheckProtocolHTTPS = EndpointGroupHealthCheckProtocol("HTTPS")
 )
 
 func (EndpointGroupHealthCheckProtocol) ElementType() reflect.Type {
@@ -345,8 +345,8 @@ func (in *endpointGroupHealthCheckProtocolPtr) ToEndpointGroupHealthCheckProtoco
 type ListenerClientAffinity string
 
 const (
-	ListenerClientAffinityNone     = ListenerClientAffinity("NONE")
-	ListenerClientAffinitySourceIp = ListenerClientAffinity("SOURCE_IP")
+	ListenerClientAffinityNONE       = ListenerClientAffinity("NONE")
+	ListenerClientAffinity_SOURCE_IP = ListenerClientAffinity("SOURCE_IP")
 )
 
 func (ListenerClientAffinity) ElementType() reflect.Type {
@@ -510,8 +510,8 @@ func (in *listenerClientAffinityPtr) ToListenerClientAffinityPtrOutputWithContex
 type ListenerProtocol string
 
 const (
-	ListenerProtocolTcp = ListenerProtocol("TCP")
-	ListenerProtocolUdp = ListenerProtocol("UDP")
+	ListenerProtocolTCP = ListenerProtocol("TCP")
+	ListenerProtocolUDP = ListenerProtocol("UDP")
 )
 
 func (ListenerProtocol) ElementType() reflect.Type {

@@ -14,8 +14,8 @@ import (
 type ConnectorProfileConnectionMode string
 
 const (
-	ConnectorProfileConnectionModePublic  = ConnectorProfileConnectionMode("Public")
-	ConnectorProfileConnectionModePrivate = ConnectorProfileConnectionMode("Private")
+	ConnectorProfileConnectionModePUBLIC  = ConnectorProfileConnectionMode("Public")
+	ConnectorProfileConnectionModePRIVATE = ConnectorProfileConnectionMode("Private")
 )
 
 func (ConnectorProfileConnectionMode) ElementType() reflect.Type {
@@ -178,21 +178,21 @@ func (in *connectorProfileConnectionModePtr) ToConnectorProfileConnectionModePtr
 type ConnectorProfileConnectorType string
 
 const (
-	ConnectorProfileConnectorTypeSalesforce      = ConnectorProfileConnectorType("Salesforce")
-	ConnectorProfileConnectorTypeSingular        = ConnectorProfileConnectorType("Singular")
-	ConnectorProfileConnectorTypeSlack           = ConnectorProfileConnectorType("Slack")
-	ConnectorProfileConnectorTypeRedshift        = ConnectorProfileConnectorType("Redshift")
-	ConnectorProfileConnectorTypeMarketo         = ConnectorProfileConnectorType("Marketo")
-	ConnectorProfileConnectorTypeGoogleanalytics = ConnectorProfileConnectorType("Googleanalytics")
-	ConnectorProfileConnectorTypeZendesk         = ConnectorProfileConnectorType("Zendesk")
-	ConnectorProfileConnectorTypeServicenow      = ConnectorProfileConnectorType("Servicenow")
-	ConnectorProfileConnectorTypeDatadog         = ConnectorProfileConnectorType("Datadog")
-	ConnectorProfileConnectorTypeTrendmicro      = ConnectorProfileConnectorType("Trendmicro")
-	ConnectorProfileConnectorTypeSnowflake       = ConnectorProfileConnectorType("Snowflake")
-	ConnectorProfileConnectorTypeDynatrace       = ConnectorProfileConnectorType("Dynatrace")
-	ConnectorProfileConnectorTypeInfornexus      = ConnectorProfileConnectorType("Infornexus")
-	ConnectorProfileConnectorTypeAmplitude       = ConnectorProfileConnectorType("Amplitude")
-	ConnectorProfileConnectorTypeVeeva           = ConnectorProfileConnectorType("Veeva")
+	ConnectorProfileConnectorTypeSALESFORCE      = ConnectorProfileConnectorType("Salesforce")
+	ConnectorProfileConnectorTypeSINGULAR        = ConnectorProfileConnectorType("Singular")
+	ConnectorProfileConnectorTypeSLACK           = ConnectorProfileConnectorType("Slack")
+	ConnectorProfileConnectorTypeREDSHIFT        = ConnectorProfileConnectorType("Redshift")
+	ConnectorProfileConnectorTypeMARKETO         = ConnectorProfileConnectorType("Marketo")
+	ConnectorProfileConnectorTypeGOOGLEANALYTICS = ConnectorProfileConnectorType("Googleanalytics")
+	ConnectorProfileConnectorTypeZENDESK         = ConnectorProfileConnectorType("Zendesk")
+	ConnectorProfileConnectorTypeSERVICENOW      = ConnectorProfileConnectorType("Servicenow")
+	ConnectorProfileConnectorTypeDATADOG         = ConnectorProfileConnectorType("Datadog")
+	ConnectorProfileConnectorTypeTRENDMICRO      = ConnectorProfileConnectorType("Trendmicro")
+	ConnectorProfileConnectorTypeSNOWFLAKE       = ConnectorProfileConnectorType("Snowflake")
+	ConnectorProfileConnectorTypeDYNATRACE       = ConnectorProfileConnectorType("Dynatrace")
+	ConnectorProfileConnectorTypeINFORNEXUS      = ConnectorProfileConnectorType("Infornexus")
+	ConnectorProfileConnectorTypeAMPLITUDE       = ConnectorProfileConnectorType("Amplitude")
+	ConnectorProfileConnectorTypeVEEVA           = ConnectorProfileConnectorType("Veeva")
 )
 
 func (ConnectorProfileConnectorType) ElementType() reflect.Type {
@@ -355,8 +355,8 @@ func (in *connectorProfileConnectorTypePtr) ToConnectorProfileConnectorTypePtrOu
 type FlowAggregationType string
 
 const (
-	FlowAggregationTypeNone       = FlowAggregationType("None")
-	FlowAggregationTypeSingleFile = FlowAggregationType("SingleFile")
+	FlowAggregationTypeNONE         = FlowAggregationType("None")
+	FlowAggregationType_SINGLE_FILE = FlowAggregationType("SingleFile")
 )
 
 func (FlowAggregationType) ElementType() reflect.Type {
@@ -519,7 +519,7 @@ func (in *flowAggregationTypePtr) ToFlowAggregationTypePtrOutputWithContext(ctx 
 type FlowAmplitudeConnectorOperator string
 
 const (
-	FlowAmplitudeConnectorOperatorBetween = FlowAmplitudeConnectorOperator("BETWEEN")
+	FlowAmplitudeConnectorOperatorBETWEEN = FlowAmplitudeConnectorOperator("BETWEEN")
 )
 
 func (FlowAmplitudeConnectorOperator) ElementType() reflect.Type {
@@ -682,25 +682,25 @@ func (in *flowAmplitudeConnectorOperatorPtr) ToFlowAmplitudeConnectorOperatorPtr
 type FlowConnectorType string
 
 const (
-	FlowConnectorTypeSalesforce      = FlowConnectorType("Salesforce")
-	FlowConnectorTypeSingular        = FlowConnectorType("Singular")
-	FlowConnectorTypeSlack           = FlowConnectorType("Slack")
-	FlowConnectorTypeRedshift        = FlowConnectorType("Redshift")
-	FlowConnectorTypeS3              = FlowConnectorType("S3")
-	FlowConnectorTypeMarketo         = FlowConnectorType("Marketo")
-	FlowConnectorTypeGoogleanalytics = FlowConnectorType("Googleanalytics")
-	FlowConnectorTypeZendesk         = FlowConnectorType("Zendesk")
-	FlowConnectorTypeServicenow      = FlowConnectorType("Servicenow")
-	FlowConnectorTypeDatadog         = FlowConnectorType("Datadog")
-	FlowConnectorTypeTrendmicro      = FlowConnectorType("Trendmicro")
-	FlowConnectorTypeSnowflake       = FlowConnectorType("Snowflake")
-	FlowConnectorTypeDynatrace       = FlowConnectorType("Dynatrace")
-	FlowConnectorTypeInfornexus      = FlowConnectorType("Infornexus")
-	FlowConnectorTypeAmplitude       = FlowConnectorType("Amplitude")
-	FlowConnectorTypeVeeva           = FlowConnectorType("Veeva")
-	FlowConnectorTypeEventBridge     = FlowConnectorType("EventBridge")
-	FlowConnectorTypeUpsolver        = FlowConnectorType("Upsolver")
-	FlowConnectorTypeLookoutMetrics  = FlowConnectorType("LookoutMetrics")
+	FlowConnectorTypeSALESFORCE       = FlowConnectorType("Salesforce")
+	FlowConnectorTypeSINGULAR         = FlowConnectorType("Singular")
+	FlowConnectorTypeSLACK            = FlowConnectorType("Slack")
+	FlowConnectorTypeREDSHIFT         = FlowConnectorType("Redshift")
+	FlowConnectorTypeS3               = FlowConnectorType("S3")
+	FlowConnectorTypeMARKETO          = FlowConnectorType("Marketo")
+	FlowConnectorTypeGOOGLEANALYTICS  = FlowConnectorType("Googleanalytics")
+	FlowConnectorTypeZENDESK          = FlowConnectorType("Zendesk")
+	FlowConnectorTypeSERVICENOW       = FlowConnectorType("Servicenow")
+	FlowConnectorTypeDATADOG          = FlowConnectorType("Datadog")
+	FlowConnectorTypeTRENDMICRO       = FlowConnectorType("Trendmicro")
+	FlowConnectorTypeSNOWFLAKE        = FlowConnectorType("Snowflake")
+	FlowConnectorTypeDYNATRACE        = FlowConnectorType("Dynatrace")
+	FlowConnectorTypeINFORNEXUS       = FlowConnectorType("Infornexus")
+	FlowConnectorTypeAMPLITUDE        = FlowConnectorType("Amplitude")
+	FlowConnectorTypeVEEVA            = FlowConnectorType("Veeva")
+	FlowConnectorType_EVENT_BRIDGE    = FlowConnectorType("EventBridge")
+	FlowConnectorTypeUPSOLVER         = FlowConnectorType("Upsolver")
+	FlowConnectorType_LOOKOUT_METRICS = FlowConnectorType("LookoutMetrics")
 )
 
 func (FlowConnectorType) ElementType() reflect.Type {
@@ -863,21 +863,21 @@ func (in *flowConnectorTypePtr) ToFlowConnectorTypePtrOutputWithContext(ctx cont
 type FlowDatadogConnectorOperator string
 
 const (
-	FlowDatadogConnectorOperatorProjection          = FlowDatadogConnectorOperator("PROJECTION")
-	FlowDatadogConnectorOperatorBetween             = FlowDatadogConnectorOperator("BETWEEN")
-	FlowDatadogConnectorOperatorEqualTo             = FlowDatadogConnectorOperator("EQUAL_TO")
-	FlowDatadogConnectorOperatorAddition            = FlowDatadogConnectorOperator("ADDITION")
-	FlowDatadogConnectorOperatorMultiplication      = FlowDatadogConnectorOperator("MULTIPLICATION")
-	FlowDatadogConnectorOperatorDivision            = FlowDatadogConnectorOperator("DIVISION")
-	FlowDatadogConnectorOperatorSubtraction         = FlowDatadogConnectorOperator("SUBTRACTION")
-	FlowDatadogConnectorOperatorMaskAll             = FlowDatadogConnectorOperator("MASK_ALL")
-	FlowDatadogConnectorOperatorMaskFirstN          = FlowDatadogConnectorOperator("MASK_FIRST_N")
-	FlowDatadogConnectorOperatorMaskLastN           = FlowDatadogConnectorOperator("MASK_LAST_N")
-	FlowDatadogConnectorOperatorValidateNonNull     = FlowDatadogConnectorOperator("VALIDATE_NON_NULL")
-	FlowDatadogConnectorOperatorValidateNonZero     = FlowDatadogConnectorOperator("VALIDATE_NON_ZERO")
-	FlowDatadogConnectorOperatorValidateNonNegative = FlowDatadogConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowDatadogConnectorOperatorValidateNumeric     = FlowDatadogConnectorOperator("VALIDATE_NUMERIC")
-	FlowDatadogConnectorOperatorNoOp                = FlowDatadogConnectorOperator("NO_OP")
+	FlowDatadogConnectorOperatorPROJECTION             = FlowDatadogConnectorOperator("PROJECTION")
+	FlowDatadogConnectorOperatorBETWEEN                = FlowDatadogConnectorOperator("BETWEEN")
+	FlowDatadogConnectorOperator_EQUAL_TO              = FlowDatadogConnectorOperator("EQUAL_TO")
+	FlowDatadogConnectorOperatorADDITION               = FlowDatadogConnectorOperator("ADDITION")
+	FlowDatadogConnectorOperatorMULTIPLICATION         = FlowDatadogConnectorOperator("MULTIPLICATION")
+	FlowDatadogConnectorOperatorDIVISION               = FlowDatadogConnectorOperator("DIVISION")
+	FlowDatadogConnectorOperatorSUBTRACTION            = FlowDatadogConnectorOperator("SUBTRACTION")
+	FlowDatadogConnectorOperator_MASK_ALL              = FlowDatadogConnectorOperator("MASK_ALL")
+	FlowDatadogConnectorOperator_MASK_FIRST_N          = FlowDatadogConnectorOperator("MASK_FIRST_N")
+	FlowDatadogConnectorOperator_MASK_LAST_N           = FlowDatadogConnectorOperator("MASK_LAST_N")
+	FlowDatadogConnectorOperator_VALIDATE_NON_NULL     = FlowDatadogConnectorOperator("VALIDATE_NON_NULL")
+	FlowDatadogConnectorOperator_VALIDATE_NON_ZERO     = FlowDatadogConnectorOperator("VALIDATE_NON_ZERO")
+	FlowDatadogConnectorOperator_VALIDATE_NON_NEGATIVE = FlowDatadogConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowDatadogConnectorOperator_VALIDATE_NUMERIC      = FlowDatadogConnectorOperator("VALIDATE_NUMERIC")
+	FlowDatadogConnectorOperator_NO_OP                 = FlowDatadogConnectorOperator("NO_OP")
 )
 
 func (FlowDatadogConnectorOperator) ElementType() reflect.Type {
@@ -1040,21 +1040,21 @@ func (in *flowDatadogConnectorOperatorPtr) ToFlowDatadogConnectorOperatorPtrOutp
 type FlowDynatraceConnectorOperator string
 
 const (
-	FlowDynatraceConnectorOperatorProjection          = FlowDynatraceConnectorOperator("PROJECTION")
-	FlowDynatraceConnectorOperatorBetween             = FlowDynatraceConnectorOperator("BETWEEN")
-	FlowDynatraceConnectorOperatorEqualTo             = FlowDynatraceConnectorOperator("EQUAL_TO")
-	FlowDynatraceConnectorOperatorAddition            = FlowDynatraceConnectorOperator("ADDITION")
-	FlowDynatraceConnectorOperatorMultiplication      = FlowDynatraceConnectorOperator("MULTIPLICATION")
-	FlowDynatraceConnectorOperatorDivision            = FlowDynatraceConnectorOperator("DIVISION")
-	FlowDynatraceConnectorOperatorSubtraction         = FlowDynatraceConnectorOperator("SUBTRACTION")
-	FlowDynatraceConnectorOperatorMaskAll             = FlowDynatraceConnectorOperator("MASK_ALL")
-	FlowDynatraceConnectorOperatorMaskFirstN          = FlowDynatraceConnectorOperator("MASK_FIRST_N")
-	FlowDynatraceConnectorOperatorMaskLastN           = FlowDynatraceConnectorOperator("MASK_LAST_N")
-	FlowDynatraceConnectorOperatorValidateNonNull     = FlowDynatraceConnectorOperator("VALIDATE_NON_NULL")
-	FlowDynatraceConnectorOperatorValidateNonZero     = FlowDynatraceConnectorOperator("VALIDATE_NON_ZERO")
-	FlowDynatraceConnectorOperatorValidateNonNegative = FlowDynatraceConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowDynatraceConnectorOperatorValidateNumeric     = FlowDynatraceConnectorOperator("VALIDATE_NUMERIC")
-	FlowDynatraceConnectorOperatorNoOp                = FlowDynatraceConnectorOperator("NO_OP")
+	FlowDynatraceConnectorOperatorPROJECTION             = FlowDynatraceConnectorOperator("PROJECTION")
+	FlowDynatraceConnectorOperatorBETWEEN                = FlowDynatraceConnectorOperator("BETWEEN")
+	FlowDynatraceConnectorOperator_EQUAL_TO              = FlowDynatraceConnectorOperator("EQUAL_TO")
+	FlowDynatraceConnectorOperatorADDITION               = FlowDynatraceConnectorOperator("ADDITION")
+	FlowDynatraceConnectorOperatorMULTIPLICATION         = FlowDynatraceConnectorOperator("MULTIPLICATION")
+	FlowDynatraceConnectorOperatorDIVISION               = FlowDynatraceConnectorOperator("DIVISION")
+	FlowDynatraceConnectorOperatorSUBTRACTION            = FlowDynatraceConnectorOperator("SUBTRACTION")
+	FlowDynatraceConnectorOperator_MASK_ALL              = FlowDynatraceConnectorOperator("MASK_ALL")
+	FlowDynatraceConnectorOperator_MASK_FIRST_N          = FlowDynatraceConnectorOperator("MASK_FIRST_N")
+	FlowDynatraceConnectorOperator_MASK_LAST_N           = FlowDynatraceConnectorOperator("MASK_LAST_N")
+	FlowDynatraceConnectorOperator_VALIDATE_NON_NULL     = FlowDynatraceConnectorOperator("VALIDATE_NON_NULL")
+	FlowDynatraceConnectorOperator_VALIDATE_NON_ZERO     = FlowDynatraceConnectorOperator("VALIDATE_NON_ZERO")
+	FlowDynatraceConnectorOperator_VALIDATE_NON_NEGATIVE = FlowDynatraceConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowDynatraceConnectorOperator_VALIDATE_NUMERIC      = FlowDynatraceConnectorOperator("VALIDATE_NUMERIC")
+	FlowDynatraceConnectorOperator_NO_OP                 = FlowDynatraceConnectorOperator("NO_OP")
 )
 
 func (FlowDynatraceConnectorOperator) ElementType() reflect.Type {
@@ -1217,9 +1217,9 @@ func (in *flowDynatraceConnectorOperatorPtr) ToFlowDynatraceConnectorOperatorPtr
 type FlowFileType string
 
 const (
-	FlowFileTypeCsv     = FlowFileType("CSV")
-	FlowFileTypeJson    = FlowFileType("JSON")
-	FlowFileTypeParquet = FlowFileType("PARQUET")
+	FlowFileTypeCSV     = FlowFileType("CSV")
+	FlowFileTypeJSON    = FlowFileType("JSON")
+	FlowFileTypePARQUET = FlowFileType("PARQUET")
 )
 
 func (FlowFileType) ElementType() reflect.Type {
@@ -1382,8 +1382,8 @@ func (in *flowFileTypePtr) ToFlowFileTypePtrOutputWithContext(ctx context.Contex
 type FlowGoogleAnalyticsConnectorOperator string
 
 const (
-	FlowGoogleAnalyticsConnectorOperatorProjection = FlowGoogleAnalyticsConnectorOperator("PROJECTION")
-	FlowGoogleAnalyticsConnectorOperatorBetween    = FlowGoogleAnalyticsConnectorOperator("BETWEEN")
+	FlowGoogleAnalyticsConnectorOperatorPROJECTION = FlowGoogleAnalyticsConnectorOperator("PROJECTION")
+	FlowGoogleAnalyticsConnectorOperatorBETWEEN    = FlowGoogleAnalyticsConnectorOperator("BETWEEN")
 )
 
 func (FlowGoogleAnalyticsConnectorOperator) ElementType() reflect.Type {
@@ -1546,21 +1546,21 @@ func (in *flowGoogleAnalyticsConnectorOperatorPtr) ToFlowGoogleAnalyticsConnecto
 type FlowInforNexusConnectorOperator string
 
 const (
-	FlowInforNexusConnectorOperatorProjection          = FlowInforNexusConnectorOperator("PROJECTION")
-	FlowInforNexusConnectorOperatorBetween             = FlowInforNexusConnectorOperator("BETWEEN")
-	FlowInforNexusConnectorOperatorEqualTo             = FlowInforNexusConnectorOperator("EQUAL_TO")
-	FlowInforNexusConnectorOperatorAddition            = FlowInforNexusConnectorOperator("ADDITION")
-	FlowInforNexusConnectorOperatorMultiplication      = FlowInforNexusConnectorOperator("MULTIPLICATION")
-	FlowInforNexusConnectorOperatorDivision            = FlowInforNexusConnectorOperator("DIVISION")
-	FlowInforNexusConnectorOperatorSubtraction         = FlowInforNexusConnectorOperator("SUBTRACTION")
-	FlowInforNexusConnectorOperatorMaskAll             = FlowInforNexusConnectorOperator("MASK_ALL")
-	FlowInforNexusConnectorOperatorMaskFirstN          = FlowInforNexusConnectorOperator("MASK_FIRST_N")
-	FlowInforNexusConnectorOperatorMaskLastN           = FlowInforNexusConnectorOperator("MASK_LAST_N")
-	FlowInforNexusConnectorOperatorValidateNonNull     = FlowInforNexusConnectorOperator("VALIDATE_NON_NULL")
-	FlowInforNexusConnectorOperatorValidateNonZero     = FlowInforNexusConnectorOperator("VALIDATE_NON_ZERO")
-	FlowInforNexusConnectorOperatorValidateNonNegative = FlowInforNexusConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowInforNexusConnectorOperatorValidateNumeric     = FlowInforNexusConnectorOperator("VALIDATE_NUMERIC")
-	FlowInforNexusConnectorOperatorNoOp                = FlowInforNexusConnectorOperator("NO_OP")
+	FlowInforNexusConnectorOperatorPROJECTION             = FlowInforNexusConnectorOperator("PROJECTION")
+	FlowInforNexusConnectorOperatorBETWEEN                = FlowInforNexusConnectorOperator("BETWEEN")
+	FlowInforNexusConnectorOperator_EQUAL_TO              = FlowInforNexusConnectorOperator("EQUAL_TO")
+	FlowInforNexusConnectorOperatorADDITION               = FlowInforNexusConnectorOperator("ADDITION")
+	FlowInforNexusConnectorOperatorMULTIPLICATION         = FlowInforNexusConnectorOperator("MULTIPLICATION")
+	FlowInforNexusConnectorOperatorDIVISION               = FlowInforNexusConnectorOperator("DIVISION")
+	FlowInforNexusConnectorOperatorSUBTRACTION            = FlowInforNexusConnectorOperator("SUBTRACTION")
+	FlowInforNexusConnectorOperator_MASK_ALL              = FlowInforNexusConnectorOperator("MASK_ALL")
+	FlowInforNexusConnectorOperator_MASK_FIRST_N          = FlowInforNexusConnectorOperator("MASK_FIRST_N")
+	FlowInforNexusConnectorOperator_MASK_LAST_N           = FlowInforNexusConnectorOperator("MASK_LAST_N")
+	FlowInforNexusConnectorOperator_VALIDATE_NON_NULL     = FlowInforNexusConnectorOperator("VALIDATE_NON_NULL")
+	FlowInforNexusConnectorOperator_VALIDATE_NON_ZERO     = FlowInforNexusConnectorOperator("VALIDATE_NON_ZERO")
+	FlowInforNexusConnectorOperator_VALIDATE_NON_NEGATIVE = FlowInforNexusConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowInforNexusConnectorOperator_VALIDATE_NUMERIC      = FlowInforNexusConnectorOperator("VALIDATE_NUMERIC")
+	FlowInforNexusConnectorOperator_NO_OP                 = FlowInforNexusConnectorOperator("NO_OP")
 )
 
 func (FlowInforNexusConnectorOperator) ElementType() reflect.Type {
@@ -1723,22 +1723,22 @@ func (in *flowInforNexusConnectorOperatorPtr) ToFlowInforNexusConnectorOperatorP
 type FlowMarketoConnectorOperator string
 
 const (
-	FlowMarketoConnectorOperatorProjection          = FlowMarketoConnectorOperator("PROJECTION")
-	FlowMarketoConnectorOperatorLessThan            = FlowMarketoConnectorOperator("LESS_THAN")
-	FlowMarketoConnectorOperatorGreaterThan         = FlowMarketoConnectorOperator("GREATER_THAN")
-	FlowMarketoConnectorOperatorBetween             = FlowMarketoConnectorOperator("BETWEEN")
-	FlowMarketoConnectorOperatorAddition            = FlowMarketoConnectorOperator("ADDITION")
-	FlowMarketoConnectorOperatorMultiplication      = FlowMarketoConnectorOperator("MULTIPLICATION")
-	FlowMarketoConnectorOperatorDivision            = FlowMarketoConnectorOperator("DIVISION")
-	FlowMarketoConnectorOperatorSubtraction         = FlowMarketoConnectorOperator("SUBTRACTION")
-	FlowMarketoConnectorOperatorMaskAll             = FlowMarketoConnectorOperator("MASK_ALL")
-	FlowMarketoConnectorOperatorMaskFirstN          = FlowMarketoConnectorOperator("MASK_FIRST_N")
-	FlowMarketoConnectorOperatorMaskLastN           = FlowMarketoConnectorOperator("MASK_LAST_N")
-	FlowMarketoConnectorOperatorValidateNonNull     = FlowMarketoConnectorOperator("VALIDATE_NON_NULL")
-	FlowMarketoConnectorOperatorValidateNonZero     = FlowMarketoConnectorOperator("VALIDATE_NON_ZERO")
-	FlowMarketoConnectorOperatorValidateNonNegative = FlowMarketoConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowMarketoConnectorOperatorValidateNumeric     = FlowMarketoConnectorOperator("VALIDATE_NUMERIC")
-	FlowMarketoConnectorOperatorNoOp                = FlowMarketoConnectorOperator("NO_OP")
+	FlowMarketoConnectorOperatorPROJECTION             = FlowMarketoConnectorOperator("PROJECTION")
+	FlowMarketoConnectorOperator_LESS_THAN             = FlowMarketoConnectorOperator("LESS_THAN")
+	FlowMarketoConnectorOperator_GREATER_THAN          = FlowMarketoConnectorOperator("GREATER_THAN")
+	FlowMarketoConnectorOperatorBETWEEN                = FlowMarketoConnectorOperator("BETWEEN")
+	FlowMarketoConnectorOperatorADDITION               = FlowMarketoConnectorOperator("ADDITION")
+	FlowMarketoConnectorOperatorMULTIPLICATION         = FlowMarketoConnectorOperator("MULTIPLICATION")
+	FlowMarketoConnectorOperatorDIVISION               = FlowMarketoConnectorOperator("DIVISION")
+	FlowMarketoConnectorOperatorSUBTRACTION            = FlowMarketoConnectorOperator("SUBTRACTION")
+	FlowMarketoConnectorOperator_MASK_ALL              = FlowMarketoConnectorOperator("MASK_ALL")
+	FlowMarketoConnectorOperator_MASK_FIRST_N          = FlowMarketoConnectorOperator("MASK_FIRST_N")
+	FlowMarketoConnectorOperator_MASK_LAST_N           = FlowMarketoConnectorOperator("MASK_LAST_N")
+	FlowMarketoConnectorOperator_VALIDATE_NON_NULL     = FlowMarketoConnectorOperator("VALIDATE_NON_NULL")
+	FlowMarketoConnectorOperator_VALIDATE_NON_ZERO     = FlowMarketoConnectorOperator("VALIDATE_NON_ZERO")
+	FlowMarketoConnectorOperator_VALIDATE_NON_NEGATIVE = FlowMarketoConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowMarketoConnectorOperator_VALIDATE_NUMERIC      = FlowMarketoConnectorOperator("VALIDATE_NUMERIC")
+	FlowMarketoConnectorOperator_NO_OP                 = FlowMarketoConnectorOperator("NO_OP")
 )
 
 func (FlowMarketoConnectorOperator) ElementType() reflect.Type {
@@ -1901,21 +1901,21 @@ func (in *flowMarketoConnectorOperatorPtr) ToFlowMarketoConnectorOperatorPtrOutp
 type FlowOperatorPropertiesKeys string
 
 const (
-	FlowOperatorPropertiesKeysValue                    = FlowOperatorPropertiesKeys("VALUE")
-	FlowOperatorPropertiesKeysValues                   = FlowOperatorPropertiesKeys("VALUES")
-	FlowOperatorPropertiesKeysDataType                 = FlowOperatorPropertiesKeys("DATA_TYPE")
-	FlowOperatorPropertiesKeysUpperBound               = FlowOperatorPropertiesKeys("UPPER_BOUND")
-	FlowOperatorPropertiesKeysLowerBound               = FlowOperatorPropertiesKeys("LOWER_BOUND")
-	FlowOperatorPropertiesKeysSourceDataType           = FlowOperatorPropertiesKeys("SOURCE_DATA_TYPE")
-	FlowOperatorPropertiesKeysDestinationDataType      = FlowOperatorPropertiesKeys("DESTINATION_DATA_TYPE")
-	FlowOperatorPropertiesKeysValidationAction         = FlowOperatorPropertiesKeys("VALIDATION_ACTION")
-	FlowOperatorPropertiesKeysMaskValue                = FlowOperatorPropertiesKeys("MASK_VALUE")
-	FlowOperatorPropertiesKeysMaskLength               = FlowOperatorPropertiesKeys("MASK_LENGTH")
-	FlowOperatorPropertiesKeysTruncateLength           = FlowOperatorPropertiesKeys("TRUNCATE_LENGTH")
-	FlowOperatorPropertiesKeysMathOperationFieldsOrder = FlowOperatorPropertiesKeys("MATH_OPERATION_FIELDS_ORDER")
-	FlowOperatorPropertiesKeysConcatFormat             = FlowOperatorPropertiesKeys("CONCAT_FORMAT")
-	FlowOperatorPropertiesKeysSubfieldCategoryMap      = FlowOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP")
-	FlowOperatorPropertiesKeysExcludeSourceFieldsList  = FlowOperatorPropertiesKeys("EXCLUDE_SOURCE_FIELDS_LIST")
+	FlowOperatorPropertiesKeysVALUE                        = FlowOperatorPropertiesKeys("VALUE")
+	FlowOperatorPropertiesKeysVALUES                       = FlowOperatorPropertiesKeys("VALUES")
+	FlowOperatorPropertiesKeys_DATA_TYPE                   = FlowOperatorPropertiesKeys("DATA_TYPE")
+	FlowOperatorPropertiesKeys_UPPER_BOUND                 = FlowOperatorPropertiesKeys("UPPER_BOUND")
+	FlowOperatorPropertiesKeys_LOWER_BOUND                 = FlowOperatorPropertiesKeys("LOWER_BOUND")
+	FlowOperatorPropertiesKeys_SOURCE_DATA_TYPE            = FlowOperatorPropertiesKeys("SOURCE_DATA_TYPE")
+	FlowOperatorPropertiesKeys_DESTINATION_DATA_TYPE       = FlowOperatorPropertiesKeys("DESTINATION_DATA_TYPE")
+	FlowOperatorPropertiesKeys_VALIDATION_ACTION           = FlowOperatorPropertiesKeys("VALIDATION_ACTION")
+	FlowOperatorPropertiesKeys_MASK_VALUE                  = FlowOperatorPropertiesKeys("MASK_VALUE")
+	FlowOperatorPropertiesKeys_MASK_LENGTH                 = FlowOperatorPropertiesKeys("MASK_LENGTH")
+	FlowOperatorPropertiesKeys_TRUNCATE_LENGTH             = FlowOperatorPropertiesKeys("TRUNCATE_LENGTH")
+	FlowOperatorPropertiesKeys_MATH_OPERATION_FIELDS_ORDER = FlowOperatorPropertiesKeys("MATH_OPERATION_FIELDS_ORDER")
+	FlowOperatorPropertiesKeys_CONCAT_FORMAT               = FlowOperatorPropertiesKeys("CONCAT_FORMAT")
+	FlowOperatorPropertiesKeys_SUBFIELD_CATEGORY_MAP       = FlowOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP")
+	FlowOperatorPropertiesKeys_EXCLUDE_SOURCE_FIELDS_LIST  = FlowOperatorPropertiesKeys("EXCLUDE_SOURCE_FIELDS_LIST")
 )
 
 func (FlowOperatorPropertiesKeys) ElementType() reflect.Type {
@@ -2078,11 +2078,11 @@ func (in *flowOperatorPropertiesKeysPtr) ToFlowOperatorPropertiesKeysPtrOutputWi
 type FlowPrefixFormat string
 
 const (
-	FlowPrefixFormatYear   = FlowPrefixFormat("YEAR")
-	FlowPrefixFormatMonth  = FlowPrefixFormat("MONTH")
-	FlowPrefixFormatDay    = FlowPrefixFormat("DAY")
-	FlowPrefixFormatHour   = FlowPrefixFormat("HOUR")
-	FlowPrefixFormatMinute = FlowPrefixFormat("MINUTE")
+	FlowPrefixFormatYEAR   = FlowPrefixFormat("YEAR")
+	FlowPrefixFormatMONTH  = FlowPrefixFormat("MONTH")
+	FlowPrefixFormatDAY    = FlowPrefixFormat("DAY")
+	FlowPrefixFormatHOUR   = FlowPrefixFormat("HOUR")
+	FlowPrefixFormatMINUTE = FlowPrefixFormat("MINUTE")
 )
 
 func (FlowPrefixFormat) ElementType() reflect.Type {
@@ -2245,9 +2245,9 @@ func (in *flowPrefixFormatPtr) ToFlowPrefixFormatPtrOutputWithContext(ctx contex
 type FlowPrefixType string
 
 const (
-	FlowPrefixTypeFilename        = FlowPrefixType("FILENAME")
-	FlowPrefixTypePath            = FlowPrefixType("PATH")
-	FlowPrefixTypePathAndFilename = FlowPrefixType("PATH_AND_FILENAME")
+	FlowPrefixTypeFILENAME           = FlowPrefixType("FILENAME")
+	FlowPrefixTypePATH               = FlowPrefixType("PATH")
+	FlowPrefixType_PATH_AND_FILENAME = FlowPrefixType("PATH_AND_FILENAME")
 )
 
 func (FlowPrefixType) ElementType() reflect.Type {
@@ -2410,26 +2410,26 @@ func (in *flowPrefixTypePtr) ToFlowPrefixTypePtrOutputWithContext(ctx context.Co
 type FlowS3ConnectorOperator string
 
 const (
-	FlowS3ConnectorOperatorProjection           = FlowS3ConnectorOperator("PROJECTION")
-	FlowS3ConnectorOperatorLessThan             = FlowS3ConnectorOperator("LESS_THAN")
-	FlowS3ConnectorOperatorGreaterThan          = FlowS3ConnectorOperator("GREATER_THAN")
-	FlowS3ConnectorOperatorBetween              = FlowS3ConnectorOperator("BETWEEN")
-	FlowS3ConnectorOperatorLessThanOrEqualTo    = FlowS3ConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	FlowS3ConnectorOperatorGreaterThanOrEqualTo = FlowS3ConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	FlowS3ConnectorOperatorEqualTo              = FlowS3ConnectorOperator("EQUAL_TO")
-	FlowS3ConnectorOperatorNotEqualTo           = FlowS3ConnectorOperator("NOT_EQUAL_TO")
-	FlowS3ConnectorOperatorAddition             = FlowS3ConnectorOperator("ADDITION")
-	FlowS3ConnectorOperatorMultiplication       = FlowS3ConnectorOperator("MULTIPLICATION")
-	FlowS3ConnectorOperatorDivision             = FlowS3ConnectorOperator("DIVISION")
-	FlowS3ConnectorOperatorSubtraction          = FlowS3ConnectorOperator("SUBTRACTION")
-	FlowS3ConnectorOperatorMaskAll              = FlowS3ConnectorOperator("MASK_ALL")
-	FlowS3ConnectorOperatorMaskFirstN           = FlowS3ConnectorOperator("MASK_FIRST_N")
-	FlowS3ConnectorOperatorMaskLastN            = FlowS3ConnectorOperator("MASK_LAST_N")
-	FlowS3ConnectorOperatorValidateNonNull      = FlowS3ConnectorOperator("VALIDATE_NON_NULL")
-	FlowS3ConnectorOperatorValidateNonZero      = FlowS3ConnectorOperator("VALIDATE_NON_ZERO")
-	FlowS3ConnectorOperatorValidateNonNegative  = FlowS3ConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowS3ConnectorOperatorValidateNumeric      = FlowS3ConnectorOperator("VALIDATE_NUMERIC")
-	FlowS3ConnectorOperatorNoOp                 = FlowS3ConnectorOperator("NO_OP")
+	FlowS3ConnectorOperatorPROJECTION                = FlowS3ConnectorOperator("PROJECTION")
+	FlowS3ConnectorOperator_LESS_THAN                = FlowS3ConnectorOperator("LESS_THAN")
+	FlowS3ConnectorOperator_GREATER_THAN             = FlowS3ConnectorOperator("GREATER_THAN")
+	FlowS3ConnectorOperatorBETWEEN                   = FlowS3ConnectorOperator("BETWEEN")
+	FlowS3ConnectorOperator_LESS_THAN_OR_EQUAL_TO    = FlowS3ConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	FlowS3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO = FlowS3ConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	FlowS3ConnectorOperator_EQUAL_TO                 = FlowS3ConnectorOperator("EQUAL_TO")
+	FlowS3ConnectorOperator_NOT_EQUAL_TO             = FlowS3ConnectorOperator("NOT_EQUAL_TO")
+	FlowS3ConnectorOperatorADDITION                  = FlowS3ConnectorOperator("ADDITION")
+	FlowS3ConnectorOperatorMULTIPLICATION            = FlowS3ConnectorOperator("MULTIPLICATION")
+	FlowS3ConnectorOperatorDIVISION                  = FlowS3ConnectorOperator("DIVISION")
+	FlowS3ConnectorOperatorSUBTRACTION               = FlowS3ConnectorOperator("SUBTRACTION")
+	FlowS3ConnectorOperator_MASK_ALL                 = FlowS3ConnectorOperator("MASK_ALL")
+	FlowS3ConnectorOperator_MASK_FIRST_N             = FlowS3ConnectorOperator("MASK_FIRST_N")
+	FlowS3ConnectorOperator_MASK_LAST_N              = FlowS3ConnectorOperator("MASK_LAST_N")
+	FlowS3ConnectorOperator_VALIDATE_NON_NULL        = FlowS3ConnectorOperator("VALIDATE_NON_NULL")
+	FlowS3ConnectorOperator_VALIDATE_NON_ZERO        = FlowS3ConnectorOperator("VALIDATE_NON_ZERO")
+	FlowS3ConnectorOperator_VALIDATE_NON_NEGATIVE    = FlowS3ConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowS3ConnectorOperator_VALIDATE_NUMERIC         = FlowS3ConnectorOperator("VALIDATE_NUMERIC")
+	FlowS3ConnectorOperator_NO_OP                    = FlowS3ConnectorOperator("NO_OP")
 )
 
 func (FlowS3ConnectorOperator) ElementType() reflect.Type {
@@ -2592,27 +2592,27 @@ func (in *flowS3ConnectorOperatorPtr) ToFlowS3ConnectorOperatorPtrOutputWithCont
 type FlowSalesforceConnectorOperator string
 
 const (
-	FlowSalesforceConnectorOperatorProjection           = FlowSalesforceConnectorOperator("PROJECTION")
-	FlowSalesforceConnectorOperatorLessThan             = FlowSalesforceConnectorOperator("LESS_THAN")
-	FlowSalesforceConnectorOperatorContains             = FlowSalesforceConnectorOperator("CONTAINS")
-	FlowSalesforceConnectorOperatorGreaterThan          = FlowSalesforceConnectorOperator("GREATER_THAN")
-	FlowSalesforceConnectorOperatorBetween              = FlowSalesforceConnectorOperator("BETWEEN")
-	FlowSalesforceConnectorOperatorLessThanOrEqualTo    = FlowSalesforceConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	FlowSalesforceConnectorOperatorGreaterThanOrEqualTo = FlowSalesforceConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	FlowSalesforceConnectorOperatorEqualTo              = FlowSalesforceConnectorOperator("EQUAL_TO")
-	FlowSalesforceConnectorOperatorNotEqualTo           = FlowSalesforceConnectorOperator("NOT_EQUAL_TO")
-	FlowSalesforceConnectorOperatorAddition             = FlowSalesforceConnectorOperator("ADDITION")
-	FlowSalesforceConnectorOperatorMultiplication       = FlowSalesforceConnectorOperator("MULTIPLICATION")
-	FlowSalesforceConnectorOperatorDivision             = FlowSalesforceConnectorOperator("DIVISION")
-	FlowSalesforceConnectorOperatorSubtraction          = FlowSalesforceConnectorOperator("SUBTRACTION")
-	FlowSalesforceConnectorOperatorMaskAll              = FlowSalesforceConnectorOperator("MASK_ALL")
-	FlowSalesforceConnectorOperatorMaskFirstN           = FlowSalesforceConnectorOperator("MASK_FIRST_N")
-	FlowSalesforceConnectorOperatorMaskLastN            = FlowSalesforceConnectorOperator("MASK_LAST_N")
-	FlowSalesforceConnectorOperatorValidateNonNull      = FlowSalesforceConnectorOperator("VALIDATE_NON_NULL")
-	FlowSalesforceConnectorOperatorValidateNonZero      = FlowSalesforceConnectorOperator("VALIDATE_NON_ZERO")
-	FlowSalesforceConnectorOperatorValidateNonNegative  = FlowSalesforceConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowSalesforceConnectorOperatorValidateNumeric      = FlowSalesforceConnectorOperator("VALIDATE_NUMERIC")
-	FlowSalesforceConnectorOperatorNoOp                 = FlowSalesforceConnectorOperator("NO_OP")
+	FlowSalesforceConnectorOperatorPROJECTION                = FlowSalesforceConnectorOperator("PROJECTION")
+	FlowSalesforceConnectorOperator_LESS_THAN                = FlowSalesforceConnectorOperator("LESS_THAN")
+	FlowSalesforceConnectorOperatorCONTAINS                  = FlowSalesforceConnectorOperator("CONTAINS")
+	FlowSalesforceConnectorOperator_GREATER_THAN             = FlowSalesforceConnectorOperator("GREATER_THAN")
+	FlowSalesforceConnectorOperatorBETWEEN                   = FlowSalesforceConnectorOperator("BETWEEN")
+	FlowSalesforceConnectorOperator_LESS_THAN_OR_EQUAL_TO    = FlowSalesforceConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	FlowSalesforceConnectorOperator_GREATER_THAN_OR_EQUAL_TO = FlowSalesforceConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	FlowSalesforceConnectorOperator_EQUAL_TO                 = FlowSalesforceConnectorOperator("EQUAL_TO")
+	FlowSalesforceConnectorOperator_NOT_EQUAL_TO             = FlowSalesforceConnectorOperator("NOT_EQUAL_TO")
+	FlowSalesforceConnectorOperatorADDITION                  = FlowSalesforceConnectorOperator("ADDITION")
+	FlowSalesforceConnectorOperatorMULTIPLICATION            = FlowSalesforceConnectorOperator("MULTIPLICATION")
+	FlowSalesforceConnectorOperatorDIVISION                  = FlowSalesforceConnectorOperator("DIVISION")
+	FlowSalesforceConnectorOperatorSUBTRACTION               = FlowSalesforceConnectorOperator("SUBTRACTION")
+	FlowSalesforceConnectorOperator_MASK_ALL                 = FlowSalesforceConnectorOperator("MASK_ALL")
+	FlowSalesforceConnectorOperator_MASK_FIRST_N             = FlowSalesforceConnectorOperator("MASK_FIRST_N")
+	FlowSalesforceConnectorOperator_MASK_LAST_N              = FlowSalesforceConnectorOperator("MASK_LAST_N")
+	FlowSalesforceConnectorOperator_VALIDATE_NON_NULL        = FlowSalesforceConnectorOperator("VALIDATE_NON_NULL")
+	FlowSalesforceConnectorOperator_VALIDATE_NON_ZERO        = FlowSalesforceConnectorOperator("VALIDATE_NON_ZERO")
+	FlowSalesforceConnectorOperator_VALIDATE_NON_NEGATIVE    = FlowSalesforceConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowSalesforceConnectorOperator_VALIDATE_NUMERIC         = FlowSalesforceConnectorOperator("VALIDATE_NUMERIC")
+	FlowSalesforceConnectorOperator_NO_OP                    = FlowSalesforceConnectorOperator("NO_OP")
 )
 
 func (FlowSalesforceConnectorOperator) ElementType() reflect.Type {
@@ -2775,8 +2775,8 @@ func (in *flowSalesforceConnectorOperatorPtr) ToFlowSalesforceConnectorOperatorP
 type FlowScheduledTriggerPropertiesDataPullMode string
 
 const (
-	FlowScheduledTriggerPropertiesDataPullModeIncremental = FlowScheduledTriggerPropertiesDataPullMode("Incremental")
-	FlowScheduledTriggerPropertiesDataPullModeComplete    = FlowScheduledTriggerPropertiesDataPullMode("Complete")
+	FlowScheduledTriggerPropertiesDataPullModeINCREMENTAL = FlowScheduledTriggerPropertiesDataPullMode("Incremental")
+	FlowScheduledTriggerPropertiesDataPullModeCOMPLETE    = FlowScheduledTriggerPropertiesDataPullMode("Complete")
 )
 
 func (FlowScheduledTriggerPropertiesDataPullMode) ElementType() reflect.Type {
@@ -2939,27 +2939,27 @@ func (in *flowScheduledTriggerPropertiesDataPullModePtr) ToFlowScheduledTriggerP
 type FlowServiceNowConnectorOperator string
 
 const (
-	FlowServiceNowConnectorOperatorProjection           = FlowServiceNowConnectorOperator("PROJECTION")
-	FlowServiceNowConnectorOperatorLessThan             = FlowServiceNowConnectorOperator("LESS_THAN")
-	FlowServiceNowConnectorOperatorContains             = FlowServiceNowConnectorOperator("CONTAINS")
-	FlowServiceNowConnectorOperatorGreaterThan          = FlowServiceNowConnectorOperator("GREATER_THAN")
-	FlowServiceNowConnectorOperatorBetween              = FlowServiceNowConnectorOperator("BETWEEN")
-	FlowServiceNowConnectorOperatorLessThanOrEqualTo    = FlowServiceNowConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	FlowServiceNowConnectorOperatorGreaterThanOrEqualTo = FlowServiceNowConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	FlowServiceNowConnectorOperatorEqualTo              = FlowServiceNowConnectorOperator("EQUAL_TO")
-	FlowServiceNowConnectorOperatorNotEqualTo           = FlowServiceNowConnectorOperator("NOT_EQUAL_TO")
-	FlowServiceNowConnectorOperatorAddition             = FlowServiceNowConnectorOperator("ADDITION")
-	FlowServiceNowConnectorOperatorMultiplication       = FlowServiceNowConnectorOperator("MULTIPLICATION")
-	FlowServiceNowConnectorOperatorDivision             = FlowServiceNowConnectorOperator("DIVISION")
-	FlowServiceNowConnectorOperatorSubtraction          = FlowServiceNowConnectorOperator("SUBTRACTION")
-	FlowServiceNowConnectorOperatorMaskAll              = FlowServiceNowConnectorOperator("MASK_ALL")
-	FlowServiceNowConnectorOperatorMaskFirstN           = FlowServiceNowConnectorOperator("MASK_FIRST_N")
-	FlowServiceNowConnectorOperatorMaskLastN            = FlowServiceNowConnectorOperator("MASK_LAST_N")
-	FlowServiceNowConnectorOperatorValidateNonNull      = FlowServiceNowConnectorOperator("VALIDATE_NON_NULL")
-	FlowServiceNowConnectorOperatorValidateNonZero      = FlowServiceNowConnectorOperator("VALIDATE_NON_ZERO")
-	FlowServiceNowConnectorOperatorValidateNonNegative  = FlowServiceNowConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowServiceNowConnectorOperatorValidateNumeric      = FlowServiceNowConnectorOperator("VALIDATE_NUMERIC")
-	FlowServiceNowConnectorOperatorNoOp                 = FlowServiceNowConnectorOperator("NO_OP")
+	FlowServiceNowConnectorOperatorPROJECTION                = FlowServiceNowConnectorOperator("PROJECTION")
+	FlowServiceNowConnectorOperator_LESS_THAN                = FlowServiceNowConnectorOperator("LESS_THAN")
+	FlowServiceNowConnectorOperatorCONTAINS                  = FlowServiceNowConnectorOperator("CONTAINS")
+	FlowServiceNowConnectorOperator_GREATER_THAN             = FlowServiceNowConnectorOperator("GREATER_THAN")
+	FlowServiceNowConnectorOperatorBETWEEN                   = FlowServiceNowConnectorOperator("BETWEEN")
+	FlowServiceNowConnectorOperator_LESS_THAN_OR_EQUAL_TO    = FlowServiceNowConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	FlowServiceNowConnectorOperator_GREATER_THAN_OR_EQUAL_TO = FlowServiceNowConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	FlowServiceNowConnectorOperator_EQUAL_TO                 = FlowServiceNowConnectorOperator("EQUAL_TO")
+	FlowServiceNowConnectorOperator_NOT_EQUAL_TO             = FlowServiceNowConnectorOperator("NOT_EQUAL_TO")
+	FlowServiceNowConnectorOperatorADDITION                  = FlowServiceNowConnectorOperator("ADDITION")
+	FlowServiceNowConnectorOperatorMULTIPLICATION            = FlowServiceNowConnectorOperator("MULTIPLICATION")
+	FlowServiceNowConnectorOperatorDIVISION                  = FlowServiceNowConnectorOperator("DIVISION")
+	FlowServiceNowConnectorOperatorSUBTRACTION               = FlowServiceNowConnectorOperator("SUBTRACTION")
+	FlowServiceNowConnectorOperator_MASK_ALL                 = FlowServiceNowConnectorOperator("MASK_ALL")
+	FlowServiceNowConnectorOperator_MASK_FIRST_N             = FlowServiceNowConnectorOperator("MASK_FIRST_N")
+	FlowServiceNowConnectorOperator_MASK_LAST_N              = FlowServiceNowConnectorOperator("MASK_LAST_N")
+	FlowServiceNowConnectorOperator_VALIDATE_NON_NULL        = FlowServiceNowConnectorOperator("VALIDATE_NON_NULL")
+	FlowServiceNowConnectorOperator_VALIDATE_NON_ZERO        = FlowServiceNowConnectorOperator("VALIDATE_NON_ZERO")
+	FlowServiceNowConnectorOperator_VALIDATE_NON_NEGATIVE    = FlowServiceNowConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowServiceNowConnectorOperator_VALIDATE_NUMERIC         = FlowServiceNowConnectorOperator("VALIDATE_NUMERIC")
+	FlowServiceNowConnectorOperator_NO_OP                    = FlowServiceNowConnectorOperator("NO_OP")
 )
 
 func (FlowServiceNowConnectorOperator) ElementType() reflect.Type {
@@ -3122,20 +3122,20 @@ func (in *flowServiceNowConnectorOperatorPtr) ToFlowServiceNowConnectorOperatorP
 type FlowSingularConnectorOperator string
 
 const (
-	FlowSingularConnectorOperatorProjection          = FlowSingularConnectorOperator("PROJECTION")
-	FlowSingularConnectorOperatorEqualTo             = FlowSingularConnectorOperator("EQUAL_TO")
-	FlowSingularConnectorOperatorAddition            = FlowSingularConnectorOperator("ADDITION")
-	FlowSingularConnectorOperatorMultiplication      = FlowSingularConnectorOperator("MULTIPLICATION")
-	FlowSingularConnectorOperatorDivision            = FlowSingularConnectorOperator("DIVISION")
-	FlowSingularConnectorOperatorSubtraction         = FlowSingularConnectorOperator("SUBTRACTION")
-	FlowSingularConnectorOperatorMaskAll             = FlowSingularConnectorOperator("MASK_ALL")
-	FlowSingularConnectorOperatorMaskFirstN          = FlowSingularConnectorOperator("MASK_FIRST_N")
-	FlowSingularConnectorOperatorMaskLastN           = FlowSingularConnectorOperator("MASK_LAST_N")
-	FlowSingularConnectorOperatorValidateNonNull     = FlowSingularConnectorOperator("VALIDATE_NON_NULL")
-	FlowSingularConnectorOperatorValidateNonZero     = FlowSingularConnectorOperator("VALIDATE_NON_ZERO")
-	FlowSingularConnectorOperatorValidateNonNegative = FlowSingularConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowSingularConnectorOperatorValidateNumeric     = FlowSingularConnectorOperator("VALIDATE_NUMERIC")
-	FlowSingularConnectorOperatorNoOp                = FlowSingularConnectorOperator("NO_OP")
+	FlowSingularConnectorOperatorPROJECTION             = FlowSingularConnectorOperator("PROJECTION")
+	FlowSingularConnectorOperator_EQUAL_TO              = FlowSingularConnectorOperator("EQUAL_TO")
+	FlowSingularConnectorOperatorADDITION               = FlowSingularConnectorOperator("ADDITION")
+	FlowSingularConnectorOperatorMULTIPLICATION         = FlowSingularConnectorOperator("MULTIPLICATION")
+	FlowSingularConnectorOperatorDIVISION               = FlowSingularConnectorOperator("DIVISION")
+	FlowSingularConnectorOperatorSUBTRACTION            = FlowSingularConnectorOperator("SUBTRACTION")
+	FlowSingularConnectorOperator_MASK_ALL              = FlowSingularConnectorOperator("MASK_ALL")
+	FlowSingularConnectorOperator_MASK_FIRST_N          = FlowSingularConnectorOperator("MASK_FIRST_N")
+	FlowSingularConnectorOperator_MASK_LAST_N           = FlowSingularConnectorOperator("MASK_LAST_N")
+	FlowSingularConnectorOperator_VALIDATE_NON_NULL     = FlowSingularConnectorOperator("VALIDATE_NON_NULL")
+	FlowSingularConnectorOperator_VALIDATE_NON_ZERO     = FlowSingularConnectorOperator("VALIDATE_NON_ZERO")
+	FlowSingularConnectorOperator_VALIDATE_NON_NEGATIVE = FlowSingularConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowSingularConnectorOperator_VALIDATE_NUMERIC      = FlowSingularConnectorOperator("VALIDATE_NUMERIC")
+	FlowSingularConnectorOperator_NO_OP                 = FlowSingularConnectorOperator("NO_OP")
 )
 
 func (FlowSingularConnectorOperator) ElementType() reflect.Type {
@@ -3298,21 +3298,21 @@ func (in *flowSingularConnectorOperatorPtr) ToFlowSingularConnectorOperatorPtrOu
 type FlowSlackConnectorOperator string
 
 const (
-	FlowSlackConnectorOperatorProjection          = FlowSlackConnectorOperator("PROJECTION")
-	FlowSlackConnectorOperatorBetween             = FlowSlackConnectorOperator("BETWEEN")
-	FlowSlackConnectorOperatorEqualTo             = FlowSlackConnectorOperator("EQUAL_TO")
-	FlowSlackConnectorOperatorAddition            = FlowSlackConnectorOperator("ADDITION")
-	FlowSlackConnectorOperatorMultiplication      = FlowSlackConnectorOperator("MULTIPLICATION")
-	FlowSlackConnectorOperatorDivision            = FlowSlackConnectorOperator("DIVISION")
-	FlowSlackConnectorOperatorSubtraction         = FlowSlackConnectorOperator("SUBTRACTION")
-	FlowSlackConnectorOperatorMaskAll             = FlowSlackConnectorOperator("MASK_ALL")
-	FlowSlackConnectorOperatorMaskFirstN          = FlowSlackConnectorOperator("MASK_FIRST_N")
-	FlowSlackConnectorOperatorMaskLastN           = FlowSlackConnectorOperator("MASK_LAST_N")
-	FlowSlackConnectorOperatorValidateNonNull     = FlowSlackConnectorOperator("VALIDATE_NON_NULL")
-	FlowSlackConnectorOperatorValidateNonZero     = FlowSlackConnectorOperator("VALIDATE_NON_ZERO")
-	FlowSlackConnectorOperatorValidateNonNegative = FlowSlackConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowSlackConnectorOperatorValidateNumeric     = FlowSlackConnectorOperator("VALIDATE_NUMERIC")
-	FlowSlackConnectorOperatorNoOp                = FlowSlackConnectorOperator("NO_OP")
+	FlowSlackConnectorOperatorPROJECTION             = FlowSlackConnectorOperator("PROJECTION")
+	FlowSlackConnectorOperatorBETWEEN                = FlowSlackConnectorOperator("BETWEEN")
+	FlowSlackConnectorOperator_EQUAL_TO              = FlowSlackConnectorOperator("EQUAL_TO")
+	FlowSlackConnectorOperatorADDITION               = FlowSlackConnectorOperator("ADDITION")
+	FlowSlackConnectorOperatorMULTIPLICATION         = FlowSlackConnectorOperator("MULTIPLICATION")
+	FlowSlackConnectorOperatorDIVISION               = FlowSlackConnectorOperator("DIVISION")
+	FlowSlackConnectorOperatorSUBTRACTION            = FlowSlackConnectorOperator("SUBTRACTION")
+	FlowSlackConnectorOperator_MASK_ALL              = FlowSlackConnectorOperator("MASK_ALL")
+	FlowSlackConnectorOperator_MASK_FIRST_N          = FlowSlackConnectorOperator("MASK_FIRST_N")
+	FlowSlackConnectorOperator_MASK_LAST_N           = FlowSlackConnectorOperator("MASK_LAST_N")
+	FlowSlackConnectorOperator_VALIDATE_NON_NULL     = FlowSlackConnectorOperator("VALIDATE_NON_NULL")
+	FlowSlackConnectorOperator_VALIDATE_NON_ZERO     = FlowSlackConnectorOperator("VALIDATE_NON_ZERO")
+	FlowSlackConnectorOperator_VALIDATE_NON_NEGATIVE = FlowSlackConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowSlackConnectorOperator_VALIDATE_NUMERIC      = FlowSlackConnectorOperator("VALIDATE_NUMERIC")
+	FlowSlackConnectorOperator_NO_OP                 = FlowSlackConnectorOperator("NO_OP")
 )
 
 func (FlowSlackConnectorOperator) ElementType() reflect.Type {
@@ -3475,14 +3475,14 @@ func (in *flowSlackConnectorOperatorPtr) ToFlowSlackConnectorOperatorPtrOutputWi
 type FlowTaskType string
 
 const (
-	FlowTaskTypeArithmetic = FlowTaskType("Arithmetic")
-	FlowTaskTypeFilter     = FlowTaskType("Filter")
-	FlowTaskTypeMap        = FlowTaskType("Map")
-	FlowTaskTypeMapAll     = FlowTaskType("Map_all")
-	FlowTaskTypeMask       = FlowTaskType("Mask")
-	FlowTaskTypeMerge      = FlowTaskType("Merge")
-	FlowTaskTypeTruncate   = FlowTaskType("Truncate")
-	FlowTaskTypeValidate   = FlowTaskType("Validate")
+	FlowTaskTypeARITHMETIC = FlowTaskType("Arithmetic")
+	FlowTaskTypeFILTER     = FlowTaskType("Filter")
+	FlowTaskTypeMAP        = FlowTaskType("Map")
+	FlowTaskType_MAP_ALL   = FlowTaskType("Map_all")
+	FlowTaskTypeMASK       = FlowTaskType("Mask")
+	FlowTaskTypeMERGE      = FlowTaskType("Merge")
+	FlowTaskTypeTRUNCATE   = FlowTaskType("Truncate")
+	FlowTaskTypeVALIDATE   = FlowTaskType("Validate")
 )
 
 func (FlowTaskType) ElementType() reflect.Type {
@@ -3645,20 +3645,20 @@ func (in *flowTaskTypePtr) ToFlowTaskTypePtrOutputWithContext(ctx context.Contex
 type FlowTrendmicroConnectorOperator string
 
 const (
-	FlowTrendmicroConnectorOperatorProjection          = FlowTrendmicroConnectorOperator("PROJECTION")
-	FlowTrendmicroConnectorOperatorEqualTo             = FlowTrendmicroConnectorOperator("EQUAL_TO")
-	FlowTrendmicroConnectorOperatorAddition            = FlowTrendmicroConnectorOperator("ADDITION")
-	FlowTrendmicroConnectorOperatorMultiplication      = FlowTrendmicroConnectorOperator("MULTIPLICATION")
-	FlowTrendmicroConnectorOperatorDivision            = FlowTrendmicroConnectorOperator("DIVISION")
-	FlowTrendmicroConnectorOperatorSubtraction         = FlowTrendmicroConnectorOperator("SUBTRACTION")
-	FlowTrendmicroConnectorOperatorMaskAll             = FlowTrendmicroConnectorOperator("MASK_ALL")
-	FlowTrendmicroConnectorOperatorMaskFirstN          = FlowTrendmicroConnectorOperator("MASK_FIRST_N")
-	FlowTrendmicroConnectorOperatorMaskLastN           = FlowTrendmicroConnectorOperator("MASK_LAST_N")
-	FlowTrendmicroConnectorOperatorValidateNonNull     = FlowTrendmicroConnectorOperator("VALIDATE_NON_NULL")
-	FlowTrendmicroConnectorOperatorValidateNonZero     = FlowTrendmicroConnectorOperator("VALIDATE_NON_ZERO")
-	FlowTrendmicroConnectorOperatorValidateNonNegative = FlowTrendmicroConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowTrendmicroConnectorOperatorValidateNumeric     = FlowTrendmicroConnectorOperator("VALIDATE_NUMERIC")
-	FlowTrendmicroConnectorOperatorNoOp                = FlowTrendmicroConnectorOperator("NO_OP")
+	FlowTrendmicroConnectorOperatorPROJECTION             = FlowTrendmicroConnectorOperator("PROJECTION")
+	FlowTrendmicroConnectorOperator_EQUAL_TO              = FlowTrendmicroConnectorOperator("EQUAL_TO")
+	FlowTrendmicroConnectorOperatorADDITION               = FlowTrendmicroConnectorOperator("ADDITION")
+	FlowTrendmicroConnectorOperatorMULTIPLICATION         = FlowTrendmicroConnectorOperator("MULTIPLICATION")
+	FlowTrendmicroConnectorOperatorDIVISION               = FlowTrendmicroConnectorOperator("DIVISION")
+	FlowTrendmicroConnectorOperatorSUBTRACTION            = FlowTrendmicroConnectorOperator("SUBTRACTION")
+	FlowTrendmicroConnectorOperator_MASK_ALL              = FlowTrendmicroConnectorOperator("MASK_ALL")
+	FlowTrendmicroConnectorOperator_MASK_FIRST_N          = FlowTrendmicroConnectorOperator("MASK_FIRST_N")
+	FlowTrendmicroConnectorOperator_MASK_LAST_N           = FlowTrendmicroConnectorOperator("MASK_LAST_N")
+	FlowTrendmicroConnectorOperator_VALIDATE_NON_NULL     = FlowTrendmicroConnectorOperator("VALIDATE_NON_NULL")
+	FlowTrendmicroConnectorOperator_VALIDATE_NON_ZERO     = FlowTrendmicroConnectorOperator("VALIDATE_NON_ZERO")
+	FlowTrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE = FlowTrendmicroConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowTrendmicroConnectorOperator_VALIDATE_NUMERIC      = FlowTrendmicroConnectorOperator("VALIDATE_NUMERIC")
+	FlowTrendmicroConnectorOperator_NO_OP                 = FlowTrendmicroConnectorOperator("NO_OP")
 )
 
 func (FlowTrendmicroConnectorOperator) ElementType() reflect.Type {
@@ -3821,9 +3821,9 @@ func (in *flowTrendmicroConnectorOperatorPtr) ToFlowTrendmicroConnectorOperatorP
 type FlowTriggerType string
 
 const (
-	FlowTriggerTypeScheduled = FlowTriggerType("Scheduled")
-	FlowTriggerTypeEvent     = FlowTriggerType("Event")
-	FlowTriggerTypeOnDemand  = FlowTriggerType("OnDemand")
+	FlowTriggerTypeSCHEDULED  = FlowTriggerType("Scheduled")
+	FlowTriggerTypeEVENT      = FlowTriggerType("Event")
+	FlowTriggerType_ON_DEMAND = FlowTriggerType("OnDemand")
 )
 
 func (FlowTriggerType) ElementType() reflect.Type {
@@ -3986,26 +3986,26 @@ func (in *flowTriggerTypePtr) ToFlowTriggerTypePtrOutputWithContext(ctx context.
 type FlowVeevaConnectorOperator string
 
 const (
-	FlowVeevaConnectorOperatorProjection           = FlowVeevaConnectorOperator("PROJECTION")
-	FlowVeevaConnectorOperatorLessThan             = FlowVeevaConnectorOperator("LESS_THAN")
-	FlowVeevaConnectorOperatorGreaterThan          = FlowVeevaConnectorOperator("GREATER_THAN")
-	FlowVeevaConnectorOperatorBetween              = FlowVeevaConnectorOperator("BETWEEN")
-	FlowVeevaConnectorOperatorLessThanOrEqualTo    = FlowVeevaConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	FlowVeevaConnectorOperatorGreaterThanOrEqualTo = FlowVeevaConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	FlowVeevaConnectorOperatorEqualTo              = FlowVeevaConnectorOperator("EQUAL_TO")
-	FlowVeevaConnectorOperatorNotEqualTo           = FlowVeevaConnectorOperator("NOT_EQUAL_TO")
-	FlowVeevaConnectorOperatorAddition             = FlowVeevaConnectorOperator("ADDITION")
-	FlowVeevaConnectorOperatorMultiplication       = FlowVeevaConnectorOperator("MULTIPLICATION")
-	FlowVeevaConnectorOperatorDivision             = FlowVeevaConnectorOperator("DIVISION")
-	FlowVeevaConnectorOperatorSubtraction          = FlowVeevaConnectorOperator("SUBTRACTION")
-	FlowVeevaConnectorOperatorMaskAll              = FlowVeevaConnectorOperator("MASK_ALL")
-	FlowVeevaConnectorOperatorMaskFirstN           = FlowVeevaConnectorOperator("MASK_FIRST_N")
-	FlowVeevaConnectorOperatorMaskLastN            = FlowVeevaConnectorOperator("MASK_LAST_N")
-	FlowVeevaConnectorOperatorValidateNonNull      = FlowVeevaConnectorOperator("VALIDATE_NON_NULL")
-	FlowVeevaConnectorOperatorValidateNonZero      = FlowVeevaConnectorOperator("VALIDATE_NON_ZERO")
-	FlowVeevaConnectorOperatorValidateNonNegative  = FlowVeevaConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowVeevaConnectorOperatorValidateNumeric      = FlowVeevaConnectorOperator("VALIDATE_NUMERIC")
-	FlowVeevaConnectorOperatorNoOp                 = FlowVeevaConnectorOperator("NO_OP")
+	FlowVeevaConnectorOperatorPROJECTION                = FlowVeevaConnectorOperator("PROJECTION")
+	FlowVeevaConnectorOperator_LESS_THAN                = FlowVeevaConnectorOperator("LESS_THAN")
+	FlowVeevaConnectorOperator_GREATER_THAN             = FlowVeevaConnectorOperator("GREATER_THAN")
+	FlowVeevaConnectorOperatorBETWEEN                   = FlowVeevaConnectorOperator("BETWEEN")
+	FlowVeevaConnectorOperator_LESS_THAN_OR_EQUAL_TO    = FlowVeevaConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	FlowVeevaConnectorOperator_GREATER_THAN_OR_EQUAL_TO = FlowVeevaConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	FlowVeevaConnectorOperator_EQUAL_TO                 = FlowVeevaConnectorOperator("EQUAL_TO")
+	FlowVeevaConnectorOperator_NOT_EQUAL_TO             = FlowVeevaConnectorOperator("NOT_EQUAL_TO")
+	FlowVeevaConnectorOperatorADDITION                  = FlowVeevaConnectorOperator("ADDITION")
+	FlowVeevaConnectorOperatorMULTIPLICATION            = FlowVeevaConnectorOperator("MULTIPLICATION")
+	FlowVeevaConnectorOperatorDIVISION                  = FlowVeevaConnectorOperator("DIVISION")
+	FlowVeevaConnectorOperatorSUBTRACTION               = FlowVeevaConnectorOperator("SUBTRACTION")
+	FlowVeevaConnectorOperator_MASK_ALL                 = FlowVeevaConnectorOperator("MASK_ALL")
+	FlowVeevaConnectorOperator_MASK_FIRST_N             = FlowVeevaConnectorOperator("MASK_FIRST_N")
+	FlowVeevaConnectorOperator_MASK_LAST_N              = FlowVeevaConnectorOperator("MASK_LAST_N")
+	FlowVeevaConnectorOperator_VALIDATE_NON_NULL        = FlowVeevaConnectorOperator("VALIDATE_NON_NULL")
+	FlowVeevaConnectorOperator_VALIDATE_NON_ZERO        = FlowVeevaConnectorOperator("VALIDATE_NON_ZERO")
+	FlowVeevaConnectorOperator_VALIDATE_NON_NEGATIVE    = FlowVeevaConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowVeevaConnectorOperator_VALIDATE_NUMERIC         = FlowVeevaConnectorOperator("VALIDATE_NUMERIC")
+	FlowVeevaConnectorOperator_NO_OP                    = FlowVeevaConnectorOperator("NO_OP")
 )
 
 func (FlowVeevaConnectorOperator) ElementType() reflect.Type {
@@ -4168,9 +4168,9 @@ func (in *flowVeevaConnectorOperatorPtr) ToFlowVeevaConnectorOperatorPtrOutputWi
 type FlowWriteOperationType string
 
 const (
-	FlowWriteOperationTypeInsert = FlowWriteOperationType("INSERT")
-	FlowWriteOperationTypeUpsert = FlowWriteOperationType("UPSERT")
-	FlowWriteOperationTypeUpdate = FlowWriteOperationType("UPDATE")
+	FlowWriteOperationTypeINSERT = FlowWriteOperationType("INSERT")
+	FlowWriteOperationTypeUPSERT = FlowWriteOperationType("UPSERT")
+	FlowWriteOperationTypeUPDATE = FlowWriteOperationType("UPDATE")
 )
 
 func (FlowWriteOperationType) ElementType() reflect.Type {
@@ -4333,20 +4333,20 @@ func (in *flowWriteOperationTypePtr) ToFlowWriteOperationTypePtrOutputWithContex
 type FlowZendeskConnectorOperator string
 
 const (
-	FlowZendeskConnectorOperatorProjection          = FlowZendeskConnectorOperator("PROJECTION")
-	FlowZendeskConnectorOperatorGreaterThan         = FlowZendeskConnectorOperator("GREATER_THAN")
-	FlowZendeskConnectorOperatorAddition            = FlowZendeskConnectorOperator("ADDITION")
-	FlowZendeskConnectorOperatorMultiplication      = FlowZendeskConnectorOperator("MULTIPLICATION")
-	FlowZendeskConnectorOperatorDivision            = FlowZendeskConnectorOperator("DIVISION")
-	FlowZendeskConnectorOperatorSubtraction         = FlowZendeskConnectorOperator("SUBTRACTION")
-	FlowZendeskConnectorOperatorMaskAll             = FlowZendeskConnectorOperator("MASK_ALL")
-	FlowZendeskConnectorOperatorMaskFirstN          = FlowZendeskConnectorOperator("MASK_FIRST_N")
-	FlowZendeskConnectorOperatorMaskLastN           = FlowZendeskConnectorOperator("MASK_LAST_N")
-	FlowZendeskConnectorOperatorValidateNonNull     = FlowZendeskConnectorOperator("VALIDATE_NON_NULL")
-	FlowZendeskConnectorOperatorValidateNonZero     = FlowZendeskConnectorOperator("VALIDATE_NON_ZERO")
-	FlowZendeskConnectorOperatorValidateNonNegative = FlowZendeskConnectorOperator("VALIDATE_NON_NEGATIVE")
-	FlowZendeskConnectorOperatorValidateNumeric     = FlowZendeskConnectorOperator("VALIDATE_NUMERIC")
-	FlowZendeskConnectorOperatorNoOp                = FlowZendeskConnectorOperator("NO_OP")
+	FlowZendeskConnectorOperatorPROJECTION             = FlowZendeskConnectorOperator("PROJECTION")
+	FlowZendeskConnectorOperator_GREATER_THAN          = FlowZendeskConnectorOperator("GREATER_THAN")
+	FlowZendeskConnectorOperatorADDITION               = FlowZendeskConnectorOperator("ADDITION")
+	FlowZendeskConnectorOperatorMULTIPLICATION         = FlowZendeskConnectorOperator("MULTIPLICATION")
+	FlowZendeskConnectorOperatorDIVISION               = FlowZendeskConnectorOperator("DIVISION")
+	FlowZendeskConnectorOperatorSUBTRACTION            = FlowZendeskConnectorOperator("SUBTRACTION")
+	FlowZendeskConnectorOperator_MASK_ALL              = FlowZendeskConnectorOperator("MASK_ALL")
+	FlowZendeskConnectorOperator_MASK_FIRST_N          = FlowZendeskConnectorOperator("MASK_FIRST_N")
+	FlowZendeskConnectorOperator_MASK_LAST_N           = FlowZendeskConnectorOperator("MASK_LAST_N")
+	FlowZendeskConnectorOperator_VALIDATE_NON_NULL     = FlowZendeskConnectorOperator("VALIDATE_NON_NULL")
+	FlowZendeskConnectorOperator_VALIDATE_NON_ZERO     = FlowZendeskConnectorOperator("VALIDATE_NON_ZERO")
+	FlowZendeskConnectorOperator_VALIDATE_NON_NEGATIVE = FlowZendeskConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowZendeskConnectorOperator_VALIDATE_NUMERIC      = FlowZendeskConnectorOperator("VALIDATE_NUMERIC")
+	FlowZendeskConnectorOperator_NO_OP                 = FlowZendeskConnectorOperator("NO_OP")
 )
 
 func (FlowZendeskConnectorOperator) ElementType() reflect.Type {

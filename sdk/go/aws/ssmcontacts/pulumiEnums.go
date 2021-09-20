@@ -14,9 +14,9 @@ import (
 type ContactChannelChannelType string
 
 const (
-	ContactChannelChannelTypeSms   = ContactChannelChannelType("SMS")
-	ContactChannelChannelTypeVoice = ContactChannelChannelType("VOICE")
-	ContactChannelChannelTypeEmail = ContactChannelChannelType("EMAIL")
+	ContactChannelChannelTypeSMS   = ContactChannelChannelType("SMS")
+	ContactChannelChannelTypeVOICE = ContactChannelChannelType("VOICE")
+	ContactChannelChannelTypeEMAIL = ContactChannelChannelType("EMAIL")
 )
 
 func (ContactChannelChannelType) ElementType() reflect.Type {
@@ -180,10 +180,10 @@ func (in *contactChannelChannelTypePtr) ToContactChannelChannelTypePtrOutputWith
 type ContactType string
 
 const (
-	ContactTypePersonal   = ContactType("PERSONAL")
-	ContactTypeCustom     = ContactType("CUSTOM")
-	ContactTypeService    = ContactType("SERVICE")
-	ContactTypeEscalation = ContactType("ESCALATION")
+	ContactTypePERSONAL   = ContactType("PERSONAL")
+	ContactTypeCUSTOM     = ContactType("CUSTOM")
+	ContactTypeSERVICE    = ContactType("SERVICE")
+	ContactTypeESCALATION = ContactType("ESCALATION")
 )
 
 func (ContactType) ElementType() reflect.Type {

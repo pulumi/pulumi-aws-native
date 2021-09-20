@@ -13,7 +13,7 @@ import (
 type CostCategoryRuleVersion string
 
 const (
-	CostCategoryRuleVersionCostCategoryExpressionV1 = CostCategoryRuleVersion("CostCategoryExpression.v1")
+	CostCategoryRuleVersion_COST_CATEGORY_EXPRESSION_V1 = CostCategoryRuleVersion("CostCategoryExpression.v1")
 )
 
 func (CostCategoryRuleVersion) ElementType() reflect.Type {

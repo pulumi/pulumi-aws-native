@@ -13,8 +13,8 @@ import (
 type FindingsFilterFindingFilterAction string
 
 const (
-	FindingsFilterFindingFilterActionArchive = FindingsFilterFindingFilterAction("ARCHIVE")
-	FindingsFilterFindingFilterActionNoop    = FindingsFilterFindingFilterAction("NOOP")
+	FindingsFilterFindingFilterActionARCHIVE = FindingsFilterFindingFilterAction("ARCHIVE")
+	FindingsFilterFindingFilterActionNOOP    = FindingsFilterFindingFilterAction("NOOP")
 )
 
 func (FindingsFilterFindingFilterAction) ElementType() reflect.Type {
@@ -178,9 +178,9 @@ func (in *findingsFilterFindingFilterActionPtr) ToFindingsFilterFindingFilterAct
 type SessionFindingPublishingFrequency string
 
 const (
-	SessionFindingPublishingFrequencyFifteenMinutes = SessionFindingPublishingFrequency("FIFTEEN_MINUTES")
-	SessionFindingPublishingFrequencyOneHour        = SessionFindingPublishingFrequency("ONE_HOUR")
-	SessionFindingPublishingFrequencySixHours       = SessionFindingPublishingFrequency("SIX_HOURS")
+	SessionFindingPublishingFrequency_FIFTEEN_MINUTES = SessionFindingPublishingFrequency("FIFTEEN_MINUTES")
+	SessionFindingPublishingFrequency_ONE_HOUR        = SessionFindingPublishingFrequency("ONE_HOUR")
+	SessionFindingPublishingFrequency_SIX_HOURS       = SessionFindingPublishingFrequency("SIX_HOURS")
 )
 
 func (SessionFindingPublishingFrequency) ElementType() reflect.Type {
@@ -344,8 +344,8 @@ func (in *sessionFindingPublishingFrequencyPtr) ToSessionFindingPublishingFreque
 type SessionStatus string
 
 const (
-	SessionStatusEnabled = SessionStatus("ENABLED")
-	SessionStatusPaused  = SessionStatus("PAUSED")
+	SessionStatusENABLED = SessionStatus("ENABLED")
+	SessionStatusPAUSED  = SessionStatus("PAUSED")
 )
 
 func (SessionStatus) ElementType() reflect.Type {

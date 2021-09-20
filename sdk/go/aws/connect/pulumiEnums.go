@@ -14,9 +14,9 @@ import (
 type QuickConnectQuickConnectType string
 
 const (
-	QuickConnectQuickConnectTypePhoneNumber = QuickConnectQuickConnectType("PHONE_NUMBER")
-	QuickConnectQuickConnectTypeQueue       = QuickConnectQuickConnectType("QUEUE")
-	QuickConnectQuickConnectTypeUser        = QuickConnectQuickConnectType("USER")
+	QuickConnectQuickConnectType_PHONE_NUMBER = QuickConnectQuickConnectType("PHONE_NUMBER")
+	QuickConnectQuickConnectTypeQUEUE         = QuickConnectQuickConnectType("QUEUE")
+	QuickConnectQuickConnectTypeUSER          = QuickConnectQuickConnectType("USER")
 )
 
 func (QuickConnectQuickConnectType) ElementType() reflect.Type {

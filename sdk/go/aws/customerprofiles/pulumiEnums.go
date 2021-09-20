@@ -13,11 +13,11 @@ import (
 type IntegrationConnectorType string
 
 const (
-	IntegrationConnectorTypeSalesforce = IntegrationConnectorType("Salesforce")
-	IntegrationConnectorTypeMarketo    = IntegrationConnectorType("Marketo")
-	IntegrationConnectorTypeServiceNow = IntegrationConnectorType("ServiceNow")
-	IntegrationConnectorTypeZendesk    = IntegrationConnectorType("Zendesk")
-	IntegrationConnectorTypeS3         = IntegrationConnectorType("S3")
+	IntegrationConnectorTypeSALESFORCE   = IntegrationConnectorType("Salesforce")
+	IntegrationConnectorTypeMARKETO      = IntegrationConnectorType("Marketo")
+	IntegrationConnectorType_SERVICE_NOW = IntegrationConnectorType("ServiceNow")
+	IntegrationConnectorTypeZENDESK      = IntegrationConnectorType("Zendesk")
+	IntegrationConnectorTypeS3           = IntegrationConnectorType("S3")
 )
 
 func (IntegrationConnectorType) ElementType() reflect.Type {
@@ -180,22 +180,22 @@ func (in *integrationConnectorTypePtr) ToIntegrationConnectorTypePtrOutputWithCo
 type IntegrationMarketoConnectorOperator string
 
 const (
-	IntegrationMarketoConnectorOperatorProjection          = IntegrationMarketoConnectorOperator("PROJECTION")
-	IntegrationMarketoConnectorOperatorLessThan            = IntegrationMarketoConnectorOperator("LESS_THAN")
-	IntegrationMarketoConnectorOperatorGreaterThan         = IntegrationMarketoConnectorOperator("GREATER_THAN")
-	IntegrationMarketoConnectorOperatorBetween             = IntegrationMarketoConnectorOperator("BETWEEN")
-	IntegrationMarketoConnectorOperatorAddition            = IntegrationMarketoConnectorOperator("ADDITION")
-	IntegrationMarketoConnectorOperatorMultiplication      = IntegrationMarketoConnectorOperator("MULTIPLICATION")
-	IntegrationMarketoConnectorOperatorDivision            = IntegrationMarketoConnectorOperator("DIVISION")
-	IntegrationMarketoConnectorOperatorSubtraction         = IntegrationMarketoConnectorOperator("SUBTRACTION")
-	IntegrationMarketoConnectorOperatorMaskAll             = IntegrationMarketoConnectorOperator("MASK_ALL")
-	IntegrationMarketoConnectorOperatorMaskFirstN          = IntegrationMarketoConnectorOperator("MASK_FIRST_N")
-	IntegrationMarketoConnectorOperatorMaskLastN           = IntegrationMarketoConnectorOperator("MASK_LAST_N")
-	IntegrationMarketoConnectorOperatorValidateNonNull     = IntegrationMarketoConnectorOperator("VALIDATE_NON_NULL")
-	IntegrationMarketoConnectorOperatorValidateNonZero     = IntegrationMarketoConnectorOperator("VALIDATE_NON_ZERO")
-	IntegrationMarketoConnectorOperatorValidateNonNegative = IntegrationMarketoConnectorOperator("VALIDATE_NON_NEGATIVE")
-	IntegrationMarketoConnectorOperatorValidateNumeric     = IntegrationMarketoConnectorOperator("VALIDATE_NUMERIC")
-	IntegrationMarketoConnectorOperatorNoOp                = IntegrationMarketoConnectorOperator("NO_OP")
+	IntegrationMarketoConnectorOperatorPROJECTION             = IntegrationMarketoConnectorOperator("PROJECTION")
+	IntegrationMarketoConnectorOperator_LESS_THAN             = IntegrationMarketoConnectorOperator("LESS_THAN")
+	IntegrationMarketoConnectorOperator_GREATER_THAN          = IntegrationMarketoConnectorOperator("GREATER_THAN")
+	IntegrationMarketoConnectorOperatorBETWEEN                = IntegrationMarketoConnectorOperator("BETWEEN")
+	IntegrationMarketoConnectorOperatorADDITION               = IntegrationMarketoConnectorOperator("ADDITION")
+	IntegrationMarketoConnectorOperatorMULTIPLICATION         = IntegrationMarketoConnectorOperator("MULTIPLICATION")
+	IntegrationMarketoConnectorOperatorDIVISION               = IntegrationMarketoConnectorOperator("DIVISION")
+	IntegrationMarketoConnectorOperatorSUBTRACTION            = IntegrationMarketoConnectorOperator("SUBTRACTION")
+	IntegrationMarketoConnectorOperator_MASK_ALL              = IntegrationMarketoConnectorOperator("MASK_ALL")
+	IntegrationMarketoConnectorOperator_MASK_FIRST_N          = IntegrationMarketoConnectorOperator("MASK_FIRST_N")
+	IntegrationMarketoConnectorOperator_MASK_LAST_N           = IntegrationMarketoConnectorOperator("MASK_LAST_N")
+	IntegrationMarketoConnectorOperator_VALIDATE_NON_NULL     = IntegrationMarketoConnectorOperator("VALIDATE_NON_NULL")
+	IntegrationMarketoConnectorOperator_VALIDATE_NON_ZERO     = IntegrationMarketoConnectorOperator("VALIDATE_NON_ZERO")
+	IntegrationMarketoConnectorOperator_VALIDATE_NON_NEGATIVE = IntegrationMarketoConnectorOperator("VALIDATE_NON_NEGATIVE")
+	IntegrationMarketoConnectorOperator_VALIDATE_NUMERIC      = IntegrationMarketoConnectorOperator("VALIDATE_NUMERIC")
+	IntegrationMarketoConnectorOperator_NO_OP                 = IntegrationMarketoConnectorOperator("NO_OP")
 )
 
 func (IntegrationMarketoConnectorOperator) ElementType() reflect.Type {
@@ -358,20 +358,20 @@ func (in *integrationMarketoConnectorOperatorPtr) ToIntegrationMarketoConnectorO
 type IntegrationOperatorPropertiesKeys string
 
 const (
-	IntegrationOperatorPropertiesKeysValue                    = IntegrationOperatorPropertiesKeys("VALUE")
-	IntegrationOperatorPropertiesKeysValues                   = IntegrationOperatorPropertiesKeys("VALUES")
-	IntegrationOperatorPropertiesKeysDataType                 = IntegrationOperatorPropertiesKeys("DATA_TYPE")
-	IntegrationOperatorPropertiesKeysUpperBound               = IntegrationOperatorPropertiesKeys("UPPER_BOUND")
-	IntegrationOperatorPropertiesKeysLowerBound               = IntegrationOperatorPropertiesKeys("LOWER_BOUND")
-	IntegrationOperatorPropertiesKeysSourceDataType           = IntegrationOperatorPropertiesKeys("SOURCE_DATA_TYPE")
-	IntegrationOperatorPropertiesKeysDestinationDataType      = IntegrationOperatorPropertiesKeys("DESTINATION_DATA_TYPE")
-	IntegrationOperatorPropertiesKeysValidationAction         = IntegrationOperatorPropertiesKeys("VALIDATION_ACTION")
-	IntegrationOperatorPropertiesKeysMaskValue                = IntegrationOperatorPropertiesKeys("MASK_VALUE")
-	IntegrationOperatorPropertiesKeysMaskLength               = IntegrationOperatorPropertiesKeys("MASK_LENGTH")
-	IntegrationOperatorPropertiesKeysTruncateLength           = IntegrationOperatorPropertiesKeys("TRUNCATE_LENGTH")
-	IntegrationOperatorPropertiesKeysMathOperationFieldsOrder = IntegrationOperatorPropertiesKeys("MATH_OPERATION_FIELDS_ORDER")
-	IntegrationOperatorPropertiesKeysConcatFormat             = IntegrationOperatorPropertiesKeys("CONCAT_FORMAT")
-	IntegrationOperatorPropertiesKeysSubfieldCategoryMap      = IntegrationOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP")
+	IntegrationOperatorPropertiesKeysVALUE                        = IntegrationOperatorPropertiesKeys("VALUE")
+	IntegrationOperatorPropertiesKeysVALUES                       = IntegrationOperatorPropertiesKeys("VALUES")
+	IntegrationOperatorPropertiesKeys_DATA_TYPE                   = IntegrationOperatorPropertiesKeys("DATA_TYPE")
+	IntegrationOperatorPropertiesKeys_UPPER_BOUND                 = IntegrationOperatorPropertiesKeys("UPPER_BOUND")
+	IntegrationOperatorPropertiesKeys_LOWER_BOUND                 = IntegrationOperatorPropertiesKeys("LOWER_BOUND")
+	IntegrationOperatorPropertiesKeys_SOURCE_DATA_TYPE            = IntegrationOperatorPropertiesKeys("SOURCE_DATA_TYPE")
+	IntegrationOperatorPropertiesKeys_DESTINATION_DATA_TYPE       = IntegrationOperatorPropertiesKeys("DESTINATION_DATA_TYPE")
+	IntegrationOperatorPropertiesKeys_VALIDATION_ACTION           = IntegrationOperatorPropertiesKeys("VALIDATION_ACTION")
+	IntegrationOperatorPropertiesKeys_MASK_VALUE                  = IntegrationOperatorPropertiesKeys("MASK_VALUE")
+	IntegrationOperatorPropertiesKeys_MASK_LENGTH                 = IntegrationOperatorPropertiesKeys("MASK_LENGTH")
+	IntegrationOperatorPropertiesKeys_TRUNCATE_LENGTH             = IntegrationOperatorPropertiesKeys("TRUNCATE_LENGTH")
+	IntegrationOperatorPropertiesKeys_MATH_OPERATION_FIELDS_ORDER = IntegrationOperatorPropertiesKeys("MATH_OPERATION_FIELDS_ORDER")
+	IntegrationOperatorPropertiesKeys_CONCAT_FORMAT               = IntegrationOperatorPropertiesKeys("CONCAT_FORMAT")
+	IntegrationOperatorPropertiesKeys_SUBFIELD_CATEGORY_MAP       = IntegrationOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP")
 )
 
 func (IntegrationOperatorPropertiesKeys) ElementType() reflect.Type {
@@ -534,26 +534,26 @@ func (in *integrationOperatorPropertiesKeysPtr) ToIntegrationOperatorPropertiesK
 type IntegrationS3ConnectorOperator string
 
 const (
-	IntegrationS3ConnectorOperatorProjection           = IntegrationS3ConnectorOperator("PROJECTION")
-	IntegrationS3ConnectorOperatorLessThan             = IntegrationS3ConnectorOperator("LESS_THAN")
-	IntegrationS3ConnectorOperatorGreaterThan          = IntegrationS3ConnectorOperator("GREATER_THAN")
-	IntegrationS3ConnectorOperatorBetween              = IntegrationS3ConnectorOperator("BETWEEN")
-	IntegrationS3ConnectorOperatorLessThanOrEqualTo    = IntegrationS3ConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	IntegrationS3ConnectorOperatorGreaterThanOrEqualTo = IntegrationS3ConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	IntegrationS3ConnectorOperatorEqualTo              = IntegrationS3ConnectorOperator("EQUAL_TO")
-	IntegrationS3ConnectorOperatorNotEqualTo           = IntegrationS3ConnectorOperator("NOT_EQUAL_TO")
-	IntegrationS3ConnectorOperatorAddition             = IntegrationS3ConnectorOperator("ADDITION")
-	IntegrationS3ConnectorOperatorMultiplication       = IntegrationS3ConnectorOperator("MULTIPLICATION")
-	IntegrationS3ConnectorOperatorDivision             = IntegrationS3ConnectorOperator("DIVISION")
-	IntegrationS3ConnectorOperatorSubtraction          = IntegrationS3ConnectorOperator("SUBTRACTION")
-	IntegrationS3ConnectorOperatorMaskAll              = IntegrationS3ConnectorOperator("MASK_ALL")
-	IntegrationS3ConnectorOperatorMaskFirstN           = IntegrationS3ConnectorOperator("MASK_FIRST_N")
-	IntegrationS3ConnectorOperatorMaskLastN            = IntegrationS3ConnectorOperator("MASK_LAST_N")
-	IntegrationS3ConnectorOperatorValidateNonNull      = IntegrationS3ConnectorOperator("VALIDATE_NON_NULL")
-	IntegrationS3ConnectorOperatorValidateNonZero      = IntegrationS3ConnectorOperator("VALIDATE_NON_ZERO")
-	IntegrationS3ConnectorOperatorValidateNonNegative  = IntegrationS3ConnectorOperator("VALIDATE_NON_NEGATIVE")
-	IntegrationS3ConnectorOperatorValidateNumeric      = IntegrationS3ConnectorOperator("VALIDATE_NUMERIC")
-	IntegrationS3ConnectorOperatorNoOp                 = IntegrationS3ConnectorOperator("NO_OP")
+	IntegrationS3ConnectorOperatorPROJECTION                = IntegrationS3ConnectorOperator("PROJECTION")
+	IntegrationS3ConnectorOperator_LESS_THAN                = IntegrationS3ConnectorOperator("LESS_THAN")
+	IntegrationS3ConnectorOperator_GREATER_THAN             = IntegrationS3ConnectorOperator("GREATER_THAN")
+	IntegrationS3ConnectorOperatorBETWEEN                   = IntegrationS3ConnectorOperator("BETWEEN")
+	IntegrationS3ConnectorOperator_LESS_THAN_OR_EQUAL_TO    = IntegrationS3ConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	IntegrationS3ConnectorOperator_GREATER_THAN_OR_EQUAL_TO = IntegrationS3ConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	IntegrationS3ConnectorOperator_EQUAL_TO                 = IntegrationS3ConnectorOperator("EQUAL_TO")
+	IntegrationS3ConnectorOperator_NOT_EQUAL_TO             = IntegrationS3ConnectorOperator("NOT_EQUAL_TO")
+	IntegrationS3ConnectorOperatorADDITION                  = IntegrationS3ConnectorOperator("ADDITION")
+	IntegrationS3ConnectorOperatorMULTIPLICATION            = IntegrationS3ConnectorOperator("MULTIPLICATION")
+	IntegrationS3ConnectorOperatorDIVISION                  = IntegrationS3ConnectorOperator("DIVISION")
+	IntegrationS3ConnectorOperatorSUBTRACTION               = IntegrationS3ConnectorOperator("SUBTRACTION")
+	IntegrationS3ConnectorOperator_MASK_ALL                 = IntegrationS3ConnectorOperator("MASK_ALL")
+	IntegrationS3ConnectorOperator_MASK_FIRST_N             = IntegrationS3ConnectorOperator("MASK_FIRST_N")
+	IntegrationS3ConnectorOperator_MASK_LAST_N              = IntegrationS3ConnectorOperator("MASK_LAST_N")
+	IntegrationS3ConnectorOperator_VALIDATE_NON_NULL        = IntegrationS3ConnectorOperator("VALIDATE_NON_NULL")
+	IntegrationS3ConnectorOperator_VALIDATE_NON_ZERO        = IntegrationS3ConnectorOperator("VALIDATE_NON_ZERO")
+	IntegrationS3ConnectorOperator_VALIDATE_NON_NEGATIVE    = IntegrationS3ConnectorOperator("VALIDATE_NON_NEGATIVE")
+	IntegrationS3ConnectorOperator_VALIDATE_NUMERIC         = IntegrationS3ConnectorOperator("VALIDATE_NUMERIC")
+	IntegrationS3ConnectorOperator_NO_OP                    = IntegrationS3ConnectorOperator("NO_OP")
 )
 
 func (IntegrationS3ConnectorOperator) ElementType() reflect.Type {
@@ -716,27 +716,27 @@ func (in *integrationS3ConnectorOperatorPtr) ToIntegrationS3ConnectorOperatorPtr
 type IntegrationSalesforceConnectorOperator string
 
 const (
-	IntegrationSalesforceConnectorOperatorProjection           = IntegrationSalesforceConnectorOperator("PROJECTION")
-	IntegrationSalesforceConnectorOperatorLessThan             = IntegrationSalesforceConnectorOperator("LESS_THAN")
-	IntegrationSalesforceConnectorOperatorGreaterThan          = IntegrationSalesforceConnectorOperator("GREATER_THAN")
-	IntegrationSalesforceConnectorOperatorContains             = IntegrationSalesforceConnectorOperator("CONTAINS")
-	IntegrationSalesforceConnectorOperatorBetween              = IntegrationSalesforceConnectorOperator("BETWEEN")
-	IntegrationSalesforceConnectorOperatorLessThanOrEqualTo    = IntegrationSalesforceConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	IntegrationSalesforceConnectorOperatorGreaterThanOrEqualTo = IntegrationSalesforceConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	IntegrationSalesforceConnectorOperatorEqualTo              = IntegrationSalesforceConnectorOperator("EQUAL_TO")
-	IntegrationSalesforceConnectorOperatorNotEqualTo           = IntegrationSalesforceConnectorOperator("NOT_EQUAL_TO")
-	IntegrationSalesforceConnectorOperatorAddition             = IntegrationSalesforceConnectorOperator("ADDITION")
-	IntegrationSalesforceConnectorOperatorMultiplication       = IntegrationSalesforceConnectorOperator("MULTIPLICATION")
-	IntegrationSalesforceConnectorOperatorDivision             = IntegrationSalesforceConnectorOperator("DIVISION")
-	IntegrationSalesforceConnectorOperatorSubtraction          = IntegrationSalesforceConnectorOperator("SUBTRACTION")
-	IntegrationSalesforceConnectorOperatorMaskAll              = IntegrationSalesforceConnectorOperator("MASK_ALL")
-	IntegrationSalesforceConnectorOperatorMaskFirstN           = IntegrationSalesforceConnectorOperator("MASK_FIRST_N")
-	IntegrationSalesforceConnectorOperatorMaskLastN            = IntegrationSalesforceConnectorOperator("MASK_LAST_N")
-	IntegrationSalesforceConnectorOperatorValidateNonNull      = IntegrationSalesforceConnectorOperator("VALIDATE_NON_NULL")
-	IntegrationSalesforceConnectorOperatorValidateNonZero      = IntegrationSalesforceConnectorOperator("VALIDATE_NON_ZERO")
-	IntegrationSalesforceConnectorOperatorValidateNonNegative  = IntegrationSalesforceConnectorOperator("VALIDATE_NON_NEGATIVE")
-	IntegrationSalesforceConnectorOperatorValidateNumeric      = IntegrationSalesforceConnectorOperator("VALIDATE_NUMERIC")
-	IntegrationSalesforceConnectorOperatorNoOp                 = IntegrationSalesforceConnectorOperator("NO_OP")
+	IntegrationSalesforceConnectorOperatorPROJECTION                = IntegrationSalesforceConnectorOperator("PROJECTION")
+	IntegrationSalesforceConnectorOperator_LESS_THAN                = IntegrationSalesforceConnectorOperator("LESS_THAN")
+	IntegrationSalesforceConnectorOperator_GREATER_THAN             = IntegrationSalesforceConnectorOperator("GREATER_THAN")
+	IntegrationSalesforceConnectorOperatorCONTAINS                  = IntegrationSalesforceConnectorOperator("CONTAINS")
+	IntegrationSalesforceConnectorOperatorBETWEEN                   = IntegrationSalesforceConnectorOperator("BETWEEN")
+	IntegrationSalesforceConnectorOperator_LESS_THAN_OR_EQUAL_TO    = IntegrationSalesforceConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	IntegrationSalesforceConnectorOperator_GREATER_THAN_OR_EQUAL_TO = IntegrationSalesforceConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	IntegrationSalesforceConnectorOperator_EQUAL_TO                 = IntegrationSalesforceConnectorOperator("EQUAL_TO")
+	IntegrationSalesforceConnectorOperator_NOT_EQUAL_TO             = IntegrationSalesforceConnectorOperator("NOT_EQUAL_TO")
+	IntegrationSalesforceConnectorOperatorADDITION                  = IntegrationSalesforceConnectorOperator("ADDITION")
+	IntegrationSalesforceConnectorOperatorMULTIPLICATION            = IntegrationSalesforceConnectorOperator("MULTIPLICATION")
+	IntegrationSalesforceConnectorOperatorDIVISION                  = IntegrationSalesforceConnectorOperator("DIVISION")
+	IntegrationSalesforceConnectorOperatorSUBTRACTION               = IntegrationSalesforceConnectorOperator("SUBTRACTION")
+	IntegrationSalesforceConnectorOperator_MASK_ALL                 = IntegrationSalesforceConnectorOperator("MASK_ALL")
+	IntegrationSalesforceConnectorOperator_MASK_FIRST_N             = IntegrationSalesforceConnectorOperator("MASK_FIRST_N")
+	IntegrationSalesforceConnectorOperator_MASK_LAST_N              = IntegrationSalesforceConnectorOperator("MASK_LAST_N")
+	IntegrationSalesforceConnectorOperator_VALIDATE_NON_NULL        = IntegrationSalesforceConnectorOperator("VALIDATE_NON_NULL")
+	IntegrationSalesforceConnectorOperator_VALIDATE_NON_ZERO        = IntegrationSalesforceConnectorOperator("VALIDATE_NON_ZERO")
+	IntegrationSalesforceConnectorOperator_VALIDATE_NON_NEGATIVE    = IntegrationSalesforceConnectorOperator("VALIDATE_NON_NEGATIVE")
+	IntegrationSalesforceConnectorOperator_VALIDATE_NUMERIC         = IntegrationSalesforceConnectorOperator("VALIDATE_NUMERIC")
+	IntegrationSalesforceConnectorOperator_NO_OP                    = IntegrationSalesforceConnectorOperator("NO_OP")
 )
 
 func (IntegrationSalesforceConnectorOperator) ElementType() reflect.Type {
@@ -899,8 +899,8 @@ func (in *integrationSalesforceConnectorOperatorPtr) ToIntegrationSalesforceConn
 type IntegrationScheduledTriggerPropertiesDataPullMode string
 
 const (
-	IntegrationScheduledTriggerPropertiesDataPullModeIncremental = IntegrationScheduledTriggerPropertiesDataPullMode("Incremental")
-	IntegrationScheduledTriggerPropertiesDataPullModeComplete    = IntegrationScheduledTriggerPropertiesDataPullMode("Complete")
+	IntegrationScheduledTriggerPropertiesDataPullModeINCREMENTAL = IntegrationScheduledTriggerPropertiesDataPullMode("Incremental")
+	IntegrationScheduledTriggerPropertiesDataPullModeCOMPLETE    = IntegrationScheduledTriggerPropertiesDataPullMode("Complete")
 )
 
 func (IntegrationScheduledTriggerPropertiesDataPullMode) ElementType() reflect.Type {
@@ -1063,27 +1063,27 @@ func (in *integrationScheduledTriggerPropertiesDataPullModePtr) ToIntegrationSch
 type IntegrationServiceNowConnectorOperator string
 
 const (
-	IntegrationServiceNowConnectorOperatorProjection           = IntegrationServiceNowConnectorOperator("PROJECTION")
-	IntegrationServiceNowConnectorOperatorLessThan             = IntegrationServiceNowConnectorOperator("LESS_THAN")
-	IntegrationServiceNowConnectorOperatorGreaterThan          = IntegrationServiceNowConnectorOperator("GREATER_THAN")
-	IntegrationServiceNowConnectorOperatorContains             = IntegrationServiceNowConnectorOperator("CONTAINS")
-	IntegrationServiceNowConnectorOperatorBetween              = IntegrationServiceNowConnectorOperator("BETWEEN")
-	IntegrationServiceNowConnectorOperatorLessThanOrEqualTo    = IntegrationServiceNowConnectorOperator("LESS_THAN_OR_EQUAL_TO")
-	IntegrationServiceNowConnectorOperatorGreaterThanOrEqualTo = IntegrationServiceNowConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
-	IntegrationServiceNowConnectorOperatorEqualTo              = IntegrationServiceNowConnectorOperator("EQUAL_TO")
-	IntegrationServiceNowConnectorOperatorNotEqualTo           = IntegrationServiceNowConnectorOperator("NOT_EQUAL_TO")
-	IntegrationServiceNowConnectorOperatorAddition             = IntegrationServiceNowConnectorOperator("ADDITION")
-	IntegrationServiceNowConnectorOperatorMultiplication       = IntegrationServiceNowConnectorOperator("MULTIPLICATION")
-	IntegrationServiceNowConnectorOperatorDivision             = IntegrationServiceNowConnectorOperator("DIVISION")
-	IntegrationServiceNowConnectorOperatorSubtraction          = IntegrationServiceNowConnectorOperator("SUBTRACTION")
-	IntegrationServiceNowConnectorOperatorMaskAll              = IntegrationServiceNowConnectorOperator("MASK_ALL")
-	IntegrationServiceNowConnectorOperatorMaskFirstN           = IntegrationServiceNowConnectorOperator("MASK_FIRST_N")
-	IntegrationServiceNowConnectorOperatorMaskLastN            = IntegrationServiceNowConnectorOperator("MASK_LAST_N")
-	IntegrationServiceNowConnectorOperatorValidateNonNull      = IntegrationServiceNowConnectorOperator("VALIDATE_NON_NULL")
-	IntegrationServiceNowConnectorOperatorValidateNonZero      = IntegrationServiceNowConnectorOperator("VALIDATE_NON_ZERO")
-	IntegrationServiceNowConnectorOperatorValidateNonNegative  = IntegrationServiceNowConnectorOperator("VALIDATE_NON_NEGATIVE")
-	IntegrationServiceNowConnectorOperatorValidateNumeric      = IntegrationServiceNowConnectorOperator("VALIDATE_NUMERIC")
-	IntegrationServiceNowConnectorOperatorNoOp                 = IntegrationServiceNowConnectorOperator("NO_OP")
+	IntegrationServiceNowConnectorOperatorPROJECTION                = IntegrationServiceNowConnectorOperator("PROJECTION")
+	IntegrationServiceNowConnectorOperator_LESS_THAN                = IntegrationServiceNowConnectorOperator("LESS_THAN")
+	IntegrationServiceNowConnectorOperator_GREATER_THAN             = IntegrationServiceNowConnectorOperator("GREATER_THAN")
+	IntegrationServiceNowConnectorOperatorCONTAINS                  = IntegrationServiceNowConnectorOperator("CONTAINS")
+	IntegrationServiceNowConnectorOperatorBETWEEN                   = IntegrationServiceNowConnectorOperator("BETWEEN")
+	IntegrationServiceNowConnectorOperator_LESS_THAN_OR_EQUAL_TO    = IntegrationServiceNowConnectorOperator("LESS_THAN_OR_EQUAL_TO")
+	IntegrationServiceNowConnectorOperator_GREATER_THAN_OR_EQUAL_TO = IntegrationServiceNowConnectorOperator("GREATER_THAN_OR_EQUAL_TO")
+	IntegrationServiceNowConnectorOperator_EQUAL_TO                 = IntegrationServiceNowConnectorOperator("EQUAL_TO")
+	IntegrationServiceNowConnectorOperator_NOT_EQUAL_TO             = IntegrationServiceNowConnectorOperator("NOT_EQUAL_TO")
+	IntegrationServiceNowConnectorOperatorADDITION                  = IntegrationServiceNowConnectorOperator("ADDITION")
+	IntegrationServiceNowConnectorOperatorMULTIPLICATION            = IntegrationServiceNowConnectorOperator("MULTIPLICATION")
+	IntegrationServiceNowConnectorOperatorDIVISION                  = IntegrationServiceNowConnectorOperator("DIVISION")
+	IntegrationServiceNowConnectorOperatorSUBTRACTION               = IntegrationServiceNowConnectorOperator("SUBTRACTION")
+	IntegrationServiceNowConnectorOperator_MASK_ALL                 = IntegrationServiceNowConnectorOperator("MASK_ALL")
+	IntegrationServiceNowConnectorOperator_MASK_FIRST_N             = IntegrationServiceNowConnectorOperator("MASK_FIRST_N")
+	IntegrationServiceNowConnectorOperator_MASK_LAST_N              = IntegrationServiceNowConnectorOperator("MASK_LAST_N")
+	IntegrationServiceNowConnectorOperator_VALIDATE_NON_NULL        = IntegrationServiceNowConnectorOperator("VALIDATE_NON_NULL")
+	IntegrationServiceNowConnectorOperator_VALIDATE_NON_ZERO        = IntegrationServiceNowConnectorOperator("VALIDATE_NON_ZERO")
+	IntegrationServiceNowConnectorOperator_VALIDATE_NON_NEGATIVE    = IntegrationServiceNowConnectorOperator("VALIDATE_NON_NEGATIVE")
+	IntegrationServiceNowConnectorOperator_VALIDATE_NUMERIC         = IntegrationServiceNowConnectorOperator("VALIDATE_NUMERIC")
+	IntegrationServiceNowConnectorOperator_NO_OP                    = IntegrationServiceNowConnectorOperator("NO_OP")
 )
 
 func (IntegrationServiceNowConnectorOperator) ElementType() reflect.Type {
@@ -1246,13 +1246,13 @@ func (in *integrationServiceNowConnectorOperatorPtr) ToIntegrationServiceNowConn
 type IntegrationTaskType string
 
 const (
-	IntegrationTaskTypeArithmetic = IntegrationTaskType("Arithmetic")
-	IntegrationTaskTypeFilter     = IntegrationTaskType("Filter")
-	IntegrationTaskTypeMap        = IntegrationTaskType("Map")
-	IntegrationTaskTypeMask       = IntegrationTaskType("Mask")
-	IntegrationTaskTypeMerge      = IntegrationTaskType("Merge")
-	IntegrationTaskTypeTruncate   = IntegrationTaskType("Truncate")
-	IntegrationTaskTypeValidate   = IntegrationTaskType("Validate")
+	IntegrationTaskTypeARITHMETIC = IntegrationTaskType("Arithmetic")
+	IntegrationTaskTypeFILTER     = IntegrationTaskType("Filter")
+	IntegrationTaskTypeMAP        = IntegrationTaskType("Map")
+	IntegrationTaskTypeMASK       = IntegrationTaskType("Mask")
+	IntegrationTaskTypeMERGE      = IntegrationTaskType("Merge")
+	IntegrationTaskTypeTRUNCATE   = IntegrationTaskType("Truncate")
+	IntegrationTaskTypeVALIDATE   = IntegrationTaskType("Validate")
 )
 
 func (IntegrationTaskType) ElementType() reflect.Type {
@@ -1415,9 +1415,9 @@ func (in *integrationTaskTypePtr) ToIntegrationTaskTypePtrOutputWithContext(ctx 
 type IntegrationTriggerType string
 
 const (
-	IntegrationTriggerTypeScheduled = IntegrationTriggerType("Scheduled")
-	IntegrationTriggerTypeEvent     = IntegrationTriggerType("Event")
-	IntegrationTriggerTypeOnDemand  = IntegrationTriggerType("OnDemand")
+	IntegrationTriggerTypeSCHEDULED  = IntegrationTriggerType("Scheduled")
+	IntegrationTriggerTypeEVENT      = IntegrationTriggerType("Event")
+	IntegrationTriggerType_ON_DEMAND = IntegrationTriggerType("OnDemand")
 )
 
 func (IntegrationTriggerType) ElementType() reflect.Type {
@@ -1580,20 +1580,20 @@ func (in *integrationTriggerTypePtr) ToIntegrationTriggerTypePtrOutputWithContex
 type IntegrationZendeskConnectorOperator string
 
 const (
-	IntegrationZendeskConnectorOperatorProjection          = IntegrationZendeskConnectorOperator("PROJECTION")
-	IntegrationZendeskConnectorOperatorGreaterThan         = IntegrationZendeskConnectorOperator("GREATER_THAN")
-	IntegrationZendeskConnectorOperatorAddition            = IntegrationZendeskConnectorOperator("ADDITION")
-	IntegrationZendeskConnectorOperatorMultiplication      = IntegrationZendeskConnectorOperator("MULTIPLICATION")
-	IntegrationZendeskConnectorOperatorDivision            = IntegrationZendeskConnectorOperator("DIVISION")
-	IntegrationZendeskConnectorOperatorSubtraction         = IntegrationZendeskConnectorOperator("SUBTRACTION")
-	IntegrationZendeskConnectorOperatorMaskAll             = IntegrationZendeskConnectorOperator("MASK_ALL")
-	IntegrationZendeskConnectorOperatorMaskFirstN          = IntegrationZendeskConnectorOperator("MASK_FIRST_N")
-	IntegrationZendeskConnectorOperatorMaskLastN           = IntegrationZendeskConnectorOperator("MASK_LAST_N")
-	IntegrationZendeskConnectorOperatorValidateNonNull     = IntegrationZendeskConnectorOperator("VALIDATE_NON_NULL")
-	IntegrationZendeskConnectorOperatorValidateNonZero     = IntegrationZendeskConnectorOperator("VALIDATE_NON_ZERO")
-	IntegrationZendeskConnectorOperatorValidateNonNegative = IntegrationZendeskConnectorOperator("VALIDATE_NON_NEGATIVE")
-	IntegrationZendeskConnectorOperatorValidateNumeric     = IntegrationZendeskConnectorOperator("VALIDATE_NUMERIC")
-	IntegrationZendeskConnectorOperatorNoOp                = IntegrationZendeskConnectorOperator("NO_OP")
+	IntegrationZendeskConnectorOperatorPROJECTION             = IntegrationZendeskConnectorOperator("PROJECTION")
+	IntegrationZendeskConnectorOperator_GREATER_THAN          = IntegrationZendeskConnectorOperator("GREATER_THAN")
+	IntegrationZendeskConnectorOperatorADDITION               = IntegrationZendeskConnectorOperator("ADDITION")
+	IntegrationZendeskConnectorOperatorMULTIPLICATION         = IntegrationZendeskConnectorOperator("MULTIPLICATION")
+	IntegrationZendeskConnectorOperatorDIVISION               = IntegrationZendeskConnectorOperator("DIVISION")
+	IntegrationZendeskConnectorOperatorSUBTRACTION            = IntegrationZendeskConnectorOperator("SUBTRACTION")
+	IntegrationZendeskConnectorOperator_MASK_ALL              = IntegrationZendeskConnectorOperator("MASK_ALL")
+	IntegrationZendeskConnectorOperator_MASK_FIRST_N          = IntegrationZendeskConnectorOperator("MASK_FIRST_N")
+	IntegrationZendeskConnectorOperator_MASK_LAST_N           = IntegrationZendeskConnectorOperator("MASK_LAST_N")
+	IntegrationZendeskConnectorOperator_VALIDATE_NON_NULL     = IntegrationZendeskConnectorOperator("VALIDATE_NON_NULL")
+	IntegrationZendeskConnectorOperator_VALIDATE_NON_ZERO     = IntegrationZendeskConnectorOperator("VALIDATE_NON_ZERO")
+	IntegrationZendeskConnectorOperator_VALIDATE_NON_NEGATIVE = IntegrationZendeskConnectorOperator("VALIDATE_NON_NEGATIVE")
+	IntegrationZendeskConnectorOperator_VALIDATE_NUMERIC      = IntegrationZendeskConnectorOperator("VALIDATE_NUMERIC")
+	IntegrationZendeskConnectorOperator_NO_OP                 = IntegrationZendeskConnectorOperator("NO_OP")
 )
 
 func (IntegrationZendeskConnectorOperator) ElementType() reflect.Type {
@@ -1757,11 +1757,11 @@ func (in *integrationZendeskConnectorOperatorPtr) ToIntegrationZendeskConnectorO
 type ObjectTypeObjectTypeFieldContentType string
 
 const (
-	ObjectTypeObjectTypeFieldContentTypeString       = ObjectTypeObjectTypeFieldContentType("STRING")
-	ObjectTypeObjectTypeFieldContentTypeNumber       = ObjectTypeObjectTypeFieldContentType("NUMBER")
-	ObjectTypeObjectTypeFieldContentTypePhoneNumber  = ObjectTypeObjectTypeFieldContentType("PHONE_NUMBER")
-	ObjectTypeObjectTypeFieldContentTypeEmailAddress = ObjectTypeObjectTypeFieldContentType("EMAIL_ADDRESS")
-	ObjectTypeObjectTypeFieldContentTypeName         = ObjectTypeObjectTypeFieldContentType("NAME")
+	ObjectTypeObjectTypeFieldContentTypeSTRING         = ObjectTypeObjectTypeFieldContentType("STRING")
+	ObjectTypeObjectTypeFieldContentTypeNUMBER         = ObjectTypeObjectTypeFieldContentType("NUMBER")
+	ObjectTypeObjectTypeFieldContentType_PHONE_NUMBER  = ObjectTypeObjectTypeFieldContentType("PHONE_NUMBER")
+	ObjectTypeObjectTypeFieldContentType_EMAIL_ADDRESS = ObjectTypeObjectTypeFieldContentType("EMAIL_ADDRESS")
+	ObjectTypeObjectTypeFieldContentTypeNAME           = ObjectTypeObjectTypeFieldContentType("NAME")
 )
 
 func (ObjectTypeObjectTypeFieldContentType) ElementType() reflect.Type {
@@ -1924,11 +1924,11 @@ func (in *objectTypeObjectTypeFieldContentTypePtr) ToObjectTypeObjectTypeFieldCo
 type ObjectTypeObjectTypeKeyStandardIdentifiersItem string
 
 const (
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemProfile    = ObjectTypeObjectTypeKeyStandardIdentifiersItem("PROFILE")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemUnique     = ObjectTypeObjectTypeKeyStandardIdentifiersItem("UNIQUE")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemSecondary  = ObjectTypeObjectTypeKeyStandardIdentifiersItem("SECONDARY")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemLookupOnly = ObjectTypeObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemNewOnly    = ObjectTypeObjectTypeKeyStandardIdentifiersItem("NEW_ONLY")
+	ObjectTypeObjectTypeKeyStandardIdentifiersItemPROFILE      = ObjectTypeObjectTypeKeyStandardIdentifiersItem("PROFILE")
+	ObjectTypeObjectTypeKeyStandardIdentifiersItemUNIQUE       = ObjectTypeObjectTypeKeyStandardIdentifiersItem("UNIQUE")
+	ObjectTypeObjectTypeKeyStandardIdentifiersItemSECONDARY    = ObjectTypeObjectTypeKeyStandardIdentifiersItem("SECONDARY")
+	ObjectTypeObjectTypeKeyStandardIdentifiersItem_LOOKUP_ONLY = ObjectTypeObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY")
+	ObjectTypeObjectTypeKeyStandardIdentifiersItem_NEW_ONLY    = ObjectTypeObjectTypeKeyStandardIdentifiersItem("NEW_ONLY")
 )
 
 func (ObjectTypeObjectTypeKeyStandardIdentifiersItem) ElementType() reflect.Type {

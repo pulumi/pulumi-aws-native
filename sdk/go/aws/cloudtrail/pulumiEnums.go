@@ -14,9 +14,9 @@ import (
 type TrailEventSelectorReadWriteType string
 
 const (
-	TrailEventSelectorReadWriteTypeAll       = TrailEventSelectorReadWriteType("All")
-	TrailEventSelectorReadWriteTypeReadOnly  = TrailEventSelectorReadWriteType("ReadOnly")
-	TrailEventSelectorReadWriteTypeWriteOnly = TrailEventSelectorReadWriteType("WriteOnly")
+	TrailEventSelectorReadWriteTypeALL         = TrailEventSelectorReadWriteType("All")
+	TrailEventSelectorReadWriteType_READ_ONLY  = TrailEventSelectorReadWriteType("ReadOnly")
+	TrailEventSelectorReadWriteType_WRITE_ONLY = TrailEventSelectorReadWriteType("WriteOnly")
 )
 
 func (TrailEventSelectorReadWriteType) ElementType() reflect.Type {

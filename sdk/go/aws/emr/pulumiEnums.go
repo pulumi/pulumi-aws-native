@@ -14,8 +14,8 @@ import (
 type StudioAuthMode string
 
 const (
-	StudioAuthModeSso = StudioAuthMode("SSO")
-	StudioAuthModeIam = StudioAuthMode("IAM")
+	StudioAuthModeSSO = StudioAuthMode("SSO")
+	StudioAuthModeIAM = StudioAuthMode("IAM")
 )
 
 func (StudioAuthMode) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *studioAuthModePtr) ToStudioAuthModePtrOutputWithContext(ctx context.Co
 type StudioSessionMappingIdentityType string
 
 const (
-	StudioSessionMappingIdentityTypeUser  = StudioSessionMappingIdentityType("USER")
-	StudioSessionMappingIdentityTypeGroup = StudioSessionMappingIdentityType("GROUP")
+	StudioSessionMappingIdentityTypeUSER  = StudioSessionMappingIdentityType("USER")
+	StudioSessionMappingIdentityTypeGROUP = StudioSessionMappingIdentityType("GROUP")
 )
 
 func (StudioSessionMappingIdentityType) ElementType() reflect.Type {

@@ -13,11 +13,11 @@ import (
 type EnvironmentLoggingLevel string
 
 const (
-	EnvironmentLoggingLevelCritical = EnvironmentLoggingLevel("CRITICAL")
-	EnvironmentLoggingLevelError    = EnvironmentLoggingLevel("ERROR")
-	EnvironmentLoggingLevelWarning  = EnvironmentLoggingLevel("WARNING")
-	EnvironmentLoggingLevelInfo     = EnvironmentLoggingLevel("INFO")
-	EnvironmentLoggingLevelDebug    = EnvironmentLoggingLevel("DEBUG")
+	EnvironmentLoggingLevelCRITICAL = EnvironmentLoggingLevel("CRITICAL")
+	EnvironmentLoggingLevelERROR    = EnvironmentLoggingLevel("ERROR")
+	EnvironmentLoggingLevelWARNING  = EnvironmentLoggingLevel("WARNING")
+	EnvironmentLoggingLevelINFO     = EnvironmentLoggingLevel("INFO")
+	EnvironmentLoggingLevelDEBUG    = EnvironmentLoggingLevel("DEBUG")
 )
 
 func (EnvironmentLoggingLevel) ElementType() reflect.Type {
@@ -181,8 +181,8 @@ func (in *environmentLoggingLevelPtr) ToEnvironmentLoggingLevelPtrOutputWithCont
 type EnvironmentWebserverAccessMode string
 
 const (
-	EnvironmentWebserverAccessModePrivateOnly = EnvironmentWebserverAccessMode("PRIVATE_ONLY")
-	EnvironmentWebserverAccessModePublicOnly  = EnvironmentWebserverAccessMode("PUBLIC_ONLY")
+	EnvironmentWebserverAccessMode_PRIVATE_ONLY = EnvironmentWebserverAccessMode("PRIVATE_ONLY")
+	EnvironmentWebserverAccessMode_PUBLIC_ONLY  = EnvironmentWebserverAccessMode("PUBLIC_ONLY")
 )
 
 func (EnvironmentWebserverAccessMode) ElementType() reflect.Type {

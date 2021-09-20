@@ -14,7 +14,7 @@ import (
 type StreamStreamEncryptionEncryptionType string
 
 const (
-	StreamStreamEncryptionEncryptionTypeKms = StreamStreamEncryptionEncryptionType("KMS")
+	StreamStreamEncryptionEncryptionTypeKMS = StreamStreamEncryptionEncryptionType("KMS")
 )
 
 func (StreamStreamEncryptionEncryptionType) ElementType() reflect.Type {

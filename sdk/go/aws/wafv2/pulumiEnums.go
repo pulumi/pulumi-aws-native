@@ -14,8 +14,8 @@ import (
 type IPSetIPAddressVersion string
 
 const (
-	IPSetIPAddressVersionIpv4 = IPSetIPAddressVersion("IPV4")
-	IPSetIPAddressVersionIpv6 = IPSetIPAddressVersion("IPV6")
+	IPSetIPAddressVersionIPV4 = IPSetIPAddressVersion("IPV4")
+	IPSetIPAddressVersionIPV6 = IPSetIPAddressVersion("IPV6")
 )
 
 func (IPSetIPAddressVersion) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *ipsetIPAddressVersionPtr) ToIPSetIPAddressVersionPtrOutputWithContext(
 type IPSetScope string
 
 const (
-	IPSetScopeCloudfront = IPSetScope("CLOUDFRONT")
-	IPSetScopeRegional   = IPSetScope("REGIONAL")
+	IPSetScopeCLOUDFRONT = IPSetScope("CLOUDFRONT")
+	IPSetScopeREGIONAL   = IPSetScope("REGIONAL")
 )
 
 func (IPSetScope) ElementType() reflect.Type {
@@ -344,8 +344,8 @@ func (in *ipsetScopePtr) ToIPSetScopePtrOutputWithContext(ctx context.Context) I
 type RegexPatternSetScope string
 
 const (
-	RegexPatternSetScopeCloudfront = RegexPatternSetScope("CLOUDFRONT")
-	RegexPatternSetScopeRegional   = RegexPatternSetScope("REGIONAL")
+	RegexPatternSetScopeCLOUDFRONT = RegexPatternSetScope("CLOUDFRONT")
+	RegexPatternSetScopeREGIONAL   = RegexPatternSetScope("REGIONAL")
 )
 
 func (RegexPatternSetScope) ElementType() reflect.Type {
@@ -509,9 +509,9 @@ func (in *regexPatternSetScopePtr) ToRegexPatternSetScopePtrOutputWithContext(ct
 type RuleGroupBodyParsingFallbackBehavior string
 
 const (
-	RuleGroupBodyParsingFallbackBehaviorMatch            = RuleGroupBodyParsingFallbackBehavior("MATCH")
-	RuleGroupBodyParsingFallbackBehaviorNoMatch          = RuleGroupBodyParsingFallbackBehavior("NO_MATCH")
-	RuleGroupBodyParsingFallbackBehaviorEvaluateAsString = RuleGroupBodyParsingFallbackBehavior("EVALUATE_AS_STRING")
+	RuleGroupBodyParsingFallbackBehaviorMATCH               = RuleGroupBodyParsingFallbackBehavior("MATCH")
+	RuleGroupBodyParsingFallbackBehavior_NO_MATCH           = RuleGroupBodyParsingFallbackBehavior("NO_MATCH")
+	RuleGroupBodyParsingFallbackBehavior_EVALUATE_AS_STRING = RuleGroupBodyParsingFallbackBehavior("EVALUATE_AS_STRING")
 )
 
 func (RuleGroupBodyParsingFallbackBehavior) ElementType() reflect.Type {
@@ -674,8 +674,8 @@ func (in *ruleGroupBodyParsingFallbackBehaviorPtr) ToRuleGroupBodyParsingFallbac
 type RuleGroupForwardedIPConfigurationFallbackBehavior string
 
 const (
-	RuleGroupForwardedIPConfigurationFallbackBehaviorMatch   = RuleGroupForwardedIPConfigurationFallbackBehavior("MATCH")
-	RuleGroupForwardedIPConfigurationFallbackBehaviorNoMatch = RuleGroupForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	RuleGroupForwardedIPConfigurationFallbackBehaviorMATCH     = RuleGroupForwardedIPConfigurationFallbackBehavior("MATCH")
+	RuleGroupForwardedIPConfigurationFallbackBehavior_NO_MATCH = RuleGroupForwardedIPConfigurationFallbackBehavior("NO_MATCH")
 )
 
 func (RuleGroupForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
@@ -838,8 +838,8 @@ func (in *ruleGroupForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroupForwa
 type RuleGroupIPSetForwardedIPConfigurationFallbackBehavior string
 
 const (
-	RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorMatch   = RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("MATCH")
-	RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorNoMatch = RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	RuleGroupIPSetForwardedIPConfigurationFallbackBehaviorMATCH     = RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("MATCH")
+	RuleGroupIPSetForwardedIPConfigurationFallbackBehavior_NO_MATCH = RuleGroupIPSetForwardedIPConfigurationFallbackBehavior("NO_MATCH")
 )
 
 func (RuleGroupIPSetForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
@@ -1002,9 +1002,9 @@ func (in *ruleGroupIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToRuleGroup
 type RuleGroupIPSetForwardedIPConfigurationPosition string
 
 const (
-	RuleGroupIPSetForwardedIPConfigurationPositionFirst = RuleGroupIPSetForwardedIPConfigurationPosition("FIRST")
-	RuleGroupIPSetForwardedIPConfigurationPositionLast  = RuleGroupIPSetForwardedIPConfigurationPosition("LAST")
-	RuleGroupIPSetForwardedIPConfigurationPositionAny   = RuleGroupIPSetForwardedIPConfigurationPosition("ANY")
+	RuleGroupIPSetForwardedIPConfigurationPositionFIRST = RuleGroupIPSetForwardedIPConfigurationPosition("FIRST")
+	RuleGroupIPSetForwardedIPConfigurationPositionLAST  = RuleGroupIPSetForwardedIPConfigurationPosition("LAST")
+	RuleGroupIPSetForwardedIPConfigurationPositionANY   = RuleGroupIPSetForwardedIPConfigurationPosition("ANY")
 )
 
 func (RuleGroupIPSetForwardedIPConfigurationPosition) ElementType() reflect.Type {
@@ -1168,9 +1168,9 @@ func (in *ruleGroupIPSetForwardedIPConfigurationPositionPtr) ToRuleGroupIPSetFor
 type RuleGroupJsonMatchScope string
 
 const (
-	RuleGroupJsonMatchScopeAll   = RuleGroupJsonMatchScope("ALL")
-	RuleGroupJsonMatchScopeKey   = RuleGroupJsonMatchScope("KEY")
-	RuleGroupJsonMatchScopeValue = RuleGroupJsonMatchScope("VALUE")
+	RuleGroupJsonMatchScopeALL   = RuleGroupJsonMatchScope("ALL")
+	RuleGroupJsonMatchScopeKEY   = RuleGroupJsonMatchScope("KEY")
+	RuleGroupJsonMatchScopeVALUE = RuleGroupJsonMatchScope("VALUE")
 )
 
 func (RuleGroupJsonMatchScope) ElementType() reflect.Type {
@@ -1333,8 +1333,8 @@ func (in *ruleGroupJsonMatchScopePtr) ToRuleGroupJsonMatchScopePtrOutputWithCont
 type RuleGroupLabelMatchScope string
 
 const (
-	RuleGroupLabelMatchScopeLabel     = RuleGroupLabelMatchScope("LABEL")
-	RuleGroupLabelMatchScopeNamespace = RuleGroupLabelMatchScope("NAMESPACE")
+	RuleGroupLabelMatchScopeLABEL     = RuleGroupLabelMatchScope("LABEL")
+	RuleGroupLabelMatchScopeNAMESPACE = RuleGroupLabelMatchScope("NAMESPACE")
 )
 
 func (RuleGroupLabelMatchScope) ElementType() reflect.Type {
@@ -1498,11 +1498,11 @@ func (in *ruleGroupLabelMatchScopePtr) ToRuleGroupLabelMatchScopePtrOutputWithCo
 type RuleGroupPositionalConstraint string
 
 const (
-	RuleGroupPositionalConstraintExactly      = RuleGroupPositionalConstraint("EXACTLY")
-	RuleGroupPositionalConstraintStartsWith   = RuleGroupPositionalConstraint("STARTS_WITH")
-	RuleGroupPositionalConstraintEndsWith     = RuleGroupPositionalConstraint("ENDS_WITH")
-	RuleGroupPositionalConstraintContains     = RuleGroupPositionalConstraint("CONTAINS")
-	RuleGroupPositionalConstraintContainsWord = RuleGroupPositionalConstraint("CONTAINS_WORD")
+	RuleGroupPositionalConstraintEXACTLY        = RuleGroupPositionalConstraint("EXACTLY")
+	RuleGroupPositionalConstraint_STARTS_WITH   = RuleGroupPositionalConstraint("STARTS_WITH")
+	RuleGroupPositionalConstraint_ENDS_WITH     = RuleGroupPositionalConstraint("ENDS_WITH")
+	RuleGroupPositionalConstraintCONTAINS       = RuleGroupPositionalConstraint("CONTAINS")
+	RuleGroupPositionalConstraint_CONTAINS_WORD = RuleGroupPositionalConstraint("CONTAINS_WORD")
 )
 
 func (RuleGroupPositionalConstraint) ElementType() reflect.Type {
@@ -1665,8 +1665,8 @@ func (in *ruleGroupPositionalConstraintPtr) ToRuleGroupPositionalConstraintPtrOu
 type RuleGroupRateBasedStatementAggregateKeyType string
 
 const (
-	RuleGroupRateBasedStatementAggregateKeyTypeIp          = RuleGroupRateBasedStatementAggregateKeyType("IP")
-	RuleGroupRateBasedStatementAggregateKeyTypeForwardedIp = RuleGroupRateBasedStatementAggregateKeyType("FORWARDED_IP")
+	RuleGroupRateBasedStatementAggregateKeyTypeIP            = RuleGroupRateBasedStatementAggregateKeyType("IP")
+	RuleGroupRateBasedStatementAggregateKeyType_FORWARDED_IP = RuleGroupRateBasedStatementAggregateKeyType("FORWARDED_IP")
 )
 
 func (RuleGroupRateBasedStatementAggregateKeyType) ElementType() reflect.Type {
@@ -1830,8 +1830,8 @@ func (in *ruleGroupRateBasedStatementAggregateKeyTypePtr) ToRuleGroupRateBasedSt
 type RuleGroupScope string
 
 const (
-	RuleGroupScopeCloudfront = RuleGroupScope("CLOUDFRONT")
-	RuleGroupScopeRegional   = RuleGroupScope("REGIONAL")
+	RuleGroupScopeCLOUDFRONT = RuleGroupScope("CLOUDFRONT")
+	RuleGroupScopeREGIONAL   = RuleGroupScope("REGIONAL")
 )
 
 func (RuleGroupScope) ElementType() reflect.Type {
@@ -1994,12 +1994,12 @@ func (in *ruleGroupScopePtr) ToRuleGroupScopePtrOutputWithContext(ctx context.Co
 type RuleGroupSizeConstraintStatementComparisonOperator string
 
 const (
-	RuleGroupSizeConstraintStatementComparisonOperatorEq = RuleGroupSizeConstraintStatementComparisonOperator("EQ")
-	RuleGroupSizeConstraintStatementComparisonOperatorNe = RuleGroupSizeConstraintStatementComparisonOperator("NE")
-	RuleGroupSizeConstraintStatementComparisonOperatorLe = RuleGroupSizeConstraintStatementComparisonOperator("LE")
-	RuleGroupSizeConstraintStatementComparisonOperatorLt = RuleGroupSizeConstraintStatementComparisonOperator("LT")
-	RuleGroupSizeConstraintStatementComparisonOperatorGe = RuleGroupSizeConstraintStatementComparisonOperator("GE")
-	RuleGroupSizeConstraintStatementComparisonOperatorGt = RuleGroupSizeConstraintStatementComparisonOperator("GT")
+	RuleGroupSizeConstraintStatementComparisonOperatorEQ = RuleGroupSizeConstraintStatementComparisonOperator("EQ")
+	RuleGroupSizeConstraintStatementComparisonOperatorNE = RuleGroupSizeConstraintStatementComparisonOperator("NE")
+	RuleGroupSizeConstraintStatementComparisonOperatorLE = RuleGroupSizeConstraintStatementComparisonOperator("LE")
+	RuleGroupSizeConstraintStatementComparisonOperatorLT = RuleGroupSizeConstraintStatementComparisonOperator("LT")
+	RuleGroupSizeConstraintStatementComparisonOperatorGE = RuleGroupSizeConstraintStatementComparisonOperator("GE")
+	RuleGroupSizeConstraintStatementComparisonOperatorGT = RuleGroupSizeConstraintStatementComparisonOperator("GT")
 )
 
 func (RuleGroupSizeConstraintStatementComparisonOperator) ElementType() reflect.Type {
@@ -2163,27 +2163,27 @@ func (in *ruleGroupSizeConstraintStatementComparisonOperatorPtr) ToRuleGroupSize
 type RuleGroupTextTransformationType string
 
 const (
-	RuleGroupTextTransformationTypeNone               = RuleGroupTextTransformationType("NONE")
-	RuleGroupTextTransformationTypeCompressWhiteSpace = RuleGroupTextTransformationType("COMPRESS_WHITE_SPACE")
-	RuleGroupTextTransformationTypeHtmlEntityDecode   = RuleGroupTextTransformationType("HTML_ENTITY_DECODE")
-	RuleGroupTextTransformationTypeLowercase          = RuleGroupTextTransformationType("LOWERCASE")
-	RuleGroupTextTransformationTypeCmdLine            = RuleGroupTextTransformationType("CMD_LINE")
-	RuleGroupTextTransformationTypeUrlDecode          = RuleGroupTextTransformationType("URL_DECODE")
-	RuleGroupTextTransformationTypeBase64Decode       = RuleGroupTextTransformationType("BASE64_DECODE")
-	RuleGroupTextTransformationTypeHexDecode          = RuleGroupTextTransformationType("HEX_DECODE")
-	RuleGroupTextTransformationTypeMd5                = RuleGroupTextTransformationType("MD5")
-	RuleGroupTextTransformationTypeReplaceComments    = RuleGroupTextTransformationType("REPLACE_COMMENTS")
-	RuleGroupTextTransformationTypeEscapeSeqDecode    = RuleGroupTextTransformationType("ESCAPE_SEQ_DECODE")
-	RuleGroupTextTransformationTypeSqlHexDecode       = RuleGroupTextTransformationType("SQL_HEX_DECODE")
-	RuleGroupTextTransformationTypeCssDecode          = RuleGroupTextTransformationType("CSS_DECODE")
-	RuleGroupTextTransformationTypeJsDecode           = RuleGroupTextTransformationType("JS_DECODE")
-	RuleGroupTextTransformationTypeNormalizePath      = RuleGroupTextTransformationType("NORMALIZE_PATH")
-	RuleGroupTextTransformationTypeNormalizePathWin   = RuleGroupTextTransformationType("NORMALIZE_PATH_WIN")
-	RuleGroupTextTransformationTypeRemoveNulls        = RuleGroupTextTransformationType("REMOVE_NULLS")
-	RuleGroupTextTransformationTypeReplaceNulls       = RuleGroupTextTransformationType("REPLACE_NULLS")
-	RuleGroupTextTransformationTypeBase64DecodeExt    = RuleGroupTextTransformationType("BASE64_DECODE_EXT")
-	RuleGroupTextTransformationTypeUrlDecodeUni       = RuleGroupTextTransformationType("URL_DECODE_UNI")
-	RuleGroupTextTransformationTypeUtf8ToUnicode      = RuleGroupTextTransformationType("UTF8_TO_UNICODE")
+	RuleGroupTextTransformationTypeNONE                  = RuleGroupTextTransformationType("NONE")
+	RuleGroupTextTransformationType_COMPRESS_WHITE_SPACE = RuleGroupTextTransformationType("COMPRESS_WHITE_SPACE")
+	RuleGroupTextTransformationType_HTML_ENTITY_DECODE   = RuleGroupTextTransformationType("HTML_ENTITY_DECODE")
+	RuleGroupTextTransformationTypeLOWERCASE             = RuleGroupTextTransformationType("LOWERCASE")
+	RuleGroupTextTransformationType_CMD_LINE             = RuleGroupTextTransformationType("CMD_LINE")
+	RuleGroupTextTransformationType_URL_DECODE           = RuleGroupTextTransformationType("URL_DECODE")
+	RuleGroupTextTransformationType_BASE64_DECODE        = RuleGroupTextTransformationType("BASE64_DECODE")
+	RuleGroupTextTransformationType_HEX_DECODE           = RuleGroupTextTransformationType("HEX_DECODE")
+	RuleGroupTextTransformationTypeMD5                   = RuleGroupTextTransformationType("MD5")
+	RuleGroupTextTransformationType_REPLACE_COMMENTS     = RuleGroupTextTransformationType("REPLACE_COMMENTS")
+	RuleGroupTextTransformationType_ESCAPE_SEQ_DECODE    = RuleGroupTextTransformationType("ESCAPE_SEQ_DECODE")
+	RuleGroupTextTransformationType_SQL_HEX_DECODE       = RuleGroupTextTransformationType("SQL_HEX_DECODE")
+	RuleGroupTextTransformationType_CSS_DECODE           = RuleGroupTextTransformationType("CSS_DECODE")
+	RuleGroupTextTransformationType_JS_DECODE            = RuleGroupTextTransformationType("JS_DECODE")
+	RuleGroupTextTransformationType_NORMALIZE_PATH       = RuleGroupTextTransformationType("NORMALIZE_PATH")
+	RuleGroupTextTransformationType_NORMALIZE_PATH_WIN   = RuleGroupTextTransformationType("NORMALIZE_PATH_WIN")
+	RuleGroupTextTransformationType_REMOVE_NULLS         = RuleGroupTextTransformationType("REMOVE_NULLS")
+	RuleGroupTextTransformationType_REPLACE_NULLS        = RuleGroupTextTransformationType("REPLACE_NULLS")
+	RuleGroupTextTransformationType_BASE64_DECODE_EXT    = RuleGroupTextTransformationType("BASE64_DECODE_EXT")
+	RuleGroupTextTransformationType_URL_DECODE_UNI       = RuleGroupTextTransformationType("URL_DECODE_UNI")
+	RuleGroupTextTransformationType_UTF8_TO_UNICODE      = RuleGroupTextTransformationType("UTF8_TO_UNICODE")
 )
 
 func (RuleGroupTextTransformationType) ElementType() reflect.Type {
@@ -2347,9 +2347,9 @@ func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypeP
 type WebACLBodyParsingFallbackBehavior string
 
 const (
-	WebACLBodyParsingFallbackBehaviorMatch            = WebACLBodyParsingFallbackBehavior("MATCH")
-	WebACLBodyParsingFallbackBehaviorNoMatch          = WebACLBodyParsingFallbackBehavior("NO_MATCH")
-	WebACLBodyParsingFallbackBehaviorEvaluateAsString = WebACLBodyParsingFallbackBehavior("EVALUATE_AS_STRING")
+	WebACLBodyParsingFallbackBehaviorMATCH               = WebACLBodyParsingFallbackBehavior("MATCH")
+	WebACLBodyParsingFallbackBehavior_NO_MATCH           = WebACLBodyParsingFallbackBehavior("NO_MATCH")
+	WebACLBodyParsingFallbackBehavior_EVALUATE_AS_STRING = WebACLBodyParsingFallbackBehavior("EVALUATE_AS_STRING")
 )
 
 func (WebACLBodyParsingFallbackBehavior) ElementType() reflect.Type {
@@ -2512,8 +2512,8 @@ func (in *webACLBodyParsingFallbackBehaviorPtr) ToWebACLBodyParsingFallbackBehav
 type WebACLForwardedIPConfigurationFallbackBehavior string
 
 const (
-	WebACLForwardedIPConfigurationFallbackBehaviorMatch   = WebACLForwardedIPConfigurationFallbackBehavior("MATCH")
-	WebACLForwardedIPConfigurationFallbackBehaviorNoMatch = WebACLForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	WebACLForwardedIPConfigurationFallbackBehaviorMATCH     = WebACLForwardedIPConfigurationFallbackBehavior("MATCH")
+	WebACLForwardedIPConfigurationFallbackBehavior_NO_MATCH = WebACLForwardedIPConfigurationFallbackBehavior("NO_MATCH")
 )
 
 func (WebACLForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
@@ -2676,8 +2676,8 @@ func (in *webACLForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLForwardedIP
 type WebACLIPSetForwardedIPConfigurationFallbackBehavior string
 
 const (
-	WebACLIPSetForwardedIPConfigurationFallbackBehaviorMatch   = WebACLIPSetForwardedIPConfigurationFallbackBehavior("MATCH")
-	WebACLIPSetForwardedIPConfigurationFallbackBehaviorNoMatch = WebACLIPSetForwardedIPConfigurationFallbackBehavior("NO_MATCH")
+	WebACLIPSetForwardedIPConfigurationFallbackBehaviorMATCH     = WebACLIPSetForwardedIPConfigurationFallbackBehavior("MATCH")
+	WebACLIPSetForwardedIPConfigurationFallbackBehavior_NO_MATCH = WebACLIPSetForwardedIPConfigurationFallbackBehavior("NO_MATCH")
 )
 
 func (WebACLIPSetForwardedIPConfigurationFallbackBehavior) ElementType() reflect.Type {
@@ -2840,9 +2840,9 @@ func (in *webACLIPSetForwardedIPConfigurationFallbackBehaviorPtr) ToWebACLIPSetF
 type WebACLIPSetForwardedIPConfigurationPosition string
 
 const (
-	WebACLIPSetForwardedIPConfigurationPositionFirst = WebACLIPSetForwardedIPConfigurationPosition("FIRST")
-	WebACLIPSetForwardedIPConfigurationPositionLast  = WebACLIPSetForwardedIPConfigurationPosition("LAST")
-	WebACLIPSetForwardedIPConfigurationPositionAny   = WebACLIPSetForwardedIPConfigurationPosition("ANY")
+	WebACLIPSetForwardedIPConfigurationPositionFIRST = WebACLIPSetForwardedIPConfigurationPosition("FIRST")
+	WebACLIPSetForwardedIPConfigurationPositionLAST  = WebACLIPSetForwardedIPConfigurationPosition("LAST")
+	WebACLIPSetForwardedIPConfigurationPositionANY   = WebACLIPSetForwardedIPConfigurationPosition("ANY")
 )
 
 func (WebACLIPSetForwardedIPConfigurationPosition) ElementType() reflect.Type {
@@ -3006,9 +3006,9 @@ func (in *webACLIPSetForwardedIPConfigurationPositionPtr) ToWebACLIPSetForwarded
 type WebACLJsonMatchScope string
 
 const (
-	WebACLJsonMatchScopeAll   = WebACLJsonMatchScope("ALL")
-	WebACLJsonMatchScopeKey   = WebACLJsonMatchScope("KEY")
-	WebACLJsonMatchScopeValue = WebACLJsonMatchScope("VALUE")
+	WebACLJsonMatchScopeALL   = WebACLJsonMatchScope("ALL")
+	WebACLJsonMatchScopeKEY   = WebACLJsonMatchScope("KEY")
+	WebACLJsonMatchScopeVALUE = WebACLJsonMatchScope("VALUE")
 )
 
 func (WebACLJsonMatchScope) ElementType() reflect.Type {
@@ -3171,8 +3171,8 @@ func (in *webACLJsonMatchScopePtr) ToWebACLJsonMatchScopePtrOutputWithContext(ct
 type WebACLLabelMatchScope string
 
 const (
-	WebACLLabelMatchScopeLabel     = WebACLLabelMatchScope("LABEL")
-	WebACLLabelMatchScopeNamespace = WebACLLabelMatchScope("NAMESPACE")
+	WebACLLabelMatchScopeLABEL     = WebACLLabelMatchScope("LABEL")
+	WebACLLabelMatchScopeNAMESPACE = WebACLLabelMatchScope("NAMESPACE")
 )
 
 func (WebACLLabelMatchScope) ElementType() reflect.Type {
@@ -3336,11 +3336,11 @@ func (in *webACLLabelMatchScopePtr) ToWebACLLabelMatchScopePtrOutputWithContext(
 type WebACLPositionalConstraint string
 
 const (
-	WebACLPositionalConstraintExactly      = WebACLPositionalConstraint("EXACTLY")
-	WebACLPositionalConstraintStartsWith   = WebACLPositionalConstraint("STARTS_WITH")
-	WebACLPositionalConstraintEndsWith     = WebACLPositionalConstraint("ENDS_WITH")
-	WebACLPositionalConstraintContains     = WebACLPositionalConstraint("CONTAINS")
-	WebACLPositionalConstraintContainsWord = WebACLPositionalConstraint("CONTAINS_WORD")
+	WebACLPositionalConstraintEXACTLY        = WebACLPositionalConstraint("EXACTLY")
+	WebACLPositionalConstraint_STARTS_WITH   = WebACLPositionalConstraint("STARTS_WITH")
+	WebACLPositionalConstraint_ENDS_WITH     = WebACLPositionalConstraint("ENDS_WITH")
+	WebACLPositionalConstraintCONTAINS       = WebACLPositionalConstraint("CONTAINS")
+	WebACLPositionalConstraint_CONTAINS_WORD = WebACLPositionalConstraint("CONTAINS_WORD")
 )
 
 func (WebACLPositionalConstraint) ElementType() reflect.Type {
@@ -3503,8 +3503,8 @@ func (in *webACLPositionalConstraintPtr) ToWebACLPositionalConstraintPtrOutputWi
 type WebACLRateBasedStatementAggregateKeyType string
 
 const (
-	WebACLRateBasedStatementAggregateKeyTypeIp          = WebACLRateBasedStatementAggregateKeyType("IP")
-	WebACLRateBasedStatementAggregateKeyTypeForwardedIp = WebACLRateBasedStatementAggregateKeyType("FORWARDED_IP")
+	WebACLRateBasedStatementAggregateKeyTypeIP            = WebACLRateBasedStatementAggregateKeyType("IP")
+	WebACLRateBasedStatementAggregateKeyType_FORWARDED_IP = WebACLRateBasedStatementAggregateKeyType("FORWARDED_IP")
 )
 
 func (WebACLRateBasedStatementAggregateKeyType) ElementType() reflect.Type {
@@ -3668,8 +3668,8 @@ func (in *webACLRateBasedStatementAggregateKeyTypePtr) ToWebACLRateBasedStatemen
 type WebACLScope string
 
 const (
-	WebACLScopeCloudfront = WebACLScope("CLOUDFRONT")
-	WebACLScopeRegional   = WebACLScope("REGIONAL")
+	WebACLScopeCLOUDFRONT = WebACLScope("CLOUDFRONT")
+	WebACLScopeREGIONAL   = WebACLScope("REGIONAL")
 )
 
 func (WebACLScope) ElementType() reflect.Type {
@@ -3832,12 +3832,12 @@ func (in *webACLScopePtr) ToWebACLScopePtrOutputWithContext(ctx context.Context)
 type WebACLSizeConstraintStatementComparisonOperator string
 
 const (
-	WebACLSizeConstraintStatementComparisonOperatorEq = WebACLSizeConstraintStatementComparisonOperator("EQ")
-	WebACLSizeConstraintStatementComparisonOperatorNe = WebACLSizeConstraintStatementComparisonOperator("NE")
-	WebACLSizeConstraintStatementComparisonOperatorLe = WebACLSizeConstraintStatementComparisonOperator("LE")
-	WebACLSizeConstraintStatementComparisonOperatorLt = WebACLSizeConstraintStatementComparisonOperator("LT")
-	WebACLSizeConstraintStatementComparisonOperatorGe = WebACLSizeConstraintStatementComparisonOperator("GE")
-	WebACLSizeConstraintStatementComparisonOperatorGt = WebACLSizeConstraintStatementComparisonOperator("GT")
+	WebACLSizeConstraintStatementComparisonOperatorEQ = WebACLSizeConstraintStatementComparisonOperator("EQ")
+	WebACLSizeConstraintStatementComparisonOperatorNE = WebACLSizeConstraintStatementComparisonOperator("NE")
+	WebACLSizeConstraintStatementComparisonOperatorLE = WebACLSizeConstraintStatementComparisonOperator("LE")
+	WebACLSizeConstraintStatementComparisonOperatorLT = WebACLSizeConstraintStatementComparisonOperator("LT")
+	WebACLSizeConstraintStatementComparisonOperatorGE = WebACLSizeConstraintStatementComparisonOperator("GE")
+	WebACLSizeConstraintStatementComparisonOperatorGT = WebACLSizeConstraintStatementComparisonOperator("GT")
 )
 
 func (WebACLSizeConstraintStatementComparisonOperator) ElementType() reflect.Type {
@@ -4001,27 +4001,27 @@ func (in *webACLSizeConstraintStatementComparisonOperatorPtr) ToWebACLSizeConstr
 type WebACLTextTransformationType string
 
 const (
-	WebACLTextTransformationTypeNone               = WebACLTextTransformationType("NONE")
-	WebACLTextTransformationTypeCompressWhiteSpace = WebACLTextTransformationType("COMPRESS_WHITE_SPACE")
-	WebACLTextTransformationTypeHtmlEntityDecode   = WebACLTextTransformationType("HTML_ENTITY_DECODE")
-	WebACLTextTransformationTypeLowercase          = WebACLTextTransformationType("LOWERCASE")
-	WebACLTextTransformationTypeCmdLine            = WebACLTextTransformationType("CMD_LINE")
-	WebACLTextTransformationTypeUrlDecode          = WebACLTextTransformationType("URL_DECODE")
-	WebACLTextTransformationTypeBase64Decode       = WebACLTextTransformationType("BASE64_DECODE")
-	WebACLTextTransformationTypeHexDecode          = WebACLTextTransformationType("HEX_DECODE")
-	WebACLTextTransformationTypeMd5                = WebACLTextTransformationType("MD5")
-	WebACLTextTransformationTypeReplaceComments    = WebACLTextTransformationType("REPLACE_COMMENTS")
-	WebACLTextTransformationTypeEscapeSeqDecode    = WebACLTextTransformationType("ESCAPE_SEQ_DECODE")
-	WebACLTextTransformationTypeSqlHexDecode       = WebACLTextTransformationType("SQL_HEX_DECODE")
-	WebACLTextTransformationTypeCssDecode          = WebACLTextTransformationType("CSS_DECODE")
-	WebACLTextTransformationTypeJsDecode           = WebACLTextTransformationType("JS_DECODE")
-	WebACLTextTransformationTypeNormalizePath      = WebACLTextTransformationType("NORMALIZE_PATH")
-	WebACLTextTransformationTypeNormalizePathWin   = WebACLTextTransformationType("NORMALIZE_PATH_WIN")
-	WebACLTextTransformationTypeRemoveNulls        = WebACLTextTransformationType("REMOVE_NULLS")
-	WebACLTextTransformationTypeReplaceNulls       = WebACLTextTransformationType("REPLACE_NULLS")
-	WebACLTextTransformationTypeBase64DecodeExt    = WebACLTextTransformationType("BASE64_DECODE_EXT")
-	WebACLTextTransformationTypeUrlDecodeUni       = WebACLTextTransformationType("URL_DECODE_UNI")
-	WebACLTextTransformationTypeUtf8ToUnicode      = WebACLTextTransformationType("UTF8_TO_UNICODE")
+	WebACLTextTransformationTypeNONE                  = WebACLTextTransformationType("NONE")
+	WebACLTextTransformationType_COMPRESS_WHITE_SPACE = WebACLTextTransformationType("COMPRESS_WHITE_SPACE")
+	WebACLTextTransformationType_HTML_ENTITY_DECODE   = WebACLTextTransformationType("HTML_ENTITY_DECODE")
+	WebACLTextTransformationTypeLOWERCASE             = WebACLTextTransformationType("LOWERCASE")
+	WebACLTextTransformationType_CMD_LINE             = WebACLTextTransformationType("CMD_LINE")
+	WebACLTextTransformationType_URL_DECODE           = WebACLTextTransformationType("URL_DECODE")
+	WebACLTextTransformationType_BASE64_DECODE        = WebACLTextTransformationType("BASE64_DECODE")
+	WebACLTextTransformationType_HEX_DECODE           = WebACLTextTransformationType("HEX_DECODE")
+	WebACLTextTransformationTypeMD5                   = WebACLTextTransformationType("MD5")
+	WebACLTextTransformationType_REPLACE_COMMENTS     = WebACLTextTransformationType("REPLACE_COMMENTS")
+	WebACLTextTransformationType_ESCAPE_SEQ_DECODE    = WebACLTextTransformationType("ESCAPE_SEQ_DECODE")
+	WebACLTextTransformationType_SQL_HEX_DECODE       = WebACLTextTransformationType("SQL_HEX_DECODE")
+	WebACLTextTransformationType_CSS_DECODE           = WebACLTextTransformationType("CSS_DECODE")
+	WebACLTextTransformationType_JS_DECODE            = WebACLTextTransformationType("JS_DECODE")
+	WebACLTextTransformationType_NORMALIZE_PATH       = WebACLTextTransformationType("NORMALIZE_PATH")
+	WebACLTextTransformationType_NORMALIZE_PATH_WIN   = WebACLTextTransformationType("NORMALIZE_PATH_WIN")
+	WebACLTextTransformationType_REMOVE_NULLS         = WebACLTextTransformationType("REMOVE_NULLS")
+	WebACLTextTransformationType_REPLACE_NULLS        = WebACLTextTransformationType("REPLACE_NULLS")
+	WebACLTextTransformationType_BASE64_DECODE_EXT    = WebACLTextTransformationType("BASE64_DECODE_EXT")
+	WebACLTextTransformationType_URL_DECODE_UNI       = WebACLTextTransformationType("URL_DECODE_UNI")
+	WebACLTextTransformationType_UTF8_TO_UNICODE      = WebACLTextTransformationType("UTF8_TO_UNICODE")
 )
 
 func (WebACLTextTransformationType) ElementType() reflect.Type {

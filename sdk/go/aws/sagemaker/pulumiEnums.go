@@ -14,8 +14,8 @@ import (
 type AppAppType string
 
 const (
-	AppAppTypeJupyterServer = AppAppType("JupyterServer")
-	AppAppTypeKernelGateway = AppAppType("KernelGateway")
+	AppAppType_JUPYTER_SERVER = AppAppType("JupyterServer")
+	AppAppType_KERNEL_GATEWAY = AppAppType("KernelGateway")
 )
 
 func (AppAppType) ElementType() reflect.Type {
@@ -179,38 +179,38 @@ func (in *appAppTypePtr) ToAppAppTypePtrOutputWithContext(ctx context.Context) A
 type AppResourceSpecInstanceType string
 
 const (
-	AppResourceSpecInstanceTypeSystem         = AppResourceSpecInstanceType("system")
-	AppResourceSpecInstanceTypeMlT3Micro      = AppResourceSpecInstanceType("ml.t3.micro")
-	AppResourceSpecInstanceTypeMlT3Small      = AppResourceSpecInstanceType("ml.t3.small")
-	AppResourceSpecInstanceTypeMlT3Medium     = AppResourceSpecInstanceType("ml.t3.medium")
-	AppResourceSpecInstanceTypeMlT3Large      = AppResourceSpecInstanceType("ml.t3.large")
-	AppResourceSpecInstanceTypeMlT3Xlarge     = AppResourceSpecInstanceType("ml.t3.xlarge")
-	AppResourceSpecInstanceTypeMlT32xlarge    = AppResourceSpecInstanceType("ml.t3.2xlarge")
-	AppResourceSpecInstanceTypeMlM5Large      = AppResourceSpecInstanceType("ml.m5.large")
-	AppResourceSpecInstanceTypeMlM5Xlarge     = AppResourceSpecInstanceType("ml.m5.xlarge")
-	AppResourceSpecInstanceTypeMlM52xlarge    = AppResourceSpecInstanceType("ml.m5.2xlarge")
-	AppResourceSpecInstanceTypeMlM54xlarge    = AppResourceSpecInstanceType("ml.m5.4xlarge")
-	AppResourceSpecInstanceTypeMlM58xlarge    = AppResourceSpecInstanceType("ml.m5.8xlarge")
-	AppResourceSpecInstanceTypeMlM512xlarge   = AppResourceSpecInstanceType("ml.m5.12xlarge")
-	AppResourceSpecInstanceTypeMlM516xlarge   = AppResourceSpecInstanceType("ml.m5.16xlarge")
-	AppResourceSpecInstanceTypeMlM524xlarge   = AppResourceSpecInstanceType("ml.m5.24xlarge")
-	AppResourceSpecInstanceTypeMlC5Large      = AppResourceSpecInstanceType("ml.c5.large")
-	AppResourceSpecInstanceTypeMlC5Xlarge     = AppResourceSpecInstanceType("ml.c5.xlarge")
-	AppResourceSpecInstanceTypeMlC52xlarge    = AppResourceSpecInstanceType("ml.c5.2xlarge")
-	AppResourceSpecInstanceTypeMlC54xlarge    = AppResourceSpecInstanceType("ml.c5.4xlarge")
-	AppResourceSpecInstanceTypeMlC59xlarge    = AppResourceSpecInstanceType("ml.c5.9xlarge")
-	AppResourceSpecInstanceTypeMlC512xlarge   = AppResourceSpecInstanceType("ml.c5.12xlarge")
-	AppResourceSpecInstanceTypeMlC518xlarge   = AppResourceSpecInstanceType("ml.c5.18xlarge")
-	AppResourceSpecInstanceTypeMlC524xlarge   = AppResourceSpecInstanceType("ml.c5.24xlarge")
-	AppResourceSpecInstanceTypeMlP32xlarge    = AppResourceSpecInstanceType("ml.p3.2xlarge")
-	AppResourceSpecInstanceTypeMlP38xlarge    = AppResourceSpecInstanceType("ml.p3.8xlarge")
-	AppResourceSpecInstanceTypeMlP316xlarge   = AppResourceSpecInstanceType("ml.p3.16xlarge")
-	AppResourceSpecInstanceTypeMlG4dnXlarge   = AppResourceSpecInstanceType("ml.g4dn.xlarge")
-	AppResourceSpecInstanceTypeMlG4dn2xlarge  = AppResourceSpecInstanceType("ml.g4dn.2xlarge")
-	AppResourceSpecInstanceTypeMlG4dn4xlarge  = AppResourceSpecInstanceType("ml.g4dn.4xlarge")
-	AppResourceSpecInstanceTypeMlG4dn8xlarge  = AppResourceSpecInstanceType("ml.g4dn.8xlarge")
-	AppResourceSpecInstanceTypeMlG4dn12xlarge = AppResourceSpecInstanceType("ml.g4dn.12xlarge")
-	AppResourceSpecInstanceTypeMlG4dn16xlarge = AppResourceSpecInstanceType("ml.g4dn.16xlarge")
+	AppResourceSpecInstanceTypeSYSTEM           = AppResourceSpecInstanceType("system")
+	AppResourceSpecInstanceType_ML_T3_MICRO     = AppResourceSpecInstanceType("ml.t3.micro")
+	AppResourceSpecInstanceType_ML_T3_SMALL     = AppResourceSpecInstanceType("ml.t3.small")
+	AppResourceSpecInstanceType_ML_T3_MEDIUM    = AppResourceSpecInstanceType("ml.t3.medium")
+	AppResourceSpecInstanceType_ML_T3_LARGE     = AppResourceSpecInstanceType("ml.t3.large")
+	AppResourceSpecInstanceType_ML_T3_XLARGE    = AppResourceSpecInstanceType("ml.t3.xlarge")
+	AppResourceSpecInstanceType_ML_T32XLARGE    = AppResourceSpecInstanceType("ml.t3.2xlarge")
+	AppResourceSpecInstanceType_ML_M5_LARGE     = AppResourceSpecInstanceType("ml.m5.large")
+	AppResourceSpecInstanceType_ML_M5_XLARGE    = AppResourceSpecInstanceType("ml.m5.xlarge")
+	AppResourceSpecInstanceType_ML_M52XLARGE    = AppResourceSpecInstanceType("ml.m5.2xlarge")
+	AppResourceSpecInstanceType_ML_M54XLARGE    = AppResourceSpecInstanceType("ml.m5.4xlarge")
+	AppResourceSpecInstanceType_ML_M58XLARGE    = AppResourceSpecInstanceType("ml.m5.8xlarge")
+	AppResourceSpecInstanceType_ML_M512XLARGE   = AppResourceSpecInstanceType("ml.m5.12xlarge")
+	AppResourceSpecInstanceType_ML_M516XLARGE   = AppResourceSpecInstanceType("ml.m5.16xlarge")
+	AppResourceSpecInstanceType_ML_M524XLARGE   = AppResourceSpecInstanceType("ml.m5.24xlarge")
+	AppResourceSpecInstanceType_ML_C5_LARGE     = AppResourceSpecInstanceType("ml.c5.large")
+	AppResourceSpecInstanceType_ML_C5_XLARGE    = AppResourceSpecInstanceType("ml.c5.xlarge")
+	AppResourceSpecInstanceType_ML_C52XLARGE    = AppResourceSpecInstanceType("ml.c5.2xlarge")
+	AppResourceSpecInstanceType_ML_C54XLARGE    = AppResourceSpecInstanceType("ml.c5.4xlarge")
+	AppResourceSpecInstanceType_ML_C59XLARGE    = AppResourceSpecInstanceType("ml.c5.9xlarge")
+	AppResourceSpecInstanceType_ML_C512XLARGE   = AppResourceSpecInstanceType("ml.c5.12xlarge")
+	AppResourceSpecInstanceType_ML_C518XLARGE   = AppResourceSpecInstanceType("ml.c5.18xlarge")
+	AppResourceSpecInstanceType_ML_C524XLARGE   = AppResourceSpecInstanceType("ml.c5.24xlarge")
+	AppResourceSpecInstanceType_ML_P32XLARGE    = AppResourceSpecInstanceType("ml.p3.2xlarge")
+	AppResourceSpecInstanceType_ML_P38XLARGE    = AppResourceSpecInstanceType("ml.p3.8xlarge")
+	AppResourceSpecInstanceType_ML_P316XLARGE   = AppResourceSpecInstanceType("ml.p3.16xlarge")
+	AppResourceSpecInstanceType_ML_G4DN_XLARGE  = AppResourceSpecInstanceType("ml.g4dn.xlarge")
+	AppResourceSpecInstanceType_ML_G4DN2XLARGE  = AppResourceSpecInstanceType("ml.g4dn.2xlarge")
+	AppResourceSpecInstanceType_ML_G4DN4XLARGE  = AppResourceSpecInstanceType("ml.g4dn.4xlarge")
+	AppResourceSpecInstanceType_ML_G4DN8XLARGE  = AppResourceSpecInstanceType("ml.g4dn.8xlarge")
+	AppResourceSpecInstanceType_ML_G4DN12XLARGE = AppResourceSpecInstanceType("ml.g4dn.12xlarge")
+	AppResourceSpecInstanceType_ML_G4DN16XLARGE = AppResourceSpecInstanceType("ml.g4dn.16xlarge")
 )
 
 func (AppResourceSpecInstanceType) ElementType() reflect.Type {
@@ -374,8 +374,8 @@ func (in *appResourceSpecInstanceTypePtr) ToAppResourceSpecInstanceTypePtrOutput
 type DataQualityJobDefinitionEndpointInputS3DataDistributionType string
 
 const (
-	DataQualityJobDefinitionEndpointInputS3DataDistributionTypeFullyReplicated = DataQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
-	DataQualityJobDefinitionEndpointInputS3DataDistributionTypeShardedByS3Key  = DataQualityJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
+	DataQualityJobDefinitionEndpointInputS3DataDistributionType_FULLY_REPLICATED  = DataQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
+	DataQualityJobDefinitionEndpointInputS3DataDistributionType_SHARDED_BY_S3_KEY = DataQualityJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
 )
 
 func (DataQualityJobDefinitionEndpointInputS3DataDistributionType) ElementType() reflect.Type {
@@ -539,8 +539,8 @@ func (in *dataQualityJobDefinitionEndpointInputS3DataDistributionTypePtr) ToData
 type DataQualityJobDefinitionEndpointInputS3InputMode string
 
 const (
-	DataQualityJobDefinitionEndpointInputS3InputModePipe = DataQualityJobDefinitionEndpointInputS3InputMode("Pipe")
-	DataQualityJobDefinitionEndpointInputS3InputModeFile = DataQualityJobDefinitionEndpointInputS3InputMode("File")
+	DataQualityJobDefinitionEndpointInputS3InputModePIPE = DataQualityJobDefinitionEndpointInputS3InputMode("Pipe")
+	DataQualityJobDefinitionEndpointInputS3InputModeFILE = DataQualityJobDefinitionEndpointInputS3InputMode("File")
 )
 
 func (DataQualityJobDefinitionEndpointInputS3InputMode) ElementType() reflect.Type {
@@ -704,8 +704,8 @@ func (in *dataQualityJobDefinitionEndpointInputS3InputModePtr) ToDataQualityJobD
 type DataQualityJobDefinitionS3OutputS3UploadMode string
 
 const (
-	DataQualityJobDefinitionS3OutputS3UploadModeContinuous = DataQualityJobDefinitionS3OutputS3UploadMode("Continuous")
-	DataQualityJobDefinitionS3OutputS3UploadModeEndOfJob   = DataQualityJobDefinitionS3OutputS3UploadMode("EndOfJob")
+	DataQualityJobDefinitionS3OutputS3UploadModeCONTINUOUS  = DataQualityJobDefinitionS3OutputS3UploadMode("Continuous")
+	DataQualityJobDefinitionS3OutputS3UploadMode_END_OF_JOB = DataQualityJobDefinitionS3OutputS3UploadMode("EndOfJob")
 )
 
 func (DataQualityJobDefinitionS3OutputS3UploadMode) ElementType() reflect.Type {
@@ -869,8 +869,8 @@ func (in *dataQualityJobDefinitionS3OutputS3UploadModePtr) ToDataQualityJobDefin
 type DomainAppNetworkAccessType string
 
 const (
-	DomainAppNetworkAccessTypePublicInternetOnly = DomainAppNetworkAccessType("PublicInternetOnly")
-	DomainAppNetworkAccessTypeVpcOnly            = DomainAppNetworkAccessType("VpcOnly")
+	DomainAppNetworkAccessType_PUBLIC_INTERNET_ONLY = DomainAppNetworkAccessType("PublicInternetOnly")
+	DomainAppNetworkAccessType_VPC_ONLY             = DomainAppNetworkAccessType("VpcOnly")
 )
 
 func (DomainAppNetworkAccessType) ElementType() reflect.Type {
@@ -1034,8 +1034,8 @@ func (in *domainAppNetworkAccessTypePtr) ToDomainAppNetworkAccessTypePtrOutputWi
 type DomainAuthMode string
 
 const (
-	DomainAuthModeSso = DomainAuthMode("SSO")
-	DomainAuthModeIam = DomainAuthMode("IAM")
+	DomainAuthModeSSO = DomainAuthMode("SSO")
+	DomainAuthModeIAM = DomainAuthMode("IAM")
 )
 
 func (DomainAuthMode) ElementType() reflect.Type {
@@ -1199,38 +1199,38 @@ func (in *domainAuthModePtr) ToDomainAuthModePtrOutputWithContext(ctx context.Co
 type DomainResourceSpecInstanceType string
 
 const (
-	DomainResourceSpecInstanceTypeSystem         = DomainResourceSpecInstanceType("system")
-	DomainResourceSpecInstanceTypeMlT3Micro      = DomainResourceSpecInstanceType("ml.t3.micro")
-	DomainResourceSpecInstanceTypeMlT3Small      = DomainResourceSpecInstanceType("ml.t3.small")
-	DomainResourceSpecInstanceTypeMlT3Medium     = DomainResourceSpecInstanceType("ml.t3.medium")
-	DomainResourceSpecInstanceTypeMlT3Large      = DomainResourceSpecInstanceType("ml.t3.large")
-	DomainResourceSpecInstanceTypeMlT3Xlarge     = DomainResourceSpecInstanceType("ml.t3.xlarge")
-	DomainResourceSpecInstanceTypeMlT32xlarge    = DomainResourceSpecInstanceType("ml.t3.2xlarge")
-	DomainResourceSpecInstanceTypeMlM5Large      = DomainResourceSpecInstanceType("ml.m5.large")
-	DomainResourceSpecInstanceTypeMlM5Xlarge     = DomainResourceSpecInstanceType("ml.m5.xlarge")
-	DomainResourceSpecInstanceTypeMlM52xlarge    = DomainResourceSpecInstanceType("ml.m5.2xlarge")
-	DomainResourceSpecInstanceTypeMlM54xlarge    = DomainResourceSpecInstanceType("ml.m5.4xlarge")
-	DomainResourceSpecInstanceTypeMlM58xlarge    = DomainResourceSpecInstanceType("ml.m5.8xlarge")
-	DomainResourceSpecInstanceTypeMlM512xlarge   = DomainResourceSpecInstanceType("ml.m5.12xlarge")
-	DomainResourceSpecInstanceTypeMlM516xlarge   = DomainResourceSpecInstanceType("ml.m5.16xlarge")
-	DomainResourceSpecInstanceTypeMlM524xlarge   = DomainResourceSpecInstanceType("ml.m5.24xlarge")
-	DomainResourceSpecInstanceTypeMlC5Large      = DomainResourceSpecInstanceType("ml.c5.large")
-	DomainResourceSpecInstanceTypeMlC5Xlarge     = DomainResourceSpecInstanceType("ml.c5.xlarge")
-	DomainResourceSpecInstanceTypeMlC52xlarge    = DomainResourceSpecInstanceType("ml.c5.2xlarge")
-	DomainResourceSpecInstanceTypeMlC54xlarge    = DomainResourceSpecInstanceType("ml.c5.4xlarge")
-	DomainResourceSpecInstanceTypeMlC59xlarge    = DomainResourceSpecInstanceType("ml.c5.9xlarge")
-	DomainResourceSpecInstanceTypeMlC512xlarge   = DomainResourceSpecInstanceType("ml.c5.12xlarge")
-	DomainResourceSpecInstanceTypeMlC518xlarge   = DomainResourceSpecInstanceType("ml.c5.18xlarge")
-	DomainResourceSpecInstanceTypeMlC524xlarge   = DomainResourceSpecInstanceType("ml.c5.24xlarge")
-	DomainResourceSpecInstanceTypeMlP32xlarge    = DomainResourceSpecInstanceType("ml.p3.2xlarge")
-	DomainResourceSpecInstanceTypeMlP38xlarge    = DomainResourceSpecInstanceType("ml.p3.8xlarge")
-	DomainResourceSpecInstanceTypeMlP316xlarge   = DomainResourceSpecInstanceType("ml.p3.16xlarge")
-	DomainResourceSpecInstanceTypeMlG4dnXlarge   = DomainResourceSpecInstanceType("ml.g4dn.xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn2xlarge  = DomainResourceSpecInstanceType("ml.g4dn.2xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn4xlarge  = DomainResourceSpecInstanceType("ml.g4dn.4xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn8xlarge  = DomainResourceSpecInstanceType("ml.g4dn.8xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn12xlarge = DomainResourceSpecInstanceType("ml.g4dn.12xlarge")
-	DomainResourceSpecInstanceTypeMlG4dn16xlarge = DomainResourceSpecInstanceType("ml.g4dn.16xlarge")
+	DomainResourceSpecInstanceTypeSYSTEM           = DomainResourceSpecInstanceType("system")
+	DomainResourceSpecInstanceType_ML_T3_MICRO     = DomainResourceSpecInstanceType("ml.t3.micro")
+	DomainResourceSpecInstanceType_ML_T3_SMALL     = DomainResourceSpecInstanceType("ml.t3.small")
+	DomainResourceSpecInstanceType_ML_T3_MEDIUM    = DomainResourceSpecInstanceType("ml.t3.medium")
+	DomainResourceSpecInstanceType_ML_T3_LARGE     = DomainResourceSpecInstanceType("ml.t3.large")
+	DomainResourceSpecInstanceType_ML_T3_XLARGE    = DomainResourceSpecInstanceType("ml.t3.xlarge")
+	DomainResourceSpecInstanceType_ML_T32XLARGE    = DomainResourceSpecInstanceType("ml.t3.2xlarge")
+	DomainResourceSpecInstanceType_ML_M5_LARGE     = DomainResourceSpecInstanceType("ml.m5.large")
+	DomainResourceSpecInstanceType_ML_M5_XLARGE    = DomainResourceSpecInstanceType("ml.m5.xlarge")
+	DomainResourceSpecInstanceType_ML_M52XLARGE    = DomainResourceSpecInstanceType("ml.m5.2xlarge")
+	DomainResourceSpecInstanceType_ML_M54XLARGE    = DomainResourceSpecInstanceType("ml.m5.4xlarge")
+	DomainResourceSpecInstanceType_ML_M58XLARGE    = DomainResourceSpecInstanceType("ml.m5.8xlarge")
+	DomainResourceSpecInstanceType_ML_M512XLARGE   = DomainResourceSpecInstanceType("ml.m5.12xlarge")
+	DomainResourceSpecInstanceType_ML_M516XLARGE   = DomainResourceSpecInstanceType("ml.m5.16xlarge")
+	DomainResourceSpecInstanceType_ML_M524XLARGE   = DomainResourceSpecInstanceType("ml.m5.24xlarge")
+	DomainResourceSpecInstanceType_ML_C5_LARGE     = DomainResourceSpecInstanceType("ml.c5.large")
+	DomainResourceSpecInstanceType_ML_C5_XLARGE    = DomainResourceSpecInstanceType("ml.c5.xlarge")
+	DomainResourceSpecInstanceType_ML_C52XLARGE    = DomainResourceSpecInstanceType("ml.c5.2xlarge")
+	DomainResourceSpecInstanceType_ML_C54XLARGE    = DomainResourceSpecInstanceType("ml.c5.4xlarge")
+	DomainResourceSpecInstanceType_ML_C59XLARGE    = DomainResourceSpecInstanceType("ml.c5.9xlarge")
+	DomainResourceSpecInstanceType_ML_C512XLARGE   = DomainResourceSpecInstanceType("ml.c5.12xlarge")
+	DomainResourceSpecInstanceType_ML_C518XLARGE   = DomainResourceSpecInstanceType("ml.c5.18xlarge")
+	DomainResourceSpecInstanceType_ML_C524XLARGE   = DomainResourceSpecInstanceType("ml.c5.24xlarge")
+	DomainResourceSpecInstanceType_ML_P32XLARGE    = DomainResourceSpecInstanceType("ml.p3.2xlarge")
+	DomainResourceSpecInstanceType_ML_P38XLARGE    = DomainResourceSpecInstanceType("ml.p3.8xlarge")
+	DomainResourceSpecInstanceType_ML_P316XLARGE   = DomainResourceSpecInstanceType("ml.p3.16xlarge")
+	DomainResourceSpecInstanceType_ML_G4DN_XLARGE  = DomainResourceSpecInstanceType("ml.g4dn.xlarge")
+	DomainResourceSpecInstanceType_ML_G4DN2XLARGE  = DomainResourceSpecInstanceType("ml.g4dn.2xlarge")
+	DomainResourceSpecInstanceType_ML_G4DN4XLARGE  = DomainResourceSpecInstanceType("ml.g4dn.4xlarge")
+	DomainResourceSpecInstanceType_ML_G4DN8XLARGE  = DomainResourceSpecInstanceType("ml.g4dn.8xlarge")
+	DomainResourceSpecInstanceType_ML_G4DN12XLARGE = DomainResourceSpecInstanceType("ml.g4dn.12xlarge")
+	DomainResourceSpecInstanceType_ML_G4DN16XLARGE = DomainResourceSpecInstanceType("ml.g4dn.16xlarge")
 )
 
 func (DomainResourceSpecInstanceType) ElementType() reflect.Type {
@@ -1394,8 +1394,8 @@ func (in *domainResourceSpecInstanceTypePtr) ToDomainResourceSpecInstanceTypePtr
 type DomainSharingSettingsNotebookOutputOption string
 
 const (
-	DomainSharingSettingsNotebookOutputOptionAllowed  = DomainSharingSettingsNotebookOutputOption("Allowed")
-	DomainSharingSettingsNotebookOutputOptionDisabled = DomainSharingSettingsNotebookOutputOption("Disabled")
+	DomainSharingSettingsNotebookOutputOptionALLOWED  = DomainSharingSettingsNotebookOutputOption("Allowed")
+	DomainSharingSettingsNotebookOutputOptionDISABLED = DomainSharingSettingsNotebookOutputOption("Disabled")
 )
 
 func (DomainSharingSettingsNotebookOutputOption) ElementType() reflect.Type {
@@ -1558,9 +1558,9 @@ func (in *domainSharingSettingsNotebookOutputOptionPtr) ToDomainSharingSettingsN
 type FeatureGroupFeatureDefinitionFeatureType string
 
 const (
-	FeatureGroupFeatureDefinitionFeatureTypeIntegral   = FeatureGroupFeatureDefinitionFeatureType("Integral")
-	FeatureGroupFeatureDefinitionFeatureTypeFractional = FeatureGroupFeatureDefinitionFeatureType("Fractional")
-	FeatureGroupFeatureDefinitionFeatureTypeString     = FeatureGroupFeatureDefinitionFeatureType("String")
+	FeatureGroupFeatureDefinitionFeatureTypeINTEGRAL   = FeatureGroupFeatureDefinitionFeatureType("Integral")
+	FeatureGroupFeatureDefinitionFeatureTypeFRACTIONAL = FeatureGroupFeatureDefinitionFeatureType("Fractional")
+	FeatureGroupFeatureDefinitionFeatureTypeSTRING     = FeatureGroupFeatureDefinitionFeatureType("String")
 )
 
 func (FeatureGroupFeatureDefinitionFeatureType) ElementType() reflect.Type {
@@ -1724,8 +1724,8 @@ func (in *featureGroupFeatureDefinitionFeatureTypePtr) ToFeatureGroupFeatureDefi
 type ModelBiasJobDefinitionEndpointInputS3DataDistributionType string
 
 const (
-	ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeFullyReplicated = ModelBiasJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
-	ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeShardedByS3Key  = ModelBiasJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
+	ModelBiasJobDefinitionEndpointInputS3DataDistributionType_FULLY_REPLICATED  = ModelBiasJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
+	ModelBiasJobDefinitionEndpointInputS3DataDistributionType_SHARDED_BY_S3_KEY = ModelBiasJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
 )
 
 func (ModelBiasJobDefinitionEndpointInputS3DataDistributionType) ElementType() reflect.Type {
@@ -1889,8 +1889,8 @@ func (in *modelBiasJobDefinitionEndpointInputS3DataDistributionTypePtr) ToModelB
 type ModelBiasJobDefinitionEndpointInputS3InputMode string
 
 const (
-	ModelBiasJobDefinitionEndpointInputS3InputModePipe = ModelBiasJobDefinitionEndpointInputS3InputMode("Pipe")
-	ModelBiasJobDefinitionEndpointInputS3InputModeFile = ModelBiasJobDefinitionEndpointInputS3InputMode("File")
+	ModelBiasJobDefinitionEndpointInputS3InputModePIPE = ModelBiasJobDefinitionEndpointInputS3InputMode("Pipe")
+	ModelBiasJobDefinitionEndpointInputS3InputModeFILE = ModelBiasJobDefinitionEndpointInputS3InputMode("File")
 )
 
 func (ModelBiasJobDefinitionEndpointInputS3InputMode) ElementType() reflect.Type {
@@ -2054,8 +2054,8 @@ func (in *modelBiasJobDefinitionEndpointInputS3InputModePtr) ToModelBiasJobDefin
 type ModelBiasJobDefinitionS3OutputS3UploadMode string
 
 const (
-	ModelBiasJobDefinitionS3OutputS3UploadModeContinuous = ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous")
-	ModelBiasJobDefinitionS3OutputS3UploadModeEndOfJob   = ModelBiasJobDefinitionS3OutputS3UploadMode("EndOfJob")
+	ModelBiasJobDefinitionS3OutputS3UploadModeCONTINUOUS  = ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous")
+	ModelBiasJobDefinitionS3OutputS3UploadMode_END_OF_JOB = ModelBiasJobDefinitionS3OutputS3UploadMode("EndOfJob")
 )
 
 func (ModelBiasJobDefinitionS3OutputS3UploadMode) ElementType() reflect.Type {
@@ -2219,8 +2219,8 @@ func (in *modelBiasJobDefinitionS3OutputS3UploadModePtr) ToModelBiasJobDefinitio
 type ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType string
 
 const (
-	ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeFullyReplicated = ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
-	ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeShardedByS3Key  = ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
+	ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType_FULLY_REPLICATED  = ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
+	ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType_SHARDED_BY_S3_KEY = ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
 )
 
 func (ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType) ElementType() reflect.Type {
@@ -2384,8 +2384,8 @@ func (in *modelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtr
 type ModelExplainabilityJobDefinitionEndpointInputS3InputMode string
 
 const (
-	ModelExplainabilityJobDefinitionEndpointInputS3InputModePipe = ModelExplainabilityJobDefinitionEndpointInputS3InputMode("Pipe")
-	ModelExplainabilityJobDefinitionEndpointInputS3InputModeFile = ModelExplainabilityJobDefinitionEndpointInputS3InputMode("File")
+	ModelExplainabilityJobDefinitionEndpointInputS3InputModePIPE = ModelExplainabilityJobDefinitionEndpointInputS3InputMode("Pipe")
+	ModelExplainabilityJobDefinitionEndpointInputS3InputModeFILE = ModelExplainabilityJobDefinitionEndpointInputS3InputMode("File")
 )
 
 func (ModelExplainabilityJobDefinitionEndpointInputS3InputMode) ElementType() reflect.Type {
@@ -2549,8 +2549,8 @@ func (in *modelExplainabilityJobDefinitionEndpointInputS3InputModePtr) ToModelEx
 type ModelExplainabilityJobDefinitionS3OutputS3UploadMode string
 
 const (
-	ModelExplainabilityJobDefinitionS3OutputS3UploadModeContinuous = ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous")
-	ModelExplainabilityJobDefinitionS3OutputS3UploadModeEndOfJob   = ModelExplainabilityJobDefinitionS3OutputS3UploadMode("EndOfJob")
+	ModelExplainabilityJobDefinitionS3OutputS3UploadModeCONTINUOUS  = ModelExplainabilityJobDefinitionS3OutputS3UploadMode("Continuous")
+	ModelExplainabilityJobDefinitionS3OutputS3UploadMode_END_OF_JOB = ModelExplainabilityJobDefinitionS3OutputS3UploadMode("EndOfJob")
 )
 
 func (ModelExplainabilityJobDefinitionS3OutputS3UploadMode) ElementType() reflect.Type {
@@ -2714,12 +2714,12 @@ func (in *modelExplainabilityJobDefinitionS3OutputS3UploadModePtr) ToModelExplai
 type ModelPackageGroupModelPackageGroupStatus string
 
 const (
-	ModelPackageGroupModelPackageGroupStatusPending      = ModelPackageGroupModelPackageGroupStatus("Pending")
-	ModelPackageGroupModelPackageGroupStatusInProgress   = ModelPackageGroupModelPackageGroupStatus("InProgress")
-	ModelPackageGroupModelPackageGroupStatusCompleted    = ModelPackageGroupModelPackageGroupStatus("Completed")
-	ModelPackageGroupModelPackageGroupStatusFailed       = ModelPackageGroupModelPackageGroupStatus("Failed")
-	ModelPackageGroupModelPackageGroupStatusDeleting     = ModelPackageGroupModelPackageGroupStatus("Deleting")
-	ModelPackageGroupModelPackageGroupStatusDeleteFailed = ModelPackageGroupModelPackageGroupStatus("DeleteFailed")
+	ModelPackageGroupModelPackageGroupStatusPENDING        = ModelPackageGroupModelPackageGroupStatus("Pending")
+	ModelPackageGroupModelPackageGroupStatus_IN_PROGRESS   = ModelPackageGroupModelPackageGroupStatus("InProgress")
+	ModelPackageGroupModelPackageGroupStatusCOMPLETED      = ModelPackageGroupModelPackageGroupStatus("Completed")
+	ModelPackageGroupModelPackageGroupStatusFAILED         = ModelPackageGroupModelPackageGroupStatus("Failed")
+	ModelPackageGroupModelPackageGroupStatusDELETING       = ModelPackageGroupModelPackageGroupStatus("Deleting")
+	ModelPackageGroupModelPackageGroupStatus_DELETE_FAILED = ModelPackageGroupModelPackageGroupStatus("DeleteFailed")
 )
 
 func (ModelPackageGroupModelPackageGroupStatus) ElementType() reflect.Type {
@@ -2883,8 +2883,8 @@ func (in *modelPackageGroupModelPackageGroupStatusPtr) ToModelPackageGroupModelP
 type ModelQualityJobDefinitionEndpointInputS3DataDistributionType string
 
 const (
-	ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeFullyReplicated = ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
-	ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeShardedByS3Key  = ModelQualityJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
+	ModelQualityJobDefinitionEndpointInputS3DataDistributionType_FULLY_REPLICATED  = ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated")
+	ModelQualityJobDefinitionEndpointInputS3DataDistributionType_SHARDED_BY_S3_KEY = ModelQualityJobDefinitionEndpointInputS3DataDistributionType("ShardedByS3Key")
 )
 
 func (ModelQualityJobDefinitionEndpointInputS3DataDistributionType) ElementType() reflect.Type {
@@ -3048,8 +3048,8 @@ func (in *modelQualityJobDefinitionEndpointInputS3DataDistributionTypePtr) ToMod
 type ModelQualityJobDefinitionEndpointInputS3InputMode string
 
 const (
-	ModelQualityJobDefinitionEndpointInputS3InputModePipe = ModelQualityJobDefinitionEndpointInputS3InputMode("Pipe")
-	ModelQualityJobDefinitionEndpointInputS3InputModeFile = ModelQualityJobDefinitionEndpointInputS3InputMode("File")
+	ModelQualityJobDefinitionEndpointInputS3InputModePIPE = ModelQualityJobDefinitionEndpointInputS3InputMode("Pipe")
+	ModelQualityJobDefinitionEndpointInputS3InputModeFILE = ModelQualityJobDefinitionEndpointInputS3InputMode("File")
 )
 
 func (ModelQualityJobDefinitionEndpointInputS3InputMode) ElementType() reflect.Type {
@@ -3213,9 +3213,9 @@ func (in *modelQualityJobDefinitionEndpointInputS3InputModePtr) ToModelQualityJo
 type ModelQualityJobDefinitionProblemType string
 
 const (
-	ModelQualityJobDefinitionProblemTypeBinaryClassification     = ModelQualityJobDefinitionProblemType("BinaryClassification")
-	ModelQualityJobDefinitionProblemTypeMulticlassClassification = ModelQualityJobDefinitionProblemType("MulticlassClassification")
-	ModelQualityJobDefinitionProblemTypeRegression               = ModelQualityJobDefinitionProblemType("Regression")
+	ModelQualityJobDefinitionProblemType_BINARY_CLASSIFICATION     = ModelQualityJobDefinitionProblemType("BinaryClassification")
+	ModelQualityJobDefinitionProblemType_MULTICLASS_CLASSIFICATION = ModelQualityJobDefinitionProblemType("MulticlassClassification")
+	ModelQualityJobDefinitionProblemTypeREGRESSION                 = ModelQualityJobDefinitionProblemType("Regression")
 )
 
 func (ModelQualityJobDefinitionProblemType) ElementType() reflect.Type {
@@ -3379,8 +3379,8 @@ func (in *modelQualityJobDefinitionProblemTypePtr) ToModelQualityJobDefinitionPr
 type ModelQualityJobDefinitionS3OutputS3UploadMode string
 
 const (
-	ModelQualityJobDefinitionS3OutputS3UploadModeContinuous = ModelQualityJobDefinitionS3OutputS3UploadMode("Continuous")
-	ModelQualityJobDefinitionS3OutputS3UploadModeEndOfJob   = ModelQualityJobDefinitionS3OutputS3UploadMode("EndOfJob")
+	ModelQualityJobDefinitionS3OutputS3UploadModeCONTINUOUS  = ModelQualityJobDefinitionS3OutputS3UploadMode("Continuous")
+	ModelQualityJobDefinitionS3OutputS3UploadMode_END_OF_JOB = ModelQualityJobDefinitionS3OutputS3UploadMode("EndOfJob")
 )
 
 func (ModelQualityJobDefinitionS3OutputS3UploadMode) ElementType() reflect.Type {
@@ -3544,8 +3544,8 @@ func (in *modelQualityJobDefinitionS3OutputS3UploadModePtr) ToModelQualityJobDef
 type MonitoringScheduleEndpointInputS3DataDistributionType string
 
 const (
-	MonitoringScheduleEndpointInputS3DataDistributionTypeFullyReplicated = MonitoringScheduleEndpointInputS3DataDistributionType("FullyReplicated")
-	MonitoringScheduleEndpointInputS3DataDistributionTypeShardedByS3Key  = MonitoringScheduleEndpointInputS3DataDistributionType("ShardedByS3Key")
+	MonitoringScheduleEndpointInputS3DataDistributionType_FULLY_REPLICATED  = MonitoringScheduleEndpointInputS3DataDistributionType("FullyReplicated")
+	MonitoringScheduleEndpointInputS3DataDistributionType_SHARDED_BY_S3_KEY = MonitoringScheduleEndpointInputS3DataDistributionType("ShardedByS3Key")
 )
 
 func (MonitoringScheduleEndpointInputS3DataDistributionType) ElementType() reflect.Type {
@@ -3709,8 +3709,8 @@ func (in *monitoringScheduleEndpointInputS3DataDistributionTypePtr) ToMonitoring
 type MonitoringScheduleEndpointInputS3InputMode string
 
 const (
-	MonitoringScheduleEndpointInputS3InputModePipe = MonitoringScheduleEndpointInputS3InputMode("Pipe")
-	MonitoringScheduleEndpointInputS3InputModeFile = MonitoringScheduleEndpointInputS3InputMode("File")
+	MonitoringScheduleEndpointInputS3InputModePIPE = MonitoringScheduleEndpointInputS3InputMode("Pipe")
+	MonitoringScheduleEndpointInputS3InputModeFILE = MonitoringScheduleEndpointInputS3InputMode("File")
 )
 
 func (MonitoringScheduleEndpointInputS3InputMode) ElementType() reflect.Type {
@@ -3874,13 +3874,13 @@ func (in *monitoringScheduleEndpointInputS3InputModePtr) ToMonitoringScheduleEnd
 type MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus string
 
 const (
-	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPending                 = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Pending")
-	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusCompleted               = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Completed")
-	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusCompletedWithViolations = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("CompletedWithViolations")
-	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusInProgress              = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("InProgress")
-	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusFailed                  = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Failed")
-	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusStopping                = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Stopping")
-	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusStopped                 = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Stopped")
+	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPENDING                    = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Pending")
+	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusCOMPLETED                  = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Completed")
+	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus_COMPLETED_WITH_VIOLATIONS = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("CompletedWithViolations")
+	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus_IN_PROGRESS               = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("InProgress")
+	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusFAILED                     = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Failed")
+	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusSTOPPING                   = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Stopping")
+	MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusSTOPPED                    = MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus("Stopped")
 )
 
 func (MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus) ElementType() reflect.Type {
@@ -4044,10 +4044,10 @@ func (in *monitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusP
 type MonitoringScheduleMonitoringScheduleStatus string
 
 const (
-	MonitoringScheduleMonitoringScheduleStatusPending   = MonitoringScheduleMonitoringScheduleStatus("Pending")
-	MonitoringScheduleMonitoringScheduleStatusFailed    = MonitoringScheduleMonitoringScheduleStatus("Failed")
-	MonitoringScheduleMonitoringScheduleStatusScheduled = MonitoringScheduleMonitoringScheduleStatus("Scheduled")
-	MonitoringScheduleMonitoringScheduleStatusStopped   = MonitoringScheduleMonitoringScheduleStatus("Stopped")
+	MonitoringScheduleMonitoringScheduleStatusPENDING   = MonitoringScheduleMonitoringScheduleStatus("Pending")
+	MonitoringScheduleMonitoringScheduleStatusFAILED    = MonitoringScheduleMonitoringScheduleStatus("Failed")
+	MonitoringScheduleMonitoringScheduleStatusSCHEDULED = MonitoringScheduleMonitoringScheduleStatus("Scheduled")
+	MonitoringScheduleMonitoringScheduleStatusSTOPPED   = MonitoringScheduleMonitoringScheduleStatus("Stopped")
 )
 
 func (MonitoringScheduleMonitoringScheduleStatus) ElementType() reflect.Type {
@@ -4211,10 +4211,10 @@ func (in *monitoringScheduleMonitoringScheduleStatusPtr) ToMonitoringScheduleMon
 type MonitoringScheduleMonitoringType string
 
 const (
-	MonitoringScheduleMonitoringTypeDataQuality         = MonitoringScheduleMonitoringType("DataQuality")
-	MonitoringScheduleMonitoringTypeModelQuality        = MonitoringScheduleMonitoringType("ModelQuality")
-	MonitoringScheduleMonitoringTypeModelBias           = MonitoringScheduleMonitoringType("ModelBias")
-	MonitoringScheduleMonitoringTypeModelExplainability = MonitoringScheduleMonitoringType("ModelExplainability")
+	MonitoringScheduleMonitoringType_DATA_QUALITY         = MonitoringScheduleMonitoringType("DataQuality")
+	MonitoringScheduleMonitoringType_MODEL_QUALITY        = MonitoringScheduleMonitoringType("ModelQuality")
+	MonitoringScheduleMonitoringType_MODEL_BIAS           = MonitoringScheduleMonitoringType("ModelBias")
+	MonitoringScheduleMonitoringType_MODEL_EXPLAINABILITY = MonitoringScheduleMonitoringType("ModelExplainability")
 )
 
 func (MonitoringScheduleMonitoringType) ElementType() reflect.Type {
@@ -4378,8 +4378,8 @@ func (in *monitoringScheduleMonitoringTypePtr) ToMonitoringScheduleMonitoringTyp
 type MonitoringScheduleS3OutputS3UploadMode string
 
 const (
-	MonitoringScheduleS3OutputS3UploadModeContinuous = MonitoringScheduleS3OutputS3UploadMode("Continuous")
-	MonitoringScheduleS3OutputS3UploadModeEndOfJob   = MonitoringScheduleS3OutputS3UploadMode("EndOfJob")
+	MonitoringScheduleS3OutputS3UploadModeCONTINUOUS  = MonitoringScheduleS3OutputS3UploadMode("Continuous")
+	MonitoringScheduleS3OutputS3UploadMode_END_OF_JOB = MonitoringScheduleS3OutputS3UploadMode("EndOfJob")
 )
 
 func (MonitoringScheduleS3OutputS3UploadMode) ElementType() reflect.Type {
@@ -4543,13 +4543,13 @@ func (in *monitoringScheduleS3OutputS3UploadModePtr) ToMonitoringScheduleS3Outpu
 type ProjectProjectStatus string
 
 const (
-	ProjectProjectStatusPending          = ProjectProjectStatus("Pending")
-	ProjectProjectStatusCreateInProgress = ProjectProjectStatus("CreateInProgress")
-	ProjectProjectStatusCreateCompleted  = ProjectProjectStatus("CreateCompleted")
-	ProjectProjectStatusCreateFailed     = ProjectProjectStatus("CreateFailed")
-	ProjectProjectStatusDeleteInProgress = ProjectProjectStatus("DeleteInProgress")
-	ProjectProjectStatusDeleteFailed     = ProjectProjectStatus("DeleteFailed")
-	ProjectProjectStatusDeleteCompleted  = ProjectProjectStatus("DeleteCompleted")
+	ProjectProjectStatusPENDING             = ProjectProjectStatus("Pending")
+	ProjectProjectStatus_CREATE_IN_PROGRESS = ProjectProjectStatus("CreateInProgress")
+	ProjectProjectStatus_CREATE_COMPLETED   = ProjectProjectStatus("CreateCompleted")
+	ProjectProjectStatus_CREATE_FAILED      = ProjectProjectStatus("CreateFailed")
+	ProjectProjectStatus_DELETE_IN_PROGRESS = ProjectProjectStatus("DeleteInProgress")
+	ProjectProjectStatus_DELETE_FAILED      = ProjectProjectStatus("DeleteFailed")
+	ProjectProjectStatus_DELETE_COMPLETED   = ProjectProjectStatus("DeleteCompleted")
 )
 
 func (ProjectProjectStatus) ElementType() reflect.Type {
@@ -4713,38 +4713,38 @@ func (in *projectProjectStatusPtr) ToProjectProjectStatusPtrOutputWithContext(ct
 type UserProfileResourceSpecInstanceType string
 
 const (
-	UserProfileResourceSpecInstanceTypeSystem         = UserProfileResourceSpecInstanceType("system")
-	UserProfileResourceSpecInstanceTypeMlT3Micro      = UserProfileResourceSpecInstanceType("ml.t3.micro")
-	UserProfileResourceSpecInstanceTypeMlT3Small      = UserProfileResourceSpecInstanceType("ml.t3.small")
-	UserProfileResourceSpecInstanceTypeMlT3Medium     = UserProfileResourceSpecInstanceType("ml.t3.medium")
-	UserProfileResourceSpecInstanceTypeMlT3Large      = UserProfileResourceSpecInstanceType("ml.t3.large")
-	UserProfileResourceSpecInstanceTypeMlT3Xlarge     = UserProfileResourceSpecInstanceType("ml.t3.xlarge")
-	UserProfileResourceSpecInstanceTypeMlT32xlarge    = UserProfileResourceSpecInstanceType("ml.t3.2xlarge")
-	UserProfileResourceSpecInstanceTypeMlM5Large      = UserProfileResourceSpecInstanceType("ml.m5.large")
-	UserProfileResourceSpecInstanceTypeMlM5Xlarge     = UserProfileResourceSpecInstanceType("ml.m5.xlarge")
-	UserProfileResourceSpecInstanceTypeMlM52xlarge    = UserProfileResourceSpecInstanceType("ml.m5.2xlarge")
-	UserProfileResourceSpecInstanceTypeMlM54xlarge    = UserProfileResourceSpecInstanceType("ml.m5.4xlarge")
-	UserProfileResourceSpecInstanceTypeMlM58xlarge    = UserProfileResourceSpecInstanceType("ml.m5.8xlarge")
-	UserProfileResourceSpecInstanceTypeMlM512xlarge   = UserProfileResourceSpecInstanceType("ml.m5.12xlarge")
-	UserProfileResourceSpecInstanceTypeMlM516xlarge   = UserProfileResourceSpecInstanceType("ml.m5.16xlarge")
-	UserProfileResourceSpecInstanceTypeMlM524xlarge   = UserProfileResourceSpecInstanceType("ml.m5.24xlarge")
-	UserProfileResourceSpecInstanceTypeMlC5Large      = UserProfileResourceSpecInstanceType("ml.c5.large")
-	UserProfileResourceSpecInstanceTypeMlC5Xlarge     = UserProfileResourceSpecInstanceType("ml.c5.xlarge")
-	UserProfileResourceSpecInstanceTypeMlC52xlarge    = UserProfileResourceSpecInstanceType("ml.c5.2xlarge")
-	UserProfileResourceSpecInstanceTypeMlC54xlarge    = UserProfileResourceSpecInstanceType("ml.c5.4xlarge")
-	UserProfileResourceSpecInstanceTypeMlC59xlarge    = UserProfileResourceSpecInstanceType("ml.c5.9xlarge")
-	UserProfileResourceSpecInstanceTypeMlC512xlarge   = UserProfileResourceSpecInstanceType("ml.c5.12xlarge")
-	UserProfileResourceSpecInstanceTypeMlC518xlarge   = UserProfileResourceSpecInstanceType("ml.c5.18xlarge")
-	UserProfileResourceSpecInstanceTypeMlC524xlarge   = UserProfileResourceSpecInstanceType("ml.c5.24xlarge")
-	UserProfileResourceSpecInstanceTypeMlP32xlarge    = UserProfileResourceSpecInstanceType("ml.p3.2xlarge")
-	UserProfileResourceSpecInstanceTypeMlP38xlarge    = UserProfileResourceSpecInstanceType("ml.p3.8xlarge")
-	UserProfileResourceSpecInstanceTypeMlP316xlarge   = UserProfileResourceSpecInstanceType("ml.p3.16xlarge")
-	UserProfileResourceSpecInstanceTypeMlG4dnXlarge   = UserProfileResourceSpecInstanceType("ml.g4dn.xlarge")
-	UserProfileResourceSpecInstanceTypeMlG4dn2xlarge  = UserProfileResourceSpecInstanceType("ml.g4dn.2xlarge")
-	UserProfileResourceSpecInstanceTypeMlG4dn4xlarge  = UserProfileResourceSpecInstanceType("ml.g4dn.4xlarge")
-	UserProfileResourceSpecInstanceTypeMlG4dn8xlarge  = UserProfileResourceSpecInstanceType("ml.g4dn.8xlarge")
-	UserProfileResourceSpecInstanceTypeMlG4dn12xlarge = UserProfileResourceSpecInstanceType("ml.g4dn.12xlarge")
-	UserProfileResourceSpecInstanceTypeMlG4dn16xlarge = UserProfileResourceSpecInstanceType("ml.g4dn.16xlarge")
+	UserProfileResourceSpecInstanceTypeSYSTEM           = UserProfileResourceSpecInstanceType("system")
+	UserProfileResourceSpecInstanceType_ML_T3_MICRO     = UserProfileResourceSpecInstanceType("ml.t3.micro")
+	UserProfileResourceSpecInstanceType_ML_T3_SMALL     = UserProfileResourceSpecInstanceType("ml.t3.small")
+	UserProfileResourceSpecInstanceType_ML_T3_MEDIUM    = UserProfileResourceSpecInstanceType("ml.t3.medium")
+	UserProfileResourceSpecInstanceType_ML_T3_LARGE     = UserProfileResourceSpecInstanceType("ml.t3.large")
+	UserProfileResourceSpecInstanceType_ML_T3_XLARGE    = UserProfileResourceSpecInstanceType("ml.t3.xlarge")
+	UserProfileResourceSpecInstanceType_ML_T32XLARGE    = UserProfileResourceSpecInstanceType("ml.t3.2xlarge")
+	UserProfileResourceSpecInstanceType_ML_M5_LARGE     = UserProfileResourceSpecInstanceType("ml.m5.large")
+	UserProfileResourceSpecInstanceType_ML_M5_XLARGE    = UserProfileResourceSpecInstanceType("ml.m5.xlarge")
+	UserProfileResourceSpecInstanceType_ML_M52XLARGE    = UserProfileResourceSpecInstanceType("ml.m5.2xlarge")
+	UserProfileResourceSpecInstanceType_ML_M54XLARGE    = UserProfileResourceSpecInstanceType("ml.m5.4xlarge")
+	UserProfileResourceSpecInstanceType_ML_M58XLARGE    = UserProfileResourceSpecInstanceType("ml.m5.8xlarge")
+	UserProfileResourceSpecInstanceType_ML_M512XLARGE   = UserProfileResourceSpecInstanceType("ml.m5.12xlarge")
+	UserProfileResourceSpecInstanceType_ML_M516XLARGE   = UserProfileResourceSpecInstanceType("ml.m5.16xlarge")
+	UserProfileResourceSpecInstanceType_ML_M524XLARGE   = UserProfileResourceSpecInstanceType("ml.m5.24xlarge")
+	UserProfileResourceSpecInstanceType_ML_C5_LARGE     = UserProfileResourceSpecInstanceType("ml.c5.large")
+	UserProfileResourceSpecInstanceType_ML_C5_XLARGE    = UserProfileResourceSpecInstanceType("ml.c5.xlarge")
+	UserProfileResourceSpecInstanceType_ML_C52XLARGE    = UserProfileResourceSpecInstanceType("ml.c5.2xlarge")
+	UserProfileResourceSpecInstanceType_ML_C54XLARGE    = UserProfileResourceSpecInstanceType("ml.c5.4xlarge")
+	UserProfileResourceSpecInstanceType_ML_C59XLARGE    = UserProfileResourceSpecInstanceType("ml.c5.9xlarge")
+	UserProfileResourceSpecInstanceType_ML_C512XLARGE   = UserProfileResourceSpecInstanceType("ml.c5.12xlarge")
+	UserProfileResourceSpecInstanceType_ML_C518XLARGE   = UserProfileResourceSpecInstanceType("ml.c5.18xlarge")
+	UserProfileResourceSpecInstanceType_ML_C524XLARGE   = UserProfileResourceSpecInstanceType("ml.c5.24xlarge")
+	UserProfileResourceSpecInstanceType_ML_P32XLARGE    = UserProfileResourceSpecInstanceType("ml.p3.2xlarge")
+	UserProfileResourceSpecInstanceType_ML_P38XLARGE    = UserProfileResourceSpecInstanceType("ml.p3.8xlarge")
+	UserProfileResourceSpecInstanceType_ML_P316XLARGE   = UserProfileResourceSpecInstanceType("ml.p3.16xlarge")
+	UserProfileResourceSpecInstanceType_ML_G4DN_XLARGE  = UserProfileResourceSpecInstanceType("ml.g4dn.xlarge")
+	UserProfileResourceSpecInstanceType_ML_G4DN2XLARGE  = UserProfileResourceSpecInstanceType("ml.g4dn.2xlarge")
+	UserProfileResourceSpecInstanceType_ML_G4DN4XLARGE  = UserProfileResourceSpecInstanceType("ml.g4dn.4xlarge")
+	UserProfileResourceSpecInstanceType_ML_G4DN8XLARGE  = UserProfileResourceSpecInstanceType("ml.g4dn.8xlarge")
+	UserProfileResourceSpecInstanceType_ML_G4DN12XLARGE = UserProfileResourceSpecInstanceType("ml.g4dn.12xlarge")
+	UserProfileResourceSpecInstanceType_ML_G4DN16XLARGE = UserProfileResourceSpecInstanceType("ml.g4dn.16xlarge")
 )
 
 func (UserProfileResourceSpecInstanceType) ElementType() reflect.Type {
@@ -4908,8 +4908,8 @@ func (in *userProfileResourceSpecInstanceTypePtr) ToUserProfileResourceSpecInsta
 type UserProfileSharingSettingsNotebookOutputOption string
 
 const (
-	UserProfileSharingSettingsNotebookOutputOptionAllowed  = UserProfileSharingSettingsNotebookOutputOption("Allowed")
-	UserProfileSharingSettingsNotebookOutputOptionDisabled = UserProfileSharingSettingsNotebookOutputOption("Disabled")
+	UserProfileSharingSettingsNotebookOutputOptionALLOWED  = UserProfileSharingSettingsNotebookOutputOption("Allowed")
+	UserProfileSharingSettingsNotebookOutputOptionDISABLED = UserProfileSharingSettingsNotebookOutputOption("Disabled")
 )
 
 func (UserProfileSharingSettingsNotebookOutputOption) ElementType() reflect.Type {

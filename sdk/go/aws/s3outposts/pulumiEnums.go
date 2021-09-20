@@ -13,8 +13,8 @@ import (
 type BucketRuleStatus string
 
 const (
-	BucketRuleStatusEnabled  = BucketRuleStatus("Enabled")
-	BucketRuleStatusDisabled = BucketRuleStatus("Disabled")
+	BucketRuleStatusENABLED  = BucketRuleStatus("Enabled")
+	BucketRuleStatusDISABLED = BucketRuleStatus("Disabled")
 )
 
 func (BucketRuleStatus) ElementType() reflect.Type {
@@ -178,8 +178,8 @@ func (in *bucketRuleStatusPtr) ToBucketRuleStatusPtrOutputWithContext(ctx contex
 type EndpointAccessType string
 
 const (
-	EndpointAccessTypeCustomerOwnedIp = EndpointAccessType("CustomerOwnedIp")
-	EndpointAccessTypePrivate         = EndpointAccessType("Private")
+	EndpointAccessType_CUSTOMER_OWNED_IP = EndpointAccessType("CustomerOwnedIp")
+	EndpointAccessTypePRIVATE            = EndpointAccessType("Private")
 )
 
 func (EndpointAccessType) ElementType() reflect.Type {
@@ -342,9 +342,9 @@ func (in *endpointAccessTypePtr) ToEndpointAccessTypePtrOutputWithContext(ctx co
 type EndpointStatus string
 
 const (
-	EndpointStatusAvailable = EndpointStatus("Available")
-	EndpointStatusPending   = EndpointStatus("Pending")
-	EndpointStatusDeleting  = EndpointStatus("Deleting")
+	EndpointStatusAVAILABLE = EndpointStatus("Available")
+	EndpointStatusPENDING   = EndpointStatus("Pending")
+	EndpointStatusDELETING  = EndpointStatus("Deleting")
 )
 
 func (EndpointStatus) ElementType() reflect.Type {

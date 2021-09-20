@@ -14,8 +14,8 @@ import (
 type ServiceCodeConfigurationConfigurationSource string
 
 const (
-	ServiceCodeConfigurationConfigurationSourceRepository = ServiceCodeConfigurationConfigurationSource("REPOSITORY")
-	ServiceCodeConfigurationConfigurationSourceApi        = ServiceCodeConfigurationConfigurationSource("API")
+	ServiceCodeConfigurationConfigurationSourceREPOSITORY = ServiceCodeConfigurationConfigurationSource("REPOSITORY")
+	ServiceCodeConfigurationConfigurationSourceAPI        = ServiceCodeConfigurationConfigurationSource("API")
 )
 
 func (ServiceCodeConfigurationConfigurationSource) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *serviceCodeConfigurationConfigurationSourcePtr) ToServiceCodeConfigura
 type ServiceCodeConfigurationValuesRuntime string
 
 const (
-	ServiceCodeConfigurationValuesRuntimePython3  = ServiceCodeConfigurationValuesRuntime("PYTHON_3")
-	ServiceCodeConfigurationValuesRuntimeNodejs12 = ServiceCodeConfigurationValuesRuntime("NODEJS_12")
+	ServiceCodeConfigurationValuesRuntimePYTHON3  = ServiceCodeConfigurationValuesRuntime("PYTHON_3")
+	ServiceCodeConfigurationValuesRuntimeNODEJS12 = ServiceCodeConfigurationValuesRuntime("NODEJS_12")
 )
 
 func (ServiceCodeConfigurationValuesRuntime) ElementType() reflect.Type {
@@ -344,8 +344,8 @@ func (in *serviceCodeConfigurationValuesRuntimePtr) ToServiceCodeConfigurationVa
 type ServiceHealthCheckConfigurationProtocol string
 
 const (
-	ServiceHealthCheckConfigurationProtocolTcp  = ServiceHealthCheckConfigurationProtocol("TCP")
-	ServiceHealthCheckConfigurationProtocolHttp = ServiceHealthCheckConfigurationProtocol("HTTP")
+	ServiceHealthCheckConfigurationProtocolTCP  = ServiceHealthCheckConfigurationProtocol("TCP")
+	ServiceHealthCheckConfigurationProtocolHTTP = ServiceHealthCheckConfigurationProtocol("HTTP")
 )
 
 func (ServiceHealthCheckConfigurationProtocol) ElementType() reflect.Type {
@@ -509,8 +509,8 @@ func (in *serviceHealthCheckConfigurationProtocolPtr) ToServiceHealthCheckConfig
 type ServiceImageRepositoryImageRepositoryType string
 
 const (
-	ServiceImageRepositoryImageRepositoryTypeEcr       = ServiceImageRepositoryImageRepositoryType("ECR")
-	ServiceImageRepositoryImageRepositoryTypeEcrPublic = ServiceImageRepositoryImageRepositoryType("ECR_PUBLIC")
+	ServiceImageRepositoryImageRepositoryTypeECR         = ServiceImageRepositoryImageRepositoryType("ECR")
+	ServiceImageRepositoryImageRepositoryType_ECR_PUBLIC = ServiceImageRepositoryImageRepositoryType("ECR_PUBLIC")
 )
 
 func (ServiceImageRepositoryImageRepositoryType) ElementType() reflect.Type {
@@ -674,7 +674,7 @@ func (in *serviceImageRepositoryImageRepositoryTypePtr) ToServiceImageRepository
 type ServiceSourceCodeVersionType string
 
 const (
-	ServiceSourceCodeVersionTypeBranch = ServiceSourceCodeVersionType("BRANCH")
+	ServiceSourceCodeVersionTypeBRANCH = ServiceSourceCodeVersionType("BRANCH")
 )
 
 func (ServiceSourceCodeVersionType) ElementType() reflect.Type {

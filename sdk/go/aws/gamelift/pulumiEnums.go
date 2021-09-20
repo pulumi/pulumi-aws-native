@@ -14,8 +14,8 @@ import (
 type AliasRoutingStrategyType string
 
 const (
-	AliasRoutingStrategyTypeSimple   = AliasRoutingStrategyType("SIMPLE")
-	AliasRoutingStrategyTypeTerminal = AliasRoutingStrategyType("TERMINAL")
+	AliasRoutingStrategyTypeSIMPLE   = AliasRoutingStrategyType("SIMPLE")
+	AliasRoutingStrategyTypeTERMINAL = AliasRoutingStrategyType("TERMINAL")
 )
 
 func (AliasRoutingStrategyType) ElementType() reflect.Type {
@@ -178,8 +178,8 @@ func (in *aliasRoutingStrategyTypePtr) ToAliasRoutingStrategyTypePtrOutputWithCo
 type FleetCertificateConfigurationCertificateType string
 
 const (
-	FleetCertificateConfigurationCertificateTypeDisabled  = FleetCertificateConfigurationCertificateType("DISABLED")
-	FleetCertificateConfigurationCertificateTypeGenerated = FleetCertificateConfigurationCertificateType("GENERATED")
+	FleetCertificateConfigurationCertificateTypeDISABLED  = FleetCertificateConfigurationCertificateType("DISABLED")
+	FleetCertificateConfigurationCertificateTypeGENERATED = FleetCertificateConfigurationCertificateType("GENERATED")
 )
 
 func (FleetCertificateConfigurationCertificateType) ElementType() reflect.Type {
@@ -343,8 +343,8 @@ func (in *fleetCertificateConfigurationCertificateTypePtr) ToFleetCertificateCon
 type FleetFleetType string
 
 const (
-	FleetFleetTypeOnDemand = FleetFleetType("ON_DEMAND")
-	FleetFleetTypeSpot     = FleetFleetType("SPOT")
+	FleetFleetType_ON_DEMAND = FleetFleetType("ON_DEMAND")
+	FleetFleetTypeSPOT       = FleetFleetType("SPOT")
 )
 
 func (FleetFleetType) ElementType() reflect.Type {
@@ -508,8 +508,8 @@ func (in *fleetFleetTypePtr) ToFleetFleetTypePtrOutputWithContext(ctx context.Co
 type FleetIpPermissionProtocol string
 
 const (
-	FleetIpPermissionProtocolTcp = FleetIpPermissionProtocol("TCP")
-	FleetIpPermissionProtocolUdp = FleetIpPermissionProtocol("UDP")
+	FleetIpPermissionProtocolTCP = FleetIpPermissionProtocol("TCP")
+	FleetIpPermissionProtocolUDP = FleetIpPermissionProtocol("UDP")
 )
 
 func (FleetIpPermissionProtocol) ElementType() reflect.Type {
@@ -673,8 +673,8 @@ func (in *fleetIpPermissionProtocolPtr) ToFleetIpPermissionProtocolPtrOutputWith
 type FleetNewGameSessionProtectionPolicy string
 
 const (
-	FleetNewGameSessionProtectionPolicyFullProtection = FleetNewGameSessionProtectionPolicy("FullProtection")
-	FleetNewGameSessionProtectionPolicyNoProtection   = FleetNewGameSessionProtectionPolicy("NoProtection")
+	FleetNewGameSessionProtectionPolicy_FULL_PROTECTION = FleetNewGameSessionProtectionPolicy("FullProtection")
+	FleetNewGameSessionProtectionPolicy_NO_PROTECTION   = FleetNewGameSessionProtectionPolicy("NoProtection")
 )
 
 func (FleetNewGameSessionProtectionPolicy) ElementType() reflect.Type {
@@ -838,9 +838,9 @@ func (in *fleetNewGameSessionProtectionPolicyPtr) ToFleetNewGameSessionProtectio
 type GameServerGroupBalancingStrategy string
 
 const (
-	GameServerGroupBalancingStrategySpotOnly      = GameServerGroupBalancingStrategy("SPOT_ONLY")
-	GameServerGroupBalancingStrategySpotPreferred = GameServerGroupBalancingStrategy("SPOT_PREFERRED")
-	GameServerGroupBalancingStrategyOnDemandOnly  = GameServerGroupBalancingStrategy("ON_DEMAND_ONLY")
+	GameServerGroupBalancingStrategy_SPOT_ONLY      = GameServerGroupBalancingStrategy("SPOT_ONLY")
+	GameServerGroupBalancingStrategy_SPOT_PREFERRED = GameServerGroupBalancingStrategy("SPOT_PREFERRED")
+	GameServerGroupBalancingStrategy_ON_DEMAND_ONLY = GameServerGroupBalancingStrategy("ON_DEMAND_ONLY")
 )
 
 func (GameServerGroupBalancingStrategy) ElementType() reflect.Type {
@@ -1004,9 +1004,9 @@ func (in *gameServerGroupBalancingStrategyPtr) ToGameServerGroupBalancingStrateg
 type GameServerGroupDeleteOption string
 
 const (
-	GameServerGroupDeleteOptionSafeDelete  = GameServerGroupDeleteOption("SAFE_DELETE")
-	GameServerGroupDeleteOptionForceDelete = GameServerGroupDeleteOption("FORCE_DELETE")
-	GameServerGroupDeleteOptionRetain      = GameServerGroupDeleteOption("RETAIN")
+	GameServerGroupDeleteOption_SAFE_DELETE  = GameServerGroupDeleteOption("SAFE_DELETE")
+	GameServerGroupDeleteOption_FORCE_DELETE = GameServerGroupDeleteOption("FORCE_DELETE")
+	GameServerGroupDeleteOptionRETAIN        = GameServerGroupDeleteOption("RETAIN")
 )
 
 func (GameServerGroupDeleteOption) ElementType() reflect.Type {
@@ -1170,8 +1170,8 @@ func (in *gameServerGroupDeleteOptionPtr) ToGameServerGroupDeleteOptionPtrOutput
 type GameServerGroupGameServerProtectionPolicy string
 
 const (
-	GameServerGroupGameServerProtectionPolicyNoProtection   = GameServerGroupGameServerProtectionPolicy("NO_PROTECTION")
-	GameServerGroupGameServerProtectionPolicyFullProtection = GameServerGroupGameServerProtectionPolicy("FULL_PROTECTION")
+	GameServerGroupGameServerProtectionPolicy_NO_PROTECTION   = GameServerGroupGameServerProtectionPolicy("NO_PROTECTION")
+	GameServerGroupGameServerProtectionPolicy_FULL_PROTECTION = GameServerGroupGameServerProtectionPolicy("FULL_PROTECTION")
 )
 
 func (GameServerGroupGameServerProtectionPolicy) ElementType() reflect.Type {

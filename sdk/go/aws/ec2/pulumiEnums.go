@@ -13,7 +13,7 @@ import (
 type EC2FleetCapacityReservationOptionsRequestUsageStrategy string
 
 const (
-	EC2FleetCapacityReservationOptionsRequestUsageStrategyUseCapacityReservationsFirst = EC2FleetCapacityReservationOptionsRequestUsageStrategy("use-capacity-reservations-first")
+	EC2FleetCapacityReservationOptionsRequestUsageStrategy_USE_CAPACITY_RESERVATIONS_FIRST = EC2FleetCapacityReservationOptionsRequestUsageStrategy("use-capacity-reservations-first")
 )
 
 func (EC2FleetCapacityReservationOptionsRequestUsageStrategy) ElementType() reflect.Type {
@@ -176,8 +176,8 @@ func (in *ec2fleetCapacityReservationOptionsRequestUsageStrategyPtr) ToEC2FleetC
 type EC2FleetExcessCapacityTerminationPolicy string
 
 const (
-	EC2FleetExcessCapacityTerminationPolicyTermination   = EC2FleetExcessCapacityTerminationPolicy("termination")
-	EC2FleetExcessCapacityTerminationPolicyNoTermination = EC2FleetExcessCapacityTerminationPolicy("no-termination")
+	EC2FleetExcessCapacityTerminationPolicyTERMINATION     = EC2FleetExcessCapacityTerminationPolicy("termination")
+	EC2FleetExcessCapacityTerminationPolicy_NO_TERMINATION = EC2FleetExcessCapacityTerminationPolicy("no-termination")
 )
 
 func (EC2FleetExcessCapacityTerminationPolicy) ElementType() reflect.Type {
@@ -340,10 +340,10 @@ func (in *ec2fleetExcessCapacityTerminationPolicyPtr) ToEC2FleetExcessCapacityTe
 type EC2FleetSpotOptionsRequestAllocationStrategy string
 
 const (
-	EC2FleetSpotOptionsRequestAllocationStrategyLowestPrice                  = EC2FleetSpotOptionsRequestAllocationStrategy("lowestPrice")
-	EC2FleetSpotOptionsRequestAllocationStrategyDiversified                  = EC2FleetSpotOptionsRequestAllocationStrategy("diversified")
-	EC2FleetSpotOptionsRequestAllocationStrategyCapacityOptimized            = EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimized")
-	EC2FleetSpotOptionsRequestAllocationStrategyCapacityOptimizedPrioritized = EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimizedPrioritized")
+	EC2FleetSpotOptionsRequestAllocationStrategy_LOWEST_PRICE                   = EC2FleetSpotOptionsRequestAllocationStrategy("lowestPrice")
+	EC2FleetSpotOptionsRequestAllocationStrategyDIVERSIFIED                     = EC2FleetSpotOptionsRequestAllocationStrategy("diversified")
+	EC2FleetSpotOptionsRequestAllocationStrategy_CAPACITY_OPTIMIZED             = EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimized")
+	EC2FleetSpotOptionsRequestAllocationStrategy_CAPACITY_OPTIMIZED_PRIORITIZED = EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimizedPrioritized")
 )
 
 func (EC2FleetSpotOptionsRequestAllocationStrategy) ElementType() reflect.Type {
@@ -506,9 +506,9 @@ func (in *ec2fleetSpotOptionsRequestAllocationStrategyPtr) ToEC2FleetSpotOptions
 type EC2FleetSpotOptionsRequestInstanceInterruptionBehavior string
 
 const (
-	EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorHibernate = EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("hibernate")
-	EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorStop      = EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("stop")
-	EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorTerminate = EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("terminate")
+	EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorHIBERNATE = EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("hibernate")
+	EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorSTOP      = EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("stop")
+	EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorTERMINATE = EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("terminate")
 )
 
 func (EC2FleetSpotOptionsRequestInstanceInterruptionBehavior) ElementType() reflect.Type {
@@ -671,53 +671,53 @@ func (in *ec2fleetSpotOptionsRequestInstanceInterruptionBehaviorPtr) ToEC2FleetS
 type EC2FleetTagSpecificationResourceType string
 
 const (
-	EC2FleetTagSpecificationResourceTypeClientVpnEndpoint                    = EC2FleetTagSpecificationResourceType("client-vpn-endpoint")
-	EC2FleetTagSpecificationResourceTypeCustomerGateway                      = EC2FleetTagSpecificationResourceType("customer-gateway")
-	EC2FleetTagSpecificationResourceTypeDedicatedHost                        = EC2FleetTagSpecificationResourceType("dedicated-host")
-	EC2FleetTagSpecificationResourceTypeDhcpOptions                          = EC2FleetTagSpecificationResourceType("dhcp-options")
-	EC2FleetTagSpecificationResourceTypeEgressOnlyInternetGateway            = EC2FleetTagSpecificationResourceType("egress-only-internet-gateway")
-	EC2FleetTagSpecificationResourceTypeElasticGpu                           = EC2FleetTagSpecificationResourceType("elastic-gpu")
-	EC2FleetTagSpecificationResourceTypeElasticIp                            = EC2FleetTagSpecificationResourceType("elastic-ip")
-	EC2FleetTagSpecificationResourceTypeExportImageTask                      = EC2FleetTagSpecificationResourceType("export-image-task")
-	EC2FleetTagSpecificationResourceTypeExportInstanceTask                   = EC2FleetTagSpecificationResourceType("export-instance-task")
-	EC2FleetTagSpecificationResourceTypeFleet                                = EC2FleetTagSpecificationResourceType("fleet")
-	EC2FleetTagSpecificationResourceTypeFpgaImage                            = EC2FleetTagSpecificationResourceType("fpga-image")
-	EC2FleetTagSpecificationResourceTypeHostReservation                      = EC2FleetTagSpecificationResourceType("host-reservation")
-	EC2FleetTagSpecificationResourceTypeImage                                = EC2FleetTagSpecificationResourceType("image")
-	EC2FleetTagSpecificationResourceTypeImportImageTask                      = EC2FleetTagSpecificationResourceType("import-image-task")
-	EC2FleetTagSpecificationResourceTypeImportSnapshotTask                   = EC2FleetTagSpecificationResourceType("import-snapshot-task")
-	EC2FleetTagSpecificationResourceTypeInstance                             = EC2FleetTagSpecificationResourceType("instance")
-	EC2FleetTagSpecificationResourceTypeInternetGateway                      = EC2FleetTagSpecificationResourceType("internet-gateway")
-	EC2FleetTagSpecificationResourceTypeKeyPair                              = EC2FleetTagSpecificationResourceType("key-pair")
-	EC2FleetTagSpecificationResourceTypeLaunchTemplate                       = EC2FleetTagSpecificationResourceType("launch-template")
-	EC2FleetTagSpecificationResourceTypeLocalGatewayRouteTableVpcAssociation = EC2FleetTagSpecificationResourceType("local-gateway-route-table-vpc-association")
-	EC2FleetTagSpecificationResourceTypeNatgateway                           = EC2FleetTagSpecificationResourceType("natgateway")
-	EC2FleetTagSpecificationResourceTypeNetworkAcl                           = EC2FleetTagSpecificationResourceType("network-acl")
-	EC2FleetTagSpecificationResourceTypeNetworkInsightsAnalysis              = EC2FleetTagSpecificationResourceType("network-insights-analysis")
-	EC2FleetTagSpecificationResourceTypeNetworkInsightsPath                  = EC2FleetTagSpecificationResourceType("network-insights-path")
-	EC2FleetTagSpecificationResourceTypeNetworkInterface                     = EC2FleetTagSpecificationResourceType("network-interface")
-	EC2FleetTagSpecificationResourceTypePlacementGroup                       = EC2FleetTagSpecificationResourceType("placement-group")
-	EC2FleetTagSpecificationResourceTypeReservedInstances                    = EC2FleetTagSpecificationResourceType("reserved-instances")
-	EC2FleetTagSpecificationResourceTypeRouteTable                           = EC2FleetTagSpecificationResourceType("route-table")
-	EC2FleetTagSpecificationResourceTypeSecurityGroup                        = EC2FleetTagSpecificationResourceType("security-group")
-	EC2FleetTagSpecificationResourceTypeSnapshot                             = EC2FleetTagSpecificationResourceType("snapshot")
-	EC2FleetTagSpecificationResourceTypeSpotFleetRequest                     = EC2FleetTagSpecificationResourceType("spot-fleet-request")
-	EC2FleetTagSpecificationResourceTypeSpotInstancesRequest                 = EC2FleetTagSpecificationResourceType("spot-instances-request")
-	EC2FleetTagSpecificationResourceTypeSubnet                               = EC2FleetTagSpecificationResourceType("subnet")
-	EC2FleetTagSpecificationResourceTypeTrafficMirrorFilter                  = EC2FleetTagSpecificationResourceType("traffic-mirror-filter")
-	EC2FleetTagSpecificationResourceTypeTrafficMirrorSession                 = EC2FleetTagSpecificationResourceType("traffic-mirror-session")
-	EC2FleetTagSpecificationResourceTypeTrafficMirrorTarget                  = EC2FleetTagSpecificationResourceType("traffic-mirror-target")
-	EC2FleetTagSpecificationResourceTypeTransitGateway                       = EC2FleetTagSpecificationResourceType("transit-gateway")
-	EC2FleetTagSpecificationResourceTypeTransitGatewayAttachment             = EC2FleetTagSpecificationResourceType("transit-gateway-attachment")
-	EC2FleetTagSpecificationResourceTypeTransitGatewayConnectPeer            = EC2FleetTagSpecificationResourceType("transit-gateway-connect-peer")
-	EC2FleetTagSpecificationResourceTypeTransitGatewayMulticastDomain        = EC2FleetTagSpecificationResourceType("transit-gateway-multicast-domain")
-	EC2FleetTagSpecificationResourceTypeTransitGatewayRouteTable             = EC2FleetTagSpecificationResourceType("transit-gateway-route-table")
-	EC2FleetTagSpecificationResourceTypeVolume                               = EC2FleetTagSpecificationResourceType("volume")
-	EC2FleetTagSpecificationResourceTypeVpc                                  = EC2FleetTagSpecificationResourceType("vpc")
-	EC2FleetTagSpecificationResourceTypeVpcFlowLog                           = EC2FleetTagSpecificationResourceType("vpc-flow-log")
-	EC2FleetTagSpecificationResourceTypeVpcPeeringConnection                 = EC2FleetTagSpecificationResourceType("vpc-peering-connection")
-	EC2FleetTagSpecificationResourceTypeVpnConnection                        = EC2FleetTagSpecificationResourceType("vpn-connection")
-	EC2FleetTagSpecificationResourceTypeVpnGateway                           = EC2FleetTagSpecificationResourceType("vpn-gateway")
+	EC2FleetTagSpecificationResourceType_CLIENT_VPN_ENDPOINT                       = EC2FleetTagSpecificationResourceType("client-vpn-endpoint")
+	EC2FleetTagSpecificationResourceType_CUSTOMER_GATEWAY                          = EC2FleetTagSpecificationResourceType("customer-gateway")
+	EC2FleetTagSpecificationResourceType_DEDICATED_HOST                            = EC2FleetTagSpecificationResourceType("dedicated-host")
+	EC2FleetTagSpecificationResourceType_DHCP_OPTIONS                              = EC2FleetTagSpecificationResourceType("dhcp-options")
+	EC2FleetTagSpecificationResourceType_EGRESS_ONLY_INTERNET_GATEWAY              = EC2FleetTagSpecificationResourceType("egress-only-internet-gateway")
+	EC2FleetTagSpecificationResourceType_ELASTIC_GPU                               = EC2FleetTagSpecificationResourceType("elastic-gpu")
+	EC2FleetTagSpecificationResourceType_ELASTIC_IP                                = EC2FleetTagSpecificationResourceType("elastic-ip")
+	EC2FleetTagSpecificationResourceType_EXPORT_IMAGE_TASK                         = EC2FleetTagSpecificationResourceType("export-image-task")
+	EC2FleetTagSpecificationResourceType_EXPORT_INSTANCE_TASK                      = EC2FleetTagSpecificationResourceType("export-instance-task")
+	EC2FleetTagSpecificationResourceTypeFLEET                                      = EC2FleetTagSpecificationResourceType("fleet")
+	EC2FleetTagSpecificationResourceType_FPGA_IMAGE                                = EC2FleetTagSpecificationResourceType("fpga-image")
+	EC2FleetTagSpecificationResourceType_HOST_RESERVATION                          = EC2FleetTagSpecificationResourceType("host-reservation")
+	EC2FleetTagSpecificationResourceTypeIMAGE                                      = EC2FleetTagSpecificationResourceType("image")
+	EC2FleetTagSpecificationResourceType_IMPORT_IMAGE_TASK                         = EC2FleetTagSpecificationResourceType("import-image-task")
+	EC2FleetTagSpecificationResourceType_IMPORT_SNAPSHOT_TASK                      = EC2FleetTagSpecificationResourceType("import-snapshot-task")
+	EC2FleetTagSpecificationResourceTypeINSTANCE                                   = EC2FleetTagSpecificationResourceType("instance")
+	EC2FleetTagSpecificationResourceType_INTERNET_GATEWAY                          = EC2FleetTagSpecificationResourceType("internet-gateway")
+	EC2FleetTagSpecificationResourceType_KEY_PAIR                                  = EC2FleetTagSpecificationResourceType("key-pair")
+	EC2FleetTagSpecificationResourceType_LAUNCH_TEMPLATE                           = EC2FleetTagSpecificationResourceType("launch-template")
+	EC2FleetTagSpecificationResourceType_LOCAL_GATEWAY_ROUTE_TABLE_VPC_ASSOCIATION = EC2FleetTagSpecificationResourceType("local-gateway-route-table-vpc-association")
+	EC2FleetTagSpecificationResourceTypeNATGATEWAY                                 = EC2FleetTagSpecificationResourceType("natgateway")
+	EC2FleetTagSpecificationResourceType_NETWORK_ACL                               = EC2FleetTagSpecificationResourceType("network-acl")
+	EC2FleetTagSpecificationResourceType_NETWORK_INSIGHTS_ANALYSIS                 = EC2FleetTagSpecificationResourceType("network-insights-analysis")
+	EC2FleetTagSpecificationResourceType_NETWORK_INSIGHTS_PATH                     = EC2FleetTagSpecificationResourceType("network-insights-path")
+	EC2FleetTagSpecificationResourceType_NETWORK_INTERFACE                         = EC2FleetTagSpecificationResourceType("network-interface")
+	EC2FleetTagSpecificationResourceType_PLACEMENT_GROUP                           = EC2FleetTagSpecificationResourceType("placement-group")
+	EC2FleetTagSpecificationResourceType_RESERVED_INSTANCES                        = EC2FleetTagSpecificationResourceType("reserved-instances")
+	EC2FleetTagSpecificationResourceType_ROUTE_TABLE                               = EC2FleetTagSpecificationResourceType("route-table")
+	EC2FleetTagSpecificationResourceType_SECURITY_GROUP                            = EC2FleetTagSpecificationResourceType("security-group")
+	EC2FleetTagSpecificationResourceTypeSNAPSHOT                                   = EC2FleetTagSpecificationResourceType("snapshot")
+	EC2FleetTagSpecificationResourceType_SPOT_FLEET_REQUEST                        = EC2FleetTagSpecificationResourceType("spot-fleet-request")
+	EC2FleetTagSpecificationResourceType_SPOT_INSTANCES_REQUEST                    = EC2FleetTagSpecificationResourceType("spot-instances-request")
+	EC2FleetTagSpecificationResourceTypeSUBNET                                     = EC2FleetTagSpecificationResourceType("subnet")
+	EC2FleetTagSpecificationResourceType_TRAFFIC_MIRROR_FILTER                     = EC2FleetTagSpecificationResourceType("traffic-mirror-filter")
+	EC2FleetTagSpecificationResourceType_TRAFFIC_MIRROR_SESSION                    = EC2FleetTagSpecificationResourceType("traffic-mirror-session")
+	EC2FleetTagSpecificationResourceType_TRAFFIC_MIRROR_TARGET                     = EC2FleetTagSpecificationResourceType("traffic-mirror-target")
+	EC2FleetTagSpecificationResourceType_TRANSIT_GATEWAY                           = EC2FleetTagSpecificationResourceType("transit-gateway")
+	EC2FleetTagSpecificationResourceType_TRANSIT_GATEWAY_ATTACHMENT                = EC2FleetTagSpecificationResourceType("transit-gateway-attachment")
+	EC2FleetTagSpecificationResourceType_TRANSIT_GATEWAY_CONNECT_PEER              = EC2FleetTagSpecificationResourceType("transit-gateway-connect-peer")
+	EC2FleetTagSpecificationResourceType_TRANSIT_GATEWAY_MULTICAST_DOMAIN          = EC2FleetTagSpecificationResourceType("transit-gateway-multicast-domain")
+	EC2FleetTagSpecificationResourceType_TRANSIT_GATEWAY_ROUTE_TABLE               = EC2FleetTagSpecificationResourceType("transit-gateway-route-table")
+	EC2FleetTagSpecificationResourceTypeVOLUME                                     = EC2FleetTagSpecificationResourceType("volume")
+	EC2FleetTagSpecificationResourceTypeVPC                                        = EC2FleetTagSpecificationResourceType("vpc")
+	EC2FleetTagSpecificationResourceType_VPC_FLOW_LOG                              = EC2FleetTagSpecificationResourceType("vpc-flow-log")
+	EC2FleetTagSpecificationResourceType_VPC_PEERING_CONNECTION                    = EC2FleetTagSpecificationResourceType("vpc-peering-connection")
+	EC2FleetTagSpecificationResourceType_VPN_CONNECTION                            = EC2FleetTagSpecificationResourceType("vpn-connection")
+	EC2FleetTagSpecificationResourceType_VPN_GATEWAY                               = EC2FleetTagSpecificationResourceType("vpn-gateway")
 )
 
 func (EC2FleetTagSpecificationResourceType) ElementType() reflect.Type {
@@ -880,8 +880,8 @@ func (in *ec2fleetTagSpecificationResourceTypePtr) ToEC2FleetTagSpecificationRes
 type EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType string
 
 const (
-	EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeOnDemand = EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand")
-	EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSpot     = EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot")
+	EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType_ON_DEMAND = EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("on-demand")
+	EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypeSPOT       = EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType("spot")
 )
 
 func (EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType) ElementType() reflect.Type {
@@ -1044,9 +1044,9 @@ func (in *ec2fleetTargetCapacitySpecificationRequestDefaultTargetCapacityTypePtr
 type EC2FleetType string
 
 const (
-	EC2FleetTypeMaintain = EC2FleetType("maintain")
-	EC2FleetTypeRequest  = EC2FleetType("request")
-	EC2FleetTypeInstant  = EC2FleetType("instant")
+	EC2FleetTypeMAINTAIN = EC2FleetType("maintain")
+	EC2FleetTypeREQUEST  = EC2FleetType("request")
+	EC2FleetTypeINSTANT  = EC2FleetType("instant")
 )
 
 func (EC2FleetType) ElementType() reflect.Type {
@@ -1210,8 +1210,8 @@ func (in *ec2fleetTypePtr) ToEC2FleetTypePtrOutputWithContext(ctx context.Contex
 type FlowLogLogDestinationType string
 
 const (
-	FlowLogLogDestinationTypeCloudWatchLogs = FlowLogLogDestinationType("cloud-watch-logs")
-	FlowLogLogDestinationTypeS3             = FlowLogLogDestinationType("s3")
+	FlowLogLogDestinationType_CLOUD_WATCH_LOGS = FlowLogLogDestinationType("cloud-watch-logs")
+	FlowLogLogDestinationTypeS3                = FlowLogLogDestinationType("s3")
 )
 
 func (FlowLogLogDestinationType) ElementType() reflect.Type {
@@ -1375,9 +1375,9 @@ func (in *flowLogLogDestinationTypePtr) ToFlowLogLogDestinationTypePtrOutputWith
 type FlowLogResourceType string
 
 const (
-	FlowLogResourceTypeNetworkInterface = FlowLogResourceType("NetworkInterface")
-	FlowLogResourceTypeSubnet           = FlowLogResourceType("Subnet")
-	FlowLogResourceTypeVpc              = FlowLogResourceType("VPC")
+	FlowLogResourceType_NETWORK_INTERFACE = FlowLogResourceType("NetworkInterface")
+	FlowLogResourceTypeSUBNET             = FlowLogResourceType("Subnet")
+	FlowLogResourceTypeVPC                = FlowLogResourceType("VPC")
 )
 
 func (FlowLogResourceType) ElementType() reflect.Type {
@@ -1541,9 +1541,9 @@ func (in *flowLogResourceTypePtr) ToFlowLogResourceTypePtrOutputWithContext(ctx 
 type FlowLogTrafficType string
 
 const (
-	FlowLogTrafficTypeAccept = FlowLogTrafficType("ACCEPT")
-	FlowLogTrafficTypeAll    = FlowLogTrafficType("ALL")
-	FlowLogTrafficTypeReject = FlowLogTrafficType("REJECT")
+	FlowLogTrafficTypeACCEPT = FlowLogTrafficType("ACCEPT")
+	FlowLogTrafficTypeALL    = FlowLogTrafficType("ALL")
+	FlowLogTrafficTypeREJECT = FlowLogTrafficType("REJECT")
 )
 
 func (FlowLogTrafficType) ElementType() reflect.Type {
@@ -1706,9 +1706,9 @@ func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutputWithContext(ctx co
 type NetworkInsightsAnalysisStatus string
 
 const (
-	NetworkInsightsAnalysisStatusRunning   = NetworkInsightsAnalysisStatus("running")
-	NetworkInsightsAnalysisStatusFailed    = NetworkInsightsAnalysisStatus("failed")
-	NetworkInsightsAnalysisStatusSucceeded = NetworkInsightsAnalysisStatus("succeeded")
+	NetworkInsightsAnalysisStatusRUNNING   = NetworkInsightsAnalysisStatus("running")
+	NetworkInsightsAnalysisStatusFAILED    = NetworkInsightsAnalysisStatus("failed")
+	NetworkInsightsAnalysisStatusSUCCEEDED = NetworkInsightsAnalysisStatus("succeeded")
 )
 
 func (NetworkInsightsAnalysisStatus) ElementType() reflect.Type {
@@ -1871,8 +1871,8 @@ func (in *networkInsightsAnalysisStatusPtr) ToNetworkInsightsAnalysisStatusPtrOu
 type NetworkInsightsPathProtocol string
 
 const (
-	NetworkInsightsPathProtocolTcp = NetworkInsightsPathProtocol("tcp")
-	NetworkInsightsPathProtocolUdp = NetworkInsightsPathProtocol("udp")
+	NetworkInsightsPathProtocolTCP = NetworkInsightsPathProtocol("tcp")
+	NetworkInsightsPathProtocolUDP = NetworkInsightsPathProtocol("udp")
 )
 
 func (NetworkInsightsPathProtocol) ElementType() reflect.Type {
@@ -2036,8 +2036,8 @@ func (in *networkInsightsPathProtocolPtr) ToNetworkInsightsPathProtocolPtrOutput
 type PrefixListAddressFamily string
 
 const (
-	PrefixListAddressFamilyIPv4 = PrefixListAddressFamily("IPv4")
-	PrefixListAddressFamilyIPv6 = PrefixListAddressFamily("IPv6")
+	PrefixListAddressFamily_I_PV4 = PrefixListAddressFamily("IPv4")
+	PrefixListAddressFamily_I_PV6 = PrefixListAddressFamily("IPv6")
 )
 
 func (PrefixListAddressFamily) ElementType() reflect.Type {
@@ -2200,13 +2200,13 @@ func (in *prefixListAddressFamilyPtr) ToPrefixListAddressFamilyPtrOutputWithCont
 type SpotFleetEbsBlockDeviceVolumeType string
 
 const (
-	SpotFleetEbsBlockDeviceVolumeTypeGp2      = SpotFleetEbsBlockDeviceVolumeType("gp2")
-	SpotFleetEbsBlockDeviceVolumeTypeGp3      = SpotFleetEbsBlockDeviceVolumeType("gp3")
-	SpotFleetEbsBlockDeviceVolumeTypeIo1      = SpotFleetEbsBlockDeviceVolumeType("io1")
-	SpotFleetEbsBlockDeviceVolumeTypeIo2      = SpotFleetEbsBlockDeviceVolumeType("io2")
-	SpotFleetEbsBlockDeviceVolumeTypeSc1      = SpotFleetEbsBlockDeviceVolumeType("sc1")
-	SpotFleetEbsBlockDeviceVolumeTypeSt1      = SpotFleetEbsBlockDeviceVolumeType("st1")
-	SpotFleetEbsBlockDeviceVolumeTypeStandard = SpotFleetEbsBlockDeviceVolumeType("standard")
+	SpotFleetEbsBlockDeviceVolumeTypeGP2      = SpotFleetEbsBlockDeviceVolumeType("gp2")
+	SpotFleetEbsBlockDeviceVolumeTypeGP3      = SpotFleetEbsBlockDeviceVolumeType("gp3")
+	SpotFleetEbsBlockDeviceVolumeTypeIO1      = SpotFleetEbsBlockDeviceVolumeType("io1")
+	SpotFleetEbsBlockDeviceVolumeTypeIO2      = SpotFleetEbsBlockDeviceVolumeType("io2")
+	SpotFleetEbsBlockDeviceVolumeTypeSC1      = SpotFleetEbsBlockDeviceVolumeType("sc1")
+	SpotFleetEbsBlockDeviceVolumeTypeST1      = SpotFleetEbsBlockDeviceVolumeType("st1")
+	SpotFleetEbsBlockDeviceVolumeTypeSTANDARD = SpotFleetEbsBlockDeviceVolumeType("standard")
 )
 
 func (SpotFleetEbsBlockDeviceVolumeType) ElementType() reflect.Type {
@@ -2369,7 +2369,7 @@ func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToSpotFleetEbsBlockDeviceVolumeT
 type SpotFleetSpotCapacityRebalanceReplacementStrategy string
 
 const (
-	SpotFleetSpotCapacityRebalanceReplacementStrategyLaunch = SpotFleetSpotCapacityRebalanceReplacementStrategy("launch")
+	SpotFleetSpotCapacityRebalanceReplacementStrategyLAUNCH = SpotFleetSpotCapacityRebalanceReplacementStrategy("launch")
 )
 
 func (SpotFleetSpotCapacityRebalanceReplacementStrategy) ElementType() reflect.Type {
@@ -2532,10 +2532,10 @@ func (in *spotFleetSpotCapacityRebalanceReplacementStrategyPtr) ToSpotFleetSpotC
 type SpotFleetSpotFleetRequestConfigDataAllocationStrategy string
 
 const (
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyCapacityOptimized            = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimized")
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyCapacityOptimizedPrioritized = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized")
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyDiversified                  = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("diversified")
-	SpotFleetSpotFleetRequestConfigDataAllocationStrategyLowestPrice                  = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("lowestPrice")
+	SpotFleetSpotFleetRequestConfigDataAllocationStrategy_CAPACITY_OPTIMIZED             = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimized")
+	SpotFleetSpotFleetRequestConfigDataAllocationStrategy_CAPACITY_OPTIMIZED_PRIORITIZED = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized")
+	SpotFleetSpotFleetRequestConfigDataAllocationStrategyDIVERSIFIED                     = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("diversified")
+	SpotFleetSpotFleetRequestConfigDataAllocationStrategy_LOWEST_PRICE                   = SpotFleetSpotFleetRequestConfigDataAllocationStrategy("lowestPrice")
 )
 
 func (SpotFleetSpotFleetRequestConfigDataAllocationStrategy) ElementType() reflect.Type {
@@ -2698,8 +2698,8 @@ func (in *spotFleetSpotFleetRequestConfigDataAllocationStrategyPtr) ToSpotFleetS
 type SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy string
 
 const (
-	SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyDefault       = SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("Default")
-	SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyNoTermination = SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("NoTermination")
+	SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyDEFAULT         = SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("Default")
+	SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy_NO_TERMINATION = SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy("NoTermination")
 )
 
 func (SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy) ElementType() reflect.Type {
@@ -2862,9 +2862,9 @@ func (in *spotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtr)
 type SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior string
 
 const (
-	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorHibernate = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("hibernate")
-	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorStop      = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("stop")
-	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorTerminate = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("terminate")
+	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorHIBERNATE = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("hibernate")
+	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorSTOP      = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("stop")
+	SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorTERMINATE = SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior("terminate")
 )
 
 func (SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior) ElementType() reflect.Type {
@@ -3027,8 +3027,8 @@ func (in *spotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtr) To
 type SpotFleetSpotFleetRequestConfigDataType string
 
 const (
-	SpotFleetSpotFleetRequestConfigDataTypeMaintain = SpotFleetSpotFleetRequestConfigDataType("maintain")
-	SpotFleetSpotFleetRequestConfigDataTypeRequest  = SpotFleetSpotFleetRequestConfigDataType("request")
+	SpotFleetSpotFleetRequestConfigDataTypeMAINTAIN = SpotFleetSpotFleetRequestConfigDataType("maintain")
+	SpotFleetSpotFleetRequestConfigDataTypeREQUEST  = SpotFleetSpotFleetRequestConfigDataType("request")
 )
 
 func (SpotFleetSpotFleetRequestConfigDataType) ElementType() reflect.Type {
@@ -3191,53 +3191,53 @@ func (in *spotFleetSpotFleetRequestConfigDataTypePtr) ToSpotFleetSpotFleetReques
 type SpotFleetSpotFleetTagSpecificationResourceType string
 
 const (
-	SpotFleetSpotFleetTagSpecificationResourceTypeClientVpnEndpoint                    = SpotFleetSpotFleetTagSpecificationResourceType("client-vpn-endpoint")
-	SpotFleetSpotFleetTagSpecificationResourceTypeCustomerGateway                      = SpotFleetSpotFleetTagSpecificationResourceType("customer-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeDedicatedHost                        = SpotFleetSpotFleetTagSpecificationResourceType("dedicated-host")
-	SpotFleetSpotFleetTagSpecificationResourceTypeDhcpOptions                          = SpotFleetSpotFleetTagSpecificationResourceType("dhcp-options")
-	SpotFleetSpotFleetTagSpecificationResourceTypeEgressOnlyInternetGateway            = SpotFleetSpotFleetTagSpecificationResourceType("egress-only-internet-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeElasticGpu                           = SpotFleetSpotFleetTagSpecificationResourceType("elastic-gpu")
-	SpotFleetSpotFleetTagSpecificationResourceTypeElasticIp                            = SpotFleetSpotFleetTagSpecificationResourceType("elastic-ip")
-	SpotFleetSpotFleetTagSpecificationResourceTypeExportImageTask                      = SpotFleetSpotFleetTagSpecificationResourceType("export-image-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeExportInstanceTask                   = SpotFleetSpotFleetTagSpecificationResourceType("export-instance-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeFleet                                = SpotFleetSpotFleetTagSpecificationResourceType("fleet")
-	SpotFleetSpotFleetTagSpecificationResourceTypeFpgaImage                            = SpotFleetSpotFleetTagSpecificationResourceType("fpga-image")
-	SpotFleetSpotFleetTagSpecificationResourceTypeHostReservation                      = SpotFleetSpotFleetTagSpecificationResourceType("host-reservation")
-	SpotFleetSpotFleetTagSpecificationResourceTypeImage                                = SpotFleetSpotFleetTagSpecificationResourceType("image")
-	SpotFleetSpotFleetTagSpecificationResourceTypeImportImageTask                      = SpotFleetSpotFleetTagSpecificationResourceType("import-image-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeImportSnapshotTask                   = SpotFleetSpotFleetTagSpecificationResourceType("import-snapshot-task")
-	SpotFleetSpotFleetTagSpecificationResourceTypeInstance                             = SpotFleetSpotFleetTagSpecificationResourceType("instance")
-	SpotFleetSpotFleetTagSpecificationResourceTypeInternetGateway                      = SpotFleetSpotFleetTagSpecificationResourceType("internet-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeKeyPair                              = SpotFleetSpotFleetTagSpecificationResourceType("key-pair")
-	SpotFleetSpotFleetTagSpecificationResourceTypeLaunchTemplate                       = SpotFleetSpotFleetTagSpecificationResourceType("launch-template")
-	SpotFleetSpotFleetTagSpecificationResourceTypeLocalGatewayRouteTableVpcAssociation = SpotFleetSpotFleetTagSpecificationResourceType("local-gateway-route-table-vpc-association")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNatgateway                           = SpotFleetSpotFleetTagSpecificationResourceType("natgateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkAcl                           = SpotFleetSpotFleetTagSpecificationResourceType("network-acl")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkInsightsAnalysis              = SpotFleetSpotFleetTagSpecificationResourceType("network-insights-analysis")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkInsightsPath                  = SpotFleetSpotFleetTagSpecificationResourceType("network-insights-path")
-	SpotFleetSpotFleetTagSpecificationResourceTypeNetworkInterface                     = SpotFleetSpotFleetTagSpecificationResourceType("network-interface")
-	SpotFleetSpotFleetTagSpecificationResourceTypePlacementGroup                       = SpotFleetSpotFleetTagSpecificationResourceType("placement-group")
-	SpotFleetSpotFleetTagSpecificationResourceTypeReservedInstances                    = SpotFleetSpotFleetTagSpecificationResourceType("reserved-instances")
-	SpotFleetSpotFleetTagSpecificationResourceTypeRouteTable                           = SpotFleetSpotFleetTagSpecificationResourceType("route-table")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSecurityGroup                        = SpotFleetSpotFleetTagSpecificationResourceType("security-group")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSnapshot                             = SpotFleetSpotFleetTagSpecificationResourceType("snapshot")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSpotFleetRequest                     = SpotFleetSpotFleetTagSpecificationResourceType("spot-fleet-request")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSpotInstancesRequest                 = SpotFleetSpotFleetTagSpecificationResourceType("spot-instances-request")
-	SpotFleetSpotFleetTagSpecificationResourceTypeSubnet                               = SpotFleetSpotFleetTagSpecificationResourceType("subnet")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTrafficMirrorFilter                  = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-filter")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTrafficMirrorSession                 = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-session")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTrafficMirrorTarget                  = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-target")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGateway                       = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayAttachment             = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-attachment")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayConnectPeer            = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-connect-peer")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayMulticastDomain        = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-multicast-domain")
-	SpotFleetSpotFleetTagSpecificationResourceTypeTransitGatewayRouteTable             = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-route-table")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVolume                               = SpotFleetSpotFleetTagSpecificationResourceType("volume")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpc                                  = SpotFleetSpotFleetTagSpecificationResourceType("vpc")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpcFlowLog                           = SpotFleetSpotFleetTagSpecificationResourceType("vpc-flow-log")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpcPeeringConnection                 = SpotFleetSpotFleetTagSpecificationResourceType("vpc-peering-connection")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpnConnection                        = SpotFleetSpotFleetTagSpecificationResourceType("vpn-connection")
-	SpotFleetSpotFleetTagSpecificationResourceTypeVpnGateway                           = SpotFleetSpotFleetTagSpecificationResourceType("vpn-gateway")
+	SpotFleetSpotFleetTagSpecificationResourceType_CLIENT_VPN_ENDPOINT                       = SpotFleetSpotFleetTagSpecificationResourceType("client-vpn-endpoint")
+	SpotFleetSpotFleetTagSpecificationResourceType_CUSTOMER_GATEWAY                          = SpotFleetSpotFleetTagSpecificationResourceType("customer-gateway")
+	SpotFleetSpotFleetTagSpecificationResourceType_DEDICATED_HOST                            = SpotFleetSpotFleetTagSpecificationResourceType("dedicated-host")
+	SpotFleetSpotFleetTagSpecificationResourceType_DHCP_OPTIONS                              = SpotFleetSpotFleetTagSpecificationResourceType("dhcp-options")
+	SpotFleetSpotFleetTagSpecificationResourceType_EGRESS_ONLY_INTERNET_GATEWAY              = SpotFleetSpotFleetTagSpecificationResourceType("egress-only-internet-gateway")
+	SpotFleetSpotFleetTagSpecificationResourceType_ELASTIC_GPU                               = SpotFleetSpotFleetTagSpecificationResourceType("elastic-gpu")
+	SpotFleetSpotFleetTagSpecificationResourceType_ELASTIC_IP                                = SpotFleetSpotFleetTagSpecificationResourceType("elastic-ip")
+	SpotFleetSpotFleetTagSpecificationResourceType_EXPORT_IMAGE_TASK                         = SpotFleetSpotFleetTagSpecificationResourceType("export-image-task")
+	SpotFleetSpotFleetTagSpecificationResourceType_EXPORT_INSTANCE_TASK                      = SpotFleetSpotFleetTagSpecificationResourceType("export-instance-task")
+	SpotFleetSpotFleetTagSpecificationResourceTypeFLEET                                      = SpotFleetSpotFleetTagSpecificationResourceType("fleet")
+	SpotFleetSpotFleetTagSpecificationResourceType_FPGA_IMAGE                                = SpotFleetSpotFleetTagSpecificationResourceType("fpga-image")
+	SpotFleetSpotFleetTagSpecificationResourceType_HOST_RESERVATION                          = SpotFleetSpotFleetTagSpecificationResourceType("host-reservation")
+	SpotFleetSpotFleetTagSpecificationResourceTypeIMAGE                                      = SpotFleetSpotFleetTagSpecificationResourceType("image")
+	SpotFleetSpotFleetTagSpecificationResourceType_IMPORT_IMAGE_TASK                         = SpotFleetSpotFleetTagSpecificationResourceType("import-image-task")
+	SpotFleetSpotFleetTagSpecificationResourceType_IMPORT_SNAPSHOT_TASK                      = SpotFleetSpotFleetTagSpecificationResourceType("import-snapshot-task")
+	SpotFleetSpotFleetTagSpecificationResourceTypeINSTANCE                                   = SpotFleetSpotFleetTagSpecificationResourceType("instance")
+	SpotFleetSpotFleetTagSpecificationResourceType_INTERNET_GATEWAY                          = SpotFleetSpotFleetTagSpecificationResourceType("internet-gateway")
+	SpotFleetSpotFleetTagSpecificationResourceType_KEY_PAIR                                  = SpotFleetSpotFleetTagSpecificationResourceType("key-pair")
+	SpotFleetSpotFleetTagSpecificationResourceType_LAUNCH_TEMPLATE                           = SpotFleetSpotFleetTagSpecificationResourceType("launch-template")
+	SpotFleetSpotFleetTagSpecificationResourceType_LOCAL_GATEWAY_ROUTE_TABLE_VPC_ASSOCIATION = SpotFleetSpotFleetTagSpecificationResourceType("local-gateway-route-table-vpc-association")
+	SpotFleetSpotFleetTagSpecificationResourceTypeNATGATEWAY                                 = SpotFleetSpotFleetTagSpecificationResourceType("natgateway")
+	SpotFleetSpotFleetTagSpecificationResourceType_NETWORK_ACL                               = SpotFleetSpotFleetTagSpecificationResourceType("network-acl")
+	SpotFleetSpotFleetTagSpecificationResourceType_NETWORK_INSIGHTS_ANALYSIS                 = SpotFleetSpotFleetTagSpecificationResourceType("network-insights-analysis")
+	SpotFleetSpotFleetTagSpecificationResourceType_NETWORK_INSIGHTS_PATH                     = SpotFleetSpotFleetTagSpecificationResourceType("network-insights-path")
+	SpotFleetSpotFleetTagSpecificationResourceType_NETWORK_INTERFACE                         = SpotFleetSpotFleetTagSpecificationResourceType("network-interface")
+	SpotFleetSpotFleetTagSpecificationResourceType_PLACEMENT_GROUP                           = SpotFleetSpotFleetTagSpecificationResourceType("placement-group")
+	SpotFleetSpotFleetTagSpecificationResourceType_RESERVED_INSTANCES                        = SpotFleetSpotFleetTagSpecificationResourceType("reserved-instances")
+	SpotFleetSpotFleetTagSpecificationResourceType_ROUTE_TABLE                               = SpotFleetSpotFleetTagSpecificationResourceType("route-table")
+	SpotFleetSpotFleetTagSpecificationResourceType_SECURITY_GROUP                            = SpotFleetSpotFleetTagSpecificationResourceType("security-group")
+	SpotFleetSpotFleetTagSpecificationResourceTypeSNAPSHOT                                   = SpotFleetSpotFleetTagSpecificationResourceType("snapshot")
+	SpotFleetSpotFleetTagSpecificationResourceType_SPOT_FLEET_REQUEST                        = SpotFleetSpotFleetTagSpecificationResourceType("spot-fleet-request")
+	SpotFleetSpotFleetTagSpecificationResourceType_SPOT_INSTANCES_REQUEST                    = SpotFleetSpotFleetTagSpecificationResourceType("spot-instances-request")
+	SpotFleetSpotFleetTagSpecificationResourceTypeSUBNET                                     = SpotFleetSpotFleetTagSpecificationResourceType("subnet")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRAFFIC_MIRROR_FILTER                     = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-filter")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRAFFIC_MIRROR_SESSION                    = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-session")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRAFFIC_MIRROR_TARGET                     = SpotFleetSpotFleetTagSpecificationResourceType("traffic-mirror-target")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRANSIT_GATEWAY                           = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRANSIT_GATEWAY_ATTACHMENT                = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-attachment")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRANSIT_GATEWAY_CONNECT_PEER              = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-connect-peer")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRANSIT_GATEWAY_MULTICAST_DOMAIN          = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-multicast-domain")
+	SpotFleetSpotFleetTagSpecificationResourceType_TRANSIT_GATEWAY_ROUTE_TABLE               = SpotFleetSpotFleetTagSpecificationResourceType("transit-gateway-route-table")
+	SpotFleetSpotFleetTagSpecificationResourceTypeVOLUME                                     = SpotFleetSpotFleetTagSpecificationResourceType("volume")
+	SpotFleetSpotFleetTagSpecificationResourceTypeVPC                                        = SpotFleetSpotFleetTagSpecificationResourceType("vpc")
+	SpotFleetSpotFleetTagSpecificationResourceType_VPC_FLOW_LOG                              = SpotFleetSpotFleetTagSpecificationResourceType("vpc-flow-log")
+	SpotFleetSpotFleetTagSpecificationResourceType_VPC_PEERING_CONNECTION                    = SpotFleetSpotFleetTagSpecificationResourceType("vpc-peering-connection")
+	SpotFleetSpotFleetTagSpecificationResourceType_VPN_CONNECTION                            = SpotFleetSpotFleetTagSpecificationResourceType("vpn-connection")
+	SpotFleetSpotFleetTagSpecificationResourceType_VPN_GATEWAY                               = SpotFleetSpotFleetTagSpecificationResourceType("vpn-gateway")
 )
 
 func (SpotFleetSpotFleetTagSpecificationResourceType) ElementType() reflect.Type {
@@ -3400,9 +3400,9 @@ func (in *spotFleetSpotFleetTagSpecificationResourceTypePtr) ToSpotFleetSpotFlee
 type SpotFleetSpotPlacementTenancy string
 
 const (
-	SpotFleetSpotPlacementTenancyDedicated = SpotFleetSpotPlacementTenancy("dedicated")
-	SpotFleetSpotPlacementTenancyDefault   = SpotFleetSpotPlacementTenancy("default")
-	SpotFleetSpotPlacementTenancyHost      = SpotFleetSpotPlacementTenancy("host")
+	SpotFleetSpotPlacementTenancyDEDICATED = SpotFleetSpotPlacementTenancy("dedicated")
+	SpotFleetSpotPlacementTenancyDEFAULT   = SpotFleetSpotPlacementTenancy("default")
+	SpotFleetSpotPlacementTenancyHOST      = SpotFleetSpotPlacementTenancy("host")
 )
 
 func (SpotFleetSpotPlacementTenancy) ElementType() reflect.Type {

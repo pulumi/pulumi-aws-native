@@ -13,8 +13,8 @@ import (
 type CapacityProviderAutoScalingGroupProviderManagedTerminationProtection string
 
 const (
-	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionDisabled = CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED")
-	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionEnabled  = CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("ENABLED")
+	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionDISABLED = CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED")
+	CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionENABLED  = CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("ENABLED")
 )
 
 func (CapacityProviderAutoScalingGroupProviderManagedTerminationProtection) ElementType() reflect.Type {
@@ -177,8 +177,8 @@ func (in *capacityProviderAutoScalingGroupProviderManagedTerminationProtectionPt
 type CapacityProviderManagedScalingStatus string
 
 const (
-	CapacityProviderManagedScalingStatusDisabled = CapacityProviderManagedScalingStatus("DISABLED")
-	CapacityProviderManagedScalingStatusEnabled  = CapacityProviderManagedScalingStatus("ENABLED")
+	CapacityProviderManagedScalingStatusDISABLED = CapacityProviderManagedScalingStatus("DISABLED")
+	CapacityProviderManagedScalingStatusENABLED  = CapacityProviderManagedScalingStatus("ENABLED")
 )
 
 func (CapacityProviderManagedScalingStatus) ElementType() reflect.Type {
@@ -341,8 +341,8 @@ func (in *capacityProviderManagedScalingStatusPtr) ToCapacityProviderManagedScal
 type ClusterCapacityProviderAssociationsCapacityProvider string
 
 const (
-	ClusterCapacityProviderAssociationsCapacityProviderFargate     = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE")
-	ClusterCapacityProviderAssociationsCapacityProviderFargateSpot = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE_SPOT")
+	ClusterCapacityProviderAssociationsCapacityProviderFARGATE       = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE")
+	ClusterCapacityProviderAssociationsCapacityProvider_FARGATE_SPOT = ClusterCapacityProviderAssociationsCapacityProvider("FARGATE_SPOT")
 )
 
 func (ClusterCapacityProviderAssociationsCapacityProvider) ElementType() reflect.Type {
@@ -505,8 +505,8 @@ func (in *clusterCapacityProviderAssociationsCapacityProviderPtr) ToClusterCapac
 type ServiceAwsVpcConfigurationAssignPublicIp string
 
 const (
-	ServiceAwsVpcConfigurationAssignPublicIpDisabled = ServiceAwsVpcConfigurationAssignPublicIp("DISABLED")
-	ServiceAwsVpcConfigurationAssignPublicIpEnabled  = ServiceAwsVpcConfigurationAssignPublicIp("ENABLED")
+	ServiceAwsVpcConfigurationAssignPublicIpDISABLED = ServiceAwsVpcConfigurationAssignPublicIp("DISABLED")
+	ServiceAwsVpcConfigurationAssignPublicIpENABLED  = ServiceAwsVpcConfigurationAssignPublicIp("ENABLED")
 )
 
 func (ServiceAwsVpcConfigurationAssignPublicIp) ElementType() reflect.Type {
@@ -669,9 +669,9 @@ func (in *serviceAwsVpcConfigurationAssignPublicIpPtr) ToServiceAwsVpcConfigurat
 type ServiceDeploymentControllerType string
 
 const (
-	ServiceDeploymentControllerTypeCodeDeploy = ServiceDeploymentControllerType("CODE_DEPLOY")
-	ServiceDeploymentControllerTypeEcs        = ServiceDeploymentControllerType("ECS")
-	ServiceDeploymentControllerTypeExternal   = ServiceDeploymentControllerType("EXTERNAL")
+	ServiceDeploymentControllerType_CODE_DEPLOY = ServiceDeploymentControllerType("CODE_DEPLOY")
+	ServiceDeploymentControllerTypeECS          = ServiceDeploymentControllerType("ECS")
+	ServiceDeploymentControllerTypeEXTERNAL     = ServiceDeploymentControllerType("EXTERNAL")
 )
 
 func (ServiceDeploymentControllerType) ElementType() reflect.Type {
@@ -834,9 +834,9 @@ func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypeP
 type ServiceLaunchType string
 
 const (
-	ServiceLaunchTypeEc2      = ServiceLaunchType("EC2")
-	ServiceLaunchTypeFargate  = ServiceLaunchType("FARGATE")
-	ServiceLaunchTypeExternal = ServiceLaunchType("EXTERNAL")
+	ServiceLaunchTypeEC2      = ServiceLaunchType("EC2")
+	ServiceLaunchTypeFARGATE  = ServiceLaunchType("FARGATE")
+	ServiceLaunchTypeEXTERNAL = ServiceLaunchType("EXTERNAL")
 )
 
 func (ServiceLaunchType) ElementType() reflect.Type {
@@ -999,8 +999,8 @@ func (in *serviceLaunchTypePtr) ToServiceLaunchTypePtrOutputWithContext(ctx cont
 type ServicePlacementConstraintType string
 
 const (
-	ServicePlacementConstraintTypeDistinctInstance = ServicePlacementConstraintType("distinctInstance")
-	ServicePlacementConstraintTypeMemberOf         = ServicePlacementConstraintType("memberOf")
+	ServicePlacementConstraintType_DISTINCT_INSTANCE = ServicePlacementConstraintType("distinctInstance")
+	ServicePlacementConstraintType_MEMBER_OF         = ServicePlacementConstraintType("memberOf")
 )
 
 func (ServicePlacementConstraintType) ElementType() reflect.Type {
@@ -1163,9 +1163,9 @@ func (in *servicePlacementConstraintTypePtr) ToServicePlacementConstraintTypePtr
 type ServicePlacementStrategyType string
 
 const (
-	ServicePlacementStrategyTypeBinpack = ServicePlacementStrategyType("binpack")
-	ServicePlacementStrategyTypeRandom  = ServicePlacementStrategyType("random")
-	ServicePlacementStrategyTypeSpread  = ServicePlacementStrategyType("spread")
+	ServicePlacementStrategyTypeBINPACK = ServicePlacementStrategyType("binpack")
+	ServicePlacementStrategyTypeRANDOM  = ServicePlacementStrategyType("random")
+	ServicePlacementStrategyTypeSPREAD  = ServicePlacementStrategyType("spread")
 )
 
 func (ServicePlacementStrategyType) ElementType() reflect.Type {
@@ -1328,8 +1328,8 @@ func (in *servicePlacementStrategyTypePtr) ToServicePlacementStrategyTypePtrOutp
 type ServicePropagateTags string
 
 const (
-	ServicePropagateTagsService        = ServicePropagateTags("SERVICE")
-	ServicePropagateTagsTaskDefinition = ServicePropagateTags("TASK_DEFINITION")
+	ServicePropagateTagsSERVICE          = ServicePropagateTags("SERVICE")
+	ServicePropagateTags_TASK_DEFINITION = ServicePropagateTags("TASK_DEFINITION")
 )
 
 func (ServicePropagateTags) ElementType() reflect.Type {
@@ -1492,8 +1492,8 @@ func (in *servicePropagateTagsPtr) ToServicePropagateTagsPtrOutputWithContext(ct
 type ServiceSchedulingStrategy string
 
 const (
-	ServiceSchedulingStrategyDaemon  = ServiceSchedulingStrategy("DAEMON")
-	ServiceSchedulingStrategyReplica = ServiceSchedulingStrategy("REPLICA")
+	ServiceSchedulingStrategyDAEMON  = ServiceSchedulingStrategy("DAEMON")
+	ServiceSchedulingStrategyREPLICA = ServiceSchedulingStrategy("REPLICA")
 )
 
 func (ServiceSchedulingStrategy) ElementType() reflect.Type {
@@ -1656,8 +1656,8 @@ func (in *serviceSchedulingStrategyPtr) ToServiceSchedulingStrategyPtrOutputWith
 type TaskDefinitionAuthorizationConfigIAM string
 
 const (
-	TaskDefinitionAuthorizationConfigIAMEnabled  = TaskDefinitionAuthorizationConfigIAM("ENABLED")
-	TaskDefinitionAuthorizationConfigIAMDisabled = TaskDefinitionAuthorizationConfigIAM("DISABLED")
+	TaskDefinitionAuthorizationConfigIAMENABLED  = TaskDefinitionAuthorizationConfigIAM("ENABLED")
+	TaskDefinitionAuthorizationConfigIAMDISABLED = TaskDefinitionAuthorizationConfigIAM("DISABLED")
 )
 
 func (TaskDefinitionAuthorizationConfigIAM) ElementType() reflect.Type {
@@ -1820,8 +1820,8 @@ func (in *taskDefinitionAuthorizationConfigIAMPtr) ToTaskDefinitionAuthorization
 type TaskDefinitionEFSVolumeConfigurationTransitEncryption string
 
 const (
-	TaskDefinitionEFSVolumeConfigurationTransitEncryptionEnabled  = TaskDefinitionEFSVolumeConfigurationTransitEncryption("ENABLED")
-	TaskDefinitionEFSVolumeConfigurationTransitEncryptionDisabled = TaskDefinitionEFSVolumeConfigurationTransitEncryption("DISABLED")
+	TaskDefinitionEFSVolumeConfigurationTransitEncryptionENABLED  = TaskDefinitionEFSVolumeConfigurationTransitEncryption("ENABLED")
+	TaskDefinitionEFSVolumeConfigurationTransitEncryptionDISABLED = TaskDefinitionEFSVolumeConfigurationTransitEncryption("DISABLED")
 )
 
 func (TaskDefinitionEFSVolumeConfigurationTransitEncryption) ElementType() reflect.Type {
@@ -1985,8 +1985,8 @@ func (in *taskDefinitionEFSVolumeConfigurationTransitEncryptionPtr) ToTaskDefini
 type TaskSetAwsVpcConfigurationAssignPublicIp string
 
 const (
-	TaskSetAwsVpcConfigurationAssignPublicIpDisabled = TaskSetAwsVpcConfigurationAssignPublicIp("DISABLED")
-	TaskSetAwsVpcConfigurationAssignPublicIpEnabled  = TaskSetAwsVpcConfigurationAssignPublicIp("ENABLED")
+	TaskSetAwsVpcConfigurationAssignPublicIpDISABLED = TaskSetAwsVpcConfigurationAssignPublicIp("DISABLED")
+	TaskSetAwsVpcConfigurationAssignPublicIpENABLED  = TaskSetAwsVpcConfigurationAssignPublicIp("ENABLED")
 )
 
 func (TaskSetAwsVpcConfigurationAssignPublicIp) ElementType() reflect.Type {
@@ -2150,8 +2150,8 @@ func (in *taskSetAwsVpcConfigurationAssignPublicIpPtr) ToTaskSetAwsVpcConfigurat
 type TaskSetLaunchType string
 
 const (
-	TaskSetLaunchTypeEc2     = TaskSetLaunchType("EC2")
-	TaskSetLaunchTypeFargate = TaskSetLaunchType("FARGATE")
+	TaskSetLaunchTypeEC2     = TaskSetLaunchType("EC2")
+	TaskSetLaunchTypeFARGATE = TaskSetLaunchType("FARGATE")
 )
 
 func (TaskSetLaunchType) ElementType() reflect.Type {
@@ -2315,7 +2315,7 @@ func (in *taskSetLaunchTypePtr) ToTaskSetLaunchTypePtrOutputWithContext(ctx cont
 type TaskSetScaleUnit string
 
 const (
-	TaskSetScaleUnitPercent = TaskSetScaleUnit("PERCENT")
+	TaskSetScaleUnitPERCENT = TaskSetScaleUnit("PERCENT")
 )
 
 func (TaskSetScaleUnit) ElementType() reflect.Type {

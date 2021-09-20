@@ -13,8 +13,8 @@ import (
 type GroupResourceQueryType string
 
 const (
-	GroupResourceQueryTypeTagFilters10          = GroupResourceQueryType("TAG_FILTERS_1_0")
-	GroupResourceQueryTypeCloudformationStack10 = GroupResourceQueryType("CLOUDFORMATION_STACK_1_0")
+	GroupResourceQueryType_TAG_FILTERS10          = GroupResourceQueryType("TAG_FILTERS_1_0")
+	GroupResourceQueryType_CLOUDFORMATION_STACK10 = GroupResourceQueryType("CLOUDFORMATION_STACK_1_0")
 )
 
 func (GroupResourceQueryType) ElementType() reflect.Type {

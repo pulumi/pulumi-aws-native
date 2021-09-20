@@ -13,11 +13,11 @@ import (
 type ConnectionAliasConnectionAliasAssociationAssociationStatus string
 
 const (
-	ConnectionAliasConnectionAliasAssociationAssociationStatusNotAssociated               = ConnectionAliasConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusPendingAssociation          = ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_ASSOCIATION")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusAssociatedWithOwnerAccount  = ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_OWNER_ACCOUNT")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusAssociatedWithSharedAccount = ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_SHARED_ACCOUNT")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusPendingDisassociation       = ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_DISASSOCIATION")
+	ConnectionAliasConnectionAliasAssociationAssociationStatus_NOT_ASSOCIATED                 = ConnectionAliasConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED")
+	ConnectionAliasConnectionAliasAssociationAssociationStatus_PENDING_ASSOCIATION            = ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_ASSOCIATION")
+	ConnectionAliasConnectionAliasAssociationAssociationStatus_ASSOCIATED_WITH_OWNER_ACCOUNT  = ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_OWNER_ACCOUNT")
+	ConnectionAliasConnectionAliasAssociationAssociationStatus_ASSOCIATED_WITH_SHARED_ACCOUNT = ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_SHARED_ACCOUNT")
+	ConnectionAliasConnectionAliasAssociationAssociationStatus_PENDING_DISASSOCIATION         = ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_DISASSOCIATION")
 )
 
 func (ConnectionAliasConnectionAliasAssociationAssociationStatus) ElementType() reflect.Type {
@@ -180,9 +180,9 @@ func (in *connectionAliasConnectionAliasAssociationAssociationStatusPtr) ToConne
 type ConnectionAliasConnectionAliasState string
 
 const (
-	ConnectionAliasConnectionAliasStateCreating = ConnectionAliasConnectionAliasState("CREATING")
-	ConnectionAliasConnectionAliasStateCreated  = ConnectionAliasConnectionAliasState("CREATED")
-	ConnectionAliasConnectionAliasStateDeleting = ConnectionAliasConnectionAliasState("DELETING")
+	ConnectionAliasConnectionAliasStateCREATING = ConnectionAliasConnectionAliasState("CREATING")
+	ConnectionAliasConnectionAliasStateCREATED  = ConnectionAliasConnectionAliasState("CREATED")
+	ConnectionAliasConnectionAliasStateDELETING = ConnectionAliasConnectionAliasState("DELETING")
 )
 
 func (ConnectionAliasConnectionAliasState) ElementType() reflect.Type {

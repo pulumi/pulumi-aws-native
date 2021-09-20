@@ -14,8 +14,8 @@ import (
 type RepositoryEncryptionType string
 
 const (
-	RepositoryEncryptionTypeAes256 = RepositoryEncryptionType("AES256")
-	RepositoryEncryptionTypeKms    = RepositoryEncryptionType("KMS")
+	RepositoryEncryptionTypeAES256 = RepositoryEncryptionType("AES256")
+	RepositoryEncryptionTypeKMS    = RepositoryEncryptionType("KMS")
 )
 
 func (RepositoryEncryptionType) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *repositoryEncryptionTypePtr) ToRepositoryEncryptionTypePtrOutputWithCo
 type RepositoryImageTagMutability string
 
 const (
-	RepositoryImageTagMutabilityMutable   = RepositoryImageTagMutability("MUTABLE")
-	RepositoryImageTagMutabilityImmutable = RepositoryImageTagMutability("IMMUTABLE")
+	RepositoryImageTagMutabilityMUTABLE   = RepositoryImageTagMutability("MUTABLE")
+	RepositoryImageTagMutabilityIMMUTABLE = RepositoryImageTagMutability("IMMUTABLE")
 )
 
 func (RepositoryImageTagMutability) ElementType() reflect.Type {

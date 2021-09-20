@@ -14,8 +14,8 @@ import (
 type DetectorDetectorVersionStatus string
 
 const (
-	DetectorDetectorVersionStatusDraft  = DetectorDetectorVersionStatus("DRAFT")
-	DetectorDetectorVersionStatusActive = DetectorDetectorVersionStatus("ACTIVE")
+	DetectorDetectorVersionStatusDRAFT  = DetectorDetectorVersionStatus("DRAFT")
+	DetectorDetectorVersionStatusACTIVE = DetectorDetectorVersionStatus("ACTIVE")
 )
 
 func (DetectorDetectorVersionStatus) ElementType() reflect.Type {
@@ -178,7 +178,7 @@ func (in *detectorDetectorVersionStatusPtr) ToDetectorDetectorVersionStatusPtrOu
 type DetectorEventVariableDataSource string
 
 const (
-	DetectorEventVariableDataSourceEvent = DetectorEventVariableDataSource("EVENT")
+	DetectorEventVariableDataSourceEVENT = DetectorEventVariableDataSource("EVENT")
 )
 
 func (DetectorEventVariableDataSource) ElementType() reflect.Type {
@@ -341,10 +341,10 @@ func (in *detectorEventVariableDataSourcePtr) ToDetectorEventVariableDataSourceP
 type DetectorEventVariableDataType string
 
 const (
-	DetectorEventVariableDataTypeString  = DetectorEventVariableDataType("STRING")
-	DetectorEventVariableDataTypeInteger = DetectorEventVariableDataType("INTEGER")
-	DetectorEventVariableDataTypeFloat   = DetectorEventVariableDataType("FLOAT")
-	DetectorEventVariableDataTypeBoolean = DetectorEventVariableDataType("BOOLEAN")
+	DetectorEventVariableDataTypeSTRING  = DetectorEventVariableDataType("STRING")
+	DetectorEventVariableDataTypeINTEGER = DetectorEventVariableDataType("INTEGER")
+	DetectorEventVariableDataTypeFLOAT   = DetectorEventVariableDataType("FLOAT")
+	DetectorEventVariableDataTypeBOOLEAN = DetectorEventVariableDataType("BOOLEAN")
 )
 
 func (DetectorEventVariableDataType) ElementType() reflect.Type {
@@ -507,39 +507,39 @@ func (in *detectorEventVariableDataTypePtr) ToDetectorEventVariableDataTypePtrOu
 type DetectorEventVariableVariableType string
 
 const (
-	DetectorEventVariableVariableTypeAuthCode          = DetectorEventVariableVariableType("AUTH_CODE")
-	DetectorEventVariableVariableTypeAvs               = DetectorEventVariableVariableType("AVS")
-	DetectorEventVariableVariableTypeBillingAddressL1  = DetectorEventVariableVariableType("BILLING_ADDRESS_L1")
-	DetectorEventVariableVariableTypeBillingAddressL2  = DetectorEventVariableVariableType("BILLING_ADDRESS_L2")
-	DetectorEventVariableVariableTypeBillingCity       = DetectorEventVariableVariableType("BILLING_CITY")
-	DetectorEventVariableVariableTypeBillingCountry    = DetectorEventVariableVariableType("BILLING_COUNTRY")
-	DetectorEventVariableVariableTypeBillingName       = DetectorEventVariableVariableType("BILLING_NAME")
-	DetectorEventVariableVariableTypeBillingPhone      = DetectorEventVariableVariableType("BILLING_PHONE")
-	DetectorEventVariableVariableTypeBillingState      = DetectorEventVariableVariableType("BILLING_STATE")
-	DetectorEventVariableVariableTypeBillingZip        = DetectorEventVariableVariableType("BILLING_ZIP")
-	DetectorEventVariableVariableTypeCardBin           = DetectorEventVariableVariableType("CARD_BIN")
-	DetectorEventVariableVariableTypeCategorical       = DetectorEventVariableVariableType("CATEGORICAL")
-	DetectorEventVariableVariableTypeCurrencyCode      = DetectorEventVariableVariableType("CURRENCY_CODE")
-	DetectorEventVariableVariableTypeEmailAddress      = DetectorEventVariableVariableType("EMAIL_ADDRESS")
-	DetectorEventVariableVariableTypeFingerprint       = DetectorEventVariableVariableType("FINGERPRINT")
-	DetectorEventVariableVariableTypeFraudLabel        = DetectorEventVariableVariableType("FRAUD_LABEL")
-	DetectorEventVariableVariableTypeFreeFormText      = DetectorEventVariableVariableType("FREE_FORM_TEXT")
-	DetectorEventVariableVariableTypeIpAddress         = DetectorEventVariableVariableType("IP_ADDRESS")
-	DetectorEventVariableVariableTypeNumeric           = DetectorEventVariableVariableType("NUMERIC")
-	DetectorEventVariableVariableTypeOrderId           = DetectorEventVariableVariableType("ORDER_ID")
-	DetectorEventVariableVariableTypePaymentType       = DetectorEventVariableVariableType("PAYMENT_TYPE")
-	DetectorEventVariableVariableTypePhoneNumber       = DetectorEventVariableVariableType("PHONE_NUMBER")
-	DetectorEventVariableVariableTypePrice             = DetectorEventVariableVariableType("PRICE")
-	DetectorEventVariableVariableTypeProductCategory   = DetectorEventVariableVariableType("PRODUCT_CATEGORY")
-	DetectorEventVariableVariableTypeShippingAddressL1 = DetectorEventVariableVariableType("SHIPPING_ADDRESS_L1")
-	DetectorEventVariableVariableTypeShippingAddressL2 = DetectorEventVariableVariableType("SHIPPING_ADDRESS_L2")
-	DetectorEventVariableVariableTypeShippingCity      = DetectorEventVariableVariableType("SHIPPING_CITY")
-	DetectorEventVariableVariableTypeShippingCountry   = DetectorEventVariableVariableType("SHIPPING_COUNTRY")
-	DetectorEventVariableVariableTypeShippingName      = DetectorEventVariableVariableType("SHIPPING_NAME")
-	DetectorEventVariableVariableTypeShippingPhone     = DetectorEventVariableVariableType("SHIPPING_PHONE")
-	DetectorEventVariableVariableTypeShippingState     = DetectorEventVariableVariableType("SHIPPING_STATE")
-	DetectorEventVariableVariableTypeShippingZip       = DetectorEventVariableVariableType("SHIPPING_ZIP")
-	DetectorEventVariableVariableTypeUseragent         = DetectorEventVariableVariableType("USERAGENT")
+	DetectorEventVariableVariableType_AUTH_CODE           = DetectorEventVariableVariableType("AUTH_CODE")
+	DetectorEventVariableVariableTypeAVS                  = DetectorEventVariableVariableType("AVS")
+	DetectorEventVariableVariableType_BILLING_ADDRESS_L1  = DetectorEventVariableVariableType("BILLING_ADDRESS_L1")
+	DetectorEventVariableVariableType_BILLING_ADDRESS_L2  = DetectorEventVariableVariableType("BILLING_ADDRESS_L2")
+	DetectorEventVariableVariableType_BILLING_CITY        = DetectorEventVariableVariableType("BILLING_CITY")
+	DetectorEventVariableVariableType_BILLING_COUNTRY     = DetectorEventVariableVariableType("BILLING_COUNTRY")
+	DetectorEventVariableVariableType_BILLING_NAME        = DetectorEventVariableVariableType("BILLING_NAME")
+	DetectorEventVariableVariableType_BILLING_PHONE       = DetectorEventVariableVariableType("BILLING_PHONE")
+	DetectorEventVariableVariableType_BILLING_STATE       = DetectorEventVariableVariableType("BILLING_STATE")
+	DetectorEventVariableVariableType_BILLING_ZIP         = DetectorEventVariableVariableType("BILLING_ZIP")
+	DetectorEventVariableVariableType_CARD_BIN            = DetectorEventVariableVariableType("CARD_BIN")
+	DetectorEventVariableVariableTypeCATEGORICAL          = DetectorEventVariableVariableType("CATEGORICAL")
+	DetectorEventVariableVariableType_CURRENCY_CODE       = DetectorEventVariableVariableType("CURRENCY_CODE")
+	DetectorEventVariableVariableType_EMAIL_ADDRESS       = DetectorEventVariableVariableType("EMAIL_ADDRESS")
+	DetectorEventVariableVariableTypeFINGERPRINT          = DetectorEventVariableVariableType("FINGERPRINT")
+	DetectorEventVariableVariableType_FRAUD_LABEL         = DetectorEventVariableVariableType("FRAUD_LABEL")
+	DetectorEventVariableVariableType_FREE_FORM_TEXT      = DetectorEventVariableVariableType("FREE_FORM_TEXT")
+	DetectorEventVariableVariableType_IP_ADDRESS          = DetectorEventVariableVariableType("IP_ADDRESS")
+	DetectorEventVariableVariableTypeNUMERIC              = DetectorEventVariableVariableType("NUMERIC")
+	DetectorEventVariableVariableType_ORDER_ID            = DetectorEventVariableVariableType("ORDER_ID")
+	DetectorEventVariableVariableType_PAYMENT_TYPE        = DetectorEventVariableVariableType("PAYMENT_TYPE")
+	DetectorEventVariableVariableType_PHONE_NUMBER        = DetectorEventVariableVariableType("PHONE_NUMBER")
+	DetectorEventVariableVariableTypePRICE                = DetectorEventVariableVariableType("PRICE")
+	DetectorEventVariableVariableType_PRODUCT_CATEGORY    = DetectorEventVariableVariableType("PRODUCT_CATEGORY")
+	DetectorEventVariableVariableType_SHIPPING_ADDRESS_L1 = DetectorEventVariableVariableType("SHIPPING_ADDRESS_L1")
+	DetectorEventVariableVariableType_SHIPPING_ADDRESS_L2 = DetectorEventVariableVariableType("SHIPPING_ADDRESS_L2")
+	DetectorEventVariableVariableType_SHIPPING_CITY       = DetectorEventVariableVariableType("SHIPPING_CITY")
+	DetectorEventVariableVariableType_SHIPPING_COUNTRY    = DetectorEventVariableVariableType("SHIPPING_COUNTRY")
+	DetectorEventVariableVariableType_SHIPPING_NAME       = DetectorEventVariableVariableType("SHIPPING_NAME")
+	DetectorEventVariableVariableType_SHIPPING_PHONE      = DetectorEventVariableVariableType("SHIPPING_PHONE")
+	DetectorEventVariableVariableType_SHIPPING_STATE      = DetectorEventVariableVariableType("SHIPPING_STATE")
+	DetectorEventVariableVariableType_SHIPPING_ZIP        = DetectorEventVariableVariableType("SHIPPING_ZIP")
+	DetectorEventVariableVariableTypeUSERAGENT            = DetectorEventVariableVariableType("USERAGENT")
 )
 
 func (DetectorEventVariableVariableType) ElementType() reflect.Type {
@@ -702,8 +702,8 @@ func (in *detectorEventVariableVariableTypePtr) ToDetectorEventVariableVariableT
 type DetectorRuleExecutionMode string
 
 const (
-	DetectorRuleExecutionModeFirstMatched = DetectorRuleExecutionMode("FIRST_MATCHED")
-	DetectorRuleExecutionModeAllMatched   = DetectorRuleExecutionMode("ALL_MATCHED")
+	DetectorRuleExecutionMode_FIRST_MATCHED = DetectorRuleExecutionMode("FIRST_MATCHED")
+	DetectorRuleExecutionMode_ALL_MATCHED   = DetectorRuleExecutionMode("ALL_MATCHED")
 )
 
 func (DetectorRuleExecutionMode) ElementType() reflect.Type {
@@ -866,7 +866,7 @@ func (in *detectorRuleExecutionModePtr) ToDetectorRuleExecutionModePtrOutputWith
 type DetectorRuleLanguage string
 
 const (
-	DetectorRuleLanguageDetectorpl = DetectorRuleLanguage("DETECTORPL")
+	DetectorRuleLanguageDETECTORPL = DetectorRuleLanguage("DETECTORPL")
 )
 
 func (DetectorRuleLanguage) ElementType() reflect.Type {
@@ -1029,7 +1029,7 @@ func (in *detectorRuleLanguagePtr) ToDetectorRuleLanguagePtrOutputWithContext(ct
 type EventTypeEventVariableDataSource string
 
 const (
-	EventTypeEventVariableDataSourceEvent = EventTypeEventVariableDataSource("EVENT")
+	EventTypeEventVariableDataSourceEVENT = EventTypeEventVariableDataSource("EVENT")
 )
 
 func (EventTypeEventVariableDataSource) ElementType() reflect.Type {
@@ -1192,10 +1192,10 @@ func (in *eventTypeEventVariableDataSourcePtr) ToEventTypeEventVariableDataSourc
 type EventTypeEventVariableDataType string
 
 const (
-	EventTypeEventVariableDataTypeString  = EventTypeEventVariableDataType("STRING")
-	EventTypeEventVariableDataTypeInteger = EventTypeEventVariableDataType("INTEGER")
-	EventTypeEventVariableDataTypeFloat   = EventTypeEventVariableDataType("FLOAT")
-	EventTypeEventVariableDataTypeBoolean = EventTypeEventVariableDataType("BOOLEAN")
+	EventTypeEventVariableDataTypeSTRING  = EventTypeEventVariableDataType("STRING")
+	EventTypeEventVariableDataTypeINTEGER = EventTypeEventVariableDataType("INTEGER")
+	EventTypeEventVariableDataTypeFLOAT   = EventTypeEventVariableDataType("FLOAT")
+	EventTypeEventVariableDataTypeBOOLEAN = EventTypeEventVariableDataType("BOOLEAN")
 )
 
 func (EventTypeEventVariableDataType) ElementType() reflect.Type {
@@ -1358,39 +1358,39 @@ func (in *eventTypeEventVariableDataTypePtr) ToEventTypeEventVariableDataTypePtr
 type EventTypeEventVariableVariableType string
 
 const (
-	EventTypeEventVariableVariableTypeAuthCode          = EventTypeEventVariableVariableType("AUTH_CODE")
-	EventTypeEventVariableVariableTypeAvs               = EventTypeEventVariableVariableType("AVS")
-	EventTypeEventVariableVariableTypeBillingAddressL1  = EventTypeEventVariableVariableType("BILLING_ADDRESS_L1")
-	EventTypeEventVariableVariableTypeBillingAddressL2  = EventTypeEventVariableVariableType("BILLING_ADDRESS_L2")
-	EventTypeEventVariableVariableTypeBillingCity       = EventTypeEventVariableVariableType("BILLING_CITY")
-	EventTypeEventVariableVariableTypeBillingCountry    = EventTypeEventVariableVariableType("BILLING_COUNTRY")
-	EventTypeEventVariableVariableTypeBillingName       = EventTypeEventVariableVariableType("BILLING_NAME")
-	EventTypeEventVariableVariableTypeBillingPhone      = EventTypeEventVariableVariableType("BILLING_PHONE")
-	EventTypeEventVariableVariableTypeBillingState      = EventTypeEventVariableVariableType("BILLING_STATE")
-	EventTypeEventVariableVariableTypeBillingZip        = EventTypeEventVariableVariableType("BILLING_ZIP")
-	EventTypeEventVariableVariableTypeCardBin           = EventTypeEventVariableVariableType("CARD_BIN")
-	EventTypeEventVariableVariableTypeCategorical       = EventTypeEventVariableVariableType("CATEGORICAL")
-	EventTypeEventVariableVariableTypeCurrencyCode      = EventTypeEventVariableVariableType("CURRENCY_CODE")
-	EventTypeEventVariableVariableTypeEmailAddress      = EventTypeEventVariableVariableType("EMAIL_ADDRESS")
-	EventTypeEventVariableVariableTypeFingerprint       = EventTypeEventVariableVariableType("FINGERPRINT")
-	EventTypeEventVariableVariableTypeFraudLabel        = EventTypeEventVariableVariableType("FRAUD_LABEL")
-	EventTypeEventVariableVariableTypeFreeFormText      = EventTypeEventVariableVariableType("FREE_FORM_TEXT")
-	EventTypeEventVariableVariableTypeIpAddress         = EventTypeEventVariableVariableType("IP_ADDRESS")
-	EventTypeEventVariableVariableTypeNumeric           = EventTypeEventVariableVariableType("NUMERIC")
-	EventTypeEventVariableVariableTypeOrderId           = EventTypeEventVariableVariableType("ORDER_ID")
-	EventTypeEventVariableVariableTypePaymentType       = EventTypeEventVariableVariableType("PAYMENT_TYPE")
-	EventTypeEventVariableVariableTypePhoneNumber       = EventTypeEventVariableVariableType("PHONE_NUMBER")
-	EventTypeEventVariableVariableTypePrice             = EventTypeEventVariableVariableType("PRICE")
-	EventTypeEventVariableVariableTypeProductCategory   = EventTypeEventVariableVariableType("PRODUCT_CATEGORY")
-	EventTypeEventVariableVariableTypeShippingAddressL1 = EventTypeEventVariableVariableType("SHIPPING_ADDRESS_L1")
-	EventTypeEventVariableVariableTypeShippingAddressL2 = EventTypeEventVariableVariableType("SHIPPING_ADDRESS_L2")
-	EventTypeEventVariableVariableTypeShippingCity      = EventTypeEventVariableVariableType("SHIPPING_CITY")
-	EventTypeEventVariableVariableTypeShippingCountry   = EventTypeEventVariableVariableType("SHIPPING_COUNTRY")
-	EventTypeEventVariableVariableTypeShippingName      = EventTypeEventVariableVariableType("SHIPPING_NAME")
-	EventTypeEventVariableVariableTypeShippingPhone     = EventTypeEventVariableVariableType("SHIPPING_PHONE")
-	EventTypeEventVariableVariableTypeShippingState     = EventTypeEventVariableVariableType("SHIPPING_STATE")
-	EventTypeEventVariableVariableTypeShippingZip       = EventTypeEventVariableVariableType("SHIPPING_ZIP")
-	EventTypeEventVariableVariableTypeUseragent         = EventTypeEventVariableVariableType("USERAGENT")
+	EventTypeEventVariableVariableType_AUTH_CODE           = EventTypeEventVariableVariableType("AUTH_CODE")
+	EventTypeEventVariableVariableTypeAVS                  = EventTypeEventVariableVariableType("AVS")
+	EventTypeEventVariableVariableType_BILLING_ADDRESS_L1  = EventTypeEventVariableVariableType("BILLING_ADDRESS_L1")
+	EventTypeEventVariableVariableType_BILLING_ADDRESS_L2  = EventTypeEventVariableVariableType("BILLING_ADDRESS_L2")
+	EventTypeEventVariableVariableType_BILLING_CITY        = EventTypeEventVariableVariableType("BILLING_CITY")
+	EventTypeEventVariableVariableType_BILLING_COUNTRY     = EventTypeEventVariableVariableType("BILLING_COUNTRY")
+	EventTypeEventVariableVariableType_BILLING_NAME        = EventTypeEventVariableVariableType("BILLING_NAME")
+	EventTypeEventVariableVariableType_BILLING_PHONE       = EventTypeEventVariableVariableType("BILLING_PHONE")
+	EventTypeEventVariableVariableType_BILLING_STATE       = EventTypeEventVariableVariableType("BILLING_STATE")
+	EventTypeEventVariableVariableType_BILLING_ZIP         = EventTypeEventVariableVariableType("BILLING_ZIP")
+	EventTypeEventVariableVariableType_CARD_BIN            = EventTypeEventVariableVariableType("CARD_BIN")
+	EventTypeEventVariableVariableTypeCATEGORICAL          = EventTypeEventVariableVariableType("CATEGORICAL")
+	EventTypeEventVariableVariableType_CURRENCY_CODE       = EventTypeEventVariableVariableType("CURRENCY_CODE")
+	EventTypeEventVariableVariableType_EMAIL_ADDRESS       = EventTypeEventVariableVariableType("EMAIL_ADDRESS")
+	EventTypeEventVariableVariableTypeFINGERPRINT          = EventTypeEventVariableVariableType("FINGERPRINT")
+	EventTypeEventVariableVariableType_FRAUD_LABEL         = EventTypeEventVariableVariableType("FRAUD_LABEL")
+	EventTypeEventVariableVariableType_FREE_FORM_TEXT      = EventTypeEventVariableVariableType("FREE_FORM_TEXT")
+	EventTypeEventVariableVariableType_IP_ADDRESS          = EventTypeEventVariableVariableType("IP_ADDRESS")
+	EventTypeEventVariableVariableTypeNUMERIC              = EventTypeEventVariableVariableType("NUMERIC")
+	EventTypeEventVariableVariableType_ORDER_ID            = EventTypeEventVariableVariableType("ORDER_ID")
+	EventTypeEventVariableVariableType_PAYMENT_TYPE        = EventTypeEventVariableVariableType("PAYMENT_TYPE")
+	EventTypeEventVariableVariableType_PHONE_NUMBER        = EventTypeEventVariableVariableType("PHONE_NUMBER")
+	EventTypeEventVariableVariableTypePRICE                = EventTypeEventVariableVariableType("PRICE")
+	EventTypeEventVariableVariableType_PRODUCT_CATEGORY    = EventTypeEventVariableVariableType("PRODUCT_CATEGORY")
+	EventTypeEventVariableVariableType_SHIPPING_ADDRESS_L1 = EventTypeEventVariableVariableType("SHIPPING_ADDRESS_L1")
+	EventTypeEventVariableVariableType_SHIPPING_ADDRESS_L2 = EventTypeEventVariableVariableType("SHIPPING_ADDRESS_L2")
+	EventTypeEventVariableVariableType_SHIPPING_CITY       = EventTypeEventVariableVariableType("SHIPPING_CITY")
+	EventTypeEventVariableVariableType_SHIPPING_COUNTRY    = EventTypeEventVariableVariableType("SHIPPING_COUNTRY")
+	EventTypeEventVariableVariableType_SHIPPING_NAME       = EventTypeEventVariableVariableType("SHIPPING_NAME")
+	EventTypeEventVariableVariableType_SHIPPING_PHONE      = EventTypeEventVariableVariableType("SHIPPING_PHONE")
+	EventTypeEventVariableVariableType_SHIPPING_STATE      = EventTypeEventVariableVariableType("SHIPPING_STATE")
+	EventTypeEventVariableVariableType_SHIPPING_ZIP        = EventTypeEventVariableVariableType("SHIPPING_ZIP")
+	EventTypeEventVariableVariableTypeUSERAGENT            = EventTypeEventVariableVariableType("USERAGENT")
 )
 
 func (EventTypeEventVariableVariableType) ElementType() reflect.Type {
@@ -1554,8 +1554,8 @@ func (in *eventTypeEventVariableVariableTypePtr) ToEventTypeEventVariableVariabl
 type VariableDataSource string
 
 const (
-	VariableDataSourceEvent              = VariableDataSource("EVENT")
-	VariableDataSourceExternalModelScore = VariableDataSource("EXTERNAL_MODEL_SCORE")
+	VariableDataSourceEVENT                 = VariableDataSource("EVENT")
+	VariableDataSource_EXTERNAL_MODEL_SCORE = VariableDataSource("EXTERNAL_MODEL_SCORE")
 )
 
 func (VariableDataSource) ElementType() reflect.Type {
@@ -1719,10 +1719,10 @@ func (in *variableDataSourcePtr) ToVariableDataSourcePtrOutputWithContext(ctx co
 type VariableDataType string
 
 const (
-	VariableDataTypeString  = VariableDataType("STRING")
-	VariableDataTypeInteger = VariableDataType("INTEGER")
-	VariableDataTypeFloat   = VariableDataType("FLOAT")
-	VariableDataTypeBoolean = VariableDataType("BOOLEAN")
+	VariableDataTypeSTRING  = VariableDataType("STRING")
+	VariableDataTypeINTEGER = VariableDataType("INTEGER")
+	VariableDataTypeFLOAT   = VariableDataType("FLOAT")
+	VariableDataTypeBOOLEAN = VariableDataType("BOOLEAN")
 )
 
 func (VariableDataType) ElementType() reflect.Type {
@@ -1886,39 +1886,39 @@ func (in *variableDataTypePtr) ToVariableDataTypePtrOutputWithContext(ctx contex
 type VariableVariableType string
 
 const (
-	VariableVariableTypeAuthCode          = VariableVariableType("AUTH_CODE")
-	VariableVariableTypeAvs               = VariableVariableType("AVS")
-	VariableVariableTypeBillingAddressL1  = VariableVariableType("BILLING_ADDRESS_L1")
-	VariableVariableTypeBillingAddressL2  = VariableVariableType("BILLING_ADDRESS_L2")
-	VariableVariableTypeBillingCity       = VariableVariableType("BILLING_CITY")
-	VariableVariableTypeBillingCountry    = VariableVariableType("BILLING_COUNTRY")
-	VariableVariableTypeBillingName       = VariableVariableType("BILLING_NAME")
-	VariableVariableTypeBillingPhone      = VariableVariableType("BILLING_PHONE")
-	VariableVariableTypeBillingState      = VariableVariableType("BILLING_STATE")
-	VariableVariableTypeBillingZip        = VariableVariableType("BILLING_ZIP")
-	VariableVariableTypeCardBin           = VariableVariableType("CARD_BIN")
-	VariableVariableTypeCategorical       = VariableVariableType("CATEGORICAL")
-	VariableVariableTypeCurrencyCode      = VariableVariableType("CURRENCY_CODE")
-	VariableVariableTypeEmailAddress      = VariableVariableType("EMAIL_ADDRESS")
-	VariableVariableTypeFingerprint       = VariableVariableType("FINGERPRINT")
-	VariableVariableTypeFraudLabel        = VariableVariableType("FRAUD_LABEL")
-	VariableVariableTypeFreeFormText      = VariableVariableType("FREE_FORM_TEXT")
-	VariableVariableTypeIpAddress         = VariableVariableType("IP_ADDRESS")
-	VariableVariableTypeNumeric           = VariableVariableType("NUMERIC")
-	VariableVariableTypeOrderId           = VariableVariableType("ORDER_ID")
-	VariableVariableTypePaymentType       = VariableVariableType("PAYMENT_TYPE")
-	VariableVariableTypePhoneNumber       = VariableVariableType("PHONE_NUMBER")
-	VariableVariableTypePrice             = VariableVariableType("PRICE")
-	VariableVariableTypeProductCategory   = VariableVariableType("PRODUCT_CATEGORY")
-	VariableVariableTypeShippingAddressL1 = VariableVariableType("SHIPPING_ADDRESS_L1")
-	VariableVariableTypeShippingAddressL2 = VariableVariableType("SHIPPING_ADDRESS_L2")
-	VariableVariableTypeShippingCity      = VariableVariableType("SHIPPING_CITY")
-	VariableVariableTypeShippingCountry   = VariableVariableType("SHIPPING_COUNTRY")
-	VariableVariableTypeShippingName      = VariableVariableType("SHIPPING_NAME")
-	VariableVariableTypeShippingPhone     = VariableVariableType("SHIPPING_PHONE")
-	VariableVariableTypeShippingState     = VariableVariableType("SHIPPING_STATE")
-	VariableVariableTypeShippingZip       = VariableVariableType("SHIPPING_ZIP")
-	VariableVariableTypeUseragent         = VariableVariableType("USERAGENT")
+	VariableVariableType_AUTH_CODE           = VariableVariableType("AUTH_CODE")
+	VariableVariableTypeAVS                  = VariableVariableType("AVS")
+	VariableVariableType_BILLING_ADDRESS_L1  = VariableVariableType("BILLING_ADDRESS_L1")
+	VariableVariableType_BILLING_ADDRESS_L2  = VariableVariableType("BILLING_ADDRESS_L2")
+	VariableVariableType_BILLING_CITY        = VariableVariableType("BILLING_CITY")
+	VariableVariableType_BILLING_COUNTRY     = VariableVariableType("BILLING_COUNTRY")
+	VariableVariableType_BILLING_NAME        = VariableVariableType("BILLING_NAME")
+	VariableVariableType_BILLING_PHONE       = VariableVariableType("BILLING_PHONE")
+	VariableVariableType_BILLING_STATE       = VariableVariableType("BILLING_STATE")
+	VariableVariableType_BILLING_ZIP         = VariableVariableType("BILLING_ZIP")
+	VariableVariableType_CARD_BIN            = VariableVariableType("CARD_BIN")
+	VariableVariableTypeCATEGORICAL          = VariableVariableType("CATEGORICAL")
+	VariableVariableType_CURRENCY_CODE       = VariableVariableType("CURRENCY_CODE")
+	VariableVariableType_EMAIL_ADDRESS       = VariableVariableType("EMAIL_ADDRESS")
+	VariableVariableTypeFINGERPRINT          = VariableVariableType("FINGERPRINT")
+	VariableVariableType_FRAUD_LABEL         = VariableVariableType("FRAUD_LABEL")
+	VariableVariableType_FREE_FORM_TEXT      = VariableVariableType("FREE_FORM_TEXT")
+	VariableVariableType_IP_ADDRESS          = VariableVariableType("IP_ADDRESS")
+	VariableVariableTypeNUMERIC              = VariableVariableType("NUMERIC")
+	VariableVariableType_ORDER_ID            = VariableVariableType("ORDER_ID")
+	VariableVariableType_PAYMENT_TYPE        = VariableVariableType("PAYMENT_TYPE")
+	VariableVariableType_PHONE_NUMBER        = VariableVariableType("PHONE_NUMBER")
+	VariableVariableTypePRICE                = VariableVariableType("PRICE")
+	VariableVariableType_PRODUCT_CATEGORY    = VariableVariableType("PRODUCT_CATEGORY")
+	VariableVariableType_SHIPPING_ADDRESS_L1 = VariableVariableType("SHIPPING_ADDRESS_L1")
+	VariableVariableType_SHIPPING_ADDRESS_L2 = VariableVariableType("SHIPPING_ADDRESS_L2")
+	VariableVariableType_SHIPPING_CITY       = VariableVariableType("SHIPPING_CITY")
+	VariableVariableType_SHIPPING_COUNTRY    = VariableVariableType("SHIPPING_COUNTRY")
+	VariableVariableType_SHIPPING_NAME       = VariableVariableType("SHIPPING_NAME")
+	VariableVariableType_SHIPPING_PHONE      = VariableVariableType("SHIPPING_PHONE")
+	VariableVariableType_SHIPPING_STATE      = VariableVariableType("SHIPPING_STATE")
+	VariableVariableType_SHIPPING_ZIP        = VariableVariableType("SHIPPING_ZIP")
+	VariableVariableTypeUSERAGENT            = VariableVariableType("USERAGENT")
 )
 
 func (VariableVariableType) ElementType() reflect.Type {

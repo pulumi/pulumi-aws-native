@@ -13,9 +13,9 @@ import (
 type CloudFormationProvisionedProductAcceptLanguage string
 
 const (
-	CloudFormationProvisionedProductAcceptLanguageEn = CloudFormationProvisionedProductAcceptLanguage("en")
-	CloudFormationProvisionedProductAcceptLanguageJp = CloudFormationProvisionedProductAcceptLanguage("jp")
-	CloudFormationProvisionedProductAcceptLanguageZh = CloudFormationProvisionedProductAcceptLanguage("zh")
+	CloudFormationProvisionedProductAcceptLanguageEN = CloudFormationProvisionedProductAcceptLanguage("en")
+	CloudFormationProvisionedProductAcceptLanguageJP = CloudFormationProvisionedProductAcceptLanguage("jp")
+	CloudFormationProvisionedProductAcceptLanguageZH = CloudFormationProvisionedProductAcceptLanguage("zh")
 )
 
 func (CloudFormationProvisionedProductAcceptLanguage) ElementType() reflect.Type {
@@ -178,9 +178,9 @@ func (in *cloudFormationProvisionedProductAcceptLanguagePtr) ToCloudFormationPro
 type CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType string
 
 const (
-	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeCreate = CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("CREATE")
-	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeUpdate = CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("UPDATE")
-	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeDelete = CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("DELETE")
+	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeCREATE = CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("CREATE")
+	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeUPDATE = CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("UPDATE")
+	CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeDELETE = CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("DELETE")
 )
 
 func (CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType) ElementType() reflect.Type {
@@ -343,9 +343,9 @@ func (in *cloudFormationProvisionedProductProvisioningPreferencesStackSetOperati
 type ServiceActionAcceptLanguage string
 
 const (
-	ServiceActionAcceptLanguageEn = ServiceActionAcceptLanguage("en")
-	ServiceActionAcceptLanguageJp = ServiceActionAcceptLanguage("jp")
-	ServiceActionAcceptLanguageZh = ServiceActionAcceptLanguage("zh")
+	ServiceActionAcceptLanguageEN = ServiceActionAcceptLanguage("en")
+	ServiceActionAcceptLanguageJP = ServiceActionAcceptLanguage("jp")
+	ServiceActionAcceptLanguageZH = ServiceActionAcceptLanguage("zh")
 )
 
 func (ServiceActionAcceptLanguage) ElementType() reflect.Type {
@@ -508,7 +508,7 @@ func (in *serviceActionAcceptLanguagePtr) ToServiceActionAcceptLanguagePtrOutput
 type ServiceActionDefinitionType string
 
 const (
-	ServiceActionDefinitionTypeSsmAutomation = ServiceActionDefinitionType("SSM_AUTOMATION")
+	ServiceActionDefinitionType_SSM_AUTOMATION = ServiceActionDefinitionType("SSM_AUTOMATION")
 )
 
 func (ServiceActionDefinitionType) ElementType() reflect.Type {

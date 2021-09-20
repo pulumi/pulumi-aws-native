@@ -14,8 +14,8 @@ import (
 type AddonResolveConflicts string
 
 const (
-	AddonResolveConflictsNone      = AddonResolveConflicts("NONE")
-	AddonResolveConflictsOverwrite = AddonResolveConflicts("OVERWRITE")
+	AddonResolveConflictsNONE      = AddonResolveConflicts("NONE")
+	AddonResolveConflictsOVERWRITE = AddonResolveConflicts("OVERWRITE")
 )
 
 func (AddonResolveConflicts) ElementType() reflect.Type {

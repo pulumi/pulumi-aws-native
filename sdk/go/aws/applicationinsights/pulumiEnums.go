@@ -14,9 +14,9 @@ import (
 type ApplicationAlarmSeverity string
 
 const (
-	ApplicationAlarmSeverityHigh   = ApplicationAlarmSeverity("HIGH")
-	ApplicationAlarmSeverityMedium = ApplicationAlarmSeverity("MEDIUM")
-	ApplicationAlarmSeverityLow    = ApplicationAlarmSeverity("LOW")
+	ApplicationAlarmSeverityHIGH   = ApplicationAlarmSeverity("HIGH")
+	ApplicationAlarmSeverityMEDIUM = ApplicationAlarmSeverity("MEDIUM")
+	ApplicationAlarmSeverityLOW    = ApplicationAlarmSeverity("LOW")
 )
 
 func (ApplicationAlarmSeverity) ElementType() reflect.Type {
@@ -180,9 +180,9 @@ func (in *applicationAlarmSeverityPtr) ToApplicationAlarmSeverityPtrOutputWithCo
 type ApplicationComponentMonitoringSettingComponentConfigurationMode string
 
 const (
-	ApplicationComponentMonitoringSettingComponentConfigurationModeDefault              = ApplicationComponentMonitoringSettingComponentConfigurationMode("DEFAULT")
-	ApplicationComponentMonitoringSettingComponentConfigurationModeDefaultWithOverwrite = ApplicationComponentMonitoringSettingComponentConfigurationMode("DEFAULT_WITH_OVERWRITE")
-	ApplicationComponentMonitoringSettingComponentConfigurationModeCustom               = ApplicationComponentMonitoringSettingComponentConfigurationMode("CUSTOM")
+	ApplicationComponentMonitoringSettingComponentConfigurationModeDEFAULT                 = ApplicationComponentMonitoringSettingComponentConfigurationMode("DEFAULT")
+	ApplicationComponentMonitoringSettingComponentConfigurationMode_DEFAULT_WITH_OVERWRITE = ApplicationComponentMonitoringSettingComponentConfigurationMode("DEFAULT_WITH_OVERWRITE")
+	ApplicationComponentMonitoringSettingComponentConfigurationModeCUSTOM                  = ApplicationComponentMonitoringSettingComponentConfigurationMode("CUSTOM")
 )
 
 func (ApplicationComponentMonitoringSettingComponentConfigurationMode) ElementType() reflect.Type {
@@ -346,11 +346,11 @@ func (in *applicationComponentMonitoringSettingComponentConfigurationModePtr) To
 type ApplicationEventLevel string
 
 const (
-	ApplicationEventLevelInformation = ApplicationEventLevel("INFORMATION")
-	ApplicationEventLevelWarning     = ApplicationEventLevel("WARNING")
-	ApplicationEventLevelError       = ApplicationEventLevel("ERROR")
-	ApplicationEventLevelCritical    = ApplicationEventLevel("CRITICAL")
-	ApplicationEventLevelVerbose     = ApplicationEventLevel("VERBOSE")
+	ApplicationEventLevelINFORMATION = ApplicationEventLevel("INFORMATION")
+	ApplicationEventLevelWARNING     = ApplicationEventLevel("WARNING")
+	ApplicationEventLevelERROR       = ApplicationEventLevel("ERROR")
+	ApplicationEventLevelCRITICAL    = ApplicationEventLevel("CRITICAL")
+	ApplicationEventLevelVERBOSE     = ApplicationEventLevel("VERBOSE")
 )
 
 func (ApplicationEventLevel) ElementType() reflect.Type {
@@ -559,9 +559,9 @@ func (o ApplicationEventLevelArrayOutput) Index(i pulumi.IntInput) ApplicationEv
 type ApplicationLogEncoding string
 
 const (
-	ApplicationLogEncodingUtf8  = ApplicationLogEncoding("utf-8")
-	ApplicationLogEncodingUtf16 = ApplicationLogEncoding("utf-16")
-	ApplicationLogEncodingAscii = ApplicationLogEncoding("ascii")
+	ApplicationLogEncodingUTF8  = ApplicationLogEncoding("utf-8")
+	ApplicationLogEncodingUTF16 = ApplicationLogEncoding("utf-16")
+	ApplicationLogEncodingASCII = ApplicationLogEncoding("ascii")
 )
 
 func (ApplicationLogEncoding) ElementType() reflect.Type {
@@ -725,8 +725,8 @@ func (in *applicationLogEncodingPtr) ToApplicationLogEncodingPtrOutputWithContex
 type ApplicationSubComponentTypeConfigurationSubComponentType string
 
 const (
-	ApplicationSubComponentTypeConfigurationSubComponentTypeAWSEC2Instance = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance")
-	ApplicationSubComponentTypeConfigurationSubComponentTypeAWSEC2Volume   = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Volume")
+	ApplicationSubComponentTypeConfigurationSubComponentType_AWSEC2_INSTANCE = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Instance")
+	ApplicationSubComponentTypeConfigurationSubComponentType_AWSEC2_VOLUME   = ApplicationSubComponentTypeConfigurationSubComponentType("AWS::EC2::Volume")
 )
 
 func (ApplicationSubComponentTypeConfigurationSubComponentType) ElementType() reflect.Type {

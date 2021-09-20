@@ -14,9 +14,9 @@ import (
 type FlowEncryptionAlgorithm string
 
 const (
-	FlowEncryptionAlgorithmAes128 = FlowEncryptionAlgorithm("aes128")
-	FlowEncryptionAlgorithmAes192 = FlowEncryptionAlgorithm("aes192")
-	FlowEncryptionAlgorithmAes256 = FlowEncryptionAlgorithm("aes256")
+	FlowEncryptionAlgorithmAES128 = FlowEncryptionAlgorithm("aes128")
+	FlowEncryptionAlgorithmAES192 = FlowEncryptionAlgorithm("aes192")
+	FlowEncryptionAlgorithmAES256 = FlowEncryptionAlgorithm("aes256")
 )
 
 func (FlowEncryptionAlgorithm) ElementType() reflect.Type {
@@ -180,8 +180,8 @@ func (in *flowEncryptionAlgorithmPtr) ToFlowEncryptionAlgorithmPtrOutputWithCont
 type FlowEncryptionKeyType string
 
 const (
-	FlowEncryptionKeyTypeSpeke     = FlowEncryptionKeyType("speke")
-	FlowEncryptionKeyTypeStaticKey = FlowEncryptionKeyType("static-key")
+	FlowEncryptionKeyTypeSPEKE       = FlowEncryptionKeyType("speke")
+	FlowEncryptionKeyType_STATIC_KEY = FlowEncryptionKeyType("static-key")
 )
 
 func (FlowEncryptionKeyType) ElementType() reflect.Type {
@@ -345,9 +345,9 @@ func (in *flowEncryptionKeyTypePtr) ToFlowEncryptionKeyTypePtrOutputWithContext(
 type FlowEntitlementEncryptionAlgorithm string
 
 const (
-	FlowEntitlementEncryptionAlgorithmAes128 = FlowEntitlementEncryptionAlgorithm("aes128")
-	FlowEntitlementEncryptionAlgorithmAes192 = FlowEntitlementEncryptionAlgorithm("aes192")
-	FlowEntitlementEncryptionAlgorithmAes256 = FlowEntitlementEncryptionAlgorithm("aes256")
+	FlowEntitlementEncryptionAlgorithmAES128 = FlowEntitlementEncryptionAlgorithm("aes128")
+	FlowEntitlementEncryptionAlgorithmAES192 = FlowEntitlementEncryptionAlgorithm("aes192")
+	FlowEntitlementEncryptionAlgorithmAES256 = FlowEntitlementEncryptionAlgorithm("aes256")
 )
 
 func (FlowEntitlementEncryptionAlgorithm) ElementType() reflect.Type {
@@ -511,8 +511,8 @@ func (in *flowEntitlementEncryptionAlgorithmPtr) ToFlowEntitlementEncryptionAlgo
 type FlowEntitlementEncryptionKeyType string
 
 const (
-	FlowEntitlementEncryptionKeyTypeSpeke     = FlowEntitlementEncryptionKeyType("speke")
-	FlowEntitlementEncryptionKeyTypeStaticKey = FlowEntitlementEncryptionKeyType("static-key")
+	FlowEntitlementEncryptionKeyTypeSPEKE       = FlowEntitlementEncryptionKeyType("speke")
+	FlowEntitlementEncryptionKeyType_STATIC_KEY = FlowEntitlementEncryptionKeyType("static-key")
 )
 
 func (FlowEntitlementEncryptionKeyType) ElementType() reflect.Type {
@@ -676,8 +676,8 @@ func (in *flowEntitlementEncryptionKeyTypePtr) ToFlowEntitlementEncryptionKeyTyp
 type FlowEntitlementEntitlementStatus string
 
 const (
-	FlowEntitlementEntitlementStatusEnabled  = FlowEntitlementEntitlementStatus("ENABLED")
-	FlowEntitlementEntitlementStatusDisabled = FlowEntitlementEntitlementStatus("DISABLED")
+	FlowEntitlementEntitlementStatusENABLED  = FlowEntitlementEntitlementStatus("ENABLED")
+	FlowEntitlementEntitlementStatusDISABLED = FlowEntitlementEntitlementStatus("DISABLED")
 )
 
 func (FlowEntitlementEntitlementStatus) ElementType() reflect.Type {
@@ -840,8 +840,8 @@ func (in *flowEntitlementEntitlementStatusPtr) ToFlowEntitlementEntitlementStatu
 type FlowFailoverConfigState string
 
 const (
-	FlowFailoverConfigStateEnabled  = FlowFailoverConfigState("ENABLED")
-	FlowFailoverConfigStateDisabled = FlowFailoverConfigState("DISABLED")
+	FlowFailoverConfigStateENABLED  = FlowFailoverConfigState("ENABLED")
+	FlowFailoverConfigStateDISABLED = FlowFailoverConfigState("DISABLED")
 )
 
 func (FlowFailoverConfigState) ElementType() reflect.Type {
@@ -1005,9 +1005,9 @@ func (in *flowFailoverConfigStatePtr) ToFlowFailoverConfigStatePtrOutputWithCont
 type FlowOutputEncryptionAlgorithm string
 
 const (
-	FlowOutputEncryptionAlgorithmAes128 = FlowOutputEncryptionAlgorithm("aes128")
-	FlowOutputEncryptionAlgorithmAes192 = FlowOutputEncryptionAlgorithm("aes192")
-	FlowOutputEncryptionAlgorithmAes256 = FlowOutputEncryptionAlgorithm("aes256")
+	FlowOutputEncryptionAlgorithmAES128 = FlowOutputEncryptionAlgorithm("aes128")
+	FlowOutputEncryptionAlgorithmAES192 = FlowOutputEncryptionAlgorithm("aes192")
+	FlowOutputEncryptionAlgorithmAES256 = FlowOutputEncryptionAlgorithm("aes256")
 )
 
 func (FlowOutputEncryptionAlgorithm) ElementType() reflect.Type {
@@ -1171,7 +1171,7 @@ func (in *flowOutputEncryptionAlgorithmPtr) ToFlowOutputEncryptionAlgorithmPtrOu
 type FlowOutputEncryptionKeyType string
 
 const (
-	FlowOutputEncryptionKeyTypeStaticKey = FlowOutputEncryptionKeyType("static-key")
+	FlowOutputEncryptionKeyType_STATIC_KEY = FlowOutputEncryptionKeyType("static-key")
 )
 
 func (FlowOutputEncryptionKeyType) ElementType() reflect.Type {
@@ -1335,11 +1335,11 @@ func (in *flowOutputEncryptionKeyTypePtr) ToFlowOutputEncryptionKeyTypePtrOutput
 type FlowOutputProtocol string
 
 const (
-	FlowOutputProtocolZixiPush = FlowOutputProtocol("zixi-push")
-	FlowOutputProtocolRtpFec   = FlowOutputProtocol("rtp-fec")
-	FlowOutputProtocolRtp      = FlowOutputProtocol("rtp")
-	FlowOutputProtocolZixiPull = FlowOutputProtocol("zixi-pull")
-	FlowOutputProtocolRist     = FlowOutputProtocol("rist")
+	FlowOutputProtocol_ZIXI_PUSH = FlowOutputProtocol("zixi-push")
+	FlowOutputProtocol_RTP_FEC   = FlowOutputProtocol("rtp-fec")
+	FlowOutputProtocolRTP        = FlowOutputProtocol("rtp")
+	FlowOutputProtocol_ZIXI_PULL = FlowOutputProtocol("zixi-pull")
+	FlowOutputProtocolRIST       = FlowOutputProtocol("rist")
 )
 
 func (FlowOutputProtocol) ElementType() reflect.Type {
@@ -1503,9 +1503,9 @@ func (in *flowOutputProtocolPtr) ToFlowOutputProtocolPtrOutputWithContext(ctx co
 type FlowSourceEncryptionAlgorithm string
 
 const (
-	FlowSourceEncryptionAlgorithmAes128 = FlowSourceEncryptionAlgorithm("aes128")
-	FlowSourceEncryptionAlgorithmAes192 = FlowSourceEncryptionAlgorithm("aes192")
-	FlowSourceEncryptionAlgorithmAes256 = FlowSourceEncryptionAlgorithm("aes256")
+	FlowSourceEncryptionAlgorithmAES128 = FlowSourceEncryptionAlgorithm("aes128")
+	FlowSourceEncryptionAlgorithmAES192 = FlowSourceEncryptionAlgorithm("aes192")
+	FlowSourceEncryptionAlgorithmAES256 = FlowSourceEncryptionAlgorithm("aes256")
 )
 
 func (FlowSourceEncryptionAlgorithm) ElementType() reflect.Type {
@@ -1669,8 +1669,8 @@ func (in *flowSourceEncryptionAlgorithmPtr) ToFlowSourceEncryptionAlgorithmPtrOu
 type FlowSourceEncryptionKeyType string
 
 const (
-	FlowSourceEncryptionKeyTypeSpeke     = FlowSourceEncryptionKeyType("speke")
-	FlowSourceEncryptionKeyTypeStaticKey = FlowSourceEncryptionKeyType("static-key")
+	FlowSourceEncryptionKeyTypeSPEKE       = FlowSourceEncryptionKeyType("speke")
+	FlowSourceEncryptionKeyType_STATIC_KEY = FlowSourceEncryptionKeyType("static-key")
 )
 
 func (FlowSourceEncryptionKeyType) ElementType() reflect.Type {
@@ -1834,10 +1834,10 @@ func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutput
 type FlowSourceProtocol string
 
 const (
-	FlowSourceProtocolZixiPush = FlowSourceProtocol("zixi-push")
-	FlowSourceProtocolRtpFec   = FlowSourceProtocol("rtp-fec")
-	FlowSourceProtocolRtp      = FlowSourceProtocol("rtp")
-	FlowSourceProtocolRist     = FlowSourceProtocol("rist")
+	FlowSourceProtocol_ZIXI_PUSH = FlowSourceProtocol("zixi-push")
+	FlowSourceProtocol_RTP_FEC   = FlowSourceProtocol("rtp-fec")
+	FlowSourceProtocolRTP        = FlowSourceProtocol("rtp")
+	FlowSourceProtocolRIST       = FlowSourceProtocol("rist")
 )
 
 func (FlowSourceProtocol) ElementType() reflect.Type {

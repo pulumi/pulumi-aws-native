@@ -13,9 +13,9 @@ import (
 type GeofenceCollectionPricingPlan string
 
 const (
-	GeofenceCollectionPricingPlanRequestBasedUsage     = GeofenceCollectionPricingPlan("RequestBasedUsage")
-	GeofenceCollectionPricingPlanMobileAssetTracking   = GeofenceCollectionPricingPlan("MobileAssetTracking")
-	GeofenceCollectionPricingPlanMobileAssetManagement = GeofenceCollectionPricingPlan("MobileAssetManagement")
+	GeofenceCollectionPricingPlan_REQUEST_BASED_USAGE     = GeofenceCollectionPricingPlan("RequestBasedUsage")
+	GeofenceCollectionPricingPlan_MOBILE_ASSET_TRACKING   = GeofenceCollectionPricingPlan("MobileAssetTracking")
+	GeofenceCollectionPricingPlan_MOBILE_ASSET_MANAGEMENT = GeofenceCollectionPricingPlan("MobileAssetManagement")
 )
 
 func (GeofenceCollectionPricingPlan) ElementType() reflect.Type {
@@ -178,9 +178,9 @@ func (in *geofenceCollectionPricingPlanPtr) ToGeofenceCollectionPricingPlanPtrOu
 type MapPricingPlan string
 
 const (
-	MapPricingPlanRequestBasedUsage     = MapPricingPlan("RequestBasedUsage")
-	MapPricingPlanMobileAssetTracking   = MapPricingPlan("MobileAssetTracking")
-	MapPricingPlanMobileAssetManagement = MapPricingPlan("MobileAssetManagement")
+	MapPricingPlan_REQUEST_BASED_USAGE     = MapPricingPlan("RequestBasedUsage")
+	MapPricingPlan_MOBILE_ASSET_TRACKING   = MapPricingPlan("MobileAssetTracking")
+	MapPricingPlan_MOBILE_ASSET_MANAGEMENT = MapPricingPlan("MobileAssetManagement")
 )
 
 func (MapPricingPlan) ElementType() reflect.Type {
@@ -343,8 +343,8 @@ func (in *mapPricingPlanPtr) ToMapPricingPlanPtrOutputWithContext(ctx context.Co
 type PlaceIndexIntendedUse string
 
 const (
-	PlaceIndexIntendedUseSingleUse = PlaceIndexIntendedUse("SingleUse")
-	PlaceIndexIntendedUseStorage   = PlaceIndexIntendedUse("Storage")
+	PlaceIndexIntendedUse_SINGLE_USE = PlaceIndexIntendedUse("SingleUse")
+	PlaceIndexIntendedUseSTORAGE     = PlaceIndexIntendedUse("Storage")
 )
 
 func (PlaceIndexIntendedUse) ElementType() reflect.Type {
@@ -507,9 +507,9 @@ func (in *placeIndexIntendedUsePtr) ToPlaceIndexIntendedUsePtrOutputWithContext(
 type PlaceIndexPricingPlan string
 
 const (
-	PlaceIndexPricingPlanRequestBasedUsage     = PlaceIndexPricingPlan("RequestBasedUsage")
-	PlaceIndexPricingPlanMobileAssetTracking   = PlaceIndexPricingPlan("MobileAssetTracking")
-	PlaceIndexPricingPlanMobileAssetManagement = PlaceIndexPricingPlan("MobileAssetManagement")
+	PlaceIndexPricingPlan_REQUEST_BASED_USAGE     = PlaceIndexPricingPlan("RequestBasedUsage")
+	PlaceIndexPricingPlan_MOBILE_ASSET_TRACKING   = PlaceIndexPricingPlan("MobileAssetTracking")
+	PlaceIndexPricingPlan_MOBILE_ASSET_MANAGEMENT = PlaceIndexPricingPlan("MobileAssetManagement")
 )
 
 func (PlaceIndexPricingPlan) ElementType() reflect.Type {
@@ -672,8 +672,8 @@ func (in *placeIndexPricingPlanPtr) ToPlaceIndexPricingPlanPtrOutputWithContext(
 type RouteCalculatorPricingPlan string
 
 const (
-	RouteCalculatorPricingPlanRequestBasedUsage     = RouteCalculatorPricingPlan("RequestBasedUsage")
-	RouteCalculatorPricingPlanMobileAssetManagement = RouteCalculatorPricingPlan("MobileAssetManagement")
+	RouteCalculatorPricingPlan_REQUEST_BASED_USAGE     = RouteCalculatorPricingPlan("RequestBasedUsage")
+	RouteCalculatorPricingPlan_MOBILE_ASSET_MANAGEMENT = RouteCalculatorPricingPlan("MobileAssetManagement")
 )
 
 func (RouteCalculatorPricingPlan) ElementType() reflect.Type {
@@ -836,9 +836,9 @@ func (in *routeCalculatorPricingPlanPtr) ToRouteCalculatorPricingPlanPtrOutputWi
 type TrackerPricingPlan string
 
 const (
-	TrackerPricingPlanRequestBasedUsage     = TrackerPricingPlan("RequestBasedUsage")
-	TrackerPricingPlanMobileAssetTracking   = TrackerPricingPlan("MobileAssetTracking")
-	TrackerPricingPlanMobileAssetManagement = TrackerPricingPlan("MobileAssetManagement")
+	TrackerPricingPlan_REQUEST_BASED_USAGE     = TrackerPricingPlan("RequestBasedUsage")
+	TrackerPricingPlan_MOBILE_ASSET_TRACKING   = TrackerPricingPlan("MobileAssetTracking")
+	TrackerPricingPlan_MOBILE_ASSET_MANAGEMENT = TrackerPricingPlan("MobileAssetManagement")
 )
 
 func (TrackerPricingPlan) ElementType() reflect.Type {

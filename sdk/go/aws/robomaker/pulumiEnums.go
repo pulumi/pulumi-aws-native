@@ -15,8 +15,8 @@ type RobotArchitecture string
 
 const (
 	RobotArchitectureX8664 = RobotArchitecture("X86_64")
-	RobotArchitectureArm64 = RobotArchitecture("ARM64")
-	RobotArchitectureArmhf = RobotArchitecture("ARMHF")
+	RobotArchitectureARM64 = RobotArchitecture("ARM64")
+	RobotArchitectureARMHF = RobotArchitecture("ARMHF")
 )
 
 func (RobotArchitecture) ElementType() reflect.Type {
@@ -180,7 +180,7 @@ func (in *robotArchitecturePtr) ToRobotArchitecturePtrOutputWithContext(ctx cont
 type SimulationApplicationRenderingEngineName string
 
 const (
-	SimulationApplicationRenderingEngineNameOgre = SimulationApplicationRenderingEngineName("OGRE")
+	SimulationApplicationRenderingEngineNameOGRE = SimulationApplicationRenderingEngineName("OGRE")
 )
 
 func (SimulationApplicationRenderingEngineName) ElementType() reflect.Type {
@@ -344,8 +344,8 @@ func (in *simulationApplicationRenderingEngineNamePtr) ToSimulationApplicationRe
 type SimulationApplicationRobotSoftwareSuiteName string
 
 const (
-	SimulationApplicationRobotSoftwareSuiteNameRos  = SimulationApplicationRobotSoftwareSuiteName("ROS")
-	SimulationApplicationRobotSoftwareSuiteNameRos2 = SimulationApplicationRobotSoftwareSuiteName("ROS2")
+	SimulationApplicationRobotSoftwareSuiteNameROS  = SimulationApplicationRobotSoftwareSuiteName("ROS")
+	SimulationApplicationRobotSoftwareSuiteNameROS2 = SimulationApplicationRobotSoftwareSuiteName("ROS2")
 )
 
 func (SimulationApplicationRobotSoftwareSuiteName) ElementType() reflect.Type {
@@ -509,10 +509,10 @@ func (in *simulationApplicationRobotSoftwareSuiteNamePtr) ToSimulationApplicatio
 type SimulationApplicationRobotSoftwareSuiteVersion string
 
 const (
-	SimulationApplicationRobotSoftwareSuiteVersionKinetic = SimulationApplicationRobotSoftwareSuiteVersion("Kinetic")
-	SimulationApplicationRobotSoftwareSuiteVersionMelodic = SimulationApplicationRobotSoftwareSuiteVersion("Melodic")
-	SimulationApplicationRobotSoftwareSuiteVersionDashing = SimulationApplicationRobotSoftwareSuiteVersion("Dashing")
-	SimulationApplicationRobotSoftwareSuiteVersionFoxy    = SimulationApplicationRobotSoftwareSuiteVersion("Foxy")
+	SimulationApplicationRobotSoftwareSuiteVersionKINETIC = SimulationApplicationRobotSoftwareSuiteVersion("Kinetic")
+	SimulationApplicationRobotSoftwareSuiteVersionMELODIC = SimulationApplicationRobotSoftwareSuiteVersion("Melodic")
+	SimulationApplicationRobotSoftwareSuiteVersionDASHING = SimulationApplicationRobotSoftwareSuiteVersion("Dashing")
+	SimulationApplicationRobotSoftwareSuiteVersionFOXY    = SimulationApplicationRobotSoftwareSuiteVersion("Foxy")
 )
 
 func (SimulationApplicationRobotSoftwareSuiteVersion) ElementType() reflect.Type {
@@ -676,8 +676,8 @@ func (in *simulationApplicationRobotSoftwareSuiteVersionPtr) ToSimulationApplica
 type SimulationApplicationSimulationSoftwareSuiteName string
 
 const (
-	SimulationApplicationSimulationSoftwareSuiteNameGazebo     = SimulationApplicationSimulationSoftwareSuiteName("Gazebo")
-	SimulationApplicationSimulationSoftwareSuiteNameRosbagPlay = SimulationApplicationSimulationSoftwareSuiteName("RosbagPlay")
+	SimulationApplicationSimulationSoftwareSuiteNameGAZEBO       = SimulationApplicationSimulationSoftwareSuiteName("Gazebo")
+	SimulationApplicationSimulationSoftwareSuiteName_ROSBAG_PLAY = SimulationApplicationSimulationSoftwareSuiteName("RosbagPlay")
 )
 
 func (SimulationApplicationSimulationSoftwareSuiteName) ElementType() reflect.Type {
@@ -841,13 +841,13 @@ func (in *simulationApplicationSimulationSoftwareSuiteNamePtr) ToSimulationAppli
 type SimulationApplicationSimulationSoftwareSuiteVersion string
 
 const (
-	SimulationApplicationSimulationSoftwareSuiteVersionSeven   = SimulationApplicationSimulationSoftwareSuiteVersion("7")
-	SimulationApplicationSimulationSoftwareSuiteVersionNine    = SimulationApplicationSimulationSoftwareSuiteVersion("9")
-	SimulationApplicationSimulationSoftwareSuiteVersion_11     = SimulationApplicationSimulationSoftwareSuiteVersion("11")
-	SimulationApplicationSimulationSoftwareSuiteVersionKinetic = SimulationApplicationSimulationSoftwareSuiteVersion("Kinetic")
-	SimulationApplicationSimulationSoftwareSuiteVersionMelodic = SimulationApplicationSimulationSoftwareSuiteVersion("Melodic")
-	SimulationApplicationSimulationSoftwareSuiteVersionDashing = SimulationApplicationSimulationSoftwareSuiteVersion("Dashing")
-	SimulationApplicationSimulationSoftwareSuiteVersionFoxy    = SimulationApplicationSimulationSoftwareSuiteVersion("Foxy")
+	SimulationApplicationSimulationSoftwareSuiteVersionSEVEN                                                        = SimulationApplicationSimulationSoftwareSuiteVersion("7")
+	SimulationApplicationSimulationSoftwareSuiteVersionNINE                                                         = SimulationApplicationSimulationSoftwareSuiteVersion("9")
+	SimulationApplicationSimulationSoftwareSuiteVersion_SIMULATION_APPLICATION_SIMULATION_SOFTWARE_SUITE_VERSION_11 = SimulationApplicationSimulationSoftwareSuiteVersion("11")
+	SimulationApplicationSimulationSoftwareSuiteVersionKINETIC                                                      = SimulationApplicationSimulationSoftwareSuiteVersion("Kinetic")
+	SimulationApplicationSimulationSoftwareSuiteVersionMELODIC                                                      = SimulationApplicationSimulationSoftwareSuiteVersion("Melodic")
+	SimulationApplicationSimulationSoftwareSuiteVersionDASHING                                                      = SimulationApplicationSimulationSoftwareSuiteVersion("Dashing")
+	SimulationApplicationSimulationSoftwareSuiteVersionFOXY                                                         = SimulationApplicationSimulationSoftwareSuiteVersion("Foxy")
 )
 
 func (SimulationApplicationSimulationSoftwareSuiteVersion) ElementType() reflect.Type {
@@ -1012,8 +1012,8 @@ type SimulationApplicationSourceConfigArchitecture string
 
 const (
 	SimulationApplicationSourceConfigArchitectureX8664 = SimulationApplicationSourceConfigArchitecture("X86_64")
-	SimulationApplicationSourceConfigArchitectureArm64 = SimulationApplicationSourceConfigArchitecture("ARM64")
-	SimulationApplicationSourceConfigArchitectureArmhf = SimulationApplicationSourceConfigArchitecture("ARMHF")
+	SimulationApplicationSourceConfigArchitectureARM64 = SimulationApplicationSourceConfigArchitecture("ARM64")
+	SimulationApplicationSourceConfigArchitectureARMHF = SimulationApplicationSourceConfigArchitecture("ARMHF")
 )
 
 func (SimulationApplicationSourceConfigArchitecture) ElementType() reflect.Type {

@@ -14,8 +14,8 @@ import (
 type ChannelLatencyMode string
 
 const (
-	ChannelLatencyModeNormal = ChannelLatencyMode("NORMAL")
-	ChannelLatencyModeLow    = ChannelLatencyMode("LOW")
+	ChannelLatencyModeNORMAL = ChannelLatencyMode("NORMAL")
+	ChannelLatencyModeLOW    = ChannelLatencyMode("LOW")
 )
 
 func (ChannelLatencyMode) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *channelLatencyModePtr) ToChannelLatencyModePtrOutputWithContext(ctx co
 type ChannelType string
 
 const (
-	ChannelTypeStandard = ChannelType("STANDARD")
-	ChannelTypeBasic    = ChannelType("BASIC")
+	ChannelTypeSTANDARD = ChannelType("STANDARD")
+	ChannelTypeBASIC    = ChannelType("BASIC")
 )
 
 func (ChannelType) ElementType() reflect.Type {
@@ -344,9 +344,9 @@ func (in *channelTypePtr) ToChannelTypePtrOutputWithContext(ctx context.Context)
 type RecordingConfigurationStateEnum string
 
 const (
-	RecordingConfigurationStateEnumCreating     = RecordingConfigurationStateEnum("CREATING")
-	RecordingConfigurationStateEnumCreateFailed = RecordingConfigurationStateEnum("CREATE_FAILED")
-	RecordingConfigurationStateEnumActive       = RecordingConfigurationStateEnum("ACTIVE")
+	RecordingConfigurationStateEnumCREATING       = RecordingConfigurationStateEnum("CREATING")
+	RecordingConfigurationStateEnum_CREATE_FAILED = RecordingConfigurationStateEnum("CREATE_FAILED")
+	RecordingConfigurationStateEnumACTIVE         = RecordingConfigurationStateEnum("ACTIVE")
 )
 
 func (RecordingConfigurationStateEnum) ElementType() reflect.Type {

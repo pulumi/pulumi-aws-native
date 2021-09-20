@@ -14,8 +14,8 @@ import (
 type ComponentPlatform string
 
 const (
-	ComponentPlatformWindows = ComponentPlatform("Windows")
-	ComponentPlatformLinux   = ComponentPlatform("Linux")
+	ComponentPlatformWINDOWS = ComponentPlatform("Windows")
+	ComponentPlatformLINUX   = ComponentPlatform("Linux")
 )
 
 func (ComponentPlatform) ElementType() reflect.Type {
@@ -179,8 +179,8 @@ func (in *componentPlatformPtr) ToComponentPlatformPtrOutputWithContext(ctx cont
 type ComponentType string
 
 const (
-	ComponentTypeBuild = ComponentType("BUILD")
-	ComponentTypeTest  = ComponentType("TEST")
+	ComponentTypeBUILD = ComponentType("BUILD")
+	ComponentTypeTEST  = ComponentType("TEST")
 )
 
 func (ComponentType) ElementType() reflect.Type {
@@ -344,7 +344,7 @@ func (in *componentTypePtr) ToComponentTypePtrOutputWithContext(ctx context.Cont
 type ContainerRecipeContainerType string
 
 const (
-	ContainerRecipeContainerTypeDocker = ContainerRecipeContainerType("DOCKER")
+	ContainerRecipeContainerTypeDOCKER = ContainerRecipeContainerType("DOCKER")
 )
 
 func (ContainerRecipeContainerType) ElementType() reflect.Type {
@@ -508,13 +508,13 @@ func (in *containerRecipeContainerTypePtr) ToContainerRecipeContainerTypePtrOutp
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType string
 
 const (
-	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard")
-	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1")
-	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2")
-	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2")
-	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3")
-	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1")
-	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSTANDARD = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIO1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIO2      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGP2      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGP3      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSC1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1")
+	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeST1      = ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1")
 )
 
 func (ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType) ElementType() reflect.Type {
@@ -678,8 +678,8 @@ func (in *containerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToCon
 type ContainerRecipePlatformOverride string
 
 const (
-	ContainerRecipePlatformOverrideWindows = ContainerRecipePlatformOverride("Windows")
-	ContainerRecipePlatformOverrideLinux   = ContainerRecipePlatformOverride("Linux")
+	ContainerRecipePlatformOverrideWINDOWS = ContainerRecipePlatformOverride("Windows")
+	ContainerRecipePlatformOverrideLINUX   = ContainerRecipePlatformOverride("Linux")
 )
 
 func (ContainerRecipePlatformOverride) ElementType() reflect.Type {
@@ -843,7 +843,7 @@ func (in *containerRecipePlatformOverridePtr) ToContainerRecipePlatformOverrideP
 type ContainerRecipeTargetContainerRepositoryService string
 
 const (
-	ContainerRecipeTargetContainerRepositoryServiceEcr = ContainerRecipeTargetContainerRepositoryService("ECR")
+	ContainerRecipeTargetContainerRepositoryServiceECR = ContainerRecipeTargetContainerRepositoryService("ECR")
 )
 
 func (ContainerRecipeTargetContainerRepositoryService) ElementType() reflect.Type {
@@ -1007,8 +1007,8 @@ func (in *containerRecipeTargetContainerRepositoryServicePtr) ToContainerRecipeT
 type ImagePipelineSchedulePipelineExecutionStartCondition string
 
 const (
-	ImagePipelineSchedulePipelineExecutionStartConditionExpressionMatchOnly                          = ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_ONLY")
-	ImagePipelineSchedulePipelineExecutionStartConditionExpressionMatchAndDependencyUpdatesAvailable = ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE")
+	ImagePipelineSchedulePipelineExecutionStartCondition_EXPRESSION_MATCH_ONLY                             = ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_ONLY")
+	ImagePipelineSchedulePipelineExecutionStartCondition_EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE = ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE")
 )
 
 func (ImagePipelineSchedulePipelineExecutionStartCondition) ElementType() reflect.Type {
@@ -1172,8 +1172,8 @@ func (in *imagePipelineSchedulePipelineExecutionStartConditionPtr) ToImagePipeli
 type ImagePipelineStatus string
 
 const (
-	ImagePipelineStatusDisabled = ImagePipelineStatus("DISABLED")
-	ImagePipelineStatusEnabled  = ImagePipelineStatus("ENABLED")
+	ImagePipelineStatusDISABLED = ImagePipelineStatus("DISABLED")
+	ImagePipelineStatusENABLED  = ImagePipelineStatus("ENABLED")
 )
 
 func (ImagePipelineStatus) ElementType() reflect.Type {
@@ -1337,13 +1337,13 @@ func (in *imagePipelineStatusPtr) ToImagePipelineStatusPtrOutputWithContext(ctx 
 type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType string
 
 const (
-	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard")
-	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1")
-	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2")
-	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2")
-	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3")
-	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1")
-	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSTANDARD = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIO1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io1")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIO2      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("io2")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGP2      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp2")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGP3      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("gp3")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSC1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("sc1")
+	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeST1      = ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("st1")
 )
 
 func (ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType) ElementType() reflect.Type {

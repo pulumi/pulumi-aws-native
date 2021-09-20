@@ -14,10 +14,10 @@ import (
 type AnomalyDetectorAnomalyDetectorFrequency string
 
 const (
-	AnomalyDetectorAnomalyDetectorFrequencyPt5m  = AnomalyDetectorAnomalyDetectorFrequency("PT5M")
-	AnomalyDetectorAnomalyDetectorFrequencyPt10m = AnomalyDetectorAnomalyDetectorFrequency("PT10M")
-	AnomalyDetectorAnomalyDetectorFrequencyPt1h  = AnomalyDetectorAnomalyDetectorFrequency("PT1H")
-	AnomalyDetectorAnomalyDetectorFrequencyP1d   = AnomalyDetectorAnomalyDetectorFrequency("P1D")
+	AnomalyDetectorAnomalyDetectorFrequencyPT5M  = AnomalyDetectorAnomalyDetectorFrequency("PT5M")
+	AnomalyDetectorAnomalyDetectorFrequencyPT10M = AnomalyDetectorAnomalyDetectorFrequency("PT10M")
+	AnomalyDetectorAnomalyDetectorFrequencyPT1H  = AnomalyDetectorAnomalyDetectorFrequency("PT1H")
+	AnomalyDetectorAnomalyDetectorFrequencyP1D   = AnomalyDetectorAnomalyDetectorFrequency("P1D")
 )
 
 func (AnomalyDetectorAnomalyDetectorFrequency) ElementType() reflect.Type {
@@ -180,8 +180,8 @@ func (in *anomalyDetectorAnomalyDetectorFrequencyPtr) ToAnomalyDetectorAnomalyDe
 type AnomalyDetectorCsvFormatDescriptorFileCompression string
 
 const (
-	AnomalyDetectorCsvFormatDescriptorFileCompressionNone = AnomalyDetectorCsvFormatDescriptorFileCompression("NONE")
-	AnomalyDetectorCsvFormatDescriptorFileCompressionGzip = AnomalyDetectorCsvFormatDescriptorFileCompression("GZIP")
+	AnomalyDetectorCsvFormatDescriptorFileCompressionNONE = AnomalyDetectorCsvFormatDescriptorFileCompression("NONE")
+	AnomalyDetectorCsvFormatDescriptorFileCompressionGZIP = AnomalyDetectorCsvFormatDescriptorFileCompression("GZIP")
 )
 
 func (AnomalyDetectorCsvFormatDescriptorFileCompression) ElementType() reflect.Type {
@@ -344,8 +344,8 @@ func (in *anomalyDetectorCsvFormatDescriptorFileCompressionPtr) ToAnomalyDetecto
 type AnomalyDetectorJsonFormatDescriptorFileCompression string
 
 const (
-	AnomalyDetectorJsonFormatDescriptorFileCompressionNone = AnomalyDetectorJsonFormatDescriptorFileCompression("NONE")
-	AnomalyDetectorJsonFormatDescriptorFileCompressionGzip = AnomalyDetectorJsonFormatDescriptorFileCompression("GZIP")
+	AnomalyDetectorJsonFormatDescriptorFileCompressionNONE = AnomalyDetectorJsonFormatDescriptorFileCompression("NONE")
+	AnomalyDetectorJsonFormatDescriptorFileCompressionGZIP = AnomalyDetectorJsonFormatDescriptorFileCompression("GZIP")
 )
 
 func (AnomalyDetectorJsonFormatDescriptorFileCompression) ElementType() reflect.Type {
@@ -509,8 +509,8 @@ func (in *anomalyDetectorJsonFormatDescriptorFileCompressionPtr) ToAnomalyDetect
 type AnomalyDetectorMetricAggregationFunction string
 
 const (
-	AnomalyDetectorMetricAggregationFunctionAvg = AnomalyDetectorMetricAggregationFunction("AVG")
-	AnomalyDetectorMetricAggregationFunctionSum = AnomalyDetectorMetricAggregationFunction("SUM")
+	AnomalyDetectorMetricAggregationFunctionAVG = AnomalyDetectorMetricAggregationFunction("AVG")
+	AnomalyDetectorMetricAggregationFunctionSUM = AnomalyDetectorMetricAggregationFunction("SUM")
 )
 
 func (AnomalyDetectorMetricAggregationFunction) ElementType() reflect.Type {
@@ -674,10 +674,10 @@ func (in *anomalyDetectorMetricAggregationFunctionPtr) ToAnomalyDetectorMetricAg
 type AnomalyDetectorMetricSetMetricSetFrequency string
 
 const (
-	AnomalyDetectorMetricSetMetricSetFrequencyPt5m  = AnomalyDetectorMetricSetMetricSetFrequency("PT5M")
-	AnomalyDetectorMetricSetMetricSetFrequencyPt10m = AnomalyDetectorMetricSetMetricSetFrequency("PT10M")
-	AnomalyDetectorMetricSetMetricSetFrequencyPt1h  = AnomalyDetectorMetricSetMetricSetFrequency("PT1H")
-	AnomalyDetectorMetricSetMetricSetFrequencyP1d   = AnomalyDetectorMetricSetMetricSetFrequency("P1D")
+	AnomalyDetectorMetricSetMetricSetFrequencyPT5M  = AnomalyDetectorMetricSetMetricSetFrequency("PT5M")
+	AnomalyDetectorMetricSetMetricSetFrequencyPT10M = AnomalyDetectorMetricSetMetricSetFrequency("PT10M")
+	AnomalyDetectorMetricSetMetricSetFrequencyPT1H  = AnomalyDetectorMetricSetMetricSetFrequency("PT1H")
+	AnomalyDetectorMetricSetMetricSetFrequencyP1D   = AnomalyDetectorMetricSetMetricSetFrequency("P1D")
 )
 
 func (AnomalyDetectorMetricSetMetricSetFrequency) ElementType() reflect.Type {

@@ -14,9 +14,9 @@ import (
 type ClusterStatus string
 
 const (
-	ClusterStatusPending         = ClusterStatus("PENDING")
-	ClusterStatusDeployed        = ClusterStatus("DEPLOYED")
-	ClusterStatusPendingDeletion = ClusterStatus("PENDING_DELETION")
+	ClusterStatusPENDING           = ClusterStatus("PENDING")
+	ClusterStatusDEPLOYED          = ClusterStatus("DEPLOYED")
+	ClusterStatus_PENDING_DELETION = ClusterStatus("PENDING_DELETION")
 )
 
 func (ClusterStatus) ElementType() reflect.Type {
@@ -180,9 +180,9 @@ func (in *clusterStatusPtr) ToClusterStatusPtrOutputWithContext(ctx context.Cont
 type ControlPanelStatus string
 
 const (
-	ControlPanelStatusPending         = ControlPanelStatus("PENDING")
-	ControlPanelStatusDeployed        = ControlPanelStatus("DEPLOYED")
-	ControlPanelStatusPendingDeletion = ControlPanelStatus("PENDING_DELETION")
+	ControlPanelStatusPENDING           = ControlPanelStatus("PENDING")
+	ControlPanelStatusDEPLOYED          = ControlPanelStatus("DEPLOYED")
+	ControlPanelStatus_PENDING_DELETION = ControlPanelStatus("PENDING_DELETION")
 )
 
 func (ControlPanelStatus) ElementType() reflect.Type {
@@ -346,9 +346,9 @@ func (in *controlPanelStatusPtr) ToControlPanelStatusPtrOutputWithContext(ctx co
 type RoutingControlStatus string
 
 const (
-	RoutingControlStatusPending         = RoutingControlStatus("PENDING")
-	RoutingControlStatusDeployed        = RoutingControlStatus("DEPLOYED")
-	RoutingControlStatusPendingDeletion = RoutingControlStatus("PENDING_DELETION")
+	RoutingControlStatusPENDING           = RoutingControlStatus("PENDING")
+	RoutingControlStatusDEPLOYED          = RoutingControlStatus("DEPLOYED")
+	RoutingControlStatus_PENDING_DELETION = RoutingControlStatus("PENDING_DELETION")
 )
 
 func (RoutingControlStatus) ElementType() reflect.Type {
@@ -512,9 +512,9 @@ func (in *routingControlStatusPtr) ToRoutingControlStatusPtrOutputWithContext(ct
 type SafetyRuleRuleType string
 
 const (
-	SafetyRuleRuleTypeAnd     = SafetyRuleRuleType("AND")
-	SafetyRuleRuleTypeOr      = SafetyRuleRuleType("OR")
-	SafetyRuleRuleTypeAtleast = SafetyRuleRuleType("ATLEAST")
+	SafetyRuleRuleType_AND_   = SafetyRuleRuleType("AND")
+	SafetyRuleRuleType_OR_    = SafetyRuleRuleType("OR")
+	SafetyRuleRuleTypeATLEAST = SafetyRuleRuleType("ATLEAST")
 )
 
 func (SafetyRuleRuleType) ElementType() reflect.Type {
@@ -678,9 +678,9 @@ func (in *safetyRuleRuleTypePtr) ToSafetyRuleRuleTypePtrOutputWithContext(ctx co
 type SafetyRuleStatus string
 
 const (
-	SafetyRuleStatusPending         = SafetyRuleStatus("PENDING")
-	SafetyRuleStatusDeployed        = SafetyRuleStatus("DEPLOYED")
-	SafetyRuleStatusPendingDeletion = SafetyRuleStatus("PENDING_DELETION")
+	SafetyRuleStatusPENDING           = SafetyRuleStatus("PENDING")
+	SafetyRuleStatusDEPLOYED          = SafetyRuleStatus("DEPLOYED")
+	SafetyRuleStatus_PENDING_DELETION = SafetyRuleStatus("PENDING_DELETION")
 )
 
 func (SafetyRuleStatus) ElementType() reflect.Type {

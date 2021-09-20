@@ -14,8 +14,8 @@ import (
 type ResponsePlanSsmAutomationTargetAccount string
 
 const (
-	ResponsePlanSsmAutomationTargetAccountImpactedAccount          = ResponsePlanSsmAutomationTargetAccount("IMPACTED_ACCOUNT")
-	ResponsePlanSsmAutomationTargetAccountResponsePlanOwnerAccount = ResponsePlanSsmAutomationTargetAccount("RESPONSE_PLAN_OWNER_ACCOUNT")
+	ResponsePlanSsmAutomationTargetAccount_IMPACTED_ACCOUNT            = ResponsePlanSsmAutomationTargetAccount("IMPACTED_ACCOUNT")
+	ResponsePlanSsmAutomationTargetAccount_RESPONSE_PLAN_OWNER_ACCOUNT = ResponsePlanSsmAutomationTargetAccount("RESPONSE_PLAN_OWNER_ACCOUNT")
 )
 
 func (ResponsePlanSsmAutomationTargetAccount) ElementType() reflect.Type {

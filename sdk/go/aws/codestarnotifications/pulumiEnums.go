@@ -13,8 +13,8 @@ import (
 type NotificationRuleDetailType string
 
 const (
-	NotificationRuleDetailTypeBasic = NotificationRuleDetailType("BASIC")
-	NotificationRuleDetailTypeFull  = NotificationRuleDetailType("FULL")
+	NotificationRuleDetailTypeBASIC = NotificationRuleDetailType("BASIC")
+	NotificationRuleDetailTypeFULL  = NotificationRuleDetailType("FULL")
 )
 
 func (NotificationRuleDetailType) ElementType() reflect.Type {
@@ -177,8 +177,8 @@ func (in *notificationRuleDetailTypePtr) ToNotificationRuleDetailTypePtrOutputWi
 type NotificationRuleStatus string
 
 const (
-	NotificationRuleStatusEnabled  = NotificationRuleStatus("ENABLED")
-	NotificationRuleStatusDisabled = NotificationRuleStatus("DISABLED")
+	NotificationRuleStatusENABLED  = NotificationRuleStatus("ENABLED")
+	NotificationRuleStatusDISABLED = NotificationRuleStatus("DISABLED")
 )
 
 func (NotificationRuleStatus) ElementType() reflect.Type {

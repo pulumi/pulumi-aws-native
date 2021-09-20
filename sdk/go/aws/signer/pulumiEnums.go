@@ -13,7 +13,7 @@ import (
 type SigningProfilePlatformId string
 
 const (
-	SigningProfilePlatformIdAWSLambdaSHA384ECDSA = SigningProfilePlatformId("AWSLambda-SHA384-ECDSA")
+	SigningProfilePlatformId_AWS_LAMBDA_SHA384_ECDSA = SigningProfilePlatformId("AWSLambda-SHA384-ECDSA")
 )
 
 func (SigningProfilePlatformId) ElementType() reflect.Type {
@@ -176,9 +176,9 @@ func (in *signingProfilePlatformIdPtr) ToSigningProfilePlatformIdPtrOutputWithCo
 type SigningProfileSignatureValidityPeriodType string
 
 const (
-	SigningProfileSignatureValidityPeriodTypeDays   = SigningProfileSignatureValidityPeriodType("DAYS")
-	SigningProfileSignatureValidityPeriodTypeMonths = SigningProfileSignatureValidityPeriodType("MONTHS")
-	SigningProfileSignatureValidityPeriodTypeYears  = SigningProfileSignatureValidityPeriodType("YEARS")
+	SigningProfileSignatureValidityPeriodTypeDAYS   = SigningProfileSignatureValidityPeriodType("DAYS")
+	SigningProfileSignatureValidityPeriodTypeMONTHS = SigningProfileSignatureValidityPeriodType("MONTHS")
+	SigningProfileSignatureValidityPeriodTypeYEARS  = SigningProfileSignatureValidityPeriodType("YEARS")
 )
 
 func (SigningProfileSignatureValidityPeriodType) ElementType() reflect.Type {

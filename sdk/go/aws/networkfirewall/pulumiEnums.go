@@ -13,9 +13,9 @@ import (
 type LoggingConfigurationLogDestinationConfigLogDestinationType string
 
 const (
-	LoggingConfigurationLogDestinationConfigLogDestinationTypeS3                  = LoggingConfigurationLogDestinationConfigLogDestinationType("S3")
-	LoggingConfigurationLogDestinationConfigLogDestinationTypeCloudWatchLogs      = LoggingConfigurationLogDestinationConfigLogDestinationType("CloudWatchLogs")
-	LoggingConfigurationLogDestinationConfigLogDestinationTypeKinesisDataFirehose = LoggingConfigurationLogDestinationConfigLogDestinationType("KinesisDataFirehose")
+	LoggingConfigurationLogDestinationConfigLogDestinationTypeS3                     = LoggingConfigurationLogDestinationConfigLogDestinationType("S3")
+	LoggingConfigurationLogDestinationConfigLogDestinationType_CLOUD_WATCH_LOGS      = LoggingConfigurationLogDestinationConfigLogDestinationType("CloudWatchLogs")
+	LoggingConfigurationLogDestinationConfigLogDestinationType_KINESIS_DATA_FIREHOSE = LoggingConfigurationLogDestinationConfigLogDestinationType("KinesisDataFirehose")
 )
 
 func (LoggingConfigurationLogDestinationConfigLogDestinationType) ElementType() reflect.Type {
@@ -178,8 +178,8 @@ func (in *loggingConfigurationLogDestinationConfigLogDestinationTypePtr) ToLoggi
 type LoggingConfigurationLogDestinationConfigLogType string
 
 const (
-	LoggingConfigurationLogDestinationConfigLogTypeAlert = LoggingConfigurationLogDestinationConfigLogType("ALERT")
-	LoggingConfigurationLogDestinationConfigLogTypeFlow  = LoggingConfigurationLogDestinationConfigLogType("FLOW")
+	LoggingConfigurationLogDestinationConfigLogTypeALERT = LoggingConfigurationLogDestinationConfigLogType("ALERT")
+	LoggingConfigurationLogDestinationConfigLogTypeFLOW  = LoggingConfigurationLogDestinationConfigLogType("FLOW")
 )
 
 func (LoggingConfigurationLogDestinationConfigLogType) ElementType() reflect.Type {
@@ -342,8 +342,8 @@ func (in *loggingConfigurationLogDestinationConfigLogTypePtr) ToLoggingConfigura
 type RuleGroupGeneratedRulesType string
 
 const (
-	RuleGroupGeneratedRulesTypeAllowlist = RuleGroupGeneratedRulesType("ALLOWLIST")
-	RuleGroupGeneratedRulesTypeDenylist  = RuleGroupGeneratedRulesType("DENYLIST")
+	RuleGroupGeneratedRulesTypeALLOWLIST = RuleGroupGeneratedRulesType("ALLOWLIST")
+	RuleGroupGeneratedRulesTypeDENYLIST  = RuleGroupGeneratedRulesType("DENYLIST")
 )
 
 func (RuleGroupGeneratedRulesType) ElementType() reflect.Type {
@@ -506,8 +506,8 @@ func (in *ruleGroupGeneratedRulesTypePtr) ToRuleGroupGeneratedRulesTypePtrOutput
 type RuleGroupHeaderDirection string
 
 const (
-	RuleGroupHeaderDirectionForward = RuleGroupHeaderDirection("FORWARD")
-	RuleGroupHeaderDirectionAny     = RuleGroupHeaderDirection("ANY")
+	RuleGroupHeaderDirectionFORWARD = RuleGroupHeaderDirection("FORWARD")
+	RuleGroupHeaderDirectionANY     = RuleGroupHeaderDirection("ANY")
 )
 
 func (RuleGroupHeaderDirection) ElementType() reflect.Type {
@@ -670,25 +670,25 @@ func (in *ruleGroupHeaderDirectionPtr) ToRuleGroupHeaderDirectionPtrOutputWithCo
 type RuleGroupHeaderProtocol string
 
 const (
-	RuleGroupHeaderProtocolIp     = RuleGroupHeaderProtocol("IP")
-	RuleGroupHeaderProtocolTcp    = RuleGroupHeaderProtocol("TCP")
-	RuleGroupHeaderProtocolUdp    = RuleGroupHeaderProtocol("UDP")
-	RuleGroupHeaderProtocolIcmp   = RuleGroupHeaderProtocol("ICMP")
-	RuleGroupHeaderProtocolHttp   = RuleGroupHeaderProtocol("HTTP")
-	RuleGroupHeaderProtocolFtp    = RuleGroupHeaderProtocol("FTP")
-	RuleGroupHeaderProtocolTls    = RuleGroupHeaderProtocol("TLS")
-	RuleGroupHeaderProtocolSmb    = RuleGroupHeaderProtocol("SMB")
-	RuleGroupHeaderProtocolDns    = RuleGroupHeaderProtocol("DNS")
-	RuleGroupHeaderProtocolDcerpc = RuleGroupHeaderProtocol("DCERPC")
-	RuleGroupHeaderProtocolSsh    = RuleGroupHeaderProtocol("SSH")
-	RuleGroupHeaderProtocolSmtp   = RuleGroupHeaderProtocol("SMTP")
-	RuleGroupHeaderProtocolImap   = RuleGroupHeaderProtocol("IMAP")
-	RuleGroupHeaderProtocolMsn    = RuleGroupHeaderProtocol("MSN")
-	RuleGroupHeaderProtocolKrb5   = RuleGroupHeaderProtocol("KRB5")
-	RuleGroupHeaderProtocolIkev2  = RuleGroupHeaderProtocol("IKEV2")
-	RuleGroupHeaderProtocolTftp   = RuleGroupHeaderProtocol("TFTP")
-	RuleGroupHeaderProtocolNtp    = RuleGroupHeaderProtocol("NTP")
-	RuleGroupHeaderProtocolDhcp   = RuleGroupHeaderProtocol("DHCP")
+	RuleGroupHeaderProtocolIP     = RuleGroupHeaderProtocol("IP")
+	RuleGroupHeaderProtocolTCP    = RuleGroupHeaderProtocol("TCP")
+	RuleGroupHeaderProtocolUDP    = RuleGroupHeaderProtocol("UDP")
+	RuleGroupHeaderProtocolICMP   = RuleGroupHeaderProtocol("ICMP")
+	RuleGroupHeaderProtocolHTTP   = RuleGroupHeaderProtocol("HTTP")
+	RuleGroupHeaderProtocolFTP    = RuleGroupHeaderProtocol("FTP")
+	RuleGroupHeaderProtocolTLS    = RuleGroupHeaderProtocol("TLS")
+	RuleGroupHeaderProtocolSMB    = RuleGroupHeaderProtocol("SMB")
+	RuleGroupHeaderProtocolDNS    = RuleGroupHeaderProtocol("DNS")
+	RuleGroupHeaderProtocolDCERPC = RuleGroupHeaderProtocol("DCERPC")
+	RuleGroupHeaderProtocolSSH    = RuleGroupHeaderProtocol("SSH")
+	RuleGroupHeaderProtocolSMTP   = RuleGroupHeaderProtocol("SMTP")
+	RuleGroupHeaderProtocolIMAP   = RuleGroupHeaderProtocol("IMAP")
+	RuleGroupHeaderProtocolMSN    = RuleGroupHeaderProtocol("MSN")
+	RuleGroupHeaderProtocolKRB5   = RuleGroupHeaderProtocol("KRB5")
+	RuleGroupHeaderProtocolIKEV2  = RuleGroupHeaderProtocol("IKEV2")
+	RuleGroupHeaderProtocolTFTP   = RuleGroupHeaderProtocol("TFTP")
+	RuleGroupHeaderProtocolNTP    = RuleGroupHeaderProtocol("NTP")
+	RuleGroupHeaderProtocolDHCP   = RuleGroupHeaderProtocol("DHCP")
 )
 
 func (RuleGroupHeaderProtocol) ElementType() reflect.Type {
@@ -851,9 +851,9 @@ func (in *ruleGroupHeaderProtocolPtr) ToRuleGroupHeaderProtocolPtrOutputWithCont
 type RuleGroupStatefulRuleAction string
 
 const (
-	RuleGroupStatefulRuleActionPass  = RuleGroupStatefulRuleAction("PASS")
-	RuleGroupStatefulRuleActionDrop  = RuleGroupStatefulRuleAction("DROP")
-	RuleGroupStatefulRuleActionAlert = RuleGroupStatefulRuleAction("ALERT")
+	RuleGroupStatefulRuleAction_PASS_ = RuleGroupStatefulRuleAction("PASS")
+	RuleGroupStatefulRuleActionDROP   = RuleGroupStatefulRuleAction("DROP")
+	RuleGroupStatefulRuleActionALERT  = RuleGroupStatefulRuleAction("ALERT")
 )
 
 func (RuleGroupStatefulRuleAction) ElementType() reflect.Type {
@@ -1016,14 +1016,14 @@ func (in *ruleGroupStatefulRuleActionPtr) ToRuleGroupStatefulRuleActionPtrOutput
 type RuleGroupTCPFlag string
 
 const (
-	RuleGroupTCPFlagFin = RuleGroupTCPFlag("FIN")
-	RuleGroupTCPFlagSyn = RuleGroupTCPFlag("SYN")
-	RuleGroupTCPFlagRst = RuleGroupTCPFlag("RST")
-	RuleGroupTCPFlagPsh = RuleGroupTCPFlag("PSH")
-	RuleGroupTCPFlagAck = RuleGroupTCPFlag("ACK")
-	RuleGroupTCPFlagUrg = RuleGroupTCPFlag("URG")
-	RuleGroupTCPFlagEce = RuleGroupTCPFlag("ECE")
-	RuleGroupTCPFlagCwr = RuleGroupTCPFlag("CWR")
+	RuleGroupTCPFlagFIN = RuleGroupTCPFlag("FIN")
+	RuleGroupTCPFlagSYN = RuleGroupTCPFlag("SYN")
+	RuleGroupTCPFlagRST = RuleGroupTCPFlag("RST")
+	RuleGroupTCPFlagPSH = RuleGroupTCPFlag("PSH")
+	RuleGroupTCPFlagACK = RuleGroupTCPFlag("ACK")
+	RuleGroupTCPFlagURG = RuleGroupTCPFlag("URG")
+	RuleGroupTCPFlagECE = RuleGroupTCPFlag("ECE")
+	RuleGroupTCPFlagCWR = RuleGroupTCPFlag("CWR")
 )
 
 func (RuleGroupTCPFlag) ElementType() reflect.Type {
@@ -1231,8 +1231,8 @@ func (o RuleGroupTCPFlagArrayOutput) Index(i pulumi.IntInput) RuleGroupTCPFlagOu
 type RuleGroupTargetType string
 
 const (
-	RuleGroupTargetTypeTlsSni   = RuleGroupTargetType("TLS_SNI")
-	RuleGroupTargetTypeHttpHost = RuleGroupTargetType("HTTP_HOST")
+	RuleGroupTargetType_TLS_SNI   = RuleGroupTargetType("TLS_SNI")
+	RuleGroupTargetType_HTTP_HOST = RuleGroupTargetType("HTTP_HOST")
 )
 
 func (RuleGroupTargetType) ElementType() reflect.Type {
@@ -1440,8 +1440,8 @@ func (o RuleGroupTargetTypeArrayOutput) Index(i pulumi.IntInput) RuleGroupTarget
 type RuleGroupType string
 
 const (
-	RuleGroupTypeStateless = RuleGroupType("STATELESS")
-	RuleGroupTypeStateful  = RuleGroupType("STATEFUL")
+	RuleGroupTypeSTATELESS = RuleGroupType("STATELESS")
+	RuleGroupTypeSTATEFUL  = RuleGroupType("STATEFUL")
 )
 
 func (RuleGroupType) ElementType() reflect.Type {

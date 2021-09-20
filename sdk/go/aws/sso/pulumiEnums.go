@@ -14,8 +14,8 @@ import (
 type AssignmentPrincipalType string
 
 const (
-	AssignmentPrincipalTypeUser  = AssignmentPrincipalType("USER")
-	AssignmentPrincipalTypeGroup = AssignmentPrincipalType("GROUP")
+	AssignmentPrincipalTypeUSER  = AssignmentPrincipalType("USER")
+	AssignmentPrincipalTypeGROUP = AssignmentPrincipalType("GROUP")
 )
 
 func (AssignmentPrincipalType) ElementType() reflect.Type {
@@ -179,7 +179,7 @@ func (in *assignmentPrincipalTypePtr) ToAssignmentPrincipalTypePtrOutputWithCont
 type AssignmentTargetType string
 
 const (
-	AssignmentTargetTypeAwsAccount = AssignmentTargetType("AWS_ACCOUNT")
+	AssignmentTargetType_AWS_ACCOUNT = AssignmentTargetType("AWS_ACCOUNT")
 )
 
 func (AssignmentTargetType) ElementType() reflect.Type {

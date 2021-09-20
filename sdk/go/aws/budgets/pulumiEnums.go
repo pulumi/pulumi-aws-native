@@ -13,8 +13,8 @@ import (
 type BudgetsActionActionThresholdType string
 
 const (
-	BudgetsActionActionThresholdTypePercentage    = BudgetsActionActionThresholdType("PERCENTAGE")
-	BudgetsActionActionThresholdTypeAbsoluteValue = BudgetsActionActionThresholdType("ABSOLUTE_VALUE")
+	BudgetsActionActionThresholdTypePERCENTAGE      = BudgetsActionActionThresholdType("PERCENTAGE")
+	BudgetsActionActionThresholdType_ABSOLUTE_VALUE = BudgetsActionActionThresholdType("ABSOLUTE_VALUE")
 )
 
 func (BudgetsActionActionThresholdType) ElementType() reflect.Type {
@@ -177,9 +177,9 @@ func (in *budgetsActionActionThresholdTypePtr) ToBudgetsActionActionThresholdTyp
 type BudgetsActionActionType string
 
 const (
-	BudgetsActionActionTypeApplyIamPolicy  = BudgetsActionActionType("APPLY_IAM_POLICY")
-	BudgetsActionActionTypeApplyScpPolicy  = BudgetsActionActionType("APPLY_SCP_POLICY")
-	BudgetsActionActionTypeRunSsmDocuments = BudgetsActionActionType("RUN_SSM_DOCUMENTS")
+	BudgetsActionActionType_APPLY_IAM_POLICY  = BudgetsActionActionType("APPLY_IAM_POLICY")
+	BudgetsActionActionType_APPLY_SCP_POLICY  = BudgetsActionActionType("APPLY_SCP_POLICY")
+	BudgetsActionActionType_RUN_SSM_DOCUMENTS = BudgetsActionActionType("RUN_SSM_DOCUMENTS")
 )
 
 func (BudgetsActionActionType) ElementType() reflect.Type {
@@ -342,8 +342,8 @@ func (in *budgetsActionActionTypePtr) ToBudgetsActionActionTypePtrOutputWithCont
 type BudgetsActionApprovalModel string
 
 const (
-	BudgetsActionApprovalModelAutomatic = BudgetsActionApprovalModel("AUTOMATIC")
-	BudgetsActionApprovalModelManual    = BudgetsActionApprovalModel("MANUAL")
+	BudgetsActionApprovalModelAUTOMATIC = BudgetsActionApprovalModel("AUTOMATIC")
+	BudgetsActionApprovalModelMANUAL    = BudgetsActionApprovalModel("MANUAL")
 )
 
 func (BudgetsActionApprovalModel) ElementType() reflect.Type {
@@ -506,8 +506,8 @@ func (in *budgetsActionApprovalModelPtr) ToBudgetsActionApprovalModelPtrOutputWi
 type BudgetsActionNotificationType string
 
 const (
-	BudgetsActionNotificationTypeActual     = BudgetsActionNotificationType("ACTUAL")
-	BudgetsActionNotificationTypeForecasted = BudgetsActionNotificationType("FORECASTED")
+	BudgetsActionNotificationTypeACTUAL     = BudgetsActionNotificationType("ACTUAL")
+	BudgetsActionNotificationTypeFORECASTED = BudgetsActionNotificationType("FORECASTED")
 )
 
 func (BudgetsActionNotificationType) ElementType() reflect.Type {
@@ -670,8 +670,8 @@ func (in *budgetsActionNotificationTypePtr) ToBudgetsActionNotificationTypePtrOu
 type BudgetsActionSsmActionDefinitionSubtype string
 
 const (
-	BudgetsActionSsmActionDefinitionSubtypeStopEc2Instances = BudgetsActionSsmActionDefinitionSubtype("STOP_EC2_INSTANCES")
-	BudgetsActionSsmActionDefinitionSubtypeStopRdsInstances = BudgetsActionSsmActionDefinitionSubtype("STOP_RDS_INSTANCES")
+	BudgetsActionSsmActionDefinitionSubtype_STOP_EC2_INSTANCES = BudgetsActionSsmActionDefinitionSubtype("STOP_EC2_INSTANCES")
+	BudgetsActionSsmActionDefinitionSubtype_STOP_RDS_INSTANCES = BudgetsActionSsmActionDefinitionSubtype("STOP_RDS_INSTANCES")
 )
 
 func (BudgetsActionSsmActionDefinitionSubtype) ElementType() reflect.Type {
@@ -834,8 +834,8 @@ func (in *budgetsActionSsmActionDefinitionSubtypePtr) ToBudgetsActionSsmActionDe
 type BudgetsActionSubscriberType string
 
 const (
-	BudgetsActionSubscriberTypeSns   = BudgetsActionSubscriberType("SNS")
-	BudgetsActionSubscriberTypeEmail = BudgetsActionSubscriberType("EMAIL")
+	BudgetsActionSubscriberTypeSNS   = BudgetsActionSubscriberType("SNS")
+	BudgetsActionSubscriberTypeEMAIL = BudgetsActionSubscriberType("EMAIL")
 )
 
 func (BudgetsActionSubscriberType) ElementType() reflect.Type {

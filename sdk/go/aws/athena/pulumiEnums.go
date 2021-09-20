@@ -14,9 +14,9 @@ import (
 type DataCatalogType string
 
 const (
-	DataCatalogTypeLambda = DataCatalogType("LAMBDA")
-	DataCatalogTypeGlue   = DataCatalogType("GLUE")
-	DataCatalogTypeHive   = DataCatalogType("HIVE")
+	DataCatalogType_LAMBDA_ = DataCatalogType("LAMBDA")
+	DataCatalogTypeGLUE     = DataCatalogType("GLUE")
+	DataCatalogTypeHIVE     = DataCatalogType("HIVE")
 )
 
 func (DataCatalogType) ElementType() reflect.Type {
@@ -180,9 +180,9 @@ func (in *dataCatalogTypePtr) ToDataCatalogTypePtrOutputWithContext(ctx context.
 type WorkGroupEncryptionOption string
 
 const (
-	WorkGroupEncryptionOptionSseS3  = WorkGroupEncryptionOption("SSE_S3")
-	WorkGroupEncryptionOptionSseKms = WorkGroupEncryptionOption("SSE_KMS")
-	WorkGroupEncryptionOptionCseKms = WorkGroupEncryptionOption("CSE_KMS")
+	WorkGroupEncryptionOption_SSE_S3  = WorkGroupEncryptionOption("SSE_S3")
+	WorkGroupEncryptionOption_SSE_KMS = WorkGroupEncryptionOption("SSE_KMS")
+	WorkGroupEncryptionOption_CSE_KMS = WorkGroupEncryptionOption("CSE_KMS")
 )
 
 func (WorkGroupEncryptionOption) ElementType() reflect.Type {
@@ -346,8 +346,8 @@ func (in *workGroupEncryptionOptionPtr) ToWorkGroupEncryptionOptionPtrOutputWith
 type WorkGroupStateEnum string
 
 const (
-	WorkGroupStateEnumEnabled  = WorkGroupStateEnum("ENABLED")
-	WorkGroupStateEnumDisabled = WorkGroupStateEnum("DISABLED")
+	WorkGroupStateEnumENABLED  = WorkGroupStateEnum("ENABLED")
+	WorkGroupStateEnumDISABLED = WorkGroupStateEnum("DISABLED")
 )
 
 func (WorkGroupStateEnum) ElementType() reflect.Type {

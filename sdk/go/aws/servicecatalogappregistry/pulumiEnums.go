@@ -14,7 +14,7 @@ import (
 type ResourceAssociationResourceType string
 
 const (
-	ResourceAssociationResourceTypeCfnStack = ResourceAssociationResourceType("CFN_STACK")
+	ResourceAssociationResourceType_CFN_STACK = ResourceAssociationResourceType("CFN_STACK")
 )
 
 func (ResourceAssociationResourceType) ElementType() reflect.Type {

@@ -13,8 +13,8 @@ import (
 type ComponentVersionLambdaEventSourceType string
 
 const (
-	ComponentVersionLambdaEventSourceTypePubSub  = ComponentVersionLambdaEventSourceType("PUB_SUB")
-	ComponentVersionLambdaEventSourceTypeIotCore = ComponentVersionLambdaEventSourceType("IOT_CORE")
+	ComponentVersionLambdaEventSourceType_PUB_SUB  = ComponentVersionLambdaEventSourceType("PUB_SUB")
+	ComponentVersionLambdaEventSourceType_IOT_CORE = ComponentVersionLambdaEventSourceType("IOT_CORE")
 )
 
 func (ComponentVersionLambdaEventSourceType) ElementType() reflect.Type {
@@ -177,8 +177,8 @@ func (in *componentVersionLambdaEventSourceTypePtr) ToComponentVersionLambdaEven
 type ComponentVersionLambdaExecutionParametersInputPayloadEncodingType string
 
 const (
-	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeJson   = ComponentVersionLambdaExecutionParametersInputPayloadEncodingType("json")
-	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeBinary = ComponentVersionLambdaExecutionParametersInputPayloadEncodingType("binary")
+	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeJSON   = ComponentVersionLambdaExecutionParametersInputPayloadEncodingType("json")
+	ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeBINARY = ComponentVersionLambdaExecutionParametersInputPayloadEncodingType("binary")
 )
 
 func (ComponentVersionLambdaExecutionParametersInputPayloadEncodingType) ElementType() reflect.Type {
@@ -341,8 +341,8 @@ func (in *componentVersionLambdaExecutionParametersInputPayloadEncodingTypePtr) 
 type ComponentVersionLambdaFilesystemPermission string
 
 const (
-	ComponentVersionLambdaFilesystemPermissionRo = ComponentVersionLambdaFilesystemPermission("ro")
-	ComponentVersionLambdaFilesystemPermissionRw = ComponentVersionLambdaFilesystemPermission("rw")
+	ComponentVersionLambdaFilesystemPermissionRO = ComponentVersionLambdaFilesystemPermission("ro")
+	ComponentVersionLambdaFilesystemPermissionRW = ComponentVersionLambdaFilesystemPermission("rw")
 )
 
 func (ComponentVersionLambdaFilesystemPermission) ElementType() reflect.Type {
@@ -505,8 +505,8 @@ func (in *componentVersionLambdaFilesystemPermissionPtr) ToComponentVersionLambd
 type ComponentVersionLambdaLinuxProcessParamsIsolationMode string
 
 const (
-	ComponentVersionLambdaLinuxProcessParamsIsolationModeGreengrassContainer = ComponentVersionLambdaLinuxProcessParamsIsolationMode("GreengrassContainer")
-	ComponentVersionLambdaLinuxProcessParamsIsolationModeNoContainer         = ComponentVersionLambdaLinuxProcessParamsIsolationMode("NoContainer")
+	ComponentVersionLambdaLinuxProcessParamsIsolationMode_GREENGRASS_CONTAINER = ComponentVersionLambdaLinuxProcessParamsIsolationMode("GreengrassContainer")
+	ComponentVersionLambdaLinuxProcessParamsIsolationMode_NO_CONTAINER         = ComponentVersionLambdaLinuxProcessParamsIsolationMode("NoContainer")
 )
 
 func (ComponentVersionLambdaLinuxProcessParamsIsolationMode) ElementType() reflect.Type {

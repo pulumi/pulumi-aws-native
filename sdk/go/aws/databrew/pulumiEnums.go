@@ -14,9 +14,9 @@ import (
 type DatasetDatasetParameterType string
 
 const (
-	DatasetDatasetParameterTypeString   = DatasetDatasetParameterType("String")
-	DatasetDatasetParameterTypeNumber   = DatasetDatasetParameterType("Number")
-	DatasetDatasetParameterTypeDatetime = DatasetDatasetParameterType("Datetime")
+	DatasetDatasetParameterTypeSTRING   = DatasetDatasetParameterType("String")
+	DatasetDatasetParameterTypeNUMBER   = DatasetDatasetParameterType("Number")
+	DatasetDatasetParameterTypeDATETIME = DatasetDatasetParameterType("Datetime")
 )
 
 func (DatasetDatasetParameterType) ElementType() reflect.Type {
@@ -180,8 +180,8 @@ func (in *datasetDatasetParameterTypePtr) ToDatasetDatasetParameterTypePtrOutput
 type DatasetFilesLimitOrder string
 
 const (
-	DatasetFilesLimitOrderAscending  = DatasetFilesLimitOrder("ASCENDING")
-	DatasetFilesLimitOrderDescending = DatasetFilesLimitOrder("DESCENDING")
+	DatasetFilesLimitOrderASCENDING  = DatasetFilesLimitOrder("ASCENDING")
+	DatasetFilesLimitOrderDESCENDING = DatasetFilesLimitOrder("DESCENDING")
 )
 
 func (DatasetFilesLimitOrder) ElementType() reflect.Type {
@@ -345,7 +345,7 @@ func (in *datasetFilesLimitOrderPtr) ToDatasetFilesLimitOrderPtrOutputWithContex
 type DatasetFilesLimitOrderedBy string
 
 const (
-	DatasetFilesLimitOrderedByLastModifiedDate = DatasetFilesLimitOrderedBy("LAST_MODIFIED_DATE")
+	DatasetFilesLimitOrderedBy_LAST_MODIFIED_DATE = DatasetFilesLimitOrderedBy("LAST_MODIFIED_DATE")
 )
 
 func (DatasetFilesLimitOrderedBy) ElementType() reflect.Type {
@@ -509,10 +509,10 @@ func (in *datasetFilesLimitOrderedByPtr) ToDatasetFilesLimitOrderedByPtrOutputWi
 type DatasetFormat string
 
 const (
-	DatasetFormatCsv     = DatasetFormat("CSV")
-	DatasetFormatJson    = DatasetFormat("JSON")
-	DatasetFormatParquet = DatasetFormat("PARQUET")
-	DatasetFormatExcel   = DatasetFormat("EXCEL")
+	DatasetFormatCSV     = DatasetFormat("CSV")
+	DatasetFormatJSON    = DatasetFormat("JSON")
+	DatasetFormatPARQUET = DatasetFormat("PARQUET")
+	DatasetFormatEXCEL   = DatasetFormat("EXCEL")
 )
 
 func (DatasetFormat) ElementType() reflect.Type {
@@ -676,7 +676,7 @@ func (in *datasetFormatPtr) ToDatasetFormatPtrOutputWithContext(ctx context.Cont
 type JobDatabaseOutputDatabaseOutputMode string
 
 const (
-	JobDatabaseOutputDatabaseOutputModeNewTable = JobDatabaseOutputDatabaseOutputMode("NEW_TABLE")
+	JobDatabaseOutputDatabaseOutputMode_NEW_TABLE = JobDatabaseOutputDatabaseOutputMode("NEW_TABLE")
 )
 
 func (JobDatabaseOutputDatabaseOutputMode) ElementType() reflect.Type {
@@ -840,8 +840,8 @@ func (in *jobDatabaseOutputDatabaseOutputModePtr) ToJobDatabaseOutputDatabaseOut
 type JobEncryptionMode string
 
 const (
-	JobEncryptionModeSseKms = JobEncryptionMode("SSE-KMS")
-	JobEncryptionModeSseS3  = JobEncryptionMode("SSE-S3")
+	JobEncryptionMode_SSE_KMS = JobEncryptionMode("SSE-KMS")
+	JobEncryptionMode_SSE_S3  = JobEncryptionMode("SSE-S3")
 )
 
 func (JobEncryptionMode) ElementType() reflect.Type {
@@ -1005,8 +1005,8 @@ func (in *jobEncryptionModePtr) ToJobEncryptionModePtrOutputWithContext(ctx cont
 type JobLogSubscription string
 
 const (
-	JobLogSubscriptionEnable  = JobLogSubscription("ENABLE")
-	JobLogSubscriptionDisable = JobLogSubscription("DISABLE")
+	JobLogSubscriptionENABLE  = JobLogSubscription("ENABLE")
+	JobLogSubscriptionDISABLE = JobLogSubscription("DISABLE")
 )
 
 func (JobLogSubscription) ElementType() reflect.Type {
@@ -1169,15 +1169,15 @@ func (in *jobLogSubscriptionPtr) ToJobLogSubscriptionPtrOutputWithContext(ctx co
 type JobOutputCompressionFormat string
 
 const (
-	JobOutputCompressionFormatGzip    = JobOutputCompressionFormat("GZIP")
-	JobOutputCompressionFormatLz4     = JobOutputCompressionFormat("LZ4")
-	JobOutputCompressionFormatSnappy  = JobOutputCompressionFormat("SNAPPY")
-	JobOutputCompressionFormatBzip2   = JobOutputCompressionFormat("BZIP2")
-	JobOutputCompressionFormatDeflate = JobOutputCompressionFormat("DEFLATE")
-	JobOutputCompressionFormatLzo     = JobOutputCompressionFormat("LZO")
-	JobOutputCompressionFormatBrotli  = JobOutputCompressionFormat("BROTLI")
-	JobOutputCompressionFormatZstd    = JobOutputCompressionFormat("ZSTD")
-	JobOutputCompressionFormatZlib    = JobOutputCompressionFormat("ZLIB")
+	JobOutputCompressionFormatGZIP    = JobOutputCompressionFormat("GZIP")
+	JobOutputCompressionFormatLZ4     = JobOutputCompressionFormat("LZ4")
+	JobOutputCompressionFormatSNAPPY  = JobOutputCompressionFormat("SNAPPY")
+	JobOutputCompressionFormatBZIP2   = JobOutputCompressionFormat("BZIP2")
+	JobOutputCompressionFormatDEFLATE = JobOutputCompressionFormat("DEFLATE")
+	JobOutputCompressionFormatLZO     = JobOutputCompressionFormat("LZO")
+	JobOutputCompressionFormatBROTLI  = JobOutputCompressionFormat("BROTLI")
+	JobOutputCompressionFormatZSTD    = JobOutputCompressionFormat("ZSTD")
+	JobOutputCompressionFormatZLIB    = JobOutputCompressionFormat("ZLIB")
 )
 
 func (JobOutputCompressionFormat) ElementType() reflect.Type {
@@ -1340,14 +1340,14 @@ func (in *jobOutputCompressionFormatPtr) ToJobOutputCompressionFormatPtrOutputWi
 type JobOutputFormat string
 
 const (
-	JobOutputFormatCsv          = JobOutputFormat("CSV")
-	JobOutputFormatJson         = JobOutputFormat("JSON")
-	JobOutputFormatParquet      = JobOutputFormat("PARQUET")
-	JobOutputFormatGlueparquet  = JobOutputFormat("GLUEPARQUET")
-	JobOutputFormatAvro         = JobOutputFormat("AVRO")
-	JobOutputFormatOrc          = JobOutputFormat("ORC")
-	JobOutputFormatXml          = JobOutputFormat("XML")
-	JobOutputFormatTableauhyper = JobOutputFormat("TABLEAUHYPER")
+	JobOutputFormatCSV          = JobOutputFormat("CSV")
+	JobOutputFormatJSON         = JobOutputFormat("JSON")
+	JobOutputFormatPARQUET      = JobOutputFormat("PARQUET")
+	JobOutputFormatGLUEPARQUET  = JobOutputFormat("GLUEPARQUET")
+	JobOutputFormatAVRO         = JobOutputFormat("AVRO")
+	JobOutputFormatORC          = JobOutputFormat("ORC")
+	JobOutputFormatXML          = JobOutputFormat("XML")
+	JobOutputFormatTABLEAUHYPER = JobOutputFormat("TABLEAUHYPER")
 )
 
 func (JobOutputFormat) ElementType() reflect.Type {
@@ -1511,8 +1511,8 @@ func (in *jobOutputFormatPtr) ToJobOutputFormatPtrOutputWithContext(ctx context.
 type JobSampleMode string
 
 const (
-	JobSampleModeFullDataset = JobSampleMode("FULL_DATASET")
-	JobSampleModeCustomRows  = JobSampleMode("CUSTOM_ROWS")
+	JobSampleMode_FULL_DATASET = JobSampleMode("FULL_DATASET")
+	JobSampleMode_CUSTOM_ROWS  = JobSampleMode("CUSTOM_ROWS")
 )
 
 func (JobSampleMode) ElementType() reflect.Type {
@@ -1676,8 +1676,8 @@ func (in *jobSampleModePtr) ToJobSampleModePtrOutputWithContext(ctx context.Cont
 type JobType string
 
 const (
-	JobTypeProfile = JobType("PROFILE")
-	JobTypeRecipe  = JobType("RECIPE")
+	JobTypePROFILE = JobType("PROFILE")
+	JobTypeRECIPE  = JobType("RECIPE")
 )
 
 func (JobType) ElementType() reflect.Type {
@@ -1841,9 +1841,9 @@ func (in *jobTypePtr) ToJobTypePtrOutputWithContext(ctx context.Context) JobType
 type ProjectSampleType string
 
 const (
-	ProjectSampleTypeFirstN = ProjectSampleType("FIRST_N")
-	ProjectSampleTypeLastN  = ProjectSampleType("LAST_N")
-	ProjectSampleTypeRandom = ProjectSampleType("RANDOM")
+	ProjectSampleType_FIRST_N = ProjectSampleType("FIRST_N")
+	ProjectSampleType_LAST_N  = ProjectSampleType("LAST_N")
+	ProjectSampleTypeRANDOM   = ProjectSampleType("RANDOM")
 )
 
 func (ProjectSampleType) ElementType() reflect.Type {

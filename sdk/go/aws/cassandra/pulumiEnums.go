@@ -13,8 +13,8 @@ import (
 type TableClusteringKeyColumnOrderBy string
 
 const (
-	TableClusteringKeyColumnOrderByAsc  = TableClusteringKeyColumnOrderBy("ASC")
-	TableClusteringKeyColumnOrderByDesc = TableClusteringKeyColumnOrderBy("DESC")
+	TableClusteringKeyColumnOrderByASC  = TableClusteringKeyColumnOrderBy("ASC")
+	TableClusteringKeyColumnOrderByDESC = TableClusteringKeyColumnOrderBy("DESC")
 )
 
 func (TableClusteringKeyColumnOrderBy) ElementType() reflect.Type {
@@ -178,8 +178,8 @@ func (in *tableClusteringKeyColumnOrderByPtr) ToTableClusteringKeyColumnOrderByP
 type TableEncryptionType string
 
 const (
-	TableEncryptionTypeAwsOwnedKmsKey        = TableEncryptionType("AWS_OWNED_KMS_KEY")
-	TableEncryptionTypeCustomerManagedKmsKey = TableEncryptionType("CUSTOMER_MANAGED_KMS_KEY")
+	TableEncryptionType_AWS_OWNED_KMS_KEY        = TableEncryptionType("AWS_OWNED_KMS_KEY")
+	TableEncryptionType_CUSTOMER_MANAGED_KMS_KEY = TableEncryptionType("CUSTOMER_MANAGED_KMS_KEY")
 )
 
 func (TableEncryptionType) ElementType() reflect.Type {
@@ -343,8 +343,8 @@ func (in *tableEncryptionTypePtr) ToTableEncryptionTypePtrOutputWithContext(ctx 
 type TableMode string
 
 const (
-	TableModeProvisioned = TableMode("PROVISIONED")
-	TableModeOnDemand    = TableMode("ON_DEMAND")
+	TableModePROVISIONED = TableMode("PROVISIONED")
+	TableMode_ON_DEMAND  = TableMode("ON_DEMAND")
 )
 
 func (TableMode) ElementType() reflect.Type {

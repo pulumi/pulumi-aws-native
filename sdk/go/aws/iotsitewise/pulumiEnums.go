@@ -14,8 +14,8 @@ import (
 type AssetAssetPropertyNotificationState string
 
 const (
-	AssetAssetPropertyNotificationStateEnabled  = AssetAssetPropertyNotificationState("ENABLED")
-	AssetAssetPropertyNotificationStateDisabled = AssetAssetPropertyNotificationState("DISABLED")
+	AssetAssetPropertyNotificationStateENABLED  = AssetAssetPropertyNotificationState("ENABLED")
+	AssetAssetPropertyNotificationStateDISABLED = AssetAssetPropertyNotificationState("DISABLED")
 )
 
 func (AssetAssetPropertyNotificationState) ElementType() reflect.Type {
@@ -178,11 +178,11 @@ func (in *assetAssetPropertyNotificationStatePtr) ToAssetAssetPropertyNotificati
 type AssetModelDataType string
 
 const (
-	AssetModelDataTypeString  = AssetModelDataType("STRING")
-	AssetModelDataTypeInteger = AssetModelDataType("INTEGER")
-	AssetModelDataTypeDouble  = AssetModelDataType("DOUBLE")
-	AssetModelDataTypeBoolean = AssetModelDataType("BOOLEAN")
-	AssetModelDataTypeStruct  = AssetModelDataType("STRUCT")
+	AssetModelDataTypeSTRING  = AssetModelDataType("STRING")
+	AssetModelDataTypeINTEGER = AssetModelDataType("INTEGER")
+	AssetModelDataTypeDOUBLE  = AssetModelDataType("DOUBLE")
+	AssetModelDataTypeBOOLEAN = AssetModelDataType("BOOLEAN")
+	AssetModelDataTypeSTRUCT  = AssetModelDataType("STRUCT")
 )
 
 func (AssetModelDataType) ElementType() reflect.Type {
@@ -345,7 +345,7 @@ func (in *assetModelDataTypePtr) ToAssetModelDataTypePtrOutputWithContext(ctx co
 type AssetModelDataTypeSpec string
 
 const (
-	AssetModelDataTypeSpecAwsalarmState = AssetModelDataTypeSpec("AWS/ALARM_STATE")
+	AssetModelDataTypeSpec_AWSALARM_STATE = AssetModelDataTypeSpec("AWS/ALARM_STATE")
 )
 
 func (AssetModelDataTypeSpec) ElementType() reflect.Type {
@@ -508,10 +508,10 @@ func (in *assetModelDataTypeSpecPtr) ToAssetModelDataTypeSpecPtrOutputWithContex
 type AssetModelTypeName string
 
 const (
-	AssetModelTypeNameMeasurement = AssetModelTypeName("Measurement")
-	AssetModelTypeNameAttribute   = AssetModelTypeName("Attribute")
-	AssetModelTypeNameTransform   = AssetModelTypeName("Transform")
-	AssetModelTypeNameMetric      = AssetModelTypeName("Metric")
+	AssetModelTypeNameMEASUREMENT = AssetModelTypeName("Measurement")
+	AssetModelTypeNameATTRIBUTE   = AssetModelTypeName("Attribute")
+	AssetModelTypeNameTRANSFORM   = AssetModelTypeName("Transform")
+	AssetModelTypeNameMETRIC      = AssetModelTypeName("Metric")
 )
 
 func (AssetModelTypeName) ElementType() reflect.Type {

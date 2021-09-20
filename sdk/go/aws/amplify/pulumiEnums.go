@@ -13,11 +13,11 @@ import (
 type AppAutoBranchCreationConfigStage string
 
 const (
-	AppAutoBranchCreationConfigStageExperimental = AppAutoBranchCreationConfigStage("EXPERIMENTAL")
-	AppAutoBranchCreationConfigStageBeta         = AppAutoBranchCreationConfigStage("BETA")
-	AppAutoBranchCreationConfigStagePullRequest  = AppAutoBranchCreationConfigStage("PULL_REQUEST")
-	AppAutoBranchCreationConfigStageProduction   = AppAutoBranchCreationConfigStage("PRODUCTION")
-	AppAutoBranchCreationConfigStageDevelopment  = AppAutoBranchCreationConfigStage("DEVELOPMENT")
+	AppAutoBranchCreationConfigStageEXPERIMENTAL  = AppAutoBranchCreationConfigStage("EXPERIMENTAL")
+	AppAutoBranchCreationConfigStageBETA          = AppAutoBranchCreationConfigStage("BETA")
+	AppAutoBranchCreationConfigStage_PULL_REQUEST = AppAutoBranchCreationConfigStage("PULL_REQUEST")
+	AppAutoBranchCreationConfigStagePRODUCTION    = AppAutoBranchCreationConfigStage("PRODUCTION")
+	AppAutoBranchCreationConfigStageDEVELOPMENT   = AppAutoBranchCreationConfigStage("DEVELOPMENT")
 )
 
 func (AppAutoBranchCreationConfigStage) ElementType() reflect.Type {
@@ -180,11 +180,11 @@ func (in *appAutoBranchCreationConfigStagePtr) ToAppAutoBranchCreationConfigStag
 type BranchStage string
 
 const (
-	BranchStageExperimental = BranchStage("EXPERIMENTAL")
-	BranchStageBeta         = BranchStage("BETA")
-	BranchStagePullRequest  = BranchStage("PULL_REQUEST")
-	BranchStageProduction   = BranchStage("PRODUCTION")
-	BranchStageDevelopment  = BranchStage("DEVELOPMENT")
+	BranchStageEXPERIMENTAL  = BranchStage("EXPERIMENTAL")
+	BranchStageBETA          = BranchStage("BETA")
+	BranchStage_PULL_REQUEST = BranchStage("PULL_REQUEST")
+	BranchStagePRODUCTION    = BranchStage("PRODUCTION")
+	BranchStageDEVELOPMENT   = BranchStage("DEVELOPMENT")
 )
 
 func (BranchStage) ElementType() reflect.Type {

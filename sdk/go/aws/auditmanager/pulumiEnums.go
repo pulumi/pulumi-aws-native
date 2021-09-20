@@ -178,8 +178,8 @@ func (in *assessmentAssessmentReportDestinationTypePtr) ToAssessmentAssessmentRe
 type AssessmentAssessmentStatus string
 
 const (
-	AssessmentAssessmentStatusActive   = AssessmentAssessmentStatus("ACTIVE")
-	AssessmentAssessmentStatusInactive = AssessmentAssessmentStatus("INACTIVE")
+	AssessmentAssessmentStatusACTIVE   = AssessmentAssessmentStatus("ACTIVE")
+	AssessmentAssessmentStatusINACTIVE = AssessmentAssessmentStatus("INACTIVE")
 )
 
 func (AssessmentAssessmentStatus) ElementType() reflect.Type {
@@ -343,9 +343,9 @@ func (in *assessmentAssessmentStatusPtr) ToAssessmentAssessmentStatusPtrOutputWi
 type AssessmentDelegationStatus string
 
 const (
-	AssessmentDelegationStatusInProgress  = AssessmentDelegationStatus("IN_PROGRESS")
-	AssessmentDelegationStatusUnderReview = AssessmentDelegationStatus("UNDER_REVIEW")
-	AssessmentDelegationStatusComplete    = AssessmentDelegationStatus("COMPLETE")
+	AssessmentDelegationStatus_IN_PROGRESS  = AssessmentDelegationStatus("IN_PROGRESS")
+	AssessmentDelegationStatus_UNDER_REVIEW = AssessmentDelegationStatus("UNDER_REVIEW")
+	AssessmentDelegationStatusCOMPLETE      = AssessmentDelegationStatus("COMPLETE")
 )
 
 func (AssessmentDelegationStatus) ElementType() reflect.Type {
@@ -509,8 +509,8 @@ func (in *assessmentDelegationStatusPtr) ToAssessmentDelegationStatusPtrOutputWi
 type AssessmentRoleType string
 
 const (
-	AssessmentRoleTypeProcessOwner  = AssessmentRoleType("PROCESS_OWNER")
-	AssessmentRoleTypeResourceOwner = AssessmentRoleType("RESOURCE_OWNER")
+	AssessmentRoleType_PROCESS_OWNER  = AssessmentRoleType("PROCESS_OWNER")
+	AssessmentRoleType_RESOURCE_OWNER = AssessmentRoleType("RESOURCE_OWNER")
 )
 
 func (AssessmentRoleType) ElementType() reflect.Type {

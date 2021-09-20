@@ -14,14 +14,14 @@ import (
 type KeyKeySpec string
 
 const (
-	KeyKeySpecSymmetricDefault = KeyKeySpec("SYMMETRIC_DEFAULT")
-	KeyKeySpecRsa2048          = KeyKeySpec("RSA_2048")
-	KeyKeySpecRsa3072          = KeyKeySpec("RSA_3072")
-	KeyKeySpecRsa4096          = KeyKeySpec("RSA_4096")
-	KeyKeySpecEccNistP256      = KeyKeySpec("ECC_NIST_P256")
-	KeyKeySpecEccNistP384      = KeyKeySpec("ECC_NIST_P384")
-	KeyKeySpecEccNistP521      = KeyKeySpec("ECC_NIST_P521")
-	KeyKeySpecEccSecgP256k1    = KeyKeySpec("ECC_SECG_P256K1")
+	KeyKeySpec_SYMMETRIC_DEFAULT = KeyKeySpec("SYMMETRIC_DEFAULT")
+	KeyKeySpecRSA2048            = KeyKeySpec("RSA_2048")
+	KeyKeySpecRSA3072            = KeyKeySpec("RSA_3072")
+	KeyKeySpecRSA4096            = KeyKeySpec("RSA_4096")
+	KeyKeySpec_ECC_NIST_P256     = KeyKeySpec("ECC_NIST_P256")
+	KeyKeySpec_ECC_NIST_P384     = KeyKeySpec("ECC_NIST_P384")
+	KeyKeySpec_ECC_NIST_P521     = KeyKeySpec("ECC_NIST_P521")
+	KeyKeySpec_ECC_SECG_P256K1   = KeyKeySpec("ECC_SECG_P256K1")
 )
 
 func (KeyKeySpec) ElementType() reflect.Type {
@@ -185,8 +185,8 @@ func (in *keyKeySpecPtr) ToKeyKeySpecPtrOutputWithContext(ctx context.Context) K
 type KeyKeyUsage string
 
 const (
-	KeyKeyUsageEncryptDecrypt = KeyKeyUsage("ENCRYPT_DECRYPT")
-	KeyKeyUsageSignVerify     = KeyKeyUsage("SIGN_VERIFY")
+	KeyKeyUsage_ENCRYPT_DECRYPT = KeyKeyUsage("ENCRYPT_DECRYPT")
+	KeyKeyUsage_SIGN_VERIFY     = KeyKeyUsage("SIGN_VERIFY")
 )
 
 func (KeyKeyUsage) ElementType() reflect.Type {

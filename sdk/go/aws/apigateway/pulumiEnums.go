@@ -14,7 +14,7 @@ import (
 type UsagePlanKeyKeyType string
 
 const (
-	UsagePlanKeyKeyTypeApiKey = UsagePlanKeyKeyType("API_KEY")
+	UsagePlanKeyKeyType_API_KEY = UsagePlanKeyKeyType("API_KEY")
 )
 
 func (UsagePlanKeyKeyType) ElementType() reflect.Type {

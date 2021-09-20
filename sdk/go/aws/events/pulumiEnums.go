@@ -13,13 +13,13 @@ import (
 type ApiDestinationHttpMethod string
 
 const (
-	ApiDestinationHttpMethodGet     = ApiDestinationHttpMethod("GET")
-	ApiDestinationHttpMethodHead    = ApiDestinationHttpMethod("HEAD")
-	ApiDestinationHttpMethodPost    = ApiDestinationHttpMethod("POST")
-	ApiDestinationHttpMethodOptions = ApiDestinationHttpMethod("OPTIONS")
-	ApiDestinationHttpMethodPut     = ApiDestinationHttpMethod("PUT")
-	ApiDestinationHttpMethodDelete  = ApiDestinationHttpMethod("DELETE")
-	ApiDestinationHttpMethodPatch   = ApiDestinationHttpMethod("PATCH")
+	ApiDestinationHttpMethodGET     = ApiDestinationHttpMethod("GET")
+	ApiDestinationHttpMethodHEAD    = ApiDestinationHttpMethod("HEAD")
+	ApiDestinationHttpMethodPOST    = ApiDestinationHttpMethod("POST")
+	ApiDestinationHttpMethodOPTIONS = ApiDestinationHttpMethod("OPTIONS")
+	ApiDestinationHttpMethodPUT     = ApiDestinationHttpMethod("PUT")
+	ApiDestinationHttpMethodDELETE  = ApiDestinationHttpMethod("DELETE")
+	ApiDestinationHttpMethodPATCH   = ApiDestinationHttpMethod("PATCH")
 )
 
 func (ApiDestinationHttpMethod) ElementType() reflect.Type {
@@ -182,9 +182,9 @@ func (in *apiDestinationHttpMethodPtr) ToApiDestinationHttpMethodPtrOutputWithCo
 type ConnectionAuthorizationType string
 
 const (
-	ConnectionAuthorizationTypeApiKey                 = ConnectionAuthorizationType("API_KEY")
-	ConnectionAuthorizationTypeBasic                  = ConnectionAuthorizationType("BASIC")
-	ConnectionAuthorizationTypeOauthClientCredentials = ConnectionAuthorizationType("OAUTH_CLIENT_CREDENTIALS")
+	ConnectionAuthorizationType_API_KEY                  = ConnectionAuthorizationType("API_KEY")
+	ConnectionAuthorizationTypeBASIC                     = ConnectionAuthorizationType("BASIC")
+	ConnectionAuthorizationType_OAUTH_CLIENT_CREDENTIALS = ConnectionAuthorizationType("OAUTH_CLIENT_CREDENTIALS")
 )
 
 func (ConnectionAuthorizationType) ElementType() reflect.Type {

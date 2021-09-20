@@ -14,8 +14,8 @@ import (
 type GlobalReplicationGroupGlobalReplicationGroupMemberRole string
 
 const (
-	GlobalReplicationGroupGlobalReplicationGroupMemberRolePrimary   = GlobalReplicationGroupGlobalReplicationGroupMemberRole("PRIMARY")
-	GlobalReplicationGroupGlobalReplicationGroupMemberRoleSecondary = GlobalReplicationGroupGlobalReplicationGroupMemberRole("SECONDARY")
+	GlobalReplicationGroupGlobalReplicationGroupMemberRolePRIMARY   = GlobalReplicationGroupGlobalReplicationGroupMemberRole("PRIMARY")
+	GlobalReplicationGroupGlobalReplicationGroupMemberRoleSECONDARY = GlobalReplicationGroupGlobalReplicationGroupMemberRole("SECONDARY")
 )
 
 func (GlobalReplicationGroupGlobalReplicationGroupMemberRole) ElementType() reflect.Type {
@@ -179,7 +179,7 @@ func (in *globalReplicationGroupGlobalReplicationGroupMemberRolePtr) ToGlobalRep
 type UserEngine string
 
 const (
-	UserEngineRedis = UserEngine("redis")
+	UserEngineREDIS = UserEngine("redis")
 )
 
 func (UserEngine) ElementType() reflect.Type {
@@ -343,7 +343,7 @@ func (in *userEnginePtr) ToUserEnginePtrOutputWithContext(ctx context.Context) U
 type UserGroupEngine string
 
 const (
-	UserGroupEngineRedis = UserGroupEngine("redis")
+	UserGroupEngineREDIS = UserGroupEngine("redis")
 )
 
 func (UserGroupEngine) ElementType() reflect.Type {

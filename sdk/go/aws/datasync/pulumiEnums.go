@@ -14,9 +14,9 @@ import (
 type AgentEndpointType string
 
 const (
-	AgentEndpointTypeFips        = AgentEndpointType("FIPS")
-	AgentEndpointTypePublic      = AgentEndpointType("PUBLIC")
-	AgentEndpointTypePrivateLink = AgentEndpointType("PRIVATE_LINK")
+	AgentEndpointTypeFIPS          = AgentEndpointType("FIPS")
+	AgentEndpointTypePUBLIC        = AgentEndpointType("PUBLIC")
+	AgentEndpointType_PRIVATE_LINK = AgentEndpointType("PRIVATE_LINK")
 )
 
 func (AgentEndpointType) ElementType() reflect.Type {
@@ -180,10 +180,10 @@ func (in *agentEndpointTypePtr) ToAgentEndpointTypePtrOutputWithContext(ctx cont
 type LocationNFSMountOptionsVersion string
 
 const (
-	LocationNFSMountOptionsVersionAutomatic = LocationNFSMountOptionsVersion("AUTOMATIC")
-	LocationNFSMountOptionsVersionNfs3      = LocationNFSMountOptionsVersion("NFS3")
-	LocationNFSMountOptionsVersionNfs40     = LocationNFSMountOptionsVersion("NFS4_0")
-	LocationNFSMountOptionsVersionNfs41     = LocationNFSMountOptionsVersion("NFS4_1")
+	LocationNFSMountOptionsVersionAUTOMATIC = LocationNFSMountOptionsVersion("AUTOMATIC")
+	LocationNFSMountOptionsVersionNFS3      = LocationNFSMountOptionsVersion("NFS3")
+	LocationNFSMountOptionsVersionNFS40     = LocationNFSMountOptionsVersion("NFS4_0")
+	LocationNFSMountOptionsVersionNFS41     = LocationNFSMountOptionsVersion("NFS4_1")
 )
 
 func (LocationNFSMountOptionsVersion) ElementType() reflect.Type {
@@ -347,8 +347,8 @@ func (in *locationNFSMountOptionsVersionPtr) ToLocationNFSMountOptionsVersionPtr
 type LocationObjectStorageServerProtocol string
 
 const (
-	LocationObjectStorageServerProtocolHttps = LocationObjectStorageServerProtocol("HTTPS")
-	LocationObjectStorageServerProtocolHttp  = LocationObjectStorageServerProtocol("HTTP")
+	LocationObjectStorageServerProtocolHTTPS = LocationObjectStorageServerProtocol("HTTPS")
+	LocationObjectStorageServerProtocolHTTP  = LocationObjectStorageServerProtocol("HTTP")
 )
 
 func (LocationObjectStorageServerProtocol) ElementType() reflect.Type {
@@ -512,12 +512,12 @@ func (in *locationObjectStorageServerProtocolPtr) ToLocationObjectStorageServerP
 type LocationS3S3StorageClass string
 
 const (
-	LocationS3S3StorageClassStandard           = LocationS3S3StorageClass("STANDARD")
-	LocationS3S3StorageClassStandardIa         = LocationS3S3StorageClass("STANDARD_IA")
-	LocationS3S3StorageClassOnezoneIa          = LocationS3S3StorageClass("ONEZONE_IA")
-	LocationS3S3StorageClassIntelligentTiering = LocationS3S3StorageClass("INTELLIGENT_TIERING")
-	LocationS3S3StorageClassGlacier            = LocationS3S3StorageClass("GLACIER")
-	LocationS3S3StorageClassDeepArchive        = LocationS3S3StorageClass("DEEP_ARCHIVE")
+	LocationS3S3StorageClassSTANDARD             = LocationS3S3StorageClass("STANDARD")
+	LocationS3S3StorageClass_STANDARD_IA         = LocationS3S3StorageClass("STANDARD_IA")
+	LocationS3S3StorageClass_ONEZONE_IA          = LocationS3S3StorageClass("ONEZONE_IA")
+	LocationS3S3StorageClass_INTELLIGENT_TIERING = LocationS3S3StorageClass("INTELLIGENT_TIERING")
+	LocationS3S3StorageClassGLACIER              = LocationS3S3StorageClass("GLACIER")
+	LocationS3S3StorageClass_DEEP_ARCHIVE        = LocationS3S3StorageClass("DEEP_ARCHIVE")
 )
 
 func (LocationS3S3StorageClass) ElementType() reflect.Type {
@@ -681,9 +681,9 @@ func (in *locationS3S3StorageClassPtr) ToLocationS3S3StorageClassPtrOutputWithCo
 type LocationSMBMountOptionsVersion string
 
 const (
-	LocationSMBMountOptionsVersionAutomatic = LocationSMBMountOptionsVersion("AUTOMATIC")
-	LocationSMBMountOptionsVersionSmb2      = LocationSMBMountOptionsVersion("SMB2")
-	LocationSMBMountOptionsVersionSmb3      = LocationSMBMountOptionsVersion("SMB3")
+	LocationSMBMountOptionsVersionAUTOMATIC = LocationSMBMountOptionsVersion("AUTOMATIC")
+	LocationSMBMountOptionsVersionSMB2      = LocationSMBMountOptionsVersion("SMB2")
+	LocationSMBMountOptionsVersionSMB3      = LocationSMBMountOptionsVersion("SMB3")
 )
 
 func (LocationSMBMountOptionsVersion) ElementType() reflect.Type {
@@ -847,7 +847,7 @@ func (in *locationSMBMountOptionsVersionPtr) ToLocationSMBMountOptionsVersionPtr
 type TaskFilterRuleFilterType string
 
 const (
-	TaskFilterRuleFilterTypeSimplePattern = TaskFilterRuleFilterType("SIMPLE_PATTERN")
+	TaskFilterRuleFilterType_SIMPLE_PATTERN = TaskFilterRuleFilterType("SIMPLE_PATTERN")
 )
 
 func (TaskFilterRuleFilterType) ElementType() reflect.Type {
@@ -1011,8 +1011,8 @@ func (in *taskFilterRuleFilterTypePtr) ToTaskFilterRuleFilterTypePtrOutputWithCo
 type TaskOptionsAtime string
 
 const (
-	TaskOptionsAtimeNone       = TaskOptionsAtime("NONE")
-	TaskOptionsAtimeBestEffort = TaskOptionsAtime("BEST_EFFORT")
+	TaskOptionsAtimeNONE         = TaskOptionsAtime("NONE")
+	TaskOptionsAtime_BEST_EFFORT = TaskOptionsAtime("BEST_EFFORT")
 )
 
 func (TaskOptionsAtime) ElementType() reflect.Type {
@@ -1176,10 +1176,10 @@ func (in *taskOptionsAtimePtr) ToTaskOptionsAtimePtrOutputWithContext(ctx contex
 type TaskOptionsGid string
 
 const (
-	TaskOptionsGidNone     = TaskOptionsGid("NONE")
-	TaskOptionsGidIntValue = TaskOptionsGid("INT_VALUE")
-	TaskOptionsGidName     = TaskOptionsGid("NAME")
-	TaskOptionsGidBoth     = TaskOptionsGid("BOTH")
+	TaskOptionsGidNONE       = TaskOptionsGid("NONE")
+	TaskOptionsGid_INT_VALUE = TaskOptionsGid("INT_VALUE")
+	TaskOptionsGidNAME       = TaskOptionsGid("NAME")
+	TaskOptionsGidBOTH       = TaskOptionsGid("BOTH")
 )
 
 func (TaskOptionsGid) ElementType() reflect.Type {
@@ -1343,9 +1343,9 @@ func (in *taskOptionsGidPtr) ToTaskOptionsGidPtrOutputWithContext(ctx context.Co
 type TaskOptionsLogLevel string
 
 const (
-	TaskOptionsLogLevelOff      = TaskOptionsLogLevel("OFF")
-	TaskOptionsLogLevelBasic    = TaskOptionsLogLevel("BASIC")
-	TaskOptionsLogLevelTransfer = TaskOptionsLogLevel("TRANSFER")
+	TaskOptionsLogLevelOFF      = TaskOptionsLogLevel("OFF")
+	TaskOptionsLogLevelBASIC    = TaskOptionsLogLevel("BASIC")
+	TaskOptionsLogLevelTRANSFER = TaskOptionsLogLevel("TRANSFER")
 )
 
 func (TaskOptionsLogLevel) ElementType() reflect.Type {
@@ -1509,8 +1509,8 @@ func (in *taskOptionsLogLevelPtr) ToTaskOptionsLogLevelPtrOutputWithContext(ctx 
 type TaskOptionsMtime string
 
 const (
-	TaskOptionsMtimeNone     = TaskOptionsMtime("NONE")
-	TaskOptionsMtimePreserve = TaskOptionsMtime("PRESERVE")
+	TaskOptionsMtimeNONE     = TaskOptionsMtime("NONE")
+	TaskOptionsMtimePRESERVE = TaskOptionsMtime("PRESERVE")
 )
 
 func (TaskOptionsMtime) ElementType() reflect.Type {
@@ -1674,8 +1674,8 @@ func (in *taskOptionsMtimePtr) ToTaskOptionsMtimePtrOutputWithContext(ctx contex
 type TaskOptionsOverwriteMode string
 
 const (
-	TaskOptionsOverwriteModeAlways = TaskOptionsOverwriteMode("ALWAYS")
-	TaskOptionsOverwriteModeNever  = TaskOptionsOverwriteMode("NEVER")
+	TaskOptionsOverwriteModeALWAYS = TaskOptionsOverwriteMode("ALWAYS")
+	TaskOptionsOverwriteModeNEVER  = TaskOptionsOverwriteMode("NEVER")
 )
 
 func (TaskOptionsOverwriteMode) ElementType() reflect.Type {
@@ -1839,8 +1839,8 @@ func (in *taskOptionsOverwriteModePtr) ToTaskOptionsOverwriteModePtrOutputWithCo
 type TaskOptionsPosixPermissions string
 
 const (
-	TaskOptionsPosixPermissionsNone     = TaskOptionsPosixPermissions("NONE")
-	TaskOptionsPosixPermissionsPreserve = TaskOptionsPosixPermissions("PRESERVE")
+	TaskOptionsPosixPermissionsNONE     = TaskOptionsPosixPermissions("NONE")
+	TaskOptionsPosixPermissionsPRESERVE = TaskOptionsPosixPermissions("PRESERVE")
 )
 
 func (TaskOptionsPosixPermissions) ElementType() reflect.Type {
@@ -2004,8 +2004,8 @@ func (in *taskOptionsPosixPermissionsPtr) ToTaskOptionsPosixPermissionsPtrOutput
 type TaskOptionsPreserveDeletedFiles string
 
 const (
-	TaskOptionsPreserveDeletedFilesPreserve = TaskOptionsPreserveDeletedFiles("PRESERVE")
-	TaskOptionsPreserveDeletedFilesRemove   = TaskOptionsPreserveDeletedFiles("REMOVE")
+	TaskOptionsPreserveDeletedFilesPRESERVE = TaskOptionsPreserveDeletedFiles("PRESERVE")
+	TaskOptionsPreserveDeletedFilesREMOVE   = TaskOptionsPreserveDeletedFiles("REMOVE")
 )
 
 func (TaskOptionsPreserveDeletedFiles) ElementType() reflect.Type {
@@ -2169,8 +2169,8 @@ func (in *taskOptionsPreserveDeletedFilesPtr) ToTaskOptionsPreserveDeletedFilesP
 type TaskOptionsPreserveDevices string
 
 const (
-	TaskOptionsPreserveDevicesNone     = TaskOptionsPreserveDevices("NONE")
-	TaskOptionsPreserveDevicesPreserve = TaskOptionsPreserveDevices("PRESERVE")
+	TaskOptionsPreserveDevicesNONE     = TaskOptionsPreserveDevices("NONE")
+	TaskOptionsPreserveDevicesPRESERVE = TaskOptionsPreserveDevices("PRESERVE")
 )
 
 func (TaskOptionsPreserveDevices) ElementType() reflect.Type {
@@ -2334,9 +2334,9 @@ func (in *taskOptionsPreserveDevicesPtr) ToTaskOptionsPreserveDevicesPtrOutputWi
 type TaskOptionsSecurityDescriptorCopyFlags string
 
 const (
-	TaskOptionsSecurityDescriptorCopyFlagsNone          = TaskOptionsSecurityDescriptorCopyFlags("NONE")
-	TaskOptionsSecurityDescriptorCopyFlagsOwnerDacl     = TaskOptionsSecurityDescriptorCopyFlags("OWNER_DACL")
-	TaskOptionsSecurityDescriptorCopyFlagsOwnerDaclSacl = TaskOptionsSecurityDescriptorCopyFlags("OWNER_DACL_SACL")
+	TaskOptionsSecurityDescriptorCopyFlagsNONE             = TaskOptionsSecurityDescriptorCopyFlags("NONE")
+	TaskOptionsSecurityDescriptorCopyFlags_OWNER_DACL      = TaskOptionsSecurityDescriptorCopyFlags("OWNER_DACL")
+	TaskOptionsSecurityDescriptorCopyFlags_OWNER_DACL_SACL = TaskOptionsSecurityDescriptorCopyFlags("OWNER_DACL_SACL")
 )
 
 func (TaskOptionsSecurityDescriptorCopyFlags) ElementType() reflect.Type {
@@ -2500,8 +2500,8 @@ func (in *taskOptionsSecurityDescriptorCopyFlagsPtr) ToTaskOptionsSecurityDescri
 type TaskOptionsTaskQueueing string
 
 const (
-	TaskOptionsTaskQueueingEnabled  = TaskOptionsTaskQueueing("ENABLED")
-	TaskOptionsTaskQueueingDisabled = TaskOptionsTaskQueueing("DISABLED")
+	TaskOptionsTaskQueueingENABLED  = TaskOptionsTaskQueueing("ENABLED")
+	TaskOptionsTaskQueueingDISABLED = TaskOptionsTaskQueueing("DISABLED")
 )
 
 func (TaskOptionsTaskQueueing) ElementType() reflect.Type {
@@ -2665,8 +2665,8 @@ func (in *taskOptionsTaskQueueingPtr) ToTaskOptionsTaskQueueingPtrOutputWithCont
 type TaskOptionsTransferMode string
 
 const (
-	TaskOptionsTransferModeChanged = TaskOptionsTransferMode("CHANGED")
-	TaskOptionsTransferModeAll     = TaskOptionsTransferMode("ALL")
+	TaskOptionsTransferModeCHANGED = TaskOptionsTransferMode("CHANGED")
+	TaskOptionsTransferModeALL     = TaskOptionsTransferMode("ALL")
 )
 
 func (TaskOptionsTransferMode) ElementType() reflect.Type {
@@ -2830,10 +2830,10 @@ func (in *taskOptionsTransferModePtr) ToTaskOptionsTransferModePtrOutputWithCont
 type TaskOptionsUid string
 
 const (
-	TaskOptionsUidNone     = TaskOptionsUid("NONE")
-	TaskOptionsUidIntValue = TaskOptionsUid("INT_VALUE")
-	TaskOptionsUidName     = TaskOptionsUid("NAME")
-	TaskOptionsUidBoth     = TaskOptionsUid("BOTH")
+	TaskOptionsUidNONE       = TaskOptionsUid("NONE")
+	TaskOptionsUid_INT_VALUE = TaskOptionsUid("INT_VALUE")
+	TaskOptionsUidNAME       = TaskOptionsUid("NAME")
+	TaskOptionsUidBOTH       = TaskOptionsUid("BOTH")
 )
 
 func (TaskOptionsUid) ElementType() reflect.Type {
@@ -2997,9 +2997,9 @@ func (in *taskOptionsUidPtr) ToTaskOptionsUidPtrOutputWithContext(ctx context.Co
 type TaskOptionsVerifyMode string
 
 const (
-	TaskOptionsVerifyModePointInTimeConsistent = TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT")
-	TaskOptionsVerifyModeOnlyFilesTransferred  = TaskOptionsVerifyMode("ONLY_FILES_TRANSFERRED")
-	TaskOptionsVerifyModeNone                  = TaskOptionsVerifyMode("NONE")
+	TaskOptionsVerifyMode_POINT_IN_TIME_CONSISTENT = TaskOptionsVerifyMode("POINT_IN_TIME_CONSISTENT")
+	TaskOptionsVerifyMode_ONLY_FILES_TRANSFERRED   = TaskOptionsVerifyMode("ONLY_FILES_TRANSFERRED")
+	TaskOptionsVerifyModeNONE                      = TaskOptionsVerifyMode("NONE")
 )
 
 func (TaskOptionsVerifyMode) ElementType() reflect.Type {
@@ -3163,11 +3163,11 @@ func (in *taskOptionsVerifyModePtr) ToTaskOptionsVerifyModePtrOutputWithContext(
 type TaskStatus string
 
 const (
-	TaskStatusAvailable   = TaskStatus("AVAILABLE")
-	TaskStatusCreating    = TaskStatus("CREATING")
-	TaskStatusQueued      = TaskStatus("QUEUED")
-	TaskStatusRunning     = TaskStatus("RUNNING")
-	TaskStatusUnavailable = TaskStatus("UNAVAILABLE")
+	TaskStatusAVAILABLE   = TaskStatus("AVAILABLE")
+	TaskStatusCREATING    = TaskStatus("CREATING")
+	TaskStatusQUEUED      = TaskStatus("QUEUED")
+	TaskStatusRUNNING     = TaskStatus("RUNNING")
+	TaskStatusUNAVAILABLE = TaskStatus("UNAVAILABLE")
 )
 
 func (TaskStatus) ElementType() reflect.Type {
