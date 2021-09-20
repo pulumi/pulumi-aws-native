@@ -2510,6 +2510,713 @@ export namespace codestarnotifications {
 
 }
 
+export namespace config {
+    /**
+     * The configuration for a Provider to assume a role.
+     */
+    export interface AssumeRole {
+        /**
+         * Number of seconds to restrict the assume role session duration.
+         */
+        durationSeconds?: number;
+        /**
+         * External identifier to use when assuming the role.
+         */
+        externalId?: string;
+        /**
+         * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+         */
+        policy?: string;
+        /**
+         * Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the role.
+         */
+        policyArns?: string[];
+        /**
+         * Amazon Resource Name (ARN) of the IAM Role to assume.
+         */
+        roleArn?: string;
+        /**
+         * Session name to use when assuming the role.
+         */
+        sessionName?: string;
+        /**
+         * Map of assume role session tags.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
+         */
+        transitiveTagKeys?: string[];
+    }
+
+    /**
+     * The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+     */
+    export interface DefaultTags {
+        /**
+         * A group of tags to set across all resources.
+         */
+        tags?: {[key: string]: string};
+    }
+
+    /**
+     * The configuration for for customizing service endpoints.
+     */
+    export interface Endpoints {
+        /**
+         * Override the default endpoint for AWS Access Analyzer
+         */
+        accessanalyzer?: string;
+        /**
+         * Override the default endpoint for AWS Certificate Manager
+         */
+        acm?: string;
+        /**
+         * Override the default endpoint for AWS Certificate Manager Private Certificate Authority
+         */
+        acmpca?: string;
+        /**
+         * Override the default endpoint for AWS Amplify Console
+         */
+        amplify?: string;
+        /**
+         * Override the default endpoint for AWS AppConfig
+         */
+        appconfig?: string;
+        /**
+         * Override the default endpoint for AWS Application Auto Scaling
+         */
+        applicationautoscaling?: string;
+        /**
+         * Override the default endpoint for AWS CloudWatch Application Insights
+         */
+        applicationinsights?: string;
+        /**
+         * Override the default endpoint for AWS App Mesh
+         */
+        appmesh?: string;
+        /**
+         * Override the default endpoint for AWS App Runner
+         */
+        apprunner?: string;
+        /**
+         * Override the default endpoint for AWS AppStream 2.0
+         */
+        appstream?: string;
+        /**
+         * Override the default endpoint for AWS AppSync
+         */
+        appsync?: string;
+        /**
+         * Override the default endpoint for AWS Athena
+         */
+        athena?: string;
+        /**
+         * Override the default endpoint for AWS Audit Manager
+         */
+        auditmanager?: string;
+        /**
+         * Override the default endpoint for AWS Auto Scaling
+         */
+        autoscaling?: string;
+        /**
+         * Override the default endpoint for AWS Backup
+         */
+        backup?: string;
+        /**
+         * Override the default endpoint for AWS Batch
+         */
+        batch?: string;
+        /**
+         * Override the default endpoint for AWS Budgets
+         */
+        budgets?: string;
+        /**
+         * Override the default endpoint for Amazon Chime
+         */
+        chime?: string;
+        /**
+         * Override the default endpoint for AWS Cloud9
+         */
+        cloud9?: string;
+        /**
+         * Override the default endpoint for AWS CloudFormation
+         */
+        cloudformation?: string;
+        /**
+         * Override the default endpoint for AWS CloudFront
+         */
+        cloudfront?: string;
+        /**
+         * Override the default endpoint for AWS CloudHSM
+         */
+        cloudhsm?: string;
+        /**
+         * Override the default endpoint for AWS CloudSearch
+         */
+        cloudsearch?: string;
+        /**
+         * Override the default endpoint for AWS CloudTrail
+         */
+        cloudtrail?: string;
+        /**
+         * Override the default endpoint for AWS CloudWatch
+         */
+        cloudwatch?: string;
+        /**
+         * Override the default endpoint for AWS CloudWatch Events
+         */
+        cloudwatchevents?: string;
+        /**
+         * Override the default endpoint for AWS CloudWatch Logs
+         */
+        cloudwatchlogs?: string;
+        /**
+         * Override the default endpoint for AWS CodeArtifact
+         */
+        codeartifact?: string;
+        /**
+         * Override the default endpoint for AWS CodeBuild
+         */
+        codebuild?: string;
+        /**
+         * Override the default endpoint for AWS CodeCommit
+         */
+        codecommit?: string;
+        /**
+         * Override the default endpoint for AWS CodeDeploy
+         */
+        codedeploy?: string;
+        /**
+         * Override the default endpoint for AWS CodePipeline
+         */
+        codepipeline?: string;
+        /**
+         * Override the default endpoint for AWS CodeStart Connections
+         */
+        codestarconnections?: string;
+        /**
+         * Override the default endpoint for Amazon Cognito
+         */
+        cognitoidentity?: string;
+        /**
+         * Override the default endpoint for AWS Config
+         */
+        configservice?: string;
+        /**
+         * Override the default endpoint for Amazon Connect
+         */
+        connect?: string;
+        /**
+         * Override the default endpoint for AWS Cost and Usage Reports
+         */
+        cur?: string;
+        /**
+         * Override the default endpoint for AWS Data Exchange
+         */
+        dataexchange?: string;
+        /**
+         * Override the default endpoint for AWS Data Pipeline
+         */
+        datapipeline?: string;
+        /**
+         * Override the default endpoint for AWS DataSync
+         */
+        datasync?: string;
+        /**
+         * Override the default endpoint for AWS DynamoDB Accelerator
+         */
+        dax?: string;
+        /**
+         * Override the default endpoint for AWS Detective
+         */
+        detective?: string;
+        /**
+         * Override the default endpoint for AWS Device Farm
+         */
+        devicefarm?: string;
+        /**
+         * Override the default endpoint for AWS Direct Connect
+         */
+        directconnect?: string;
+        /**
+         * Override the default endpoint for AWS Data Lifecycle Manager
+         */
+        dlm?: string;
+        /**
+         * Override the default endpoint for AWS Database Migration Service
+         */
+        dms?: string;
+        /**
+         * Override the default endpoint for AWS DocumentDB
+         */
+        docdb?: string;
+        /**
+         * Override the default endpoint for AWS Directory Service
+         */
+        ds?: string;
+        /**
+         * Override the default endpoint for AWS DynamoDB
+         */
+        dynamodb?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Compute Cloud (EC2)
+         */
+        ec2?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Container Registry (ECR)
+         */
+        ecr?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Container Registry (ECR) Public
+         */
+        ecrpublic?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Container Service (ECS)
+         */
+        ecs?: string;
+        /**
+         * Override the default endpoint for AWS Elastic File System (EFS)
+         */
+        efs?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Kubernetes Service (EKS)
+         */
+        eks?: string;
+        /**
+         * Override the default endpoint for AWS ElastiCache
+         */
+        elasticache?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Beanstalk
+         */
+        elasticbeanstalk?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Transcoder
+         */
+        elastictranscoder?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Load Balancing
+         */
+        elb?: string;
+        /**
+         * Override the default endpoint for AWS Elastic Load Balancing V2
+         */
+        elbv2?: string;
+        /**
+         * Override the default endpoint for AWS EMR
+         */
+        emr?: string;
+        /**
+         * Override the default endpoint for AWS EMR on EKS
+         */
+        emrcontainers?: string;
+        /**
+         * Override the default endpoint for AWS OpenSearch Service (formerly Elasticsearch)
+         */
+        es?: string;
+        /**
+         * Override the default endpoint for AWS Kinesis Data Firehose
+         */
+        firehose?: string;
+        /**
+         * Override the default endpoint for AWS Firewall Manager
+         */
+        fms?: string;
+        /**
+         * Override the default endpoint for Amazon Forecast
+         */
+        forecast?: string;
+        /**
+         * Override the default endpoint for AWS FSx
+         */
+        fsx?: string;
+        /**
+         * Override the default endpoint for AWS GameLift
+         */
+        gamelift?: string;
+        /**
+         * Override the default endpoint for Amazon S3 Glacier
+         */
+        glacier?: string;
+        /**
+         * Override the default endpoint for AWS Global Accelerator
+         */
+        globalaccelerator?: string;
+        /**
+         * Override the default endpoint for AWS Glue
+         */
+        glue?: string;
+        /**
+         * Override the default endpoint for AWS IoT Greengrass
+         */
+        greengrass?: string;
+        /**
+         * Override the default endpoint for AWS GuardDuty
+         */
+        guardduty?: string;
+        /**
+         * Override the default endpoint for AWS Identity and Access Management
+         */
+        iam?: string;
+        /**
+         * Override the default endpoint for AWS Single Sign-On (SSO) Identity Store
+         */
+        identitystore?: string;
+        /**
+         * Override the default endpoint for AWS Image Builder
+         */
+        imagebuilder?: string;
+        /**
+         * Override the default endpoint for Amazon Inspector
+         */
+        inspector?: string;
+        /**
+         * Override the default endpoint for AWS IoT
+         */
+        iot?: string;
+        /**
+         * Override the default endpoint for AWS IoT Analytics
+         */
+        iotanalytics?: string;
+        /**
+         * Override the default endpoint for AWS IoT Events
+         */
+        iotevents?: string;
+        /**
+         * Override the default endpoint for Amazon Managed Streaming for Apache Kafka (MSK)
+         */
+        kafka?: string;
+        /**
+         * Override the default endpoint for Amazon Kinesis
+         */
+        kinesis?: string;
+        /**
+         * Override the default endpoint for Amazon Kinesis Data Analytics
+         */
+        kinesisanalytics?: string;
+        /**
+         * Override the default endpoint for Amazon Kinesis Data Analytics V2
+         */
+        kinesisanalyticsv2?: string;
+        /**
+         * Override the default endpoint for Amazon Kinesis Video Streams
+         */
+        kinesisvideo?: string;
+        /**
+         * Override the default endpoint for AWS Key Management Service
+         */
+        kms?: string;
+        /**
+         * Override the default endpoint for AWS Lake Formation
+         */
+        lakeformation?: string;
+        /**
+         * Override the default endpoint for AWS Lambda
+         */
+        lambda?: string;
+        /**
+         * Override the default endpoint for Amazon Lex
+         */
+        lexmodels?: string;
+        /**
+         * Override the default endpoint for AWS License Manager
+         */
+        licensemanager?: string;
+        /**
+         * Override the default endpoint for Amazon Lightsail
+         */
+        lightsail?: string;
+        /**
+         * Override the default endpoint for Amazon Location
+         */
+        location?: string;
+        /**
+         * Override the default endpoint for Amazon Macie
+         */
+        macie?: string;
+        /**
+         * Override the default endpoint for Amazon Macie V2
+         */
+        macie2?: string;
+        /**
+         * Override the default endpoint for Amazon Managed Blockchain
+         */
+        managedblockchain?: string;
+        /**
+         * Override the default endpoint for AWS Marketplace Catalog
+         */
+        marketplacecatalog?: string;
+        /**
+         * Override the default endpoint for AWS MediaConnect
+         */
+        mediaconnect?: string;
+        /**
+         * Override the default endpoint for AWS MediaConvert
+         */
+        mediaconvert?: string;
+        /**
+         * Override the default endpoint for AWS MediaLive
+         */
+        medialive?: string;
+        /**
+         * Override the default endpoint for AWS MediaPackage
+         */
+        mediapackage?: string;
+        /**
+         * Override the default endpoint for AWS Elemental MediaStore container
+         */
+        mediastore?: string;
+        /**
+         * Override the default endpoint for AWS Elemental MediaStore asset
+         */
+        mediastoredata?: string;
+        /**
+         * Override the default endpoint for AWS MemoryDB for Redis
+         */
+        memorydb?: string;
+        /**
+         * Override the default endpoint for Amazon MQ
+         */
+        mq?: string;
+        /**
+         * Override the default endpoint for Amazon Managed Workflows for Apache Airflow
+         */
+        mwaa?: string;
+        /**
+         * Override the default endpoint for Amazon Neptune
+         */
+        neptune?: string;
+        /**
+         * Override the default endpoint for AWS Network Firewall
+         */
+        networkfirewall?: string;
+        /**
+         * Override the default endpoint for AWS Network Manager
+         */
+        networkmanager?: string;
+        /**
+         * Override the default endpoint for AWS OpsWorks
+         */
+        opsworks?: string;
+        /**
+         * Override the default endpoint for AWS Organizations
+         */
+        organizations?: string;
+        /**
+         * Override the default endpoint for AWS Outposts
+         */
+        outposts?: string;
+        /**
+         * Override the default endpoint for Amazon Personalize
+         */
+        personalize?: string;
+        /**
+         * Override the default endpoint for Amazon Pinpoint
+         */
+        pinpoint?: string;
+        /**
+         * Override the default endpoint for Amazon Web Services Price List Service
+         */
+        pricing?: string;
+        /**
+         * Override the default endpoint for Amazon QLDB
+         */
+        qldb?: string;
+        /**
+         * Override the default endpoint for Amazon QuickSight
+         */
+        quicksight?: string;
+        /**
+         * Override the default endpoint for AWS Resource Access Manager
+         */
+        ram?: string;
+        /**
+         * Override the default endpoint for Amazon Relational Database Service
+         */
+        rds?: string;
+        /**
+         * Override the default endpoint for Amazon Redshift
+         */
+        redshift?: string;
+        /**
+         * Override the default endpoint for AWS Resource Groups
+         */
+        resourcegroups?: string;
+        /**
+         * Override the default endpoint for AWS Resource Groups Tagging API
+         */
+        resourcegroupstaggingapi?: string;
+        /**
+         * Override the default endpoint for Amazon Route 53
+         */
+        route53?: string;
+        /**
+         * Override the default endpoint for Amazon Route 53 Domains
+         */
+        route53domains?: string;
+        /**
+         * Override the default endpoint for Amazon Route 53 Recovery Control
+         */
+        route53recoverycontrolconfig?: string;
+        /**
+         * Override the default endpoint for Amazon Route 53 Recovery Readiness
+         */
+        route53recoveryreadiness?: string;
+        /**
+         * Override the default endpoint for Amazon Route 53 Resolver
+         */
+        route53resolver?: string;
+        /**
+         * Override the default endpoint for Amazon Simple Storage Service (S3)
+         */
+        s3?: string;
+        /**
+         * Override the default endpoint for Amazon Simple Storage Service (S3) Control
+         */
+        s3control?: string;
+        /**
+         * Override the default endpoint for Amazon S3 on Outposts
+         */
+        s3outposts?: string;
+        /**
+         * Override the default endpoint for AWS SageMaker
+         */
+        sagemaker?: string;
+        /**
+         * Override the default endpoint for Amazon EventBridge Schema Registry
+         */
+        schemas?: string;
+        /**
+         * Override the default endpoint for Amazon SimpleDB
+         */
+        sdb?: string;
+        /**
+         * Override the default endpoint for AWS Secrets Manager
+         */
+        secretsmanager?: string;
+        /**
+         * Override the default endpoint for AWS Security Hub
+         */
+        securityhub?: string;
+        /**
+         * Override the default endpoint for AWS Serverless Application Repository
+         */
+        serverlessrepo?: string;
+        /**
+         * Override the default endpoint for AWS Service Catalog
+         */
+        servicecatalog?: string;
+        /**
+         * Override the default endpoint for AWS Cloud Map
+         */
+        servicediscovery?: string;
+        /**
+         * Override the default endpoint for AWS Service Quotas
+         */
+        servicequotas?: string;
+        /**
+         * Override the default endpoint for Amazon Simple Email Service (SES)
+         */
+        ses?: string;
+        /**
+         * Override the default endpoint for AWS Shield Advanced API
+         */
+        shield?: string;
+        /**
+         * Override the default endpoint for AWS Signer
+         */
+        signer?: string;
+        /**
+         * Override the default endpoint for Amazon Simple Notification Service (SNS)
+         */
+        sns?: string;
+        /**
+         * Override the default endpoint for Amazon Simple Queue Service (SQS)
+         */
+        sqs?: string;
+        /**
+         * Override the default endpoint for AWS Systems Manager
+         */
+        ssm?: string;
+        /**
+         * Override the default endpoint for AWS Single Sign On (SSO)
+         */
+        ssoadmin?: string;
+        /**
+         * Override the default endpoint for AWS Step Functions
+         */
+        stepfunctions?: string;
+        /**
+         * Override the default endpoint for AWS Storage Gateway
+         */
+        storagegateway?: string;
+        /**
+         * Override the default endpoint for AWS Security Token Service (STS)
+         */
+        sts?: string;
+        /**
+         * Override the default endpoint for Amazon Simple Workflow Service (SWF)
+         */
+        swf?: string;
+        /**
+         * Override the default endpoint for Amazon CloudWatch Synthetics
+         */
+        synthetics?: string;
+        /**
+         * Override the default endpoint for Amazon Timestream
+         */
+        timestreamwrite?: string;
+        /**
+         * Override the default endpoint for AWS Transfer Family
+         */
+        transfer?: string;
+        /**
+         * Override the default endpoint for AWS WAF Classic
+         */
+        waf?: string;
+        /**
+         * Override the default endpoint for AWS WAF Regional Classic
+         */
+        wafregional?: string;
+        /**
+         * Override the default endpoint for AWS WAF V2
+         */
+        wafv2?: string;
+        /**
+         * Override the default endpoint for Amazon WorkLink
+         */
+        worklink?: string;
+        /**
+         * Override the default endpoint for Amazon WorkMail
+         */
+        workmail?: string;
+        /**
+         * Override the default endpoint for Amazon WorkSpaces
+         */
+        workspaces?: string;
+        /**
+         * Override the default endpoint for AWS X-Ray
+         */
+        xray?: string;
+    }
+
+    /**
+     * The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
+     */
+    export interface IgnoreTags {
+        /**
+         * List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
+         */
+        keyPrefixes?: string[];
+        /**
+         * List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
+         */
+        keys?: string[];
+    }
+
+}
+
 export namespace configuration {
     export interface ConfigurationAggregatorAccountAggregationSource {
         accountIds: string[];

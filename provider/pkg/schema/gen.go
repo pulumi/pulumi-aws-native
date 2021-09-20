@@ -5,10 +5,10 @@ package schema
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pkg/errors"
 	"strings"
 
 	jsschema "github.com/lestrrat-go/jsschema"
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -32,9 +32,89 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		Repository: "https://github.com/pulumi/pulumi-aws-native",
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
-				"region": {
+				"accessKey": {
+					Description: "The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: `The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.`,
+				},
+				"allowedAccountIds": {
+					Description: "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.",
+					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+				},
+				"assumeRole": {
+					Description: "Configuration for retrieving temporary credentials from the STS service.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:AssumeRole"},
+				},
+				"defaultTags": {
+					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:DefaultTags"},
+				},
+				"endpoints": {
+					Description: "Configuration block for customizing service endpoints.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:Endpoints"},
+				},
+				"forbiddenAccountIds": {
+					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
+				},
+				"ignoreTags": {
+					Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:IgnoreTags"},
+				},
+				"insecure": {
+					Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"maxRetries": {
+					Description: "The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.",
+					TypeSpec:    pschema.TypeSpec{Type: "integer"},
+				},
+				"profile": {
+					Description: "The profile for API operations. If not set, the default profile created with `aws configure` will be used.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"region": {
+					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"s3ForcePathStyle": {
+					Description: "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"secretKey": {
+					Description: "The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"sharedCredentialsFile": {
+					Description: "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"skipCredentialsValidation": {
+					Default:     true,
+					Description: "Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipGetEc2Platforms": {
+					Default:     true,
+					Description: "Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipMetadataApiCheck": {
+					Default:     true,
+					Description: "Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipRegionValidation": {
+					Default:     true,
+					Description: "Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipRequestingAccountId": {
+					Description: "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"token": {
+					Description: "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 			},
 			Required: []string{
@@ -47,6 +127,56 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				Type:        "object",
 			},
 			InputProperties: map[string]pschema.PropertySpec{
+				"accessKey": {
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"AWS_ACCESS_KEY_ID",
+						},
+					},
+					Description: "The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"allowedAccountIds": {
+					Description: "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"assumeRole": {
+					Description: "Configuration for retrieving temporary credentials from the STS service.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderAssumeRole"},
+				},
+				"defaultTags": {
+					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderDefaultTags"},
+				},
+				"endpoints": {
+					Description: "Configuration block for customizing service endpoints.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderEndpoint"},
+				},
+				"forbiddenAccountIds": {
+					Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
+					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+				},
+				"ignoreTags": {
+					Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderIgnoreTags"},
+				},
+				"insecure": {
+					Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"maxRetries": {
+					Description: "The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.",
+					TypeSpec:    pschema.TypeSpec{Type: "integer"},
+				},
+				"profile": {
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"AWS_PROFILE",
+						},
+					},
+					Description: "The profile for API operations. If not set, the default profile created with `aws configure` will be used.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
 				"region": {
 					DefaultInfo: &pschema.DefaultSpec{
 						Environment: []string{
@@ -54,9 +184,57 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 							"AWS_DEFAULT_REGION",
 						},
 					},
-					Description: `The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.`,
+					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
+				"s3ForcePathStyle": {
+					Description: "Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"secretKey": {
+					Description: "The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"sharedCredentialsFile": {
+					Description: "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"skipCredentialsValidation": {
+					Default:     true,
+					Description: "Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipGetEc2Platforms": {
+					Default:     true,
+					Description: "Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipMetadataApiCheck": {
+					Default:     true,
+					Description: "Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipRegionValidation": {
+					Default:     true,
+					Description: "Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"skipRequestingAccountId": {
+					Description: "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+				},
+				"token": {
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"AWS_SESSION_TOKEN",
+						},
+					},
+					Description: "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+			},
+			RequiredInputs: []string{
+				"region",
 			},
 		},
 		Types:     map[string]pschema.ComplexTypeSpec{},
@@ -96,15 +274,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		},
 	})
 
-	p.Provider = pschema.ResourceSpec{
-		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Properties: p.Config.Variables,
-			Type:       "object",
-			Required:   p.Config.Required,
-		},
-		InputProperties: p.Config.Variables,
-		RequiredInputs:  p.Config.Required,
-	}
+	p.Provider.Properties = p.Provider.InputProperties
 
 	metadata := CloudAPIMetadata{
 		Resources: map[string]CloudAPIResource{},
@@ -135,6 +305,13 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		}
 	}
 	fmt.Printf("Number of resource types: %d\n", resourceCount)
+
+	// If there are types in the overlays that do not exist in the schema (e.g., enum types), add them.
+	for tok, overlayType := range typeOverlays {
+		if _, typeExists := p.Types[tok]; !typeExists {
+			p.Types[tok] = overlayType
+		}
+	}
 
 	// Add getters for CFN pseudo parameters.
 	for name, property := range pseudoParameters {
