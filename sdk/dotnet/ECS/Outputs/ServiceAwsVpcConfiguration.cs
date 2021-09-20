@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.ECS.Outputs
     [OutputType]
     public sealed class ServiceAwsVpcConfiguration
     {
-        public readonly string? AssignPublicIp;
+        public readonly Pulumi.AwsNative.ECS.ServiceAwsVpcConfigurationAssignPublicIp? AssignPublicIp;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly ImmutableArray<string> Subnets;
 
         [OutputConstructor]
         private ServiceAwsVpcConfiguration(
-            string? assignPublicIp,
+            Pulumi.AwsNative.ECS.ServiceAwsVpcConfigurationAssignPublicIp? assignPublicIp,
 
             ImmutableArray<string> securityGroups,
 

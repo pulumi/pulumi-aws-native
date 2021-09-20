@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.ECS
         /// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         /// </summary>
         [Output("launchType")]
-        public Output<string?> LaunchType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ECS.TaskSetLaunchType?> LaunchType { get; private set; } = null!;
 
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.ECS
         /// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         /// </summary>
         [Input("launchType")]
-        public Input<string>? LaunchType { get; set; }
+        public Input<Pulumi.AwsNative.ECS.TaskSetLaunchType>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
         private InputList<Inputs.TaskSetLoadBalancerArgs>? _loadBalancers;

@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Description of the error type.&lt;/p&gt;
         /// </summary>
         public readonly string? Message;
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateTemplateErrorType? Type;
 
         [OutputConstructor]
         private TemplateTemplateError(
             string? message,
 
-            string? type)
+            Pulumi.AwsNative.QuickSight.TemplateTemplateErrorType? type)
         {
             Message = message;
             Type = type;

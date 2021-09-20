@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     public sealed class ComponentVersionLambdaLinuxProcessParams
     {
         public readonly Outputs.ComponentVersionLambdaContainerParams? ContainerParams;
-        public readonly string? IsolationMode;
+        public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaLinuxProcessParamsIsolationMode? IsolationMode;
 
         [OutputConstructor]
         private ComponentVersionLambdaLinuxProcessParams(
             Outputs.ComponentVersionLambdaContainerParams? containerParams,
 
-            string? isolationMode)
+            Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaLinuxProcessParamsIsolationMode? isolationMode)
         {
             ContainerParams = containerParams;
             IsolationMode = isolationMode;

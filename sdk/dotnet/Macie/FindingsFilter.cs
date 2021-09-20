@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Macie
         /// Findings filter action.
         /// </summary>
         [Output("action")]
-        public Output<string?> Action { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Macie.FindingsFilterFindingFilterAction?> Action { get; private set; } = null!;
 
         /// <summary>
         /// Findings filter ARN.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Macie
         /// Findings filter action.
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public Input<Pulumi.AwsNative.Macie.FindingsFilterFindingFilterAction>? Action { get; set; }
 
         /// <summary>
         /// Findings filter description

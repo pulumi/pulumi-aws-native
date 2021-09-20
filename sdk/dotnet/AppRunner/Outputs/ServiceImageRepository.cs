@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// <summary>
         /// Image Repository Type
         /// </summary>
-        public readonly string ImageRepositoryType;
+        public readonly Pulumi.AwsNative.AppRunner.ServiceImageRepositoryImageRepositoryType ImageRepositoryType;
 
         [OutputConstructor]
         private ServiceImageRepository(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 
             string imageIdentifier,
 
-            string imageRepositoryType)
+            Pulumi.AwsNative.AppRunner.ServiceImageRepositoryImageRepositoryType imageRepositoryType)
         {
             ImageConfiguration = imageConfiguration;
             ImageIdentifier = imageIdentifier;

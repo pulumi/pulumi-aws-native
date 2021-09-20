@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// Trigger type of the flow
         /// </summary>
         [Input("triggerType", required: true)]
-        public Input<string> TriggerType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppFlow.FlowTriggerType> TriggerType { get; set; } = null!;
 
         public FlowTriggerConfigArgs()
         {

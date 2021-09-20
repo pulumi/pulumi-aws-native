@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string DocumentDataFieldName;
         public readonly string? DocumentTitleFieldName;
         public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
-        public readonly ImmutableArray<string> IncludeFilterTypes;
+        public readonly ImmutableArray<Pulumi.AwsNative.Kendra.DataSourceSalesforceChatterFeedIncludeFilterType> IncludeFilterTypes;
 
         [OutputConstructor]
         private DataSourceSalesforceChatterFeedConfiguration(
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
 
-            ImmutableArray<string> includeFilterTypes)
+            ImmutableArray<Pulumi.AwsNative.Kendra.DataSourceSalesforceChatterFeedIncludeFilterType> includeFilterTypes)
         {
             DocumentDataFieldName = documentDataFieldName;
             DocumentTitleFieldName = documentTitleFieldName;

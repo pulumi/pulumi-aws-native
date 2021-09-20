@@ -16,46 +16,46 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowConnectorOperatorArgs : Pulumi.ResourceArgs
     {
         [Input("amplitude")]
-        public Input<string>? Amplitude { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowAmplitudeConnectorOperator>? Amplitude { get; set; }
 
         [Input("datadog")]
-        public Input<string>? Datadog { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowDatadogConnectorOperator>? Datadog { get; set; }
 
         [Input("dynatrace")]
-        public Input<string>? Dynatrace { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowDynatraceConnectorOperator>? Dynatrace { get; set; }
 
         [Input("googleAnalytics")]
-        public Input<string>? GoogleAnalytics { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowGoogleAnalyticsConnectorOperator>? GoogleAnalytics { get; set; }
 
         [Input("inforNexus")]
-        public Input<string>? InforNexus { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowInforNexusConnectorOperator>? InforNexus { get; set; }
 
         [Input("marketo")]
-        public Input<string>? Marketo { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator>? Marketo { get; set; }
 
         [Input("s3")]
-        public Input<string>? S3 { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator>? S3 { get; set; }
 
         [Input("salesforce")]
-        public Input<string>? Salesforce { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator>? Salesforce { get; set; }
 
         [Input("serviceNow")]
-        public Input<string>? ServiceNow { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator>? ServiceNow { get; set; }
 
         [Input("singular")]
-        public Input<string>? Singular { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowSingularConnectorOperator>? Singular { get; set; }
 
         [Input("slack")]
-        public Input<string>? Slack { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowSlackConnectorOperator>? Slack { get; set; }
 
         [Input("trendmicro")]
-        public Input<string>? Trendmicro { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowTrendmicroConnectorOperator>? Trendmicro { get; set; }
 
         [Input("veeva")]
-        public Input<string>? Veeva { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowVeevaConnectorOperator>? Veeva { get; set; }
 
         [Input("zendesk")]
-        public Input<string>? Zendesk { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowZendeskConnectorOperator>? Zendesk { get; set; }
 
         public FlowConnectorOperatorArgs()
         {

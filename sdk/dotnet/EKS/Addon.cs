@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.EKS
         /// Resolve parameter value conflicts
         /// </summary>
         [Output("resolveConflicts")]
-        public Output<string?> ResolveConflicts { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EKS.AddonResolveConflicts?> ResolveConflicts { get; private set; } = null!;
 
         /// <summary>
         /// IAM role to bind to the add-on's service account
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.EKS
         /// Resolve parameter value conflicts
         /// </summary>
         [Input("resolveConflicts")]
-        public Input<string>? ResolveConflicts { get; set; }
+        public Input<Pulumi.AwsNative.EKS.AddonResolveConflicts>? ResolveConflicts { get; set; }
 
         /// <summary>
         /// IAM role to bind to the add-on's service account

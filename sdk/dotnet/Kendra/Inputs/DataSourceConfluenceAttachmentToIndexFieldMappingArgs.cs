@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     public sealed class DataSourceConfluenceAttachmentToIndexFieldMappingArgs : Pulumi.ResourceArgs
     {
         [Input("dataSourceFieldName", required: true)]
-        public Input<string> DataSourceFieldName { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.DataSourceConfluenceAttachmentFieldName> DataSourceFieldName { get; set; } = null!;
 
         [Input("dateFieldFormat")]
         public Input<string>? DateFieldFormat { get; set; }

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// Information about the order in which events are evaluated and how actions are executed.
         /// </summary>
         [Output("evaluationMethod")]
-        public Output<string?> EvaluationMethod { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoTEvents.DetectorModelEvaluationMethod?> EvaluationMethod { get; private set; } = null!;
 
         /// <summary>
         /// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// Information about the order in which events are evaluated and how actions are executed.
         /// </summary>
         [Input("evaluationMethod")]
-        public Input<string>? EvaluationMethod { get; set; }
+        public Input<Pulumi.AwsNative.IoTEvents.DetectorModelEvaluationMethod>? EvaluationMethod { get; set; }
 
         /// <summary>
         /// The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.

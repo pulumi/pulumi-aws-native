@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.EC2
         /// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         /// </summary>
         [Output("logDestinationType")]
-        public Output<string?> LogDestinationType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.FlowLogLogDestinationType?> LogDestinationType { get; private set; } = null!;
 
         /// <summary>
         /// The fields to include in the flow log record, in the order in which they should appear.
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.EC2
         /// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.FlowLogResourceType> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// The tags to apply to the flow logs.
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.EC2
         /// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         /// </summary>
         [Output("trafficType")]
-        public Output<string> TrafficType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.FlowLogTrafficType> TrafficType { get; private set; } = null!;
 
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.EC2
         /// Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         /// </summary>
         [Input("logDestinationType")]
-        public Input<string>? LogDestinationType { get; set; }
+        public Input<Pulumi.AwsNative.EC2.FlowLogLogDestinationType>? LogDestinationType { get; set; }
 
         /// <summary>
         /// The fields to include in the flow log record, in the order in which they should appear.
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.EC2
         /// The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         /// </summary>
         [Input("resourceType", required: true)]
-        public Input<string> ResourceType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.EC2.FlowLogResourceType> ResourceType { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.FlowLogTagArgs>? _tags;
@@ -184,7 +184,7 @@ namespace Pulumi.AwsNative.EC2
         /// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         /// </summary>
         [Input("trafficType", required: true)]
-        public Input<string> TrafficType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.EC2.FlowLogTrafficType> TrafficType { get; set; } = null!;
 
         public FlowLogArgs()
         {

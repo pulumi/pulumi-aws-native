@@ -41,11 +41,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         /// </summary>
-        public readonly string? S3DataDistributionType;
+        public readonly Pulumi.AwsNative.SageMaker.ModelBiasJobDefinitionEndpointInputS3DataDistributionType? S3DataDistributionType;
         /// <summary>
         /// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         /// </summary>
-        public readonly string? S3InputMode;
+        public readonly Pulumi.AwsNative.SageMaker.ModelBiasJobDefinitionEndpointInputS3InputMode? S3InputMode;
         /// <summary>
         /// Monitoring start time offset, e.g. -PT1H
         /// </summary>
@@ -67,9 +67,9 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             double? probabilityThresholdAttribute,
 
-            string? s3DataDistributionType,
+            Pulumi.AwsNative.SageMaker.ModelBiasJobDefinitionEndpointInputS3DataDistributionType? s3DataDistributionType,
 
-            string? s3InputMode,
+            Pulumi.AwsNative.SageMaker.ModelBiasJobDefinitionEndpointInputS3InputMode? s3InputMode,
 
             string? startTimeOffset)
         {

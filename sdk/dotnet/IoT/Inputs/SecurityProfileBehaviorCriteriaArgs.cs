@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
         /// </summary>
         [Input("comparisonOperator")]
-        public Input<string>? ComparisonOperator { get; set; }
+        public Input<Pulumi.AwsNative.IoT.SecurityProfileBehaviorCriteriaComparisonOperator>? ComparisonOperator { get; set; }
 
         /// <summary>
         /// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.

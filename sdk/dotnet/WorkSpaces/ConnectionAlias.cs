@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Output<ImmutableArray<Outputs.ConnectionAliasConnectionAliasAssociation>> Associations { get; private set; } = null!;
 
         [Output("connectionAliasState")]
-        public Output<string> ConnectionAliasState { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.WorkSpaces.ConnectionAliasConnectionAliasState> ConnectionAliasState { get; private set; } = null!;
 
         [Output("connectionString")]
         public Output<string> ConnectionString { get; private set; } = null!;

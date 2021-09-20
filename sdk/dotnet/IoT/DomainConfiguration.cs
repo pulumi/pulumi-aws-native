@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> DomainConfigurationName { get; private set; } = null!;
 
         [Output("domainConfigurationStatus")]
-        public Output<string?> DomainConfigurationStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.DomainConfigurationDomainConfigurationStatus?> DomainConfigurationStatus { get; private set; } = null!;
 
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
 
         [Output("domainType")]
-        public Output<string> DomainType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.DomainConfigurationDomainType> DomainType { get; private set; } = null!;
 
         [Output("serverCertificateArns")]
         public Output<ImmutableArray<string>> ServerCertificateArns { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary>> ServerCertificates { get; private set; } = null!;
 
         [Output("serviceType")]
-        public Output<string?> ServiceType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.DomainConfigurationServiceType?> ServiceType { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DomainConfigurationTag>> Tags { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? DomainConfigurationName { get; set; }
 
         [Input("domainConfigurationStatus")]
-        public Input<string>? DomainConfigurationStatus { get; set; }
+        public Input<Pulumi.AwsNative.IoT.DomainConfigurationDomainConfigurationStatus>? DomainConfigurationStatus { get; set; }
 
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.IoT
         }
 
         [Input("serviceType")]
-        public Input<string>? ServiceType { get; set; }
+        public Input<Pulumi.AwsNative.IoT.DomainConfigurationServiceType>? ServiceType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.DomainConfigurationTagArgs>? _tags;

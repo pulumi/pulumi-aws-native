@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     {
         public readonly string Destination;
         public readonly string DestinationPort;
-        public readonly string Direction;
-        public readonly string Protocol;
+        public readonly Pulumi.AwsNative.NetworkFirewall.RuleGroupHeaderDirection Direction;
+        public readonly Pulumi.AwsNative.NetworkFirewall.RuleGroupHeaderProtocol Protocol;
         public readonly string Source;
         public readonly string SourcePort;
 
@@ -26,9 +26,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             string destinationPort,
 
-            string direction,
+            Pulumi.AwsNative.NetworkFirewall.RuleGroupHeaderDirection direction,
 
-            string protocol,
+            Pulumi.AwsNative.NetworkFirewall.RuleGroupHeaderProtocol protocol,
 
             string source,
 

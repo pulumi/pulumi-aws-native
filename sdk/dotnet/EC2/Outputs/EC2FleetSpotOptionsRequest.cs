@@ -13,8 +13,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class EC2FleetSpotOptionsRequest
     {
-        public readonly string? AllocationStrategy;
-        public readonly string? InstanceInterruptionBehavior;
+        public readonly Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestAllocationStrategy? AllocationStrategy;
+        public readonly Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior? InstanceInterruptionBehavior;
         public readonly int? InstancePoolsToUseCount;
         public readonly string? MaxTotalPrice;
         public readonly int? MinTargetCapacity;
@@ -23,9 +23,9 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
         [OutputConstructor]
         private EC2FleetSpotOptionsRequest(
-            string? allocationStrategy,
+            Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestAllocationStrategy? allocationStrategy,
 
-            string? instanceInterruptionBehavior,
+            Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior? instanceInterruptionBehavior,
 
             int? instancePoolsToUseCount,
 

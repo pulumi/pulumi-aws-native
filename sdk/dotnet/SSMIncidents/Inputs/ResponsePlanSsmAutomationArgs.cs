@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         /// The account type to use when starting the SSM automation document.
         /// </summary>
         [Input("targetAccount")]
-        public Input<string>? TargetAccount { get; set; }
+        public Input<Pulumi.AwsNative.SSMIncidents.ResponsePlanSsmAutomationTargetAccount>? TargetAccount { get; set; }
 
         public ResponsePlanSsmAutomationArgs()
         {

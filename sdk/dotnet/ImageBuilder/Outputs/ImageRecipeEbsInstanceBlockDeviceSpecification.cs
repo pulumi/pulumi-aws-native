@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// Use to override the device's volume type.
         /// </summary>
-        public readonly string? VolumeType;
+        public readonly Pulumi.AwsNative.ImageBuilder.ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType? VolumeType;
 
         [OutputConstructor]
         private ImageRecipeEbsInstanceBlockDeviceSpecification(
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
             int? volumeSize,
 
-            string? volumeType)
+            Pulumi.AwsNative.ImageBuilder.ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType? volumeType)
         {
             DeleteOnTermination = deleteOnTermination;
             Encrypted = encrypted;

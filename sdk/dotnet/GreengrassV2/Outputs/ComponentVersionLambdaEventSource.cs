@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     public sealed class ComponentVersionLambdaEventSource
     {
         public readonly string? Topic;
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaEventSourceType? Type;
 
         [OutputConstructor]
         private ComponentVersionLambdaEventSource(
             string? topic,
 
-            string? type)
+            Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaEventSourceType? type)
         {
             Topic = topic;
             Type = type;

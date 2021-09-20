@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string SecretArn;
         public readonly string ServerUrl;
         public readonly Outputs.DataSourceConfluenceSpaceConfiguration? SpaceConfiguration;
-        public readonly string Version;
+        public readonly Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion Version;
         public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceConfluenceSpaceConfiguration? spaceConfiguration,
 
-            string version,
+            Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion version,
 
             Outputs.DataSourceDataSourceVpcConfiguration? vpcConfiguration)
         {

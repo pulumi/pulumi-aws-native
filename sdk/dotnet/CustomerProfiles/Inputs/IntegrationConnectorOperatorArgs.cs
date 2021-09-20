@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     public sealed class IntegrationConnectorOperatorArgs : Pulumi.ResourceArgs
     {
         [Input("marketo")]
-        public Input<string>? Marketo { get; set; }
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationMarketoConnectorOperator>? Marketo { get; set; }
 
         [Input("s3")]
-        public Input<string>? S3 { get; set; }
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationS3ConnectorOperator>? S3 { get; set; }
 
         [Input("salesforce")]
-        public Input<string>? Salesforce { get; set; }
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationSalesforceConnectorOperator>? Salesforce { get; set; }
 
         [Input("serviceNow")]
-        public Input<string>? ServiceNow { get; set; }
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationServiceNowConnectorOperator>? ServiceNow { get; set; }
 
         [Input("zendesk")]
-        public Input<string>? Zendesk { get; set; }
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationZendeskConnectorOperator>? Zendesk { get; set; }
 
         public IntegrationConnectorOperatorArgs()
         {

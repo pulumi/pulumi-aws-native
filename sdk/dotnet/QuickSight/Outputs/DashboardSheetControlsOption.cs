@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetControlsOption
     {
-        public readonly string? VisibilityState;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardDashboardUIState? VisibilityState;
 
         [OutputConstructor]
-        private DashboardSheetControlsOption(string? visibilityState)
+        private DashboardSheetControlsOption(Pulumi.AwsNative.QuickSight.DashboardDashboardUIState? visibilityState)
         {
             VisibilityState = visibilityState;
         }

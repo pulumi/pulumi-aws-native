@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoT
         /// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
         /// </summary>
         [Output("metricType")]
-        public Output<string> MetricType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.CustomMetricMetricType> MetricType { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.IoT
         /// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
         /// </summary>
         [Input("metricType", required: true)]
-        public Input<string> MetricType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoT.CustomMetricMetricType> MetricType { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.CustomMetricTagArgs>? _tags;

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// The MQTT notification state (ENABLED or DISABLED) for this asset property.
         /// </summary>
         [Input("notificationState")]
-        public Input<string>? NotificationState { get; set; }
+        public Input<Pulumi.AwsNative.IoTSiteWise.AssetAssetPropertyNotificationState>? NotificationState { get; set; }
 
         public AssetAssetPropertyArgs()
         {

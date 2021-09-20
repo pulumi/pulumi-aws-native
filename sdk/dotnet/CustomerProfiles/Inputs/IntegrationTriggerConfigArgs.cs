@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public Input<Inputs.IntegrationTriggerPropertiesArgs>? TriggerProperties { get; set; }
 
         [Input("triggerType", required: true)]
-        public Input<string> TriggerType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationTriggerType> TriggerType { get; set; } = null!;
 
         public IntegrationTriggerConfigArgs()
         {

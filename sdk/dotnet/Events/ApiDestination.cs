@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Events
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("httpMethod")]
-        public Output<string> HttpMethod { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Events.ApiDestinationHttpMethod> HttpMethod { get; private set; } = null!;
 
         /// <summary>
         /// Url endpoint to invoke.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.Events
         public Input<string>? Description { get; set; }
 
         [Input("httpMethod", required: true)]
-        public Input<string> HttpMethod { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Events.ApiDestinationHttpMethod> HttpMethod { get; set; } = null!;
 
         /// <summary>
         /// Url endpoint to invoke.

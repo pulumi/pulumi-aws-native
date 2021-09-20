@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceConfluenceSpaceToIndexFieldMapping
     {
-        public readonly string DataSourceFieldName;
+        public readonly Pulumi.AwsNative.Kendra.DataSourceConfluenceSpaceFieldName DataSourceFieldName;
         public readonly string? DateFieldFormat;
         public readonly string IndexFieldName;
 
         [OutputConstructor]
         private DataSourceConfluenceSpaceToIndexFieldMapping(
-            string dataSourceFieldName,
+            Pulumi.AwsNative.Kendra.DataSourceConfluenceSpaceFieldName dataSourceFieldName,
 
             string? dateFieldFormat,
 

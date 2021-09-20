@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class RuleGroupForwardedIPConfiguration
     {
-        public readonly string FallbackBehavior;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupForwardedIPConfigurationFallbackBehavior FallbackBehavior;
         public readonly string HeaderName;
 
         [OutputConstructor]
         private RuleGroupForwardedIPConfiguration(
-            string fallbackBehavior,
+            Pulumi.AwsNative.WAFv2.RuleGroupForwardedIPConfigurationFallbackBehavior fallbackBehavior,
 
             string headerName)
         {

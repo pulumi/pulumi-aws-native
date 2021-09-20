@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> Arn { get; set; } = null!;
 
         [Input("formatVersion")]
-        public Input<string>? FormatVersion { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionFormatVersion>? FormatVersion { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The namespace associated with the row-level permissions dataset.&lt;/p&gt;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? Namespace { get; set; }
 
         [Input("permissionPolicy", required: true)]
-        public Input<string> PermissionPolicy { get; set; } = null!;
+        public Input<Pulumi.AwsNative.QuickSight.DataSetRowLevelPermissionPolicy> PermissionPolicy { get; set; } = null!;
 
         public DataSetRowLevelPermissionDataSetArgs()
         {

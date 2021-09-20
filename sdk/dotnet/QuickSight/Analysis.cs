@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<Outputs.AnalysisAnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the

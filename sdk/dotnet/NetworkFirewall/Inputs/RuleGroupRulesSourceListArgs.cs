@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class RuleGroupRulesSourceListArgs : Pulumi.ResourceArgs
     {
         [Input("generatedRulesType", required: true)]
-        public Input<string> GeneratedRulesType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupGeneratedRulesType> GeneratedRulesType { get; set; } = null!;
 
         [Input("targetTypes", required: true)]
-        private InputList<string>? _targetTypes;
-        public InputList<string> TargetTypes
+        private InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType>? _targetTypes;
+        public InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType> TargetTypes
         {
-            get => _targetTypes ?? (_targetTypes = new InputList<string>());
+            get => _targetTypes ?? (_targetTypes = new InputList<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType>());
             set => _targetTypes = value;
         }
 

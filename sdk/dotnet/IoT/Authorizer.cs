@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<bool?> SigningDisabled { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.AuthorizerStatus?> Status { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.AuthorizerTag>> Tags { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<bool>? SigningDisabled { get; set; }
 
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.IoT.AuthorizerStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AuthorizerTagArgs>? _tags;

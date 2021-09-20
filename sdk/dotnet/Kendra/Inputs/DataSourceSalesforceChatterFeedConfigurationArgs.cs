@@ -27,10 +27,10 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         [Input("includeFilterTypes")]
-        private InputList<string>? _includeFilterTypes;
-        public InputList<string> IncludeFilterTypes
+        private InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceChatterFeedIncludeFilterType>? _includeFilterTypes;
+        public InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceChatterFeedIncludeFilterType> IncludeFilterTypes
         {
-            get => _includeFilterTypes ?? (_includeFilterTypes = new InputList<string>());
+            get => _includeFilterTypes ?? (_includeFilterTypes = new InputList<Pulumi.AwsNative.Kendra.DataSourceSalesforceChatterFeedIncludeFilterType>());
             set => _includeFilterTypes = value;
         }
 

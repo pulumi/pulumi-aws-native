@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// The type of encoding of the logs to be monitored.
         /// </summary>
-        public readonly string? Encoding;
+        public readonly Pulumi.AwsNative.ApplicationInsights.ApplicationLogEncoding? Encoding;
         /// <summary>
         /// The CloudWatch log group name to be associated to the monitored log.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 
         [OutputConstructor]
         private ApplicationLog(
-            string? encoding,
+            Pulumi.AwsNative.ApplicationInsights.ApplicationLogEncoding? encoding,
 
             string? logGroupName,
 

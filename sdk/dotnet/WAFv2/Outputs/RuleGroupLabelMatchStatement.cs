@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupLabelMatchStatement
     {
         public readonly string Key;
-        public readonly string Scope;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupLabelMatchScope Scope;
 
         [OutputConstructor]
         private RuleGroupLabelMatchStatement(
             string key,
 
-            string scope)
+            Pulumi.AwsNative.WAFv2.RuleGroupLabelMatchScope scope)
         {
             Key = key;
             Scope = scope;

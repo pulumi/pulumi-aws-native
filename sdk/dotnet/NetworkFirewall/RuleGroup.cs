@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<ImmutableArray<Outputs.RuleGroupTag>> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.NetworkFirewall.RuleGroupType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         }
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupType> Type { get; set; } = null!;
 
         public RuleGroupArgs()
         {

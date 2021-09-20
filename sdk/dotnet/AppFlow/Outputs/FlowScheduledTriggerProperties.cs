@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowScheduledTriggerProperties
     {
-        public readonly string? DataPullMode;
+        public readonly Pulumi.AwsNative.AppFlow.FlowScheduledTriggerPropertiesDataPullMode? DataPullMode;
         public readonly double? ScheduleEndTime;
         public readonly string ScheduleExpression;
         public readonly double? ScheduleOffset;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowScheduledTriggerProperties(
-            string? dataPullMode,
+            Pulumi.AwsNative.AppFlow.FlowScheduledTriggerPropertiesDataPullMode? dataPullMode,
 
             double? scheduleEndTime,
 

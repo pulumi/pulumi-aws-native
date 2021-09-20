@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class MitigationActionReplaceDefaultPolicyVersionParamsArgs : Pulumi.ResourceArgs
     {
         [Input("templateName", required: true)]
-        public Input<string> TemplateName { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoT.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName> TemplateName { get; set; } = null!;
 
         public MitigationActionReplaceDefaultPolicyVersionParamsArgs()
         {

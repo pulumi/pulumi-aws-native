@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     public sealed class TableBillingModeArgs : Pulumi.ResourceArgs
     {
         [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Cassandra.TableMode> Mode { get; set; } = null!;
 
         [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }

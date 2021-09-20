@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// <summary>
         /// Type of source connector
         /// </summary>
-        public readonly string ConnectorType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowConnectorType ConnectorType;
         /// <summary>
         /// Configuration for scheduled incremental data pull
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         private FlowSourceFlowConfig(
             string? connectorProfileName,
 
-            string connectorType,
+            Pulumi.AwsNative.AppFlow.FlowConnectorType connectorType,
 
             Outputs.FlowIncrementalPullConfig? incrementalPullConfig,
 

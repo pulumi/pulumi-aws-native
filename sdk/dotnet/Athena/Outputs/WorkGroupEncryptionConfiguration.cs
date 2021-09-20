@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.Athena.Outputs
     [OutputType]
     public sealed class WorkGroupEncryptionConfiguration
     {
-        public readonly string EncryptionOption;
+        public readonly Pulumi.AwsNative.Athena.WorkGroupEncryptionOption EncryptionOption;
         public readonly string? KmsKey;
 
         [OutputConstructor]
         private WorkGroupEncryptionConfiguration(
-            string encryptionOption,
+            Pulumi.AwsNative.Athena.WorkGroupEncryptionOption encryptionOption,
 
             string? kmsKey)
         {

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         public readonly string? DestinationField;
         public readonly ImmutableArray<string> SourceFields;
         public readonly ImmutableArray<Outputs.IntegrationTaskPropertiesMap> TaskProperties;
-        public readonly string TaskType;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationTaskType TaskType;
 
         [OutputConstructor]
         private IntegrationTask(
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
 
             ImmutableArray<Outputs.IntegrationTaskPropertiesMap> taskProperties,
 
-            string taskType)
+            Pulumi.AwsNative.CustomerProfiles.IntegrationTaskType taskType)
         {
             ConnectorOperator = connectorOperator;
             DestinationField = destinationField;

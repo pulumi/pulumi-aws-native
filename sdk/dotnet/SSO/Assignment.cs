@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SSO
         /// The assignee's type, user/group
         /// </summary>
         [Output("principalType")]
-        public Output<string> PrincipalType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSO.AssignmentPrincipalType> PrincipalType { get; private set; } = null!;
 
         /// <summary>
         /// The account id to be provisioned.
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.SSO
         /// The type of resource to be provsioned to, only aws account now
         /// </summary>
         [Output("targetType")]
-        public Output<string> TargetType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSO.AssignmentTargetType> TargetType { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.SSO
         /// The assignee's type, user/group
         /// </summary>
         [Input("principalType", required: true)]
-        public Input<string> PrincipalType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SSO.AssignmentPrincipalType> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// The account id to be provisioned.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.SSO
         /// The type of resource to be provsioned to, only aws account now
         /// </summary>
         [Input("targetType", required: true)]
-        public Input<string> TargetType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SSO.AssignmentTargetType> TargetType { get; set; } = null!;
 
         public AssignmentArgs()
         {

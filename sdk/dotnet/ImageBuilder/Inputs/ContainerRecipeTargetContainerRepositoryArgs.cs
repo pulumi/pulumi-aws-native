@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// Specifies the service in which this image was registered.
         /// </summary>
         [Input("service")]
-        public Input<string>? Service { get; set; }
+        public Input<Pulumi.AwsNative.ImageBuilder.ContainerRecipeTargetContainerRepositoryService>? Service { get; set; }
 
         public ContainerRecipeTargetContainerRepositoryArgs()
         {

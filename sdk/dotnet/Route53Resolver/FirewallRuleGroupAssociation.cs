@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// MutationProtectionStatus
         /// </summary>
         [Output("mutationProtection")]
-        public Output<string?> MutationProtection { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupAssociationMutationProtection?> MutationProtection { get; private set; } = null!;
 
         /// <summary>
         /// FirewallRuleGroupAssociationName
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupAssociationStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// FirewallDomainListAssociationStatus
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// MutationProtectionStatus
         /// </summary>
         [Input("mutationProtection")]
-        public Input<string>? MutationProtection { get; set; }
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupAssociationMutationProtection>? MutationProtection { get; set; }
 
         /// <summary>
         /// FirewallRuleGroupAssociationName

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SSM.Outputs
         /// <summary>
         /// The key of a key-value pair that identifies the location of an attachment to a document.
         /// </summary>
-        public readonly string? Key;
+        public readonly Pulumi.AwsNative.SSM.DocumentAttachmentsSourceKey? Key;
         /// <summary>
         /// The name of the document attachment file.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SSM.Outputs
 
         [OutputConstructor]
         private DocumentAttachmentsSource(
-            string? key,
+            Pulumi.AwsNative.SSM.DocumentAttachmentsSourceKey? key,
 
             string? name,
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     public sealed class ConfigTrackingConfigArgs : Pulumi.ResourceArgs
     {
         [Input("autotrack")]
-        public Input<string>? Autotrack { get; set; }
+        public Input<Pulumi.AwsNative.GroundStation.ConfigTrackingConfigAutotrack>? Autotrack { get; set; }
 
         public ConfigTrackingConfigArgs()
         {

@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
         /// <summary>
         /// Indicates the role of the member, primary or secondary.
         /// </summary>
-        public readonly string? Role;
+        public readonly Pulumi.AwsNative.ElastiCache.GlobalReplicationGroupGlobalReplicationGroupMemberRole? Role;
 
         [OutputConstructor]
         private GlobalReplicationGroupGlobalReplicationGroupMember(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.ElastiCache.Outputs
 
             string? replicationGroupRegion,
 
-            string? role)
+            Pulumi.AwsNative.ElastiCache.GlobalReplicationGroupGlobalReplicationGroupMemberRole? role)
         {
             ReplicationGroupId = replicationGroupId;
             ReplicationGroupRegion = replicationGroupRegion;

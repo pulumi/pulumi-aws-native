@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
         /// <summary>
         /// The target processor architecture for the application.
         /// </summary>
-        public readonly string Architecture;
+        public readonly Pulumi.AwsNative.RoboMaker.SimulationApplicationSourceConfigArchitecture Architecture;
         /// <summary>
         /// The Amazon S3 bucket name.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
 
         [OutputConstructor]
         private SimulationApplicationSourceConfig(
-            string architecture,
+            Pulumi.AwsNative.RoboMaker.SimulationApplicationSourceConfigArchitecture architecture,
 
             string s3Bucket,
 

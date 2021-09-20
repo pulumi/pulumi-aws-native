@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class RuleGroupStatefulRuleArgs : Pulumi.ResourceArgs
     {
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupStatefulRuleAction> Action { get; set; } = null!;
 
         [Input("header", required: true)]
         public Input<Inputs.RuleGroupHeaderArgs> Header { get; set; } = null!;

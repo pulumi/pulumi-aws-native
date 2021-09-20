@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SSM
         public Output<ImmutableArray<string>> CalendarNames { get; private set; } = null!;
 
         [Output("complianceSeverity")]
-        public Output<string?> ComplianceSeverity { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSM.AssociationComplianceSeverity?> ComplianceSeverity { get; private set; } = null!;
 
         /// <summary>
         /// The version of the SSM document to associate with the target.
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.SSM
         public Output<string?> ScheduleExpression { get; private set; } = null!;
 
         [Output("syncCompliance")]
-        public Output<string?> SyncCompliance { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSM.AssociationSyncCompliance?> SyncCompliance { get; private set; } = null!;
 
         /// <summary>
         /// The targets that the SSM document sends commands to.
@@ -156,7 +156,7 @@ namespace Pulumi.AwsNative.SSM
         }
 
         [Input("complianceSeverity")]
-        public Input<string>? ComplianceSeverity { get; set; }
+        public Input<Pulumi.AwsNative.SSM.AssociationComplianceSeverity>? ComplianceSeverity { get; set; }
 
         /// <summary>
         /// The version of the SSM document to associate with the target.
@@ -198,7 +198,7 @@ namespace Pulumi.AwsNative.SSM
         public Input<string>? ScheduleExpression { get; set; }
 
         [Input("syncCompliance")]
-        public Input<string>? SyncCompliance { get; set; }
+        public Input<Pulumi.AwsNative.SSM.AssociationSyncCompliance>? SyncCompliance { get; set; }
 
         [Input("targets")]
         private InputList<Inputs.AssociationTargetArgs>? _targets;

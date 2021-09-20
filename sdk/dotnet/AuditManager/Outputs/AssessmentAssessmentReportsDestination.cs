@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
     public sealed class AssessmentAssessmentReportsDestination
     {
         public readonly string? Destination;
-        public readonly string? DestinationType;
+        public readonly Pulumi.AwsNative.AuditManager.AssessmentAssessmentReportDestinationType? DestinationType;
 
         [OutputConstructor]
         private AssessmentAssessmentReportsDestination(
             string? destination,
 
-            string? destinationType)
+            Pulumi.AwsNative.AuditManager.AssessmentAssessmentReportDestinationType? destinationType)
         {
             Destination = destination;
             DestinationType = destinationType;

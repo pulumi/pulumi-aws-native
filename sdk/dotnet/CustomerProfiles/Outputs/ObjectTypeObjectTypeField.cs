@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// <summary>
         /// The content type of the field. Used for determining equality when searching.
         /// </summary>
-        public readonly string? ContentType;
+        public readonly Pulumi.AwsNative.CustomerProfiles.ObjectTypeObjectTypeFieldContentType? ContentType;
         /// <summary>
         /// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
 
         [OutputConstructor]
         private ObjectTypeObjectTypeField(
-            string? contentType,
+            Pulumi.AwsNative.CustomerProfiles.ObjectTypeObjectTypeFieldContentType? contentType,
 
             string? source,
 

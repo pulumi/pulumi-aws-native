@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
     public sealed class ServiceDeploymentControllerArgs : Pulumi.ResourceArgs
     {
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.ECS.ServiceDeploymentControllerType>? Type { get; set; }
 
         public ServiceDeploymentControllerArgs()
         {

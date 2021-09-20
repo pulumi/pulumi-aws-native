@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// <summary>
         /// Type of task
         /// </summary>
-        public readonly string TaskType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowTaskType TaskType;
 
         [OutputConstructor]
         private FlowTask(
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             ImmutableArray<Outputs.FlowTaskPropertiesObject> taskProperties,
 
-            string taskType)
+            Pulumi.AwsNative.AppFlow.FlowTaskType taskType)
         {
             ConnectorOperator = connectorOperator;
             DestinationField = destinationField;

@@ -28,11 +28,11 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// <summary>
         /// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
         /// </summary>
-        public readonly string Format;
+        public readonly Pulumi.AwsNative.S3.StorageLensS3BucketDestinationFormat Format;
         /// <summary>
         /// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
         /// </summary>
-        public readonly string OutputSchemaVersion;
+        public readonly Pulumi.AwsNative.S3.StorageLensS3BucketDestinationOutputSchemaVersion OutputSchemaVersion;
         /// <summary>
         /// The prefix to use for Amazon S3 Storage Lens export.
         /// </summary>
@@ -46,9 +46,9 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             Outputs.StorageLensEncryption? encryption,
 
-            string format,
+            Pulumi.AwsNative.S3.StorageLensS3BucketDestinationFormat format,
 
-            string outputSchemaVersion,
+            Pulumi.AwsNative.S3.StorageLensS3BucketDestinationOutputSchemaVersion outputSchemaVersion,
 
             string? prefix)
         {

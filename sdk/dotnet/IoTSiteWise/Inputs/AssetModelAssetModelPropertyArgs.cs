@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// The data type of the asset model property.
         /// </summary>
         [Input("dataType", required: true)]
-        public Input<string> DataType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoTSiteWise.AssetModelDataType> DataType { get; set; } = null!;
 
         /// <summary>
         /// The data type of the structure for this property.
         /// </summary>
         [Input("dataTypeSpec")]
-        public Input<string>? DataTypeSpec { get; set; }
+        public Input<Pulumi.AwsNative.IoTSiteWise.AssetModelDataTypeSpec>? DataTypeSpec { get; set; }
 
         /// <summary>
         /// Customer provided ID for property.

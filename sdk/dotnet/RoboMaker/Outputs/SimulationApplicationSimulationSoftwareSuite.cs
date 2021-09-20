@@ -19,17 +19,17 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
         /// <summary>
         /// The name of the simulation software suite.
         /// </summary>
-        public readonly string Name;
+        public readonly Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteName Name;
         /// <summary>
         /// The version of the simulation software suite.
         /// </summary>
-        public readonly string Version;
+        public readonly Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteVersion Version;
 
         [OutputConstructor]
         private SimulationApplicationSimulationSoftwareSuite(
-            string name,
+            Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteName name,
 
-            string version)
+            Pulumi.AwsNative.RoboMaker.SimulationApplicationSimulationSoftwareSuiteVersion version)
         {
             Name = name;
             Version = version;

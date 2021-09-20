@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
         /// </summary>
         [Output("validationStatus")]
-        public Output<string> ValidationStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53Resolver.ResolverDNSSECConfigValidationStatus> ValidationStatus { get; private set; } = null!;
 
 
         /// <summary>

@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.MWAA
         public Output<Outputs.EnvironmentTagMap?> Tags { get; private set; } = null!;
 
         [Output("webserverAccessMode")]
-        public Output<string?> WebserverAccessMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MWAA.EnvironmentWebserverAccessMode?> WebserverAccessMode { get; private set; } = null!;
 
         [Output("webserverUrl")]
         public Output<string> WebserverUrl { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.AwsNative.MWAA
         public Input<Inputs.EnvironmentTagMapArgs>? Tags { get; set; }
 
         [Input("webserverAccessMode")]
-        public Input<string>? WebserverAccessMode { get; set; }
+        public Input<Pulumi.AwsNative.MWAA.EnvironmentWebserverAccessMode>? WebserverAccessMode { get; set; }
 
         [Input("weeklyMaintenanceWindowStart")]
         public Input<string>? WeeklyMaintenanceWindowStart { get; set; }

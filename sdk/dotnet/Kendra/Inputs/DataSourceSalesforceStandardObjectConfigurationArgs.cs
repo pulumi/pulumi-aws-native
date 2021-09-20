@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.DataSourceSalesforceStandardObjectName> Name { get; set; } = null!;
 
         public DataSourceSalesforceStandardObjectConfigurationArgs()
         {

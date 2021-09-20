@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SSMContacts
         /// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
         /// </summary>
         [Output("channelType")]
-        public Output<string?> ChannelType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SSMContacts.ContactChannelChannelType?> ChannelType { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the contact resource
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.SSMContacts
         /// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
         /// </summary>
         [Input("channelType")]
-        public Input<string>? ChannelType { get; set; }
+        public Input<Pulumi.AwsNative.SSMContacts.ContactChannelChannelType>? ChannelType { get; set; }
 
         /// <summary>
         /// ARN of the contact resource

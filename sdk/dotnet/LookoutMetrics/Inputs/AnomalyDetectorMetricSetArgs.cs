@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         /// A frequency period to aggregate the data
         /// </summary>
         [Input("metricSetFrequency")]
-        public Input<string>? MetricSetFrequency { get; set; }
+        public Input<Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorMetricSetMetricSetFrequency>? MetricSetFrequency { get; set; }
 
         /// <summary>
         /// The name of the MetricSet.

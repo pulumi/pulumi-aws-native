@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.RoboMaker.Inputs
         /// The name of the robot software suite (ROS distribution).
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteName> Name { get; set; } = null!;
 
         /// <summary>
         /// The version of the robot software suite (ROS distribution).
         /// </summary>
         [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
+        public Input<Pulumi.AwsNative.RoboMaker.SimulationApplicationRobotSoftwareSuiteVersion> Version { get; set; } = null!;
 
         public SimulationApplicationRobotSoftwareSuiteArgs()
         {

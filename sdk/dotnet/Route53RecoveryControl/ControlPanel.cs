@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53RecoveryControl.ControlPanelStatus> Status { get; private set; } = null!;
 
 
         /// <summary>

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         /// Runtime
         /// </summary>
         [Input("runtime", required: true)]
-        public Input<string> Runtime { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationValuesRuntime> Runtime { get; set; } = null!;
 
         [Input("runtimeEnvironmentVariables")]
         private InputList<Inputs.ServiceKeyValuePairArgs>? _runtimeEnvironmentVariables;

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string Name;
         public readonly Outputs.IndexRelevance? Relevance;
         public readonly Outputs.IndexSearch? Search;
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.Kendra.IndexDocumentAttributeValueType Type;
 
         [OutputConstructor]
         private IndexDocumentMetadataConfiguration(
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.IndexSearch? search,
 
-            string type)
+            Pulumi.AwsNative.Kendra.IndexDocumentAttributeValueType type)
         {
             Name = name;
             Relevance = relevance;

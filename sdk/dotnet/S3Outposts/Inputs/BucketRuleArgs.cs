@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
         public Input<string>? Id { get; set; }
 
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.S3Outposts.BucketRuleStatus>? Status { get; set; }
 
         public BucketRuleArgs()
         {

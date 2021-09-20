@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The type of usage plan key. Currently, the only valid key type is API_KEY.
         /// </summary>
         [Output("keyType")]
-        public Output<string> KeyType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ApiGateway.UsagePlanKeyKeyType> KeyType { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the usage plan.
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The type of usage plan key. Currently, the only valid key type is API_KEY.
         /// </summary>
         [Input("keyType", required: true)]
-        public Input<string> KeyType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ApiGateway.UsagePlanKeyKeyType> KeyType { get; set; } = null!;
 
         /// <summary>
         /// The ID of the usage plan.

@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// The kind of extension
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.PublicTypeVersionType?> Type { get; private set; } = null!;
 
         /// <summary>
         /// The name of the type being registered.
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// The kind of extension
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.CloudFormation.PublicTypeVersionType>? Type { get; set; }
 
         /// <summary>
         /// The name of the type being registered.

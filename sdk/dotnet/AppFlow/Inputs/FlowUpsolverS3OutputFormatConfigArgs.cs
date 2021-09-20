@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.FlowAggregationConfigArgs>? AggregationConfig { get; set; }
 
         [Input("fileType")]
-        public Input<string>? FileType { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowFileType>? FileType { get; set; }
 
         [Input("prefixConfig", required: true)]
         public Input<Inputs.FlowPrefixConfigArgs> PrefixConfig { get; set; } = null!;

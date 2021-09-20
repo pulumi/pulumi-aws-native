@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> CACertificatePem { get; private set; } = null!;
 
         [Output("certificateMode")]
-        public Output<string?> CertificateMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.CertificateCertificateMode?> CertificateMode { get; private set; } = null!;
 
         [Output("certificatePem")]
         public Output<string?> CertificatePem { get; private set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> CertificateSigningRequest { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.CertificateStatus> Status { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? CACertificatePem { get; set; }
 
         [Input("certificateMode")]
-        public Input<string>? CertificateMode { get; set; }
+        public Input<Pulumi.AwsNative.IoT.CertificateCertificateMode>? CertificateMode { get; set; }
 
         [Input("certificatePem")]
         public Input<string>? CertificatePem { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? CertificateSigningRequest { get; set; }
 
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoT.CertificateStatus> Status { get; set; } = null!;
 
         public CertificateArgs()
         {

@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
         /// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         /// </summary>
         public readonly string? Id;
-        public readonly string? Status;
+        public readonly Pulumi.AwsNative.S3Outposts.BucketRuleStatus? Status;
 
         [OutputConstructor]
         private BucketRule(
@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
 
             string? id,
 
-            string? status)
+            Pulumi.AwsNative.S3Outposts.BucketRuleStatus? status)
         {
             AbortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
             ExpirationDate = expirationDate;

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     public sealed class TableClusteringKeyColumn
     {
         public readonly Outputs.TableColumn Column;
-        public readonly string? OrderBy;
+        public readonly Pulumi.AwsNative.Cassandra.TableClusteringKeyColumnOrderBy? OrderBy;
 
         [OutputConstructor]
         private TableClusteringKeyColumn(
             Outputs.TableColumn column,
 
-            string? orderBy)
+            Pulumi.AwsNative.Cassandra.TableClusteringKeyColumnOrderBy? orderBy)
         {
             Column = column;
             OrderBy = orderBy;

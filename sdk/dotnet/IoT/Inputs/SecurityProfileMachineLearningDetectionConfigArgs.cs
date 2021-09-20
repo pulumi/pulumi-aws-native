@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
         /// </summary>
         [Input("confidenceLevel")]
-        public Input<string>? ConfidenceLevel { get; set; }
+        public Input<Pulumi.AwsNative.IoT.SecurityProfileMachineLearningDetectionConfigConfidenceLevel>? ConfidenceLevel { get; set; }
 
         public SecurityProfileMachineLearningDetectionConfigArgs()
         {

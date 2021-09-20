@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class TopicRuleS3Action
     {
         public readonly string BucketName;
-        public readonly string? CannedAcl;
+        public readonly Pulumi.AwsNative.IoT.TopicRuleCannedAccessControlList? CannedAcl;
         public readonly string Key;
         public readonly string RoleArn;
 
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         private TopicRuleS3Action(
             string bucketName,
 
-            string? cannedAcl,
+            Pulumi.AwsNative.IoT.TopicRuleCannedAccessControlList? cannedAcl,
 
             string key,
 

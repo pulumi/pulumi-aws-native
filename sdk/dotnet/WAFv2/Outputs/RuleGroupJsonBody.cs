@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class RuleGroupJsonBody
     {
-        public readonly string? InvalidFallbackBehavior;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupBodyParsingFallbackBehavior? InvalidFallbackBehavior;
         public readonly Outputs.RuleGroupJsonMatchPattern MatchPattern;
-        public readonly string MatchScope;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupJsonMatchScope MatchScope;
 
         [OutputConstructor]
         private RuleGroupJsonBody(
-            string? invalidFallbackBehavior,
+            Pulumi.AwsNative.WAFv2.RuleGroupBodyParsingFallbackBehavior? invalidFallbackBehavior,
 
             Outputs.RuleGroupJsonMatchPattern matchPattern,
 
-            string matchScope)
+            Pulumi.AwsNative.WAFv2.RuleGroupJsonMatchScope matchScope)
         {
             InvalidFallbackBehavior = invalidFallbackBehavior;
             MatchPattern = matchPattern;

@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Budgets.Inputs
         public Input<string> Region { get; set; } = null!;
 
         [Input("subtype", required: true)]
-        public Input<string> Subtype { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Budgets.BudgetsActionSsmActionDefinitionSubtype> Subtype { get; set; } = null!;
 
         public BudgetsActionSsmActionDefinitionArgs()
         {

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         /// Image Repository Type
         /// </summary>
         [Input("imageRepositoryType", required: true)]
-        public Input<string> ImageRepositoryType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppRunner.ServiceImageRepositoryImageRepositoryType> ImageRepositoryType { get; set; } = null!;
 
         public ServiceImageRepositoryArgs()
         {

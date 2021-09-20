@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigEirp
     {
-        public readonly string? Units;
+        public readonly Pulumi.AwsNative.GroundStation.ConfigEirpUnits? Units;
         public readonly double? Value;
 
         [OutputConstructor]
         private ConfigEirp(
-            string? units,
+            Pulumi.AwsNative.GroundStation.ConfigEirpUnits? units,
 
             double? value)
         {

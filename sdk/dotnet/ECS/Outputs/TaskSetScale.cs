@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
         /// <summary>
         /// The unit of measure for the scale value.
         /// </summary>
-        public readonly string? Unit;
+        public readonly Pulumi.AwsNative.ECS.TaskSetScaleUnit? Unit;
         /// <summary>
         /// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
         [OutputConstructor]
         private TaskSetScale(
-            string? unit,
+            Pulumi.AwsNative.ECS.TaskSetScaleUnit? unit,
 
             double? value)
         {

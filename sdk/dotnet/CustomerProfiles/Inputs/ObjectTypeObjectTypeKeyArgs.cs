@@ -28,14 +28,14 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         }
 
         [Input("standardIdentifiers")]
-        private InputList<string>? _standardIdentifiers;
+        private InputList<Pulumi.AwsNative.CustomerProfiles.ObjectTypeObjectTypeKeyStandardIdentifiersItem>? _standardIdentifiers;
 
         /// <summary>
         /// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         /// </summary>
-        public InputList<string> StandardIdentifiers
+        public InputList<Pulumi.AwsNative.CustomerProfiles.ObjectTypeObjectTypeKeyStandardIdentifiersItem> StandardIdentifiers
         {
-            get => _standardIdentifiers ?? (_standardIdentifiers = new InputList<string>());
+            get => _standardIdentifiers ?? (_standardIdentifiers = new InputList<Pulumi.AwsNative.CustomerProfiles.ObjectTypeObjectTypeKeyStandardIdentifiersItem>());
             set => _standardIdentifiers = value;
         }
 

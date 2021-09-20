@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Client affinity lets you direct all requests from a user to the same endpoint.
         /// </summary>
         [Output("clientAffinity")]
-        public Output<string?> ClientAffinity { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GlobalAccelerator.ListenerClientAffinity?> ClientAffinity { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener.
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// The protocol for the listener.
         /// </summary>
         [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GlobalAccelerator.ListenerProtocol> Protocol { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Client affinity lets you direct all requests from a user to the same endpoint.
         /// </summary>
         [Input("clientAffinity")]
-        public Input<string>? ClientAffinity { get; set; }
+        public Input<Pulumi.AwsNative.GlobalAccelerator.ListenerClientAffinity>? ClientAffinity { get; set; }
 
         [Input("portRanges", required: true)]
         private InputList<Inputs.ListenerPortRangeArgs>? _portRanges;
@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// The protocol for the listener.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public Input<Pulumi.AwsNative.GlobalAccelerator.ListenerProtocol> Protocol { get; set; } = null!;
 
         public ListenerArgs()
         {

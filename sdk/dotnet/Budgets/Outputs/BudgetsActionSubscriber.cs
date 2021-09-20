@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     public sealed class BudgetsActionSubscriber
     {
         public readonly string Address;
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.Budgets.BudgetsActionSubscriberType Type;
 
         [OutputConstructor]
         private BudgetsActionSubscriber(
             string address,
 
-            string type)
+            Pulumi.AwsNative.Budgets.BudgetsActionSubscriberType type)
         {
             Address = address;
             Type = type;

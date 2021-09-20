@@ -17,16 +17,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// A key-value pair to configure the logDestinations.
         /// </summary>
         public readonly object LogDestination;
-        public readonly string LogDestinationType;
-        public readonly string LogType;
+        public readonly Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogDestinationType LogDestinationType;
+        public readonly Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogType LogType;
 
         [OutputConstructor]
         private LoggingConfigurationLogDestinationConfig(
             object logDestination,
 
-            string logDestinationType,
+            Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogDestinationType logDestinationType,
 
-            string logType)
+            Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogType logType)
         {
             LogDestination = logDestination;
             LogDestinationType = logDestinationType;

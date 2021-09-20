@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string? Duration;
         public readonly bool? Freshness;
         public readonly int? Importance;
-        public readonly string? RankOrder;
+        public readonly Pulumi.AwsNative.Kendra.IndexOrder? RankOrder;
         public readonly ImmutableArray<Outputs.IndexValueImportanceItem> ValueImportanceItems;
 
         [OutputConstructor]
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             int? importance,
 
-            string? rankOrder,
+            Pulumi.AwsNative.Kendra.IndexOrder? rankOrder,
 
             ImmutableArray<Outputs.IndexValueImportanceItem> valueImportanceItems)
         {

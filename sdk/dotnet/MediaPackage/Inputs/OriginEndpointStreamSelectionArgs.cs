@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// A directive that determines the order of streams in the output.
         /// </summary>
         [Input("streamOrder")]
-        public Input<string>? StreamOrder { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointStreamSelectionStreamOrder>? StreamOrder { get; set; }
 
         public OriginEndpointStreamSelectionArgs()
         {

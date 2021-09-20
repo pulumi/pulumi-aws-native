@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// <summary>
         /// The percentile which resolves to a threshold value by which compliance with a behavior is determined
         /// </summary>
-        public readonly string? Statistic;
+        public readonly Pulumi.AwsNative.IoT.SecurityProfileStatisticalThresholdStatistic? Statistic;
 
         [OutputConstructor]
-        private SecurityProfileStatisticalThreshold(string? statistic)
+        private SecurityProfileStatisticalThreshold(Pulumi.AwsNative.IoT.SecurityProfileStatisticalThresholdStatistic? statistic)
         {
             Statistic = statistic;
         }

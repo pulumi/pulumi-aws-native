@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupByteMatchStatement
     {
         public readonly Outputs.RuleGroupFieldToMatch FieldToMatch;
-        public readonly string PositionalConstraint;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupPositionalConstraint PositionalConstraint;
         public readonly string? SearchString;
         public readonly string? SearchStringBase64;
         public readonly ImmutableArray<Outputs.RuleGroupTextTransformation> TextTransformations;
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private RuleGroupByteMatchStatement(
             Outputs.RuleGroupFieldToMatch fieldToMatch,
 
-            string positionalConstraint,
+            Pulumi.AwsNative.WAFv2.RuleGroupPositionalConstraint positionalConstraint,
 
             string? searchString,
 

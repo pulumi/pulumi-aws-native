@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         public Input<int>? MaxConcurrentPercentage { get; set; }
 
         [Input("regionConcurrencyType")]
-        public Input<string>? RegionConcurrencyType { get; set; }
+        public Input<Pulumi.AwsNative.CloudFormation.StackSetRegionConcurrencyType>? RegionConcurrencyType { get; set; }
 
         [Input("regionOrder")]
         private InputList<string>? _regionOrder;

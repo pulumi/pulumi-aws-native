@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class IntegrationScheduledTriggerProperties
     {
-        public readonly string? DataPullMode;
+        public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationScheduledTriggerPropertiesDataPullMode? DataPullMode;
         public readonly double? FirstExecutionFrom;
         public readonly double? ScheduleEndTime;
         public readonly string ScheduleExpression;
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
 
         [OutputConstructor]
         private IntegrationScheduledTriggerProperties(
-            string? dataPullMode,
+            Pulumi.AwsNative.CustomerProfiles.IntegrationScheduledTriggerPropertiesDataPullMode? dataPullMode,
 
             double? firstExecutionFrom,
 

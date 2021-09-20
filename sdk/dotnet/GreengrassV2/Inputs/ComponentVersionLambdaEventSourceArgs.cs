@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public Input<string>? Topic { get; set; }
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaEventSourceType>? Type { get; set; }
 
         public ComponentVersionLambdaEventSourceArgs()
         {

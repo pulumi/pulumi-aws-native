@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string? ClaimRegex;
         public readonly string? GroupAttributeField;
         public readonly string? Issuer;
-        public readonly string KeyLocation;
+        public readonly Pulumi.AwsNative.Kendra.IndexKeyLocation KeyLocation;
         public readonly string? SecretManagerArn;
         public readonly string? URL;
         public readonly string? UserNameAttributeField;
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             string? issuer,
 
-            string keyLocation,
+            Pulumi.AwsNative.Kendra.IndexKeyLocation keyLocation,
 
             string? secretManagerArn,
 

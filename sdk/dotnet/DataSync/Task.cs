@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The status of the task that was described.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataSync.TaskStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.

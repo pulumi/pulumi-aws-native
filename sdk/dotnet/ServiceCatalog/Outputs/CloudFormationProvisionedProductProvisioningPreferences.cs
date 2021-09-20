@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
         public readonly int? StackSetFailureTolerancePercentage;
         public readonly int? StackSetMaxConcurrencyCount;
         public readonly int? StackSetMaxConcurrencyPercentage;
-        public readonly string? StackSetOperationType;
+        public readonly Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType? StackSetOperationType;
         public readonly ImmutableArray<string> StackSetRegions;
 
         [OutputConstructor]
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
 
             int? stackSetMaxConcurrencyPercentage,
 
-            string? stackSetOperationType,
+            Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType? stackSetOperationType,
 
             ImmutableArray<string> stackSetRegions)
         {

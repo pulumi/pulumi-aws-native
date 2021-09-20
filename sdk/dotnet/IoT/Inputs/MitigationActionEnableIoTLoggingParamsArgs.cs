@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         ///  Specifies which types of information are logged.
         /// </summary>
         [Input("logLevel", required: true)]
-        public Input<string> LogLevel { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoT.MitigationActionEnableIoTLoggingParamsLogLevel> LogLevel { get; set; } = null!;
 
         /// <summary>
         ///  The ARN of the IAM role used for logging.

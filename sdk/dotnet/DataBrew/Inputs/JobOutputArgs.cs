@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     public sealed class JobOutputArgs : Pulumi.ResourceArgs
     {
         [Input("compressionFormat")]
-        public Input<string>? CompressionFormat { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.JobOutputCompressionFormat>? CompressionFormat { get; set; }
 
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.JobOutputFormat>? Format { get; set; }
 
         [Input("formatOptions")]
         public Input<Inputs.JobOutputFormatOptionsArgs>? FormatOptions { get; set; }

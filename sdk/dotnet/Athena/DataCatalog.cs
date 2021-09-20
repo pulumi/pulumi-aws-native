@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Athena
         /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Athena.DataCatalogType> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.Athena
         /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Athena.DataCatalogType> Type { get; set; } = null!;
 
         public DataCatalogArgs()
         {

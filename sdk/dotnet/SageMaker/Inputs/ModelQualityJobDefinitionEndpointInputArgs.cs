@@ -49,13 +49,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         /// </summary>
         [Input("s3DataDistributionType")]
-        public Input<string>? S3DataDistributionType { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.ModelQualityJobDefinitionEndpointInputS3DataDistributionType>? S3DataDistributionType { get; set; }
 
         /// <summary>
         /// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         /// </summary>
         [Input("s3InputMode")]
-        public Input<string>? S3InputMode { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.ModelQualityJobDefinitionEndpointInputS3InputMode>? S3InputMode { get; set; }
 
         /// <summary>
         /// Monitoring start time offset, e.g. -PT1H

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         /// Defines how the dimensionValues of a dimension are interpreted.
         /// </summary>
         [Input("operator")]
-        public Input<string>? Operator { get; set; }
+        public Input<Pulumi.AwsNative.IoT.SecurityProfileMetricDimensionOperator>? Operator { get; set; }
 
         public SecurityProfileMetricDimensionArgs()
         {

@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// The status of the monitoring job.
         /// </summary>
         [Input("monitoringExecutionStatus", required: true)]
-        public Input<string> MonitoringExecutionStatus { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus> MonitoringExecutionStatus { get; set; } = null!;
 
         [Input("monitoringScheduleName", required: true)]
         public Input<string> MonitoringScheduleName { get; set; } = null!;

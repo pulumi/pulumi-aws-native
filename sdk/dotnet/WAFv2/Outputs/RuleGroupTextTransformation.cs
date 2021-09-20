@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class RuleGroupTextTransformation
     {
         public readonly int Priority;
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupTextTransformationType Type;
 
         [OutputConstructor]
         private RuleGroupTextTransformation(
             int priority,
 
-            string type)
+            Pulumi.AwsNative.WAFv2.RuleGroupTextTransformationType type)
         {
             Priority = priority;
             Type = type;

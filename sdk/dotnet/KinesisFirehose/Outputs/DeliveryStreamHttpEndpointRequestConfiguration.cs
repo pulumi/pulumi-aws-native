@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamHttpEndpointRequestConfiguration
     {
         public readonly ImmutableArray<Outputs.DeliveryStreamHttpEndpointCommonAttribute> CommonAttributes;
-        public readonly string? ContentEncoding;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamHttpEndpointRequestConfigurationContentEncoding? ContentEncoding;
 
         [OutputConstructor]
         private DeliveryStreamHttpEndpointRequestConfiguration(
             ImmutableArray<Outputs.DeliveryStreamHttpEndpointCommonAttribute> commonAttributes,
 
-            string? contentEncoding)
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamHttpEndpointRequestConfigurationContentEncoding? contentEncoding)
         {
             CommonAttributes = commonAttributes;
             ContentEncoding = contentEncoding;

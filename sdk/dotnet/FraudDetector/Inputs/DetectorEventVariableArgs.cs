@@ -22,10 +22,10 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         public Input<string>? CreatedTime { get; set; }
 
         [Input("dataSource")]
-        public Input<string>? DataSource { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataSource>? DataSource { get; set; }
 
         [Input("dataType")]
-        public Input<string>? DataType { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.DetectorEventVariableDataType>? DataType { get; set; }
 
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         }
 
         [Input("variableType")]
-        public Input<string>? VariableType { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.DetectorEventVariableVariableType>? VariableType { get; set; }
 
         public DetectorEventVariableArgs()
         {

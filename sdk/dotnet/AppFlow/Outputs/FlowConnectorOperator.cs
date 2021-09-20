@@ -16,50 +16,50 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowConnectorOperator
     {
-        public readonly string? Amplitude;
-        public readonly string? Datadog;
-        public readonly string? Dynatrace;
-        public readonly string? GoogleAnalytics;
-        public readonly string? InforNexus;
-        public readonly string? Marketo;
-        public readonly string? S3;
-        public readonly string? Salesforce;
-        public readonly string? ServiceNow;
-        public readonly string? Singular;
-        public readonly string? Slack;
-        public readonly string? Trendmicro;
-        public readonly string? Veeva;
-        public readonly string? Zendesk;
+        public readonly Pulumi.AwsNative.AppFlow.FlowAmplitudeConnectorOperator? Amplitude;
+        public readonly Pulumi.AwsNative.AppFlow.FlowDatadogConnectorOperator? Datadog;
+        public readonly Pulumi.AwsNative.AppFlow.FlowDynatraceConnectorOperator? Dynatrace;
+        public readonly Pulumi.AwsNative.AppFlow.FlowGoogleAnalyticsConnectorOperator? GoogleAnalytics;
+        public readonly Pulumi.AwsNative.AppFlow.FlowInforNexusConnectorOperator? InforNexus;
+        public readonly Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator? Marketo;
+        public readonly Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? S3;
+        public readonly Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? Salesforce;
+        public readonly Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? ServiceNow;
+        public readonly Pulumi.AwsNative.AppFlow.FlowSingularConnectorOperator? Singular;
+        public readonly Pulumi.AwsNative.AppFlow.FlowSlackConnectorOperator? Slack;
+        public readonly Pulumi.AwsNative.AppFlow.FlowTrendmicroConnectorOperator? Trendmicro;
+        public readonly Pulumi.AwsNative.AppFlow.FlowVeevaConnectorOperator? Veeva;
+        public readonly Pulumi.AwsNative.AppFlow.FlowZendeskConnectorOperator? Zendesk;
 
         [OutputConstructor]
         private FlowConnectorOperator(
-            string? amplitude,
+            Pulumi.AwsNative.AppFlow.FlowAmplitudeConnectorOperator? amplitude,
 
-            string? datadog,
+            Pulumi.AwsNative.AppFlow.FlowDatadogConnectorOperator? datadog,
 
-            string? dynatrace,
+            Pulumi.AwsNative.AppFlow.FlowDynatraceConnectorOperator? dynatrace,
 
-            string? googleAnalytics,
+            Pulumi.AwsNative.AppFlow.FlowGoogleAnalyticsConnectorOperator? googleAnalytics,
 
-            string? inforNexus,
+            Pulumi.AwsNative.AppFlow.FlowInforNexusConnectorOperator? inforNexus,
 
-            string? marketo,
+            Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator? marketo,
 
-            string? s3,
+            Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? s3,
 
-            string? salesforce,
+            Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? salesforce,
 
-            string? serviceNow,
+            Pulumi.AwsNative.AppFlow.FlowServiceNowConnectorOperator? serviceNow,
 
-            string? singular,
+            Pulumi.AwsNative.AppFlow.FlowSingularConnectorOperator? singular,
 
-            string? slack,
+            Pulumi.AwsNative.AppFlow.FlowSlackConnectorOperator? slack,
 
-            string? trendmicro,
+            Pulumi.AwsNative.AppFlow.FlowTrendmicroConnectorOperator? trendmicro,
 
-            string? veeva,
+            Pulumi.AwsNative.AppFlow.FlowVeevaConnectorOperator? veeva,
 
-            string? zendesk)
+            Pulumi.AwsNative.AppFlow.FlowZendeskConnectorOperator? zendesk)
         {
             Amplitude = amplitude;
             Datadog = datadog;

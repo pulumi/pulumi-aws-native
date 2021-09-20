@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
         public readonly string? Charset;
         public readonly bool? ContainsHeader;
         public readonly string? Delimiter;
-        public readonly string? FileCompression;
+        public readonly Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorCsvFormatDescriptorFileCompression? FileCompression;
         public readonly ImmutableArray<string> HeaderList;
         public readonly string? QuoteSymbol;
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 
             string? delimiter,
 
-            string? fileCompression,
+            Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorCsvFormatDescriptorFileCompression? fileCompression,
 
             ImmutableArray<string> headerList,
 

@@ -13,15 +13,15 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupRulesSourceList
     {
-        public readonly string GeneratedRulesType;
-        public readonly ImmutableArray<string> TargetTypes;
+        public readonly Pulumi.AwsNative.NetworkFirewall.RuleGroupGeneratedRulesType GeneratedRulesType;
+        public readonly ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType> TargetTypes;
         public readonly ImmutableArray<string> Targets;
 
         [OutputConstructor]
         private RuleGroupRulesSourceList(
-            string generatedRulesType,
+            Pulumi.AwsNative.NetworkFirewall.RuleGroupGeneratedRulesType generatedRulesType,
 
-            ImmutableArray<string> targetTypes,
+            ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTargetType> targetTypes,
 
             ImmutableArray<string> targets)
         {

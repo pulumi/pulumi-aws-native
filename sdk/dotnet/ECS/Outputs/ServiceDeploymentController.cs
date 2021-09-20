@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.ECS.Outputs
     [OutputType]
     public sealed class ServiceDeploymentController
     {
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.ECS.ServiceDeploymentControllerType? Type;
 
         [OutputConstructor]
-        private ServiceDeploymentController(string? type)
+        private ServiceDeploymentController(Pulumi.AwsNative.ECS.ServiceDeploymentControllerType? type)
         {
             Type = type;
         }

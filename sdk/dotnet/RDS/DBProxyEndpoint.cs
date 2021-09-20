@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.RDS
         /// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         /// </summary>
         [Output("targetRole")]
-        public Output<string?> TargetRole { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RDS.DBProxyEndpointTargetRole?> TargetRole { get; private set; } = null!;
 
         /// <summary>
         /// VPC ID to associate with the new DB proxy endpoint.
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.RDS
         /// A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         /// </summary>
         [Input("targetRole")]
-        public Input<string>? TargetRole { get; set; }
+        public Input<Pulumi.AwsNative.RDS.DBProxyEndpointTargetRole>? TargetRole { get; set; }
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;

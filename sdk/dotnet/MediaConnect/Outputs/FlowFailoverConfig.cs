@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// Search window time to look for dash-7 packets
         /// </summary>
         public readonly int? RecoveryWindow;
-        public readonly string? State;
+        public readonly Pulumi.AwsNative.MediaConnect.FlowFailoverConfigState? State;
 
         [OutputConstructor]
         private FlowFailoverConfig(
             int? recoveryWindow,
 
-            string? state)
+            Pulumi.AwsNative.MediaConnect.FlowFailoverConfigState? state)
         {
             RecoveryWindow = recoveryWindow;
             State = state;

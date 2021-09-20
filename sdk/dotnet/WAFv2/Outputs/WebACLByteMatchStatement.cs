@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     public sealed class WebACLByteMatchStatement
     {
         public readonly Outputs.WebACLFieldToMatch FieldToMatch;
-        public readonly string PositionalConstraint;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLPositionalConstraint PositionalConstraint;
         public readonly string? SearchString;
         public readonly string? SearchStringBase64;
         public readonly ImmutableArray<Outputs.WebACLTextTransformation> TextTransformations;
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         private WebACLByteMatchStatement(
             Outputs.WebACLFieldToMatch fieldToMatch,
 
-            string positionalConstraint,
+            Pulumi.AwsNative.WAFv2.WebACLPositionalConstraint positionalConstraint,
 
             string? searchString,
 

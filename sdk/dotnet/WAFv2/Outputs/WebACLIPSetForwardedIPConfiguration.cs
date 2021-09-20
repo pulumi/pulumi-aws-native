@@ -13,17 +13,17 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLIPSetForwardedIPConfiguration
     {
-        public readonly string FallbackBehavior;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLIPSetForwardedIPConfigurationFallbackBehavior FallbackBehavior;
         public readonly string HeaderName;
-        public readonly string Position;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLIPSetForwardedIPConfigurationPosition Position;
 
         [OutputConstructor]
         private WebACLIPSetForwardedIPConfiguration(
-            string fallbackBehavior,
+            Pulumi.AwsNative.WAFv2.WebACLIPSetForwardedIPConfigurationFallbackBehavior fallbackBehavior,
 
             string headerName,
 
-            string position)
+            Pulumi.AwsNative.WAFv2.WebACLIPSetForwardedIPConfigurationPosition position)
         {
             FallbackBehavior = fallbackBehavior;
             HeaderName = headerName;

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
     public sealed class AnomalyDetectorJsonFormatDescriptor
     {
         public readonly string? Charset;
-        public readonly string? FileCompression;
+        public readonly Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorJsonFormatDescriptorFileCompression? FileCompression;
 
         [OutputConstructor]
         private AnomalyDetectorJsonFormatDescriptor(
             string? charset,
 
-            string? fileCompression)
+            Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorJsonFormatDescriptorFileCompression? fileCompression)
         {
             Charset = charset;
             FileCompression = fileCompression;

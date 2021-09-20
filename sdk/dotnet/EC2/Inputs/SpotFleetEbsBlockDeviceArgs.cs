@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<int>? VolumeSize { get; set; }
 
         [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetEbsBlockDeviceVolumeType>? VolumeType { get; set; }
 
         public SpotFleetEbsBlockDeviceArgs()
         {

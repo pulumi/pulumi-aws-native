@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         public Input<string>? Field { get; set; }
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ECS.ServicePlacementStrategyType> Type { get; set; } = null!;
 
         public ServicePlacementStrategyArgs()
         {

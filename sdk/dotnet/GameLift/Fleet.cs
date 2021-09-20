@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.GameLift
         /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         /// </summary>
         [Output("fleetType")]
-        public Output<string?> FleetType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GameLift.FleetFleetType?> FleetType { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         /// </summary>
         [Output("newGameSessionProtectionPolicy")]
-        public Output<string?> NewGameSessionProtectionPolicy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GameLift.FleetNewGameSessionProtectionPolicy?> NewGameSessionProtectionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
@@ -245,7 +245,7 @@ namespace Pulumi.AwsNative.GameLift
         /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         /// </summary>
         [Input("fleetType")]
-        public Input<string>? FleetType { get; set; }
+        public Input<Pulumi.AwsNative.GameLift.FleetFleetType>? FleetType { get; set; }
 
         /// <summary>
         /// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
@@ -307,7 +307,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         /// </summary>
         [Input("newGameSessionProtectionPolicy")]
-        public Input<string>? NewGameSessionProtectionPolicy { get; set; }
+        public Input<Pulumi.AwsNative.GameLift.FleetNewGameSessionProtectionPolicy>? NewGameSessionProtectionPolicy { get; set; }
 
         /// <summary>
         /// A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.

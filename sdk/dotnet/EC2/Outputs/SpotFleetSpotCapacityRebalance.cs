@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class SpotFleetSpotCapacityRebalance
     {
-        public readonly string? ReplacementStrategy;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy? ReplacementStrategy;
 
         [OutputConstructor]
-        private SpotFleetSpotCapacityRebalance(string? replacementStrategy)
+        private SpotFleetSpotCapacityRebalance(Pulumi.AwsNative.EC2.SpotFleetSpotCapacityRebalanceReplacementStrategy? replacementStrategy)
         {
             ReplacementStrategy = replacementStrategy;
         }

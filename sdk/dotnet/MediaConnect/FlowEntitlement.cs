@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.MediaConnect
         ///  An indication of whether the entitlement is enabled.
         /// </summary>
         [Output("entitlementStatus")]
-        public Output<string?> EntitlementStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MediaConnect.FlowEntitlementEntitlementStatus?> EntitlementStatus { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the flow.
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.MediaConnect
         ///  An indication of whether the entitlement is enabled.
         /// </summary>
         [Input("entitlementStatus")]
-        public Input<string>? EntitlementStatus { get; set; }
+        public Input<Pulumi.AwsNative.MediaConnect.FlowEntitlementEntitlementStatus>? EntitlementStatus { get; set; }
 
         /// <summary>
         /// The ARN of the flow.

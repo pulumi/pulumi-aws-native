@@ -13,8 +13,8 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     [OutputType]
     public sealed class JobOutput
     {
-        public readonly string? CompressionFormat;
-        public readonly string? Format;
+        public readonly Pulumi.AwsNative.DataBrew.JobOutputCompressionFormat? CompressionFormat;
+        public readonly Pulumi.AwsNative.DataBrew.JobOutputFormat? Format;
         public readonly Outputs.JobOutputFormatOptions? FormatOptions;
         public readonly Outputs.JobS3Location Location;
         public readonly bool? Overwrite;
@@ -22,9 +22,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 
         [OutputConstructor]
         private JobOutput(
-            string? compressionFormat,
+            Pulumi.AwsNative.DataBrew.JobOutputCompressionFormat? compressionFormat,
 
-            string? format,
+            Pulumi.AwsNative.DataBrew.JobOutputFormat? format,
 
             Outputs.JobOutputFormatOptions? formatOptions,
 

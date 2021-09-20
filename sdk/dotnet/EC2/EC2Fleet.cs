@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<string?> Context { get; private set; } = null!;
 
         [Output("excessCapacityTerminationPolicy")]
-        public Output<string?> ExcessCapacityTerminationPolicy { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.EC2FleetExcessCapacityTerminationPolicy?> ExcessCapacityTerminationPolicy { get; private set; } = null!;
 
         [Output("fleetId")]
         public Output<string> FleetId { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<bool?> TerminateInstancesWithExpiration { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.EC2FleetType?> Type { get; private set; } = null!;
 
         [Output("validFrom")]
         public Output<string?> ValidFrom { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.EC2
         public Input<string>? Context { get; set; }
 
         [Input("excessCapacityTerminationPolicy")]
-        public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
+        public Input<Pulumi.AwsNative.EC2.EC2FleetExcessCapacityTerminationPolicy>? ExcessCapacityTerminationPolicy { get; set; }
 
         [Input("launchTemplateConfigs", required: true)]
         private InputList<Inputs.EC2FleetFleetLaunchTemplateConfigRequestArgs>? _launchTemplateConfigs;
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.EC2
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.EC2.EC2FleetType>? Type { get; set; }
 
         [Input("validFrom")]
         public Input<string>? ValidFrom { get; set; }

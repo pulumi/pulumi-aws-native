@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.Amplify.Inputs
         public Input<string>? PullRequestEnvironmentName { get; set; }
 
         [Input("stage")]
-        public Input<string>? Stage { get; set; }
+        public Input<Pulumi.AwsNative.Amplify.AppAutoBranchCreationConfigStage>? Stage { get; set; }
 
         public AppAutoBranchCreationConfigArgs()
         {

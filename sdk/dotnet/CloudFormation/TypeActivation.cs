@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// The kind of extension
         /// </summary>
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.TypeActivationType?> Type { get; private set; } = null!;
 
         /// <summary>
         /// The name of the type being registered.
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         /// </summary>
         [Output("versionBump")]
-        public Output<string?> VersionBump { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.TypeActivationVersionBump?> VersionBump { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// The kind of extension
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AwsNative.CloudFormation.TypeActivationType>? Type { get; set; }
 
         /// <summary>
         /// The name of the type being registered.
@@ -188,7 +188,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         /// </summary>
         [Input("versionBump")]
-        public Input<string>? VersionBump { get; set; }
+        public Input<Pulumi.AwsNative.CloudFormation.TypeActivationVersionBump>? VersionBump { get; set; }
 
         public TypeActivationArgs()
         {

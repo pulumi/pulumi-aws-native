@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         /// </summary>
         [Output("callAs")]
-        public Output<string?> CallAs { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.StackSetCallAs?> CallAs { get; private set; } = null!;
 
         /// <summary>
         /// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         /// </summary>
         [Output("capabilities")]
-        public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.CloudFormation.StackSetCapability>> Capabilities { get; private set; } = null!;
 
         /// <summary>
         /// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         /// </summary>
         [Output("permissionModel")]
-        public Output<string> PermissionModel { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.StackSetPermissionModel> PermissionModel { get; private set; } = null!;
 
         /// <summary>
         /// A group of stack instances with parameters in some specific accounts and regions.
@@ -163,17 +163,17 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         /// </summary>
         [Input("callAs")]
-        public Input<string>? CallAs { get; set; }
+        public Input<Pulumi.AwsNative.CloudFormation.StackSetCallAs>? CallAs { get; set; }
 
         [Input("capabilities")]
-        private InputList<string>? _capabilities;
+        private InputList<Pulumi.AwsNative.CloudFormation.StackSetCapability>? _capabilities;
 
         /// <summary>
         /// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         /// </summary>
-        public InputList<string> Capabilities
+        public InputList<Pulumi.AwsNative.CloudFormation.StackSetCapability> Capabilities
         {
-            get => _capabilities ?? (_capabilities = new InputList<string>());
+            get => _capabilities ?? (_capabilities = new InputList<Pulumi.AwsNative.CloudFormation.StackSetCapability>());
             set => _capabilities = value;
         }
 
@@ -208,7 +208,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         /// </summary>
         [Input("permissionModel", required: true)]
-        public Input<string> PermissionModel { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CloudFormation.StackSetPermissionModel> PermissionModel { get; set; } = null!;
 
         [Input("stackInstancesGroup")]
         private InputList<Inputs.StackSetStackInstancesArgs>? _stackInstancesGroup;

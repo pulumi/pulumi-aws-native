@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ElastiCache.Inputs
         /// Indicates the role of the member, primary or secondary.
         /// </summary>
         [Input("role")]
-        public Input<string>? Role { get; set; }
+        public Input<Pulumi.AwsNative.ElastiCache.GlobalReplicationGroupGlobalReplicationGroupMemberRole>? Role { get; set; }
 
         public GlobalReplicationGroupGlobalReplicationGroupMemberArgs()
         {

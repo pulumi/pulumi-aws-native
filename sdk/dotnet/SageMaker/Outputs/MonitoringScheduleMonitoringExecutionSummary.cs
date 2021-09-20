@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// The status of the monitoring job.
         /// </summary>
-        public readonly string MonitoringExecutionStatus;
+        public readonly Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus MonitoringExecutionStatus;
         public readonly string MonitoringScheduleName;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the monitoring job.
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string lastModifiedTime,
 
-            string monitoringExecutionStatus,
+            Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus monitoringExecutionStatus,
 
             string monitoringScheduleName,
 

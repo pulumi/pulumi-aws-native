@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
         public readonly int? InstanceWarmupPeriod;
         public readonly int? MaximumScalingStepSize;
         public readonly int? MinimumScalingStepSize;
-        public readonly string? Status;
+        public readonly Pulumi.AwsNative.ECS.CapacityProviderManagedScalingStatus? Status;
         public readonly int? TargetCapacity;
 
         [OutputConstructor]
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
             int? minimumScalingStepSize,
 
-            string? status,
+            Pulumi.AwsNative.ECS.CapacityProviderManagedScalingStatus? status,
 
             int? targetCapacity)
         {

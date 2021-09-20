@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;Errors associated with the theme.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.ThemeThemeError> Errors;
-        public readonly string? Status;
+        public readonly Pulumi.AwsNative.QuickSight.ThemeResourceStatus? Status;
         /// <summary>
         /// &lt;p&gt;The version number of the theme.&lt;/p&gt;
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.ThemeThemeError> errors,
 
-            string? status,
+            Pulumi.AwsNative.QuickSight.ThemeResourceStatus? status,
 
             double? versionNumber)
         {

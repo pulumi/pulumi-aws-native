@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<string>? Issuer { get; set; }
 
         [Input("keyLocation", required: true)]
-        public Input<string> KeyLocation { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.IndexKeyLocation> KeyLocation { get; set; } = null!;
 
         [Input("secretManagerArn")]
         public Input<string>? SecretManagerArn { get; set; }

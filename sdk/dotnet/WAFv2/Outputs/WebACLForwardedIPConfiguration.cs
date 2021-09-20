@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLForwardedIPConfiguration
     {
-        public readonly string FallbackBehavior;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLForwardedIPConfigurationFallbackBehavior FallbackBehavior;
         public readonly string HeaderName;
 
         [OutputConstructor]
         private WebACLForwardedIPConfiguration(
-            string fallbackBehavior,
+            Pulumi.AwsNative.WAFv2.WebACLForwardedIPConfigurationFallbackBehavior fallbackBehavior,
 
             string headerName)
         {

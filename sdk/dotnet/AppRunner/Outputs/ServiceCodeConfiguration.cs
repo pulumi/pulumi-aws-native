@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// <summary>
         /// Configuration Source
         /// </summary>
-        public readonly string ConfigurationSource;
+        public readonly Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationConfigurationSource ConfigurationSource;
 
         [OutputConstructor]
         private ServiceCodeConfiguration(
             Outputs.ServiceCodeConfigurationValues? codeConfigurationValues,
 
-            string configurationSource)
+            Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationConfigurationSource configurationSource)
         {
             CodeConfigurationValues = codeConfigurationValues;
             ConfigurationSource = configurationSource;

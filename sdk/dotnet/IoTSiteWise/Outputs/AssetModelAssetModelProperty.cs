@@ -19,11 +19,11 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// <summary>
         /// The data type of the asset model property.
         /// </summary>
-        public readonly string DataType;
+        public readonly Pulumi.AwsNative.IoTSiteWise.AssetModelDataType DataType;
         /// <summary>
         /// The data type of the structure for this property.
         /// </summary>
-        public readonly string? DataTypeSpec;
+        public readonly Pulumi.AwsNative.IoTSiteWise.AssetModelDataTypeSpec? DataTypeSpec;
         /// <summary>
         /// Customer provided ID for property.
         /// </summary>
@@ -43,9 +43,9 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
         [OutputConstructor]
         private AssetModelAssetModelProperty(
-            string dataType,
+            Pulumi.AwsNative.IoTSiteWise.AssetModelDataType dataType,
 
-            string? dataTypeSpec,
+            Pulumi.AwsNative.IoTSiteWise.AssetModelDataTypeSpec? dataTypeSpec,
 
             string logicalId,
 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     public sealed class RuleGroupSizeConstraintStatementArgs : Pulumi.ResourceArgs
     {
         [Input("comparisonOperator", required: true)]
-        public Input<string> ComparisonOperator { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.RuleGroupSizeConstraintStatementComparisonOperator> ComparisonOperator { get; set; } = null!;
 
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.RuleGroupFieldToMatchArgs> FieldToMatch { get; set; } = null!;

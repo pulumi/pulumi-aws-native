@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         public Input<bool>? IncludeExecutionData { get; set; }
 
         [Input("level")]
-        public Input<string>? Level { get; set; }
+        public Input<Pulumi.AwsNative.StepFunctions.StateMachineLoggingConfigurationLevel>? Level { get; set; }
 
         public StateMachineLoggingConfigurationArgs()
         {

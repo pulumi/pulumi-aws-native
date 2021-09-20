@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         /// Operator used to aggregate metric values
         /// </summary>
         [Input("aggregationFunction", required: true)]
-        public Input<string> AggregationFunction { get; set; } = null!;
+        public Input<Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorMetricAggregationFunction> AggregationFunction { get; set; } = null!;
 
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;

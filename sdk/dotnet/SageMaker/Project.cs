@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The status of a project.
         /// </summary>
         [Output("projectStatus")]
-        public Output<string> ProjectStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.SageMaker.ProjectProjectStatus> ProjectStatus { get; private set; } = null!;
 
         /// <summary>
         /// Provisioned ServiceCatalog  Details

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class SpotFleetSpotFleetTagSpecificationArgs : Pulumi.ResourceArgs
     {
         [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetSpotFleetTagSpecificationResourceType>? ResourceType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.SpotFleetTagArgs>? _tags;

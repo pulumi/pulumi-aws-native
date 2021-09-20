@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         /// </summary>
         [Output("healthCheckProtocol")]
-        public Output<string?> HealthCheckProtocol { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GlobalAccelerator.EndpointGroupHealthCheckProtocol?> HealthCheckProtocol { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         /// </summary>
         [Input("healthCheckProtocol")]
-        public Input<string>? HealthCheckProtocol { get; set; }
+        public Input<Pulumi.AwsNative.GlobalAccelerator.EndpointGroupHealthCheckProtocol>? HealthCheckProtocol { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the listener

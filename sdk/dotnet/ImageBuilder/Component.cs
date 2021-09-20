@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The platform of the component.
         /// </summary>
         [Output("platform")]
-        public Output<string> Platform { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ImageBuilder.ComponentPlatform> Platform { get; private set; } = null!;
 
         /// <summary>
         /// The operating system (OS) version supported by the component.
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The type of the component denotes whether the component is used to build the image or only to test it. 
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ImageBuilder.ComponentType> Type { get; private set; } = null!;
 
         /// <summary>
         /// The uri of the component.
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The platform of the component.
         /// </summary>
         [Input("platform", required: true)]
-        public Input<string> Platform { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ImageBuilder.ComponentPlatform> Platform { get; set; } = null!;
 
         [Input("supportedOsVersions")]
         private InputList<string>? _supportedOsVersions;

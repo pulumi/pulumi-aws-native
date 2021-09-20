@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     {
         public readonly ImmutableArray<string> InstanceIds;
         public readonly string Region;
-        public readonly string Subtype;
+        public readonly Pulumi.AwsNative.Budgets.BudgetsActionSsmActionDefinitionSubtype Subtype;
 
         [OutputConstructor]
         private BudgetsActionSsmActionDefinition(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.Budgets.Outputs
 
             string region,
 
-            string subtype)
+            Pulumi.AwsNative.Budgets.BudgetsActionSsmActionDefinitionSubtype subtype)
         {
             InstanceIds = instanceIds;
             Region = region;

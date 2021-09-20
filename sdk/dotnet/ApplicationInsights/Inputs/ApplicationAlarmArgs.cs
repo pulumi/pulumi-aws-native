@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// Indicates the degree of outage when the alarm goes off.
         /// </summary>
         [Input("severity")]
-        public Input<string>? Severity { get; set; }
+        public Input<Pulumi.AwsNative.ApplicationInsights.ApplicationAlarmSeverity>? Severity { get; set; }
 
         public ApplicationAlarmArgs()
         {

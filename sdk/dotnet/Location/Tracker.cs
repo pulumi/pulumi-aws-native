@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Location
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         [Output("pricingPlan")]
-        public Output<string> PricingPlan { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Location.TrackerPricingPlan> PricingPlan { get; private set; } = null!;
 
         [Output("pricingPlanDataSource")]
         public Output<string?> PricingPlanDataSource { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Location
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("pricingPlan", required: true)]
-        public Input<string> PricingPlan { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Location.TrackerPricingPlan> PricingPlan { get; set; } = null!;
 
         [Input("pricingPlanDataSource")]
         public Input<string>? PricingPlanDataSource { get; set; }

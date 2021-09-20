@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
     public sealed class WorkGroupEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("encryptionOption", required: true)]
-        public Input<string> EncryptionOption { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Athena.WorkGroupEncryptionOption> EncryptionOption { get; set; } = null!;
 
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }

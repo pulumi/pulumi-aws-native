@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         /// </summary>
         [Output("connectionMode")]
-        public Output<string> ConnectionMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.AppFlow.ConnectorProfileConnectionMode> ConnectionMode { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier for connector profile resources
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// List of Saas providers that need connector profile to be created
         /// </summary>
         [Output("connectorType")]
-        public Output<string> ConnectorType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.AppFlow.ConnectorProfileConnectorType> ConnectorType { get; private set; } = null!;
 
         /// <summary>
         /// A unique Arn for Connector-Profile resource
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         /// </summary>
         [Input("connectionMode", required: true)]
-        public Input<string> ConnectionMode { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppFlow.ConnectorProfileConnectionMode> ConnectionMode { get; set; } = null!;
 
         /// <summary>
         /// Connector specific configurations needed to create connector profile
@@ -124,7 +124,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// List of Saas providers that need connector profile to be created
         /// </summary>
         [Input("connectorType", required: true)]
-        public Input<string> ConnectorType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppFlow.ConnectorProfileConnectorType> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.

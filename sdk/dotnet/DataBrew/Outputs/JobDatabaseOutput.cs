@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// <summary>
         /// Database table name
         /// </summary>
-        public readonly string? DatabaseOutputMode;
+        public readonly Pulumi.AwsNative.DataBrew.JobDatabaseOutputDatabaseOutputMode? DatabaseOutputMode;
         /// <summary>
         /// Glue connection name
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         private JobDatabaseOutput(
             Outputs.JobDatabaseTableOutputOptions databaseOptions,
 
-            string? databaseOutputMode,
+            Pulumi.AwsNative.DataBrew.JobDatabaseOutputDatabaseOutputMode? databaseOutputMode,
 
             string glueConnectionName)
         {

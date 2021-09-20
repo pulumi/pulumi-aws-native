@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceServiceNowServiceCatalogConfigurationArgs>? ServiceCatalogConfiguration { get; set; }
 
         [Input("serviceNowBuildVersion", required: true)]
-        public Input<string> ServiceNowBuildVersion { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Kendra.DataSourceServiceNowBuildVersionType> ServiceNowBuildVersion { get; set; } = null!;
 
         public DataSourceServiceNowConfigurationArgs()
         {

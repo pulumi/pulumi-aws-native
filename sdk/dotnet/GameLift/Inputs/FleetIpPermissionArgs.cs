@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         /// The network communication protocol used by the fleet.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public Input<Pulumi.AwsNative.GameLift.FleetIpPermissionProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.

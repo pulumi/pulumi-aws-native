@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// Indicates the degree of outage when the alarm goes off.
         /// </summary>
-        public readonly string? Severity;
+        public readonly Pulumi.AwsNative.ApplicationInsights.ApplicationAlarmSeverity? Severity;
 
         [OutputConstructor]
         private ApplicationAlarm(
             string alarmName,
 
-            string? severity)
+            Pulumi.AwsNative.ApplicationInsights.ApplicationAlarmSeverity? severity)
         {
             AlarmName = alarmName;
             Severity = severity;

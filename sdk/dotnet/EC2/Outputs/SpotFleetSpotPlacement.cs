@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
     {
         public readonly string? AvailabilityZone;
         public readonly string? GroupName;
-        public readonly string? Tenancy;
+        public readonly Pulumi.AwsNative.EC2.SpotFleetSpotPlacementTenancy? Tenancy;
 
         [OutputConstructor]
         private SpotFleetSpotPlacement(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? groupName,
 
-            string? tenancy)
+            Pulumi.AwsNative.EC2.SpotFleetSpotPlacementTenancy? tenancy)
         {
             AvailabilityZone = availabilityZone;
             GroupName = groupName;

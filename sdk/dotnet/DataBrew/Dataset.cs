@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Dataset format
         /// </summary>
         [Output("format")]
-        public Output<string?> Format { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DataBrew.DatasetFormat?> Format { get; private set; } = null!;
 
         /// <summary>
         /// Format options for dataset
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Dataset format
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public Input<Pulumi.AwsNative.DataBrew.DatasetFormat>? Format { get; set; }
 
         /// <summary>
         /// Format options for dataset

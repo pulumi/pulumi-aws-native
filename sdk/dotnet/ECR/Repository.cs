@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ECR
         /// The image tag mutability setting for the repository.
         /// </summary>
         [Output("imageTagMutability")]
-        public Output<string?> ImageTagMutability { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ECR.RepositoryImageTagMutability?> ImageTagMutability { get; private set; } = null!;
 
         [Output("lifecyclePolicy")]
         public Output<Outputs.RepositoryLifecyclePolicy?> LifecyclePolicy { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.ECR
         /// The image tag mutability setting for the repository.
         /// </summary>
         [Input("imageTagMutability")]
-        public Input<string>? ImageTagMutability { get; set; }
+        public Input<Pulumi.AwsNative.ECR.RepositoryImageTagMutability>? ImageTagMutability { get; set; }
 
         [Input("lifecyclePolicy")]
         public Input<Inputs.RepositoryLifecyclePolicyArgs>? LifecyclePolicy { get; set; }

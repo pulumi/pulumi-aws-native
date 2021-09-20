@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// The condition configures when the pipeline should trigger a new image build.
         /// </summary>
         [Input("pipelineExecutionStartCondition")]
-        public Input<string>? PipelineExecutionStartCondition { get; set; }
+        public Input<Pulumi.AwsNative.ImageBuilder.ImagePipelineSchedulePipelineExecutionStartCondition>? PipelineExecutionStartCondition { get; set; }
 
         /// <summary>
         /// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.

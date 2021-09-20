@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
     public sealed class RepositoryEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("encryptionType", required: true)]
-        public Input<string> EncryptionType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ECR.RepositoryEncryptionType> EncryptionType { get; set; } = null!;
 
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }

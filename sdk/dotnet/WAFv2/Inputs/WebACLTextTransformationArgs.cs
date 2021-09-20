@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.WebACLTextTransformationType> Type { get; set; } = null!;
 
         public WebACLTextTransformationArgs()
         {

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// The encryption method to use.
         /// </summary>
         [Input("encryptionMethod")]
-        public Input<string>? EncryptionMethod { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsEncryptionEncryptionMethod>? EncryptionMethod { get; set; }
 
         /// <summary>
         /// Interval (in seconds) between each encryption key rotation.

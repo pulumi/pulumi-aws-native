@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     public sealed class IntegrationScheduledTriggerPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("dataPullMode")]
-        public Input<string>? DataPullMode { get; set; }
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationScheduledTriggerPropertiesDataPullMode>? DataPullMode { get; set; }
 
         [Input("firstExecutionFrom")]
         public Input<double>? FirstExecutionFrom { get; set; }

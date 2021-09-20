@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroupTCPFlagField
     {
-        public readonly ImmutableArray<string> Flags;
-        public readonly ImmutableArray<string> Masks;
+        public readonly ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag> Flags;
+        public readonly ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag> Masks;
 
         [OutputConstructor]
         private RuleGroupTCPFlagField(
-            ImmutableArray<string> flags,
+            ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag> flags,
 
-            ImmutableArray<string> masks)
+            ImmutableArray<Pulumi.AwsNative.NetworkFirewall.RuleGroupTCPFlag> masks)
         {
             Flags = flags;
             Masks = masks;

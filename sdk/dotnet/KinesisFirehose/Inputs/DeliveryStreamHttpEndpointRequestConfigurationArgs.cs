@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         }
 
         [Input("contentEncoding")]
-        public Input<string>? ContentEncoding { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamHttpEndpointRequestConfigurationContentEncoding>? ContentEncoding { get; set; }
 
         public DeliveryStreamHttpEndpointRequestConfigurationArgs()
         {

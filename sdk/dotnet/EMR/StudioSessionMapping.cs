@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMR
         /// Specifies whether the identity to map to the Studio is a user or a group.
         /// </summary>
         [Output("identityType")]
-        public Output<string> IdentityType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EMR.StudioSessionMappingIdentityType> IdentityType { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.EMR
         /// Specifies whether the identity to map to the Studio is a user or a group.
         /// </summary>
         [Input("identityType", required: true)]
-        public Input<string> IdentityType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.EMR.StudioSessionMappingIdentityType> IdentityType { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.

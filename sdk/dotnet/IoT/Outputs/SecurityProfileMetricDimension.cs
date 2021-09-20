@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// <summary>
         /// Defines how the dimensionValues of a dimension are interpreted.
         /// </summary>
-        public readonly string? Operator;
+        public readonly Pulumi.AwsNative.IoT.SecurityProfileMetricDimensionOperator? Operator;
 
         [OutputConstructor]
         private SecurityProfileMetricDimension(
             string dimensionName,
 
-            string? @operator)
+            Pulumi.AwsNative.IoT.SecurityProfileMetricDimensionOperator? @operator)
         {
             DimensionName = dimensionName;
             Operator = @operator;

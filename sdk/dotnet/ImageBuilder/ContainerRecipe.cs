@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Specifies the type of container, such as Docker.
         /// </summary>
         [Output("containerType")]
-        public Output<string?> ContainerType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ImageBuilder.ContainerRecipeContainerType?> ContainerType { get; private set; } = null!;
 
         /// <summary>
         /// The description of the container recipe.
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Specifies the operating system platform when you use a custom source image.
         /// </summary>
         [Output("platformOverride")]
-        public Output<string?> PlatformOverride { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ImageBuilder.ContainerRecipePlatformOverride?> PlatformOverride { get; private set; } = null!;
 
         /// <summary>
         /// Tags that are attached to the container recipe.
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Specifies the type of container, such as Docker.
         /// </summary>
         [Input("containerType")]
-        public Input<string>? ContainerType { get; set; }
+        public Input<Pulumi.AwsNative.ImageBuilder.ContainerRecipeContainerType>? ContainerType { get; set; }
 
         /// <summary>
         /// The description of the container recipe.
@@ -226,7 +226,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Specifies the operating system platform when you use a custom source image.
         /// </summary>
         [Input("platformOverride")]
-        public Input<string>? PlatformOverride { get; set; }
+        public Input<Pulumi.AwsNative.ImageBuilder.ContainerRecipePlatformOverride>? PlatformOverride { get; set; }
 
         /// <summary>
         /// Tags that are attached to the container recipe.

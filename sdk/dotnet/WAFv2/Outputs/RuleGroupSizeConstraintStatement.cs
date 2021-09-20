@@ -16,14 +16,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class RuleGroupSizeConstraintStatement
     {
-        public readonly string ComparisonOperator;
+        public readonly Pulumi.AwsNative.WAFv2.RuleGroupSizeConstraintStatementComparisonOperator ComparisonOperator;
         public readonly Outputs.RuleGroupFieldToMatch FieldToMatch;
         public readonly double Size;
         public readonly ImmutableArray<Outputs.RuleGroupTextTransformation> TextTransformations;
 
         [OutputConstructor]
         private RuleGroupSizeConstraintStatement(
-            string comparisonOperator,
+            Pulumi.AwsNative.WAFv2.RuleGroupSizeConstraintStatementComparisonOperator comparisonOperator,
 
             Outputs.RuleGroupFieldToMatch fieldToMatch,
 

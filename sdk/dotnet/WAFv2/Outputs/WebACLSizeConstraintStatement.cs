@@ -16,14 +16,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLSizeConstraintStatement
     {
-        public readonly string ComparisonOperator;
+        public readonly Pulumi.AwsNative.WAFv2.WebACLSizeConstraintStatementComparisonOperator ComparisonOperator;
         public readonly Outputs.WebACLFieldToMatch FieldToMatch;
         public readonly double Size;
         public readonly ImmutableArray<Outputs.WebACLTextTransformation> TextTransformations;
 
         [OutputConstructor]
         private WebACLSizeConstraintStatement(
-            string comparisonOperator,
+            Pulumi.AwsNative.WAFv2.WebACLSizeConstraintStatementComparisonOperator comparisonOperator,
 
             Outputs.WebACLFieldToMatch fieldToMatch,
 

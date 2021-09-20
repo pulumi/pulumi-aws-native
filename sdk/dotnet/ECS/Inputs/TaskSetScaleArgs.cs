@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// The unit of measure for the scale value.
         /// </summary>
         [Input("unit")]
-        public Input<string>? Unit { get; set; }
+        public Input<Pulumi.AwsNative.ECS.TaskSetScaleUnit>? Unit { get; set; }
 
         /// <summary>
         /// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.

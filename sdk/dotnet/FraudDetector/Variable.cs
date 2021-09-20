@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The source of the data.
         /// </summary>
         [Output("dataSource")]
-        public Output<string> DataSource { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FraudDetector.VariableDataSource> DataSource { get; private set; } = null!;
 
         /// <summary>
         /// The data type.
         /// </summary>
         [Output("dataType")]
-        public Output<string> DataType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FraudDetector.VariableDataType> DataType { get; private set; } = null!;
 
         /// <summary>
         /// The default value for the variable when no value is received.
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         /// </summary>
         [Output("variableType")]
-        public Output<string?> VariableType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FraudDetector.VariableVariableType?> VariableType { get; private set; } = null!;
 
 
         /// <summary>
@@ -124,13 +124,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The source of the data.
         /// </summary>
         [Input("dataSource", required: true)]
-        public Input<string> DataSource { get; set; } = null!;
+        public Input<Pulumi.AwsNative.FraudDetector.VariableDataSource> DataSource { get; set; } = null!;
 
         /// <summary>
         /// The data type.
         /// </summary>
         [Input("dataType", required: true)]
-        public Input<string> DataType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.FraudDetector.VariableDataType> DataType { get; set; } = null!;
 
         /// <summary>
         /// The default value for the variable when no value is received.
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         /// </summary>
         [Input("variableType")]
-        public Input<string>? VariableType { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.VariableVariableType>? VariableType { get; set; }
 
         public VariableArgs()
         {

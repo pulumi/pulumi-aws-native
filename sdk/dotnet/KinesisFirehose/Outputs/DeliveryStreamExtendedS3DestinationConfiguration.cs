@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly string BucketARN;
         public readonly Outputs.DeliveryStreamBufferingHints? BufferingHints;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
-        public readonly string? CompressionFormat;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat? CompressionFormat;
         public readonly Outputs.DeliveryStreamDataFormatConversionConfiguration? DataFormatConversionConfiguration;
         public readonly Outputs.DeliveryStreamDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
         public readonly Outputs.DeliveryStreamEncryptionConfiguration? EncryptionConfiguration;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         public readonly string RoleARN;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration;
-        public readonly string? S3BackupMode;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode? S3BackupMode;
 
         [OutputConstructor]
         private DeliveryStreamExtendedS3DestinationConfiguration(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
-            string? compressionFormat,
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat? compressionFormat,
 
             Outputs.DeliveryStreamDataFormatConversionConfiguration? dataFormatConversionConfiguration,
 
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamS3DestinationConfiguration? s3BackupConfiguration,
 
-            string? s3BackupMode)
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode? s3BackupMode)
         {
             BucketARN = bucketARN;
             BufferingHints = bufferingHints;

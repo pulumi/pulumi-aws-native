@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<string> BucketName { get; set; } = null!;
 
         [Input("cannedAcl")]
-        public Input<string>? CannedAcl { get; set; }
+        public Input<Pulumi.AwsNative.IoT.TopicRuleCannedAccessControlList>? CannedAcl { get; set; }
 
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

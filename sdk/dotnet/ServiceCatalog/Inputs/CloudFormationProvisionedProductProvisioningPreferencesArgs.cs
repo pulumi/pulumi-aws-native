@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
         public Input<int>? StackSetMaxConcurrencyPercentage { get; set; }
 
         [Input("stackSetOperationType")]
-        public Input<string>? StackSetOperationType { get; set; }
+        public Input<Pulumi.AwsNative.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType>? StackSetOperationType { get; set; }
 
         [Input("stackSetRegions")]
         private InputList<string>? _stackSetRegions;

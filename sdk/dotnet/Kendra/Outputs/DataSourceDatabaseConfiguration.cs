@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly Outputs.DataSourceAclConfiguration? AclConfiguration;
         public readonly Outputs.DataSourceColumnConfiguration ColumnConfiguration;
         public readonly Outputs.DataSourceConnectionConfiguration ConnectionConfiguration;
-        public readonly string DatabaseEngineType;
+        public readonly Pulumi.AwsNative.Kendra.DataSourceDatabaseEngineType DatabaseEngineType;
         public readonly Outputs.DataSourceSqlConfiguration? SqlConfiguration;
         public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
 
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceConnectionConfiguration connectionConfiguration,
 
-            string databaseEngineType,
+            Pulumi.AwsNative.Kendra.DataSourceDatabaseEngineType databaseEngineType,
 
             Outputs.DataSourceSqlConfiguration? sqlConfiguration,
 

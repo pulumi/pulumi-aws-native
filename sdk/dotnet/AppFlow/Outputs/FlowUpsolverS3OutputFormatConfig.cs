@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowUpsolverS3OutputFormatConfig
     {
         public readonly Outputs.FlowAggregationConfig? AggregationConfig;
-        public readonly string? FileType;
+        public readonly Pulumi.AwsNative.AppFlow.FlowFileType? FileType;
         public readonly Outputs.FlowPrefixConfig PrefixConfig;
 
         [OutputConstructor]
         private FlowUpsolverS3OutputFormatConfig(
             Outputs.FlowAggregationConfig? aggregationConfig,
 
-            string? fileType,
+            Pulumi.AwsNative.AppFlow.FlowFileType? fileType,
 
             Outputs.FlowPrefixConfig prefixConfig)
         {

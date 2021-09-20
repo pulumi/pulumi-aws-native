@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         /// The component monitoring configuration mode.
         /// </summary>
         [Input("componentConfigurationMode", required: true)]
-        public Input<string> ComponentConfigurationMode { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ApplicationInsights.ApplicationComponentMonitoringSettingComponentConfigurationMode> ComponentConfigurationMode { get; set; } = null!;
 
         /// <summary>
         /// The name of the component.

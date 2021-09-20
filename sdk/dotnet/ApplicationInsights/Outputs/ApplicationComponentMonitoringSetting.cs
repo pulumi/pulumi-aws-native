@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         /// <summary>
         /// The component monitoring configuration mode.
         /// </summary>
-        public readonly string ComponentConfigurationMode;
+        public readonly Pulumi.AwsNative.ApplicationInsights.ApplicationComponentMonitoringSettingComponentConfigurationMode ComponentConfigurationMode;
         /// <summary>
         /// The name of the component.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
         private ApplicationComponentMonitoringSetting(
             string? componentARN,
 
-            string componentConfigurationMode,
+            Pulumi.AwsNative.ApplicationInsights.ApplicationComponentMonitoringSettingComponentConfigurationMode componentConfigurationMode,
 
             string? componentName,
 

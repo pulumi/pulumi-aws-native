@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// The type of ResourceCollection
         /// </summary>
         [Output("resourceCollectionType")]
-        public Output<string> ResourceCollectionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.DevOpsGuru.ResourceCollectionResourceCollectionType> ResourceCollectionType { get; private set; } = null!;
 
 
         /// <summary>

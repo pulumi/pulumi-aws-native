@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Signer.Outputs
     [OutputType]
     public sealed class SigningProfileSignatureValidityPeriod
     {
-        public readonly string? Type;
+        public readonly Pulumi.AwsNative.Signer.SigningProfileSignatureValidityPeriodType? Type;
         public readonly int? Value;
 
         [OutputConstructor]
         private SigningProfileSignatureValidityPeriod(
-            string? type,
+            Pulumi.AwsNative.Signer.SigningProfileSignatureValidityPeriodType? type,
 
             int? value)
         {

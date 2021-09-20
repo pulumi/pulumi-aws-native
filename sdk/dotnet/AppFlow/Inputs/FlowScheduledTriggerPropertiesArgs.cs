@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowScheduledTriggerPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("dataPullMode")]
-        public Input<string>? DataPullMode { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowScheduledTriggerPropertiesDataPullMode>? DataPullMode { get; set; }
 
         [Input("scheduleEndTime")]
         public Input<double>? ScheduleEndTime { get; set; }

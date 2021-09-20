@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.FinSpace
         /// Federation mode used with the Environment
         /// </summary>
         [Output("federationMode")]
-        public Output<string?> FederationMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FinSpace.EnvironmentFederationMode?> FederationMode { get; private set; } = null!;
 
         [Output("federationParameters")]
         public Output<Outputs.EnvironmentFederationParameters?> FederationParameters { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.FinSpace
         /// State of the Environment
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FinSpace.EnvironmentStatus> Status { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.FinSpace
         /// Federation mode used with the Environment
         /// </summary>
         [Input("federationMode")]
-        public Input<string>? FederationMode { get; set; }
+        public Input<Pulumi.AwsNative.FinSpace.EnvironmentFederationMode>? FederationMode { get; set; }
 
         [Input("federationParameters")]
         public Input<Inputs.EnvironmentFederationParametersArgs>? FederationParameters { get; set; }

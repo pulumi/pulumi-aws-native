@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<Outputs.DataSetFieldFolderMap?> FieldFolders { get; private set; } = null!;
 
         [Output("importMode")]
-        public Output<string?> ImportMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.DataSetDataSetImportMode?> ImportMode { get; private set; } = null!;
 
         [Output("ingestionWaitPolicy")]
         public Output<Outputs.DataSetIngestionWaitPolicy?> IngestionWaitPolicy { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<Inputs.DataSetFieldFolderMapArgs>? FieldFolders { get; set; }
 
         [Input("importMode")]
-        public Input<string>? ImportMode { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSetDataSetImportMode>? ImportMode { get; set; }
 
         [Input("ingestionWaitPolicy")]
         public Input<Inputs.DataSetIngestionWaitPolicyArgs>? IngestionWaitPolicy { get; set; }

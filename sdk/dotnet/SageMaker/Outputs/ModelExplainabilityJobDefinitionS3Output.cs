@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// Whether to upload the results of the monitoring job continuously or after the job completes.
         /// </summary>
-        public readonly string? S3UploadMode;
+        public readonly Pulumi.AwsNative.SageMaker.ModelExplainabilityJobDefinitionS3OutputS3UploadMode? S3UploadMode;
         /// <summary>
         /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private ModelExplainabilityJobDefinitionS3Output(
             string localPath,
 
-            string? s3UploadMode,
+            Pulumi.AwsNative.SageMaker.ModelExplainabilityJobDefinitionS3OutputS3UploadMode? s3UploadMode,
 
             string s3Uri)
         {

@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     [OutputType]
     public sealed class FleetCertificateConfiguration
     {
-        public readonly string CertificateType;
+        public readonly Pulumi.AwsNative.GameLift.FleetCertificateConfigurationCertificateType CertificateType;
 
         [OutputConstructor]
-        private FleetCertificateConfiguration(string certificateType)
+        private FleetCertificateConfiguration(Pulumi.AwsNative.GameLift.FleetCertificateConfigurationCertificateType certificateType)
         {
             CertificateType = certificateType;
         }

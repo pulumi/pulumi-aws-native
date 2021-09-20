@@ -19,22 +19,22 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         /// </summary>
         [Input("adMarkers")]
-        public Input<string>? AdMarkers { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsPackageAdMarkers>? AdMarkers { get; set; }
 
         [Input("adTriggers")]
-        private InputList<string>? _adTriggers;
+        private InputList<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsPackageAdTriggersItem>? _adTriggers;
 
         /// <summary>
         /// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         /// </summary>
-        public InputList<string> AdTriggers
+        public InputList<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsPackageAdTriggersItem> AdTriggers
         {
-            get => _adTriggers ?? (_adTriggers = new InputList<string>());
+            get => _adTriggers ?? (_adTriggers = new InputList<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsPackageAdTriggersItem>());
             set => _adTriggers = value;
         }
 
         [Input("adsOnDeliveryRestrictions")]
-        public Input<string>? AdsOnDeliveryRestrictions { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions>? AdsOnDeliveryRestrictions { get; set; }
 
         [Input("encryption")]
         public Input<Inputs.OriginEndpointHlsEncryptionArgs>? Encryption { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         /// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         /// </summary>
         [Input("playlistType")]
-        public Input<string>? PlaylistType { get; set; }
+        public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsPackagePlaylistType>? PlaylistType { get; set; }
 
         /// <summary>
         /// Time window (in seconds) contained in each parent manifest.

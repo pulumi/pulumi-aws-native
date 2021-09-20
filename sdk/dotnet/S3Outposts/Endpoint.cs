@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.S3Outposts
         /// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         /// </summary>
         [Output("accessType")]
-        public Output<string?> AccessType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.S3Outposts.EndpointAccessType?> AccessType { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the endpoint.
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.S3Outposts
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.S3Outposts.EndpointStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.S3Outposts
         /// The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         /// </summary>
         [Input("accessType")]
-        public Input<string>? AccessType { get; set; }
+        public Input<Pulumi.AwsNative.S3Outposts.EndpointAccessType>? AccessType { get; set; }
 
         /// <summary>
         /// The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.

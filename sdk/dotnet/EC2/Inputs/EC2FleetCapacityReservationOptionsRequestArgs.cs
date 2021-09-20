@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class EC2FleetCapacityReservationOptionsRequestArgs : Pulumi.ResourceArgs
     {
         [Input("usageStrategy")]
-        public Input<string>? UsageStrategy { get; set; }
+        public Input<Pulumi.AwsNative.EC2.EC2FleetCapacityReservationOptionsRequestUsageStrategy>? UsageStrategy { get; set; }
 
         public EC2FleetCapacityReservationOptionsRequestArgs()
         {

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// The instance type that the image version runs on.
         /// </summary>
-        public readonly string? InstanceType;
+        public readonly Pulumi.AwsNative.SageMaker.DomainResourceSpecInstanceType? InstanceType;
         /// <summary>
         /// The ARN of the SageMaker image that the image version belongs to.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private DomainResourceSpec(
-            string? instanceType,
+            Pulumi.AwsNative.SageMaker.DomainResourceSpecInstanceType? instanceType,
 
             string? sageMakerImageArn,
 

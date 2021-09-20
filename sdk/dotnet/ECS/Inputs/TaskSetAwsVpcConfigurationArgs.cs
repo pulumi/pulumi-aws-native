@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         /// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
         /// </summary>
         [Input("assignPublicIp")]
-        public Input<string>? AssignPublicIp { get; set; }
+        public Input<Pulumi.AwsNative.ECS.TaskSetAwsVpcConfigurationAssignPublicIp>? AssignPublicIp { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;

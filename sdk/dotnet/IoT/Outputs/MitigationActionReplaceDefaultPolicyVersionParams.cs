@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionReplaceDefaultPolicyVersionParams
     {
-        public readonly string TemplateName;
+        public readonly Pulumi.AwsNative.IoT.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName TemplateName;
 
         [OutputConstructor]
-        private MitigationActionReplaceDefaultPolicyVersionParams(string templateName)
+        private MitigationActionReplaceDefaultPolicyVersionParams(Pulumi.AwsNative.IoT.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName templateName)
         {
             TemplateName = templateName;
         }

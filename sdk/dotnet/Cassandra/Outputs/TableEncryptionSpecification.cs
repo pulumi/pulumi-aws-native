@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TableEncryptionSpecification
     {
-        public readonly string EncryptionType;
+        public readonly Pulumi.AwsNative.Cassandra.TableEncryptionType EncryptionType;
         public readonly string? KmsKeyIdentifier;
 
         [OutputConstructor]
         private TableEncryptionSpecification(
-            string encryptionType,
+            Pulumi.AwsNative.Cassandra.TableEncryptionType encryptionType,
 
             string? kmsKeyIdentifier)
         {

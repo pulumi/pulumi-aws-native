@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamRedshiftRetryOptions? RetryOptions;
         public readonly string RoleARN;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration? S3BackupConfiguration;
-        public readonly string? S3BackupMode;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode? S3BackupMode;
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
         public readonly string Username;
 
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamS3DestinationConfiguration? s3BackupConfiguration,
 
-            string? s3BackupMode,
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode? s3BackupMode,
 
             Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration,
 

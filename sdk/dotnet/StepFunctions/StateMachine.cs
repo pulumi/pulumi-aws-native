@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.StepFunctions
         public Output<string?> StateMachineName { get; private set; } = null!;
 
         [Output("stateMachineType")]
-        public Output<string?> StateMachineType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.StepFunctions.StateMachineStateMachineType?> StateMachineType { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StateMachineTagsEntry>> Tags { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.StepFunctions
         public Input<string>? StateMachineName { get; set; }
 
         [Input("stateMachineType")]
-        public Input<string>? StateMachineType { get; set; }
+        public Input<Pulumi.AwsNative.StepFunctions.StateMachineStateMachineType>? StateMachineType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.StateMachineTagsEntryArgs>? _tags;

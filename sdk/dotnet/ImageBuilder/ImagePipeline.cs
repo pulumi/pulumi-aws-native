@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The status of the image pipeline.
         /// </summary>
         [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ImageBuilder.ImagePipelineStatus?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags of this image pipeline.
@@ -190,7 +190,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The status of the image pipeline.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AwsNative.ImageBuilder.ImagePipelineStatus>? Status { get; set; }
 
         /// <summary>
         /// The tags of this image pipeline.

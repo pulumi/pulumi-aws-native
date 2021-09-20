@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardSheetControlsOptionArgs : Pulumi.ResourceArgs
     {
         [Input("visibilityState")]
-        public Input<string>? VisibilityState { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DashboardDashboardUIState>? VisibilityState { get; set; }
 
         public DashboardSheetControlsOptionArgs()
         {

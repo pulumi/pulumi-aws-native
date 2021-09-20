@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<string> FeatureName { get; set; } = null!;
 
         [Input("featureType", required: true)]
-        public Input<string> FeatureType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.SageMaker.FeatureGroupFeatureDefinitionFeatureType> FeatureType { get; set; } = null!;
 
         public FeatureGroupFeatureDefinitionArgs()
         {

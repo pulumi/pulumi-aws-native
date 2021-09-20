@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigTrackingConfig
     {
-        public readonly string? Autotrack;
+        public readonly Pulumi.AwsNative.GroundStation.ConfigTrackingConfigAutotrack? Autotrack;
 
         [OutputConstructor]
-        private ConfigTrackingConfig(string? autotrack)
+        private ConfigTrackingConfig(Pulumi.AwsNative.GroundStation.ConfigTrackingConfigAutotrack? autotrack)
         {
             Autotrack = autotrack;
         }

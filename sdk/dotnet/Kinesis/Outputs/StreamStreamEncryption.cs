@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Kinesis.Outputs
         /// <summary>
         /// The encryption type to use. The only valid value is KMS. 
         /// </summary>
-        public readonly string EncryptionType;
+        public readonly Pulumi.AwsNative.Kinesis.StreamStreamEncryptionEncryptionType EncryptionType;
         /// <summary>
         /// The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kinesis.Outputs
 
         [OutputConstructor]
         private StreamStreamEncryption(
-            string encryptionType,
+            Pulumi.AwsNative.Kinesis.StreamStreamEncryptionEncryptionType encryptionType,
 
             string keyId)
         {

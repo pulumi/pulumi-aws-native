@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Signer
         /// The ID of the target signing platform.
         /// </summary>
         [Output("platformId")]
-        public Output<string> PlatformId { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Signer.SigningProfilePlatformId> PlatformId { get; private set; } = null!;
 
         /// <summary>
         /// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Signer
         /// The ID of the target signing platform.
         /// </summary>
         [Input("platformId", required: true)]
-        public Input<string> PlatformId { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Signer.SigningProfilePlatformId> PlatformId { get; set; } = null!;
 
         /// <summary>
         /// Signature validity period of the profile.

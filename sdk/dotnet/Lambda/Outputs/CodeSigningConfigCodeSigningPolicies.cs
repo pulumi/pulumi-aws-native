@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// <summary>
         /// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         /// </summary>
-        public readonly string UntrustedArtifactOnDeployment;
+        public readonly Pulumi.AwsNative.Lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment UntrustedArtifactOnDeployment;
 
         [OutputConstructor]
-        private CodeSigningConfigCodeSigningPolicies(string untrustedArtifactOnDeployment)
+        private CodeSigningConfigCodeSigningPolicies(Pulumi.AwsNative.Lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment untrustedArtifactOnDeployment)
         {
             UntrustedArtifactOnDeployment = untrustedArtifactOnDeployment;
         }

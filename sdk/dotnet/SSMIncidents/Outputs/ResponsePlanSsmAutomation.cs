@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
         /// <summary>
         /// The account type to use when starting the SSM automation document.
         /// </summary>
-        public readonly string? TargetAccount;
+        public readonly Pulumi.AwsNative.SSMIncidents.ResponsePlanSsmAutomationTargetAccount? TargetAccount;
 
         [OutputConstructor]
         private ResponsePlanSsmAutomation(
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 
             string roleArn,
 
-            string? targetAccount)
+            Pulumi.AwsNative.SSMIncidents.ResponsePlanSsmAutomationTargetAccount? targetAccount)
         {
             DocumentName = documentName;
             DocumentVersion = documentVersion;

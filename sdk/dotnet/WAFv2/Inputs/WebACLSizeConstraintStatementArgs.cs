@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     public sealed class WebACLSizeConstraintStatementArgs : Pulumi.ResourceArgs
     {
         [Input("comparisonOperator", required: true)]
-        public Input<string> ComparisonOperator { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.WebACLSizeConstraintStatementComparisonOperator> ComparisonOperator { get; set; } = null!;
 
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;

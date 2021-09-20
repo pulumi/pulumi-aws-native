@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// Must be redis.
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ElastiCache.UserEngine> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Indicates a password is not required for this user account.
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// Must be redis.
         /// </summary>
         [Input("engine", required: true)]
-        public Input<string> Engine { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ElastiCache.UserEngine> Engine { get; set; } = null!;
 
         /// <summary>
         /// Indicates a password is not required for this user account.

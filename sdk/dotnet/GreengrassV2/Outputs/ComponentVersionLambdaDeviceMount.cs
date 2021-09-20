@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     {
         public readonly bool? AddGroupOwner;
         public readonly string? Path;
-        public readonly string? Permission;
+        public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaFilesystemPermission? Permission;
 
         [OutputConstructor]
         private ComponentVersionLambdaDeviceMount(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
 
             string? path,
 
-            string? permission)
+            Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaFilesystemPermission? permission)
         {
             AddGroupOwner = addGroupOwner;
             Path = path;

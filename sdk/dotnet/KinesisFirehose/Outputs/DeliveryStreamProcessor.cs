@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamProcessor
     {
         public readonly ImmutableArray<Outputs.DeliveryStreamProcessorParameter> Parameters;
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamProcessorType Type;
 
         [OutputConstructor]
         private DeliveryStreamProcessor(
             ImmutableArray<Outputs.DeliveryStreamProcessorParameter> parameters,
 
-            string type)
+            Pulumi.AwsNative.KinesisFirehose.DeliveryStreamProcessorType type)
         {
             Parameters = parameters;
             Type = type;

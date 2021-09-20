@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EMR
         /// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         /// </summary>
         [Output("authMode")]
-        public Output<string> AuthMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EMR.StudioAuthMode> AuthMode { get; private set; } = null!;
 
         /// <summary>
         /// The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.EMR
         /// Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         /// </summary>
         [Input("authMode", required: true)]
-        public Input<string> AuthMode { get; set; } = null!;
+        public Input<Pulumi.AwsNative.EMR.StudioAuthMode> AuthMode { get; set; } = null!;
 
         /// <summary>
         /// The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.

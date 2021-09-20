@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<string> Object { get; set; } = null!;
 
         [Input("writeOperationType")]
-        public Input<string>? WriteOperationType { get; set; }
+        public Input<Pulumi.AwsNative.AppFlow.FlowWriteOperationType>? WriteOperationType { get; set; }
 
         public FlowZendeskDestinationPropertiesArgs()
         {

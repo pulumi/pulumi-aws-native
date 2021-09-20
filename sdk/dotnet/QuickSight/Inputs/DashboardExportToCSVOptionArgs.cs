@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardExportToCSVOptionArgs : Pulumi.ResourceArgs
     {
         [Input("availabilityStatus")]
-        public Input<string>? AvailabilityStatus { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DashboardDashboardBehavior>? AvailabilityStatus { get; set; }
 
         public DashboardExportToCSVOptionArgs()
         {

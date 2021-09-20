@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// The condition configures when the pipeline should trigger a new image build.
         /// </summary>
-        public readonly string? PipelineExecutionStartCondition;
+        public readonly Pulumi.AwsNative.ImageBuilder.ImagePipelineSchedulePipelineExecutionStartCondition? PipelineExecutionStartCondition;
         /// <summary>
         /// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 
         [OutputConstructor]
         private ImagePipelineSchedule(
-            string? pipelineExecutionStartCondition,
+            Pulumi.AwsNative.ImageBuilder.ImagePipelineSchedulePipelineExecutionStartCondition? pipelineExecutionStartCondition,
 
             string? scheduleExpression)
         {

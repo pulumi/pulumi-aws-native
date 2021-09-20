@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// The encryption method to use.
         /// </summary>
-        public readonly string? EncryptionMethod;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointHlsEncryptionEncryptionMethod? EncryptionMethod;
         /// <summary>
         /// Interval (in seconds) between each encryption key rotation.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         private OriginEndpointHlsEncryption(
             string? constantInitializationVector,
 
-            string? encryptionMethod,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointHlsEncryptionEncryptionMethod? encryptionMethod,
 
             int? keyRotationIntervalSeconds,
 

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Location
         public Output<string> MapName { get; private set; } = null!;
 
         [Output("pricingPlan")]
-        public Output<string> PricingPlan { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Location.MapPricingPlan> PricingPlan { get; private set; } = null!;
 
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Location
         public Input<string> MapName { get; set; } = null!;
 
         [Input("pricingPlan", required: true)]
-        public Input<string> PricingPlan { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Location.MapPricingPlan> PricingPlan { get; set; } = null!;
 
         public MapArgs()
         {

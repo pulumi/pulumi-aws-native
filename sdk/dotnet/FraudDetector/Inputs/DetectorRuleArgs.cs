@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         public Input<string>? Expression { get; set; }
 
         [Input("language")]
-        public Input<string>? Language { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.DetectorRuleLanguage>? Language { get; set; }
 
         /// <summary>
         /// The time when the event type was last updated.

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> NetworkInsightsPathId { get; private set; } = null!;
 
         [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.NetworkInsightsPathProtocol> Protocol { get; private set; } = null!;
 
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.EC2
         public Input<int>? DestinationPort { get; set; }
 
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public Input<Pulumi.AwsNative.EC2.NetworkInsightsPathProtocol> Protocol { get; set; } = null!;
 
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;

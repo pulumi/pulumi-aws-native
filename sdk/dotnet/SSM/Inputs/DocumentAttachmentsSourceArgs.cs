@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SSM.Inputs
         /// The key of a key-value pair that identifies the location of an attachment to a document.
         /// </summary>
         [Input("key")]
-        public Input<string>? Key { get; set; }
+        public Input<Pulumi.AwsNative.SSM.DocumentAttachmentsSourceKey>? Key { get; set; }
 
         /// <summary>
         /// The name of the document attachment file.

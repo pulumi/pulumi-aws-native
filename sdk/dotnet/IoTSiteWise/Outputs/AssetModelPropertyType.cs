@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         public readonly Outputs.AssetModelAttribute? Attribute;
         public readonly Outputs.AssetModelMetric? Metric;
         public readonly Outputs.AssetModelTransform? Transform;
-        public readonly string TypeName;
+        public readonly Pulumi.AwsNative.IoTSiteWise.AssetModelTypeName TypeName;
 
         [OutputConstructor]
         private AssetModelPropertyType(
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
             Outputs.AssetModelTransform? transform,
 
-            string typeName)
+            Pulumi.AwsNative.IoTSiteWise.AssetModelTypeName typeName)
         {
             Attribute = attribute;
             Metric = metric;

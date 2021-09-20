@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
         public readonly bool? EnablePullRequestPreview;
         public readonly ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables;
         public readonly string? PullRequestEnvironmentName;
-        public readonly string? Stage;
+        public readonly Pulumi.AwsNative.Amplify.AppAutoBranchCreationConfigStage? Stage;
 
         [OutputConstructor]
         private AppAutoBranchCreationConfig(
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
 
             string? pullRequestEnvironmentName,
 
-            string? stage)
+            Pulumi.AwsNative.Amplify.AppAutoBranchCreationConfigStage? stage)
         {
             AutoBranchCreationPatterns = autoBranchCreationPatterns;
             BasicAuthConfig = basicAuthConfig;

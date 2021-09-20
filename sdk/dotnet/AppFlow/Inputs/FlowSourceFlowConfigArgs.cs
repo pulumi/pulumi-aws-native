@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         /// Type of source connector
         /// </summary>
         [Input("connectorType", required: true)]
-        public Input<string> ConnectorType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppFlow.FlowConnectorType> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// Configuration for scheduled incremental data pull

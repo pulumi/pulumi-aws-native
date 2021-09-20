@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public Input<string>? Delimiter { get; set; }
 
         [Input("fileCompression")]
-        public Input<string>? FileCompression { get; set; }
+        public Input<Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorCsvFormatDescriptorFileCompression>? FileCompression { get; set; }
 
         [Input("headerList")]
         private InputList<string>? _headerList;

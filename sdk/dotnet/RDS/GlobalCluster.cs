@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.RDS
         /// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Output("engine")]
-        public Output<string?> Engine { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RDS.GlobalClusterEngine?> Engine { get; private set; } = null!;
 
         /// <summary>
         /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.RDS
         /// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Input("engine")]
-        public Input<string>? Engine { get; set; }
+        public Input<Pulumi.AwsNative.RDS.GlobalClusterEngine>? Engine { get; set; }
 
         /// <summary>
         /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.

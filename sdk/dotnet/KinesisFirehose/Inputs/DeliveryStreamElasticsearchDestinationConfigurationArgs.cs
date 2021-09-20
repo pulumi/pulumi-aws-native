@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string> IndexName { get; set; } = null!;
 
         [Input("indexRotationPeriod")]
-        public Input<string>? IndexRotationPeriod { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod>? IndexRotationPeriod { get; set; }
 
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string> RoleARN { get; set; } = null!;
 
         [Input("s3BackupMode")]
-        public Input<string>? S3BackupMode { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }
 
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;

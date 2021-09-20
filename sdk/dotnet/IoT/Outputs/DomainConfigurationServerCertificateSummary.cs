@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class DomainConfigurationServerCertificateSummary
     {
         public readonly string? ServerCertificateArn;
-        public readonly string? ServerCertificateStatus;
+        public readonly Pulumi.AwsNative.IoT.DomainConfigurationServerCertificateSummaryServerCertificateStatus? ServerCertificateStatus;
         public readonly string? ServerCertificateStatusDetail;
 
         [OutputConstructor]
         private DomainConfigurationServerCertificateSummary(
             string? serverCertificateArn,
 
-            string? serverCertificateStatus,
+            Pulumi.AwsNative.IoT.DomainConfigurationServerCertificateSummaryServerCertificateStatus? serverCertificateStatus,
 
             string? serverCertificateStatusDetail)
         {

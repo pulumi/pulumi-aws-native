@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         public readonly string? Description;
         public readonly string? DetectorId;
         public readonly string? Expression;
-        public readonly string? Language;
+        public readonly Pulumi.AwsNative.FraudDetector.DetectorRuleLanguage? Language;
         /// <summary>
         /// The time when the event type was last updated.
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
 
             string? expression,
 
-            string? language,
+            Pulumi.AwsNative.FraudDetector.DetectorRuleLanguage? language,
 
             string? lastUpdatedTime,
 

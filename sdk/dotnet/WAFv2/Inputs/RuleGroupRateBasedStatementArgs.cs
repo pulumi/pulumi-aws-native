@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     public sealed class RuleGroupRateBasedStatementArgs : Pulumi.ResourceArgs
     {
         [Input("aggregateKeyType", required: true)]
-        public Input<string> AggregateKeyType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.RuleGroupRateBasedStatementAggregateKeyType> AggregateKeyType { get; set; } = null!;
 
         [Input("forwardedIPConfig")]
         public Input<Inputs.RuleGroupForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }

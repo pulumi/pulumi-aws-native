@@ -20,19 +20,19 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// <summary>
         /// Order
         /// </summary>
-        public readonly string? Order;
+        public readonly Pulumi.AwsNative.DataBrew.DatasetFilesLimitOrder? Order;
         /// <summary>
         /// Ordered by
         /// </summary>
-        public readonly string? OrderedBy;
+        public readonly Pulumi.AwsNative.DataBrew.DatasetFilesLimitOrderedBy? OrderedBy;
 
         [OutputConstructor]
         private DatasetFilesLimit(
             int maxFiles,
 
-            string? order,
+            Pulumi.AwsNative.DataBrew.DatasetFilesLimitOrder? order,
 
-            string? orderedBy)
+            Pulumi.AwsNative.DataBrew.DatasetFilesLimitOrderedBy? orderedBy)
         {
             MaxFiles = maxFiles;
             Order = order;

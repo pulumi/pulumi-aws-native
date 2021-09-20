@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// Name of the job definition
         /// </summary>
         public readonly string? MonitoringJobDefinitionName;
-        public readonly string? MonitoringType;
+        public readonly Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringType? MonitoringType;
         public readonly Outputs.MonitoringScheduleScheduleConfig? ScheduleConfig;
 
         [OutputConstructor]
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? monitoringJobDefinitionName,
 
-            string? monitoringType,
+            Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringType? monitoringType,
 
             Outputs.MonitoringScheduleScheduleConfig? scheduleConfig)
         {

@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// Use to override the device's volume type.
         /// </summary>
         [Input("volumeType")]
-        public Input<string>? VolumeType { get; set; }
+        public Input<Pulumi.AwsNative.ImageBuilder.ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType>? VolumeType { get; set; }
 
         public ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs()
         {

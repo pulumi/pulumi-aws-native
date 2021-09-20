@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Output<string?> DeliveryStreamName { get; private set; } = null!;
 
         [Output("deliveryStreamType")]
-        public Output<string?> DeliveryStreamType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamDeliveryStreamType?> DeliveryStreamType { get; private set; } = null!;
 
         [Output("elasticsearchDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamElasticsearchDestinationConfiguration?> ElasticsearchDestinationConfiguration { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public Input<string>? DeliveryStreamName { get; set; }
 
         [Input("deliveryStreamType")]
-        public Input<string>? DeliveryStreamType { get; set; }
+        public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamDeliveryStreamType>? DeliveryStreamType { get; set; }
 
         [Input("elasticsearchDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamElasticsearchDestinationConfigurationArgs>? ElasticsearchDestinationConfiguration { get; set; }

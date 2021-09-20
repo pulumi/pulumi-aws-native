@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public Input<string>? Charset { get; set; }
 
         [Input("fileCompression")]
-        public Input<string>? FileCompression { get; set; }
+        public Input<Pulumi.AwsNative.LookoutMetrics.AnomalyDetectorJsonFormatDescriptorFileCompression>? FileCompression { get; set; }
 
         public AnomalyDetectorJsonFormatDescriptorArgs()
         {

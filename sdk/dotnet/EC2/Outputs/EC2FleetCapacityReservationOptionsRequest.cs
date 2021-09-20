@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.EC2.Outputs
     [OutputType]
     public sealed class EC2FleetCapacityReservationOptionsRequest
     {
-        public readonly string? UsageStrategy;
+        public readonly Pulumi.AwsNative.EC2.EC2FleetCapacityReservationOptionsRequestUsageStrategy? UsageStrategy;
 
         [OutputConstructor]
-        private EC2FleetCapacityReservationOptionsRequest(string? usageStrategy)
+        private EC2FleetCapacityReservationOptionsRequest(Pulumi.AwsNative.EC2.EC2FleetCapacityReservationOptionsRequestUsageStrategy? usageStrategy)
         {
             UsageStrategy = usageStrategy;
         }

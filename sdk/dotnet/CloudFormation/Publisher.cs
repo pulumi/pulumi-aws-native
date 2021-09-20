@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// The type of account used as the identity provider when registering this publisher with CloudFormation.
         /// </summary>
         [Output("identityProvider")]
-        public Output<string> IdentityProvider { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.PublisherIdentityProvider> IdentityProvider { get; private set; } = null!;
 
         /// <summary>
         /// The publisher id assigned by CloudFormation for publishing in this region.
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Whether the publisher is verified.
         /// </summary>
         [Output("publisherStatus")]
-        public Output<string> PublisherStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.CloudFormation.PublisherPublisherStatus> PublisherStatus { get; private set; } = null!;
 
 
         /// <summary>

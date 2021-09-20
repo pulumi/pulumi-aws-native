@@ -19,12 +19,12 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         /// </summary>
-        public readonly string? AdMarkers;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointHlsManifestAdMarkers? AdMarkers;
         /// <summary>
         /// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         /// </summary>
-        public readonly ImmutableArray<string> AdTriggers;
-        public readonly string? AdsOnDeliveryRestrictions;
+        public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsManifestAdTriggersItem> AdTriggers;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
         /// <summary>
         /// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         /// </summary>
-        public readonly string? PlaylistType;
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointHlsManifestPlaylistType? PlaylistType;
         /// <summary>
         /// Time window (in seconds) contained in each parent manifest.
         /// </summary>
@@ -56,11 +56,11 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private OriginEndpointHlsManifest(
-            string? adMarkers,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointHlsManifestAdMarkers? adMarkers,
 
-            ImmutableArray<string> adTriggers,
+            ImmutableArray<Pulumi.AwsNative.MediaPackage.OriginEndpointHlsManifestAdTriggersItem> adTriggers,
 
-            string? adsOnDeliveryRestrictions,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? adsOnDeliveryRestrictions,
 
             string id,
 
@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             string? manifestName,
 
-            string? playlistType,
+            Pulumi.AwsNative.MediaPackage.OriginEndpointHlsManifestPlaylistType? playlistType,
 
             int? playlistWindowSeconds,
 

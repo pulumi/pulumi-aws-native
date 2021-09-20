@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Route53
         /// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Route53.KeySigningKeyStatus> Status { get; private set; } = null!;
 
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Route53
         /// A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Route53.KeySigningKeyStatus> Status { get; set; } = null!;
 
         public KeySigningKeyArgs()
         {

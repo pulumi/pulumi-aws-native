@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// Whether to upload the results of the monitoring job continuously or after the job completes.
         /// </summary>
         [Input("s3UploadMode")]
-        public Input<string>? S3UploadMode { get; set; }
+        public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleS3OutputS3UploadMode>? S3UploadMode { get; set; }
 
         /// <summary>
         /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.

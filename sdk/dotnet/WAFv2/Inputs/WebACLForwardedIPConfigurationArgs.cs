@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     public sealed class WebACLForwardedIPConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("fallbackBehavior", required: true)]
-        public Input<string> FallbackBehavior { get; set; } = null!;
+        public Input<Pulumi.AwsNative.WAFv2.WebACLForwardedIPConfigurationFallbackBehavior> FallbackBehavior { get; set; } = null!;
 
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;

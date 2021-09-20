@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public Input<string>? ConnectorProfileName { get; set; }
 
         [Input("connectorType", required: true)]
-        public Input<string> ConnectorType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.CustomerProfiles.IntegrationConnectorType> ConnectorType { get; set; } = null!;
 
         [Input("incrementalPullConfig")]
         public Input<Inputs.IntegrationIncrementalPullConfigArgs>? IncrementalPullConfig { get; set; }

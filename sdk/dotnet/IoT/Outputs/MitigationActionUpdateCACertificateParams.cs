@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class MitigationActionUpdateCACertificateParams
     {
-        public readonly string Action;
+        public readonly Pulumi.AwsNative.IoT.MitigationActionUpdateCACertificateParamsAction Action;
 
         [OutputConstructor]
-        private MitigationActionUpdateCACertificateParams(string action)
+        private MitigationActionUpdateCACertificateParams(Pulumi.AwsNative.IoT.MitigationActionUpdateCACertificateParamsAction action)
         {
             Action = action;
         }

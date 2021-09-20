@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class ConfigFrequency
     {
-        public readonly string? Units;
+        public readonly Pulumi.AwsNative.GroundStation.ConfigFrequencyUnits? Units;
         public readonly double? Value;
 
         [OutputConstructor]
         private ConfigFrequency(
-            string? units,
+            Pulumi.AwsNative.GroundStation.ConfigFrequencyUnits? units,
 
             double? value)
         {

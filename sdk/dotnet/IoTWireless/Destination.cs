@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Must be RuleName
         /// </summary>
         [Output("expressionType")]
-        public Output<string> ExpressionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoTWireless.DestinationExpressionType> ExpressionType { get; private set; } = null!;
 
         /// <summary>
         /// Unique name of destination
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Must be RuleName
         /// </summary>
         [Input("expressionType", required: true)]
-        public Input<string> ExpressionType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.IoTWireless.DestinationExpressionType> ExpressionType { get; set; } = null!;
 
         /// <summary>
         /// Unique name of destination

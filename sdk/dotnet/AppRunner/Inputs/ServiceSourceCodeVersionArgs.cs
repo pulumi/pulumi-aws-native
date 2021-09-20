@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         /// Source Code Version Type
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.AppRunner.ServiceSourceCodeVersionType> Type { get; set; } = null!;
 
         /// <summary>
         /// Source Code Version Value

@@ -22,10 +22,10 @@ namespace Pulumi.AwsNative.Budgets
         public Output<Outputs.BudgetsActionActionThreshold> ActionThreshold { get; private set; } = null!;
 
         [Output("actionType")]
-        public Output<string> ActionType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Budgets.BudgetsActionActionType> ActionType { get; private set; } = null!;
 
         [Output("approvalModel")]
-        public Output<string?> ApprovalModel { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Budgets.BudgetsActionApprovalModel?> ApprovalModel { get; private set; } = null!;
 
         [Output("budgetName")]
         public Output<string> BudgetName { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Budgets
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
         [Output("notificationType")]
-        public Output<string> NotificationType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; private set; } = null!;
 
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.BudgetsActionSubscriber>> Subscribers { get; private set; } = null!;
@@ -91,10 +91,10 @@ namespace Pulumi.AwsNative.Budgets
         public Input<Inputs.BudgetsActionActionThresholdArgs> ActionThreshold { get; set; } = null!;
 
         [Input("actionType", required: true)]
-        public Input<string> ActionType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Budgets.BudgetsActionActionType> ActionType { get; set; } = null!;
 
         [Input("approvalModel")]
-        public Input<string>? ApprovalModel { get; set; }
+        public Input<Pulumi.AwsNative.Budgets.BudgetsActionApprovalModel>? ApprovalModel { get; set; }
 
         [Input("budgetName", required: true)]
         public Input<string> BudgetName { get; set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Budgets
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
         [Input("notificationType", required: true)]
-        public Input<string> NotificationType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; set; } = null!;
 
         [Input("subscribers")]
         private InputList<Inputs.BudgetsActionSubscriberArgs>? _subscribers;

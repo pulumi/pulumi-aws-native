@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2.Inputs
         public Input<string>? GroupName { get; set; }
 
         [Input("tenancy")]
-        public Input<string>? Tenancy { get; set; }
+        public Input<Pulumi.AwsNative.EC2.SpotFleetSpotPlacementTenancy>? Tenancy { get; set; }
 
         public SpotFleetSpotPlacementArgs()
         {

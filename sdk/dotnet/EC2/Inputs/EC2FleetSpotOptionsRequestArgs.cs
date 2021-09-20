@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.EC2.Inputs
     public sealed class EC2FleetSpotOptionsRequestArgs : Pulumi.ResourceArgs
     {
         [Input("allocationStrategy")]
-        public Input<string>? AllocationStrategy { get; set; }
+        public Input<Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestAllocationStrategy>? AllocationStrategy { get; set; }
 
         [Input("instanceInterruptionBehavior")]
-        public Input<string>? InstanceInterruptionBehavior { get; set; }
+        public Input<Pulumi.AwsNative.EC2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior>? InstanceInterruptionBehavior { get; set; }
 
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }

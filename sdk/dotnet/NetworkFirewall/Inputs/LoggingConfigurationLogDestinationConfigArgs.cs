@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public Input<object> LogDestination { get; set; } = null!;
 
         [Input("logDestinationType", required: true)]
-        public Input<string> LogDestinationType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogDestinationType> LogDestinationType { get; set; } = null!;
 
         [Input("logType", required: true)]
-        public Input<string> LogType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.LoggingConfigurationLogDestinationConfigLogType> LogType { get; set; } = null!;
 
         public LoggingConfigurationLogDestinationConfigArgs()
         {

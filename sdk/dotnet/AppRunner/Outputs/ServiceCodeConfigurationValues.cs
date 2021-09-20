@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// <summary>
         /// Runtime
         /// </summary>
-        public readonly string Runtime;
+        public readonly Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationValuesRuntime Runtime;
         public readonly ImmutableArray<Outputs.ServiceKeyValuePair> RuntimeEnvironmentVariables;
         /// <summary>
         /// Start Command
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 
             string? port,
 
-            string runtime,
+            Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationValuesRuntime runtime,
 
             ImmutableArray<Outputs.ServiceKeyValuePair> runtimeEnvironmentVariables,
 

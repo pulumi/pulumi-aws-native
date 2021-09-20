@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The desired detector version status for the detector
         /// </summary>
         [Output("detectorVersionStatus")]
-        public Output<string?> DetectorVersionStatus { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FraudDetector.DetectorDetectorVersionStatus?> DetectorVersionStatus { get; private set; } = null!;
 
         /// <summary>
         /// The event type to associate this detector with.
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.FraudDetector
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         [Output("ruleExecutionMode")]
-        public Output<string?> RuleExecutionMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FraudDetector.DetectorRuleExecutionMode?> RuleExecutionMode { get; private set; } = null!;
 
         [Output("rules")]
         public Output<ImmutableArray<Outputs.DetectorRule>> Rules { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The desired detector version status for the detector
         /// </summary>
         [Input("detectorVersionStatus")]
-        public Input<string>? DetectorVersionStatus { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.DetectorDetectorVersionStatus>? DetectorVersionStatus { get; set; }
 
         /// <summary>
         /// The event type to associate this detector with.
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.FraudDetector
         public Input<Inputs.DetectorEventTypeArgs> EventType { get; set; } = null!;
 
         [Input("ruleExecutionMode")]
-        public Input<string>? RuleExecutionMode { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.DetectorRuleExecutionMode>? RuleExecutionMode { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.DetectorRuleArgs>? _rules;

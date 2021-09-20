@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// The type of the CFN Resource for now it's enum CFN_STACK.
         /// </summary>
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.ServiceCatalogAppRegistry.ResourceAssociationResourceType> ResourceType { get; private set; } = null!;
 
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// The type of the CFN Resource for now it's enum CFN_STACK.
         /// </summary>
         [Input("resourceType", required: true)]
-        public Input<string> ResourceType { get; set; } = null!;
+        public Input<Pulumi.AwsNative.ServiceCatalogAppRegistry.ResourceAssociationResourceType> ResourceType { get; set; } = null!;
 
         public ResourceAssociationArgs()
         {

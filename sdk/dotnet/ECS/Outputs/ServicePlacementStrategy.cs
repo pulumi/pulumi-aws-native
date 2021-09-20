@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.ECS.Outputs
     public sealed class ServicePlacementStrategy
     {
         public readonly string? Field;
-        public readonly string Type;
+        public readonly Pulumi.AwsNative.ECS.ServicePlacementStrategyType Type;
 
         [OutputConstructor]
         private ServicePlacementStrategy(
             string? field,
 
-            string type)
+            Pulumi.AwsNative.ECS.ServicePlacementStrategyType type)
         {
             Field = field;
             Type = type;

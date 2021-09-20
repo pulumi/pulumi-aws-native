@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///             template.&lt;/p&gt;
         /// </summary>
         public readonly string? SourceEntityArn;
-        public readonly string? Status;
+        public readonly Pulumi.AwsNative.QuickSight.TemplateResourceStatus? Status;
         /// <summary>
         /// &lt;p&gt;The ARN of the theme associated with this version of the template.&lt;/p&gt;
         /// </summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? sourceEntityArn,
 
-            string? status,
+            Pulumi.AwsNative.QuickSight.TemplateResourceStatus? status,
 
             string? themeArn,
 

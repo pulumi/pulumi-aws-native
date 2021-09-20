@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> ThemeId { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.ThemeThemeType> Type { get; private set; } = null!;
 
         [Output("version")]
         public Output<Outputs.ThemeThemeVersion> Version { get; private set; } = null!;

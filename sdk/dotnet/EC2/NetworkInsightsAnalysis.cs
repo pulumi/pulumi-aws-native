@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> StartDate { get; private set; } = null!;
 
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.NetworkInsightsAnalysisStatus> Status { get; private set; } = null!;
 
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
