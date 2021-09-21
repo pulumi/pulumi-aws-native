@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .access_point import *
+from .bucket import *
+from .bucket_policy import *
 from .multi_region_access_point import *
 from .multi_region_access_point_policy import *
 from .storage_lens import *

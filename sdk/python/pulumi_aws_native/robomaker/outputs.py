@@ -11,6 +11,8 @@ from ._enums import *
 
 __all__ = [
     'FleetTags',
+    'RobotApplicationRobotSoftwareSuite',
+    'RobotApplicationSourceConfig',
     'RobotTags',
     'SimulationApplicationRenderingEngine',
     'SimulationApplicationRobotSoftwareSuite',
@@ -29,6 +31,70 @@ class FleetTags(dict):
         A key-value pair to associate with a resource.
         """
         pass
+
+
+@pulumi.output_type
+class RobotApplicationRobotSoftwareSuite(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 version: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class RobotApplicationSourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RobotApplicationSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RobotApplicationSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RobotApplicationSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 architecture: str,
+                 s3_bucket: str,
+                 s3_key: str):
+        pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        return pulumi.get(self, "architecture")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> str:
+        return pulumi.get(self, "s3_key")
 
 
 @pulumi.output_type

@@ -6,12 +6,14 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./connectionAlias";
+export * from "./workspace";
 
 // Export enums:
 export * from "../types/enums/workspaces";
 
 // Import resources to register:
 import { ConnectionAlias } from "./connectionAlias";
+import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),
@@ -19,6 +21,8 @@ const _module = {
         switch (type) {
             case "aws-native:workspaces:ConnectionAlias":
                 return new ConnectionAlias(name, <any>undefined, { urn })
+            case "aws-native:workspaces:Workspace":
+                return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

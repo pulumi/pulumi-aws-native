@@ -13,9 +13,26 @@ __all__ = [
     'ApiKeyStageKeyArgs',
     'ApiKeyTagArgs',
     'ClientCertificateTagArgs',
+    'DeploymentAccessLogSettingArgs',
+    'DeploymentCanarySettingArgs',
+    'DeploymentDeploymentCanarySettingsArgs',
+    'DeploymentMethodSettingArgs',
+    'DeploymentStageDescriptionArgs',
+    'DeploymentTagArgs',
+    'DocumentationPartLocationArgs',
     'DomainNameEndpointConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
     'DomainNameTagArgs',
+    'MethodIntegrationResponseArgs',
+    'MethodIntegrationArgs',
+    'MethodMethodResponseArgs',
+    'RestApiEndpointConfigurationArgs',
+    'RestApiS3LocationArgs',
+    'RestApiTagArgs',
+    'StageAccessLogSettingArgs',
+    'StageCanarySettingArgs',
+    'StageMethodSettingArgs',
+    'StageTagArgs',
     'UsagePlanApiStageArgs',
     'UsagePlanQuotaSettingsArgs',
     'UsagePlanTagArgs',
@@ -126,6 +143,567 @@ class ClientCertificateTagArgs:
 
 
 @pulumi.input_type
+class DeploymentAccessLogSettingArgs:
+    def __init__(__self__, *,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None):
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class DeploymentCanarySettingArgs:
+    def __init__(__self__, *,
+                 percent_traffic: Optional[pulumi.Input[float]] = None,
+                 stage_variable_overrides: Optional[Any] = None,
+                 use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "percent_traffic")
+
+    @percent_traffic.setter
+    def percent_traffic(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percent_traffic", value)
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[Any]:
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @stage_variable_overrides.setter
+    def stage_variable_overrides(self, value: Optional[Any]):
+        pulumi.set(self, "stage_variable_overrides", value)
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_stage_cache")
+
+    @use_stage_cache.setter
+    def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_stage_cache", value)
+
+
+@pulumi.input_type
+class DeploymentDeploymentCanarySettingsArgs:
+    def __init__(__self__, *,
+                 percent_traffic: Optional[pulumi.Input[float]] = None,
+                 stage_variable_overrides: Optional[Any] = None,
+                 use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "percent_traffic")
+
+    @percent_traffic.setter
+    def percent_traffic(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percent_traffic", value)
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[Any]:
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @stage_variable_overrides.setter
+    def stage_variable_overrides(self, value: Optional[Any]):
+        pulumi.set(self, "stage_variable_overrides", value)
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_stage_cache")
+
+    @use_stage_cache.setter
+    def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_stage_cache", value)
+
+
+@pulumi.input_type
+class DeploymentMethodSettingArgs:
+    def __init__(__self__, *,
+                 cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 caching_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_method: Optional[pulumi.Input[str]] = None,
+                 logging_level: Optional[pulumi.Input[str]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_path: Optional[pulumi.Input[str]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+                 throttling_rate_limit: Optional[pulumi.Input[float]] = None):
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if resource_path is not None:
+            pulumi.set(__self__, "resource_path", resource_path)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @cache_data_encrypted.setter
+    def cache_data_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_data_encrypted", value)
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @cache_ttl_in_seconds.setter
+    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "caching_enabled")
+
+    @caching_enabled.setter
+    def caching_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "caching_enabled", value)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "data_trace_enabled")
+
+    @data_trace_enabled.setter
+    def data_trace_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_trace_enabled", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourcePath")
+    def resource_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_path")
+
+    @resource_path.setter
+    def resource_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_path", value)
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @throttling_burst_limit.setter
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throttling_burst_limit", value)
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @throttling_rate_limit.setter
+    def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_rate_limit", value)
+
+
+@pulumi.input_type
+class DeploymentStageDescriptionArgs:
+    def __init__(__self__, *,
+                 access_log_setting: Optional[pulumi.Input['DeploymentAccessLogSettingArgs']] = None,
+                 cache_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_cluster_size: Optional[pulumi.Input[str]] = None,
+                 cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 caching_enabled: Optional[pulumi.Input[bool]] = None,
+                 canary_setting: Optional[pulumi.Input['DeploymentCanarySettingArgs']] = None,
+                 client_certificate_id: Optional[pulumi.Input[str]] = None,
+                 data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 documentation_version: Optional[pulumi.Input[str]] = None,
+                 logging_level: Optional[pulumi.Input[str]] = None,
+                 method_settings: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagArgs']]]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+                 throttling_rate_limit: Optional[pulumi.Input[float]] = None,
+                 tracing_enabled: Optional[pulumi.Input[bool]] = None,
+                 variables: Optional[Any] = None):
+        if access_log_setting is not None:
+            pulumi.set(__self__, "access_log_setting", access_log_setting)
+        if cache_cluster_enabled is not None:
+            pulumi.set(__self__, "cache_cluster_enabled", cache_cluster_enabled)
+        if cache_cluster_size is not None:
+            pulumi.set(__self__, "cache_cluster_size", cache_cluster_size)
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if canary_setting is not None:
+            pulumi.set(__self__, "canary_setting", canary_setting)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if documentation_version is not None:
+            pulumi.set(__self__, "documentation_version", documentation_version)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if method_settings is not None:
+            pulumi.set(__self__, "method_settings", method_settings)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+        if tracing_enabled is not None:
+            pulumi.set(__self__, "tracing_enabled", tracing_enabled)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="accessLogSetting")
+    def access_log_setting(self) -> Optional[pulumi.Input['DeploymentAccessLogSettingArgs']]:
+        return pulumi.get(self, "access_log_setting")
+
+    @access_log_setting.setter
+    def access_log_setting(self, value: Optional[pulumi.Input['DeploymentAccessLogSettingArgs']]):
+        pulumi.set(self, "access_log_setting", value)
+
+    @property
+    @pulumi.getter(name="cacheClusterEnabled")
+    def cache_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "cache_cluster_enabled")
+
+    @cache_cluster_enabled.setter
+    def cache_cluster_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_cluster_enabled", value)
+
+    @property
+    @pulumi.getter(name="cacheClusterSize")
+    def cache_cluster_size(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cache_cluster_size")
+
+    @cache_cluster_size.setter
+    def cache_cluster_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_cluster_size", value)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @cache_data_encrypted.setter
+    def cache_data_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_data_encrypted", value)
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @cache_ttl_in_seconds.setter
+    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "caching_enabled")
+
+    @caching_enabled.setter
+    def caching_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "caching_enabled", value)
+
+    @property
+    @pulumi.getter(name="canarySetting")
+    def canary_setting(self) -> Optional[pulumi.Input['DeploymentCanarySettingArgs']]:
+        return pulumi.get(self, "canary_setting")
+
+    @canary_setting.setter
+    def canary_setting(self, value: Optional[pulumi.Input['DeploymentCanarySettingArgs']]):
+        pulumi.set(self, "canary_setting", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_certificate_id")
+
+    @client_certificate_id.setter
+    def client_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "data_trace_enabled")
+
+    @data_trace_enabled.setter
+    def data_trace_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_trace_enabled", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="documentationVersion")
+    def documentation_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "documentation_version")
+
+    @documentation_version.setter
+    def documentation_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "documentation_version", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="methodSettings")
+    def method_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]:
+        return pulumi.get(self, "method_settings")
+
+    @method_settings.setter
+    def method_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]):
+        pulumi.set(self, "method_settings", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @throttling_burst_limit.setter
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throttling_burst_limit", value)
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @throttling_rate_limit.setter
+    def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_rate_limit", value)
+
+    @property
+    @pulumi.getter(name="tracingEnabled")
+    def tracing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "tracing_enabled")
+
+    @tracing_enabled.setter
+    def tracing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tracing_enabled", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[Any]:
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[Any]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class DeploymentTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DocumentationPartLocationArgs:
+    def __init__(__self__, *,
+                 method: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 status_code: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_code", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -197,6 +775,626 @@ class DomainNameTagArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MethodIntegrationResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[str],
+                 content_handling: Optional[pulumi.Input[str]] = None,
+                 response_parameters: Optional[Any] = None,
+                 response_templates: Optional[Any] = None,
+                 selection_pattern: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "status_code", status_code)
+        if content_handling is not None:
+            pulumi.set(__self__, "content_handling", content_handling)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+        if response_templates is not None:
+            pulumi.set(__self__, "response_templates", response_templates)
+        if selection_pattern is not None:
+            pulumi.set(__self__, "selection_pattern", selection_pattern)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code", value)
+
+    @property
+    @pulumi.getter(name="contentHandling")
+    def content_handling(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content_handling")
+
+    @content_handling.setter
+    def content_handling(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_handling", value)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "response_parameters", value)
+
+    @property
+    @pulumi.getter(name="responseTemplates")
+    def response_templates(self) -> Optional[Any]:
+        return pulumi.get(self, "response_templates")
+
+    @response_templates.setter
+    def response_templates(self, value: Optional[Any]):
+        pulumi.set(self, "response_templates", value)
+
+    @property
+    @pulumi.getter(name="selectionPattern")
+    def selection_pattern(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "selection_pattern")
+
+    @selection_pattern.setter
+    def selection_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selection_pattern", value)
+
+
+@pulumi.input_type
+class MethodIntegrationArgs:
+    def __init__(__self__, *,
+                 cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cache_namespace: Optional[pulumi.Input[str]] = None,
+                 connection_id: Optional[pulumi.Input[str]] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
+                 content_handling: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input[str]] = None,
+                 integration_http_method: Optional[pulumi.Input[str]] = None,
+                 integration_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]] = None,
+                 passthrough_behavior: Optional[pulumi.Input[str]] = None,
+                 request_parameters: Optional[Any] = None,
+                 request_templates: Optional[Any] = None,
+                 timeout_in_millis: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        if cache_key_parameters is not None:
+            pulumi.set(__self__, "cache_key_parameters", cache_key_parameters)
+        if cache_namespace is not None:
+            pulumi.set(__self__, "cache_namespace", cache_namespace)
+        if connection_id is not None:
+            pulumi.set(__self__, "connection_id", connection_id)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if content_handling is not None:
+            pulumi.set(__self__, "content_handling", content_handling)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if integration_http_method is not None:
+            pulumi.set(__self__, "integration_http_method", integration_http_method)
+        if integration_responses is not None:
+            pulumi.set(__self__, "integration_responses", integration_responses)
+        if passthrough_behavior is not None:
+            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+        if request_parameters is not None:
+            pulumi.set(__self__, "request_parameters", request_parameters)
+        if request_templates is not None:
+            pulumi.set(__self__, "request_templates", request_templates)
+        if timeout_in_millis is not None:
+            pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="cacheKeyParameters")
+    def cache_key_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "cache_key_parameters")
+
+    @cache_key_parameters.setter
+    def cache_key_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cache_key_parameters", value)
+
+    @property
+    @pulumi.getter(name="cacheNamespace")
+    def cache_namespace(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cache_namespace")
+
+    @cache_namespace.setter
+    def cache_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_namespace", value)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_type", value)
+
+    @property
+    @pulumi.getter(name="contentHandling")
+    def content_handling(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content_handling")
+
+    @content_handling.setter
+    def content_handling(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_handling", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="integrationHttpMethod")
+    def integration_http_method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "integration_http_method")
+
+    @integration_http_method.setter
+    def integration_http_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_http_method", value)
+
+    @property
+    @pulumi.getter(name="integrationResponses")
+    def integration_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]:
+        return pulumi.get(self, "integration_responses")
+
+    @integration_responses.setter
+    def integration_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]):
+        pulumi.set(self, "integration_responses", value)
+
+    @property
+    @pulumi.getter(name="passthroughBehavior")
+    def passthrough_behavior(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "passthrough_behavior")
+
+    @passthrough_behavior.setter
+    def passthrough_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "passthrough_behavior", value)
+
+    @property
+    @pulumi.getter(name="requestParameters")
+    def request_parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "request_parameters")
+
+    @request_parameters.setter
+    def request_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "request_parameters", value)
+
+    @property
+    @pulumi.getter(name="requestTemplates")
+    def request_templates(self) -> Optional[Any]:
+        return pulumi.get(self, "request_templates")
+
+    @request_templates.setter
+    def request_templates(self, value: Optional[Any]):
+        pulumi.set(self, "request_templates", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMillis")
+    def timeout_in_millis(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_in_millis")
+
+    @timeout_in_millis.setter
+    def timeout_in_millis(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_millis", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class MethodMethodResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[str],
+                 response_models: Optional[Any] = None,
+                 response_parameters: Optional[Any] = None):
+        pulumi.set(__self__, "status_code", status_code)
+        if response_models is not None:
+            pulumi.set(__self__, "response_models", response_models)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code", value)
+
+    @property
+    @pulumi.getter(name="responseModels")
+    def response_models(self) -> Optional[Any]:
+        return pulumi.get(self, "response_models")
+
+    @response_models.setter
+    def response_models(self, value: Optional[Any]):
+        pulumi.set(self, "response_models", value)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[Any]):
+        pulumi.set(self, "response_parameters", value)
+
+
+@pulumi.input_type
+class RestApiEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if vpc_endpoint_ids is not None:
+            pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "types", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointIds")
+    def vpc_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "vpc_endpoint_ids")
+
+    @vpc_endpoint_ids.setter
+    def vpc_endpoint_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_endpoint_ids", value)
+
+
+@pulumi.input_type
+class RestApiS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class RestApiTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class StageAccessLogSettingArgs:
+    def __init__(__self__, *,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None):
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class StageCanarySettingArgs:
+    def __init__(__self__, *,
+                 deployment_id: Optional[pulumi.Input[str]] = None,
+                 percent_traffic: Optional[pulumi.Input[float]] = None,
+                 stage_variable_overrides: Optional[Any] = None,
+                 use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_id", value)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "percent_traffic")
+
+    @percent_traffic.setter
+    def percent_traffic(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percent_traffic", value)
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[Any]:
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @stage_variable_overrides.setter
+    def stage_variable_overrides(self, value: Optional[Any]):
+        pulumi.set(self, "stage_variable_overrides", value)
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_stage_cache")
+
+    @use_stage_cache.setter
+    def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_stage_cache", value)
+
+
+@pulumi.input_type
+class StageMethodSettingArgs:
+    def __init__(__self__, *,
+                 cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 caching_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_method: Optional[pulumi.Input[str]] = None,
+                 logging_level: Optional[pulumi.Input[str]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_path: Optional[pulumi.Input[str]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+                 throttling_rate_limit: Optional[pulumi.Input[float]] = None):
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if resource_path is not None:
+            pulumi.set(__self__, "resource_path", resource_path)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @cache_data_encrypted.setter
+    def cache_data_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_data_encrypted", value)
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @cache_ttl_in_seconds.setter
+    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "caching_enabled")
+
+    @caching_enabled.setter
+    def caching_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "caching_enabled", value)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "data_trace_enabled")
+
+    @data_trace_enabled.setter
+    def data_trace_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_trace_enabled", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourcePath")
+    def resource_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_path")
+
+    @resource_path.setter
+    def resource_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_path", value)
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @throttling_burst_limit.setter
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throttling_burst_limit", value)
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @throttling_rate_limit.setter
+    def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_rate_limit", value)
+
+
+@pulumi.input_type
+class StageTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

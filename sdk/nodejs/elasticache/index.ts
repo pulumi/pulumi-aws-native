@@ -5,7 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./cacheCluster";
 export * from "./globalReplicationGroup";
+export * from "./parameterGroup";
+export * from "./replicationGroup";
+export * from "./securityGroup";
+export * from "./securityGroupIngress";
+export * from "./subnetGroup";
 export * from "./user";
 export * from "./userGroup";
 
@@ -13,7 +19,13 @@ export * from "./userGroup";
 export * from "../types/enums/elasticache";
 
 // Import resources to register:
+import { CacheCluster } from "./cacheCluster";
 import { GlobalReplicationGroup } from "./globalReplicationGroup";
+import { ParameterGroup } from "./parameterGroup";
+import { ReplicationGroup } from "./replicationGroup";
+import { SecurityGroup } from "./securityGroup";
+import { SecurityGroupIngress } from "./securityGroupIngress";
+import { SubnetGroup } from "./subnetGroup";
 import { User } from "./user";
 import { UserGroup } from "./userGroup";
 
@@ -21,8 +33,20 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:elasticache:CacheCluster":
+                return new CacheCluster(name, <any>undefined, { urn })
             case "aws-native:elasticache:GlobalReplicationGroup":
                 return new GlobalReplicationGroup(name, <any>undefined, { urn })
+            case "aws-native:elasticache:ParameterGroup":
+                return new ParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:elasticache:ReplicationGroup":
+                return new ReplicationGroup(name, <any>undefined, { urn })
+            case "aws-native:elasticache:SecurityGroup":
+                return new SecurityGroup(name, <any>undefined, { urn })
+            case "aws-native:elasticache:SecurityGroupIngress":
+                return new SecurityGroupIngress(name, <any>undefined, { urn })
+            case "aws-native:elasticache:SubnetGroup":
+                return new SubnetGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:User":
                 return new User(name, <any>undefined, { urn })
             case "aws-native:elasticache:UserGroup":

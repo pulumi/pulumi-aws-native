@@ -7,15 +7,33 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ApiKeyStageKey',
     'ApiKeyTag',
     'ClientCertificateTag',
+    'DeploymentAccessLogSetting',
+    'DeploymentCanarySetting',
+    'DeploymentDeploymentCanarySettings',
+    'DeploymentMethodSetting',
+    'DeploymentStageDescription',
+    'DeploymentTag',
+    'DocumentationPartLocation',
     'DomainNameEndpointConfiguration',
     'DomainNameMutualTlsAuthentication',
     'DomainNameTag',
+    'MethodIntegration',
+    'MethodIntegrationResponse',
+    'MethodMethodResponse',
+    'RestApiEndpointConfiguration',
+    'RestApiS3Location',
+    'RestApiTag',
+    'StageAccessLogSetting',
+    'StageCanarySetting',
+    'StageMethodSetting',
+    'StageTag',
     'UsagePlanApiStage',
     'UsagePlanQuotaSettings',
     'UsagePlanTag',
@@ -121,6 +139,549 @@ class ClientCertificateTag(dict):
 
 
 @pulumi.output_type
+class DeploymentAccessLogSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentAccessLogSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentAccessLogSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentAccessLogSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_arn: Optional[str] = None,
+                 format: Optional[str] = None):
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[str]:
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class DeploymentCanarySetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "percentTraffic":
+            suggest = "percent_traffic"
+        elif key == "stageVariableOverrides":
+            suggest = "stage_variable_overrides"
+        elif key == "useStageCache":
+            suggest = "use_stage_cache"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentCanarySetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentCanarySetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentCanarySetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 percent_traffic: Optional[float] = None,
+                 stage_variable_overrides: Optional[Any] = None,
+                 use_stage_cache: Optional[bool] = None):
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[float]:
+        return pulumi.get(self, "percent_traffic")
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[Any]:
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[bool]:
+        return pulumi.get(self, "use_stage_cache")
+
+
+@pulumi.output_type
+class DeploymentDeploymentCanarySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "percentTraffic":
+            suggest = "percent_traffic"
+        elif key == "stageVariableOverrides":
+            suggest = "stage_variable_overrides"
+        elif key == "useStageCache":
+            suggest = "use_stage_cache"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentDeploymentCanarySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentDeploymentCanarySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentDeploymentCanarySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 percent_traffic: Optional[float] = None,
+                 stage_variable_overrides: Optional[Any] = None,
+                 use_stage_cache: Optional[bool] = None):
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[float]:
+        return pulumi.get(self, "percent_traffic")
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[Any]:
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[bool]:
+        return pulumi.get(self, "use_stage_cache")
+
+
+@pulumi.output_type
+class DeploymentMethodSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheDataEncrypted":
+            suggest = "cache_data_encrypted"
+        elif key == "cacheTtlInSeconds":
+            suggest = "cache_ttl_in_seconds"
+        elif key == "cachingEnabled":
+            suggest = "caching_enabled"
+        elif key == "dataTraceEnabled":
+            suggest = "data_trace_enabled"
+        elif key == "httpMethod":
+            suggest = "http_method"
+        elif key == "loggingLevel":
+            suggest = "logging_level"
+        elif key == "metricsEnabled":
+            suggest = "metrics_enabled"
+        elif key == "resourcePath":
+            suggest = "resource_path"
+        elif key == "throttlingBurstLimit":
+            suggest = "throttling_burst_limit"
+        elif key == "throttlingRateLimit":
+            suggest = "throttling_rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentMethodSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentMethodSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentMethodSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_data_encrypted: Optional[bool] = None,
+                 cache_ttl_in_seconds: Optional[int] = None,
+                 caching_enabled: Optional[bool] = None,
+                 data_trace_enabled: Optional[bool] = None,
+                 http_method: Optional[str] = None,
+                 logging_level: Optional[str] = None,
+                 metrics_enabled: Optional[bool] = None,
+                 resource_path: Optional[str] = None,
+                 throttling_burst_limit: Optional[int] = None,
+                 throttling_rate_limit: Optional[float] = None):
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if resource_path is not None:
+            pulumi.set(__self__, "resource_path", resource_path)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[bool]:
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "caching_enabled")
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "data_trace_enabled")
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[str]:
+        return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[str]:
+        return pulumi.get(self, "logging_level")
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "metrics_enabled")
+
+    @property
+    @pulumi.getter(name="resourcePath")
+    def resource_path(self) -> Optional[str]:
+        return pulumi.get(self, "resource_path")
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[int]:
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[float]:
+        return pulumi.get(self, "throttling_rate_limit")
+
+
+@pulumi.output_type
+class DeploymentStageDescription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessLogSetting":
+            suggest = "access_log_setting"
+        elif key == "cacheClusterEnabled":
+            suggest = "cache_cluster_enabled"
+        elif key == "cacheClusterSize":
+            suggest = "cache_cluster_size"
+        elif key == "cacheDataEncrypted":
+            suggest = "cache_data_encrypted"
+        elif key == "cacheTtlInSeconds":
+            suggest = "cache_ttl_in_seconds"
+        elif key == "cachingEnabled":
+            suggest = "caching_enabled"
+        elif key == "canarySetting":
+            suggest = "canary_setting"
+        elif key == "clientCertificateId":
+            suggest = "client_certificate_id"
+        elif key == "dataTraceEnabled":
+            suggest = "data_trace_enabled"
+        elif key == "documentationVersion":
+            suggest = "documentation_version"
+        elif key == "loggingLevel":
+            suggest = "logging_level"
+        elif key == "methodSettings":
+            suggest = "method_settings"
+        elif key == "metricsEnabled":
+            suggest = "metrics_enabled"
+        elif key == "throttlingBurstLimit":
+            suggest = "throttling_burst_limit"
+        elif key == "throttlingRateLimit":
+            suggest = "throttling_rate_limit"
+        elif key == "tracingEnabled":
+            suggest = "tracing_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentStageDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentStageDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentStageDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_log_setting: Optional['outputs.DeploymentAccessLogSetting'] = None,
+                 cache_cluster_enabled: Optional[bool] = None,
+                 cache_cluster_size: Optional[str] = None,
+                 cache_data_encrypted: Optional[bool] = None,
+                 cache_ttl_in_seconds: Optional[int] = None,
+                 caching_enabled: Optional[bool] = None,
+                 canary_setting: Optional['outputs.DeploymentCanarySetting'] = None,
+                 client_certificate_id: Optional[str] = None,
+                 data_trace_enabled: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 documentation_version: Optional[str] = None,
+                 logging_level: Optional[str] = None,
+                 method_settings: Optional[Sequence['outputs.DeploymentMethodSetting']] = None,
+                 metrics_enabled: Optional[bool] = None,
+                 tags: Optional[Sequence['outputs.DeploymentTag']] = None,
+                 throttling_burst_limit: Optional[int] = None,
+                 throttling_rate_limit: Optional[float] = None,
+                 tracing_enabled: Optional[bool] = None,
+                 variables: Optional[Any] = None):
+        if access_log_setting is not None:
+            pulumi.set(__self__, "access_log_setting", access_log_setting)
+        if cache_cluster_enabled is not None:
+            pulumi.set(__self__, "cache_cluster_enabled", cache_cluster_enabled)
+        if cache_cluster_size is not None:
+            pulumi.set(__self__, "cache_cluster_size", cache_cluster_size)
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if canary_setting is not None:
+            pulumi.set(__self__, "canary_setting", canary_setting)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if documentation_version is not None:
+            pulumi.set(__self__, "documentation_version", documentation_version)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if method_settings is not None:
+            pulumi.set(__self__, "method_settings", method_settings)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+        if tracing_enabled is not None:
+            pulumi.set(__self__, "tracing_enabled", tracing_enabled)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="accessLogSetting")
+    def access_log_setting(self) -> Optional['outputs.DeploymentAccessLogSetting']:
+        return pulumi.get(self, "access_log_setting")
+
+    @property
+    @pulumi.getter(name="cacheClusterEnabled")
+    def cache_cluster_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "cache_cluster_enabled")
+
+    @property
+    @pulumi.getter(name="cacheClusterSize")
+    def cache_cluster_size(self) -> Optional[str]:
+        return pulumi.get(self, "cache_cluster_size")
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[bool]:
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "caching_enabled")
+
+    @property
+    @pulumi.getter(name="canarySetting")
+    def canary_setting(self) -> Optional['outputs.DeploymentCanarySetting']:
+        return pulumi.get(self, "canary_setting")
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_certificate_id")
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "data_trace_enabled")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="documentationVersion")
+    def documentation_version(self) -> Optional[str]:
+        return pulumi.get(self, "documentation_version")
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[str]:
+        return pulumi.get(self, "logging_level")
+
+    @property
+    @pulumi.getter(name="methodSettings")
+    def method_settings(self) -> Optional[Sequence['outputs.DeploymentMethodSetting']]:
+        return pulumi.get(self, "method_settings")
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "metrics_enabled")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.DeploymentTag']]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[int]:
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[float]:
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @property
+    @pulumi.getter(name="tracingEnabled")
+    def tracing_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "tracing_enabled")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[Any]:
+        return pulumi.get(self, "variables")
+
+
+@pulumi.output_type
+class DeploymentTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DocumentationPartLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DocumentationPartLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DocumentationPartLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DocumentationPartLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 method: Optional[str] = None,
+                 name: Optional[str] = None,
+                 path: Optional[str] = None,
+                 status_code: Optional[str] = None,
+                 type: Optional[str] = None):
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[str]:
+        return pulumi.get(self, "status_code")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class DomainNameEndpointConfiguration(dict):
     def __init__(__self__, *,
                  types: Optional[Sequence[str]] = None):
@@ -191,6 +752,626 @@ class DomainNameTag(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MethodIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheKeyParameters":
+            suggest = "cache_key_parameters"
+        elif key == "cacheNamespace":
+            suggest = "cache_namespace"
+        elif key == "connectionId":
+            suggest = "connection_id"
+        elif key == "connectionType":
+            suggest = "connection_type"
+        elif key == "contentHandling":
+            suggest = "content_handling"
+        elif key == "integrationHttpMethod":
+            suggest = "integration_http_method"
+        elif key == "integrationResponses":
+            suggest = "integration_responses"
+        elif key == "passthroughBehavior":
+            suggest = "passthrough_behavior"
+        elif key == "requestParameters":
+            suggest = "request_parameters"
+        elif key == "requestTemplates":
+            suggest = "request_templates"
+        elif key == "timeoutInMillis":
+            suggest = "timeout_in_millis"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MethodIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MethodIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MethodIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_key_parameters: Optional[Sequence[str]] = None,
+                 cache_namespace: Optional[str] = None,
+                 connection_id: Optional[str] = None,
+                 connection_type: Optional[str] = None,
+                 content_handling: Optional[str] = None,
+                 credentials: Optional[str] = None,
+                 integration_http_method: Optional[str] = None,
+                 integration_responses: Optional[Sequence['outputs.MethodIntegrationResponse']] = None,
+                 passthrough_behavior: Optional[str] = None,
+                 request_parameters: Optional[Any] = None,
+                 request_templates: Optional[Any] = None,
+                 timeout_in_millis: Optional[int] = None,
+                 type: Optional[str] = None,
+                 uri: Optional[str] = None):
+        if cache_key_parameters is not None:
+            pulumi.set(__self__, "cache_key_parameters", cache_key_parameters)
+        if cache_namespace is not None:
+            pulumi.set(__self__, "cache_namespace", cache_namespace)
+        if connection_id is not None:
+            pulumi.set(__self__, "connection_id", connection_id)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if content_handling is not None:
+            pulumi.set(__self__, "content_handling", content_handling)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if integration_http_method is not None:
+            pulumi.set(__self__, "integration_http_method", integration_http_method)
+        if integration_responses is not None:
+            pulumi.set(__self__, "integration_responses", integration_responses)
+        if passthrough_behavior is not None:
+            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+        if request_parameters is not None:
+            pulumi.set(__self__, "request_parameters", request_parameters)
+        if request_templates is not None:
+            pulumi.set(__self__, "request_templates", request_templates)
+        if timeout_in_millis is not None:
+            pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="cacheKeyParameters")
+    def cache_key_parameters(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "cache_key_parameters")
+
+    @property
+    @pulumi.getter(name="cacheNamespace")
+    def cache_namespace(self) -> Optional[str]:
+        return pulumi.get(self, "cache_namespace")
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> Optional[str]:
+        return pulumi.get(self, "connection_id")
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[str]:
+        return pulumi.get(self, "connection_type")
+
+    @property
+    @pulumi.getter(name="contentHandling")
+    def content_handling(self) -> Optional[str]:
+        return pulumi.get(self, "content_handling")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[str]:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="integrationHttpMethod")
+    def integration_http_method(self) -> Optional[str]:
+        return pulumi.get(self, "integration_http_method")
+
+    @property
+    @pulumi.getter(name="integrationResponses")
+    def integration_responses(self) -> Optional[Sequence['outputs.MethodIntegrationResponse']]:
+        return pulumi.get(self, "integration_responses")
+
+    @property
+    @pulumi.getter(name="passthroughBehavior")
+    def passthrough_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "passthrough_behavior")
+
+    @property
+    @pulumi.getter(name="requestParameters")
+    def request_parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "request_parameters")
+
+    @property
+    @pulumi.getter(name="requestTemplates")
+    def request_templates(self) -> Optional[Any]:
+        return pulumi.get(self, "request_templates")
+
+    @property
+    @pulumi.getter(name="timeoutInMillis")
+    def timeout_in_millis(self) -> Optional[int]:
+        return pulumi.get(self, "timeout_in_millis")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[str]:
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class MethodIntegrationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+        elif key == "contentHandling":
+            suggest = "content_handling"
+        elif key == "responseParameters":
+            suggest = "response_parameters"
+        elif key == "responseTemplates":
+            suggest = "response_templates"
+        elif key == "selectionPattern":
+            suggest = "selection_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MethodIntegrationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MethodIntegrationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MethodIntegrationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: str,
+                 content_handling: Optional[str] = None,
+                 response_parameters: Optional[Any] = None,
+                 response_templates: Optional[Any] = None,
+                 selection_pattern: Optional[str] = None):
+        pulumi.set(__self__, "status_code", status_code)
+        if content_handling is not None:
+            pulumi.set(__self__, "content_handling", content_handling)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+        if response_templates is not None:
+            pulumi.set(__self__, "response_templates", response_templates)
+        if selection_pattern is not None:
+            pulumi.set(__self__, "selection_pattern", selection_pattern)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> str:
+        return pulumi.get(self, "status_code")
+
+    @property
+    @pulumi.getter(name="contentHandling")
+    def content_handling(self) -> Optional[str]:
+        return pulumi.get(self, "content_handling")
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "response_parameters")
+
+    @property
+    @pulumi.getter(name="responseTemplates")
+    def response_templates(self) -> Optional[Any]:
+        return pulumi.get(self, "response_templates")
+
+    @property
+    @pulumi.getter(name="selectionPattern")
+    def selection_pattern(self) -> Optional[str]:
+        return pulumi.get(self, "selection_pattern")
+
+
+@pulumi.output_type
+class MethodMethodResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+        elif key == "responseModels":
+            suggest = "response_models"
+        elif key == "responseParameters":
+            suggest = "response_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MethodMethodResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MethodMethodResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MethodMethodResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: str,
+                 response_models: Optional[Any] = None,
+                 response_parameters: Optional[Any] = None):
+        pulumi.set(__self__, "status_code", status_code)
+        if response_models is not None:
+            pulumi.set(__self__, "response_models", response_models)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> str:
+        return pulumi.get(self, "status_code")
+
+    @property
+    @pulumi.getter(name="responseModels")
+    def response_models(self) -> Optional[Any]:
+        return pulumi.get(self, "response_models")
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "response_parameters")
+
+
+@pulumi.output_type
+class RestApiEndpointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpointIds":
+            suggest = "vpc_endpoint_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestApiEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestApiEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestApiEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 types: Optional[Sequence[str]] = None,
+                 vpc_endpoint_ids: Optional[Sequence[str]] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if vpc_endpoint_ids is not None:
+            pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "types")
+
+    @property
+    @pulumi.getter(name="vpcEndpointIds")
+    def vpc_endpoint_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "vpc_endpoint_ids")
+
+
+@pulumi.output_type
+class RestApiS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eTag":
+            suggest = "e_tag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestApiS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestApiS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestApiS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: Optional[str] = None,
+                 e_tag: Optional[str] = None,
+                 key: Optional[str] = None,
+                 version: Optional[str] = None):
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[str]:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[str]:
+        return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class RestApiTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StageAccessLogSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageAccessLogSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageAccessLogSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageAccessLogSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_arn: Optional[str] = None,
+                 format: Optional[str] = None):
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[str]:
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[str]:
+        return pulumi.get(self, "format")
+
+
+@pulumi.output_type
+class StageCanarySetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentId":
+            suggest = "deployment_id"
+        elif key == "percentTraffic":
+            suggest = "percent_traffic"
+        elif key == "stageVariableOverrides":
+            suggest = "stage_variable_overrides"
+        elif key == "useStageCache":
+            suggest = "use_stage_cache"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageCanarySetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageCanarySetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageCanarySetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_id: Optional[str] = None,
+                 percent_traffic: Optional[float] = None,
+                 stage_variable_overrides: Optional[Any] = None,
+                 use_stage_cache: Optional[bool] = None):
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[str]:
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[float]:
+        return pulumi.get(self, "percent_traffic")
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[Any]:
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[bool]:
+        return pulumi.get(self, "use_stage_cache")
+
+
+@pulumi.output_type
+class StageMethodSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheDataEncrypted":
+            suggest = "cache_data_encrypted"
+        elif key == "cacheTtlInSeconds":
+            suggest = "cache_ttl_in_seconds"
+        elif key == "cachingEnabled":
+            suggest = "caching_enabled"
+        elif key == "dataTraceEnabled":
+            suggest = "data_trace_enabled"
+        elif key == "httpMethod":
+            suggest = "http_method"
+        elif key == "loggingLevel":
+            suggest = "logging_level"
+        elif key == "metricsEnabled":
+            suggest = "metrics_enabled"
+        elif key == "resourcePath":
+            suggest = "resource_path"
+        elif key == "throttlingBurstLimit":
+            suggest = "throttling_burst_limit"
+        elif key == "throttlingRateLimit":
+            suggest = "throttling_rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StageMethodSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StageMethodSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StageMethodSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_data_encrypted: Optional[bool] = None,
+                 cache_ttl_in_seconds: Optional[int] = None,
+                 caching_enabled: Optional[bool] = None,
+                 data_trace_enabled: Optional[bool] = None,
+                 http_method: Optional[str] = None,
+                 logging_level: Optional[str] = None,
+                 metrics_enabled: Optional[bool] = None,
+                 resource_path: Optional[str] = None,
+                 throttling_burst_limit: Optional[int] = None,
+                 throttling_rate_limit: Optional[float] = None):
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if resource_path is not None:
+            pulumi.set(__self__, "resource_path", resource_path)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[bool]:
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "caching_enabled")
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "data_trace_enabled")
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[str]:
+        return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[str]:
+        return pulumi.get(self, "logging_level")
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "metrics_enabled")
+
+    @property
+    @pulumi.getter(name="resourcePath")
+    def resource_path(self) -> Optional[str]:
+        return pulumi.get(self, "resource_path")
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[int]:
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[float]:
+        return pulumi.get(self, "throttling_rate_limit")
+
+
+@pulumi.output_type
+class StageTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

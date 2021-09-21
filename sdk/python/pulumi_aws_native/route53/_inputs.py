@@ -15,6 +15,11 @@ __all__ = [
     'HostedZoneHostedZoneTagArgs',
     'HostedZoneQueryLoggingConfigArgs',
     'HostedZoneVPCArgs',
+    'RecordSetAliasTargetArgs',
+    'RecordSetGeoLocationArgs',
+    'RecordSetGroupAliasTargetArgs',
+    'RecordSetGroupGeoLocationArgs',
+    'RecordSetGroupRecordSetArgs',
 ]
 
 @pulumi.input_type
@@ -178,5 +183,348 @@ class HostedZoneVPCArgs:
     @v_pc_region.setter
     def v_pc_region(self, value: pulumi.Input[str]):
         pulumi.set(self, "v_pc_region", value)
+
+
+@pulumi.input_type
+class RecordSetAliasTargetArgs:
+    def __init__(__self__, *,
+                 d_ns_name: pulumi.Input[str],
+                 hosted_zone_id: pulumi.Input[str],
+                 evaluate_target_health: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if evaluate_target_health is not None:
+            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+
+    @property
+    @pulumi.getter(name="dNSName")
+    def d_ns_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "d_ns_name")
+
+    @d_ns_name.setter
+    def d_ns_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "d_ns_name", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter(name="evaluateTargetHealth")
+    def evaluate_target_health(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "evaluate_target_health")
+
+    @evaluate_target_health.setter
+    def evaluate_target_health(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "evaluate_target_health", value)
+
+
+@pulumi.input_type
+class RecordSetGeoLocationArgs:
+    def __init__(__self__, *,
+                 continent_code: Optional[pulumi.Input[str]] = None,
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 subdivision_code: Optional[pulumi.Input[str]] = None):
+        if continent_code is not None:
+            pulumi.set(__self__, "continent_code", continent_code)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if subdivision_code is not None:
+            pulumi.set(__self__, "subdivision_code", subdivision_code)
+
+    @property
+    @pulumi.getter(name="continentCode")
+    def continent_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "continent_code")
+
+    @continent_code.setter
+    def continent_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "continent_code", value)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter(name="subdivisionCode")
+    def subdivision_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subdivision_code")
+
+    @subdivision_code.setter
+    def subdivision_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subdivision_code", value)
+
+
+@pulumi.input_type
+class RecordSetGroupAliasTargetArgs:
+    def __init__(__self__, *,
+                 d_ns_name: pulumi.Input[str],
+                 hosted_zone_id: pulumi.Input[str],
+                 evaluate_target_health: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if evaluate_target_health is not None:
+            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+
+    @property
+    @pulumi.getter(name="dNSName")
+    def d_ns_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "d_ns_name")
+
+    @d_ns_name.setter
+    def d_ns_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "d_ns_name", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter(name="evaluateTargetHealth")
+    def evaluate_target_health(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "evaluate_target_health")
+
+    @evaluate_target_health.setter
+    def evaluate_target_health(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "evaluate_target_health", value)
+
+
+@pulumi.input_type
+class RecordSetGroupGeoLocationArgs:
+    def __init__(__self__, *,
+                 continent_code: Optional[pulumi.Input[str]] = None,
+                 country_code: Optional[pulumi.Input[str]] = None,
+                 subdivision_code: Optional[pulumi.Input[str]] = None):
+        if continent_code is not None:
+            pulumi.set(__self__, "continent_code", continent_code)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if subdivision_code is not None:
+            pulumi.set(__self__, "subdivision_code", subdivision_code)
+
+    @property
+    @pulumi.getter(name="continentCode")
+    def continent_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "continent_code")
+
+    @continent_code.setter
+    def continent_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "continent_code", value)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter(name="subdivisionCode")
+    def subdivision_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subdivision_code")
+
+    @subdivision_code.setter
+    def subdivision_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subdivision_code", value)
+
+
+@pulumi.input_type
+class RecordSetGroupRecordSetArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 alias_target: Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 failover: Optional[pulumi.Input[str]] = None,
+                 geo_location: Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']] = None,
+                 health_check_id: Optional[pulumi.Input[str]] = None,
+                 hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                 hosted_zone_name: Optional[pulumi.Input[str]] = None,
+                 multi_value_answer: Optional[pulumi.Input[bool]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 resource_records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 set_identifier: Optional[pulumi.Input[str]] = None,
+                 t_tl: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if alias_target is not None:
+            pulumi.set(__self__, "alias_target", alias_target)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if failover is not None:
+            pulumi.set(__self__, "failover", failover)
+        if geo_location is not None:
+            pulumi.set(__self__, "geo_location", geo_location)
+        if health_check_id is not None:
+            pulumi.set(__self__, "health_check_id", health_check_id)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if hosted_zone_name is not None:
+            pulumi.set(__self__, "hosted_zone_name", hosted_zone_name)
+        if multi_value_answer is not None:
+            pulumi.set(__self__, "multi_value_answer", multi_value_answer)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if resource_records is not None:
+            pulumi.set(__self__, "resource_records", resource_records)
+        if set_identifier is not None:
+            pulumi.set(__self__, "set_identifier", set_identifier)
+        if t_tl is not None:
+            pulumi.set(__self__, "t_tl", t_tl)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="aliasTarget")
+    def alias_target(self) -> Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']]:
+        return pulumi.get(self, "alias_target")
+
+    @alias_target.setter
+    def alias_target(self, value: Optional[pulumi.Input['RecordSetGroupAliasTargetArgs']]):
+        pulumi.set(self, "alias_target", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def failover(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "failover")
+
+    @failover.setter
+    def failover(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "failover", value)
+
+    @property
+    @pulumi.getter(name="geoLocation")
+    def geo_location(self) -> Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']]:
+        return pulumi.get(self, "geo_location")
+
+    @geo_location.setter
+    def geo_location(self, value: Optional[pulumi.Input['RecordSetGroupGeoLocationArgs']]):
+        pulumi.set(self, "geo_location", value)
+
+    @property
+    @pulumi.getter(name="healthCheckId")
+    def health_check_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "health_check_id")
+
+    @health_check_id.setter
+    def health_check_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "health_check_id", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneName")
+    def hosted_zone_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hosted_zone_name")
+
+    @hosted_zone_name.setter
+    def hosted_zone_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosted_zone_name", value)
+
+    @property
+    @pulumi.getter(name="multiValueAnswer")
+    def multi_value_answer(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "multi_value_answer")
+
+    @multi_value_answer.setter
+    def multi_value_answer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_value_answer", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="resourceRecords")
+    def resource_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_records")
+
+    @resource_records.setter
+    def resource_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_records", value)
+
+    @property
+    @pulumi.getter(name="setIdentifier")
+    def set_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "set_identifier")
+
+    @set_identifier.setter
+    def set_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "set_identifier", value)
+
+    @property
+    @pulumi.getter(name="tTL")
+    def t_tl(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "t_tl")
+
+    @t_tl.setter
+    def t_tl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "t_tl", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
 
 

@@ -27,6 +27,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Archive{}
 	case "aws-native:events:Connection":
 		r = &Connection{}
+	case "aws-native:events:EventBus":
+		r = &EventBus{}
+	case "aws-native:events:EventBusPolicy":
+		r = &EventBusPolicy{}
+	case "aws-native:events:Rule":
+		r = &Rule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

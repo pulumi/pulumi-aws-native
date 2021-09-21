@@ -19,38 +19,61 @@ export * from "./provider";
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as acmpca from "./acmpca";
+import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
 import * as apigateway from "./apigateway";
+import * as apigatewayv2 from "./apigatewayv2";
+import * as appconfig from "./appconfig";
 import * as appflow from "./appflow";
 import * as appintegrations from "./appintegrations";
+import * as applicationautoscaling from "./applicationautoscaling";
 import * as applicationinsights from "./applicationinsights";
+import * as appmesh from "./appmesh";
 import * as apprunner from "./apprunner";
+import * as appstream from "./appstream";
+import * as appsync from "./appsync";
+import * as ask from "./ask";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
+import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
+import * as batch from "./batch";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
+import * as cloud9 from "./cloud9";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
+import * as codebuild from "./codebuild";
+import * as codecommit from "./codecommit";
+import * as codedeploy from "./codedeploy";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
+import * as codepipeline from "./codepipeline";
+import * as codestar from "./codestar";
 import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
+import * as cognito from "./cognito";
 import * as config from "./config";
 import * as configuration from "./configuration";
 import * as connect from "./connect";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
+import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
+import * as dax from "./dax";
 import * as detective from "./detective";
 import * as devopsguru from "./devopsguru";
+import * as directoryservice from "./directoryservice";
+import * as dlm from "./dlm";
+import * as dms from "./dms";
+import * as docdb from "./docdb";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -58,7 +81,10 @@ import * as ecs from "./ecs";
 import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
+import * as elasticbeanstalk from "./elasticbeanstalk";
+import * as elasticloadbalancing from "./elasticloadbalancing";
 import * as elasticloadbalancingv2 from "./elasticloadbalancingv2";
+import * as elasticsearch from "./elasticsearch";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as events from "./events";
@@ -67,24 +93,34 @@ import * as finspace from "./finspace";
 import * as fis from "./fis";
 import * as fms from "./fms";
 import * as frauddetector from "./frauddetector";
+import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
+import * as greengrass from "./greengrass";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
+import * as guardduty from "./guardduty";
 import * as iam from "./iam";
 import * as imagebuilder from "./imagebuilder";
+import * as inspector from "./inspector";
 import * as iot from "./iot";
+import * as iot1click from "./iot1click";
+import * as iotanalytics from "./iotanalytics";
 import * as iotcoredeviceadvisor from "./iotcoredeviceadvisor";
 import * as iotevents from "./iotevents";
 import * as iotfleethub from "./iotfleethub";
 import * as iotsitewise from "./iotsitewise";
+import * as iotthingsgraph from "./iotthingsgraph";
 import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
 import * as kendra from "./kendra";
 import * as kinesis from "./kinesis";
+import * as kinesisanalytics from "./kinesisanalytics";
+import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kinesisfirehose from "./kinesisfirehose";
 import * as kms from "./kms";
+import * as lakeformation from "./lakeformation";
 import * as lambda from "./lambda";
 import * as licensemanager from "./licensemanager";
 import * as location from "./location";
@@ -92,15 +128,25 @@ import * as logs from "./logs";
 import * as lookoutmetrics from "./lookoutmetrics";
 import * as lookoutvision from "./lookoutvision";
 import * as macie from "./macie";
+import * as managedblockchain from "./managedblockchain";
 import * as mediaconnect from "./mediaconnect";
+import * as mediaconvert from "./mediaconvert";
+import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
+import * as mediastore from "./mediastore";
+import * as msk from "./msk";
 import * as mwaa from "./mwaa";
+import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
+import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
+import * as pinpoint from "./pinpoint";
+import * as pinpointemail from "./pinpointemail";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
+import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
@@ -113,10 +159,16 @@ import * as s3 from "./s3";
 import * as s3objectlambda from "./s3objectlambda";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
+import * as sdb from "./sdb";
+import * as secretsmanager from "./secretsmanager";
+import * as securityhub from "./securityhub";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
+import * as servicediscovery from "./servicediscovery";
 import * as ses from "./ses";
 import * as signer from "./signer";
+import * as sns from "./sns";
+import * as sqs from "./sqs";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
@@ -124,7 +176,10 @@ import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as synthetics from "./synthetics";
 import * as timestream from "./timestream";
+import * as transfer from "./transfer";
 import * as types from "./types";
+import * as waf from "./waf";
+import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
 import * as workspaces from "./workspaces";
 import * as xray from "./xray";
@@ -132,38 +187,61 @@ import * as xray from "./xray";
 export {
     accessanalyzer,
     acmpca,
+    amazonmq,
     amplify,
     apigateway,
+    apigatewayv2,
+    appconfig,
     appflow,
     appintegrations,
+    applicationautoscaling,
     applicationinsights,
+    appmesh,
     apprunner,
+    appstream,
+    appsync,
+    ask,
     athena,
     auditmanager,
     autoscaling,
+    autoscalingplans,
     backup,
+    batch,
     budgets,
     cassandra,
     ce,
     certificatemanager,
     chatbot,
+    cloud9,
     cloudformation,
     cloudfront,
     cloudtrail,
     cloudwatch,
     codeartifact,
+    codebuild,
+    codecommit,
+    codedeploy,
     codeguruprofiler,
     codegurureviewer,
+    codepipeline,
+    codestar,
     codestarconnections,
     codestarnotifications,
+    cognito,
     config,
     configuration,
     connect,
     customerprofiles,
     databrew,
+    datapipeline,
     datasync,
+    dax,
     detective,
     devopsguru,
+    directoryservice,
+    dlm,
+    dms,
+    docdb,
     dynamodb,
     ec2,
     ecr,
@@ -171,7 +249,10 @@ export {
     efs,
     eks,
     elasticache,
+    elasticbeanstalk,
+    elasticloadbalancing,
     elasticloadbalancingv2,
+    elasticsearch,
     emr,
     emrcontainers,
     events,
@@ -180,24 +261,34 @@ export {
     fis,
     fms,
     frauddetector,
+    fsx,
     gamelift,
     globalaccelerator,
     glue,
+    greengrass,
     greengrassv2,
     groundstation,
+    guardduty,
     iam,
     imagebuilder,
+    inspector,
     iot,
+    iot1click,
+    iotanalytics,
     iotcoredeviceadvisor,
     iotevents,
     iotfleethub,
     iotsitewise,
+    iotthingsgraph,
     iotwireless,
     ivs,
     kendra,
     kinesis,
+    kinesisanalytics,
+    kinesisanalyticsv2,
     kinesisfirehose,
     kms,
+    lakeformation,
     lambda,
     licensemanager,
     location,
@@ -205,15 +296,25 @@ export {
     lookoutmetrics,
     lookoutvision,
     macie,
+    managedblockchain,
     mediaconnect,
+    mediaconvert,
+    medialive,
     mediapackage,
+    mediastore,
+    msk,
     mwaa,
+    neptune,
     networkfirewall,
     networkmanager,
     nimblestudio,
+    opsworks,
     opsworkscm,
+    pinpoint,
+    pinpointemail,
     qldb,
     quicksight,
+    ram,
     rds,
     redshift,
     resourcegroups,
@@ -226,10 +327,16 @@ export {
     s3objectlambda,
     s3outposts,
     sagemaker,
+    sdb,
+    secretsmanager,
+    securityhub,
     servicecatalog,
     servicecatalogappregistry,
+    servicediscovery,
     ses,
     signer,
+    sns,
+    sqs,
     ssm,
     ssmcontacts,
     ssmincidents,
@@ -237,7 +344,10 @@ export {
     stepfunctions,
     synthetics,
     timestream,
+    transfer,
     types,
+    waf,
+    wafregional,
     wafv2,
     workspaces,
     xray,

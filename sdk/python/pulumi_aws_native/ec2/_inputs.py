@@ -10,7 +10,18 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CapacityReservationTagSpecificationArgs',
+    'CapacityReservationTagArgs',
     'CarrierGatewayTagArgs',
+    'ClientVpnEndpointCertificateAuthenticationRequestArgs',
+    'ClientVpnEndpointClientAuthenticationRequestArgs',
+    'ClientVpnEndpointClientConnectOptionsArgs',
+    'ClientVpnEndpointConnectionLogOptionsArgs',
+    'ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs',
+    'ClientVpnEndpointFederatedAuthenticationRequestArgs',
+    'ClientVpnEndpointTagSpecificationArgs',
+    'ClientVpnEndpointTagArgs',
+    'CustomerGatewayTagArgs',
     'DHCPOptionsTagArgs',
     'EC2FleetCapacityReservationOptionsRequestArgs',
     'EC2FleetFleetLaunchTemplateConfigRequestArgs',
@@ -22,13 +33,67 @@ __all__ = [
     'EC2FleetTagSpecificationArgs',
     'EC2FleetTagArgs',
     'EC2FleetTargetCapacitySpecificationRequestArgs',
+    'EIPTagArgs',
     'FlowLogTagArgs',
+    'InstanceAssociationParameterArgs',
+    'InstanceBlockDeviceMappingArgs',
+    'InstanceCpuOptionsArgs',
+    'InstanceCreditSpecificationArgs',
+    'InstanceEbsArgs',
+    'InstanceElasticGpuSpecificationArgs',
+    'InstanceElasticInferenceAcceleratorArgs',
+    'InstanceEnclaveOptionsArgs',
+    'InstanceHibernationOptionsArgs',
+    'InstanceInstanceIpv6AddressArgs',
+    'InstanceLaunchTemplateSpecificationArgs',
+    'InstanceLicenseSpecificationArgs',
+    'InstanceNetworkInterfaceArgs',
+    'InstanceNoDeviceArgs',
+    'InstancePrivateIpAddressSpecificationArgs',
+    'InstanceSsmAssociationArgs',
+    'InstanceTagArgs',
+    'InstanceVolumeArgs',
     'InternetGatewayTagArgs',
+    'LaunchTemplateBlockDeviceMappingArgs',
+    'LaunchTemplateCapacityReservationSpecificationArgs',
+    'LaunchTemplateCapacityReservationTargetArgs',
+    'LaunchTemplateCpuOptionsArgs',
+    'LaunchTemplateCreditSpecificationArgs',
+    'LaunchTemplateEbsArgs',
+    'LaunchTemplateElasticGpuSpecificationArgs',
+    'LaunchTemplateEnclaveOptionsArgs',
+    'LaunchTemplateHibernationOptionsArgs',
+    'LaunchTemplateIamInstanceProfileArgs',
+    'LaunchTemplateInstanceMarketOptionsArgs',
+    'LaunchTemplateIpv6AddArgs',
+    'LaunchTemplateLaunchTemplateDataArgs',
+    'LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs',
+    'LaunchTemplateLaunchTemplateTagSpecificationArgs',
+    'LaunchTemplateLicenseSpecificationArgs',
+    'LaunchTemplateMetadataOptionsArgs',
+    'LaunchTemplateMonitoringArgs',
+    'LaunchTemplateNetworkInterfaceArgs',
+    'LaunchTemplatePlacementArgs',
+    'LaunchTemplatePrivateIpAddArgs',
+    'LaunchTemplateSpotOptionsArgs',
+    'LaunchTemplateTagSpecificationArgs',
+    'LaunchTemplateTagArgs',
     'LocalGatewayRouteTableVPCAssociationTagArgs',
+    'NatGatewayTagArgs',
+    'NetworkAclEntryIcmpArgs',
+    'NetworkAclEntryPortRangeArgs',
+    'NetworkAclTagArgs',
     'NetworkInsightsAnalysisTagArgs',
     'NetworkInsightsPathTagArgs',
+    'NetworkInterfaceInstanceIpv6AddressArgs',
+    'NetworkInterfacePrivateIpAddressSpecificationArgs',
+    'NetworkInterfaceTagArgs',
     'PrefixListEntryArgs',
     'PrefixListTagArgs',
+    'RouteTableTagArgs',
+    'SecurityGroupEgressArgs',
+    'SecurityGroupIngressArgs',
+    'SecurityGroupTagArgs',
     'SpotFleetBlockDeviceMappingArgs',
     'SpotFleetClassicLoadBalancersConfigArgs',
     'SpotFleetClassicLoadBalancerArgs',
@@ -52,12 +117,82 @@ __all__ = [
     'SpotFleetTagArgs',
     'SpotFleetTargetGroupsConfigArgs',
     'SpotFleetTargetGroupArgs',
+    'SubnetTagArgs',
+    'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs',
+    'TrafficMirrorFilterTagArgs',
+    'TrafficMirrorSessionTagArgs',
+    'TrafficMirrorTargetTagArgs',
+    'TransitGatewayAttachmentTagArgs',
     'TransitGatewayConnectTagArgs',
     'TransitGatewayConnectTransitGatewayConnectOptionsArgs',
     'TransitGatewayMulticastDomainTagArgs',
     'TransitGatewayPeeringAttachmentTagArgs',
+    'TransitGatewayRouteTableTagArgs',
     'TransitGatewayTagArgs',
+    'TransitGatewayVpcAttachmentTagArgs',
+    'VPCPeeringConnectionTagArgs',
+    'VPCTagArgs',
+    'VPNConnectionTagArgs',
+    'VPNConnectionVpnTunnelOptionsSpecificationArgs',
+    'VPNGatewayTagArgs',
+    'VolumeTagArgs',
 ]
+
+@pulumi.input_type
+class CapacityReservationTagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]] = None):
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class CapacityReservationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class CarrierGatewayTagArgs:
@@ -85,6 +220,267 @@ class CarrierGatewayTagArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointCertificateAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 client_root_certificate_chain_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "client_root_certificate_chain_arn", client_root_certificate_chain_arn)
+
+    @property
+    @pulumi.getter(name="clientRootCertificateChainArn")
+    def client_root_certificate_chain_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_root_certificate_chain_arn")
+
+    @client_root_certificate_chain_arn.setter
+    def client_root_certificate_chain_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_root_certificate_chain_arn", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointClientAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 active_directory: Optional[pulumi.Input['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs']] = None,
+                 federated_authentication: Optional[pulumi.Input['ClientVpnEndpointFederatedAuthenticationRequestArgs']] = None,
+                 mutual_authentication: Optional[pulumi.Input['ClientVpnEndpointCertificateAuthenticationRequestArgs']] = None):
+        pulumi.set(__self__, "type", type)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if federated_authentication is not None:
+            pulumi.set(__self__, "federated_authentication", federated_authentication)
+        if mutual_authentication is not None:
+            pulumi.set(__self__, "mutual_authentication", mutual_authentication)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs']]:
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+    @property
+    @pulumi.getter(name="federatedAuthentication")
+    def federated_authentication(self) -> Optional[pulumi.Input['ClientVpnEndpointFederatedAuthenticationRequestArgs']]:
+        return pulumi.get(self, "federated_authentication")
+
+    @federated_authentication.setter
+    def federated_authentication(self, value: Optional[pulumi.Input['ClientVpnEndpointFederatedAuthenticationRequestArgs']]):
+        pulumi.set(self, "federated_authentication", value)
+
+    @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> Optional[pulumi.Input['ClientVpnEndpointCertificateAuthenticationRequestArgs']]:
+        return pulumi.get(self, "mutual_authentication")
+
+    @mutual_authentication.setter
+    def mutual_authentication(self, value: Optional[pulumi.Input['ClientVpnEndpointCertificateAuthenticationRequestArgs']]):
+        pulumi.set(self, "mutual_authentication", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointClientConnectOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 lambda_function_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if lambda_function_arn is not None:
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lambda_function_arn")
+
+    @lambda_function_arn.setter
+    def lambda_function_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lambda_function_arn", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointConnectionLogOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 cloudwatch_log_group: Optional[pulumi.Input[str]] = None,
+                 cloudwatch_log_stream: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if cloudwatch_log_group is not None:
+            pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
+        if cloudwatch_log_stream is not None:
+            pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogGroup")
+    def cloudwatch_log_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloudwatch_log_group")
+
+    @cloudwatch_log_group.setter
+    def cloudwatch_log_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatch_log_group", value)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogStream")
+    def cloudwatch_log_stream(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloudwatch_log_stream")
+
+    @cloudwatch_log_stream.setter
+    def cloudwatch_log_stream(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatch_log_stream", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 directory_id: pulumi.Input[str]):
+        pulumi.set(__self__, "directory_id", directory_id)
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "directory_id")
+
+    @directory_id.setter
+    def directory_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "directory_id", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointFederatedAuthenticationRequestArgs:
+    def __init__(__self__, *,
+                 s_aml_provider_arn: pulumi.Input[str],
+                 self_service_saml_provider_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "s_aml_provider_arn", s_aml_provider_arn)
+        if self_service_saml_provider_arn is not None:
+            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
+
+    @property
+    @pulumi.getter(name="sAMLProviderArn")
+    def s_aml_provider_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s_aml_provider_arn")
+
+    @s_aml_provider_arn.setter
+    def s_aml_provider_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s_aml_provider_arn", value)
+
+    @property
+    @pulumi.getter(name="selfServiceSAMLProviderArn")
+    def self_service_saml_provider_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "self_service_saml_provider_arn")
+
+    @self_service_saml_provider_arn.setter
+    def self_service_saml_provider_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_saml_provider_arn", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointTagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 tags: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]]):
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class ClientVpnEndpointTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CustomerGatewayTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -667,6 +1063,33 @@ class EC2FleetTargetCapacitySpecificationRequestArgs:
 
 
 @pulumi.input_type
+class EIPTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class FlowLogTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -694,7 +1117,1916 @@ class FlowLogTagArgs:
 
 
 @pulumi.input_type
+class InstanceAssociationParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class InstanceBlockDeviceMappingArgs:
+    def __init__(__self__, *,
+                 device_name: pulumi.Input[str],
+                 ebs: Optional[pulumi.Input['InstanceEbsArgs']] = None,
+                 no_device: Optional[pulumi.Input['InstanceNoDeviceArgs']] = None,
+                 virtual_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional[pulumi.Input['InstanceEbsArgs']]:
+        return pulumi.get(self, "ebs")
+
+    @ebs.setter
+    def ebs(self, value: Optional[pulumi.Input['InstanceEbsArgs']]):
+        pulumi.set(self, "ebs", value)
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[pulumi.Input['InstanceNoDeviceArgs']]:
+        return pulumi.get(self, "no_device")
+
+    @no_device.setter
+    def no_device(self, value: Optional[pulumi.Input['InstanceNoDeviceArgs']]):
+        pulumi.set(self, "no_device", value)
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "virtual_name")
+
+    @virtual_name.setter
+    def virtual_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_name", value)
+
+
+@pulumi.input_type
+class InstanceCpuOptionsArgs:
+    def __init__(__self__, *,
+                 core_count: Optional[pulumi.Input[int]] = None,
+                 threads_per_core: Optional[pulumi.Input[int]] = None):
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "core_count")
+
+    @core_count.setter
+    def core_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "core_count", value)
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "threads_per_core")
+
+    @threads_per_core.setter
+    def threads_per_core(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threads_per_core", value)
+
+
+@pulumi.input_type
+class InstanceCreditSpecificationArgs:
+    def __init__(__self__, *,
+                 c_pu_credits: Optional[pulumi.Input[str]] = None):
+        if c_pu_credits is not None:
+            pulumi.set(__self__, "c_pu_credits", c_pu_credits)
+
+    @property
+    @pulumi.getter(name="cPUCredits")
+    def c_pu_credits(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "c_pu_credits")
+
+    @c_pu_credits.setter
+    def c_pu_credits(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "c_pu_credits", value)
+
+
+@pulumi.input_type
+class InstanceEbsArgs:
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[pulumi.Input[bool]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None,
+                 volume_type: Optional[pulumi.Input[str]] = None):
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "volume_size")
+
+    @volume_size.setter
+    def volume_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_size", value)
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_type", value)
+
+
+@pulumi.input_type
+class InstanceElasticGpuSpecificationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str]):
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class InstanceElasticInferenceAcceleratorArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 count: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "type", type)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+
+@pulumi.input_type
+class InstanceEnclaveOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class InstanceHibernationOptionsArgs:
+    def __init__(__self__, *,
+                 configured: Optional[pulumi.Input[bool]] = None):
+        if configured is not None:
+            pulumi.set(__self__, "configured", configured)
+
+    @property
+    @pulumi.getter
+    def configured(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "configured")
+
+    @configured.setter
+    def configured(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "configured", value)
+
+
+@pulumi.input_type
+class InstanceInstanceIpv6AddressArgs:
+    def __init__(__self__, *,
+                 ipv6_address: pulumi.Input[str]):
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ipv6_address", value)
+
+
+@pulumi.input_type
+class InstanceLaunchTemplateSpecificationArgs:
+    def __init__(__self__, *,
+                 version: pulumi.Input[str],
+                 launch_template_id: Optional[pulumi.Input[str]] = None,
+                 launch_template_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "version", version)
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "launch_template_id")
+
+    @launch_template_id.setter
+    def launch_template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_id", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "launch_template_name")
+
+    @launch_template_name.setter
+    def launch_template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_name", value)
+
+
+@pulumi.input_type
+class InstanceLicenseSpecificationArgs:
+    def __init__(__self__, *,
+                 license_configuration_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "license_configuration_arn")
+
+    @license_configuration_arn.setter
+    def license_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "license_configuration_arn", value)
+
+
+@pulumi.input_type
+class InstanceNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 device_index: pulumi.Input[str],
+                 associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+                 delete_on_termination: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceInstanceIpv6AddressArgs']]]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgs']]]] = None,
+                 secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "device_index", device_index)
+        if associate_public_ip_address is not None:
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if group_set is not None:
+            pulumi.set(__self__, "group_set", group_set)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_private_ip_address_count is not None:
+            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "device_index")
+
+    @device_index.setter
+    def device_index(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_index", value)
+
+    @property
+    @pulumi.getter(name="associatePublicIpAddress")
+    def associate_public_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "associate_public_ip_address")
+
+    @associate_public_ip_address.setter
+    def associate_public_ip_address(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "associate_public_ip_address", value)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="groupSet")
+    def group_set(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "group_set")
+
+    @group_set.setter
+    def group_set(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_set", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_address_count", value)
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceInstanceIpv6AddressArgs']]]]:
+        return pulumi.get(self, "ipv6_addresses")
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceInstanceIpv6AddressArgs']]]]):
+        pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgs']]]]:
+        return pulumi.get(self, "private_ip_addresses")
+
+    @private_ip_addresses.setter
+    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgs']]]]):
+        pulumi.set(self, "private_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @secondary_private_ip_address_count.setter
+    def secondary_private_ip_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "secondary_private_ip_address_count", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class InstanceNoDeviceArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class InstancePrivateIpAddressSpecificationArgs:
+    def __init__(__self__, *,
+                 primary: pulumi.Input[bool],
+                 private_ip_address: pulumi.Input[str]):
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_ip_address", value)
+
+
+@pulumi.input_type
+class InstanceSsmAssociationArgs:
+    def __init__(__self__, *,
+                 document_name: pulumi.Input[str],
+                 association_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgs']]]] = None):
+        pulumi.set(__self__, "document_name", document_name)
+        if association_parameters is not None:
+            pulumi.set(__self__, "association_parameters", association_parameters)
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "document_name")
+
+    @document_name.setter
+    def document_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "document_name", value)
+
+    @property
+    @pulumi.getter(name="associationParameters")
+    def association_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgs']]]]:
+        return pulumi.get(self, "association_parameters")
+
+    @association_parameters.setter
+    def association_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgs']]]]):
+        pulumi.set(self, "association_parameters", value)
+
+
+@pulumi.input_type
+class InstanceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class InstanceVolumeArgs:
+    def __init__(__self__, *,
+                 device: pulumi.Input[str],
+                 volume_id: pulumi.Input[str]):
+        pulumi.set(__self__, "device", device)
+        pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter
+    def device(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "device")
+
+    @device.setter
+    def device(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device", value)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_id", value)
+
+
+@pulumi.input_type
 class InternetGatewayTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LaunchTemplateBlockDeviceMappingArgs:
+    def __init__(__self__, *,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 ebs: Optional[pulumi.Input['LaunchTemplateEbsArgs']] = None,
+                 no_device: Optional[pulumi.Input[str]] = None,
+                 virtual_name: Optional[pulumi.Input[str]] = None):
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional[pulumi.Input['LaunchTemplateEbsArgs']]:
+        return pulumi.get(self, "ebs")
+
+    @ebs.setter
+    def ebs(self, value: Optional[pulumi.Input['LaunchTemplateEbsArgs']]):
+        pulumi.set(self, "ebs", value)
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "no_device")
+
+    @no_device.setter
+    def no_device(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "no_device", value)
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "virtual_name")
+
+    @virtual_name.setter
+    def virtual_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_name", value)
+
+
+@pulumi.input_type
+class LaunchTemplateCapacityReservationSpecificationArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_target: Optional[pulumi.Input['LaunchTemplateCapacityReservationTargetArgs']] = None):
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['LaunchTemplateCapacityReservationTargetArgs']]:
+        return pulumi.get(self, "capacity_reservation_target")
+
+    @capacity_reservation_target.setter
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['LaunchTemplateCapacityReservationTargetArgs']]):
+        pulumi.set(self, "capacity_reservation_target", value)
+
+
+@pulumi.input_type
+class LaunchTemplateCapacityReservationTargetArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @capacity_reservation_id.setter
+    def capacity_reservation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_id", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+    @capacity_reservation_resource_group_arn.setter
+    def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arn", value)
+
+
+@pulumi.input_type
+class LaunchTemplateCpuOptionsArgs:
+    def __init__(__self__, *,
+                 core_count: Optional[pulumi.Input[int]] = None,
+                 threads_per_core: Optional[pulumi.Input[int]] = None):
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "core_count")
+
+    @core_count.setter
+    def core_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "core_count", value)
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "threads_per_core")
+
+    @threads_per_core.setter
+    def threads_per_core(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "threads_per_core", value)
+
+
+@pulumi.input_type
+class LaunchTemplateCreditSpecificationArgs:
+    def __init__(__self__, *,
+                 cpu_credits: Optional[pulumi.Input[str]] = None):
+        if cpu_credits is not None:
+            pulumi.set(__self__, "cpu_credits", cpu_credits)
+
+    @property
+    @pulumi.getter(name="cpuCredits")
+    def cpu_credits(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cpu_credits")
+
+    @cpu_credits.setter
+    def cpu_credits(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_credits", value)
+
+
+@pulumi.input_type
+class LaunchTemplateEbsArgs:
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[pulumi.Input[bool]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None,
+                 volume_type: Optional[pulumi.Input[str]] = None):
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "volume_size")
+
+    @volume_size.setter
+    def volume_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_size", value)
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_type", value)
+
+
+@pulumi.input_type
+class LaunchTemplateElasticGpuSpecificationArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[str]] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class LaunchTemplateEnclaveOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class LaunchTemplateHibernationOptionsArgs:
+    def __init__(__self__, *,
+                 configured: Optional[pulumi.Input[bool]] = None):
+        if configured is not None:
+            pulumi.set(__self__, "configured", configured)
+
+    @property
+    @pulumi.getter
+    def configured(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "configured")
+
+    @configured.setter
+    def configured(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "configured", value)
+
+
+@pulumi.input_type
+class LaunchTemplateIamInstanceProfileArgs:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceMarketOptionsArgs:
+    def __init__(__self__, *,
+                 market_type: Optional[pulumi.Input[str]] = None,
+                 spot_options: Optional[pulumi.Input['LaunchTemplateSpotOptionsArgs']] = None):
+        if market_type is not None:
+            pulumi.set(__self__, "market_type", market_type)
+        if spot_options is not None:
+            pulumi.set(__self__, "spot_options", spot_options)
+
+    @property
+    @pulumi.getter(name="marketType")
+    def market_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "market_type")
+
+    @market_type.setter
+    def market_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "market_type", value)
+
+    @property
+    @pulumi.getter(name="spotOptions")
+    def spot_options(self) -> Optional[pulumi.Input['LaunchTemplateSpotOptionsArgs']]:
+        return pulumi.get(self, "spot_options")
+
+    @spot_options.setter
+    def spot_options(self, value: Optional[pulumi.Input['LaunchTemplateSpotOptionsArgs']]):
+        pulumi.set(self, "spot_options", value)
+
+
+@pulumi.input_type
+class LaunchTemplateIpv6AddArgs:
+    def __init__(__self__, *,
+                 ipv6_address: Optional[pulumi.Input[str]] = None):
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_address", value)
+
+
+@pulumi.input_type
+class LaunchTemplateLaunchTemplateDataArgs:
+    def __init__(__self__, *,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']] = None,
+                 cpu_options: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']] = None,
+                 credit_specification: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']] = None,
+                 disable_api_termination: Optional[pulumi.Input[bool]] = None,
+                 ebs_optimized: Optional[pulumi.Input[bool]] = None,
+                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]] = None,
+                 elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs']]]] = None,
+                 enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
+                 hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
+                 iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
+                 image_id: Optional[pulumi.Input[str]] = None,
+                 instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 kernel_id: Optional[pulumi.Input[str]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
+                 monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+                 placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
+                 ram_disk_id: Optional[pulumi.Input[str]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
+                 user_data: Optional[pulumi.Input[str]] = None):
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+        if cpu_options is not None:
+            pulumi.set(__self__, "cpu_options", cpu_options)
+        if credit_specification is not None:
+            pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_termination is not None:
+            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if elastic_gpu_specifications is not None:
+            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+        if elastic_inference_accelerators is not None:
+            pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
+        if enclave_options is not None:
+            pulumi.set(__self__, "enclave_options", enclave_options)
+        if hibernation_options is not None:
+            pulumi.set(__self__, "hibernation_options", hibernation_options)
+        if iam_instance_profile is not None:
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
+        if instance_initiated_shutdown_behavior is not None:
+            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if kernel_id is not None:
+            pulumi.set(__self__, "kernel_id", kernel_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if license_specifications is not None:
+            pulumi.set(__self__, "license_specifications", license_specifications)
+        if metadata_options is not None:
+            pulumi.set(__self__, "metadata_options", metadata_options)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if ram_disk_id is not None:
+            pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]:
+        return pulumi.get(self, "block_device_mappings")
+
+    @block_device_mappings.setter
+    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateBlockDeviceMappingArgs']]]]):
+        pulumi.set(self, "block_device_mappings", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']]:
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
+
+    @property
+    @pulumi.getter(name="cpuOptions")
+    def cpu_options(self) -> Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']]:
+        return pulumi.get(self, "cpu_options")
+
+    @cpu_options.setter
+    def cpu_options(self, value: Optional[pulumi.Input['LaunchTemplateCpuOptionsArgs']]):
+        pulumi.set(self, "cpu_options", value)
+
+    @property
+    @pulumi.getter(name="creditSpecification")
+    def credit_specification(self) -> Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']]:
+        return pulumi.get(self, "credit_specification")
+
+    @credit_specification.setter
+    def credit_specification(self, value: Optional[pulumi.Input['LaunchTemplateCreditSpecificationArgs']]):
+        pulumi.set(self, "credit_specification", value)
+
+    @property
+    @pulumi.getter(name="disableApiTermination")
+    def disable_api_termination(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_api_termination")
+
+    @disable_api_termination.setter
+    def disable_api_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_api_termination", value)
+
+    @property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ebs_optimized")
+
+    @ebs_optimized.setter
+    def ebs_optimized(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ebs_optimized", value)
+
+    @property
+    @pulumi.getter(name="elasticGpuSpecifications")
+    def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]:
+        return pulumi.get(self, "elastic_gpu_specifications")
+
+    @elastic_gpu_specifications.setter
+    def elastic_gpu_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]):
+        pulumi.set(self, "elastic_gpu_specifications", value)
+
+    @property
+    @pulumi.getter(name="elasticInferenceAccelerators")
+    def elastic_inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs']]]]:
+        return pulumi.get(self, "elastic_inference_accelerators")
+
+    @elastic_inference_accelerators.setter
+    def elastic_inference_accelerators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs']]]]):
+        pulumi.set(self, "elastic_inference_accelerators", value)
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']]:
+        return pulumi.get(self, "enclave_options")
+
+    @enclave_options.setter
+    def enclave_options(self, value: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']]):
+        pulumi.set(self, "enclave_options", value)
+
+    @property
+    @pulumi.getter(name="hibernationOptions")
+    def hibernation_options(self) -> Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']]:
+        return pulumi.get(self, "hibernation_options")
+
+    @hibernation_options.setter
+    def hibernation_options(self, value: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']]):
+        pulumi.set(self, "hibernation_options", value)
+
+    @property
+    @pulumi.getter(name="iamInstanceProfile")
+    def iam_instance_profile(self) -> Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']]:
+        return pulumi.get(self, "iam_instance_profile")
+
+    @iam_instance_profile.setter
+    def iam_instance_profile(self, value: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']]):
+        pulumi.set(self, "iam_instance_profile", value)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_id", value)
+
+    @property
+    @pulumi.getter(name="instanceInitiatedShutdownBehavior")
+    def instance_initiated_shutdown_behavior(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_initiated_shutdown_behavior")
+
+    @instance_initiated_shutdown_behavior.setter
+    def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_initiated_shutdown_behavior", value)
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']]:
+        return pulumi.get(self, "instance_market_options")
+
+    @instance_market_options.setter
+    def instance_market_options(self, value: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']]):
+        pulumi.set(self, "instance_market_options", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="kernelId")
+    def kernel_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kernel_id")
+
+    @kernel_id.setter
+    def kernel_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kernel_id", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="licenseSpecifications")
+    def license_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]:
+        return pulumi.get(self, "license_specifications")
+
+    @license_specifications.setter
+    def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
+        pulumi.set(self, "license_specifications", value)
+
+    @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]:
+        return pulumi.get(self, "metadata_options")
+
+    @metadata_options.setter
+    def metadata_options(self, value: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]):
+        pulumi.set(self, "metadata_options", value)
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['LaunchTemplateMonitoringArgs']]:
+        return pulumi.get(self, "monitoring")
+
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']]):
+        pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]:
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input['LaunchTemplatePlacementArgs']]:
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input['LaunchTemplatePlacementArgs']]):
+        pulumi.set(self, "placement", value)
+
+    @property
+    @pulumi.getter(name="ramDiskId")
+    def ram_disk_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ram_disk_id")
+
+    @ram_disk_id.setter
+    def ram_disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ram_disk_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]:
+        return pulumi.get(self, "tag_specifications")
+
+    @tag_specifications.setter
+    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]):
+        pulumi.set(self, "tag_specifications", value)
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_data")
+
+    @user_data.setter
+    def user_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data", value)
+
+
+@pulumi.input_type
+class LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class LaunchTemplateLaunchTemplateTagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None):
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class LaunchTemplateLicenseSpecificationArgs:
+    def __init__(__self__, *,
+                 license_configuration_arn: Optional[pulumi.Input[str]] = None):
+        if license_configuration_arn is not None:
+            pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "license_configuration_arn")
+
+    @license_configuration_arn.setter
+    def license_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_configuration_arn", value)
+
+
+@pulumi.input_type
+class LaunchTemplateMetadataOptionsArgs:
+    def __init__(__self__, *,
+                 http_endpoint: Optional[pulumi.Input[str]] = None,
+                 http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
+                 http_tokens: Optional[pulumi.Input[str]] = None):
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "http_endpoint")
+
+    @http_endpoint.setter
+    def http_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_endpoint", value)
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @http_put_response_hop_limit.setter
+    def http_put_response_hop_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_put_response_hop_limit", value)
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "http_tokens")
+
+    @http_tokens.setter
+    def http_tokens(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_tokens", value)
+
+
+@pulumi.input_type
+class LaunchTemplateMonitoringArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class LaunchTemplateNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 associate_carrier_ip_address: Optional[pulumi.Input[bool]] = None,
+                 associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
+                 delete_on_termination: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 device_index: Optional[pulumi.Input[int]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 interface_type: Optional[pulumi.Input[str]] = None,
+                 ipv6_address_count: Optional[pulumi.Input[int]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6AddArgs']]]] = None,
+                 network_card_index: Optional[pulumi.Input[int]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgs']]]] = None,
+                 secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        if associate_carrier_ip_address is not None:
+            pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
+        if associate_public_ip_address is not None:
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_private_ip_address_count is not None:
+            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="associateCarrierIpAddress")
+    def associate_carrier_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "associate_carrier_ip_address")
+
+    @associate_carrier_ip_address.setter
+    def associate_carrier_ip_address(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "associate_carrier_ip_address", value)
+
+    @property
+    @pulumi.getter(name="associatePublicIpAddress")
+    def associate_public_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "associate_public_ip_address")
+
+    @associate_public_ip_address.setter
+    def associate_public_ip_address(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "associate_public_ip_address", value)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @delete_on_termination.setter
+    def delete_on_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_on_termination", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "device_index")
+
+    @device_index.setter
+    def device_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "device_index", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "interface_type")
+
+    @interface_type.setter
+    def interface_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interface_type", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @ipv6_address_count.setter
+    def ipv6_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_address_count", value)
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6AddArgs']]]]:
+        return pulumi.get(self, "ipv6_addresses")
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateIpv6AddArgs']]]]):
+        pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "network_card_index")
+
+    @network_card_index.setter
+    def network_card_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_card_index", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgs']]]]:
+        return pulumi.get(self, "private_ip_addresses")
+
+    @private_ip_addresses.setter
+    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgs']]]]):
+        pulumi.set(self, "private_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @secondary_private_ip_address_count.setter
+    def secondary_private_ip_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "secondary_private_ip_address_count", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class LaunchTemplatePlacementArgs:
+    def __init__(__self__, *,
+                 affinity: Optional[pulumi.Input[str]] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 host_id: Optional[pulumi.Input[str]] = None,
+                 host_resource_group_arn: Optional[pulumi.Input[str]] = None,
+                 partition_number: Optional[pulumi.Input[int]] = None,
+                 spread_domain: Optional[pulumi.Input[str]] = None,
+                 tenancy: Optional[pulumi.Input[str]] = None):
+        if affinity is not None:
+            pulumi.set(__self__, "affinity", affinity)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if host_id is not None:
+            pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+        if partition_number is not None:
+            pulumi.set(__self__, "partition_number", partition_number)
+        if spread_domain is not None:
+            pulumi.set(__self__, "spread_domain", spread_domain)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
+
+    @property
+    @pulumi.getter
+    def affinity(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "affinity")
+
+    @affinity.setter
+    def affinity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "affinity", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="hostId")
+    def host_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "host_id")
+
+    @host_id.setter
+    def host_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_id", value)
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "host_resource_group_arn")
+
+    @host_resource_group_arn.setter
+    def host_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_resource_group_arn", value)
+
+    @property
+    @pulumi.getter(name="partitionNumber")
+    def partition_number(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "partition_number")
+
+    @partition_number.setter
+    def partition_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_number", value)
+
+    @property
+    @pulumi.getter(name="spreadDomain")
+    def spread_domain(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "spread_domain")
+
+    @spread_domain.setter
+    def spread_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spread_domain", value)
+
+    @property
+    @pulumi.getter
+    def tenancy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tenancy")
+
+    @tenancy.setter
+    def tenancy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenancy", value)
+
+
+@pulumi.input_type
+class LaunchTemplatePrivateIpAddArgs:
+    def __init__(__self__, *,
+                 primary: Optional[pulumi.Input[bool]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None):
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+
+@pulumi.input_type
+class LaunchTemplateSpotOptionsArgs:
+    def __init__(__self__, *,
+                 block_duration_minutes: Optional[pulumi.Input[int]] = None,
+                 instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
+                 max_price: Optional[pulumi.Input[str]] = None,
+                 spot_instance_type: Optional[pulumi.Input[str]] = None,
+                 valid_until: Optional[pulumi.Input[str]] = None):
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+        if instance_interruption_behavior is not None:
+            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
+        if max_price is not None:
+            pulumi.set(__self__, "max_price", max_price)
+        if spot_instance_type is not None:
+            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
+        if valid_until is not None:
+            pulumi.set(__self__, "valid_until", valid_until)
+
+    @property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "block_duration_minutes")
+
+    @block_duration_minutes.setter
+    def block_duration_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "block_duration_minutes", value)
+
+    @property
+    @pulumi.getter(name="instanceInterruptionBehavior")
+    def instance_interruption_behavior(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_interruption_behavior")
+
+    @instance_interruption_behavior.setter
+    def instance_interruption_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_interruption_behavior", value)
+
+    @property
+    @pulumi.getter(name="maxPrice")
+    def max_price(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max_price")
+
+    @max_price.setter
+    def max_price(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_price", value)
+
+    @property
+    @pulumi.getter(name="spotInstanceType")
+    def spot_instance_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "spot_instance_type")
+
+    @spot_instance_type.setter
+    def spot_instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_instance_type", value)
+
+    @property
+    @pulumi.getter(name="validUntil")
+    def valid_until(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "valid_until")
+
+    @valid_until.setter
+    def valid_until(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "valid_until", value)
+
+
+@pulumi.input_type
+class LaunchTemplateTagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None):
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class LaunchTemplateTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -746,6 +3078,118 @@ class LocalGatewayRouteTableVPCAssociationTagArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NatGatewayTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NetworkAclEntryIcmpArgs:
+    def __init__(__self__, *,
+                 code: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[int]] = None):
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class NetworkAclEntryPortRangeArgs:
+    def __init__(__self__, *,
+                 from_: Optional[pulumi.Input[int]] = None,
+                 to: Optional[pulumi.Input[int]] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to", value)
+
+
+@pulumi.input_type
+class NetworkAclTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -806,6 +3250,76 @@ class NetworkInsightsPathTagArgs:
 
 
 @pulumi.input_type
+class NetworkInterfaceInstanceIpv6AddressArgs:
+    def __init__(__self__, *,
+                 ipv6_address: pulumi.Input[str]):
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ipv6_address", value)
+
+
+@pulumi.input_type
+class NetworkInterfacePrivateIpAddressSpecificationArgs:
+    def __init__(__self__, *,
+                 primary: pulumi.Input[bool],
+                 private_ip_address: pulumi.Input[str]):
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "primary", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_ip_address", value)
+
+
+@pulumi.input_type
+class NetworkInterfaceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class PrefixListEntryArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str],
@@ -858,6 +3372,284 @@ class PrefixListTagArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RouteTableTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SecurityGroupEgressArgs:
+    def __init__(__self__, *,
+                 ip_protocol: pulumi.Input[str],
+                 cidr_ip: Optional[pulumi.Input[str]] = None,
+                 cidr_ipv6: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 destination_security_group_id: Optional[pulumi.Input[str]] = None,
+                 from_port: Optional[pulumi.Input[int]] = None,
+                 to_port: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "ip_protocol", ip_protocol)
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if cidr_ipv6 is not None:
+            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if destination_security_group_id is not None:
+            pulumi.set(__self__, "destination_security_group_id", destination_security_group_id)
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="ipProtocol")
+    def ip_protocol(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ip_protocol")
+
+    @ip_protocol.setter
+    def ip_protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_protocol", value)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr_ip")
+
+    @cidr_ip.setter
+    def cidr_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_ip", value)
+
+    @property
+    @pulumi.getter(name="cidrIpv6")
+    def cidr_ipv6(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr_ipv6")
+
+    @cidr_ipv6.setter
+    def cidr_ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_ipv6", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_prefix_list_id")
+
+    @destination_prefix_list_id.setter
+    def destination_prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="destinationSecurityGroupId")
+    def destination_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "destination_security_group_id")
+
+    @destination_security_group_id.setter
+    def destination_security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_security_group_id", value)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class SecurityGroupIngressArgs:
+    def __init__(__self__, *,
+                 ip_protocol: pulumi.Input[str],
+                 cidr_ip: Optional[pulumi.Input[str]] = None,
+                 cidr_ipv6: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 from_port: Optional[pulumi.Input[int]] = None,
+                 source_prefix_list_id: Optional[pulumi.Input[str]] = None,
+                 source_security_group_id: Optional[pulumi.Input[str]] = None,
+                 source_security_group_name: Optional[pulumi.Input[str]] = None,
+                 source_security_group_owner_id: Optional[pulumi.Input[str]] = None,
+                 to_port: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "ip_protocol", ip_protocol)
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if cidr_ipv6 is not None:
+            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if source_prefix_list_id is not None:
+            pulumi.set(__self__, "source_prefix_list_id", source_prefix_list_id)
+        if source_security_group_id is not None:
+            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
+        if source_security_group_name is not None:
+            pulumi.set(__self__, "source_security_group_name", source_security_group_name)
+        if source_security_group_owner_id is not None:
+            pulumi.set(__self__, "source_security_group_owner_id", source_security_group_owner_id)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="ipProtocol")
+    def ip_protocol(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ip_protocol")
+
+    @ip_protocol.setter
+    def ip_protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_protocol", value)
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr_ip")
+
+    @cidr_ip.setter
+    def cidr_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_ip", value)
+
+    @property
+    @pulumi.getter(name="cidrIpv6")
+    def cidr_ipv6(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr_ipv6")
+
+    @cidr_ipv6.setter
+    def cidr_ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_ipv6", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="sourcePrefixListId")
+    def source_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_prefix_list_id")
+
+    @source_prefix_list_id.setter
+    def source_prefix_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_prefix_list_id", value)
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupId")
+    def source_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_security_group_id")
+
+    @source_security_group_id.setter
+    def source_security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_security_group_id", value)
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupName")
+    def source_security_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_security_group_name")
+
+    @source_security_group_name.setter
+    def source_security_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_security_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupOwnerId")
+    def source_security_group_owner_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_security_group_owner_id")
+
+    @source_security_group_owner_id.setter
+    def source_security_group_owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_security_group_owner_id", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class SecurityGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -2042,6 +4834,168 @@ class SpotFleetTargetGroupArgs:
 
 
 @pulumi.input_type
+class SubnetTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 to_port: pulumi.Input[int]):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class TrafficMirrorFilterTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TrafficMirrorSessionTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TrafficMirrorTargetTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TransitGatewayAttachmentTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TransitGatewayConnectTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
@@ -2182,7 +5136,225 @@ class TransitGatewayPeeringAttachmentTagArgs:
 
 
 @pulumi.input_type
+class TransitGatewayRouteTableTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TransitGatewayTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TransitGatewayVpcAttachmentTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VPCPeeringConnectionTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VPCTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VPNConnectionTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VPNConnectionVpnTunnelOptionsSpecificationArgs:
+    def __init__(__self__, *,
+                 pre_shared_key: Optional[pulumi.Input[str]] = None,
+                 tunnel_inside_cidr: Optional[pulumi.Input[str]] = None):
+        if pre_shared_key is not None:
+            pulumi.set(__self__, "pre_shared_key", pre_shared_key)
+        if tunnel_inside_cidr is not None:
+            pulumi.set(__self__, "tunnel_inside_cidr", tunnel_inside_cidr)
+
+    @property
+    @pulumi.getter(name="preSharedKey")
+    def pre_shared_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pre_shared_key")
+
+    @pre_shared_key.setter
+    def pre_shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pre_shared_key", value)
+
+    @property
+    @pulumi.getter(name="tunnelInsideCidr")
+    def tunnel_inside_cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tunnel_inside_cidr")
+
+    @tunnel_inside_cidr.setter
+    def tunnel_inside_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tunnel_inside_cidr", value)
+
+
+@pulumi.input_type
+class VPNGatewayTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VolumeTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

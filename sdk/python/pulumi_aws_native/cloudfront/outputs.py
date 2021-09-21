@@ -52,6 +52,11 @@ __all__ = [
     'PublicKeyPublicKeyConfig',
     'RealtimeLogConfigEndPoint',
     'RealtimeLogConfigKinesisStreamConfig',
+    'StreamingDistributionLogging',
+    'StreamingDistributionS3Origin',
+    'StreamingDistributionStreamingDistributionConfig',
+    'StreamingDistributionTag',
+    'StreamingDistributionTrustedSigners',
 ]
 
 @pulumi.output_type
@@ -2289,5 +2294,203 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> str:
         return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class StreamingDistributionLogging(dict):
+    def __init__(__self__, *,
+                 bucket: str,
+                 enabled: bool,
+                 prefix: str):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> str:
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class StreamingDistributionS3Origin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "originAccessIdentity":
+            suggest = "origin_access_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingDistributionS3Origin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingDistributionS3Origin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingDistributionS3Origin.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 origin_access_identity: str):
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="originAccessIdentity")
+    def origin_access_identity(self) -> str:
+        return pulumi.get(self, "origin_access_identity")
+
+
+@pulumi.output_type
+class StreamingDistributionStreamingDistributionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Origin":
+            suggest = "s3_origin"
+        elif key == "trustedSigners":
+            suggest = "trusted_signers"
+        elif key == "priceClass":
+            suggest = "price_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingDistributionStreamingDistributionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingDistributionStreamingDistributionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingDistributionStreamingDistributionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: str,
+                 enabled: bool,
+                 s3_origin: 'outputs.StreamingDistributionS3Origin',
+                 trusted_signers: 'outputs.StreamingDistributionTrustedSigners',
+                 aliases: Optional[Sequence[str]] = None,
+                 logging: Optional['outputs.StreamingDistributionLogging'] = None,
+                 price_class: Optional[str] = None):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "s3_origin", s3_origin)
+        pulumi.set(__self__, "trusted_signers", trusted_signers)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if price_class is not None:
+            pulumi.set(__self__, "price_class", price_class)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="s3Origin")
+    def s3_origin(self) -> 'outputs.StreamingDistributionS3Origin':
+        return pulumi.get(self, "s3_origin")
+
+    @property
+    @pulumi.getter(name="trustedSigners")
+    def trusted_signers(self) -> 'outputs.StreamingDistributionTrustedSigners':
+        return pulumi.get(self, "trusted_signers")
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "aliases")
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional['outputs.StreamingDistributionLogging']:
+        return pulumi.get(self, "logging")
+
+    @property
+    @pulumi.getter(name="priceClass")
+    def price_class(self) -> Optional[str]:
+        return pulumi.get(self, "price_class")
+
+
+@pulumi.output_type
+class StreamingDistributionTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StreamingDistributionTrustedSigners(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsAccountNumbers":
+            suggest = "aws_account_numbers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingDistributionTrustedSigners. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingDistributionTrustedSigners.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingDistributionTrustedSigners.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 aws_account_numbers: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if aws_account_numbers is not None:
+            pulumi.set(__self__, "aws_account_numbers", aws_account_numbers)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="awsAccountNumbers")
+    def aws_account_numbers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "aws_account_numbers")
 
 

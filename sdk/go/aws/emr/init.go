@@ -21,6 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:emr:Cluster":
+		r = &Cluster{}
+	case "aws-native:emr:InstanceFleetConfig":
+		r = &InstanceFleetConfig{}
+	case "aws-native:emr:InstanceGroupConfig":
+		r = &InstanceGroupConfig{}
+	case "aws-native:emr:SecurityConfiguration":
+		r = &SecurityConfiguration{}
+	case "aws-native:emr:Step":
+		r = &Step{}
 	case "aws-native:emr:Studio":
 		r = &Studio{}
 	case "aws-native:emr:StudioSessionMapping":

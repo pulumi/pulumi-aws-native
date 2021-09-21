@@ -23,10 +23,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:gamelift:Alias":
 		r = &Alias{}
+	case "aws-native:gamelift:Build":
+		r = &Build{}
 	case "aws-native:gamelift:Fleet":
 		r = &Fleet{}
 	case "aws-native:gamelift:GameServerGroup":
 		r = &GameServerGroup{}
+	case "aws-native:gamelift:GameSessionQueue":
+		r = &GameSessionQueue{}
+	case "aws-native:gamelift:MatchmakingConfiguration":
+		r = &MatchmakingConfiguration{}
+	case "aws-native:gamelift:MatchmakingRuleSet":
+		r = &MatchmakingRuleSet{}
+	case "aws-native:gamelift:Script":
+		r = &Script{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

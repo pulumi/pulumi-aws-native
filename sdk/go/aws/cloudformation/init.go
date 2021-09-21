@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cloudformation:CustomResource":
+		r = &CustomResource{}
+	case "aws-native:cloudformation:Macro":
+		r = &Macro{}
 	case "aws-native:cloudformation:ModuleDefaultVersion":
 		r = &ModuleDefaultVersion{}
 	case "aws-native:cloudformation:ModuleVersion":
@@ -33,10 +37,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourceDefaultVersion{}
 	case "aws-native:cloudformation:ResourceVersion":
 		r = &ResourceVersion{}
+	case "aws-native:cloudformation:Stack":
+		r = &Stack{}
 	case "aws-native:cloudformation:StackSet":
 		r = &StackSet{}
 	case "aws-native:cloudformation:TypeActivation":
 		r = &TypeActivation{}
+	case "aws-native:cloudformation:WaitCondition":
+		r = &WaitCondition{}
+	case "aws-native:cloudformation:WaitConditionHandle":
+		r = &WaitConditionHandle{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -15,6 +16,11 @@ __all__ = [
     'HostedZoneHostedZoneTag',
     'HostedZoneQueryLoggingConfig',
     'HostedZoneVPC',
+    'RecordSetAliasTarget',
+    'RecordSetGeoLocation',
+    'RecordSetGroupAliasTarget',
+    'RecordSetGroupGeoLocation',
+    'RecordSetGroupRecordSet',
 ]
 
 @pulumi.output_type
@@ -199,5 +205,357 @@ class HostedZoneVPC(dict):
         The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         """
         return pulumi.get(self, "v_pc_region")
+
+
+@pulumi.output_type
+class RecordSetAliasTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dNSName":
+            suggest = "d_ns_name"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+        elif key == "evaluateTargetHealth":
+            suggest = "evaluate_target_health"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetAliasTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetAliasTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetAliasTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 d_ns_name: str,
+                 hosted_zone_id: str,
+                 evaluate_target_health: Optional[bool] = None):
+        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if evaluate_target_health is not None:
+            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+
+    @property
+    @pulumi.getter(name="dNSName")
+    def d_ns_name(self) -> str:
+        return pulumi.get(self, "d_ns_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> str:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter(name="evaluateTargetHealth")
+    def evaluate_target_health(self) -> Optional[bool]:
+        return pulumi.get(self, "evaluate_target_health")
+
+
+@pulumi.output_type
+class RecordSetGeoLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continentCode":
+            suggest = "continent_code"
+        elif key == "countryCode":
+            suggest = "country_code"
+        elif key == "subdivisionCode":
+            suggest = "subdivision_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGeoLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGeoLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGeoLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continent_code: Optional[str] = None,
+                 country_code: Optional[str] = None,
+                 subdivision_code: Optional[str] = None):
+        if continent_code is not None:
+            pulumi.set(__self__, "continent_code", continent_code)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if subdivision_code is not None:
+            pulumi.set(__self__, "subdivision_code", subdivision_code)
+
+    @property
+    @pulumi.getter(name="continentCode")
+    def continent_code(self) -> Optional[str]:
+        return pulumi.get(self, "continent_code")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[str]:
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="subdivisionCode")
+    def subdivision_code(self) -> Optional[str]:
+        return pulumi.get(self, "subdivision_code")
+
+
+@pulumi.output_type
+class RecordSetGroupAliasTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dNSName":
+            suggest = "d_ns_name"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+        elif key == "evaluateTargetHealth":
+            suggest = "evaluate_target_health"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGroupAliasTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGroupAliasTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGroupAliasTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 d_ns_name: str,
+                 hosted_zone_id: str,
+                 evaluate_target_health: Optional[bool] = None):
+        pulumi.set(__self__, "d_ns_name", d_ns_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if evaluate_target_health is not None:
+            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+
+    @property
+    @pulumi.getter(name="dNSName")
+    def d_ns_name(self) -> str:
+        return pulumi.get(self, "d_ns_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> str:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter(name="evaluateTargetHealth")
+    def evaluate_target_health(self) -> Optional[bool]:
+        return pulumi.get(self, "evaluate_target_health")
+
+
+@pulumi.output_type
+class RecordSetGroupGeoLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continentCode":
+            suggest = "continent_code"
+        elif key == "countryCode":
+            suggest = "country_code"
+        elif key == "subdivisionCode":
+            suggest = "subdivision_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGroupGeoLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGroupGeoLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGroupGeoLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continent_code: Optional[str] = None,
+                 country_code: Optional[str] = None,
+                 subdivision_code: Optional[str] = None):
+        if continent_code is not None:
+            pulumi.set(__self__, "continent_code", continent_code)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if subdivision_code is not None:
+            pulumi.set(__self__, "subdivision_code", subdivision_code)
+
+    @property
+    @pulumi.getter(name="continentCode")
+    def continent_code(self) -> Optional[str]:
+        return pulumi.get(self, "continent_code")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[str]:
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="subdivisionCode")
+    def subdivision_code(self) -> Optional[str]:
+        return pulumi.get(self, "subdivision_code")
+
+
+@pulumi.output_type
+class RecordSetGroupRecordSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aliasTarget":
+            suggest = "alias_target"
+        elif key == "geoLocation":
+            suggest = "geo_location"
+        elif key == "healthCheckId":
+            suggest = "health_check_id"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+        elif key == "hostedZoneName":
+            suggest = "hosted_zone_name"
+        elif key == "multiValueAnswer":
+            suggest = "multi_value_answer"
+        elif key == "resourceRecords":
+            suggest = "resource_records"
+        elif key == "setIdentifier":
+            suggest = "set_identifier"
+        elif key == "tTL":
+            suggest = "t_tl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGroupRecordSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGroupRecordSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGroupRecordSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 alias_target: Optional['outputs.RecordSetGroupAliasTarget'] = None,
+                 comment: Optional[str] = None,
+                 failover: Optional[str] = None,
+                 geo_location: Optional['outputs.RecordSetGroupGeoLocation'] = None,
+                 health_check_id: Optional[str] = None,
+                 hosted_zone_id: Optional[str] = None,
+                 hosted_zone_name: Optional[str] = None,
+                 multi_value_answer: Optional[bool] = None,
+                 region: Optional[str] = None,
+                 resource_records: Optional[Sequence[str]] = None,
+                 set_identifier: Optional[str] = None,
+                 t_tl: Optional[str] = None,
+                 weight: Optional[int] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if alias_target is not None:
+            pulumi.set(__self__, "alias_target", alias_target)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if failover is not None:
+            pulumi.set(__self__, "failover", failover)
+        if geo_location is not None:
+            pulumi.set(__self__, "geo_location", geo_location)
+        if health_check_id is not None:
+            pulumi.set(__self__, "health_check_id", health_check_id)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if hosted_zone_name is not None:
+            pulumi.set(__self__, "hosted_zone_name", hosted_zone_name)
+        if multi_value_answer is not None:
+            pulumi.set(__self__, "multi_value_answer", multi_value_answer)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if resource_records is not None:
+            pulumi.set(__self__, "resource_records", resource_records)
+        if set_identifier is not None:
+            pulumi.set(__self__, "set_identifier", set_identifier)
+        if t_tl is not None:
+            pulumi.set(__self__, "t_tl", t_tl)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="aliasTarget")
+    def alias_target(self) -> Optional['outputs.RecordSetGroupAliasTarget']:
+        return pulumi.get(self, "alias_target")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter
+    def failover(self) -> Optional[str]:
+        return pulumi.get(self, "failover")
+
+    @property
+    @pulumi.getter(name="geoLocation")
+    def geo_location(self) -> Optional['outputs.RecordSetGroupGeoLocation']:
+        return pulumi.get(self, "geo_location")
+
+    @property
+    @pulumi.getter(name="healthCheckId")
+    def health_check_id(self) -> Optional[str]:
+        return pulumi.get(self, "health_check_id")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[str]:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter(name="hostedZoneName")
+    def hosted_zone_name(self) -> Optional[str]:
+        return pulumi.get(self, "hosted_zone_name")
+
+    @property
+    @pulumi.getter(name="multiValueAnswer")
+    def multi_value_answer(self) -> Optional[bool]:
+        return pulumi.get(self, "multi_value_answer")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="resourceRecords")
+    def resource_records(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resource_records")
+
+    @property
+    @pulumi.getter(name="setIdentifier")
+    def set_identifier(self) -> Optional[str]:
+        return pulumi.get(self, "set_identifier")
+
+    @property
+    @pulumi.getter(name="tTL")
+    def t_tl(self) -> Optional[str]:
+        return pulumi.get(self, "t_tl")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[int]:
+        return pulumi.get(self, "weight")
 
 

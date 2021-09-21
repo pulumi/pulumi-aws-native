@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'AccountExpiryEventsConfigurationArgs',
+    'CertificateDomainValidationOptionArgs',
+    'CertificateTagArgs',
 ]
 
 @pulumi.input_type
@@ -27,5 +29,72 @@ class AccountExpiryEventsConfigurationArgs:
     @days_before_expiry.setter
     def days_before_expiry(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days_before_expiry", value)
+
+
+@pulumi.input_type
+class CertificateDomainValidationOptionArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 hosted_zone_id: Optional[pulumi.Input[str]] = None,
+                 validation_domain: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "domain_name", domain_name)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if validation_domain is not None:
+            pulumi.set(__self__, "validation_domain", validation_domain)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+    @property
+    @pulumi.getter(name="validationDomain")
+    def validation_domain(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "validation_domain")
+
+    @validation_domain.setter
+    def validation_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "validation_domain", value)
+
+
+@pulumi.input_type
+class CertificateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

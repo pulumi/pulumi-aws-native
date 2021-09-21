@@ -5,6 +5,12 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .destination import *
 from .log_group import *
+from .log_stream import *
+from .metric_filter import *
 from .query_definition import *
 from .resource_policy import *
+from .subscription_filter import *
+from ._inputs import *
+from . import outputs

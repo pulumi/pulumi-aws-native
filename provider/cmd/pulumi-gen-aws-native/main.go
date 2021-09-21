@@ -58,29 +58,37 @@ func main() {
 		return
 	}
 
-	pkgSpec, meta, err := schema.GatherPackage(readSupportedResourceTypes(genDir), readJsonSchemas(schemaFolder))
+	supportedTypes := readSupportedResourceTypes(genDir)
+	jsonSchemas := readJsonSchemas(schemaFolder)
+
+	fullSpec, _, err := schema.GatherPackage(supportedTypes, jsonSchemas, true)
 	if err != nil {
 		panic(fmt.Sprintf("error generating schema: %v", err))
 	}
-	pkgSpec.Version = version
+	fullSpec.Version = version
 
 	for _, language := range strings.Split(languages, ",") {
 		fmt.Printf("Generating %s...\n", language)
 		switch language {
 		case "nodejs", "python", "dotnet", "go":
 			dir := filepath.Join(".", "sdk", language)
-			pkgSpec.Version = version
-			err = emitPackage(pkgSpec, language, dir)
+			err = emitPackage(fullSpec, language, dir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
-			writePulumiSchema(*pkgSpec, cf2pulumiDir, false)
+			writePulumiSchema(*fullSpec, cf2pulumiDir, false)
 
-			err := generateExamples(pkgSpec, []string{"nodejs", "python", "dotnet", "go"})
+			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false)
+			if err != nil {
+				panic(fmt.Sprintf("error generating schema: %v", err))
+			}
+
+			fmt.Println("Generating examples...")
+			err = generateExamples(supportedSpec, []string{"nodejs", "python", "dotnet", "go"})
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
 			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-			writePulumiSchema(*pkgSpec, providerDir, true)
+			writePulumiSchema(*supportedSpec, providerDir, true)
 
 			// Also, emit the resource metadata for the provider.
 			if err = writeMetadata(meta, providerDir, "main", true); err != nil {

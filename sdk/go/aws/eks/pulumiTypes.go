@@ -119,6 +119,520 @@ func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
 	}).(AddonTagOutput)
 }
 
+type ClusterEncryptionConfig struct {
+	Provider  *ClusterProvider `pulumi:"provider"`
+	Resources []string         `pulumi:"resources"`
+}
+
+// ClusterEncryptionConfigInput is an input type that accepts ClusterEncryptionConfigArgs and ClusterEncryptionConfigOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigInput` via:
+//
+//          ClusterEncryptionConfigArgs{...}
+type ClusterEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigOutput() ClusterEncryptionConfigOutput
+	ToClusterEncryptionConfigOutputWithContext(context.Context) ClusterEncryptionConfigOutput
+}
+
+type ClusterEncryptionConfigArgs struct {
+	Provider  ClusterProviderPtrInput `pulumi:"provider"`
+	Resources pulumi.StringArrayInput `pulumi:"resources"`
+}
+
+func (ClusterEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigOutput() ClusterEncryptionConfigOutput {
+	return i.ToClusterEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigArgs) ToClusterEncryptionConfigOutputWithContext(ctx context.Context) ClusterEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigOutput)
+}
+
+// ClusterEncryptionConfigArrayInput is an input type that accepts ClusterEncryptionConfigArray and ClusterEncryptionConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterEncryptionConfigArrayInput` via:
+//
+//          ClusterEncryptionConfigArray{ ClusterEncryptionConfigArgs{...} }
+type ClusterEncryptionConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterEncryptionConfigArrayOutput() ClusterEncryptionConfigArrayOutput
+	ToClusterEncryptionConfigArrayOutputWithContext(context.Context) ClusterEncryptionConfigArrayOutput
+}
+
+type ClusterEncryptionConfigArray []ClusterEncryptionConfigInput
+
+func (ClusterEncryptionConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (i ClusterEncryptionConfigArray) ToClusterEncryptionConfigArrayOutput() ClusterEncryptionConfigArrayOutput {
+	return i.ToClusterEncryptionConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterEncryptionConfigArray) ToClusterEncryptionConfigArrayOutputWithContext(ctx context.Context) ClusterEncryptionConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionConfigArrayOutput)
+}
+
+type ClusterEncryptionConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutput() ClusterEncryptionConfigOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigOutputWithContext(ctx context.Context) ClusterEncryptionConfigOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigOutput) Provider() ClusterProviderPtrOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfig) *ClusterProvider { return v.Provider }).(ClusterProviderPtrOutput)
+}
+
+func (o ClusterEncryptionConfigOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterEncryptionConfig) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+type ClusterEncryptionConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterEncryptionConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEncryptionConfig)(nil)).Elem()
+}
+
+func (o ClusterEncryptionConfigArrayOutput) ToClusterEncryptionConfigArrayOutput() ClusterEncryptionConfigArrayOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigArrayOutput) ToClusterEncryptionConfigArrayOutputWithContext(ctx context.Context) ClusterEncryptionConfigArrayOutput {
+	return o
+}
+
+func (o ClusterEncryptionConfigArrayOutput) Index(i pulumi.IntInput) ClusterEncryptionConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterEncryptionConfig {
+		return vs[0].([]ClusterEncryptionConfig)[vs[1].(int)]
+	}).(ClusterEncryptionConfigOutput)
+}
+
+type ClusterKubernetesNetworkConfig struct {
+	ServiceIpv4Cidr *string `pulumi:"serviceIpv4Cidr"`
+}
+
+// ClusterKubernetesNetworkConfigInput is an input type that accepts ClusterKubernetesNetworkConfigArgs and ClusterKubernetesNetworkConfigOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigInput` via:
+//
+//          ClusterKubernetesNetworkConfigArgs{...}
+type ClusterKubernetesNetworkConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput
+	ToClusterKubernetesNetworkConfigOutputWithContext(context.Context) ClusterKubernetesNetworkConfigOutput
+}
+
+type ClusterKubernetesNetworkConfigArgs struct {
+	ServiceIpv4Cidr pulumi.StringPtrInput `pulumi:"serviceIpv4Cidr"`
+}
+
+func (ClusterKubernetesNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput {
+	return i.ToClusterKubernetesNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigOutput)
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesNetworkConfigArgs) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigOutput).ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubernetesNetworkConfigPtrInput is an input type that accepts ClusterKubernetesNetworkConfigArgs, ClusterKubernetesNetworkConfigPtr and ClusterKubernetesNetworkConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubernetesNetworkConfigPtrInput` via:
+//
+//          ClusterKubernetesNetworkConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterKubernetesNetworkConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput
+	ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Context) ClusterKubernetesNetworkConfigPtrOutput
+}
+
+type clusterKubernetesNetworkConfigPtrType ClusterKubernetesNetworkConfigArgs
+
+func ClusterKubernetesNetworkConfigPtr(v *ClusterKubernetesNetworkConfigArgs) ClusterKubernetesNetworkConfigPtrInput {
+	return (*clusterKubernetesNetworkConfigPtrType)(v)
+}
+
+func (*clusterKubernetesNetworkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return i.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubernetesNetworkConfigPtrType) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigOutput() ClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ToClusterKubernetesNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfig {
+		return &v
+	}).(ClusterKubernetesNetworkConfigPtrOutput)
+}
+
+func (o ClusterKubernetesNetworkConfigOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *string { return v.ServiceIpv4Cidr }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubernetesNetworkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesNetworkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesNetworkConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfigPtrOutput() ClusterKubernetesNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetworkConfigOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) ClusterKubernetesNetworkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubernetesNetworkConfig
+		return ret
+	}).(ClusterKubernetesNetworkConfigOutput)
+}
+
+func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv4Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceIpv4Cidr
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterProvider struct {
+	KeyArn *string `pulumi:"keyArn"`
+}
+
+// ClusterProviderInput is an input type that accepts ClusterProviderArgs and ClusterProviderOutput values.
+// You can construct a concrete instance of `ClusterProviderInput` via:
+//
+//          ClusterProviderArgs{...}
+type ClusterProviderInput interface {
+	pulumi.Input
+
+	ToClusterProviderOutput() ClusterProviderOutput
+	ToClusterProviderOutputWithContext(context.Context) ClusterProviderOutput
+}
+
+type ClusterProviderArgs struct {
+	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
+}
+
+func (ClusterProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterProvider)(nil)).Elem()
+}
+
+func (i ClusterProviderArgs) ToClusterProviderOutput() ClusterProviderOutput {
+	return i.ToClusterProviderOutputWithContext(context.Background())
+}
+
+func (i ClusterProviderArgs) ToClusterProviderOutputWithContext(ctx context.Context) ClusterProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderOutput)
+}
+
+func (i ClusterProviderArgs) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
+	return i.ToClusterProviderPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterProviderArgs) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderOutput).ToClusterProviderPtrOutputWithContext(ctx)
+}
+
+// ClusterProviderPtrInput is an input type that accepts ClusterProviderArgs, ClusterProviderPtr and ClusterProviderPtrOutput values.
+// You can construct a concrete instance of `ClusterProviderPtrInput` via:
+//
+//          ClusterProviderArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterProviderPtrInput interface {
+	pulumi.Input
+
+	ToClusterProviderPtrOutput() ClusterProviderPtrOutput
+	ToClusterProviderPtrOutputWithContext(context.Context) ClusterProviderPtrOutput
+}
+
+type clusterProviderPtrType ClusterProviderArgs
+
+func ClusterProviderPtr(v *ClusterProviderArgs) ClusterProviderPtrInput {
+	return (*clusterProviderPtrType)(v)
+}
+
+func (*clusterProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterProvider)(nil)).Elem()
+}
+
+func (i *clusterProviderPtrType) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
+	return i.ToClusterProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterProviderPtrType) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterProviderPtrOutput)
+}
+
+type ClusterProviderOutput struct{ *pulumi.OutputState }
+
+func (ClusterProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterProvider)(nil)).Elem()
+}
+
+func (o ClusterProviderOutput) ToClusterProviderOutput() ClusterProviderOutput {
+	return o
+}
+
+func (o ClusterProviderOutput) ToClusterProviderOutputWithContext(ctx context.Context) ClusterProviderOutput {
+	return o
+}
+
+func (o ClusterProviderOutput) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
+	return o.ToClusterProviderPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterProviderOutput) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterProvider) *ClusterProvider {
+		return &v
+	}).(ClusterProviderPtrOutput)
+}
+
+func (o ClusterProviderOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProvider) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
+}
+
+type ClusterProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterProvider)(nil)).Elem()
+}
+
+func (o ClusterProviderPtrOutput) ToClusterProviderPtrOutput() ClusterProviderPtrOutput {
+	return o
+}
+
+func (o ClusterProviderPtrOutput) ToClusterProviderPtrOutputWithContext(ctx context.Context) ClusterProviderPtrOutput {
+	return o
+}
+
+func (o ClusterProviderPtrOutput) Elem() ClusterProviderOutput {
+	return o.ApplyT(func(v *ClusterProvider) ClusterProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterProvider
+		return ret
+	}).(ClusterProviderOutput)
+}
+
+func (o ClusterProviderPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterResourcesVpcConfig struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+}
+
+// ClusterResourcesVpcConfigInput is an input type that accepts ClusterResourcesVpcConfigArgs and ClusterResourcesVpcConfigOutput values.
+// You can construct a concrete instance of `ClusterResourcesVpcConfigInput` via:
+//
+//          ClusterResourcesVpcConfigArgs{...}
+type ClusterResourcesVpcConfigInput interface {
+	pulumi.Input
+
+	ToClusterResourcesVpcConfigOutput() ClusterResourcesVpcConfigOutput
+	ToClusterResourcesVpcConfigOutputWithContext(context.Context) ClusterResourcesVpcConfigOutput
+}
+
+type ClusterResourcesVpcConfigArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ClusterResourcesVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourcesVpcConfig)(nil)).Elem()
+}
+
+func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigOutput() ClusterResourcesVpcConfigOutput {
+	return i.ToClusterResourcesVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigOutput)
+}
+
+func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
+	return i.ToClusterResourcesVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterResourcesVpcConfigArgs) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigOutput).ToClusterResourcesVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterResourcesVpcConfigPtrInput is an input type that accepts ClusterResourcesVpcConfigArgs, ClusterResourcesVpcConfigPtr and ClusterResourcesVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterResourcesVpcConfigPtrInput` via:
+//
+//          ClusterResourcesVpcConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterResourcesVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput
+	ToClusterResourcesVpcConfigPtrOutputWithContext(context.Context) ClusterResourcesVpcConfigPtrOutput
+}
+
+type clusterResourcesVpcConfigPtrType ClusterResourcesVpcConfigArgs
+
+func ClusterResourcesVpcConfigPtr(v *ClusterResourcesVpcConfigArgs) ClusterResourcesVpcConfigPtrInput {
+	return (*clusterResourcesVpcConfigPtrType)(v)
+}
+
+func (*clusterResourcesVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterResourcesVpcConfig)(nil)).Elem()
+}
+
+func (i *clusterResourcesVpcConfigPtrType) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
+	return i.ToClusterResourcesVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterResourcesVpcConfigPtrType) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterResourcesVpcConfigPtrOutput)
+}
+
+type ClusterResourcesVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourcesVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterResourcesVpcConfig)(nil)).Elem()
+}
+
+func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutput() ClusterResourcesVpcConfigOutput {
+	return o
+}
+
+func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigOutput {
+	return o
+}
+
+func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
+	return o.ToClusterResourcesVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterResourcesVpcConfigOutput) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourcesVpcConfig) *ClusterResourcesVpcConfig {
+		return &v
+	}).(ClusterResourcesVpcConfigPtrOutput)
+}
+
+func (o ClusterResourcesVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterResourcesVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterResourcesVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterResourcesVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ClusterResourcesVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterResourcesVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterResourcesVpcConfig)(nil)).Elem()
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutput() ClusterResourcesVpcConfigPtrOutput {
+	return o
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) ToClusterResourcesVpcConfigPtrOutputWithContext(ctx context.Context) ClusterResourcesVpcConfigPtrOutput {
+	return o
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) Elem() ClusterResourcesVpcConfigOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) ClusterResourcesVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterResourcesVpcConfig
+		return ret
+	}).(ClusterResourcesVpcConfigOutput)
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterResourcesVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterResourcesVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // A key-value pair to associate with a pod.
 type FargateProfileLabel struct {
 	// The key name of the label.
@@ -437,13 +951,759 @@ func (o FargateProfileTagArrayOutput) Index(i pulumi.IntInput) FargateProfileTag
 	}).(FargateProfileTagOutput)
 }
 
+type NodegroupLaunchTemplateSpecification struct {
+	Id      *string `pulumi:"id"`
+	Name    *string `pulumi:"name"`
+	Version *string `pulumi:"version"`
+}
+
+// NodegroupLaunchTemplateSpecificationInput is an input type that accepts NodegroupLaunchTemplateSpecificationArgs and NodegroupLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `NodegroupLaunchTemplateSpecificationInput` via:
+//
+//          NodegroupLaunchTemplateSpecificationArgs{...}
+type NodegroupLaunchTemplateSpecificationInput interface {
+	pulumi.Input
+
+	ToNodegroupLaunchTemplateSpecificationOutput() NodegroupLaunchTemplateSpecificationOutput
+	ToNodegroupLaunchTemplateSpecificationOutputWithContext(context.Context) NodegroupLaunchTemplateSpecificationOutput
+}
+
+type NodegroupLaunchTemplateSpecificationArgs struct {
+	Id      pulumi.StringPtrInput `pulumi:"id"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (NodegroupLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationOutput() NodegroupLaunchTemplateSpecificationOutput {
+	return i.ToNodegroupLaunchTemplateSpecificationOutputWithContext(context.Background())
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationOutput)
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return i.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i NodegroupLaunchTemplateSpecificationArgs) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationOutput).ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx)
+}
+
+// NodegroupLaunchTemplateSpecificationPtrInput is an input type that accepts NodegroupLaunchTemplateSpecificationArgs, NodegroupLaunchTemplateSpecificationPtr and NodegroupLaunchTemplateSpecificationPtrOutput values.
+// You can construct a concrete instance of `NodegroupLaunchTemplateSpecificationPtrInput` via:
+//
+//          NodegroupLaunchTemplateSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type NodegroupLaunchTemplateSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput
+	ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Context) NodegroupLaunchTemplateSpecificationPtrOutput
+}
+
+type nodegroupLaunchTemplateSpecificationPtrType NodegroupLaunchTemplateSpecificationArgs
+
+func NodegroupLaunchTemplateSpecificationPtr(v *NodegroupLaunchTemplateSpecificationArgs) NodegroupLaunchTemplateSpecificationPtrInput {
+	return (*nodegroupLaunchTemplateSpecificationPtrType)(v)
+}
+
+func (*nodegroupLaunchTemplateSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i *nodegroupLaunchTemplateSpecificationPtrType) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return i.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *nodegroupLaunchTemplateSpecificationPtrType) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+type NodegroupLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NodegroupLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationOutput() NodegroupLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o.ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupLaunchTemplateSpecification) *NodegroupLaunchTemplateSpecification {
+		return &v
+	}).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type NodegroupLaunchTemplateSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupLaunchTemplateSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) ToNodegroupLaunchTemplateSpecificationPtrOutput() NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) ToNodegroupLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) NodegroupLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Elem() NodegroupLaunchTemplateSpecificationOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) NodegroupLaunchTemplateSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret NodegroupLaunchTemplateSpecification
+		return ret
+	}).(NodegroupLaunchTemplateSpecificationOutput)
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodegroupRemoteAccess struct {
+	Ec2SshKey            string   `pulumi:"ec2SshKey"`
+	SourceSecurityGroups []string `pulumi:"sourceSecurityGroups"`
+}
+
+// NodegroupRemoteAccessInput is an input type that accepts NodegroupRemoteAccessArgs and NodegroupRemoteAccessOutput values.
+// You can construct a concrete instance of `NodegroupRemoteAccessInput` via:
+//
+//          NodegroupRemoteAccessArgs{...}
+type NodegroupRemoteAccessInput interface {
+	pulumi.Input
+
+	ToNodegroupRemoteAccessOutput() NodegroupRemoteAccessOutput
+	ToNodegroupRemoteAccessOutputWithContext(context.Context) NodegroupRemoteAccessOutput
+}
+
+type NodegroupRemoteAccessArgs struct {
+	Ec2SshKey            pulumi.StringInput      `pulumi:"ec2SshKey"`
+	SourceSecurityGroups pulumi.StringArrayInput `pulumi:"sourceSecurityGroups"`
+}
+
+func (NodegroupRemoteAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupRemoteAccess)(nil)).Elem()
+}
+
+func (i NodegroupRemoteAccessArgs) ToNodegroupRemoteAccessOutput() NodegroupRemoteAccessOutput {
+	return i.ToNodegroupRemoteAccessOutputWithContext(context.Background())
+}
+
+func (i NodegroupRemoteAccessArgs) ToNodegroupRemoteAccessOutputWithContext(ctx context.Context) NodegroupRemoteAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupRemoteAccessOutput)
+}
+
+func (i NodegroupRemoteAccessArgs) ToNodegroupRemoteAccessPtrOutput() NodegroupRemoteAccessPtrOutput {
+	return i.ToNodegroupRemoteAccessPtrOutputWithContext(context.Background())
+}
+
+func (i NodegroupRemoteAccessArgs) ToNodegroupRemoteAccessPtrOutputWithContext(ctx context.Context) NodegroupRemoteAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupRemoteAccessOutput).ToNodegroupRemoteAccessPtrOutputWithContext(ctx)
+}
+
+// NodegroupRemoteAccessPtrInput is an input type that accepts NodegroupRemoteAccessArgs, NodegroupRemoteAccessPtr and NodegroupRemoteAccessPtrOutput values.
+// You can construct a concrete instance of `NodegroupRemoteAccessPtrInput` via:
+//
+//          NodegroupRemoteAccessArgs{...}
+//
+//  or:
+//
+//          nil
+type NodegroupRemoteAccessPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupRemoteAccessPtrOutput() NodegroupRemoteAccessPtrOutput
+	ToNodegroupRemoteAccessPtrOutputWithContext(context.Context) NodegroupRemoteAccessPtrOutput
+}
+
+type nodegroupRemoteAccessPtrType NodegroupRemoteAccessArgs
+
+func NodegroupRemoteAccessPtr(v *NodegroupRemoteAccessArgs) NodegroupRemoteAccessPtrInput {
+	return (*nodegroupRemoteAccessPtrType)(v)
+}
+
+func (*nodegroupRemoteAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupRemoteAccess)(nil)).Elem()
+}
+
+func (i *nodegroupRemoteAccessPtrType) ToNodegroupRemoteAccessPtrOutput() NodegroupRemoteAccessPtrOutput {
+	return i.ToNodegroupRemoteAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *nodegroupRemoteAccessPtrType) ToNodegroupRemoteAccessPtrOutputWithContext(ctx context.Context) NodegroupRemoteAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupRemoteAccessPtrOutput)
+}
+
+type NodegroupRemoteAccessOutput struct{ *pulumi.OutputState }
+
+func (NodegroupRemoteAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupRemoteAccess)(nil)).Elem()
+}
+
+func (o NodegroupRemoteAccessOutput) ToNodegroupRemoteAccessOutput() NodegroupRemoteAccessOutput {
+	return o
+}
+
+func (o NodegroupRemoteAccessOutput) ToNodegroupRemoteAccessOutputWithContext(ctx context.Context) NodegroupRemoteAccessOutput {
+	return o
+}
+
+func (o NodegroupRemoteAccessOutput) ToNodegroupRemoteAccessPtrOutput() NodegroupRemoteAccessPtrOutput {
+	return o.ToNodegroupRemoteAccessPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupRemoteAccessOutput) ToNodegroupRemoteAccessPtrOutputWithContext(ctx context.Context) NodegroupRemoteAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupRemoteAccess) *NodegroupRemoteAccess {
+		return &v
+	}).(NodegroupRemoteAccessPtrOutput)
+}
+
+func (o NodegroupRemoteAccessOutput) Ec2SshKey() pulumi.StringOutput {
+	return o.ApplyT(func(v NodegroupRemoteAccess) string { return v.Ec2SshKey }).(pulumi.StringOutput)
+}
+
+func (o NodegroupRemoteAccessOutput) SourceSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NodegroupRemoteAccess) []string { return v.SourceSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+type NodegroupRemoteAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupRemoteAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupRemoteAccess)(nil)).Elem()
+}
+
+func (o NodegroupRemoteAccessPtrOutput) ToNodegroupRemoteAccessPtrOutput() NodegroupRemoteAccessPtrOutput {
+	return o
+}
+
+func (o NodegroupRemoteAccessPtrOutput) ToNodegroupRemoteAccessPtrOutputWithContext(ctx context.Context) NodegroupRemoteAccessPtrOutput {
+	return o
+}
+
+func (o NodegroupRemoteAccessPtrOutput) Elem() NodegroupRemoteAccessOutput {
+	return o.ApplyT(func(v *NodegroupRemoteAccess) NodegroupRemoteAccess {
+		if v != nil {
+			return *v
+		}
+		var ret NodegroupRemoteAccess
+		return ret
+	}).(NodegroupRemoteAccessOutput)
+}
+
+func (o NodegroupRemoteAccessPtrOutput) Ec2SshKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupRemoteAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ec2SshKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupRemoteAccessPtrOutput) SourceSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NodegroupRemoteAccess) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceSecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+type NodegroupScalingConfig struct {
+	DesiredSize *float64 `pulumi:"desiredSize"`
+	MaxSize     *float64 `pulumi:"maxSize"`
+	MinSize     *float64 `pulumi:"minSize"`
+}
+
+// NodegroupScalingConfigInput is an input type that accepts NodegroupScalingConfigArgs and NodegroupScalingConfigOutput values.
+// You can construct a concrete instance of `NodegroupScalingConfigInput` via:
+//
+//          NodegroupScalingConfigArgs{...}
+type NodegroupScalingConfigInput interface {
+	pulumi.Input
+
+	ToNodegroupScalingConfigOutput() NodegroupScalingConfigOutput
+	ToNodegroupScalingConfigOutputWithContext(context.Context) NodegroupScalingConfigOutput
+}
+
+type NodegroupScalingConfigArgs struct {
+	DesiredSize pulumi.Float64PtrInput `pulumi:"desiredSize"`
+	MaxSize     pulumi.Float64PtrInput `pulumi:"maxSize"`
+	MinSize     pulumi.Float64PtrInput `pulumi:"minSize"`
+}
+
+func (NodegroupScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupScalingConfig)(nil)).Elem()
+}
+
+func (i NodegroupScalingConfigArgs) ToNodegroupScalingConfigOutput() NodegroupScalingConfigOutput {
+	return i.ToNodegroupScalingConfigOutputWithContext(context.Background())
+}
+
+func (i NodegroupScalingConfigArgs) ToNodegroupScalingConfigOutputWithContext(ctx context.Context) NodegroupScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupScalingConfigOutput)
+}
+
+func (i NodegroupScalingConfigArgs) ToNodegroupScalingConfigPtrOutput() NodegroupScalingConfigPtrOutput {
+	return i.ToNodegroupScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NodegroupScalingConfigArgs) ToNodegroupScalingConfigPtrOutputWithContext(ctx context.Context) NodegroupScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupScalingConfigOutput).ToNodegroupScalingConfigPtrOutputWithContext(ctx)
+}
+
+// NodegroupScalingConfigPtrInput is an input type that accepts NodegroupScalingConfigArgs, NodegroupScalingConfigPtr and NodegroupScalingConfigPtrOutput values.
+// You can construct a concrete instance of `NodegroupScalingConfigPtrInput` via:
+//
+//          NodegroupScalingConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type NodegroupScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupScalingConfigPtrOutput() NodegroupScalingConfigPtrOutput
+	ToNodegroupScalingConfigPtrOutputWithContext(context.Context) NodegroupScalingConfigPtrOutput
+}
+
+type nodegroupScalingConfigPtrType NodegroupScalingConfigArgs
+
+func NodegroupScalingConfigPtr(v *NodegroupScalingConfigArgs) NodegroupScalingConfigPtrInput {
+	return (*nodegroupScalingConfigPtrType)(v)
+}
+
+func (*nodegroupScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupScalingConfig)(nil)).Elem()
+}
+
+func (i *nodegroupScalingConfigPtrType) ToNodegroupScalingConfigPtrOutput() NodegroupScalingConfigPtrOutput {
+	return i.ToNodegroupScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nodegroupScalingConfigPtrType) ToNodegroupScalingConfigPtrOutputWithContext(ctx context.Context) NodegroupScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupScalingConfigPtrOutput)
+}
+
+type NodegroupScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (NodegroupScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupScalingConfig)(nil)).Elem()
+}
+
+func (o NodegroupScalingConfigOutput) ToNodegroupScalingConfigOutput() NodegroupScalingConfigOutput {
+	return o
+}
+
+func (o NodegroupScalingConfigOutput) ToNodegroupScalingConfigOutputWithContext(ctx context.Context) NodegroupScalingConfigOutput {
+	return o
+}
+
+func (o NodegroupScalingConfigOutput) ToNodegroupScalingConfigPtrOutput() NodegroupScalingConfigPtrOutput {
+	return o.ToNodegroupScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupScalingConfigOutput) ToNodegroupScalingConfigPtrOutputWithContext(ctx context.Context) NodegroupScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupScalingConfig) *NodegroupScalingConfig {
+		return &v
+	}).(NodegroupScalingConfigPtrOutput)
+}
+
+func (o NodegroupScalingConfigOutput) DesiredSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodegroupScalingConfig) *float64 { return v.DesiredSize }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodegroupScalingConfigOutput) MaxSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodegroupScalingConfig) *float64 { return v.MaxSize }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodegroupScalingConfigOutput) MinSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodegroupScalingConfig) *float64 { return v.MinSize }).(pulumi.Float64PtrOutput)
+}
+
+type NodegroupScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupScalingConfig)(nil)).Elem()
+}
+
+func (o NodegroupScalingConfigPtrOutput) ToNodegroupScalingConfigPtrOutput() NodegroupScalingConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupScalingConfigPtrOutput) ToNodegroupScalingConfigPtrOutputWithContext(ctx context.Context) NodegroupScalingConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupScalingConfigPtrOutput) Elem() NodegroupScalingConfigOutput {
+	return o.ApplyT(func(v *NodegroupScalingConfig) NodegroupScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NodegroupScalingConfig
+		return ret
+	}).(NodegroupScalingConfigOutput)
+}
+
+func (o NodegroupScalingConfigPtrOutput) DesiredSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodegroupScalingConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.DesiredSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodegroupScalingConfigPtrOutput) MaxSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodegroupScalingConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodegroupScalingConfigPtrOutput) MinSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodegroupScalingConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+type NodegroupTaint struct {
+	Effect *string `pulumi:"effect"`
+	Key    *string `pulumi:"key"`
+	Value  *string `pulumi:"value"`
+}
+
+// NodegroupTaintInput is an input type that accepts NodegroupTaintArgs and NodegroupTaintOutput values.
+// You can construct a concrete instance of `NodegroupTaintInput` via:
+//
+//          NodegroupTaintArgs{...}
+type NodegroupTaintInput interface {
+	pulumi.Input
+
+	ToNodegroupTaintOutput() NodegroupTaintOutput
+	ToNodegroupTaintOutputWithContext(context.Context) NodegroupTaintOutput
+}
+
+type NodegroupTaintArgs struct {
+	Effect pulumi.StringPtrInput `pulumi:"effect"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (NodegroupTaintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupTaint)(nil)).Elem()
+}
+
+func (i NodegroupTaintArgs) ToNodegroupTaintOutput() NodegroupTaintOutput {
+	return i.ToNodegroupTaintOutputWithContext(context.Background())
+}
+
+func (i NodegroupTaintArgs) ToNodegroupTaintOutputWithContext(ctx context.Context) NodegroupTaintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupTaintOutput)
+}
+
+// NodegroupTaintArrayInput is an input type that accepts NodegroupTaintArray and NodegroupTaintArrayOutput values.
+// You can construct a concrete instance of `NodegroupTaintArrayInput` via:
+//
+//          NodegroupTaintArray{ NodegroupTaintArgs{...} }
+type NodegroupTaintArrayInput interface {
+	pulumi.Input
+
+	ToNodegroupTaintArrayOutput() NodegroupTaintArrayOutput
+	ToNodegroupTaintArrayOutputWithContext(context.Context) NodegroupTaintArrayOutput
+}
+
+type NodegroupTaintArray []NodegroupTaintInput
+
+func (NodegroupTaintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodegroupTaint)(nil)).Elem()
+}
+
+func (i NodegroupTaintArray) ToNodegroupTaintArrayOutput() NodegroupTaintArrayOutput {
+	return i.ToNodegroupTaintArrayOutputWithContext(context.Background())
+}
+
+func (i NodegroupTaintArray) ToNodegroupTaintArrayOutputWithContext(ctx context.Context) NodegroupTaintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupTaintArrayOutput)
+}
+
+type NodegroupTaintOutput struct{ *pulumi.OutputState }
+
+func (NodegroupTaintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupTaint)(nil)).Elem()
+}
+
+func (o NodegroupTaintOutput) ToNodegroupTaintOutput() NodegroupTaintOutput {
+	return o
+}
+
+func (o NodegroupTaintOutput) ToNodegroupTaintOutputWithContext(ctx context.Context) NodegroupTaintOutput {
+	return o
+}
+
+func (o NodegroupTaintOutput) Effect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupTaint) *string { return v.Effect }).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupTaintOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupTaint) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o NodegroupTaintOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupTaint) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type NodegroupTaintArrayOutput struct{ *pulumi.OutputState }
+
+func (NodegroupTaintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodegroupTaint)(nil)).Elem()
+}
+
+func (o NodegroupTaintArrayOutput) ToNodegroupTaintArrayOutput() NodegroupTaintArrayOutput {
+	return o
+}
+
+func (o NodegroupTaintArrayOutput) ToNodegroupTaintArrayOutputWithContext(ctx context.Context) NodegroupTaintArrayOutput {
+	return o
+}
+
+func (o NodegroupTaintArrayOutput) Index(i pulumi.IntInput) NodegroupTaintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodegroupTaint {
+		return vs[0].([]NodegroupTaint)[vs[1].(int)]
+	}).(NodegroupTaintOutput)
+}
+
+type NodegroupUpdateConfig struct {
+	MaxUnavailable           *float64 `pulumi:"maxUnavailable"`
+	MaxUnavailablePercentage *float64 `pulumi:"maxUnavailablePercentage"`
+}
+
+// NodegroupUpdateConfigInput is an input type that accepts NodegroupUpdateConfigArgs and NodegroupUpdateConfigOutput values.
+// You can construct a concrete instance of `NodegroupUpdateConfigInput` via:
+//
+//          NodegroupUpdateConfigArgs{...}
+type NodegroupUpdateConfigInput interface {
+	pulumi.Input
+
+	ToNodegroupUpdateConfigOutput() NodegroupUpdateConfigOutput
+	ToNodegroupUpdateConfigOutputWithContext(context.Context) NodegroupUpdateConfigOutput
+}
+
+type NodegroupUpdateConfigArgs struct {
+	MaxUnavailable           pulumi.Float64PtrInput `pulumi:"maxUnavailable"`
+	MaxUnavailablePercentage pulumi.Float64PtrInput `pulumi:"maxUnavailablePercentage"`
+}
+
+func (NodegroupUpdateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupUpdateConfig)(nil)).Elem()
+}
+
+func (i NodegroupUpdateConfigArgs) ToNodegroupUpdateConfigOutput() NodegroupUpdateConfigOutput {
+	return i.ToNodegroupUpdateConfigOutputWithContext(context.Background())
+}
+
+func (i NodegroupUpdateConfigArgs) ToNodegroupUpdateConfigOutputWithContext(ctx context.Context) NodegroupUpdateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupUpdateConfigOutput)
+}
+
+func (i NodegroupUpdateConfigArgs) ToNodegroupUpdateConfigPtrOutput() NodegroupUpdateConfigPtrOutput {
+	return i.ToNodegroupUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NodegroupUpdateConfigArgs) ToNodegroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodegroupUpdateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupUpdateConfigOutput).ToNodegroupUpdateConfigPtrOutputWithContext(ctx)
+}
+
+// NodegroupUpdateConfigPtrInput is an input type that accepts NodegroupUpdateConfigArgs, NodegroupUpdateConfigPtr and NodegroupUpdateConfigPtrOutput values.
+// You can construct a concrete instance of `NodegroupUpdateConfigPtrInput` via:
+//
+//          NodegroupUpdateConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type NodegroupUpdateConfigPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupUpdateConfigPtrOutput() NodegroupUpdateConfigPtrOutput
+	ToNodegroupUpdateConfigPtrOutputWithContext(context.Context) NodegroupUpdateConfigPtrOutput
+}
+
+type nodegroupUpdateConfigPtrType NodegroupUpdateConfigArgs
+
+func NodegroupUpdateConfigPtr(v *NodegroupUpdateConfigArgs) NodegroupUpdateConfigPtrInput {
+	return (*nodegroupUpdateConfigPtrType)(v)
+}
+
+func (*nodegroupUpdateConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupUpdateConfig)(nil)).Elem()
+}
+
+func (i *nodegroupUpdateConfigPtrType) ToNodegroupUpdateConfigPtrOutput() NodegroupUpdateConfigPtrOutput {
+	return i.ToNodegroupUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nodegroupUpdateConfigPtrType) ToNodegroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodegroupUpdateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupUpdateConfigPtrOutput)
+}
+
+type NodegroupUpdateConfigOutput struct{ *pulumi.OutputState }
+
+func (NodegroupUpdateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupUpdateConfig)(nil)).Elem()
+}
+
+func (o NodegroupUpdateConfigOutput) ToNodegroupUpdateConfigOutput() NodegroupUpdateConfigOutput {
+	return o
+}
+
+func (o NodegroupUpdateConfigOutput) ToNodegroupUpdateConfigOutputWithContext(ctx context.Context) NodegroupUpdateConfigOutput {
+	return o
+}
+
+func (o NodegroupUpdateConfigOutput) ToNodegroupUpdateConfigPtrOutput() NodegroupUpdateConfigPtrOutput {
+	return o.ToNodegroupUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupUpdateConfigOutput) ToNodegroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodegroupUpdateConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupUpdateConfig) *NodegroupUpdateConfig {
+		return &v
+	}).(NodegroupUpdateConfigPtrOutput)
+}
+
+func (o NodegroupUpdateConfigOutput) MaxUnavailable() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodegroupUpdateConfig) *float64 { return v.MaxUnavailable }).(pulumi.Float64PtrOutput)
+}
+
+func (o NodegroupUpdateConfigOutput) MaxUnavailablePercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v NodegroupUpdateConfig) *float64 { return v.MaxUnavailablePercentage }).(pulumi.Float64PtrOutput)
+}
+
+type NodegroupUpdateConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupUpdateConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupUpdateConfig)(nil)).Elem()
+}
+
+func (o NodegroupUpdateConfigPtrOutput) ToNodegroupUpdateConfigPtrOutput() NodegroupUpdateConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupUpdateConfigPtrOutput) ToNodegroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodegroupUpdateConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupUpdateConfigPtrOutput) Elem() NodegroupUpdateConfigOutput {
+	return o.ApplyT(func(v *NodegroupUpdateConfig) NodegroupUpdateConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NodegroupUpdateConfig
+		return ret
+	}).(NodegroupUpdateConfigOutput)
+}
+
+func (o NodegroupUpdateConfigPtrOutput) MaxUnavailable() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodegroupUpdateConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnavailable
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o NodegroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *NodegroupUpdateConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnavailablePercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddonTagOutput{})
 	pulumi.RegisterOutputType(AddonTagArrayOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterProviderOutput{})
+	pulumi.RegisterOutputType(ClusterProviderPtrOutput{})
+	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})
+	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileTagOutput{})
 	pulumi.RegisterOutputType(FargateProfileTagArrayOutput{})
+	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationOutput{})
+	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(NodegroupRemoteAccessOutput{})
+	pulumi.RegisterOutputType(NodegroupRemoteAccessPtrOutput{})
+	pulumi.RegisterOutputType(NodegroupScalingConfigOutput{})
+	pulumi.RegisterOutputType(NodegroupScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(NodegroupTaintOutput{})
+	pulumi.RegisterOutputType(NodegroupTaintArrayOutput{})
+	pulumi.RegisterOutputType(NodegroupUpdateConfigOutput{})
+	pulumi.RegisterOutputType(NodegroupUpdateConfigPtrOutput{})
 }

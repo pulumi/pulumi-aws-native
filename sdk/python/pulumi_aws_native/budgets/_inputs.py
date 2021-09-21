@@ -10,6 +10,13 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BudgetBudgetDataArgs',
+    'BudgetCostTypesArgs',
+    'BudgetNotificationWithSubscribersArgs',
+    'BudgetNotificationArgs',
+    'BudgetSpendArgs',
+    'BudgetSubscriberArgs',
+    'BudgetTimePeriodArgs',
     'BudgetsActionActionThresholdArgs',
     'BudgetsActionDefinitionArgs',
     'BudgetsActionIamActionDefinitionArgs',
@@ -17,6 +24,402 @@ __all__ = [
     'BudgetsActionSsmActionDefinitionArgs',
     'BudgetsActionSubscriberArgs',
 ]
+
+@pulumi.input_type
+class BudgetBudgetDataArgs:
+    def __init__(__self__, *,
+                 budget_type: pulumi.Input[str],
+                 time_unit: pulumi.Input[str],
+                 budget_limit: Optional[pulumi.Input['BudgetSpendArgs']] = None,
+                 budget_name: Optional[pulumi.Input[str]] = None,
+                 cost_filters: Optional[Any] = None,
+                 cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
+                 planned_budget_limits: Optional[Any] = None,
+                 time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None):
+        pulumi.set(__self__, "budget_type", budget_type)
+        pulumi.set(__self__, "time_unit", time_unit)
+        if budget_limit is not None:
+            pulumi.set(__self__, "budget_limit", budget_limit)
+        if budget_name is not None:
+            pulumi.set(__self__, "budget_name", budget_name)
+        if cost_filters is not None:
+            pulumi.set(__self__, "cost_filters", cost_filters)
+        if cost_types is not None:
+            pulumi.set(__self__, "cost_types", cost_types)
+        if planned_budget_limits is not None:
+            pulumi.set(__self__, "planned_budget_limits", planned_budget_limits)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter(name="budgetType")
+    def budget_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "budget_type")
+
+    @budget_type.setter
+    def budget_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "budget_type", value)
+
+    @property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "time_unit")
+
+    @time_unit.setter
+    def time_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_unit", value)
+
+    @property
+    @pulumi.getter(name="budgetLimit")
+    def budget_limit(self) -> Optional[pulumi.Input['BudgetSpendArgs']]:
+        return pulumi.get(self, "budget_limit")
+
+    @budget_limit.setter
+    def budget_limit(self, value: Optional[pulumi.Input['BudgetSpendArgs']]):
+        pulumi.set(self, "budget_limit", value)
+
+    @property
+    @pulumi.getter(name="budgetName")
+    def budget_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "budget_name")
+
+    @budget_name.setter
+    def budget_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "budget_name", value)
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> Optional[Any]:
+        return pulumi.get(self, "cost_filters")
+
+    @cost_filters.setter
+    def cost_filters(self, value: Optional[Any]):
+        pulumi.set(self, "cost_filters", value)
+
+    @property
+    @pulumi.getter(name="costTypes")
+    def cost_types(self) -> Optional[pulumi.Input['BudgetCostTypesArgs']]:
+        return pulumi.get(self, "cost_types")
+
+    @cost_types.setter
+    def cost_types(self, value: Optional[pulumi.Input['BudgetCostTypesArgs']]):
+        pulumi.set(self, "cost_types", value)
+
+    @property
+    @pulumi.getter(name="plannedBudgetLimits")
+    def planned_budget_limits(self) -> Optional[Any]:
+        return pulumi.get(self, "planned_budget_limits")
+
+    @planned_budget_limits.setter
+    def planned_budget_limits(self, value: Optional[Any]):
+        pulumi.set(self, "planned_budget_limits", value)
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional[pulumi.Input['BudgetTimePeriodArgs']]:
+        return pulumi.get(self, "time_period")
+
+    @time_period.setter
+    def time_period(self, value: Optional[pulumi.Input['BudgetTimePeriodArgs']]):
+        pulumi.set(self, "time_period", value)
+
+
+@pulumi.input_type
+class BudgetCostTypesArgs:
+    def __init__(__self__, *,
+                 include_credit: Optional[pulumi.Input[bool]] = None,
+                 include_discount: Optional[pulumi.Input[bool]] = None,
+                 include_other_subscription: Optional[pulumi.Input[bool]] = None,
+                 include_recurring: Optional[pulumi.Input[bool]] = None,
+                 include_refund: Optional[pulumi.Input[bool]] = None,
+                 include_subscription: Optional[pulumi.Input[bool]] = None,
+                 include_support: Optional[pulumi.Input[bool]] = None,
+                 include_tax: Optional[pulumi.Input[bool]] = None,
+                 include_upfront: Optional[pulumi.Input[bool]] = None,
+                 use_amortized: Optional[pulumi.Input[bool]] = None,
+                 use_blended: Optional[pulumi.Input[bool]] = None):
+        if include_credit is not None:
+            pulumi.set(__self__, "include_credit", include_credit)
+        if include_discount is not None:
+            pulumi.set(__self__, "include_discount", include_discount)
+        if include_other_subscription is not None:
+            pulumi.set(__self__, "include_other_subscription", include_other_subscription)
+        if include_recurring is not None:
+            pulumi.set(__self__, "include_recurring", include_recurring)
+        if include_refund is not None:
+            pulumi.set(__self__, "include_refund", include_refund)
+        if include_subscription is not None:
+            pulumi.set(__self__, "include_subscription", include_subscription)
+        if include_support is not None:
+            pulumi.set(__self__, "include_support", include_support)
+        if include_tax is not None:
+            pulumi.set(__self__, "include_tax", include_tax)
+        if include_upfront is not None:
+            pulumi.set(__self__, "include_upfront", include_upfront)
+        if use_amortized is not None:
+            pulumi.set(__self__, "use_amortized", use_amortized)
+        if use_blended is not None:
+            pulumi.set(__self__, "use_blended", use_blended)
+
+    @property
+    @pulumi.getter(name="includeCredit")
+    def include_credit(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_credit")
+
+    @include_credit.setter
+    def include_credit(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_credit", value)
+
+    @property
+    @pulumi.getter(name="includeDiscount")
+    def include_discount(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_discount")
+
+    @include_discount.setter
+    def include_discount(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_discount", value)
+
+    @property
+    @pulumi.getter(name="includeOtherSubscription")
+    def include_other_subscription(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_other_subscription")
+
+    @include_other_subscription.setter
+    def include_other_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_other_subscription", value)
+
+    @property
+    @pulumi.getter(name="includeRecurring")
+    def include_recurring(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_recurring")
+
+    @include_recurring.setter
+    def include_recurring(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_recurring", value)
+
+    @property
+    @pulumi.getter(name="includeRefund")
+    def include_refund(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_refund")
+
+    @include_refund.setter
+    def include_refund(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_refund", value)
+
+    @property
+    @pulumi.getter(name="includeSubscription")
+    def include_subscription(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_subscription")
+
+    @include_subscription.setter
+    def include_subscription(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_subscription", value)
+
+    @property
+    @pulumi.getter(name="includeSupport")
+    def include_support(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_support")
+
+    @include_support.setter
+    def include_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_support", value)
+
+    @property
+    @pulumi.getter(name="includeTax")
+    def include_tax(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_tax")
+
+    @include_tax.setter
+    def include_tax(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_tax", value)
+
+    @property
+    @pulumi.getter(name="includeUpfront")
+    def include_upfront(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "include_upfront")
+
+    @include_upfront.setter
+    def include_upfront(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_upfront", value)
+
+    @property
+    @pulumi.getter(name="useAmortized")
+    def use_amortized(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_amortized")
+
+    @use_amortized.setter
+    def use_amortized(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_amortized", value)
+
+    @property
+    @pulumi.getter(name="useBlended")
+    def use_blended(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_blended")
+
+    @use_blended.setter
+    def use_blended(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_blended", value)
+
+
+@pulumi.input_type
+class BudgetNotificationWithSubscribersArgs:
+    def __init__(__self__, *,
+                 notification: pulumi.Input['BudgetNotificationArgs'],
+                 subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetSubscriberArgs']]]):
+        pulumi.set(__self__, "notification", notification)
+        pulumi.set(__self__, "subscribers", subscribers)
+
+    @property
+    @pulumi.getter
+    def notification(self) -> pulumi.Input['BudgetNotificationArgs']:
+        return pulumi.get(self, "notification")
+
+    @notification.setter
+    def notification(self, value: pulumi.Input['BudgetNotificationArgs']):
+        pulumi.set(self, "notification", value)
+
+    @property
+    @pulumi.getter
+    def subscribers(self) -> pulumi.Input[Sequence[pulumi.Input['BudgetSubscriberArgs']]]:
+        return pulumi.get(self, "subscribers")
+
+    @subscribers.setter
+    def subscribers(self, value: pulumi.Input[Sequence[pulumi.Input['BudgetSubscriberArgs']]]):
+        pulumi.set(self, "subscribers", value)
+
+
+@pulumi.input_type
+class BudgetNotificationArgs:
+    def __init__(__self__, *,
+                 comparison_operator: pulumi.Input[str],
+                 notification_type: pulumi.Input[str],
+                 threshold: pulumi.Input[float],
+                 threshold_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "notification_type", notification_type)
+        pulumi.set(__self__, "threshold", threshold)
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "comparison_operator", value)
+
+    @property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "notification_type")
+
+    @notification_type.setter
+    def notification_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_type", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "threshold_type")
+
+    @threshold_type.setter
+    def threshold_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "threshold_type", value)
+
+
+@pulumi.input_type
+class BudgetSpendArgs:
+    def __init__(__self__, *,
+                 amount: pulumi.Input[float],
+                 unit: pulumi.Input[str]):
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: pulumi.Input[float]):
+        pulumi.set(self, "amount", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class BudgetSubscriberArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 subscription_type: pulumi.Input[str]):
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "subscription_type", subscription_type)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="subscriptionType")
+    def subscription_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "subscription_type")
+
+    @subscription_type.setter
+    def subscription_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_type", value)
+
+
+@pulumi.input_type
+class BudgetTimePeriodArgs:
+    def __init__(__self__, *,
+                 end: Optional[pulumi.Input[str]] = None,
+                 start: Optional[pulumi.Input[str]] = None):
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start", value)
+
 
 @pulumi.input_type
 class BudgetsActionActionThresholdArgs:

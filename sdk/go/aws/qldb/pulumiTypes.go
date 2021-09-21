@@ -10,6 +10,106 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type LedgerTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// LedgerTagInput is an input type that accepts LedgerTagArgs and LedgerTagOutput values.
+// You can construct a concrete instance of `LedgerTagInput` via:
+//
+//          LedgerTagArgs{...}
+type LedgerTagInput interface {
+	pulumi.Input
+
+	ToLedgerTagOutput() LedgerTagOutput
+	ToLedgerTagOutputWithContext(context.Context) LedgerTagOutput
+}
+
+type LedgerTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LedgerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LedgerTag)(nil)).Elem()
+}
+
+func (i LedgerTagArgs) ToLedgerTagOutput() LedgerTagOutput {
+	return i.ToLedgerTagOutputWithContext(context.Background())
+}
+
+func (i LedgerTagArgs) ToLedgerTagOutputWithContext(ctx context.Context) LedgerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LedgerTagOutput)
+}
+
+// LedgerTagArrayInput is an input type that accepts LedgerTagArray and LedgerTagArrayOutput values.
+// You can construct a concrete instance of `LedgerTagArrayInput` via:
+//
+//          LedgerTagArray{ LedgerTagArgs{...} }
+type LedgerTagArrayInput interface {
+	pulumi.Input
+
+	ToLedgerTagArrayOutput() LedgerTagArrayOutput
+	ToLedgerTagArrayOutputWithContext(context.Context) LedgerTagArrayOutput
+}
+
+type LedgerTagArray []LedgerTagInput
+
+func (LedgerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LedgerTag)(nil)).Elem()
+}
+
+func (i LedgerTagArray) ToLedgerTagArrayOutput() LedgerTagArrayOutput {
+	return i.ToLedgerTagArrayOutputWithContext(context.Background())
+}
+
+func (i LedgerTagArray) ToLedgerTagArrayOutputWithContext(ctx context.Context) LedgerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LedgerTagArrayOutput)
+}
+
+type LedgerTagOutput struct{ *pulumi.OutputState }
+
+func (LedgerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LedgerTag)(nil)).Elem()
+}
+
+func (o LedgerTagOutput) ToLedgerTagOutput() LedgerTagOutput {
+	return o
+}
+
+func (o LedgerTagOutput) ToLedgerTagOutputWithContext(ctx context.Context) LedgerTagOutput {
+	return o
+}
+
+func (o LedgerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LedgerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o LedgerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LedgerTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LedgerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LedgerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LedgerTag)(nil)).Elem()
+}
+
+func (o LedgerTagArrayOutput) ToLedgerTagArrayOutput() LedgerTagArrayOutput {
+	return o
+}
+
+func (o LedgerTagArrayOutput) ToLedgerTagArrayOutputWithContext(ctx context.Context) LedgerTagArrayOutput {
+	return o
+}
+
+func (o LedgerTagArrayOutput) Index(i pulumi.IntInput) LedgerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LedgerTag {
+		return vs[0].([]LedgerTag)[vs[1].(int)]
+	}).(LedgerTagOutput)
+}
+
 type StreamKinesisConfiguration struct {
 	AggregationEnabled *bool   `pulumi:"aggregationEnabled"`
 	StreamArn          *string `pulumi:"streamArn"`
@@ -268,6 +368,8 @@ func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(LedgerTagOutput{})
+	pulumi.RegisterOutputType(LedgerTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamKinesisConfigurationOutput{})
 	pulumi.RegisterOutputType(StreamKinesisConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamTagOutput{})

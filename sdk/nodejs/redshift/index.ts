@@ -6,9 +6,17 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cluster";
+export * from "./clusterParameterGroup";
+export * from "./clusterSecurityGroup";
+export * from "./clusterSecurityGroupIngress";
+export * from "./clusterSubnetGroup";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
+import { ClusterParameterGroup } from "./clusterParameterGroup";
+import { ClusterSecurityGroup } from "./clusterSecurityGroup";
+import { ClusterSecurityGroupIngress } from "./clusterSecurityGroupIngress";
+import { ClusterSubnetGroup } from "./clusterSubnetGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,6 +24,14 @@ const _module = {
         switch (type) {
             case "aws-native:redshift:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:redshift:ClusterParameterGroup":
+                return new ClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:redshift:ClusterSecurityGroup":
+                return new ClusterSecurityGroup(name, <any>undefined, { urn })
+            case "aws-native:redshift:ClusterSecurityGroupIngress":
+                return new ClusterSecurityGroupIngress(name, <any>undefined, { urn })
+            case "aws-native:redshift:ClusterSubnetGroup":
+                return new ClusterSubnetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

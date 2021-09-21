@@ -13,6 +13,61 @@ from ._enums import *
 __all__ = [
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointVpcConfiguration',
+    'BucketAbortIncompleteMultipartUpload',
+    'BucketAccelerateConfiguration',
+    'BucketAccessControlTranslation',
+    'BucketAnalyticsConfiguration',
+    'BucketBucketEncryption',
+    'BucketCorsConfiguration',
+    'BucketCorsRule',
+    'BucketDataExport',
+    'BucketDefaultRetention',
+    'BucketDeleteMarkerReplication',
+    'BucketDestination',
+    'BucketEncryptionConfiguration',
+    'BucketFilterRule',
+    'BucketIntelligentTieringConfiguration',
+    'BucketInventoryConfiguration',
+    'BucketLambdaConfiguration',
+    'BucketLifecycleConfiguration',
+    'BucketLoggingConfiguration',
+    'BucketMetrics',
+    'BucketMetricsConfiguration',
+    'BucketNoncurrentVersionTransition',
+    'BucketNotificationConfiguration',
+    'BucketNotificationFilter',
+    'BucketObjectLockConfiguration',
+    'BucketObjectLockRule',
+    'BucketOwnershipControls',
+    'BucketOwnershipControlsRule',
+    'BucketPublicAccessBlockConfiguration',
+    'BucketQueueConfiguration',
+    'BucketRedirectAllRequestsTo',
+    'BucketRedirectRule',
+    'BucketReplicaModifications',
+    'BucketReplicationConfiguration',
+    'BucketReplicationDestination',
+    'BucketReplicationRule',
+    'BucketReplicationRuleAndOperator',
+    'BucketReplicationRuleFilter',
+    'BucketReplicationTime',
+    'BucketReplicationTimeValue',
+    'BucketRoutingRule',
+    'BucketRoutingRuleCondition',
+    'BucketRule',
+    'BucketS3KeyFilter',
+    'BucketServerSideEncryptionByDefault',
+    'BucketServerSideEncryptionRule',
+    'BucketSourceSelectionCriteria',
+    'BucketSseKmsEncryptedObjects',
+    'BucketStorageClassAnalysis',
+    'BucketTag',
+    'BucketTagFilter',
+    'BucketTiering',
+    'BucketTopicConfiguration',
+    'BucketTransition',
+    'BucketVersioningConfiguration',
+    'BucketWebsiteConfiguration',
     'MultiRegionAccessPointPublicAccessBlockConfiguration',
     'MultiRegionAccessPointRegion',
     'StorageLensAccountLevel',
@@ -156,6 +211,2090 @@ class AccessPointVpcConfiguration(dict):
         If this field is specified, this access point will only allow connections from the specified VPC ID.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class BucketAbortIncompleteMultipartUpload(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysAfterInitiation":
+            suggest = "days_after_initiation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketAbortIncompleteMultipartUpload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketAbortIncompleteMultipartUpload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketAbortIncompleteMultipartUpload.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_after_initiation: int):
+        pulumi.set(__self__, "days_after_initiation", days_after_initiation)
+
+    @property
+    @pulumi.getter(name="daysAfterInitiation")
+    def days_after_initiation(self) -> int:
+        return pulumi.get(self, "days_after_initiation")
+
+
+@pulumi.output_type
+class BucketAccelerateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accelerationStatus":
+            suggest = "acceleration_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketAccelerateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketAccelerateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketAccelerateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 acceleration_status: str):
+        pulumi.set(__self__, "acceleration_status", acceleration_status)
+
+    @property
+    @pulumi.getter(name="accelerationStatus")
+    def acceleration_status(self) -> str:
+        return pulumi.get(self, "acceleration_status")
+
+
+@pulumi.output_type
+class BucketAccessControlTranslation(dict):
+    def __init__(__self__, *,
+                 owner: str):
+        pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+
+@pulumi.output_type
+class BucketAnalyticsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClassAnalysis":
+            suggest = "storage_class_analysis"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketAnalyticsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketAnalyticsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketAnalyticsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 storage_class_analysis: 'outputs.BucketStorageClassAnalysis',
+                 prefix: Optional[str] = None,
+                 tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_class_analysis", storage_class_analysis)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="storageClassAnalysis")
+    def storage_class_analysis(self) -> 'outputs.BucketStorageClassAnalysis':
+        return pulumi.get(self, "storage_class_analysis")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class BucketBucketEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverSideEncryptionConfiguration":
+            suggest = "server_side_encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketBucketEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketBucketEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketBucketEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_side_encryption_configuration: Sequence['outputs.BucketServerSideEncryptionRule']):
+        pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionConfiguration")
+    def server_side_encryption_configuration(self) -> Sequence['outputs.BucketServerSideEncryptionRule']:
+        return pulumi.get(self, "server_side_encryption_configuration")
+
+
+@pulumi.output_type
+class BucketCorsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "corsRules":
+            suggest = "cors_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketCorsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketCorsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketCorsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cors_rules: Sequence['outputs.BucketCorsRule']):
+        pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Sequence['outputs.BucketCorsRule']:
+        return pulumi.get(self, "cors_rules")
+
+
+@pulumi.output_type
+class BucketCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAge":
+            suggest = "max_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketCorsRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 allowed_headers: Optional[Sequence[str]] = None,
+                 exposed_headers: Optional[Sequence[str]] = None,
+                 id: Optional[str] = None,
+                 max_age: Optional[int] = None):
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if exposed_headers is not None:
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[str]:
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exposed_headers")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[int]:
+        return pulumi.get(self, "max_age")
+
+
+@pulumi.output_type
+class BucketDataExport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputSchemaVersion":
+            suggest = "output_schema_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketDataExport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketDataExport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketDataExport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.BucketDestination',
+                 output_schema_version: str):
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "output_schema_version", output_schema_version)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.BucketDestination':
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="outputSchemaVersion")
+    def output_schema_version(self) -> str:
+        return pulumi.get(self, "output_schema_version")
+
+
+@pulumi.output_type
+class BucketDefaultRetention(dict):
+    def __init__(__self__, *,
+                 days: Optional[int] = None,
+                 mode: Optional[str] = None,
+                 years: Optional[int] = None):
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if years is not None:
+            pulumi.set(__self__, "years", years)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def years(self) -> Optional[int]:
+        return pulumi.get(self, "years")
+
+
+@pulumi.output_type
+class BucketDeleteMarkerReplication(dict):
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "bucketAccountId":
+            suggest = "bucket_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: str,
+                 format: str,
+                 bucket_account_id: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "format", format)
+        if bucket_account_id is not None:
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> str:
+        return pulumi.get(self, "bucket_arn")
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_account_id")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class BucketEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaKmsKeyID":
+            suggest = "replica_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replica_kms_key_id: str):
+        pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
+
+    @property
+    @pulumi.getter(name="replicaKmsKeyID")
+    def replica_kms_key_id(self) -> str:
+        return pulumi.get(self, "replica_kms_key_id")
+
+
+@pulumi.output_type
+class BucketFilterRule(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BucketIntelligentTieringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketIntelligentTieringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketIntelligentTieringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketIntelligentTieringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 status: str,
+                 tierings: Sequence['outputs.BucketTiering'],
+                 prefix: Optional[str] = None,
+                 tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tierings", tierings)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tierings(self) -> Sequence['outputs.BucketTiering']:
+        return pulumi.get(self, "tierings")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class BucketInventoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includedObjectVersions":
+            suggest = "included_object_versions"
+        elif key == "scheduleFrequency":
+            suggest = "schedule_frequency"
+        elif key == "optionalFields":
+            suggest = "optional_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketInventoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketInventoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketInventoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.BucketDestination',
+                 enabled: bool,
+                 id: str,
+                 included_object_versions: str,
+                 schedule_frequency: str,
+                 optional_fields: Optional[Sequence[str]] = None,
+                 prefix: Optional[str] = None):
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "included_object_versions", included_object_versions)
+        pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        if optional_fields is not None:
+            pulumi.set(__self__, "optional_fields", optional_fields)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.BucketDestination':
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includedObjectVersions")
+    def included_object_versions(self) -> str:
+        return pulumi.get(self, "included_object_versions")
+
+    @property
+    @pulumi.getter(name="scheduleFrequency")
+    def schedule_frequency(self) -> str:
+        return pulumi.get(self, "schedule_frequency")
+
+    @property
+    @pulumi.getter(name="optionalFields")
+    def optional_fields(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "optional_fields")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class BucketLambdaConfiguration(dict):
+    def __init__(__self__, *,
+                 event: str,
+                 function: str,
+                 filter: Optional['outputs.BucketNotificationFilter'] = None):
+        pulumi.set(__self__, "event", event)
+        pulumi.set(__self__, "function", function)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def event(self) -> str:
+        return pulumi.get(self, "event")
+
+    @property
+    @pulumi.getter
+    def function(self) -> str:
+        return pulumi.get(self, "function")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.BucketNotificationFilter']:
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class BucketLifecycleConfiguration(dict):
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.BucketRule']):
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BucketRule']:
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationBucketName":
+            suggest = "destination_bucket_name"
+        elif key == "logFilePrefix":
+            suggest = "log_file_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_bucket_name: Optional[str] = None,
+                 log_file_prefix: Optional[str] = None):
+        if destination_bucket_name is not None:
+            pulumi.set(__self__, "destination_bucket_name", destination_bucket_name)
+        if log_file_prefix is not None:
+            pulumi.set(__self__, "log_file_prefix", log_file_prefix)
+
+    @property
+    @pulumi.getter(name="destinationBucketName")
+    def destination_bucket_name(self) -> Optional[str]:
+        return pulumi.get(self, "destination_bucket_name")
+
+    @property
+    @pulumi.getter(name="logFilePrefix")
+    def log_file_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "log_file_prefix")
+
+
+@pulumi.output_type
+class BucketMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventThreshold":
+            suggest = "event_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: str,
+                 event_threshold: Optional['outputs.BucketReplicationTimeValue'] = None):
+        pulumi.set(__self__, "status", status)
+        if event_threshold is not None:
+            pulumi.set(__self__, "event_threshold", event_threshold)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="eventThreshold")
+    def event_threshold(self) -> Optional['outputs.BucketReplicationTimeValue']:
+        return pulumi.get(self, "event_threshold")
+
+
+@pulumi.output_type
+class BucketMetricsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMetricsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMetricsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMetricsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 prefix: Optional[str] = None,
+                 tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
+        pulumi.set(__self__, "id", id)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class BucketNoncurrentVersionTransition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+        elif key == "transitionInDays":
+            suggest = "transition_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNoncurrentVersionTransition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNoncurrentVersionTransition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNoncurrentVersionTransition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_class: str,
+                 transition_in_days: int):
+        pulumi.set(__self__, "storage_class", storage_class)
+        pulumi.set(__self__, "transition_in_days", transition_in_days)
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> str:
+        return pulumi.get(self, "storage_class")
+
+    @property
+    @pulumi.getter(name="transitionInDays")
+    def transition_in_days(self) -> int:
+        return pulumi.get(self, "transition_in_days")
+
+
+@pulumi.output_type
+class BucketNotificationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaConfigurations":
+            suggest = "lambda_configurations"
+        elif key == "queueConfigurations":
+            suggest = "queue_configurations"
+        elif key == "topicConfigurations":
+            suggest = "topic_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_configurations: Optional[Sequence['outputs.BucketLambdaConfiguration']] = None,
+                 queue_configurations: Optional[Sequence['outputs.BucketQueueConfiguration']] = None,
+                 topic_configurations: Optional[Sequence['outputs.BucketTopicConfiguration']] = None):
+        if lambda_configurations is not None:
+            pulumi.set(__self__, "lambda_configurations", lambda_configurations)
+        if queue_configurations is not None:
+            pulumi.set(__self__, "queue_configurations", queue_configurations)
+        if topic_configurations is not None:
+            pulumi.set(__self__, "topic_configurations", topic_configurations)
+
+    @property
+    @pulumi.getter(name="lambdaConfigurations")
+    def lambda_configurations(self) -> Optional[Sequence['outputs.BucketLambdaConfiguration']]:
+        return pulumi.get(self, "lambda_configurations")
+
+    @property
+    @pulumi.getter(name="queueConfigurations")
+    def queue_configurations(self) -> Optional[Sequence['outputs.BucketQueueConfiguration']]:
+        return pulumi.get(self, "queue_configurations")
+
+    @property
+    @pulumi.getter(name="topicConfigurations")
+    def topic_configurations(self) -> Optional[Sequence['outputs.BucketTopicConfiguration']]:
+        return pulumi.get(self, "topic_configurations")
+
+
+@pulumi.output_type
+class BucketNotificationFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Key":
+            suggest = "s3_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketNotificationFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketNotificationFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketNotificationFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_key: 'outputs.BucketS3KeyFilter'):
+        pulumi.set(__self__, "s3_key", s3_key)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> 'outputs.BucketS3KeyFilter':
+        return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class BucketObjectLockConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectLockEnabled":
+            suggest = "object_lock_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_lock_enabled: Optional[str] = None,
+                 rule: Optional['outputs.BucketObjectLockRule'] = None):
+        if object_lock_enabled is not None:
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+        if rule is not None:
+            pulumi.set(__self__, "rule", rule)
+
+    @property
+    @pulumi.getter(name="objectLockEnabled")
+    def object_lock_enabled(self) -> Optional[str]:
+        return pulumi.get(self, "object_lock_enabled")
+
+    @property
+    @pulumi.getter
+    def rule(self) -> Optional['outputs.BucketObjectLockRule']:
+        return pulumi.get(self, "rule")
+
+
+@pulumi.output_type
+class BucketObjectLockRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultRetention":
+            suggest = "default_retention"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectLockRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectLockRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectLockRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_retention: Optional['outputs.BucketDefaultRetention'] = None):
+        if default_retention is not None:
+            pulumi.set(__self__, "default_retention", default_retention)
+
+    @property
+    @pulumi.getter(name="defaultRetention")
+    def default_retention(self) -> Optional['outputs.BucketDefaultRetention']:
+        return pulumi.get(self, "default_retention")
+
+
+@pulumi.output_type
+class BucketOwnershipControls(dict):
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.BucketOwnershipControlsRule']):
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BucketOwnershipControlsRule']:
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketOwnershipControlsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectOwnership":
+            suggest = "object_ownership"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketOwnershipControlsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketOwnershipControlsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketOwnershipControlsRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_ownership: Optional[str] = None):
+        if object_ownership is not None:
+            pulumi.set(__self__, "object_ownership", object_ownership)
+
+    @property
+    @pulumi.getter(name="objectOwnership")
+    def object_ownership(self) -> Optional[str]:
+        return pulumi.get(self, "object_ownership")
+
+
+@pulumi.output_type
+class BucketPublicAccessBlockConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockPublicAcls":
+            suggest = "block_public_acls"
+        elif key == "blockPublicPolicy":
+            suggest = "block_public_policy"
+        elif key == "ignorePublicAcls":
+            suggest = "ignore_public_acls"
+        elif key == "restrictPublicBuckets":
+            suggest = "restrict_public_buckets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketPublicAccessBlockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketPublicAccessBlockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketPublicAccessBlockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_public_acls: Optional[bool] = None,
+                 block_public_policy: Optional[bool] = None,
+                 ignore_public_acls: Optional[bool] = None,
+                 restrict_public_buckets: Optional[bool] = None):
+        if block_public_acls is not None:
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
+        if block_public_policy is not None:
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if ignore_public_acls is not None:
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if restrict_public_buckets is not None:
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> Optional[bool]:
+        return pulumi.get(self, "block_public_acls")
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> Optional[bool]:
+        return pulumi.get(self, "block_public_policy")
+
+    @property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> Optional[bool]:
+        return pulumi.get(self, "ignore_public_acls")
+
+    @property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> Optional[bool]:
+        return pulumi.get(self, "restrict_public_buckets")
+
+
+@pulumi.output_type
+class BucketQueueConfiguration(dict):
+    def __init__(__self__, *,
+                 event: str,
+                 queue: str,
+                 filter: Optional['outputs.BucketNotificationFilter'] = None):
+        pulumi.set(__self__, "event", event)
+        pulumi.set(__self__, "queue", queue)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def event(self) -> str:
+        return pulumi.get(self, "event")
+
+    @property
+    @pulumi.getter
+    def queue(self) -> str:
+        return pulumi.get(self, "queue")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.BucketNotificationFilter']:
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class BucketRedirectAllRequestsTo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketRedirectAllRequestsTo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketRedirectAllRequestsTo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketRedirectAllRequestsTo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_name: str,
+                 protocol: Optional[str] = None):
+        pulumi.set(__self__, "host_name", host_name)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class BucketRedirectRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "httpRedirectCode":
+            suggest = "http_redirect_code"
+        elif key == "replaceKeyPrefixWith":
+            suggest = "replace_key_prefix_with"
+        elif key == "replaceKeyWith":
+            suggest = "replace_key_with"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketRedirectRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketRedirectRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketRedirectRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_name: Optional[str] = None,
+                 http_redirect_code: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 replace_key_prefix_with: Optional[str] = None,
+                 replace_key_with: Optional[str] = None):
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if http_redirect_code is not None:
+            pulumi.set(__self__, "http_redirect_code", http_redirect_code)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if replace_key_prefix_with is not None:
+            pulumi.set(__self__, "replace_key_prefix_with", replace_key_prefix_with)
+        if replace_key_with is not None:
+            pulumi.set(__self__, "replace_key_with", replace_key_with)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="httpRedirectCode")
+    def http_redirect_code(self) -> Optional[str]:
+        return pulumi.get(self, "http_redirect_code")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="replaceKeyPrefixWith")
+    def replace_key_prefix_with(self) -> Optional[str]:
+        return pulumi.get(self, "replace_key_prefix_with")
+
+    @property
+    @pulumi.getter(name="replaceKeyWith")
+    def replace_key_with(self) -> Optional[str]:
+        return pulumi.get(self, "replace_key_with")
+
+
+@pulumi.output_type
+class BucketReplicaModifications(dict):
+    def __init__(__self__, *,
+                 status: str):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfiguration(dict):
+    def __init__(__self__, *,
+                 role: str,
+                 rules: Sequence['outputs.BucketReplicationRule']):
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BucketReplicationRule']:
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketReplicationDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlTranslation":
+            suggest = "access_control_translation"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "replicationTime":
+            suggest = "replication_time"
+        elif key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 access_control_translation: Optional['outputs.BucketAccessControlTranslation'] = None,
+                 account: Optional[str] = None,
+                 encryption_configuration: Optional['outputs.BucketEncryptionConfiguration'] = None,
+                 metrics: Optional['outputs.BucketMetrics'] = None,
+                 replication_time: Optional['outputs.BucketReplicationTime'] = None,
+                 storage_class: Optional[str] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        if access_control_translation is not None:
+            pulumi.set(__self__, "access_control_translation", access_control_translation)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if replication_time is not None:
+            pulumi.set(__self__, "replication_time", replication_time)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="accessControlTranslation")
+    def access_control_translation(self) -> Optional['outputs.BucketAccessControlTranslation']:
+        return pulumi.get(self, "access_control_translation")
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[str]:
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.BucketEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional['outputs.BucketMetrics']:
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter(name="replicationTime")
+    def replication_time(self) -> Optional['outputs.BucketReplicationTime']:
+        return pulumi.get(self, "replication_time")
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[str]:
+        return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class BucketReplicationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteMarkerReplication":
+            suggest = "delete_marker_replication"
+        elif key == "sourceSelectionCriteria":
+            suggest = "source_selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.BucketReplicationDestination',
+                 status: str,
+                 delete_marker_replication: Optional['outputs.BucketDeleteMarkerReplication'] = None,
+                 filter: Optional['outputs.BucketReplicationRuleFilter'] = None,
+                 id: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 source_selection_criteria: Optional['outputs.BucketSourceSelectionCriteria'] = None):
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "status", status)
+        if delete_marker_replication is not None:
+            pulumi.set(__self__, "delete_marker_replication", delete_marker_replication)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if source_selection_criteria is not None:
+            pulumi.set(__self__, "source_selection_criteria", source_selection_criteria)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.BucketReplicationDestination':
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="deleteMarkerReplication")
+    def delete_marker_replication(self) -> Optional['outputs.BucketDeleteMarkerReplication']:
+        return pulumi.get(self, "delete_marker_replication")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.BucketReplicationRuleFilter']:
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="sourceSelectionCriteria")
+    def source_selection_criteria(self) -> Optional['outputs.BucketSourceSelectionCriteria']:
+        return pulumi.get(self, "source_selection_criteria")
+
+
+@pulumi.output_type
+class BucketReplicationRuleAndOperator(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationRuleAndOperator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationRuleAndOperator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationRuleAndOperator.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: Optional[str] = None,
+                 tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        return pulumi.get(self, "tag_filters")
+
+
+@pulumi.output_type
+class BucketReplicationRuleFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "and":
+            suggest = "and_"
+        elif key == "tagFilter":
+            suggest = "tag_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationRuleFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationRuleFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationRuleFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_: Optional['outputs.BucketReplicationRuleAndOperator'] = None,
+                 prefix: Optional[str] = None,
+                 tag_filter: Optional['outputs.BucketTagFilter'] = None):
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag_filter is not None:
+            pulumi.set(__self__, "tag_filter", tag_filter)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional['outputs.BucketReplicationRuleAndOperator']:
+        return pulumi.get(self, "and_")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="tagFilter")
+    def tag_filter(self) -> Optional['outputs.BucketTagFilter']:
+        return pulumi.get(self, "tag_filter")
+
+
+@pulumi.output_type
+class BucketReplicationTime(dict):
+    def __init__(__self__, *,
+                 status: str,
+                 time: 'outputs.BucketReplicationTimeValue'):
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def time(self) -> 'outputs.BucketReplicationTimeValue':
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class BucketReplicationTimeValue(dict):
+    def __init__(__self__, *,
+                 minutes: int):
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class BucketRoutingRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redirectRule":
+            suggest = "redirect_rule"
+        elif key == "routingRuleCondition":
+            suggest = "routing_rule_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketRoutingRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketRoutingRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketRoutingRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 redirect_rule: 'outputs.BucketRedirectRule',
+                 routing_rule_condition: Optional['outputs.BucketRoutingRuleCondition'] = None):
+        pulumi.set(__self__, "redirect_rule", redirect_rule)
+        if routing_rule_condition is not None:
+            pulumi.set(__self__, "routing_rule_condition", routing_rule_condition)
+
+    @property
+    @pulumi.getter(name="redirectRule")
+    def redirect_rule(self) -> 'outputs.BucketRedirectRule':
+        return pulumi.get(self, "redirect_rule")
+
+    @property
+    @pulumi.getter(name="routingRuleCondition")
+    def routing_rule_condition(self) -> Optional['outputs.BucketRoutingRuleCondition']:
+        return pulumi.get(self, "routing_rule_condition")
+
+
+@pulumi.output_type
+class BucketRoutingRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpErrorCodeReturnedEquals":
+            suggest = "http_error_code_returned_equals"
+        elif key == "keyPrefixEquals":
+            suggest = "key_prefix_equals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketRoutingRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketRoutingRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketRoutingRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_error_code_returned_equals: Optional[str] = None,
+                 key_prefix_equals: Optional[str] = None):
+        if http_error_code_returned_equals is not None:
+            pulumi.set(__self__, "http_error_code_returned_equals", http_error_code_returned_equals)
+        if key_prefix_equals is not None:
+            pulumi.set(__self__, "key_prefix_equals", key_prefix_equals)
+
+    @property
+    @pulumi.getter(name="httpErrorCodeReturnedEquals")
+    def http_error_code_returned_equals(self) -> Optional[str]:
+        return pulumi.get(self, "http_error_code_returned_equals")
+
+    @property
+    @pulumi.getter(name="keyPrefixEquals")
+    def key_prefix_equals(self) -> Optional[str]:
+        return pulumi.get(self, "key_prefix_equals")
+
+
+@pulumi.output_type
+class BucketRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "abortIncompleteMultipartUpload":
+            suggest = "abort_incomplete_multipart_upload"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "expirationInDays":
+            suggest = "expiration_in_days"
+        elif key == "expiredObjectDeleteMarker":
+            suggest = "expired_object_delete_marker"
+        elif key == "noncurrentVersionExpirationInDays":
+            suggest = "noncurrent_version_expiration_in_days"
+        elif key == "noncurrentVersionTransition":
+            suggest = "noncurrent_version_transition"
+        elif key == "noncurrentVersionTransitions":
+            suggest = "noncurrent_version_transitions"
+        elif key == "tagFilters":
+            suggest = "tag_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: str,
+                 abort_incomplete_multipart_upload: Optional['outputs.BucketAbortIncompleteMultipartUpload'] = None,
+                 expiration_date: Optional[str] = None,
+                 expiration_in_days: Optional[int] = None,
+                 expired_object_delete_marker: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 noncurrent_version_expiration_in_days: Optional[int] = None,
+                 noncurrent_version_transition: Optional['outputs.BucketNoncurrentVersionTransition'] = None,
+                 noncurrent_version_transitions: Optional[Sequence['outputs.BucketNoncurrentVersionTransition']] = None,
+                 prefix: Optional[str] = None,
+                 tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None,
+                 transition: Optional['outputs.BucketTransition'] = None,
+                 transitions: Optional[Sequence['outputs.BucketTransition']] = None):
+        pulumi.set(__self__, "status", status)
+        if abort_incomplete_multipart_upload is not None:
+            pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if expiration_in_days is not None:
+            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
+        if expired_object_delete_marker is not None:
+            pulumi.set(__self__, "expired_object_delete_marker", expired_object_delete_marker)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if noncurrent_version_expiration_in_days is not None:
+            pulumi.set(__self__, "noncurrent_version_expiration_in_days", noncurrent_version_expiration_in_days)
+        if noncurrent_version_transition is not None:
+            pulumi.set(__self__, "noncurrent_version_transition", noncurrent_version_transition)
+        if noncurrent_version_transitions is not None:
+            pulumi.set(__self__, "noncurrent_version_transitions", noncurrent_version_transitions)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag_filters is not None:
+            pulumi.set(__self__, "tag_filters", tag_filters)
+        if transition is not None:
+            pulumi.set(__self__, "transition", transition)
+        if transitions is not None:
+            pulumi.set(__self__, "transitions", transitions)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="abortIncompleteMultipartUpload")
+    def abort_incomplete_multipart_upload(self) -> Optional['outputs.BucketAbortIncompleteMultipartUpload']:
+        return pulumi.get(self, "abort_incomplete_multipart_upload")
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[str]:
+        return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter(name="expirationInDays")
+    def expiration_in_days(self) -> Optional[int]:
+        return pulumi.get(self, "expiration_in_days")
+
+    @property
+    @pulumi.getter(name="expiredObjectDeleteMarker")
+    def expired_object_delete_marker(self) -> Optional[bool]:
+        return pulumi.get(self, "expired_object_delete_marker")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="noncurrentVersionExpirationInDays")
+    def noncurrent_version_expiration_in_days(self) -> Optional[int]:
+        return pulumi.get(self, "noncurrent_version_expiration_in_days")
+
+    @property
+    @pulumi.getter(name="noncurrentVersionTransition")
+    def noncurrent_version_transition(self) -> Optional['outputs.BucketNoncurrentVersionTransition']:
+        return pulumi.get(self, "noncurrent_version_transition")
+
+    @property
+    @pulumi.getter(name="noncurrentVersionTransitions")
+    def noncurrent_version_transitions(self) -> Optional[Sequence['outputs.BucketNoncurrentVersionTransition']]:
+        return pulumi.get(self, "noncurrent_version_transitions")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="tagFilters")
+    def tag_filters(self) -> Optional[Sequence['outputs.BucketTagFilter']]:
+        return pulumi.get(self, "tag_filters")
+
+    @property
+    @pulumi.getter
+    def transition(self) -> Optional['outputs.BucketTransition']:
+        return pulumi.get(self, "transition")
+
+    @property
+    @pulumi.getter
+    def transitions(self) -> Optional[Sequence['outputs.BucketTransition']]:
+        return pulumi.get(self, "transitions")
+
+
+@pulumi.output_type
+class BucketS3KeyFilter(dict):
+    def __init__(__self__, *,
+                 rules: Sequence['outputs.BucketFilterRule']):
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Sequence['outputs.BucketFilterRule']:
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketServerSideEncryptionByDefault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sSEAlgorithm":
+            suggest = "s_se_algorithm"
+        elif key == "kMSMasterKeyID":
+            suggest = "k_ms_master_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketServerSideEncryptionByDefault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketServerSideEncryptionByDefault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketServerSideEncryptionByDefault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s_se_algorithm: str,
+                 k_ms_master_key_id: Optional[str] = None):
+        pulumi.set(__self__, "s_se_algorithm", s_se_algorithm)
+        if k_ms_master_key_id is not None:
+            pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
+
+    @property
+    @pulumi.getter(name="sSEAlgorithm")
+    def s_se_algorithm(self) -> str:
+        return pulumi.get(self, "s_se_algorithm")
+
+    @property
+    @pulumi.getter(name="kMSMasterKeyID")
+    def k_ms_master_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "k_ms_master_key_id")
+
+
+@pulumi.output_type
+class BucketServerSideEncryptionRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketKeyEnabled":
+            suggest = "bucket_key_enabled"
+        elif key == "serverSideEncryptionByDefault":
+            suggest = "server_side_encryption_by_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketServerSideEncryptionRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketServerSideEncryptionRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketServerSideEncryptionRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_key_enabled: Optional[bool] = None,
+                 server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionByDefault'] = None):
+        if bucket_key_enabled is not None:
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
+        if server_side_encryption_by_default is not None:
+            pulumi.set(__self__, "server_side_encryption_by_default", server_side_encryption_by_default)
+
+    @property
+    @pulumi.getter(name="bucketKeyEnabled")
+    def bucket_key_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "bucket_key_enabled")
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionByDefault")
+    def server_side_encryption_by_default(self) -> Optional['outputs.BucketServerSideEncryptionByDefault']:
+        return pulumi.get(self, "server_side_encryption_by_default")
+
+
+@pulumi.output_type
+class BucketSourceSelectionCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaModifications":
+            suggest = "replica_modifications"
+        elif key == "sseKmsEncryptedObjects":
+            suggest = "sse_kms_encrypted_objects"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketSourceSelectionCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketSourceSelectionCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketSourceSelectionCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replica_modifications: Optional['outputs.BucketReplicaModifications'] = None,
+                 sse_kms_encrypted_objects: Optional['outputs.BucketSseKmsEncryptedObjects'] = None):
+        if replica_modifications is not None:
+            pulumi.set(__self__, "replica_modifications", replica_modifications)
+        if sse_kms_encrypted_objects is not None:
+            pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+
+    @property
+    @pulumi.getter(name="replicaModifications")
+    def replica_modifications(self) -> Optional['outputs.BucketReplicaModifications']:
+        return pulumi.get(self, "replica_modifications")
+
+    @property
+    @pulumi.getter(name="sseKmsEncryptedObjects")
+    def sse_kms_encrypted_objects(self) -> Optional['outputs.BucketSseKmsEncryptedObjects']:
+        return pulumi.get(self, "sse_kms_encrypted_objects")
+
+
+@pulumi.output_type
+class BucketSseKmsEncryptedObjects(dict):
+    def __init__(__self__, *,
+                 status: str):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketStorageClassAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataExport":
+            suggest = "data_export"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketStorageClassAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketStorageClassAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketStorageClassAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_export: Optional['outputs.BucketDataExport'] = None):
+        if data_export is not None:
+            pulumi.set(__self__, "data_export", data_export)
+
+    @property
+    @pulumi.getter(name="dataExport")
+    def data_export(self) -> Optional['outputs.BucketDataExport']:
+        return pulumi.get(self, "data_export")
+
+
+@pulumi.output_type
+class BucketTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BucketTagFilter(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BucketTiering(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessTier":
+            suggest = "access_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketTiering. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketTiering.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketTiering.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_tier: str,
+                 days: int):
+        pulumi.set(__self__, "access_tier", access_tier)
+        pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> str:
+        return pulumi.get(self, "access_tier")
+
+    @property
+    @pulumi.getter
+    def days(self) -> int:
+        return pulumi.get(self, "days")
+
+
+@pulumi.output_type
+class BucketTopicConfiguration(dict):
+    def __init__(__self__, *,
+                 event: str,
+                 topic: str,
+                 filter: Optional['outputs.BucketNotificationFilter'] = None):
+        pulumi.set(__self__, "event", event)
+        pulumi.set(__self__, "topic", topic)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def event(self) -> str:
+        return pulumi.get(self, "event")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> str:
+        return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.BucketNotificationFilter']:
+        return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class BucketTransition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+        elif key == "transitionDate":
+            suggest = "transition_date"
+        elif key == "transitionInDays":
+            suggest = "transition_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketTransition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketTransition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketTransition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_class: str,
+                 transition_date: Optional[str] = None,
+                 transition_in_days: Optional[int] = None):
+        pulumi.set(__self__, "storage_class", storage_class)
+        if transition_date is not None:
+            pulumi.set(__self__, "transition_date", transition_date)
+        if transition_in_days is not None:
+            pulumi.set(__self__, "transition_in_days", transition_in_days)
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> str:
+        return pulumi.get(self, "storage_class")
+
+    @property
+    @pulumi.getter(name="transitionDate")
+    def transition_date(self) -> Optional[str]:
+        return pulumi.get(self, "transition_date")
+
+    @property
+    @pulumi.getter(name="transitionInDays")
+    def transition_in_days(self) -> Optional[int]:
+        return pulumi.get(self, "transition_in_days")
+
+
+@pulumi.output_type
+class BucketVersioningConfiguration(dict):
+    def __init__(__self__, *,
+                 status: str):
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketWebsiteConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorDocument":
+            suggest = "error_document"
+        elif key == "indexDocument":
+            suggest = "index_document"
+        elif key == "redirectAllRequestsTo":
+            suggest = "redirect_all_requests_to"
+        elif key == "routingRules":
+            suggest = "routing_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketWebsiteConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketWebsiteConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketWebsiteConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_document: Optional[str] = None,
+                 index_document: Optional[str] = None,
+                 redirect_all_requests_to: Optional['outputs.BucketRedirectAllRequestsTo'] = None,
+                 routing_rules: Optional[Sequence['outputs.BucketRoutingRule']] = None):
+        if error_document is not None:
+            pulumi.set(__self__, "error_document", error_document)
+        if index_document is not None:
+            pulumi.set(__self__, "index_document", index_document)
+        if redirect_all_requests_to is not None:
+            pulumi.set(__self__, "redirect_all_requests_to", redirect_all_requests_to)
+        if routing_rules is not None:
+            pulumi.set(__self__, "routing_rules", routing_rules)
+
+    @property
+    @pulumi.getter(name="errorDocument")
+    def error_document(self) -> Optional[str]:
+        return pulumi.get(self, "error_document")
+
+    @property
+    @pulumi.getter(name="indexDocument")
+    def index_document(self) -> Optional[str]:
+        return pulumi.get(self, "index_document")
+
+    @property
+    @pulumi.getter(name="redirectAllRequestsTo")
+    def redirect_all_requests_to(self) -> Optional['outputs.BucketRedirectAllRequestsTo']:
+        return pulumi.get(self, "redirect_all_requests_to")
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Optional[Sequence['outputs.BucketRoutingRule']]:
+        return pulumi.get(self, "routing_rules")
 
 
 @pulumi.output_type

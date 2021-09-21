@@ -28,6 +28,19 @@ __all__ = [
     'GlobalTableTargetTrackingScalingPolicyConfiguration',
     'GlobalTableTimeToLiveSpecification',
     'GlobalTableWriteProvisionedThroughputSettings',
+    'TableAttributeDefinition',
+    'TableContributorInsightsSpecification',
+    'TableGlobalSecondaryIndex',
+    'TableKeySchema',
+    'TableKinesisStreamSpecification',
+    'TableLocalSecondaryIndex',
+    'TablePointInTimeRecoverySpecification',
+    'TableProjection',
+    'TableProvisionedThroughput',
+    'TableSSESpecification',
+    'TableStreamSpecification',
+    'TableTag',
+    'TableTimeToLiveSpecification',
 ]
 
 @pulumi.output_type
@@ -759,5 +772,473 @@ class GlobalTableWriteProvisionedThroughputSettings(dict):
     @pulumi.getter(name="writeCapacityAutoScalingSettings")
     def write_capacity_auto_scaling_settings(self) -> Optional['outputs.GlobalTableCapacityAutoScalingSettings']:
         return pulumi.get(self, "write_capacity_auto_scaling_settings")
+
+
+@pulumi.output_type
+class TableAttributeDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "attributeType":
+            suggest = "attribute_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableAttributeDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableAttributeDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableAttributeDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: str,
+                 attribute_type: str):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_type", attribute_type)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> str:
+        return pulumi.get(self, "attribute_name")
+
+    @property
+    @pulumi.getter(name="attributeType")
+    def attribute_type(self) -> str:
+        return pulumi.get(self, "attribute_type")
+
+
+@pulumi.output_type
+class TableContributorInsightsSpecification(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class TableGlobalSecondaryIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexName":
+            suggest = "index_name"
+        elif key == "keySchema":
+            suggest = "key_schema"
+        elif key == "contributorInsightsSpecification":
+            suggest = "contributor_insights_specification"
+        elif key == "provisionedThroughput":
+            suggest = "provisioned_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableGlobalSecondaryIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableGlobalSecondaryIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableGlobalSecondaryIndex.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index_name: str,
+                 key_schema: Sequence['outputs.TableKeySchema'],
+                 projection: 'outputs.TableProjection',
+                 contributor_insights_specification: Optional['outputs.TableContributorInsightsSpecification'] = None,
+                 provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None):
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "key_schema", key_schema)
+        pulumi.set(__self__, "projection", projection)
+        if contributor_insights_specification is not None:
+            pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+        if provisioned_throughput is not None:
+            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> str:
+        return pulumi.get(self, "index_name")
+
+    @property
+    @pulumi.getter(name="keySchema")
+    def key_schema(self) -> Sequence['outputs.TableKeySchema']:
+        return pulumi.get(self, "key_schema")
+
+    @property
+    @pulumi.getter
+    def projection(self) -> 'outputs.TableProjection':
+        return pulumi.get(self, "projection")
+
+    @property
+    @pulumi.getter(name="contributorInsightsSpecification")
+    def contributor_insights_specification(self) -> Optional['outputs.TableContributorInsightsSpecification']:
+        return pulumi.get(self, "contributor_insights_specification")
+
+    @property
+    @pulumi.getter(name="provisionedThroughput")
+    def provisioned_throughput(self) -> Optional['outputs.TableProvisionedThroughput']:
+        return pulumi.get(self, "provisioned_throughput")
+
+
+@pulumi.output_type
+class TableKeySchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "keyType":
+            suggest = "key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableKeySchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableKeySchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableKeySchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: str,
+                 key_type: str):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "key_type", key_type)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> str:
+        return pulumi.get(self, "attribute_name")
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> str:
+        return pulumi.get(self, "key_type")
+
+
+@pulumi.output_type
+class TableKinesisStreamSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableKinesisStreamSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableKinesisStreamSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableKinesisStreamSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_arn: str):
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> str:
+        return pulumi.get(self, "stream_arn")
+
+
+@pulumi.output_type
+class TableLocalSecondaryIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexName":
+            suggest = "index_name"
+        elif key == "keySchema":
+            suggest = "key_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableLocalSecondaryIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableLocalSecondaryIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableLocalSecondaryIndex.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index_name: str,
+                 key_schema: Sequence['outputs.TableKeySchema'],
+                 projection: 'outputs.TableProjection'):
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "key_schema", key_schema)
+        pulumi.set(__self__, "projection", projection)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> str:
+        return pulumi.get(self, "index_name")
+
+    @property
+    @pulumi.getter(name="keySchema")
+    def key_schema(self) -> Sequence['outputs.TableKeySchema']:
+        return pulumi.get(self, "key_schema")
+
+    @property
+    @pulumi.getter
+    def projection(self) -> 'outputs.TableProjection':
+        return pulumi.get(self, "projection")
+
+
+@pulumi.output_type
+class TablePointInTimeRecoverySpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pointInTimeRecoveryEnabled":
+            suggest = "point_in_time_recovery_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TablePointInTimeRecoverySpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TablePointInTimeRecoverySpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TablePointInTimeRecoverySpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 point_in_time_recovery_enabled: Optional[bool] = None):
+        if point_in_time_recovery_enabled is not None:
+            pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+
+    @property
+    @pulumi.getter(name="pointInTimeRecoveryEnabled")
+    def point_in_time_recovery_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "point_in_time_recovery_enabled")
+
+
+@pulumi.output_type
+class TableProjection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nonKeyAttributes":
+            suggest = "non_key_attributes"
+        elif key == "projectionType":
+            suggest = "projection_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableProjection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableProjection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableProjection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 non_key_attributes: Optional[Sequence[str]] = None,
+                 projection_type: Optional[str] = None):
+        if non_key_attributes is not None:
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        if projection_type is not None:
+            pulumi.set(__self__, "projection_type", projection_type)
+
+    @property
+    @pulumi.getter(name="nonKeyAttributes")
+    def non_key_attributes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "non_key_attributes")
+
+    @property
+    @pulumi.getter(name="projectionType")
+    def projection_type(self) -> Optional[str]:
+        return pulumi.get(self, "projection_type")
+
+
+@pulumi.output_type
+class TableProvisionedThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readCapacityUnits":
+            suggest = "read_capacity_units"
+        elif key == "writeCapacityUnits":
+            suggest = "write_capacity_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableProvisionedThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableProvisionedThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableProvisionedThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_capacity_units: int,
+                 write_capacity_units: int):
+        pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+        pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+
+    @property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> int:
+        return pulumi.get(self, "read_capacity_units")
+
+    @property
+    @pulumi.getter(name="writeCapacityUnits")
+    def write_capacity_units(self) -> int:
+        return pulumi.get(self, "write_capacity_units")
+
+
+@pulumi.output_type
+class TableSSESpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sSEEnabled":
+            suggest = "s_se_enabled"
+        elif key == "kMSMasterKeyId":
+            suggest = "k_ms_master_key_id"
+        elif key == "sSEType":
+            suggest = "s_se_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableSSESpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableSSESpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableSSESpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s_se_enabled: bool,
+                 k_ms_master_key_id: Optional[str] = None,
+                 s_se_type: Optional[str] = None):
+        pulumi.set(__self__, "s_se_enabled", s_se_enabled)
+        if k_ms_master_key_id is not None:
+            pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
+        if s_se_type is not None:
+            pulumi.set(__self__, "s_se_type", s_se_type)
+
+    @property
+    @pulumi.getter(name="sSEEnabled")
+    def s_se_enabled(self) -> bool:
+        return pulumi.get(self, "s_se_enabled")
+
+    @property
+    @pulumi.getter(name="kMSMasterKeyId")
+    def k_ms_master_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "k_ms_master_key_id")
+
+    @property
+    @pulumi.getter(name="sSEType")
+    def s_se_type(self) -> Optional[str]:
+        return pulumi.get(self, "s_se_type")
+
+
+@pulumi.output_type
+class TableStreamSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamViewType":
+            suggest = "stream_view_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableStreamSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableStreamSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableStreamSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_view_type: str):
+        pulumi.set(__self__, "stream_view_type", stream_view_type)
+
+    @property
+    @pulumi.getter(name="streamViewType")
+    def stream_view_type(self) -> str:
+        return pulumi.get(self, "stream_view_type")
+
+
+@pulumi.output_type
+class TableTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TableTimeToLiveSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableTimeToLiveSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableTimeToLiveSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableTimeToLiveSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: str,
+                 enabled: bool):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> str:
+        return pulumi.get(self, "attribute_name")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
 
 
