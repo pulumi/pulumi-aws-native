@@ -1,10 +1,20 @@
-# Native AWS Pulumi Provider (preview)
+# Pulumi AWS Native Provider (preview)
 
-The native AWS Provider for Pulumi lets you use AWS resources in your cloud programs.
+The Pulumi AWS Native Provider enables you to build, deploy, and manage [any AWS resource that's supported by the AWS Cloud Control API](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
+With AWS Native, you get same-day access to all new AWS resources and all new properties on existing resources supported by the Cloud Control API.
+You can use AWS Native from a Pulumi program written in any Pulumi language: C#, Go, JavaScript/TypeScript, and Python.
+You'll need to [install and configure the Pulumi CLI](https://pulumi.com/docs/get-started/install) if you haven't already.
 
-The provider is currently in private preview.
+---
+**NOTE**
 
-To use this package, please [install the Pulumi CLI first](https://pulumi.com/).
+AWS Native is in public preview.
+Not all AWS resources are currently available in the AWS Native Provider. It covers all resources that are currently supported by the AWS Cloud Control API and AWS CloudFormation Registry. You can see the [list of supported resources here](https://github.com/pulumi/pulumi-aws-native/blob/master/provider/cmd/pulumi-gen-aws-native/supported-types.txt).
+
+For new projects, we recommend using AWS Native and [AWS Classic](https://github.com/pulumi/pulumi-aws) side-by-side so you can get the speed and correctness benefits of AWS Native where possible.
+For existing projects, AWS Classic remains fully supported; at this time, we recommend waiting to migrate existing projects to AWS Native.
+
+---
 
 ## Configuring credentials
 
