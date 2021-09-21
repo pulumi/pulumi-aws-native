@@ -18,7 +18,8 @@ import (
 const packageName = "aws-native"
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
-func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
+func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schema,
+	genAll bool) (*pschema.PackageSpec, *CloudAPIMetadata, error) {
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
@@ -286,7 +287,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 	var resourceCount int
 	for _, jsonSchema := range jsonSchemas {
 		resourceName := jsonSchema.Extras["typeName"].(string)
-		if supportedResources.Has(resourceName) {
+		isSupported := supportedResources.Has(resourceName)
+		if isSupported || genAll {
 			ctx := &context{
 				pkg:           &p,
 				metadata:      &metadata,
@@ -294,6 +296,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				resourceToken: typeToken(resourceName),
 				resourceSpec:  &jsonSchema,
 				visitedTypes:  codegen.NewStringSet(),
+				isSupported:   isSupported,
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
@@ -430,6 +433,7 @@ type context struct {
 	resourceToken string
 	resourceSpec  *jsschema.Schema
 	visitedTypes  codegen.StringSet
+	isSupported   bool
 }
 
 // gatherResourceType builds the schema for the resource type in the context.
@@ -477,6 +481,10 @@ func (ctx *context) gatherResourceType() error {
 		}
 	}
 
+	var deprecationMessage string
+	if !ctx.isSupported {
+		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
+	}
 	ctx.pkg.Resources[ctx.resourceToken] = pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: ctx.resourceSpec.Description,
@@ -484,8 +492,9 @@ func (ctx *context) gatherResourceType() error {
 			Type:        "object",
 			Required:    required.SortedValues(),
 		},
-		InputProperties: inputProperties,
-		RequiredInputs:  requiredInputs.SortedValues(),
+		InputProperties:    inputProperties,
+		RequiredInputs:     requiredInputs.SortedValues(),
+		DeprecationMessage: deprecationMessage,
 	}
 
 	createOnlyProperties := codegen.NewStringSet()
