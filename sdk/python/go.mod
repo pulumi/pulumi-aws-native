@@ -1,3 +1,3 @@
 module fake_go_module // Exclude this directory from Go tools
 
-go 1.14
+go 1.16
