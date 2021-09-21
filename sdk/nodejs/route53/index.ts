@@ -9,6 +9,8 @@ export * from "./dnssec";
 export * from "./healthCheck";
 export * from "./hostedZone";
 export * from "./keySigningKey";
+export * from "./recordSet";
+export * from "./recordSetGroup";
 
 // Export enums:
 export * from "../types/enums/route53";
@@ -18,6 +20,8 @@ import { DNSSEC } from "./dnssec";
 import { HealthCheck } from "./healthCheck";
 import { HostedZone } from "./hostedZone";
 import { KeySigningKey } from "./keySigningKey";
+import { RecordSet } from "./recordSet";
+import { RecordSetGroup } from "./recordSetGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +35,10 @@ const _module = {
                 return new HostedZone(name, <any>undefined, { urn })
             case "aws-native:route53:KeySigningKey":
                 return new KeySigningKey(name, <any>undefined, { urn })
+            case "aws-native:route53:RecordSet":
+                return new RecordSet(name, <any>undefined, { urn })
+            case "aws-native:route53:RecordSetGroup":
+                return new RecordSetGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

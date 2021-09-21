@@ -13,9 +13,13 @@ export * from "./dimension";
 export * from "./domainConfiguration";
 export * from "./fleetMetric";
 export * from "./mitigationAction";
+export * from "./policy";
+export * from "./policyPrincipalAttachment";
 export * from "./provisioningTemplate";
 export * from "./scheduledAudit";
 export * from "./securityProfile";
+export * from "./thing";
+export * from "./thingPrincipalAttachment";
 export * from "./topicRule";
 export * from "./topicRuleDestination";
 
@@ -31,9 +35,13 @@ import { Dimension } from "./dimension";
 import { DomainConfiguration } from "./domainConfiguration";
 import { FleetMetric } from "./fleetMetric";
 import { MitigationAction } from "./mitigationAction";
+import { Policy } from "./policy";
+import { PolicyPrincipalAttachment } from "./policyPrincipalAttachment";
 import { ProvisioningTemplate } from "./provisioningTemplate";
 import { ScheduledAudit } from "./scheduledAudit";
 import { SecurityProfile } from "./securityProfile";
+import { Thing } from "./thing";
+import { ThingPrincipalAttachment } from "./thingPrincipalAttachment";
 import { TopicRule } from "./topicRule";
 import { TopicRuleDestination } from "./topicRuleDestination";
 
@@ -57,12 +65,20 @@ const _module = {
                 return new FleetMetric(name, <any>undefined, { urn })
             case "aws-native:iot:MitigationAction":
                 return new MitigationAction(name, <any>undefined, { urn })
+            case "aws-native:iot:Policy":
+                return new Policy(name, <any>undefined, { urn })
+            case "aws-native:iot:PolicyPrincipalAttachment":
+                return new PolicyPrincipalAttachment(name, <any>undefined, { urn })
             case "aws-native:iot:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
             case "aws-native:iot:ScheduledAudit":
                 return new ScheduledAudit(name, <any>undefined, { urn })
             case "aws-native:iot:SecurityProfile":
                 return new SecurityProfile(name, <any>undefined, { urn })
+            case "aws-native:iot:Thing":
+                return new Thing(name, <any>undefined, { urn })
+            case "aws-native:iot:ThingPrincipalAttachment":
+                return new ThingPrincipalAttachment(name, <any>undefined, { urn })
             case "aws-native:iot:TopicRule":
                 return new TopicRule(name, <any>undefined, { urn })
             case "aws-native:iot:TopicRuleDestination":

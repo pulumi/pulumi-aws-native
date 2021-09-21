@@ -9,8 +9,11 @@ export * from "./firewallDomainList";
 export * from "./firewallRuleGroup";
 export * from "./firewallRuleGroupAssociation";
 export * from "./resolverDNSSECConfig";
+export * from "./resolverEndpoint";
 export * from "./resolverQueryLoggingConfig";
 export * from "./resolverQueryLoggingConfigAssociation";
+export * from "./resolverRule";
+export * from "./resolverRuleAssociation";
 
 // Export enums:
 export * from "../types/enums/route53resolver";
@@ -20,8 +23,11 @@ import { FirewallDomainList } from "./firewallDomainList";
 import { FirewallRuleGroup } from "./firewallRuleGroup";
 import { FirewallRuleGroupAssociation } from "./firewallRuleGroupAssociation";
 import { ResolverDNSSECConfig } from "./resolverDNSSECConfig";
+import { ResolverEndpoint } from "./resolverEndpoint";
 import { ResolverQueryLoggingConfig } from "./resolverQueryLoggingConfig";
 import { ResolverQueryLoggingConfigAssociation } from "./resolverQueryLoggingConfigAssociation";
+import { ResolverRule } from "./resolverRule";
+import { ResolverRuleAssociation } from "./resolverRuleAssociation";
 
 const _module = {
     version: utilities.getVersion(),
@@ -35,10 +41,16 @@ const _module = {
                 return new FirewallRuleGroupAssociation(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverDNSSECConfig":
                 return new ResolverDNSSECConfig(name, <any>undefined, { urn })
+            case "aws-native:route53resolver:ResolverEndpoint":
+                return new ResolverEndpoint(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverQueryLoggingConfig":
                 return new ResolverQueryLoggingConfig(name, <any>undefined, { urn })
             case "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation":
                 return new ResolverQueryLoggingConfigAssociation(name, <any>undefined, { urn })
+            case "aws-native:route53resolver:ResolverRule":
+                return new ResolverRule(name, <any>undefined, { urn })
+            case "aws-native:route53resolver:ResolverRuleAssociation":
+                return new ResolverRuleAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./globalTable";
+export * from "./table";
 
 // Import resources to register:
 import { GlobalTable } from "./globalTable";
+import { Table } from "./table";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,6 +18,8 @@ const _module = {
         switch (type) {
             case "aws-native:dynamodb:GlobalTable":
                 return new GlobalTable(name, <any>undefined, { urn })
+            case "aws-native:dynamodb:Table":
+                return new Table(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

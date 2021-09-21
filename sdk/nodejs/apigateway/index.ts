@@ -7,14 +7,23 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./account";
 export * from "./apiKey";
+export * from "./authorizer";
+export * from "./basePathMapping";
 export * from "./clientCertificate";
+export * from "./deployment";
+export * from "./documentationPart";
 export * from "./documentationVersion";
 export * from "./domainName";
+export * from "./gatewayResponse";
+export * from "./method";
 export * from "./model";
 export * from "./requestValidator";
 export * from "./resource";
+export * from "./restApi";
+export * from "./stage";
 export * from "./usagePlan";
 export * from "./usagePlanKey";
+export * from "./vpcLink";
 
 // Export enums:
 export * from "../types/enums/apigateway";
@@ -22,14 +31,23 @@ export * from "../types/enums/apigateway";
 // Import resources to register:
 import { Account } from "./account";
 import { ApiKey } from "./apiKey";
+import { Authorizer } from "./authorizer";
+import { BasePathMapping } from "./basePathMapping";
 import { ClientCertificate } from "./clientCertificate";
+import { Deployment } from "./deployment";
+import { DocumentationPart } from "./documentationPart";
 import { DocumentationVersion } from "./documentationVersion";
 import { DomainName } from "./domainName";
+import { GatewayResponse } from "./gatewayResponse";
+import { Method } from "./method";
 import { Model } from "./model";
 import { RequestValidator } from "./requestValidator";
 import { Resource } from "./resource";
+import { RestApi } from "./restApi";
+import { Stage } from "./stage";
 import { UsagePlan } from "./usagePlan";
 import { UsagePlanKey } from "./usagePlanKey";
+import { VpcLink } from "./vpcLink";
 
 const _module = {
     version: utilities.getVersion(),
@@ -39,22 +57,40 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "aws-native:apigateway:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "aws-native:apigateway:Authorizer":
+                return new Authorizer(name, <any>undefined, { urn })
+            case "aws-native:apigateway:BasePathMapping":
+                return new BasePathMapping(name, <any>undefined, { urn })
             case "aws-native:apigateway:ClientCertificate":
                 return new ClientCertificate(name, <any>undefined, { urn })
+            case "aws-native:apigateway:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
+            case "aws-native:apigateway:DocumentationPart":
+                return new DocumentationPart(name, <any>undefined, { urn })
             case "aws-native:apigateway:DocumentationVersion":
                 return new DocumentationVersion(name, <any>undefined, { urn })
             case "aws-native:apigateway:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
+            case "aws-native:apigateway:GatewayResponse":
+                return new GatewayResponse(name, <any>undefined, { urn })
+            case "aws-native:apigateway:Method":
+                return new Method(name, <any>undefined, { urn })
             case "aws-native:apigateway:Model":
                 return new Model(name, <any>undefined, { urn })
             case "aws-native:apigateway:RequestValidator":
                 return new RequestValidator(name, <any>undefined, { urn })
             case "aws-native:apigateway:Resource":
                 return new Resource(name, <any>undefined, { urn })
+            case "aws-native:apigateway:RestApi":
+                return new RestApi(name, <any>undefined, { urn })
+            case "aws-native:apigateway:Stage":
+                return new Stage(name, <any>undefined, { urn })
             case "aws-native:apigateway:UsagePlan":
                 return new UsagePlan(name, <any>undefined, { urn })
             case "aws-native:apigateway:UsagePlanKey":
                 return new UsagePlanKey(name, <any>undefined, { urn })
+            case "aws-native:apigateway:VpcLink":
+                return new VpcLink(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

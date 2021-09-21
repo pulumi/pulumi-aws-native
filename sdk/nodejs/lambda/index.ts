@@ -5,28 +5,52 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./alias";
 export * from "./codeSigningConfig";
+export * from "./eventInvokeConfig";
 export * from "./eventSourceMapping";
 export * from "./function";
+export * from "./layerVersion";
+export * from "./layerVersionPermission";
+export * from "./permission";
+export * from "./version";
 
 // Export enums:
 export * from "../types/enums/lambda";
 
 // Import resources to register:
+import { Alias } from "./alias";
 import { CodeSigningConfig } from "./codeSigningConfig";
+import { EventInvokeConfig } from "./eventInvokeConfig";
 import { EventSourceMapping } from "./eventSourceMapping";
 import { Function } from "./function";
+import { LayerVersion } from "./layerVersion";
+import { LayerVersionPermission } from "./layerVersionPermission";
+import { Permission } from "./permission";
+import { Version } from "./version";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:lambda:Alias":
+                return new Alias(name, <any>undefined, { urn })
             case "aws-native:lambda:CodeSigningConfig":
                 return new CodeSigningConfig(name, <any>undefined, { urn })
+            case "aws-native:lambda:EventInvokeConfig":
+                return new EventInvokeConfig(name, <any>undefined, { urn })
             case "aws-native:lambda:EventSourceMapping":
                 return new EventSourceMapping(name, <any>undefined, { urn })
             case "aws-native:lambda:Function":
                 return new Function(name, <any>undefined, { urn })
+            case "aws-native:lambda:LayerVersion":
+                return new LayerVersion(name, <any>undefined, { urn })
+            case "aws-native:lambda:LayerVersionPermission":
+                return new LayerVersionPermission(name, <any>undefined, { urn })
+            case "aws-native:lambda:Permission":
+                return new Permission(name, <any>undefined, { urn })
+            case "aws-native:lambda:Version":
+                return new Version(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
