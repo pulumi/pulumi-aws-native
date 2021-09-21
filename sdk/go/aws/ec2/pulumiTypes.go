@@ -10,6 +10,206 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type CapacityReservationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// CapacityReservationTagInput is an input type that accepts CapacityReservationTagArgs and CapacityReservationTagOutput values.
+// You can construct a concrete instance of `CapacityReservationTagInput` via:
+//
+//          CapacityReservationTagArgs{...}
+type CapacityReservationTagInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagOutput() CapacityReservationTagOutput
+	ToCapacityReservationTagOutputWithContext(context.Context) CapacityReservationTagOutput
+}
+
+type CapacityReservationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CapacityReservationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTag)(nil)).Elem()
+}
+
+func (i CapacityReservationTagArgs) ToCapacityReservationTagOutput() CapacityReservationTagOutput {
+	return i.ToCapacityReservationTagOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagArgs) ToCapacityReservationTagOutputWithContext(ctx context.Context) CapacityReservationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagOutput)
+}
+
+// CapacityReservationTagArrayInput is an input type that accepts CapacityReservationTagArray and CapacityReservationTagArrayOutput values.
+// You can construct a concrete instance of `CapacityReservationTagArrayInput` via:
+//
+//          CapacityReservationTagArray{ CapacityReservationTagArgs{...} }
+type CapacityReservationTagArrayInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput
+	ToCapacityReservationTagArrayOutputWithContext(context.Context) CapacityReservationTagArrayOutput
+}
+
+type CapacityReservationTagArray []CapacityReservationTagInput
+
+func (CapacityReservationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTag)(nil)).Elem()
+}
+
+func (i CapacityReservationTagArray) ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput {
+	return i.ToCapacityReservationTagArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagArray) ToCapacityReservationTagArrayOutputWithContext(ctx context.Context) CapacityReservationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagArrayOutput)
+}
+
+type CapacityReservationTagOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTag)(nil)).Elem()
+}
+
+func (o CapacityReservationTagOutput) ToCapacityReservationTagOutput() CapacityReservationTagOutput {
+	return o
+}
+
+func (o CapacityReservationTagOutput) ToCapacityReservationTagOutputWithContext(ctx context.Context) CapacityReservationTagOutput {
+	return o
+}
+
+func (o CapacityReservationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityReservationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o CapacityReservationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityReservationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CapacityReservationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTag)(nil)).Elem()
+}
+
+func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutput() CapacityReservationTagArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagArrayOutput) ToCapacityReservationTagArrayOutputWithContext(ctx context.Context) CapacityReservationTagArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagArrayOutput) Index(i pulumi.IntInput) CapacityReservationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationTag {
+		return vs[0].([]CapacityReservationTag)[vs[1].(int)]
+	}).(CapacityReservationTagOutput)
+}
+
+type CapacityReservationTagSpecification struct {
+	ResourceType *string                  `pulumi:"resourceType"`
+	Tags         []CapacityReservationTag `pulumi:"tags"`
+}
+
+// CapacityReservationTagSpecificationInput is an input type that accepts CapacityReservationTagSpecificationArgs and CapacityReservationTagSpecificationOutput values.
+// You can construct a concrete instance of `CapacityReservationTagSpecificationInput` via:
+//
+//          CapacityReservationTagSpecificationArgs{...}
+type CapacityReservationTagSpecificationInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagSpecificationOutput() CapacityReservationTagSpecificationOutput
+	ToCapacityReservationTagSpecificationOutputWithContext(context.Context) CapacityReservationTagSpecificationOutput
+}
+
+type CapacityReservationTagSpecificationArgs struct {
+	ResourceType pulumi.StringPtrInput            `pulumi:"resourceType"`
+	Tags         CapacityReservationTagArrayInput `pulumi:"tags"`
+}
+
+func (CapacityReservationTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (i CapacityReservationTagSpecificationArgs) ToCapacityReservationTagSpecificationOutput() CapacityReservationTagSpecificationOutput {
+	return i.ToCapacityReservationTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagSpecificationArgs) ToCapacityReservationTagSpecificationOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagSpecificationOutput)
+}
+
+// CapacityReservationTagSpecificationArrayInput is an input type that accepts CapacityReservationTagSpecificationArray and CapacityReservationTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `CapacityReservationTagSpecificationArrayInput` via:
+//
+//          CapacityReservationTagSpecificationArray{ CapacityReservationTagSpecificationArgs{...} }
+type CapacityReservationTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagSpecificationArrayOutput() CapacityReservationTagSpecificationArrayOutput
+	ToCapacityReservationTagSpecificationArrayOutputWithContext(context.Context) CapacityReservationTagSpecificationArrayOutput
+}
+
+type CapacityReservationTagSpecificationArray []CapacityReservationTagSpecificationInput
+
+func (CapacityReservationTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (i CapacityReservationTagSpecificationArray) ToCapacityReservationTagSpecificationArrayOutput() CapacityReservationTagSpecificationArrayOutput {
+	return i.ToCapacityReservationTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagSpecificationArray) ToCapacityReservationTagSpecificationArrayOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagSpecificationArrayOutput)
+}
+
+type CapacityReservationTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (o CapacityReservationTagSpecificationOutput) ToCapacityReservationTagSpecificationOutput() CapacityReservationTagSpecificationOutput {
+	return o
+}
+
+func (o CapacityReservationTagSpecificationOutput) ToCapacityReservationTagSpecificationOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationOutput {
+	return o
+}
+
+func (o CapacityReservationTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityReservationTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityReservationTagSpecificationOutput) Tags() CapacityReservationTagArrayOutput {
+	return o.ApplyT(func(v CapacityReservationTagSpecification) []CapacityReservationTag { return v.Tags }).(CapacityReservationTagArrayOutput)
+}
+
+type CapacityReservationTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (o CapacityReservationTagSpecificationArrayOutput) ToCapacityReservationTagSpecificationArrayOutput() CapacityReservationTagSpecificationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagSpecificationArrayOutput) ToCapacityReservationTagSpecificationArrayOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagSpecificationArrayOutput) Index(i pulumi.IntInput) CapacityReservationTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationTagSpecification {
+		return vs[0].([]CapacityReservationTagSpecification)[vs[1].(int)]
+	}).(CapacityReservationTagSpecificationOutput)
+}
+
 type CarrierGatewayTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -108,6 +308,1151 @@ func (o CarrierGatewayTagArrayOutput) Index(i pulumi.IntInput) CarrierGatewayTag
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CarrierGatewayTag {
 		return vs[0].([]CarrierGatewayTag)[vs[1].(int)]
 	}).(CarrierGatewayTagOutput)
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequest struct {
+	ClientRootCertificateChainArn string `pulumi:"clientRootCertificateChainArn"`
+}
+
+// ClientVpnEndpointCertificateAuthenticationRequestInput is an input type that accepts ClientVpnEndpointCertificateAuthenticationRequestArgs and ClientVpnEndpointCertificateAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointCertificateAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointCertificateAuthenticationRequestArgs{...}
+type ClientVpnEndpointCertificateAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput
+	ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequestArgs struct {
+	ClientRootCertificateChainArn pulumi.StringInput `pulumi:"clientRootCertificateChainArn"`
+}
+
+func (ClientVpnEndpointCertificateAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestOutput).ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointCertificateAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointCertificateAuthenticationRequestArgs, ClientVpnEndpointCertificateAuthenticationRequestPtr and ClientVpnEndpointCertificateAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointCertificateAuthenticationRequestPtrInput` via:
+//
+//          ClientVpnEndpointCertificateAuthenticationRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointCertificateAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput
+	ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointCertificateAuthenticationRequestPtrType ClientVpnEndpointCertificateAuthenticationRequestArgs
+
+func ClientVpnEndpointCertificateAuthenticationRequestPtr(v *ClientVpnEndpointCertificateAuthenticationRequestArgs) ClientVpnEndpointCertificateAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointCertificateAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointCertificateAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointCertificateAuthenticationRequestPtrType) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointCertificateAuthenticationRequestPtrType) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointCertificateAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointCertificateAuthenticationRequest) *ClientVpnEndpointCertificateAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ClientRootCertificateChainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointCertificateAuthenticationRequest) string {
+		return v.ClientRootCertificateChainArn
+	}).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointCertificateAuthenticationRequest) ClientVpnEndpointCertificateAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointCertificateAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointCertificateAuthenticationRequestOutput)
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ClientRootCertificateChainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointCertificateAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientRootCertificateChainArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointClientAuthenticationRequest struct {
+	ActiveDirectory         *ClientVpnEndpointDirectoryServiceAuthenticationRequest `pulumi:"activeDirectory"`
+	FederatedAuthentication *ClientVpnEndpointFederatedAuthenticationRequest        `pulumi:"federatedAuthentication"`
+	MutualAuthentication    *ClientVpnEndpointCertificateAuthenticationRequest      `pulumi:"mutualAuthentication"`
+	Type                    string                                                  `pulumi:"type"`
+}
+
+// ClientVpnEndpointClientAuthenticationRequestInput is an input type that accepts ClientVpnEndpointClientAuthenticationRequestArgs and ClientVpnEndpointClientAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointClientAuthenticationRequestArgs{...}
+type ClientVpnEndpointClientAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput
+	ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointClientAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArgs struct {
+	ActiveDirectory         ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput `pulumi:"activeDirectory"`
+	FederatedAuthentication ClientVpnEndpointFederatedAuthenticationRequestPtrInput        `pulumi:"federatedAuthentication"`
+	MutualAuthentication    ClientVpnEndpointCertificateAuthenticationRequestPtrInput      `pulumi:"mutualAuthentication"`
+	Type                    pulumi.StringInput                                             `pulumi:"type"`
+}
+
+func (ClientVpnEndpointClientAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArgs) ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArgs) ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientAuthenticationRequestOutput)
+}
+
+// ClientVpnEndpointClientAuthenticationRequestArrayInput is an input type that accepts ClientVpnEndpointClientAuthenticationRequestArray and ClientVpnEndpointClientAuthenticationRequestArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientAuthenticationRequestArrayInput` via:
+//
+//          ClientVpnEndpointClientAuthenticationRequestArray{ ClientVpnEndpointClientAuthenticationRequestArgs{...} }
+type ClientVpnEndpointClientAuthenticationRequestArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput
+	ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArray []ClientVpnEndpointClientAuthenticationRequestInput
+
+func (ClientVpnEndpointClientAuthenticationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArray) ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return i.ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArray) ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientAuthenticationRequestArrayOutput)
+}
+
+type ClientVpnEndpointClientAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ActiveDirectory() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		return v.ActiveDirectory
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) FederatedAuthentication() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointFederatedAuthenticationRequest {
+		return v.FederatedAuthentication
+	}).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) MutualAuthentication() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointCertificateAuthenticationRequest {
+		return v.MutualAuthentication
+	}).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientAuthenticationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointClientAuthenticationRequest {
+		return vs[0].([]ClientVpnEndpointClientAuthenticationRequest)[vs[1].(int)]
+	}).(ClientVpnEndpointClientAuthenticationRequestOutput)
+}
+
+type ClientVpnEndpointClientConnectOptions struct {
+	Enabled           bool    `pulumi:"enabled"`
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
+}
+
+// ClientVpnEndpointClientConnectOptionsInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs and ClientVpnEndpointClientConnectOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsInput` via:
+//
+//          ClientVpnEndpointClientConnectOptionsArgs{...}
+type ClientVpnEndpointClientConnectOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput
+	ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsOutput
+}
+
+type ClientVpnEndpointClientConnectOptionsArgs struct {
+	Enabled           pulumi.BoolInput      `pulumi:"enabled"`
+	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (ClientVpnEndpointClientConnectOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput).ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientConnectOptionsPtrInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs, ClientVpnEndpointClientConnectOptionsPtr and ClientVpnEndpointClientConnectOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsPtrInput` via:
+//
+//          ClientVpnEndpointClientConnectOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointClientConnectOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput
+	ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput
+}
+
+type clientVpnEndpointClientConnectOptionsPtrType ClientVpnEndpointClientConnectOptionsArgs
+
+func ClientVpnEndpointClientConnectOptionsPtr(v *ClientVpnEndpointClientConnectOptionsArgs) ClientVpnEndpointClientConnectOptionsPtrInput {
+	return (*clientVpnEndpointClientConnectOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientConnectOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+type ClientVpnEndpointClientConnectOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientConnectOptions) *ClientVpnEndpointClientConnectOptions {
+		return &v
+	}).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointClientConnectOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Elem() ClientVpnEndpointClientConnectOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) ClientVpnEndpointClientConnectOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointClientConnectOptions
+		return ret
+	}).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointConnectionLogOptions struct {
+	CloudwatchLogGroup  *string `pulumi:"cloudwatchLogGroup"`
+	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
+	Enabled             bool    `pulumi:"enabled"`
+}
+
+// ClientVpnEndpointConnectionLogOptionsInput is an input type that accepts ClientVpnEndpointConnectionLogOptionsArgs and ClientVpnEndpointConnectionLogOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointConnectionLogOptionsInput` via:
+//
+//          ClientVpnEndpointConnectionLogOptionsArgs{...}
+type ClientVpnEndpointConnectionLogOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput
+	ToClientVpnEndpointConnectionLogOptionsOutputWithContext(context.Context) ClientVpnEndpointConnectionLogOptionsOutput
+}
+
+type ClientVpnEndpointConnectionLogOptionsArgs struct {
+	CloudwatchLogGroup  pulumi.StringPtrInput `pulumi:"cloudwatchLogGroup"`
+	CloudwatchLogStream pulumi.StringPtrInput `pulumi:"cloudwatchLogStream"`
+	Enabled             pulumi.BoolInput      `pulumi:"enabled"`
+}
+
+func (ClientVpnEndpointConnectionLogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput {
+	return i.ToClientVpnEndpointConnectionLogOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return i.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsOutput).ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointConnectionLogOptionsPtrInput is an input type that accepts ClientVpnEndpointConnectionLogOptionsArgs, ClientVpnEndpointConnectionLogOptionsPtr and ClientVpnEndpointConnectionLogOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointConnectionLogOptionsPtrInput` via:
+//
+//          ClientVpnEndpointConnectionLogOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointConnectionLogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput
+	ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput
+}
+
+type clientVpnEndpointConnectionLogOptionsPtrType ClientVpnEndpointConnectionLogOptionsArgs
+
+func ClientVpnEndpointConnectionLogOptionsPtr(v *ClientVpnEndpointConnectionLogOptionsArgs) ClientVpnEndpointConnectionLogOptionsPtrInput {
+	return (*clientVpnEndpointConnectionLogOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointConnectionLogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointConnectionLogOptionsPtrType) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return i.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointConnectionLogOptionsPtrType) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsPtrOutput)
+}
+
+type ClientVpnEndpointConnectionLogOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointConnectionLogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointConnectionLogOptions) *ClientVpnEndpointConnectionLogOptions {
+		return &v
+	}).(ClientVpnEndpointConnectionLogOptionsPtrOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *string { return v.CloudwatchLogStream }).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClientVpnEndpointConnectionLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointConnectionLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Elem() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) ClientVpnEndpointConnectionLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointConnectionLogOptions
+		return ret
+	}).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogStream
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequest struct {
+	DirectoryId string `pulumi:"directoryId"`
+}
+
+// ClientVpnEndpointDirectoryServiceAuthenticationRequestInput is an input type that accepts ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs and ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDirectoryServiceAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{...}
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs struct {
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+}
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput).ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs, ClientVpnEndpointDirectoryServiceAuthenticationRequestPtr and ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput` via:
+//
+//          ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs
+
+func ClientVpnEndpointDirectoryServiceAuthenticationRequestPtr(v *ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointDirectoryServiceAuthenticationRequest) *ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) DirectoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDirectoryServiceAuthenticationRequest) string { return v.DirectoryId }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDirectoryServiceAuthenticationRequest) ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointDirectoryServiceAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput)
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDirectoryServiceAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DirectoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequest struct {
+	SAMLProviderArn            string  `pulumi:"sAMLProviderArn"`
+	SelfServiceSAMLProviderArn *string `pulumi:"selfServiceSAMLProviderArn"`
+}
+
+// ClientVpnEndpointFederatedAuthenticationRequestInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs and ClientVpnEndpointFederatedAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointFederatedAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointFederatedAuthenticationRequestArgs{...}
+type ClientVpnEndpointFederatedAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput
+	ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequestArgs struct {
+	SAMLProviderArn            pulumi.StringInput    `pulumi:"sAMLProviderArn"`
+	SelfServiceSAMLProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSAMLProviderArn"`
+}
+
+func (ClientVpnEndpointFederatedAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestOutput).ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointFederatedAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs, ClientVpnEndpointFederatedAuthenticationRequestPtr and ClientVpnEndpointFederatedAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointFederatedAuthenticationRequestPtrInput` via:
+//
+//          ClientVpnEndpointFederatedAuthenticationRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointFederatedAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput
+	ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointFederatedAuthenticationRequestPtrType ClientVpnEndpointFederatedAuthenticationRequestArgs
+
+func ClientVpnEndpointFederatedAuthenticationRequestPtr(v *ClientVpnEndpointFederatedAuthenticationRequestArgs) ClientVpnEndpointFederatedAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointFederatedAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointFederatedAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointFederatedAuthenticationRequestPtrType) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointFederatedAuthenticationRequestPtrType) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointFederatedAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointFederatedAuthenticationRequest) *ClientVpnEndpointFederatedAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SAMLProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) string { return v.SAMLProviderArn }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) *string { return v.SelfServiceSAMLProviderArn }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) ClientVpnEndpointFederatedAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointFederatedAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointFederatedAuthenticationRequestOutput)
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SAMLProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServiceSAMLProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ClientVpnEndpointTagInput is an input type that accepts ClientVpnEndpointTagArgs and ClientVpnEndpointTagOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagInput` via:
+//
+//          ClientVpnEndpointTagArgs{...}
+type ClientVpnEndpointTagInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagOutput() ClientVpnEndpointTagOutput
+	ToClientVpnEndpointTagOutputWithContext(context.Context) ClientVpnEndpointTagOutput
+}
+
+type ClientVpnEndpointTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClientVpnEndpointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagArgs) ToClientVpnEndpointTagOutput() ClientVpnEndpointTagOutput {
+	return i.ToClientVpnEndpointTagOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagArgs) ToClientVpnEndpointTagOutputWithContext(ctx context.Context) ClientVpnEndpointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagOutput)
+}
+
+// ClientVpnEndpointTagArrayInput is an input type that accepts ClientVpnEndpointTagArray and ClientVpnEndpointTagArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagArrayInput` via:
+//
+//          ClientVpnEndpointTagArray{ ClientVpnEndpointTagArgs{...} }
+type ClientVpnEndpointTagArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagArrayOutput() ClientVpnEndpointTagArrayOutput
+	ToClientVpnEndpointTagArrayOutputWithContext(context.Context) ClientVpnEndpointTagArrayOutput
+}
+
+type ClientVpnEndpointTagArray []ClientVpnEndpointTagInput
+
+func (ClientVpnEndpointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagArray) ToClientVpnEndpointTagArrayOutput() ClientVpnEndpointTagArrayOutput {
+	return i.ToClientVpnEndpointTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagArray) ToClientVpnEndpointTagArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagArrayOutput)
+}
+
+type ClientVpnEndpointTagOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagOutput) ToClientVpnEndpointTagOutput() ClientVpnEndpointTagOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagOutput) ToClientVpnEndpointTagOutputWithContext(ctx context.Context) ClientVpnEndpointTagOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnEndpointTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTag)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagArrayOutput) ToClientVpnEndpointTagArrayOutput() ClientVpnEndpointTagArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagArrayOutput) ToClientVpnEndpointTagArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointTag {
+		return vs[0].([]ClientVpnEndpointTag)[vs[1].(int)]
+	}).(ClientVpnEndpointTagOutput)
+}
+
+type ClientVpnEndpointTagSpecification struct {
+	ResourceType string                 `pulumi:"resourceType"`
+	Tags         []ClientVpnEndpointTag `pulumi:"tags"`
+}
+
+// ClientVpnEndpointTagSpecificationInput is an input type that accepts ClientVpnEndpointTagSpecificationArgs and ClientVpnEndpointTagSpecificationOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagSpecificationInput` via:
+//
+//          ClientVpnEndpointTagSpecificationArgs{...}
+type ClientVpnEndpointTagSpecificationInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput
+	ToClientVpnEndpointTagSpecificationOutputWithContext(context.Context) ClientVpnEndpointTagSpecificationOutput
+}
+
+type ClientVpnEndpointTagSpecificationArgs struct {
+	ResourceType pulumi.StringInput             `pulumi:"resourceType"`
+	Tags         ClientVpnEndpointTagArrayInput `pulumi:"tags"`
+}
+
+func (ClientVpnEndpointTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagSpecificationArgs) ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput {
+	return i.ToClientVpnEndpointTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagSpecificationArgs) ToClientVpnEndpointTagSpecificationOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagSpecificationOutput)
+}
+
+// ClientVpnEndpointTagSpecificationArrayInput is an input type that accepts ClientVpnEndpointTagSpecificationArray and ClientVpnEndpointTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagSpecificationArrayInput` via:
+//
+//          ClientVpnEndpointTagSpecificationArray{ ClientVpnEndpointTagSpecificationArgs{...} }
+type ClientVpnEndpointTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput
+	ToClientVpnEndpointTagSpecificationArrayOutputWithContext(context.Context) ClientVpnEndpointTagSpecificationArrayOutput
+}
+
+type ClientVpnEndpointTagSpecificationArray []ClientVpnEndpointTagSpecificationInput
+
+func (ClientVpnEndpointTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagSpecificationArray) ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput {
+	return i.ToClientVpnEndpointTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagSpecificationArray) ToClientVpnEndpointTagSpecificationArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagSpecificationArrayOutput)
+}
+
+type ClientVpnEndpointTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) ToClientVpnEndpointTagSpecificationOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) Tags() ClientVpnEndpointTagArrayOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTagSpecification) []ClientVpnEndpointTag { return v.Tags }).(ClientVpnEndpointTagArrayOutput)
+}
+
+type ClientVpnEndpointTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) ToClientVpnEndpointTagSpecificationArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointTagSpecification {
+		return vs[0].([]ClientVpnEndpointTagSpecification)[vs[1].(int)]
+	}).(ClientVpnEndpointTagSpecificationOutput)
+}
+
+type CustomerGatewayTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// CustomerGatewayTagInput is an input type that accepts CustomerGatewayTagArgs and CustomerGatewayTagOutput values.
+// You can construct a concrete instance of `CustomerGatewayTagInput` via:
+//
+//          CustomerGatewayTagArgs{...}
+type CustomerGatewayTagInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayTagOutput() CustomerGatewayTagOutput
+	ToCustomerGatewayTagOutputWithContext(context.Context) CustomerGatewayTagOutput
+}
+
+type CustomerGatewayTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CustomerGatewayTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGatewayTag)(nil)).Elem()
+}
+
+func (i CustomerGatewayTagArgs) ToCustomerGatewayTagOutput() CustomerGatewayTagOutput {
+	return i.ToCustomerGatewayTagOutputWithContext(context.Background())
+}
+
+func (i CustomerGatewayTagArgs) ToCustomerGatewayTagOutputWithContext(ctx context.Context) CustomerGatewayTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayTagOutput)
+}
+
+// CustomerGatewayTagArrayInput is an input type that accepts CustomerGatewayTagArray and CustomerGatewayTagArrayOutput values.
+// You can construct a concrete instance of `CustomerGatewayTagArrayInput` via:
+//
+//          CustomerGatewayTagArray{ CustomerGatewayTagArgs{...} }
+type CustomerGatewayTagArrayInput interface {
+	pulumi.Input
+
+	ToCustomerGatewayTagArrayOutput() CustomerGatewayTagArrayOutput
+	ToCustomerGatewayTagArrayOutputWithContext(context.Context) CustomerGatewayTagArrayOutput
+}
+
+type CustomerGatewayTagArray []CustomerGatewayTagInput
+
+func (CustomerGatewayTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerGatewayTag)(nil)).Elem()
+}
+
+func (i CustomerGatewayTagArray) ToCustomerGatewayTagArrayOutput() CustomerGatewayTagArrayOutput {
+	return i.ToCustomerGatewayTagArrayOutputWithContext(context.Background())
+}
+
+func (i CustomerGatewayTagArray) ToCustomerGatewayTagArrayOutputWithContext(ctx context.Context) CustomerGatewayTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayTagArrayOutput)
+}
+
+type CustomerGatewayTagOutput struct{ *pulumi.OutputState }
+
+func (CustomerGatewayTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerGatewayTag)(nil)).Elem()
+}
+
+func (o CustomerGatewayTagOutput) ToCustomerGatewayTagOutput() CustomerGatewayTagOutput {
+	return o
+}
+
+func (o CustomerGatewayTagOutput) ToCustomerGatewayTagOutputWithContext(ctx context.Context) CustomerGatewayTagOutput {
+	return o
+}
+
+func (o CustomerGatewayTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerGatewayTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o CustomerGatewayTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerGatewayTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CustomerGatewayTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomerGatewayTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerGatewayTag)(nil)).Elem()
+}
+
+func (o CustomerGatewayTagArrayOutput) ToCustomerGatewayTagArrayOutput() CustomerGatewayTagArrayOutput {
+	return o
+}
+
+func (o CustomerGatewayTagArrayOutput) ToCustomerGatewayTagArrayOutputWithContext(ctx context.Context) CustomerGatewayTagArrayOutput {
+	return o
+}
+
+func (o CustomerGatewayTagArrayOutput) Index(i pulumi.IntInput) CustomerGatewayTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomerGatewayTag {
+		return vs[0].([]CustomerGatewayTag)[vs[1].(int)]
+	}).(CustomerGatewayTagOutput)
 }
 
 type DHCPOptionsTag struct {
@@ -1797,6 +3142,106 @@ func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity
 	}).(pulumi.IntPtrOutput)
 }
 
+type EIPTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// EIPTagInput is an input type that accepts EIPTagArgs and EIPTagOutput values.
+// You can construct a concrete instance of `EIPTagInput` via:
+//
+//          EIPTagArgs{...}
+type EIPTagInput interface {
+	pulumi.Input
+
+	ToEIPTagOutput() EIPTagOutput
+	ToEIPTagOutputWithContext(context.Context) EIPTagOutput
+}
+
+type EIPTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EIPTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EIPTag)(nil)).Elem()
+}
+
+func (i EIPTagArgs) ToEIPTagOutput() EIPTagOutput {
+	return i.ToEIPTagOutputWithContext(context.Background())
+}
+
+func (i EIPTagArgs) ToEIPTagOutputWithContext(ctx context.Context) EIPTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EIPTagOutput)
+}
+
+// EIPTagArrayInput is an input type that accepts EIPTagArray and EIPTagArrayOutput values.
+// You can construct a concrete instance of `EIPTagArrayInput` via:
+//
+//          EIPTagArray{ EIPTagArgs{...} }
+type EIPTagArrayInput interface {
+	pulumi.Input
+
+	ToEIPTagArrayOutput() EIPTagArrayOutput
+	ToEIPTagArrayOutputWithContext(context.Context) EIPTagArrayOutput
+}
+
+type EIPTagArray []EIPTagInput
+
+func (EIPTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EIPTag)(nil)).Elem()
+}
+
+func (i EIPTagArray) ToEIPTagArrayOutput() EIPTagArrayOutput {
+	return i.ToEIPTagArrayOutputWithContext(context.Background())
+}
+
+func (i EIPTagArray) ToEIPTagArrayOutputWithContext(ctx context.Context) EIPTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EIPTagArrayOutput)
+}
+
+type EIPTagOutput struct{ *pulumi.OutputState }
+
+func (EIPTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EIPTag)(nil)).Elem()
+}
+
+func (o EIPTagOutput) ToEIPTagOutput() EIPTagOutput {
+	return o
+}
+
+func (o EIPTagOutput) ToEIPTagOutputWithContext(ctx context.Context) EIPTagOutput {
+	return o
+}
+
+func (o EIPTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EIPTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o EIPTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EIPTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EIPTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EIPTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EIPTag)(nil)).Elem()
+}
+
+func (o EIPTagArrayOutput) ToEIPTagArrayOutput() EIPTagArrayOutput {
+	return o
+}
+
+func (o EIPTagArrayOutput) ToEIPTagArrayOutputWithContext(ctx context.Context) EIPTagArrayOutput {
+	return o
+}
+
+func (o EIPTagArrayOutput) Index(i pulumi.IntInput) EIPTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EIPTag {
+		return vs[0].([]EIPTag)[vs[1].(int)]
+	}).(EIPTagOutput)
+}
+
 type FlowLogTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1895,6 +3340,2211 @@ func (o FlowLogTagArrayOutput) Index(i pulumi.IntInput) FlowLogTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowLogTag {
 		return vs[0].([]FlowLogTag)[vs[1].(int)]
 	}).(FlowLogTagOutput)
+}
+
+type InstanceAssociationParameter struct {
+	Key   string   `pulumi:"key"`
+	Value []string `pulumi:"value"`
+}
+
+// InstanceAssociationParameterInput is an input type that accepts InstanceAssociationParameterArgs and InstanceAssociationParameterOutput values.
+// You can construct a concrete instance of `InstanceAssociationParameterInput` via:
+//
+//          InstanceAssociationParameterArgs{...}
+type InstanceAssociationParameterInput interface {
+	pulumi.Input
+
+	ToInstanceAssociationParameterOutput() InstanceAssociationParameterOutput
+	ToInstanceAssociationParameterOutputWithContext(context.Context) InstanceAssociationParameterOutput
+}
+
+type InstanceAssociationParameterArgs struct {
+	Key   pulumi.StringInput      `pulumi:"key"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (InstanceAssociationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (i InstanceAssociationParameterArgs) ToInstanceAssociationParameterOutput() InstanceAssociationParameterOutput {
+	return i.ToInstanceAssociationParameterOutputWithContext(context.Background())
+}
+
+func (i InstanceAssociationParameterArgs) ToInstanceAssociationParameterOutputWithContext(ctx context.Context) InstanceAssociationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAssociationParameterOutput)
+}
+
+// InstanceAssociationParameterArrayInput is an input type that accepts InstanceAssociationParameterArray and InstanceAssociationParameterArrayOutput values.
+// You can construct a concrete instance of `InstanceAssociationParameterArrayInput` via:
+//
+//          InstanceAssociationParameterArray{ InstanceAssociationParameterArgs{...} }
+type InstanceAssociationParameterArrayInput interface {
+	pulumi.Input
+
+	ToInstanceAssociationParameterArrayOutput() InstanceAssociationParameterArrayOutput
+	ToInstanceAssociationParameterArrayOutputWithContext(context.Context) InstanceAssociationParameterArrayOutput
+}
+
+type InstanceAssociationParameterArray []InstanceAssociationParameterInput
+
+func (InstanceAssociationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (i InstanceAssociationParameterArray) ToInstanceAssociationParameterArrayOutput() InstanceAssociationParameterArrayOutput {
+	return i.ToInstanceAssociationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceAssociationParameterArray) ToInstanceAssociationParameterArrayOutputWithContext(ctx context.Context) InstanceAssociationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAssociationParameterArrayOutput)
+}
+
+type InstanceAssociationParameterOutput struct{ *pulumi.OutputState }
+
+func (InstanceAssociationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (o InstanceAssociationParameterOutput) ToInstanceAssociationParameterOutput() InstanceAssociationParameterOutput {
+	return o
+}
+
+func (o InstanceAssociationParameterOutput) ToInstanceAssociationParameterOutputWithContext(ctx context.Context) InstanceAssociationParameterOutput {
+	return o
+}
+
+func (o InstanceAssociationParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceAssociationParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o InstanceAssociationParameterOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstanceAssociationParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type InstanceAssociationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceAssociationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (o InstanceAssociationParameterArrayOutput) ToInstanceAssociationParameterArrayOutput() InstanceAssociationParameterArrayOutput {
+	return o
+}
+
+func (o InstanceAssociationParameterArrayOutput) ToInstanceAssociationParameterArrayOutputWithContext(ctx context.Context) InstanceAssociationParameterArrayOutput {
+	return o
+}
+
+func (o InstanceAssociationParameterArrayOutput) Index(i pulumi.IntInput) InstanceAssociationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceAssociationParameter {
+		return vs[0].([]InstanceAssociationParameter)[vs[1].(int)]
+	}).(InstanceAssociationParameterOutput)
+}
+
+type InstanceBlockDeviceMapping struct {
+	DeviceName  string            `pulumi:"deviceName"`
+	Ebs         *InstanceEbs      `pulumi:"ebs"`
+	NoDevice    *InstanceNoDevice `pulumi:"noDevice"`
+	VirtualName *string           `pulumi:"virtualName"`
+}
+
+// InstanceBlockDeviceMappingInput is an input type that accepts InstanceBlockDeviceMappingArgs and InstanceBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `InstanceBlockDeviceMappingInput` via:
+//
+//          InstanceBlockDeviceMappingArgs{...}
+type InstanceBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToInstanceBlockDeviceMappingOutput() InstanceBlockDeviceMappingOutput
+	ToInstanceBlockDeviceMappingOutputWithContext(context.Context) InstanceBlockDeviceMappingOutput
+}
+
+type InstanceBlockDeviceMappingArgs struct {
+	DeviceName  pulumi.StringInput       `pulumi:"deviceName"`
+	Ebs         InstanceEbsPtrInput      `pulumi:"ebs"`
+	NoDevice    InstanceNoDevicePtrInput `pulumi:"noDevice"`
+	VirtualName pulumi.StringPtrInput    `pulumi:"virtualName"`
+}
+
+func (InstanceBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i InstanceBlockDeviceMappingArgs) ToInstanceBlockDeviceMappingOutput() InstanceBlockDeviceMappingOutput {
+	return i.ToInstanceBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i InstanceBlockDeviceMappingArgs) ToInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlockDeviceMappingOutput)
+}
+
+// InstanceBlockDeviceMappingArrayInput is an input type that accepts InstanceBlockDeviceMappingArray and InstanceBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `InstanceBlockDeviceMappingArrayInput` via:
+//
+//          InstanceBlockDeviceMappingArray{ InstanceBlockDeviceMappingArgs{...} }
+type InstanceBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToInstanceBlockDeviceMappingArrayOutput() InstanceBlockDeviceMappingArrayOutput
+	ToInstanceBlockDeviceMappingArrayOutputWithContext(context.Context) InstanceBlockDeviceMappingArrayOutput
+}
+
+type InstanceBlockDeviceMappingArray []InstanceBlockDeviceMappingInput
+
+func (InstanceBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i InstanceBlockDeviceMappingArray) ToInstanceBlockDeviceMappingArrayOutput() InstanceBlockDeviceMappingArrayOutput {
+	return i.ToInstanceBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceBlockDeviceMappingArray) ToInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlockDeviceMappingArrayOutput)
+}
+
+type InstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (InstanceBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o InstanceBlockDeviceMappingOutput) ToInstanceBlockDeviceMappingOutput() InstanceBlockDeviceMappingOutput {
+	return o
+}
+
+func (o InstanceBlockDeviceMappingOutput) ToInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingOutput {
+	return o
+}
+
+func (o InstanceBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+func (o InstanceBlockDeviceMappingOutput) Ebs() InstanceEbsPtrOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceEbs { return v.Ebs }).(InstanceEbsPtrOutput)
+}
+
+func (o InstanceBlockDeviceMappingOutput) NoDevice() InstanceNoDevicePtrOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceNoDevice { return v.NoDevice }).(InstanceNoDevicePtrOutput)
+}
+
+func (o InstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type InstanceBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o InstanceBlockDeviceMappingArrayOutput) ToInstanceBlockDeviceMappingArrayOutput() InstanceBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o InstanceBlockDeviceMappingArrayOutput) ToInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o InstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) InstanceBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceBlockDeviceMapping {
+		return vs[0].([]InstanceBlockDeviceMapping)[vs[1].(int)]
+	}).(InstanceBlockDeviceMappingOutput)
+}
+
+type InstanceCpuOptions struct {
+	CoreCount      *int `pulumi:"coreCount"`
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// InstanceCpuOptionsInput is an input type that accepts InstanceCpuOptionsArgs and InstanceCpuOptionsOutput values.
+// You can construct a concrete instance of `InstanceCpuOptionsInput` via:
+//
+//          InstanceCpuOptionsArgs{...}
+type InstanceCpuOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput
+	ToInstanceCpuOptionsOutputWithContext(context.Context) InstanceCpuOptionsOutput
+}
+
+type InstanceCpuOptionsArgs struct {
+	CoreCount      pulumi.IntPtrInput `pulumi:"coreCount"`
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (InstanceCpuOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
+	return i.ToInstanceCpuOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput)
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput).ToInstanceCpuOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceCpuOptionsPtrInput is an input type that accepts InstanceCpuOptionsArgs, InstanceCpuOptionsPtr and InstanceCpuOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceCpuOptionsPtrInput` via:
+//
+//          InstanceCpuOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceCpuOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput
+	ToInstanceCpuOptionsPtrOutputWithContext(context.Context) InstanceCpuOptionsPtrOutput
+}
+
+type instanceCpuOptionsPtrType InstanceCpuOptionsArgs
+
+func InstanceCpuOptionsPtr(v *InstanceCpuOptionsArgs) InstanceCpuOptionsPtrInput {
+	return (*instanceCpuOptionsPtrType)(v)
+}
+
+func (*instanceCpuOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
+}
+
+func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsPtrOutput)
+}
+
+type InstanceCpuOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceCpuOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return o.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCpuOptions) *InstanceCpuOptions {
+		return &v
+	}).(InstanceCpuOptionsPtrOutput)
+}
+
+func (o InstanceCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type InstanceCpuOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceCpuOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
+}
+
+func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsPtrOutput) Elem() InstanceCpuOptionsOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) InstanceCpuOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCpuOptions
+		return ret
+	}).(InstanceCpuOptionsOutput)
+}
+
+func (o InstanceCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
+}
+
+type InstanceCreditSpecification struct {
+	CPUCredits *string `pulumi:"cPUCredits"`
+}
+
+// InstanceCreditSpecificationInput is an input type that accepts InstanceCreditSpecificationArgs and InstanceCreditSpecificationOutput values.
+// You can construct a concrete instance of `InstanceCreditSpecificationInput` via:
+//
+//          InstanceCreditSpecificationArgs{...}
+type InstanceCreditSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput
+	ToInstanceCreditSpecificationOutputWithContext(context.Context) InstanceCreditSpecificationOutput
+}
+
+type InstanceCreditSpecificationArgs struct {
+	CPUCredits pulumi.StringPtrInput `pulumi:"cPUCredits"`
+}
+
+func (InstanceCreditSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput {
+	return i.ToInstanceCreditSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationOutputWithContext(ctx context.Context) InstanceCreditSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationOutput)
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return i.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationOutput).ToInstanceCreditSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceCreditSpecificationPtrInput is an input type that accepts InstanceCreditSpecificationArgs, InstanceCreditSpecificationPtr and InstanceCreditSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceCreditSpecificationPtrInput` via:
+//
+//          InstanceCreditSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceCreditSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput
+	ToInstanceCreditSpecificationPtrOutputWithContext(context.Context) InstanceCreditSpecificationPtrOutput
+}
+
+type instanceCreditSpecificationPtrType InstanceCreditSpecificationArgs
+
+func InstanceCreditSpecificationPtr(v *InstanceCreditSpecificationArgs) InstanceCreditSpecificationPtrInput {
+	return (*instanceCreditSpecificationPtrType)(v)
+}
+
+func (*instanceCreditSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (i *instanceCreditSpecificationPtrType) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return i.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceCreditSpecificationPtrType) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationPtrOutput)
+}
+
+type InstanceCreditSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceCreditSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationOutputWithContext(ctx context.Context) InstanceCreditSpecificationOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return o.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCreditSpecification) *InstanceCreditSpecification {
+		return &v
+	}).(InstanceCreditSpecificationPtrOutput)
+}
+
+func (o InstanceCreditSpecificationOutput) CPUCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CPUCredits }).(pulumi.StringPtrOutput)
+}
+
+type InstanceCreditSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceCreditSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (o InstanceCreditSpecificationPtrOutput) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationPtrOutput) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecificationOutput {
+	return o.ApplyT(func(v *InstanceCreditSpecification) InstanceCreditSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCreditSpecification
+		return ret
+	}).(InstanceCreditSpecificationOutput)
+}
+
+func (o InstanceCreditSpecificationPtrOutput) CPUCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceCreditSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CPUCredits
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceEbs struct {
+	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
+	Encrypted           *bool   `pulumi:"encrypted"`
+	Iops                *int    `pulumi:"iops"`
+	KmsKeyId            *string `pulumi:"kmsKeyId"`
+	SnapshotId          *string `pulumi:"snapshotId"`
+	VolumeSize          *int    `pulumi:"volumeSize"`
+	VolumeType          *string `pulumi:"volumeType"`
+}
+
+// InstanceEbsInput is an input type that accepts InstanceEbsArgs and InstanceEbsOutput values.
+// You can construct a concrete instance of `InstanceEbsInput` via:
+//
+//          InstanceEbsArgs{...}
+type InstanceEbsInput interface {
+	pulumi.Input
+
+	ToInstanceEbsOutput() InstanceEbsOutput
+	ToInstanceEbsOutputWithContext(context.Context) InstanceEbsOutput
+}
+
+type InstanceEbsArgs struct {
+	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
+	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
+	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
+	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
+	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (InstanceEbsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEbs)(nil)).Elem()
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsOutput() InstanceEbsOutput {
+	return i.ToInstanceEbsOutputWithContext(context.Background())
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsOutputWithContext(ctx context.Context) InstanceEbsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsOutput)
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return i.ToInstanceEbsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsOutput).ToInstanceEbsPtrOutputWithContext(ctx)
+}
+
+// InstanceEbsPtrInput is an input type that accepts InstanceEbsArgs, InstanceEbsPtr and InstanceEbsPtrOutput values.
+// You can construct a concrete instance of `InstanceEbsPtrInput` via:
+//
+//          InstanceEbsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceEbsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEbsPtrOutput() InstanceEbsPtrOutput
+	ToInstanceEbsPtrOutputWithContext(context.Context) InstanceEbsPtrOutput
+}
+
+type instanceEbsPtrType InstanceEbsArgs
+
+func InstanceEbsPtr(v *InstanceEbsArgs) InstanceEbsPtrInput {
+	return (*instanceEbsPtrType)(v)
+}
+
+func (*instanceEbsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEbs)(nil)).Elem()
+}
+
+func (i *instanceEbsPtrType) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return i.ToInstanceEbsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEbsPtrType) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsPtrOutput)
+}
+
+type InstanceEbsOutput struct{ *pulumi.OutputState }
+
+func (InstanceEbsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEbs)(nil)).Elem()
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsOutput() InstanceEbsOutput {
+	return o
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsOutputWithContext(ctx context.Context) InstanceEbsOutput {
+	return o
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return o.ToInstanceEbsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEbs) *InstanceEbs {
+		return &v
+	}).(InstanceEbsPtrOutput)
+}
+
+func (o InstanceEbsOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceEbsOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceEbsOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceEbsOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceEbsOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceEbsOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type InstanceEbsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEbsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEbs)(nil)).Elem()
+}
+
+func (o InstanceEbsPtrOutput) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return o
+}
+
+func (o InstanceEbsPtrOutput) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return o
+}
+
+func (o InstanceEbsPtrOutput) Elem() InstanceEbsOutput {
+	return o.ApplyT(func(v *InstanceEbs) InstanceEbs {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEbs
+		return ret
+	}).(InstanceEbsOutput)
+}
+
+func (o InstanceEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceEbsPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceElasticGpuSpecification struct {
+	Type string `pulumi:"type"`
+}
+
+// InstanceElasticGpuSpecificationInput is an input type that accepts InstanceElasticGpuSpecificationArgs and InstanceElasticGpuSpecificationOutput values.
+// You can construct a concrete instance of `InstanceElasticGpuSpecificationInput` via:
+//
+//          InstanceElasticGpuSpecificationArgs{...}
+type InstanceElasticGpuSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceElasticGpuSpecificationOutput() InstanceElasticGpuSpecificationOutput
+	ToInstanceElasticGpuSpecificationOutputWithContext(context.Context) InstanceElasticGpuSpecificationOutput
+}
+
+type InstanceElasticGpuSpecificationArgs struct {
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (InstanceElasticGpuSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i InstanceElasticGpuSpecificationArgs) ToInstanceElasticGpuSpecificationOutput() InstanceElasticGpuSpecificationOutput {
+	return i.ToInstanceElasticGpuSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticGpuSpecificationArgs) ToInstanceElasticGpuSpecificationOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticGpuSpecificationOutput)
+}
+
+// InstanceElasticGpuSpecificationArrayInput is an input type that accepts InstanceElasticGpuSpecificationArray and InstanceElasticGpuSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstanceElasticGpuSpecificationArrayInput` via:
+//
+//          InstanceElasticGpuSpecificationArray{ InstanceElasticGpuSpecificationArgs{...} }
+type InstanceElasticGpuSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceElasticGpuSpecificationArrayOutput() InstanceElasticGpuSpecificationArrayOutput
+	ToInstanceElasticGpuSpecificationArrayOutputWithContext(context.Context) InstanceElasticGpuSpecificationArrayOutput
+}
+
+type InstanceElasticGpuSpecificationArray []InstanceElasticGpuSpecificationInput
+
+func (InstanceElasticGpuSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i InstanceElasticGpuSpecificationArray) ToInstanceElasticGpuSpecificationArrayOutput() InstanceElasticGpuSpecificationArrayOutput {
+	return i.ToInstanceElasticGpuSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticGpuSpecificationArray) ToInstanceElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticGpuSpecificationArrayOutput)
+}
+
+type InstanceElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticGpuSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o InstanceElasticGpuSpecificationOutput) ToInstanceElasticGpuSpecificationOutput() InstanceElasticGpuSpecificationOutput {
+	return o
+}
+
+func (o InstanceElasticGpuSpecificationOutput) ToInstanceElasticGpuSpecificationOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationOutput {
+	return o
+}
+
+func (o InstanceElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type InstanceElasticGpuSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticGpuSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o InstanceElasticGpuSpecificationArrayOutput) ToInstanceElasticGpuSpecificationArrayOutput() InstanceElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceElasticGpuSpecificationArrayOutput) ToInstanceElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceElasticGpuSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceElasticGpuSpecification {
+		return vs[0].([]InstanceElasticGpuSpecification)[vs[1].(int)]
+	}).(InstanceElasticGpuSpecificationOutput)
+}
+
+type InstanceElasticInferenceAccelerator struct {
+	Count *int   `pulumi:"count"`
+	Type  string `pulumi:"type"`
+}
+
+// InstanceElasticInferenceAcceleratorInput is an input type that accepts InstanceElasticInferenceAcceleratorArgs and InstanceElasticInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `InstanceElasticInferenceAcceleratorInput` via:
+//
+//          InstanceElasticInferenceAcceleratorArgs{...}
+type InstanceElasticInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToInstanceElasticInferenceAcceleratorOutput() InstanceElasticInferenceAcceleratorOutput
+	ToInstanceElasticInferenceAcceleratorOutputWithContext(context.Context) InstanceElasticInferenceAcceleratorOutput
+}
+
+type InstanceElasticInferenceAcceleratorArgs struct {
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	Type  pulumi.StringInput `pulumi:"type"`
+}
+
+func (InstanceElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i InstanceElasticInferenceAcceleratorArgs) ToInstanceElasticInferenceAcceleratorOutput() InstanceElasticInferenceAcceleratorOutput {
+	return i.ToInstanceElasticInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticInferenceAcceleratorArgs) ToInstanceElasticInferenceAcceleratorOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticInferenceAcceleratorOutput)
+}
+
+// InstanceElasticInferenceAcceleratorArrayInput is an input type that accepts InstanceElasticInferenceAcceleratorArray and InstanceElasticInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `InstanceElasticInferenceAcceleratorArrayInput` via:
+//
+//          InstanceElasticInferenceAcceleratorArray{ InstanceElasticInferenceAcceleratorArgs{...} }
+type InstanceElasticInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToInstanceElasticInferenceAcceleratorArrayOutput() InstanceElasticInferenceAcceleratorArrayOutput
+	ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(context.Context) InstanceElasticInferenceAcceleratorArrayOutput
+}
+
+type InstanceElasticInferenceAcceleratorArray []InstanceElasticInferenceAcceleratorInput
+
+func (InstanceElasticInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i InstanceElasticInferenceAcceleratorArray) ToInstanceElasticInferenceAcceleratorArrayOutput() InstanceElasticInferenceAcceleratorArrayOutput {
+	return i.ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticInferenceAcceleratorArray) ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticInferenceAcceleratorArrayOutput)
+}
+
+type InstanceElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o InstanceElasticInferenceAcceleratorOutput) ToInstanceElasticInferenceAcceleratorOutput() InstanceElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o InstanceElasticInferenceAcceleratorOutput) ToInstanceElasticInferenceAcceleratorOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o InstanceElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type InstanceElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o InstanceElasticInferenceAcceleratorArrayOutput) ToInstanceElasticInferenceAcceleratorArrayOutput() InstanceElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o InstanceElasticInferenceAcceleratorArrayOutput) ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o InstanceElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) InstanceElasticInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceElasticInferenceAccelerator {
+		return vs[0].([]InstanceElasticInferenceAccelerator)[vs[1].(int)]
+	}).(InstanceElasticInferenceAcceleratorOutput)
+}
+
+type InstanceEnclaveOptions struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// InstanceEnclaveOptionsInput is an input type that accepts InstanceEnclaveOptionsArgs and InstanceEnclaveOptionsOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+type InstanceEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput
+	ToInstanceEnclaveOptionsOutputWithContext(context.Context) InstanceEnclaveOptionsOutput
+}
+
+type InstanceEnclaveOptionsArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (InstanceEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return i.ToInstanceEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput)
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput).ToInstanceEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceEnclaveOptionsPtrInput is an input type that accepts InstanceEnclaveOptionsArgs, InstanceEnclaveOptionsPtr and InstanceEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsPtrInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput
+	ToInstanceEnclaveOptionsPtrOutputWithContext(context.Context) InstanceEnclaveOptionsPtrOutput
+}
+
+type instanceEnclaveOptionsPtrType InstanceEnclaveOptionsArgs
+
+func InstanceEnclaveOptionsPtr(v *InstanceEnclaveOptionsArgs) InstanceEnclaveOptionsPtrInput {
+	return (*instanceEnclaveOptionsPtrType)(v)
+}
+
+func (*instanceEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsPtrOutput)
+}
+
+type InstanceEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEnclaveOptions) *InstanceEnclaveOptions {
+		return &v
+	}).(InstanceEnclaveOptionsPtrOutput)
+}
+
+func (o InstanceEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) Elem() InstanceEnclaveOptionsOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEnclaveOptions
+		return ret
+	}).(InstanceEnclaveOptionsOutput)
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type InstanceHibernationOptions struct {
+	Configured *bool `pulumi:"configured"`
+}
+
+// InstanceHibernationOptionsInput is an input type that accepts InstanceHibernationOptionsArgs and InstanceHibernationOptionsOutput values.
+// You can construct a concrete instance of `InstanceHibernationOptionsInput` via:
+//
+//          InstanceHibernationOptionsArgs{...}
+type InstanceHibernationOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput
+	ToInstanceHibernationOptionsOutputWithContext(context.Context) InstanceHibernationOptionsOutput
+}
+
+type InstanceHibernationOptionsArgs struct {
+	Configured pulumi.BoolPtrInput `pulumi:"configured"`
+}
+
+func (InstanceHibernationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput {
+	return i.ToInstanceHibernationOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsOutputWithContext(ctx context.Context) InstanceHibernationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsOutput)
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return i.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsOutput).ToInstanceHibernationOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceHibernationOptionsPtrInput is an input type that accepts InstanceHibernationOptionsArgs, InstanceHibernationOptionsPtr and InstanceHibernationOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceHibernationOptionsPtrInput` via:
+//
+//          InstanceHibernationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceHibernationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput
+	ToInstanceHibernationOptionsPtrOutputWithContext(context.Context) InstanceHibernationOptionsPtrOutput
+}
+
+type instanceHibernationOptionsPtrType InstanceHibernationOptionsArgs
+
+func InstanceHibernationOptionsPtr(v *InstanceHibernationOptionsArgs) InstanceHibernationOptionsPtrInput {
+	return (*instanceHibernationOptionsPtrType)(v)
+}
+
+func (*instanceHibernationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (i *instanceHibernationOptionsPtrType) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return i.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceHibernationOptionsPtrType) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsPtrOutput)
+}
+
+type InstanceHibernationOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceHibernationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsOutputWithContext(ctx context.Context) InstanceHibernationOptionsOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return o.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceHibernationOptions) *InstanceHibernationOptions {
+		return &v
+	}).(InstanceHibernationOptionsPtrOutput)
+}
+
+func (o InstanceHibernationOptionsOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceHibernationOptions) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceHibernationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceHibernationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (o InstanceHibernationOptionsPtrOutput) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsPtrOutput) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsPtrOutput) Elem() InstanceHibernationOptionsOutput {
+	return o.ApplyT(func(v *InstanceHibernationOptions) InstanceHibernationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceHibernationOptions
+		return ret
+	}).(InstanceHibernationOptionsOutput)
+}
+
+func (o InstanceHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceHibernationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Configured
+	}).(pulumi.BoolPtrOutput)
+}
+
+type InstanceInstanceIpv6Address struct {
+	Ipv6Address string `pulumi:"ipv6Address"`
+}
+
+// InstanceInstanceIpv6AddressInput is an input type that accepts InstanceInstanceIpv6AddressArgs and InstanceInstanceIpv6AddressOutput values.
+// You can construct a concrete instance of `InstanceInstanceIpv6AddressInput` via:
+//
+//          InstanceInstanceIpv6AddressArgs{...}
+type InstanceInstanceIpv6AddressInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput
+	ToInstanceInstanceIpv6AddressOutputWithContext(context.Context) InstanceInstanceIpv6AddressOutput
+}
+
+type InstanceInstanceIpv6AddressArgs struct {
+	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
+}
+
+func (InstanceInstanceIpv6AddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i InstanceInstanceIpv6AddressArgs) ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput {
+	return i.ToInstanceInstanceIpv6AddressOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceIpv6AddressArgs) ToInstanceInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceIpv6AddressOutput)
+}
+
+// InstanceInstanceIpv6AddressArrayInput is an input type that accepts InstanceInstanceIpv6AddressArray and InstanceInstanceIpv6AddressArrayOutput values.
+// You can construct a concrete instance of `InstanceInstanceIpv6AddressArrayInput` via:
+//
+//          InstanceInstanceIpv6AddressArray{ InstanceInstanceIpv6AddressArgs{...} }
+type InstanceInstanceIpv6AddressArrayInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput
+	ToInstanceInstanceIpv6AddressArrayOutputWithContext(context.Context) InstanceInstanceIpv6AddressArrayOutput
+}
+
+type InstanceInstanceIpv6AddressArray []InstanceInstanceIpv6AddressInput
+
+func (InstanceInstanceIpv6AddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i InstanceInstanceIpv6AddressArray) ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput {
+	return i.ToInstanceInstanceIpv6AddressArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceIpv6AddressArray) ToInstanceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceIpv6AddressArrayOutput)
+}
+
+type InstanceInstanceIpv6AddressOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceIpv6AddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o InstanceInstanceIpv6AddressOutput) ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput {
+	return o
+}
+
+func (o InstanceInstanceIpv6AddressOutput) ToInstanceInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressOutput {
+	return o
+}
+
+func (o InstanceInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
+}
+
+type InstanceInstanceIpv6AddressArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceIpv6AddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o InstanceInstanceIpv6AddressArrayOutput) ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o InstanceInstanceIpv6AddressArrayOutput) ToInstanceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o InstanceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) InstanceInstanceIpv6AddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceInstanceIpv6Address {
+		return vs[0].([]InstanceInstanceIpv6Address)[vs[1].(int)]
+	}).(InstanceInstanceIpv6AddressOutput)
+}
+
+type InstanceLaunchTemplateSpecification struct {
+	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	Version            string  `pulumi:"version"`
+}
+
+// InstanceLaunchTemplateSpecificationInput is an input type that accepts InstanceLaunchTemplateSpecificationArgs and InstanceLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `InstanceLaunchTemplateSpecificationInput` via:
+//
+//          InstanceLaunchTemplateSpecificationArgs{...}
+type InstanceLaunchTemplateSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceLaunchTemplateSpecificationOutput() InstanceLaunchTemplateSpecificationOutput
+	ToInstanceLaunchTemplateSpecificationOutputWithContext(context.Context) InstanceLaunchTemplateSpecificationOutput
+}
+
+type InstanceLaunchTemplateSpecificationArgs struct {
+	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	Version            pulumi.StringInput    `pulumi:"version"`
+}
+
+func (InstanceLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationOutput() InstanceLaunchTemplateSpecificationOutput {
+	return i.ToInstanceLaunchTemplateSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateSpecificationOutput)
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return i.ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateSpecificationOutput).ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceLaunchTemplateSpecificationPtrInput is an input type that accepts InstanceLaunchTemplateSpecificationArgs, InstanceLaunchTemplateSpecificationPtr and InstanceLaunchTemplateSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceLaunchTemplateSpecificationPtrInput` via:
+//
+//          InstanceLaunchTemplateSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceLaunchTemplateSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput
+	ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Context) InstanceLaunchTemplateSpecificationPtrOutput
+}
+
+type instanceLaunchTemplateSpecificationPtrType InstanceLaunchTemplateSpecificationArgs
+
+func InstanceLaunchTemplateSpecificationPtr(v *InstanceLaunchTemplateSpecificationArgs) InstanceLaunchTemplateSpecificationPtrInput {
+	return (*instanceLaunchTemplateSpecificationPtrType)(v)
+}
+
+func (*instanceLaunchTemplateSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i *instanceLaunchTemplateSpecificationPtrType) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return i.ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceLaunchTemplateSpecificationPtrType) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateSpecificationPtrOutput)
+}
+
+type InstanceLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationOutput() InstanceLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return o.ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLaunchTemplateSpecification) *InstanceLaunchTemplateSpecification {
+		return &v
+	}).(InstanceLaunchTemplateSpecificationPtrOutput)
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type InstanceLaunchTemplateSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceLaunchTemplateSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) Elem() InstanceLaunchTemplateSpecificationOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) InstanceLaunchTemplateSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceLaunchTemplateSpecification
+		return ret
+	}).(InstanceLaunchTemplateSpecificationOutput)
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type InstanceLicenseSpecification struct {
+	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
+}
+
+// InstanceLicenseSpecificationInput is an input type that accepts InstanceLicenseSpecificationArgs and InstanceLicenseSpecificationOutput values.
+// You can construct a concrete instance of `InstanceLicenseSpecificationInput` via:
+//
+//          InstanceLicenseSpecificationArgs{...}
+type InstanceLicenseSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceLicenseSpecificationOutput() InstanceLicenseSpecificationOutput
+	ToInstanceLicenseSpecificationOutputWithContext(context.Context) InstanceLicenseSpecificationOutput
+}
+
+type InstanceLicenseSpecificationArgs struct {
+	LicenseConfigurationArn pulumi.StringInput `pulumi:"licenseConfigurationArn"`
+}
+
+func (InstanceLicenseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (i InstanceLicenseSpecificationArgs) ToInstanceLicenseSpecificationOutput() InstanceLicenseSpecificationOutput {
+	return i.ToInstanceLicenseSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceLicenseSpecificationArgs) ToInstanceLicenseSpecificationOutputWithContext(ctx context.Context) InstanceLicenseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLicenseSpecificationOutput)
+}
+
+// InstanceLicenseSpecificationArrayInput is an input type that accepts InstanceLicenseSpecificationArray and InstanceLicenseSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstanceLicenseSpecificationArrayInput` via:
+//
+//          InstanceLicenseSpecificationArray{ InstanceLicenseSpecificationArgs{...} }
+type InstanceLicenseSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceLicenseSpecificationArrayOutput() InstanceLicenseSpecificationArrayOutput
+	ToInstanceLicenseSpecificationArrayOutputWithContext(context.Context) InstanceLicenseSpecificationArrayOutput
+}
+
+type InstanceLicenseSpecificationArray []InstanceLicenseSpecificationInput
+
+func (InstanceLicenseSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (i InstanceLicenseSpecificationArray) ToInstanceLicenseSpecificationArrayOutput() InstanceLicenseSpecificationArrayOutput {
+	return i.ToInstanceLicenseSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceLicenseSpecificationArray) ToInstanceLicenseSpecificationArrayOutputWithContext(ctx context.Context) InstanceLicenseSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLicenseSpecificationArrayOutput)
+}
+
+type InstanceLicenseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceLicenseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (o InstanceLicenseSpecificationOutput) ToInstanceLicenseSpecificationOutput() InstanceLicenseSpecificationOutput {
+	return o
+}
+
+func (o InstanceLicenseSpecificationOutput) ToInstanceLicenseSpecificationOutputWithContext(ctx context.Context) InstanceLicenseSpecificationOutput {
+	return o
+}
+
+func (o InstanceLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceLicenseSpecification) string { return v.LicenseConfigurationArn }).(pulumi.StringOutput)
+}
+
+type InstanceLicenseSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceLicenseSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (o InstanceLicenseSpecificationArrayOutput) ToInstanceLicenseSpecificationArrayOutput() InstanceLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceLicenseSpecificationArrayOutput) ToInstanceLicenseSpecificationArrayOutputWithContext(ctx context.Context) InstanceLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceLicenseSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceLicenseSpecification {
+		return vs[0].([]InstanceLicenseSpecification)[vs[1].(int)]
+	}).(InstanceLicenseSpecificationOutput)
+}
+
+type InstanceNetworkInterface struct {
+	AssociatePublicIpAddress       *bool                                   `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            *bool                                   `pulumi:"deleteOnTermination"`
+	Description                    *string                                 `pulumi:"description"`
+	DeviceIndex                    string                                  `pulumi:"deviceIndex"`
+	GroupSet                       []string                                `pulumi:"groupSet"`
+	Ipv6AddressCount               *int                                    `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  []InstanceInstanceIpv6Address           `pulumi:"ipv6Addresses"`
+	NetworkInterfaceId             *string                                 `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               *string                                 `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             []InstancePrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount *int                                    `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       *string                                 `pulumi:"subnetId"`
+}
+
+// InstanceNetworkInterfaceInput is an input type that accepts InstanceNetworkInterfaceArgs and InstanceNetworkInterfaceOutput values.
+// You can construct a concrete instance of `InstanceNetworkInterfaceInput` via:
+//
+//          InstanceNetworkInterfaceArgs{...}
+type InstanceNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToInstanceNetworkInterfaceOutput() InstanceNetworkInterfaceOutput
+	ToInstanceNetworkInterfaceOutputWithContext(context.Context) InstanceNetworkInterfaceOutput
+}
+
+type InstanceNetworkInterfaceArgs struct {
+	AssociatePublicIpAddress       pulumi.BoolPtrInput                             `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            pulumi.BoolPtrInput                             `pulumi:"deleteOnTermination"`
+	Description                    pulumi.StringPtrInput                           `pulumi:"description"`
+	DeviceIndex                    pulumi.StringInput                              `pulumi:"deviceIndex"`
+	GroupSet                       pulumi.StringArrayInput                         `pulumi:"groupSet"`
+	Ipv6AddressCount               pulumi.IntPtrInput                              `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  InstanceInstanceIpv6AddressArrayInput           `pulumi:"ipv6Addresses"`
+	NetworkInterfaceId             pulumi.StringPtrInput                           `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               pulumi.StringPtrInput                           `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             InstancePrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                              `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       pulumi.StringPtrInput                           `pulumi:"subnetId"`
+}
+
+func (InstanceNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (i InstanceNetworkInterfaceArgs) ToInstanceNetworkInterfaceOutput() InstanceNetworkInterfaceOutput {
+	return i.ToInstanceNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i InstanceNetworkInterfaceArgs) ToInstanceNetworkInterfaceOutputWithContext(ctx context.Context) InstanceNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNetworkInterfaceOutput)
+}
+
+// InstanceNetworkInterfaceArrayInput is an input type that accepts InstanceNetworkInterfaceArray and InstanceNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `InstanceNetworkInterfaceArrayInput` via:
+//
+//          InstanceNetworkInterfaceArray{ InstanceNetworkInterfaceArgs{...} }
+type InstanceNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToInstanceNetworkInterfaceArrayOutput() InstanceNetworkInterfaceArrayOutput
+	ToInstanceNetworkInterfaceArrayOutputWithContext(context.Context) InstanceNetworkInterfaceArrayOutput
+}
+
+type InstanceNetworkInterfaceArray []InstanceNetworkInterfaceInput
+
+func (InstanceNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (i InstanceNetworkInterfaceArray) ToInstanceNetworkInterfaceArrayOutput() InstanceNetworkInterfaceArrayOutput {
+	return i.ToInstanceNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceNetworkInterfaceArray) ToInstanceNetworkInterfaceArrayOutputWithContext(ctx context.Context) InstanceNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNetworkInterfaceArrayOutput)
+}
+
+type InstanceNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (InstanceNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutput() InstanceNetworkInterfaceOutput {
+	return o
+}
+
+func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutputWithContext(ctx context.Context) InstanceNetworkInterfaceOutput {
+	return o
+}
+
+func (o InstanceNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) DeviceIndex() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) string { return v.DeviceIndex }).(pulumi.StringOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) GroupSet() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) []string { return v.GroupSet }).(pulumi.StringArrayOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) Ipv6Addresses() InstanceInstanceIpv6AddressArrayOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) []InstanceInstanceIpv6Address { return v.Ipv6Addresses }).(InstanceInstanceIpv6AddressArrayOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) PrivateIpAddresses() InstancePrivateIpAddressSpecificationArrayOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) []InstancePrivateIpAddressSpecification { return v.PrivateIpAddresses }).(InstancePrivateIpAddressSpecificationArrayOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o InstanceNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type InstanceNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (o InstanceNetworkInterfaceArrayOutput) ToInstanceNetworkInterfaceArrayOutput() InstanceNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o InstanceNetworkInterfaceArrayOutput) ToInstanceNetworkInterfaceArrayOutputWithContext(ctx context.Context) InstanceNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o InstanceNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) InstanceNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceNetworkInterface {
+		return vs[0].([]InstanceNetworkInterface)[vs[1].(int)]
+	}).(InstanceNetworkInterfaceOutput)
+}
+
+type InstanceNoDevice struct {
+}
+
+// InstanceNoDeviceInput is an input type that accepts InstanceNoDeviceArgs and InstanceNoDeviceOutput values.
+// You can construct a concrete instance of `InstanceNoDeviceInput` via:
+//
+//          InstanceNoDeviceArgs{...}
+type InstanceNoDeviceInput interface {
+	pulumi.Input
+
+	ToInstanceNoDeviceOutput() InstanceNoDeviceOutput
+	ToInstanceNoDeviceOutputWithContext(context.Context) InstanceNoDeviceOutput
+}
+
+type InstanceNoDeviceArgs struct {
+}
+
+func (InstanceNoDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
+	return i.ToInstanceNoDeviceOutputWithContext(context.Background())
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput)
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput).ToInstanceNoDevicePtrOutputWithContext(ctx)
+}
+
+// InstanceNoDevicePtrInput is an input type that accepts InstanceNoDeviceArgs, InstanceNoDevicePtr and InstanceNoDevicePtrOutput values.
+// You can construct a concrete instance of `InstanceNoDevicePtrInput` via:
+//
+//          InstanceNoDeviceArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceNoDevicePtrInput interface {
+	pulumi.Input
+
+	ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput
+	ToInstanceNoDevicePtrOutputWithContext(context.Context) InstanceNoDevicePtrOutput
+}
+
+type instanceNoDevicePtrType InstanceNoDeviceArgs
+
+func InstanceNoDevicePtr(v *InstanceNoDeviceArgs) InstanceNoDevicePtrInput {
+	return (*instanceNoDevicePtrType)(v)
+}
+
+func (*instanceNoDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
+}
+
+func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDevicePtrOutput)
+}
+
+type InstanceNoDeviceOutput struct{ *pulumi.OutputState }
+
+func (InstanceNoDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
+	return o
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
+	return o
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return o.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceNoDevice) *InstanceNoDevice {
+		return &v
+	}).(InstanceNoDevicePtrOutput)
+}
+
+type InstanceNoDevicePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceNoDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
+}
+
+func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return o
+}
+
+func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return o
+}
+
+func (o InstanceNoDevicePtrOutput) Elem() InstanceNoDeviceOutput {
+	return o.ApplyT(func(v *InstanceNoDevice) InstanceNoDevice {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceNoDevice
+		return ret
+	}).(InstanceNoDeviceOutput)
+}
+
+type InstancePrivateIpAddressSpecification struct {
+	Primary          bool   `pulumi:"primary"`
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+}
+
+// InstancePrivateIpAddressSpecificationInput is an input type that accepts InstancePrivateIpAddressSpecificationArgs and InstancePrivateIpAddressSpecificationOutput values.
+// You can construct a concrete instance of `InstancePrivateIpAddressSpecificationInput` via:
+//
+//          InstancePrivateIpAddressSpecificationArgs{...}
+type InstancePrivateIpAddressSpecificationInput interface {
+	pulumi.Input
+
+	ToInstancePrivateIpAddressSpecificationOutput() InstancePrivateIpAddressSpecificationOutput
+	ToInstancePrivateIpAddressSpecificationOutputWithContext(context.Context) InstancePrivateIpAddressSpecificationOutput
+}
+
+type InstancePrivateIpAddressSpecificationArgs struct {
+	Primary          pulumi.BoolInput   `pulumi:"primary"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+}
+
+func (InstancePrivateIpAddressSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i InstancePrivateIpAddressSpecificationArgs) ToInstancePrivateIpAddressSpecificationOutput() InstancePrivateIpAddressSpecificationOutput {
+	return i.ToInstancePrivateIpAddressSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateIpAddressSpecificationArgs) ToInstancePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateIpAddressSpecificationOutput)
+}
+
+// InstancePrivateIpAddressSpecificationArrayInput is an input type that accepts InstancePrivateIpAddressSpecificationArray and InstancePrivateIpAddressSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstancePrivateIpAddressSpecificationArrayInput` via:
+//
+//          InstancePrivateIpAddressSpecificationArray{ InstancePrivateIpAddressSpecificationArgs{...} }
+type InstancePrivateIpAddressSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstancePrivateIpAddressSpecificationArrayOutput() InstancePrivateIpAddressSpecificationArrayOutput
+	ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(context.Context) InstancePrivateIpAddressSpecificationArrayOutput
+}
+
+type InstancePrivateIpAddressSpecificationArray []InstancePrivateIpAddressSpecificationInput
+
+func (InstancePrivateIpAddressSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i InstancePrivateIpAddressSpecificationArray) ToInstancePrivateIpAddressSpecificationArrayOutput() InstancePrivateIpAddressSpecificationArrayOutput {
+	return i.ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateIpAddressSpecificationArray) ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateIpAddressSpecificationArrayOutput)
+}
+
+type InstancePrivateIpAddressSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateIpAddressSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o InstancePrivateIpAddressSpecificationOutput) ToInstancePrivateIpAddressSpecificationOutput() InstancePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+func (o InstancePrivateIpAddressSpecificationOutput) ToInstancePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+func (o InstancePrivateIpAddressSpecificationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v InstancePrivateIpAddressSpecification) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+func (o InstancePrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v InstancePrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+type InstancePrivateIpAddressSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateIpAddressSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o InstancePrivateIpAddressSpecificationArrayOutput) ToInstancePrivateIpAddressSpecificationArrayOutput() InstancePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o InstancePrivateIpAddressSpecificationArrayOutput) ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o InstancePrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInput) InstancePrivateIpAddressSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstancePrivateIpAddressSpecification {
+		return vs[0].([]InstancePrivateIpAddressSpecification)[vs[1].(int)]
+	}).(InstancePrivateIpAddressSpecificationOutput)
+}
+
+type InstanceSsmAssociation struct {
+	AssociationParameters []InstanceAssociationParameter `pulumi:"associationParameters"`
+	DocumentName          string                         `pulumi:"documentName"`
+}
+
+// InstanceSsmAssociationInput is an input type that accepts InstanceSsmAssociationArgs and InstanceSsmAssociationOutput values.
+// You can construct a concrete instance of `InstanceSsmAssociationInput` via:
+//
+//          InstanceSsmAssociationArgs{...}
+type InstanceSsmAssociationInput interface {
+	pulumi.Input
+
+	ToInstanceSsmAssociationOutput() InstanceSsmAssociationOutput
+	ToInstanceSsmAssociationOutputWithContext(context.Context) InstanceSsmAssociationOutput
+}
+
+type InstanceSsmAssociationArgs struct {
+	AssociationParameters InstanceAssociationParameterArrayInput `pulumi:"associationParameters"`
+	DocumentName          pulumi.StringInput                     `pulumi:"documentName"`
+}
+
+func (InstanceSsmAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (i InstanceSsmAssociationArgs) ToInstanceSsmAssociationOutput() InstanceSsmAssociationOutput {
+	return i.ToInstanceSsmAssociationOutputWithContext(context.Background())
+}
+
+func (i InstanceSsmAssociationArgs) ToInstanceSsmAssociationOutputWithContext(ctx context.Context) InstanceSsmAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceSsmAssociationOutput)
+}
+
+// InstanceSsmAssociationArrayInput is an input type that accepts InstanceSsmAssociationArray and InstanceSsmAssociationArrayOutput values.
+// You can construct a concrete instance of `InstanceSsmAssociationArrayInput` via:
+//
+//          InstanceSsmAssociationArray{ InstanceSsmAssociationArgs{...} }
+type InstanceSsmAssociationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceSsmAssociationArrayOutput() InstanceSsmAssociationArrayOutput
+	ToInstanceSsmAssociationArrayOutputWithContext(context.Context) InstanceSsmAssociationArrayOutput
+}
+
+type InstanceSsmAssociationArray []InstanceSsmAssociationInput
+
+func (InstanceSsmAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (i InstanceSsmAssociationArray) ToInstanceSsmAssociationArrayOutput() InstanceSsmAssociationArrayOutput {
+	return i.ToInstanceSsmAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceSsmAssociationArray) ToInstanceSsmAssociationArrayOutputWithContext(ctx context.Context) InstanceSsmAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceSsmAssociationArrayOutput)
+}
+
+type InstanceSsmAssociationOutput struct{ *pulumi.OutputState }
+
+func (InstanceSsmAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (o InstanceSsmAssociationOutput) ToInstanceSsmAssociationOutput() InstanceSsmAssociationOutput {
+	return o
+}
+
+func (o InstanceSsmAssociationOutput) ToInstanceSsmAssociationOutputWithContext(ctx context.Context) InstanceSsmAssociationOutput {
+	return o
+}
+
+func (o InstanceSsmAssociationOutput) AssociationParameters() InstanceAssociationParameterArrayOutput {
+	return o.ApplyT(func(v InstanceSsmAssociation) []InstanceAssociationParameter { return v.AssociationParameters }).(InstanceAssociationParameterArrayOutput)
+}
+
+func (o InstanceSsmAssociationOutput) DocumentName() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceSsmAssociation) string { return v.DocumentName }).(pulumi.StringOutput)
+}
+
+type InstanceSsmAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceSsmAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (o InstanceSsmAssociationArrayOutput) ToInstanceSsmAssociationArrayOutput() InstanceSsmAssociationArrayOutput {
+	return o
+}
+
+func (o InstanceSsmAssociationArrayOutput) ToInstanceSsmAssociationArrayOutputWithContext(ctx context.Context) InstanceSsmAssociationArrayOutput {
+	return o
+}
+
+func (o InstanceSsmAssociationArrayOutput) Index(i pulumi.IntInput) InstanceSsmAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceSsmAssociation {
+		return vs[0].([]InstanceSsmAssociation)[vs[1].(int)]
+	}).(InstanceSsmAssociationOutput)
+}
+
+type InstanceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// InstanceTagInput is an input type that accepts InstanceTagArgs and InstanceTagOutput values.
+// You can construct a concrete instance of `InstanceTagInput` via:
+//
+//          InstanceTagArgs{...}
+type InstanceTagInput interface {
+	pulumi.Input
+
+	ToInstanceTagOutput() InstanceTagOutput
+	ToInstanceTagOutputWithContext(context.Context) InstanceTagOutput
+}
+
+type InstanceTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InstanceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceTag)(nil)).Elem()
+}
+
+func (i InstanceTagArgs) ToInstanceTagOutput() InstanceTagOutput {
+	return i.ToInstanceTagOutputWithContext(context.Background())
+}
+
+func (i InstanceTagArgs) ToInstanceTagOutputWithContext(ctx context.Context) InstanceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceTagOutput)
+}
+
+// InstanceTagArrayInput is an input type that accepts InstanceTagArray and InstanceTagArrayOutput values.
+// You can construct a concrete instance of `InstanceTagArrayInput` via:
+//
+//          InstanceTagArray{ InstanceTagArgs{...} }
+type InstanceTagArrayInput interface {
+	pulumi.Input
+
+	ToInstanceTagArrayOutput() InstanceTagArrayOutput
+	ToInstanceTagArrayOutputWithContext(context.Context) InstanceTagArrayOutput
+}
+
+type InstanceTagArray []InstanceTagInput
+
+func (InstanceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceTag)(nil)).Elem()
+}
+
+func (i InstanceTagArray) ToInstanceTagArrayOutput() InstanceTagArrayOutput {
+	return i.ToInstanceTagArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceTagArray) ToInstanceTagArrayOutputWithContext(ctx context.Context) InstanceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceTagArrayOutput)
+}
+
+type InstanceTagOutput struct{ *pulumi.OutputState }
+
+func (InstanceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceTag)(nil)).Elem()
+}
+
+func (o InstanceTagOutput) ToInstanceTagOutput() InstanceTagOutput {
+	return o
+}
+
+func (o InstanceTagOutput) ToInstanceTagOutputWithContext(ctx context.Context) InstanceTagOutput {
+	return o
+}
+
+func (o InstanceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o InstanceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InstanceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceTag)(nil)).Elem()
+}
+
+func (o InstanceTagArrayOutput) ToInstanceTagArrayOutput() InstanceTagArrayOutput {
+	return o
+}
+
+func (o InstanceTagArrayOutput) ToInstanceTagArrayOutputWithContext(ctx context.Context) InstanceTagArrayOutput {
+	return o
+}
+
+func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceTag {
+		return vs[0].([]InstanceTag)[vs[1].(int)]
+	}).(InstanceTagOutput)
+}
+
+type InstanceVolume struct {
+	Device   string `pulumi:"device"`
+	VolumeId string `pulumi:"volumeId"`
+}
+
+// InstanceVolumeInput is an input type that accepts InstanceVolumeArgs and InstanceVolumeOutput values.
+// You can construct a concrete instance of `InstanceVolumeInput` via:
+//
+//          InstanceVolumeArgs{...}
+type InstanceVolumeInput interface {
+	pulumi.Input
+
+	ToInstanceVolumeOutput() InstanceVolumeOutput
+	ToInstanceVolumeOutputWithContext(context.Context) InstanceVolumeOutput
+}
+
+type InstanceVolumeArgs struct {
+	Device   pulumi.StringInput `pulumi:"device"`
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+}
+
+func (InstanceVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceVolume)(nil)).Elem()
+}
+
+func (i InstanceVolumeArgs) ToInstanceVolumeOutput() InstanceVolumeOutput {
+	return i.ToInstanceVolumeOutputWithContext(context.Background())
+}
+
+func (i InstanceVolumeArgs) ToInstanceVolumeOutputWithContext(ctx context.Context) InstanceVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceVolumeOutput)
+}
+
+// InstanceVolumeArrayInput is an input type that accepts InstanceVolumeArray and InstanceVolumeArrayOutput values.
+// You can construct a concrete instance of `InstanceVolumeArrayInput` via:
+//
+//          InstanceVolumeArray{ InstanceVolumeArgs{...} }
+type InstanceVolumeArrayInput interface {
+	pulumi.Input
+
+	ToInstanceVolumeArrayOutput() InstanceVolumeArrayOutput
+	ToInstanceVolumeArrayOutputWithContext(context.Context) InstanceVolumeArrayOutput
+}
+
+type InstanceVolumeArray []InstanceVolumeInput
+
+func (InstanceVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceVolume)(nil)).Elem()
+}
+
+func (i InstanceVolumeArray) ToInstanceVolumeArrayOutput() InstanceVolumeArrayOutput {
+	return i.ToInstanceVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceVolumeArray) ToInstanceVolumeArrayOutputWithContext(ctx context.Context) InstanceVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceVolumeArrayOutput)
+}
+
+type InstanceVolumeOutput struct{ *pulumi.OutputState }
+
+func (InstanceVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceVolume)(nil)).Elem()
+}
+
+func (o InstanceVolumeOutput) ToInstanceVolumeOutput() InstanceVolumeOutput {
+	return o
+}
+
+func (o InstanceVolumeOutput) ToInstanceVolumeOutputWithContext(ctx context.Context) InstanceVolumeOutput {
+	return o
+}
+
+func (o InstanceVolumeOutput) Device() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceVolume) string { return v.Device }).(pulumi.StringOutput)
+}
+
+func (o InstanceVolumeOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceVolume) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+type InstanceVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceVolume)(nil)).Elem()
+}
+
+func (o InstanceVolumeArrayOutput) ToInstanceVolumeArrayOutput() InstanceVolumeArrayOutput {
+	return o
+}
+
+func (o InstanceVolumeArrayOutput) ToInstanceVolumeArrayOutputWithContext(ctx context.Context) InstanceVolumeArrayOutput {
+	return o
+}
+
+func (o InstanceVolumeArrayOutput) Index(i pulumi.IntInput) InstanceVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceVolume {
+		return vs[0].([]InstanceVolume)[vs[1].(int)]
+	}).(InstanceVolumeOutput)
 }
 
 type InternetGatewayTag struct {
@@ -1997,6 +5647,3725 @@ func (o InternetGatewayTagArrayOutput) Index(i pulumi.IntInput) InternetGatewayT
 	}).(InternetGatewayTagOutput)
 }
 
+type LaunchTemplateBlockDeviceMapping struct {
+	DeviceName  *string            `pulumi:"deviceName"`
+	Ebs         *LaunchTemplateEbs `pulumi:"ebs"`
+	NoDevice    *string            `pulumi:"noDevice"`
+	VirtualName *string            `pulumi:"virtualName"`
+}
+
+// LaunchTemplateBlockDeviceMappingInput is an input type that accepts LaunchTemplateBlockDeviceMappingArgs and LaunchTemplateBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingArgs{...}
+type LaunchTemplateBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBlockDeviceMappingOutput() LaunchTemplateBlockDeviceMappingOutput
+	ToLaunchTemplateBlockDeviceMappingOutputWithContext(context.Context) LaunchTemplateBlockDeviceMappingOutput
+}
+
+type LaunchTemplateBlockDeviceMappingArgs struct {
+	DeviceName  pulumi.StringPtrInput     `pulumi:"deviceName"`
+	Ebs         LaunchTemplateEbsPtrInput `pulumi:"ebs"`
+	NoDevice    pulumi.StringPtrInput     `pulumi:"noDevice"`
+	VirtualName pulumi.StringPtrInput     `pulumi:"virtualName"`
+}
+
+func (LaunchTemplateBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i LaunchTemplateBlockDeviceMappingArgs) ToLaunchTemplateBlockDeviceMappingOutput() LaunchTemplateBlockDeviceMappingOutput {
+	return i.ToLaunchTemplateBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBlockDeviceMappingArgs) ToLaunchTemplateBlockDeviceMappingOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingOutput)
+}
+
+// LaunchTemplateBlockDeviceMappingArrayInput is an input type that accepts LaunchTemplateBlockDeviceMappingArray and LaunchTemplateBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingArrayInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingArray{ LaunchTemplateBlockDeviceMappingArgs{...} }
+type LaunchTemplateBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBlockDeviceMappingArrayOutput() LaunchTemplateBlockDeviceMappingArrayOutput
+	ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(context.Context) LaunchTemplateBlockDeviceMappingArrayOutput
+}
+
+type LaunchTemplateBlockDeviceMappingArray []LaunchTemplateBlockDeviceMappingInput
+
+func (LaunchTemplateBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i LaunchTemplateBlockDeviceMappingArray) ToLaunchTemplateBlockDeviceMappingArrayOutput() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return i.ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBlockDeviceMappingArray) ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+type LaunchTemplateBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) ToLaunchTemplateBlockDeviceMappingOutput() LaunchTemplateBlockDeviceMappingOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) ToLaunchTemplateBlockDeviceMappingOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) Ebs() LaunchTemplateEbsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *LaunchTemplateEbs { return v.Ebs }).(LaunchTemplateEbsPtrOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o LaunchTemplateBlockDeviceMappingArrayOutput) ToLaunchTemplateBlockDeviceMappingArrayOutput() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingArrayOutput) ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) LaunchTemplateBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateBlockDeviceMapping {
+		return vs[0].([]LaunchTemplateBlockDeviceMapping)[vs[1].(int)]
+	}).(LaunchTemplateBlockDeviceMappingOutput)
+}
+
+type LaunchTemplateCapacityReservationSpecification struct {
+	CapacityReservationPreference *string                                  `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     *LaunchTemplateCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+}
+
+// LaunchTemplateCapacityReservationSpecificationInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationArgs and LaunchTemplateCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationArgs{...}
+type LaunchTemplateCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput
+	ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(context.Context) LaunchTemplateCapacityReservationSpecificationOutput
+}
+
+type LaunchTemplateCapacityReservationSpecificationArgs struct {
+	CapacityReservationPreference pulumi.StringPtrInput                           `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     LaunchTemplateCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+}
+
+func (LaunchTemplateCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput {
+	return i.ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationOutput)
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationOutput).ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCapacityReservationSpecificationPtrInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationArgs, LaunchTemplateCapacityReservationSpecificationPtr and LaunchTemplateCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationPtrInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput
+	ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput
+}
+
+type launchTemplateCapacityReservationSpecificationPtrType LaunchTemplateCapacityReservationSpecificationArgs
+
+func LaunchTemplateCapacityReservationSpecificationPtr(v *LaunchTemplateCapacityReservationSpecificationArgs) LaunchTemplateCapacityReservationSpecificationPtrInput {
+	return (*launchTemplateCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*launchTemplateCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateCapacityReservationSpecificationPtrType) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCapacityReservationSpecificationPtrType) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+type LaunchTemplateCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecification {
+		return &v
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+type LaunchTemplateCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTemplateCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) LaunchTemplateCapacityReservationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCapacityReservationSpecification
+		return ret
+	}).(LaunchTemplateCapacityReservationSpecificationOutput)
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+type LaunchTemplateCapacityReservationTarget struct {
+	CapacityReservationId               *string `pulumi:"capacityReservationId"`
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+// LaunchTemplateCapacityReservationTargetInput is an input type that accepts LaunchTemplateCapacityReservationTargetArgs and LaunchTemplateCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationTargetInput` via:
+//
+//          LaunchTemplateCapacityReservationTargetArgs{...}
+type LaunchTemplateCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationTargetOutput() LaunchTemplateCapacityReservationTargetOutput
+	ToLaunchTemplateCapacityReservationTargetOutputWithContext(context.Context) LaunchTemplateCapacityReservationTargetOutput
+}
+
+type LaunchTemplateCapacityReservationTargetArgs struct {
+	CapacityReservationId               pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+func (LaunchTemplateCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetOutput() LaunchTemplateCapacityReservationTargetOutput {
+	return i.ToLaunchTemplateCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationTargetOutput)
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationTargetOutput).ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCapacityReservationTargetPtrInput is an input type that accepts LaunchTemplateCapacityReservationTargetArgs, LaunchTemplateCapacityReservationTargetPtr and LaunchTemplateCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationTargetPtrInput` via:
+//
+//          LaunchTemplateCapacityReservationTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput
+	ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Context) LaunchTemplateCapacityReservationTargetPtrOutput
+}
+
+type launchTemplateCapacityReservationTargetPtrType LaunchTemplateCapacityReservationTargetArgs
+
+func LaunchTemplateCapacityReservationTargetPtr(v *LaunchTemplateCapacityReservationTargetArgs) LaunchTemplateCapacityReservationTargetPtrInput {
+	return (*launchTemplateCapacityReservationTargetPtrType)(v)
+}
+
+func (*launchTemplateCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *launchTemplateCapacityReservationTargetPtrType) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCapacityReservationTargetPtrType) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+type LaunchTemplateCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetOutput() LaunchTemplateCapacityReservationTargetOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCapacityReservationTarget) *LaunchTemplateCapacityReservationTarget {
+		return &v
+	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) Elem() LaunchTemplateCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) LaunchTemplateCapacityReservationTarget {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCapacityReservationTarget
+		return ret
+	}).(LaunchTemplateCapacityReservationTargetOutput)
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateCpuOptions struct {
+	CoreCount      *int `pulumi:"coreCount"`
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// LaunchTemplateCpuOptionsInput is an input type that accepts LaunchTemplateCpuOptionsArgs and LaunchTemplateCpuOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsInput` via:
+//
+//          LaunchTemplateCpuOptionsArgs{...}
+type LaunchTemplateCpuOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput
+	ToLaunchTemplateCpuOptionsOutputWithContext(context.Context) LaunchTemplateCpuOptionsOutput
+}
+
+type LaunchTemplateCpuOptionsArgs struct {
+	CoreCount      pulumi.IntPtrInput `pulumi:"coreCount"`
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (LaunchTemplateCpuOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput {
+	return i.ToLaunchTemplateCpuOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsOutput)
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return i.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsOutput).ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCpuOptionsPtrInput is an input type that accepts LaunchTemplateCpuOptionsArgs, LaunchTemplateCpuOptionsPtr and LaunchTemplateCpuOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsPtrInput` via:
+//
+//          LaunchTemplateCpuOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCpuOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput
+	ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Context) LaunchTemplateCpuOptionsPtrOutput
+}
+
+type launchTemplateCpuOptionsPtrType LaunchTemplateCpuOptionsArgs
+
+func LaunchTemplateCpuOptionsPtr(v *LaunchTemplateCpuOptionsArgs) LaunchTemplateCpuOptionsPtrInput {
+	return (*launchTemplateCpuOptionsPtrType)(v)
+}
+
+func (*launchTemplateCpuOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return i.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+type LaunchTemplateCpuOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptions {
+		return &v
+	}).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateCpuOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) LaunchTemplateCpuOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCpuOptions
+		return ret
+	}).(LaunchTemplateCpuOptionsOutput)
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateCreditSpecification struct {
+	CpuCredits *string `pulumi:"cpuCredits"`
+}
+
+// LaunchTemplateCreditSpecificationInput is an input type that accepts LaunchTemplateCreditSpecificationArgs and LaunchTemplateCreditSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateCreditSpecificationInput` via:
+//
+//          LaunchTemplateCreditSpecificationArgs{...}
+type LaunchTemplateCreditSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput
+	ToLaunchTemplateCreditSpecificationOutputWithContext(context.Context) LaunchTemplateCreditSpecificationOutput
+}
+
+type LaunchTemplateCreditSpecificationArgs struct {
+	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
+}
+
+func (LaunchTemplateCreditSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput {
+	return i.ToLaunchTemplateCreditSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationOutput)
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return i.ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationOutput).ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCreditSpecificationPtrInput is an input type that accepts LaunchTemplateCreditSpecificationArgs, LaunchTemplateCreditSpecificationPtr and LaunchTemplateCreditSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCreditSpecificationPtrInput` via:
+//
+//          LaunchTemplateCreditSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCreditSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput
+	ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Context) LaunchTemplateCreditSpecificationPtrOutput
+}
+
+type launchTemplateCreditSpecificationPtrType LaunchTemplateCreditSpecificationArgs
+
+func LaunchTemplateCreditSpecificationPtr(v *LaunchTemplateCreditSpecificationArgs) LaunchTemplateCreditSpecificationPtrInput {
+	return (*launchTemplateCreditSpecificationPtrType)(v)
+}
+
+func (*launchTemplateCreditSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateCreditSpecificationPtrType) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return i.ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCreditSpecificationPtrType) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+type LaunchTemplateCreditSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCreditSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCreditSpecification) *LaunchTemplateCreditSpecification {
+		return &v
+	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateCreditSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCreditSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCreditSpecificationPtrOutput) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationPtrOutput) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) LaunchTemplateCreditSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCreditSpecification
+		return ret
+	}).(LaunchTemplateCreditSpecificationOutput)
+}
+
+func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCredits
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateEbs struct {
+	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
+	Encrypted           *bool   `pulumi:"encrypted"`
+	Iops                *int    `pulumi:"iops"`
+	KmsKeyId            *string `pulumi:"kmsKeyId"`
+	SnapshotId          *string `pulumi:"snapshotId"`
+	Throughput          *int    `pulumi:"throughput"`
+	VolumeSize          *int    `pulumi:"volumeSize"`
+	VolumeType          *string `pulumi:"volumeType"`
+}
+
+// LaunchTemplateEbsInput is an input type that accepts LaunchTemplateEbsArgs and LaunchTemplateEbsOutput values.
+// You can construct a concrete instance of `LaunchTemplateEbsInput` via:
+//
+//          LaunchTemplateEbsArgs{...}
+type LaunchTemplateEbsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEbsOutput() LaunchTemplateEbsOutput
+	ToLaunchTemplateEbsOutputWithContext(context.Context) LaunchTemplateEbsOutput
+}
+
+type LaunchTemplateEbsArgs struct {
+	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
+	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
+	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
+	KmsKeyId            pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
+	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
+	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
+	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (LaunchTemplateEbsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsOutput() LaunchTemplateEbsOutput {
+	return i.ToLaunchTemplateEbsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsOutputWithContext(ctx context.Context) LaunchTemplateEbsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEbsOutput)
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return i.ToLaunchTemplateEbsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEbsOutput).ToLaunchTemplateEbsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEbsPtrInput is an input type that accepts LaunchTemplateEbsArgs, LaunchTemplateEbsPtr and LaunchTemplateEbsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEbsPtrInput` via:
+//
+//          LaunchTemplateEbsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateEbsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput
+	ToLaunchTemplateEbsPtrOutputWithContext(context.Context) LaunchTemplateEbsPtrOutput
+}
+
+type launchTemplateEbsPtrType LaunchTemplateEbsArgs
+
+func LaunchTemplateEbsPtr(v *LaunchTemplateEbsArgs) LaunchTemplateEbsPtrInput {
+	return (*launchTemplateEbsPtrType)(v)
+}
+
+func (*launchTemplateEbsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (i *launchTemplateEbsPtrType) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return i.ToLaunchTemplateEbsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEbsPtrType) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEbsPtrOutput)
+}
+
+type LaunchTemplateEbsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEbsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsOutput() LaunchTemplateEbsOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsOutputWithContext(ctx context.Context) LaunchTemplateEbsOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return o.ToLaunchTemplateEbsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateEbs) *LaunchTemplateEbs {
+		return &v
+	}).(LaunchTemplateEbsPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateEbsOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateEbsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEbsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (o LaunchTemplateEbsPtrOutput) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsPtrOutput) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsPtrOutput) Elem() LaunchTemplateEbsOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) LaunchTemplateEbs {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateEbs
+		return ret
+	}).(LaunchTemplateEbsOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateElasticGpuSpecification struct {
+	Type *string `pulumi:"type"`
+}
+
+// LaunchTemplateElasticGpuSpecificationInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArgs and LaunchTemplateElasticGpuSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationInput` via:
+//
+//          LaunchTemplateElasticGpuSpecificationArgs{...}
+type LaunchTemplateElasticGpuSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput
+	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
+}
+
+type LaunchTemplateElasticGpuSpecificationArgs struct {
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LaunchTemplateElasticGpuSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
+	return i.ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationOutput)
+}
+
+// LaunchTemplateElasticGpuSpecificationArrayInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArray and LaunchTemplateElasticGpuSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationArrayInput` via:
+//
+//          LaunchTemplateElasticGpuSpecificationArray{ LaunchTemplateElasticGpuSpecificationArgs{...} }
+type LaunchTemplateElasticGpuSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput
+	ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput
+}
+
+type LaunchTemplateElasticGpuSpecificationArray []LaunchTemplateElasticGpuSpecificationInput
+
+func (LaunchTemplateElasticGpuSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return i.ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+type LaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateElasticGpuSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateElasticGpuSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateElasticGpuSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateElasticGpuSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateElasticGpuSpecification {
+		return vs[0].([]LaunchTemplateElasticGpuSpecification)[vs[1].(int)]
+	}).(LaunchTemplateElasticGpuSpecificationOutput)
+}
+
+type LaunchTemplateEnclaveOptions struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// LaunchTemplateEnclaveOptionsInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs and LaunchTemplateEnclaveOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+type LaunchTemplateEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput
+	ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsOutput
+}
+
+type LaunchTemplateEnclaveOptionsArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (LaunchTemplateEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return i.ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput).ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEnclaveOptionsPtrInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs, LaunchTemplateEnclaveOptionsPtr and LaunchTemplateEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsPtrInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput
+	ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsPtrOutput
+}
+
+type launchTemplateEnclaveOptionsPtrType LaunchTemplateEnclaveOptionsArgs
+
+func LaunchTemplateEnclaveOptionsPtr(v *LaunchTemplateEnclaveOptionsArgs) LaunchTemplateEnclaveOptionsPtrInput {
+	return (*launchTemplateEnclaveOptionsPtrType)(v)
+}
+
+func (*launchTemplateEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+type LaunchTemplateEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateEnclaveOptions) *LaunchTemplateEnclaveOptions {
+		return &v
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Elem() LaunchTemplateEnclaveOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) LaunchTemplateEnclaveOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateEnclaveOptions
+		return ret
+	}).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateHibernationOptions struct {
+	Configured *bool `pulumi:"configured"`
+}
+
+// LaunchTemplateHibernationOptionsInput is an input type that accepts LaunchTemplateHibernationOptionsArgs and LaunchTemplateHibernationOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateHibernationOptionsInput` via:
+//
+//          LaunchTemplateHibernationOptionsArgs{...}
+type LaunchTemplateHibernationOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput
+	ToLaunchTemplateHibernationOptionsOutputWithContext(context.Context) LaunchTemplateHibernationOptionsOutput
+}
+
+type LaunchTemplateHibernationOptionsArgs struct {
+	Configured pulumi.BoolPtrInput `pulumi:"configured"`
+}
+
+func (LaunchTemplateHibernationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput {
+	return i.ToLaunchTemplateHibernationOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsOutput)
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return i.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsOutput).ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateHibernationOptionsPtrInput is an input type that accepts LaunchTemplateHibernationOptionsArgs, LaunchTemplateHibernationOptionsPtr and LaunchTemplateHibernationOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateHibernationOptionsPtrInput` via:
+//
+//          LaunchTemplateHibernationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateHibernationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput
+	ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Context) LaunchTemplateHibernationOptionsPtrOutput
+}
+
+type launchTemplateHibernationOptionsPtrType LaunchTemplateHibernationOptionsArgs
+
+func LaunchTemplateHibernationOptionsPtr(v *LaunchTemplateHibernationOptionsArgs) LaunchTemplateHibernationOptionsPtrInput {
+	return (*launchTemplateHibernationOptionsPtrType)(v)
+}
+
+func (*launchTemplateHibernationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return i.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+type LaunchTemplateHibernationOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateHibernationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateHibernationOptions) *LaunchTemplateHibernationOptions {
+		return &v
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateHibernationOptions) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateHibernationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateHibernationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) Elem() LaunchTemplateHibernationOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) LaunchTemplateHibernationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateHibernationOptions
+		return ret
+	}).(LaunchTemplateHibernationOptionsOutput)
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Configured
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateIamInstanceProfile struct {
+	Arn  *string `pulumi:"arn"`
+	Name *string `pulumi:"name"`
+}
+
+// LaunchTemplateIamInstanceProfileInput is an input type that accepts LaunchTemplateIamInstanceProfileArgs and LaunchTemplateIamInstanceProfileOutput values.
+// You can construct a concrete instance of `LaunchTemplateIamInstanceProfileInput` via:
+//
+//          LaunchTemplateIamInstanceProfileArgs{...}
+type LaunchTemplateIamInstanceProfileInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput
+	ToLaunchTemplateIamInstanceProfileOutputWithContext(context.Context) LaunchTemplateIamInstanceProfileOutput
+}
+
+type LaunchTemplateIamInstanceProfileArgs struct {
+	Arn  pulumi.StringPtrInput `pulumi:"arn"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LaunchTemplateIamInstanceProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput {
+	return i.ToLaunchTemplateIamInstanceProfileOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfileOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfileOutput)
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return i.ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfileOutput).ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateIamInstanceProfilePtrInput is an input type that accepts LaunchTemplateIamInstanceProfileArgs, LaunchTemplateIamInstanceProfilePtr and LaunchTemplateIamInstanceProfilePtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateIamInstanceProfilePtrInput` via:
+//
+//          LaunchTemplateIamInstanceProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateIamInstanceProfilePtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput
+	ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Context) LaunchTemplateIamInstanceProfilePtrOutput
+}
+
+type launchTemplateIamInstanceProfilePtrType LaunchTemplateIamInstanceProfileArgs
+
+func LaunchTemplateIamInstanceProfilePtr(v *LaunchTemplateIamInstanceProfileArgs) LaunchTemplateIamInstanceProfilePtrInput {
+	return (*launchTemplateIamInstanceProfilePtrType)(v)
+}
+
+func (*launchTemplateIamInstanceProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (i *launchTemplateIamInstanceProfilePtrType) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return i.ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateIamInstanceProfilePtrType) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+type LaunchTemplateIamInstanceProfileOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIamInstanceProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfileOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfileOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateIamInstanceProfile) *LaunchTemplateIamInstanceProfile {
+		return &v
+	}).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateIamInstanceProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIamInstanceProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInstanceProfileOutput {
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) LaunchTemplateIamInstanceProfile {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateIamInstanceProfile
+		return ret
+	}).(LaunchTemplateIamInstanceProfileOutput)
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateInstanceMarketOptions struct {
+	MarketType  *string                    `pulumi:"marketType"`
+	SpotOptions *LaunchTemplateSpotOptions `pulumi:"spotOptions"`
+}
+
+// LaunchTemplateInstanceMarketOptionsInput is an input type that accepts LaunchTemplateInstanceMarketOptionsArgs and LaunchTemplateInstanceMarketOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsArgs{...}
+type LaunchTemplateInstanceMarketOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput
+	ToLaunchTemplateInstanceMarketOptionsOutputWithContext(context.Context) LaunchTemplateInstanceMarketOptionsOutput
+}
+
+type LaunchTemplateInstanceMarketOptionsArgs struct {
+	MarketType  pulumi.StringPtrInput             `pulumi:"marketType"`
+	SpotOptions LaunchTemplateSpotOptionsPtrInput `pulumi:"spotOptions"`
+}
+
+func (LaunchTemplateInstanceMarketOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput {
+	return i.ToLaunchTemplateInstanceMarketOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsOutput)
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return i.ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsOutput).ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceMarketOptionsPtrInput is an input type that accepts LaunchTemplateInstanceMarketOptionsArgs, LaunchTemplateInstanceMarketOptionsPtr and LaunchTemplateInstanceMarketOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsPtrInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceMarketOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput
+	ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput
+}
+
+type launchTemplateInstanceMarketOptionsPtrType LaunchTemplateInstanceMarketOptionsArgs
+
+func LaunchTemplateInstanceMarketOptionsPtr(v *LaunchTemplateInstanceMarketOptionsArgs) LaunchTemplateInstanceMarketOptionsPtrInput {
+	return (*launchTemplateInstanceMarketOptionsPtrType)(v)
+}
+
+func (*launchTemplateInstanceMarketOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceMarketOptionsPtrType) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return i.ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceMarketOptionsPtrType) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+type LaunchTemplateInstanceMarketOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceMarketOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptions {
+		return &v
+	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) SpotOptions() LaunchTemplateSpotOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *LaunchTemplateSpotOptions { return v.SpotOptions }).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+type LaunchTemplateInstanceMarketOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceMarketOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) Elem() LaunchTemplateInstanceMarketOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) LaunchTemplateInstanceMarketOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceMarketOptions
+		return ret
+	}).(LaunchTemplateInstanceMarketOptionsOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MarketType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTemplateSpotOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *LaunchTemplateSpotOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SpotOptions
+	}).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+type LaunchTemplateIpv6Add struct {
+	Ipv6Address *string `pulumi:"ipv6Address"`
+}
+
+// LaunchTemplateIpv6AddInput is an input type that accepts LaunchTemplateIpv6AddArgs and LaunchTemplateIpv6AddOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv6AddInput` via:
+//
+//          LaunchTemplateIpv6AddArgs{...}
+type LaunchTemplateIpv6AddInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv6AddOutput() LaunchTemplateIpv6AddOutput
+	ToLaunchTemplateIpv6AddOutputWithContext(context.Context) LaunchTemplateIpv6AddOutput
+}
+
+type LaunchTemplateIpv6AddArgs struct {
+	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
+}
+
+func (LaunchTemplateIpv6AddArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv6AddArgs) ToLaunchTemplateIpv6AddOutput() LaunchTemplateIpv6AddOutput {
+	return i.ToLaunchTemplateIpv6AddOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv6AddArgs) ToLaunchTemplateIpv6AddOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6AddOutput)
+}
+
+// LaunchTemplateIpv6AddArrayInput is an input type that accepts LaunchTemplateIpv6AddArray and LaunchTemplateIpv6AddArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv6AddArrayInput` via:
+//
+//          LaunchTemplateIpv6AddArray{ LaunchTemplateIpv6AddArgs{...} }
+type LaunchTemplateIpv6AddArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv6AddArrayOutput() LaunchTemplateIpv6AddArrayOutput
+	ToLaunchTemplateIpv6AddArrayOutputWithContext(context.Context) LaunchTemplateIpv6AddArrayOutput
+}
+
+type LaunchTemplateIpv6AddArray []LaunchTemplateIpv6AddInput
+
+func (LaunchTemplateIpv6AddArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv6AddArray) ToLaunchTemplateIpv6AddArrayOutput() LaunchTemplateIpv6AddArrayOutput {
+	return i.ToLaunchTemplateIpv6AddArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv6AddArray) ToLaunchTemplateIpv6AddArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6AddArrayOutput)
+}
+
+type LaunchTemplateIpv6AddOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv6AddOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv6AddOutput) ToLaunchTemplateIpv6AddOutput() LaunchTemplateIpv6AddOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6AddOutput) ToLaunchTemplateIpv6AddOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6AddOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIpv6Add) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateIpv6AddArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv6AddArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv6AddArrayOutput) ToLaunchTemplateIpv6AddArrayOutput() LaunchTemplateIpv6AddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6AddArrayOutput) ToLaunchTemplateIpv6AddArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6AddArrayOutput) Index(i pulumi.IntInput) LaunchTemplateIpv6AddOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateIpv6Add {
+		return vs[0].([]LaunchTemplateIpv6Add)[vs[1].(int)]
+	}).(LaunchTemplateIpv6AddOutput)
+}
+
+type LaunchTemplateLaunchTemplateData struct {
+	BlockDeviceMappings               []LaunchTemplateBlockDeviceMapping                        `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification  *LaunchTemplateCapacityReservationSpecification           `pulumi:"capacityReservationSpecification"`
+	CpuOptions                        *LaunchTemplateCpuOptions                                 `pulumi:"cpuOptions"`
+	CreditSpecification               *LaunchTemplateCreditSpecification                        `pulumi:"creditSpecification"`
+	DisableApiTermination             *bool                                                     `pulumi:"disableApiTermination"`
+	EbsOptimized                      *bool                                                     `pulumi:"ebsOptimized"`
+	ElasticGpuSpecifications          []LaunchTemplateElasticGpuSpecification                   `pulumi:"elasticGpuSpecifications"`
+	ElasticInferenceAccelerators      []LaunchTemplateLaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions                    *LaunchTemplateEnclaveOptions                             `pulumi:"enclaveOptions"`
+	HibernationOptions                *LaunchTemplateHibernationOptions                         `pulumi:"hibernationOptions"`
+	IamInstanceProfile                *LaunchTemplateIamInstanceProfile                         `pulumi:"iamInstanceProfile"`
+	ImageId                           *string                                                   `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior *string                                                   `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions                      `pulumi:"instanceMarketOptions"`
+	InstanceType                      *string                                                   `pulumi:"instanceType"`
+	KernelId                          *string                                                   `pulumi:"kernelId"`
+	KeyName                           *string                                                   `pulumi:"keyName"`
+	LicenseSpecifications             []LaunchTemplateLicenseSpecification                      `pulumi:"licenseSpecifications"`
+	MetadataOptions                   *LaunchTemplateMetadataOptions                            `pulumi:"metadataOptions"`
+	Monitoring                        *LaunchTemplateMonitoring                                 `pulumi:"monitoring"`
+	NetworkInterfaces                 []LaunchTemplateNetworkInterface                          `pulumi:"networkInterfaces"`
+	Placement                         *LaunchTemplatePlacement                                  `pulumi:"placement"`
+	RamDiskId                         *string                                                   `pulumi:"ramDiskId"`
+	SecurityGroupIds                  []string                                                  `pulumi:"securityGroupIds"`
+	SecurityGroups                    []string                                                  `pulumi:"securityGroups"`
+	TagSpecifications                 []LaunchTemplateTagSpecification                          `pulumi:"tagSpecifications"`
+	UserData                          *string                                                   `pulumi:"userData"`
+}
+
+// LaunchTemplateLaunchTemplateDataInput is an input type that accepts LaunchTemplateLaunchTemplateDataArgs and LaunchTemplateLaunchTemplateDataOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateDataInput` via:
+//
+//          LaunchTemplateLaunchTemplateDataArgs{...}
+type LaunchTemplateLaunchTemplateDataInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput
+	ToLaunchTemplateLaunchTemplateDataOutputWithContext(context.Context) LaunchTemplateLaunchTemplateDataOutput
+}
+
+type LaunchTemplateLaunchTemplateDataArgs struct {
+	BlockDeviceMappings               LaunchTemplateBlockDeviceMappingArrayInput                        `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrInput            `pulumi:"capacityReservationSpecification"`
+	CpuOptions                        LaunchTemplateCpuOptionsPtrInput                                  `pulumi:"cpuOptions"`
+	CreditSpecification               LaunchTemplateCreditSpecificationPtrInput                         `pulumi:"creditSpecification"`
+	DisableApiTermination             pulumi.BoolPtrInput                                               `pulumi:"disableApiTermination"`
+	EbsOptimized                      pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
+	ElasticGpuSpecifications          LaunchTemplateElasticGpuSpecificationArrayInput                   `pulumi:"elasticGpuSpecifications"`
+	ElasticInferenceAccelerators      LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions                    LaunchTemplateEnclaveOptionsPtrInput                              `pulumi:"enclaveOptions"`
+	HibernationOptions                LaunchTemplateHibernationOptionsPtrInput                          `pulumi:"hibernationOptions"`
+	IamInstanceProfile                LaunchTemplateIamInstanceProfilePtrInput                          `pulumi:"iamInstanceProfile"`
+	ImageId                           pulumi.StringPtrInput                                             `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput                                             `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput                       `pulumi:"instanceMarketOptions"`
+	InstanceType                      pulumi.StringPtrInput                                             `pulumi:"instanceType"`
+	KernelId                          pulumi.StringPtrInput                                             `pulumi:"kernelId"`
+	KeyName                           pulumi.StringPtrInput                                             `pulumi:"keyName"`
+	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayInput                      `pulumi:"licenseSpecifications"`
+	MetadataOptions                   LaunchTemplateMetadataOptionsPtrInput                             `pulumi:"metadataOptions"`
+	Monitoring                        LaunchTemplateMonitoringPtrInput                                  `pulumi:"monitoring"`
+	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput                          `pulumi:"networkInterfaces"`
+	Placement                         LaunchTemplatePlacementPtrInput                                   `pulumi:"placement"`
+	RamDiskId                         pulumi.StringPtrInput                                             `pulumi:"ramDiskId"`
+	SecurityGroupIds                  pulumi.StringArrayInput                                           `pulumi:"securityGroupIds"`
+	SecurityGroups                    pulumi.StringArrayInput                                           `pulumi:"securityGroups"`
+	TagSpecifications                 LaunchTemplateTagSpecificationArrayInput                          `pulumi:"tagSpecifications"`
+	UserData                          pulumi.StringPtrInput                                             `pulumi:"userData"`
+}
+
+func (LaunchTemplateLaunchTemplateDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput {
+	return i.ToLaunchTemplateLaunchTemplateDataOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataOutput)
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return i.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataOutput).ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateLaunchTemplateDataPtrInput is an input type that accepts LaunchTemplateLaunchTemplateDataArgs, LaunchTemplateLaunchTemplateDataPtr and LaunchTemplateLaunchTemplateDataPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateDataPtrInput` via:
+//
+//          LaunchTemplateLaunchTemplateDataArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateLaunchTemplateDataPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput
+	ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Context) LaunchTemplateLaunchTemplateDataPtrOutput
+}
+
+type launchTemplateLaunchTemplateDataPtrType LaunchTemplateLaunchTemplateDataArgs
+
+func LaunchTemplateLaunchTemplateDataPtr(v *LaunchTemplateLaunchTemplateDataArgs) LaunchTemplateLaunchTemplateDataPtrInput {
+	return (*launchTemplateLaunchTemplateDataPtrType)(v)
+}
+
+func (*launchTemplateLaunchTemplateDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (i *launchTemplateLaunchTemplateDataPtrType) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return i.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateLaunchTemplateDataPtrType) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataPtrOutput)
+}
+
+type LaunchTemplateLaunchTemplateDataOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateLaunchTemplateData) *LaunchTemplateLaunchTemplateData {
+		return &v
+	}).(LaunchTemplateLaunchTemplateDataPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
+		return v.BlockDeviceMappings
+	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
+		return v.CapacityReservationSpecification
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCpuOptions { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCreditSpecification {
+		return v.CreditSpecification
+	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
+		return v.ElasticGpuSpecifications
+	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
+		return v.ElasticInferenceAccelerators
+	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateHibernationOptions {
+		return v.HibernationOptions
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateIamInstanceProfile {
+		return v.IamInstanceProfile
+	}).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
+		return v.InstanceMarketOptions
+	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.KernelId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateLicenseSpecification {
+		return v.LicenseSpecifications
+	}).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateMetadataOptions { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateMonitoring { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) Placement() LaunchTemplatePlacementPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplatePlacement { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateTagSpecification { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateLaunchTemplateDataPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) Elem() LaunchTemplateLaunchTemplateDataOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) LaunchTemplateLaunchTemplateData {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateLaunchTemplateData
+		return ret
+	}).(LaunchTemplateLaunchTemplateDataOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDeviceMappings
+	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationSpecification
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCpuOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CpuOptions
+	}).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCreditSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CreditSpecification
+	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableApiTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EbsOptimized
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticGpuSpecifications
+	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ElasticInferenceAccelerators() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticInferenceAccelerators
+	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions {
+		if v == nil {
+			return nil
+		}
+		return v.EnclaveOptions
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateHibernationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.HibernationOptions
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateIamInstanceProfile {
+		if v == nil {
+			return nil
+		}
+		return v.IamInstanceProfile
+	}).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInitiatedShutdownBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMarketOptions
+	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KernelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateLicenseSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseSpecifications
+	}).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateMetadataOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataOptions
+	}).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateMonitoring {
+		if v == nil {
+			return nil
+		}
+		return v.Monitoring
+	}).(LaunchTemplateMonitoringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateNetworkInterface {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaces
+	}).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) Placement() LaunchTemplatePlacementPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplatePlacement {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
+	}).(LaunchTemplatePlacementPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RamDiskId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateTagSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.TagSpecifications
+	}).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserData
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateLaunchTemplateElasticInferenceAccelerator struct {
+	Count *int    `pulumi:"count"`
+	Type  *string `pulumi:"type"`
+}
+
+// LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput` via:
+//
+//          LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs{...}
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput
+}
+
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs struct {
+	Count pulumi.IntPtrInput    `pulumi:"count"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return i.ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput)
+}
+
+// LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput is an input type that accepts LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray and LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput` via:
+//
+//          LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray{ LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs{...} }
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput
+}
+
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray []LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return i.ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateElasticInferenceAccelerator) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
+		return vs[0].([]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)[vs[1].(int)]
+	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput)
+}
+
+type LaunchTemplateLaunchTemplateTagSpecification struct {
+	ResourceType *string             `pulumi:"resourceType"`
+	Tags         []LaunchTemplateTag `pulumi:"tags"`
+}
+
+// LaunchTemplateLaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateLaunchTemplateTagSpecificationArgs and LaunchTemplateLaunchTemplateTagSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateTagSpecificationInput` via:
+//
+//          LaunchTemplateLaunchTemplateTagSpecificationArgs{...}
+type LaunchTemplateLaunchTemplateTagSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput
+	ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput
+}
+
+type LaunchTemplateLaunchTemplateTagSpecificationArgs struct {
+	ResourceType pulumi.StringPtrInput       `pulumi:"resourceType"`
+	Tags         LaunchTemplateTagArrayInput `pulumi:"tags"`
+}
+
+func (LaunchTemplateLaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArgs) ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return i.ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArgs) ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateTagSpecificationOutput)
+}
+
+// LaunchTemplateLaunchTemplateTagSpecificationArrayInput is an input type that accepts LaunchTemplateLaunchTemplateTagSpecificationArray and LaunchTemplateLaunchTemplateTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateTagSpecificationArrayInput` via:
+//
+//          LaunchTemplateLaunchTemplateTagSpecificationArray{ LaunchTemplateLaunchTemplateTagSpecificationArgs{...} }
+type LaunchTemplateLaunchTemplateTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput
+	ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput
+}
+
+type LaunchTemplateLaunchTemplateTagSpecificationArray []LaunchTemplateLaunchTemplateTagSpecificationInput
+
+func (LaunchTemplateLaunchTemplateTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArray) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return i.ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArray) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateTagSpecificationArrayOutput)
+}
+
+type LaunchTemplateLaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) Tags() LaunchTemplateTagArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateTagSpecification) []LaunchTemplateTag { return v.Tags }).(LaunchTemplateTagArrayOutput)
+}
+
+type LaunchTemplateLaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLaunchTemplateTagSpecification {
+		return vs[0].([]LaunchTemplateLaunchTemplateTagSpecification)[vs[1].(int)]
+	}).(LaunchTemplateLaunchTemplateTagSpecificationOutput)
+}
+
+type LaunchTemplateLicenseSpecification struct {
+	LicenseConfigurationArn *string `pulumi:"licenseConfigurationArn"`
+}
+
+// LaunchTemplateLicenseSpecificationInput is an input type that accepts LaunchTemplateLicenseSpecificationArgs and LaunchTemplateLicenseSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateLicenseSpecificationInput` via:
+//
+//          LaunchTemplateLicenseSpecificationArgs{...}
+type LaunchTemplateLicenseSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLicenseSpecificationOutput() LaunchTemplateLicenseSpecificationOutput
+	ToLaunchTemplateLicenseSpecificationOutputWithContext(context.Context) LaunchTemplateLicenseSpecificationOutput
+}
+
+type LaunchTemplateLicenseSpecificationArgs struct {
+	LicenseConfigurationArn pulumi.StringPtrInput `pulumi:"licenseConfigurationArn"`
+}
+
+func (LaunchTemplateLicenseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLicenseSpecificationArgs) ToLaunchTemplateLicenseSpecificationOutput() LaunchTemplateLicenseSpecificationOutput {
+	return i.ToLaunchTemplateLicenseSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLicenseSpecificationArgs) ToLaunchTemplateLicenseSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+// LaunchTemplateLicenseSpecificationArrayInput is an input type that accepts LaunchTemplateLicenseSpecificationArray and LaunchTemplateLicenseSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateLicenseSpecificationArrayInput` via:
+//
+//          LaunchTemplateLicenseSpecificationArray{ LaunchTemplateLicenseSpecificationArgs{...} }
+type LaunchTemplateLicenseSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLicenseSpecificationArrayOutput() LaunchTemplateLicenseSpecificationArrayOutput
+	ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(context.Context) LaunchTemplateLicenseSpecificationArrayOutput
+}
+
+type LaunchTemplateLicenseSpecificationArray []LaunchTemplateLicenseSpecificationInput
+
+func (LaunchTemplateLicenseSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLicenseSpecificationArray) ToLaunchTemplateLicenseSpecificationArrayOutput() LaunchTemplateLicenseSpecificationArrayOutput {
+	return i.ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLicenseSpecificationArray) ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+type LaunchTemplateLicenseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLicenseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLicenseSpecificationOutput) ToLaunchTemplateLicenseSpecificationOutput() LaunchTemplateLicenseSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationOutput) ToLaunchTemplateLicenseSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLicenseSpecification) *string { return v.LicenseConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateLicenseSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLicenseSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLicenseSpecificationArrayOutput) ToLaunchTemplateLicenseSpecificationArrayOutput() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationArrayOutput) ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLicenseSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLicenseSpecification {
+		return vs[0].([]LaunchTemplateLicenseSpecification)[vs[1].(int)]
+	}).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+type LaunchTemplateMetadataOptions struct {
+	HttpEndpoint            *string `pulumi:"httpEndpoint"`
+	HttpPutResponseHopLimit *int    `pulumi:"httpPutResponseHopLimit"`
+	HttpTokens              *string `pulumi:"httpTokens"`
+}
+
+// LaunchTemplateMetadataOptionsInput is an input type that accepts LaunchTemplateMetadataOptionsArgs and LaunchTemplateMetadataOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateMetadataOptionsInput` via:
+//
+//          LaunchTemplateMetadataOptionsArgs{...}
+type LaunchTemplateMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput
+	ToLaunchTemplateMetadataOptionsOutputWithContext(context.Context) LaunchTemplateMetadataOptionsOutput
+}
+
+type LaunchTemplateMetadataOptionsArgs struct {
+	HttpEndpoint            pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	HttpPutResponseHopLimit pulumi.IntPtrInput    `pulumi:"httpPutResponseHopLimit"`
+	HttpTokens              pulumi.StringPtrInput `pulumi:"httpTokens"`
+}
+
+func (LaunchTemplateMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput {
+	return i.ToLaunchTemplateMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsOutput)
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return i.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsOutput).ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMetadataOptionsPtrInput is an input type that accepts LaunchTemplateMetadataOptionsArgs, LaunchTemplateMetadataOptionsPtr and LaunchTemplateMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMetadataOptionsPtrInput` via:
+//
+//          LaunchTemplateMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput
+	ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Context) LaunchTemplateMetadataOptionsPtrOutput
+}
+
+type launchTemplateMetadataOptionsPtrType LaunchTemplateMetadataOptionsArgs
+
+func LaunchTemplateMetadataOptionsPtr(v *LaunchTemplateMetadataOptionsArgs) LaunchTemplateMetadataOptionsPtrInput {
+	return (*launchTemplateMetadataOptionsPtrType)(v)
+}
+
+func (*launchTemplateMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return i.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+type LaunchTemplateMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMetadataOptions) *LaunchTemplateMetadataOptions {
+		return &v
+	}).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) LaunchTemplateMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMetadataOptions
+		return ret
+	}).(LaunchTemplateMetadataOptionsOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateMonitoring struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// LaunchTemplateMonitoringInput is an input type that accepts LaunchTemplateMonitoringArgs and LaunchTemplateMonitoringOutput values.
+// You can construct a concrete instance of `LaunchTemplateMonitoringInput` via:
+//
+//          LaunchTemplateMonitoringArgs{...}
+type LaunchTemplateMonitoringInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput
+	ToLaunchTemplateMonitoringOutputWithContext(context.Context) LaunchTemplateMonitoringOutput
+}
+
+type LaunchTemplateMonitoringArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (LaunchTemplateMonitoringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput {
+	return i.ToLaunchTemplateMonitoringOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringOutputWithContext(ctx context.Context) LaunchTemplateMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringOutput)
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return i.ToLaunchTemplateMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringOutput).ToLaunchTemplateMonitoringPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMonitoringPtrInput is an input type that accepts LaunchTemplateMonitoringArgs, LaunchTemplateMonitoringPtr and LaunchTemplateMonitoringPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMonitoringPtrInput` via:
+//
+//          LaunchTemplateMonitoringArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput
+	ToLaunchTemplateMonitoringPtrOutputWithContext(context.Context) LaunchTemplateMonitoringPtrOutput
+}
+
+type launchTemplateMonitoringPtrType LaunchTemplateMonitoringArgs
+
+func LaunchTemplateMonitoringPtr(v *LaunchTemplateMonitoringArgs) LaunchTemplateMonitoringPtrInput {
+	return (*launchTemplateMonitoringPtrType)(v)
+}
+
+func (*launchTemplateMonitoringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (i *launchTemplateMonitoringPtrType) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return i.ToLaunchTemplateMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMonitoringPtrType) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringPtrOutput)
+}
+
+type LaunchTemplateMonitoringOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringOutputWithContext(ctx context.Context) LaunchTemplateMonitoringOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return o.ToLaunchTemplateMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMonitoring) *LaunchTemplateMonitoring {
+		return &v
+	}).(LaunchTemplateMonitoringPtrOutput)
+}
+
+func (o LaunchTemplateMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateMonitoringPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (o LaunchTemplateMonitoringPtrOutput) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringPtrOutput) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringPtrOutput) Elem() LaunchTemplateMonitoringOutput {
+	return o.ApplyT(func(v *LaunchTemplateMonitoring) LaunchTemplateMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMonitoring
+		return ret
+	}).(LaunchTemplateMonitoringOutput)
+}
+
+func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateNetworkInterface struct {
+	AssociateCarrierIpAddress      *bool                        `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress       *bool                        `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            *bool                        `pulumi:"deleteOnTermination"`
+	Description                    *string                      `pulumi:"description"`
+	DeviceIndex                    *int                         `pulumi:"deviceIndex"`
+	Groups                         []string                     `pulumi:"groups"`
+	InterfaceType                  *string                      `pulumi:"interfaceType"`
+	Ipv6AddressCount               *int                         `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  []LaunchTemplateIpv6Add      `pulumi:"ipv6Addresses"`
+	NetworkCardIndex               *int                         `pulumi:"networkCardIndex"`
+	NetworkInterfaceId             *string                      `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               *string                      `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             []LaunchTemplatePrivateIpAdd `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount *int                         `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       *string                      `pulumi:"subnetId"`
+}
+
+// LaunchTemplateNetworkInterfaceInput is an input type that accepts LaunchTemplateNetworkInterfaceArgs and LaunchTemplateNetworkInterfaceOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceInput` via:
+//
+//          LaunchTemplateNetworkInterfaceArgs{...}
+type LaunchTemplateNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceOutput() LaunchTemplateNetworkInterfaceOutput
+	ToLaunchTemplateNetworkInterfaceOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceOutput
+}
+
+type LaunchTemplateNetworkInterfaceArgs struct {
+	AssociateCarrierIpAddress      pulumi.BoolPtrInput                  `pulumi:"associateCarrierIpAddress"`
+	AssociatePublicIpAddress       pulumi.BoolPtrInput                  `pulumi:"associatePublicIpAddress"`
+	DeleteOnTermination            pulumi.BoolPtrInput                  `pulumi:"deleteOnTermination"`
+	Description                    pulumi.StringPtrInput                `pulumi:"description"`
+	DeviceIndex                    pulumi.IntPtrInput                   `pulumi:"deviceIndex"`
+	Groups                         pulumi.StringArrayInput              `pulumi:"groups"`
+	InterfaceType                  pulumi.StringPtrInput                `pulumi:"interfaceType"`
+	Ipv6AddressCount               pulumi.IntPtrInput                   `pulumi:"ipv6AddressCount"`
+	Ipv6Addresses                  LaunchTemplateIpv6AddArrayInput      `pulumi:"ipv6Addresses"`
+	NetworkCardIndex               pulumi.IntPtrInput                   `pulumi:"networkCardIndex"`
+	NetworkInterfaceId             pulumi.StringPtrInput                `pulumi:"networkInterfaceId"`
+	PrivateIpAddress               pulumi.StringPtrInput                `pulumi:"privateIpAddress"`
+	PrivateIpAddresses             LaunchTemplatePrivateIpAddArrayInput `pulumi:"privateIpAddresses"`
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput                   `pulumi:"secondaryPrivateIpAddressCount"`
+	SubnetId                       pulumi.StringPtrInput                `pulumi:"subnetId"`
+}
+
+func (LaunchTemplateNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceArgs) ToLaunchTemplateNetworkInterfaceOutput() LaunchTemplateNetworkInterfaceOutput {
+	return i.ToLaunchTemplateNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceArgs) ToLaunchTemplateNetworkInterfaceOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceOutput)
+}
+
+// LaunchTemplateNetworkInterfaceArrayInput is an input type that accepts LaunchTemplateNetworkInterfaceArray and LaunchTemplateNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceArrayInput` via:
+//
+//          LaunchTemplateNetworkInterfaceArray{ LaunchTemplateNetworkInterfaceArgs{...} }
+type LaunchTemplateNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceArrayOutput() LaunchTemplateNetworkInterfaceArrayOutput
+	ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceArrayOutput
+}
+
+type LaunchTemplateNetworkInterfaceArray []LaunchTemplateNetworkInterfaceInput
+
+func (LaunchTemplateNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceArray) ToLaunchTemplateNetworkInterfaceArrayOutput() LaunchTemplateNetworkInterfaceArrayOutput {
+	return i.ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceArray) ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+type LaunchTemplateNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOutput() LaunchTemplateNetworkInterfaceOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociateCarrierIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() LaunchTemplateIpv6AddArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6Add { return v.Ipv6Addresses }).(LaunchTemplateIpv6AddArrayOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) PrivateIpAddresses() LaunchTemplatePrivateIpAddArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplatePrivateIpAdd { return v.PrivateIpAddresses }).(LaunchTemplatePrivateIpAddArrayOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceArrayOutput) ToLaunchTemplateNetworkInterfaceArrayOutput() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceArrayOutput) ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) LaunchTemplateNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateNetworkInterface {
+		return vs[0].([]LaunchTemplateNetworkInterface)[vs[1].(int)]
+	}).(LaunchTemplateNetworkInterfaceOutput)
+}
+
+type LaunchTemplatePlacement struct {
+	Affinity             *string `pulumi:"affinity"`
+	AvailabilityZone     *string `pulumi:"availabilityZone"`
+	GroupName            *string `pulumi:"groupName"`
+	HostId               *string `pulumi:"hostId"`
+	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
+	PartitionNumber      *int    `pulumi:"partitionNumber"`
+	SpreadDomain         *string `pulumi:"spreadDomain"`
+	Tenancy              *string `pulumi:"tenancy"`
+}
+
+// LaunchTemplatePlacementInput is an input type that accepts LaunchTemplatePlacementArgs and LaunchTemplatePlacementOutput values.
+// You can construct a concrete instance of `LaunchTemplatePlacementInput` via:
+//
+//          LaunchTemplatePlacementArgs{...}
+type LaunchTemplatePlacementInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput
+	ToLaunchTemplatePlacementOutputWithContext(context.Context) LaunchTemplatePlacementOutput
+}
+
+type LaunchTemplatePlacementArgs struct {
+	Affinity             pulumi.StringPtrInput `pulumi:"affinity"`
+	AvailabilityZone     pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	GroupName            pulumi.StringPtrInput `pulumi:"groupName"`
+	HostId               pulumi.StringPtrInput `pulumi:"hostId"`
+	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
+	PartitionNumber      pulumi.IntPtrInput    `pulumi:"partitionNumber"`
+	SpreadDomain         pulumi.StringPtrInput `pulumi:"spreadDomain"`
+	Tenancy              pulumi.StringPtrInput `pulumi:"tenancy"`
+}
+
+func (LaunchTemplatePlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput {
+	return i.ToLaunchTemplatePlacementOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementOutputWithContext(ctx context.Context) LaunchTemplatePlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementOutput)
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return i.ToLaunchTemplatePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementOutput).ToLaunchTemplatePlacementPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplatePlacementPtrInput is an input type that accepts LaunchTemplatePlacementArgs, LaunchTemplatePlacementPtr and LaunchTemplatePlacementPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplatePlacementPtrInput` via:
+//
+//          LaunchTemplatePlacementArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplatePlacementPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput
+	ToLaunchTemplatePlacementPtrOutputWithContext(context.Context) LaunchTemplatePlacementPtrOutput
+}
+
+type launchTemplatePlacementPtrType LaunchTemplatePlacementArgs
+
+func LaunchTemplatePlacementPtr(v *LaunchTemplatePlacementArgs) LaunchTemplatePlacementPtrInput {
+	return (*launchTemplatePlacementPtrType)(v)
+}
+
+func (*launchTemplatePlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (i *launchTemplatePlacementPtrType) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return i.ToLaunchTemplatePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplatePlacementPtrType) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementPtrOutput)
+}
+
+type LaunchTemplatePlacementOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementOutputWithContext(ctx context.Context) LaunchTemplatePlacementOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return o.ToLaunchTemplatePlacementPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplatePlacement) *LaunchTemplatePlacement {
+		return &v
+	}).(LaunchTemplatePlacementPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) Affinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplatePlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (o LaunchTemplatePlacementPtrOutput) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementPtrOutput) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementPtrOutput) Elem() LaunchTemplatePlacementOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) LaunchTemplatePlacement {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplatePlacement
+		return ret
+	}).(LaunchTemplatePlacementOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Affinity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpreadDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tenancy
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplatePrivateIpAdd struct {
+	Primary          *bool   `pulumi:"primary"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+}
+
+// LaunchTemplatePrivateIpAddInput is an input type that accepts LaunchTemplatePrivateIpAddArgs and LaunchTemplatePrivateIpAddOutput values.
+// You can construct a concrete instance of `LaunchTemplatePrivateIpAddInput` via:
+//
+//          LaunchTemplatePrivateIpAddArgs{...}
+type LaunchTemplatePrivateIpAddInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePrivateIpAddOutput() LaunchTemplatePrivateIpAddOutput
+	ToLaunchTemplatePrivateIpAddOutputWithContext(context.Context) LaunchTemplatePrivateIpAddOutput
+}
+
+type LaunchTemplatePrivateIpAddArgs struct {
+	Primary          pulumi.BoolPtrInput   `pulumi:"primary"`
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+}
+
+func (LaunchTemplatePrivateIpAddArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (i LaunchTemplatePrivateIpAddArgs) ToLaunchTemplatePrivateIpAddOutput() LaunchTemplatePrivateIpAddOutput {
+	return i.ToLaunchTemplatePrivateIpAddOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePrivateIpAddArgs) ToLaunchTemplatePrivateIpAddOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateIpAddOutput)
+}
+
+// LaunchTemplatePrivateIpAddArrayInput is an input type that accepts LaunchTemplatePrivateIpAddArray and LaunchTemplatePrivateIpAddArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplatePrivateIpAddArrayInput` via:
+//
+//          LaunchTemplatePrivateIpAddArray{ LaunchTemplatePrivateIpAddArgs{...} }
+type LaunchTemplatePrivateIpAddArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePrivateIpAddArrayOutput() LaunchTemplatePrivateIpAddArrayOutput
+	ToLaunchTemplatePrivateIpAddArrayOutputWithContext(context.Context) LaunchTemplatePrivateIpAddArrayOutput
+}
+
+type LaunchTemplatePrivateIpAddArray []LaunchTemplatePrivateIpAddInput
+
+func (LaunchTemplatePrivateIpAddArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (i LaunchTemplatePrivateIpAddArray) ToLaunchTemplatePrivateIpAddArrayOutput() LaunchTemplatePrivateIpAddArrayOutput {
+	return i.ToLaunchTemplatePrivateIpAddArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePrivateIpAddArray) ToLaunchTemplatePrivateIpAddArrayOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateIpAddArrayOutput)
+}
+
+type LaunchTemplatePrivateIpAddOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePrivateIpAddOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (o LaunchTemplatePrivateIpAddOutput) ToLaunchTemplatePrivateIpAddOutput() LaunchTemplatePrivateIpAddOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateIpAddOutput) ToLaunchTemplatePrivateIpAddOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateIpAddOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateIpAdd) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplatePrivateIpAddOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateIpAdd) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplatePrivateIpAddArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePrivateIpAddArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (o LaunchTemplatePrivateIpAddArrayOutput) ToLaunchTemplatePrivateIpAddArrayOutput() LaunchTemplatePrivateIpAddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateIpAddArrayOutput) ToLaunchTemplatePrivateIpAddArrayOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateIpAddArrayOutput) Index(i pulumi.IntInput) LaunchTemplatePrivateIpAddOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplatePrivateIpAdd {
+		return vs[0].([]LaunchTemplatePrivateIpAdd)[vs[1].(int)]
+	}).(LaunchTemplatePrivateIpAddOutput)
+}
+
+type LaunchTemplateSpotOptions struct {
+	BlockDurationMinutes         *int    `pulumi:"blockDurationMinutes"`
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	MaxPrice                     *string `pulumi:"maxPrice"`
+	SpotInstanceType             *string `pulumi:"spotInstanceType"`
+	ValidUntil                   *string `pulumi:"validUntil"`
+}
+
+// LaunchTemplateSpotOptionsInput is an input type that accepts LaunchTemplateSpotOptionsArgs and LaunchTemplateSpotOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateSpotOptionsInput` via:
+//
+//          LaunchTemplateSpotOptionsArgs{...}
+type LaunchTemplateSpotOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateSpotOptionsOutput() LaunchTemplateSpotOptionsOutput
+	ToLaunchTemplateSpotOptionsOutputWithContext(context.Context) LaunchTemplateSpotOptionsOutput
+}
+
+type LaunchTemplateSpotOptionsArgs struct {
+	BlockDurationMinutes         pulumi.IntPtrInput    `pulumi:"blockDurationMinutes"`
+	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
+	MaxPrice                     pulumi.StringPtrInput `pulumi:"maxPrice"`
+	SpotInstanceType             pulumi.StringPtrInput `pulumi:"spotInstanceType"`
+	ValidUntil                   pulumi.StringPtrInput `pulumi:"validUntil"`
+}
+
+func (LaunchTemplateSpotOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsOutput() LaunchTemplateSpotOptionsOutput {
+	return i.ToLaunchTemplateSpotOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSpotOptionsOutput)
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return i.ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSpotOptionsOutput).ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateSpotOptionsPtrInput is an input type that accepts LaunchTemplateSpotOptionsArgs, LaunchTemplateSpotOptionsPtr and LaunchTemplateSpotOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateSpotOptionsPtrInput` via:
+//
+//          LaunchTemplateSpotOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateSpotOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput
+	ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Context) LaunchTemplateSpotOptionsPtrOutput
+}
+
+type launchTemplateSpotOptionsPtrType LaunchTemplateSpotOptionsArgs
+
+func LaunchTemplateSpotOptionsPtr(v *LaunchTemplateSpotOptionsArgs) LaunchTemplateSpotOptionsPtrInput {
+	return (*launchTemplateSpotOptionsPtrType)(v)
+}
+
+func (*launchTemplateSpotOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateSpotOptionsPtrType) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return i.ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateSpotOptionsPtrType) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+type LaunchTemplateSpotOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateSpotOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsOutput() LaunchTemplateSpotOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return o.ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateSpotOptions) *LaunchTemplateSpotOptions {
+		return &v
+	}).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateSpotOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateSpotOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) Elem() LaunchTemplateSpotOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) LaunchTemplateSpotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateSpotOptions
+		return ret
+	}).(LaunchTemplateSpotOptionsOutput)
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntil
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// LaunchTemplateTagInput is an input type that accepts LaunchTemplateTagArgs and LaunchTemplateTagOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagInput` via:
+//
+//          LaunchTemplateTagArgs{...}
+type LaunchTemplateTagInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagOutput() LaunchTemplateTagOutput
+	ToLaunchTemplateTagOutputWithContext(context.Context) LaunchTemplateTagOutput
+}
+
+type LaunchTemplateTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LaunchTemplateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTag)(nil)).Elem()
+}
+
+func (i LaunchTemplateTagArgs) ToLaunchTemplateTagOutput() LaunchTemplateTagOutput {
+	return i.ToLaunchTemplateTagOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTagArgs) ToLaunchTemplateTagOutputWithContext(ctx context.Context) LaunchTemplateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagOutput)
+}
+
+// LaunchTemplateTagArrayInput is an input type that accepts LaunchTemplateTagArray and LaunchTemplateTagArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagArrayInput` via:
+//
+//          LaunchTemplateTagArray{ LaunchTemplateTagArgs{...} }
+type LaunchTemplateTagArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagArrayOutput() LaunchTemplateTagArrayOutput
+	ToLaunchTemplateTagArrayOutputWithContext(context.Context) LaunchTemplateTagArrayOutput
+}
+
+type LaunchTemplateTagArray []LaunchTemplateTagInput
+
+func (LaunchTemplateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateTag)(nil)).Elem()
+}
+
+func (i LaunchTemplateTagArray) ToLaunchTemplateTagArrayOutput() LaunchTemplateTagArrayOutput {
+	return i.ToLaunchTemplateTagArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTagArray) ToLaunchTemplateTagArrayOutputWithContext(ctx context.Context) LaunchTemplateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagArrayOutput)
+}
+
+type LaunchTemplateTagOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTag)(nil)).Elem()
+}
+
+func (o LaunchTemplateTagOutput) ToLaunchTemplateTagOutput() LaunchTemplateTagOutput {
+	return o
+}
+
+func (o LaunchTemplateTagOutput) ToLaunchTemplateTagOutputWithContext(ctx context.Context) LaunchTemplateTagOutput {
+	return o
+}
+
+func (o LaunchTemplateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchTemplateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o LaunchTemplateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchTemplateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LaunchTemplateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateTag)(nil)).Elem()
+}
+
+func (o LaunchTemplateTagArrayOutput) ToLaunchTemplateTagArrayOutput() LaunchTemplateTagArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateTagArrayOutput) ToLaunchTemplateTagArrayOutputWithContext(ctx context.Context) LaunchTemplateTagArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateTagArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateTag {
+		return vs[0].([]LaunchTemplateTag)[vs[1].(int)]
+	}).(LaunchTemplateTagOutput)
+}
+
+type LaunchTemplateTagSpecification struct {
+	ResourceType *string             `pulumi:"resourceType"`
+	Tags         []LaunchTemplateTag `pulumi:"tags"`
+}
+
+// LaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateTagSpecificationArgs and LaunchTemplateTagSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagSpecificationInput` via:
+//
+//          LaunchTemplateTagSpecificationArgs{...}
+type LaunchTemplateTagSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagSpecificationOutput() LaunchTemplateTagSpecificationOutput
+	ToLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateTagSpecificationOutput
+}
+
+type LaunchTemplateTagSpecificationArgs struct {
+	ResourceType pulumi.StringPtrInput       `pulumi:"resourceType"`
+	Tags         LaunchTemplateTagArrayInput `pulumi:"tags"`
+}
+
+func (LaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateTagSpecificationArgs) ToLaunchTemplateTagSpecificationOutput() LaunchTemplateTagSpecificationOutput {
+	return i.ToLaunchTemplateTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTagSpecificationArgs) ToLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationOutput)
+}
+
+// LaunchTemplateTagSpecificationArrayInput is an input type that accepts LaunchTemplateTagSpecificationArray and LaunchTemplateTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagSpecificationArrayInput` via:
+//
+//          LaunchTemplateTagSpecificationArray{ LaunchTemplateTagSpecificationArgs{...} }
+type LaunchTemplateTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateTagSpecificationArrayOutput
+	ToLaunchTemplateTagSpecificationArrayOutputWithContext(context.Context) LaunchTemplateTagSpecificationArrayOutput
+}
+
+type LaunchTemplateTagSpecificationArray []LaunchTemplateTagSpecificationInput
+
+func (LaunchTemplateTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateTagSpecificationArrayOutput {
+	return i.ToLaunchTemplateTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+type LaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOutput() LaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateTagSpecificationOutput) Tags() LaunchTemplateTagArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateTagSpecification) []LaunchTemplateTag { return v.Tags }).(LaunchTemplateTagArrayOutput)
+}
+
+type LaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateTagSpecification {
+		return vs[0].([]LaunchTemplateTagSpecification)[vs[1].(int)]
+	}).(LaunchTemplateTagSpecificationOutput)
+}
+
 type LocalGatewayRouteTableVPCAssociationTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -2095,6 +9464,502 @@ func (o LocalGatewayRouteTableVPCAssociationTagArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGatewayRouteTableVPCAssociationTag {
 		return vs[0].([]LocalGatewayRouteTableVPCAssociationTag)[vs[1].(int)]
 	}).(LocalGatewayRouteTableVPCAssociationTagOutput)
+}
+
+type NatGatewayTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// NatGatewayTagInput is an input type that accepts NatGatewayTagArgs and NatGatewayTagOutput values.
+// You can construct a concrete instance of `NatGatewayTagInput` via:
+//
+//          NatGatewayTagArgs{...}
+type NatGatewayTagInput interface {
+	pulumi.Input
+
+	ToNatGatewayTagOutput() NatGatewayTagOutput
+	ToNatGatewayTagOutputWithContext(context.Context) NatGatewayTagOutput
+}
+
+type NatGatewayTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NatGatewayTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayTag)(nil)).Elem()
+}
+
+func (i NatGatewayTagArgs) ToNatGatewayTagOutput() NatGatewayTagOutput {
+	return i.ToNatGatewayTagOutputWithContext(context.Background())
+}
+
+func (i NatGatewayTagArgs) ToNatGatewayTagOutputWithContext(ctx context.Context) NatGatewayTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayTagOutput)
+}
+
+// NatGatewayTagArrayInput is an input type that accepts NatGatewayTagArray and NatGatewayTagArrayOutput values.
+// You can construct a concrete instance of `NatGatewayTagArrayInput` via:
+//
+//          NatGatewayTagArray{ NatGatewayTagArgs{...} }
+type NatGatewayTagArrayInput interface {
+	pulumi.Input
+
+	ToNatGatewayTagArrayOutput() NatGatewayTagArrayOutput
+	ToNatGatewayTagArrayOutputWithContext(context.Context) NatGatewayTagArrayOutput
+}
+
+type NatGatewayTagArray []NatGatewayTagInput
+
+func (NatGatewayTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayTag)(nil)).Elem()
+}
+
+func (i NatGatewayTagArray) ToNatGatewayTagArrayOutput() NatGatewayTagArrayOutput {
+	return i.ToNatGatewayTagArrayOutputWithContext(context.Background())
+}
+
+func (i NatGatewayTagArray) ToNatGatewayTagArrayOutputWithContext(ctx context.Context) NatGatewayTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayTagArrayOutput)
+}
+
+type NatGatewayTagOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayTag)(nil)).Elem()
+}
+
+func (o NatGatewayTagOutput) ToNatGatewayTagOutput() NatGatewayTagOutput {
+	return o
+}
+
+func (o NatGatewayTagOutput) ToNatGatewayTagOutputWithContext(ctx context.Context) NatGatewayTagOutput {
+	return o
+}
+
+func (o NatGatewayTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NatGatewayTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NatGatewayTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NatGatewayTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NatGatewayTagArrayOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayTag)(nil)).Elem()
+}
+
+func (o NatGatewayTagArrayOutput) ToNatGatewayTagArrayOutput() NatGatewayTagArrayOutput {
+	return o
+}
+
+func (o NatGatewayTagArrayOutput) ToNatGatewayTagArrayOutputWithContext(ctx context.Context) NatGatewayTagArrayOutput {
+	return o
+}
+
+func (o NatGatewayTagArrayOutput) Index(i pulumi.IntInput) NatGatewayTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatGatewayTag {
+		return vs[0].([]NatGatewayTag)[vs[1].(int)]
+	}).(NatGatewayTagOutput)
+}
+
+type NetworkAclEntryIcmp struct {
+	Code *int `pulumi:"code"`
+	Type *int `pulumi:"type"`
+}
+
+// NetworkAclEntryIcmpInput is an input type that accepts NetworkAclEntryIcmpArgs and NetworkAclEntryIcmpOutput values.
+// You can construct a concrete instance of `NetworkAclEntryIcmpInput` via:
+//
+//          NetworkAclEntryIcmpArgs{...}
+type NetworkAclEntryIcmpInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryIcmpOutput() NetworkAclEntryIcmpOutput
+	ToNetworkAclEntryIcmpOutputWithContext(context.Context) NetworkAclEntryIcmpOutput
+}
+
+type NetworkAclEntryIcmpArgs struct {
+	Code pulumi.IntPtrInput `pulumi:"code"`
+	Type pulumi.IntPtrInput `pulumi:"type"`
+}
+
+func (NetworkAclEntryIcmpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpOutput() NetworkAclEntryIcmpOutput {
+	return i.ToNetworkAclEntryIcmpOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpOutputWithContext(ctx context.Context) NetworkAclEntryIcmpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryIcmpOutput)
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return i.ToNetworkAclEntryIcmpPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryIcmpOutput).ToNetworkAclEntryIcmpPtrOutputWithContext(ctx)
+}
+
+// NetworkAclEntryIcmpPtrInput is an input type that accepts NetworkAclEntryIcmpArgs, NetworkAclEntryIcmpPtr and NetworkAclEntryIcmpPtrOutput values.
+// You can construct a concrete instance of `NetworkAclEntryIcmpPtrInput` via:
+//
+//          NetworkAclEntryIcmpArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkAclEntryIcmpPtrInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput
+	ToNetworkAclEntryIcmpPtrOutputWithContext(context.Context) NetworkAclEntryIcmpPtrOutput
+}
+
+type networkAclEntryIcmpPtrType NetworkAclEntryIcmpArgs
+
+func NetworkAclEntryIcmpPtr(v *NetworkAclEntryIcmpArgs) NetworkAclEntryIcmpPtrInput {
+	return (*networkAclEntryIcmpPtrType)(v)
+}
+
+func (*networkAclEntryIcmpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (i *networkAclEntryIcmpPtrType) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return i.ToNetworkAclEntryIcmpPtrOutputWithContext(context.Background())
+}
+
+func (i *networkAclEntryIcmpPtrType) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryIcmpPtrOutput)
+}
+
+type NetworkAclEntryIcmpOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryIcmpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpOutput() NetworkAclEntryIcmpOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpOutputWithContext(ctx context.Context) NetworkAclEntryIcmpOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return o.ToNetworkAclEntryIcmpPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAclEntryIcmp) *NetworkAclEntryIcmp {
+		return &v
+	}).(NetworkAclEntryIcmpPtrOutput)
+}
+
+func (o NetworkAclEntryIcmpOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryIcmp) *int { return v.Code }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkAclEntryIcmpOutput) Type() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryIcmp) *int { return v.Type }).(pulumi.IntPtrOutput)
+}
+
+type NetworkAclEntryIcmpPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryIcmpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) Elem() NetworkAclEntryIcmpOutput {
+	return o.ApplyT(func(v *NetworkAclEntryIcmp) NetworkAclEntryIcmp {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAclEntryIcmp
+		return ret
+	}).(NetworkAclEntryIcmpOutput)
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryIcmp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) Type() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryIcmp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkAclEntryPortRange struct {
+	From *int `pulumi:"from"`
+	To   *int `pulumi:"to"`
+}
+
+// NetworkAclEntryPortRangeInput is an input type that accepts NetworkAclEntryPortRangeArgs and NetworkAclEntryPortRangeOutput values.
+// You can construct a concrete instance of `NetworkAclEntryPortRangeInput` via:
+//
+//          NetworkAclEntryPortRangeArgs{...}
+type NetworkAclEntryPortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryPortRangeOutput() NetworkAclEntryPortRangeOutput
+	ToNetworkAclEntryPortRangeOutputWithContext(context.Context) NetworkAclEntryPortRangeOutput
+}
+
+type NetworkAclEntryPortRangeArgs struct {
+	From pulumi.IntPtrInput `pulumi:"from"`
+	To   pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (NetworkAclEntryPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangeOutput() NetworkAclEntryPortRangeOutput {
+	return i.ToNetworkAclEntryPortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangeOutputWithContext(ctx context.Context) NetworkAclEntryPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryPortRangeOutput)
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return i.ToNetworkAclEntryPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryPortRangeOutput).ToNetworkAclEntryPortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkAclEntryPortRangePtrInput is an input type that accepts NetworkAclEntryPortRangeArgs, NetworkAclEntryPortRangePtr and NetworkAclEntryPortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkAclEntryPortRangePtrInput` via:
+//
+//          NetworkAclEntryPortRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkAclEntryPortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput
+	ToNetworkAclEntryPortRangePtrOutputWithContext(context.Context) NetworkAclEntryPortRangePtrOutput
+}
+
+type networkAclEntryPortRangePtrType NetworkAclEntryPortRangeArgs
+
+func NetworkAclEntryPortRangePtr(v *NetworkAclEntryPortRangeArgs) NetworkAclEntryPortRangePtrInput {
+	return (*networkAclEntryPortRangePtrType)(v)
+}
+
+func (*networkAclEntryPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (i *networkAclEntryPortRangePtrType) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return i.ToNetworkAclEntryPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkAclEntryPortRangePtrType) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryPortRangePtrOutput)
+}
+
+type NetworkAclEntryPortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangeOutput() NetworkAclEntryPortRangeOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangeOutputWithContext(ctx context.Context) NetworkAclEntryPortRangeOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return o.ToNetworkAclEntryPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAclEntryPortRange) *NetworkAclEntryPortRange {
+		return &v
+	}).(NetworkAclEntryPortRangePtrOutput)
+}
+
+func (o NetworkAclEntryPortRangeOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryPortRange) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkAclEntryPortRangeOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryPortRange) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type NetworkAclEntryPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) Elem() NetworkAclEntryPortRangeOutput {
+	return o.ApplyT(func(v *NetworkAclEntryPortRange) NetworkAclEntryPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAclEntryPortRange
+		return ret
+	}).(NetworkAclEntryPortRangeOutput)
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type NetworkAclTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// NetworkAclTagInput is an input type that accepts NetworkAclTagArgs and NetworkAclTagOutput values.
+// You can construct a concrete instance of `NetworkAclTagInput` via:
+//
+//          NetworkAclTagArgs{...}
+type NetworkAclTagInput interface {
+	pulumi.Input
+
+	ToNetworkAclTagOutput() NetworkAclTagOutput
+	ToNetworkAclTagOutputWithContext(context.Context) NetworkAclTagOutput
+}
+
+type NetworkAclTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NetworkAclTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclTag)(nil)).Elem()
+}
+
+func (i NetworkAclTagArgs) ToNetworkAclTagOutput() NetworkAclTagOutput {
+	return i.ToNetworkAclTagOutputWithContext(context.Background())
+}
+
+func (i NetworkAclTagArgs) ToNetworkAclTagOutputWithContext(ctx context.Context) NetworkAclTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclTagOutput)
+}
+
+// NetworkAclTagArrayInput is an input type that accepts NetworkAclTagArray and NetworkAclTagArrayOutput values.
+// You can construct a concrete instance of `NetworkAclTagArrayInput` via:
+//
+//          NetworkAclTagArray{ NetworkAclTagArgs{...} }
+type NetworkAclTagArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclTagArrayOutput() NetworkAclTagArrayOutput
+	ToNetworkAclTagArrayOutputWithContext(context.Context) NetworkAclTagArrayOutput
+}
+
+type NetworkAclTagArray []NetworkAclTagInput
+
+func (NetworkAclTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclTag)(nil)).Elem()
+}
+
+func (i NetworkAclTagArray) ToNetworkAclTagArrayOutput() NetworkAclTagArrayOutput {
+	return i.ToNetworkAclTagArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclTagArray) ToNetworkAclTagArrayOutputWithContext(ctx context.Context) NetworkAclTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclTagArrayOutput)
+}
+
+type NetworkAclTagOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclTag)(nil)).Elem()
+}
+
+func (o NetworkAclTagOutput) ToNetworkAclTagOutput() NetworkAclTagOutput {
+	return o
+}
+
+func (o NetworkAclTagOutput) ToNetworkAclTagOutputWithContext(ctx context.Context) NetworkAclTagOutput {
+	return o
+}
+
+func (o NetworkAclTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkAclTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NetworkAclTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkAclTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NetworkAclTagArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclTag)(nil)).Elem()
+}
+
+func (o NetworkAclTagArrayOutput) ToNetworkAclTagArrayOutput() NetworkAclTagArrayOutput {
+	return o
+}
+
+func (o NetworkAclTagArrayOutput) ToNetworkAclTagArrayOutputWithContext(ctx context.Context) NetworkAclTagArrayOutput {
+	return o
+}
+
+func (o NetworkAclTagArrayOutput) Index(i pulumi.IntInput) NetworkAclTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclTag {
+		return vs[0].([]NetworkAclTag)[vs[1].(int)]
+	}).(NetworkAclTagOutput)
 }
 
 type NetworkInsightsAnalysisAlternatePathHint struct {
@@ -4574,6 +12439,300 @@ func (o NetworkInsightsPathTagArrayOutput) Index(i pulumi.IntInput) NetworkInsig
 	}).(NetworkInsightsPathTagOutput)
 }
 
+type NetworkInterfaceInstanceIpv6Address struct {
+	Ipv6Address string `pulumi:"ipv6Address"`
+}
+
+// NetworkInterfaceInstanceIpv6AddressInput is an input type that accepts NetworkInterfaceInstanceIpv6AddressArgs and NetworkInterfaceInstanceIpv6AddressOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInstanceIpv6AddressInput` via:
+//
+//          NetworkInterfaceInstanceIpv6AddressArgs{...}
+type NetworkInterfaceInstanceIpv6AddressInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInstanceIpv6AddressOutput() NetworkInterfaceInstanceIpv6AddressOutput
+	ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(context.Context) NetworkInterfaceInstanceIpv6AddressOutput
+}
+
+type NetworkInterfaceInstanceIpv6AddressArgs struct {
+	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
+}
+
+func (NetworkInterfaceInstanceIpv6AddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArgs) ToNetworkInterfaceInstanceIpv6AddressOutput() NetworkInterfaceInstanceIpv6AddressOutput {
+	return i.ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArgs) ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressOutput)
+}
+
+// NetworkInterfaceInstanceIpv6AddressArrayInput is an input type that accepts NetworkInterfaceInstanceIpv6AddressArray and NetworkInterfaceInstanceIpv6AddressArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInstanceIpv6AddressArrayInput` via:
+//
+//          NetworkInterfaceInstanceIpv6AddressArray{ NetworkInterfaceInstanceIpv6AddressArgs{...} }
+type NetworkInterfaceInstanceIpv6AddressArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput
+	ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput
+}
+
+type NetworkInterfaceInstanceIpv6AddressArray []NetworkInterfaceInstanceIpv6AddressInput
+
+func (NetworkInterfaceInstanceIpv6AddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArray) ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return i.ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArray) ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressArrayOutput)
+}
+
+type NetworkInterfaceInstanceIpv6AddressOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInstanceIpv6AddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv6AddressOutput() NetworkInterfaceInstanceIpv6AddressOutput {
+	return o
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressOutput {
+	return o
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfaceInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
+}
+
+type NetworkInterfaceInstanceIpv6AddressArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInstanceIpv6AddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceInstanceIpv6AddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceInstanceIpv6Address {
+		return vs[0].([]NetworkInterfaceInstanceIpv6Address)[vs[1].(int)]
+	}).(NetworkInterfaceInstanceIpv6AddressOutput)
+}
+
+type NetworkInterfacePrivateIpAddressSpecification struct {
+	Primary          bool   `pulumi:"primary"`
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+}
+
+// NetworkInterfacePrivateIpAddressSpecificationInput is an input type that accepts NetworkInterfacePrivateIpAddressSpecificationArgs and NetworkInterfacePrivateIpAddressSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfacePrivateIpAddressSpecificationInput` via:
+//
+//          NetworkInterfacePrivateIpAddressSpecificationArgs{...}
+type NetworkInterfacePrivateIpAddressSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePrivateIpAddressSpecificationOutput() NetworkInterfacePrivateIpAddressSpecificationOutput
+	ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(context.Context) NetworkInterfacePrivateIpAddressSpecificationOutput
+}
+
+type NetworkInterfacePrivateIpAddressSpecificationArgs struct {
+	Primary          pulumi.BoolInput   `pulumi:"primary"`
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+}
+
+func (NetworkInterfacePrivateIpAddressSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArgs) ToNetworkInterfacePrivateIpAddressSpecificationOutput() NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return i.ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArgs) ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePrivateIpAddressSpecificationOutput)
+}
+
+// NetworkInterfacePrivateIpAddressSpecificationArrayInput is an input type that accepts NetworkInterfacePrivateIpAddressSpecificationArray and NetworkInterfacePrivateIpAddressSpecificationArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfacePrivateIpAddressSpecificationArrayInput` via:
+//
+//          NetworkInterfacePrivateIpAddressSpecificationArray{ NetworkInterfacePrivateIpAddressSpecificationArgs{...} }
+type NetworkInterfacePrivateIpAddressSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePrivateIpAddressSpecificationArrayOutput() NetworkInterfacePrivateIpAddressSpecificationArrayOutput
+	ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(context.Context) NetworkInterfacePrivateIpAddressSpecificationArrayOutput
+}
+
+type NetworkInterfacePrivateIpAddressSpecificationArray []NetworkInterfacePrivateIpAddressSpecificationInput
+
+func (NetworkInterfacePrivateIpAddressSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArray) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutput() NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return i.ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArray) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePrivateIpAddressSpecificationArrayOutput)
+}
+
+type NetworkInterfacePrivateIpAddressSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePrivateIpAddressSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) ToNetworkInterfacePrivateIpAddressSpecificationOutput() NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v NetworkInterfacePrivateIpAddressSpecification) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfacePrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+type NetworkInterfacePrivateIpAddressSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePrivateIpAddressSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutput() NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInput) NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfacePrivateIpAddressSpecification {
+		return vs[0].([]NetworkInterfacePrivateIpAddressSpecification)[vs[1].(int)]
+	}).(NetworkInterfacePrivateIpAddressSpecificationOutput)
+}
+
+type NetworkInterfaceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// NetworkInterfaceTagInput is an input type that accepts NetworkInterfaceTagArgs and NetworkInterfaceTagOutput values.
+// You can construct a concrete instance of `NetworkInterfaceTagInput` via:
+//
+//          NetworkInterfaceTagArgs{...}
+type NetworkInterfaceTagInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceTagOutput() NetworkInterfaceTagOutput
+	ToNetworkInterfaceTagOutputWithContext(context.Context) NetworkInterfaceTagOutput
+}
+
+type NetworkInterfaceTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (NetworkInterfaceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceTag)(nil)).Elem()
+}
+
+func (i NetworkInterfaceTagArgs) ToNetworkInterfaceTagOutput() NetworkInterfaceTagOutput {
+	return i.ToNetworkInterfaceTagOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceTagArgs) ToNetworkInterfaceTagOutputWithContext(ctx context.Context) NetworkInterfaceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceTagOutput)
+}
+
+// NetworkInterfaceTagArrayInput is an input type that accepts NetworkInterfaceTagArray and NetworkInterfaceTagArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceTagArrayInput` via:
+//
+//          NetworkInterfaceTagArray{ NetworkInterfaceTagArgs{...} }
+type NetworkInterfaceTagArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceTagArrayOutput() NetworkInterfaceTagArrayOutput
+	ToNetworkInterfaceTagArrayOutputWithContext(context.Context) NetworkInterfaceTagArrayOutput
+}
+
+type NetworkInterfaceTagArray []NetworkInterfaceTagInput
+
+func (NetworkInterfaceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceTag)(nil)).Elem()
+}
+
+func (i NetworkInterfaceTagArray) ToNetworkInterfaceTagArrayOutput() NetworkInterfaceTagArrayOutput {
+	return i.ToNetworkInterfaceTagArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceTagArray) ToNetworkInterfaceTagArrayOutputWithContext(ctx context.Context) NetworkInterfaceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceTagArrayOutput)
+}
+
+type NetworkInterfaceTagOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceTag)(nil)).Elem()
+}
+
+func (o NetworkInterfaceTagOutput) ToNetworkInterfaceTagOutput() NetworkInterfaceTagOutput {
+	return o
+}
+
+func (o NetworkInterfaceTagOutput) ToNetworkInterfaceTagOutputWithContext(ctx context.Context) NetworkInterfaceTagOutput {
+	return o
+}
+
+func (o NetworkInterfaceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfaceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfaceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfaceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type NetworkInterfaceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceTag)(nil)).Elem()
+}
+
+func (o NetworkInterfaceTagArrayOutput) ToNetworkInterfaceTagArrayOutput() NetworkInterfaceTagArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceTagArrayOutput) ToNetworkInterfaceTagArrayOutputWithContext(ctx context.Context) NetworkInterfaceTagArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceTagArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceTag {
+		return vs[0].([]NetworkInterfaceTag)[vs[1].(int)]
+	}).(NetworkInterfaceTagOutput)
+}
+
 type PrefixListEntry struct {
 	Cidr        string  `pulumi:"cidr"`
 	Description *string `pulumi:"description"`
@@ -4772,6 +12931,490 @@ func (o PrefixListTagArrayOutput) Index(i pulumi.IntInput) PrefixListTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListTag {
 		return vs[0].([]PrefixListTag)[vs[1].(int)]
 	}).(PrefixListTagOutput)
+}
+
+type RouteTableTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// RouteTableTagInput is an input type that accepts RouteTableTagArgs and RouteTableTagOutput values.
+// You can construct a concrete instance of `RouteTableTagInput` via:
+//
+//          RouteTableTagArgs{...}
+type RouteTableTagInput interface {
+	pulumi.Input
+
+	ToRouteTableTagOutput() RouteTableTagOutput
+	ToRouteTableTagOutputWithContext(context.Context) RouteTableTagOutput
+}
+
+type RouteTableTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RouteTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableTag)(nil)).Elem()
+}
+
+func (i RouteTableTagArgs) ToRouteTableTagOutput() RouteTableTagOutput {
+	return i.ToRouteTableTagOutputWithContext(context.Background())
+}
+
+func (i RouteTableTagArgs) ToRouteTableTagOutputWithContext(ctx context.Context) RouteTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableTagOutput)
+}
+
+// RouteTableTagArrayInput is an input type that accepts RouteTableTagArray and RouteTableTagArrayOutput values.
+// You can construct a concrete instance of `RouteTableTagArrayInput` via:
+//
+//          RouteTableTagArray{ RouteTableTagArgs{...} }
+type RouteTableTagArrayInput interface {
+	pulumi.Input
+
+	ToRouteTableTagArrayOutput() RouteTableTagArrayOutput
+	ToRouteTableTagArrayOutputWithContext(context.Context) RouteTableTagArrayOutput
+}
+
+type RouteTableTagArray []RouteTableTagInput
+
+func (RouteTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableTag)(nil)).Elem()
+}
+
+func (i RouteTableTagArray) ToRouteTableTagArrayOutput() RouteTableTagArrayOutput {
+	return i.ToRouteTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i RouteTableTagArray) ToRouteTableTagArrayOutputWithContext(ctx context.Context) RouteTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteTableTagArrayOutput)
+}
+
+type RouteTableTagOutput struct{ *pulumi.OutputState }
+
+func (RouteTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteTableTag)(nil)).Elem()
+}
+
+func (o RouteTableTagOutput) ToRouteTableTagOutput() RouteTableTagOutput {
+	return o
+}
+
+func (o RouteTableTagOutput) ToRouteTableTagOutputWithContext(ctx context.Context) RouteTableTagOutput {
+	return o
+}
+
+func (o RouteTableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteTableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RouteTableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteTableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RouteTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RouteTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RouteTableTag)(nil)).Elem()
+}
+
+func (o RouteTableTagArrayOutput) ToRouteTableTagArrayOutput() RouteTableTagArrayOutput {
+	return o
+}
+
+func (o RouteTableTagArrayOutput) ToRouteTableTagArrayOutputWithContext(ctx context.Context) RouteTableTagArrayOutput {
+	return o
+}
+
+func (o RouteTableTagArrayOutput) Index(i pulumi.IntInput) RouteTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RouteTableTag {
+		return vs[0].([]RouteTableTag)[vs[1].(int)]
+	}).(RouteTableTagOutput)
+}
+
+type SecurityGroupEgressType struct {
+	CidrIp                     *string `pulumi:"cidrIp"`
+	CidrIpv6                   *string `pulumi:"cidrIpv6"`
+	Description                *string `pulumi:"description"`
+	DestinationPrefixListId    *string `pulumi:"destinationPrefixListId"`
+	DestinationSecurityGroupId *string `pulumi:"destinationSecurityGroupId"`
+	FromPort                   *int    `pulumi:"fromPort"`
+	IpProtocol                 string  `pulumi:"ipProtocol"`
+	ToPort                     *int    `pulumi:"toPort"`
+}
+
+// SecurityGroupEgressTypeInput is an input type that accepts SecurityGroupEgressTypeArgs and SecurityGroupEgressTypeOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressTypeInput` via:
+//
+//          SecurityGroupEgressTypeArgs{...}
+type SecurityGroupEgressTypeInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressTypeOutput() SecurityGroupEgressTypeOutput
+	ToSecurityGroupEgressTypeOutputWithContext(context.Context) SecurityGroupEgressTypeOutput
+}
+
+type SecurityGroupEgressTypeArgs struct {
+	CidrIp                     pulumi.StringPtrInput `pulumi:"cidrIp"`
+	CidrIpv6                   pulumi.StringPtrInput `pulumi:"cidrIpv6"`
+	Description                pulumi.StringPtrInput `pulumi:"description"`
+	DestinationPrefixListId    pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
+	DestinationSecurityGroupId pulumi.StringPtrInput `pulumi:"destinationSecurityGroupId"`
+	FromPort                   pulumi.IntPtrInput    `pulumi:"fromPort"`
+	IpProtocol                 pulumi.StringInput    `pulumi:"ipProtocol"`
+	ToPort                     pulumi.IntPtrInput    `pulumi:"toPort"`
+}
+
+func (SecurityGroupEgressTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressTypeArgs) ToSecurityGroupEgressTypeOutput() SecurityGroupEgressTypeOutput {
+	return i.ToSecurityGroupEgressTypeOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressTypeArgs) ToSecurityGroupEgressTypeOutputWithContext(ctx context.Context) SecurityGroupEgressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressTypeOutput)
+}
+
+// SecurityGroupEgressTypeArrayInput is an input type that accepts SecurityGroupEgressTypeArray and SecurityGroupEgressTypeArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressTypeArrayInput` via:
+//
+//          SecurityGroupEgressTypeArray{ SecurityGroupEgressTypeArgs{...} }
+type SecurityGroupEgressTypeArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressTypeArrayOutput() SecurityGroupEgressTypeArrayOutput
+	ToSecurityGroupEgressTypeArrayOutputWithContext(context.Context) SecurityGroupEgressTypeArrayOutput
+}
+
+type SecurityGroupEgressTypeArray []SecurityGroupEgressTypeInput
+
+func (SecurityGroupEgressTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressTypeArray) ToSecurityGroupEgressTypeArrayOutput() SecurityGroupEgressTypeArrayOutput {
+	return i.ToSecurityGroupEgressTypeArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressTypeArray) ToSecurityGroupEgressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupEgressTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressTypeArrayOutput)
+}
+
+type SecurityGroupEgressTypeOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressTypeOutput) ToSecurityGroupEgressTypeOutput() SecurityGroupEgressTypeOutput {
+	return o
+}
+
+func (o SecurityGroupEgressTypeOutput) ToSecurityGroupEgressTypeOutputWithContext(ctx context.Context) SecurityGroupEgressTypeOutput {
+	return o
+}
+
+func (o SecurityGroupEgressTypeOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) DestinationSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.DestinationSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) IpProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) string { return v.IpProtocol }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupEgressTypeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type SecurityGroupEgressTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressTypeArrayOutput) ToSecurityGroupEgressTypeArrayOutput() SecurityGroupEgressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressTypeArrayOutput) ToSecurityGroupEgressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupEgressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressTypeArrayOutput) Index(i pulumi.IntInput) SecurityGroupEgressTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupEgressType {
+		return vs[0].([]SecurityGroupEgressType)[vs[1].(int)]
+	}).(SecurityGroupEgressTypeOutput)
+}
+
+type SecurityGroupIngressType struct {
+	CidrIp                     *string `pulumi:"cidrIp"`
+	CidrIpv6                   *string `pulumi:"cidrIpv6"`
+	Description                *string `pulumi:"description"`
+	FromPort                   *int    `pulumi:"fromPort"`
+	IpProtocol                 string  `pulumi:"ipProtocol"`
+	SourcePrefixListId         *string `pulumi:"sourcePrefixListId"`
+	SourceSecurityGroupId      *string `pulumi:"sourceSecurityGroupId"`
+	SourceSecurityGroupName    *string `pulumi:"sourceSecurityGroupName"`
+	SourceSecurityGroupOwnerId *string `pulumi:"sourceSecurityGroupOwnerId"`
+	ToPort                     *int    `pulumi:"toPort"`
+}
+
+// SecurityGroupIngressTypeInput is an input type that accepts SecurityGroupIngressTypeArgs and SecurityGroupIngressTypeOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressTypeInput` via:
+//
+//          SecurityGroupIngressTypeArgs{...}
+type SecurityGroupIngressTypeInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressTypeOutput() SecurityGroupIngressTypeOutput
+	ToSecurityGroupIngressTypeOutputWithContext(context.Context) SecurityGroupIngressTypeOutput
+}
+
+type SecurityGroupIngressTypeArgs struct {
+	CidrIp                     pulumi.StringPtrInput `pulumi:"cidrIp"`
+	CidrIpv6                   pulumi.StringPtrInput `pulumi:"cidrIpv6"`
+	Description                pulumi.StringPtrInput `pulumi:"description"`
+	FromPort                   pulumi.IntPtrInput    `pulumi:"fromPort"`
+	IpProtocol                 pulumi.StringInput    `pulumi:"ipProtocol"`
+	SourcePrefixListId         pulumi.StringPtrInput `pulumi:"sourcePrefixListId"`
+	SourceSecurityGroupId      pulumi.StringPtrInput `pulumi:"sourceSecurityGroupId"`
+	SourceSecurityGroupName    pulumi.StringPtrInput `pulumi:"sourceSecurityGroupName"`
+	SourceSecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"sourceSecurityGroupOwnerId"`
+	ToPort                     pulumi.IntPtrInput    `pulumi:"toPort"`
+}
+
+func (SecurityGroupIngressTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressTypeArgs) ToSecurityGroupIngressTypeOutput() SecurityGroupIngressTypeOutput {
+	return i.ToSecurityGroupIngressTypeOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressTypeArgs) ToSecurityGroupIngressTypeOutputWithContext(ctx context.Context) SecurityGroupIngressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressTypeOutput)
+}
+
+// SecurityGroupIngressTypeArrayInput is an input type that accepts SecurityGroupIngressTypeArray and SecurityGroupIngressTypeArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressTypeArrayInput` via:
+//
+//          SecurityGroupIngressTypeArray{ SecurityGroupIngressTypeArgs{...} }
+type SecurityGroupIngressTypeArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressTypeArrayOutput() SecurityGroupIngressTypeArrayOutput
+	ToSecurityGroupIngressTypeArrayOutputWithContext(context.Context) SecurityGroupIngressTypeArrayOutput
+}
+
+type SecurityGroupIngressTypeArray []SecurityGroupIngressTypeInput
+
+func (SecurityGroupIngressTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressTypeArray) ToSecurityGroupIngressTypeArrayOutput() SecurityGroupIngressTypeArrayOutput {
+	return i.ToSecurityGroupIngressTypeArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressTypeArray) ToSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupIngressTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressTypeArrayOutput)
+}
+
+type SecurityGroupIngressTypeOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressTypeOutput) ToSecurityGroupIngressTypeOutput() SecurityGroupIngressTypeOutput {
+	return o
+}
+
+func (o SecurityGroupIngressTypeOutput) ToSecurityGroupIngressTypeOutputWithContext(ctx context.Context) SecurityGroupIngressTypeOutput {
+	return o
+}
+
+func (o SecurityGroupIngressTypeOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) IpProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) string { return v.IpProtocol }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) SourcePrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourcePrefixListId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityGroupIngressTypeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type SecurityGroupIngressTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressTypeArrayOutput) ToSecurityGroupIngressTypeArrayOutput() SecurityGroupIngressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressTypeArrayOutput) ToSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupIngressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressTypeArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngressType {
+		return vs[0].([]SecurityGroupIngressType)[vs[1].(int)]
+	}).(SecurityGroupIngressTypeOutput)
+}
+
+type SecurityGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// SecurityGroupTagInput is an input type that accepts SecurityGroupTagArgs and SecurityGroupTagOutput values.
+// You can construct a concrete instance of `SecurityGroupTagInput` via:
+//
+//          SecurityGroupTagArgs{...}
+type SecurityGroupTagInput interface {
+	pulumi.Input
+
+	ToSecurityGroupTagOutput() SecurityGroupTagOutput
+	ToSecurityGroupTagOutputWithContext(context.Context) SecurityGroupTagOutput
+}
+
+type SecurityGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SecurityGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupTag)(nil)).Elem()
+}
+
+func (i SecurityGroupTagArgs) ToSecurityGroupTagOutput() SecurityGroupTagOutput {
+	return i.ToSecurityGroupTagOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupTagArgs) ToSecurityGroupTagOutputWithContext(ctx context.Context) SecurityGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagOutput)
+}
+
+// SecurityGroupTagArrayInput is an input type that accepts SecurityGroupTagArray and SecurityGroupTagArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupTagArrayInput` via:
+//
+//          SecurityGroupTagArray{ SecurityGroupTagArgs{...} }
+type SecurityGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput
+	ToSecurityGroupTagArrayOutputWithContext(context.Context) SecurityGroupTagArrayOutput
+}
+
+type SecurityGroupTagArray []SecurityGroupTagInput
+
+func (SecurityGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupTag)(nil)).Elem()
+}
+
+func (i SecurityGroupTagArray) ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput {
+	return i.ToSecurityGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupTagArray) ToSecurityGroupTagArrayOutputWithContext(ctx context.Context) SecurityGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagArrayOutput)
+}
+
+type SecurityGroupTagOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupTag)(nil)).Elem()
+}
+
+func (o SecurityGroupTagOutput) ToSecurityGroupTagOutput() SecurityGroupTagOutput {
+	return o
+}
+
+func (o SecurityGroupTagOutput) ToSecurityGroupTagOutputWithContext(ctx context.Context) SecurityGroupTagOutput {
+	return o
+}
+
+func (o SecurityGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SecurityGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupTag)(nil)).Elem()
+}
+
+func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutput() SecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutputWithContext(ctx context.Context) SecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o SecurityGroupTagArrayOutput) Index(i pulumi.IntInput) SecurityGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupTag {
+		return vs[0].([]SecurityGroupTag)[vs[1].(int)]
+	}).(SecurityGroupTagOutput)
 }
 
 type SpotFleetBlockDeviceMapping struct {
@@ -8073,6 +16716,654 @@ func (o SpotFleetTargetGroupsConfigPtrOutput) TargetGroups() SpotFleetTargetGrou
 	}).(SpotFleetTargetGroupArrayOutput)
 }
 
+type SubnetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// SubnetTagInput is an input type that accepts SubnetTagArgs and SubnetTagOutput values.
+// You can construct a concrete instance of `SubnetTagInput` via:
+//
+//          SubnetTagArgs{...}
+type SubnetTagInput interface {
+	pulumi.Input
+
+	ToSubnetTagOutput() SubnetTagOutput
+	ToSubnetTagOutputWithContext(context.Context) SubnetTagOutput
+}
+
+type SubnetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SubnetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetTag)(nil)).Elem()
+}
+
+func (i SubnetTagArgs) ToSubnetTagOutput() SubnetTagOutput {
+	return i.ToSubnetTagOutputWithContext(context.Background())
+}
+
+func (i SubnetTagArgs) ToSubnetTagOutputWithContext(ctx context.Context) SubnetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetTagOutput)
+}
+
+// SubnetTagArrayInput is an input type that accepts SubnetTagArray and SubnetTagArrayOutput values.
+// You can construct a concrete instance of `SubnetTagArrayInput` via:
+//
+//          SubnetTagArray{ SubnetTagArgs{...} }
+type SubnetTagArrayInput interface {
+	pulumi.Input
+
+	ToSubnetTagArrayOutput() SubnetTagArrayOutput
+	ToSubnetTagArrayOutputWithContext(context.Context) SubnetTagArrayOutput
+}
+
+type SubnetTagArray []SubnetTagInput
+
+func (SubnetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetTag)(nil)).Elem()
+}
+
+func (i SubnetTagArray) ToSubnetTagArrayOutput() SubnetTagArrayOutput {
+	return i.ToSubnetTagArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetTagArray) ToSubnetTagArrayOutputWithContext(ctx context.Context) SubnetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetTagArrayOutput)
+}
+
+type SubnetTagOutput struct{ *pulumi.OutputState }
+
+func (SubnetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetTag)(nil)).Elem()
+}
+
+func (o SubnetTagOutput) ToSubnetTagOutput() SubnetTagOutput {
+	return o
+}
+
+func (o SubnetTagOutput) ToSubnetTagOutputWithContext(ctx context.Context) SubnetTagOutput {
+	return o
+}
+
+func (o SubnetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SubnetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SubnetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetTag)(nil)).Elem()
+}
+
+func (o SubnetTagArrayOutput) ToSubnetTagArrayOutput() SubnetTagArrayOutput {
+	return o
+}
+
+func (o SubnetTagArrayOutput) ToSubnetTagArrayOutputWithContext(ctx context.Context) SubnetTagArrayOutput {
+	return o
+}
+
+func (o SubnetTagArrayOutput) Index(i pulumi.IntInput) SubnetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetTag {
+		return vs[0].([]SubnetTag)[vs[1].(int)]
+	}).(SubnetTagOutput)
+}
+
+type TrafficMirrorFilterRuleTrafficMirrorPortRange struct {
+	FromPort int `pulumi:"fromPort"`
+	ToPort   int `pulumi:"toPort"`
+}
+
+// TrafficMirrorFilterRuleTrafficMirrorPortRangeInput is an input type that accepts TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs and TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleTrafficMirrorPortRangeInput` via:
+//
+//          TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{...}
+type TrafficMirrorFilterRuleTrafficMirrorPortRangeInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput
+}
+
+type TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs struct {
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	ToPort   pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return i.ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput)
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput).ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx)
+}
+
+// TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput is an input type that accepts TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs, TrafficMirrorFilterRuleTrafficMirrorPortRangePtr and TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput` via:
+//
+//          TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput
+}
+
+type trafficMirrorFilterRuleTrafficMirrorPortRangePtrType TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs
+
+func TrafficMirrorFilterRuleTrafficMirrorPortRangePtr(v *TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput {
+	return (*trafficMirrorFilterRuleTrafficMirrorPortRangePtrType)(v)
+}
+
+func (*trafficMirrorFilterRuleTrafficMirrorPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (i *trafficMirrorFilterRuleTrafficMirrorPortRangePtrType) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *trafficMirrorFilterRuleTrafficMirrorPortRangePtrType) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput)
+}
+
+type TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o.ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorFilterRuleTrafficMirrorPortRange) *TrafficMirrorFilterRuleTrafficMirrorPortRange {
+		return &v
+	}).(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput)
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterRuleTrafficMirrorPortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterRuleTrafficMirrorPortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) Elem() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleTrafficMirrorPortRange) TrafficMirrorFilterRuleTrafficMirrorPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficMirrorFilterRuleTrafficMirrorPortRange
+		return ret
+	}).(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput)
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleTrafficMirrorPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleTrafficMirrorPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
+type TrafficMirrorFilterTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TrafficMirrorFilterTagInput is an input type that accepts TrafficMirrorFilterTagArgs and TrafficMirrorFilterTagOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterTagInput` via:
+//
+//          TrafficMirrorFilterTagArgs{...}
+type TrafficMirrorFilterTagInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterTagOutput() TrafficMirrorFilterTagOutput
+	ToTrafficMirrorFilterTagOutputWithContext(context.Context) TrafficMirrorFilterTagOutput
+}
+
+type TrafficMirrorFilterTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficMirrorFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterTag)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterTagArgs) ToTrafficMirrorFilterTagOutput() TrafficMirrorFilterTagOutput {
+	return i.ToTrafficMirrorFilterTagOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterTagArgs) ToTrafficMirrorFilterTagOutputWithContext(ctx context.Context) TrafficMirrorFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterTagOutput)
+}
+
+// TrafficMirrorFilterTagArrayInput is an input type that accepts TrafficMirrorFilterTagArray and TrafficMirrorFilterTagArrayOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterTagArrayInput` via:
+//
+//          TrafficMirrorFilterTagArray{ TrafficMirrorFilterTagArgs{...} }
+type TrafficMirrorFilterTagArrayInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterTagArrayOutput() TrafficMirrorFilterTagArrayOutput
+	ToTrafficMirrorFilterTagArrayOutputWithContext(context.Context) TrafficMirrorFilterTagArrayOutput
+}
+
+type TrafficMirrorFilterTagArray []TrafficMirrorFilterTagInput
+
+func (TrafficMirrorFilterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorFilterTag)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterTagArray) ToTrafficMirrorFilterTagArrayOutput() TrafficMirrorFilterTagArrayOutput {
+	return i.ToTrafficMirrorFilterTagArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterTagArray) ToTrafficMirrorFilterTagArrayOutputWithContext(ctx context.Context) TrafficMirrorFilterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterTagArrayOutput)
+}
+
+type TrafficMirrorFilterTagOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterTag)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterTagOutput) ToTrafficMirrorFilterTagOutput() TrafficMirrorFilterTagOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTagOutput) ToTrafficMirrorFilterTagOutputWithContext(ctx context.Context) TrafficMirrorFilterTagOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorFilterTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficMirrorFilterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorFilterTag)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterTagArrayOutput) ToTrafficMirrorFilterTagArrayOutput() TrafficMirrorFilterTagArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTagArrayOutput) ToTrafficMirrorFilterTagArrayOutputWithContext(ctx context.Context) TrafficMirrorFilterTagArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterTagArrayOutput) Index(i pulumi.IntInput) TrafficMirrorFilterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficMirrorFilterTag {
+		return vs[0].([]TrafficMirrorFilterTag)[vs[1].(int)]
+	}).(TrafficMirrorFilterTagOutput)
+}
+
+type TrafficMirrorSessionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TrafficMirrorSessionTagInput is an input type that accepts TrafficMirrorSessionTagArgs and TrafficMirrorSessionTagOutput values.
+// You can construct a concrete instance of `TrafficMirrorSessionTagInput` via:
+//
+//          TrafficMirrorSessionTagArgs{...}
+type TrafficMirrorSessionTagInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorSessionTagOutput() TrafficMirrorSessionTagOutput
+	ToTrafficMirrorSessionTagOutputWithContext(context.Context) TrafficMirrorSessionTagOutput
+}
+
+type TrafficMirrorSessionTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficMirrorSessionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorSessionTag)(nil)).Elem()
+}
+
+func (i TrafficMirrorSessionTagArgs) ToTrafficMirrorSessionTagOutput() TrafficMirrorSessionTagOutput {
+	return i.ToTrafficMirrorSessionTagOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorSessionTagArgs) ToTrafficMirrorSessionTagOutputWithContext(ctx context.Context) TrafficMirrorSessionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionTagOutput)
+}
+
+// TrafficMirrorSessionTagArrayInput is an input type that accepts TrafficMirrorSessionTagArray and TrafficMirrorSessionTagArrayOutput values.
+// You can construct a concrete instance of `TrafficMirrorSessionTagArrayInput` via:
+//
+//          TrafficMirrorSessionTagArray{ TrafficMirrorSessionTagArgs{...} }
+type TrafficMirrorSessionTagArrayInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorSessionTagArrayOutput() TrafficMirrorSessionTagArrayOutput
+	ToTrafficMirrorSessionTagArrayOutputWithContext(context.Context) TrafficMirrorSessionTagArrayOutput
+}
+
+type TrafficMirrorSessionTagArray []TrafficMirrorSessionTagInput
+
+func (TrafficMirrorSessionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorSessionTag)(nil)).Elem()
+}
+
+func (i TrafficMirrorSessionTagArray) ToTrafficMirrorSessionTagArrayOutput() TrafficMirrorSessionTagArrayOutput {
+	return i.ToTrafficMirrorSessionTagArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorSessionTagArray) ToTrafficMirrorSessionTagArrayOutputWithContext(ctx context.Context) TrafficMirrorSessionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorSessionTagArrayOutput)
+}
+
+type TrafficMirrorSessionTagOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorSessionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorSessionTag)(nil)).Elem()
+}
+
+func (o TrafficMirrorSessionTagOutput) ToTrafficMirrorSessionTagOutput() TrafficMirrorSessionTagOutput {
+	return o
+}
+
+func (o TrafficMirrorSessionTagOutput) ToTrafficMirrorSessionTagOutputWithContext(ctx context.Context) TrafficMirrorSessionTagOutput {
+	return o
+}
+
+func (o TrafficMirrorSessionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficMirrorSessionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorSessionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficMirrorSessionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficMirrorSessionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorSessionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorSessionTag)(nil)).Elem()
+}
+
+func (o TrafficMirrorSessionTagArrayOutput) ToTrafficMirrorSessionTagArrayOutput() TrafficMirrorSessionTagArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorSessionTagArrayOutput) ToTrafficMirrorSessionTagArrayOutputWithContext(ctx context.Context) TrafficMirrorSessionTagArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorSessionTagArrayOutput) Index(i pulumi.IntInput) TrafficMirrorSessionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficMirrorSessionTag {
+		return vs[0].([]TrafficMirrorSessionTag)[vs[1].(int)]
+	}).(TrafficMirrorSessionTagOutput)
+}
+
+type TrafficMirrorTargetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TrafficMirrorTargetTagInput is an input type that accepts TrafficMirrorTargetTagArgs and TrafficMirrorTargetTagOutput values.
+// You can construct a concrete instance of `TrafficMirrorTargetTagInput` via:
+//
+//          TrafficMirrorTargetTagArgs{...}
+type TrafficMirrorTargetTagInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorTargetTagOutput() TrafficMirrorTargetTagOutput
+	ToTrafficMirrorTargetTagOutputWithContext(context.Context) TrafficMirrorTargetTagOutput
+}
+
+type TrafficMirrorTargetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrafficMirrorTargetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorTargetTag)(nil)).Elem()
+}
+
+func (i TrafficMirrorTargetTagArgs) ToTrafficMirrorTargetTagOutput() TrafficMirrorTargetTagOutput {
+	return i.ToTrafficMirrorTargetTagOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorTargetTagArgs) ToTrafficMirrorTargetTagOutputWithContext(ctx context.Context) TrafficMirrorTargetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorTargetTagOutput)
+}
+
+// TrafficMirrorTargetTagArrayInput is an input type that accepts TrafficMirrorTargetTagArray and TrafficMirrorTargetTagArrayOutput values.
+// You can construct a concrete instance of `TrafficMirrorTargetTagArrayInput` via:
+//
+//          TrafficMirrorTargetTagArray{ TrafficMirrorTargetTagArgs{...} }
+type TrafficMirrorTargetTagArrayInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorTargetTagArrayOutput() TrafficMirrorTargetTagArrayOutput
+	ToTrafficMirrorTargetTagArrayOutputWithContext(context.Context) TrafficMirrorTargetTagArrayOutput
+}
+
+type TrafficMirrorTargetTagArray []TrafficMirrorTargetTagInput
+
+func (TrafficMirrorTargetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorTargetTag)(nil)).Elem()
+}
+
+func (i TrafficMirrorTargetTagArray) ToTrafficMirrorTargetTagArrayOutput() TrafficMirrorTargetTagArrayOutput {
+	return i.ToTrafficMirrorTargetTagArrayOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorTargetTagArray) ToTrafficMirrorTargetTagArrayOutputWithContext(ctx context.Context) TrafficMirrorTargetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorTargetTagArrayOutput)
+}
+
+type TrafficMirrorTargetTagOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorTargetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorTargetTag)(nil)).Elem()
+}
+
+func (o TrafficMirrorTargetTagOutput) ToTrafficMirrorTargetTagOutput() TrafficMirrorTargetTagOutput {
+	return o
+}
+
+func (o TrafficMirrorTargetTagOutput) ToTrafficMirrorTargetTagOutputWithContext(ctx context.Context) TrafficMirrorTargetTagOutput {
+	return o
+}
+
+func (o TrafficMirrorTargetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficMirrorTargetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TrafficMirrorTargetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrafficMirrorTargetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrafficMirrorTargetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorTargetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrafficMirrorTargetTag)(nil)).Elem()
+}
+
+func (o TrafficMirrorTargetTagArrayOutput) ToTrafficMirrorTargetTagArrayOutput() TrafficMirrorTargetTagArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorTargetTagArrayOutput) ToTrafficMirrorTargetTagArrayOutputWithContext(ctx context.Context) TrafficMirrorTargetTagArrayOutput {
+	return o
+}
+
+func (o TrafficMirrorTargetTagArrayOutput) Index(i pulumi.IntInput) TrafficMirrorTargetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficMirrorTargetTag {
+		return vs[0].([]TrafficMirrorTargetTag)[vs[1].(int)]
+	}).(TrafficMirrorTargetTagOutput)
+}
+
+type TransitGatewayAttachmentTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TransitGatewayAttachmentTagInput is an input type that accepts TransitGatewayAttachmentTagArgs and TransitGatewayAttachmentTagOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentTagInput` via:
+//
+//          TransitGatewayAttachmentTagArgs{...}
+type TransitGatewayAttachmentTagInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentTagOutput() TransitGatewayAttachmentTagOutput
+	ToTransitGatewayAttachmentTagOutputWithContext(context.Context) TransitGatewayAttachmentTagOutput
+}
+
+type TransitGatewayAttachmentTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TransitGatewayAttachmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (i TransitGatewayAttachmentTagArgs) ToTransitGatewayAttachmentTagOutput() TransitGatewayAttachmentTagOutput {
+	return i.ToTransitGatewayAttachmentTagOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentTagArgs) ToTransitGatewayAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayAttachmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentTagOutput)
+}
+
+// TransitGatewayAttachmentTagArrayInput is an input type that accepts TransitGatewayAttachmentTagArray and TransitGatewayAttachmentTagArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayAttachmentTagArrayInput` via:
+//
+//          TransitGatewayAttachmentTagArray{ TransitGatewayAttachmentTagArgs{...} }
+type TransitGatewayAttachmentTagArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayAttachmentTagArrayOutput() TransitGatewayAttachmentTagArrayOutput
+	ToTransitGatewayAttachmentTagArrayOutputWithContext(context.Context) TransitGatewayAttachmentTagArrayOutput
+}
+
+type TransitGatewayAttachmentTagArray []TransitGatewayAttachmentTagInput
+
+func (TransitGatewayAttachmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (i TransitGatewayAttachmentTagArray) ToTransitGatewayAttachmentTagArrayOutput() TransitGatewayAttachmentTagArrayOutput {
+	return i.ToTransitGatewayAttachmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayAttachmentTagArray) ToTransitGatewayAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayAttachmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayAttachmentTagArrayOutput)
+}
+
+type TransitGatewayAttachmentTagOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentTagOutput) ToTransitGatewayAttachmentTagOutput() TransitGatewayAttachmentTagOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentTagOutput) ToTransitGatewayAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayAttachmentTagOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayAttachmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayAttachmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TransitGatewayAttachmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayAttachmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (o TransitGatewayAttachmentTagArrayOutput) ToTransitGatewayAttachmentTagArrayOutput() TransitGatewayAttachmentTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentTagArrayOutput) ToTransitGatewayAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayAttachmentTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayAttachmentTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayAttachmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayAttachmentTag {
+		return vs[0].([]TransitGatewayAttachmentTag)[vs[1].(int)]
+	}).(TransitGatewayAttachmentTagOutput)
+}
+
 type TransitGatewayConnectTag struct {
 	// The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
 	Key *string `pulumi:"key"`
@@ -8684,6 +17975,106 @@ func (o TransitGatewayPeeringAttachmentTagArrayOutput) Index(i pulumi.IntInput) 
 	}).(TransitGatewayPeeringAttachmentTagOutput)
 }
 
+type TransitGatewayRouteTableTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TransitGatewayRouteTableTagInput is an input type that accepts TransitGatewayRouteTableTagArgs and TransitGatewayRouteTableTagOutput values.
+// You can construct a concrete instance of `TransitGatewayRouteTableTagInput` via:
+//
+//          TransitGatewayRouteTableTagArgs{...}
+type TransitGatewayRouteTableTagInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableTagOutput() TransitGatewayRouteTableTagOutput
+	ToTransitGatewayRouteTableTagOutputWithContext(context.Context) TransitGatewayRouteTableTagOutput
+}
+
+type TransitGatewayRouteTableTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TransitGatewayRouteTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (i TransitGatewayRouteTableTagArgs) ToTransitGatewayRouteTableTagOutput() TransitGatewayRouteTableTagOutput {
+	return i.ToTransitGatewayRouteTableTagOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayRouteTableTagArgs) ToTransitGatewayRouteTableTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableTagOutput)
+}
+
+// TransitGatewayRouteTableTagArrayInput is an input type that accepts TransitGatewayRouteTableTagArray and TransitGatewayRouteTableTagArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayRouteTableTagArrayInput` via:
+//
+//          TransitGatewayRouteTableTagArray{ TransitGatewayRouteTableTagArgs{...} }
+type TransitGatewayRouteTableTagArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayRouteTableTagArrayOutput() TransitGatewayRouteTableTagArrayOutput
+	ToTransitGatewayRouteTableTagArrayOutputWithContext(context.Context) TransitGatewayRouteTableTagArrayOutput
+}
+
+type TransitGatewayRouteTableTagArray []TransitGatewayRouteTableTagInput
+
+func (TransitGatewayRouteTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (i TransitGatewayRouteTableTagArray) ToTransitGatewayRouteTableTagArrayOutput() TransitGatewayRouteTableTagArrayOutput {
+	return i.ToTransitGatewayRouteTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayRouteTableTagArray) ToTransitGatewayRouteTableTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableTagArrayOutput)
+}
+
+type TransitGatewayRouteTableTagOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayRouteTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (o TransitGatewayRouteTableTagOutput) ToTransitGatewayRouteTableTagOutput() TransitGatewayRouteTableTagOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableTagOutput) ToTransitGatewayRouteTableTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayRouteTableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayRouteTableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayRouteTableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TransitGatewayRouteTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayRouteTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayRouteTableTag)(nil)).Elem()
+}
+
+func (o TransitGatewayRouteTableTagArrayOutput) ToTransitGatewayRouteTableTagArrayOutput() TransitGatewayRouteTableTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableTagArrayOutput) ToTransitGatewayRouteTableTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayRouteTableTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayRouteTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayRouteTableTag {
+		return vs[0].([]TransitGatewayRouteTableTag)[vs[1].(int)]
+	}).(TransitGatewayRouteTableTagOutput)
+}
+
 type TransitGatewayTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -8784,9 +18175,731 @@ func (o TransitGatewayTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayTag
 	}).(TransitGatewayTagOutput)
 }
 
+type TransitGatewayVpcAttachmentTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TransitGatewayVpcAttachmentTagInput is an input type that accepts TransitGatewayVpcAttachmentTagArgs and TransitGatewayVpcAttachmentTagOutput values.
+// You can construct a concrete instance of `TransitGatewayVpcAttachmentTagInput` via:
+//
+//          TransitGatewayVpcAttachmentTagArgs{...}
+type TransitGatewayVpcAttachmentTagInput interface {
+	pulumi.Input
+
+	ToTransitGatewayVpcAttachmentTagOutput() TransitGatewayVpcAttachmentTagOutput
+	ToTransitGatewayVpcAttachmentTagOutputWithContext(context.Context) TransitGatewayVpcAttachmentTagOutput
+}
+
+type TransitGatewayVpcAttachmentTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TransitGatewayVpcAttachmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayVpcAttachmentTag)(nil)).Elem()
+}
+
+func (i TransitGatewayVpcAttachmentTagArgs) ToTransitGatewayVpcAttachmentTagOutput() TransitGatewayVpcAttachmentTagOutput {
+	return i.ToTransitGatewayVpcAttachmentTagOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayVpcAttachmentTagArgs) ToTransitGatewayVpcAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayVpcAttachmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayVpcAttachmentTagOutput)
+}
+
+// TransitGatewayVpcAttachmentTagArrayInput is an input type that accepts TransitGatewayVpcAttachmentTagArray and TransitGatewayVpcAttachmentTagArrayOutput values.
+// You can construct a concrete instance of `TransitGatewayVpcAttachmentTagArrayInput` via:
+//
+//          TransitGatewayVpcAttachmentTagArray{ TransitGatewayVpcAttachmentTagArgs{...} }
+type TransitGatewayVpcAttachmentTagArrayInput interface {
+	pulumi.Input
+
+	ToTransitGatewayVpcAttachmentTagArrayOutput() TransitGatewayVpcAttachmentTagArrayOutput
+	ToTransitGatewayVpcAttachmentTagArrayOutputWithContext(context.Context) TransitGatewayVpcAttachmentTagArrayOutput
+}
+
+type TransitGatewayVpcAttachmentTagArray []TransitGatewayVpcAttachmentTagInput
+
+func (TransitGatewayVpcAttachmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayVpcAttachmentTag)(nil)).Elem()
+}
+
+func (i TransitGatewayVpcAttachmentTagArray) ToTransitGatewayVpcAttachmentTagArrayOutput() TransitGatewayVpcAttachmentTagArrayOutput {
+	return i.ToTransitGatewayVpcAttachmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayVpcAttachmentTagArray) ToTransitGatewayVpcAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayVpcAttachmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayVpcAttachmentTagArrayOutput)
+}
+
+type TransitGatewayVpcAttachmentTagOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayVpcAttachmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayVpcAttachmentTag)(nil)).Elem()
+}
+
+func (o TransitGatewayVpcAttachmentTagOutput) ToTransitGatewayVpcAttachmentTagOutput() TransitGatewayVpcAttachmentTagOutput {
+	return o
+}
+
+func (o TransitGatewayVpcAttachmentTagOutput) ToTransitGatewayVpcAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayVpcAttachmentTagOutput {
+	return o
+}
+
+func (o TransitGatewayVpcAttachmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayVpcAttachmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayVpcAttachmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TransitGatewayVpcAttachmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TransitGatewayVpcAttachmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayVpcAttachmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TransitGatewayVpcAttachmentTag)(nil)).Elem()
+}
+
+func (o TransitGatewayVpcAttachmentTagArrayOutput) ToTransitGatewayVpcAttachmentTagArrayOutput() TransitGatewayVpcAttachmentTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayVpcAttachmentTagArrayOutput) ToTransitGatewayVpcAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayVpcAttachmentTagArrayOutput {
+	return o
+}
+
+func (o TransitGatewayVpcAttachmentTagArrayOutput) Index(i pulumi.IntInput) TransitGatewayVpcAttachmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayVpcAttachmentTag {
+		return vs[0].([]TransitGatewayVpcAttachmentTag)[vs[1].(int)]
+	}).(TransitGatewayVpcAttachmentTagOutput)
+}
+
+type VPCPeeringConnectionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VPCPeeringConnectionTagInput is an input type that accepts VPCPeeringConnectionTagArgs and VPCPeeringConnectionTagOutput values.
+// You can construct a concrete instance of `VPCPeeringConnectionTagInput` via:
+//
+//          VPCPeeringConnectionTagArgs{...}
+type VPCPeeringConnectionTagInput interface {
+	pulumi.Input
+
+	ToVPCPeeringConnectionTagOutput() VPCPeeringConnectionTagOutput
+	ToVPCPeeringConnectionTagOutputWithContext(context.Context) VPCPeeringConnectionTagOutput
+}
+
+type VPCPeeringConnectionTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VPCPeeringConnectionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCPeeringConnectionTag)(nil)).Elem()
+}
+
+func (i VPCPeeringConnectionTagArgs) ToVPCPeeringConnectionTagOutput() VPCPeeringConnectionTagOutput {
+	return i.ToVPCPeeringConnectionTagOutputWithContext(context.Background())
+}
+
+func (i VPCPeeringConnectionTagArgs) ToVPCPeeringConnectionTagOutputWithContext(ctx context.Context) VPCPeeringConnectionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCPeeringConnectionTagOutput)
+}
+
+// VPCPeeringConnectionTagArrayInput is an input type that accepts VPCPeeringConnectionTagArray and VPCPeeringConnectionTagArrayOutput values.
+// You can construct a concrete instance of `VPCPeeringConnectionTagArrayInput` via:
+//
+//          VPCPeeringConnectionTagArray{ VPCPeeringConnectionTagArgs{...} }
+type VPCPeeringConnectionTagArrayInput interface {
+	pulumi.Input
+
+	ToVPCPeeringConnectionTagArrayOutput() VPCPeeringConnectionTagArrayOutput
+	ToVPCPeeringConnectionTagArrayOutputWithContext(context.Context) VPCPeeringConnectionTagArrayOutput
+}
+
+type VPCPeeringConnectionTagArray []VPCPeeringConnectionTagInput
+
+func (VPCPeeringConnectionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPCPeeringConnectionTag)(nil)).Elem()
+}
+
+func (i VPCPeeringConnectionTagArray) ToVPCPeeringConnectionTagArrayOutput() VPCPeeringConnectionTagArrayOutput {
+	return i.ToVPCPeeringConnectionTagArrayOutputWithContext(context.Background())
+}
+
+func (i VPCPeeringConnectionTagArray) ToVPCPeeringConnectionTagArrayOutputWithContext(ctx context.Context) VPCPeeringConnectionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCPeeringConnectionTagArrayOutput)
+}
+
+type VPCPeeringConnectionTagOutput struct{ *pulumi.OutputState }
+
+func (VPCPeeringConnectionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCPeeringConnectionTag)(nil)).Elem()
+}
+
+func (o VPCPeeringConnectionTagOutput) ToVPCPeeringConnectionTagOutput() VPCPeeringConnectionTagOutput {
+	return o
+}
+
+func (o VPCPeeringConnectionTagOutput) ToVPCPeeringConnectionTagOutputWithContext(ctx context.Context) VPCPeeringConnectionTagOutput {
+	return o
+}
+
+func (o VPCPeeringConnectionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VPCPeeringConnectionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VPCPeeringConnectionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VPCPeeringConnectionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VPCPeeringConnectionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VPCPeeringConnectionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPCPeeringConnectionTag)(nil)).Elem()
+}
+
+func (o VPCPeeringConnectionTagArrayOutput) ToVPCPeeringConnectionTagArrayOutput() VPCPeeringConnectionTagArrayOutput {
+	return o
+}
+
+func (o VPCPeeringConnectionTagArrayOutput) ToVPCPeeringConnectionTagArrayOutputWithContext(ctx context.Context) VPCPeeringConnectionTagArrayOutput {
+	return o
+}
+
+func (o VPCPeeringConnectionTagArrayOutput) Index(i pulumi.IntInput) VPCPeeringConnectionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPCPeeringConnectionTag {
+		return vs[0].([]VPCPeeringConnectionTag)[vs[1].(int)]
+	}).(VPCPeeringConnectionTagOutput)
+}
+
+type VPCTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VPCTagInput is an input type that accepts VPCTagArgs and VPCTagOutput values.
+// You can construct a concrete instance of `VPCTagInput` via:
+//
+//          VPCTagArgs{...}
+type VPCTagInput interface {
+	pulumi.Input
+
+	ToVPCTagOutput() VPCTagOutput
+	ToVPCTagOutputWithContext(context.Context) VPCTagOutput
+}
+
+type VPCTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VPCTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCTag)(nil)).Elem()
+}
+
+func (i VPCTagArgs) ToVPCTagOutput() VPCTagOutput {
+	return i.ToVPCTagOutputWithContext(context.Background())
+}
+
+func (i VPCTagArgs) ToVPCTagOutputWithContext(ctx context.Context) VPCTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCTagOutput)
+}
+
+// VPCTagArrayInput is an input type that accepts VPCTagArray and VPCTagArrayOutput values.
+// You can construct a concrete instance of `VPCTagArrayInput` via:
+//
+//          VPCTagArray{ VPCTagArgs{...} }
+type VPCTagArrayInput interface {
+	pulumi.Input
+
+	ToVPCTagArrayOutput() VPCTagArrayOutput
+	ToVPCTagArrayOutputWithContext(context.Context) VPCTagArrayOutput
+}
+
+type VPCTagArray []VPCTagInput
+
+func (VPCTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPCTag)(nil)).Elem()
+}
+
+func (i VPCTagArray) ToVPCTagArrayOutput() VPCTagArrayOutput {
+	return i.ToVPCTagArrayOutputWithContext(context.Background())
+}
+
+func (i VPCTagArray) ToVPCTagArrayOutputWithContext(ctx context.Context) VPCTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPCTagArrayOutput)
+}
+
+type VPCTagOutput struct{ *pulumi.OutputState }
+
+func (VPCTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPCTag)(nil)).Elem()
+}
+
+func (o VPCTagOutput) ToVPCTagOutput() VPCTagOutput {
+	return o
+}
+
+func (o VPCTagOutput) ToVPCTagOutputWithContext(ctx context.Context) VPCTagOutput {
+	return o
+}
+
+func (o VPCTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VPCTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VPCTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VPCTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VPCTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VPCTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPCTag)(nil)).Elem()
+}
+
+func (o VPCTagArrayOutput) ToVPCTagArrayOutput() VPCTagArrayOutput {
+	return o
+}
+
+func (o VPCTagArrayOutput) ToVPCTagArrayOutputWithContext(ctx context.Context) VPCTagArrayOutput {
+	return o
+}
+
+func (o VPCTagArrayOutput) Index(i pulumi.IntInput) VPCTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPCTag {
+		return vs[0].([]VPCTag)[vs[1].(int)]
+	}).(VPCTagOutput)
+}
+
+type VPNConnectionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VPNConnectionTagInput is an input type that accepts VPNConnectionTagArgs and VPNConnectionTagOutput values.
+// You can construct a concrete instance of `VPNConnectionTagInput` via:
+//
+//          VPNConnectionTagArgs{...}
+type VPNConnectionTagInput interface {
+	pulumi.Input
+
+	ToVPNConnectionTagOutput() VPNConnectionTagOutput
+	ToVPNConnectionTagOutputWithContext(context.Context) VPNConnectionTagOutput
+}
+
+type VPNConnectionTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VPNConnectionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionTag)(nil)).Elem()
+}
+
+func (i VPNConnectionTagArgs) ToVPNConnectionTagOutput() VPNConnectionTagOutput {
+	return i.ToVPNConnectionTagOutputWithContext(context.Background())
+}
+
+func (i VPNConnectionTagArgs) ToVPNConnectionTagOutputWithContext(ctx context.Context) VPNConnectionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionTagOutput)
+}
+
+// VPNConnectionTagArrayInput is an input type that accepts VPNConnectionTagArray and VPNConnectionTagArrayOutput values.
+// You can construct a concrete instance of `VPNConnectionTagArrayInput` via:
+//
+//          VPNConnectionTagArray{ VPNConnectionTagArgs{...} }
+type VPNConnectionTagArrayInput interface {
+	pulumi.Input
+
+	ToVPNConnectionTagArrayOutput() VPNConnectionTagArrayOutput
+	ToVPNConnectionTagArrayOutputWithContext(context.Context) VPNConnectionTagArrayOutput
+}
+
+type VPNConnectionTagArray []VPNConnectionTagInput
+
+func (VPNConnectionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNConnectionTag)(nil)).Elem()
+}
+
+func (i VPNConnectionTagArray) ToVPNConnectionTagArrayOutput() VPNConnectionTagArrayOutput {
+	return i.ToVPNConnectionTagArrayOutputWithContext(context.Background())
+}
+
+func (i VPNConnectionTagArray) ToVPNConnectionTagArrayOutputWithContext(ctx context.Context) VPNConnectionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionTagArrayOutput)
+}
+
+type VPNConnectionTagOutput struct{ *pulumi.OutputState }
+
+func (VPNConnectionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionTag)(nil)).Elem()
+}
+
+func (o VPNConnectionTagOutput) ToVPNConnectionTagOutput() VPNConnectionTagOutput {
+	return o
+}
+
+func (o VPNConnectionTagOutput) ToVPNConnectionTagOutputWithContext(ctx context.Context) VPNConnectionTagOutput {
+	return o
+}
+
+func (o VPNConnectionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VPNConnectionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VPNConnectionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VPNConnectionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VPNConnectionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VPNConnectionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNConnectionTag)(nil)).Elem()
+}
+
+func (o VPNConnectionTagArrayOutput) ToVPNConnectionTagArrayOutput() VPNConnectionTagArrayOutput {
+	return o
+}
+
+func (o VPNConnectionTagArrayOutput) ToVPNConnectionTagArrayOutputWithContext(ctx context.Context) VPNConnectionTagArrayOutput {
+	return o
+}
+
+func (o VPNConnectionTagArrayOutput) Index(i pulumi.IntInput) VPNConnectionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPNConnectionTag {
+		return vs[0].([]VPNConnectionTag)[vs[1].(int)]
+	}).(VPNConnectionTagOutput)
+}
+
+type VPNConnectionVpnTunnelOptionsSpecification struct {
+	PreSharedKey     *string `pulumi:"preSharedKey"`
+	TunnelInsideCidr *string `pulumi:"tunnelInsideCidr"`
+}
+
+// VPNConnectionVpnTunnelOptionsSpecificationInput is an input type that accepts VPNConnectionVpnTunnelOptionsSpecificationArgs and VPNConnectionVpnTunnelOptionsSpecificationOutput values.
+// You can construct a concrete instance of `VPNConnectionVpnTunnelOptionsSpecificationInput` via:
+//
+//          VPNConnectionVpnTunnelOptionsSpecificationArgs{...}
+type VPNConnectionVpnTunnelOptionsSpecificationInput interface {
+	pulumi.Input
+
+	ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput
+	ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput
+}
+
+type VPNConnectionVpnTunnelOptionsSpecificationArgs struct {
+	PreSharedKey     pulumi.StringPtrInput `pulumi:"preSharedKey"`
+	TunnelInsideCidr pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
+}
+
+func (VPNConnectionVpnTunnelOptionsSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArgs) ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return i.ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Background())
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArgs) ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionVpnTunnelOptionsSpecificationOutput)
+}
+
+// VPNConnectionVpnTunnelOptionsSpecificationArrayInput is an input type that accepts VPNConnectionVpnTunnelOptionsSpecificationArray and VPNConnectionVpnTunnelOptionsSpecificationArrayOutput values.
+// You can construct a concrete instance of `VPNConnectionVpnTunnelOptionsSpecificationArrayInput` via:
+//
+//          VPNConnectionVpnTunnelOptionsSpecificationArray{ VPNConnectionVpnTunnelOptionsSpecificationArgs{...} }
+type VPNConnectionVpnTunnelOptionsSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput
+	ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput
+}
+
+type VPNConnectionVpnTunnelOptionsSpecificationArray []VPNConnectionVpnTunnelOptionsSpecificationInput
+
+func (VPNConnectionVpnTunnelOptionsSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArray) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return i.ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArray) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput)
+}
+
+type VPNConnectionVpnTunnelOptionsSpecificationOutput struct{ *pulumi.OutputState }
+
+func (VPNConnectionVpnTunnelOptionsSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return o
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return o
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) PreSharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPNConnectionVpnTunnelOptionsSpecification) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPNConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideCidr }).(pulumi.StringPtrOutput)
+}
+
+type VPNConnectionVpnTunnelOptionsSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) Index(i pulumi.IntInput) VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPNConnectionVpnTunnelOptionsSpecification {
+		return vs[0].([]VPNConnectionVpnTunnelOptionsSpecification)[vs[1].(int)]
+	}).(VPNConnectionVpnTunnelOptionsSpecificationOutput)
+}
+
+type VPNGatewayTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VPNGatewayTagInput is an input type that accepts VPNGatewayTagArgs and VPNGatewayTagOutput values.
+// You can construct a concrete instance of `VPNGatewayTagInput` via:
+//
+//          VPNGatewayTagArgs{...}
+type VPNGatewayTagInput interface {
+	pulumi.Input
+
+	ToVPNGatewayTagOutput() VPNGatewayTagOutput
+	ToVPNGatewayTagOutputWithContext(context.Context) VPNGatewayTagOutput
+}
+
+type VPNGatewayTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VPNGatewayTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNGatewayTag)(nil)).Elem()
+}
+
+func (i VPNGatewayTagArgs) ToVPNGatewayTagOutput() VPNGatewayTagOutput {
+	return i.ToVPNGatewayTagOutputWithContext(context.Background())
+}
+
+func (i VPNGatewayTagArgs) ToVPNGatewayTagOutputWithContext(ctx context.Context) VPNGatewayTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNGatewayTagOutput)
+}
+
+// VPNGatewayTagArrayInput is an input type that accepts VPNGatewayTagArray and VPNGatewayTagArrayOutput values.
+// You can construct a concrete instance of `VPNGatewayTagArrayInput` via:
+//
+//          VPNGatewayTagArray{ VPNGatewayTagArgs{...} }
+type VPNGatewayTagArrayInput interface {
+	pulumi.Input
+
+	ToVPNGatewayTagArrayOutput() VPNGatewayTagArrayOutput
+	ToVPNGatewayTagArrayOutputWithContext(context.Context) VPNGatewayTagArrayOutput
+}
+
+type VPNGatewayTagArray []VPNGatewayTagInput
+
+func (VPNGatewayTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNGatewayTag)(nil)).Elem()
+}
+
+func (i VPNGatewayTagArray) ToVPNGatewayTagArrayOutput() VPNGatewayTagArrayOutput {
+	return i.ToVPNGatewayTagArrayOutputWithContext(context.Background())
+}
+
+func (i VPNGatewayTagArray) ToVPNGatewayTagArrayOutputWithContext(ctx context.Context) VPNGatewayTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNGatewayTagArrayOutput)
+}
+
+type VPNGatewayTagOutput struct{ *pulumi.OutputState }
+
+func (VPNGatewayTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNGatewayTag)(nil)).Elem()
+}
+
+func (o VPNGatewayTagOutput) ToVPNGatewayTagOutput() VPNGatewayTagOutput {
+	return o
+}
+
+func (o VPNGatewayTagOutput) ToVPNGatewayTagOutputWithContext(ctx context.Context) VPNGatewayTagOutput {
+	return o
+}
+
+func (o VPNGatewayTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VPNGatewayTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VPNGatewayTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VPNGatewayTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VPNGatewayTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VPNGatewayTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNGatewayTag)(nil)).Elem()
+}
+
+func (o VPNGatewayTagArrayOutput) ToVPNGatewayTagArrayOutput() VPNGatewayTagArrayOutput {
+	return o
+}
+
+func (o VPNGatewayTagArrayOutput) ToVPNGatewayTagArrayOutputWithContext(ctx context.Context) VPNGatewayTagArrayOutput {
+	return o
+}
+
+func (o VPNGatewayTagArrayOutput) Index(i pulumi.IntInput) VPNGatewayTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPNGatewayTag {
+		return vs[0].([]VPNGatewayTag)[vs[1].(int)]
+	}).(VPNGatewayTagOutput)
+}
+
+type VolumeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VolumeTagInput is an input type that accepts VolumeTagArgs and VolumeTagOutput values.
+// You can construct a concrete instance of `VolumeTagInput` via:
+//
+//          VolumeTagArgs{...}
+type VolumeTagInput interface {
+	pulumi.Input
+
+	ToVolumeTagOutput() VolumeTagOutput
+	ToVolumeTagOutputWithContext(context.Context) VolumeTagOutput
+}
+
+type VolumeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VolumeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
+}
+
+func (i VolumeTagArgs) ToVolumeTagOutput() VolumeTagOutput {
+	return i.ToVolumeTagOutputWithContext(context.Background())
+}
+
+func (i VolumeTagArgs) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagOutput)
+}
+
+// VolumeTagArrayInput is an input type that accepts VolumeTagArray and VolumeTagArrayOutput values.
+// You can construct a concrete instance of `VolumeTagArrayInput` via:
+//
+//          VolumeTagArray{ VolumeTagArgs{...} }
+type VolumeTagArrayInput interface {
+	pulumi.Input
+
+	ToVolumeTagArrayOutput() VolumeTagArrayOutput
+	ToVolumeTagArrayOutputWithContext(context.Context) VolumeTagArrayOutput
+}
+
+type VolumeTagArray []VolumeTagInput
+
+func (VolumeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
+}
+
+func (i VolumeTagArray) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
+	return i.ToVolumeTagArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeTagArray) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagArrayOutput)
+}
+
+type VolumeTagOutput struct{ *pulumi.OutputState }
+
+func (VolumeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTag)(nil)).Elem()
+}
+
+func (o VolumeTagOutput) ToVolumeTagOutput() VolumeTagOutput {
+	return o
+}
+
+func (o VolumeTagOutput) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
+	return o
+}
+
+func (o VolumeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VolumeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VolumeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeTag)(nil)).Elem()
+}
+
+func (o VolumeTagArrayOutput) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
+	return o
+}
+
+func (o VolumeTagArrayOutput) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
+	return o
+}
+
+func (o VolumeTagArrayOutput) Index(i pulumi.IntInput) VolumeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeTag {
+		return vs[0].([]VolumeTag)[vs[1].(int)]
+	}).(VolumeTagOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(CapacityReservationTagOutput{})
+	pulumi.RegisterOutputType(CapacityReservationTagArrayOutput{})
+	pulumi.RegisterOutputType(CapacityReservationTagSpecificationOutput{})
+	pulumi.RegisterOutputType(CapacityReservationTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(CarrierGatewayTagOutput{})
 	pulumi.RegisterOutputType(CarrierGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointCertificateAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagSpecificationOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CustomerGatewayTagOutput{})
+	pulumi.RegisterOutputType(CustomerGatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(DHCPOptionsTagOutput{})
 	pulumi.RegisterOutputType(DHCPOptionsTagArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestOutput{})
@@ -8809,12 +18922,106 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestPtrOutput{})
+	pulumi.RegisterOutputType(EIPTagOutput{})
+	pulumi.RegisterOutputType(EIPTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowLogTagOutput{})
 	pulumi.RegisterOutputType(FlowLogTagArrayOutput{})
+	pulumi.RegisterOutputType(InstanceAssociationParameterOutput{})
+	pulumi.RegisterOutputType(InstanceAssociationParameterArrayOutput{})
+	pulumi.RegisterOutputType(InstanceBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(InstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(InstanceCpuOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceCpuOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceCreditSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceCreditSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceEbsOutput{})
+	pulumi.RegisterOutputType(InstanceEbsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceHibernationOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceHibernationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceIpv6AddressOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceIpv6AddressArrayOutput{})
+	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceLicenseSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceNoDeviceOutput{})
+	pulumi.RegisterOutputType(InstanceNoDevicePtrOutput{})
+	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationOutput{})
+	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceSsmAssociationOutput{})
+	pulumi.RegisterOutputType(InstanceSsmAssociationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceTagOutput{})
+	pulumi.RegisterOutputType(InstanceTagArrayOutput{})
+	pulumi.RegisterOutputType(InstanceVolumeOutput{})
+	pulumi.RegisterOutputType(InstanceVolumeArrayOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagOutput{})
 	pulumi.RegisterOutputType(InternetGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationTargetPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEbsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEbsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfileOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfilePtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv6AddOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv6AddArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateDataOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateDataPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateTagSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateSpotOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateSpotOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTagOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTagArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVPCAssociationTagArrayOutput{})
+	pulumi.RegisterOutputType(NatGatewayTagOutput{})
+	pulumi.RegisterOutputType(NatGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryIcmpOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryIcmpPtrOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryPortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryPortRangePtrOutput{})
+	pulumi.RegisterOutputType(NetworkAclTagOutput{})
+	pulumi.RegisterOutputType(NetworkAclTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisAclRuleOutput{})
@@ -8843,10 +19050,24 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisTagArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathTagArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceTagOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceTagArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListTagOutput{})
 	pulumi.RegisterOutputType(PrefixListTagArrayOutput{})
+	pulumi.RegisterOutputType(RouteTableTagOutput{})
+	pulumi.RegisterOutputType(RouteTableTagArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressTypeOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressTypeArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressTypeOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressTypeArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupTagOutput{})
+	pulumi.RegisterOutputType(SecurityGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(SpotFleetBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetClassicLoadBalancerOutput{})
@@ -8893,6 +19114,18 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigPtrOutput{})
+	pulumi.RegisterOutputType(SubnetTagOutput{})
+	pulumi.RegisterOutputType(SubnetTagArrayOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterTagOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterTagArrayOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorSessionTagOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorSessionTagArrayOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorTargetTagOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorTargetTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentTagOutput{})
+	pulumi.RegisterOutputType(TransitGatewayAttachmentTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTransitGatewayConnectOptionsOutput{})
@@ -8903,6 +19136,22 @@ func init() {
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayRouteTableTagOutput{})
+	pulumi.RegisterOutputType(TransitGatewayRouteTableTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayVpcAttachmentTagOutput{})
+	pulumi.RegisterOutputType(TransitGatewayVpcAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(VPCPeeringConnectionTagOutput{})
+	pulumi.RegisterOutputType(VPCPeeringConnectionTagArrayOutput{})
+	pulumi.RegisterOutputType(VPCTagOutput{})
+	pulumi.RegisterOutputType(VPCTagArrayOutput{})
+	pulumi.RegisterOutputType(VPNConnectionTagOutput{})
+	pulumi.RegisterOutputType(VPNConnectionTagArrayOutput{})
+	pulumi.RegisterOutputType(VPNConnectionVpnTunnelOptionsSpecificationOutput{})
+	pulumi.RegisterOutputType(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(VPNGatewayTagOutput{})
+	pulumi.RegisterOutputType(VPNGatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(VolumeTagOutput{})
+	pulumi.RegisterOutputType(VolumeTagArrayOutput{})
 }

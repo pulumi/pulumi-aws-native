@@ -322,6 +322,1324 @@ func (o ClientCertificateTagArrayOutput) Index(i pulumi.IntInput) ClientCertific
 	}).(ClientCertificateTagOutput)
 }
 
+type DeploymentAccessLogSetting struct {
+	DestinationArn *string `pulumi:"destinationArn"`
+	Format         *string `pulumi:"format"`
+}
+
+// DeploymentAccessLogSettingInput is an input type that accepts DeploymentAccessLogSettingArgs and DeploymentAccessLogSettingOutput values.
+// You can construct a concrete instance of `DeploymentAccessLogSettingInput` via:
+//
+//          DeploymentAccessLogSettingArgs{...}
+type DeploymentAccessLogSettingInput interface {
+	pulumi.Input
+
+	ToDeploymentAccessLogSettingOutput() DeploymentAccessLogSettingOutput
+	ToDeploymentAccessLogSettingOutputWithContext(context.Context) DeploymentAccessLogSettingOutput
+}
+
+type DeploymentAccessLogSettingArgs struct {
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	Format         pulumi.StringPtrInput `pulumi:"format"`
+}
+
+func (DeploymentAccessLogSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingOutput() DeploymentAccessLogSettingOutput {
+	return i.ToDeploymentAccessLogSettingOutputWithContext(context.Background())
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingOutputWithContext(ctx context.Context) DeploymentAccessLogSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAccessLogSettingOutput)
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return i.ToDeploymentAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAccessLogSettingOutput).ToDeploymentAccessLogSettingPtrOutputWithContext(ctx)
+}
+
+// DeploymentAccessLogSettingPtrInput is an input type that accepts DeploymentAccessLogSettingArgs, DeploymentAccessLogSettingPtr and DeploymentAccessLogSettingPtrOutput values.
+// You can construct a concrete instance of `DeploymentAccessLogSettingPtrInput` via:
+//
+//          DeploymentAccessLogSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentAccessLogSettingPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput
+	ToDeploymentAccessLogSettingPtrOutputWithContext(context.Context) DeploymentAccessLogSettingPtrOutput
+}
+
+type deploymentAccessLogSettingPtrType DeploymentAccessLogSettingArgs
+
+func DeploymentAccessLogSettingPtr(v *DeploymentAccessLogSettingArgs) DeploymentAccessLogSettingPtrInput {
+	return (*deploymentAccessLogSettingPtrType)(v)
+}
+
+func (*deploymentAccessLogSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (i *deploymentAccessLogSettingPtrType) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return i.ToDeploymentAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentAccessLogSettingPtrType) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAccessLogSettingPtrOutput)
+}
+
+type DeploymentAccessLogSettingOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAccessLogSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingOutput() DeploymentAccessLogSettingOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingOutputWithContext(ctx context.Context) DeploymentAccessLogSettingOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return o.ToDeploymentAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentAccessLogSetting) *DeploymentAccessLogSetting {
+		return &v
+	}).(DeploymentAccessLogSettingPtrOutput)
+}
+
+func (o DeploymentAccessLogSettingOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentAccessLogSettingOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentAccessLogSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAccessLogSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) Elem() DeploymentAccessLogSettingOutput {
+	return o.ApplyT(func(v *DeploymentAccessLogSetting) DeploymentAccessLogSetting {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentAccessLogSetting
+		return ret
+	}).(DeploymentAccessLogSettingOutput)
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentCanarySetting struct {
+	PercentTraffic         *float64    `pulumi:"percentTraffic"`
+	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
+	UseStageCache          *bool       `pulumi:"useStageCache"`
+}
+
+// DeploymentCanarySettingInput is an input type that accepts DeploymentCanarySettingArgs and DeploymentCanarySettingOutput values.
+// You can construct a concrete instance of `DeploymentCanarySettingInput` via:
+//
+//          DeploymentCanarySettingArgs{...}
+type DeploymentCanarySettingInput interface {
+	pulumi.Input
+
+	ToDeploymentCanarySettingOutput() DeploymentCanarySettingOutput
+	ToDeploymentCanarySettingOutputWithContext(context.Context) DeploymentCanarySettingOutput
+}
+
+type DeploymentCanarySettingArgs struct {
+	PercentTraffic         pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	StageVariableOverrides pulumi.Input           `pulumi:"stageVariableOverrides"`
+	UseStageCache          pulumi.BoolPtrInput    `pulumi:"useStageCache"`
+}
+
+func (DeploymentCanarySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingOutput() DeploymentCanarySettingOutput {
+	return i.ToDeploymentCanarySettingOutputWithContext(context.Background())
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingOutputWithContext(ctx context.Context) DeploymentCanarySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingOutput)
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return i.ToDeploymentCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingOutput).ToDeploymentCanarySettingPtrOutputWithContext(ctx)
+}
+
+// DeploymentCanarySettingPtrInput is an input type that accepts DeploymentCanarySettingArgs, DeploymentCanarySettingPtr and DeploymentCanarySettingPtrOutput values.
+// You can construct a concrete instance of `DeploymentCanarySettingPtrInput` via:
+//
+//          DeploymentCanarySettingArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentCanarySettingPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput
+	ToDeploymentCanarySettingPtrOutputWithContext(context.Context) DeploymentCanarySettingPtrOutput
+}
+
+type deploymentCanarySettingPtrType DeploymentCanarySettingArgs
+
+func DeploymentCanarySettingPtr(v *DeploymentCanarySettingArgs) DeploymentCanarySettingPtrInput {
+	return (*deploymentCanarySettingPtrType)(v)
+}
+
+func (*deploymentCanarySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (i *deploymentCanarySettingPtrType) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return i.ToDeploymentCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentCanarySettingPtrType) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingPtrOutput)
+}
+
+type DeploymentCanarySettingOutput struct{ *pulumi.OutputState }
+
+func (DeploymentCanarySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingOutput() DeploymentCanarySettingOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingOutputWithContext(ctx context.Context) DeploymentCanarySettingOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return o.ToDeploymentCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentCanarySetting) *DeploymentCanarySetting {
+		return &v
+	}).(DeploymentCanarySettingPtrOutput)
+}
+
+func (o DeploymentCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentCanarySetting) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentCanarySettingOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentCanarySetting) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
+}
+
+func (o DeploymentCanarySettingOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentCanarySetting) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+}
+
+type DeploymentCanarySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentCanarySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (o DeploymentCanarySettingPtrOutput) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingPtrOutput) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingPtrOutput) Elem() DeploymentCanarySettingOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) DeploymentCanarySetting {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentCanarySetting
+		return ret
+	}).(DeploymentCanarySettingOutput)
+}
+
+func (o DeploymentCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PercentTraffic
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariableOverrides
+	}).(pulumi.AnyOutput)
+}
+
+func (o DeploymentCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseStageCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DeploymentDeploymentCanarySettings struct {
+	PercentTraffic         *float64    `pulumi:"percentTraffic"`
+	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
+	UseStageCache          *bool       `pulumi:"useStageCache"`
+}
+
+// DeploymentDeploymentCanarySettingsInput is an input type that accepts DeploymentDeploymentCanarySettingsArgs and DeploymentDeploymentCanarySettingsOutput values.
+// You can construct a concrete instance of `DeploymentDeploymentCanarySettingsInput` via:
+//
+//          DeploymentDeploymentCanarySettingsArgs{...}
+type DeploymentDeploymentCanarySettingsInput interface {
+	pulumi.Input
+
+	ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput
+	ToDeploymentDeploymentCanarySettingsOutputWithContext(context.Context) DeploymentDeploymentCanarySettingsOutput
+}
+
+type DeploymentDeploymentCanarySettingsArgs struct {
+	PercentTraffic         pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	StageVariableOverrides pulumi.Input           `pulumi:"stageVariableOverrides"`
+	UseStageCache          pulumi.BoolPtrInput    `pulumi:"useStageCache"`
+}
+
+func (DeploymentDeploymentCanarySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput {
+	return i.ToDeploymentDeploymentCanarySettingsOutputWithContext(context.Background())
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsOutput)
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return i.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsOutput).ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx)
+}
+
+// DeploymentDeploymentCanarySettingsPtrInput is an input type that accepts DeploymentDeploymentCanarySettingsArgs, DeploymentDeploymentCanarySettingsPtr and DeploymentDeploymentCanarySettingsPtrOutput values.
+// You can construct a concrete instance of `DeploymentDeploymentCanarySettingsPtrInput` via:
+//
+//          DeploymentDeploymentCanarySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentDeploymentCanarySettingsPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput
+	ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Context) DeploymentDeploymentCanarySettingsPtrOutput
+}
+
+type deploymentDeploymentCanarySettingsPtrType DeploymentDeploymentCanarySettingsArgs
+
+func DeploymentDeploymentCanarySettingsPtr(v *DeploymentDeploymentCanarySettingsArgs) DeploymentDeploymentCanarySettingsPtrInput {
+	return (*deploymentDeploymentCanarySettingsPtrType)(v)
+}
+
+func (*deploymentDeploymentCanarySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (i *deploymentDeploymentCanarySettingsPtrType) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return i.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentDeploymentCanarySettingsPtrType) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsPtrOutput)
+}
+
+type DeploymentDeploymentCanarySettingsOutput struct{ *pulumi.OutputState }
+
+func (DeploymentDeploymentCanarySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return o.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentDeploymentCanarySettings) *DeploymentDeploymentCanarySettings {
+		return &v
+	}).(DeploymentDeploymentCanarySettingsPtrOutput)
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+}
+
+type DeploymentDeploymentCanarySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentDeploymentCanarySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) Elem() DeploymentDeploymentCanarySettingsOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) DeploymentDeploymentCanarySettings {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentDeploymentCanarySettings
+		return ret
+	}).(DeploymentDeploymentCanarySettingsOutput)
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PercentTraffic
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariableOverrides
+	}).(pulumi.AnyOutput)
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseStageCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DeploymentMethodSetting struct {
+	CacheDataEncrypted   *bool    `pulumi:"cacheDataEncrypted"`
+	CacheTtlInSeconds    *int     `pulumi:"cacheTtlInSeconds"`
+	CachingEnabled       *bool    `pulumi:"cachingEnabled"`
+	DataTraceEnabled     *bool    `pulumi:"dataTraceEnabled"`
+	HttpMethod           *string  `pulumi:"httpMethod"`
+	LoggingLevel         *string  `pulumi:"loggingLevel"`
+	MetricsEnabled       *bool    `pulumi:"metricsEnabled"`
+	ResourcePath         *string  `pulumi:"resourcePath"`
+	ThrottlingBurstLimit *int     `pulumi:"throttlingBurstLimit"`
+	ThrottlingRateLimit  *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// DeploymentMethodSettingInput is an input type that accepts DeploymentMethodSettingArgs and DeploymentMethodSettingOutput values.
+// You can construct a concrete instance of `DeploymentMethodSettingInput` via:
+//
+//          DeploymentMethodSettingArgs{...}
+type DeploymentMethodSettingInput interface {
+	pulumi.Input
+
+	ToDeploymentMethodSettingOutput() DeploymentMethodSettingOutput
+	ToDeploymentMethodSettingOutputWithContext(context.Context) DeploymentMethodSettingOutput
+}
+
+type DeploymentMethodSettingArgs struct {
+	CacheDataEncrypted   pulumi.BoolPtrInput    `pulumi:"cacheDataEncrypted"`
+	CacheTtlInSeconds    pulumi.IntPtrInput     `pulumi:"cacheTtlInSeconds"`
+	CachingEnabled       pulumi.BoolPtrInput    `pulumi:"cachingEnabled"`
+	DataTraceEnabled     pulumi.BoolPtrInput    `pulumi:"dataTraceEnabled"`
+	HttpMethod           pulumi.StringPtrInput  `pulumi:"httpMethod"`
+	LoggingLevel         pulumi.StringPtrInput  `pulumi:"loggingLevel"`
+	MetricsEnabled       pulumi.BoolPtrInput    `pulumi:"metricsEnabled"`
+	ResourcePath         pulumi.StringPtrInput  `pulumi:"resourcePath"`
+	ThrottlingBurstLimit pulumi.IntPtrInput     `pulumi:"throttlingBurstLimit"`
+	ThrottlingRateLimit  pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (DeploymentMethodSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (i DeploymentMethodSettingArgs) ToDeploymentMethodSettingOutput() DeploymentMethodSettingOutput {
+	return i.ToDeploymentMethodSettingOutputWithContext(context.Background())
+}
+
+func (i DeploymentMethodSettingArgs) ToDeploymentMethodSettingOutputWithContext(ctx context.Context) DeploymentMethodSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentMethodSettingOutput)
+}
+
+// DeploymentMethodSettingArrayInput is an input type that accepts DeploymentMethodSettingArray and DeploymentMethodSettingArrayOutput values.
+// You can construct a concrete instance of `DeploymentMethodSettingArrayInput` via:
+//
+//          DeploymentMethodSettingArray{ DeploymentMethodSettingArgs{...} }
+type DeploymentMethodSettingArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentMethodSettingArrayOutput() DeploymentMethodSettingArrayOutput
+	ToDeploymentMethodSettingArrayOutputWithContext(context.Context) DeploymentMethodSettingArrayOutput
+}
+
+type DeploymentMethodSettingArray []DeploymentMethodSettingInput
+
+func (DeploymentMethodSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (i DeploymentMethodSettingArray) ToDeploymentMethodSettingArrayOutput() DeploymentMethodSettingArrayOutput {
+	return i.ToDeploymentMethodSettingArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentMethodSettingArray) ToDeploymentMethodSettingArrayOutputWithContext(ctx context.Context) DeploymentMethodSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentMethodSettingArrayOutput)
+}
+
+type DeploymentMethodSettingOutput struct{ *pulumi.OutputState }
+
+func (DeploymentMethodSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (o DeploymentMethodSettingOutput) ToDeploymentMethodSettingOutput() DeploymentMethodSettingOutput {
+	return o
+}
+
+func (o DeploymentMethodSettingOutput) ToDeploymentMethodSettingOutputWithContext(ctx context.Context) DeploymentMethodSettingOutput {
+	return o
+}
+
+func (o DeploymentMethodSettingOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) ResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentMethodSettingOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type DeploymentMethodSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentMethodSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (o DeploymentMethodSettingArrayOutput) ToDeploymentMethodSettingArrayOutput() DeploymentMethodSettingArrayOutput {
+	return o
+}
+
+func (o DeploymentMethodSettingArrayOutput) ToDeploymentMethodSettingArrayOutputWithContext(ctx context.Context) DeploymentMethodSettingArrayOutput {
+	return o
+}
+
+func (o DeploymentMethodSettingArrayOutput) Index(i pulumi.IntInput) DeploymentMethodSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentMethodSetting {
+		return vs[0].([]DeploymentMethodSetting)[vs[1].(int)]
+	}).(DeploymentMethodSettingOutput)
+}
+
+type DeploymentStageDescription struct {
+	AccessLogSetting     *DeploymentAccessLogSetting `pulumi:"accessLogSetting"`
+	CacheClusterEnabled  *bool                       `pulumi:"cacheClusterEnabled"`
+	CacheClusterSize     *string                     `pulumi:"cacheClusterSize"`
+	CacheDataEncrypted   *bool                       `pulumi:"cacheDataEncrypted"`
+	CacheTtlInSeconds    *int                        `pulumi:"cacheTtlInSeconds"`
+	CachingEnabled       *bool                       `pulumi:"cachingEnabled"`
+	CanarySetting        *DeploymentCanarySetting    `pulumi:"canarySetting"`
+	ClientCertificateId  *string                     `pulumi:"clientCertificateId"`
+	DataTraceEnabled     *bool                       `pulumi:"dataTraceEnabled"`
+	Description          *string                     `pulumi:"description"`
+	DocumentationVersion *string                     `pulumi:"documentationVersion"`
+	LoggingLevel         *string                     `pulumi:"loggingLevel"`
+	MethodSettings       []DeploymentMethodSetting   `pulumi:"methodSettings"`
+	MetricsEnabled       *bool                       `pulumi:"metricsEnabled"`
+	Tags                 []DeploymentTag             `pulumi:"tags"`
+	ThrottlingBurstLimit *int                        `pulumi:"throttlingBurstLimit"`
+	ThrottlingRateLimit  *float64                    `pulumi:"throttlingRateLimit"`
+	TracingEnabled       *bool                       `pulumi:"tracingEnabled"`
+	Variables            interface{}                 `pulumi:"variables"`
+}
+
+// DeploymentStageDescriptionInput is an input type that accepts DeploymentStageDescriptionArgs and DeploymentStageDescriptionOutput values.
+// You can construct a concrete instance of `DeploymentStageDescriptionInput` via:
+//
+//          DeploymentStageDescriptionArgs{...}
+type DeploymentStageDescriptionInput interface {
+	pulumi.Input
+
+	ToDeploymentStageDescriptionOutput() DeploymentStageDescriptionOutput
+	ToDeploymentStageDescriptionOutputWithContext(context.Context) DeploymentStageDescriptionOutput
+}
+
+type DeploymentStageDescriptionArgs struct {
+	AccessLogSetting     DeploymentAccessLogSettingPtrInput `pulumi:"accessLogSetting"`
+	CacheClusterEnabled  pulumi.BoolPtrInput                `pulumi:"cacheClusterEnabled"`
+	CacheClusterSize     pulumi.StringPtrInput              `pulumi:"cacheClusterSize"`
+	CacheDataEncrypted   pulumi.BoolPtrInput                `pulumi:"cacheDataEncrypted"`
+	CacheTtlInSeconds    pulumi.IntPtrInput                 `pulumi:"cacheTtlInSeconds"`
+	CachingEnabled       pulumi.BoolPtrInput                `pulumi:"cachingEnabled"`
+	CanarySetting        DeploymentCanarySettingPtrInput    `pulumi:"canarySetting"`
+	ClientCertificateId  pulumi.StringPtrInput              `pulumi:"clientCertificateId"`
+	DataTraceEnabled     pulumi.BoolPtrInput                `pulumi:"dataTraceEnabled"`
+	Description          pulumi.StringPtrInput              `pulumi:"description"`
+	DocumentationVersion pulumi.StringPtrInput              `pulumi:"documentationVersion"`
+	LoggingLevel         pulumi.StringPtrInput              `pulumi:"loggingLevel"`
+	MethodSettings       DeploymentMethodSettingArrayInput  `pulumi:"methodSettings"`
+	MetricsEnabled       pulumi.BoolPtrInput                `pulumi:"metricsEnabled"`
+	Tags                 DeploymentTagArrayInput            `pulumi:"tags"`
+	ThrottlingBurstLimit pulumi.IntPtrInput                 `pulumi:"throttlingBurstLimit"`
+	ThrottlingRateLimit  pulumi.Float64PtrInput             `pulumi:"throttlingRateLimit"`
+	TracingEnabled       pulumi.BoolPtrInput                `pulumi:"tracingEnabled"`
+	Variables            pulumi.Input                       `pulumi:"variables"`
+}
+
+func (DeploymentStageDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStageDescription)(nil)).Elem()
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionOutput() DeploymentStageDescriptionOutput {
+	return i.ToDeploymentStageDescriptionOutputWithContext(context.Background())
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionOutputWithContext(ctx context.Context) DeploymentStageDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStageDescriptionOutput)
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return i.ToDeploymentStageDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStageDescriptionOutput).ToDeploymentStageDescriptionPtrOutputWithContext(ctx)
+}
+
+// DeploymentStageDescriptionPtrInput is an input type that accepts DeploymentStageDescriptionArgs, DeploymentStageDescriptionPtr and DeploymentStageDescriptionPtrOutput values.
+// You can construct a concrete instance of `DeploymentStageDescriptionPtrInput` via:
+//
+//          DeploymentStageDescriptionArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentStageDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput
+	ToDeploymentStageDescriptionPtrOutputWithContext(context.Context) DeploymentStageDescriptionPtrOutput
+}
+
+type deploymentStageDescriptionPtrType DeploymentStageDescriptionArgs
+
+func DeploymentStageDescriptionPtr(v *DeploymentStageDescriptionArgs) DeploymentStageDescriptionPtrInput {
+	return (*deploymentStageDescriptionPtrType)(v)
+}
+
+func (*deploymentStageDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentStageDescription)(nil)).Elem()
+}
+
+func (i *deploymentStageDescriptionPtrType) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return i.ToDeploymentStageDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentStageDescriptionPtrType) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStageDescriptionPtrOutput)
+}
+
+type DeploymentStageDescriptionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStageDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStageDescription)(nil)).Elem()
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionOutput() DeploymentStageDescriptionOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionOutputWithContext(ctx context.Context) DeploymentStageDescriptionOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return o.ToDeploymentStageDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentStageDescription) *DeploymentStageDescription {
+		return &v
+	}).(DeploymentStageDescriptionPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) AccessLogSetting() DeploymentAccessLogSettingPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *DeploymentAccessLogSetting { return v.AccessLogSetting }).(DeploymentAccessLogSettingPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) CacheClusterSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) CanarySetting() DeploymentCanarySettingPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *DeploymentCanarySetting { return v.CanarySetting }).(DeploymentCanarySettingPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) DocumentationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) MethodSettings() DeploymentMethodSettingArrayOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) []DeploymentMethodSetting { return v.MethodSettings }).(DeploymentMethodSettingArrayOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) Tags() DeploymentTagArrayOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) []DeploymentTag { return v.Tags }).(DeploymentTagArrayOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) TracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.TracingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionOutput) Variables() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) interface{} { return v.Variables }).(pulumi.AnyOutput)
+}
+
+type DeploymentStageDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStageDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentStageDescription)(nil)).Elem()
+}
+
+func (o DeploymentStageDescriptionPtrOutput) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionPtrOutput) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionPtrOutput) Elem() DeploymentStageDescriptionOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) DeploymentStageDescription {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentStageDescription
+		return ret
+	}).(DeploymentStageDescriptionOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) AccessLogSetting() DeploymentAccessLogSettingPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *DeploymentAccessLogSetting {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLogSetting
+	}).(DeploymentAccessLogSettingPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CacheClusterEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) CacheClusterSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheClusterSize
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CacheDataEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CacheTtlInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CachingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) CanarySetting() DeploymentCanarySettingPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *DeploymentCanarySetting {
+		if v == nil {
+			return nil
+		}
+		return v.CanarySetting
+	}).(DeploymentCanarySettingPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataTraceEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) DocumentationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentationVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) MethodSettings() DeploymentMethodSettingArrayOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) []DeploymentMethodSetting {
+		if v == nil {
+			return nil
+		}
+		return v.MethodSettings
+	}).(DeploymentMethodSettingArrayOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) Tags() DeploymentTagArrayOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) []DeploymentTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(DeploymentTagArrayOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingBurstLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingRateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) TracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TracingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DeploymentStageDescriptionPtrOutput) Variables() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(pulumi.AnyOutput)
+}
+
+type DeploymentTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DeploymentTagInput is an input type that accepts DeploymentTagArgs and DeploymentTagOutput values.
+// You can construct a concrete instance of `DeploymentTagInput` via:
+//
+//          DeploymentTagArgs{...}
+type DeploymentTagInput interface {
+	pulumi.Input
+
+	ToDeploymentTagOutput() DeploymentTagOutput
+	ToDeploymentTagOutputWithContext(context.Context) DeploymentTagOutput
+}
+
+type DeploymentTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeploymentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentTag)(nil)).Elem()
+}
+
+func (i DeploymentTagArgs) ToDeploymentTagOutput() DeploymentTagOutput {
+	return i.ToDeploymentTagOutputWithContext(context.Background())
+}
+
+func (i DeploymentTagArgs) ToDeploymentTagOutputWithContext(ctx context.Context) DeploymentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTagOutput)
+}
+
+// DeploymentTagArrayInput is an input type that accepts DeploymentTagArray and DeploymentTagArrayOutput values.
+// You can construct a concrete instance of `DeploymentTagArrayInput` via:
+//
+//          DeploymentTagArray{ DeploymentTagArgs{...} }
+type DeploymentTagArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentTagArrayOutput() DeploymentTagArrayOutput
+	ToDeploymentTagArrayOutputWithContext(context.Context) DeploymentTagArrayOutput
+}
+
+type DeploymentTagArray []DeploymentTagInput
+
+func (DeploymentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentTag)(nil)).Elem()
+}
+
+func (i DeploymentTagArray) ToDeploymentTagArrayOutput() DeploymentTagArrayOutput {
+	return i.ToDeploymentTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentTagArray) ToDeploymentTagArrayOutputWithContext(ctx context.Context) DeploymentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTagArrayOutput)
+}
+
+type DeploymentTagOutput struct{ *pulumi.OutputState }
+
+func (DeploymentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentTag)(nil)).Elem()
+}
+
+func (o DeploymentTagOutput) ToDeploymentTagOutput() DeploymentTagOutput {
+	return o
+}
+
+func (o DeploymentTagOutput) ToDeploymentTagOutputWithContext(ctx context.Context) DeploymentTagOutput {
+	return o
+}
+
+func (o DeploymentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DeploymentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DeploymentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentTag)(nil)).Elem()
+}
+
+func (o DeploymentTagArrayOutput) ToDeploymentTagArrayOutput() DeploymentTagArrayOutput {
+	return o
+}
+
+func (o DeploymentTagArrayOutput) ToDeploymentTagArrayOutputWithContext(ctx context.Context) DeploymentTagArrayOutput {
+	return o
+}
+
+func (o DeploymentTagArrayOutput) Index(i pulumi.IntInput) DeploymentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentTag {
+		return vs[0].([]DeploymentTag)[vs[1].(int)]
+	}).(DeploymentTagOutput)
+}
+
+type DocumentationPartLocation struct {
+	Method     *string `pulumi:"method"`
+	Name       *string `pulumi:"name"`
+	Path       *string `pulumi:"path"`
+	StatusCode *string `pulumi:"statusCode"`
+	Type       *string `pulumi:"type"`
+}
+
+// DocumentationPartLocationInput is an input type that accepts DocumentationPartLocationArgs and DocumentationPartLocationOutput values.
+// You can construct a concrete instance of `DocumentationPartLocationInput` via:
+//
+//          DocumentationPartLocationArgs{...}
+type DocumentationPartLocationInput interface {
+	pulumi.Input
+
+	ToDocumentationPartLocationOutput() DocumentationPartLocationOutput
+	ToDocumentationPartLocationOutputWithContext(context.Context) DocumentationPartLocationOutput
+}
+
+type DocumentationPartLocationArgs struct {
+	Method     pulumi.StringPtrInput `pulumi:"method"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
+	Path       pulumi.StringPtrInput `pulumi:"path"`
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
+	Type       pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DocumentationPartLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPartLocation)(nil)).Elem()
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationOutput() DocumentationPartLocationOutput {
+	return i.ToDocumentationPartLocationOutputWithContext(context.Background())
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput)
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput).ToDocumentationPartLocationPtrOutputWithContext(ctx)
+}
+
+// DocumentationPartLocationPtrInput is an input type that accepts DocumentationPartLocationArgs, DocumentationPartLocationPtr and DocumentationPartLocationPtrOutput values.
+// You can construct a concrete instance of `DocumentationPartLocationPtrInput` via:
+//
+//          DocumentationPartLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DocumentationPartLocationPtrInput interface {
+	pulumi.Input
+
+	ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput
+	ToDocumentationPartLocationPtrOutputWithContext(context.Context) DocumentationPartLocationPtrOutput
+}
+
+type documentationPartLocationPtrType DocumentationPartLocationArgs
+
+func DocumentationPartLocationPtr(v *DocumentationPartLocationArgs) DocumentationPartLocationPtrInput {
+	return (*documentationPartLocationPtrType)(v)
+}
+
+func (*documentationPartLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
+}
+
+func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationPtrOutput)
+}
+
+type DocumentationPartLocationOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPartLocation)(nil)).Elem()
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutput() DocumentationPartLocationOutput {
+	return o
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
+	return o
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return o.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationPartLocation) *DocumentationPartLocation {
+		return &v
+	}).(DocumentationPartLocationPtrOutput)
+}
+
+func (o DocumentationPartLocationOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DocumentationPartLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
+}
+
+func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return o
+}
+
+func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return o
+}
+
+func (o DocumentationPartLocationPtrOutput) Elem() DocumentationPartLocationOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) DocumentationPartLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentationPartLocation
+		return ret
+	}).(DocumentationPartLocationOutput)
+}
+
+func (o DocumentationPartLocationPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationPtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainNameEndpointConfiguration struct {
 	Types []string `pulumi:"types"`
 }
@@ -701,6 +2019,1558 @@ func (o DomainNameTagArrayOutput) Index(i pulumi.IntInput) DomainNameTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainNameTag {
 		return vs[0].([]DomainNameTag)[vs[1].(int)]
 	}).(DomainNameTagOutput)
+}
+
+type MethodIntegration struct {
+	CacheKeyParameters    []string                    `pulumi:"cacheKeyParameters"`
+	CacheNamespace        *string                     `pulumi:"cacheNamespace"`
+	ConnectionId          *string                     `pulumi:"connectionId"`
+	ConnectionType        *string                     `pulumi:"connectionType"`
+	ContentHandling       *string                     `pulumi:"contentHandling"`
+	Credentials           *string                     `pulumi:"credentials"`
+	IntegrationHttpMethod *string                     `pulumi:"integrationHttpMethod"`
+	IntegrationResponses  []MethodIntegrationResponse `pulumi:"integrationResponses"`
+	PassthroughBehavior   *string                     `pulumi:"passthroughBehavior"`
+	RequestParameters     interface{}                 `pulumi:"requestParameters"`
+	RequestTemplates      interface{}                 `pulumi:"requestTemplates"`
+	TimeoutInMillis       *int                        `pulumi:"timeoutInMillis"`
+	Type                  *string                     `pulumi:"type"`
+	Uri                   *string                     `pulumi:"uri"`
+}
+
+// MethodIntegrationInput is an input type that accepts MethodIntegrationArgs and MethodIntegrationOutput values.
+// You can construct a concrete instance of `MethodIntegrationInput` via:
+//
+//          MethodIntegrationArgs{...}
+type MethodIntegrationInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationOutput() MethodIntegrationOutput
+	ToMethodIntegrationOutputWithContext(context.Context) MethodIntegrationOutput
+}
+
+type MethodIntegrationArgs struct {
+	CacheKeyParameters    pulumi.StringArrayInput             `pulumi:"cacheKeyParameters"`
+	CacheNamespace        pulumi.StringPtrInput               `pulumi:"cacheNamespace"`
+	ConnectionId          pulumi.StringPtrInput               `pulumi:"connectionId"`
+	ConnectionType        pulumi.StringPtrInput               `pulumi:"connectionType"`
+	ContentHandling       pulumi.StringPtrInput               `pulumi:"contentHandling"`
+	Credentials           pulumi.StringPtrInput               `pulumi:"credentials"`
+	IntegrationHttpMethod pulumi.StringPtrInput               `pulumi:"integrationHttpMethod"`
+	IntegrationResponses  MethodIntegrationResponseArrayInput `pulumi:"integrationResponses"`
+	PassthroughBehavior   pulumi.StringPtrInput               `pulumi:"passthroughBehavior"`
+	RequestParameters     pulumi.Input                        `pulumi:"requestParameters"`
+	RequestTemplates      pulumi.Input                        `pulumi:"requestTemplates"`
+	TimeoutInMillis       pulumi.IntPtrInput                  `pulumi:"timeoutInMillis"`
+	Type                  pulumi.StringPtrInput               `pulumi:"type"`
+	Uri                   pulumi.StringPtrInput               `pulumi:"uri"`
+}
+
+func (MethodIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegration)(nil)).Elem()
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationOutput() MethodIntegrationOutput {
+	return i.ToMethodIntegrationOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationOutputWithContext(ctx context.Context) MethodIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationOutput)
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return i.ToMethodIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationOutput).ToMethodIntegrationPtrOutputWithContext(ctx)
+}
+
+// MethodIntegrationPtrInput is an input type that accepts MethodIntegrationArgs, MethodIntegrationPtr and MethodIntegrationPtrOutput values.
+// You can construct a concrete instance of `MethodIntegrationPtrInput` via:
+//
+//          MethodIntegrationArgs{...}
+//
+//  or:
+//
+//          nil
+type MethodIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput
+	ToMethodIntegrationPtrOutputWithContext(context.Context) MethodIntegrationPtrOutput
+}
+
+type methodIntegrationPtrType MethodIntegrationArgs
+
+func MethodIntegrationPtr(v *MethodIntegrationArgs) MethodIntegrationPtrInput {
+	return (*methodIntegrationPtrType)(v)
+}
+
+func (*methodIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodIntegration)(nil)).Elem()
+}
+
+func (i *methodIntegrationPtrType) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return i.ToMethodIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *methodIntegrationPtrType) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationPtrOutput)
+}
+
+type MethodIntegrationOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegration)(nil)).Elem()
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationOutput() MethodIntegrationOutput {
+	return o
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationOutputWithContext(ctx context.Context) MethodIntegrationOutput {
+	return o
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return o.ToMethodIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodIntegration) *MethodIntegration {
+		return &v
+	}).(MethodIntegrationPtrOutput)
+}
+
+func (o MethodIntegrationOutput) CacheKeyParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MethodIntegration) []string { return v.CacheKeyParameters }).(pulumi.StringArrayOutput)
+}
+
+func (o MethodIntegrationOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.CacheNamespace }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) ConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.ConnectionId }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) ContentHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.ContentHandling }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.Credentials }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.IntegrationHttpMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) IntegrationResponses() MethodIntegrationResponseArrayOutput {
+	return o.ApplyT(func(v MethodIntegration) []MethodIntegrationResponse { return v.IntegrationResponses }).(MethodIntegrationResponseArrayOutput)
+}
+
+func (o MethodIntegrationOutput) PassthroughBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.PassthroughBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) RequestParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodIntegration) interface{} { return v.RequestParameters }).(pulumi.AnyOutput)
+}
+
+func (o MethodIntegrationOutput) RequestTemplates() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodIntegration) interface{} { return v.RequestTemplates }).(pulumi.AnyOutput)
+}
+
+func (o MethodIntegrationOutput) TimeoutInMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *int { return v.TimeoutInMillis }).(pulumi.IntPtrOutput)
+}
+
+func (o MethodIntegrationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type MethodIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodIntegration)(nil)).Elem()
+}
+
+func (o MethodIntegrationPtrOutput) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return o
+}
+
+func (o MethodIntegrationPtrOutput) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return o
+}
+
+func (o MethodIntegrationPtrOutput) Elem() MethodIntegrationOutput {
+	return o.ApplyT(func(v *MethodIntegration) MethodIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret MethodIntegration
+		return ret
+	}).(MethodIntegrationOutput)
+}
+
+func (o MethodIntegrationPtrOutput) CacheKeyParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MethodIntegration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheKeyParameters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MethodIntegrationPtrOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) ConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) ContentHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentHandling
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationHttpMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) IntegrationResponses() MethodIntegrationResponseArrayOutput {
+	return o.ApplyT(func(v *MethodIntegration) []MethodIntegrationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationResponses
+	}).(MethodIntegrationResponseArrayOutput)
+}
+
+func (o MethodIntegrationPtrOutput) PassthroughBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PassthroughBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) RequestParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MethodIntegration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.RequestParameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MethodIntegration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.RequestTemplates
+	}).(pulumi.AnyOutput)
+}
+
+func (o MethodIntegrationPtrOutput) TimeoutInMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MethodIntegrationResponse struct {
+	ContentHandling    *string     `pulumi:"contentHandling"`
+	ResponseParameters interface{} `pulumi:"responseParameters"`
+	ResponseTemplates  interface{} `pulumi:"responseTemplates"`
+	SelectionPattern   *string     `pulumi:"selectionPattern"`
+	StatusCode         string      `pulumi:"statusCode"`
+}
+
+// MethodIntegrationResponseInput is an input type that accepts MethodIntegrationResponseArgs and MethodIntegrationResponseOutput values.
+// You can construct a concrete instance of `MethodIntegrationResponseInput` via:
+//
+//          MethodIntegrationResponseArgs{...}
+type MethodIntegrationResponseInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationResponseOutput() MethodIntegrationResponseOutput
+	ToMethodIntegrationResponseOutputWithContext(context.Context) MethodIntegrationResponseOutput
+}
+
+type MethodIntegrationResponseArgs struct {
+	ContentHandling    pulumi.StringPtrInput `pulumi:"contentHandling"`
+	ResponseParameters pulumi.Input          `pulumi:"responseParameters"`
+	ResponseTemplates  pulumi.Input          `pulumi:"responseTemplates"`
+	SelectionPattern   pulumi.StringPtrInput `pulumi:"selectionPattern"`
+	StatusCode         pulumi.StringInput    `pulumi:"statusCode"`
+}
+
+func (MethodIntegrationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (i MethodIntegrationResponseArgs) ToMethodIntegrationResponseOutput() MethodIntegrationResponseOutput {
+	return i.ToMethodIntegrationResponseOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationResponseArgs) ToMethodIntegrationResponseOutputWithContext(ctx context.Context) MethodIntegrationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationResponseOutput)
+}
+
+// MethodIntegrationResponseArrayInput is an input type that accepts MethodIntegrationResponseArray and MethodIntegrationResponseArrayOutput values.
+// You can construct a concrete instance of `MethodIntegrationResponseArrayInput` via:
+//
+//          MethodIntegrationResponseArray{ MethodIntegrationResponseArgs{...} }
+type MethodIntegrationResponseArrayInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationResponseArrayOutput() MethodIntegrationResponseArrayOutput
+	ToMethodIntegrationResponseArrayOutputWithContext(context.Context) MethodIntegrationResponseArrayOutput
+}
+
+type MethodIntegrationResponseArray []MethodIntegrationResponseInput
+
+func (MethodIntegrationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (i MethodIntegrationResponseArray) ToMethodIntegrationResponseArrayOutput() MethodIntegrationResponseArrayOutput {
+	return i.ToMethodIntegrationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationResponseArray) ToMethodIntegrationResponseArrayOutputWithContext(ctx context.Context) MethodIntegrationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationResponseArrayOutput)
+}
+
+type MethodIntegrationResponseOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (o MethodIntegrationResponseOutput) ToMethodIntegrationResponseOutput() MethodIntegrationResponseOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseOutput) ToMethodIntegrationResponseOutputWithContext(ctx context.Context) MethodIntegrationResponseOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseOutput) ContentHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) *string { return v.ContentHandling }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationResponseOutput) ResponseParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
+}
+
+func (o MethodIntegrationResponseOutput) ResponseTemplates() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) interface{} { return v.ResponseTemplates }).(pulumi.AnyOutput)
+}
+
+func (o MethodIntegrationResponseOutput) SelectionPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) *string { return v.SelectionPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o MethodIntegrationResponseOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type MethodIntegrationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (o MethodIntegrationResponseArrayOutput) ToMethodIntegrationResponseArrayOutput() MethodIntegrationResponseArrayOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseArrayOutput) ToMethodIntegrationResponseArrayOutputWithContext(ctx context.Context) MethodIntegrationResponseArrayOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseArrayOutput) Index(i pulumi.IntInput) MethodIntegrationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodIntegrationResponse {
+		return vs[0].([]MethodIntegrationResponse)[vs[1].(int)]
+	}).(MethodIntegrationResponseOutput)
+}
+
+type MethodMethodResponse struct {
+	ResponseModels     interface{} `pulumi:"responseModels"`
+	ResponseParameters interface{} `pulumi:"responseParameters"`
+	StatusCode         string      `pulumi:"statusCode"`
+}
+
+// MethodMethodResponseInput is an input type that accepts MethodMethodResponseArgs and MethodMethodResponseOutput values.
+// You can construct a concrete instance of `MethodMethodResponseInput` via:
+//
+//          MethodMethodResponseArgs{...}
+type MethodMethodResponseInput interface {
+	pulumi.Input
+
+	ToMethodMethodResponseOutput() MethodMethodResponseOutput
+	ToMethodMethodResponseOutputWithContext(context.Context) MethodMethodResponseOutput
+}
+
+type MethodMethodResponseArgs struct {
+	ResponseModels     pulumi.Input       `pulumi:"responseModels"`
+	ResponseParameters pulumi.Input       `pulumi:"responseParameters"`
+	StatusCode         pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (MethodMethodResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodMethodResponse)(nil)).Elem()
+}
+
+func (i MethodMethodResponseArgs) ToMethodMethodResponseOutput() MethodMethodResponseOutput {
+	return i.ToMethodMethodResponseOutputWithContext(context.Background())
+}
+
+func (i MethodMethodResponseArgs) ToMethodMethodResponseOutputWithContext(ctx context.Context) MethodMethodResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodMethodResponseOutput)
+}
+
+// MethodMethodResponseArrayInput is an input type that accepts MethodMethodResponseArray and MethodMethodResponseArrayOutput values.
+// You can construct a concrete instance of `MethodMethodResponseArrayInput` via:
+//
+//          MethodMethodResponseArray{ MethodMethodResponseArgs{...} }
+type MethodMethodResponseArrayInput interface {
+	pulumi.Input
+
+	ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput
+	ToMethodMethodResponseArrayOutputWithContext(context.Context) MethodMethodResponseArrayOutput
+}
+
+type MethodMethodResponseArray []MethodMethodResponseInput
+
+func (MethodMethodResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodMethodResponse)(nil)).Elem()
+}
+
+func (i MethodMethodResponseArray) ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput {
+	return i.ToMethodMethodResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MethodMethodResponseArray) ToMethodMethodResponseArrayOutputWithContext(ctx context.Context) MethodMethodResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodMethodResponseArrayOutput)
+}
+
+type MethodMethodResponseOutput struct{ *pulumi.OutputState }
+
+func (MethodMethodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodMethodResponse)(nil)).Elem()
+}
+
+func (o MethodMethodResponseOutput) ToMethodMethodResponseOutput() MethodMethodResponseOutput {
+	return o
+}
+
+func (o MethodMethodResponseOutput) ToMethodMethodResponseOutputWithContext(ctx context.Context) MethodMethodResponseOutput {
+	return o
+}
+
+func (o MethodMethodResponseOutput) ResponseModels() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodMethodResponse) interface{} { return v.ResponseModels }).(pulumi.AnyOutput)
+}
+
+func (o MethodMethodResponseOutput) ResponseParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodMethodResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
+}
+
+func (o MethodMethodResponseOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v MethodMethodResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type MethodMethodResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MethodMethodResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodMethodResponse)(nil)).Elem()
+}
+
+func (o MethodMethodResponseArrayOutput) ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput {
+	return o
+}
+
+func (o MethodMethodResponseArrayOutput) ToMethodMethodResponseArrayOutputWithContext(ctx context.Context) MethodMethodResponseArrayOutput {
+	return o
+}
+
+func (o MethodMethodResponseArrayOutput) Index(i pulumi.IntInput) MethodMethodResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodMethodResponse {
+		return vs[0].([]MethodMethodResponse)[vs[1].(int)]
+	}).(MethodMethodResponseOutput)
+}
+
+type RestApiEndpointConfiguration struct {
+	Types          []string `pulumi:"types"`
+	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
+}
+
+// RestApiEndpointConfigurationInput is an input type that accepts RestApiEndpointConfigurationArgs and RestApiEndpointConfigurationOutput values.
+// You can construct a concrete instance of `RestApiEndpointConfigurationInput` via:
+//
+//          RestApiEndpointConfigurationArgs{...}
+type RestApiEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput
+	ToRestApiEndpointConfigurationOutputWithContext(context.Context) RestApiEndpointConfigurationOutput
+}
+
+type RestApiEndpointConfigurationArgs struct {
+	Types          pulumi.StringArrayInput `pulumi:"types"`
+	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
+}
+
+func (RestApiEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput {
+	return i.ToRestApiEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationOutputWithContext(ctx context.Context) RestApiEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationOutput)
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return i.ToRestApiEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationOutput).ToRestApiEndpointConfigurationPtrOutputWithContext(ctx)
+}
+
+// RestApiEndpointConfigurationPtrInput is an input type that accepts RestApiEndpointConfigurationArgs, RestApiEndpointConfigurationPtr and RestApiEndpointConfigurationPtrOutput values.
+// You can construct a concrete instance of `RestApiEndpointConfigurationPtrInput` via:
+//
+//          RestApiEndpointConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RestApiEndpointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput
+	ToRestApiEndpointConfigurationPtrOutputWithContext(context.Context) RestApiEndpointConfigurationPtrOutput
+}
+
+type restApiEndpointConfigurationPtrType RestApiEndpointConfigurationArgs
+
+func RestApiEndpointConfigurationPtr(v *RestApiEndpointConfigurationArgs) RestApiEndpointConfigurationPtrInput {
+	return (*restApiEndpointConfigurationPtrType)(v)
+}
+
+func (*restApiEndpointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (i *restApiEndpointConfigurationPtrType) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return i.ToRestApiEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *restApiEndpointConfigurationPtrType) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationPtrOutput)
+}
+
+type RestApiEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RestApiEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationOutputWithContext(ctx context.Context) RestApiEndpointConfigurationOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return o.ToRestApiEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApiEndpointConfiguration) *RestApiEndpointConfiguration {
+		return &v
+	}).(RestApiEndpointConfigurationPtrOutput)
+}
+
+func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+func (o RestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
+}
+
+type RestApiEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RestApiEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurationOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) RestApiEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RestApiEndpointConfiguration
+		return ret
+	}).(RestApiEndpointConfigurationOutput)
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Types
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) VpcEndpointIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type RestApiS3Location struct {
+	Bucket  *string `pulumi:"bucket"`
+	ETag    *string `pulumi:"eTag"`
+	Key     *string `pulumi:"key"`
+	Version *string `pulumi:"version"`
+}
+
+// RestApiS3LocationInput is an input type that accepts RestApiS3LocationArgs and RestApiS3LocationOutput values.
+// You can construct a concrete instance of `RestApiS3LocationInput` via:
+//
+//          RestApiS3LocationArgs{...}
+type RestApiS3LocationInput interface {
+	pulumi.Input
+
+	ToRestApiS3LocationOutput() RestApiS3LocationOutput
+	ToRestApiS3LocationOutputWithContext(context.Context) RestApiS3LocationOutput
+}
+
+type RestApiS3LocationArgs struct {
+	Bucket  pulumi.StringPtrInput `pulumi:"bucket"`
+	ETag    pulumi.StringPtrInput `pulumi:"eTag"`
+	Key     pulumi.StringPtrInput `pulumi:"key"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (RestApiS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiS3Location)(nil)).Elem()
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationOutput() RestApiS3LocationOutput {
+	return i.ToRestApiS3LocationOutputWithContext(context.Background())
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationOutputWithContext(ctx context.Context) RestApiS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiS3LocationOutput)
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return i.ToRestApiS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiS3LocationOutput).ToRestApiS3LocationPtrOutputWithContext(ctx)
+}
+
+// RestApiS3LocationPtrInput is an input type that accepts RestApiS3LocationArgs, RestApiS3LocationPtr and RestApiS3LocationPtrOutput values.
+// You can construct a concrete instance of `RestApiS3LocationPtrInput` via:
+//
+//          RestApiS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type RestApiS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput
+	ToRestApiS3LocationPtrOutputWithContext(context.Context) RestApiS3LocationPtrOutput
+}
+
+type restApiS3LocationPtrType RestApiS3LocationArgs
+
+func RestApiS3LocationPtr(v *RestApiS3LocationArgs) RestApiS3LocationPtrInput {
+	return (*restApiS3LocationPtrType)(v)
+}
+
+func (*restApiS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiS3Location)(nil)).Elem()
+}
+
+func (i *restApiS3LocationPtrType) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return i.ToRestApiS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *restApiS3LocationPtrType) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiS3LocationPtrOutput)
+}
+
+type RestApiS3LocationOutput struct{ *pulumi.OutputState }
+
+func (RestApiS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiS3Location)(nil)).Elem()
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationOutput() RestApiS3LocationOutput {
+	return o
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationOutputWithContext(ctx context.Context) RestApiS3LocationOutput {
+	return o
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return o.ToRestApiS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApiS3Location) *RestApiS3Location {
+		return &v
+	}).(RestApiS3LocationPtrOutput)
+}
+
+func (o RestApiS3LocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiS3LocationOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiS3LocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiS3LocationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type RestApiS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RestApiS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiS3Location)(nil)).Elem()
+}
+
+func (o RestApiS3LocationPtrOutput) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return o
+}
+
+func (o RestApiS3LocationPtrOutput) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return o
+}
+
+func (o RestApiS3LocationPtrOutput) Elem() RestApiS3LocationOutput {
+	return o.ApplyT(func(v *RestApiS3Location) RestApiS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret RestApiS3Location
+		return ret
+	}).(RestApiS3LocationOutput)
+}
+
+func (o RestApiS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiS3LocationPtrOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ETag
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RestApiS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type RestApiTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// RestApiTagInput is an input type that accepts RestApiTagArgs and RestApiTagOutput values.
+// You can construct a concrete instance of `RestApiTagInput` via:
+//
+//          RestApiTagArgs{...}
+type RestApiTagInput interface {
+	pulumi.Input
+
+	ToRestApiTagOutput() RestApiTagOutput
+	ToRestApiTagOutputWithContext(context.Context) RestApiTagOutput
+}
+
+type RestApiTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RestApiTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiTag)(nil)).Elem()
+}
+
+func (i RestApiTagArgs) ToRestApiTagOutput() RestApiTagOutput {
+	return i.ToRestApiTagOutputWithContext(context.Background())
+}
+
+func (i RestApiTagArgs) ToRestApiTagOutputWithContext(ctx context.Context) RestApiTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiTagOutput)
+}
+
+// RestApiTagArrayInput is an input type that accepts RestApiTagArray and RestApiTagArrayOutput values.
+// You can construct a concrete instance of `RestApiTagArrayInput` via:
+//
+//          RestApiTagArray{ RestApiTagArgs{...} }
+type RestApiTagArrayInput interface {
+	pulumi.Input
+
+	ToRestApiTagArrayOutput() RestApiTagArrayOutput
+	ToRestApiTagArrayOutputWithContext(context.Context) RestApiTagArrayOutput
+}
+
+type RestApiTagArray []RestApiTagInput
+
+func (RestApiTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestApiTag)(nil)).Elem()
+}
+
+func (i RestApiTagArray) ToRestApiTagArrayOutput() RestApiTagArrayOutput {
+	return i.ToRestApiTagArrayOutputWithContext(context.Background())
+}
+
+func (i RestApiTagArray) ToRestApiTagArrayOutputWithContext(ctx context.Context) RestApiTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiTagArrayOutput)
+}
+
+type RestApiTagOutput struct{ *pulumi.OutputState }
+
+func (RestApiTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiTag)(nil)).Elem()
+}
+
+func (o RestApiTagOutput) ToRestApiTagOutput() RestApiTagOutput {
+	return o
+}
+
+func (o RestApiTagOutput) ToRestApiTagOutputWithContext(ctx context.Context) RestApiTagOutput {
+	return o
+}
+
+func (o RestApiTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RestApiTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RestApiTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RestApiTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RestApiTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RestApiTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestApiTag)(nil)).Elem()
+}
+
+func (o RestApiTagArrayOutput) ToRestApiTagArrayOutput() RestApiTagArrayOutput {
+	return o
+}
+
+func (o RestApiTagArrayOutput) ToRestApiTagArrayOutputWithContext(ctx context.Context) RestApiTagArrayOutput {
+	return o
+}
+
+func (o RestApiTagArrayOutput) Index(i pulumi.IntInput) RestApiTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestApiTag {
+		return vs[0].([]RestApiTag)[vs[1].(int)]
+	}).(RestApiTagOutput)
+}
+
+type StageAccessLogSetting struct {
+	DestinationArn *string `pulumi:"destinationArn"`
+	Format         *string `pulumi:"format"`
+}
+
+// StageAccessLogSettingInput is an input type that accepts StageAccessLogSettingArgs and StageAccessLogSettingOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingInput` via:
+//
+//          StageAccessLogSettingArgs{...}
+type StageAccessLogSettingInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingOutput() StageAccessLogSettingOutput
+	ToStageAccessLogSettingOutputWithContext(context.Context) StageAccessLogSettingOutput
+}
+
+type StageAccessLogSettingArgs struct {
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	Format         pulumi.StringPtrInput `pulumi:"format"`
+}
+
+func (StageAccessLogSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSetting)(nil)).Elem()
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingOutput() StageAccessLogSettingOutput {
+	return i.ToStageAccessLogSettingOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingOutputWithContext(ctx context.Context) StageAccessLogSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingOutput)
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return i.ToStageAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingOutput).ToStageAccessLogSettingPtrOutputWithContext(ctx)
+}
+
+// StageAccessLogSettingPtrInput is an input type that accepts StageAccessLogSettingArgs, StageAccessLogSettingPtr and StageAccessLogSettingPtrOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingPtrInput` via:
+//
+//          StageAccessLogSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type StageAccessLogSettingPtrInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput
+	ToStageAccessLogSettingPtrOutputWithContext(context.Context) StageAccessLogSettingPtrOutput
+}
+
+type stageAccessLogSettingPtrType StageAccessLogSettingArgs
+
+func StageAccessLogSettingPtr(v *StageAccessLogSettingArgs) StageAccessLogSettingPtrInput {
+	return (*stageAccessLogSettingPtrType)(v)
+}
+
+func (*stageAccessLogSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSetting)(nil)).Elem()
+}
+
+func (i *stageAccessLogSettingPtrType) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return i.ToStageAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *stageAccessLogSettingPtrType) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingPtrOutput)
+}
+
+type StageAccessLogSettingOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSetting)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingOutput() StageAccessLogSettingOutput {
+	return o
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingOutputWithContext(ctx context.Context) StageAccessLogSettingOutput {
+	return o
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return o.ToStageAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAccessLogSetting) *StageAccessLogSetting {
+		return &v
+	}).(StageAccessLogSettingPtrOutput)
+}
+
+func (o StageAccessLogSettingOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageAccessLogSetting) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+func (o StageAccessLogSettingOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageAccessLogSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+type StageAccessLogSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSetting)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingPtrOutput) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingPtrOutput) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingPtrOutput) Elem() StageAccessLogSettingOutput {
+	return o.ApplyT(func(v *StageAccessLogSetting) StageAccessLogSetting {
+		if v != nil {
+			return *v
+		}
+		var ret StageAccessLogSetting
+		return ret
+	}).(StageAccessLogSettingOutput)
+}
+
+func (o StageAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StageAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+type StageCanarySetting struct {
+	DeploymentId           *string     `pulumi:"deploymentId"`
+	PercentTraffic         *float64    `pulumi:"percentTraffic"`
+	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
+	UseStageCache          *bool       `pulumi:"useStageCache"`
+}
+
+// StageCanarySettingInput is an input type that accepts StageCanarySettingArgs and StageCanarySettingOutput values.
+// You can construct a concrete instance of `StageCanarySettingInput` via:
+//
+//          StageCanarySettingArgs{...}
+type StageCanarySettingInput interface {
+	pulumi.Input
+
+	ToStageCanarySettingOutput() StageCanarySettingOutput
+	ToStageCanarySettingOutputWithContext(context.Context) StageCanarySettingOutput
+}
+
+type StageCanarySettingArgs struct {
+	DeploymentId           pulumi.StringPtrInput  `pulumi:"deploymentId"`
+	PercentTraffic         pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	StageVariableOverrides pulumi.Input           `pulumi:"stageVariableOverrides"`
+	UseStageCache          pulumi.BoolPtrInput    `pulumi:"useStageCache"`
+}
+
+func (StageCanarySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageCanarySetting)(nil)).Elem()
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingOutput() StageCanarySettingOutput {
+	return i.ToStageCanarySettingOutputWithContext(context.Background())
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingOutputWithContext(ctx context.Context) StageCanarySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingOutput)
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return i.ToStageCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingOutput).ToStageCanarySettingPtrOutputWithContext(ctx)
+}
+
+// StageCanarySettingPtrInput is an input type that accepts StageCanarySettingArgs, StageCanarySettingPtr and StageCanarySettingPtrOutput values.
+// You can construct a concrete instance of `StageCanarySettingPtrInput` via:
+//
+//          StageCanarySettingArgs{...}
+//
+//  or:
+//
+//          nil
+type StageCanarySettingPtrInput interface {
+	pulumi.Input
+
+	ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput
+	ToStageCanarySettingPtrOutputWithContext(context.Context) StageCanarySettingPtrOutput
+}
+
+type stageCanarySettingPtrType StageCanarySettingArgs
+
+func StageCanarySettingPtr(v *StageCanarySettingArgs) StageCanarySettingPtrInput {
+	return (*stageCanarySettingPtrType)(v)
+}
+
+func (*stageCanarySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageCanarySetting)(nil)).Elem()
+}
+
+func (i *stageCanarySettingPtrType) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return i.ToStageCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *stageCanarySettingPtrType) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingPtrOutput)
+}
+
+type StageCanarySettingOutput struct{ *pulumi.OutputState }
+
+func (StageCanarySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageCanarySetting)(nil)).Elem()
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingOutput() StageCanarySettingOutput {
+	return o
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingOutputWithContext(ctx context.Context) StageCanarySettingOutput {
+	return o
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return o.ToStageCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageCanarySetting) *StageCanarySetting {
+		return &v
+	}).(StageCanarySettingPtrOutput)
+}
+
+func (o StageCanarySettingOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageCanarySetting) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
+}
+
+func (o StageCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageCanarySetting) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+}
+
+func (o StageCanarySettingOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v StageCanarySetting) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
+}
+
+func (o StageCanarySettingOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageCanarySetting) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+}
+
+type StageCanarySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (StageCanarySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageCanarySetting)(nil)).Elem()
+}
+
+func (o StageCanarySettingPtrOutput) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return o
+}
+
+func (o StageCanarySettingPtrOutput) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return o
+}
+
+func (o StageCanarySettingPtrOutput) Elem() StageCanarySettingOutput {
+	return o.ApplyT(func(v *StageCanarySetting) StageCanarySetting {
+		if v != nil {
+			return *v
+		}
+		var ret StageCanarySetting
+		return ret
+	}).(StageCanarySettingOutput)
+}
+
+func (o StageCanarySettingPtrOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageCanarySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StageCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StageCanarySetting) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PercentTraffic
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o StageCanarySettingPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v *StageCanarySetting) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariableOverrides
+	}).(pulumi.AnyOutput)
+}
+
+func (o StageCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StageCanarySetting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseStageCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+type StageMethodSetting struct {
+	CacheDataEncrypted   *bool    `pulumi:"cacheDataEncrypted"`
+	CacheTtlInSeconds    *int     `pulumi:"cacheTtlInSeconds"`
+	CachingEnabled       *bool    `pulumi:"cachingEnabled"`
+	DataTraceEnabled     *bool    `pulumi:"dataTraceEnabled"`
+	HttpMethod           *string  `pulumi:"httpMethod"`
+	LoggingLevel         *string  `pulumi:"loggingLevel"`
+	MetricsEnabled       *bool    `pulumi:"metricsEnabled"`
+	ResourcePath         *string  `pulumi:"resourcePath"`
+	ThrottlingBurstLimit *int     `pulumi:"throttlingBurstLimit"`
+	ThrottlingRateLimit  *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// StageMethodSettingInput is an input type that accepts StageMethodSettingArgs and StageMethodSettingOutput values.
+// You can construct a concrete instance of `StageMethodSettingInput` via:
+//
+//          StageMethodSettingArgs{...}
+type StageMethodSettingInput interface {
+	pulumi.Input
+
+	ToStageMethodSettingOutput() StageMethodSettingOutput
+	ToStageMethodSettingOutputWithContext(context.Context) StageMethodSettingOutput
+}
+
+type StageMethodSettingArgs struct {
+	CacheDataEncrypted   pulumi.BoolPtrInput    `pulumi:"cacheDataEncrypted"`
+	CacheTtlInSeconds    pulumi.IntPtrInput     `pulumi:"cacheTtlInSeconds"`
+	CachingEnabled       pulumi.BoolPtrInput    `pulumi:"cachingEnabled"`
+	DataTraceEnabled     pulumi.BoolPtrInput    `pulumi:"dataTraceEnabled"`
+	HttpMethod           pulumi.StringPtrInput  `pulumi:"httpMethod"`
+	LoggingLevel         pulumi.StringPtrInput  `pulumi:"loggingLevel"`
+	MetricsEnabled       pulumi.BoolPtrInput    `pulumi:"metricsEnabled"`
+	ResourcePath         pulumi.StringPtrInput  `pulumi:"resourcePath"`
+	ThrottlingBurstLimit pulumi.IntPtrInput     `pulumi:"throttlingBurstLimit"`
+	ThrottlingRateLimit  pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (StageMethodSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageMethodSetting)(nil)).Elem()
+}
+
+func (i StageMethodSettingArgs) ToStageMethodSettingOutput() StageMethodSettingOutput {
+	return i.ToStageMethodSettingOutputWithContext(context.Background())
+}
+
+func (i StageMethodSettingArgs) ToStageMethodSettingOutputWithContext(ctx context.Context) StageMethodSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageMethodSettingOutput)
+}
+
+// StageMethodSettingArrayInput is an input type that accepts StageMethodSettingArray and StageMethodSettingArrayOutput values.
+// You can construct a concrete instance of `StageMethodSettingArrayInput` via:
+//
+//          StageMethodSettingArray{ StageMethodSettingArgs{...} }
+type StageMethodSettingArrayInput interface {
+	pulumi.Input
+
+	ToStageMethodSettingArrayOutput() StageMethodSettingArrayOutput
+	ToStageMethodSettingArrayOutputWithContext(context.Context) StageMethodSettingArrayOutput
+}
+
+type StageMethodSettingArray []StageMethodSettingInput
+
+func (StageMethodSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageMethodSetting)(nil)).Elem()
+}
+
+func (i StageMethodSettingArray) ToStageMethodSettingArrayOutput() StageMethodSettingArrayOutput {
+	return i.ToStageMethodSettingArrayOutputWithContext(context.Background())
+}
+
+func (i StageMethodSettingArray) ToStageMethodSettingArrayOutputWithContext(ctx context.Context) StageMethodSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageMethodSettingArrayOutput)
+}
+
+type StageMethodSettingOutput struct{ *pulumi.OutputState }
+
+func (StageMethodSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageMethodSetting)(nil)).Elem()
+}
+
+func (o StageMethodSettingOutput) ToStageMethodSettingOutput() StageMethodSettingOutput {
+	return o
+}
+
+func (o StageMethodSettingOutput) ToStageMethodSettingOutputWithContext(ctx context.Context) StageMethodSettingOutput {
+	return o
+}
+
+func (o StageMethodSettingOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageMethodSettingOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o StageMethodSettingOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageMethodSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
+}
+
+func (o StageMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o StageMethodSettingOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageMethodSettingOutput) ResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
+}
+
+func (o StageMethodSettingOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+func (o StageMethodSettingOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type StageMethodSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (StageMethodSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageMethodSetting)(nil)).Elem()
+}
+
+func (o StageMethodSettingArrayOutput) ToStageMethodSettingArrayOutput() StageMethodSettingArrayOutput {
+	return o
+}
+
+func (o StageMethodSettingArrayOutput) ToStageMethodSettingArrayOutputWithContext(ctx context.Context) StageMethodSettingArrayOutput {
+	return o
+}
+
+func (o StageMethodSettingArrayOutput) Index(i pulumi.IntInput) StageMethodSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageMethodSetting {
+		return vs[0].([]StageMethodSetting)[vs[1].(int)]
+	}).(StageMethodSettingOutput)
+}
+
+type StageTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StageTagInput is an input type that accepts StageTagArgs and StageTagOutput values.
+// You can construct a concrete instance of `StageTagInput` via:
+//
+//          StageTagArgs{...}
+type StageTagInput interface {
+	pulumi.Input
+
+	ToStageTagOutput() StageTagOutput
+	ToStageTagOutputWithContext(context.Context) StageTagOutput
+}
+
+type StageTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageTag)(nil)).Elem()
+}
+
+func (i StageTagArgs) ToStageTagOutput() StageTagOutput {
+	return i.ToStageTagOutputWithContext(context.Background())
+}
+
+func (i StageTagArgs) ToStageTagOutputWithContext(ctx context.Context) StageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageTagOutput)
+}
+
+// StageTagArrayInput is an input type that accepts StageTagArray and StageTagArrayOutput values.
+// You can construct a concrete instance of `StageTagArrayInput` via:
+//
+//          StageTagArray{ StageTagArgs{...} }
+type StageTagArrayInput interface {
+	pulumi.Input
+
+	ToStageTagArrayOutput() StageTagArrayOutput
+	ToStageTagArrayOutputWithContext(context.Context) StageTagArrayOutput
+}
+
+type StageTagArray []StageTagInput
+
+func (StageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageTag)(nil)).Elem()
+}
+
+func (i StageTagArray) ToStageTagArrayOutput() StageTagArrayOutput {
+	return i.ToStageTagArrayOutputWithContext(context.Background())
+}
+
+func (i StageTagArray) ToStageTagArrayOutputWithContext(ctx context.Context) StageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageTagArrayOutput)
+}
+
+type StageTagOutput struct{ *pulumi.OutputState }
+
+func (StageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageTag)(nil)).Elem()
+}
+
+func (o StageTagOutput) ToStageTagOutput() StageTagOutput {
+	return o
+}
+
+func (o StageTagOutput) ToStageTagOutputWithContext(ctx context.Context) StageTagOutput {
+	return o
+}
+
+func (o StageTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StageTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageTag)(nil)).Elem()
+}
+
+func (o StageTagArrayOutput) ToStageTagArrayOutput() StageTagArrayOutput {
+	return o
+}
+
+func (o StageTagArrayOutput) ToStageTagArrayOutputWithContext(ctx context.Context) StageTagArrayOutput {
+	return o
+}
+
+func (o StageTagArrayOutput) Index(i pulumi.IntInput) StageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageTag {
+		return vs[0].([]StageTag)[vs[1].(int)]
+	}).(StageTagOutput)
 }
 
 type UsagePlanApiStage struct {
@@ -1262,12 +4132,46 @@ func init() {
 	pulumi.RegisterOutputType(ApiKeyTagArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateTagOutput{})
 	pulumi.RegisterOutputType(ClientCertificateTagArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentAccessLogSettingOutput{})
+	pulumi.RegisterOutputType(DeploymentAccessLogSettingPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentCanarySettingOutput{})
+	pulumi.RegisterOutputType(DeploymentCanarySettingPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentDeploymentCanarySettingsOutput{})
+	pulumi.RegisterOutputType(DeploymentDeploymentCanarySettingsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentMethodSettingOutput{})
+	pulumi.RegisterOutputType(DeploymentMethodSettingArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentStageDescriptionOutput{})
+	pulumi.RegisterOutputType(DeploymentStageDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentTagOutput{})
+	pulumi.RegisterOutputType(DeploymentTagArrayOutput{})
+	pulumi.RegisterOutputType(DocumentationPartLocationOutput{})
+	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameTagOutput{})
 	pulumi.RegisterOutputType(DomainNameTagArrayOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationResponseOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationResponseArrayOutput{})
+	pulumi.RegisterOutputType(MethodMethodResponseOutput{})
+	pulumi.RegisterOutputType(MethodMethodResponseArrayOutput{})
+	pulumi.RegisterOutputType(RestApiEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(RestApiEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RestApiS3LocationOutput{})
+	pulumi.RegisterOutputType(RestApiS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(RestApiTagOutput{})
+	pulumi.RegisterOutputType(RestApiTagArrayOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingPtrOutput{})
+	pulumi.RegisterOutputType(StageCanarySettingOutput{})
+	pulumi.RegisterOutputType(StageCanarySettingPtrOutput{})
+	pulumi.RegisterOutputType(StageMethodSettingOutput{})
+	pulumi.RegisterOutputType(StageMethodSettingArrayOutput{})
+	pulumi.RegisterOutputType(StageTagOutput{})
+	pulumi.RegisterOutputType(StageTagArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsOutput{})

@@ -23,6 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:redshift:Cluster":
 		r = &Cluster{}
+	case "aws-native:redshift:ClusterParameterGroup":
+		r = &ClusterParameterGroup{}
+	case "aws-native:redshift:ClusterSecurityGroup":
+		r = &ClusterSecurityGroup{}
+	case "aws-native:redshift:ClusterSecurityGroupIngress":
+		r = &ClusterSecurityGroupIngress{}
+	case "aws-native:redshift:ClusterSubnetGroup":
+		r = &ClusterSubnetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

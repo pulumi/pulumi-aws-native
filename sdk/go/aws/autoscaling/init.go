@@ -21,6 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:autoscaling:AutoScalingGroup":
+		r = &AutoScalingGroup{}
+	case "aws-native:autoscaling:LaunchConfiguration":
+		r = &LaunchConfiguration{}
+	case "aws-native:autoscaling:LifecycleHook":
+		r = &LifecycleHook{}
+	case "aws-native:autoscaling:ScalingPolicy":
+		r = &ScalingPolicy{}
+	case "aws-native:autoscaling:ScheduledAction":
+		r = &ScheduledAction{}
 	case "aws-native:autoscaling:WarmPool":
 		r = &WarmPool{}
 	default:

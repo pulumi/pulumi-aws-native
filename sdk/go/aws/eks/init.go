@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:eks:Addon":
 		r = &Addon{}
+	case "aws-native:eks:Cluster":
+		r = &Cluster{}
 	case "aws-native:eks:FargateProfile":
 		r = &FargateProfile{}
+	case "aws-native:eks:Nodegroup":
+		r = &Nodegroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -927,6 +927,106 @@ func (o StackSetTagArrayOutput) Index(i pulumi.IntInput) StackSetTagOutput {
 	}).(StackSetTagOutput)
 }
 
+type StackTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StackTagInput is an input type that accepts StackTagArgs and StackTagOutput values.
+// You can construct a concrete instance of `StackTagInput` via:
+//
+//          StackTagArgs{...}
+type StackTagInput interface {
+	pulumi.Input
+
+	ToStackTagOutput() StackTagOutput
+	ToStackTagOutputWithContext(context.Context) StackTagOutput
+}
+
+type StackTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StackTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackTag)(nil)).Elem()
+}
+
+func (i StackTagArgs) ToStackTagOutput() StackTagOutput {
+	return i.ToStackTagOutputWithContext(context.Background())
+}
+
+func (i StackTagArgs) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackTagOutput)
+}
+
+// StackTagArrayInput is an input type that accepts StackTagArray and StackTagArrayOutput values.
+// You can construct a concrete instance of `StackTagArrayInput` via:
+//
+//          StackTagArray{ StackTagArgs{...} }
+type StackTagArrayInput interface {
+	pulumi.Input
+
+	ToStackTagArrayOutput() StackTagArrayOutput
+	ToStackTagArrayOutputWithContext(context.Context) StackTagArrayOutput
+}
+
+type StackTagArray []StackTagInput
+
+func (StackTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
+}
+
+func (i StackTagArray) ToStackTagArrayOutput() StackTagArrayOutput {
+	return i.ToStackTagArrayOutputWithContext(context.Background())
+}
+
+func (i StackTagArray) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackTagArrayOutput)
+}
+
+type StackTagOutput struct{ *pulumi.OutputState }
+
+func (StackTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackTag)(nil)).Elem()
+}
+
+func (o StackTagOutput) ToStackTagOutput() StackTagOutput {
+	return o
+}
+
+func (o StackTagOutput) ToStackTagOutputWithContext(ctx context.Context) StackTagOutput {
+	return o
+}
+
+func (o StackTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StackTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StackTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StackTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StackTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StackTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackTag)(nil)).Elem()
+}
+
+func (o StackTagArrayOutput) ToStackTagArrayOutput() StackTagArrayOutput {
+	return o
+}
+
+func (o StackTagArrayOutput) ToStackTagArrayOutputWithContext(ctx context.Context) StackTagArrayOutput {
+	return o
+}
+
+func (o StackTagArrayOutput) Index(i pulumi.IntInput) StackTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackTag {
+		return vs[0].([]StackTag)[vs[1].(int)]
+	}).(StackTagOutput)
+}
+
 type TypeActivationLoggingConfig struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -1097,6 +1197,8 @@ func init() {
 	pulumi.RegisterOutputType(StackSetStackInstancesArrayOutput{})
 	pulumi.RegisterOutputType(StackSetTagOutput{})
 	pulumi.RegisterOutputType(StackSetTagArrayOutput{})
+	pulumi.RegisterOutputType(StackTagOutput{})
+	pulumi.RegisterOutputType(StackTagArrayOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigPtrOutput{})
 }

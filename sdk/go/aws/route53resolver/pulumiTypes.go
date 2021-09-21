@@ -495,6 +495,406 @@ func (o FirewallRuleGroupTagArrayOutput) Index(i pulumi.IntInput) FirewallRuleGr
 	}).(FirewallRuleGroupTagOutput)
 }
 
+type ResolverEndpointIpAddressRequest struct {
+	Ip       *string `pulumi:"ip"`
+	SubnetId string  `pulumi:"subnetId"`
+}
+
+// ResolverEndpointIpAddressRequestInput is an input type that accepts ResolverEndpointIpAddressRequestArgs and ResolverEndpointIpAddressRequestOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressRequestInput` via:
+//
+//          ResolverEndpointIpAddressRequestArgs{...}
+type ResolverEndpointIpAddressRequestInput interface {
+	pulumi.Input
+
+	ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput
+	ToResolverEndpointIpAddressRequestOutputWithContext(context.Context) ResolverEndpointIpAddressRequestOutput
+}
+
+type ResolverEndpointIpAddressRequestArgs struct {
+	Ip       pulumi.StringPtrInput `pulumi:"ip"`
+	SubnetId pulumi.StringInput    `pulumi:"subnetId"`
+}
+
+func (ResolverEndpointIpAddressRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput {
+	return i.ToResolverEndpointIpAddressRequestOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequestOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestOutput)
+}
+
+// ResolverEndpointIpAddressRequestArrayInput is an input type that accepts ResolverEndpointIpAddressRequestArray and ResolverEndpointIpAddressRequestArrayOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressRequestArrayInput` via:
+//
+//          ResolverEndpointIpAddressRequestArray{ ResolverEndpointIpAddressRequestArgs{...} }
+type ResolverEndpointIpAddressRequestArrayInput interface {
+	pulumi.Input
+
+	ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput
+	ToResolverEndpointIpAddressRequestArrayOutputWithContext(context.Context) ResolverEndpointIpAddressRequestArrayOutput
+}
+
+type ResolverEndpointIpAddressRequestArray []ResolverEndpointIpAddressRequestInput
+
+func (ResolverEndpointIpAddressRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (i ResolverEndpointIpAddressRequestArray) ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput {
+	return i.ToResolverEndpointIpAddressRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointIpAddressRequestArray) ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestArrayOutput)
+}
+
+type ResolverEndpointIpAddressRequestOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointIpAddressRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressRequestOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ResolverEndpointIpAddressRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointIpAddressRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) Index(i pulumi.IntInput) ResolverEndpointIpAddressRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverEndpointIpAddressRequest {
+		return vs[0].([]ResolverEndpointIpAddressRequest)[vs[1].(int)]
+	}).(ResolverEndpointIpAddressRequestOutput)
+}
+
+type ResolverEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ResolverEndpointTagInput is an input type that accepts ResolverEndpointTagArgs and ResolverEndpointTagOutput values.
+// You can construct a concrete instance of `ResolverEndpointTagInput` via:
+//
+//          ResolverEndpointTagArgs{...}
+type ResolverEndpointTagInput interface {
+	pulumi.Input
+
+	ToResolverEndpointTagOutput() ResolverEndpointTagOutput
+	ToResolverEndpointTagOutputWithContext(context.Context) ResolverEndpointTagOutput
+}
+
+type ResolverEndpointTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ResolverEndpointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointTag)(nil)).Elem()
+}
+
+func (i ResolverEndpointTagArgs) ToResolverEndpointTagOutput() ResolverEndpointTagOutput {
+	return i.ToResolverEndpointTagOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointTagArgs) ToResolverEndpointTagOutputWithContext(ctx context.Context) ResolverEndpointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointTagOutput)
+}
+
+// ResolverEndpointTagArrayInput is an input type that accepts ResolverEndpointTagArray and ResolverEndpointTagArrayOutput values.
+// You can construct a concrete instance of `ResolverEndpointTagArrayInput` via:
+//
+//          ResolverEndpointTagArray{ ResolverEndpointTagArgs{...} }
+type ResolverEndpointTagArrayInput interface {
+	pulumi.Input
+
+	ToResolverEndpointTagArrayOutput() ResolverEndpointTagArrayOutput
+	ToResolverEndpointTagArrayOutputWithContext(context.Context) ResolverEndpointTagArrayOutput
+}
+
+type ResolverEndpointTagArray []ResolverEndpointTagInput
+
+func (ResolverEndpointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointTag)(nil)).Elem()
+}
+
+func (i ResolverEndpointTagArray) ToResolverEndpointTagArrayOutput() ResolverEndpointTagArrayOutput {
+	return i.ToResolverEndpointTagArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointTagArray) ToResolverEndpointTagArrayOutputWithContext(ctx context.Context) ResolverEndpointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointTagArrayOutput)
+}
+
+type ResolverEndpointTagOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointTag)(nil)).Elem()
+}
+
+func (o ResolverEndpointTagOutput) ToResolverEndpointTagOutput() ResolverEndpointTagOutput {
+	return o
+}
+
+func (o ResolverEndpointTagOutput) ToResolverEndpointTagOutputWithContext(ctx context.Context) ResolverEndpointTagOutput {
+	return o
+}
+
+func (o ResolverEndpointTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverEndpointTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ResolverEndpointTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverEndpointTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ResolverEndpointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointTag)(nil)).Elem()
+}
+
+func (o ResolverEndpointTagArrayOutput) ToResolverEndpointTagArrayOutput() ResolverEndpointTagArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointTagArrayOutput) ToResolverEndpointTagArrayOutputWithContext(ctx context.Context) ResolverEndpointTagArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointTagArrayOutput) Index(i pulumi.IntInput) ResolverEndpointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverEndpointTag {
+		return vs[0].([]ResolverEndpointTag)[vs[1].(int)]
+	}).(ResolverEndpointTagOutput)
+}
+
+type ResolverRuleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ResolverRuleTagInput is an input type that accepts ResolverRuleTagArgs and ResolverRuleTagOutput values.
+// You can construct a concrete instance of `ResolverRuleTagInput` via:
+//
+//          ResolverRuleTagArgs{...}
+type ResolverRuleTagInput interface {
+	pulumi.Input
+
+	ToResolverRuleTagOutput() ResolverRuleTagOutput
+	ToResolverRuleTagOutputWithContext(context.Context) ResolverRuleTagOutput
+}
+
+type ResolverRuleTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ResolverRuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTag)(nil)).Elem()
+}
+
+func (i ResolverRuleTagArgs) ToResolverRuleTagOutput() ResolverRuleTagOutput {
+	return i.ToResolverRuleTagOutputWithContext(context.Background())
+}
+
+func (i ResolverRuleTagArgs) ToResolverRuleTagOutputWithContext(ctx context.Context) ResolverRuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTagOutput)
+}
+
+// ResolverRuleTagArrayInput is an input type that accepts ResolverRuleTagArray and ResolverRuleTagArrayOutput values.
+// You can construct a concrete instance of `ResolverRuleTagArrayInput` via:
+//
+//          ResolverRuleTagArray{ ResolverRuleTagArgs{...} }
+type ResolverRuleTagArrayInput interface {
+	pulumi.Input
+
+	ToResolverRuleTagArrayOutput() ResolverRuleTagArrayOutput
+	ToResolverRuleTagArrayOutputWithContext(context.Context) ResolverRuleTagArrayOutput
+}
+
+type ResolverRuleTagArray []ResolverRuleTagInput
+
+func (ResolverRuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverRuleTag)(nil)).Elem()
+}
+
+func (i ResolverRuleTagArray) ToResolverRuleTagArrayOutput() ResolverRuleTagArrayOutput {
+	return i.ToResolverRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverRuleTagArray) ToResolverRuleTagArrayOutputWithContext(ctx context.Context) ResolverRuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTagArrayOutput)
+}
+
+type ResolverRuleTagOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTag)(nil)).Elem()
+}
+
+func (o ResolverRuleTagOutput) ToResolverRuleTagOutput() ResolverRuleTagOutput {
+	return o
+}
+
+func (o ResolverRuleTagOutput) ToResolverRuleTagOutputWithContext(ctx context.Context) ResolverRuleTagOutput {
+	return o
+}
+
+func (o ResolverRuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverRuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ResolverRuleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverRuleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ResolverRuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverRuleTag)(nil)).Elem()
+}
+
+func (o ResolverRuleTagArrayOutput) ToResolverRuleTagArrayOutput() ResolverRuleTagArrayOutput {
+	return o
+}
+
+func (o ResolverRuleTagArrayOutput) ToResolverRuleTagArrayOutputWithContext(ctx context.Context) ResolverRuleTagArrayOutput {
+	return o
+}
+
+func (o ResolverRuleTagArrayOutput) Index(i pulumi.IntInput) ResolverRuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverRuleTag {
+		return vs[0].([]ResolverRuleTag)[vs[1].(int)]
+	}).(ResolverRuleTagOutput)
+}
+
+type ResolverRuleTargetAddress struct {
+	Ip   string  `pulumi:"ip"`
+	Port *string `pulumi:"port"`
+}
+
+// ResolverRuleTargetAddressInput is an input type that accepts ResolverRuleTargetAddressArgs and ResolverRuleTargetAddressOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetAddressInput` via:
+//
+//          ResolverRuleTargetAddressArgs{...}
+type ResolverRuleTargetAddressInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetAddressOutput() ResolverRuleTargetAddressOutput
+	ToResolverRuleTargetAddressOutputWithContext(context.Context) ResolverRuleTargetAddressOutput
+}
+
+type ResolverRuleTargetAddressArgs struct {
+	Ip   pulumi.StringInput    `pulumi:"ip"`
+	Port pulumi.StringPtrInput `pulumi:"port"`
+}
+
+func (ResolverRuleTargetAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (i ResolverRuleTargetAddressArgs) ToResolverRuleTargetAddressOutput() ResolverRuleTargetAddressOutput {
+	return i.ToResolverRuleTargetAddressOutputWithContext(context.Background())
+}
+
+func (i ResolverRuleTargetAddressArgs) ToResolverRuleTargetAddressOutputWithContext(ctx context.Context) ResolverRuleTargetAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetAddressOutput)
+}
+
+// ResolverRuleTargetAddressArrayInput is an input type that accepts ResolverRuleTargetAddressArray and ResolverRuleTargetAddressArrayOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetAddressArrayInput` via:
+//
+//          ResolverRuleTargetAddressArray{ ResolverRuleTargetAddressArgs{...} }
+type ResolverRuleTargetAddressArrayInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetAddressArrayOutput() ResolverRuleTargetAddressArrayOutput
+	ToResolverRuleTargetAddressArrayOutputWithContext(context.Context) ResolverRuleTargetAddressArrayOutput
+}
+
+type ResolverRuleTargetAddressArray []ResolverRuleTargetAddressInput
+
+func (ResolverRuleTargetAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (i ResolverRuleTargetAddressArray) ToResolverRuleTargetAddressArrayOutput() ResolverRuleTargetAddressArrayOutput {
+	return i.ToResolverRuleTargetAddressArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverRuleTargetAddressArray) ToResolverRuleTargetAddressArrayOutputWithContext(ctx context.Context) ResolverRuleTargetAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetAddressArrayOutput)
+}
+
+type ResolverRuleTargetAddressOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTargetAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutput() ResolverRuleTargetAddressOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutputWithContext(ctx context.Context) ResolverRuleTargetAddressOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+func (o ResolverRuleTargetAddressOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type ResolverRuleTargetAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTargetAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (o ResolverRuleTargetAddressArrayOutput) ToResolverRuleTargetAddressArrayOutput() ResolverRuleTargetAddressArrayOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressArrayOutput) ToResolverRuleTargetAddressArrayOutputWithContext(ctx context.Context) ResolverRuleTargetAddressArrayOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressArrayOutput) Index(i pulumi.IntInput) ResolverRuleTargetAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverRuleTargetAddress {
+		return vs[0].([]ResolverRuleTargetAddress)[vs[1].(int)]
+	}).(ResolverRuleTargetAddressOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FirewallDomainListTagOutput{})
 	pulumi.RegisterOutputType(FirewallDomainListTagArrayOutput{})
@@ -504,4 +904,12 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupTagOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestArrayOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointTagOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointTagArrayOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTagOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTagArrayOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTargetAddressOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTargetAddressArrayOutput{})
 }

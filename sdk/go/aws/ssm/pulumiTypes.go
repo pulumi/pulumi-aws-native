@@ -733,6 +733,2342 @@ func (o DocumentTagArrayOutput) Index(i pulumi.IntInput) DocumentTagOutput {
 	}).(DocumentTagOutput)
 }
 
+type MaintenanceWindowTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// MaintenanceWindowTagInput is an input type that accepts MaintenanceWindowTagArgs and MaintenanceWindowTagOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTagInput` via:
+//
+//          MaintenanceWindowTagArgs{...}
+type MaintenanceWindowTagInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTagOutput() MaintenanceWindowTagOutput
+	ToMaintenanceWindowTagOutputWithContext(context.Context) MaintenanceWindowTagOutput
+}
+
+type MaintenanceWindowTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MaintenanceWindowTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTag)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTagArgs) ToMaintenanceWindowTagOutput() MaintenanceWindowTagOutput {
+	return i.ToMaintenanceWindowTagOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTagArgs) ToMaintenanceWindowTagOutputWithContext(ctx context.Context) MaintenanceWindowTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTagOutput)
+}
+
+// MaintenanceWindowTagArrayInput is an input type that accepts MaintenanceWindowTagArray and MaintenanceWindowTagArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTagArrayInput` via:
+//
+//          MaintenanceWindowTagArray{ MaintenanceWindowTagArgs{...} }
+type MaintenanceWindowTagArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTagArrayOutput() MaintenanceWindowTagArrayOutput
+	ToMaintenanceWindowTagArrayOutputWithContext(context.Context) MaintenanceWindowTagArrayOutput
+}
+
+type MaintenanceWindowTagArray []MaintenanceWindowTagInput
+
+func (MaintenanceWindowTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTag)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTagArray) ToMaintenanceWindowTagArrayOutput() MaintenanceWindowTagArrayOutput {
+	return i.ToMaintenanceWindowTagArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTagArray) ToMaintenanceWindowTagArrayOutputWithContext(ctx context.Context) MaintenanceWindowTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTagArrayOutput)
+}
+
+type MaintenanceWindowTagOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTag)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTagOutput) ToMaintenanceWindowTagOutput() MaintenanceWindowTagOutput {
+	return o
+}
+
+func (o MaintenanceWindowTagOutput) ToMaintenanceWindowTagOutputWithContext(ctx context.Context) MaintenanceWindowTagOutput {
+	return o
+}
+
+func (o MaintenanceWindowTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MaintenanceWindowTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTag)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTagArrayOutput) ToMaintenanceWindowTagArrayOutput() MaintenanceWindowTagArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTagArrayOutput) ToMaintenanceWindowTagArrayOutputWithContext(ctx context.Context) MaintenanceWindowTagArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTagArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTag {
+		return vs[0].([]MaintenanceWindowTag)[vs[1].(int)]
+	}).(MaintenanceWindowTagOutput)
+}
+
+type MaintenanceWindowTargetTargets struct {
+	Key    string   `pulumi:"key"`
+	Values []string `pulumi:"values"`
+}
+
+// MaintenanceWindowTargetTargetsInput is an input type that accepts MaintenanceWindowTargetTargetsArgs and MaintenanceWindowTargetTargetsOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetsInput` via:
+//
+//          MaintenanceWindowTargetTargetsArgs{...}
+type MaintenanceWindowTargetTargetsInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput
+	ToMaintenanceWindowTargetTargetsOutputWithContext(context.Context) MaintenanceWindowTargetTargetsOutput
+}
+
+type MaintenanceWindowTargetTargetsArgs struct {
+	Key    pulumi.StringInput      `pulumi:"key"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTargetTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return i.ToMaintenanceWindowTargetTargetsOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetsOutput)
+}
+
+// MaintenanceWindowTargetTargetsArrayInput is an input type that accepts MaintenanceWindowTargetTargetsArray and MaintenanceWindowTargetTargetsArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetsArrayInput` via:
+//
+//          MaintenanceWindowTargetTargetsArray{ MaintenanceWindowTargetTargetsArgs{...} }
+type MaintenanceWindowTargetTargetsArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput
+	ToMaintenanceWindowTargetTargetsArrayOutputWithContext(context.Context) MaintenanceWindowTargetTargetsArrayOutput
+}
+
+type MaintenanceWindowTargetTargetsArray []MaintenanceWindowTargetTargetsInput
+
+func (MaintenanceWindowTargetTargetsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTargetTargetsArray) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return i.ToMaintenanceWindowTargetTargetsArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTargetTargetsArray) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetsArrayOutput)
+}
+
+type MaintenanceWindowTargetTargetsOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTargetTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTargetTargets) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MaintenanceWindowTargetTargets) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MaintenanceWindowTargetTargetsArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTargetTargetsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTargetTargets {
+		return vs[0].([]MaintenanceWindowTargetTargets)[vs[1].(int)]
+	}).(MaintenanceWindowTargetTargetsOutput)
+}
+
+type MaintenanceWindowTaskLoggingInfo struct {
+	Region   string  `pulumi:"region"`
+	S3Bucket string  `pulumi:"s3Bucket"`
+	S3Prefix *string `pulumi:"s3Prefix"`
+}
+
+// MaintenanceWindowTaskLoggingInfoInput is an input type that accepts MaintenanceWindowTaskLoggingInfoArgs and MaintenanceWindowTaskLoggingInfoOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskLoggingInfoInput` via:
+//
+//          MaintenanceWindowTaskLoggingInfoArgs{...}
+type MaintenanceWindowTaskLoggingInfoInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput
+	ToMaintenanceWindowTaskLoggingInfoOutputWithContext(context.Context) MaintenanceWindowTaskLoggingInfoOutput
+}
+
+type MaintenanceWindowTaskLoggingInfoArgs struct {
+	Region   pulumi.StringInput    `pulumi:"region"`
+	S3Bucket pulumi.StringInput    `pulumi:"s3Bucket"`
+	S3Prefix pulumi.StringPtrInput `pulumi:"s3Prefix"`
+}
+
+func (MaintenanceWindowTaskLoggingInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput {
+	return i.ToMaintenanceWindowTaskLoggingInfoOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskLoggingInfoOutput)
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return i.ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskLoggingInfoOutput).ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskLoggingInfoPtrInput is an input type that accepts MaintenanceWindowTaskLoggingInfoArgs, MaintenanceWindowTaskLoggingInfoPtr and MaintenanceWindowTaskLoggingInfoPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskLoggingInfoPtrInput` via:
+//
+//          MaintenanceWindowTaskLoggingInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskLoggingInfoPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput
+	ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput
+}
+
+type maintenanceWindowTaskLoggingInfoPtrType MaintenanceWindowTaskLoggingInfoArgs
+
+func MaintenanceWindowTaskLoggingInfoPtr(v *MaintenanceWindowTaskLoggingInfoArgs) MaintenanceWindowTaskLoggingInfoPtrInput {
+	return (*maintenanceWindowTaskLoggingInfoPtrType)(v)
+}
+
+func (*maintenanceWindowTaskLoggingInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskLoggingInfoPtrType) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return i.ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskLoggingInfoPtrType) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskLoggingInfoPtrOutput)
+}
+
+type MaintenanceWindowTaskLoggingInfoOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskLoggingInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o.ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskLoggingInfo) *MaintenanceWindowTaskLoggingInfo {
+		return &v
+	}).(MaintenanceWindowTaskLoggingInfoPtrOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskLoggingInfo) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskLoggingInfo) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskLoggingInfo) *string { return v.S3Prefix }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskLoggingInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskLoggingInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) Elem() MaintenanceWindowTaskLoggingInfoOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) MaintenanceWindowTaskLoggingInfo {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskLoggingInfo
+		return ret
+	}).(MaintenanceWindowTaskLoggingInfoOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowAutomationParameters struct {
+	DocumentVersion *string     `pulumi:"documentVersion"`
+	Parameters      interface{} `pulumi:"parameters"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowAutomationParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs and MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowAutomationParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput
+}
+
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs struct {
+	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
+	Parameters      pulumi.Input          `pulumi:"parameters"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs, MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtr and MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowAutomationParameters) *MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowAutomationParameters) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowAutomationParameters) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowAutomationParameters) MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowAutomationParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowAutomationParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowAutomationParameters) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowLambdaParameters struct {
+	ClientContext *string `pulumi:"clientContext"`
+	Payload       *string `pulumi:"payload"`
+	Qualifier     *string `pulumi:"qualifier"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowLambdaParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs and MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowLambdaParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput
+}
+
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs struct {
+	ClientContext pulumi.StringPtrInput `pulumi:"clientContext"`
+	Payload       pulumi.StringPtrInput `pulumi:"payload"`
+	Qualifier     pulumi.StringPtrInput `pulumi:"qualifier"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs, MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtr and MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ClientContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string { return v.ClientContext }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowLambdaParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ClientContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientContext
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Payload
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Qualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParameters struct {
+	Comment            *string                                  `pulumi:"comment"`
+	DocumentHash       *string                                  `pulumi:"documentHash"`
+	DocumentHashType   *string                                  `pulumi:"documentHashType"`
+	NotificationConfig *MaintenanceWindowTaskNotificationConfig `pulumi:"notificationConfig"`
+	OutputS3BucketName *string                                  `pulumi:"outputS3BucketName"`
+	OutputS3KeyPrefix  *string                                  `pulumi:"outputS3KeyPrefix"`
+	Parameters         interface{}                              `pulumi:"parameters"`
+	ServiceRoleArn     *string                                  `pulumi:"serviceRoleArn"`
+	TimeoutSeconds     *int                                     `pulumi:"timeoutSeconds"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs and MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput
+}
+
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs struct {
+	Comment            pulumi.StringPtrInput                           `pulumi:"comment"`
+	DocumentHash       pulumi.StringPtrInput                           `pulumi:"documentHash"`
+	DocumentHashType   pulumi.StringPtrInput                           `pulumi:"documentHashType"`
+	NotificationConfig MaintenanceWindowTaskNotificationConfigPtrInput `pulumi:"notificationConfig"`
+	OutputS3BucketName pulumi.StringPtrInput                           `pulumi:"outputS3BucketName"`
+	OutputS3KeyPrefix  pulumi.StringPtrInput                           `pulumi:"outputS3KeyPrefix"`
+	Parameters         pulumi.Input                                    `pulumi:"parameters"`
+	ServiceRoleArn     pulumi.StringPtrInput                           `pulumi:"serviceRoleArn"`
+	TimeoutSeconds     pulumi.IntPtrInput                              `pulumi:"timeoutSeconds"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs, MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtr and MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) DocumentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.DocumentHash }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) DocumentHashType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.DocumentHashType }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) NotificationConfig() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskNotificationConfig {
+		return v.NotificationConfig
+	}).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) OutputS3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		return v.OutputS3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.OutputS3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowRunCommandParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) DocumentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentHash
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) DocumentHashType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentHashType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) NotificationConfig() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskNotificationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationConfig
+	}).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) OutputS3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputS3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputS3KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters struct {
+	Input *string `pulumi:"input"`
+	Name  *string `pulumi:"name"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs and MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput
+}
+
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs struct {
+	Input pulumi.StringPtrInput `pulumi:"input"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs, MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtr and MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) Input() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string { return v.Input }).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) Input() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Input
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskNotificationConfig struct {
+	NotificationArn    string   `pulumi:"notificationArn"`
+	NotificationEvents []string `pulumi:"notificationEvents"`
+	NotificationType   *string  `pulumi:"notificationType"`
+}
+
+// MaintenanceWindowTaskNotificationConfigInput is an input type that accepts MaintenanceWindowTaskNotificationConfigArgs and MaintenanceWindowTaskNotificationConfigOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskNotificationConfigInput` via:
+//
+//          MaintenanceWindowTaskNotificationConfigArgs{...}
+type MaintenanceWindowTaskNotificationConfigInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskNotificationConfigOutput() MaintenanceWindowTaskNotificationConfigOutput
+	ToMaintenanceWindowTaskNotificationConfigOutputWithContext(context.Context) MaintenanceWindowTaskNotificationConfigOutput
+}
+
+type MaintenanceWindowTaskNotificationConfigArgs struct {
+	NotificationArn    pulumi.StringInput      `pulumi:"notificationArn"`
+	NotificationEvents pulumi.StringArrayInput `pulumi:"notificationEvents"`
+	NotificationType   pulumi.StringPtrInput   `pulumi:"notificationType"`
+}
+
+func (MaintenanceWindowTaskNotificationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigOutput() MaintenanceWindowTaskNotificationConfigOutput {
+	return i.ToMaintenanceWindowTaskNotificationConfigOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskNotificationConfigOutput)
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskNotificationConfigOutput).ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskNotificationConfigPtrInput is an input type that accepts MaintenanceWindowTaskNotificationConfigArgs, MaintenanceWindowTaskNotificationConfigPtr and MaintenanceWindowTaskNotificationConfigPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskNotificationConfigPtrInput` via:
+//
+//          MaintenanceWindowTaskNotificationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskNotificationConfigPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput
+	ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput
+}
+
+type maintenanceWindowTaskNotificationConfigPtrType MaintenanceWindowTaskNotificationConfigArgs
+
+func MaintenanceWindowTaskNotificationConfigPtr(v *MaintenanceWindowTaskNotificationConfigArgs) MaintenanceWindowTaskNotificationConfigPtrInput {
+	return (*maintenanceWindowTaskNotificationConfigPtrType)(v)
+}
+
+func (*maintenanceWindowTaskNotificationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskNotificationConfigPtrType) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskNotificationConfigPtrType) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+type MaintenanceWindowTaskNotificationConfigOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskNotificationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigOutput() MaintenanceWindowTaskNotificationConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskNotificationConfig) *MaintenanceWindowTaskNotificationConfig {
+		return &v
+	}).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) NotificationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskNotificationConfig) string { return v.NotificationArn }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) NotificationEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskNotificationConfig) []string { return v.NotificationEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskNotificationConfig) *string { return v.NotificationType }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskNotificationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskNotificationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) Elem() MaintenanceWindowTaskNotificationConfigOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) MaintenanceWindowTaskNotificationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskNotificationConfig
+		return ret
+	}).(MaintenanceWindowTaskNotificationConfigOutput)
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) NotificationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) NotificationEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationType
+	}).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskTarget struct {
+	Key    string   `pulumi:"key"`
+	Values []string `pulumi:"values"`
+}
+
+// MaintenanceWindowTaskTargetInput is an input type that accepts MaintenanceWindowTaskTargetArgs and MaintenanceWindowTaskTargetOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTargetInput` via:
+//
+//          MaintenanceWindowTaskTargetArgs{...}
+type MaintenanceWindowTaskTargetInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTargetOutput() MaintenanceWindowTaskTargetOutput
+	ToMaintenanceWindowTaskTargetOutputWithContext(context.Context) MaintenanceWindowTaskTargetOutput
+}
+
+type MaintenanceWindowTaskTargetArgs struct {
+	Key    pulumi.StringInput      `pulumi:"key"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTaskTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskTargetArgs) ToMaintenanceWindowTaskTargetOutput() MaintenanceWindowTaskTargetOutput {
+	return i.ToMaintenanceWindowTaskTargetOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTargetArgs) ToMaintenanceWindowTaskTargetOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTargetOutput)
+}
+
+// MaintenanceWindowTaskTargetArrayInput is an input type that accepts MaintenanceWindowTaskTargetArray and MaintenanceWindowTaskTargetArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTargetArrayInput` via:
+//
+//          MaintenanceWindowTaskTargetArray{ MaintenanceWindowTaskTargetArgs{...} }
+type MaintenanceWindowTaskTargetArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTargetArrayOutput() MaintenanceWindowTaskTargetArrayOutput
+	ToMaintenanceWindowTaskTargetArrayOutputWithContext(context.Context) MaintenanceWindowTaskTargetArrayOutput
+}
+
+type MaintenanceWindowTaskTargetArray []MaintenanceWindowTaskTargetInput
+
+func (MaintenanceWindowTaskTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskTargetArray) ToMaintenanceWindowTaskTargetArrayOutput() MaintenanceWindowTaskTargetArrayOutput {
+	return i.ToMaintenanceWindowTaskTargetArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTargetArray) ToMaintenanceWindowTaskTargetArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTargetArrayOutput)
+}
+
+type MaintenanceWindowTaskTargetOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTargetOutput) ToMaintenanceWindowTaskTargetOutput() MaintenanceWindowTaskTargetOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetOutput) ToMaintenanceWindowTaskTargetOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTarget) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MaintenanceWindowTaskTargetOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MaintenanceWindowTaskTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTargetArrayOutput) ToMaintenanceWindowTaskTargetArrayOutput() MaintenanceWindowTaskTargetArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetArrayOutput) ToMaintenanceWindowTaskTargetArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTaskTarget {
+		return vs[0].([]MaintenanceWindowTaskTarget)[vs[1].(int)]
+	}).(MaintenanceWindowTaskTargetOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParameters struct {
+	MaintenanceWindowAutomationParameters    *MaintenanceWindowTaskMaintenanceWindowAutomationParameters    `pulumi:"maintenanceWindowAutomationParameters"`
+	MaintenanceWindowLambdaParameters        *MaintenanceWindowTaskMaintenanceWindowLambdaParameters        `pulumi:"maintenanceWindowLambdaParameters"`
+	MaintenanceWindowRunCommandParameters    *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters    `pulumi:"maintenanceWindowRunCommandParameters"`
+	MaintenanceWindowStepFunctionsParameters *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters `pulumi:"maintenanceWindowStepFunctionsParameters"`
+}
+
+// MaintenanceWindowTaskTaskInvocationParametersInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersArgs and MaintenanceWindowTaskTaskInvocationParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersInput` via:
+//
+//          MaintenanceWindowTaskTaskInvocationParametersArgs{...}
+type MaintenanceWindowTaskTaskInvocationParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersArgs struct {
+	MaintenanceWindowAutomationParameters    MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput    `pulumi:"maintenanceWindowAutomationParameters"`
+	MaintenanceWindowLambdaParameters        MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput        `pulumi:"maintenanceWindowLambdaParameters"`
+	MaintenanceWindowRunCommandParameters    MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput    `pulumi:"maintenanceWindowRunCommandParameters"`
+	MaintenanceWindowStepFunctionsParameters MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput `pulumi:"maintenanceWindowStepFunctionsParameters"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersOutput)
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersOutput).ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskTaskInvocationParametersPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersArgs, MaintenanceWindowTaskTaskInvocationParametersPtr and MaintenanceWindowTaskTaskInvocationParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskTaskInvocationParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskTaskInvocationParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput
+}
+
+type maintenanceWindowTaskTaskInvocationParametersPtrType MaintenanceWindowTaskTaskInvocationParametersArgs
+
+func MaintenanceWindowTaskTaskInvocationParametersPtr(v *MaintenanceWindowTaskTaskInvocationParametersArgs) MaintenanceWindowTaskTaskInvocationParametersPtrInput {
+	return (*maintenanceWindowTaskTaskInvocationParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskTaskInvocationParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskTaskInvocationParametersPtrType) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskTaskInvocationParametersPtrType) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTaskInvocationParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskTaskInvocationParameters {
+		return &v
+	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowAutomationParameters() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		return v.MaintenanceWindowAutomationParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowLambdaParameters() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		return v.MaintenanceWindowLambdaParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowRunCommandParameters() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		return v.MaintenanceWindowRunCommandParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowStepFunctionsParameters() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		return v.MaintenanceWindowStepFunctionsParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) MaintenanceWindowTaskTaskInvocationParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParameters
+		return ret
+	}).(MaintenanceWindowTaskTaskInvocationParametersOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowAutomationParameters() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowAutomationParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowLambdaParameters() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowLambdaParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowRunCommandParameters() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowRunCommandParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowStepFunctionsParameters() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowStepFunctionsParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+type PatchBaselinePatchFilter struct {
+	Key    *string  `pulumi:"key"`
+	Values []string `pulumi:"values"`
+}
+
+// PatchBaselinePatchFilterInput is an input type that accepts PatchBaselinePatchFilterArgs and PatchBaselinePatchFilterOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterInput` via:
+//
+//          PatchBaselinePatchFilterArgs{...}
+type PatchBaselinePatchFilterInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterOutput() PatchBaselinePatchFilterOutput
+	ToPatchBaselinePatchFilterOutputWithContext(context.Context) PatchBaselinePatchFilterOutput
+}
+
+type PatchBaselinePatchFilterArgs struct {
+	Key    pulumi.StringPtrInput   `pulumi:"key"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PatchBaselinePatchFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchFilterArgs) ToPatchBaselinePatchFilterOutput() PatchBaselinePatchFilterOutput {
+	return i.ToPatchBaselinePatchFilterOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterArgs) ToPatchBaselinePatchFilterOutputWithContext(ctx context.Context) PatchBaselinePatchFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterOutput)
+}
+
+// PatchBaselinePatchFilterArrayInput is an input type that accepts PatchBaselinePatchFilterArray and PatchBaselinePatchFilterArrayOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterArrayInput` via:
+//
+//          PatchBaselinePatchFilterArray{ PatchBaselinePatchFilterArgs{...} }
+type PatchBaselinePatchFilterArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterArrayOutput() PatchBaselinePatchFilterArrayOutput
+	ToPatchBaselinePatchFilterArrayOutputWithContext(context.Context) PatchBaselinePatchFilterArrayOutput
+}
+
+type PatchBaselinePatchFilterArray []PatchBaselinePatchFilterInput
+
+func (PatchBaselinePatchFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchFilterArray) ToPatchBaselinePatchFilterArrayOutput() PatchBaselinePatchFilterArrayOutput {
+	return i.ToPatchBaselinePatchFilterArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterArray) ToPatchBaselinePatchFilterArrayOutputWithContext(ctx context.Context) PatchBaselinePatchFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterArrayOutput)
+}
+
+type PatchBaselinePatchFilterOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterOutput) ToPatchBaselinePatchFilterOutput() PatchBaselinePatchFilterOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterOutput) ToPatchBaselinePatchFilterOutputWithContext(ctx context.Context) PatchBaselinePatchFilterOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselinePatchFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselinePatchFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PatchBaselinePatchFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PatchBaselinePatchFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterArrayOutput) ToPatchBaselinePatchFilterArrayOutput() PatchBaselinePatchFilterArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterArrayOutput) ToPatchBaselinePatchFilterArrayOutputWithContext(ctx context.Context) PatchBaselinePatchFilterArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterArrayOutput) Index(i pulumi.IntInput) PatchBaselinePatchFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselinePatchFilter {
+		return vs[0].([]PatchBaselinePatchFilter)[vs[1].(int)]
+	}).(PatchBaselinePatchFilterOutput)
+}
+
+type PatchBaselinePatchFilterGroup struct {
+	PatchFilters []PatchBaselinePatchFilter `pulumi:"patchFilters"`
+}
+
+// PatchBaselinePatchFilterGroupInput is an input type that accepts PatchBaselinePatchFilterGroupArgs and PatchBaselinePatchFilterGroupOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterGroupInput` via:
+//
+//          PatchBaselinePatchFilterGroupArgs{...}
+type PatchBaselinePatchFilterGroupInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterGroupOutput() PatchBaselinePatchFilterGroupOutput
+	ToPatchBaselinePatchFilterGroupOutputWithContext(context.Context) PatchBaselinePatchFilterGroupOutput
+}
+
+type PatchBaselinePatchFilterGroupArgs struct {
+	PatchFilters PatchBaselinePatchFilterArrayInput `pulumi:"patchFilters"`
+}
+
+func (PatchBaselinePatchFilterGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupOutput() PatchBaselinePatchFilterGroupOutput {
+	return i.ToPatchBaselinePatchFilterGroupOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterGroupOutput)
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return i.ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterGroupOutput).ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx)
+}
+
+// PatchBaselinePatchFilterGroupPtrInput is an input type that accepts PatchBaselinePatchFilterGroupArgs, PatchBaselinePatchFilterGroupPtr and PatchBaselinePatchFilterGroupPtrOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterGroupPtrInput` via:
+//
+//          PatchBaselinePatchFilterGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type PatchBaselinePatchFilterGroupPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput
+	ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Context) PatchBaselinePatchFilterGroupPtrOutput
+}
+
+type patchBaselinePatchFilterGroupPtrType PatchBaselinePatchFilterGroupArgs
+
+func PatchBaselinePatchFilterGroupPtr(v *PatchBaselinePatchFilterGroupArgs) PatchBaselinePatchFilterGroupPtrInput {
+	return (*patchBaselinePatchFilterGroupPtrType)(v)
+}
+
+func (*patchBaselinePatchFilterGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (i *patchBaselinePatchFilterGroupPtrType) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return i.ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *patchBaselinePatchFilterGroupPtrType) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterGroupPtrOutput)
+}
+
+type PatchBaselinePatchFilterGroupOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupOutput() PatchBaselinePatchFilterGroupOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return o.ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselinePatchFilterGroup) *PatchBaselinePatchFilterGroup {
+		return &v
+	}).(PatchBaselinePatchFilterGroupPtrOutput)
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
+	return o.ApplyT(func(v PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter { return v.PatchFilters }).(PatchBaselinePatchFilterArrayOutput)
+}
+
+type PatchBaselinePatchFilterGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterGroupPtrOutput) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupPtrOutput) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupPtrOutput) Elem() PatchBaselinePatchFilterGroupOutput {
+	return o.ApplyT(func(v *PatchBaselinePatchFilterGroup) PatchBaselinePatchFilterGroup {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselinePatchFilterGroup
+		return ret
+	}).(PatchBaselinePatchFilterGroupOutput)
+}
+
+func (o PatchBaselinePatchFilterGroupPtrOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
+	return o.ApplyT(func(v *PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PatchFilters
+	}).(PatchBaselinePatchFilterArrayOutput)
+}
+
+type PatchBaselinePatchSource struct {
+	Configuration *string  `pulumi:"configuration"`
+	Name          *string  `pulumi:"name"`
+	Products      []string `pulumi:"products"`
+}
+
+// PatchBaselinePatchSourceInput is an input type that accepts PatchBaselinePatchSourceArgs and PatchBaselinePatchSourceOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchSourceInput` via:
+//
+//          PatchBaselinePatchSourceArgs{...}
+type PatchBaselinePatchSourceInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchSourceOutput() PatchBaselinePatchSourceOutput
+	ToPatchBaselinePatchSourceOutputWithContext(context.Context) PatchBaselinePatchSourceOutput
+}
+
+type PatchBaselinePatchSourceArgs struct {
+	Configuration pulumi.StringPtrInput   `pulumi:"configuration"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Products      pulumi.StringArrayInput `pulumi:"products"`
+}
+
+func (PatchBaselinePatchSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchSourceArgs) ToPatchBaselinePatchSourceOutput() PatchBaselinePatchSourceOutput {
+	return i.ToPatchBaselinePatchSourceOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchSourceArgs) ToPatchBaselinePatchSourceOutputWithContext(ctx context.Context) PatchBaselinePatchSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchSourceOutput)
+}
+
+// PatchBaselinePatchSourceArrayInput is an input type that accepts PatchBaselinePatchSourceArray and PatchBaselinePatchSourceArrayOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchSourceArrayInput` via:
+//
+//          PatchBaselinePatchSourceArray{ PatchBaselinePatchSourceArgs{...} }
+type PatchBaselinePatchSourceArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchSourceArrayOutput() PatchBaselinePatchSourceArrayOutput
+	ToPatchBaselinePatchSourceArrayOutputWithContext(context.Context) PatchBaselinePatchSourceArrayOutput
+}
+
+type PatchBaselinePatchSourceArray []PatchBaselinePatchSourceInput
+
+func (PatchBaselinePatchSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchSourceArray) ToPatchBaselinePatchSourceArrayOutput() PatchBaselinePatchSourceArrayOutput {
+	return i.ToPatchBaselinePatchSourceArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchSourceArray) ToPatchBaselinePatchSourceArrayOutputWithContext(ctx context.Context) PatchBaselinePatchSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchSourceArrayOutput)
+}
+
+type PatchBaselinePatchSourceOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchSourceOutput) ToPatchBaselinePatchSourceOutput() PatchBaselinePatchSourceOutput {
+	return o
+}
+
+func (o PatchBaselinePatchSourceOutput) ToPatchBaselinePatchSourceOutputWithContext(ctx context.Context) PatchBaselinePatchSourceOutput {
+	return o
+}
+
+func (o PatchBaselinePatchSourceOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselinePatchSource) *string { return v.Configuration }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselinePatchSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselinePatchSource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselinePatchSourceOutput) Products() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PatchBaselinePatchSource) []string { return v.Products }).(pulumi.StringArrayOutput)
+}
+
+type PatchBaselinePatchSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchSourceArrayOutput) ToPatchBaselinePatchSourceArrayOutput() PatchBaselinePatchSourceArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchSourceArrayOutput) ToPatchBaselinePatchSourceArrayOutputWithContext(ctx context.Context) PatchBaselinePatchSourceArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchSourceArrayOutput) Index(i pulumi.IntInput) PatchBaselinePatchSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselinePatchSource {
+		return vs[0].([]PatchBaselinePatchSource)[vs[1].(int)]
+	}).(PatchBaselinePatchSourceOutput)
+}
+
+type PatchBaselinePatchStringDate struct {
+}
+
+// PatchBaselinePatchStringDateInput is an input type that accepts PatchBaselinePatchStringDateArgs and PatchBaselinePatchStringDateOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchStringDateInput` via:
+//
+//          PatchBaselinePatchStringDateArgs{...}
+type PatchBaselinePatchStringDateInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput
+	ToPatchBaselinePatchStringDateOutputWithContext(context.Context) PatchBaselinePatchStringDateOutput
+}
+
+type PatchBaselinePatchStringDateArgs struct {
+}
+
+func (PatchBaselinePatchStringDateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput {
+	return i.ToPatchBaselinePatchStringDateOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDateOutputWithContext(ctx context.Context) PatchBaselinePatchStringDateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDateOutput)
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return i.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDateOutput).ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx)
+}
+
+// PatchBaselinePatchStringDatePtrInput is an input type that accepts PatchBaselinePatchStringDateArgs, PatchBaselinePatchStringDatePtr and PatchBaselinePatchStringDatePtrOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchStringDatePtrInput` via:
+//
+//          PatchBaselinePatchStringDateArgs{...}
+//
+//  or:
+//
+//          nil
+type PatchBaselinePatchStringDatePtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput
+	ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Context) PatchBaselinePatchStringDatePtrOutput
+}
+
+type patchBaselinePatchStringDatePtrType PatchBaselinePatchStringDateArgs
+
+func PatchBaselinePatchStringDatePtr(v *PatchBaselinePatchStringDateArgs) PatchBaselinePatchStringDatePtrInput {
+	return (*patchBaselinePatchStringDatePtrType)(v)
+}
+
+func (*patchBaselinePatchStringDatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (i *patchBaselinePatchStringDatePtrType) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return i.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
+}
+
+func (i *patchBaselinePatchStringDatePtrType) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDatePtrOutput)
+}
+
+type PatchBaselinePatchStringDateOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchStringDateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDateOutputWithContext(ctx context.Context) PatchBaselinePatchStringDateOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return o.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselinePatchStringDate) *PatchBaselinePatchStringDate {
+		return &v
+	}).(PatchBaselinePatchStringDatePtrOutput)
+}
+
+type PatchBaselinePatchStringDatePtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchStringDatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchStringDatePtrOutput) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDatePtrOutput) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDatePtrOutput) Elem() PatchBaselinePatchStringDateOutput {
+	return o.ApplyT(func(v *PatchBaselinePatchStringDate) PatchBaselinePatchStringDate {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselinePatchStringDate
+		return ret
+	}).(PatchBaselinePatchStringDateOutput)
+}
+
+type PatchBaselineRule struct {
+	ApproveAfterDays  *int                           `pulumi:"approveAfterDays"`
+	ApproveUntilDate  *PatchBaselinePatchStringDate  `pulumi:"approveUntilDate"`
+	ComplianceLevel   *string                        `pulumi:"complianceLevel"`
+	EnableNonSecurity *bool                          `pulumi:"enableNonSecurity"`
+	PatchFilterGroup  *PatchBaselinePatchFilterGroup `pulumi:"patchFilterGroup"`
+}
+
+// PatchBaselineRuleInput is an input type that accepts PatchBaselineRuleArgs and PatchBaselineRuleOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleInput` via:
+//
+//          PatchBaselineRuleArgs{...}
+type PatchBaselineRuleInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleOutput() PatchBaselineRuleOutput
+	ToPatchBaselineRuleOutputWithContext(context.Context) PatchBaselineRuleOutput
+}
+
+type PatchBaselineRuleArgs struct {
+	ApproveAfterDays  pulumi.IntPtrInput                    `pulumi:"approveAfterDays"`
+	ApproveUntilDate  PatchBaselinePatchStringDatePtrInput  `pulumi:"approveUntilDate"`
+	ComplianceLevel   pulumi.StringPtrInput                 `pulumi:"complianceLevel"`
+	EnableNonSecurity pulumi.BoolPtrInput                   `pulumi:"enableNonSecurity"`
+	PatchFilterGroup  PatchBaselinePatchFilterGroupPtrInput `pulumi:"patchFilterGroup"`
+}
+
+func (PatchBaselineRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRule)(nil)).Elem()
+}
+
+func (i PatchBaselineRuleArgs) ToPatchBaselineRuleOutput() PatchBaselineRuleOutput {
+	return i.ToPatchBaselineRuleOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleArgs) ToPatchBaselineRuleOutputWithContext(ctx context.Context) PatchBaselineRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleOutput)
+}
+
+// PatchBaselineRuleArrayInput is an input type that accepts PatchBaselineRuleArray and PatchBaselineRuleArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleArrayInput` via:
+//
+//          PatchBaselineRuleArray{ PatchBaselineRuleArgs{...} }
+type PatchBaselineRuleArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleArrayOutput() PatchBaselineRuleArrayOutput
+	ToPatchBaselineRuleArrayOutputWithContext(context.Context) PatchBaselineRuleArrayOutput
+}
+
+type PatchBaselineRuleArray []PatchBaselineRuleInput
+
+func (PatchBaselineRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineRule)(nil)).Elem()
+}
+
+func (i PatchBaselineRuleArray) ToPatchBaselineRuleArrayOutput() PatchBaselineRuleArrayOutput {
+	return i.ToPatchBaselineRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleArray) ToPatchBaselineRuleArrayOutputWithContext(ctx context.Context) PatchBaselineRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleArrayOutput)
+}
+
+type PatchBaselineRuleOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRule)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleOutput) ToPatchBaselineRuleOutput() PatchBaselineRuleOutput {
+	return o
+}
+
+func (o PatchBaselineRuleOutput) ToPatchBaselineRuleOutputWithContext(ctx context.Context) PatchBaselineRuleOutput {
+	return o
+}
+
+func (o PatchBaselineRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
+}
+
+func (o PatchBaselineRuleOutput) ApproveUntilDate() PatchBaselinePatchStringDatePtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselinePatchStringDate { return v.ApproveUntilDate }).(PatchBaselinePatchStringDatePtrOutput)
+}
+
+func (o PatchBaselineRuleOutput) ComplianceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *string { return v.ComplianceLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o PatchBaselineRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *bool { return v.EnableNonSecurity }).(pulumi.BoolPtrOutput)
+}
+
+func (o PatchBaselineRuleOutput) PatchFilterGroup() PatchBaselinePatchFilterGroupPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselinePatchFilterGroup { return v.PatchFilterGroup }).(PatchBaselinePatchFilterGroupPtrOutput)
+}
+
+type PatchBaselineRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineRule)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleArrayOutput) ToPatchBaselineRuleArrayOutput() PatchBaselineRuleArrayOutput {
+	return o
+}
+
+func (o PatchBaselineRuleArrayOutput) ToPatchBaselineRuleArrayOutputWithContext(ctx context.Context) PatchBaselineRuleArrayOutput {
+	return o
+}
+
+func (o PatchBaselineRuleArrayOutput) Index(i pulumi.IntInput) PatchBaselineRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselineRule {
+		return vs[0].([]PatchBaselineRule)[vs[1].(int)]
+	}).(PatchBaselineRuleOutput)
+}
+
+type PatchBaselineRuleGroup struct {
+	PatchRules []PatchBaselineRule `pulumi:"patchRules"`
+}
+
+// PatchBaselineRuleGroupInput is an input type that accepts PatchBaselineRuleGroupArgs and PatchBaselineRuleGroupOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleGroupInput` via:
+//
+//          PatchBaselineRuleGroupArgs{...}
+type PatchBaselineRuleGroupInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleGroupOutput() PatchBaselineRuleGroupOutput
+	ToPatchBaselineRuleGroupOutputWithContext(context.Context) PatchBaselineRuleGroupOutput
+}
+
+type PatchBaselineRuleGroupArgs struct {
+	PatchRules PatchBaselineRuleArrayInput `pulumi:"patchRules"`
+}
+
+func (PatchBaselineRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupOutput() PatchBaselineRuleGroupOutput {
+	return i.ToPatchBaselineRuleGroupOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupOutputWithContext(ctx context.Context) PatchBaselineRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleGroupOutput)
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return i.ToPatchBaselineRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleGroupOutput).ToPatchBaselineRuleGroupPtrOutputWithContext(ctx)
+}
+
+// PatchBaselineRuleGroupPtrInput is an input type that accepts PatchBaselineRuleGroupArgs, PatchBaselineRuleGroupPtr and PatchBaselineRuleGroupPtrOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleGroupPtrInput` via:
+//
+//          PatchBaselineRuleGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type PatchBaselineRuleGroupPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput
+	ToPatchBaselineRuleGroupPtrOutputWithContext(context.Context) PatchBaselineRuleGroupPtrOutput
+}
+
+type patchBaselineRuleGroupPtrType PatchBaselineRuleGroupArgs
+
+func PatchBaselineRuleGroupPtr(v *PatchBaselineRuleGroupArgs) PatchBaselineRuleGroupPtrInput {
+	return (*patchBaselineRuleGroupPtrType)(v)
+}
+
+func (*patchBaselineRuleGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (i *patchBaselineRuleGroupPtrType) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return i.ToPatchBaselineRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *patchBaselineRuleGroupPtrType) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleGroupPtrOutput)
+}
+
+type PatchBaselineRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupOutput() PatchBaselineRuleGroupOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupOutputWithContext(ctx context.Context) PatchBaselineRuleGroupOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return o.ToPatchBaselineRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselineRuleGroup) *PatchBaselineRuleGroup {
+		return &v
+	}).(PatchBaselineRuleGroupPtrOutput)
+}
+
+func (o PatchBaselineRuleGroupOutput) PatchRules() PatchBaselineRuleArrayOutput {
+	return o.ApplyT(func(v PatchBaselineRuleGroup) []PatchBaselineRule { return v.PatchRules }).(PatchBaselineRuleArrayOutput)
+}
+
+type PatchBaselineRuleGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleGroupPtrOutput) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupPtrOutput) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupPtrOutput) Elem() PatchBaselineRuleGroupOutput {
+	return o.ApplyT(func(v *PatchBaselineRuleGroup) PatchBaselineRuleGroup {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselineRuleGroup
+		return ret
+	}).(PatchBaselineRuleGroupOutput)
+}
+
+func (o PatchBaselineRuleGroupPtrOutput) PatchRules() PatchBaselineRuleArrayOutput {
+	return o.ApplyT(func(v *PatchBaselineRuleGroup) []PatchBaselineRule {
+		if v == nil {
+			return nil
+		}
+		return v.PatchRules
+	}).(PatchBaselineRuleArrayOutput)
+}
+
+type PatchBaselineTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PatchBaselineTagInput is an input type that accepts PatchBaselineTagArgs and PatchBaselineTagOutput values.
+// You can construct a concrete instance of `PatchBaselineTagInput` via:
+//
+//          PatchBaselineTagArgs{...}
+type PatchBaselineTagInput interface {
+	pulumi.Input
+
+	ToPatchBaselineTagOutput() PatchBaselineTagOutput
+	ToPatchBaselineTagOutputWithContext(context.Context) PatchBaselineTagOutput
+}
+
+type PatchBaselineTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PatchBaselineTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineTag)(nil)).Elem()
+}
+
+func (i PatchBaselineTagArgs) ToPatchBaselineTagOutput() PatchBaselineTagOutput {
+	return i.ToPatchBaselineTagOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineTagArgs) ToPatchBaselineTagOutputWithContext(ctx context.Context) PatchBaselineTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineTagOutput)
+}
+
+// PatchBaselineTagArrayInput is an input type that accepts PatchBaselineTagArray and PatchBaselineTagArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineTagArrayInput` via:
+//
+//          PatchBaselineTagArray{ PatchBaselineTagArgs{...} }
+type PatchBaselineTagArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineTagArrayOutput() PatchBaselineTagArrayOutput
+	ToPatchBaselineTagArrayOutputWithContext(context.Context) PatchBaselineTagArrayOutput
+}
+
+type PatchBaselineTagArray []PatchBaselineTagInput
+
+func (PatchBaselineTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineTag)(nil)).Elem()
+}
+
+func (i PatchBaselineTagArray) ToPatchBaselineTagArrayOutput() PatchBaselineTagArrayOutput {
+	return i.ToPatchBaselineTagArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineTagArray) ToPatchBaselineTagArrayOutputWithContext(ctx context.Context) PatchBaselineTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineTagArrayOutput)
+}
+
+type PatchBaselineTagOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineTag)(nil)).Elem()
+}
+
+func (o PatchBaselineTagOutput) ToPatchBaselineTagOutput() PatchBaselineTagOutput {
+	return o
+}
+
+func (o PatchBaselineTagOutput) ToPatchBaselineTagOutputWithContext(ctx context.Context) PatchBaselineTagOutput {
+	return o
+}
+
+func (o PatchBaselineTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PatchBaselineTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PatchBaselineTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PatchBaselineTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PatchBaselineTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineTag)(nil)).Elem()
+}
+
+func (o PatchBaselineTagArrayOutput) ToPatchBaselineTagArrayOutput() PatchBaselineTagArrayOutput {
+	return o
+}
+
+func (o PatchBaselineTagArrayOutput) ToPatchBaselineTagArrayOutputWithContext(ctx context.Context) PatchBaselineTagArrayOutput {
+	return o
+}
+
+func (o PatchBaselineTagArrayOutput) Index(i pulumi.IntInput) PatchBaselineTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselineTag {
+		return vs[0].([]PatchBaselineTag)[vs[1].(int)]
+	}).(PatchBaselineTagOutput)
+}
+
 type ResourceDataSyncAwsOrganizationsSource struct {
 	OrganizationSourceType string   `pulumi:"organizationSourceType"`
 	OrganizationalUnits    []string `pulumi:"organizationalUnits"`
@@ -1267,6 +3603,40 @@ func init() {
 	pulumi.RegisterOutputType(DocumentDocumentRequiresArrayOutput{})
 	pulumi.RegisterOutputType(DocumentTagOutput{})
 	pulumi.RegisterOutputType(DocumentTagArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTagOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTagArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskLoggingInfoOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskLoggingInfoPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskNotificationConfigOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskNotificationConfigPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTargetOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTargetArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterGroupOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterGroupPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchSourceOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchSourceArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchStringDateOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchStringDatePtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleGroupOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleGroupPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineTagOutput{})
+	pulumi.RegisterOutputType(PatchBaselineTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourceOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})
