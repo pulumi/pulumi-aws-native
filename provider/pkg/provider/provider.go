@@ -131,31 +131,6 @@ func (p *cfnProvider) GetSchema(ctx context.Context, req *pulumirpc.GetSchemaReq
 
 // CheckConfig validates the configuration for this provider.
 func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckRequest) (*pulumirpc.CheckResponse, error) {
-	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
-		Label:        fmt.Sprintf("%s.CheckConfig.news", p.name),
-		KeepUnknowns: true,
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	region, ok := news["region"]
-	if !ok {
-		failures := []*pulumirpc.CheckFailure{{Property: "region", Reason: "missing required property 'region'"}}
-		return &pulumirpc.CheckResponse{Failures: failures}, nil
-	}
-	if !region.IsString() && !region.IsComputed() {
-		failures := []*pulumirpc.CheckFailure{{Property: "region", Reason: "'region' must be a string"}}
-		return &pulumirpc.CheckResponse{Failures: failures}, nil
-	}
-
-	for k := range news {
-		if k != "region" && k != "version" {
-			failures := []*pulumirpc.CheckFailure{{Property: string(k), Reason: fmt.Sprintf("unknown property '%v'", k)}}
-			return &pulumirpc.CheckResponse{Failures: failures}, nil
-		}
-	}
-
 	return &pulumirpc.CheckResponse{Inputs: req.GetNews()}, nil
 }
 
@@ -200,15 +175,31 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 
 // Configure configures the resource provider with "globals" that control its behavior.
 func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureRequest) (*pulumirpc.ConfigureResponse, error) {
-	region, ok := req.Variables["aws-native:config:region"]
-	if !ok {
+	vars := req.GetVariables()
+
+	// loadOptions are used to override default config loading behavior.
+	var loadOptions []func(*config.LoadOptions) error
+
+	if region, ok := vars["aws-native:config:region"]; ok {
+		glog.V(4).Infof("using AWS region: %q", region)
+		loadOptions = append(loadOptions, config.WithRegion(region))
+		p.region = region
+	} else {
 		return nil, errors.New("missing required property 'region'")
 	}
-	p.region = region
 
-	cfg, err := config.LoadDefaultConfig(ctx)
-	cfg.Region = p.region
-	cfg.APIOptions = append(cfg.APIOptions, pulumiUserAgent()...)
+	if profile, ok := vars["aws-native:config:profile"]; ok {
+		glog.V(4).Infof("using AWS profile: %q", profile)
+		loadOptions = append(loadOptions, config.WithSharedConfigProfile(profile))
+	} else {
+		glog.V(4).Infof(`using AWS profile: "default"`)
+	}
+
+	loadOptions = append(loadOptions, config.WithAPIOptions(pulumiUserAgent()))
+
+
+	// Load configuration from the environment, overriding with any config that was explicitly set on the Provider.
+	cfg, err := config.LoadDefaultConfig(ctx, loadOptions...)
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not load AWS config")
 	}
