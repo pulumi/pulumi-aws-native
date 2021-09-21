@@ -9,11 +9,44 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GroupPolicyArgs',
     'OIDCProviderTagArgs',
+    'RolePolicyArgs',
+    'RoleTagArgs',
     'SAMLProviderTagArgs',
     'ServerCertificateTagArgs',
+    'UserLoginProfileArgs',
+    'UserPolicyArgs',
+    'UserTagArgs',
     'VirtualMFADeviceTagArgs',
 ]
+
+@pulumi.input_type
+class GroupPolicyArgs:
+    def __init__(__self__, *,
+                 policy_document: Any,
+                 policy_name: pulumi.Input[str]):
+        pulumi.set(__self__, "policy_document", policy_document)
+        pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Any:
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: Any):
+        pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_name", value)
+
 
 @pulumi.input_type
 class OIDCProviderTagArgs:
@@ -46,6 +79,60 @@ class OIDCProviderTagArgs:
         """
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RolePolicyArgs:
+    def __init__(__self__, *,
+                 policy_document: Any,
+                 policy_name: pulumi.Input[str]):
+        pulumi.set(__self__, "policy_document", policy_document)
+        pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Any:
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: Any):
+        pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_name", value)
+
+
+@pulumi.input_type
+class RoleTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter
@@ -122,6 +209,88 @@ class ServerCertificateTagArgs:
         """
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class UserLoginProfileArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 password_reset_required: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "password", password)
+        if password_reset_required is not None:
+            pulumi.set(__self__, "password_reset_required", password_reset_required)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="passwordResetRequired")
+    def password_reset_required(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "password_reset_required")
+
+    @password_reset_required.setter
+    def password_reset_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "password_reset_required", value)
+
+
+@pulumi.input_type
+class UserPolicyArgs:
+    def __init__(__self__, *,
+                 policy_document: Any,
+                 policy_name: pulumi.Input[str]):
+        pulumi.set(__self__, "policy_document", policy_document)
+        pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Any:
+        return pulumi.get(self, "policy_document")
+
+    @policy_document.setter
+    def policy_document(self, value: Any):
+        pulumi.set(self, "policy_document", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_name", value)
+
+
+@pulumi.input_type
+class UserTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter

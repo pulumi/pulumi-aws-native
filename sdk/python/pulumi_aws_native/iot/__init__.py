@@ -14,9 +14,13 @@ from .dimension import *
 from .domain_configuration import *
 from .fleet_metric import *
 from .mitigation_action import *
+from .policy import *
+from .policy_principal_attachment import *
 from .provisioning_template import *
 from .scheduled_audit import *
 from .security_profile import *
+from .thing import *
+from .thing_principal_attachment import *
 from .topic_rule import *
 from .topic_rule_destination import *
 from ._inputs import *

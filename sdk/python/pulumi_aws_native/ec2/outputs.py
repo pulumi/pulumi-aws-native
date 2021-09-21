@@ -11,7 +11,18 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CapacityReservationTag',
+    'CapacityReservationTagSpecification',
     'CarrierGatewayTag',
+    'ClientVpnEndpointCertificateAuthenticationRequest',
+    'ClientVpnEndpointClientAuthenticationRequest',
+    'ClientVpnEndpointClientConnectOptions',
+    'ClientVpnEndpointConnectionLogOptions',
+    'ClientVpnEndpointDirectoryServiceAuthenticationRequest',
+    'ClientVpnEndpointFederatedAuthenticationRequest',
+    'ClientVpnEndpointTag',
+    'ClientVpnEndpointTagSpecification',
+    'CustomerGatewayTag',
     'DHCPOptionsTag',
     'EC2FleetCapacityReservationOptionsRequest',
     'EC2FleetFleetLaunchTemplateConfigRequest',
@@ -23,9 +34,56 @@ __all__ = [
     'EC2FleetTag',
     'EC2FleetTagSpecification',
     'EC2FleetTargetCapacitySpecificationRequest',
+    'EIPTag',
     'FlowLogTag',
+    'InstanceAssociationParameter',
+    'InstanceBlockDeviceMapping',
+    'InstanceCpuOptions',
+    'InstanceCreditSpecification',
+    'InstanceEbs',
+    'InstanceElasticGpuSpecification',
+    'InstanceElasticInferenceAccelerator',
+    'InstanceEnclaveOptions',
+    'InstanceHibernationOptions',
+    'InstanceInstanceIpv6Address',
+    'InstanceLaunchTemplateSpecification',
+    'InstanceLicenseSpecification',
+    'InstanceNetworkInterface',
+    'InstanceNoDevice',
+    'InstancePrivateIpAddressSpecification',
+    'InstanceSsmAssociation',
+    'InstanceTag',
+    'InstanceVolume',
     'InternetGatewayTag',
+    'LaunchTemplateBlockDeviceMapping',
+    'LaunchTemplateCapacityReservationSpecification',
+    'LaunchTemplateCapacityReservationTarget',
+    'LaunchTemplateCpuOptions',
+    'LaunchTemplateCreditSpecification',
+    'LaunchTemplateEbs',
+    'LaunchTemplateElasticGpuSpecification',
+    'LaunchTemplateEnclaveOptions',
+    'LaunchTemplateHibernationOptions',
+    'LaunchTemplateIamInstanceProfile',
+    'LaunchTemplateInstanceMarketOptions',
+    'LaunchTemplateIpv6Add',
+    'LaunchTemplateLaunchTemplateData',
+    'LaunchTemplateLaunchTemplateElasticInferenceAccelerator',
+    'LaunchTemplateLaunchTemplateTagSpecification',
+    'LaunchTemplateLicenseSpecification',
+    'LaunchTemplateMetadataOptions',
+    'LaunchTemplateMonitoring',
+    'LaunchTemplateNetworkInterface',
+    'LaunchTemplatePlacement',
+    'LaunchTemplatePrivateIpAdd',
+    'LaunchTemplateSpotOptions',
+    'LaunchTemplateTag',
+    'LaunchTemplateTagSpecification',
     'LocalGatewayRouteTableVPCAssociationTag',
+    'NatGatewayTag',
+    'NetworkAclEntryIcmp',
+    'NetworkAclEntryPortRange',
+    'NetworkAclTag',
     'NetworkInsightsAnalysisAlternatePathHint',
     'NetworkInsightsAnalysisAnalysisAclRule',
     'NetworkInsightsAnalysisAnalysisComponent',
@@ -39,8 +97,15 @@ __all__ = [
     'NetworkInsightsAnalysisPortRange',
     'NetworkInsightsAnalysisTag',
     'NetworkInsightsPathTag',
+    'NetworkInterfaceInstanceIpv6Address',
+    'NetworkInterfacePrivateIpAddressSpecification',
+    'NetworkInterfaceTag',
     'PrefixListEntry',
     'PrefixListTag',
+    'RouteTableTag',
+    'SecurityGroupEgress',
+    'SecurityGroupIngress',
+    'SecurityGroupTag',
     'SpotFleetBlockDeviceMapping',
     'SpotFleetClassicLoadBalancer',
     'SpotFleetClassicLoadBalancersConfig',
@@ -64,13 +129,84 @@ __all__ = [
     'SpotFleetTag',
     'SpotFleetTargetGroup',
     'SpotFleetTargetGroupsConfig',
+    'SubnetTag',
+    'TrafficMirrorFilterRuleTrafficMirrorPortRange',
+    'TrafficMirrorFilterTag',
+    'TrafficMirrorSessionTag',
+    'TrafficMirrorTargetTag',
+    'TransitGatewayAttachmentTag',
     'TransitGatewayConnectTag',
     'TransitGatewayConnectTransitGatewayConnectOptions',
     'TransitGatewayMulticastDomainTag',
     'TransitGatewayPeeringAttachmentPeeringAttachmentStatus',
     'TransitGatewayPeeringAttachmentTag',
+    'TransitGatewayRouteTableTag',
     'TransitGatewayTag',
+    'TransitGatewayVpcAttachmentTag',
+    'VPCPeeringConnectionTag',
+    'VPCTag',
+    'VPNConnectionTag',
+    'VPNConnectionVpnTunnelOptionsSpecification',
+    'VPNGatewayTag',
+    'VolumeTag',
 ]
+
+@pulumi.output_type
+class CapacityReservationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CapacityReservationTagSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationTagSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationTagSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationTagSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.CapacityReservationTag']] = None):
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.CapacityReservationTag']]:
+        return pulumi.get(self, "tags")
+
 
 @pulumi.output_type
 class CarrierGatewayTag(dict):
@@ -90,6 +226,318 @@ class CarrierGatewayTag(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClientVpnEndpointCertificateAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientRootCertificateChainArn":
+            suggest = "client_root_certificate_chain_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointCertificateAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointCertificateAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointCertificateAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_root_certificate_chain_arn: str):
+        pulumi.set(__self__, "client_root_certificate_chain_arn", client_root_certificate_chain_arn)
+
+    @property
+    @pulumi.getter(name="clientRootCertificateChainArn")
+    def client_root_certificate_chain_arn(self) -> str:
+        return pulumi.get(self, "client_root_certificate_chain_arn")
+
+
+@pulumi.output_type
+class ClientVpnEndpointClientAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+        elif key == "federatedAuthentication":
+            suggest = "federated_authentication"
+        elif key == "mutualAuthentication":
+            suggest = "mutual_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointClientAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointClientAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointClientAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 active_directory: Optional['outputs.ClientVpnEndpointDirectoryServiceAuthenticationRequest'] = None,
+                 federated_authentication: Optional['outputs.ClientVpnEndpointFederatedAuthenticationRequest'] = None,
+                 mutual_authentication: Optional['outputs.ClientVpnEndpointCertificateAuthenticationRequest'] = None):
+        pulumi.set(__self__, "type", type)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+        if federated_authentication is not None:
+            pulumi.set(__self__, "federated_authentication", federated_authentication)
+        if mutual_authentication is not None:
+            pulumi.set(__self__, "mutual_authentication", mutual_authentication)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional['outputs.ClientVpnEndpointDirectoryServiceAuthenticationRequest']:
+        return pulumi.get(self, "active_directory")
+
+    @property
+    @pulumi.getter(name="federatedAuthentication")
+    def federated_authentication(self) -> Optional['outputs.ClientVpnEndpointFederatedAuthenticationRequest']:
+        return pulumi.get(self, "federated_authentication")
+
+    @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> Optional['outputs.ClientVpnEndpointCertificateAuthenticationRequest']:
+        return pulumi.get(self, "mutual_authentication")
+
+
+@pulumi.output_type
+class ClientVpnEndpointClientConnectOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointClientConnectOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointClientConnectOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointClientConnectOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 lambda_function_arn: Optional[str] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if lambda_function_arn is not None:
+            pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> Optional[str]:
+        return pulumi.get(self, "lambda_function_arn")
+
+
+@pulumi.output_type
+class ClientVpnEndpointConnectionLogOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogGroup":
+            suggest = "cloudwatch_log_group"
+        elif key == "cloudwatchLogStream":
+            suggest = "cloudwatch_log_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointConnectionLogOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointConnectionLogOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointConnectionLogOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 cloudwatch_log_group: Optional[str] = None,
+                 cloudwatch_log_stream: Optional[str] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if cloudwatch_log_group is not None:
+            pulumi.set(__self__, "cloudwatch_log_group", cloudwatch_log_group)
+        if cloudwatch_log_stream is not None:
+            pulumi.set(__self__, "cloudwatch_log_stream", cloudwatch_log_stream)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="cloudwatchLogGroup")
+    def cloudwatch_log_group(self) -> Optional[str]:
+        return pulumi.get(self, "cloudwatch_log_group")
+
+    @property
+    @pulumi.getter(name="cloudwatchLogStream")
+    def cloudwatch_log_stream(self) -> Optional[str]:
+        return pulumi.get(self, "cloudwatch_log_stream")
+
+
+@pulumi.output_type
+class ClientVpnEndpointDirectoryServiceAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryId":
+            suggest = "directory_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointDirectoryServiceAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointDirectoryServiceAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointDirectoryServiceAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_id: str):
+        pulumi.set(__self__, "directory_id", directory_id)
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> str:
+        return pulumi.get(self, "directory_id")
+
+
+@pulumi.output_type
+class ClientVpnEndpointFederatedAuthenticationRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sAMLProviderArn":
+            suggest = "s_aml_provider_arn"
+        elif key == "selfServiceSAMLProviderArn":
+            suggest = "self_service_saml_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointFederatedAuthenticationRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointFederatedAuthenticationRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointFederatedAuthenticationRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s_aml_provider_arn: str,
+                 self_service_saml_provider_arn: Optional[str] = None):
+        pulumi.set(__self__, "s_aml_provider_arn", s_aml_provider_arn)
+        if self_service_saml_provider_arn is not None:
+            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
+
+    @property
+    @pulumi.getter(name="sAMLProviderArn")
+    def s_aml_provider_arn(self) -> str:
+        return pulumi.get(self, "s_aml_provider_arn")
+
+    @property
+    @pulumi.getter(name="selfServiceSAMLProviderArn")
+    def self_service_saml_provider_arn(self) -> Optional[str]:
+        return pulumi.get(self, "self_service_saml_provider_arn")
+
+
+@pulumi.output_type
+class ClientVpnEndpointTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClientVpnEndpointTagSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClientVpnEndpointTagSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClientVpnEndpointTagSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClientVpnEndpointTagSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: str,
+                 tags: Sequence['outputs.ClientVpnEndpointTag']):
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.ClientVpnEndpointTag']:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class CustomerGatewayTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 
@@ -697,6 +1145,25 @@ class EC2FleetTargetCapacitySpecificationRequest(dict):
 
 
 @pulumi.output_type
+class EIPTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class FlowLogTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -713,6 +1180,674 @@ class FlowLogTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InstanceAssociationParameter(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InstanceBlockDeviceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "noDevice":
+            suggest = "no_device"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceBlockDeviceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceBlockDeviceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceBlockDeviceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_name: str,
+                 ebs: Optional['outputs.InstanceEbs'] = None,
+                 no_device: Optional['outputs.InstanceNoDevice'] = None,
+                 virtual_name: Optional[str] = None):
+        pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional['outputs.InstanceEbs']:
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional['outputs.InstanceNoDevice']:
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[str]:
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class InstanceCpuOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coreCount":
+            suggest = "core_count"
+        elif key == "threadsPerCore":
+            suggest = "threads_per_core"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceCpuOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceCpuOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceCpuOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 core_count: Optional[int] = None,
+                 threads_per_core: Optional[int] = None):
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[int]:
+        return pulumi.get(self, "core_count")
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[int]:
+        return pulumi.get(self, "threads_per_core")
+
+
+@pulumi.output_type
+class InstanceCreditSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cPUCredits":
+            suggest = "c_pu_credits"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceCreditSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceCreditSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceCreditSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 c_pu_credits: Optional[str] = None):
+        if c_pu_credits is not None:
+            pulumi.set(__self__, "c_pu_credits", c_pu_credits)
+
+    @property
+    @pulumi.getter(name="cPUCredits")
+    def c_pu_credits(self) -> Optional[str]:
+        return pulumi.get(self, "c_pu_credits")
+
+
+@pulumi.output_type
+class InstanceEbs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceEbs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceEbs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceEbs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[bool] = None,
+                 encrypted: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 kms_key_id: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[bool]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[bool]:
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[int]:
+        return pulumi.get(self, "volume_size")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[str]:
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class InstanceElasticGpuSpecification(dict):
+    def __init__(__self__, *,
+                 type: str):
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class InstanceElasticInferenceAccelerator(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 count: Optional[int] = None):
+        pulumi.set(__self__, "type", type)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+
+@pulumi.output_type
+class InstanceEnclaveOptions(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class InstanceHibernationOptions(dict):
+    def __init__(__self__, *,
+                 configured: Optional[bool] = None):
+        if configured is not None:
+            pulumi.set(__self__, "configured", configured)
+
+    @property
+    @pulumi.getter
+    def configured(self) -> Optional[bool]:
+        return pulumi.get(self, "configured")
+
+
+@pulumi.output_type
+class InstanceInstanceIpv6Address(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Address":
+            suggest = "ipv6_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceInstanceIpv6Address. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceInstanceIpv6Address.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceInstanceIpv6Address.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_address: str):
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> str:
+        return pulumi.get(self, "ipv6_address")
+
+
+@pulumi.output_type
+class InstanceLaunchTemplateSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateId":
+            suggest = "launch_template_id"
+        elif key == "launchTemplateName":
+            suggest = "launch_template_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceLaunchTemplateSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceLaunchTemplateSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceLaunchTemplateSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 version: str,
+                 launch_template_id: Optional[str] = None,
+                 launch_template_name: Optional[str] = None):
+        pulumi.set(__self__, "version", version)
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[str]:
+        return pulumi.get(self, "launch_template_id")
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[str]:
+        return pulumi.get(self, "launch_template_name")
+
+
+@pulumi.output_type
+class InstanceLicenseSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseConfigurationArn":
+            suggest = "license_configuration_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceLicenseSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceLicenseSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceLicenseSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_configuration_arn: str):
+        pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> str:
+        return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
+class InstanceNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceIndex":
+            suggest = "device_index"
+        elif key == "associatePublicIpAddress":
+            suggest = "associate_public_ip_address"
+        elif key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "groupSet":
+            suggest = "group_set"
+        elif key == "ipv6AddressCount":
+            suggest = "ipv6_address_count"
+        elif key == "ipv6Addresses":
+            suggest = "ipv6_addresses"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAddresses":
+            suggest = "private_ip_addresses"
+        elif key == "secondaryPrivateIpAddressCount":
+            suggest = "secondary_private_ip_address_count"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_index: str,
+                 associate_public_ip_address: Optional[bool] = None,
+                 delete_on_termination: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 group_set: Optional[Sequence[str]] = None,
+                 ipv6_address_count: Optional[int] = None,
+                 ipv6_addresses: Optional[Sequence['outputs.InstanceInstanceIpv6Address']] = None,
+                 network_interface_id: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_addresses: Optional[Sequence['outputs.InstancePrivateIpAddressSpecification']] = None,
+                 secondary_private_ip_address_count: Optional[int] = None,
+                 subnet_id: Optional[str] = None):
+        pulumi.set(__self__, "device_index", device_index)
+        if associate_public_ip_address is not None:
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if group_set is not None:
+            pulumi.set(__self__, "group_set", group_set)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_private_ip_address_count is not None:
+            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> str:
+        return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="associatePublicIpAddress")
+    def associate_public_ip_address(self) -> Optional[bool]:
+        return pulumi.get(self, "associate_public_ip_address")
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[bool]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="groupSet")
+    def group_set(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "group_set")
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[int]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[Sequence['outputs.InstanceInstanceIpv6Address']]:
+        return pulumi.get(self, "ipv6_addresses")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[Sequence['outputs.InstancePrivateIpAddressSpecification']]:
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[int]:
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class InstanceNoDevice(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class InstancePrivateIpAddressSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstancePrivateIpAddressSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstancePrivateIpAddressSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstancePrivateIpAddressSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary: bool,
+                 private_ip_address: str):
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        return pulumi.get(self, "private_ip_address")
+
+
+@pulumi.output_type
+class InstanceSsmAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentName":
+            suggest = "document_name"
+        elif key == "associationParameters":
+            suggest = "association_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceSsmAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceSsmAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceSsmAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_name: str,
+                 association_parameters: Optional[Sequence['outputs.InstanceAssociationParameter']] = None):
+        pulumi.set(__self__, "document_name", document_name)
+        if association_parameters is not None:
+            pulumi.set(__self__, "association_parameters", association_parameters)
+
+    @property
+    @pulumi.getter(name="documentName")
+    def document_name(self) -> str:
+        return pulumi.get(self, "document_name")
+
+    @property
+    @pulumi.getter(name="associationParameters")
+    def association_parameters(self) -> Optional[Sequence['outputs.InstanceAssociationParameter']]:
+        return pulumi.get(self, "association_parameters")
+
+
+@pulumi.output_type
+class InstanceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InstanceVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeId":
+            suggest = "volume_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceVolume.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device: str,
+                 volume_id: str):
+        pulumi.set(__self__, "device", device)
+        pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter
+    def device(self) -> str:
+        return pulumi.get(self, "device")
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> str:
+        return pulumi.get(self, "volume_id")
 
 
 @pulumi.output_type
@@ -735,6 +1870,1303 @@ class InternetGatewayTag(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateBlockDeviceMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "noDevice":
+            suggest = "no_device"
+        elif key == "virtualName":
+            suggest = "virtual_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateBlockDeviceMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateBlockDeviceMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateBlockDeviceMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_name: Optional[str] = None,
+                 ebs: Optional['outputs.LaunchTemplateEbs'] = None,
+                 no_device: Optional[str] = None,
+                 virtual_name: Optional[str] = None):
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
+        if ebs is not None:
+            pulumi.set(__self__, "ebs", ebs)
+        if no_device is not None:
+            pulumi.set(__self__, "no_device", no_device)
+        if virtual_name is not None:
+            pulumi.set(__self__, "virtual_name", virtual_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> Optional[str]:
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def ebs(self) -> Optional['outputs.LaunchTemplateEbs']:
+        return pulumi.get(self, "ebs")
+
+    @property
+    @pulumi.getter(name="noDevice")
+    def no_device(self) -> Optional[str]:
+        return pulumi.get(self, "no_device")
+
+    @property
+    @pulumi.getter(name="virtualName")
+    def virtual_name(self) -> Optional[str]:
+        return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class LaunchTemplateCapacityReservationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateCapacityReservationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateCapacityReservationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateCapacityReservationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[str] = None,
+                 capacity_reservation_target: Optional['outputs.LaunchTemplateCapacityReservationTarget'] = None):
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[str]:
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.LaunchTemplateCapacityReservationTarget']:
+        return pulumi.get(self, "capacity_reservation_target")
+
+
+@pulumi.output_type
+class LaunchTemplateCapacityReservationTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationId":
+            suggest = "capacity_reservation_id"
+        elif key == "capacityReservationResourceGroupArn":
+            suggest = "capacity_reservation_resource_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateCapacityReservationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateCapacityReservationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_id: Optional[str] = None,
+                 capacity_reservation_resource_group_arn: Optional[str] = None):
+        if capacity_reservation_id is not None:
+            pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
+
+    @property
+    @pulumi.getter(name="capacityReservationId")
+    def capacity_reservation_id(self) -> Optional[str]:
+        return pulumi.get(self, "capacity_reservation_id")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[str]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+
+@pulumi.output_type
+class LaunchTemplateCpuOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coreCount":
+            suggest = "core_count"
+        elif key == "threadsPerCore":
+            suggest = "threads_per_core"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateCpuOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateCpuOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateCpuOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 core_count: Optional[int] = None,
+                 threads_per_core: Optional[int] = None):
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if threads_per_core is not None:
+            pulumi.set(__self__, "threads_per_core", threads_per_core)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[int]:
+        return pulumi.get(self, "core_count")
+
+    @property
+    @pulumi.getter(name="threadsPerCore")
+    def threads_per_core(self) -> Optional[int]:
+        return pulumi.get(self, "threads_per_core")
+
+
+@pulumi.output_type
+class LaunchTemplateCreditSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuCredits":
+            suggest = "cpu_credits"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateCreditSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateCreditSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateCreditSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_credits: Optional[str] = None):
+        if cpu_credits is not None:
+            pulumi.set(__self__, "cpu_credits", cpu_credits)
+
+    @property
+    @pulumi.getter(name="cpuCredits")
+    def cpu_credits(self) -> Optional[str]:
+        return pulumi.get(self, "cpu_credits")
+
+
+@pulumi.output_type
+class LaunchTemplateEbs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snapshotId":
+            suggest = "snapshot_id"
+        elif key == "volumeSize":
+            suggest = "volume_size"
+        elif key == "volumeType":
+            suggest = "volume_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateEbs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateEbs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateEbs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete_on_termination: Optional[bool] = None,
+                 encrypted: Optional[bool] = None,
+                 iops: Optional[int] = None,
+                 kms_key_id: Optional[str] = None,
+                 snapshot_id: Optional[str] = None,
+                 throughput: Optional[int] = None,
+                 volume_size: Optional[int] = None,
+                 volume_type: Optional[str] = None):
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[bool]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[bool]:
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[str]:
+        return pulumi.get(self, "snapshot_id")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[int]:
+        return pulumi.get(self, "throughput")
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[int]:
+        return pulumi.get(self, "volume_size")
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[str]:
+        return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class LaunchTemplateElasticGpuSpecification(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class LaunchTemplateEnclaveOptions(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class LaunchTemplateHibernationOptions(dict):
+    def __init__(__self__, *,
+                 configured: Optional[bool] = None):
+        if configured is not None:
+            pulumi.set(__self__, "configured", configured)
+
+    @property
+    @pulumi.getter
+    def configured(self) -> Optional[bool]:
+        return pulumi.get(self, "configured")
+
+
+@pulumi.output_type
+class LaunchTemplateIamInstanceProfile(dict):
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 name: Optional[str] = None):
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LaunchTemplateInstanceMarketOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketType":
+            suggest = "market_type"
+        elif key == "spotOptions":
+            suggest = "spot_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateInstanceMarketOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateInstanceMarketOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateInstanceMarketOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 market_type: Optional[str] = None,
+                 spot_options: Optional['outputs.LaunchTemplateSpotOptions'] = None):
+        if market_type is not None:
+            pulumi.set(__self__, "market_type", market_type)
+        if spot_options is not None:
+            pulumi.set(__self__, "spot_options", spot_options)
+
+    @property
+    @pulumi.getter(name="marketType")
+    def market_type(self) -> Optional[str]:
+        return pulumi.get(self, "market_type")
+
+    @property
+    @pulumi.getter(name="spotOptions")
+    def spot_options(self) -> Optional['outputs.LaunchTemplateSpotOptions']:
+        return pulumi.get(self, "spot_options")
+
+
+@pulumi.output_type
+class LaunchTemplateIpv6Add(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Address":
+            suggest = "ipv6_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateIpv6Add. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateIpv6Add.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateIpv6Add.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_address: Optional[str] = None):
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[str]:
+        return pulumi.get(self, "ipv6_address")
+
+
+@pulumi.output_type
+class LaunchTemplateLaunchTemplateData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockDeviceMappings":
+            suggest = "block_device_mappings"
+        elif key == "capacityReservationSpecification":
+            suggest = "capacity_reservation_specification"
+        elif key == "cpuOptions":
+            suggest = "cpu_options"
+        elif key == "creditSpecification":
+            suggest = "credit_specification"
+        elif key == "disableApiTermination":
+            suggest = "disable_api_termination"
+        elif key == "ebsOptimized":
+            suggest = "ebs_optimized"
+        elif key == "elasticGpuSpecifications":
+            suggest = "elastic_gpu_specifications"
+        elif key == "elasticInferenceAccelerators":
+            suggest = "elastic_inference_accelerators"
+        elif key == "enclaveOptions":
+            suggest = "enclave_options"
+        elif key == "hibernationOptions":
+            suggest = "hibernation_options"
+        elif key == "iamInstanceProfile":
+            suggest = "iam_instance_profile"
+        elif key == "imageId":
+            suggest = "image_id"
+        elif key == "instanceInitiatedShutdownBehavior":
+            suggest = "instance_initiated_shutdown_behavior"
+        elif key == "instanceMarketOptions":
+            suggest = "instance_market_options"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "kernelId":
+            suggest = "kernel_id"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "licenseSpecifications":
+            suggest = "license_specifications"
+        elif key == "metadataOptions":
+            suggest = "metadata_options"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "ramDiskId":
+            suggest = "ram_disk_id"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+        elif key == "tagSpecifications":
+            suggest = "tag_specifications"
+        elif key == "userData":
+            suggest = "user_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateLaunchTemplateData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateLaunchTemplateData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateLaunchTemplateData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_device_mappings: Optional[Sequence['outputs.LaunchTemplateBlockDeviceMapping']] = None,
+                 capacity_reservation_specification: Optional['outputs.LaunchTemplateCapacityReservationSpecification'] = None,
+                 cpu_options: Optional['outputs.LaunchTemplateCpuOptions'] = None,
+                 credit_specification: Optional['outputs.LaunchTemplateCreditSpecification'] = None,
+                 disable_api_termination: Optional[bool] = None,
+                 ebs_optimized: Optional[bool] = None,
+                 elastic_gpu_specifications: Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']] = None,
+                 elastic_inference_accelerators: Optional[Sequence['outputs.LaunchTemplateLaunchTemplateElasticInferenceAccelerator']] = None,
+                 enclave_options: Optional['outputs.LaunchTemplateEnclaveOptions'] = None,
+                 hibernation_options: Optional['outputs.LaunchTemplateHibernationOptions'] = None,
+                 iam_instance_profile: Optional['outputs.LaunchTemplateIamInstanceProfile'] = None,
+                 image_id: Optional[str] = None,
+                 instance_initiated_shutdown_behavior: Optional[str] = None,
+                 instance_market_options: Optional['outputs.LaunchTemplateInstanceMarketOptions'] = None,
+                 instance_type: Optional[str] = None,
+                 kernel_id: Optional[str] = None,
+                 key_name: Optional[str] = None,
+                 license_specifications: Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']] = None,
+                 metadata_options: Optional['outputs.LaunchTemplateMetadataOptions'] = None,
+                 monitoring: Optional['outputs.LaunchTemplateMonitoring'] = None,
+                 network_interfaces: Optional[Sequence['outputs.LaunchTemplateNetworkInterface']] = None,
+                 placement: Optional['outputs.LaunchTemplatePlacement'] = None,
+                 ram_disk_id: Optional[str] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 security_groups: Optional[Sequence[str]] = None,
+                 tag_specifications: Optional[Sequence['outputs.LaunchTemplateTagSpecification']] = None,
+                 user_data: Optional[str] = None):
+        if block_device_mappings is not None:
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
+        if cpu_options is not None:
+            pulumi.set(__self__, "cpu_options", cpu_options)
+        if credit_specification is not None:
+            pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_termination is not None:
+            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
+        if ebs_optimized is not None:
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
+        if elastic_gpu_specifications is not None:
+            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
+        if elastic_inference_accelerators is not None:
+            pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
+        if enclave_options is not None:
+            pulumi.set(__self__, "enclave_options", enclave_options)
+        if hibernation_options is not None:
+            pulumi.set(__self__, "hibernation_options", hibernation_options)
+        if iam_instance_profile is not None:
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
+        if instance_initiated_shutdown_behavior is not None:
+            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if kernel_id is not None:
+            pulumi.set(__self__, "kernel_id", kernel_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if license_specifications is not None:
+            pulumi.set(__self__, "license_specifications", license_specifications)
+        if metadata_options is not None:
+            pulumi.set(__self__, "metadata_options", metadata_options)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
+        if ram_disk_id is not None:
+            pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
+        if user_data is not None:
+            pulumi.set(__self__, "user_data", user_data)
+
+    @property
+    @pulumi.getter(name="blockDeviceMappings")
+    def block_device_mappings(self) -> Optional[Sequence['outputs.LaunchTemplateBlockDeviceMapping']]:
+        return pulumi.get(self, "block_device_mappings")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional['outputs.LaunchTemplateCapacityReservationSpecification']:
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @property
+    @pulumi.getter(name="cpuOptions")
+    def cpu_options(self) -> Optional['outputs.LaunchTemplateCpuOptions']:
+        return pulumi.get(self, "cpu_options")
+
+    @property
+    @pulumi.getter(name="creditSpecification")
+    def credit_specification(self) -> Optional['outputs.LaunchTemplateCreditSpecification']:
+        return pulumi.get(self, "credit_specification")
+
+    @property
+    @pulumi.getter(name="disableApiTermination")
+    def disable_api_termination(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_api_termination")
+
+    @property
+    @pulumi.getter(name="ebsOptimized")
+    def ebs_optimized(self) -> Optional[bool]:
+        return pulumi.get(self, "ebs_optimized")
+
+    @property
+    @pulumi.getter(name="elasticGpuSpecifications")
+    def elastic_gpu_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']]:
+        return pulumi.get(self, "elastic_gpu_specifications")
+
+    @property
+    @pulumi.getter(name="elasticInferenceAccelerators")
+    def elastic_inference_accelerators(self) -> Optional[Sequence['outputs.LaunchTemplateLaunchTemplateElasticInferenceAccelerator']]:
+        return pulumi.get(self, "elastic_inference_accelerators")
+
+    @property
+    @pulumi.getter(name="enclaveOptions")
+    def enclave_options(self) -> Optional['outputs.LaunchTemplateEnclaveOptions']:
+        return pulumi.get(self, "enclave_options")
+
+    @property
+    @pulumi.getter(name="hibernationOptions")
+    def hibernation_options(self) -> Optional['outputs.LaunchTemplateHibernationOptions']:
+        return pulumi.get(self, "hibernation_options")
+
+    @property
+    @pulumi.getter(name="iamInstanceProfile")
+    def iam_instance_profile(self) -> Optional['outputs.LaunchTemplateIamInstanceProfile']:
+        return pulumi.get(self, "iam_instance_profile")
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[str]:
+        return pulumi.get(self, "image_id")
+
+    @property
+    @pulumi.getter(name="instanceInitiatedShutdownBehavior")
+    def instance_initiated_shutdown_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "instance_initiated_shutdown_behavior")
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional['outputs.LaunchTemplateInstanceMarketOptions']:
+        return pulumi.get(self, "instance_market_options")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="kernelId")
+    def kernel_id(self) -> Optional[str]:
+        return pulumi.get(self, "kernel_id")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="licenseSpecifications")
+    def license_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateLicenseSpecification']]:
+        return pulumi.get(self, "license_specifications")
+
+    @property
+    @pulumi.getter(name="metadataOptions")
+    def metadata_options(self) -> Optional['outputs.LaunchTemplateMetadataOptions']:
+        return pulumi.get(self, "metadata_options")
+
+    @property
+    @pulumi.getter
+    def monitoring(self) -> Optional['outputs.LaunchTemplateMonitoring']:
+        return pulumi.get(self, "monitoring")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.LaunchTemplateNetworkInterface']]:
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> Optional['outputs.LaunchTemplatePlacement']:
+        return pulumi.get(self, "placement")
+
+    @property
+    @pulumi.getter(name="ramDiskId")
+    def ram_disk_id(self) -> Optional[str]:
+        return pulumi.get(self, "ram_disk_id")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_groups")
+
+    @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[Sequence['outputs.LaunchTemplateTagSpecification']]:
+        return pulumi.get(self, "tag_specifications")
+
+    @property
+    @pulumi.getter(name="userData")
+    def user_data(self) -> Optional[str]:
+        return pulumi.get(self, "user_data")
+
+
+@pulumi.output_type
+class LaunchTemplateLaunchTemplateElasticInferenceAccelerator(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 type: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class LaunchTemplateLaunchTemplateTagSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateLaunchTemplateTagSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateLaunchTemplateTagSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateLaunchTemplateTagSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.LaunchTemplateTag']]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class LaunchTemplateLicenseSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseConfigurationArn":
+            suggest = "license_configuration_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateLicenseSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateLicenseSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateLicenseSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_configuration_arn: Optional[str] = None):
+        if license_configuration_arn is not None:
+            pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
+
+    @property
+    @pulumi.getter(name="licenseConfigurationArn")
+    def license_configuration_arn(self) -> Optional[str]:
+        return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
+class LaunchTemplateMetadataOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpEndpoint":
+            suggest = "http_endpoint"
+        elif key == "httpPutResponseHopLimit":
+            suggest = "http_put_response_hop_limit"
+        elif key == "httpTokens":
+            suggest = "http_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateMetadataOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateMetadataOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateMetadataOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_endpoint: Optional[str] = None,
+                 http_put_response_hop_limit: Optional[int] = None,
+                 http_tokens: Optional[str] = None):
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[str]:
+        return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[int]:
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional[str]:
+        return pulumi.get(self, "http_tokens")
+
+
+@pulumi.output_type
+class LaunchTemplateMonitoring(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class LaunchTemplateNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associateCarrierIpAddress":
+            suggest = "associate_carrier_ip_address"
+        elif key == "associatePublicIpAddress":
+            suggest = "associate_public_ip_address"
+        elif key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "deviceIndex":
+            suggest = "device_index"
+        elif key == "interfaceType":
+            suggest = "interface_type"
+        elif key == "ipv6AddressCount":
+            suggest = "ipv6_address_count"
+        elif key == "ipv6Addresses":
+            suggest = "ipv6_addresses"
+        elif key == "networkCardIndex":
+            suggest = "network_card_index"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAddresses":
+            suggest = "private_ip_addresses"
+        elif key == "secondaryPrivateIpAddressCount":
+            suggest = "secondary_private_ip_address_count"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associate_carrier_ip_address: Optional[bool] = None,
+                 associate_public_ip_address: Optional[bool] = None,
+                 delete_on_termination: Optional[bool] = None,
+                 description: Optional[str] = None,
+                 device_index: Optional[int] = None,
+                 groups: Optional[Sequence[str]] = None,
+                 interface_type: Optional[str] = None,
+                 ipv6_address_count: Optional[int] = None,
+                 ipv6_addresses: Optional[Sequence['outputs.LaunchTemplateIpv6Add']] = None,
+                 network_card_index: Optional[int] = None,
+                 network_interface_id: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_addresses: Optional[Sequence['outputs.LaunchTemplatePrivateIpAdd']] = None,
+                 secondary_private_ip_address_count: Optional[int] = None,
+                 subnet_id: Optional[str] = None):
+        if associate_carrier_ip_address is not None:
+            pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
+        if associate_public_ip_address is not None:
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
+        if ipv6_address_count is not None:
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_private_ip_address_count is not None:
+            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="associateCarrierIpAddress")
+    def associate_carrier_ip_address(self) -> Optional[bool]:
+        return pulumi.get(self, "associate_carrier_ip_address")
+
+    @property
+    @pulumi.getter(name="associatePublicIpAddress")
+    def associate_public_ip_address(self) -> Optional[bool]:
+        return pulumi.get(self, "associate_public_ip_address")
+
+    @property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[bool]:
+        return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> Optional[int]:
+        return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[str]:
+        return pulumi.get(self, "interface_type")
+
+    @property
+    @pulumi.getter(name="ipv6AddressCount")
+    def ipv6_address_count(self) -> Optional[int]:
+        return pulumi.get(self, "ipv6_address_count")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[Sequence['outputs.LaunchTemplateIpv6Add']]:
+        return pulumi.get(self, "ipv6_addresses")
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[int]:
+        return pulumi.get(self, "network_card_index")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[Sequence['outputs.LaunchTemplatePrivateIpAdd']]:
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[int]:
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class LaunchTemplatePlacement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "groupName":
+            suggest = "group_name"
+        elif key == "hostId":
+            suggest = "host_id"
+        elif key == "hostResourceGroupArn":
+            suggest = "host_resource_group_arn"
+        elif key == "partitionNumber":
+            suggest = "partition_number"
+        elif key == "spreadDomain":
+            suggest = "spread_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplatePlacement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplatePlacement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplatePlacement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 affinity: Optional[str] = None,
+                 availability_zone: Optional[str] = None,
+                 group_name: Optional[str] = None,
+                 host_id: Optional[str] = None,
+                 host_resource_group_arn: Optional[str] = None,
+                 partition_number: Optional[int] = None,
+                 spread_domain: Optional[str] = None,
+                 tenancy: Optional[str] = None):
+        if affinity is not None:
+            pulumi.set(__self__, "affinity", affinity)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if host_id is not None:
+            pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+        if partition_number is not None:
+            pulumi.set(__self__, "partition_number", partition_number)
+        if spread_domain is not None:
+            pulumi.set(__self__, "spread_domain", spread_domain)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
+
+    @property
+    @pulumi.getter
+    def affinity(self) -> Optional[str]:
+        return pulumi.get(self, "affinity")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[str]:
+        return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter(name="hostId")
+    def host_id(self) -> Optional[str]:
+        return pulumi.get(self, "host_id")
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> Optional[str]:
+        return pulumi.get(self, "host_resource_group_arn")
+
+    @property
+    @pulumi.getter(name="partitionNumber")
+    def partition_number(self) -> Optional[int]:
+        return pulumi.get(self, "partition_number")
+
+    @property
+    @pulumi.getter(name="spreadDomain")
+    def spread_domain(self) -> Optional[str]:
+        return pulumi.get(self, "spread_domain")
+
+    @property
+    @pulumi.getter
+    def tenancy(self) -> Optional[str]:
+        return pulumi.get(self, "tenancy")
+
+
+@pulumi.output_type
+class LaunchTemplatePrivateIpAdd(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplatePrivateIpAdd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplatePrivateIpAdd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplatePrivateIpAdd.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None):
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "private_ip_address")
+
+
+@pulumi.output_type
+class LaunchTemplateSpotOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockDurationMinutes":
+            suggest = "block_duration_minutes"
+        elif key == "instanceInterruptionBehavior":
+            suggest = "instance_interruption_behavior"
+        elif key == "maxPrice":
+            suggest = "max_price"
+        elif key == "spotInstanceType":
+            suggest = "spot_instance_type"
+        elif key == "validUntil":
+            suggest = "valid_until"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateSpotOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateSpotOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateSpotOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_duration_minutes: Optional[int] = None,
+                 instance_interruption_behavior: Optional[str] = None,
+                 max_price: Optional[str] = None,
+                 spot_instance_type: Optional[str] = None,
+                 valid_until: Optional[str] = None):
+        if block_duration_minutes is not None:
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
+        if instance_interruption_behavior is not None:
+            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
+        if max_price is not None:
+            pulumi.set(__self__, "max_price", max_price)
+        if spot_instance_type is not None:
+            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
+        if valid_until is not None:
+            pulumi.set(__self__, "valid_until", valid_until)
+
+    @property
+    @pulumi.getter(name="blockDurationMinutes")
+    def block_duration_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "block_duration_minutes")
+
+    @property
+    @pulumi.getter(name="instanceInterruptionBehavior")
+    def instance_interruption_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "instance_interruption_behavior")
+
+    @property
+    @pulumi.getter(name="maxPrice")
+    def max_price(self) -> Optional[str]:
+        return pulumi.get(self, "max_price")
+
+    @property
+    @pulumi.getter(name="spotInstanceType")
+    def spot_instance_type(self) -> Optional[str]:
+        return pulumi.get(self, "spot_instance_type")
+
+    @property
+    @pulumi.getter(name="validUntil")
+    def valid_until(self) -> Optional[str]:
+        return pulumi.get(self, "valid_until")
+
+
+@pulumi.output_type
+class LaunchTemplateTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LaunchTemplateTagSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateTagSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateTagSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateTagSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.LaunchTemplateTag']] = None):
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.LaunchTemplateTag']]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class LocalGatewayRouteTableVPCAssociationTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
@@ -752,6 +3184,103 @@ class LocalGatewayRouteTableVPCAssociationTag(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NatGatewayTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NetworkAclEntryIcmp(dict):
+    def __init__(__self__, *,
+                 code: Optional[int] = None,
+                 type: Optional[int] = None):
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[int]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[int]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class NetworkAclEntryPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "from":
+            suggest = "from_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkAclEntryPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkAclEntryPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkAclEntryPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_: Optional[int] = None,
+                 to: Optional[int] = None):
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[int]:
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[int]:
+        return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class NetworkAclTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 
@@ -1893,6 +4422,90 @@ class NetworkInsightsPathTag(dict):
 
 
 @pulumi.output_type
+class NetworkInterfaceInstanceIpv6Address(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv6Address":
+            suggest = "ipv6_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceInstanceIpv6Address. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceInstanceIpv6Address.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceInstanceIpv6Address.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv6_address: str):
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> str:
+        return pulumi.get(self, "ipv6_address")
+
+
+@pulumi.output_type
+class NetworkInterfacePrivateIpAddressSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIpAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfacePrivateIpAddressSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfacePrivateIpAddressSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfacePrivateIpAddressSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary: bool,
+                 private_ip_address: str):
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        return pulumi.get(self, "private_ip_address")
+
+
+@pulumi.output_type
+class NetworkInterfaceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class PrefixListEntry(dict):
     def __init__(__self__, *,
                  cidr: str,
@@ -1929,6 +4542,258 @@ class PrefixListTag(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RouteTableTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SecurityGroupEgress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipProtocol":
+            suggest = "ip_protocol"
+        elif key == "cidrIp":
+            suggest = "cidr_ip"
+        elif key == "cidrIpv6":
+            suggest = "cidr_ipv6"
+        elif key == "destinationPrefixListId":
+            suggest = "destination_prefix_list_id"
+        elif key == "destinationSecurityGroupId":
+            suggest = "destination_security_group_id"
+        elif key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityGroupEgress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityGroupEgress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityGroupEgress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_protocol: str,
+                 cidr_ip: Optional[str] = None,
+                 cidr_ipv6: Optional[str] = None,
+                 description: Optional[str] = None,
+                 destination_prefix_list_id: Optional[str] = None,
+                 destination_security_group_id: Optional[str] = None,
+                 from_port: Optional[int] = None,
+                 to_port: Optional[int] = None):
+        pulumi.set(__self__, "ip_protocol", ip_protocol)
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if cidr_ipv6 is not None:
+            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_prefix_list_id is not None:
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
+        if destination_security_group_id is not None:
+            pulumi.set(__self__, "destination_security_group_id", destination_security_group_id)
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="ipProtocol")
+    def ip_protocol(self) -> str:
+        return pulumi.get(self, "ip_protocol")
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[str]:
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter(name="cidrIpv6")
+    def cidr_ipv6(self) -> Optional[str]:
+        return pulumi.get(self, "cidr_ipv6")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationPrefixListId")
+    def destination_prefix_list_id(self) -> Optional[str]:
+        return pulumi.get(self, "destination_prefix_list_id")
+
+    @property
+    @pulumi.getter(name="destinationSecurityGroupId")
+    def destination_security_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "destination_security_group_id")
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[int]:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[int]:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class SecurityGroupIngress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipProtocol":
+            suggest = "ip_protocol"
+        elif key == "cidrIp":
+            suggest = "cidr_ip"
+        elif key == "cidrIpv6":
+            suggest = "cidr_ipv6"
+        elif key == "fromPort":
+            suggest = "from_port"
+        elif key == "sourcePrefixListId":
+            suggest = "source_prefix_list_id"
+        elif key == "sourceSecurityGroupId":
+            suggest = "source_security_group_id"
+        elif key == "sourceSecurityGroupName":
+            suggest = "source_security_group_name"
+        elif key == "sourceSecurityGroupOwnerId":
+            suggest = "source_security_group_owner_id"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityGroupIngress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityGroupIngress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_protocol: str,
+                 cidr_ip: Optional[str] = None,
+                 cidr_ipv6: Optional[str] = None,
+                 description: Optional[str] = None,
+                 from_port: Optional[int] = None,
+                 source_prefix_list_id: Optional[str] = None,
+                 source_security_group_id: Optional[str] = None,
+                 source_security_group_name: Optional[str] = None,
+                 source_security_group_owner_id: Optional[str] = None,
+                 to_port: Optional[int] = None):
+        pulumi.set(__self__, "ip_protocol", ip_protocol)
+        if cidr_ip is not None:
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
+        if cidr_ipv6 is not None:
+            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if source_prefix_list_id is not None:
+            pulumi.set(__self__, "source_prefix_list_id", source_prefix_list_id)
+        if source_security_group_id is not None:
+            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
+        if source_security_group_name is not None:
+            pulumi.set(__self__, "source_security_group_name", source_security_group_name)
+        if source_security_group_owner_id is not None:
+            pulumi.set(__self__, "source_security_group_owner_id", source_security_group_owner_id)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="ipProtocol")
+    def ip_protocol(self) -> str:
+        return pulumi.get(self, "ip_protocol")
+
+    @property
+    @pulumi.getter(name="cidrIp")
+    def cidr_ip(self) -> Optional[str]:
+        return pulumi.get(self, "cidr_ip")
+
+    @property
+    @pulumi.getter(name="cidrIpv6")
+    def cidr_ipv6(self) -> Optional[str]:
+        return pulumi.get(self, "cidr_ipv6")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[int]:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="sourcePrefixListId")
+    def source_prefix_list_id(self) -> Optional[str]:
+        return pulumi.get(self, "source_prefix_list_id")
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupId")
+    def source_security_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "source_security_group_id")
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupName")
+    def source_security_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "source_security_group_name")
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupOwnerId")
+    def source_security_group_owner_id(self) -> Optional[str]:
+        return pulumi.get(self, "source_security_group_owner_id")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[int]:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class SecurityGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 
@@ -3163,6 +6028,139 @@ class SpotFleetTargetGroupsConfig(dict):
 
 
 @pulumi.output_type
+class SubnetTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TrafficMirrorFilterRuleTrafficMirrorPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrafficMirrorFilterRuleTrafficMirrorPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrafficMirrorFilterRuleTrafficMirrorPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrafficMirrorFilterRuleTrafficMirrorPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class TrafficMirrorFilterTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TrafficMirrorSessionTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TrafficMirrorTargetTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TransitGatewayAttachmentTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TransitGatewayConnectTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
@@ -3306,7 +6304,180 @@ class TransitGatewayPeeringAttachmentTag(dict):
 
 
 @pulumi.output_type
+class TransitGatewayRouteTableTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TransitGatewayTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TransitGatewayVpcAttachmentTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VPCPeeringConnectionTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VPCTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VPNConnectionTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VPNConnectionVpnTunnelOptionsSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preSharedKey":
+            suggest = "pre_shared_key"
+        elif key == "tunnelInsideCidr":
+            suggest = "tunnel_inside_cidr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VPNConnectionVpnTunnelOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VPNConnectionVpnTunnelOptionsSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VPNConnectionVpnTunnelOptionsSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pre_shared_key: Optional[str] = None,
+                 tunnel_inside_cidr: Optional[str] = None):
+        if pre_shared_key is not None:
+            pulumi.set(__self__, "pre_shared_key", pre_shared_key)
+        if tunnel_inside_cidr is not None:
+            pulumi.set(__self__, "tunnel_inside_cidr", tunnel_inside_cidr)
+
+    @property
+    @pulumi.getter(name="preSharedKey")
+    def pre_shared_key(self) -> Optional[str]:
+        return pulumi.get(self, "pre_shared_key")
+
+    @property
+    @pulumi.getter(name="tunnelInsideCidr")
+    def tunnel_inside_cidr(self) -> Optional[str]:
+        return pulumi.get(self, "tunnel_inside_cidr")
+
+
+@pulumi.output_type
+class VPNGatewayTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VolumeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

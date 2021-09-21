@@ -12,6 +12,7 @@ __all__ = [
     'ListenerActionArgs',
     'ListenerAuthenticateCognitoConfigArgs',
     'ListenerAuthenticateOidcConfigArgs',
+    'ListenerCertificateCertificateArgs',
     'ListenerCertificateArgs',
     'ListenerFixedResponseConfigArgs',
     'ListenerForwardConfigArgs',
@@ -34,6 +35,13 @@ __all__ = [
     'ListenerRuleTargetGroupTupleArgs',
     'ListenerTargetGroupStickinessConfigArgs',
     'ListenerTargetGroupTupleArgs',
+    'LoadBalancerLoadBalancerAttributeArgs',
+    'LoadBalancerSubnetMappingArgs',
+    'LoadBalancerTagArgs',
+    'TargetGroupMatcherArgs',
+    'TargetGroupTagArgs',
+    'TargetGroupTargetDescriptionArgs',
+    'TargetGroupTargetGroupAttributeArgs',
 ]
 
 @pulumi.input_type
@@ -363,6 +371,23 @@ class ListenerAuthenticateOidcConfigArgs:
     @session_timeout.setter
     def session_timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "session_timeout", value)
+
+
+@pulumi.input_type
+class ListenerCertificateCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
 
 
 @pulumi.input_type
@@ -1371,5 +1396,238 @@ class ListenerTargetGroupTupleArgs:
     @weight.setter
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
+
+
+@pulumi.input_type
+class LoadBalancerLoadBalancerAttributeArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LoadBalancerSubnetMappingArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str],
+                 allocation_id: Optional[pulumi.Input[str]] = None,
+                 i_pv6_address: Optional[pulumi.Input[str]] = None,
+                 private_i_pv4_address: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if allocation_id is not None:
+            pulumi.set(__self__, "allocation_id", allocation_id)
+        if i_pv6_address is not None:
+            pulumi.set(__self__, "i_pv6_address", i_pv6_address)
+        if private_i_pv4_address is not None:
+            pulumi.set(__self__, "private_i_pv4_address", private_i_pv4_address)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="allocationId")
+    def allocation_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "allocation_id")
+
+    @allocation_id.setter
+    def allocation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allocation_id", value)
+
+    @property
+    @pulumi.getter(name="iPv6Address")
+    def i_pv6_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "i_pv6_address")
+
+    @i_pv6_address.setter
+    def i_pv6_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "i_pv6_address", value)
+
+    @property
+    @pulumi.getter(name="privateIPv4Address")
+    def private_i_pv4_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "private_i_pv4_address")
+
+    @private_i_pv4_address.setter
+    def private_i_pv4_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_i_pv4_address", value)
+
+
+@pulumi.input_type
+class LoadBalancerTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TargetGroupMatcherArgs:
+    def __init__(__self__, *,
+                 grpc_code: Optional[pulumi.Input[str]] = None,
+                 http_code: Optional[pulumi.Input[str]] = None):
+        if grpc_code is not None:
+            pulumi.set(__self__, "grpc_code", grpc_code)
+        if http_code is not None:
+            pulumi.set(__self__, "http_code", http_code)
+
+    @property
+    @pulumi.getter(name="grpcCode")
+    def grpc_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "grpc_code")
+
+    @grpc_code.setter
+    def grpc_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grpc_code", value)
+
+    @property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "http_code")
+
+    @http_code.setter
+    def http_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_code", value)
+
+
+@pulumi.input_type
+class TargetGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TargetGroupTargetDescriptionArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "id", id)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class TargetGroupTargetGroupAttributeArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

@@ -14,6 +14,7 @@ __all__ = [
     'ListenerAuthenticateCognitoConfig',
     'ListenerAuthenticateOidcConfig',
     'ListenerCertificate',
+    'ListenerCertificateCertificate',
     'ListenerFixedResponseConfig',
     'ListenerForwardConfig',
     'ListenerRedirectConfig',
@@ -35,6 +36,13 @@ __all__ = [
     'ListenerRuleTargetGroupTuple',
     'ListenerTargetGroupStickinessConfig',
     'ListenerTargetGroupTuple',
+    'LoadBalancerLoadBalancerAttribute',
+    'LoadBalancerSubnetMapping',
+    'LoadBalancerTag',
+    'TargetGroupMatcher',
+    'TargetGroupTag',
+    'TargetGroupTargetDescription',
+    'TargetGroupTargetGroupAttribute',
 ]
 
 @pulumi.output_type
@@ -364,6 +372,36 @@ class ListenerCertificate(dict):
 
     def get(self, key: str, default = None) -> Any:
         ListenerCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: Optional[str] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_arn")
+
+
+@pulumi.output_type
+class ListenerCertificateCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerCertificateCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerCertificateCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerCertificateCertificate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1383,5 +1421,229 @@ class ListenerTargetGroupTuple(dict):
     @pulumi.getter
     def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class LoadBalancerLoadBalancerAttribute(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LoadBalancerSubnetMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "allocationId":
+            suggest = "allocation_id"
+        elif key == "iPv6Address":
+            suggest = "i_pv6_address"
+        elif key == "privateIPv4Address":
+            suggest = "private_i_pv4_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerSubnetMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerSubnetMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerSubnetMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: str,
+                 allocation_id: Optional[str] = None,
+                 i_pv6_address: Optional[str] = None,
+                 private_i_pv4_address: Optional[str] = None):
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        if allocation_id is not None:
+            pulumi.set(__self__, "allocation_id", allocation_id)
+        if i_pv6_address is not None:
+            pulumi.set(__self__, "i_pv6_address", i_pv6_address)
+        if private_i_pv4_address is not None:
+            pulumi.set(__self__, "private_i_pv4_address", private_i_pv4_address)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="allocationId")
+    def allocation_id(self) -> Optional[str]:
+        return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter(name="iPv6Address")
+    def i_pv6_address(self) -> Optional[str]:
+        return pulumi.get(self, "i_pv6_address")
+
+    @property
+    @pulumi.getter(name="privateIPv4Address")
+    def private_i_pv4_address(self) -> Optional[str]:
+        return pulumi.get(self, "private_i_pv4_address")
+
+
+@pulumi.output_type
+class LoadBalancerTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TargetGroupMatcher(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grpcCode":
+            suggest = "grpc_code"
+        elif key == "httpCode":
+            suggest = "http_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupMatcher. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupMatcher.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupMatcher.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grpc_code: Optional[str] = None,
+                 http_code: Optional[str] = None):
+        if grpc_code is not None:
+            pulumi.set(__self__, "grpc_code", grpc_code)
+        if http_code is not None:
+            pulumi.set(__self__, "http_code", http_code)
+
+    @property
+    @pulumi.getter(name="grpcCode")
+    def grpc_code(self) -> Optional[str]:
+        return pulumi.get(self, "grpc_code")
+
+    @property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> Optional[str]:
+        return pulumi.get(self, "http_code")
+
+
+@pulumi.output_type
+class TargetGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TargetGroupTargetDescription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetGroupTargetDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetGroupTargetDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetGroupTargetDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 availability_zone: Optional[str] = None,
+                 port: Optional[int] = None):
+        pulumi.set(__self__, "id", id)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class TargetGroupTargetGroupAttribute(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 

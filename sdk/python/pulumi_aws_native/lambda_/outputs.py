@@ -11,8 +11,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AliasAliasRoutingConfiguration',
+    'AliasProvisionedConcurrencyConfiguration',
+    'AliasVersionWeight',
     'CodeSigningConfigAllowedPublishers',
     'CodeSigningConfigCodeSigningPolicies',
+    'EventInvokeConfigDestinationConfig',
+    'EventInvokeConfigOnFailure',
+    'EventInvokeConfigOnSuccess',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingEndpoints',
     'EventSourceMappingOnFailure',
@@ -26,7 +32,105 @@ __all__ = [
     'FunctionTag',
     'FunctionTracingConfig',
     'FunctionVpcConfig',
+    'LayerVersionContent',
+    'VersionProvisionedConcurrencyConfiguration',
 ]
+
+@pulumi.output_type
+class AliasAliasRoutingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalVersionWeights":
+            suggest = "additional_version_weights"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasAliasRoutingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasAliasRoutingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasAliasRoutingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_version_weights: Sequence['outputs.AliasVersionWeight']):
+        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+
+    @property
+    @pulumi.getter(name="additionalVersionWeights")
+    def additional_version_weights(self) -> Sequence['outputs.AliasVersionWeight']:
+        return pulumi.get(self, "additional_version_weights")
+
+
+@pulumi.output_type
+class AliasProvisionedConcurrencyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisionedConcurrentExecutions":
+            suggest = "provisioned_concurrent_executions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasProvisionedConcurrencyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasProvisionedConcurrencyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasProvisionedConcurrencyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioned_concurrent_executions: int):
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrentExecutions")
+    def provisioned_concurrent_executions(self) -> int:
+        return pulumi.get(self, "provisioned_concurrent_executions")
+
+
+@pulumi.output_type
+class AliasVersionWeight(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionVersion":
+            suggest = "function_version"
+        elif key == "functionWeight":
+            suggest = "function_weight"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasVersionWeight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasVersionWeight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasVersionWeight.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_version: str,
+                 function_weight: float):
+        pulumi.set(__self__, "function_version", function_version)
+        pulumi.set(__self__, "function_weight", function_weight)
+
+    @property
+    @pulumi.getter(name="functionVersion")
+    def function_version(self) -> str:
+        return pulumi.get(self, "function_version")
+
+    @property
+    @pulumi.getter(name="functionWeight")
+    def function_weight(self) -> float:
+        return pulumi.get(self, "function_weight")
+
 
 @pulumi.output_type
 class CodeSigningConfigAllowedPublishers(dict):
@@ -104,6 +208,70 @@ class CodeSigningConfigCodeSigningPolicies(dict):
         Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
+
+
+@pulumi.output_type
+class EventInvokeConfigDestinationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onFailure":
+            suggest = "on_failure"
+        elif key == "onSuccess":
+            suggest = "on_success"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventInvokeConfigDestinationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventInvokeConfigDestinationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventInvokeConfigDestinationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_failure: Optional['outputs.EventInvokeConfigOnFailure'] = None,
+                 on_success: Optional['outputs.EventInvokeConfigOnSuccess'] = None):
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional['outputs.EventInvokeConfigOnFailure']:
+        return pulumi.get(self, "on_failure")
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional['outputs.EventInvokeConfigOnSuccess']:
+        return pulumi.get(self, "on_success")
+
+
+@pulumi.output_type
+class EventInvokeConfigOnFailure(dict):
+    def __init__(__self__, *,
+                 destination: str):
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class EventInvokeConfigOnSuccess(dict):
+    def __init__(__self__, *,
+                 destination: str):
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        return pulumi.get(self, "destination")
 
 
 @pulumi.output_type
@@ -652,5 +820,82 @@ class FunctionVpcConfig(dict):
         A list of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class LayerVersionContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+        elif key == "s3ObjectVersion":
+            suggest = "s3_object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LayerVersionContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LayerVersionContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LayerVersionContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: str,
+                 s3_key: str,
+                 s3_object_version: Optional[str] = None):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_version is not None:
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> str:
+        return pulumi.get(self, "s3_key")
+
+    @property
+    @pulumi.getter(name="s3ObjectVersion")
+    def s3_object_version(self) -> Optional[str]:
+        return pulumi.get(self, "s3_object_version")
+
+
+@pulumi.output_type
+class VersionProvisionedConcurrencyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisionedConcurrentExecutions":
+            suggest = "provisioned_concurrent_executions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VersionProvisionedConcurrencyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VersionProvisionedConcurrencyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VersionProvisionedConcurrencyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioned_concurrent_executions: int):
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrentExecutions")
+    def provisioned_concurrent_executions(self) -> int:
+        return pulumi.get(self, "provisioned_concurrent_executions")
 
 

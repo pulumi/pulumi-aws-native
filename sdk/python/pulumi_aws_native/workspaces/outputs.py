@@ -12,6 +12,8 @@ from ._enums import *
 __all__ = [
     'ConnectionAliasConnectionAliasAssociation',
     'ConnectionAliasTag',
+    'WorkspaceTag',
+    'WorkspaceWorkspaceProperties',
 ]
 
 @pulumi.output_type
@@ -91,5 +93,94 @@ class ConnectionAliasTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkspaceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkspaceWorkspaceProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeTypeName":
+            suggest = "compute_type_name"
+        elif key == "rootVolumeSizeGib":
+            suggest = "root_volume_size_gib"
+        elif key == "runningMode":
+            suggest = "running_mode"
+        elif key == "runningModeAutoStopTimeoutInMinutes":
+            suggest = "running_mode_auto_stop_timeout_in_minutes"
+        elif key == "userVolumeSizeGib":
+            suggest = "user_volume_size_gib"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceWorkspaceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceWorkspaceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceWorkspaceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_type_name: Optional[str] = None,
+                 root_volume_size_gib: Optional[int] = None,
+                 running_mode: Optional[str] = None,
+                 running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
+                 user_volume_size_gib: Optional[int] = None):
+        if compute_type_name is not None:
+            pulumi.set(__self__, "compute_type_name", compute_type_name)
+        if root_volume_size_gib is not None:
+            pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+        if running_mode is not None:
+            pulumi.set(__self__, "running_mode", running_mode)
+        if running_mode_auto_stop_timeout_in_minutes is not None:
+            pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+        if user_volume_size_gib is not None:
+            pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+
+    @property
+    @pulumi.getter(name="computeTypeName")
+    def compute_type_name(self) -> Optional[str]:
+        return pulumi.get(self, "compute_type_name")
+
+    @property
+    @pulumi.getter(name="rootVolumeSizeGib")
+    def root_volume_size_gib(self) -> Optional[int]:
+        return pulumi.get(self, "root_volume_size_gib")
+
+    @property
+    @pulumi.getter(name="runningMode")
+    def running_mode(self) -> Optional[str]:
+        return pulumi.get(self, "running_mode")
+
+    @property
+    @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
+    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="userVolumeSizeGib")
+    def user_volume_size_gib(self) -> Optional[int]:
+        return pulumi.get(self, "user_volume_size_gib")
 
 

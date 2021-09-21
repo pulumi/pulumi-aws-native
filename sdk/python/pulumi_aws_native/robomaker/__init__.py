@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .fleet import *
 from .robot import *
+from .robot_application import *
 from .robot_application_version import *
 from .simulation_application import *
 from .simulation_application_version import *

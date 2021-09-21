@@ -17,6 +17,23 @@ __all__ = [
     'DocumentAttachmentsSource',
     'DocumentDocumentRequires',
     'DocumentTag',
+    'MaintenanceWindowTag',
+    'MaintenanceWindowTargetTargets',
+    'MaintenanceWindowTaskLoggingInfo',
+    'MaintenanceWindowTaskMaintenanceWindowAutomationParameters',
+    'MaintenanceWindowTaskMaintenanceWindowLambdaParameters',
+    'MaintenanceWindowTaskMaintenanceWindowRunCommandParameters',
+    'MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters',
+    'MaintenanceWindowTaskNotificationConfig',
+    'MaintenanceWindowTaskTarget',
+    'MaintenanceWindowTaskTaskInvocationParameters',
+    'PatchBaselinePatchFilter',
+    'PatchBaselinePatchFilterGroup',
+    'PatchBaselinePatchSource',
+    'PatchBaselinePatchStringDate',
+    'PatchBaselineRule',
+    'PatchBaselineRuleGroup',
+    'PatchBaselineTag',
     'ResourceDataSyncAwsOrganizationsSource',
     'ResourceDataSyncS3Destination',
     'ResourceDataSyncSyncSource',
@@ -223,6 +240,634 @@ class DocumentTag(dict):
         """
         The value of the tag.
         """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MaintenanceWindowTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MaintenanceWindowTargetTargets(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskLoggingInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Prefix":
+            suggest = "s3_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskLoggingInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskLoggingInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskLoggingInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: str,
+                 s3_bucket: str,
+                 s3_prefix: Optional[str] = None):
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_prefix is not None:
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "s3_prefix")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowAutomationParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentVersion":
+            suggest = "document_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowAutomationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowAutomationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowAutomationParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_version: Optional[str] = None,
+                 parameters: Optional[Any] = None):
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[str]:
+        return pulumi.get(self, "document_version")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowLambdaParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientContext":
+            suggest = "client_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowLambdaParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowLambdaParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowLambdaParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_context: Optional[str] = None,
+                 payload: Optional[str] = None,
+                 qualifier: Optional[str] = None):
+        if client_context is not None:
+            pulumi.set(__self__, "client_context", client_context)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @property
+    @pulumi.getter(name="clientContext")
+    def client_context(self) -> Optional[str]:
+        return pulumi.get(self, "client_context")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> Optional[str]:
+        return pulumi.get(self, "qualifier")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentHash":
+            suggest = "document_hash"
+        elif key == "documentHashType":
+            suggest = "document_hash_type"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+        elif key == "outputS3BucketName":
+            suggest = "output_s3_bucket_name"
+        elif key == "outputS3KeyPrefix":
+            suggest = "output_s3_key_prefix"
+        elif key == "serviceRoleArn":
+            suggest = "service_role_arn"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowRunCommandParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowRunCommandParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowRunCommandParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 document_hash: Optional[str] = None,
+                 document_hash_type: Optional[str] = None,
+                 notification_config: Optional['outputs.MaintenanceWindowTaskNotificationConfig'] = None,
+                 output_s3_bucket_name: Optional[str] = None,
+                 output_s3_key_prefix: Optional[str] = None,
+                 parameters: Optional[Any] = None,
+                 service_role_arn: Optional[str] = None,
+                 timeout_seconds: Optional[int] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if document_hash is not None:
+            pulumi.set(__self__, "document_hash", document_hash)
+        if document_hash_type is not None:
+            pulumi.set(__self__, "document_hash_type", document_hash_type)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+        if output_s3_bucket_name is not None:
+            pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
+        if output_s3_key_prefix is not None:
+            pulumi.set(__self__, "output_s3_key_prefix", output_s3_key_prefix)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if service_role_arn is not None:
+            pulumi.set(__self__, "service_role_arn", service_role_arn)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="documentHash")
+    def document_hash(self) -> Optional[str]:
+        return pulumi.get(self, "document_hash")
+
+    @property
+    @pulumi.getter(name="documentHashType")
+    def document_hash_type(self) -> Optional[str]:
+        return pulumi.get(self, "document_hash_type")
+
+    @property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional['outputs.MaintenanceWindowTaskNotificationConfig']:
+        return pulumi.get(self, "notification_config")
+
+    @property
+    @pulumi.getter(name="outputS3BucketName")
+    def output_s3_bucket_name(self) -> Optional[str]:
+        return pulumi.get(self, "output_s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="outputS3KeyPrefix")
+    def output_s3_key_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "output_s3_key_prefix")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "service_role_arn")
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "timeout_seconds")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters(dict):
+    def __init__(__self__, *,
+                 input: Optional[str] = None,
+                 name: Optional[str] = None):
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional[str]:
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskNotificationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notificationArn":
+            suggest = "notification_arn"
+        elif key == "notificationEvents":
+            suggest = "notification_events"
+        elif key == "notificationType":
+            suggest = "notification_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notification_arn: str,
+                 notification_events: Optional[Sequence[str]] = None,
+                 notification_type: Optional[str] = None):
+        pulumi.set(__self__, "notification_arn", notification_arn)
+        if notification_events is not None:
+            pulumi.set(__self__, "notification_events", notification_events)
+        if notification_type is not None:
+            pulumi.set(__self__, "notification_type", notification_type)
+
+    @property
+    @pulumi.getter(name="notificationArn")
+    def notification_arn(self) -> str:
+        return pulumi.get(self, "notification_arn")
+
+    @property
+    @pulumi.getter(name="notificationEvents")
+    def notification_events(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "notification_events")
+
+    @property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> Optional[str]:
+        return pulumi.get(self, "notification_type")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskTarget(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskTaskInvocationParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maintenanceWindowAutomationParameters":
+            suggest = "maintenance_window_automation_parameters"
+        elif key == "maintenanceWindowLambdaParameters":
+            suggest = "maintenance_window_lambda_parameters"
+        elif key == "maintenanceWindowRunCommandParameters":
+            suggest = "maintenance_window_run_command_parameters"
+        elif key == "maintenanceWindowStepFunctionsParameters":
+            suggest = "maintenance_window_step_functions_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maintenance_window_automation_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowAutomationParameters'] = None,
+                 maintenance_window_lambda_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters'] = None,
+                 maintenance_window_run_command_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters'] = None,
+                 maintenance_window_step_functions_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters'] = None):
+        if maintenance_window_automation_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_automation_parameters", maintenance_window_automation_parameters)
+        if maintenance_window_lambda_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_lambda_parameters", maintenance_window_lambda_parameters)
+        if maintenance_window_run_command_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_run_command_parameters", maintenance_window_run_command_parameters)
+        if maintenance_window_step_functions_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_step_functions_parameters", maintenance_window_step_functions_parameters)
+
+    @property
+    @pulumi.getter(name="maintenanceWindowAutomationParameters")
+    def maintenance_window_automation_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowAutomationParameters']:
+        return pulumi.get(self, "maintenance_window_automation_parameters")
+
+    @property
+    @pulumi.getter(name="maintenanceWindowLambdaParameters")
+    def maintenance_window_lambda_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters']:
+        return pulumi.get(self, "maintenance_window_lambda_parameters")
+
+    @property
+    @pulumi.getter(name="maintenanceWindowRunCommandParameters")
+    def maintenance_window_run_command_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters']:
+        return pulumi.get(self, "maintenance_window_run_command_parameters")
+
+    @property
+    @pulumi.getter(name="maintenanceWindowStepFunctionsParameters")
+    def maintenance_window_step_functions_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters']:
+        return pulumi.get(self, "maintenance_window_step_functions_parameters")
+
+
+@pulumi.output_type
+class PatchBaselinePatchFilter(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class PatchBaselinePatchFilterGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patchFilters":
+            suggest = "patch_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchBaselinePatchFilterGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchBaselinePatchFilterGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchBaselinePatchFilterGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 patch_filters: Optional[Sequence['outputs.PatchBaselinePatchFilter']] = None):
+        if patch_filters is not None:
+            pulumi.set(__self__, "patch_filters", patch_filters)
+
+    @property
+    @pulumi.getter(name="patchFilters")
+    def patch_filters(self) -> Optional[Sequence['outputs.PatchBaselinePatchFilter']]:
+        return pulumi.get(self, "patch_filters")
+
+
+@pulumi.output_type
+class PatchBaselinePatchSource(dict):
+    def __init__(__self__, *,
+                 configuration: Optional[str] = None,
+                 name: Optional[str] = None,
+                 products: Optional[Sequence[str]] = None):
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if products is not None:
+            pulumi.set(__self__, "products", products)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[str]:
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def products(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "products")
+
+
+@pulumi.output_type
+class PatchBaselinePatchStringDate(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class PatchBaselineRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "approveAfterDays":
+            suggest = "approve_after_days"
+        elif key == "approveUntilDate":
+            suggest = "approve_until_date"
+        elif key == "complianceLevel":
+            suggest = "compliance_level"
+        elif key == "enableNonSecurity":
+            suggest = "enable_non_security"
+        elif key == "patchFilterGroup":
+            suggest = "patch_filter_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchBaselineRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchBaselineRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchBaselineRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 approve_after_days: Optional[int] = None,
+                 approve_until_date: Optional['outputs.PatchBaselinePatchStringDate'] = None,
+                 compliance_level: Optional[str] = None,
+                 enable_non_security: Optional[bool] = None,
+                 patch_filter_group: Optional['outputs.PatchBaselinePatchFilterGroup'] = None):
+        if approve_after_days is not None:
+            pulumi.set(__self__, "approve_after_days", approve_after_days)
+        if approve_until_date is not None:
+            pulumi.set(__self__, "approve_until_date", approve_until_date)
+        if compliance_level is not None:
+            pulumi.set(__self__, "compliance_level", compliance_level)
+        if enable_non_security is not None:
+            pulumi.set(__self__, "enable_non_security", enable_non_security)
+        if patch_filter_group is not None:
+            pulumi.set(__self__, "patch_filter_group", patch_filter_group)
+
+    @property
+    @pulumi.getter(name="approveAfterDays")
+    def approve_after_days(self) -> Optional[int]:
+        return pulumi.get(self, "approve_after_days")
+
+    @property
+    @pulumi.getter(name="approveUntilDate")
+    def approve_until_date(self) -> Optional['outputs.PatchBaselinePatchStringDate']:
+        return pulumi.get(self, "approve_until_date")
+
+    @property
+    @pulumi.getter(name="complianceLevel")
+    def compliance_level(self) -> Optional[str]:
+        return pulumi.get(self, "compliance_level")
+
+    @property
+    @pulumi.getter(name="enableNonSecurity")
+    def enable_non_security(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_non_security")
+
+    @property
+    @pulumi.getter(name="patchFilterGroup")
+    def patch_filter_group(self) -> Optional['outputs.PatchBaselinePatchFilterGroup']:
+        return pulumi.get(self, "patch_filter_group")
+
+
+@pulumi.output_type
+class PatchBaselineRuleGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patchRules":
+            suggest = "patch_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchBaselineRuleGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchBaselineRuleGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchBaselineRuleGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 patch_rules: Optional[Sequence['outputs.PatchBaselineRule']] = None):
+        if patch_rules is not None:
+            pulumi.set(__self__, "patch_rules", patch_rules)
+
+    @property
+    @pulumi.getter(name="patchRules")
+    def patch_rules(self) -> Optional[Sequence['outputs.PatchBaselineRule']]:
+        return pulumi.get(self, "patch_rules")
+
+
+@pulumi.output_type
+class PatchBaselineTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'AccountExpiryEventsConfiguration',
+    'CertificateDomainValidationOption',
+    'CertificateTag',
 ]
 
 @pulumi.output_type
@@ -40,5 +42,73 @@ class AccountExpiryEventsConfiguration(dict):
     @pulumi.getter(name="daysBeforeExpiry")
     def days_before_expiry(self) -> Optional[int]:
         return pulumi.get(self, "days_before_expiry")
+
+
+@pulumi.output_type
+class CertificateDomainValidationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+        elif key == "validationDomain":
+            suggest = "validation_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateDomainValidationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateDomainValidationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateDomainValidationOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 hosted_zone_id: Optional[str] = None,
+                 validation_domain: Optional[str] = None):
+        pulumi.set(__self__, "domain_name", domain_name)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if validation_domain is not None:
+            pulumi.set(__self__, "validation_domain", validation_domain)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[str]:
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter(name="validationDomain")
+    def validation_domain(self) -> Optional[str]:
+        return pulumi.get(self, "validation_domain")
+
+
+@pulumi.output_type
+class CertificateTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

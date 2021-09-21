@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AliasRoutingStrategy',
+    'BuildS3Location',
     'FleetCertificateConfiguration',
     'FleetIpPermission',
     'FleetLocationCapacity',
@@ -24,6 +25,12 @@ __all__ = [
     'GameServerGroupLaunchTemplate',
     'GameServerGroupTag',
     'GameServerGroupTargetTrackingConfiguration',
+    'GameSessionQueueDestination',
+    'GameSessionQueueFilterConfiguration',
+    'GameSessionQueuePlayerLatencyPolicy',
+    'GameSessionQueuePriorityConfiguration',
+    'MatchmakingConfigurationGameProperty',
+    'ScriptS3Location',
 ]
 
 @pulumi.output_type
@@ -83,6 +90,59 @@ class AliasRoutingStrategy(dict):
         The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
         """
         return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class BuildS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "objectVersion":
+            suggest = "object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 key: str,
+                 role_arn: str,
+                 object_version: Optional[str] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if object_version is not None:
+            pulumi.set(__self__, "object_version", object_version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="objectVersion")
+    def object_version(self) -> Optional[str]:
+        return pulumi.get(self, "object_version")
 
 
 @pulumi.output_type
@@ -718,5 +778,217 @@ class GameServerGroupTargetTrackingConfiguration(dict):
     @pulumi.getter(name="targetValue")
     def target_value(self) -> float:
         return pulumi.get(self, "target_value")
+
+
+@pulumi.output_type
+class GameSessionQueueDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameSessionQueueDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameSessionQueueDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameSessionQueueDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_arn: Optional[str] = None):
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[str]:
+        return pulumi.get(self, "destination_arn")
+
+
+@pulumi.output_type
+class GameSessionQueueFilterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedLocations":
+            suggest = "allowed_locations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameSessionQueueFilterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameSessionQueueFilterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameSessionQueueFilterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_locations: Optional[Sequence[str]] = None):
+        if allowed_locations is not None:
+            pulumi.set(__self__, "allowed_locations", allowed_locations)
+
+    @property
+    @pulumi.getter(name="allowedLocations")
+    def allowed_locations(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_locations")
+
+
+@pulumi.output_type
+class GameSessionQueuePlayerLatencyPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumIndividualPlayerLatencyMilliseconds":
+            suggest = "maximum_individual_player_latency_milliseconds"
+        elif key == "policyDurationSeconds":
+            suggest = "policy_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameSessionQueuePlayerLatencyPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameSessionQueuePlayerLatencyPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameSessionQueuePlayerLatencyPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_individual_player_latency_milliseconds: Optional[int] = None,
+                 policy_duration_seconds: Optional[int] = None):
+        if maximum_individual_player_latency_milliseconds is not None:
+            pulumi.set(__self__, "maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
+        if policy_duration_seconds is not None:
+            pulumi.set(__self__, "policy_duration_seconds", policy_duration_seconds)
+
+    @property
+    @pulumi.getter(name="maximumIndividualPlayerLatencyMilliseconds")
+    def maximum_individual_player_latency_milliseconds(self) -> Optional[int]:
+        return pulumi.get(self, "maximum_individual_player_latency_milliseconds")
+
+    @property
+    @pulumi.getter(name="policyDurationSeconds")
+    def policy_duration_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "policy_duration_seconds")
+
+
+@pulumi.output_type
+class GameSessionQueuePriorityConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "locationOrder":
+            suggest = "location_order"
+        elif key == "priorityOrder":
+            suggest = "priority_order"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GameSessionQueuePriorityConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GameSessionQueuePriorityConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GameSessionQueuePriorityConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location_order: Optional[Sequence[str]] = None,
+                 priority_order: Optional[Sequence[str]] = None):
+        if location_order is not None:
+            pulumi.set(__self__, "location_order", location_order)
+        if priority_order is not None:
+            pulumi.set(__self__, "priority_order", priority_order)
+
+    @property
+    @pulumi.getter(name="locationOrder")
+    def location_order(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "location_order")
+
+    @property
+    @pulumi.getter(name="priorityOrder")
+    def priority_order(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "priority_order")
+
+
+@pulumi.output_type
+class MatchmakingConfigurationGameProperty(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScriptS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "objectVersion":
+            suggest = "object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 key: str,
+                 role_arn: str,
+                 object_version: Optional[str] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if object_version is not None:
+            pulumi.set(__self__, "object_version", object_version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="objectVersion")
+    def object_version(self) -> Optional[str]:
+        return pulumi.get(self, "object_version")
 
 
