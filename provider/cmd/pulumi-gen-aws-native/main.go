@@ -75,7 +75,7 @@ func main() {
 			err = emitPackage(fullSpec, language, dir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
-			writePulumiSchema(*fullSpec, cf2pulumiDir, false)
+			writePulumiSchema(*fullSpec, cf2pulumiDir, "schema-full.json", true)
 
 			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false)
 			if err != nil {
@@ -88,7 +88,7 @@ func main() {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
 			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-			writePulumiSchema(*supportedSpec, providerDir, true)
+			writePulumiSchema(*supportedSpec, providerDir, "schema.json",true)
 
 			// Also, emit the resource metadata for the provider.
 			if err = writeMetadata(meta, providerDir, "main", true); err != nil {
@@ -214,7 +214,7 @@ func emitPackage(pkgSpec *pschema.PackageSpec, language, outDir string) error {
 
 	return nil
 }
-func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, emitJSON bool) error {
+func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string, emitJSON bool) error {
 	compressedSchema := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedSchema)
 	err := json.NewEncoder(compressedWriter).Encode(pkgSpec)
@@ -238,7 +238,7 @@ var pulumiSchema = %#v
 		if err != nil {
 			panic(errors.Wrap(err, "marshaling Pulumi schema"))
 		}
-		return emitFile(outdir, "schema.json", schemaJSON)
+		return emitFile(outdir, jsonFileName, schemaJSON)
 	}
 
 	return nil
