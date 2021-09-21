@@ -35,6 +35,7 @@ ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
 	cd aws-sdk-go-v2-cloudcontrol-preview && GO111MODULE=on go mod tidy
 	cd provider && GO111MODULE=on go mod tidy
+	cd sdk/go && GO111MODULE=on go mod tidy
 
 local_generate:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) nodejs,dotnet,python,go,schema $(CFN_SCHEMA_DIR) ${VERSION}
