@@ -84,14 +84,14 @@ type renderContext struct {
 	// rendering to emit appropriate references to the renamed entities. Entities need to be renamed because they
 	// are namespaced by type in CloudFormation, but the corresponding declarations are not namespaced in PCL.
 
-	pseudoParameters map[string]*model.Variable // AWS pseudo parameters
-	parameters       map[string]*model.Variable // Template parameters
-	ssmParameters    map[string]*model.Variable // SSM Template parameters
-	mappings         map[string]*model.Variable // Template mappings
-	conditions       map[string]*model.Variable // Template conditions
-	resources        map[string]*model.Variable // Template resources
-	outputs          map[string]*model.Variable // Template outputs
-	supportedResources codegen.StringSet // Tokens for supported resources
+	pseudoParameters   map[string]*model.Variable // AWS pseudo parameters
+	parameters         map[string]*model.Variable // Template parameters
+	ssmParameters      map[string]*model.Variable // SSM Template parameters
+	mappings           map[string]*model.Variable // Template mappings
+	conditions         map[string]*model.Variable // Template conditions
+	resources          map[string]*model.Variable // Template resources
+	outputs            map[string]*model.Variable // Template outputs
+	supportedResources codegen.StringSet          // Tokens for supported resources
 
 	renderedPseudoParameters bool // True if pseudo parameters have been rendered
 }
@@ -1175,14 +1175,14 @@ func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.B
 	}
 
 	ctx := &renderContext{
-		pseudoParameters: map[string]*model.Variable{},
-		parameters:       map[string]*model.Variable{},
-		ssmParameters:    map[string]*model.Variable{},
-		mappings:         map[string]*model.Variable{},
-		conditions:       map[string]*model.Variable{},
-		resources:        map[string]*model.Variable{},
-		outputs:          map[string]*model.Variable{},
-		supportedResources:  supportedResourceTokens,
+		pseudoParameters:   map[string]*model.Variable{},
+		parameters:         map[string]*model.Variable{},
+		ssmParameters:      map[string]*model.Variable{},
+		mappings:           map[string]*model.Variable{},
+		conditions:         map[string]*model.Variable{},
+		resources:          map[string]*model.Variable{},
+		outputs:            map[string]*model.Variable{},
+		supportedResources: supportedResourceTokens,
 	}
 
 	// Declare parameters, mappings, conditions, resources, and outputs.
