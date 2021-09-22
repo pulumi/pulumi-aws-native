@@ -75,7 +75,7 @@ func main() {
 			err = emitPackage(fullSpec, language, dir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
-			writePulumiSchema(*fullSpec, cf2pulumiDir, false)
+			writePulumiSchema(*fullSpec, cf2pulumiDir, "schema-full.json")
 
 			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false)
 			if err != nil {
@@ -83,13 +83,17 @@ func main() {
 			}
 
 			fmt.Println("Generating examples...")
-			err = generateExamples(supportedSpec, []string{"nodejs", "python", "dotnet", "go"})
+			err = generateExamples(supportedSpec, meta, []string{"nodejs", "python", "dotnet", "go"})
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
 			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-			writePulumiSchema(*supportedSpec, providerDir, true)
+			writePulumiSchema(*supportedSpec, providerDir, "schema.json")
 
+			// Emit the resource metadata for cf2pulumi.
+			if err = writeMetadata(meta, cf2pulumiDir, "main", false); err != nil {
+				break
+			}
 			// Also, emit the resource metadata for the provider.
 			if err = writeMetadata(meta, providerDir, "main", true); err != nil {
 				break
@@ -214,7 +218,7 @@ func emitPackage(pkgSpec *pschema.PackageSpec, language, outDir string) error {
 
 	return nil
 }
-func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, emitJSON bool) error {
+func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string) error {
 	compressedSchema := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedSchema)
 	err := json.NewEncoder(compressedWriter).Encode(pkgSpec)
@@ -232,13 +236,13 @@ var pulumiSchema = %#v
 		panic(errors.Wrap(err, "saving metadata"))
 	}
 
-	if emitJSON {
+	if jsonFileName != "" {
 		pkgSpec.Version = ""
 		schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 		if err != nil {
 			panic(errors.Wrap(err, "marshaling Pulumi schema"))
 		}
-		return emitFile(outdir, "schema.json", schemaJSON)
+		return emitFile(outdir, jsonFileName, schemaJSON)
 	}
 
 	return nil

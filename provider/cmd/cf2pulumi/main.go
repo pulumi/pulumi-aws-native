@@ -11,6 +11,10 @@ import (
 	"os"
 	"strings"
 
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
+	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2"
@@ -18,9 +22,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
-	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 )
 
 func main() {
@@ -33,10 +34,23 @@ func main() {
 
 	target, templatePath := os.Args[1], os.Args[2]
 
-	template, err := cf2pulumi.RenderFile(templatePath)
+	pkgSpec, err := loadSchema()
+	if err != nil {
+		log.Fatalf("failed to load schema: %v", err)
+	}
+
+	metadata, err := provider.LoadMetadata(cloudApiResources)
+	if err != nil {
+		log.Fatalf("failed to load metadata: %v", err)
+	}
+	template, diags, err := cf2pulumi.RenderFile(templatePath, metadata)
 	if err != nil {
 		log.Fatalf("failed to render template: %v", err)
 	}
+	if len(diags) > 0 {
+		syntax.NewDiagnosticWriter(os.Stderr, nil, 0, true).WriteDiagnostics(diags)
+	}
+
 	cf2pulumi.FormatBody(template)
 	programText := fmt.Sprintf("%v", template)
 
@@ -50,10 +64,6 @@ func main() {
 		os.Exit(-1)
 	}
 
-	pkgSpec, err := loadSchema()
-	if err != nil {
-		log.Fatalf("failed to load schema: %v", err)
-	}
 	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
 	pkg, err := schema.ImportSpec(*pkgSpec, nil)
 	if err != nil {

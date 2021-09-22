@@ -84,13 +84,14 @@ type renderContext struct {
 	// rendering to emit appropriate references to the renamed entities. Entities need to be renamed because they
 	// are namespaced by type in CloudFormation, but the corresponding declarations are not namespaced in PCL.
 
-	pseudoParameters map[string]*model.Variable // AWS pseudo parameters
-	parameters       map[string]*model.Variable // Template parameters
-	ssmParameters    map[string]*model.Variable // SSM Template parameters
-	mappings         map[string]*model.Variable // Template mappings
-	conditions       map[string]*model.Variable // Template conditions
-	resources        map[string]*model.Variable // Template resources
-	outputs          map[string]*model.Variable // Template outputs
+	pseudoParameters   map[string]*model.Variable // AWS pseudo parameters
+	parameters         map[string]*model.Variable // Template parameters
+	ssmParameters      map[string]*model.Variable // SSM Template parameters
+	mappings           map[string]*model.Variable // Template mappings
+	conditions         map[string]*model.Variable // Template conditions
+	resources          map[string]*model.Variable // Template resources
+	outputs            map[string]*model.Variable // Template outputs
+	supportedResources codegen.StringSet          // Tokens for supported resources
 
 	renderedPseudoParameters bool // True if pseudo parameters have been rendered
 }
@@ -826,44 +827,44 @@ func (ctx *renderContext) renderParameter(attr *ast.MappingValueNode) ([]model.B
 }
 
 // renderMapping renders a CloudFormation mapping as a PCL local variable whose value is the value of the mapping.
-func (ctx *renderContext) renderMapping(attr *ast.MappingValueNode) (model.BodyItem, error) {
+func (ctx *renderContext) renderMapping(attr *ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics, error) {
 	v, ok := ctx.mappings[keyString(attr)]
 	contract.Assert(ok)
 
 	m, err := ctx.renderValue(attr.Value)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	return &model.Attribute{
 		Name:  v.Name,
 		Value: m,
-	}, nil
+	}, nil, nil
 }
 
 // renderCondition renders a CloudFormation condition as a PCL local variable whose value is the value of the
 // condition.
-func (ctx *renderContext) renderCondition(attr *ast.MappingValueNode) (model.BodyItem, error) {
+func (ctx *renderContext) renderCondition(attr *ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics, error) {
 	v, ok := ctx.conditions[keyString(attr)]
 	contract.Assert(ok)
 
 	m, err := ctx.renderValue(attr.Value)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	return &model.Attribute{
 		Name:  v.Name,
 		Value: m,
-	}, nil
+	}, nil, nil
 }
 
 // renderResource renders a CloudFormation resource as a PCL resource.
-func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.BodyItem, error) {
+func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics, error) {
 	name := keyString(attr)
 	values, ok := mapValues(attr.Value)
 	if !ok {
-		return nil, fmt.Errorf("resource '%v' must be a mapping", name)
+		return nil, nil, fmt.Errorf("resource '%v' must be a mapping", name)
 	}
 
 	resourceVar, ok := ctx.resources[name]
@@ -871,17 +872,19 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 
 	var token string
 	var items []model.BodyItem
+	var diagnostics hcl.Diagnostics
+
 	for _, f := range values {
 		switch keyString(f) {
 		case "CreationPolicy", "DeletionPolicy", "Metadata", "Properties", "UpdatePolicy", "UpdateReplacePolicy":
 			subValues, ok := mapValues(f.Value)
 			if !ok {
-				return nil, fmt.Errorf("'%v' must be a mapping", keyString(f))
+				return nil, diagnostics, fmt.Errorf("'%v' must be a mapping", keyString(f))
 			}
 			for _, sf := range subValues {
 				sv, err := ctx.renderValue(sf.Value)
 				if err != nil {
-					return nil, err
+					return nil, diagnostics, err
 				}
 				items = append(items, &model.Attribute{
 					Name:  camel(keyString(sf)),
@@ -896,18 +899,18 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 			case ast.SequenceType:
 				arr = f.Value.(*ast.SequenceNode).Values
 			default:
-				return nil, fmt.Errorf("the \"DependsOn\" attribute for resource '%v' must be a string or list of strings", name)
+				return nil, diagnostics, fmt.Errorf("the \"DependsOn\" attribute for resource '%v' must be a string or list of strings", name)
 			}
 
 			var refs []model.Expression
 			for _, v := range arr {
 				if v.Type() != ast.StringType {
-					return nil, fmt.Errorf("the \"DependsOn\" attribute for resource '%v' must be a string or list of strings", name)
+					return nil, diagnostics, fmt.Errorf("the \"DependsOn\" attribute for resource '%v' must be a string or list of strings", name)
 				}
 				resourceName := v.(*ast.StringNode).Value
 				resourceVar, ok := ctx.resources[resourceName]
 				if !ok {
-					return nil, fmt.Errorf("unknown resource '%v'", resourceName)
+					return nil, diagnostics, fmt.Errorf("unknown resource '%v'", resourceName)
 				}
 				refs = append(refs, model.VariableReference(resourceVar))
 			}
@@ -926,7 +929,7 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 			})
 		case "Type":
 			if f.Value.Type() != ast.StringType {
-				return nil, fmt.Errorf("the \"Type\" of reosurce '%v' must be a string", name)
+				return nil, diagnostics, fmt.Errorf("the \"Type\" of reosurce '%v' must be a string", name)
 			}
 			cfType := f.Value.(*ast.StringNode).Value
 			resourceType := cfType
@@ -935,29 +938,36 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 				resourceType = fmt.Sprintf("%s::%s::%s", parts[0], strings.ToLower(parts[1]), parts[2])
 			}
 			token = resourceToken(resourceType)
+			if token != "" && !ctx.supportedResources.Has(token) {
+				diagnostics = append(diagnostics, &hcl.Diagnostic{
+					Severity: hcl.DiagWarning,
+					Summary:  "Resource not supported",
+					Detail:   fmt.Sprintf("Resource %q is not yet supported by AWS CloudControl API. Code generated for %q is for reference only.", token, resourceVar.Name),
+				})
+			}
 		case "Version":
 			// Ignore.
 		default:
-			return nil, fmt.Errorf("unsupported property '%v' in resource '%v'", f.Key, name)
+			return nil, diagnostics, fmt.Errorf("unsupported property '%v' in resource '%v'", f.Key, name)
 		}
 	}
 
 	if token == "" {
-		return nil, fmt.Errorf("resource '%v' has no \"Type\" attribute", name)
+		return nil, diagnostics, fmt.Errorf("resource '%v' has no \"Type\" attribute", name)
 	}
 	return &model.Block{
 		Type:   "resource",
 		Labels: []string{resourceVar.Name, token},
 		Body:   &model.Body{Items: items},
-	}, nil
+	}, diagnostics, nil
 }
 
 // renderOutput renders a CloudFormation output as a PCL output.
-func (ctx *renderContext) renderOutput(attr *ast.MappingValueNode) (model.BodyItem, error) {
+func (ctx *renderContext) renderOutput(attr *ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics, error) {
 	name := keyString(attr)
 	values, ok := mapValues(attr.Value)
 	if !ok {
-		return nil, fmt.Errorf("output '%v' must be a mapping", name)
+		return nil, nil, fmt.Errorf("output '%v' must be a mapping", name)
 	}
 
 	outputVar, ok := ctx.outputs[name]
@@ -967,12 +977,12 @@ func (ctx *renderContext) renderOutput(attr *ast.MappingValueNode) (model.BodyIt
 
 	value, ok := valueAt(values, "Value")
 	if !ok {
-		return nil, fmt.Errorf("output '%v' has no \"Value\" attribute", name)
+		return nil, nil, fmt.Errorf("output '%v' has no \"Value\" attribute", name)
 	}
 
 	x, err := ctx.renderValue(value)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	return &model.Block{
@@ -986,29 +996,31 @@ func (ctx *renderContext) renderOutput(attr *ast.MappingValueNode) (model.BodyIt
 				},
 			},
 		},
-	}, nil
+	}, nil, nil
 }
 
 // An objectRenderer renders a mapping value node into a body item.
-type objectRenderer func(*ast.MappingValueNode) (model.BodyItem, error)
+type objectRenderer func(*ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics, error)
 
 // renderObjects is a helper that renders a set of named objects in a mapping. Each named object is passed to the
 // provided renderer.
-func (ctx *renderContext) renderObjects(attr *ast.MappingValueNode, render objectRenderer) ([]model.BodyItem, error) {
+func (ctx *renderContext) renderObjects(attr *ast.MappingValueNode, render objectRenderer) ([]model.BodyItem, hcl.Diagnostics, error) {
 	values, ok := mapValues(attr.Value)
 	if !ok {
-		return nil, fmt.Errorf("%s must be a mapping", keyString(attr))
+		return nil, nil, fmt.Errorf("%s must be a mapping", keyString(attr))
 	}
 
 	var items []model.BodyItem
+	var diagnostics hcl.Diagnostics
 	for _, f := range values {
-		i, err := render(f)
+		i, diags, err := render(f)
+		diagnostics = append(diagnostics, diags...)
 		if err != nil {
-			return nil, err
+			return nil, diagnostics, err
 		}
 		items = append(items, i)
 	}
-	return items, nil
+	return items, diagnostics, nil
 }
 
 // assignNames assigns names to the variables used to represent template parameters outputs, SSM values, resources,
@@ -1141,30 +1153,36 @@ func (ctx *renderContext) detectPseudoParameters(node ast.Node) {
 
 // RenderTemplate renders a parsed CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderTemplate(file *ast.File) (*model.Body, error) {
+func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
 	var rootValues []*ast.MappingValueNode
 	switch len(file.Docs) {
 	case 0:
-		return &model.Body{}, nil
+		return &model.Body{}, nil, nil
 	case 1:
 		body := file.Docs[0].Body
 		if values, ok := mapValues(body); ok {
 			rootValues = values
 		} else {
-			return nil, fmt.Errorf("template must be a mapping")
+			return nil, nil, fmt.Errorf("template must be a mapping")
 		}
 	default:
-		return nil, fmt.Errorf("template must contain at most one document")
+		return nil, nil, fmt.Errorf("template must contain at most one document")
+	}
+
+	supportedResourceTokens := codegen.NewStringSet()
+	for res := range metadata.Resources {
+		supportedResourceTokens.Add(res)
 	}
 
 	ctx := &renderContext{
-		pseudoParameters: map[string]*model.Variable{},
-		parameters:       map[string]*model.Variable{},
-		ssmParameters:    map[string]*model.Variable{},
-		mappings:         map[string]*model.Variable{},
-		conditions:       map[string]*model.Variable{},
-		resources:        map[string]*model.Variable{},
-		outputs:          map[string]*model.Variable{},
+		pseudoParameters:   map[string]*model.Variable{},
+		parameters:         map[string]*model.Variable{},
+		ssmParameters:      map[string]*model.Variable{},
+		mappings:           map[string]*model.Variable{},
+		conditions:         map[string]*model.Variable{},
+		resources:          map[string]*model.Variable{},
+		outputs:            map[string]*model.Variable{},
+		supportedResources: supportedResourceTokens,
 	}
 
 	// Declare parameters, mappings, conditions, resources, and outputs.
@@ -1211,13 +1229,14 @@ func RenderTemplate(file *ast.File) (*model.Body, error) {
 	}
 
 	var items []model.BodyItem
+	var diagnostics hcl.Diagnostics
 	for _, f := range rootValues {
 		switch keyString(f) {
 		case "AWSTemplateFormatVersion":
 			// Ignore this
 		case "Description":
 			if f.Value.Type() != ast.StringType {
-				return nil, fmt.Errorf("Description must be a string")
+				return nil, diagnostics, fmt.Errorf("Description must be a string")
 			}
 			//comment = f.Value.(jsonast.String).String()
 		case "Metadata":
@@ -1227,52 +1246,57 @@ func RenderTemplate(file *ast.File) (*model.Body, error) {
 
 			values, ok := mapValues(f.Value)
 			if !ok {
-				return nil, fmt.Errorf("Parameters must be a map")
+				return nil, diagnostics, fmt.Errorf("Parameters must be a map")
 			}
 
 			for _, f := range values {
 				parameter, err := ctx.renderParameter(f)
 				if err != nil {
-					return nil, err
+					return nil, diagnostics, err
 				}
 				items = append(items, parameter...)
 			}
 		case "Mappings":
-			mappings, err := ctx.renderObjects(f, ctx.renderMapping)
+			mappings, diags, err := ctx.renderObjects(f, ctx.renderMapping)
+			diagnostics = append(diagnostics, diags...)
 			if err != nil {
-				return nil, err
+				return nil, diagnostics, err
 			}
 			items = append(items, mappings...)
 		case "Conditions":
 			ctx.renderPseudoParameters(&items)
 
-			conditions, err := ctx.renderObjects(f, ctx.renderCondition)
+			conditions, diags, err := ctx.renderObjects(f, ctx.renderCondition)
+			diagnostics = append(diagnostics, diags...)
 			if err != nil {
-				return nil, err
+				return nil, diagnostics, err
 			}
 			items = append(items, conditions...)
 		case "Transform":
-			return nil, fmt.Errorf("template transforms are not supported")
+			return nil, nil, fmt.Errorf("template transforms are not supported")
 		case "Resources":
 			ctx.renderPseudoParameters(&items)
 
-			resources, err := ctx.renderObjects(f, ctx.renderResource)
+			resources, diags, err := ctx.renderObjects(f, ctx.renderResource)
+			diagnostics = append(diagnostics, diags...)
 			if err != nil {
-				return nil, err
+				return nil, diagnostics, err
 			}
 			items = append(items, resources...)
 		case "Outputs":
 			ctx.renderPseudoParameters(&items)
 
-			outputs, err := ctx.renderObjects(f, ctx.renderOutput)
+			outputs, diags, err := ctx.renderObjects(f, ctx.renderOutput)
+			diagnostics = append(diagnostics, diags...)
 			if err != nil {
-				return nil, err
+				return nil, diagnostics, err
 			}
 			items = append(items, outputs...)
 		default:
-			res, err := ctx.renderResource(f)
+			res, diags, err := ctx.renderResource(f)
+			diagnostics = append(diagnostics, diags...)
 			if err != nil {
-				return nil, err
+				return nil, diagnostics, err
 			}
 			items = append(items, res)
 		}
@@ -1280,22 +1304,22 @@ func RenderTemplate(file *ast.File) (*model.Body, error) {
 
 	body := &model.Body{Items: items}
 	FormatBody(body)
-	return body, nil
+	return body, diagnostics, nil
 }
 
 // RenderFile parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderFile(path string) (*model.Body, error) {
+func RenderFile(path string, metadata *schema.CloudAPIMetadata) (*model.Body, hcl.Diagnostics, error) {
 	file, err := parser.ParseFile(path, parser.ParseComments)
 	if err != nil {
-		return nil, fmt.Errorf("failed to parse %s: %w", path, err)
+		return nil, nil, fmt.Errorf("failed to parse %s: %w", path, err)
 	}
-	return RenderTemplate(file)
+	return RenderTemplate(file, metadata)
 }
 
 // RenderText parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderText(yaml string) (body *model.Body, err error) {
+func RenderText(yaml string, metadata *schema.CloudAPIMetadata) (body *model.Body, diagnostics hcl.Diagnostics, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during YAML parsing: %v", r)
@@ -1303,7 +1327,7 @@ func RenderText(yaml string) (body *model.Body, err error) {
 	}()
 	file, err := parser.ParseBytes([]byte(yaml), parser.ParseComments)
 	if err != nil {
-		return nil, errors.Wrapf(err, "failed to parse %s", yaml)
+		return nil, nil, errors.Wrapf(err, "failed to parse %s", yaml)
 	}
-	return RenderTemplate(file)
+	return RenderTemplate(file, metadata)
 }
