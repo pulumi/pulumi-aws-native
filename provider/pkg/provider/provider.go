@@ -197,6 +197,9 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 
 	loadOptions = append(loadOptions, config.WithAPIOptions(pulumiUserAgent()))
 
+	if glog.V(9) {
+		loadOptions = append(loadOptions, config.WithClientLogMode(aws.LogRequestWithBody|aws.LogResponseWithBody))
+	}
 
 	// Load configuration from the environment, overriding with any config that was explicitly set on the Provider.
 	cfg, err := config.LoadDefaultConfig(ctx, loadOptions...)
