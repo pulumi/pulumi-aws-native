@@ -23,8 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:elasticloadbalancingv2:Listener":
 		r = &Listener{}
+	case "aws-native:elasticloadbalancingv2:ListenerCertificate":
+		r = &ListenerCertificate{}
 	case "aws-native:elasticloadbalancingv2:ListenerRule":
 		r = &ListenerRule{}
+	case "aws-native:elasticloadbalancingv2:LoadBalancer":
+		r = &LoadBalancer{}
+	case "aws-native:elasticloadbalancingv2:TargetGroup":
+		r = &TargetGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -306,6 +306,406 @@ func (o ClusterLoggingPropertiesPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterParameterGroupParameter struct {
+	ParameterName  string `pulumi:"parameterName"`
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
+//
+//          ClusterParameterGroupParameterArgs{...}
+type ClusterParameterGroupParameterInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupParameterOutput() ClusterParameterGroupParameterOutput
+	ToClusterParameterGroupParameterOutputWithContext(context.Context) ClusterParameterGroupParameterOutput
+}
+
+type ClusterParameterGroupParameterArgs struct {
+	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (ClusterParameterGroupParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutput() ClusterParameterGroupParameterOutput {
+	return i.ToClusterParameterGroupParameterOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
+}
+
+// ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
+//
+//          ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+type ClusterParameterGroupParameterArrayInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupParameterArrayOutput() ClusterParameterGroupParameterArrayOutput
+	ToClusterParameterGroupParameterArrayOutputWithContext(context.Context) ClusterParameterGroupParameterArrayOutput
+}
+
+type ClusterParameterGroupParameterArray []ClusterParameterGroupParameterInput
+
+func (ClusterParameterGroupParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArrayOutput() ClusterParameterGroupParameterArrayOutput {
+	return i.ToClusterParameterGroupParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterArrayOutput)
+}
+
+type ClusterParameterGroupParameterOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutput() ClusterParameterGroupParameterOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.ParameterName }).(pulumi.StringOutput)
+}
+
+func (o ClusterParameterGroupParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
+}
+
+type ClusterParameterGroupParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParameterArrayOutput() ClusterParameterGroupParameterArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParameterArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParameterArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterParameterGroupParameter {
+		return vs[0].([]ClusterParameterGroupParameter)[vs[1].(int)]
+	}).(ClusterParameterGroupParameterOutput)
+}
+
+type ClusterParameterGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ClusterParameterGroupTagInput is an input type that accepts ClusterParameterGroupTagArgs and ClusterParameterGroupTagOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupTagInput` via:
+//
+//          ClusterParameterGroupTagArgs{...}
+type ClusterParameterGroupTagInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupTagOutput() ClusterParameterGroupTagOutput
+	ToClusterParameterGroupTagOutputWithContext(context.Context) ClusterParameterGroupTagOutput
+}
+
+type ClusterParameterGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterParameterGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroupTag)(nil)).Elem()
+}
+
+func (i ClusterParameterGroupTagArgs) ToClusterParameterGroupTagOutput() ClusterParameterGroupTagOutput {
+	return i.ToClusterParameterGroupTagOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupTagArgs) ToClusterParameterGroupTagOutputWithContext(ctx context.Context) ClusterParameterGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupTagOutput)
+}
+
+// ClusterParameterGroupTagArrayInput is an input type that accepts ClusterParameterGroupTagArray and ClusterParameterGroupTagArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupTagArrayInput` via:
+//
+//          ClusterParameterGroupTagArray{ ClusterParameterGroupTagArgs{...} }
+type ClusterParameterGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupTagArrayOutput() ClusterParameterGroupTagArrayOutput
+	ToClusterParameterGroupTagArrayOutputWithContext(context.Context) ClusterParameterGroupTagArrayOutput
+}
+
+type ClusterParameterGroupTagArray []ClusterParameterGroupTagInput
+
+func (ClusterParameterGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterParameterGroupTag)(nil)).Elem()
+}
+
+func (i ClusterParameterGroupTagArray) ToClusterParameterGroupTagArrayOutput() ClusterParameterGroupTagArrayOutput {
+	return i.ToClusterParameterGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupTagArray) ToClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) ClusterParameterGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupTagArrayOutput)
+}
+
+type ClusterParameterGroupTagOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroupTag)(nil)).Elem()
+}
+
+func (o ClusterParameterGroupTagOutput) ToClusterParameterGroupTagOutput() ClusterParameterGroupTagOutput {
+	return o
+}
+
+func (o ClusterParameterGroupTagOutput) ToClusterParameterGroupTagOutputWithContext(ctx context.Context) ClusterParameterGroupTagOutput {
+	return o
+}
+
+func (o ClusterParameterGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterParameterGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ClusterParameterGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterParameterGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClusterParameterGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterParameterGroupTag)(nil)).Elem()
+}
+
+func (o ClusterParameterGroupTagArrayOutput) ToClusterParameterGroupTagArrayOutput() ClusterParameterGroupTagArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupTagArrayOutput) ToClusterParameterGroupTagArrayOutputWithContext(ctx context.Context) ClusterParameterGroupTagArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterParameterGroupTag {
+		return vs[0].([]ClusterParameterGroupTag)[vs[1].(int)]
+	}).(ClusterParameterGroupTagOutput)
+}
+
+type ClusterSecurityGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ClusterSecurityGroupTagInput is an input type that accepts ClusterSecurityGroupTagArgs and ClusterSecurityGroupTagOutput values.
+// You can construct a concrete instance of `ClusterSecurityGroupTagInput` via:
+//
+//          ClusterSecurityGroupTagArgs{...}
+type ClusterSecurityGroupTagInput interface {
+	pulumi.Input
+
+	ToClusterSecurityGroupTagOutput() ClusterSecurityGroupTagOutput
+	ToClusterSecurityGroupTagOutputWithContext(context.Context) ClusterSecurityGroupTagOutput
+}
+
+type ClusterSecurityGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterSecurityGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSecurityGroupTag)(nil)).Elem()
+}
+
+func (i ClusterSecurityGroupTagArgs) ToClusterSecurityGroupTagOutput() ClusterSecurityGroupTagOutput {
+	return i.ToClusterSecurityGroupTagOutputWithContext(context.Background())
+}
+
+func (i ClusterSecurityGroupTagArgs) ToClusterSecurityGroupTagOutputWithContext(ctx context.Context) ClusterSecurityGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupTagOutput)
+}
+
+// ClusterSecurityGroupTagArrayInput is an input type that accepts ClusterSecurityGroupTagArray and ClusterSecurityGroupTagArrayOutput values.
+// You can construct a concrete instance of `ClusterSecurityGroupTagArrayInput` via:
+//
+//          ClusterSecurityGroupTagArray{ ClusterSecurityGroupTagArgs{...} }
+type ClusterSecurityGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToClusterSecurityGroupTagArrayOutput() ClusterSecurityGroupTagArrayOutput
+	ToClusterSecurityGroupTagArrayOutputWithContext(context.Context) ClusterSecurityGroupTagArrayOutput
+}
+
+type ClusterSecurityGroupTagArray []ClusterSecurityGroupTagInput
+
+func (ClusterSecurityGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSecurityGroupTag)(nil)).Elem()
+}
+
+func (i ClusterSecurityGroupTagArray) ToClusterSecurityGroupTagArrayOutput() ClusterSecurityGroupTagArrayOutput {
+	return i.ToClusterSecurityGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterSecurityGroupTagArray) ToClusterSecurityGroupTagArrayOutputWithContext(ctx context.Context) ClusterSecurityGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSecurityGroupTagArrayOutput)
+}
+
+type ClusterSecurityGroupTagOutput struct{ *pulumi.OutputState }
+
+func (ClusterSecurityGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSecurityGroupTag)(nil)).Elem()
+}
+
+func (o ClusterSecurityGroupTagOutput) ToClusterSecurityGroupTagOutput() ClusterSecurityGroupTagOutput {
+	return o
+}
+
+func (o ClusterSecurityGroupTagOutput) ToClusterSecurityGroupTagOutputWithContext(ctx context.Context) ClusterSecurityGroupTagOutput {
+	return o
+}
+
+func (o ClusterSecurityGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterSecurityGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ClusterSecurityGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterSecurityGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClusterSecurityGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterSecurityGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSecurityGroupTag)(nil)).Elem()
+}
+
+func (o ClusterSecurityGroupTagArrayOutput) ToClusterSecurityGroupTagArrayOutput() ClusterSecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o ClusterSecurityGroupTagArrayOutput) ToClusterSecurityGroupTagArrayOutputWithContext(ctx context.Context) ClusterSecurityGroupTagArrayOutput {
+	return o
+}
+
+func (o ClusterSecurityGroupTagArrayOutput) Index(i pulumi.IntInput) ClusterSecurityGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterSecurityGroupTag {
+		return vs[0].([]ClusterSecurityGroupTag)[vs[1].(int)]
+	}).(ClusterSecurityGroupTagOutput)
+}
+
+type ClusterSubnetGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ClusterSubnetGroupTagInput is an input type that accepts ClusterSubnetGroupTagArgs and ClusterSubnetGroupTagOutput values.
+// You can construct a concrete instance of `ClusterSubnetGroupTagInput` via:
+//
+//          ClusterSubnetGroupTagArgs{...}
+type ClusterSubnetGroupTagInput interface {
+	pulumi.Input
+
+	ToClusterSubnetGroupTagOutput() ClusterSubnetGroupTagOutput
+	ToClusterSubnetGroupTagOutputWithContext(context.Context) ClusterSubnetGroupTagOutput
+}
+
+type ClusterSubnetGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClusterSubnetGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSubnetGroupTag)(nil)).Elem()
+}
+
+func (i ClusterSubnetGroupTagArgs) ToClusterSubnetGroupTagOutput() ClusterSubnetGroupTagOutput {
+	return i.ToClusterSubnetGroupTagOutputWithContext(context.Background())
+}
+
+func (i ClusterSubnetGroupTagArgs) ToClusterSubnetGroupTagOutputWithContext(ctx context.Context) ClusterSubnetGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSubnetGroupTagOutput)
+}
+
+// ClusterSubnetGroupTagArrayInput is an input type that accepts ClusterSubnetGroupTagArray and ClusterSubnetGroupTagArrayOutput values.
+// You can construct a concrete instance of `ClusterSubnetGroupTagArrayInput` via:
+//
+//          ClusterSubnetGroupTagArray{ ClusterSubnetGroupTagArgs{...} }
+type ClusterSubnetGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToClusterSubnetGroupTagArrayOutput() ClusterSubnetGroupTagArrayOutput
+	ToClusterSubnetGroupTagArrayOutputWithContext(context.Context) ClusterSubnetGroupTagArrayOutput
+}
+
+type ClusterSubnetGroupTagArray []ClusterSubnetGroupTagInput
+
+func (ClusterSubnetGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSubnetGroupTag)(nil)).Elem()
+}
+
+func (i ClusterSubnetGroupTagArray) ToClusterSubnetGroupTagArrayOutput() ClusterSubnetGroupTagArrayOutput {
+	return i.ToClusterSubnetGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterSubnetGroupTagArray) ToClusterSubnetGroupTagArrayOutputWithContext(ctx context.Context) ClusterSubnetGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSubnetGroupTagArrayOutput)
+}
+
+type ClusterSubnetGroupTagOutput struct{ *pulumi.OutputState }
+
+func (ClusterSubnetGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSubnetGroupTag)(nil)).Elem()
+}
+
+func (o ClusterSubnetGroupTagOutput) ToClusterSubnetGroupTagOutput() ClusterSubnetGroupTagOutput {
+	return o
+}
+
+func (o ClusterSubnetGroupTagOutput) ToClusterSubnetGroupTagOutputWithContext(ctx context.Context) ClusterSubnetGroupTagOutput {
+	return o
+}
+
+func (o ClusterSubnetGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterSubnetGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ClusterSubnetGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterSubnetGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClusterSubnetGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterSubnetGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSubnetGroupTag)(nil)).Elem()
+}
+
+func (o ClusterSubnetGroupTagArrayOutput) ToClusterSubnetGroupTagArrayOutput() ClusterSubnetGroupTagArrayOutput {
+	return o
+}
+
+func (o ClusterSubnetGroupTagArrayOutput) ToClusterSubnetGroupTagArrayOutputWithContext(ctx context.Context) ClusterSubnetGroupTagArrayOutput {
+	return o
+}
+
+func (o ClusterSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) ClusterSubnetGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterSubnetGroupTag {
+		return vs[0].([]ClusterSubnetGroupTag)[vs[1].(int)]
+	}).(ClusterSubnetGroupTagOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -420,6 +820,14 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupTagOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(ClusterSecurityGroupTagOutput{})
+	pulumi.RegisterOutputType(ClusterSecurityGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(ClusterSubnetGroupTagOutput{})
+	pulumi.RegisterOutputType(ClusterSubnetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})
 	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 }

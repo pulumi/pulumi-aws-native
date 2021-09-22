@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./fleet";
 export * from "./robot";
+export * from "./robotApplication";
 export * from "./robotApplicationVersion";
 export * from "./simulationApplication";
 export * from "./simulationApplicationVersion";
@@ -17,6 +18,7 @@ export * from "../types/enums/robomaker";
 // Import resources to register:
 import { Fleet } from "./fleet";
 import { Robot } from "./robot";
+import { RobotApplication } from "./robotApplication";
 import { RobotApplicationVersion } from "./robotApplicationVersion";
 import { SimulationApplication } from "./simulationApplication";
 import { SimulationApplicationVersion } from "./simulationApplicationVersion";
@@ -29,6 +31,8 @@ const _module = {
                 return new Fleet(name, <any>undefined, { urn })
             case "aws-native:robomaker:Robot":
                 return new Robot(name, <any>undefined, { urn })
+            case "aws-native:robomaker:RobotApplication":
+                return new RobotApplication(name, <any>undefined, { urn })
             case "aws-native:robomaker:RobotApplicationVersion":
                 return new RobotApplicationVersion(name, <any>undefined, { urn })
             case "aws-native:robomaker:SimulationApplication":

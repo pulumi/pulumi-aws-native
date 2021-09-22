@@ -10,11 +10,86 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CloudFormationProductProvisioningArtifactProperties',
+    'CloudFormationProductTag',
     'CloudFormationProvisionedProductProvisioningParameter',
     'CloudFormationProvisionedProductProvisioningPreferences',
     'CloudFormationProvisionedProductTag',
+    'PortfolioTag',
     'ServiceActionDefinitionParameter',
 ]
+
+@pulumi.output_type
+class CloudFormationProductProvisioningArtifactProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableTemplateValidation":
+            suggest = "disable_template_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductProvisioningArtifactProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductProvisioningArtifactProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductProvisioningArtifactProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 info: Any,
+                 description: Optional[str] = None,
+                 disable_template_validation: Optional[bool] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "info", info)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_template_validation is not None:
+            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableTemplateValidation")
+    def disable_template_validation(self) -> Optional[bool]:
+        return pulumi.get(self, "disable_template_validation")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CloudFormationProductTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class CloudFormationProvisionedProductProvisioningParameter(dict):
@@ -127,6 +202,25 @@ class CloudFormationProvisionedProductProvisioningPreferences(dict):
 
 @pulumi.output_type
 class CloudFormationProvisionedProductTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PortfolioTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

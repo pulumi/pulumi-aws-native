@@ -10,11 +10,93 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CloudFormationProductProvisioningArtifactPropertiesArgs',
+    'CloudFormationProductTagArgs',
     'CloudFormationProvisionedProductProvisioningParameterArgs',
     'CloudFormationProvisionedProductProvisioningPreferencesArgs',
     'CloudFormationProvisionedProductTagArgs',
+    'PortfolioTagArgs',
     'ServiceActionDefinitionParameterArgs',
 ]
+
+@pulumi.input_type
+class CloudFormationProductProvisioningArtifactPropertiesArgs:
+    def __init__(__self__, *,
+                 info: Any,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_template_validation: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "info", info)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_template_validation is not None:
+            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        return pulumi.get(self, "info")
+
+    @info.setter
+    def info(self, value: Any):
+        pulumi.set(self, "info", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableTemplateValidation")
+    def disable_template_validation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_template_validation")
+
+    @disable_template_validation.setter
+    def disable_template_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_template_validation", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CloudFormationProductTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class CloudFormationProvisionedProductProvisioningParameterArgs:
@@ -134,6 +216,33 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
 
 @pulumi.input_type
 class CloudFormationProvisionedProductTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class PortfolioTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

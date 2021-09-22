@@ -10,6 +10,372 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AliasAliasRoutingConfiguration struct {
+	AdditionalVersionWeights []AliasVersionWeight `pulumi:"additionalVersionWeights"`
+}
+
+// AliasAliasRoutingConfigurationInput is an input type that accepts AliasAliasRoutingConfigurationArgs and AliasAliasRoutingConfigurationOutput values.
+// You can construct a concrete instance of `AliasAliasRoutingConfigurationInput` via:
+//
+//          AliasAliasRoutingConfigurationArgs{...}
+type AliasAliasRoutingConfigurationInput interface {
+	pulumi.Input
+
+	ToAliasAliasRoutingConfigurationOutput() AliasAliasRoutingConfigurationOutput
+	ToAliasAliasRoutingConfigurationOutputWithContext(context.Context) AliasAliasRoutingConfigurationOutput
+}
+
+type AliasAliasRoutingConfigurationArgs struct {
+	AdditionalVersionWeights AliasVersionWeightArrayInput `pulumi:"additionalVersionWeights"`
+}
+
+func (AliasAliasRoutingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationOutput() AliasAliasRoutingConfigurationOutput {
+	return i.ToAliasAliasRoutingConfigurationOutputWithContext(context.Background())
+}
+
+func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasAliasRoutingConfigurationOutput)
+}
+
+func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
+	return i.ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AliasAliasRoutingConfigurationArgs) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasAliasRoutingConfigurationOutput).ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx)
+}
+
+// AliasAliasRoutingConfigurationPtrInput is an input type that accepts AliasAliasRoutingConfigurationArgs, AliasAliasRoutingConfigurationPtr and AliasAliasRoutingConfigurationPtrOutput values.
+// You can construct a concrete instance of `AliasAliasRoutingConfigurationPtrInput` via:
+//
+//          AliasAliasRoutingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type AliasAliasRoutingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput
+	ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Context) AliasAliasRoutingConfigurationPtrOutput
+}
+
+type aliasAliasRoutingConfigurationPtrType AliasAliasRoutingConfigurationArgs
+
+func AliasAliasRoutingConfigurationPtr(v *AliasAliasRoutingConfigurationArgs) AliasAliasRoutingConfigurationPtrInput {
+	return (*aliasAliasRoutingConfigurationPtrType)(v)
+}
+
+func (*aliasAliasRoutingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (i *aliasAliasRoutingConfigurationPtrType) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
+	return i.ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aliasAliasRoutingConfigurationPtrType) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasAliasRoutingConfigurationPtrOutput)
+}
+
+type AliasAliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AliasAliasRoutingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationOutput() AliasAliasRoutingConfigurationOutput {
+	return o
+}
+
+func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationOutput {
+	return o
+}
+
+func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
+	return o.ToAliasAliasRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AliasAliasRoutingConfigurationOutput) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasAliasRoutingConfiguration) *AliasAliasRoutingConfiguration {
+		return &v
+	}).(AliasAliasRoutingConfigurationPtrOutput)
+}
+
+func (o AliasAliasRoutingConfigurationOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
+	return o.ApplyT(func(v AliasAliasRoutingConfiguration) []AliasVersionWeight { return v.AdditionalVersionWeights }).(AliasVersionWeightArrayOutput)
+}
+
+type AliasAliasRoutingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AliasAliasRoutingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasAliasRoutingConfiguration)(nil)).Elem()
+}
+
+func (o AliasAliasRoutingConfigurationPtrOutput) ToAliasAliasRoutingConfigurationPtrOutput() AliasAliasRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasAliasRoutingConfigurationPtrOutput) ToAliasAliasRoutingConfigurationPtrOutputWithContext(ctx context.Context) AliasAliasRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasAliasRoutingConfigurationPtrOutput) Elem() AliasAliasRoutingConfigurationOutput {
+	return o.ApplyT(func(v *AliasAliasRoutingConfiguration) AliasAliasRoutingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AliasAliasRoutingConfiguration
+		return ret
+	}).(AliasAliasRoutingConfigurationOutput)
+}
+
+func (o AliasAliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
+	return o.ApplyT(func(v *AliasAliasRoutingConfiguration) []AliasVersionWeight {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalVersionWeights
+	}).(AliasVersionWeightArrayOutput)
+}
+
+type AliasProvisionedConcurrencyConfiguration struct {
+	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
+}
+
+// AliasProvisionedConcurrencyConfigurationInput is an input type that accepts AliasProvisionedConcurrencyConfigurationArgs and AliasProvisionedConcurrencyConfigurationOutput values.
+// You can construct a concrete instance of `AliasProvisionedConcurrencyConfigurationInput` via:
+//
+//          AliasProvisionedConcurrencyConfigurationArgs{...}
+type AliasProvisionedConcurrencyConfigurationInput interface {
+	pulumi.Input
+
+	ToAliasProvisionedConcurrencyConfigurationOutput() AliasProvisionedConcurrencyConfigurationOutput
+	ToAliasProvisionedConcurrencyConfigurationOutputWithContext(context.Context) AliasProvisionedConcurrencyConfigurationOutput
+}
+
+type AliasProvisionedConcurrencyConfigurationArgs struct {
+	ProvisionedConcurrentExecutions pulumi.IntInput `pulumi:"provisionedConcurrentExecutions"`
+}
+
+func (AliasProvisionedConcurrencyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationOutput() AliasProvisionedConcurrencyConfigurationOutput {
+	return i.ToAliasProvisionedConcurrencyConfigurationOutputWithContext(context.Background())
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasProvisionedConcurrencyConfigurationOutput)
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return i.ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AliasProvisionedConcurrencyConfigurationArgs) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasProvisionedConcurrencyConfigurationOutput).ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx)
+}
+
+// AliasProvisionedConcurrencyConfigurationPtrInput is an input type that accepts AliasProvisionedConcurrencyConfigurationArgs, AliasProvisionedConcurrencyConfigurationPtr and AliasProvisionedConcurrencyConfigurationPtrOutput values.
+// You can construct a concrete instance of `AliasProvisionedConcurrencyConfigurationPtrInput` via:
+//
+//          AliasProvisionedConcurrencyConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type AliasProvisionedConcurrencyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput
+	ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput
+}
+
+type aliasProvisionedConcurrencyConfigurationPtrType AliasProvisionedConcurrencyConfigurationArgs
+
+func AliasProvisionedConcurrencyConfigurationPtr(v *AliasProvisionedConcurrencyConfigurationArgs) AliasProvisionedConcurrencyConfigurationPtrInput {
+	return (*aliasProvisionedConcurrencyConfigurationPtrType)(v)
+}
+
+func (*aliasProvisionedConcurrencyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i *aliasProvisionedConcurrencyConfigurationPtrType) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return i.ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *aliasProvisionedConcurrencyConfigurationPtrType) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+type AliasProvisionedConcurrencyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AliasProvisionedConcurrencyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationOutput() AliasProvisionedConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasProvisionedConcurrencyConfiguration) *AliasProvisionedConcurrencyConfiguration {
+		return &v
+	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+func (o AliasProvisionedConcurrencyConfigurationOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
+	return o.ApplyT(func(v AliasProvisionedConcurrencyConfiguration) int { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
+}
+
+type AliasProvisionedConcurrencyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AliasProvisionedConcurrencyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AliasProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutput() AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ToAliasProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) AliasProvisionedConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) Elem() AliasProvisionedConcurrencyConfigurationOutput {
+	return o.ApplyT(func(v *AliasProvisionedConcurrencyConfiguration) AliasProvisionedConcurrencyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AliasProvisionedConcurrencyConfiguration
+		return ret
+	}).(AliasProvisionedConcurrencyConfigurationOutput)
+}
+
+func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrentExecutions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AliasProvisionedConcurrencyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisionedConcurrentExecutions
+	}).(pulumi.IntPtrOutput)
+}
+
+type AliasVersionWeight struct {
+	FunctionVersion string  `pulumi:"functionVersion"`
+	FunctionWeight  float64 `pulumi:"functionWeight"`
+}
+
+// AliasVersionWeightInput is an input type that accepts AliasVersionWeightArgs and AliasVersionWeightOutput values.
+// You can construct a concrete instance of `AliasVersionWeightInput` via:
+//
+//          AliasVersionWeightArgs{...}
+type AliasVersionWeightInput interface {
+	pulumi.Input
+
+	ToAliasVersionWeightOutput() AliasVersionWeightOutput
+	ToAliasVersionWeightOutputWithContext(context.Context) AliasVersionWeightOutput
+}
+
+type AliasVersionWeightArgs struct {
+	FunctionVersion pulumi.StringInput  `pulumi:"functionVersion"`
+	FunctionWeight  pulumi.Float64Input `pulumi:"functionWeight"`
+}
+
+func (AliasVersionWeightArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasVersionWeight)(nil)).Elem()
+}
+
+func (i AliasVersionWeightArgs) ToAliasVersionWeightOutput() AliasVersionWeightOutput {
+	return i.ToAliasVersionWeightOutputWithContext(context.Background())
+}
+
+func (i AliasVersionWeightArgs) ToAliasVersionWeightOutputWithContext(ctx context.Context) AliasVersionWeightOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasVersionWeightOutput)
+}
+
+// AliasVersionWeightArrayInput is an input type that accepts AliasVersionWeightArray and AliasVersionWeightArrayOutput values.
+// You can construct a concrete instance of `AliasVersionWeightArrayInput` via:
+//
+//          AliasVersionWeightArray{ AliasVersionWeightArgs{...} }
+type AliasVersionWeightArrayInput interface {
+	pulumi.Input
+
+	ToAliasVersionWeightArrayOutput() AliasVersionWeightArrayOutput
+	ToAliasVersionWeightArrayOutputWithContext(context.Context) AliasVersionWeightArrayOutput
+}
+
+type AliasVersionWeightArray []AliasVersionWeightInput
+
+func (AliasVersionWeightArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasVersionWeight)(nil)).Elem()
+}
+
+func (i AliasVersionWeightArray) ToAliasVersionWeightArrayOutput() AliasVersionWeightArrayOutput {
+	return i.ToAliasVersionWeightArrayOutputWithContext(context.Background())
+}
+
+func (i AliasVersionWeightArray) ToAliasVersionWeightArrayOutputWithContext(ctx context.Context) AliasVersionWeightArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AliasVersionWeightArrayOutput)
+}
+
+type AliasVersionWeightOutput struct{ *pulumi.OutputState }
+
+func (AliasVersionWeightOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AliasVersionWeight)(nil)).Elem()
+}
+
+func (o AliasVersionWeightOutput) ToAliasVersionWeightOutput() AliasVersionWeightOutput {
+	return o
+}
+
+func (o AliasVersionWeightOutput) ToAliasVersionWeightOutputWithContext(ctx context.Context) AliasVersionWeightOutput {
+	return o
+}
+
+func (o AliasVersionWeightOutput) FunctionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v AliasVersionWeight) string { return v.FunctionVersion }).(pulumi.StringOutput)
+}
+
+func (o AliasVersionWeightOutput) FunctionWeight() pulumi.Float64Output {
+	return o.ApplyT(func(v AliasVersionWeight) float64 { return v.FunctionWeight }).(pulumi.Float64Output)
+}
+
+type AliasVersionWeightArrayOutput struct{ *pulumi.OutputState }
+
+func (AliasVersionWeightArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AliasVersionWeight)(nil)).Elem()
+}
+
+func (o AliasVersionWeightArrayOutput) ToAliasVersionWeightArrayOutput() AliasVersionWeightArrayOutput {
+	return o
+}
+
+func (o AliasVersionWeightArrayOutput) ToAliasVersionWeightArrayOutputWithContext(ctx context.Context) AliasVersionWeightArrayOutput {
+	return o
+}
+
+func (o AliasVersionWeightArrayOutput) Index(i pulumi.IntInput) AliasVersionWeightOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AliasVersionWeight {
+		return vs[0].([]AliasVersionWeight)[vs[1].(int)]
+	}).(AliasVersionWeightOutput)
+}
+
 // When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
 type CodeSigningConfigAllowedPublishers struct {
 	// List of Signing profile version Arns
@@ -290,6 +656,420 @@ func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeploy
 		}
 		return &v.UntrustedArtifactOnDeployment
 	}).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
+}
+
+type EventInvokeConfigDestinationConfig struct {
+	OnFailure *EventInvokeConfigOnFailure `pulumi:"onFailure"`
+	OnSuccess *EventInvokeConfigOnSuccess `pulumi:"onSuccess"`
+}
+
+// EventInvokeConfigDestinationConfigInput is an input type that accepts EventInvokeConfigDestinationConfigArgs and EventInvokeConfigDestinationConfigOutput values.
+// You can construct a concrete instance of `EventInvokeConfigDestinationConfigInput` via:
+//
+//          EventInvokeConfigDestinationConfigArgs{...}
+type EventInvokeConfigDestinationConfigInput interface {
+	pulumi.Input
+
+	ToEventInvokeConfigDestinationConfigOutput() EventInvokeConfigDestinationConfigOutput
+	ToEventInvokeConfigDestinationConfigOutputWithContext(context.Context) EventInvokeConfigDestinationConfigOutput
+}
+
+type EventInvokeConfigDestinationConfigArgs struct {
+	OnFailure EventInvokeConfigOnFailurePtrInput `pulumi:"onFailure"`
+	OnSuccess EventInvokeConfigOnSuccessPtrInput `pulumi:"onSuccess"`
+}
+
+func (EventInvokeConfigDestinationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeConfigDestinationConfig)(nil)).Elem()
+}
+
+func (i EventInvokeConfigDestinationConfigArgs) ToEventInvokeConfigDestinationConfigOutput() EventInvokeConfigDestinationConfigOutput {
+	return i.ToEventInvokeConfigDestinationConfigOutputWithContext(context.Background())
+}
+
+func (i EventInvokeConfigDestinationConfigArgs) ToEventInvokeConfigDestinationConfigOutputWithContext(ctx context.Context) EventInvokeConfigDestinationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigDestinationConfigOutput)
+}
+
+func (i EventInvokeConfigDestinationConfigArgs) ToEventInvokeConfigDestinationConfigPtrOutput() EventInvokeConfigDestinationConfigPtrOutput {
+	return i.ToEventInvokeConfigDestinationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventInvokeConfigDestinationConfigArgs) ToEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx context.Context) EventInvokeConfigDestinationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigDestinationConfigOutput).ToEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx)
+}
+
+// EventInvokeConfigDestinationConfigPtrInput is an input type that accepts EventInvokeConfigDestinationConfigArgs, EventInvokeConfigDestinationConfigPtr and EventInvokeConfigDestinationConfigPtrOutput values.
+// You can construct a concrete instance of `EventInvokeConfigDestinationConfigPtrInput` via:
+//
+//          EventInvokeConfigDestinationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EventInvokeConfigDestinationConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventInvokeConfigDestinationConfigPtrOutput() EventInvokeConfigDestinationConfigPtrOutput
+	ToEventInvokeConfigDestinationConfigPtrOutputWithContext(context.Context) EventInvokeConfigDestinationConfigPtrOutput
+}
+
+type eventInvokeConfigDestinationConfigPtrType EventInvokeConfigDestinationConfigArgs
+
+func EventInvokeConfigDestinationConfigPtr(v *EventInvokeConfigDestinationConfigArgs) EventInvokeConfigDestinationConfigPtrInput {
+	return (*eventInvokeConfigDestinationConfigPtrType)(v)
+}
+
+func (*eventInvokeConfigDestinationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventInvokeConfigDestinationConfig)(nil)).Elem()
+}
+
+func (i *eventInvokeConfigDestinationConfigPtrType) ToEventInvokeConfigDestinationConfigPtrOutput() EventInvokeConfigDestinationConfigPtrOutput {
+	return i.ToEventInvokeConfigDestinationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventInvokeConfigDestinationConfigPtrType) ToEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx context.Context) EventInvokeConfigDestinationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigDestinationConfigPtrOutput)
+}
+
+type EventInvokeConfigDestinationConfigOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeConfigDestinationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeConfigDestinationConfig)(nil)).Elem()
+}
+
+func (o EventInvokeConfigDestinationConfigOutput) ToEventInvokeConfigDestinationConfigOutput() EventInvokeConfigDestinationConfigOutput {
+	return o
+}
+
+func (o EventInvokeConfigDestinationConfigOutput) ToEventInvokeConfigDestinationConfigOutputWithContext(ctx context.Context) EventInvokeConfigDestinationConfigOutput {
+	return o
+}
+
+func (o EventInvokeConfigDestinationConfigOutput) ToEventInvokeConfigDestinationConfigPtrOutput() EventInvokeConfigDestinationConfigPtrOutput {
+	return o.ToEventInvokeConfigDestinationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventInvokeConfigDestinationConfigOutput) ToEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx context.Context) EventInvokeConfigDestinationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventInvokeConfigDestinationConfig) *EventInvokeConfigDestinationConfig {
+		return &v
+	}).(EventInvokeConfigDestinationConfigPtrOutput)
+}
+
+func (o EventInvokeConfigDestinationConfigOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
+	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure { return v.OnFailure }).(EventInvokeConfigOnFailurePtrOutput)
+}
+
+func (o EventInvokeConfigDestinationConfigOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
+	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess { return v.OnSuccess }).(EventInvokeConfigOnSuccessPtrOutput)
+}
+
+type EventInvokeConfigDestinationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeConfigDestinationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventInvokeConfigDestinationConfig)(nil)).Elem()
+}
+
+func (o EventInvokeConfigDestinationConfigPtrOutput) ToEventInvokeConfigDestinationConfigPtrOutput() EventInvokeConfigDestinationConfigPtrOutput {
+	return o
+}
+
+func (o EventInvokeConfigDestinationConfigPtrOutput) ToEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx context.Context) EventInvokeConfigDestinationConfigPtrOutput {
+	return o
+}
+
+func (o EventInvokeConfigDestinationConfigPtrOutput) Elem() EventInvokeConfigDestinationConfigOutput {
+	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) EventInvokeConfigDestinationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventInvokeConfigDestinationConfig
+		return ret
+	}).(EventInvokeConfigDestinationConfigOutput)
+}
+
+func (o EventInvokeConfigDestinationConfigPtrOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
+	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure {
+		if v == nil {
+			return nil
+		}
+		return v.OnFailure
+	}).(EventInvokeConfigOnFailurePtrOutput)
+}
+
+func (o EventInvokeConfigDestinationConfigPtrOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
+	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess {
+		if v == nil {
+			return nil
+		}
+		return v.OnSuccess
+	}).(EventInvokeConfigOnSuccessPtrOutput)
+}
+
+type EventInvokeConfigOnFailure struct {
+	Destination string `pulumi:"destination"`
+}
+
+// EventInvokeConfigOnFailureInput is an input type that accepts EventInvokeConfigOnFailureArgs and EventInvokeConfigOnFailureOutput values.
+// You can construct a concrete instance of `EventInvokeConfigOnFailureInput` via:
+//
+//          EventInvokeConfigOnFailureArgs{...}
+type EventInvokeConfigOnFailureInput interface {
+	pulumi.Input
+
+	ToEventInvokeConfigOnFailureOutput() EventInvokeConfigOnFailureOutput
+	ToEventInvokeConfigOnFailureOutputWithContext(context.Context) EventInvokeConfigOnFailureOutput
+}
+
+type EventInvokeConfigOnFailureArgs struct {
+	Destination pulumi.StringInput `pulumi:"destination"`
+}
+
+func (EventInvokeConfigOnFailureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeConfigOnFailure)(nil)).Elem()
+}
+
+func (i EventInvokeConfigOnFailureArgs) ToEventInvokeConfigOnFailureOutput() EventInvokeConfigOnFailureOutput {
+	return i.ToEventInvokeConfigOnFailureOutputWithContext(context.Background())
+}
+
+func (i EventInvokeConfigOnFailureArgs) ToEventInvokeConfigOnFailureOutputWithContext(ctx context.Context) EventInvokeConfigOnFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigOnFailureOutput)
+}
+
+func (i EventInvokeConfigOnFailureArgs) ToEventInvokeConfigOnFailurePtrOutput() EventInvokeConfigOnFailurePtrOutput {
+	return i.ToEventInvokeConfigOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (i EventInvokeConfigOnFailureArgs) ToEventInvokeConfigOnFailurePtrOutputWithContext(ctx context.Context) EventInvokeConfigOnFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigOnFailureOutput).ToEventInvokeConfigOnFailurePtrOutputWithContext(ctx)
+}
+
+// EventInvokeConfigOnFailurePtrInput is an input type that accepts EventInvokeConfigOnFailureArgs, EventInvokeConfigOnFailurePtr and EventInvokeConfigOnFailurePtrOutput values.
+// You can construct a concrete instance of `EventInvokeConfigOnFailurePtrInput` via:
+//
+//          EventInvokeConfigOnFailureArgs{...}
+//
+//  or:
+//
+//          nil
+type EventInvokeConfigOnFailurePtrInput interface {
+	pulumi.Input
+
+	ToEventInvokeConfigOnFailurePtrOutput() EventInvokeConfigOnFailurePtrOutput
+	ToEventInvokeConfigOnFailurePtrOutputWithContext(context.Context) EventInvokeConfigOnFailurePtrOutput
+}
+
+type eventInvokeConfigOnFailurePtrType EventInvokeConfigOnFailureArgs
+
+func EventInvokeConfigOnFailurePtr(v *EventInvokeConfigOnFailureArgs) EventInvokeConfigOnFailurePtrInput {
+	return (*eventInvokeConfigOnFailurePtrType)(v)
+}
+
+func (*eventInvokeConfigOnFailurePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventInvokeConfigOnFailure)(nil)).Elem()
+}
+
+func (i *eventInvokeConfigOnFailurePtrType) ToEventInvokeConfigOnFailurePtrOutput() EventInvokeConfigOnFailurePtrOutput {
+	return i.ToEventInvokeConfigOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (i *eventInvokeConfigOnFailurePtrType) ToEventInvokeConfigOnFailurePtrOutputWithContext(ctx context.Context) EventInvokeConfigOnFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigOnFailurePtrOutput)
+}
+
+type EventInvokeConfigOnFailureOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeConfigOnFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeConfigOnFailure)(nil)).Elem()
+}
+
+func (o EventInvokeConfigOnFailureOutput) ToEventInvokeConfigOnFailureOutput() EventInvokeConfigOnFailureOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnFailureOutput) ToEventInvokeConfigOnFailureOutputWithContext(ctx context.Context) EventInvokeConfigOnFailureOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnFailureOutput) ToEventInvokeConfigOnFailurePtrOutput() EventInvokeConfigOnFailurePtrOutput {
+	return o.ToEventInvokeConfigOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (o EventInvokeConfigOnFailureOutput) ToEventInvokeConfigOnFailurePtrOutputWithContext(ctx context.Context) EventInvokeConfigOnFailurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventInvokeConfigOnFailure) *EventInvokeConfigOnFailure {
+		return &v
+	}).(EventInvokeConfigOnFailurePtrOutput)
+}
+
+func (o EventInvokeConfigOnFailureOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v EventInvokeConfigOnFailure) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+type EventInvokeConfigOnFailurePtrOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeConfigOnFailurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventInvokeConfigOnFailure)(nil)).Elem()
+}
+
+func (o EventInvokeConfigOnFailurePtrOutput) ToEventInvokeConfigOnFailurePtrOutput() EventInvokeConfigOnFailurePtrOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnFailurePtrOutput) ToEventInvokeConfigOnFailurePtrOutputWithContext(ctx context.Context) EventInvokeConfigOnFailurePtrOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnFailurePtrOutput) Elem() EventInvokeConfigOnFailureOutput {
+	return o.ApplyT(func(v *EventInvokeConfigOnFailure) EventInvokeConfigOnFailure {
+		if v != nil {
+			return *v
+		}
+		var ret EventInvokeConfigOnFailure
+		return ret
+	}).(EventInvokeConfigOnFailureOutput)
+}
+
+func (o EventInvokeConfigOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventInvokeConfigOnFailure) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventInvokeConfigOnSuccess struct {
+	Destination string `pulumi:"destination"`
+}
+
+// EventInvokeConfigOnSuccessInput is an input type that accepts EventInvokeConfigOnSuccessArgs and EventInvokeConfigOnSuccessOutput values.
+// You can construct a concrete instance of `EventInvokeConfigOnSuccessInput` via:
+//
+//          EventInvokeConfigOnSuccessArgs{...}
+type EventInvokeConfigOnSuccessInput interface {
+	pulumi.Input
+
+	ToEventInvokeConfigOnSuccessOutput() EventInvokeConfigOnSuccessOutput
+	ToEventInvokeConfigOnSuccessOutputWithContext(context.Context) EventInvokeConfigOnSuccessOutput
+}
+
+type EventInvokeConfigOnSuccessArgs struct {
+	Destination pulumi.StringInput `pulumi:"destination"`
+}
+
+func (EventInvokeConfigOnSuccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeConfigOnSuccess)(nil)).Elem()
+}
+
+func (i EventInvokeConfigOnSuccessArgs) ToEventInvokeConfigOnSuccessOutput() EventInvokeConfigOnSuccessOutput {
+	return i.ToEventInvokeConfigOnSuccessOutputWithContext(context.Background())
+}
+
+func (i EventInvokeConfigOnSuccessArgs) ToEventInvokeConfigOnSuccessOutputWithContext(ctx context.Context) EventInvokeConfigOnSuccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigOnSuccessOutput)
+}
+
+func (i EventInvokeConfigOnSuccessArgs) ToEventInvokeConfigOnSuccessPtrOutput() EventInvokeConfigOnSuccessPtrOutput {
+	return i.ToEventInvokeConfigOnSuccessPtrOutputWithContext(context.Background())
+}
+
+func (i EventInvokeConfigOnSuccessArgs) ToEventInvokeConfigOnSuccessPtrOutputWithContext(ctx context.Context) EventInvokeConfigOnSuccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigOnSuccessOutput).ToEventInvokeConfigOnSuccessPtrOutputWithContext(ctx)
+}
+
+// EventInvokeConfigOnSuccessPtrInput is an input type that accepts EventInvokeConfigOnSuccessArgs, EventInvokeConfigOnSuccessPtr and EventInvokeConfigOnSuccessPtrOutput values.
+// You can construct a concrete instance of `EventInvokeConfigOnSuccessPtrInput` via:
+//
+//          EventInvokeConfigOnSuccessArgs{...}
+//
+//  or:
+//
+//          nil
+type EventInvokeConfigOnSuccessPtrInput interface {
+	pulumi.Input
+
+	ToEventInvokeConfigOnSuccessPtrOutput() EventInvokeConfigOnSuccessPtrOutput
+	ToEventInvokeConfigOnSuccessPtrOutputWithContext(context.Context) EventInvokeConfigOnSuccessPtrOutput
+}
+
+type eventInvokeConfigOnSuccessPtrType EventInvokeConfigOnSuccessArgs
+
+func EventInvokeConfigOnSuccessPtr(v *EventInvokeConfigOnSuccessArgs) EventInvokeConfigOnSuccessPtrInput {
+	return (*eventInvokeConfigOnSuccessPtrType)(v)
+}
+
+func (*eventInvokeConfigOnSuccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventInvokeConfigOnSuccess)(nil)).Elem()
+}
+
+func (i *eventInvokeConfigOnSuccessPtrType) ToEventInvokeConfigOnSuccessPtrOutput() EventInvokeConfigOnSuccessPtrOutput {
+	return i.ToEventInvokeConfigOnSuccessPtrOutputWithContext(context.Background())
+}
+
+func (i *eventInvokeConfigOnSuccessPtrType) ToEventInvokeConfigOnSuccessPtrOutputWithContext(ctx context.Context) EventInvokeConfigOnSuccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigOnSuccessPtrOutput)
+}
+
+type EventInvokeConfigOnSuccessOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeConfigOnSuccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventInvokeConfigOnSuccess)(nil)).Elem()
+}
+
+func (o EventInvokeConfigOnSuccessOutput) ToEventInvokeConfigOnSuccessOutput() EventInvokeConfigOnSuccessOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnSuccessOutput) ToEventInvokeConfigOnSuccessOutputWithContext(ctx context.Context) EventInvokeConfigOnSuccessOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnSuccessOutput) ToEventInvokeConfigOnSuccessPtrOutput() EventInvokeConfigOnSuccessPtrOutput {
+	return o.ToEventInvokeConfigOnSuccessPtrOutputWithContext(context.Background())
+}
+
+func (o EventInvokeConfigOnSuccessOutput) ToEventInvokeConfigOnSuccessPtrOutputWithContext(ctx context.Context) EventInvokeConfigOnSuccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventInvokeConfigOnSuccess) *EventInvokeConfigOnSuccess {
+		return &v
+	}).(EventInvokeConfigOnSuccessPtrOutput)
+}
+
+func (o EventInvokeConfigOnSuccessOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v EventInvokeConfigOnSuccess) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+type EventInvokeConfigOnSuccessPtrOutput struct{ *pulumi.OutputState }
+
+func (EventInvokeConfigOnSuccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventInvokeConfigOnSuccess)(nil)).Elem()
+}
+
+func (o EventInvokeConfigOnSuccessPtrOutput) ToEventInvokeConfigOnSuccessPtrOutput() EventInvokeConfigOnSuccessPtrOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnSuccessPtrOutput) ToEventInvokeConfigOnSuccessPtrOutputWithContext(ctx context.Context) EventInvokeConfigOnSuccessPtrOutput {
+	return o
+}
+
+func (o EventInvokeConfigOnSuccessPtrOutput) Elem() EventInvokeConfigOnSuccessOutput {
+	return o.ApplyT(func(v *EventInvokeConfigOnSuccess) EventInvokeConfigOnSuccess {
+		if v != nil {
+			return *v
+		}
+		var ret EventInvokeConfigOnSuccess
+		return ret
+	}).(EventInvokeConfigOnSuccessOutput)
+}
+
+func (o EventInvokeConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventInvokeConfigOnSuccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
 }
 
 // (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
@@ -2142,11 +2922,319 @@ func (o FunctionVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type LayerVersionContent struct {
+	S3Bucket        string  `pulumi:"s3Bucket"`
+	S3Key           string  `pulumi:"s3Key"`
+	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
+}
+
+// LayerVersionContentInput is an input type that accepts LayerVersionContentArgs and LayerVersionContentOutput values.
+// You can construct a concrete instance of `LayerVersionContentInput` via:
+//
+//          LayerVersionContentArgs{...}
+type LayerVersionContentInput interface {
+	pulumi.Input
+
+	ToLayerVersionContentOutput() LayerVersionContentOutput
+	ToLayerVersionContentOutputWithContext(context.Context) LayerVersionContentOutput
+}
+
+type LayerVersionContentArgs struct {
+	S3Bucket        pulumi.StringInput    `pulumi:"s3Bucket"`
+	S3Key           pulumi.StringInput    `pulumi:"s3Key"`
+	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
+}
+
+func (LayerVersionContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersionContent)(nil)).Elem()
+}
+
+func (i LayerVersionContentArgs) ToLayerVersionContentOutput() LayerVersionContentOutput {
+	return i.ToLayerVersionContentOutputWithContext(context.Background())
+}
+
+func (i LayerVersionContentArgs) ToLayerVersionContentOutputWithContext(ctx context.Context) LayerVersionContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionContentOutput)
+}
+
+func (i LayerVersionContentArgs) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
+	return i.ToLayerVersionContentPtrOutputWithContext(context.Background())
+}
+
+func (i LayerVersionContentArgs) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionContentOutput).ToLayerVersionContentPtrOutputWithContext(ctx)
+}
+
+// LayerVersionContentPtrInput is an input type that accepts LayerVersionContentArgs, LayerVersionContentPtr and LayerVersionContentPtrOutput values.
+// You can construct a concrete instance of `LayerVersionContentPtrInput` via:
+//
+//          LayerVersionContentArgs{...}
+//
+//  or:
+//
+//          nil
+type LayerVersionContentPtrInput interface {
+	pulumi.Input
+
+	ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput
+	ToLayerVersionContentPtrOutputWithContext(context.Context) LayerVersionContentPtrOutput
+}
+
+type layerVersionContentPtrType LayerVersionContentArgs
+
+func LayerVersionContentPtr(v *LayerVersionContentArgs) LayerVersionContentPtrInput {
+	return (*layerVersionContentPtrType)(v)
+}
+
+func (*layerVersionContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LayerVersionContent)(nil)).Elem()
+}
+
+func (i *layerVersionContentPtrType) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
+	return i.ToLayerVersionContentPtrOutputWithContext(context.Background())
+}
+
+func (i *layerVersionContentPtrType) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionContentPtrOutput)
+}
+
+type LayerVersionContentOutput struct{ *pulumi.OutputState }
+
+func (LayerVersionContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LayerVersionContent)(nil)).Elem()
+}
+
+func (o LayerVersionContentOutput) ToLayerVersionContentOutput() LayerVersionContentOutput {
+	return o
+}
+
+func (o LayerVersionContentOutput) ToLayerVersionContentOutputWithContext(ctx context.Context) LayerVersionContentOutput {
+	return o
+}
+
+func (o LayerVersionContentOutput) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
+	return o.ToLayerVersionContentPtrOutputWithContext(context.Background())
+}
+
+func (o LayerVersionContentOutput) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerVersionContent) *LayerVersionContent {
+		return &v
+	}).(LayerVersionContentPtrOutput)
+}
+
+func (o LayerVersionContentOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LayerVersionContent) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+func (o LayerVersionContentOutput) S3Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LayerVersionContent) string { return v.S3Key }).(pulumi.StringOutput)
+}
+
+func (o LayerVersionContentOutput) S3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LayerVersionContent) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+type LayerVersionContentPtrOutput struct{ *pulumi.OutputState }
+
+func (LayerVersionContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LayerVersionContent)(nil)).Elem()
+}
+
+func (o LayerVersionContentPtrOutput) ToLayerVersionContentPtrOutput() LayerVersionContentPtrOutput {
+	return o
+}
+
+func (o LayerVersionContentPtrOutput) ToLayerVersionContentPtrOutputWithContext(ctx context.Context) LayerVersionContentPtrOutput {
+	return o
+}
+
+func (o LayerVersionContentPtrOutput) Elem() LayerVersionContentOutput {
+	return o.ApplyT(func(v *LayerVersionContent) LayerVersionContent {
+		if v != nil {
+			return *v
+		}
+		var ret LayerVersionContent
+		return ret
+	}).(LayerVersionContentOutput)
+}
+
+func (o LayerVersionContentPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersionContent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LayerVersionContentPtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersionContent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LayerVersionContentPtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LayerVersionContent) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type VersionProvisionedConcurrencyConfiguration struct {
+	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
+}
+
+// VersionProvisionedConcurrencyConfigurationInput is an input type that accepts VersionProvisionedConcurrencyConfigurationArgs and VersionProvisionedConcurrencyConfigurationOutput values.
+// You can construct a concrete instance of `VersionProvisionedConcurrencyConfigurationInput` via:
+//
+//          VersionProvisionedConcurrencyConfigurationArgs{...}
+type VersionProvisionedConcurrencyConfigurationInput interface {
+	pulumi.Input
+
+	ToVersionProvisionedConcurrencyConfigurationOutput() VersionProvisionedConcurrencyConfigurationOutput
+	ToVersionProvisionedConcurrencyConfigurationOutputWithContext(context.Context) VersionProvisionedConcurrencyConfigurationOutput
+}
+
+type VersionProvisionedConcurrencyConfigurationArgs struct {
+	ProvisionedConcurrentExecutions pulumi.IntInput `pulumi:"provisionedConcurrentExecutions"`
+}
+
+func (VersionProvisionedConcurrencyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VersionProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i VersionProvisionedConcurrencyConfigurationArgs) ToVersionProvisionedConcurrencyConfigurationOutput() VersionProvisionedConcurrencyConfigurationOutput {
+	return i.ToVersionProvisionedConcurrencyConfigurationOutputWithContext(context.Background())
+}
+
+func (i VersionProvisionedConcurrencyConfigurationArgs) ToVersionProvisionedConcurrencyConfigurationOutputWithContext(ctx context.Context) VersionProvisionedConcurrencyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionProvisionedConcurrencyConfigurationOutput)
+}
+
+func (i VersionProvisionedConcurrencyConfigurationArgs) ToVersionProvisionedConcurrencyConfigurationPtrOutput() VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return i.ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VersionProvisionedConcurrencyConfigurationArgs) ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionProvisionedConcurrencyConfigurationOutput).ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx)
+}
+
+// VersionProvisionedConcurrencyConfigurationPtrInput is an input type that accepts VersionProvisionedConcurrencyConfigurationArgs, VersionProvisionedConcurrencyConfigurationPtr and VersionProvisionedConcurrencyConfigurationPtrOutput values.
+// You can construct a concrete instance of `VersionProvisionedConcurrencyConfigurationPtrInput` via:
+//
+//          VersionProvisionedConcurrencyConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type VersionProvisionedConcurrencyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVersionProvisionedConcurrencyConfigurationPtrOutput() VersionProvisionedConcurrencyConfigurationPtrOutput
+	ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Context) VersionProvisionedConcurrencyConfigurationPtrOutput
+}
+
+type versionProvisionedConcurrencyConfigurationPtrType VersionProvisionedConcurrencyConfigurationArgs
+
+func VersionProvisionedConcurrencyConfigurationPtr(v *VersionProvisionedConcurrencyConfigurationArgs) VersionProvisionedConcurrencyConfigurationPtrInput {
+	return (*versionProvisionedConcurrencyConfigurationPtrType)(v)
+}
+
+func (*versionProvisionedConcurrencyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VersionProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (i *versionProvisionedConcurrencyConfigurationPtrType) ToVersionProvisionedConcurrencyConfigurationPtrOutput() VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return i.ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *versionProvisionedConcurrencyConfigurationPtrType) ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+type VersionProvisionedConcurrencyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VersionProvisionedConcurrencyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VersionProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o VersionProvisionedConcurrencyConfigurationOutput) ToVersionProvisionedConcurrencyConfigurationOutput() VersionProvisionedConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o VersionProvisionedConcurrencyConfigurationOutput) ToVersionProvisionedConcurrencyConfigurationOutputWithContext(ctx context.Context) VersionProvisionedConcurrencyConfigurationOutput {
+	return o
+}
+
+func (o VersionProvisionedConcurrencyConfigurationOutput) ToVersionProvisionedConcurrencyConfigurationPtrOutput() VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VersionProvisionedConcurrencyConfigurationOutput) ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VersionProvisionedConcurrencyConfiguration) *VersionProvisionedConcurrencyConfiguration {
+		return &v
+	}).(VersionProvisionedConcurrencyConfigurationPtrOutput)
+}
+
+func (o VersionProvisionedConcurrencyConfigurationOutput) ProvisionedConcurrentExecutions() pulumi.IntOutput {
+	return o.ApplyT(func(v VersionProvisionedConcurrencyConfiguration) int { return v.ProvisionedConcurrentExecutions }).(pulumi.IntOutput)
+}
+
+type VersionProvisionedConcurrencyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VersionProvisionedConcurrencyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VersionProvisionedConcurrencyConfiguration)(nil)).Elem()
+}
+
+func (o VersionProvisionedConcurrencyConfigurationPtrOutput) ToVersionProvisionedConcurrencyConfigurationPtrOutput() VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o VersionProvisionedConcurrencyConfigurationPtrOutput) ToVersionProvisionedConcurrencyConfigurationPtrOutputWithContext(ctx context.Context) VersionProvisionedConcurrencyConfigurationPtrOutput {
+	return o
+}
+
+func (o VersionProvisionedConcurrencyConfigurationPtrOutput) Elem() VersionProvisionedConcurrencyConfigurationOutput {
+	return o.ApplyT(func(v *VersionProvisionedConcurrencyConfiguration) VersionProvisionedConcurrencyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VersionProvisionedConcurrencyConfiguration
+		return ret
+	}).(VersionProvisionedConcurrencyConfigurationOutput)
+}
+
+func (o VersionProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrentExecutions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VersionProvisionedConcurrencyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisionedConcurrentExecutions
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AliasAliasRoutingConfigurationOutput{})
+	pulumi.RegisterOutputType(AliasAliasRoutingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationOutput{})
+	pulumi.RegisterOutputType(AliasProvisionedConcurrencyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
+	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(EventInvokeConfigDestinationConfigOutput{})
+	pulumi.RegisterOutputType(EventInvokeConfigDestinationConfigPtrOutput{})
+	pulumi.RegisterOutputType(EventInvokeConfigOnFailureOutput{})
+	pulumi.RegisterOutputType(EventInvokeConfigOnFailurePtrOutput{})
+	pulumi.RegisterOutputType(EventInvokeConfigOnSuccessOutput{})
+	pulumi.RegisterOutputType(EventInvokeConfigOnSuccessPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingEndpointsOutput{})
@@ -2173,4 +3261,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(LayerVersionContentOutput{})
+	pulumi.RegisterOutputType(LayerVersionContentPtrOutput{})
+	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationOutput{})
+	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationPtrOutput{})
 }

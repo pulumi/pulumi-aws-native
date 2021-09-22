@@ -11,6 +11,10 @@ from .. import _utilities
 __all__ = [
     'ClusterEndpointArgs',
     'ClusterLoggingPropertiesArgs',
+    'ClusterParameterGroupParameterArgs',
+    'ClusterParameterGroupTagArgs',
+    'ClusterSecurityGroupTagArgs',
+    'ClusterSubnetGroupTagArgs',
     'ClusterTagArgs',
 ]
 
@@ -69,6 +73,114 @@ class ClusterLoggingPropertiesArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+
+@pulumi.input_type
+class ClusterParameterGroupParameterArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[str],
+                 parameter_value: pulumi.Input[str]):
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "parameter_value")
+
+    @parameter_value.setter
+    def parameter_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_value", value)
+
+
+@pulumi.input_type
+class ClusterParameterGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClusterSecurityGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClusterSubnetGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

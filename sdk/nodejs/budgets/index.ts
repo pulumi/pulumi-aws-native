@@ -5,18 +5,22 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./budget";
 export * from "./budgetsAction";
 
 // Export enums:
 export * from "../types/enums/budgets";
 
 // Import resources to register:
+import { Budget } from "./budget";
 import { BudgetsAction } from "./budgetsAction";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:budgets:Budget":
+                return new Budget(name, <any>undefined, { urn })
             case "aws-native:budgets:BudgetsAction":
                 return new BudgetsAction(name, <any>undefined, { urn })
             default:

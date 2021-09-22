@@ -224,9 +224,306 @@ func (o ConnectionAliasTagArrayOutput) Index(i pulumi.IntInput) ConnectionAliasT
 	}).(ConnectionAliasTagOutput)
 }
 
+type WorkspaceTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// WorkspaceTagInput is an input type that accepts WorkspaceTagArgs and WorkspaceTagOutput values.
+// You can construct a concrete instance of `WorkspaceTagInput` via:
+//
+//          WorkspaceTagArgs{...}
+type WorkspaceTagInput interface {
+	pulumi.Input
+
+	ToWorkspaceTagOutput() WorkspaceTagOutput
+	ToWorkspaceTagOutputWithContext(context.Context) WorkspaceTagOutput
+}
+
+type WorkspaceTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WorkspaceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTag)(nil)).Elem()
+}
+
+func (i WorkspaceTagArgs) ToWorkspaceTagOutput() WorkspaceTagOutput {
+	return i.ToWorkspaceTagOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTagArgs) ToWorkspaceTagOutputWithContext(ctx context.Context) WorkspaceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagOutput)
+}
+
+// WorkspaceTagArrayInput is an input type that accepts WorkspaceTagArray and WorkspaceTagArrayOutput values.
+// You can construct a concrete instance of `WorkspaceTagArrayInput` via:
+//
+//          WorkspaceTagArray{ WorkspaceTagArgs{...} }
+type WorkspaceTagArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceTagArrayOutput() WorkspaceTagArrayOutput
+	ToWorkspaceTagArrayOutputWithContext(context.Context) WorkspaceTagArrayOutput
+}
+
+type WorkspaceTagArray []WorkspaceTagInput
+
+func (WorkspaceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTag)(nil)).Elem()
+}
+
+func (i WorkspaceTagArray) ToWorkspaceTagArrayOutput() WorkspaceTagArrayOutput {
+	return i.ToWorkspaceTagArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTagArray) ToWorkspaceTagArrayOutputWithContext(ctx context.Context) WorkspaceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTagArrayOutput)
+}
+
+type WorkspaceTagOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTag)(nil)).Elem()
+}
+
+func (o WorkspaceTagOutput) ToWorkspaceTagOutput() WorkspaceTagOutput {
+	return o
+}
+
+func (o WorkspaceTagOutput) ToWorkspaceTagOutputWithContext(ctx context.Context) WorkspaceTagOutput {
+	return o
+}
+
+func (o WorkspaceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o WorkspaceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WorkspaceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTag)(nil)).Elem()
+}
+
+func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutput() WorkspaceTagArrayOutput {
+	return o
+}
+
+func (o WorkspaceTagArrayOutput) ToWorkspaceTagArrayOutputWithContext(ctx context.Context) WorkspaceTagArrayOutput {
+	return o
+}
+
+func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceTag {
+		return vs[0].([]WorkspaceTag)[vs[1].(int)]
+	}).(WorkspaceTagOutput)
+}
+
+type WorkspaceWorkspaceProperties struct {
+	ComputeTypeName                     *string `pulumi:"computeTypeName"`
+	RootVolumeSizeGib                   *int    `pulumi:"rootVolumeSizeGib"`
+	RunningMode                         *string `pulumi:"runningMode"`
+	RunningModeAutoStopTimeoutInMinutes *int    `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	UserVolumeSizeGib                   *int    `pulumi:"userVolumeSizeGib"`
+}
+
+// WorkspaceWorkspacePropertiesInput is an input type that accepts WorkspaceWorkspacePropertiesArgs and WorkspaceWorkspacePropertiesOutput values.
+// You can construct a concrete instance of `WorkspaceWorkspacePropertiesInput` via:
+//
+//          WorkspaceWorkspacePropertiesArgs{...}
+type WorkspaceWorkspacePropertiesInput interface {
+	pulumi.Input
+
+	ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput
+	ToWorkspaceWorkspacePropertiesOutputWithContext(context.Context) WorkspaceWorkspacePropertiesOutput
+}
+
+type WorkspaceWorkspacePropertiesArgs struct {
+	ComputeTypeName                     pulumi.StringPtrInput `pulumi:"computeTypeName"`
+	RootVolumeSizeGib                   pulumi.IntPtrInput    `pulumi:"rootVolumeSizeGib"`
+	RunningMode                         pulumi.StringPtrInput `pulumi:"runningMode"`
+	RunningModeAutoStopTimeoutInMinutes pulumi.IntPtrInput    `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	UserVolumeSizeGib                   pulumi.IntPtrInput    `pulumi:"userVolumeSizeGib"`
+}
+
+func (WorkspaceWorkspacePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput {
+	return i.ToWorkspaceWorkspacePropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesOutput)
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesOutput).ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkspaceWorkspacePropertiesPtrInput is an input type that accepts WorkspaceWorkspacePropertiesArgs, WorkspaceWorkspacePropertiesPtr and WorkspaceWorkspacePropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkspaceWorkspacePropertiesPtrInput` via:
+//
+//          WorkspaceWorkspacePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceWorkspacePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput
+	ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Context) WorkspaceWorkspacePropertiesPtrOutput
+}
+
+type workspaceWorkspacePropertiesPtrType WorkspaceWorkspacePropertiesArgs
+
+func WorkspaceWorkspacePropertiesPtr(v *WorkspaceWorkspacePropertiesArgs) WorkspaceWorkspacePropertiesPtrInput {
+	return (*workspaceWorkspacePropertiesPtrType)(v)
+}
+
+func (*workspaceWorkspacePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (i *workspaceWorkspacePropertiesPtrType) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceWorkspacePropertiesPtrType) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesPtrOutput)
+}
+
+type WorkspaceWorkspacePropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceWorkspacePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return o.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceWorkspaceProperties) *WorkspaceWorkspaceProperties {
+		return &v
+	}).(WorkspaceWorkspacePropertiesPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.RootVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.RunningMode }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.UserVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+type WorkspaceWorkspacePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceWorkspacePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) Elem() WorkspaceWorkspacePropertiesOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) WorkspaceWorkspaceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceWorkspaceProperties
+		return ret
+	}).(WorkspaceWorkspacePropertiesOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeTypeName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RootVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunningMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunningModeAutoStopTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UserVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTagOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTagArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceTagOutput{})
+	pulumi.RegisterOutputType(WorkspaceTagArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesOutput{})
+	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesPtrOutput{})
 }

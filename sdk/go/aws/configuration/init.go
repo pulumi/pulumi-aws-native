@@ -21,12 +21,24 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:configuration:AggregationAuthorization":
+		r = &AggregationAuthorization{}
+	case "aws-native:configuration:ConfigRule":
+		r = &ConfigRule{}
 	case "aws-native:configuration:ConfigurationAggregator":
 		r = &ConfigurationAggregator{}
+	case "aws-native:configuration:ConfigurationRecorder":
+		r = &ConfigurationRecorder{}
 	case "aws-native:configuration:ConformancePack":
 		r = &ConformancePack{}
+	case "aws-native:configuration:DeliveryChannel":
+		r = &DeliveryChannel{}
+	case "aws-native:configuration:OrganizationConfigRule":
+		r = &OrganizationConfigRule{}
 	case "aws-native:configuration:OrganizationConformancePack":
 		r = &OrganizationConformancePack{}
+	case "aws-native:configuration:RemediationConfiguration":
+		r = &RemediationConfiguration{}
 	case "aws-native:configuration:StoredQuery":
 		r = &StoredQuery{}
 	default:

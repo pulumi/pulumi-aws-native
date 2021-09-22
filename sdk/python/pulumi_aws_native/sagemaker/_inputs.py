@@ -16,6 +16,8 @@ __all__ = [
     'AppImageConfigTagArgs',
     'AppResourceSpecArgs',
     'AppTagArgs',
+    'CodeRepositoryGitConfigArgs',
+    'CodeRepositoryTagArgs',
     'DataQualityJobDefinitionClusterConfigArgs',
     'DataQualityJobDefinitionConstraintsResourceArgs',
     'DataQualityJobDefinitionDataQualityAppSpecificationArgs',
@@ -42,6 +44,23 @@ __all__ = [
     'DomainSharingSettingsArgs',
     'DomainTagArgs',
     'DomainUserSettingsArgs',
+    'EndpointAlarmArgs',
+    'EndpointAutoRollbackConfigArgs',
+    'EndpointBlueGreenUpdatePolicyArgs',
+    'EndpointCapacitySizeArgs',
+    'EndpointConfigAsyncInferenceClientConfigArgs',
+    'EndpointConfigAsyncInferenceConfigArgs',
+    'EndpointConfigAsyncInferenceNotificationConfigArgs',
+    'EndpointConfigAsyncInferenceOutputConfigArgs',
+    'EndpointConfigCaptureContentTypeHeaderArgs',
+    'EndpointConfigCaptureOptionArgs',
+    'EndpointConfigDataCaptureConfigArgs',
+    'EndpointConfigProductionVariantArgs',
+    'EndpointConfigTagArgs',
+    'EndpointDeploymentConfigArgs',
+    'EndpointTagArgs',
+    'EndpointTrafficRoutingConfigArgs',
+    'EndpointVariantPropertyArgs',
     'FeatureGroupFeatureDefinitionArgs',
     'FeatureGroupTagArgs',
     'ImageTagArgs',
@@ -60,6 +79,7 @@ __all__ = [
     'ModelBiasJobDefinitionStoppingConditionArgs',
     'ModelBiasJobDefinitionTagArgs',
     'ModelBiasJobDefinitionVpcConfigArgs',
+    'ModelContainerDefinitionArgs',
     'ModelExplainabilityJobDefinitionClusterConfigArgs',
     'ModelExplainabilityJobDefinitionConstraintsResourceArgs',
     'ModelExplainabilityJobDefinitionEndpointInputArgs',
@@ -74,6 +94,9 @@ __all__ = [
     'ModelExplainabilityJobDefinitionStoppingConditionArgs',
     'ModelExplainabilityJobDefinitionTagArgs',
     'ModelExplainabilityJobDefinitionVpcConfigArgs',
+    'ModelImageConfigArgs',
+    'ModelInferenceExecutionConfigArgs',
+    'ModelMultiModelConfigArgs',
     'ModelPackageGroupTagArgs',
     'ModelQualityJobDefinitionClusterConfigArgs',
     'ModelQualityJobDefinitionConstraintsResourceArgs',
@@ -90,6 +113,9 @@ __all__ = [
     'ModelQualityJobDefinitionStoppingConditionArgs',
     'ModelQualityJobDefinitionTagArgs',
     'ModelQualityJobDefinitionVpcConfigArgs',
+    'ModelRepositoryAuthConfigArgs',
+    'ModelTagArgs',
+    'ModelVpcConfigArgs',
     'MonitoringScheduleBaselineConfigArgs',
     'MonitoringScheduleClusterConfigArgs',
     'MonitoringScheduleConstraintsResourceArgs',
@@ -109,6 +135,8 @@ __all__ = [
     'MonitoringScheduleStoppingConditionArgs',
     'MonitoringScheduleTagArgs',
     'MonitoringScheduleVpcConfigArgs',
+    'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs',
+    'NotebookInstanceTagArgs',
     'PipelineTagArgs',
     'ProjectTagArgs',
     'UserProfileCustomImageArgs',
@@ -118,6 +146,10 @@ __all__ = [
     'UserProfileSharingSettingsArgs',
     'UserProfileTagArgs',
     'UserProfileUserSettingsArgs',
+    'WorkteamCognitoMemberDefinitionArgs',
+    'WorkteamMemberDefinitionArgs',
+    'WorkteamNotificationConfigurationArgs',
+    'WorkteamTagArgs',
 ]
 
 @pulumi.input_type
@@ -337,6 +369,73 @@ class AppResourceSpecArgs:
 
 @pulumi.input_type
 class AppTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CodeRepositoryGitConfigArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str],
+                 branch: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "repository_url", repository_url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
+class CodeRepositoryTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -1502,6 +1601,549 @@ class DomainUserSettingsArgs:
 
 
 @pulumi.input_type
+class EndpointAlarmArgs:
+    def __init__(__self__, *,
+                 alarm_name: pulumi.Input[str]):
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm_name", value)
+
+
+@pulumi.input_type
+class EndpointAutoRollbackConfigArgs:
+    def __init__(__self__, *,
+                 alarms: pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]):
+        pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]:
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]):
+        pulumi.set(self, "alarms", value)
+
+
+@pulumi.input_type
+class EndpointBlueGreenUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 traffic_routing_configuration: pulumi.Input['EndpointTrafficRoutingConfigArgs'],
+                 maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 termination_wait_in_seconds: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if termination_wait_in_seconds is not None:
+            pulumi.set(__self__, "termination_wait_in_seconds", termination_wait_in_seconds)
+
+    @property
+    @pulumi.getter(name="trafficRoutingConfiguration")
+    def traffic_routing_configuration(self) -> pulumi.Input['EndpointTrafficRoutingConfigArgs']:
+        return pulumi.get(self, "traffic_routing_configuration")
+
+    @traffic_routing_configuration.setter
+    def traffic_routing_configuration(self, value: pulumi.Input['EndpointTrafficRoutingConfigArgs']):
+        pulumi.set(self, "traffic_routing_configuration", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="terminationWaitInSeconds")
+    def termination_wait_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "termination_wait_in_seconds")
+
+    @termination_wait_in_seconds.setter
+    def termination_wait_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_wait_in_seconds", value)
+
+
+@pulumi.input_type
+class EndpointCapacitySizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointConfigAsyncInferenceClientConfigArgs:
+    def __init__(__self__, *,
+                 max_concurrent_invocations_per_instance: Optional[pulumi.Input[int]] = None):
+        if max_concurrent_invocations_per_instance is not None:
+            pulumi.set(__self__, "max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
+
+    @property
+    @pulumi.getter(name="maxConcurrentInvocationsPerInstance")
+    def max_concurrent_invocations_per_instance(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_concurrent_invocations_per_instance")
+
+    @max_concurrent_invocations_per_instance.setter
+    def max_concurrent_invocations_per_instance(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_invocations_per_instance", value)
+
+
+@pulumi.input_type
+class EndpointConfigAsyncInferenceConfigArgs:
+    def __init__(__self__, *,
+                 output_config: pulumi.Input['EndpointConfigAsyncInferenceOutputConfigArgs'],
+                 client_config: Optional[pulumi.Input['EndpointConfigAsyncInferenceClientConfigArgs']] = None):
+        pulumi.set(__self__, "output_config", output_config)
+        if client_config is not None:
+            pulumi.set(__self__, "client_config", client_config)
+
+    @property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> pulumi.Input['EndpointConfigAsyncInferenceOutputConfigArgs']:
+        return pulumi.get(self, "output_config")
+
+    @output_config.setter
+    def output_config(self, value: pulumi.Input['EndpointConfigAsyncInferenceOutputConfigArgs']):
+        pulumi.set(self, "output_config", value)
+
+    @property
+    @pulumi.getter(name="clientConfig")
+    def client_config(self) -> Optional[pulumi.Input['EndpointConfigAsyncInferenceClientConfigArgs']]:
+        return pulumi.get(self, "client_config")
+
+    @client_config.setter
+    def client_config(self, value: Optional[pulumi.Input['EndpointConfigAsyncInferenceClientConfigArgs']]):
+        pulumi.set(self, "client_config", value)
+
+
+@pulumi.input_type
+class EndpointConfigAsyncInferenceNotificationConfigArgs:
+    def __init__(__self__, *,
+                 error_topic: Optional[pulumi.Input[str]] = None,
+                 success_topic: Optional[pulumi.Input[str]] = None):
+        if error_topic is not None:
+            pulumi.set(__self__, "error_topic", error_topic)
+        if success_topic is not None:
+            pulumi.set(__self__, "success_topic", success_topic)
+
+    @property
+    @pulumi.getter(name="errorTopic")
+    def error_topic(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "error_topic")
+
+    @error_topic.setter
+    def error_topic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "error_topic", value)
+
+    @property
+    @pulumi.getter(name="successTopic")
+    def success_topic(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "success_topic")
+
+    @success_topic.setter
+    def success_topic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_topic", value)
+
+
+@pulumi.input_type
+class EndpointConfigAsyncInferenceOutputConfigArgs:
+    def __init__(__self__, *,
+                 s3_output_path: pulumi.Input[str],
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 notification_config: Optional[pulumi.Input['EndpointConfigAsyncInferenceNotificationConfigArgs']] = None):
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_output_path", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional[pulumi.Input['EndpointConfigAsyncInferenceNotificationConfigArgs']]:
+        return pulumi.get(self, "notification_config")
+
+    @notification_config.setter
+    def notification_config(self, value: Optional[pulumi.Input['EndpointConfigAsyncInferenceNotificationConfigArgs']]):
+        pulumi.set(self, "notification_config", value)
+
+
+@pulumi.input_type
+class EndpointConfigCaptureContentTypeHeaderArgs:
+    def __init__(__self__, *,
+                 csv_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 json_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if csv_content_types is not None:
+            pulumi.set(__self__, "csv_content_types", csv_content_types)
+        if json_content_types is not None:
+            pulumi.set(__self__, "json_content_types", json_content_types)
+
+    @property
+    @pulumi.getter(name="csvContentTypes")
+    def csv_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "csv_content_types")
+
+    @csv_content_types.setter
+    def csv_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "csv_content_types", value)
+
+    @property
+    @pulumi.getter(name="jsonContentTypes")
+    def json_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "json_content_types")
+
+    @json_content_types.setter
+    def json_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "json_content_types", value)
+
+
+@pulumi.input_type
+class EndpointConfigCaptureOptionArgs:
+    def __init__(__self__, *,
+                 capture_mode: pulumi.Input[str]):
+        pulumi.set(__self__, "capture_mode", capture_mode)
+
+    @property
+    @pulumi.getter(name="captureMode")
+    def capture_mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "capture_mode")
+
+    @capture_mode.setter
+    def capture_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capture_mode", value)
+
+
+@pulumi.input_type
+class EndpointConfigDataCaptureConfigArgs:
+    def __init__(__self__, *,
+                 capture_options: pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]],
+                 destination_s3_uri: pulumi.Input[str],
+                 initial_sampling_percentage: pulumi.Input[int],
+                 capture_content_type_header: Optional[pulumi.Input['EndpointConfigCaptureContentTypeHeaderArgs']] = None,
+                 enable_capture: Optional[pulumi.Input[bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "capture_options", capture_options)
+        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
+        pulumi.set(__self__, "initial_sampling_percentage", initial_sampling_percentage)
+        if capture_content_type_header is not None:
+            pulumi.set(__self__, "capture_content_type_header", capture_content_type_header)
+        if enable_capture is not None:
+            pulumi.set(__self__, "enable_capture", enable_capture)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="captureOptions")
+    def capture_options(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]]:
+        return pulumi.get(self, "capture_options")
+
+    @capture_options.setter
+    def capture_options(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]]):
+        pulumi.set(self, "capture_options", value)
+
+    @property
+    @pulumi.getter(name="destinationS3Uri")
+    def destination_s3_uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "destination_s3_uri")
+
+    @destination_s3_uri.setter
+    def destination_s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_s3_uri", value)
+
+    @property
+    @pulumi.getter(name="initialSamplingPercentage")
+    def initial_sampling_percentage(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "initial_sampling_percentage")
+
+    @initial_sampling_percentage.setter
+    def initial_sampling_percentage(self, value: pulumi.Input[int]):
+        pulumi.set(self, "initial_sampling_percentage", value)
+
+    @property
+    @pulumi.getter(name="captureContentTypeHeader")
+    def capture_content_type_header(self) -> Optional[pulumi.Input['EndpointConfigCaptureContentTypeHeaderArgs']]:
+        return pulumi.get(self, "capture_content_type_header")
+
+    @capture_content_type_header.setter
+    def capture_content_type_header(self, value: Optional[pulumi.Input['EndpointConfigCaptureContentTypeHeaderArgs']]):
+        pulumi.set(self, "capture_content_type_header", value)
+
+    @property
+    @pulumi.getter(name="enableCapture")
+    def enable_capture(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_capture")
+
+    @enable_capture.setter
+    def enable_capture(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_capture", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class EndpointConfigProductionVariantArgs:
+    def __init__(__self__, *,
+                 initial_instance_count: pulumi.Input[int],
+                 initial_variant_weight: pulumi.Input[float],
+                 instance_type: pulumi.Input[str],
+                 model_name: pulumi.Input[str],
+                 variant_name: pulumi.Input[str],
+                 accelerator_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "model_name", model_name)
+        pulumi.set(__self__, "variant_name", variant_name)
+        if accelerator_type is not None:
+            pulumi.set(__self__, "accelerator_type", accelerator_type)
+
+    @property
+    @pulumi.getter(name="initialInstanceCount")
+    def initial_instance_count(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "initial_instance_count")
+
+    @initial_instance_count.setter
+    def initial_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "initial_instance_count", value)
+
+    @property
+    @pulumi.getter(name="initialVariantWeight")
+    def initial_variant_weight(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "initial_variant_weight")
+
+    @initial_variant_weight.setter
+    def initial_variant_weight(self, value: pulumi.Input[float]):
+        pulumi.set(self, "initial_variant_weight", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "model_name")
+
+    @model_name.setter
+    def model_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_name", value)
+
+    @property
+    @pulumi.getter(name="variantName")
+    def variant_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "variant_name")
+
+    @variant_name.setter
+    def variant_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "variant_name", value)
+
+    @property
+    @pulumi.getter(name="acceleratorType")
+    def accelerator_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "accelerator_type")
+
+    @accelerator_type.setter
+    def accelerator_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accelerator_type", value)
+
+
+@pulumi.input_type
+class EndpointConfigTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointDeploymentConfigArgs:
+    def __init__(__self__, *,
+                 blue_green_update_policy: pulumi.Input['EndpointBlueGreenUpdatePolicyArgs'],
+                 auto_rollback_configuration: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']] = None):
+        pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']:
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @blue_green_update_policy.setter
+    def blue_green_update_policy(self, value: pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']):
+        pulumi.set(self, "blue_green_update_policy", value)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']]:
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @auto_rollback_configuration.setter
+    def auto_rollback_configuration(self, value: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']]):
+        pulumi.set(self, "auto_rollback_configuration", value)
+
+
+@pulumi.input_type
+class EndpointTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointTrafficRoutingConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 canary_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None,
+                 wait_interval_in_seconds: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "type", type)
+        if canary_size is not None:
+            pulumi.set(__self__, "canary_size", canary_size)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="canarySize")
+    def canary_size(self) -> Optional[pulumi.Input['EndpointCapacitySizeArgs']]:
+        return pulumi.get(self, "canary_size")
+
+    @canary_size.setter
+    def canary_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
+        pulumi.set(self, "canary_size", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+
+@pulumi.input_type
+class EndpointVariantPropertyArgs:
+    def __init__(__self__, *,
+                 variant_property_type: Optional[pulumi.Input[str]] = None):
+        if variant_property_type is not None:
+            pulumi.set(__self__, "variant_property_type", variant_property_type)
+
+    @property
+    @pulumi.getter(name="variantPropertyType")
+    def variant_property_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "variant_property_type")
+
+    @variant_property_type.setter
+    def variant_property_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "variant_property_type", value)
+
+
+@pulumi.input_type
 class FeatureGroupFeatureDefinitionArgs:
     def __init__(__self__, *,
                  feature_name: pulumi.Input[str],
@@ -2269,6 +2911,107 @@ class ModelBiasJobDefinitionVpcConfigArgs:
 
 
 @pulumi.input_type
+class ModelContainerDefinitionArgs:
+    def __init__(__self__, *,
+                 container_hostname: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[Any] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 image_config: Optional[pulumi.Input['ModelImageConfigArgs']] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 model_package_name: Optional[pulumi.Input[str]] = None,
+                 multi_model_config: Optional[pulumi.Input['ModelMultiModelConfigArgs']] = None):
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if image_config is not None:
+            pulumi.set(__self__, "image_config", image_config)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
+        if multi_model_config is not None:
+            pulumi.set(__self__, "multi_model_config", multi_model_config)
+
+    @property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "container_hostname")
+
+    @container_hostname.setter
+    def container_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_hostname", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[Any]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[Any]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="imageConfig")
+    def image_config(self) -> Optional[pulumi.Input['ModelImageConfigArgs']]:
+        return pulumi.get(self, "image_config")
+
+    @image_config.setter
+    def image_config(self, value: Optional[pulumi.Input['ModelImageConfigArgs']]):
+        pulumi.set(self, "image_config", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "model_data_url")
+
+    @model_data_url.setter
+    def model_data_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "model_package_name")
+
+    @model_package_name.setter
+    def model_package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_name", value)
+
+    @property
+    @pulumi.getter(name="multiModelConfig")
+    def multi_model_config(self) -> Optional[pulumi.Input['ModelMultiModelConfigArgs']]:
+        return pulumi.get(self, "multi_model_config")
+
+    @multi_model_config.setter
+    def multi_model_config(self, value: Optional[pulumi.Input['ModelMultiModelConfigArgs']]):
+        pulumi.set(self, "multi_model_config", value)
+
+
+@pulumi.input_type
 class ModelExplainabilityJobDefinitionClusterConfigArgs:
     def __init__(__self__, *,
                  instance_count: pulumi.Input[int],
@@ -2860,6 +3603,67 @@ class ModelExplainabilityJobDefinitionVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class ModelImageConfigArgs:
+    def __init__(__self__, *,
+                 repository_access_mode: pulumi.Input[str],
+                 repository_auth_config: Optional[pulumi.Input['ModelRepositoryAuthConfigArgs']] = None):
+        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        if repository_auth_config is not None:
+            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
+
+    @property
+    @pulumi.getter(name="repositoryAccessMode")
+    def repository_access_mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "repository_access_mode")
+
+    @repository_access_mode.setter
+    def repository_access_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_access_mode", value)
+
+    @property
+    @pulumi.getter(name="repositoryAuthConfig")
+    def repository_auth_config(self) -> Optional[pulumi.Input['ModelRepositoryAuthConfigArgs']]:
+        return pulumi.get(self, "repository_auth_config")
+
+    @repository_auth_config.setter
+    def repository_auth_config(self, value: Optional[pulumi.Input['ModelRepositoryAuthConfigArgs']]):
+        pulumi.set(self, "repository_auth_config", value)
+
+
+@pulumi.input_type
+class ModelInferenceExecutionConfigArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str]):
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class ModelMultiModelConfigArgs:
+    def __init__(__self__, *,
+                 model_cache_setting: Optional[pulumi.Input[str]] = None):
+        if model_cache_setting is not None:
+            pulumi.set(__self__, "model_cache_setting", model_cache_setting)
+
+    @property
+    @pulumi.getter(name="modelCacheSetting")
+    def model_cache_setting(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "model_cache_setting")
+
+    @model_cache_setting.setter
+    def model_cache_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_cache_setting", value)
 
 
 @pulumi.input_type
@@ -3609,6 +4413,76 @@ class ModelQualityJobDefinitionVpcConfigArgs:
         """
         The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class ModelRepositoryAuthConfigArgs:
+    def __init__(__self__, *,
+                 repository_credentials_provider_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+
+    @property
+    @pulumi.getter(name="repositoryCredentialsProviderArn")
+    def repository_credentials_provider_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "repository_credentials_provider_arn")
+
+    @repository_credentials_provider_arn.setter
+    def repository_credentials_provider_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_credentials_provider_arn", value)
+
+
+@pulumi.input_type
+class ModelTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ModelVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -4545,6 +5419,50 @@ class MonitoringScheduleVpcConfigArgs:
 
 
 @pulumi.input_type
+class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[str]] = None):
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+
+@pulumi.input_type
+class NotebookInstanceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class PipelineTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -4947,5 +5865,102 @@ class UserProfileUserSettingsArgs:
     @sharing_settings.setter
     def sharing_settings(self, value: Optional[pulumi.Input['UserProfileSharingSettingsArgs']]):
         pulumi.set(self, "sharing_settings", value)
+
+
+@pulumi.input_type
+class WorkteamCognitoMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 cognito_client_id: pulumi.Input[str],
+                 cognito_user_group: pulumi.Input[str],
+                 cognito_user_pool: pulumi.Input[str]):
+        pulumi.set(__self__, "cognito_client_id", cognito_client_id)
+        pulumi.set(__self__, "cognito_user_group", cognito_user_group)
+        pulumi.set(__self__, "cognito_user_pool", cognito_user_pool)
+
+    @property
+    @pulumi.getter(name="cognitoClientId")
+    def cognito_client_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cognito_client_id")
+
+    @cognito_client_id.setter
+    def cognito_client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognito_client_id", value)
+
+    @property
+    @pulumi.getter(name="cognitoUserGroup")
+    def cognito_user_group(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cognito_user_group")
+
+    @cognito_user_group.setter
+    def cognito_user_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognito_user_group", value)
+
+    @property
+    @pulumi.getter(name="cognitoUserPool")
+    def cognito_user_pool(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cognito_user_pool")
+
+    @cognito_user_pool.setter
+    def cognito_user_pool(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognito_user_pool", value)
+
+
+@pulumi.input_type
+class WorkteamMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 cognito_member_definition: pulumi.Input['WorkteamCognitoMemberDefinitionArgs']):
+        pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+
+    @property
+    @pulumi.getter(name="cognitoMemberDefinition")
+    def cognito_member_definition(self) -> pulumi.Input['WorkteamCognitoMemberDefinitionArgs']:
+        return pulumi.get(self, "cognito_member_definition")
+
+    @cognito_member_definition.setter
+    def cognito_member_definition(self, value: pulumi.Input['WorkteamCognitoMemberDefinitionArgs']):
+        pulumi.set(self, "cognito_member_definition", value)
+
+
+@pulumi.input_type
+class WorkteamNotificationConfigurationArgs:
+    def __init__(__self__, *,
+                 notification_topic_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+
+    @property
+    @pulumi.getter(name="notificationTopicArn")
+    def notification_topic_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "notification_topic_arn")
+
+    @notification_topic_arn.setter
+    def notification_topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_topic_arn", value)
+
+
+@pulumi.input_type
+class WorkteamTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

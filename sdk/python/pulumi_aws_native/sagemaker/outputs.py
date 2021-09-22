@@ -17,6 +17,8 @@ __all__ = [
     'AppImageConfigTag',
     'AppResourceSpec',
     'AppTag',
+    'CodeRepositoryGitConfig',
+    'CodeRepositoryTag',
     'DataQualityJobDefinitionClusterConfig',
     'DataQualityJobDefinitionConstraintsResource',
     'DataQualityJobDefinitionDataQualityAppSpecification',
@@ -43,6 +45,23 @@ __all__ = [
     'DomainSharingSettings',
     'DomainTag',
     'DomainUserSettings',
+    'EndpointAlarm',
+    'EndpointAutoRollbackConfig',
+    'EndpointBlueGreenUpdatePolicy',
+    'EndpointCapacitySize',
+    'EndpointConfigAsyncInferenceClientConfig',
+    'EndpointConfigAsyncInferenceConfig',
+    'EndpointConfigAsyncInferenceNotificationConfig',
+    'EndpointConfigAsyncInferenceOutputConfig',
+    'EndpointConfigCaptureContentTypeHeader',
+    'EndpointConfigCaptureOption',
+    'EndpointConfigDataCaptureConfig',
+    'EndpointConfigProductionVariant',
+    'EndpointConfigTag',
+    'EndpointDeploymentConfig',
+    'EndpointTag',
+    'EndpointTrafficRoutingConfig',
+    'EndpointVariantProperty',
     'FeatureGroupFeatureDefinition',
     'FeatureGroupTag',
     'ImageTag',
@@ -61,6 +80,7 @@ __all__ = [
     'ModelBiasJobDefinitionStoppingCondition',
     'ModelBiasJobDefinitionTag',
     'ModelBiasJobDefinitionVpcConfig',
+    'ModelContainerDefinition',
     'ModelExplainabilityJobDefinitionClusterConfig',
     'ModelExplainabilityJobDefinitionConstraintsResource',
     'ModelExplainabilityJobDefinitionEndpointInput',
@@ -75,6 +95,9 @@ __all__ = [
     'ModelExplainabilityJobDefinitionStoppingCondition',
     'ModelExplainabilityJobDefinitionTag',
     'ModelExplainabilityJobDefinitionVpcConfig',
+    'ModelImageConfig',
+    'ModelInferenceExecutionConfig',
+    'ModelMultiModelConfig',
     'ModelPackageGroupTag',
     'ModelQualityJobDefinitionClusterConfig',
     'ModelQualityJobDefinitionConstraintsResource',
@@ -91,6 +114,9 @@ __all__ = [
     'ModelQualityJobDefinitionStoppingCondition',
     'ModelQualityJobDefinitionTag',
     'ModelQualityJobDefinitionVpcConfig',
+    'ModelRepositoryAuthConfig',
+    'ModelTag',
+    'ModelVpcConfig',
     'MonitoringScheduleBaselineConfig',
     'MonitoringScheduleClusterConfig',
     'MonitoringScheduleConstraintsResource',
@@ -110,6 +136,8 @@ __all__ = [
     'MonitoringScheduleStoppingCondition',
     'MonitoringScheduleTag',
     'MonitoringScheduleVpcConfig',
+    'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook',
+    'NotebookInstanceTag',
     'PipelineTag',
     'ProjectTag',
     'UserProfileCustomImage',
@@ -119,6 +147,10 @@ __all__ = [
     'UserProfileSharingSettings',
     'UserProfileTag',
     'UserProfileUserSettings',
+    'WorkteamCognitoMemberDefinition',
+    'WorkteamMemberDefinition',
+    'WorkteamNotificationConfiguration',
+    'WorkteamTag',
 ]
 
 @pulumi.output_type
@@ -374,6 +406,72 @@ class AppResourceSpec(dict):
 
 @pulumi.output_type
 class AppTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CodeRepositoryGitConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryUrl":
+            suggest = "repository_url"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeRepositoryGitConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeRepositoryGitConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeRepositoryGitConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_url: str,
+                 branch: Optional[str] = None,
+                 secret_arn: Optional[str] = None):
+        pulumi.set(__self__, "repository_url", repository_url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> str:
+        return pulumi.get(self, "repository_url")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class CodeRepositoryTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -1779,6 +1877,648 @@ class DomainUserSettings(dict):
 
 
 @pulumi.output_type
+class EndpointAlarm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointAlarm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointAlarm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointAlarm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_name: str):
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> str:
+        return pulumi.get(self, "alarm_name")
+
+
+@pulumi.output_type
+class EndpointAutoRollbackConfig(dict):
+    def __init__(__self__, *,
+                 alarms: Sequence['outputs.EndpointAlarm']):
+        pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Sequence['outputs.EndpointAlarm']:
+        return pulumi.get(self, "alarms")
+
+
+@pulumi.output_type
+class EndpointBlueGreenUpdatePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficRoutingConfiguration":
+            suggest = "traffic_routing_configuration"
+        elif key == "maximumExecutionTimeoutInSeconds":
+            suggest = "maximum_execution_timeout_in_seconds"
+        elif key == "terminationWaitInSeconds":
+            suggest = "termination_wait_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointBlueGreenUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointBlueGreenUpdatePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointBlueGreenUpdatePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 traffic_routing_configuration: 'outputs.EndpointTrafficRoutingConfig',
+                 maximum_execution_timeout_in_seconds: Optional[int] = None,
+                 termination_wait_in_seconds: Optional[int] = None):
+        pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if termination_wait_in_seconds is not None:
+            pulumi.set(__self__, "termination_wait_in_seconds", termination_wait_in_seconds)
+
+    @property
+    @pulumi.getter(name="trafficRoutingConfiguration")
+    def traffic_routing_configuration(self) -> 'outputs.EndpointTrafficRoutingConfig':
+        return pulumi.get(self, "traffic_routing_configuration")
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="terminationWaitInSeconds")
+    def termination_wait_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "termination_wait_in_seconds")
+
+
+@pulumi.output_type
+class EndpointCapacitySize(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: int):
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceClientConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentInvocationsPerInstance":
+            suggest = "max_concurrent_invocations_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceClientConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceClientConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceClientConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_invocations_per_instance: Optional[int] = None):
+        if max_concurrent_invocations_per_instance is not None:
+            pulumi.set(__self__, "max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
+
+    @property
+    @pulumi.getter(name="maxConcurrentInvocationsPerInstance")
+    def max_concurrent_invocations_per_instance(self) -> Optional[int]:
+        return pulumi.get(self, "max_concurrent_invocations_per_instance")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputConfig":
+            suggest = "output_config"
+        elif key == "clientConfig":
+            suggest = "client_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_config: 'outputs.EndpointConfigAsyncInferenceOutputConfig',
+                 client_config: Optional['outputs.EndpointConfigAsyncInferenceClientConfig'] = None):
+        pulumi.set(__self__, "output_config", output_config)
+        if client_config is not None:
+            pulumi.set(__self__, "client_config", client_config)
+
+    @property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> 'outputs.EndpointConfigAsyncInferenceOutputConfig':
+        return pulumi.get(self, "output_config")
+
+    @property
+    @pulumi.getter(name="clientConfig")
+    def client_config(self) -> Optional['outputs.EndpointConfigAsyncInferenceClientConfig']:
+        return pulumi.get(self, "client_config")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceNotificationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorTopic":
+            suggest = "error_topic"
+        elif key == "successTopic":
+            suggest = "success_topic"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_topic: Optional[str] = None,
+                 success_topic: Optional[str] = None):
+        if error_topic is not None:
+            pulumi.set(__self__, "error_topic", error_topic)
+        if success_topic is not None:
+            pulumi.set(__self__, "success_topic", success_topic)
+
+    @property
+    @pulumi.getter(name="errorTopic")
+    def error_topic(self) -> Optional[str]:
+        return pulumi.get(self, "error_topic")
+
+    @property
+    @pulumi.getter(name="successTopic")
+    def success_topic(self) -> Optional[str]:
+        return pulumi.get(self, "success_topic")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: str,
+                 kms_key_id: Optional[str] = None,
+                 notification_config: Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig'] = None):
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> str:
+        return pulumi.get(self, "s3_output_path")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig']:
+        return pulumi.get(self, "notification_config")
+
+
+@pulumi.output_type
+class EndpointConfigCaptureContentTypeHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "csvContentTypes":
+            suggest = "csv_content_types"
+        elif key == "jsonContentTypes":
+            suggest = "json_content_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigCaptureContentTypeHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigCaptureContentTypeHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigCaptureContentTypeHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 csv_content_types: Optional[Sequence[str]] = None,
+                 json_content_types: Optional[Sequence[str]] = None):
+        if csv_content_types is not None:
+            pulumi.set(__self__, "csv_content_types", csv_content_types)
+        if json_content_types is not None:
+            pulumi.set(__self__, "json_content_types", json_content_types)
+
+    @property
+    @pulumi.getter(name="csvContentTypes")
+    def csv_content_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "csv_content_types")
+
+    @property
+    @pulumi.getter(name="jsonContentTypes")
+    def json_content_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "json_content_types")
+
+
+@pulumi.output_type
+class EndpointConfigCaptureOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureMode":
+            suggest = "capture_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigCaptureOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigCaptureOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigCaptureOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capture_mode: str):
+        pulumi.set(__self__, "capture_mode", capture_mode)
+
+    @property
+    @pulumi.getter(name="captureMode")
+    def capture_mode(self) -> str:
+        return pulumi.get(self, "capture_mode")
+
+
+@pulumi.output_type
+class EndpointConfigDataCaptureConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureOptions":
+            suggest = "capture_options"
+        elif key == "destinationS3Uri":
+            suggest = "destination_s3_uri"
+        elif key == "initialSamplingPercentage":
+            suggest = "initial_sampling_percentage"
+        elif key == "captureContentTypeHeader":
+            suggest = "capture_content_type_header"
+        elif key == "enableCapture":
+            suggest = "enable_capture"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigDataCaptureConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigDataCaptureConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigDataCaptureConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capture_options: Sequence['outputs.EndpointConfigCaptureOption'],
+                 destination_s3_uri: str,
+                 initial_sampling_percentage: int,
+                 capture_content_type_header: Optional['outputs.EndpointConfigCaptureContentTypeHeader'] = None,
+                 enable_capture: Optional[bool] = None,
+                 kms_key_id: Optional[str] = None):
+        pulumi.set(__self__, "capture_options", capture_options)
+        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
+        pulumi.set(__self__, "initial_sampling_percentage", initial_sampling_percentage)
+        if capture_content_type_header is not None:
+            pulumi.set(__self__, "capture_content_type_header", capture_content_type_header)
+        if enable_capture is not None:
+            pulumi.set(__self__, "enable_capture", enable_capture)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="captureOptions")
+    def capture_options(self) -> Sequence['outputs.EndpointConfigCaptureOption']:
+        return pulumi.get(self, "capture_options")
+
+    @property
+    @pulumi.getter(name="destinationS3Uri")
+    def destination_s3_uri(self) -> str:
+        return pulumi.get(self, "destination_s3_uri")
+
+    @property
+    @pulumi.getter(name="initialSamplingPercentage")
+    def initial_sampling_percentage(self) -> int:
+        return pulumi.get(self, "initial_sampling_percentage")
+
+    @property
+    @pulumi.getter(name="captureContentTypeHeader")
+    def capture_content_type_header(self) -> Optional['outputs.EndpointConfigCaptureContentTypeHeader']:
+        return pulumi.get(self, "capture_content_type_header")
+
+    @property
+    @pulumi.getter(name="enableCapture")
+    def enable_capture(self) -> Optional[bool]:
+        return pulumi.get(self, "enable_capture")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class EndpointConfigProductionVariant(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialInstanceCount":
+            suggest = "initial_instance_count"
+        elif key == "initialVariantWeight":
+            suggest = "initial_variant_weight"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "modelName":
+            suggest = "model_name"
+        elif key == "variantName":
+            suggest = "variant_name"
+        elif key == "acceleratorType":
+            suggest = "accelerator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigProductionVariant. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigProductionVariant.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigProductionVariant.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initial_instance_count: int,
+                 initial_variant_weight: float,
+                 instance_type: str,
+                 model_name: str,
+                 variant_name: str,
+                 accelerator_type: Optional[str] = None):
+        pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "model_name", model_name)
+        pulumi.set(__self__, "variant_name", variant_name)
+        if accelerator_type is not None:
+            pulumi.set(__self__, "accelerator_type", accelerator_type)
+
+    @property
+    @pulumi.getter(name="initialInstanceCount")
+    def initial_instance_count(self) -> int:
+        return pulumi.get(self, "initial_instance_count")
+
+    @property
+    @pulumi.getter(name="initialVariantWeight")
+    def initial_variant_weight(self) -> float:
+        return pulumi.get(self, "initial_variant_weight")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> str:
+        return pulumi.get(self, "model_name")
+
+    @property
+    @pulumi.getter(name="variantName")
+    def variant_name(self) -> str:
+        return pulumi.get(self, "variant_name")
+
+    @property
+    @pulumi.getter(name="acceleratorType")
+    def accelerator_type(self) -> Optional[str]:
+        return pulumi.get(self, "accelerator_type")
+
+
+@pulumi.output_type
+class EndpointConfigTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blueGreenUpdatePolicy":
+            suggest = "blue_green_update_policy"
+        elif key == "autoRollbackConfiguration":
+            suggest = "auto_rollback_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeploymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeploymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blue_green_update_policy: 'outputs.EndpointBlueGreenUpdatePolicy',
+                 auto_rollback_configuration: Optional['outputs.EndpointAutoRollbackConfig'] = None):
+        pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> 'outputs.EndpointBlueGreenUpdatePolicy':
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional['outputs.EndpointAutoRollbackConfig']:
+        return pulumi.get(self, "auto_rollback_configuration")
+
+
+@pulumi.output_type
+class EndpointTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointTrafficRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "canarySize":
+            suggest = "canary_size"
+        elif key == "waitIntervalInSeconds":
+            suggest = "wait_interval_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointTrafficRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointTrafficRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointTrafficRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 canary_size: Optional['outputs.EndpointCapacitySize'] = None,
+                 wait_interval_in_seconds: Optional[int] = None):
+        pulumi.set(__self__, "type", type)
+        if canary_size is not None:
+            pulumi.set(__self__, "canary_size", canary_size)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="canarySize")
+    def canary_size(self) -> Optional['outputs.EndpointCapacitySize']:
+        return pulumi.get(self, "canary_size")
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+
+@pulumi.output_type
+class EndpointVariantProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variantPropertyType":
+            suggest = "variant_property_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointVariantProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointVariantProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointVariantProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 variant_property_type: Optional[str] = None):
+        if variant_property_type is not None:
+            pulumi.set(__self__, "variant_property_type", variant_property_type)
+
+    @property
+    @pulumi.getter(name="variantPropertyType")
+    def variant_property_type(self) -> Optional[str]:
+        return pulumi.get(self, "variant_property_type")
+
+
+@pulumi.output_type
 class FeatureGroupFeatureDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2718,6 +3458,100 @@ class ModelBiasJobDefinitionVpcConfig(dict):
 
 
 @pulumi.output_type
+class ModelContainerDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerHostname":
+            suggest = "container_hostname"
+        elif key == "imageConfig":
+            suggest = "image_config"
+        elif key == "modelDataUrl":
+            suggest = "model_data_url"
+        elif key == "modelPackageName":
+            suggest = "model_package_name"
+        elif key == "multiModelConfig":
+            suggest = "multi_model_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_hostname: Optional[str] = None,
+                 environment: Optional[Any] = None,
+                 image: Optional[str] = None,
+                 image_config: Optional['outputs.ModelImageConfig'] = None,
+                 mode: Optional[str] = None,
+                 model_data_url: Optional[str] = None,
+                 model_package_name: Optional[str] = None,
+                 multi_model_config: Optional['outputs.ModelMultiModelConfig'] = None):
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if image_config is not None:
+            pulumi.set(__self__, "image_config", image_config)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
+        if multi_model_config is not None:
+            pulumi.set(__self__, "multi_model_config", multi_model_config)
+
+    @property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[str]:
+        return pulumi.get(self, "container_hostname")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[Any]:
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="imageConfig")
+    def image_config(self) -> Optional['outputs.ModelImageConfig']:
+        return pulumi.get(self, "image_config")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[str]:
+        return pulumi.get(self, "model_data_url")
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[str]:
+        return pulumi.get(self, "model_package_name")
+
+    @property
+    @pulumi.getter(name="multiModelConfig")
+    def multi_model_config(self) -> Optional['outputs.ModelMultiModelConfig']:
+        return pulumi.get(self, "multi_model_config")
+
+
+@pulumi.output_type
 class ModelExplainabilityJobDefinitionClusterConfig(dict):
     """
     Configuration for the cluster used to run model monitoring jobs.
@@ -3472,6 +4306,87 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
         The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ModelImageConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryAccessMode":
+            suggest = "repository_access_mode"
+        elif key == "repositoryAuthConfig":
+            suggest = "repository_auth_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelImageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelImageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelImageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_access_mode: str,
+                 repository_auth_config: Optional['outputs.ModelRepositoryAuthConfig'] = None):
+        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        if repository_auth_config is not None:
+            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
+
+    @property
+    @pulumi.getter(name="repositoryAccessMode")
+    def repository_access_mode(self) -> str:
+        return pulumi.get(self, "repository_access_mode")
+
+    @property
+    @pulumi.getter(name="repositoryAuthConfig")
+    def repository_auth_config(self) -> Optional['outputs.ModelRepositoryAuthConfig']:
+        return pulumi.get(self, "repository_auth_config")
+
+
+@pulumi.output_type
+class ModelInferenceExecutionConfig(dict):
+    def __init__(__self__, *,
+                 mode: str):
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class ModelMultiModelConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelCacheSetting":
+            suggest = "model_cache_setting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelMultiModelConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelMultiModelConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelMultiModelConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_cache_setting: Optional[str] = None):
+        if model_cache_setting is not None:
+            pulumi.set(__self__, "model_cache_setting", model_cache_setting)
+
+    @property
+    @pulumi.getter(name="modelCacheSetting")
+    def model_cache_setting(self) -> Optional[str]:
+        return pulumi.get(self, "model_cache_setting")
 
 
 @pulumi.output_type
@@ -4385,6 +5300,90 @@ class ModelQualityJobDefinitionVpcConfig(dict):
         """
         The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ModelRepositoryAuthConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryCredentialsProviderArn":
+            suggest = "repository_credentials_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelRepositoryAuthConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelRepositoryAuthConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelRepositoryAuthConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_credentials_provider_arn: str):
+        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+
+    @property
+    @pulumi.getter(name="repositoryCredentialsProviderArn")
+    def repository_credentials_provider_arn(self) -> str:
+        return pulumi.get(self, "repository_credentials_provider_arn")
+
+
+@pulumi.output_type
+class ModelTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ModelVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnets: Sequence[str]):
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
         return pulumi.get(self, "subnets")
 
 
@@ -5526,6 +6525,38 @@ class MonitoringScheduleVpcConfig(dict):
 
 
 @pulumi.output_type
+class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook(dict):
+    def __init__(__self__, *,
+                 content: Optional[str] = None):
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        return pulumi.get(self, "content")
+
+
+@pulumi.output_type
+class NotebookInstanceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class PipelineTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -5978,5 +7009,129 @@ class UserProfileUserSettings(dict):
         The sharing settings.
         """
         return pulumi.get(self, "sharing_settings")
+
+
+@pulumi.output_type
+class WorkteamCognitoMemberDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cognitoClientId":
+            suggest = "cognito_client_id"
+        elif key == "cognitoUserGroup":
+            suggest = "cognito_user_group"
+        elif key == "cognitoUserPool":
+            suggest = "cognito_user_pool"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamCognitoMemberDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkteamCognitoMemberDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkteamCognitoMemberDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cognito_client_id: str,
+                 cognito_user_group: str,
+                 cognito_user_pool: str):
+        pulumi.set(__self__, "cognito_client_id", cognito_client_id)
+        pulumi.set(__self__, "cognito_user_group", cognito_user_group)
+        pulumi.set(__self__, "cognito_user_pool", cognito_user_pool)
+
+    @property
+    @pulumi.getter(name="cognitoClientId")
+    def cognito_client_id(self) -> str:
+        return pulumi.get(self, "cognito_client_id")
+
+    @property
+    @pulumi.getter(name="cognitoUserGroup")
+    def cognito_user_group(self) -> str:
+        return pulumi.get(self, "cognito_user_group")
+
+    @property
+    @pulumi.getter(name="cognitoUserPool")
+    def cognito_user_pool(self) -> str:
+        return pulumi.get(self, "cognito_user_pool")
+
+
+@pulumi.output_type
+class WorkteamMemberDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cognitoMemberDefinition":
+            suggest = "cognito_member_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamMemberDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkteamMemberDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkteamMemberDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cognito_member_definition: 'outputs.WorkteamCognitoMemberDefinition'):
+        pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+
+    @property
+    @pulumi.getter(name="cognitoMemberDefinition")
+    def cognito_member_definition(self) -> 'outputs.WorkteamCognitoMemberDefinition':
+        return pulumi.get(self, "cognito_member_definition")
+
+
+@pulumi.output_type
+class WorkteamNotificationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notificationTopicArn":
+            suggest = "notification_topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamNotificationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkteamNotificationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkteamNotificationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notification_topic_arn: str):
+        pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+
+    @property
+    @pulumi.getter(name="notificationTopicArn")
+    def notification_topic_arn(self) -> str:
+        return pulumi.get(self, "notification_topic_arn")
+
+
+@pulumi.output_type
+class WorkteamTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

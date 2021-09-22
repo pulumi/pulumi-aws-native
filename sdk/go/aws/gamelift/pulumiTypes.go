@@ -185,6 +185,184 @@ func (o AliasRoutingStrategyPtrOutput) Type() AliasRoutingStrategyTypePtrOutput 
 	}).(AliasRoutingStrategyTypePtrOutput)
 }
 
+type BuildS3Location struct {
+	Bucket        string  `pulumi:"bucket"`
+	Key           string  `pulumi:"key"`
+	ObjectVersion *string `pulumi:"objectVersion"`
+	RoleArn       string  `pulumi:"roleArn"`
+}
+
+// BuildS3LocationInput is an input type that accepts BuildS3LocationArgs and BuildS3LocationOutput values.
+// You can construct a concrete instance of `BuildS3LocationInput` via:
+//
+//          BuildS3LocationArgs{...}
+type BuildS3LocationInput interface {
+	pulumi.Input
+
+	ToBuildS3LocationOutput() BuildS3LocationOutput
+	ToBuildS3LocationOutputWithContext(context.Context) BuildS3LocationOutput
+}
+
+type BuildS3LocationArgs struct {
+	Bucket        pulumi.StringInput    `pulumi:"bucket"`
+	Key           pulumi.StringInput    `pulumi:"key"`
+	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
+	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
+}
+
+func (BuildS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildS3Location)(nil)).Elem()
+}
+
+func (i BuildS3LocationArgs) ToBuildS3LocationOutput() BuildS3LocationOutput {
+	return i.ToBuildS3LocationOutputWithContext(context.Background())
+}
+
+func (i BuildS3LocationArgs) ToBuildS3LocationOutputWithContext(ctx context.Context) BuildS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildS3LocationOutput)
+}
+
+func (i BuildS3LocationArgs) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
+	return i.ToBuildS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i BuildS3LocationArgs) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildS3LocationOutput).ToBuildS3LocationPtrOutputWithContext(ctx)
+}
+
+// BuildS3LocationPtrInput is an input type that accepts BuildS3LocationArgs, BuildS3LocationPtr and BuildS3LocationPtrOutput values.
+// You can construct a concrete instance of `BuildS3LocationPtrInput` via:
+//
+//          BuildS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type BuildS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput
+	ToBuildS3LocationPtrOutputWithContext(context.Context) BuildS3LocationPtrOutput
+}
+
+type buildS3LocationPtrType BuildS3LocationArgs
+
+func BuildS3LocationPtr(v *BuildS3LocationArgs) BuildS3LocationPtrInput {
+	return (*buildS3LocationPtrType)(v)
+}
+
+func (*buildS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildS3Location)(nil)).Elem()
+}
+
+func (i *buildS3LocationPtrType) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
+	return i.ToBuildS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *buildS3LocationPtrType) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildS3LocationPtrOutput)
+}
+
+type BuildS3LocationOutput struct{ *pulumi.OutputState }
+
+func (BuildS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildS3Location)(nil)).Elem()
+}
+
+func (o BuildS3LocationOutput) ToBuildS3LocationOutput() BuildS3LocationOutput {
+	return o
+}
+
+func (o BuildS3LocationOutput) ToBuildS3LocationOutputWithContext(ctx context.Context) BuildS3LocationOutput {
+	return o
+}
+
+func (o BuildS3LocationOutput) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
+	return o.ToBuildS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o BuildS3LocationOutput) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildS3Location) *BuildS3Location {
+		return &v
+	}).(BuildS3LocationPtrOutput)
+}
+
+func (o BuildS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o BuildS3LocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildS3Location) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o BuildS3LocationOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildS3Location) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o BuildS3LocationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildS3Location) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type BuildS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (BuildS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildS3Location)(nil)).Elem()
+}
+
+func (o BuildS3LocationPtrOutput) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
+	return o
+}
+
+func (o BuildS3LocationPtrOutput) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
+	return o
+}
+
+func (o BuildS3LocationPtrOutput) Elem() BuildS3LocationOutput {
+	return o.ApplyT(func(v *BuildS3Location) BuildS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret BuildS3Location
+		return ret
+	}).(BuildS3LocationOutput)
+}
+
+func (o BuildS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BuildS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BuildS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BuildS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfiguration struct {
 	CertificateType FleetCertificateConfigurationCertificateType `pulumi:"certificateType"`
@@ -1880,9 +2058,764 @@ func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
+type GameSessionQueueDestination struct {
+	DestinationArn *string `pulumi:"destinationArn"`
+}
+
+// GameSessionQueueDestinationInput is an input type that accepts GameSessionQueueDestinationArgs and GameSessionQueueDestinationOutput values.
+// You can construct a concrete instance of `GameSessionQueueDestinationInput` via:
+//
+//          GameSessionQueueDestinationArgs{...}
+type GameSessionQueueDestinationInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueDestinationOutput() GameSessionQueueDestinationOutput
+	ToGameSessionQueueDestinationOutputWithContext(context.Context) GameSessionQueueDestinationOutput
+}
+
+type GameSessionQueueDestinationArgs struct {
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+}
+
+func (GameSessionQueueDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueDestination)(nil)).Elem()
+}
+
+func (i GameSessionQueueDestinationArgs) ToGameSessionQueueDestinationOutput() GameSessionQueueDestinationOutput {
+	return i.ToGameSessionQueueDestinationOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueDestinationArgs) ToGameSessionQueueDestinationOutputWithContext(ctx context.Context) GameSessionQueueDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueDestinationOutput)
+}
+
+// GameSessionQueueDestinationArrayInput is an input type that accepts GameSessionQueueDestinationArray and GameSessionQueueDestinationArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueueDestinationArrayInput` via:
+//
+//          GameSessionQueueDestinationArray{ GameSessionQueueDestinationArgs{...} }
+type GameSessionQueueDestinationArrayInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueDestinationArrayOutput() GameSessionQueueDestinationArrayOutput
+	ToGameSessionQueueDestinationArrayOutputWithContext(context.Context) GameSessionQueueDestinationArrayOutput
+}
+
+type GameSessionQueueDestinationArray []GameSessionQueueDestinationInput
+
+func (GameSessionQueueDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueueDestination)(nil)).Elem()
+}
+
+func (i GameSessionQueueDestinationArray) ToGameSessionQueueDestinationArrayOutput() GameSessionQueueDestinationArrayOutput {
+	return i.ToGameSessionQueueDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueDestinationArray) ToGameSessionQueueDestinationArrayOutputWithContext(ctx context.Context) GameSessionQueueDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueDestinationArrayOutput)
+}
+
+type GameSessionQueueDestinationOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueDestination)(nil)).Elem()
+}
+
+func (o GameSessionQueueDestinationOutput) ToGameSessionQueueDestinationOutput() GameSessionQueueDestinationOutput {
+	return o
+}
+
+func (o GameSessionQueueDestinationOutput) ToGameSessionQueueDestinationOutputWithContext(ctx context.Context) GameSessionQueueDestinationOutput {
+	return o
+}
+
+func (o GameSessionQueueDestinationOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameSessionQueueDestination) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+type GameSessionQueueDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueueDestination)(nil)).Elem()
+}
+
+func (o GameSessionQueueDestinationArrayOutput) ToGameSessionQueueDestinationArrayOutput() GameSessionQueueDestinationArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueDestinationArrayOutput) ToGameSessionQueueDestinationArrayOutputWithContext(ctx context.Context) GameSessionQueueDestinationArrayOutput {
+	return o
+}
+
+func (o GameSessionQueueDestinationArrayOutput) Index(i pulumi.IntInput) GameSessionQueueDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameSessionQueueDestination {
+		return vs[0].([]GameSessionQueueDestination)[vs[1].(int)]
+	}).(GameSessionQueueDestinationOutput)
+}
+
+type GameSessionQueueFilterConfiguration struct {
+	AllowedLocations []string `pulumi:"allowedLocations"`
+}
+
+// GameSessionQueueFilterConfigurationInput is an input type that accepts GameSessionQueueFilterConfigurationArgs and GameSessionQueueFilterConfigurationOutput values.
+// You can construct a concrete instance of `GameSessionQueueFilterConfigurationInput` via:
+//
+//          GameSessionQueueFilterConfigurationArgs{...}
+type GameSessionQueueFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueFilterConfigurationOutput() GameSessionQueueFilterConfigurationOutput
+	ToGameSessionQueueFilterConfigurationOutputWithContext(context.Context) GameSessionQueueFilterConfigurationOutput
+}
+
+type GameSessionQueueFilterConfigurationArgs struct {
+	AllowedLocations pulumi.StringArrayInput `pulumi:"allowedLocations"`
+}
+
+func (GameSessionQueueFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueFilterConfiguration)(nil)).Elem()
+}
+
+func (i GameSessionQueueFilterConfigurationArgs) ToGameSessionQueueFilterConfigurationOutput() GameSessionQueueFilterConfigurationOutput {
+	return i.ToGameSessionQueueFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueFilterConfigurationArgs) ToGameSessionQueueFilterConfigurationOutputWithContext(ctx context.Context) GameSessionQueueFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueFilterConfigurationOutput)
+}
+
+func (i GameSessionQueueFilterConfigurationArgs) ToGameSessionQueueFilterConfigurationPtrOutput() GameSessionQueueFilterConfigurationPtrOutput {
+	return i.ToGameSessionQueueFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueueFilterConfigurationArgs) ToGameSessionQueueFilterConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueFilterConfigurationOutput).ToGameSessionQueueFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// GameSessionQueueFilterConfigurationPtrInput is an input type that accepts GameSessionQueueFilterConfigurationArgs, GameSessionQueueFilterConfigurationPtr and GameSessionQueueFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `GameSessionQueueFilterConfigurationPtrInput` via:
+//
+//          GameSessionQueueFilterConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GameSessionQueueFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGameSessionQueueFilterConfigurationPtrOutput() GameSessionQueueFilterConfigurationPtrOutput
+	ToGameSessionQueueFilterConfigurationPtrOutputWithContext(context.Context) GameSessionQueueFilterConfigurationPtrOutput
+}
+
+type gameSessionQueueFilterConfigurationPtrType GameSessionQueueFilterConfigurationArgs
+
+func GameSessionQueueFilterConfigurationPtr(v *GameSessionQueueFilterConfigurationArgs) GameSessionQueueFilterConfigurationPtrInput {
+	return (*gameSessionQueueFilterConfigurationPtrType)(v)
+}
+
+func (*gameSessionQueueFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueueFilterConfiguration)(nil)).Elem()
+}
+
+func (i *gameSessionQueueFilterConfigurationPtrType) ToGameSessionQueueFilterConfigurationPtrOutput() GameSessionQueueFilterConfigurationPtrOutput {
+	return i.ToGameSessionQueueFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gameSessionQueueFilterConfigurationPtrType) ToGameSessionQueueFilterConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueFilterConfigurationPtrOutput)
+}
+
+type GameSessionQueueFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueueFilterConfiguration)(nil)).Elem()
+}
+
+func (o GameSessionQueueFilterConfigurationOutput) ToGameSessionQueueFilterConfigurationOutput() GameSessionQueueFilterConfigurationOutput {
+	return o
+}
+
+func (o GameSessionQueueFilterConfigurationOutput) ToGameSessionQueueFilterConfigurationOutputWithContext(ctx context.Context) GameSessionQueueFilterConfigurationOutput {
+	return o
+}
+
+func (o GameSessionQueueFilterConfigurationOutput) ToGameSessionQueueFilterConfigurationPtrOutput() GameSessionQueueFilterConfigurationPtrOutput {
+	return o.ToGameSessionQueueFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueueFilterConfigurationOutput) ToGameSessionQueueFilterConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameSessionQueueFilterConfiguration) *GameSessionQueueFilterConfiguration {
+		return &v
+	}).(GameSessionQueueFilterConfigurationPtrOutput)
+}
+
+func (o GameSessionQueueFilterConfigurationOutput) AllowedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GameSessionQueueFilterConfiguration) []string { return v.AllowedLocations }).(pulumi.StringArrayOutput)
+}
+
+type GameSessionQueueFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueueFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueueFilterConfiguration)(nil)).Elem()
+}
+
+func (o GameSessionQueueFilterConfigurationPtrOutput) ToGameSessionQueueFilterConfigurationPtrOutput() GameSessionQueueFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueueFilterConfigurationPtrOutput) ToGameSessionQueueFilterConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueueFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueueFilterConfigurationPtrOutput) Elem() GameSessionQueueFilterConfigurationOutput {
+	return o.ApplyT(func(v *GameSessionQueueFilterConfiguration) GameSessionQueueFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GameSessionQueueFilterConfiguration
+		return ret
+	}).(GameSessionQueueFilterConfigurationOutput)
+}
+
+func (o GameSessionQueueFilterConfigurationPtrOutput) AllowedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueueFilterConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedLocations
+	}).(pulumi.StringArrayOutput)
+}
+
+type GameSessionQueuePlayerLatencyPolicy struct {
+	MaximumIndividualPlayerLatencyMilliseconds *int `pulumi:"maximumIndividualPlayerLatencyMilliseconds"`
+	PolicyDurationSeconds                      *int `pulumi:"policyDurationSeconds"`
+}
+
+// GameSessionQueuePlayerLatencyPolicyInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArgs and GameSessionQueuePlayerLatencyPolicyOutput values.
+// You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyInput` via:
+//
+//          GameSessionQueuePlayerLatencyPolicyArgs{...}
+type GameSessionQueuePlayerLatencyPolicyInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePlayerLatencyPolicyOutput() GameSessionQueuePlayerLatencyPolicyOutput
+	ToGameSessionQueuePlayerLatencyPolicyOutputWithContext(context.Context) GameSessionQueuePlayerLatencyPolicyOutput
+}
+
+type GameSessionQueuePlayerLatencyPolicyArgs struct {
+	MaximumIndividualPlayerLatencyMilliseconds pulumi.IntPtrInput `pulumi:"maximumIndividualPlayerLatencyMilliseconds"`
+	PolicyDurationSeconds                      pulumi.IntPtrInput `pulumi:"policyDurationSeconds"`
+}
+
+func (GameSessionQueuePlayerLatencyPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicy)(nil)).Elem()
+}
+
+func (i GameSessionQueuePlayerLatencyPolicyArgs) ToGameSessionQueuePlayerLatencyPolicyOutput() GameSessionQueuePlayerLatencyPolicyOutput {
+	return i.ToGameSessionQueuePlayerLatencyPolicyOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueuePlayerLatencyPolicyArgs) ToGameSessionQueuePlayerLatencyPolicyOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePlayerLatencyPolicyOutput)
+}
+
+// GameSessionQueuePlayerLatencyPolicyArrayInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArray and GameSessionQueuePlayerLatencyPolicyArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyArrayInput` via:
+//
+//          GameSessionQueuePlayerLatencyPolicyArray{ GameSessionQueuePlayerLatencyPolicyArgs{...} }
+type GameSessionQueuePlayerLatencyPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePlayerLatencyPolicyArrayOutput() GameSessionQueuePlayerLatencyPolicyArrayOutput
+	ToGameSessionQueuePlayerLatencyPolicyArrayOutputWithContext(context.Context) GameSessionQueuePlayerLatencyPolicyArrayOutput
+}
+
+type GameSessionQueuePlayerLatencyPolicyArray []GameSessionQueuePlayerLatencyPolicyInput
+
+func (GameSessionQueuePlayerLatencyPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueuePlayerLatencyPolicy)(nil)).Elem()
+}
+
+func (i GameSessionQueuePlayerLatencyPolicyArray) ToGameSessionQueuePlayerLatencyPolicyArrayOutput() GameSessionQueuePlayerLatencyPolicyArrayOutput {
+	return i.ToGameSessionQueuePlayerLatencyPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueuePlayerLatencyPolicyArray) ToGameSessionQueuePlayerLatencyPolicyArrayOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePlayerLatencyPolicyArrayOutput)
+}
+
+type GameSessionQueuePlayerLatencyPolicyOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueuePlayerLatencyPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicy)(nil)).Elem()
+}
+
+func (o GameSessionQueuePlayerLatencyPolicyOutput) ToGameSessionQueuePlayerLatencyPolicyOutput() GameSessionQueuePlayerLatencyPolicyOutput {
+	return o
+}
+
+func (o GameSessionQueuePlayerLatencyPolicyOutput) ToGameSessionQueuePlayerLatencyPolicyOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPolicyOutput {
+	return o
+}
+
+func (o GameSessionQueuePlayerLatencyPolicyOutput) MaximumIndividualPlayerLatencyMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GameSessionQueuePlayerLatencyPolicy) *int { return v.MaximumIndividualPlayerLatencyMilliseconds }).(pulumi.IntPtrOutput)
+}
+
+func (o GameSessionQueuePlayerLatencyPolicyOutput) PolicyDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GameSessionQueuePlayerLatencyPolicy) *int { return v.PolicyDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+type GameSessionQueuePlayerLatencyPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueuePlayerLatencyPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueuePlayerLatencyPolicy)(nil)).Elem()
+}
+
+func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) ToGameSessionQueuePlayerLatencyPolicyArrayOutput() GameSessionQueuePlayerLatencyPolicyArrayOutput {
+	return o
+}
+
+func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) ToGameSessionQueuePlayerLatencyPolicyArrayOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPolicyArrayOutput {
+	return o
+}
+
+func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) Index(i pulumi.IntInput) GameSessionQueuePlayerLatencyPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameSessionQueuePlayerLatencyPolicy {
+		return vs[0].([]GameSessionQueuePlayerLatencyPolicy)[vs[1].(int)]
+	}).(GameSessionQueuePlayerLatencyPolicyOutput)
+}
+
+type GameSessionQueuePriorityConfiguration struct {
+	LocationOrder []string `pulumi:"locationOrder"`
+	PriorityOrder []string `pulumi:"priorityOrder"`
+}
+
+// GameSessionQueuePriorityConfigurationInput is an input type that accepts GameSessionQueuePriorityConfigurationArgs and GameSessionQueuePriorityConfigurationOutput values.
+// You can construct a concrete instance of `GameSessionQueuePriorityConfigurationInput` via:
+//
+//          GameSessionQueuePriorityConfigurationArgs{...}
+type GameSessionQueuePriorityConfigurationInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePriorityConfigurationOutput() GameSessionQueuePriorityConfigurationOutput
+	ToGameSessionQueuePriorityConfigurationOutputWithContext(context.Context) GameSessionQueuePriorityConfigurationOutput
+}
+
+type GameSessionQueuePriorityConfigurationArgs struct {
+	LocationOrder pulumi.StringArrayInput `pulumi:"locationOrder"`
+	PriorityOrder pulumi.StringArrayInput `pulumi:"priorityOrder"`
+}
+
+func (GameSessionQueuePriorityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueuePriorityConfiguration)(nil)).Elem()
+}
+
+func (i GameSessionQueuePriorityConfigurationArgs) ToGameSessionQueuePriorityConfigurationOutput() GameSessionQueuePriorityConfigurationOutput {
+	return i.ToGameSessionQueuePriorityConfigurationOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueuePriorityConfigurationArgs) ToGameSessionQueuePriorityConfigurationOutputWithContext(ctx context.Context) GameSessionQueuePriorityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePriorityConfigurationOutput)
+}
+
+func (i GameSessionQueuePriorityConfigurationArgs) ToGameSessionQueuePriorityConfigurationPtrOutput() GameSessionQueuePriorityConfigurationPtrOutput {
+	return i.ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueuePriorityConfigurationArgs) ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePriorityConfigurationOutput).ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(ctx)
+}
+
+// GameSessionQueuePriorityConfigurationPtrInput is an input type that accepts GameSessionQueuePriorityConfigurationArgs, GameSessionQueuePriorityConfigurationPtr and GameSessionQueuePriorityConfigurationPtrOutput values.
+// You can construct a concrete instance of `GameSessionQueuePriorityConfigurationPtrInput` via:
+//
+//          GameSessionQueuePriorityConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type GameSessionQueuePriorityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePriorityConfigurationPtrOutput() GameSessionQueuePriorityConfigurationPtrOutput
+	ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(context.Context) GameSessionQueuePriorityConfigurationPtrOutput
+}
+
+type gameSessionQueuePriorityConfigurationPtrType GameSessionQueuePriorityConfigurationArgs
+
+func GameSessionQueuePriorityConfigurationPtr(v *GameSessionQueuePriorityConfigurationArgs) GameSessionQueuePriorityConfigurationPtrInput {
+	return (*gameSessionQueuePriorityConfigurationPtrType)(v)
+}
+
+func (*gameSessionQueuePriorityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueuePriorityConfiguration)(nil)).Elem()
+}
+
+func (i *gameSessionQueuePriorityConfigurationPtrType) ToGameSessionQueuePriorityConfigurationPtrOutput() GameSessionQueuePriorityConfigurationPtrOutput {
+	return i.ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gameSessionQueuePriorityConfigurationPtrType) ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePriorityConfigurationPtrOutput)
+}
+
+type GameSessionQueuePriorityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueuePriorityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueuePriorityConfiguration)(nil)).Elem()
+}
+
+func (o GameSessionQueuePriorityConfigurationOutput) ToGameSessionQueuePriorityConfigurationOutput() GameSessionQueuePriorityConfigurationOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityConfigurationOutput) ToGameSessionQueuePriorityConfigurationOutputWithContext(ctx context.Context) GameSessionQueuePriorityConfigurationOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityConfigurationOutput) ToGameSessionQueuePriorityConfigurationPtrOutput() GameSessionQueuePriorityConfigurationPtrOutput {
+	return o.ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueuePriorityConfigurationOutput) ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameSessionQueuePriorityConfiguration) *GameSessionQueuePriorityConfiguration {
+		return &v
+	}).(GameSessionQueuePriorityConfigurationPtrOutput)
+}
+
+func (o GameSessionQueuePriorityConfigurationOutput) LocationOrder() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GameSessionQueuePriorityConfiguration) []string { return v.LocationOrder }).(pulumi.StringArrayOutput)
+}
+
+func (o GameSessionQueuePriorityConfigurationOutput) PriorityOrder() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GameSessionQueuePriorityConfiguration) []string { return v.PriorityOrder }).(pulumi.StringArrayOutput)
+}
+
+type GameSessionQueuePriorityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueuePriorityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueuePriorityConfiguration)(nil)).Elem()
+}
+
+func (o GameSessionQueuePriorityConfigurationPtrOutput) ToGameSessionQueuePriorityConfigurationPtrOutput() GameSessionQueuePriorityConfigurationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityConfigurationPtrOutput) ToGameSessionQueuePriorityConfigurationPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityConfigurationPtrOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityConfigurationPtrOutput) Elem() GameSessionQueuePriorityConfigurationOutput {
+	return o.ApplyT(func(v *GameSessionQueuePriorityConfiguration) GameSessionQueuePriorityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GameSessionQueuePriorityConfiguration
+		return ret
+	}).(GameSessionQueuePriorityConfigurationOutput)
+}
+
+func (o GameSessionQueuePriorityConfigurationPtrOutput) LocationOrder() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueuePriorityConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationOrder
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GameSessionQueuePriorityConfigurationPtrOutput) PriorityOrder() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueuePriorityConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PriorityOrder
+	}).(pulumi.StringArrayOutput)
+}
+
+type MatchmakingConfigurationGameProperty struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// MatchmakingConfigurationGamePropertyInput is an input type that accepts MatchmakingConfigurationGamePropertyArgs and MatchmakingConfigurationGamePropertyOutput values.
+// You can construct a concrete instance of `MatchmakingConfigurationGamePropertyInput` via:
+//
+//          MatchmakingConfigurationGamePropertyArgs{...}
+type MatchmakingConfigurationGamePropertyInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationGamePropertyOutput() MatchmakingConfigurationGamePropertyOutput
+	ToMatchmakingConfigurationGamePropertyOutputWithContext(context.Context) MatchmakingConfigurationGamePropertyOutput
+}
+
+type MatchmakingConfigurationGamePropertyArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MatchmakingConfigurationGamePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationGameProperty)(nil)).Elem()
+}
+
+func (i MatchmakingConfigurationGamePropertyArgs) ToMatchmakingConfigurationGamePropertyOutput() MatchmakingConfigurationGamePropertyOutput {
+	return i.ToMatchmakingConfigurationGamePropertyOutputWithContext(context.Background())
+}
+
+func (i MatchmakingConfigurationGamePropertyArgs) ToMatchmakingConfigurationGamePropertyOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationGamePropertyOutput)
+}
+
+// MatchmakingConfigurationGamePropertyArrayInput is an input type that accepts MatchmakingConfigurationGamePropertyArray and MatchmakingConfigurationGamePropertyArrayOutput values.
+// You can construct a concrete instance of `MatchmakingConfigurationGamePropertyArrayInput` via:
+//
+//          MatchmakingConfigurationGamePropertyArray{ MatchmakingConfigurationGamePropertyArgs{...} }
+type MatchmakingConfigurationGamePropertyArrayInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationGamePropertyArrayOutput() MatchmakingConfigurationGamePropertyArrayOutput
+	ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(context.Context) MatchmakingConfigurationGamePropertyArrayOutput
+}
+
+type MatchmakingConfigurationGamePropertyArray []MatchmakingConfigurationGamePropertyInput
+
+func (MatchmakingConfigurationGamePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchmakingConfigurationGameProperty)(nil)).Elem()
+}
+
+func (i MatchmakingConfigurationGamePropertyArray) ToMatchmakingConfigurationGamePropertyArrayOutput() MatchmakingConfigurationGamePropertyArrayOutput {
+	return i.ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i MatchmakingConfigurationGamePropertyArray) ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationGamePropertyArrayOutput)
+}
+
+type MatchmakingConfigurationGamePropertyOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationGamePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationGameProperty)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationGamePropertyOutput) ToMatchmakingConfigurationGamePropertyOutput() MatchmakingConfigurationGamePropertyOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationGamePropertyOutput) ToMatchmakingConfigurationGamePropertyOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationGamePropertyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchmakingConfigurationGameProperty) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MatchmakingConfigurationGamePropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchmakingConfigurationGameProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MatchmakingConfigurationGamePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationGamePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MatchmakingConfigurationGameProperty)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationGamePropertyArrayOutput) ToMatchmakingConfigurationGamePropertyArrayOutput() MatchmakingConfigurationGamePropertyArrayOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationGamePropertyArrayOutput) ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyArrayOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationGamePropertyArrayOutput) Index(i pulumi.IntInput) MatchmakingConfigurationGamePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MatchmakingConfigurationGameProperty {
+		return vs[0].([]MatchmakingConfigurationGameProperty)[vs[1].(int)]
+	}).(MatchmakingConfigurationGamePropertyOutput)
+}
+
+type ScriptS3Location struct {
+	Bucket        string  `pulumi:"bucket"`
+	Key           string  `pulumi:"key"`
+	ObjectVersion *string `pulumi:"objectVersion"`
+	RoleArn       string  `pulumi:"roleArn"`
+}
+
+// ScriptS3LocationInput is an input type that accepts ScriptS3LocationArgs and ScriptS3LocationOutput values.
+// You can construct a concrete instance of `ScriptS3LocationInput` via:
+//
+//          ScriptS3LocationArgs{...}
+type ScriptS3LocationInput interface {
+	pulumi.Input
+
+	ToScriptS3LocationOutput() ScriptS3LocationOutput
+	ToScriptS3LocationOutputWithContext(context.Context) ScriptS3LocationOutput
+}
+
+type ScriptS3LocationArgs struct {
+	Bucket        pulumi.StringInput    `pulumi:"bucket"`
+	Key           pulumi.StringInput    `pulumi:"key"`
+	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
+	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
+}
+
+func (ScriptS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptS3Location)(nil)).Elem()
+}
+
+func (i ScriptS3LocationArgs) ToScriptS3LocationOutput() ScriptS3LocationOutput {
+	return i.ToScriptS3LocationOutputWithContext(context.Background())
+}
+
+func (i ScriptS3LocationArgs) ToScriptS3LocationOutputWithContext(ctx context.Context) ScriptS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptS3LocationOutput)
+}
+
+func (i ScriptS3LocationArgs) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
+	return i.ToScriptS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i ScriptS3LocationArgs) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptS3LocationOutput).ToScriptS3LocationPtrOutputWithContext(ctx)
+}
+
+// ScriptS3LocationPtrInput is an input type that accepts ScriptS3LocationArgs, ScriptS3LocationPtr and ScriptS3LocationPtrOutput values.
+// You can construct a concrete instance of `ScriptS3LocationPtrInput` via:
+//
+//          ScriptS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type ScriptS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput
+	ToScriptS3LocationPtrOutputWithContext(context.Context) ScriptS3LocationPtrOutput
+}
+
+type scriptS3LocationPtrType ScriptS3LocationArgs
+
+func ScriptS3LocationPtr(v *ScriptS3LocationArgs) ScriptS3LocationPtrInput {
+	return (*scriptS3LocationPtrType)(v)
+}
+
+func (*scriptS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptS3Location)(nil)).Elem()
+}
+
+func (i *scriptS3LocationPtrType) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
+	return i.ToScriptS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *scriptS3LocationPtrType) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScriptS3LocationPtrOutput)
+}
+
+type ScriptS3LocationOutput struct{ *pulumi.OutputState }
+
+func (ScriptS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScriptS3Location)(nil)).Elem()
+}
+
+func (o ScriptS3LocationOutput) ToScriptS3LocationOutput() ScriptS3LocationOutput {
+	return o
+}
+
+func (o ScriptS3LocationOutput) ToScriptS3LocationOutputWithContext(ctx context.Context) ScriptS3LocationOutput {
+	return o
+}
+
+func (o ScriptS3LocationOutput) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
+	return o.ToScriptS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o ScriptS3LocationOutput) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptS3Location) *ScriptS3Location {
+		return &v
+	}).(ScriptS3LocationPtrOutput)
+}
+
+func (o ScriptS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o ScriptS3LocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptS3Location) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ScriptS3LocationOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScriptS3Location) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptS3LocationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScriptS3Location) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type ScriptS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScriptS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScriptS3Location)(nil)).Elem()
+}
+
+func (o ScriptS3LocationPtrOutput) ToScriptS3LocationPtrOutput() ScriptS3LocationPtrOutput {
+	return o
+}
+
+func (o ScriptS3LocationPtrOutput) ToScriptS3LocationPtrOutputWithContext(ctx context.Context) ScriptS3LocationPtrOutput {
+	return o
+}
+
+func (o ScriptS3LocationPtrOutput) Elem() ScriptS3LocationOutput {
+	return o.ApplyT(func(v *ScriptS3Location) ScriptS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret ScriptS3Location
+		return ret
+	}).(ScriptS3LocationOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScriptS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
+	pulumi.RegisterOutputType(BuildS3LocationOutput{})
+	pulumi.RegisterOutputType(BuildS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionOutput{})
@@ -1907,4 +2840,16 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueDestinationOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(GameSessionQueueFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePlayerLatencyPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyArrayOutput{})
+	pulumi.RegisterOutputType(ScriptS3LocationOutput{})
+	pulumi.RegisterOutputType(ScriptS3LocationPtrOutput{})
 }

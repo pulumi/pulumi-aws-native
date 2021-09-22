@@ -5,32 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./customResource";
+export * from "./macro";
 export * from "./moduleDefaultVersion";
 export * from "./moduleVersion";
 export * from "./publicTypeVersion";
 export * from "./publisher";
 export * from "./resourceDefaultVersion";
 export * from "./resourceVersion";
+export * from "./stack";
 export * from "./stackSet";
 export * from "./typeActivation";
+export * from "./waitCondition";
+export * from "./waitConditionHandle";
 
 // Export enums:
 export * from "../types/enums/cloudformation";
 
 // Import resources to register:
+import { CustomResource } from "./customResource";
+import { Macro } from "./macro";
 import { ModuleDefaultVersion } from "./moduleDefaultVersion";
 import { ModuleVersion } from "./moduleVersion";
 import { PublicTypeVersion } from "./publicTypeVersion";
 import { Publisher } from "./publisher";
 import { ResourceDefaultVersion } from "./resourceDefaultVersion";
 import { ResourceVersion } from "./resourceVersion";
+import { Stack } from "./stack";
 import { StackSet } from "./stackSet";
 import { TypeActivation } from "./typeActivation";
+import { WaitCondition } from "./waitCondition";
+import { WaitConditionHandle } from "./waitConditionHandle";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cloudformation:CustomResource":
+                return new CustomResource(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:Macro":
+                return new Macro(name, <any>undefined, { urn })
             case "aws-native:cloudformation:ModuleDefaultVersion":
                 return new ModuleDefaultVersion(name, <any>undefined, { urn })
             case "aws-native:cloudformation:ModuleVersion":
@@ -43,10 +57,16 @@ const _module = {
                 return new ResourceDefaultVersion(name, <any>undefined, { urn })
             case "aws-native:cloudformation:ResourceVersion":
                 return new ResourceVersion(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:Stack":
+                return new Stack(name, <any>undefined, { urn })
             case "aws-native:cloudformation:StackSet":
                 return new StackSet(name, <any>undefined, { urn })
             case "aws-native:cloudformation:TypeActivation":
                 return new TypeActivation(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:WaitCondition":
+                return new WaitCondition(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:WaitConditionHandle":
+                return new WaitConditionHandle(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

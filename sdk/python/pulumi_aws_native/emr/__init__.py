@@ -6,6 +6,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cluster import *
+from .instance_fleet_config import *
+from .instance_group_config import *
+from .security_configuration import *
+from .step import *
 from .studio import *
 from .studio_session_mapping import *
 from ._inputs import *

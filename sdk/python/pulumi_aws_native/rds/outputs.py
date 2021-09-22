@@ -7,14 +7,263 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DBClusterDBClusterRole',
+    'DBClusterParameterGroupTag',
+    'DBClusterScalingConfiguration',
+    'DBClusterTag',
+    'DBInstanceDBInstanceRole',
+    'DBInstanceProcessorFeature',
+    'DBInstanceTag',
+    'DBParameterGroupTag',
     'DBProxyAuthFormat',
     'DBProxyEndpointTagFormat',
     'DBProxyTagFormat',
     'DBProxyTargetGroupConnectionPoolConfigurationInfoFormat',
+    'DBSecurityGroupIngress',
+    'DBSecurityGroupTag',
+    'DBSubnetGroupTag',
+    'OptionGroupOptionConfiguration',
+    'OptionGroupOptionSetting',
+    'OptionGroupTag',
 ]
+
+@pulumi.output_type
+class DBClusterDBClusterRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "featureName":
+            suggest = "feature_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBClusterDBClusterRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBClusterDBClusterRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBClusterDBClusterRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str,
+                 feature_name: Optional[str] = None):
+        pulumi.set(__self__, "role_arn", role_arn)
+        if feature_name is not None:
+            pulumi.set(__self__, "feature_name", feature_name)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> Optional[str]:
+        return pulumi.get(self, "feature_name")
+
+
+@pulumi.output_type
+class DBClusterParameterGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBClusterScalingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoPause":
+            suggest = "auto_pause"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+        elif key == "secondsUntilAutoPause":
+            suggest = "seconds_until_auto_pause"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBClusterScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBClusterScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBClusterScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_pause: Optional[bool] = None,
+                 max_capacity: Optional[int] = None,
+                 min_capacity: Optional[int] = None,
+                 seconds_until_auto_pause: Optional[int] = None):
+        if auto_pause is not None:
+            pulumi.set(__self__, "auto_pause", auto_pause)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if min_capacity is not None:
+            pulumi.set(__self__, "min_capacity", min_capacity)
+        if seconds_until_auto_pause is not None:
+            pulumi.set(__self__, "seconds_until_auto_pause", seconds_until_auto_pause)
+
+    @property
+    @pulumi.getter(name="autoPause")
+    def auto_pause(self) -> Optional[bool]:
+        return pulumi.get(self, "auto_pause")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> Optional[int]:
+        return pulumi.get(self, "min_capacity")
+
+    @property
+    @pulumi.getter(name="secondsUntilAutoPause")
+    def seconds_until_auto_pause(self) -> Optional[int]:
+        return pulumi.get(self, "seconds_until_auto_pause")
+
+
+@pulumi.output_type
+class DBClusterTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBInstanceDBInstanceRole(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "featureName":
+            suggest = "feature_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBInstanceDBInstanceRole. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBInstanceDBInstanceRole.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBInstanceDBInstanceRole.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 feature_name: str,
+                 role_arn: str):
+        pulumi.set(__self__, "feature_name", feature_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> str:
+        return pulumi.get(self, "feature_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class DBInstanceProcessorFeature(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBInstanceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBParameterGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class DBProxyAuthFormat(dict):
@@ -238,5 +487,220 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         """
         return pulumi.get(self, "session_pinning_filters")
+
+
+@pulumi.output_type
+class DBSecurityGroupIngress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cIDRIP":
+            suggest = "c_idrip"
+        elif key == "eC2SecurityGroupId":
+            suggest = "e_c2_security_group_id"
+        elif key == "eC2SecurityGroupName":
+            suggest = "e_c2_security_group_name"
+        elif key == "eC2SecurityGroupOwnerId":
+            suggest = "e_c2_security_group_owner_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBSecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBSecurityGroupIngress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBSecurityGroupIngress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 c_idrip: Optional[str] = None,
+                 e_c2_security_group_id: Optional[str] = None,
+                 e_c2_security_group_name: Optional[str] = None,
+                 e_c2_security_group_owner_id: Optional[str] = None):
+        if c_idrip is not None:
+            pulumi.set(__self__, "c_idrip", c_idrip)
+        if e_c2_security_group_id is not None:
+            pulumi.set(__self__, "e_c2_security_group_id", e_c2_security_group_id)
+        if e_c2_security_group_name is not None:
+            pulumi.set(__self__, "e_c2_security_group_name", e_c2_security_group_name)
+        if e_c2_security_group_owner_id is not None:
+            pulumi.set(__self__, "e_c2_security_group_owner_id", e_c2_security_group_owner_id)
+
+    @property
+    @pulumi.getter(name="cIDRIP")
+    def c_idrip(self) -> Optional[str]:
+        return pulumi.get(self, "c_idrip")
+
+    @property
+    @pulumi.getter(name="eC2SecurityGroupId")
+    def e_c2_security_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "e_c2_security_group_id")
+
+    @property
+    @pulumi.getter(name="eC2SecurityGroupName")
+    def e_c2_security_group_name(self) -> Optional[str]:
+        return pulumi.get(self, "e_c2_security_group_name")
+
+    @property
+    @pulumi.getter(name="eC2SecurityGroupOwnerId")
+    def e_c2_security_group_owner_id(self) -> Optional[str]:
+        return pulumi.get(self, "e_c2_security_group_owner_id")
+
+
+@pulumi.output_type
+class DBSecurityGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBSubnetGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OptionGroupOptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optionName":
+            suggest = "option_name"
+        elif key == "dBSecurityGroupMemberships":
+            suggest = "d_b_security_group_memberships"
+        elif key == "optionSettings":
+            suggest = "option_settings"
+        elif key == "optionVersion":
+            suggest = "option_version"
+        elif key == "vpcSecurityGroupMemberships":
+            suggest = "vpc_security_group_memberships"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptionGroupOptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptionGroupOptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptionGroupOptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 option_name: str,
+                 d_b_security_group_memberships: Optional[Sequence[str]] = None,
+                 option_settings: Optional[Sequence['outputs.OptionGroupOptionSetting']] = None,
+                 option_version: Optional[str] = None,
+                 port: Optional[int] = None,
+                 vpc_security_group_memberships: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "option_name", option_name)
+        if d_b_security_group_memberships is not None:
+            pulumi.set(__self__, "d_b_security_group_memberships", d_b_security_group_memberships)
+        if option_settings is not None:
+            pulumi.set(__self__, "option_settings", option_settings)
+        if option_version is not None:
+            pulumi.set(__self__, "option_version", option_version)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if vpc_security_group_memberships is not None:
+            pulumi.set(__self__, "vpc_security_group_memberships", vpc_security_group_memberships)
+
+    @property
+    @pulumi.getter(name="optionName")
+    def option_name(self) -> str:
+        return pulumi.get(self, "option_name")
+
+    @property
+    @pulumi.getter(name="dBSecurityGroupMemberships")
+    def d_b_security_group_memberships(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "d_b_security_group_memberships")
+
+    @property
+    @pulumi.getter(name="optionSettings")
+    def option_settings(self) -> Optional[Sequence['outputs.OptionGroupOptionSetting']]:
+        return pulumi.get(self, "option_settings")
+
+    @property
+    @pulumi.getter(name="optionVersion")
+    def option_version(self) -> Optional[str]:
+        return pulumi.get(self, "option_version")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupMemberships")
+    def vpc_security_group_memberships(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "vpc_security_group_memberships")
+
+
+@pulumi.output_type
+class OptionGroupOptionSetting(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OptionGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

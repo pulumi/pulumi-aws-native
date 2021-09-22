@@ -10,5 +10,7 @@ from .dnssec import *
 from .health_check import *
 from .hosted_zone import *
 from .key_signing_key import *
+from .record_set import *
+from .record_set_group import *
 from ._inputs import *
 from . import outputs

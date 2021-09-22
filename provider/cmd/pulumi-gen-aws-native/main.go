@@ -58,30 +58,42 @@ func main() {
 		return
 	}
 
-	pkgSpec, meta, err := schema.GatherPackage(readSupportedResourceTypes(genDir), readJsonSchemas(schemaFolder))
+	supportedTypes := readSupportedResourceTypes(genDir)
+	jsonSchemas := readJsonSchemas(schemaFolder)
+
+	fullSpec, _, err := schema.GatherPackage(supportedTypes, jsonSchemas, true)
 	if err != nil {
 		panic(fmt.Sprintf("error generating schema: %v", err))
 	}
-	pkgSpec.Version = version
+	fullSpec.Version = version
 
 	for _, language := range strings.Split(languages, ",") {
 		fmt.Printf("Generating %s...\n", language)
 		switch language {
 		case "nodejs", "python", "dotnet", "go":
 			dir := filepath.Join(".", "sdk", language)
-			pkgSpec.Version = version
-			err = emitPackage(pkgSpec, language, dir)
+			err = emitPackage(fullSpec, language, dir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
-			writePulumiSchema(*pkgSpec, cf2pulumiDir, false)
+			writePulumiSchema(*fullSpec, cf2pulumiDir, "schema-full.json", true)
 
-			err := generateExamples(pkgSpec, []string{"nodejs", "python", "dotnet", "go"})
+			supportedSpec, meta, err := schema.GatherPackage(supportedTypes, jsonSchemas, false)
+			if err != nil {
+				panic(fmt.Sprintf("error generating schema: %v", err))
+			}
+
+			fmt.Println("Generating examples...")
+			err = generateExamples(supportedSpec, meta, []string{"nodejs", "python", "dotnet", "go"})
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
 			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-			writePulumiSchema(*pkgSpec, providerDir, true)
+			writePulumiSchema(*supportedSpec, providerDir, "schema.json", true)
 
+			// Emit the resource metadata for cf2pulumi.
+			if err = writeMetadata(meta, cf2pulumiDir, "main", false); err != nil {
+				break
+			}
 			// Also, emit the resource metadata for the provider.
 			if err = writeMetadata(meta, providerDir, "main", true); err != nil {
 				break
@@ -206,7 +218,7 @@ func emitPackage(pkgSpec *pschema.PackageSpec, language, outDir string) error {
 
 	return nil
 }
-func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, emitJSON bool) error {
+func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir, jsonFileName string, emitJSON bool) error {
 	compressedSchema := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedSchema)
 	err := json.NewEncoder(compressedWriter).Encode(pkgSpec)
@@ -230,7 +242,7 @@ var pulumiSchema = %#v
 		if err != nil {
 			panic(errors.Wrap(err, "marshaling Pulumi schema"))
 		}
-		return emitFile(outdir, "schema.json", schemaJSON)
+		return emitFile(outdir, jsonFileName, schemaJSON)
 	}
 
 	return nil

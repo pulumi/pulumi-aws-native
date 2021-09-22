@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./accessPoint";
+export * from "./bucket";
+export * from "./bucketPolicy";
 export * from "./multiRegionAccessPoint";
 export * from "./multiRegionAccessPointPolicy";
 export * from "./storageLens";
@@ -15,6 +17,8 @@ export * from "../types/enums/s3";
 
 // Import resources to register:
 import { AccessPoint } from "./accessPoint";
+import { Bucket } from "./bucket";
+import { BucketPolicy } from "./bucketPolicy";
 import { MultiRegionAccessPoint } from "./multiRegionAccessPoint";
 import { MultiRegionAccessPointPolicy } from "./multiRegionAccessPointPolicy";
 import { StorageLens } from "./storageLens";
@@ -25,6 +29,10 @@ const _module = {
         switch (type) {
             case "aws-native:s3:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
+            case "aws-native:s3:Bucket":
+                return new Bucket(name, <any>undefined, { urn })
+            case "aws-native:s3:BucketPolicy":
+                return new BucketPolicy(name, <any>undefined, { urn })
             case "aws-native:s3:MultiRegionAccessPoint":
                 return new MultiRegionAccessPoint(name, <any>undefined, { urn })
             case "aws-native:s3:MultiRegionAccessPointPolicy":

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .activity import *
 from .state_machine import *
 from ._inputs import *
 from . import outputs

@@ -286,6 +286,66 @@ export namespace acmpca {
 
 }
 
+export namespace amazonmq {
+    export interface BrokerConfigurationId {
+        id: string;
+        revision: number;
+    }
+
+    export interface BrokerEncryptionOptions {
+        kmsKeyId?: string;
+        useAwsOwnedKey: boolean;
+    }
+
+    export interface BrokerLdapServerMetadata {
+        hosts: string[];
+        roleBase: string;
+        roleName?: string;
+        roleSearchMatching: string;
+        roleSearchSubtree?: boolean;
+        serviceAccountPassword: string;
+        serviceAccountUsername: string;
+        userBase: string;
+        userRoleName?: string;
+        userSearchMatching: string;
+        userSearchSubtree?: boolean;
+    }
+
+    export interface BrokerLogList {
+        audit?: boolean;
+        general?: boolean;
+    }
+
+    export interface BrokerMaintenanceWindow {
+        dayOfWeek: string;
+        timeOfDay: string;
+        timeZone: string;
+    }
+
+    export interface BrokerTagsEntry {
+        key: string;
+        value: string;
+    }
+
+    export interface BrokerUser {
+        consoleAccess?: boolean;
+        groups?: string[];
+        password: string;
+        username: string;
+    }
+
+    export interface ConfigurationAssociationConfigurationId {
+        id: string;
+        revision: number;
+    }
+
+    export interface ConfigurationTagsEntry {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace amplify {
     export interface AppAutoBranchCreationConfig {
         autoBranchCreationPatterns?: string[];
@@ -374,6 +434,71 @@ export namespace apigateway {
         value: string;
     }
 
+    export interface DeploymentAccessLogSetting {
+        destinationArn?: string;
+        format?: string;
+    }
+
+    export interface DeploymentCanarySetting {
+        percentTraffic?: number;
+        stageVariableOverrides?: any;
+        useStageCache?: boolean;
+    }
+
+    export interface DeploymentDeploymentCanarySettings {
+        percentTraffic?: number;
+        stageVariableOverrides?: any;
+        useStageCache?: boolean;
+    }
+
+    export interface DeploymentMethodSetting {
+        cacheDataEncrypted?: boolean;
+        cacheTtlInSeconds?: number;
+        cachingEnabled?: boolean;
+        dataTraceEnabled?: boolean;
+        httpMethod?: string;
+        loggingLevel?: string;
+        metricsEnabled?: boolean;
+        resourcePath?: string;
+        throttlingBurstLimit?: number;
+        throttlingRateLimit?: number;
+    }
+
+    export interface DeploymentStageDescription {
+        accessLogSetting?: outputs.apigateway.DeploymentAccessLogSetting;
+        cacheClusterEnabled?: boolean;
+        cacheClusterSize?: string;
+        cacheDataEncrypted?: boolean;
+        cacheTtlInSeconds?: number;
+        cachingEnabled?: boolean;
+        canarySetting?: outputs.apigateway.DeploymentCanarySetting;
+        clientCertificateId?: string;
+        dataTraceEnabled?: boolean;
+        description?: string;
+        documentationVersion?: string;
+        loggingLevel?: string;
+        methodSettings?: outputs.apigateway.DeploymentMethodSetting[];
+        metricsEnabled?: boolean;
+        tags?: outputs.apigateway.DeploymentTag[];
+        throttlingBurstLimit?: number;
+        throttlingRateLimit?: number;
+        tracingEnabled?: boolean;
+        variables?: any;
+    }
+
+    export interface DeploymentTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DocumentationPartLocation {
+        method?: string;
+        name?: string;
+        path?: string;
+        statusCode?: string;
+        type?: string;
+    }
+
     export interface DomainNameEndpointConfiguration {
         types?: string[];
     }
@@ -386,6 +511,84 @@ export namespace apigateway {
     export interface DomainNameTag {
         key?: string;
         value?: string;
+    }
+
+    export interface MethodIntegration {
+        cacheKeyParameters?: string[];
+        cacheNamespace?: string;
+        connectionId?: string;
+        connectionType?: string;
+        contentHandling?: string;
+        credentials?: string;
+        integrationHttpMethod?: string;
+        integrationResponses?: outputs.apigateway.MethodIntegrationResponse[];
+        passthroughBehavior?: string;
+        requestParameters?: any;
+        requestTemplates?: any;
+        timeoutInMillis?: number;
+        type?: string;
+        uri?: string;
+    }
+
+    export interface MethodIntegrationResponse {
+        contentHandling?: string;
+        responseParameters?: any;
+        responseTemplates?: any;
+        selectionPattern?: string;
+        statusCode: string;
+    }
+
+    export interface MethodMethodResponse {
+        responseModels?: any;
+        responseParameters?: any;
+        statusCode: string;
+    }
+
+    export interface RestApiEndpointConfiguration {
+        types?: string[];
+        vpcEndpointIds?: string[];
+    }
+
+    export interface RestApiS3Location {
+        bucket?: string;
+        eTag?: string;
+        key?: string;
+        version?: string;
+    }
+
+    export interface RestApiTag {
+        key: string;
+        value: string;
+    }
+
+    export interface StageAccessLogSetting {
+        destinationArn?: string;
+        format?: string;
+    }
+
+    export interface StageCanarySetting {
+        deploymentId?: string;
+        percentTraffic?: number;
+        stageVariableOverrides?: any;
+        useStageCache?: boolean;
+    }
+
+    export interface StageMethodSetting {
+        cacheDataEncrypted?: boolean;
+        cacheTtlInSeconds?: number;
+        cachingEnabled?: boolean;
+        dataTraceEnabled?: boolean;
+        httpMethod?: string;
+        loggingLevel?: string;
+        metricsEnabled?: boolean;
+        resourcePath?: string;
+        throttlingBurstLimit?: number;
+        throttlingRateLimit?: number;
+    }
+
+    export interface StageTag {
+        key: string;
+        value: string;
     }
 
     export interface UsagePlanApiStage {
@@ -438,6 +641,135 @@ export namespace apigateway {
          * The API request steady-state rate limit (average requests per second over an extended period of time).
          */
         rateLimit?: number;
+    }
+
+}
+
+export namespace apigatewayv2 {
+    export interface ApiBodyS3Location {
+        bucket?: string;
+        etag?: string;
+        key?: string;
+        version?: string;
+    }
+
+    export interface ApiCors {
+        allowCredentials?: boolean;
+        allowHeaders?: string[];
+        allowMethods?: string[];
+        allowOrigins?: string[];
+        exposeHeaders?: string[];
+        maxAge?: number;
+    }
+
+    export interface ApiGatewayManagedOverridesAccessLogSettings {
+        destinationArn?: string;
+        format?: string;
+    }
+
+    export interface ApiGatewayManagedOverridesIntegrationOverrides {
+        description?: string;
+        integrationMethod?: string;
+        payloadFormatVersion?: string;
+        timeoutInMillis?: number;
+    }
+
+    export interface ApiGatewayManagedOverridesRouteOverrides {
+        authorizationScopes?: string[];
+        authorizationType?: string;
+        authorizerId?: string;
+        operationName?: string;
+        target?: string;
+    }
+
+    export interface ApiGatewayManagedOverridesRouteSettings {
+        dataTraceEnabled?: boolean;
+        detailedMetricsEnabled?: boolean;
+        loggingLevel?: string;
+        throttlingBurstLimit?: number;
+        throttlingRateLimit?: number;
+    }
+
+    export interface ApiGatewayManagedOverridesStageOverrides {
+        accessLogSettings?: outputs.apigatewayv2.ApiGatewayManagedOverridesAccessLogSettings;
+        autoDeploy?: boolean;
+        defaultRouteSettings?: outputs.apigatewayv2.ApiGatewayManagedOverridesRouteSettings;
+        description?: string;
+        routeSettings?: any;
+        stageVariables?: any;
+    }
+
+    export interface AuthorizerJWTConfiguration {
+        audience?: string[];
+        issuer?: string;
+    }
+
+    export interface DomainNameDomainNameConfiguration {
+        certificateArn?: string;
+        certificateName?: string;
+        endpointType?: string;
+        ownershipVerificationCertificateArn?: string;
+        securityPolicy?: string;
+    }
+
+    export interface DomainNameMutualTlsAuthentication {
+        truststoreUri?: string;
+        truststoreVersion?: string;
+    }
+
+    export interface IntegrationTlsConfig {
+        serverNameToVerify?: string;
+    }
+
+    export interface StageAccessLogSettings {
+        destinationArn?: string;
+        format?: string;
+    }
+
+    export interface StageRouteSettings {
+        dataTraceEnabled?: boolean;
+        detailedMetricsEnabled?: boolean;
+        loggingLevel?: string;
+        throttlingBurstLimit?: number;
+        throttlingRateLimit?: number;
+    }
+
+}
+
+export namespace appconfig {
+    export interface ApplicationTags {
+        key?: string;
+        value?: string;
+    }
+
+    export interface ConfigurationProfileTags {
+        key?: string;
+        value?: string;
+    }
+
+    export interface ConfigurationProfileValidators {
+        content?: string;
+        type?: string;
+    }
+
+    export interface DeploymentStrategyTags {
+        key?: string;
+        value?: string;
+    }
+
+    export interface DeploymentTags {
+        key?: string;
+        value?: string;
+    }
+
+    export interface EnvironmentMonitors {
+        alarmArn?: string;
+        alarmRoleArn?: string;
+    }
+
+    export interface EnvironmentTags {
+        key?: string;
+        value?: string;
     }
 
 }
@@ -1192,6 +1524,70 @@ export namespace appintegrations {
 
 }
 
+export namespace applicationautoscaling {
+    export interface ScalableTargetScalableTargetAction {
+        maxCapacity?: number;
+        minCapacity?: number;
+    }
+
+    export interface ScalableTargetScheduledAction {
+        endTime?: string;
+        scalableTargetAction?: outputs.applicationautoscaling.ScalableTargetScalableTargetAction;
+        schedule: string;
+        scheduledActionName: string;
+        startTime?: string;
+        timezone?: string;
+    }
+
+    export interface ScalableTargetSuspendedState {
+        dynamicScalingInSuspended?: boolean;
+        dynamicScalingOutSuspended?: boolean;
+        scheduledScalingSuspended?: boolean;
+    }
+
+    export interface ScalingPolicyCustomizedMetricSpecification {
+        dimensions?: outputs.applicationautoscaling.ScalingPolicyMetricDimension[];
+        metricName: string;
+        namespace: string;
+        statistic: string;
+        unit?: string;
+    }
+
+    export interface ScalingPolicyMetricDimension {
+        name: string;
+        value: string;
+    }
+
+    export interface ScalingPolicyPredefinedMetricSpecification {
+        predefinedMetricType: string;
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPolicyStepAdjustment {
+        metricIntervalLowerBound?: number;
+        metricIntervalUpperBound?: number;
+        scalingAdjustment: number;
+    }
+
+    export interface ScalingPolicyStepScalingPolicyConfiguration {
+        adjustmentType?: string;
+        cooldown?: number;
+        metricAggregationType?: string;
+        minAdjustmentMagnitude?: number;
+        stepAdjustments?: outputs.applicationautoscaling.ScalingPolicyStepAdjustment[];
+    }
+
+    export interface ScalingPolicyTargetTrackingScalingPolicyConfiguration {
+        customizedMetricSpecification?: outputs.applicationautoscaling.ScalingPolicyCustomizedMetricSpecification;
+        disableScaleIn?: boolean;
+        predefinedMetricSpecification?: outputs.applicationautoscaling.ScalingPolicyPredefinedMetricSpecification;
+        scaleInCooldown?: number;
+        scaleOutCooldown?: number;
+        targetValue: number;
+    }
+
+}
+
 export namespace applicationinsights {
     /**
      * A CloudWatch alarm to be monitored for the component.
@@ -1447,6 +1843,707 @@ export namespace applicationinsights {
 
 }
 
+export namespace appmesh {
+    export interface GatewayRouteGatewayRouteHostnameMatch {
+        exact?: string;
+        suffix?: string;
+    }
+
+    export interface GatewayRouteGatewayRouteHostnameRewrite {
+        defaultTargetHostname?: string;
+    }
+
+    export interface GatewayRouteGatewayRouteMetadataMatch {
+        exact?: string;
+        prefix?: string;
+        range?: outputs.appmesh.GatewayRouteGatewayRouteRangeMatch;
+        regex?: string;
+        suffix?: string;
+    }
+
+    export interface GatewayRouteGatewayRouteRangeMatch {
+        end: number;
+        start: number;
+    }
+
+    export interface GatewayRouteGatewayRouteSpec {
+        grpcRoute?: outputs.appmesh.GatewayRouteGrpcGatewayRoute;
+        http2Route?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
+        httpRoute?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
+    }
+
+    export interface GatewayRouteGatewayRouteTarget {
+        virtualService: outputs.appmesh.GatewayRouteGatewayRouteVirtualService;
+    }
+
+    export interface GatewayRouteGatewayRouteVirtualService {
+        virtualServiceName: string;
+    }
+
+    export interface GatewayRouteGrpcGatewayRoute {
+        action: outputs.appmesh.GatewayRouteGrpcGatewayRouteAction;
+        match: outputs.appmesh.GatewayRouteGrpcGatewayRouteMatch;
+    }
+
+    export interface GatewayRouteGrpcGatewayRouteAction {
+        rewrite?: outputs.appmesh.GatewayRouteGrpcGatewayRouteRewrite;
+        target: outputs.appmesh.GatewayRouteGatewayRouteTarget;
+    }
+
+    export interface GatewayRouteGrpcGatewayRouteMatch {
+        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameMatch;
+        metadata?: outputs.appmesh.GatewayRouteGrpcGatewayRouteMetadata[];
+        serviceName?: string;
+    }
+
+    export interface GatewayRouteGrpcGatewayRouteMetadata {
+        invert?: boolean;
+        match?: outputs.appmesh.GatewayRouteGatewayRouteMetadataMatch;
+        name: string;
+    }
+
+    export interface GatewayRouteGrpcGatewayRouteRewrite {
+        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameRewrite;
+    }
+
+    export interface GatewayRouteHttpGatewayRoute {
+        action: outputs.appmesh.GatewayRouteHttpGatewayRouteAction;
+        match: outputs.appmesh.GatewayRouteHttpGatewayRouteMatch;
+    }
+
+    export interface GatewayRouteHttpGatewayRouteAction {
+        rewrite?: outputs.appmesh.GatewayRouteHttpGatewayRouteRewrite;
+        target: outputs.appmesh.GatewayRouteGatewayRouteTarget;
+    }
+
+    export interface GatewayRouteHttpGatewayRouteHeader {
+        invert?: boolean;
+        match?: outputs.appmesh.GatewayRouteHttpGatewayRouteHeaderMatch;
+        name: string;
+    }
+
+    export interface GatewayRouteHttpGatewayRouteHeaderMatch {
+        exact?: string;
+        prefix?: string;
+        range?: outputs.appmesh.GatewayRouteGatewayRouteRangeMatch;
+        regex?: string;
+        suffix?: string;
+    }
+
+    export interface GatewayRouteHttpGatewayRouteMatch {
+        headers?: outputs.appmesh.GatewayRouteHttpGatewayRouteHeader[];
+        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameMatch;
+        method?: string;
+        path?: outputs.appmesh.GatewayRouteHttpPathMatch;
+        prefix?: string;
+        queryParameters?: outputs.appmesh.GatewayRouteQueryParameter[];
+    }
+
+    export interface GatewayRouteHttpGatewayRoutePathRewrite {
+        exact?: string;
+    }
+
+    export interface GatewayRouteHttpGatewayRoutePrefixRewrite {
+        defaultPrefix?: string;
+        value?: string;
+    }
+
+    export interface GatewayRouteHttpGatewayRouteRewrite {
+        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameRewrite;
+        path?: outputs.appmesh.GatewayRouteHttpGatewayRoutePathRewrite;
+        prefix?: outputs.appmesh.GatewayRouteHttpGatewayRoutePrefixRewrite;
+    }
+
+    export interface GatewayRouteHttpPathMatch {
+        exact?: string;
+        regex?: string;
+    }
+
+    export interface GatewayRouteHttpQueryParameterMatch {
+        exact?: string;
+    }
+
+    export interface GatewayRouteQueryParameter {
+        match?: outputs.appmesh.GatewayRouteHttpQueryParameterMatch;
+        name: string;
+    }
+
+    export interface GatewayRouteTag {
+        key: string;
+        value: string;
+    }
+
+    export interface MeshEgressFilter {
+        type: string;
+    }
+
+    export interface MeshMeshSpec {
+        egressFilter?: outputs.appmesh.MeshEgressFilter;
+    }
+
+    export interface MeshTag {
+        key: string;
+        value: string;
+    }
+
+    export interface RouteDuration {
+        unit: string;
+        value: number;
+    }
+
+    export interface RouteGrpcRetryPolicy {
+        grpcRetryEvents?: string[];
+        httpRetryEvents?: string[];
+        maxRetries: number;
+        perRetryTimeout: outputs.appmesh.RouteDuration;
+        tcpRetryEvents?: string[];
+    }
+
+    export interface RouteGrpcRoute {
+        action: outputs.appmesh.RouteGrpcRouteAction;
+        match: outputs.appmesh.RouteGrpcRouteMatch;
+        retryPolicy?: outputs.appmesh.RouteGrpcRetryPolicy;
+        timeout?: outputs.appmesh.RouteGrpcTimeout;
+    }
+
+    export interface RouteGrpcRouteAction {
+        weightedTargets: outputs.appmesh.RouteWeightedTarget[];
+    }
+
+    export interface RouteGrpcRouteMatch {
+        metadata?: outputs.appmesh.RouteGrpcRouteMetadata[];
+        methodName?: string;
+        serviceName?: string;
+    }
+
+    export interface RouteGrpcRouteMetadata {
+        invert?: boolean;
+        match?: outputs.appmesh.RouteGrpcRouteMetadataMatchMethod;
+        name: string;
+    }
+
+    export interface RouteGrpcRouteMetadataMatchMethod {
+        exact?: string;
+        prefix?: string;
+        range?: outputs.appmesh.RouteMatchRange;
+        regex?: string;
+        suffix?: string;
+    }
+
+    export interface RouteGrpcTimeout {
+        idle?: outputs.appmesh.RouteDuration;
+        perRequest?: outputs.appmesh.RouteDuration;
+    }
+
+    export interface RouteHeaderMatchMethod {
+        exact?: string;
+        prefix?: string;
+        range?: outputs.appmesh.RouteMatchRange;
+        regex?: string;
+        suffix?: string;
+    }
+
+    export interface RouteHttpPathMatch {
+        exact?: string;
+        regex?: string;
+    }
+
+    export interface RouteHttpQueryParameterMatch {
+        exact?: string;
+    }
+
+    export interface RouteHttpRetryPolicy {
+        httpRetryEvents?: string[];
+        maxRetries: number;
+        perRetryTimeout: outputs.appmesh.RouteDuration;
+        tcpRetryEvents?: string[];
+    }
+
+    export interface RouteHttpRoute {
+        action: outputs.appmesh.RouteHttpRouteAction;
+        match: outputs.appmesh.RouteHttpRouteMatch;
+        retryPolicy?: outputs.appmesh.RouteHttpRetryPolicy;
+        timeout?: outputs.appmesh.RouteHttpTimeout;
+    }
+
+    export interface RouteHttpRouteAction {
+        weightedTargets: outputs.appmesh.RouteWeightedTarget[];
+    }
+
+    export interface RouteHttpRouteHeader {
+        invert?: boolean;
+        match?: outputs.appmesh.RouteHeaderMatchMethod;
+        name: string;
+    }
+
+    export interface RouteHttpRouteMatch {
+        headers?: outputs.appmesh.RouteHttpRouteHeader[];
+        method?: string;
+        path?: outputs.appmesh.RouteHttpPathMatch;
+        prefix?: string;
+        queryParameters?: outputs.appmesh.RouteQueryParameter[];
+        scheme?: string;
+    }
+
+    export interface RouteHttpTimeout {
+        idle?: outputs.appmesh.RouteDuration;
+        perRequest?: outputs.appmesh.RouteDuration;
+    }
+
+    export interface RouteMatchRange {
+        end: number;
+        start: number;
+    }
+
+    export interface RouteQueryParameter {
+        match?: outputs.appmesh.RouteHttpQueryParameterMatch;
+        name: string;
+    }
+
+    export interface RouteRouteSpec {
+        grpcRoute?: outputs.appmesh.RouteGrpcRoute;
+        http2Route?: outputs.appmesh.RouteHttpRoute;
+        httpRoute?: outputs.appmesh.RouteHttpRoute;
+        priority?: number;
+        tcpRoute?: outputs.appmesh.RouteTcpRoute;
+    }
+
+    export interface RouteTag {
+        key: string;
+        value: string;
+    }
+
+    export interface RouteTcpRoute {
+        action: outputs.appmesh.RouteTcpRouteAction;
+        timeout?: outputs.appmesh.RouteTcpTimeout;
+    }
+
+    export interface RouteTcpRouteAction {
+        weightedTargets: outputs.appmesh.RouteWeightedTarget[];
+    }
+
+    export interface RouteTcpTimeout {
+        idle?: outputs.appmesh.RouteDuration;
+    }
+
+    export interface RouteWeightedTarget {
+        virtualNode: string;
+        weight: number;
+    }
+
+    export interface VirtualGatewaySubjectAlternativeNameMatchers {
+        exact?: string[];
+    }
+
+    export interface VirtualGatewaySubjectAlternativeNames {
+        match: outputs.appmesh.VirtualGatewaySubjectAlternativeNameMatchers;
+    }
+
+    export interface VirtualGatewayTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewayAccessLog {
+        file?: outputs.appmesh.VirtualGatewayVirtualGatewayFileAccessLog;
+    }
+
+    export interface VirtualGatewayVirtualGatewayBackendDefaults {
+        clientPolicy?: outputs.appmesh.VirtualGatewayVirtualGatewayClientPolicy;
+    }
+
+    export interface VirtualGatewayVirtualGatewayClientPolicy {
+        tLS?: outputs.appmesh.VirtualGatewayVirtualGatewayClientPolicyTls;
+    }
+
+    export interface VirtualGatewayVirtualGatewayClientPolicyTls {
+        certificate?: outputs.appmesh.VirtualGatewayVirtualGatewayClientTlsCertificate;
+        enforce?: boolean;
+        ports?: number[];
+        validation: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContext;
+    }
+
+    export interface VirtualGatewayVirtualGatewayClientTlsCertificate {
+        file?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsFileCertificate;
+        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate;
+    }
+
+    export interface VirtualGatewayVirtualGatewayConnectionPool {
+        gRPC?: outputs.appmesh.VirtualGatewayVirtualGatewayGrpcConnectionPool;
+        hTTP?: outputs.appmesh.VirtualGatewayVirtualGatewayHttpConnectionPool;
+        hTTP2?: outputs.appmesh.VirtualGatewayVirtualGatewayHttp2ConnectionPool;
+    }
+
+    export interface VirtualGatewayVirtualGatewayFileAccessLog {
+        path: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewayGrpcConnectionPool {
+        maxRequests: number;
+    }
+
+    export interface VirtualGatewayVirtualGatewayHealthCheckPolicy {
+        healthyThreshold: number;
+        intervalMillis: number;
+        path?: string;
+        port?: number;
+        protocol: string;
+        timeoutMillis: number;
+        unhealthyThreshold: number;
+    }
+
+    export interface VirtualGatewayVirtualGatewayHttp2ConnectionPool {
+        maxRequests: number;
+    }
+
+    export interface VirtualGatewayVirtualGatewayHttpConnectionPool {
+        maxConnections: number;
+        maxPendingRequests?: number;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListener {
+        connectionPool?: outputs.appmesh.VirtualGatewayVirtualGatewayConnectionPool;
+        healthCheck?: outputs.appmesh.VirtualGatewayVirtualGatewayHealthCheckPolicy;
+        portMapping: outputs.appmesh.VirtualGatewayVirtualGatewayPortMapping;
+        tLS?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTls;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListenerTls {
+        certificate: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsCertificate;
+        mode: string;
+        validation?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsValidationContext;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
+        certificateArn: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListenerTlsCertificate {
+        aCM?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsAcmCertificate;
+        file?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsFileCertificate;
+        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
+        certificateChain: string;
+        privateKey: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
+        secretName: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListenerTlsValidationContext {
+        subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySubjectAlternativeNames;
+        trust: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust;
+    }
+
+    export interface VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust {
+        file?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust;
+        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust;
+    }
+
+    export interface VirtualGatewayVirtualGatewayLogging {
+        accessLog?: outputs.appmesh.VirtualGatewayVirtualGatewayAccessLog;
+    }
+
+    export interface VirtualGatewayVirtualGatewayPortMapping {
+        port: number;
+        protocol: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewaySpec {
+        backendDefaults?: outputs.appmesh.VirtualGatewayVirtualGatewayBackendDefaults;
+        listeners: outputs.appmesh.VirtualGatewayVirtualGatewayListener[];
+        logging?: outputs.appmesh.VirtualGatewayVirtualGatewayLogging;
+    }
+
+    export interface VirtualGatewayVirtualGatewayTlsValidationContext {
+        subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySubjectAlternativeNames;
+        trust: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextTrust;
+    }
+
+    export interface VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+        certificateAuthorityArns: string[];
+    }
+
+    export interface VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+        certificateChain: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
+        secretName: string;
+    }
+
+    export interface VirtualGatewayVirtualGatewayTlsValidationContextTrust {
+        aCM?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust;
+        file?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust;
+        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust;
+    }
+
+    export interface VirtualNodeAccessLog {
+        file?: outputs.appmesh.VirtualNodeFileAccessLog;
+    }
+
+    export interface VirtualNodeAwsCloudMapInstanceAttribute {
+        key: string;
+        value: string;
+    }
+
+    export interface VirtualNodeAwsCloudMapServiceDiscovery {
+        attributes?: outputs.appmesh.VirtualNodeAwsCloudMapInstanceAttribute[];
+        namespaceName: string;
+        serviceName: string;
+    }
+
+    export interface VirtualNodeBackend {
+        virtualService?: outputs.appmesh.VirtualNodeVirtualServiceBackend;
+    }
+
+    export interface VirtualNodeBackendDefaults {
+        clientPolicy?: outputs.appmesh.VirtualNodeClientPolicy;
+    }
+
+    export interface VirtualNodeClientPolicy {
+        tLS?: outputs.appmesh.VirtualNodeClientPolicyTls;
+    }
+
+    export interface VirtualNodeClientPolicyTls {
+        certificate?: outputs.appmesh.VirtualNodeClientTlsCertificate;
+        enforce?: boolean;
+        ports?: number[];
+        validation: outputs.appmesh.VirtualNodeTlsValidationContext;
+    }
+
+    export interface VirtualNodeClientTlsCertificate {
+        file?: outputs.appmesh.VirtualNodeListenerTlsFileCertificate;
+        sDS?: outputs.appmesh.VirtualNodeListenerTlsSdsCertificate;
+    }
+
+    export interface VirtualNodeDnsServiceDiscovery {
+        hostname: string;
+        responseType?: string;
+    }
+
+    export interface VirtualNodeDuration {
+        unit: string;
+        value: number;
+    }
+
+    export interface VirtualNodeFileAccessLog {
+        path: string;
+    }
+
+    export interface VirtualNodeGrpcTimeout {
+        idle?: outputs.appmesh.VirtualNodeDuration;
+        perRequest?: outputs.appmesh.VirtualNodeDuration;
+    }
+
+    export interface VirtualNodeHealthCheck {
+        healthyThreshold: number;
+        intervalMillis: number;
+        path?: string;
+        port?: number;
+        protocol: string;
+        timeoutMillis: number;
+        unhealthyThreshold: number;
+    }
+
+    export interface VirtualNodeHttpTimeout {
+        idle?: outputs.appmesh.VirtualNodeDuration;
+        perRequest?: outputs.appmesh.VirtualNodeDuration;
+    }
+
+    export interface VirtualNodeListener {
+        connectionPool?: outputs.appmesh.VirtualNodeVirtualNodeConnectionPool;
+        healthCheck?: outputs.appmesh.VirtualNodeHealthCheck;
+        outlierDetection?: outputs.appmesh.VirtualNodeOutlierDetection;
+        portMapping: outputs.appmesh.VirtualNodePortMapping;
+        tLS?: outputs.appmesh.VirtualNodeListenerTls;
+        timeout?: outputs.appmesh.VirtualNodeListenerTimeout;
+    }
+
+    export interface VirtualNodeListenerTimeout {
+        gRPC?: outputs.appmesh.VirtualNodeGrpcTimeout;
+        hTTP?: outputs.appmesh.VirtualNodeHttpTimeout;
+        hTTP2?: outputs.appmesh.VirtualNodeHttpTimeout;
+        tCP?: outputs.appmesh.VirtualNodeTcpTimeout;
+    }
+
+    export interface VirtualNodeListenerTls {
+        certificate: outputs.appmesh.VirtualNodeListenerTlsCertificate;
+        mode: string;
+        validation?: outputs.appmesh.VirtualNodeListenerTlsValidationContext;
+    }
+
+    export interface VirtualNodeListenerTlsAcmCertificate {
+        certificateArn: string;
+    }
+
+    export interface VirtualNodeListenerTlsCertificate {
+        aCM?: outputs.appmesh.VirtualNodeListenerTlsAcmCertificate;
+        file?: outputs.appmesh.VirtualNodeListenerTlsFileCertificate;
+        sDS?: outputs.appmesh.VirtualNodeListenerTlsSdsCertificate;
+    }
+
+    export interface VirtualNodeListenerTlsFileCertificate {
+        certificateChain: string;
+        privateKey: string;
+    }
+
+    export interface VirtualNodeListenerTlsSdsCertificate {
+        secretName: string;
+    }
+
+    export interface VirtualNodeListenerTlsValidationContext {
+        subjectAlternativeNames?: outputs.appmesh.VirtualNodeSubjectAlternativeNames;
+        trust: outputs.appmesh.VirtualNodeListenerTlsValidationContextTrust;
+    }
+
+    export interface VirtualNodeListenerTlsValidationContextTrust {
+        file?: outputs.appmesh.VirtualNodeTlsValidationContextFileTrust;
+        sDS?: outputs.appmesh.VirtualNodeTlsValidationContextSdsTrust;
+    }
+
+    export interface VirtualNodeLogging {
+        accessLog?: outputs.appmesh.VirtualNodeAccessLog;
+    }
+
+    export interface VirtualNodeOutlierDetection {
+        baseEjectionDuration: outputs.appmesh.VirtualNodeDuration;
+        interval: outputs.appmesh.VirtualNodeDuration;
+        maxEjectionPercent: number;
+        maxServerErrors: number;
+    }
+
+    export interface VirtualNodePortMapping {
+        port: number;
+        protocol: string;
+    }
+
+    export interface VirtualNodeServiceDiscovery {
+        aWSCloudMap?: outputs.appmesh.VirtualNodeAwsCloudMapServiceDiscovery;
+        dNS?: outputs.appmesh.VirtualNodeDnsServiceDiscovery;
+    }
+
+    export interface VirtualNodeSubjectAlternativeNameMatchers {
+        exact?: string[];
+    }
+
+    export interface VirtualNodeSubjectAlternativeNames {
+        match: outputs.appmesh.VirtualNodeSubjectAlternativeNameMatchers;
+    }
+
+    export interface VirtualNodeTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VirtualNodeTcpTimeout {
+        idle?: outputs.appmesh.VirtualNodeDuration;
+    }
+
+    export interface VirtualNodeTlsValidationContext {
+        subjectAlternativeNames?: outputs.appmesh.VirtualNodeSubjectAlternativeNames;
+        trust: outputs.appmesh.VirtualNodeTlsValidationContextTrust;
+    }
+
+    export interface VirtualNodeTlsValidationContextAcmTrust {
+        certificateAuthorityArns: string[];
+    }
+
+    export interface VirtualNodeTlsValidationContextFileTrust {
+        certificateChain: string;
+    }
+
+    export interface VirtualNodeTlsValidationContextSdsTrust {
+        secretName: string;
+    }
+
+    export interface VirtualNodeTlsValidationContextTrust {
+        aCM?: outputs.appmesh.VirtualNodeTlsValidationContextAcmTrust;
+        file?: outputs.appmesh.VirtualNodeTlsValidationContextFileTrust;
+        sDS?: outputs.appmesh.VirtualNodeTlsValidationContextSdsTrust;
+    }
+
+    export interface VirtualNodeVirtualNodeConnectionPool {
+        gRPC?: outputs.appmesh.VirtualNodeVirtualNodeGrpcConnectionPool;
+        hTTP?: outputs.appmesh.VirtualNodeVirtualNodeHttpConnectionPool;
+        hTTP2?: outputs.appmesh.VirtualNodeVirtualNodeHttp2ConnectionPool;
+        tCP?: outputs.appmesh.VirtualNodeVirtualNodeTcpConnectionPool;
+    }
+
+    export interface VirtualNodeVirtualNodeGrpcConnectionPool {
+        maxRequests: number;
+    }
+
+    export interface VirtualNodeVirtualNodeHttp2ConnectionPool {
+        maxRequests: number;
+    }
+
+    export interface VirtualNodeVirtualNodeHttpConnectionPool {
+        maxConnections: number;
+        maxPendingRequests?: number;
+    }
+
+    export interface VirtualNodeVirtualNodeSpec {
+        backendDefaults?: outputs.appmesh.VirtualNodeBackendDefaults;
+        backends?: outputs.appmesh.VirtualNodeBackend[];
+        listeners?: outputs.appmesh.VirtualNodeListener[];
+        logging?: outputs.appmesh.VirtualNodeLogging;
+        serviceDiscovery?: outputs.appmesh.VirtualNodeServiceDiscovery;
+    }
+
+    export interface VirtualNodeVirtualNodeTcpConnectionPool {
+        maxConnections: number;
+    }
+
+    export interface VirtualNodeVirtualServiceBackend {
+        clientPolicy?: outputs.appmesh.VirtualNodeClientPolicy;
+        virtualServiceName: string;
+    }
+
+    export interface VirtualRouterPortMapping {
+        port: number;
+        protocol: string;
+    }
+
+    export interface VirtualRouterTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VirtualRouterVirtualRouterListener {
+        portMapping: outputs.appmesh.VirtualRouterPortMapping;
+    }
+
+    export interface VirtualRouterVirtualRouterSpec {
+        listeners: outputs.appmesh.VirtualRouterVirtualRouterListener[];
+    }
+
+    export interface VirtualServiceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VirtualServiceVirtualNodeServiceProvider {
+        virtualNodeName: string;
+    }
+
+    export interface VirtualServiceVirtualRouterServiceProvider {
+        virtualRouterName: string;
+    }
+
+    export interface VirtualServiceVirtualServiceProvider {
+        virtualNode?: outputs.appmesh.VirtualServiceVirtualNodeServiceProvider;
+        virtualRouter?: outputs.appmesh.VirtualServiceVirtualRouterServiceProvider;
+    }
+
+    export interface VirtualServiceVirtualServiceSpec {
+        provider?: outputs.appmesh.VirtualServiceVirtualServiceProvider;
+    }
+}
+
 export namespace apprunner {
     /**
      * Authentication Configuration
@@ -1635,6 +2732,215 @@ export namespace apprunner {
 
 }
 
+export namespace appstream {
+    export interface DirectoryConfigServiceAccountCredentials {
+        accountName: string;
+        accountPassword: string;
+    }
+
+    export interface FleetComputeCapacity {
+        desiredInstances: number;
+    }
+
+    export interface FleetDomainJoinInfo {
+        directoryName?: string;
+        organizationalUnitDistinguishedName?: string;
+    }
+
+    export interface FleetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface FleetVpcConfig {
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+    }
+
+    export interface ImageBuilderAccessEndpoint {
+        endpointType: string;
+        vpceId: string;
+    }
+
+    export interface ImageBuilderDomainJoinInfo {
+        directoryName?: string;
+        organizationalUnitDistinguishedName?: string;
+    }
+
+    export interface ImageBuilderTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ImageBuilderVpcConfig {
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+    }
+
+    export interface StackAccessEndpoint {
+        endpointType: string;
+        vpceId: string;
+    }
+
+    export interface StackApplicationSettings {
+        enabled: boolean;
+        settingsGroup?: string;
+    }
+
+    export interface StackStorageConnector {
+        connectorType: string;
+        domains?: string[];
+        resourceIdentifier?: string;
+    }
+
+    export interface StackTag {
+        key: string;
+        value: string;
+    }
+
+    export interface StackUserSetting {
+        action: string;
+        permission: string;
+    }
+
+}
+
+export namespace appsync {
+    export interface DataSourceAuthorizationConfig {
+        authorizationType: string;
+        awsIamConfig?: outputs.appsync.DataSourceAwsIamConfig;
+    }
+
+    export interface DataSourceAwsIamConfig {
+        signingRegion?: string;
+        signingServiceName?: string;
+    }
+
+    export interface DataSourceDeltaSyncConfig {
+        baseTableTTL: string;
+        deltaSyncTableName: string;
+        deltaSyncTableTTL: string;
+    }
+
+    export interface DataSourceDynamoDBConfig {
+        awsRegion: string;
+        deltaSyncConfig?: outputs.appsync.DataSourceDeltaSyncConfig;
+        tableName: string;
+        useCallerCredentials?: boolean;
+        versioned?: boolean;
+    }
+
+    export interface DataSourceElasticsearchConfig {
+        awsRegion: string;
+        endpoint: string;
+    }
+
+    export interface DataSourceHttpConfig {
+        authorizationConfig?: outputs.appsync.DataSourceAuthorizationConfig;
+        endpoint: string;
+    }
+
+    export interface DataSourceLambdaConfig {
+        lambdaFunctionArn: string;
+    }
+
+    export interface DataSourceRdsHttpEndpointConfig {
+        awsRegion: string;
+        awsSecretStoreArn: string;
+        databaseName?: string;
+        dbClusterIdentifier: string;
+        schema?: string;
+    }
+
+    export interface DataSourceRelationalDatabaseConfig {
+        rdsHttpEndpointConfig?: outputs.appsync.DataSourceRdsHttpEndpointConfig;
+        relationalDatabaseSourceType: string;
+    }
+
+    export interface FunctionConfigurationLambdaConflictHandlerConfig {
+        lambdaConflictHandlerArn?: string;
+    }
+
+    export interface FunctionConfigurationSyncConfig {
+        conflictDetection: string;
+        conflictHandler?: string;
+        lambdaConflictHandlerConfig?: outputs.appsync.FunctionConfigurationLambdaConflictHandlerConfig;
+    }
+
+    export interface GraphQLApiAdditionalAuthenticationProviders {
+    }
+
+    export interface GraphQLApiLambdaAuthorizerConfig {
+        authorizerResultTtlInSeconds?: number;
+        authorizerUri?: string;
+        identityValidationExpression?: string;
+    }
+
+    export interface GraphQLApiLogConfig {
+        cloudWatchLogsRoleArn?: string;
+        excludeVerboseContent?: boolean;
+        fieldLogLevel?: string;
+    }
+
+    export interface GraphQLApiOpenIDConnectConfig {
+        authTTL?: number;
+        clientId?: string;
+        iatTTL?: number;
+        issuer?: string;
+    }
+
+    export interface GraphQLApiTags {
+    }
+
+    export interface GraphQLApiUserPoolConfig {
+        appIdClientRegex?: string;
+        awsRegion?: string;
+        defaultAction?: string;
+        userPoolId?: string;
+    }
+
+    export interface ResolverCachingConfig {
+        cachingKeys?: string[];
+        ttl?: number;
+    }
+
+    export interface ResolverLambdaConflictHandlerConfig {
+        lambdaConflictHandlerArn?: string;
+    }
+
+    export interface ResolverPipelineConfig {
+        functions?: string[];
+    }
+
+    export interface ResolverSyncConfig {
+        conflictDetection: string;
+        conflictHandler?: string;
+        lambdaConflictHandlerConfig?: outputs.appsync.ResolverLambdaConflictHandlerConfig;
+    }
+
+}
+
+export namespace ask {
+    export interface SkillAuthenticationConfiguration {
+        clientId: string;
+        clientSecret: string;
+        refreshToken: string;
+    }
+
+    export interface SkillOverrides {
+        manifest?: any;
+    }
+
+    export interface SkillSkillPackage {
+        overrides?: outputs.ask.SkillOverrides;
+        s3Bucket: string;
+        s3BucketRole?: string;
+        s3Key: string;
+        s3ObjectVersion?: string;
+    }
+
+}
+
 export namespace athena {
     export interface DataCatalogTag {
         key: string;
@@ -1784,6 +3090,221 @@ export namespace auditmanager {
 
 }
 
+export namespace autoscaling {
+    export interface AutoScalingGroupInstancesDistribution {
+        onDemandAllocationStrategy?: string;
+        onDemandBaseCapacity?: number;
+        onDemandPercentageAboveBaseCapacity?: number;
+        spotAllocationStrategy?: string;
+        spotInstancePools?: number;
+        spotMaxPrice?: string;
+    }
+
+    export interface AutoScalingGroupLaunchTemplate {
+        launchTemplateSpecification: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
+        overrides?: outputs.autoscaling.AutoScalingGroupLaunchTemplateOverrides[];
+    }
+
+    export interface AutoScalingGroupLaunchTemplateOverrides {
+        instanceType?: string;
+        launchTemplateSpecification?: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
+        weightedCapacity?: string;
+    }
+
+    export interface AutoScalingGroupLaunchTemplateSpecification {
+        launchTemplateId?: string;
+        launchTemplateName?: string;
+        version: string;
+    }
+
+    export interface AutoScalingGroupLifecycleHookSpecification {
+        defaultResult?: string;
+        heartbeatTimeout?: number;
+        lifecycleHookName: string;
+        lifecycleTransition: string;
+        notificationMetadata?: string;
+        notificationTargetARN?: string;
+        roleARN?: string;
+    }
+
+    export interface AutoScalingGroupMetricsCollection {
+        granularity: string;
+        metrics?: string[];
+    }
+
+    export interface AutoScalingGroupMixedInstancesPolicy {
+        instancesDistribution?: outputs.autoscaling.AutoScalingGroupInstancesDistribution;
+        launchTemplate: outputs.autoscaling.AutoScalingGroupLaunchTemplate;
+    }
+
+    export interface AutoScalingGroupNotificationConfiguration {
+        notificationTypes?: string[];
+        topicARN: string;
+    }
+
+    export interface AutoScalingGroupTagProperty {
+        key: string;
+        propagateAtLaunch: boolean;
+        value: string;
+    }
+
+    export interface LaunchConfigurationBlockDevice {
+        deleteOnTermination?: boolean;
+        encrypted?: boolean;
+        iops?: number;
+        snapshotId?: string;
+        throughput?: number;
+        volumeSize?: number;
+        volumeType?: string;
+    }
+
+    export interface LaunchConfigurationBlockDeviceMapping {
+        deviceName: string;
+        ebs?: outputs.autoscaling.LaunchConfigurationBlockDevice;
+        noDevice?: boolean;
+        virtualName?: string;
+    }
+
+    export interface LaunchConfigurationMetadataOptions {
+        httpEndpoint?: string;
+        httpPutResponseHopLimit?: number;
+        httpTokens?: string;
+    }
+
+    export interface ScalingPolicyCustomizedMetricSpecification {
+        dimensions?: outputs.autoscaling.ScalingPolicyMetricDimension[];
+        metricName: string;
+        namespace: string;
+        statistic: string;
+        unit?: string;
+    }
+
+    export interface ScalingPolicyMetricDimension {
+        name: string;
+        value: string;
+    }
+
+    export interface ScalingPolicyPredefinedMetricSpecification {
+        predefinedMetricType: string;
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPolicyPredictiveScalingConfiguration {
+        maxCapacityBreachBehavior?: string;
+        maxCapacityBuffer?: number;
+        metricSpecifications: outputs.autoscaling.ScalingPolicyPredictiveScalingMetricSpecification[];
+        mode?: string;
+        schedulingBufferTime?: number;
+    }
+
+    export interface ScalingPolicyPredictiveScalingMetricSpecification {
+        predefinedLoadMetricSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedLoadMetric;
+        predefinedMetricPairSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedMetricPair;
+        predefinedScalingMetricSpecification?: outputs.autoscaling.ScalingPolicyPredictiveScalingPredefinedScalingMetric;
+        targetValue: number;
+    }
+
+    export interface ScalingPolicyPredictiveScalingPredefinedLoadMetric {
+        predefinedMetricType: string;
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPolicyPredictiveScalingPredefinedMetricPair {
+        predefinedMetricType: string;
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPolicyPredictiveScalingPredefinedScalingMetric {
+        predefinedMetricType: string;
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPolicyStepAdjustment {
+        metricIntervalLowerBound?: number;
+        metricIntervalUpperBound?: number;
+        scalingAdjustment: number;
+    }
+
+    export interface ScalingPolicyTargetTrackingConfiguration {
+        customizedMetricSpecification?: outputs.autoscaling.ScalingPolicyCustomizedMetricSpecification;
+        disableScaleIn?: boolean;
+        predefinedMetricSpecification?: outputs.autoscaling.ScalingPolicyPredefinedMetricSpecification;
+        targetValue: number;
+    }
+
+}
+
+export namespace autoscalingplans {
+    export interface ScalingPlanApplicationSource {
+        cloudFormationStackARN?: string;
+        tagFilters?: outputs.autoscalingplans.ScalingPlanTagFilter[];
+    }
+
+    export interface ScalingPlanCustomizedLoadMetricSpecification {
+        dimensions?: outputs.autoscalingplans.ScalingPlanMetricDimension[];
+        metricName: string;
+        namespace: string;
+        statistic: string;
+        unit?: string;
+    }
+
+    export interface ScalingPlanCustomizedScalingMetricSpecification {
+        dimensions?: outputs.autoscalingplans.ScalingPlanMetricDimension[];
+        metricName: string;
+        namespace: string;
+        statistic: string;
+        unit?: string;
+    }
+
+    export interface ScalingPlanMetricDimension {
+        name: string;
+        value: string;
+    }
+
+    export interface ScalingPlanPredefinedLoadMetricSpecification {
+        predefinedLoadMetricType: string;
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPlanPredefinedScalingMetricSpecification {
+        predefinedScalingMetricType: string;
+        resourceLabel?: string;
+    }
+
+    export interface ScalingPlanScalingInstruction {
+        customizedLoadMetricSpecification?: outputs.autoscalingplans.ScalingPlanCustomizedLoadMetricSpecification;
+        disableDynamicScaling?: boolean;
+        maxCapacity: number;
+        minCapacity: number;
+        predefinedLoadMetricSpecification?: outputs.autoscalingplans.ScalingPlanPredefinedLoadMetricSpecification;
+        predictiveScalingMaxCapacityBehavior?: string;
+        predictiveScalingMaxCapacityBuffer?: number;
+        predictiveScalingMode?: string;
+        resourceId: string;
+        scalableDimension: string;
+        scalingPolicyUpdateBehavior?: string;
+        scheduledActionBufferTime?: number;
+        serviceNamespace: string;
+        targetTrackingConfigurations: outputs.autoscalingplans.ScalingPlanTargetTrackingConfiguration[];
+    }
+
+    export interface ScalingPlanTagFilter {
+        key: string;
+        values?: string[];
+    }
+
+    export interface ScalingPlanTargetTrackingConfiguration {
+        customizedScalingMetricSpecification?: outputs.autoscalingplans.ScalingPlanCustomizedScalingMetricSpecification;
+        disableScaleIn?: boolean;
+        estimatedInstanceWarmup?: number;
+        predefinedScalingMetricSpecification?: outputs.autoscalingplans.ScalingPlanPredefinedScalingMetricSpecification;
+        scaleInCooldown?: number;
+        scaleOutCooldown?: number;
+        targetValue: number;
+    }
+
+}
+
 export namespace backup {
     export interface BackupPlanAdvancedBackupSettingResourceType {
         backupOptions: any;
@@ -1838,7 +3359,233 @@ export namespace backup {
 
 }
 
+export namespace batch {
+    export interface ComputeEnvironmentComputeResources {
+        allocationStrategy?: string;
+        bidPercentage?: number;
+        desiredvCpus?: number;
+        ec2Configuration?: outputs.batch.ComputeEnvironmentEc2ConfigurationObject[];
+        ec2KeyPair?: string;
+        imageId?: string;
+        instanceRole?: string;
+        instanceTypes?: string[];
+        launchTemplate?: outputs.batch.ComputeEnvironmentLaunchTemplateSpecification;
+        maxvCpus: number;
+        minvCpus?: number;
+        placementGroup?: string;
+        securityGroupIds?: string[];
+        spotIamFleetRole?: string;
+        subnets: string[];
+        tags?: any;
+        type: string;
+    }
+
+    export interface ComputeEnvironmentEc2ConfigurationObject {
+        imageIdOverride?: string;
+        imageType: string;
+    }
+
+    export interface ComputeEnvironmentLaunchTemplateSpecification {
+        launchTemplateId?: string;
+        launchTemplateName?: string;
+        version?: string;
+    }
+
+    export interface JobDefinitionAuthorizationConfig {
+        accessPointId?: string;
+        iam?: string;
+    }
+
+    export interface JobDefinitionContainerProperties {
+        command?: string[];
+        environment?: outputs.batch.JobDefinitionEnvironment[];
+        executionRoleArn?: string;
+        fargatePlatformConfiguration?: outputs.batch.JobDefinitionFargatePlatformConfiguration;
+        image: string;
+        instanceType?: string;
+        jobRoleArn?: string;
+        linuxParameters?: outputs.batch.JobDefinitionLinuxParameters;
+        logConfiguration?: outputs.batch.JobDefinitionLogConfiguration;
+        memory?: number;
+        mountPoints?: outputs.batch.JobDefinitionMountPoints[];
+        networkConfiguration?: outputs.batch.JobDefinitionNetworkConfiguration;
+        privileged?: boolean;
+        readonlyRootFilesystem?: boolean;
+        resourceRequirements?: outputs.batch.JobDefinitionResourceRequirement[];
+        secrets?: outputs.batch.JobDefinitionSecret[];
+        ulimits?: outputs.batch.JobDefinitionUlimit[];
+        user?: string;
+        vcpus?: number;
+        volumes?: outputs.batch.JobDefinitionVolumes[];
+    }
+
+    export interface JobDefinitionDevice {
+        containerPath?: string;
+        hostPath?: string;
+        permissions?: string[];
+    }
+
+    export interface JobDefinitionEfsVolumeConfiguration {
+        authorizationConfig?: outputs.batch.JobDefinitionAuthorizationConfig;
+        fileSystemId: string;
+        rootDirectory?: string;
+        transitEncryption?: string;
+        transitEncryptionPort?: number;
+    }
+
+    export interface JobDefinitionEnvironment {
+        name?: string;
+        value?: string;
+    }
+
+    export interface JobDefinitionEvaluateOnExit {
+        action: string;
+        onExitCode?: string;
+        onReason?: string;
+        onStatusReason?: string;
+    }
+
+    export interface JobDefinitionFargatePlatformConfiguration {
+        platformVersion?: string;
+    }
+
+    export interface JobDefinitionLinuxParameters {
+        devices?: outputs.batch.JobDefinitionDevice[];
+        initProcessEnabled?: boolean;
+        maxSwap?: number;
+        sharedMemorySize?: number;
+        swappiness?: number;
+        tmpfs?: outputs.batch.JobDefinitionTmpfs[];
+    }
+
+    export interface JobDefinitionLogConfiguration {
+        logDriver: string;
+        options?: any;
+        secretOptions?: outputs.batch.JobDefinitionSecret[];
+    }
+
+    export interface JobDefinitionMountPoints {
+        containerPath?: string;
+        readOnly?: boolean;
+        sourceVolume?: string;
+    }
+
+    export interface JobDefinitionNetworkConfiguration {
+        assignPublicIp?: string;
+    }
+
+    export interface JobDefinitionNodeProperties {
+        mainNode: number;
+        nodeRangeProperties: outputs.batch.JobDefinitionNodeRangeProperty[];
+        numNodes: number;
+    }
+
+    export interface JobDefinitionNodeRangeProperty {
+        container?: outputs.batch.JobDefinitionContainerProperties;
+        targetNodes: string;
+    }
+
+    export interface JobDefinitionResourceRequirement {
+        type?: string;
+        value?: string;
+    }
+
+    export interface JobDefinitionRetryStrategy {
+        attempts?: number;
+        evaluateOnExit?: outputs.batch.JobDefinitionEvaluateOnExit[];
+    }
+
+    export interface JobDefinitionSecret {
+        name: string;
+        valueFrom: string;
+    }
+
+    export interface JobDefinitionTimeout {
+        attemptDurationSeconds?: number;
+    }
+
+    export interface JobDefinitionTmpfs {
+        containerPath: string;
+        mountOptions?: string[];
+        size: number;
+    }
+
+    export interface JobDefinitionUlimit {
+        hardLimit: number;
+        name: string;
+        softLimit: number;
+    }
+
+    export interface JobDefinitionVolumes {
+        efsVolumeConfiguration?: outputs.batch.JobDefinitionEfsVolumeConfiguration;
+        host?: outputs.batch.JobDefinitionVolumesHost;
+        name?: string;
+    }
+
+    export interface JobDefinitionVolumesHost {
+        sourcePath?: string;
+    }
+
+    export interface JobQueueComputeEnvironmentOrder {
+        computeEnvironment: string;
+        order: number;
+    }
+
+}
+
 export namespace budgets {
+    export interface BudgetBudgetData {
+        budgetLimit?: outputs.budgets.BudgetSpend;
+        budgetName?: string;
+        budgetType: string;
+        costFilters?: any;
+        costTypes?: outputs.budgets.BudgetCostTypes;
+        plannedBudgetLimits?: any;
+        timePeriod?: outputs.budgets.BudgetTimePeriod;
+        timeUnit: string;
+    }
+
+    export interface BudgetCostTypes {
+        includeCredit?: boolean;
+        includeDiscount?: boolean;
+        includeOtherSubscription?: boolean;
+        includeRecurring?: boolean;
+        includeRefund?: boolean;
+        includeSubscription?: boolean;
+        includeSupport?: boolean;
+        includeTax?: boolean;
+        includeUpfront?: boolean;
+        useAmortized?: boolean;
+        useBlended?: boolean;
+    }
+
+    export interface BudgetNotification {
+        comparisonOperator: string;
+        notificationType: string;
+        threshold: number;
+        thresholdType?: string;
+    }
+
+    export interface BudgetNotificationWithSubscribers {
+        notification: outputs.budgets.BudgetNotification;
+        subscribers: outputs.budgets.BudgetSubscriber[];
+    }
+
+    export interface BudgetSpend {
+        amount: number;
+        unit: string;
+    }
+
+    export interface BudgetSubscriber {
+        address: string;
+        subscriptionType: string;
+    }
+
+    export interface BudgetTimePeriod {
+        end?: string;
+        start?: string;
+    }
+
     export interface BudgetsActionActionThreshold {
         type: enums.budgets.BudgetsActionActionThresholdType;
         value: number;
@@ -1925,6 +3672,30 @@ export namespace cassandra {
 export namespace certificatemanager {
     export interface AccountExpiryEventsConfiguration {
         daysBeforeExpiry?: number;
+    }
+
+    export interface CertificateDomainValidationOption {
+        domainName: string;
+        hostedZoneId?: string;
+        validationDomain?: string;
+    }
+
+    export interface CertificateTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace cloud9 {
+    export interface EnvironmentEC2Repository {
+        pathComponent: string;
+        repositoryUrl: string;
+    }
+
+    export interface EnvironmentEC2Tag {
+        key: string;
+        value: string;
     }
 
 }
@@ -2015,6 +3786,11 @@ export namespace cloudformation {
         /**
          * A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
          */
+        value: string;
+    }
+
+    export interface StackTag {
+        key: string;
         value: string;
     }
 
@@ -2323,6 +4099,37 @@ export namespace cloudfront {
         streamArn: string;
     }
 
+    export interface StreamingDistributionLogging {
+        bucket: string;
+        enabled: boolean;
+        prefix: string;
+    }
+
+    export interface StreamingDistributionS3Origin {
+        domainName: string;
+        originAccessIdentity: string;
+    }
+
+    export interface StreamingDistributionStreamingDistributionConfig {
+        aliases?: string[];
+        comment: string;
+        enabled: boolean;
+        logging?: outputs.cloudfront.StreamingDistributionLogging;
+        priceClass?: string;
+        s3Origin: outputs.cloudfront.StreamingDistributionS3Origin;
+        trustedSigners: outputs.cloudfront.StreamingDistributionTrustedSigners;
+    }
+
+    export interface StreamingDistributionTag {
+        key: string;
+        value: string;
+    }
+
+    export interface StreamingDistributionTrustedSigners {
+        awsAccountNumbers?: string[];
+        enabled: boolean;
+    }
+
 }
 
 export namespace cloudtrail {
@@ -2386,6 +4193,52 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    export interface AlarmDimension {
+        name: string;
+        value: string;
+    }
+
+    export interface AlarmMetric {
+        dimensions?: outputs.cloudwatch.AlarmDimension[];
+        metricName?: string;
+        namespace?: string;
+    }
+
+    export interface AlarmMetricDataQuery {
+        accountId?: string;
+        expression?: string;
+        id: string;
+        label?: string;
+        metricStat?: outputs.cloudwatch.AlarmMetricStat;
+        period?: number;
+        returnData?: boolean;
+    }
+
+    export interface AlarmMetricStat {
+        metric: outputs.cloudwatch.AlarmMetric;
+        period: number;
+        stat: string;
+        unit?: string;
+    }
+
+    export interface AnomalyDetectorConfiguration {
+        excludedTimeRanges?: outputs.cloudwatch.AnomalyDetectorRange[];
+        metricTimeZone?: string;
+    }
+
+    export interface AnomalyDetectorDimension {
+        name: string;
+        value: string;
+    }
+
+    export interface AnomalyDetectorRange {
+        endTime: string;
+        startTime: string;
+    }
+
+    export interface InsightRuleTags {
+    }
+
     /**
      * This structure defines the metrics that will be streamed.
      */
@@ -2443,6 +4296,330 @@ export namespace codeartifact {
 
 }
 
+export namespace codebuild {
+    export interface ProjectArtifacts {
+        artifactIdentifier?: string;
+        encryptionDisabled?: boolean;
+        location?: string;
+        name?: string;
+        namespaceType?: string;
+        overrideArtifactName?: boolean;
+        packaging?: string;
+        path?: string;
+        type: string;
+    }
+
+    export interface ProjectBatchRestrictions {
+        computeTypesAllowed?: string[];
+        maximumBuildsAllowed?: number;
+    }
+
+    export interface ProjectBuildStatusConfig {
+        context?: string;
+        targetUrl?: string;
+    }
+
+    export interface ProjectCloudWatchLogsConfig {
+        groupName?: string;
+        status: string;
+        streamName?: string;
+    }
+
+    export interface ProjectEnvironment {
+        certificate?: string;
+        computeType: string;
+        environmentVariables?: outputs.codebuild.ProjectEnvironmentVariable[];
+        image: string;
+        imagePullCredentialsType?: string;
+        privilegedMode?: boolean;
+        registryCredential?: outputs.codebuild.ProjectRegistryCredential;
+        type: string;
+    }
+
+    export interface ProjectEnvironmentVariable {
+        name: string;
+        type?: string;
+        value: string;
+    }
+
+    export interface ProjectFilterGroup {
+    }
+
+    export interface ProjectGitSubmodulesConfig {
+        fetchSubmodules: boolean;
+    }
+
+    export interface ProjectLogsConfig {
+        cloudWatchLogs?: outputs.codebuild.ProjectCloudWatchLogsConfig;
+        s3Logs?: outputs.codebuild.ProjectS3LogsConfig;
+    }
+
+    export interface ProjectProjectBuildBatchConfig {
+        combineArtifacts?: boolean;
+        restrictions?: outputs.codebuild.ProjectBatchRestrictions;
+        serviceRole?: string;
+        timeoutInMins?: number;
+    }
+
+    export interface ProjectProjectCache {
+        location?: string;
+        modes?: string[];
+        type: string;
+    }
+
+    export interface ProjectProjectFileSystemLocation {
+        identifier: string;
+        location: string;
+        mountOptions?: string;
+        mountPoint: string;
+        type: string;
+    }
+
+    export interface ProjectProjectSourceVersion {
+        sourceIdentifier: string;
+        sourceVersion?: string;
+    }
+
+    export interface ProjectProjectTriggers {
+        buildType?: string;
+        filterGroups?: outputs.codebuild.ProjectFilterGroup[];
+        webhook?: boolean;
+    }
+
+    export interface ProjectRegistryCredential {
+        credential: string;
+        credentialProvider: string;
+    }
+
+    export interface ProjectS3LogsConfig {
+        encryptionDisabled?: boolean;
+        location?: string;
+        status: string;
+    }
+
+    export interface ProjectSource {
+        auth?: outputs.codebuild.ProjectSourceAuth;
+        buildSpec?: string;
+        buildStatusConfig?: outputs.codebuild.ProjectBuildStatusConfig;
+        gitCloneDepth?: number;
+        gitSubmodulesConfig?: outputs.codebuild.ProjectGitSubmodulesConfig;
+        insecureSsl?: boolean;
+        location?: string;
+        reportBuildStatus?: boolean;
+        sourceIdentifier?: string;
+        type: string;
+    }
+
+    export interface ProjectSourceAuth {
+        resource?: string;
+        type: string;
+    }
+
+    export interface ProjectTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ProjectVpcConfig {
+        securityGroupIds?: string[];
+        subnets?: string[];
+        vpcId?: string;
+    }
+
+    export interface ReportGroupReportExportConfig {
+        exportConfigType: string;
+        s3Destination?: outputs.codebuild.ReportGroupS3ReportExportConfig;
+    }
+
+    export interface ReportGroupS3ReportExportConfig {
+        bucket: string;
+        bucketOwner?: string;
+        encryptionDisabled?: boolean;
+        encryptionKey?: string;
+        packaging?: string;
+        path?: string;
+    }
+
+    export interface ReportGroupTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace codecommit {
+    export interface RepositoryCode {
+        branchName?: string;
+        s3: outputs.codecommit.RepositoryS3;
+    }
+
+    export interface RepositoryRepositoryTrigger {
+        branches?: string[];
+        customData?: string;
+        destinationArn: string;
+        events: string[];
+        name: string;
+    }
+
+    export interface RepositoryS3 {
+        bucket: string;
+        key: string;
+        objectVersion?: string;
+    }
+
+    export interface RepositoryTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace codedeploy {
+    export interface ApplicationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DeploymentConfigMinimumHealthyHosts {
+        type: string;
+        value: number;
+    }
+
+    export interface DeploymentConfigTimeBasedCanary {
+        canaryInterval: number;
+        canaryPercentage: number;
+    }
+
+    export interface DeploymentConfigTimeBasedLinear {
+        linearInterval: number;
+        linearPercentage: number;
+    }
+
+    export interface DeploymentConfigTrafficRoutingConfig {
+        timeBasedCanary?: outputs.codedeploy.DeploymentConfigTimeBasedCanary;
+        timeBasedLinear?: outputs.codedeploy.DeploymentConfigTimeBasedLinear;
+        type: string;
+    }
+
+    export interface DeploymentGroupAlarm {
+        name?: string;
+    }
+
+    export interface DeploymentGroupAlarmConfiguration {
+        alarms?: outputs.codedeploy.DeploymentGroupAlarm[];
+        enabled?: boolean;
+        ignorePollAlarmFailure?: boolean;
+    }
+
+    export interface DeploymentGroupAutoRollbackConfiguration {
+        enabled?: boolean;
+        events?: string[];
+    }
+
+    export interface DeploymentGroupBlueGreenDeploymentConfiguration {
+        deploymentReadyOption?: outputs.codedeploy.DeploymentGroupDeploymentReadyOption;
+        greenFleetProvisioningOption?: outputs.codedeploy.DeploymentGroupGreenFleetProvisioningOption;
+        terminateBlueInstancesOnDeploymentSuccess?: outputs.codedeploy.DeploymentGroupBlueInstanceTerminationOption;
+    }
+
+    export interface DeploymentGroupBlueInstanceTerminationOption {
+        action?: string;
+        terminationWaitTimeInMinutes?: number;
+    }
+
+    export interface DeploymentGroupDeployment {
+        description?: string;
+        ignoreApplicationStopFailures?: boolean;
+        revision: outputs.codedeploy.DeploymentGroupRevisionLocation;
+    }
+
+    export interface DeploymentGroupDeploymentReadyOption {
+        actionOnTimeout?: string;
+        waitTimeInMinutes?: number;
+    }
+
+    export interface DeploymentGroupDeploymentStyle {
+        deploymentOption?: string;
+        deploymentType?: string;
+    }
+
+    export interface DeploymentGroupEC2TagFilter {
+        key?: string;
+        type?: string;
+        value?: string;
+    }
+
+    export interface DeploymentGroupEC2TagSet {
+        ec2TagSetList?: outputs.codedeploy.DeploymentGroupEC2TagSetListObject[];
+    }
+
+    export interface DeploymentGroupEC2TagSetListObject {
+        ec2TagGroup?: outputs.codedeploy.DeploymentGroupEC2TagFilter[];
+    }
+
+    export interface DeploymentGroupECSService {
+        clusterName: string;
+        serviceName: string;
+    }
+
+    export interface DeploymentGroupELBInfo {
+        name?: string;
+    }
+
+    export interface DeploymentGroupGitHubLocation {
+        commitId: string;
+        repository: string;
+    }
+
+    export interface DeploymentGroupGreenFleetProvisioningOption {
+        action?: string;
+    }
+
+    export interface DeploymentGroupLoadBalancerInfo {
+        elbInfoList?: outputs.codedeploy.DeploymentGroupELBInfo[];
+        targetGroupInfoList?: outputs.codedeploy.DeploymentGroupTargetGroupInfo[];
+    }
+
+    export interface DeploymentGroupOnPremisesTagSet {
+        onPremisesTagSetList?: outputs.codedeploy.DeploymentGroupOnPremisesTagSetListObject[];
+    }
+
+    export interface DeploymentGroupOnPremisesTagSetListObject {
+        onPremisesTagGroup?: outputs.codedeploy.DeploymentGroupTagFilter[];
+    }
+
+    export interface DeploymentGroupRevisionLocation {
+        gitHubLocation?: outputs.codedeploy.DeploymentGroupGitHubLocation;
+        revisionType?: string;
+        s3Location?: outputs.codedeploy.DeploymentGroupS3Location;
+    }
+
+    export interface DeploymentGroupS3Location {
+        bucket: string;
+        bundleType?: string;
+        eTag?: string;
+        key: string;
+        version?: string;
+    }
+
+    export interface DeploymentGroupTagFilter {
+        key?: string;
+        type?: string;
+        value?: string;
+    }
+
+    export interface DeploymentGroupTargetGroupInfo {
+        name?: string;
+    }
+
+    export interface DeploymentGroupTriggerConfig {
+        triggerEvents?: string[];
+        triggerName?: string;
+        triggerTargetArn?: string;
+    }
+
+}
+
 export namespace codeguruprofiler {
     /**
      * Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
@@ -2485,6 +4662,123 @@ export namespace codegurureviewer {
 
 }
 
+export namespace codepipeline {
+    export interface CustomActionTypeArtifactDetails {
+        maximumCount: number;
+        minimumCount: number;
+    }
+
+    export interface CustomActionTypeConfigurationProperties {
+        description?: string;
+        key: boolean;
+        name: string;
+        queryable?: boolean;
+        required: boolean;
+        secret: boolean;
+        type?: string;
+    }
+
+    export interface CustomActionTypeSettings {
+        entityUrlTemplate?: string;
+        executionUrlTemplate?: string;
+        revisionUrlTemplate?: string;
+        thirdPartyConfigurationUrl?: string;
+    }
+
+    export interface CustomActionTypeTag {
+        key: string;
+        value: string;
+    }
+
+    export interface PipelineActionDeclaration {
+        actionTypeId: outputs.codepipeline.PipelineActionTypeId;
+        configuration?: any;
+        inputArtifacts?: outputs.codepipeline.PipelineInputArtifact[];
+        name: string;
+        namespace?: string;
+        outputArtifacts?: outputs.codepipeline.PipelineOutputArtifact[];
+        region?: string;
+        roleArn?: string;
+        runOrder?: number;
+    }
+
+    export interface PipelineActionTypeId {
+        category: string;
+        owner: string;
+        provider: string;
+        version: string;
+    }
+
+    export interface PipelineArtifactStore {
+        encryptionKey?: outputs.codepipeline.PipelineEncryptionKey;
+        location: string;
+        type: string;
+    }
+
+    export interface PipelineArtifactStoreMap {
+        artifactStore: outputs.codepipeline.PipelineArtifactStore;
+        region: string;
+    }
+
+    export interface PipelineBlockerDeclaration {
+        name: string;
+        type: string;
+    }
+
+    export interface PipelineEncryptionKey {
+        id: string;
+        type: string;
+    }
+
+    export interface PipelineInputArtifact {
+        name: string;
+    }
+
+    export interface PipelineOutputArtifact {
+        name: string;
+    }
+
+    export interface PipelineStageDeclaration {
+        actions: outputs.codepipeline.PipelineActionDeclaration[];
+        blockers?: outputs.codepipeline.PipelineBlockerDeclaration[];
+        name: string;
+    }
+
+    export interface PipelineStageTransition {
+        reason: string;
+        stageName: string;
+    }
+
+    export interface PipelineTag {
+        key: string;
+        value: string;
+    }
+
+    export interface WebhookWebhookAuthConfiguration {
+        allowedIPRange?: string;
+        secretToken?: string;
+    }
+
+    export interface WebhookWebhookFilterRule {
+        jsonPath: string;
+        matchEquals?: string;
+    }
+
+}
+
+export namespace codestar {
+    export interface GitHubRepositoryCode {
+        s3: outputs.codestar.GitHubRepositoryS3;
+    }
+
+    export interface GitHubRepositoryS3 {
+        bucket: string;
+        key: string;
+        objectVersion?: string;
+    }
+
+}
+
 export namespace codestarconnections {
     /**
      * A key-value pair to associate with a resource.
@@ -2506,6 +4800,214 @@ export namespace codestarnotifications {
     export interface NotificationRuleTarget {
         targetAddress: string;
         targetType: string;
+    }
+
+}
+
+export namespace cognito {
+    export interface IdentityPoolCognitoIdentityProvider {
+        clientId?: string;
+        providerName?: string;
+        serverSideTokenCheck?: boolean;
+    }
+
+    export interface IdentityPoolCognitoStreams {
+        roleArn?: string;
+        streamName?: string;
+        streamingStatus?: string;
+    }
+
+    export interface IdentityPoolPushSync {
+        applicationArns?: string[];
+        roleArn?: string;
+    }
+
+    export interface UserPoolAccountRecoverySetting {
+        recoveryMechanisms?: outputs.cognito.UserPoolRecoveryOption[];
+    }
+
+    export interface UserPoolAdminCreateUserConfig {
+        allowAdminCreateUserOnly?: boolean;
+        inviteMessageTemplate?: outputs.cognito.UserPoolInviteMessageTemplate;
+        unusedAccountValidityDays?: number;
+    }
+
+    export interface UserPoolClientAnalyticsConfiguration {
+        applicationArn?: string;
+        applicationId?: string;
+        externalId?: string;
+        roleArn?: string;
+        userDataShared?: boolean;
+    }
+
+    export interface UserPoolClientTokenValidityUnits {
+        accessToken?: string;
+        idToken?: string;
+        refreshToken?: string;
+    }
+
+    export interface UserPoolCustomEmailSender {
+        lambdaArn?: string;
+        lambdaVersion?: string;
+    }
+
+    export interface UserPoolCustomSMSSender {
+        lambdaArn?: string;
+        lambdaVersion?: string;
+    }
+
+    export interface UserPoolDeviceConfiguration {
+        challengeRequiredOnNewDevice?: boolean;
+        deviceOnlyRememberedOnUserPrompt?: boolean;
+    }
+
+    export interface UserPoolDomainCustomDomainConfigType {
+        certificateArn?: string;
+    }
+
+    export interface UserPoolEmailConfiguration {
+        configurationSet?: string;
+        emailSendingAccount?: string;
+        from?: string;
+        replyToEmailAddress?: string;
+        sourceArn?: string;
+    }
+
+    export interface UserPoolInviteMessageTemplate {
+        emailMessage?: string;
+        emailSubject?: string;
+        sMSMessage?: string;
+    }
+
+    export interface UserPoolLambdaConfig {
+        createAuthChallenge?: string;
+        customEmailSender?: outputs.cognito.UserPoolCustomEmailSender;
+        customMessage?: string;
+        customSMSSender?: outputs.cognito.UserPoolCustomSMSSender;
+        defineAuthChallenge?: string;
+        kMSKeyID?: string;
+        postAuthentication?: string;
+        postConfirmation?: string;
+        preAuthentication?: string;
+        preSignUp?: string;
+        preTokenGeneration?: string;
+        userMigration?: string;
+        verifyAuthChallengeResponse?: string;
+    }
+
+    export interface UserPoolNumberAttributeConstraints {
+        maxValue?: string;
+        minValue?: string;
+    }
+
+    export interface UserPoolPasswordPolicy {
+        minimumLength?: number;
+        requireLowercase?: boolean;
+        requireNumbers?: boolean;
+        requireSymbols?: boolean;
+        requireUppercase?: boolean;
+        temporaryPasswordValidityDays?: number;
+    }
+
+    export interface UserPoolPolicies {
+        passwordPolicy?: outputs.cognito.UserPoolPasswordPolicy;
+    }
+
+    export interface UserPoolRecoveryOption {
+        name?: string;
+        priority?: number;
+    }
+
+    export interface UserPoolResourceServerResourceServerScopeType {
+        scopeDescription: string;
+        scopeName: string;
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
+        eventAction: string;
+        notify: boolean;
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
+        highAction?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType;
+        lowAction?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType;
+        mediumAction?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType;
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType {
+        actions: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType;
+        notifyConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentNotifyConfigurationType;
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType {
+        eventAction: string;
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType {
+        actions: outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType;
+        eventFilter?: string[];
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
+        blockEmail?: outputs.cognito.UserPoolRiskConfigurationAttachmentNotifyEmailType;
+        from?: string;
+        mfaEmail?: outputs.cognito.UserPoolRiskConfigurationAttachmentNotifyEmailType;
+        noActionEmail?: outputs.cognito.UserPoolRiskConfigurationAttachmentNotifyEmailType;
+        replyTo?: string;
+        sourceArn: string;
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentNotifyEmailType {
+        htmlBody?: string;
+        subject: string;
+        textBody?: string;
+    }
+
+    export interface UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType {
+        blockedIPRangeList?: string[];
+        skippedIPRangeList?: string[];
+    }
+
+    export interface UserPoolSchemaAttribute {
+        attributeDataType?: string;
+        developerOnlyAttribute?: boolean;
+        mutable?: boolean;
+        name?: string;
+        numberAttributeConstraints?: outputs.cognito.UserPoolNumberAttributeConstraints;
+        required?: boolean;
+        stringAttributeConstraints?: outputs.cognito.UserPoolStringAttributeConstraints;
+    }
+
+    export interface UserPoolSmsConfiguration {
+        externalId?: string;
+        snsCallerArn?: string;
+    }
+
+    export interface UserPoolStringAttributeConstraints {
+        maxLength?: string;
+        minLength?: string;
+    }
+
+    export interface UserPoolUserAttributeType {
+        name?: string;
+        value?: string;
+    }
+
+    export interface UserPoolUserPoolAddOns {
+        advancedSecurityMode?: string;
+    }
+
+    export interface UserPoolUsernameConfiguration {
+        caseSensitive?: boolean;
+    }
+
+    export interface UserPoolVerificationMessageTemplate {
+        defaultEmailOption?: string;
+        emailMessage?: string;
+        emailMessageByLink?: string;
+        emailSubject?: string;
+        emailSubjectByLink?: string;
+        smsMessage?: string;
     }
 
 }
@@ -3218,6 +5720,30 @@ export namespace config {
 }
 
 export namespace configuration {
+    export interface AggregationAuthorizationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ConfigRuleScope {
+        complianceResourceId?: string;
+        complianceResourceTypes?: string[];
+        tagKey?: string;
+        tagValue?: string;
+    }
+
+    export interface ConfigRuleSource {
+        owner: string;
+        sourceDetails?: outputs.configuration.ConfigRuleSourceDetail[];
+        sourceIdentifier: string;
+    }
+
+    export interface ConfigRuleSourceDetail {
+        eventSource: string;
+        maximumExecutionFrequency?: string;
+        messageType: string;
+    }
+
     export interface ConfigurationAggregatorAccountAggregationSource {
         accountIds: string[];
         allAwsRegions?: boolean;
@@ -3244,6 +5770,12 @@ export namespace configuration {
         value: string;
     }
 
+    export interface ConfigurationRecorderRecordingGroup {
+        allSupported?: boolean;
+        includeGlobalResourceTypes?: boolean;
+        resourceTypes?: string[];
+    }
+
     /**
      * Input parameters in the form of key-value pairs for the conformance pack.
      */
@@ -3252,12 +5784,48 @@ export namespace configuration {
         parameterValue: string;
     }
 
+    export interface DeliveryChannelConfigSnapshotDeliveryProperties {
+        deliveryFrequency?: string;
+    }
+
+    export interface OrganizationConfigRuleOrganizationCustomRuleMetadata {
+        description?: string;
+        inputParameters?: string;
+        lambdaFunctionArn: string;
+        maximumExecutionFrequency?: string;
+        organizationConfigRuleTriggerTypes: string[];
+        resourceIdScope?: string;
+        resourceTypesScope?: string[];
+        tagKeyScope?: string;
+        tagValueScope?: string;
+    }
+
+    export interface OrganizationConfigRuleOrganizationManagedRuleMetadata {
+        description?: string;
+        inputParameters?: string;
+        maximumExecutionFrequency?: string;
+        resourceIdScope?: string;
+        resourceTypesScope?: string[];
+        ruleIdentifier: string;
+        tagKeyScope?: string;
+        tagValueScope?: string;
+    }
+
     /**
      * Input parameters in the form of key-value pairs for the conformance pack.
      */
     export interface OrganizationConformancePackConformancePackInputParameter {
         parameterName: string;
         parameterValue: string;
+    }
+
+    export interface RemediationConfigurationExecutionControls {
+        ssmControls?: outputs.configuration.RemediationConfigurationSsmControls;
+    }
+
+    export interface RemediationConfigurationSsmControls {
+        concurrentExecutionRatePercentage?: number;
+        errorPercentage?: number;
     }
 
     /**
@@ -3979,6 +6547,41 @@ export namespace databrew {
 
 }
 
+export namespace datapipeline {
+    export interface PipelineField {
+        key: string;
+        refValue?: string;
+        stringValue?: string;
+    }
+
+    export interface PipelineParameterAttribute {
+        key: string;
+        stringValue: string;
+    }
+
+    export interface PipelineParameterObject {
+        attributes: outputs.datapipeline.PipelineParameterAttribute[];
+        id: string;
+    }
+
+    export interface PipelineParameterValue {
+        id: string;
+        stringValue: string;
+    }
+
+    export interface PipelinePipelineObject {
+        fields: outputs.datapipeline.PipelineField[];
+        id: string;
+        name: string;
+    }
+
+    export interface PipelinePipelineTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace datasync {
     /**
      * A key-value pair to associate with a resource.
@@ -4234,6 +6837,13 @@ export namespace datasync {
 
 }
 
+export namespace dax {
+    export interface ClusterSSESpecification {
+        sSEEnabled?: boolean;
+    }
+
+}
+
 export namespace detective {
     /**
      * A key-value pair to associate with a resource.
@@ -4281,6 +6891,287 @@ export namespace devopsguru {
      */
     export interface ResourceCollectionResourceCollectionFilter {
         cloudFormation?: outputs.devopsguru.ResourceCollectionCloudFormationCollectionFilter;
+    }
+
+}
+
+export namespace directoryservice {
+    export interface MicrosoftADVpcSettings {
+        subnetIds: string[];
+        vpcId: string;
+    }
+
+    export interface SimpleADVpcSettings {
+        subnetIds: string[];
+        vpcId: string;
+    }
+
+}
+
+export namespace dlm {
+    export interface LifecyclePolicyAction {
+        crossRegionCopy: outputs.dlm.LifecyclePolicyCrossRegionCopyAction[];
+        name: string;
+    }
+
+    export interface LifecyclePolicyCreateRule {
+        cronExpression?: string;
+        interval?: number;
+        intervalUnit?: string;
+        location?: string;
+        times?: string[];
+    }
+
+    export interface LifecyclePolicyCrossRegionCopyAction {
+        encryptionConfiguration: outputs.dlm.LifecyclePolicyEncryptionConfiguration;
+        retainRule?: outputs.dlm.LifecyclePolicyCrossRegionCopyRetainRule;
+        target: string;
+    }
+
+    export interface LifecyclePolicyCrossRegionCopyDeprecateRule {
+        interval: number;
+        intervalUnit: string;
+    }
+
+    export interface LifecyclePolicyCrossRegionCopyRetainRule {
+        interval: number;
+        intervalUnit: string;
+    }
+
+    export interface LifecyclePolicyCrossRegionCopyRule {
+        cmkArn?: string;
+        copyTags?: boolean;
+        deprecateRule?: outputs.dlm.LifecyclePolicyCrossRegionCopyDeprecateRule;
+        encrypted: boolean;
+        retainRule?: outputs.dlm.LifecyclePolicyCrossRegionCopyRetainRule;
+        target?: string;
+        targetRegion?: string;
+    }
+
+    export interface LifecyclePolicyDeprecateRule {
+        count?: number;
+        interval?: number;
+        intervalUnit?: string;
+    }
+
+    export interface LifecyclePolicyEncryptionConfiguration {
+        cmkArn?: string;
+        encrypted: boolean;
+    }
+
+    export interface LifecyclePolicyEventParameters {
+        descriptionRegex?: string;
+        eventType: string;
+        snapshotOwner: string[];
+    }
+
+    export interface LifecyclePolicyEventSource {
+        parameters?: outputs.dlm.LifecyclePolicyEventParameters;
+        type: string;
+    }
+
+    export interface LifecyclePolicyFastRestoreRule {
+        availabilityZones?: string[];
+        count?: number;
+        interval?: number;
+        intervalUnit?: string;
+    }
+
+    export interface LifecyclePolicyParameters {
+        excludeBootVolume?: boolean;
+        noReboot?: boolean;
+    }
+
+    export interface LifecyclePolicyPolicyDetails {
+        actions?: outputs.dlm.LifecyclePolicyAction[];
+        eventSource?: outputs.dlm.LifecyclePolicyEventSource;
+        parameters?: outputs.dlm.LifecyclePolicyParameters;
+        policyType?: string;
+        resourceLocations?: string[];
+        resourceTypes?: string[];
+        schedules?: outputs.dlm.LifecyclePolicySchedule[];
+        targetTags?: outputs.dlm.LifecyclePolicyTag[];
+    }
+
+    export interface LifecyclePolicyRetainRule {
+        count?: number;
+        interval?: number;
+        intervalUnit?: string;
+    }
+
+    export interface LifecyclePolicySchedule {
+        copyTags?: boolean;
+        createRule?: outputs.dlm.LifecyclePolicyCreateRule;
+        crossRegionCopyRules?: outputs.dlm.LifecyclePolicyCrossRegionCopyRule[];
+        deprecateRule?: outputs.dlm.LifecyclePolicyDeprecateRule;
+        fastRestoreRule?: outputs.dlm.LifecyclePolicyFastRestoreRule;
+        name?: string;
+        retainRule?: outputs.dlm.LifecyclePolicyRetainRule;
+        shareRules?: outputs.dlm.LifecyclePolicyShareRule[];
+        tagsToAdd?: outputs.dlm.LifecyclePolicyTag[];
+        variableTags?: outputs.dlm.LifecyclePolicyTag[];
+    }
+
+    export interface LifecyclePolicyShareRule {
+        targetAccounts?: string[];
+        unshareInterval?: number;
+        unshareIntervalUnit?: string;
+    }
+
+    export interface LifecyclePolicyTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace dms {
+    export interface EndpointDocDbSettings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointDynamoDbSettings {
+        serviceAccessRoleArn?: string;
+    }
+
+    export interface EndpointElasticsearchSettings {
+        endpointUri?: string;
+        errorRetryDuration?: number;
+        fullLoadErrorPercentage?: number;
+        serviceAccessRoleArn?: string;
+    }
+
+    export interface EndpointIbmDb2Settings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointKafkaSettings {
+        broker?: string;
+        topic?: string;
+    }
+
+    export interface EndpointKinesisSettings {
+        messageFormat?: string;
+        serviceAccessRoleArn?: string;
+        streamArn?: string;
+    }
+
+    export interface EndpointMicrosoftSqlServerSettings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointMongoDbSettings {
+        authMechanism?: string;
+        authSource?: string;
+        authType?: string;
+        databaseName?: string;
+        docsToInvestigate?: string;
+        extractDocId?: string;
+        nestingLevel?: string;
+        password?: string;
+        port?: number;
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+        serverName?: string;
+        username?: string;
+    }
+
+    export interface EndpointMySqlSettings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointNeptuneSettings {
+        errorRetryDuration?: number;
+        iamAuthEnabled?: boolean;
+        maxFileSize?: number;
+        maxRetryCount?: number;
+        s3BucketFolder?: string;
+        s3BucketName?: string;
+        serviceAccessRoleArn?: string;
+    }
+
+    export interface EndpointOracleSettings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerOracleAsmAccessRoleArn?: string;
+        secretsManagerOracleAsmSecretId?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointPostgreSqlSettings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointRedshiftSettings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointS3Settings {
+        bucketFolder?: string;
+        bucketName?: string;
+        compressionType?: string;
+        csvDelimiter?: string;
+        csvRowDelimiter?: string;
+        externalTableDefinition?: string;
+        serviceAccessRoleArn?: string;
+    }
+
+    export interface EndpointSybaseSettings {
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    export interface EndpointTag {
+        key: string;
+        value: string;
+    }
+
+    export interface EventSubscriptionTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ReplicationInstanceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ReplicationSubnetGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ReplicationTaskTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace docdb {
+    export interface DBClusterParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBClusterTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBInstanceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBSubnetGroupTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -4384,12 +7275,134 @@ export namespace dynamodb {
         writeCapacityAutoScalingSettings?: outputs.dynamodb.GlobalTableCapacityAutoScalingSettings;
     }
 
+    export interface TableAttributeDefinition {
+        attributeName: string;
+        attributeType: string;
+    }
+
+    export interface TableContributorInsightsSpecification {
+        enabled: boolean;
+    }
+
+    export interface TableGlobalSecondaryIndex {
+        contributorInsightsSpecification?: outputs.dynamodb.TableContributorInsightsSpecification;
+        indexName: string;
+        keySchema: outputs.dynamodb.TableKeySchema[];
+        projection: outputs.dynamodb.TableProjection;
+        provisionedThroughput?: outputs.dynamodb.TableProvisionedThroughput;
+    }
+
+    export interface TableKeySchema {
+        attributeName: string;
+        keyType: string;
+    }
+
+    export interface TableKinesisStreamSpecification {
+        streamArn: string;
+    }
+
+    export interface TableLocalSecondaryIndex {
+        indexName: string;
+        keySchema: outputs.dynamodb.TableKeySchema[];
+        projection: outputs.dynamodb.TableProjection;
+    }
+
+    export interface TablePointInTimeRecoverySpecification {
+        pointInTimeRecoveryEnabled?: boolean;
+    }
+
+    export interface TableProjection {
+        nonKeyAttributes?: string[];
+        projectionType?: string;
+    }
+
+    export interface TableProvisionedThroughput {
+        readCapacityUnits: number;
+        writeCapacityUnits: number;
+    }
+
+    export interface TableSSESpecification {
+        kMSMasterKeyId?: string;
+        sSEEnabled: boolean;
+        sSEType?: string;
+    }
+
+    export interface TableStreamSpecification {
+        streamViewType: string;
+    }
+
+    export interface TableTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TableTimeToLiveSpecification {
+        attributeName: string;
+        enabled: boolean;
+    }
+
 }
 
 export namespace ec2 {
+    export interface CapacityReservationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface CapacityReservationTagSpecification {
+        resourceType?: string;
+        tags?: outputs.ec2.CapacityReservationTag[];
+    }
+
     export interface CarrierGatewayTag {
         key?: string;
         value?: string;
+    }
+
+    export interface ClientVpnEndpointCertificateAuthenticationRequest {
+        clientRootCertificateChainArn: string;
+    }
+
+    export interface ClientVpnEndpointClientAuthenticationRequest {
+        activeDirectory?: outputs.ec2.ClientVpnEndpointDirectoryServiceAuthenticationRequest;
+        federatedAuthentication?: outputs.ec2.ClientVpnEndpointFederatedAuthenticationRequest;
+        mutualAuthentication?: outputs.ec2.ClientVpnEndpointCertificateAuthenticationRequest;
+        type: string;
+    }
+
+    export interface ClientVpnEndpointClientConnectOptions {
+        enabled: boolean;
+        lambdaFunctionArn?: string;
+    }
+
+    export interface ClientVpnEndpointConnectionLogOptions {
+        cloudwatchLogGroup?: string;
+        cloudwatchLogStream?: string;
+        enabled: boolean;
+    }
+
+    export interface ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+        directoryId: string;
+    }
+
+    export interface ClientVpnEndpointFederatedAuthenticationRequest {
+        sAMLProviderArn: string;
+        selfServiceSAMLProviderArn?: string;
+    }
+
+    export interface ClientVpnEndpointTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ClientVpnEndpointTagSpecification {
+        resourceType: string;
+        tags: outputs.ec2.ClientVpnEndpointTag[];
+    }
+
+    export interface CustomerGatewayTag {
+        key: string;
+        value: string;
     }
 
     export interface DHCPOptionsTag {
@@ -4469,9 +7482,114 @@ export namespace ec2 {
         totalTargetCapacity: number;
     }
 
+    export interface EIPTag {
+        key: string;
+        value: string;
+    }
+
     export interface FlowLogTag {
         key: string;
         value: string;
+    }
+
+    export interface InstanceAssociationParameter {
+        key: string;
+        value: string[];
+    }
+
+    export interface InstanceBlockDeviceMapping {
+        deviceName: string;
+        ebs?: outputs.ec2.InstanceEbs;
+        noDevice?: outputs.ec2.InstanceNoDevice;
+        virtualName?: string;
+    }
+
+    export interface InstanceCpuOptions {
+        coreCount?: number;
+        threadsPerCore?: number;
+    }
+
+    export interface InstanceCreditSpecification {
+        cPUCredits?: string;
+    }
+
+    export interface InstanceEbs {
+        deleteOnTermination?: boolean;
+        encrypted?: boolean;
+        iops?: number;
+        kmsKeyId?: string;
+        snapshotId?: string;
+        volumeSize?: number;
+        volumeType?: string;
+    }
+
+    export interface InstanceElasticGpuSpecification {
+        type: string;
+    }
+
+    export interface InstanceElasticInferenceAccelerator {
+        count?: number;
+        type: string;
+    }
+
+    export interface InstanceEnclaveOptions {
+        enabled?: boolean;
+    }
+
+    export interface InstanceHibernationOptions {
+        configured?: boolean;
+    }
+
+    export interface InstanceInstanceIpv6Address {
+        ipv6Address: string;
+    }
+
+    export interface InstanceLaunchTemplateSpecification {
+        launchTemplateId?: string;
+        launchTemplateName?: string;
+        version: string;
+    }
+
+    export interface InstanceLicenseSpecification {
+        licenseConfigurationArn: string;
+    }
+
+    export interface InstanceNetworkInterface {
+        associatePublicIpAddress?: boolean;
+        deleteOnTermination?: boolean;
+        description?: string;
+        deviceIndex: string;
+        groupSet?: string[];
+        ipv6AddressCount?: number;
+        ipv6Addresses?: outputs.ec2.InstanceInstanceIpv6Address[];
+        networkInterfaceId?: string;
+        privateIpAddress?: string;
+        privateIpAddresses?: outputs.ec2.InstancePrivateIpAddressSpecification[];
+        secondaryPrivateIpAddressCount?: number;
+        subnetId?: string;
+    }
+
+    export interface InstanceNoDevice {
+    }
+
+    export interface InstancePrivateIpAddressSpecification {
+        primary: boolean;
+        privateIpAddress: string;
+    }
+
+    export interface InstanceSsmAssociation {
+        associationParameters?: outputs.ec2.InstanceAssociationParameter[];
+        documentName: string;
+    }
+
+    export interface InstanceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface InstanceVolume {
+        device: string;
+        volumeId: string;
     }
 
     export interface InternetGatewayTag {
@@ -4479,9 +7597,198 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface LaunchTemplateBlockDeviceMapping {
+        deviceName?: string;
+        ebs?: outputs.ec2.LaunchTemplateEbs;
+        noDevice?: string;
+        virtualName?: string;
+    }
+
+    export interface LaunchTemplateCapacityReservationSpecification {
+        capacityReservationPreference?: string;
+        capacityReservationTarget?: outputs.ec2.LaunchTemplateCapacityReservationTarget;
+    }
+
+    export interface LaunchTemplateCapacityReservationTarget {
+        capacityReservationId?: string;
+        capacityReservationResourceGroupArn?: string;
+    }
+
+    export interface LaunchTemplateCpuOptions {
+        coreCount?: number;
+        threadsPerCore?: number;
+    }
+
+    export interface LaunchTemplateCreditSpecification {
+        cpuCredits?: string;
+    }
+
+    export interface LaunchTemplateEbs {
+        deleteOnTermination?: boolean;
+        encrypted?: boolean;
+        iops?: number;
+        kmsKeyId?: string;
+        snapshotId?: string;
+        throughput?: number;
+        volumeSize?: number;
+        volumeType?: string;
+    }
+
+    export interface LaunchTemplateElasticGpuSpecification {
+        type?: string;
+    }
+
+    export interface LaunchTemplateEnclaveOptions {
+        enabled?: boolean;
+    }
+
+    export interface LaunchTemplateHibernationOptions {
+        configured?: boolean;
+    }
+
+    export interface LaunchTemplateIamInstanceProfile {
+        arn?: string;
+        name?: string;
+    }
+
+    export interface LaunchTemplateInstanceMarketOptions {
+        marketType?: string;
+        spotOptions?: outputs.ec2.LaunchTemplateSpotOptions;
+    }
+
+    export interface LaunchTemplateIpv6Add {
+        ipv6Address?: string;
+    }
+
+    export interface LaunchTemplateLaunchTemplateData {
+        blockDeviceMappings?: outputs.ec2.LaunchTemplateBlockDeviceMapping[];
+        capacityReservationSpecification?: outputs.ec2.LaunchTemplateCapacityReservationSpecification;
+        cpuOptions?: outputs.ec2.LaunchTemplateCpuOptions;
+        creditSpecification?: outputs.ec2.LaunchTemplateCreditSpecification;
+        disableApiTermination?: boolean;
+        ebsOptimized?: boolean;
+        elasticGpuSpecifications?: outputs.ec2.LaunchTemplateElasticGpuSpecification[];
+        elasticInferenceAccelerators?: outputs.ec2.LaunchTemplateLaunchTemplateElasticInferenceAccelerator[];
+        enclaveOptions?: outputs.ec2.LaunchTemplateEnclaveOptions;
+        hibernationOptions?: outputs.ec2.LaunchTemplateHibernationOptions;
+        iamInstanceProfile?: outputs.ec2.LaunchTemplateIamInstanceProfile;
+        imageId?: string;
+        instanceInitiatedShutdownBehavior?: string;
+        instanceMarketOptions?: outputs.ec2.LaunchTemplateInstanceMarketOptions;
+        instanceType?: string;
+        kernelId?: string;
+        keyName?: string;
+        licenseSpecifications?: outputs.ec2.LaunchTemplateLicenseSpecification[];
+        metadataOptions?: outputs.ec2.LaunchTemplateMetadataOptions;
+        monitoring?: outputs.ec2.LaunchTemplateMonitoring;
+        networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
+        placement?: outputs.ec2.LaunchTemplatePlacement;
+        ramDiskId?: string;
+        securityGroupIds?: string[];
+        securityGroups?: string[];
+        tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
+        userData?: string;
+    }
+
+    export interface LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
+        count?: number;
+        type?: string;
+    }
+
+    export interface LaunchTemplateLaunchTemplateTagSpecification {
+        resourceType?: string;
+        tags?: outputs.ec2.LaunchTemplateTag[];
+    }
+
+    export interface LaunchTemplateLicenseSpecification {
+        licenseConfigurationArn?: string;
+    }
+
+    export interface LaunchTemplateMetadataOptions {
+        httpEndpoint?: string;
+        httpPutResponseHopLimit?: number;
+        httpTokens?: string;
+    }
+
+    export interface LaunchTemplateMonitoring {
+        enabled?: boolean;
+    }
+
+    export interface LaunchTemplateNetworkInterface {
+        associateCarrierIpAddress?: boolean;
+        associatePublicIpAddress?: boolean;
+        deleteOnTermination?: boolean;
+        description?: string;
+        deviceIndex?: number;
+        groups?: string[];
+        interfaceType?: string;
+        ipv6AddressCount?: number;
+        ipv6Addresses?: outputs.ec2.LaunchTemplateIpv6Add[];
+        networkCardIndex?: number;
+        networkInterfaceId?: string;
+        privateIpAddress?: string;
+        privateIpAddresses?: outputs.ec2.LaunchTemplatePrivateIpAdd[];
+        secondaryPrivateIpAddressCount?: number;
+        subnetId?: string;
+    }
+
+    export interface LaunchTemplatePlacement {
+        affinity?: string;
+        availabilityZone?: string;
+        groupName?: string;
+        hostId?: string;
+        hostResourceGroupArn?: string;
+        partitionNumber?: number;
+        spreadDomain?: string;
+        tenancy?: string;
+    }
+
+    export interface LaunchTemplatePrivateIpAdd {
+        primary?: boolean;
+        privateIpAddress?: string;
+    }
+
+    export interface LaunchTemplateSpotOptions {
+        blockDurationMinutes?: number;
+        instanceInterruptionBehavior?: string;
+        maxPrice?: string;
+        spotInstanceType?: string;
+        validUntil?: string;
+    }
+
+    export interface LaunchTemplateTag {
+        key: string;
+        value: string;
+    }
+
+    export interface LaunchTemplateTagSpecification {
+        resourceType?: string;
+        tags?: outputs.ec2.LaunchTemplateTag[];
+    }
+
     export interface LocalGatewayRouteTableVPCAssociationTag {
         key?: string;
         value?: string;
+    }
+
+    export interface NatGatewayTag {
+        key: string;
+        value: string;
+    }
+
+    export interface NetworkAclEntryIcmp {
+        code?: number;
+        type?: number;
+    }
+
+    export interface NetworkAclEntryPortRange {
+        from?: number;
+        to?: number;
+    }
+
+    export interface NetworkAclTag {
+        key: string;
+        value: string;
     }
 
     export interface NetworkInsightsAnalysisAlternatePathHint {
@@ -4622,6 +7929,20 @@ export namespace ec2 {
         value?: string;
     }
 
+    export interface NetworkInterfaceInstanceIpv6Address {
+        ipv6Address: string;
+    }
+
+    export interface NetworkInterfacePrivateIpAddressSpecification {
+        primary: boolean;
+        privateIpAddress: string;
+    }
+
+    export interface NetworkInterfaceTag {
+        key: string;
+        value: string;
+    }
+
     export interface PrefixListEntry {
         cidr: string;
         description?: string;
@@ -4630,6 +7951,40 @@ export namespace ec2 {
     export interface PrefixListTag {
         key: string;
         value?: string;
+    }
+
+    export interface RouteTableTag {
+        key: string;
+        value: string;
+    }
+
+    export interface SecurityGroupEgress {
+        cidrIp?: string;
+        cidrIpv6?: string;
+        description?: string;
+        destinationPrefixListId?: string;
+        destinationSecurityGroupId?: string;
+        fromPort?: number;
+        ipProtocol: string;
+        toPort?: number;
+    }
+
+    export interface SecurityGroupIngress {
+        cidrIp?: string;
+        cidrIpv6?: string;
+        description?: string;
+        fromPort?: number;
+        ipProtocol: string;
+        sourcePrefixListId?: string;
+        sourceSecurityGroupId?: string;
+        sourceSecurityGroupName?: string;
+        sourceSecurityGroupOwnerId?: string;
+        toPort?: number;
+    }
+
+    export interface SecurityGroupTag {
+        key: string;
+        value: string;
     }
 
     export interface SpotFleetBlockDeviceMapping {
@@ -4791,6 +8146,36 @@ export namespace ec2 {
         targetGroups: outputs.ec2.SpotFleetTargetGroup[];
     }
 
+    export interface SubnetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TrafficMirrorFilterRuleTrafficMirrorPortRange {
+        fromPort: number;
+        toPort: number;
+    }
+
+    export interface TrafficMirrorFilterTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TrafficMirrorSessionTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TrafficMirrorTargetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TransitGatewayAttachmentTag {
+        key: string;
+        value: string;
+    }
+
     export interface TransitGatewayConnectTag {
         /**
          * The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
@@ -4842,7 +8227,47 @@ export namespace ec2 {
         value?: string;
     }
 
+    export interface TransitGatewayRouteTableTag {
+        key: string;
+        value: string;
+    }
+
     export interface TransitGatewayTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TransitGatewayVpcAttachmentTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VPCPeeringConnectionTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VPCTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VPNConnectionTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VPNConnectionVpnTunnelOptionsSpecification {
+        preSharedKey?: string;
+        tunnelInsideCidr?: string;
+    }
+
+    export interface VPNGatewayTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VolumeTag {
         key: string;
         value: string;
     }
@@ -5465,6 +8890,24 @@ export namespace eks {
         value: string;
     }
 
+    export interface ClusterEncryptionConfig {
+        provider?: outputs.eks.ClusterProvider;
+        resources?: string[];
+    }
+
+    export interface ClusterKubernetesNetworkConfig {
+        serviceIpv4Cidr?: string;
+    }
+
+    export interface ClusterProvider {
+        keyArn?: string;
+    }
+
+    export interface ClusterResourcesVpcConfig {
+        securityGroupIds?: string[];
+        subnetIds: string[];
+    }
+
     /**
      * A key-value pair to associate with a pod.
      */
@@ -5498,9 +8941,62 @@ export namespace eks {
         value: string;
     }
 
+    export interface NodegroupLaunchTemplateSpecification {
+        id?: string;
+        name?: string;
+        version?: string;
+    }
+
+    export interface NodegroupRemoteAccess {
+        ec2SshKey: string;
+        sourceSecurityGroups?: string[];
+    }
+
+    export interface NodegroupScalingConfig {
+        desiredSize?: number;
+        maxSize?: number;
+        minSize?: number;
+    }
+
+    export interface NodegroupTaint {
+        effect?: string;
+        key?: string;
+        value?: string;
+    }
+
+    export interface NodegroupUpdateConfig {
+        maxUnavailable?: number;
+        maxUnavailablePercentage?: number;
+    }
+
 }
 
 export namespace elasticache {
+    export interface CacheClusterCloudWatchLogsDestinationDetails {
+        logGroup: string;
+    }
+
+    export interface CacheClusterDestinationDetails {
+        cloudWatchLogsDetails?: outputs.elasticache.CacheClusterCloudWatchLogsDestinationDetails;
+        kinesisFirehoseDetails?: outputs.elasticache.CacheClusterKinesisFirehoseDestinationDetails;
+    }
+
+    export interface CacheClusterKinesisFirehoseDestinationDetails {
+        deliveryStream: string;
+    }
+
+    export interface CacheClusterLogDeliveryConfigurationRequest {
+        destinationDetails: outputs.elasticache.CacheClusterDestinationDetails;
+        destinationType: string;
+        logFormat: string;
+        logType: string;
+    }
+
+    export interface CacheClusterTag {
+        key: string;
+        value: string;
+    }
+
     export interface GlobalReplicationGroupGlobalReplicationGroupMember {
         /**
          * Regionally unique identifier for the member i.e. ReplicationGroupId.
@@ -5540,6 +9036,173 @@ export namespace elasticache {
          * A list of preferred availability zones for the nodes of new node groups.
          */
         preferredAvailabilityZones?: string[];
+    }
+
+    export interface ParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ReplicationGroupCloudWatchLogsDestinationDetails {
+        logGroup: string;
+    }
+
+    export interface ReplicationGroupDestinationDetails {
+        cloudWatchLogsDetails?: outputs.elasticache.ReplicationGroupCloudWatchLogsDestinationDetails;
+        kinesisFirehoseDetails?: outputs.elasticache.ReplicationGroupKinesisFirehoseDestinationDetails;
+    }
+
+    export interface ReplicationGroupKinesisFirehoseDestinationDetails {
+        deliveryStream: string;
+    }
+
+    export interface ReplicationGroupLogDeliveryConfigurationRequest {
+        destinationDetails: outputs.elasticache.ReplicationGroupDestinationDetails;
+        destinationType: string;
+        logFormat: string;
+        logType: string;
+    }
+
+    export interface ReplicationGroupNodeGroupConfiguration {
+        nodeGroupId?: string;
+        primaryAvailabilityZone?: string;
+        replicaAvailabilityZones?: string[];
+        replicaCount?: number;
+        slots?: string;
+    }
+
+    export interface ReplicationGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface SecurityGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface SubnetGroupTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace elasticbeanstalk {
+    export interface ApplicationApplicationResourceLifecycleConfig {
+        serviceRole?: string;
+        versionLifecycleConfig?: outputs.elasticbeanstalk.ApplicationApplicationVersionLifecycleConfig;
+    }
+
+    export interface ApplicationApplicationVersionLifecycleConfig {
+        maxAgeRule?: outputs.elasticbeanstalk.ApplicationMaxAgeRule;
+        maxCountRule?: outputs.elasticbeanstalk.ApplicationMaxCountRule;
+    }
+
+    export interface ApplicationMaxAgeRule {
+        deleteSourceFromS3?: boolean;
+        enabled?: boolean;
+        maxAgeInDays?: number;
+    }
+
+    export interface ApplicationMaxCountRule {
+        deleteSourceFromS3?: boolean;
+        enabled?: boolean;
+        maxCount?: number;
+    }
+
+    export interface ApplicationVersionSourceBundle {
+        s3Bucket: string;
+        s3Key: string;
+    }
+
+    export interface ConfigurationTemplateConfigurationOptionSetting {
+        namespace: string;
+        optionName: string;
+        resourceName?: string;
+        value?: string;
+    }
+
+    export interface ConfigurationTemplateSourceConfiguration {
+        applicationName: string;
+        templateName: string;
+    }
+
+    export interface EnvironmentOptionSetting {
+        namespace: string;
+        optionName: string;
+        resourceName?: string;
+        value?: string;
+    }
+
+    export interface EnvironmentTag {
+        key: string;
+        value: string;
+    }
+
+    export interface EnvironmentTier {
+        name?: string;
+        type?: string;
+        version?: string;
+    }
+
+}
+
+export namespace elasticloadbalancing {
+    export interface LoadBalancerAccessLoggingPolicy {
+        emitInterval?: number;
+        enabled: boolean;
+        s3BucketName: string;
+        s3BucketPrefix?: string;
+    }
+
+    export interface LoadBalancerAppCookieStickinessPolicy {
+        cookieName: string;
+        policyName: string;
+    }
+
+    export interface LoadBalancerConnectionDrainingPolicy {
+        enabled: boolean;
+        timeout?: number;
+    }
+
+    export interface LoadBalancerConnectionSettings {
+        idleTimeout: number;
+    }
+
+    export interface LoadBalancerHealthCheck {
+        healthyThreshold: string;
+        interval: string;
+        target: string;
+        timeout: string;
+        unhealthyThreshold: string;
+    }
+
+    export interface LoadBalancerLBCookieStickinessPolicy {
+        cookieExpirationPeriod?: string;
+        policyName?: string;
+    }
+
+    export interface LoadBalancerListeners {
+        instancePort: string;
+        instanceProtocol?: string;
+        loadBalancerPort: string;
+        policyNames?: string[];
+        protocol: string;
+        sSLCertificateId?: string;
+    }
+
+    export interface LoadBalancerPolicies {
+        attributes: any[];
+        instancePorts?: string[];
+        loadBalancerPorts?: string[];
+        policyName: string;
+        policyType: string;
+    }
+
+    export interface LoadBalancerTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -5582,6 +9245,10 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface ListenerCertificate {
+        certificateArn?: string;
+    }
+
+    export interface ListenerCertificateCertificate {
         certificateArn?: string;
     }
 
@@ -5723,9 +9390,457 @@ export namespace elasticloadbalancingv2 {
         weight?: number;
     }
 
+    export interface LoadBalancerLoadBalancerAttribute {
+        key?: string;
+        value?: string;
+    }
+
+    export interface LoadBalancerSubnetMapping {
+        allocationId?: string;
+        iPv6Address?: string;
+        privateIPv4Address?: string;
+        subnetId: string;
+    }
+
+    export interface LoadBalancerTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TargetGroupMatcher {
+        grpcCode?: string;
+        httpCode?: string;
+    }
+
+    export interface TargetGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TargetGroupTargetDescription {
+        availabilityZone?: string;
+        id: string;
+        port?: number;
+    }
+
+    export interface TargetGroupTargetGroupAttribute {
+        key?: string;
+        value?: string;
+    }
+
+}
+
+export namespace elasticsearch {
+    export interface DomainAdvancedSecurityOptionsInput {
+        enabled?: boolean;
+        internalUserDatabaseEnabled?: boolean;
+        masterUserOptions?: outputs.elasticsearch.DomainMasterUserOptions;
+    }
+
+    export interface DomainCognitoOptions {
+        enabled?: boolean;
+        identityPoolId?: string;
+        roleArn?: string;
+        userPoolId?: string;
+    }
+
+    export interface DomainColdStorageOptions {
+        enabled?: boolean;
+    }
+
+    export interface DomainDomainEndpointOptions {
+        customEndpoint?: string;
+        customEndpointCertificateArn?: string;
+        customEndpointEnabled?: boolean;
+        enforceHTTPS?: boolean;
+        tLSSecurityPolicy?: string;
+    }
+
+    export interface DomainEBSOptions {
+        eBSEnabled?: boolean;
+        iops?: number;
+        volumeSize?: number;
+        volumeType?: string;
+    }
+
+    export interface DomainElasticsearchClusterConfig {
+        coldStorageOptions?: outputs.elasticsearch.DomainColdStorageOptions;
+        dedicatedMasterCount?: number;
+        dedicatedMasterEnabled?: boolean;
+        dedicatedMasterType?: string;
+        instanceCount?: number;
+        instanceType?: string;
+        warmCount?: number;
+        warmEnabled?: boolean;
+        warmType?: string;
+        zoneAwarenessConfig?: outputs.elasticsearch.DomainZoneAwarenessConfig;
+        zoneAwarenessEnabled?: boolean;
+    }
+
+    export interface DomainEncryptionAtRestOptions {
+        enabled?: boolean;
+        kmsKeyId?: string;
+    }
+
+    export interface DomainMasterUserOptions {
+        masterUserARN?: string;
+        masterUserName?: string;
+        masterUserPassword?: string;
+    }
+
+    export interface DomainNodeToNodeEncryptionOptions {
+        enabled?: boolean;
+    }
+
+    export interface DomainSnapshotOptions {
+        automatedSnapshotStartHour?: number;
+    }
+
+    export interface DomainTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DomainVPCOptions {
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+    }
+
+    export interface DomainZoneAwarenessConfig {
+        availabilityZoneCount?: number;
+    }
+
 }
 
 export namespace emr {
+    export interface ClusterApplication {
+        additionalInfo?: any;
+        args?: string[];
+        name?: string;
+        version?: string;
+    }
+
+    export interface ClusterAutoScalingPolicy {
+        constraints: outputs.emr.ClusterScalingConstraints;
+        rules: outputs.emr.ClusterScalingRule[];
+    }
+
+    export interface ClusterBootstrapActionConfig {
+        name: string;
+        scriptBootstrapAction: outputs.emr.ClusterScriptBootstrapActionConfig;
+    }
+
+    export interface ClusterCloudWatchAlarmDefinition {
+        comparisonOperator: string;
+        dimensions?: outputs.emr.ClusterMetricDimension[];
+        evaluationPeriods?: number;
+        metricName: string;
+        namespace?: string;
+        period: number;
+        statistic?: string;
+        threshold: number;
+        unit?: string;
+    }
+
+    export interface ClusterComputeLimits {
+        maximumCapacityUnits: number;
+        maximumCoreCapacityUnits?: number;
+        maximumOnDemandCapacityUnits?: number;
+        minimumCapacityUnits: number;
+        unitType: string;
+    }
+
+    export interface ClusterConfiguration {
+        classification?: string;
+        configurationProperties?: any;
+        configurations?: outputs.emr.ClusterConfiguration[];
+    }
+
+    export interface ClusterEbsBlockDeviceConfig {
+        volumeSpecification: outputs.emr.ClusterVolumeSpecification;
+        volumesPerInstance?: number;
+    }
+
+    export interface ClusterEbsConfiguration {
+        ebsBlockDeviceConfigs?: outputs.emr.ClusterEbsBlockDeviceConfig[];
+        ebsOptimized?: boolean;
+    }
+
+    export interface ClusterHadoopJarStepConfig {
+        args?: string[];
+        jar: string;
+        mainClass?: string;
+        stepProperties?: outputs.emr.ClusterKeyValue[];
+    }
+
+    export interface ClusterInstanceFleetConfig {
+        instanceTypeConfigs?: outputs.emr.ClusterInstanceTypeConfig[];
+        launchSpecifications?: outputs.emr.ClusterInstanceFleetProvisioningSpecifications;
+        name?: string;
+        targetOnDemandCapacity?: number;
+        targetSpotCapacity?: number;
+    }
+
+    export interface ClusterInstanceFleetProvisioningSpecifications {
+        onDemandSpecification?: outputs.emr.ClusterOnDemandProvisioningSpecification;
+        spotSpecification?: outputs.emr.ClusterSpotProvisioningSpecification;
+    }
+
+    export interface ClusterInstanceGroupConfig {
+        autoScalingPolicy?: outputs.emr.ClusterAutoScalingPolicy;
+        bidPrice?: string;
+        configurations?: outputs.emr.ClusterConfiguration[];
+        ebsConfiguration?: outputs.emr.ClusterEbsConfiguration;
+        instanceCount: number;
+        instanceType: string;
+        market?: string;
+        name?: string;
+    }
+
+    export interface ClusterInstanceTypeConfig {
+        bidPrice?: string;
+        bidPriceAsPercentageOfOnDemandPrice?: number;
+        configurations?: outputs.emr.ClusterConfiguration[];
+        ebsConfiguration?: outputs.emr.ClusterEbsConfiguration;
+        instanceType: string;
+        weightedCapacity?: number;
+    }
+
+    export interface ClusterJobFlowInstancesConfig {
+        additionalMasterSecurityGroups?: string[];
+        additionalSlaveSecurityGroups?: string[];
+        coreInstanceFleet?: outputs.emr.ClusterInstanceFleetConfig;
+        coreInstanceGroup?: outputs.emr.ClusterInstanceGroupConfig;
+        ec2KeyName?: string;
+        ec2SubnetId?: string;
+        ec2SubnetIds?: string[];
+        emrManagedMasterSecurityGroup?: string;
+        emrManagedSlaveSecurityGroup?: string;
+        hadoopVersion?: string;
+        keepJobFlowAliveWhenNoSteps?: boolean;
+        masterInstanceFleet?: outputs.emr.ClusterInstanceFleetConfig;
+        masterInstanceGroup?: outputs.emr.ClusterInstanceGroupConfig;
+        placement?: outputs.emr.ClusterPlacementType;
+        serviceAccessSecurityGroup?: string;
+        terminationProtected?: boolean;
+    }
+
+    export interface ClusterKerberosAttributes {
+        aDDomainJoinPassword?: string;
+        aDDomainJoinUser?: string;
+        crossRealmTrustPrincipalPassword?: string;
+        kdcAdminPassword: string;
+        realm: string;
+    }
+
+    export interface ClusterKeyValue {
+        key?: string;
+        value?: string;
+    }
+
+    export interface ClusterManagedScalingPolicy {
+        computeLimits?: outputs.emr.ClusterComputeLimits;
+    }
+
+    export interface ClusterMetricDimension {
+        key: string;
+        value: string;
+    }
+
+    export interface ClusterOnDemandProvisioningSpecification {
+        allocationStrategy: string;
+    }
+
+    export interface ClusterPlacementType {
+        availabilityZone: string;
+    }
+
+    export interface ClusterScalingAction {
+        market?: string;
+        simpleScalingPolicyConfiguration: outputs.emr.ClusterSimpleScalingPolicyConfiguration;
+    }
+
+    export interface ClusterScalingConstraints {
+        maxCapacity: number;
+        minCapacity: number;
+    }
+
+    export interface ClusterScalingRule {
+        action: outputs.emr.ClusterScalingAction;
+        description?: string;
+        name: string;
+        trigger: outputs.emr.ClusterScalingTrigger;
+    }
+
+    export interface ClusterScalingTrigger {
+        cloudWatchAlarmDefinition: outputs.emr.ClusterCloudWatchAlarmDefinition;
+    }
+
+    export interface ClusterScriptBootstrapActionConfig {
+        args?: string[];
+        path: string;
+    }
+
+    export interface ClusterSimpleScalingPolicyConfiguration {
+        adjustmentType?: string;
+        coolDown?: number;
+        scalingAdjustment: number;
+    }
+
+    export interface ClusterSpotProvisioningSpecification {
+        allocationStrategy?: string;
+        blockDurationMinutes?: number;
+        timeoutAction: string;
+        timeoutDurationMinutes: number;
+    }
+
+    export interface ClusterStepConfig {
+        actionOnFailure?: string;
+        hadoopJarStep: outputs.emr.ClusterHadoopJarStepConfig;
+        name: string;
+    }
+
+    export interface ClusterTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ClusterVolumeSpecification {
+        iops?: number;
+        sizeInGB: number;
+        volumeType: string;
+    }
+
+    export interface InstanceFleetConfigConfiguration {
+        classification?: string;
+        configurationProperties?: any;
+        configurations?: outputs.emr.InstanceFleetConfigConfiguration[];
+    }
+
+    export interface InstanceFleetConfigEbsBlockDeviceConfig {
+        volumeSpecification: outputs.emr.InstanceFleetConfigVolumeSpecification;
+        volumesPerInstance?: number;
+    }
+
+    export interface InstanceFleetConfigEbsConfiguration {
+        ebsBlockDeviceConfigs?: outputs.emr.InstanceFleetConfigEbsBlockDeviceConfig[];
+        ebsOptimized?: boolean;
+    }
+
+    export interface InstanceFleetConfigInstanceFleetProvisioningSpecifications {
+        onDemandSpecification?: outputs.emr.InstanceFleetConfigOnDemandProvisioningSpecification;
+        spotSpecification?: outputs.emr.InstanceFleetConfigSpotProvisioningSpecification;
+    }
+
+    export interface InstanceFleetConfigInstanceTypeConfig {
+        bidPrice?: string;
+        bidPriceAsPercentageOfOnDemandPrice?: number;
+        configurations?: outputs.emr.InstanceFleetConfigConfiguration[];
+        ebsConfiguration?: outputs.emr.InstanceFleetConfigEbsConfiguration;
+        instanceType: string;
+        weightedCapacity?: number;
+    }
+
+    export interface InstanceFleetConfigOnDemandProvisioningSpecification {
+        allocationStrategy: string;
+    }
+
+    export interface InstanceFleetConfigSpotProvisioningSpecification {
+        allocationStrategy?: string;
+        blockDurationMinutes?: number;
+        timeoutAction: string;
+        timeoutDurationMinutes: number;
+    }
+
+    export interface InstanceFleetConfigVolumeSpecification {
+        iops?: number;
+        sizeInGB: number;
+        volumeType: string;
+    }
+
+    export interface InstanceGroupConfigAutoScalingPolicy {
+        constraints: outputs.emr.InstanceGroupConfigScalingConstraints;
+        rules: outputs.emr.InstanceGroupConfigScalingRule[];
+    }
+
+    export interface InstanceGroupConfigCloudWatchAlarmDefinition {
+        comparisonOperator: string;
+        dimensions?: outputs.emr.InstanceGroupConfigMetricDimension[];
+        evaluationPeriods?: number;
+        metricName: string;
+        namespace?: string;
+        period: number;
+        statistic?: string;
+        threshold: number;
+        unit?: string;
+    }
+
+    export interface InstanceGroupConfigConfiguration {
+        classification?: string;
+        configurationProperties?: any;
+        configurations?: outputs.emr.InstanceGroupConfigConfiguration[];
+    }
+
+    export interface InstanceGroupConfigEbsBlockDeviceConfig {
+        volumeSpecification: outputs.emr.InstanceGroupConfigVolumeSpecification;
+        volumesPerInstance?: number;
+    }
+
+    export interface InstanceGroupConfigEbsConfiguration {
+        ebsBlockDeviceConfigs?: outputs.emr.InstanceGroupConfigEbsBlockDeviceConfig[];
+        ebsOptimized?: boolean;
+    }
+
+    export interface InstanceGroupConfigMetricDimension {
+        key: string;
+        value: string;
+    }
+
+    export interface InstanceGroupConfigScalingAction {
+        market?: string;
+        simpleScalingPolicyConfiguration: outputs.emr.InstanceGroupConfigSimpleScalingPolicyConfiguration;
+    }
+
+    export interface InstanceGroupConfigScalingConstraints {
+        maxCapacity: number;
+        minCapacity: number;
+    }
+
+    export interface InstanceGroupConfigScalingRule {
+        action: outputs.emr.InstanceGroupConfigScalingAction;
+        description?: string;
+        name: string;
+        trigger: outputs.emr.InstanceGroupConfigScalingTrigger;
+    }
+
+    export interface InstanceGroupConfigScalingTrigger {
+        cloudWatchAlarmDefinition: outputs.emr.InstanceGroupConfigCloudWatchAlarmDefinition;
+    }
+
+    export interface InstanceGroupConfigSimpleScalingPolicyConfiguration {
+        adjustmentType?: string;
+        coolDown?: number;
+        scalingAdjustment: number;
+    }
+
+    export interface InstanceGroupConfigVolumeSpecification {
+        iops?: number;
+        sizeInGB: number;
+        volumeType: string;
+    }
+
+    export interface StepHadoopJarStepConfig {
+        args?: string[];
+        jar: string;
+        mainClass?: string;
+        stepProperties?: outputs.emr.StepKeyValue[];
+    }
+
+    export interface StepKeyValue {
+        key?: string;
+        value?: string;
+    }
+
     /**
      * An arbitrary set of tags (key-value pairs) for this EMR Studio.
      */
@@ -5774,6 +9889,160 @@ export namespace emrcontainers {
         /**
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
+        value: string;
+    }
+
+}
+
+export namespace events {
+    export interface EventBusPolicyCondition {
+        key?: string;
+        type?: string;
+        value?: string;
+    }
+
+    export interface RuleAwsVpcConfiguration {
+        assignPublicIp?: string;
+        securityGroups?: string[];
+        subnets: string[];
+    }
+
+    export interface RuleBatchArrayProperties {
+        size?: number;
+    }
+
+    export interface RuleBatchParameters {
+        arrayProperties?: outputs.events.RuleBatchArrayProperties;
+        jobDefinition: string;
+        jobName: string;
+        retryStrategy?: outputs.events.RuleBatchRetryStrategy;
+    }
+
+    export interface RuleBatchRetryStrategy {
+        attempts?: number;
+    }
+
+    export interface RuleCapacityProviderStrategyItem {
+        base?: number;
+        capacityProvider: string;
+        weight?: number;
+    }
+
+    export interface RuleDeadLetterConfig {
+        arn?: string;
+    }
+
+    export interface RuleEcsParameters {
+        capacityProviderStrategy?: outputs.events.RuleCapacityProviderStrategyItem[];
+        enableECSManagedTags?: boolean;
+        enableExecuteCommand?: boolean;
+        group?: string;
+        launchType?: string;
+        networkConfiguration?: outputs.events.RuleNetworkConfiguration;
+        placementConstraints?: outputs.events.RulePlacementConstraint[];
+        placementStrategies?: outputs.events.RulePlacementStrategy[];
+        platformVersion?: string;
+        propagateTags?: string;
+        referenceId?: string;
+        tagList?: outputs.events.RuleTag[];
+        taskCount?: number;
+        taskDefinitionArn: string;
+    }
+
+    export interface RuleHttpParameters {
+        headerParameters?: any;
+        pathParameterValues?: string[];
+        queryStringParameters?: any;
+    }
+
+    export interface RuleInputTransformer {
+        inputPathsMap?: any;
+        inputTemplate: string;
+    }
+
+    export interface RuleKinesisParameters {
+        partitionKeyPath: string;
+    }
+
+    export interface RuleNetworkConfiguration {
+        awsVpcConfiguration?: outputs.events.RuleAwsVpcConfiguration;
+    }
+
+    export interface RulePlacementConstraint {
+        expression?: string;
+        type?: string;
+    }
+
+    export interface RulePlacementStrategy {
+        field?: string;
+        type?: string;
+    }
+
+    export interface RuleRedshiftDataParameters {
+        database: string;
+        dbUser?: string;
+        secretManagerArn?: string;
+        sql: string;
+        statementName?: string;
+        withEvent?: boolean;
+    }
+
+    export interface RuleRetryPolicy {
+        maximumEventAgeInSeconds?: number;
+        maximumRetryAttempts?: number;
+    }
+
+    export interface RuleRunCommandParameters {
+        runCommandTargets: outputs.events.RuleRunCommandTarget[];
+    }
+
+    export interface RuleRunCommandTarget {
+        key: string;
+        values: string[];
+    }
+
+    export interface RuleSqsParameters {
+        messageGroupId: string;
+    }
+
+    export interface RuleTag {
+        key?: string;
+        value?: string;
+    }
+
+    export interface RuleTarget {
+        arn: string;
+        batchParameters?: outputs.events.RuleBatchParameters;
+        deadLetterConfig?: outputs.events.RuleDeadLetterConfig;
+        ecsParameters?: outputs.events.RuleEcsParameters;
+        httpParameters?: outputs.events.RuleHttpParameters;
+        id: string;
+        input?: string;
+        inputPath?: string;
+        inputTransformer?: outputs.events.RuleInputTransformer;
+        kinesisParameters?: outputs.events.RuleKinesisParameters;
+        redshiftDataParameters?: outputs.events.RuleRedshiftDataParameters;
+        retryPolicy?: outputs.events.RuleRetryPolicy;
+        roleArn?: string;
+        runCommandParameters?: outputs.events.RuleRunCommandParameters;
+        sqsParameters?: outputs.events.RuleSqsParameters;
+    }
+
+}
+
+export namespace eventschemas {
+    export interface DiscovererTagsEntry {
+        key: string;
+        value: string;
+    }
+
+    export interface RegistryTagsEntry {
+        key: string;
+        value: string;
+    }
+
+    export interface SchemaTagsEntry {
+        key: string;
         value: string;
     }
 
@@ -6118,6 +10387,58 @@ export namespace frauddetector {
 
 }
 
+export namespace fsx {
+    export interface FileSystemAuditLogConfiguration {
+        auditLogDestination?: string;
+        fileAccessAuditLogLevel: string;
+        fileShareAccessAuditLogLevel: string;
+    }
+
+    export interface FileSystemLustreConfiguration {
+        autoImportPolicy?: string;
+        automaticBackupRetentionDays?: number;
+        copyTagsToBackups?: boolean;
+        dailyAutomaticBackupStartTime?: string;
+        dataCompressionType?: string;
+        deploymentType?: string;
+        driveCacheType?: string;
+        exportPath?: string;
+        importPath?: string;
+        importedFileChunkSize?: number;
+        perUnitStorageThroughput?: number;
+        weeklyMaintenanceStartTime?: string;
+    }
+
+    export interface FileSystemSelfManagedActiveDirectoryConfiguration {
+        dnsIps?: string[];
+        domainName?: string;
+        fileSystemAdministratorsGroup?: string;
+        organizationalUnitDistinguishedName?: string;
+        password?: string;
+        userName?: string;
+    }
+
+    export interface FileSystemTag {
+        key: string;
+        value: string;
+    }
+
+    export interface FileSystemWindowsConfiguration {
+        activeDirectoryId?: string;
+        aliases?: string[];
+        auditLogConfiguration?: outputs.fsx.FileSystemAuditLogConfiguration;
+        automaticBackupRetentionDays?: number;
+        copyTagsToBackups?: boolean;
+        dailyAutomaticBackupStartTime?: string;
+        deploymentType?: string;
+        preferredSubnetId?: string;
+        selfManagedActiveDirectoryConfiguration?: outputs.fsx.FileSystemSelfManagedActiveDirectoryConfiguration;
+        throughputCapacity: number;
+        weeklyMaintenanceStartTime?: string;
+    }
+
+}
+
 export namespace gamelift {
     export interface AliasRoutingStrategy {
         /**
@@ -6132,6 +10453,13 @@ export namespace gamelift {
          * Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
          */
         type: enums.gamelift.AliasRoutingStrategyType;
+    }
+
+    export interface BuildS3Location {
+        bucket: string;
+        key: string;
+        objectVersion?: string;
+        roleArn: string;
     }
 
     /**
@@ -6292,6 +10620,36 @@ export namespace gamelift {
         targetValue: number;
     }
 
+    export interface GameSessionQueueDestination {
+        destinationArn?: string;
+    }
+
+    export interface GameSessionQueueFilterConfiguration {
+        allowedLocations?: string[];
+    }
+
+    export interface GameSessionQueuePlayerLatencyPolicy {
+        maximumIndividualPlayerLatencyMilliseconds?: number;
+        policyDurationSeconds?: number;
+    }
+
+    export interface GameSessionQueuePriorityConfiguration {
+        locationOrder?: string[];
+        priorityOrder?: string[];
+    }
+
+    export interface MatchmakingConfigurationGameProperty {
+        key: string;
+        value: string;
+    }
+
+    export interface ScriptS3Location {
+        bucket: string;
+        key: string;
+        objectVersion?: string;
+        roleArn: string;
+    }
+
 }
 
 export namespace globalaccelerator {
@@ -6346,6 +10704,236 @@ export namespace globalaccelerator {
 }
 
 export namespace glue {
+    export interface ClassifierCsvClassifier {
+        allowSingleColumn?: boolean;
+        containsHeader?: string;
+        delimiter?: string;
+        disableValueTrimming?: boolean;
+        header?: string[];
+        name?: string;
+        quoteSymbol?: string;
+    }
+
+    export interface ClassifierGrokClassifier {
+        classification: string;
+        customPatterns?: string;
+        grokPattern: string;
+        name?: string;
+    }
+
+    export interface ClassifierJsonClassifier {
+        jsonPath: string;
+        name?: string;
+    }
+
+    export interface ClassifierXMLClassifier {
+        classification: string;
+        name?: string;
+        rowTag: string;
+    }
+
+    export interface ConnectionConnectionInput {
+        connectionProperties?: any;
+        connectionType: string;
+        description?: string;
+        matchCriteria?: string[];
+        name?: string;
+        physicalConnectionRequirements?: outputs.glue.ConnectionPhysicalConnectionRequirements;
+    }
+
+    export interface ConnectionPhysicalConnectionRequirements {
+        availabilityZone?: string;
+        securityGroupIdList?: string[];
+        subnetId?: string;
+    }
+
+    export interface CrawlerCatalogTarget {
+        databaseName?: string;
+        tables?: string[];
+    }
+
+    export interface CrawlerDynamoDBTarget {
+        path?: string;
+    }
+
+    export interface CrawlerJdbcTarget {
+        connectionName?: string;
+        exclusions?: string[];
+        path?: string;
+    }
+
+    export interface CrawlerRecrawlPolicy {
+        recrawlBehavior?: string;
+    }
+
+    export interface CrawlerS3Target {
+        connectionName?: string;
+        exclusions?: string[];
+        path?: string;
+    }
+
+    export interface CrawlerSchedule {
+        scheduleExpression?: string;
+    }
+
+    export interface CrawlerSchemaChangePolicy {
+        deleteBehavior?: string;
+        updateBehavior?: string;
+    }
+
+    export interface CrawlerTargets {
+        catalogTargets?: outputs.glue.CrawlerCatalogTarget[];
+        dynamoDBTargets?: outputs.glue.CrawlerDynamoDBTarget[];
+        jdbcTargets?: outputs.glue.CrawlerJdbcTarget[];
+        s3Targets?: outputs.glue.CrawlerS3Target[];
+    }
+
+    export interface DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+        kmsKeyId?: string;
+        returnConnectionPasswordEncrypted?: boolean;
+    }
+
+    export interface DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
+        connectionPasswordEncryption?: outputs.glue.DataCatalogEncryptionSettingsConnectionPasswordEncryption;
+        encryptionAtRest?: outputs.glue.DataCatalogEncryptionSettingsEncryptionAtRest;
+    }
+
+    export interface DataCatalogEncryptionSettingsEncryptionAtRest {
+        catalogEncryptionMode?: string;
+        sseAwsKmsKeyId?: string;
+    }
+
+    export interface DatabaseDataLakePrincipal {
+        dataLakePrincipalIdentifier?: string;
+    }
+
+    export interface DatabaseDatabaseIdentifier {
+        catalogId?: string;
+        databaseName?: string;
+    }
+
+    export interface DatabaseDatabaseInput {
+        createTableDefaultPermissions?: outputs.glue.DatabasePrincipalPrivileges[];
+        description?: string;
+        locationUri?: string;
+        name?: string;
+        parameters?: any;
+        targetDatabase?: outputs.glue.DatabaseDatabaseIdentifier;
+    }
+
+    export interface DatabasePrincipalPrivileges {
+        permissions?: string[];
+        principal?: outputs.glue.DatabaseDataLakePrincipal;
+    }
+
+    export interface JobConnectionsList {
+        connections?: string[];
+    }
+
+    export interface JobExecutionProperty {
+        maxConcurrentRuns?: number;
+    }
+
+    export interface JobJobCommand {
+        name?: string;
+        pythonVersion?: string;
+        scriptLocation?: string;
+    }
+
+    export interface JobNotificationProperty {
+        notifyDelayAfter?: number;
+    }
+
+    export interface MLTransformFindMatchesParameters {
+        accuracyCostTradeoff?: number;
+        enforceProvidedLabels?: boolean;
+        precisionRecallTradeoff?: number;
+        primaryKeyColumnName: string;
+    }
+
+    export interface MLTransformGlueTables {
+        catalogId?: string;
+        connectionName?: string;
+        databaseName: string;
+        tableName: string;
+    }
+
+    export interface MLTransformInputRecordTables {
+        glueTables?: outputs.glue.MLTransformGlueTables[];
+    }
+
+    export interface MLTransformMLUserDataEncryption {
+        kmsKeyId?: string;
+        mLUserDataEncryptionMode: string;
+    }
+
+    export interface MLTransformTransformEncryption {
+        mLUserDataEncryption?: outputs.glue.MLTransformMLUserDataEncryption;
+        taskRunSecurityConfigurationName?: string;
+    }
+
+    export interface MLTransformTransformParameters {
+        findMatchesParameters?: outputs.glue.MLTransformFindMatchesParameters;
+        transformType: string;
+    }
+
+    export interface PartitionColumn {
+        comment?: string;
+        name: string;
+        type?: string;
+    }
+
+    export interface PartitionOrder {
+        column: string;
+        sortOrder?: number;
+    }
+
+    export interface PartitionPartitionInput {
+        parameters?: any;
+        storageDescriptor?: outputs.glue.PartitionStorageDescriptor;
+        values: string[];
+    }
+
+    export interface PartitionSchemaId {
+        registryName?: string;
+        schemaArn?: string;
+        schemaName?: string;
+    }
+
+    export interface PartitionSchemaReference {
+        schemaId?: outputs.glue.PartitionSchemaId;
+        schemaVersionId?: string;
+        schemaVersionNumber?: number;
+    }
+
+    export interface PartitionSerdeInfo {
+        name?: string;
+        parameters?: any;
+        serializationLibrary?: string;
+    }
+
+    export interface PartitionSkewedInfo {
+        skewedColumnNames?: string[];
+        skewedColumnValueLocationMaps?: any;
+        skewedColumnValues?: string[];
+    }
+
+    export interface PartitionStorageDescriptor {
+        bucketColumns?: string[];
+        columns?: outputs.glue.PartitionColumn[];
+        compressed?: boolean;
+        inputFormat?: string;
+        location?: string;
+        numberOfBuckets?: number;
+        outputFormat?: string;
+        parameters?: any;
+        schemaReference?: outputs.glue.PartitionSchemaReference;
+        serdeInfo?: outputs.glue.PartitionSerdeInfo;
+        skewedInfo?: outputs.glue.PartitionSkewedInfo;
+        sortColumns?: outputs.glue.PartitionOrder[];
+        storedAsSubDirectories?: boolean;
+    }
+
     export interface RegistryTag {
         /**
          * A key to identify the tag.
@@ -6412,6 +11000,422 @@ export namespace glue {
          * Name of the schema. This parameter requires RegistryName to be provided.
          */
         schemaName?: string;
+    }
+
+    export interface SecurityConfigurationCloudWatchEncryption {
+        cloudWatchEncryptionMode?: string;
+        kmsKeyArn?: string;
+    }
+
+    export interface SecurityConfigurationEncryptionConfiguration {
+        cloudWatchEncryption?: outputs.glue.SecurityConfigurationCloudWatchEncryption;
+        jobBookmarksEncryption?: outputs.glue.SecurityConfigurationJobBookmarksEncryption;
+        s3Encryptions?: outputs.glue.SecurityConfigurationS3Encryptions;
+    }
+
+    export interface SecurityConfigurationJobBookmarksEncryption {
+        jobBookmarksEncryptionMode?: string;
+        kmsKeyArn?: string;
+    }
+
+    export interface SecurityConfigurationS3Encryptions {
+    }
+
+    export interface TableColumn {
+        comment?: string;
+        name: string;
+        type?: string;
+    }
+
+    export interface TableOrder {
+        column: string;
+        sortOrder: number;
+    }
+
+    export interface TableSchemaId {
+        registryName?: string;
+        schemaArn?: string;
+        schemaName?: string;
+    }
+
+    export interface TableSchemaReference {
+        schemaId?: outputs.glue.TableSchemaId;
+        schemaVersionId?: string;
+        schemaVersionNumber?: number;
+    }
+
+    export interface TableSerdeInfo {
+        name?: string;
+        parameters?: any;
+        serializationLibrary?: string;
+    }
+
+    export interface TableSkewedInfo {
+        skewedColumnNames?: string[];
+        skewedColumnValueLocationMaps?: any;
+        skewedColumnValues?: string[];
+    }
+
+    export interface TableStorageDescriptor {
+        bucketColumns?: string[];
+        columns?: outputs.glue.TableColumn[];
+        compressed?: boolean;
+        inputFormat?: string;
+        location?: string;
+        numberOfBuckets?: number;
+        outputFormat?: string;
+        parameters?: any;
+        schemaReference?: outputs.glue.TableSchemaReference;
+        serdeInfo?: outputs.glue.TableSerdeInfo;
+        skewedInfo?: outputs.glue.TableSkewedInfo;
+        sortColumns?: outputs.glue.TableOrder[];
+        storedAsSubDirectories?: boolean;
+    }
+
+    export interface TableTableIdentifier {
+        catalogId?: string;
+        databaseName?: string;
+        name?: string;
+    }
+
+    export interface TableTableInput {
+        description?: string;
+        name?: string;
+        owner?: string;
+        parameters?: any;
+        partitionKeys?: outputs.glue.TableColumn[];
+        retention?: number;
+        storageDescriptor?: outputs.glue.TableStorageDescriptor;
+        tableType?: string;
+        targetTable?: outputs.glue.TableTableIdentifier;
+        viewExpandedText?: string;
+        viewOriginalText?: string;
+    }
+
+    export interface TriggerAction {
+        arguments?: any;
+        crawlerName?: string;
+        jobName?: string;
+        notificationProperty?: outputs.glue.TriggerNotificationProperty;
+        securityConfiguration?: string;
+        timeout?: number;
+    }
+
+    export interface TriggerCondition {
+        crawlState?: string;
+        crawlerName?: string;
+        jobName?: string;
+        logicalOperator?: string;
+        state?: string;
+    }
+
+    export interface TriggerNotificationProperty {
+        notifyDelayAfter?: number;
+    }
+
+    export interface TriggerPredicate {
+        conditions?: outputs.glue.TriggerCondition[];
+        logical?: string;
+    }
+
+}
+
+export namespace greengrass {
+    export interface ConnectorDefinitionConnector {
+        connectorArn: string;
+        id: string;
+        parameters?: any;
+    }
+
+    export interface ConnectorDefinitionConnectorDefinitionVersion {
+        connectors: outputs.greengrass.ConnectorDefinitionConnector[];
+    }
+
+    export interface ConnectorDefinitionVersionConnector {
+        connectorArn: string;
+        id: string;
+        parameters?: any;
+    }
+
+    export interface CoreDefinitionCore {
+        certificateArn: string;
+        id: string;
+        syncShadow?: boolean;
+        thingArn: string;
+    }
+
+    export interface CoreDefinitionCoreDefinitionVersion {
+        cores: outputs.greengrass.CoreDefinitionCore[];
+    }
+
+    export interface CoreDefinitionVersionCore {
+        certificateArn: string;
+        id: string;
+        syncShadow?: boolean;
+        thingArn: string;
+    }
+
+    export interface DeviceDefinitionDevice {
+        certificateArn: string;
+        id: string;
+        syncShadow?: boolean;
+        thingArn: string;
+    }
+
+    export interface DeviceDefinitionDeviceDefinitionVersion {
+        devices: outputs.greengrass.DeviceDefinitionDevice[];
+    }
+
+    export interface DeviceDefinitionVersionDevice {
+        certificateArn: string;
+        id: string;
+        syncShadow?: boolean;
+        thingArn: string;
+    }
+
+    export interface FunctionDefinitionDefaultConfig {
+        execution: outputs.greengrass.FunctionDefinitionExecution;
+    }
+
+    export interface FunctionDefinitionEnvironment {
+        accessSysfs?: boolean;
+        execution?: outputs.greengrass.FunctionDefinitionExecution;
+        resourceAccessPolicies?: outputs.greengrass.FunctionDefinitionResourceAccessPolicy[];
+        variables?: any;
+    }
+
+    export interface FunctionDefinitionExecution {
+        isolationMode?: string;
+        runAs?: outputs.greengrass.FunctionDefinitionRunAs;
+    }
+
+    export interface FunctionDefinitionFunction {
+        functionArn: string;
+        functionConfiguration: outputs.greengrass.FunctionDefinitionFunctionConfiguration;
+        id: string;
+    }
+
+    export interface FunctionDefinitionFunctionConfiguration {
+        encodingType?: string;
+        environment?: outputs.greengrass.FunctionDefinitionEnvironment;
+        execArgs?: string;
+        executable?: string;
+        memorySize?: number;
+        pinned?: boolean;
+        timeout?: number;
+    }
+
+    export interface FunctionDefinitionFunctionDefinitionVersion {
+        defaultConfig?: outputs.greengrass.FunctionDefinitionDefaultConfig;
+        functions: outputs.greengrass.FunctionDefinitionFunction[];
+    }
+
+    export interface FunctionDefinitionResourceAccessPolicy {
+        permission?: string;
+        resourceId: string;
+    }
+
+    export interface FunctionDefinitionRunAs {
+        gid?: number;
+        uid?: number;
+    }
+
+    export interface FunctionDefinitionVersionDefaultConfig {
+        execution: outputs.greengrass.FunctionDefinitionVersionExecution;
+    }
+
+    export interface FunctionDefinitionVersionEnvironment {
+        accessSysfs?: boolean;
+        execution?: outputs.greengrass.FunctionDefinitionVersionExecution;
+        resourceAccessPolicies?: outputs.greengrass.FunctionDefinitionVersionResourceAccessPolicy[];
+        variables?: any;
+    }
+
+    export interface FunctionDefinitionVersionExecution {
+        isolationMode?: string;
+        runAs?: outputs.greengrass.FunctionDefinitionVersionRunAs;
+    }
+
+    export interface FunctionDefinitionVersionFunction {
+        functionArn: string;
+        functionConfiguration: outputs.greengrass.FunctionDefinitionVersionFunctionConfiguration;
+        id: string;
+    }
+
+    export interface FunctionDefinitionVersionFunctionConfiguration {
+        encodingType?: string;
+        environment?: outputs.greengrass.FunctionDefinitionVersionEnvironment;
+        execArgs?: string;
+        executable?: string;
+        memorySize?: number;
+        pinned?: boolean;
+        timeout?: number;
+    }
+
+    export interface FunctionDefinitionVersionResourceAccessPolicy {
+        permission?: string;
+        resourceId: string;
+    }
+
+    export interface FunctionDefinitionVersionRunAs {
+        gid?: number;
+        uid?: number;
+    }
+
+    export interface GroupGroupVersion {
+        connectorDefinitionVersionArn?: string;
+        coreDefinitionVersionArn?: string;
+        deviceDefinitionVersionArn?: string;
+        functionDefinitionVersionArn?: string;
+        loggerDefinitionVersionArn?: string;
+        resourceDefinitionVersionArn?: string;
+        subscriptionDefinitionVersionArn?: string;
+    }
+
+    export interface LoggerDefinitionLogger {
+        component: string;
+        id: string;
+        level: string;
+        space?: number;
+        type: string;
+    }
+
+    export interface LoggerDefinitionLoggerDefinitionVersion {
+        loggers: outputs.greengrass.LoggerDefinitionLogger[];
+    }
+
+    export interface LoggerDefinitionVersionLogger {
+        component: string;
+        id: string;
+        level: string;
+        space?: number;
+        type: string;
+    }
+
+    export interface ResourceDefinitionGroupOwnerSetting {
+        autoAddGroupOwner: boolean;
+        groupOwner?: string;
+    }
+
+    export interface ResourceDefinitionLocalDeviceResourceData {
+        groupOwnerSetting?: outputs.greengrass.ResourceDefinitionGroupOwnerSetting;
+        sourcePath: string;
+    }
+
+    export interface ResourceDefinitionLocalVolumeResourceData {
+        destinationPath: string;
+        groupOwnerSetting?: outputs.greengrass.ResourceDefinitionGroupOwnerSetting;
+        sourcePath: string;
+    }
+
+    export interface ResourceDefinitionResourceDataContainer {
+        localDeviceResourceData?: outputs.greengrass.ResourceDefinitionLocalDeviceResourceData;
+        localVolumeResourceData?: outputs.greengrass.ResourceDefinitionLocalVolumeResourceData;
+        s3MachineLearningModelResourceData?: outputs.greengrass.ResourceDefinitionS3MachineLearningModelResourceData;
+        sageMakerMachineLearningModelResourceData?: outputs.greengrass.ResourceDefinitionSageMakerMachineLearningModelResourceData;
+        secretsManagerSecretResourceData?: outputs.greengrass.ResourceDefinitionSecretsManagerSecretResourceData;
+    }
+
+    export interface ResourceDefinitionResourceDefinitionVersion {
+        resources: outputs.greengrass.ResourceDefinitionResourceInstance[];
+    }
+
+    export interface ResourceDefinitionResourceDownloadOwnerSetting {
+        groupOwner: string;
+        groupPermission: string;
+    }
+
+    export interface ResourceDefinitionResourceInstance {
+        id: string;
+        name: string;
+        resourceDataContainer: outputs.greengrass.ResourceDefinitionResourceDataContainer;
+    }
+
+    export interface ResourceDefinitionS3MachineLearningModelResourceData {
+        destinationPath: string;
+        ownerSetting?: outputs.greengrass.ResourceDefinitionResourceDownloadOwnerSetting;
+        s3Uri: string;
+    }
+
+    export interface ResourceDefinitionSageMakerMachineLearningModelResourceData {
+        destinationPath: string;
+        ownerSetting?: outputs.greengrass.ResourceDefinitionResourceDownloadOwnerSetting;
+        sageMakerJobArn: string;
+    }
+
+    export interface ResourceDefinitionSecretsManagerSecretResourceData {
+        aRN: string;
+        additionalStagingLabelsToDownload?: string[];
+    }
+
+    export interface ResourceDefinitionVersionGroupOwnerSetting {
+        autoAddGroupOwner: boolean;
+        groupOwner?: string;
+    }
+
+    export interface ResourceDefinitionVersionLocalDeviceResourceData {
+        groupOwnerSetting?: outputs.greengrass.ResourceDefinitionVersionGroupOwnerSetting;
+        sourcePath: string;
+    }
+
+    export interface ResourceDefinitionVersionLocalVolumeResourceData {
+        destinationPath: string;
+        groupOwnerSetting?: outputs.greengrass.ResourceDefinitionVersionGroupOwnerSetting;
+        sourcePath: string;
+    }
+
+    export interface ResourceDefinitionVersionResourceDataContainer {
+        localDeviceResourceData?: outputs.greengrass.ResourceDefinitionVersionLocalDeviceResourceData;
+        localVolumeResourceData?: outputs.greengrass.ResourceDefinitionVersionLocalVolumeResourceData;
+        s3MachineLearningModelResourceData?: outputs.greengrass.ResourceDefinitionVersionS3MachineLearningModelResourceData;
+        sageMakerMachineLearningModelResourceData?: outputs.greengrass.ResourceDefinitionVersionSageMakerMachineLearningModelResourceData;
+        secretsManagerSecretResourceData?: outputs.greengrass.ResourceDefinitionVersionSecretsManagerSecretResourceData;
+    }
+
+    export interface ResourceDefinitionVersionResourceDownloadOwnerSetting {
+        groupOwner: string;
+        groupPermission: string;
+    }
+
+    export interface ResourceDefinitionVersionResourceInstance {
+        id: string;
+        name: string;
+        resourceDataContainer: outputs.greengrass.ResourceDefinitionVersionResourceDataContainer;
+    }
+
+    export interface ResourceDefinitionVersionS3MachineLearningModelResourceData {
+        destinationPath: string;
+        ownerSetting?: outputs.greengrass.ResourceDefinitionVersionResourceDownloadOwnerSetting;
+        s3Uri: string;
+    }
+
+    export interface ResourceDefinitionVersionSageMakerMachineLearningModelResourceData {
+        destinationPath: string;
+        ownerSetting?: outputs.greengrass.ResourceDefinitionVersionResourceDownloadOwnerSetting;
+        sageMakerJobArn: string;
+    }
+
+    export interface ResourceDefinitionVersionSecretsManagerSecretResourceData {
+        aRN: string;
+        additionalStagingLabelsToDownload?: string[];
+    }
+
+    export interface SubscriptionDefinitionSubscription {
+        id: string;
+        source: string;
+        subject: string;
+        target: string;
+    }
+
+    export interface SubscriptionDefinitionSubscriptionDefinitionVersion {
+        subscriptions: outputs.greengrass.SubscriptionDefinitionSubscription[];
+    }
+
+    export interface SubscriptionDefinitionVersionSubscription {
+        id: string;
+        source: string;
+        subject: string;
+        target: string;
     }
 
 }
@@ -6602,7 +11606,36 @@ export namespace groundstation {
 
 }
 
+export namespace guardduty {
+    export interface DetectorCFNDataSourceConfigurations {
+        s3Logs?: outputs.guardduty.DetectorCFNS3LogsConfiguration;
+    }
+
+    export interface DetectorCFNS3LogsConfiguration {
+        enable?: boolean;
+    }
+
+    export interface FilterCondition {
+        eq?: string[];
+        gte?: number;
+        lt?: number;
+        lte?: number;
+        neq?: string[];
+    }
+
+    export interface FilterFindingCriteria {
+        criterion?: any;
+        itemType?: outputs.guardduty.FilterCondition;
+    }
+
+}
+
 export namespace iam {
+    export interface GroupPolicy {
+        policyDocument: any;
+        policyName: string;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -6614,6 +11647,16 @@ export namespace iam {
         /**
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
+        value: string;
+    }
+
+    export interface RolePolicy {
+        policyDocument: any;
+        policyName: string;
+    }
+
+    export interface RoleTag {
+        key: string;
         value: string;
     }
 
@@ -6642,6 +11685,21 @@ export namespace iam {
         /**
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
+        value: string;
+    }
+
+    export interface UserLoginProfile {
+        password: string;
+        passwordResetRequired?: boolean;
+    }
+
+    export interface UserPolicy {
+        policyDocument: any;
+        policyName: string;
+    }
+
+    export interface UserTag {
+        key: string;
         value: string;
     }
 
@@ -6969,6 +12027,19 @@ export namespace imagebuilder {
          * S3KeyPrefix
          */
         s3KeyPrefix?: string;
+    }
+
+}
+
+export namespace inspector {
+    export interface AssessmentTemplateTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ResourceGroupTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -7346,6 +12417,10 @@ export namespace iot {
         value: string;
     }
 
+    export interface ThingAttributePayload {
+        attributes?: any;
+    }
+
     export interface TopicRuleAction {
         cloudwatchAlarm?: outputs.iot.TopicRuleCloudwatchAlarmAction;
         cloudwatchLogs?: outputs.iot.TopicRuleCloudwatchLogsAction;
@@ -7583,6 +12658,313 @@ export namespace iot {
         errorAction?: outputs.iot.TopicRuleAction;
         ruleDisabled?: boolean;
         sql: string;
+    }
+
+}
+
+export namespace iot1click {
+    export interface ProjectPlacementTemplate {
+        defaultAttributes?: any;
+        deviceTemplates?: any;
+    }
+
+}
+
+export namespace iotanalytics {
+    export interface ChannelChannelStorage {
+        customerManagedS3?: outputs.iotanalytics.ChannelCustomerManagedS3;
+        serviceManagedS3?: outputs.iotanalytics.ChannelServiceManagedS3;
+    }
+
+    export interface ChannelCustomerManagedS3 {
+        bucket: string;
+        keyPrefix?: string;
+        roleArn: string;
+    }
+
+    export interface ChannelRetentionPeriod {
+        numberOfDays?: number;
+        unlimited?: boolean;
+    }
+
+    export interface ChannelServiceManagedS3 {
+    }
+
+    export interface ChannelTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DatasetAction {
+        actionName: string;
+        containerAction?: outputs.iotanalytics.DatasetContainerAction;
+        queryAction?: outputs.iotanalytics.DatasetQueryAction;
+    }
+
+    export interface DatasetContainerAction {
+        executionRoleArn: string;
+        image: string;
+        resourceConfiguration: outputs.iotanalytics.DatasetResourceConfiguration;
+        variables?: outputs.iotanalytics.DatasetVariable[];
+    }
+
+    export interface DatasetDatasetContentDeliveryRule {
+        destination: outputs.iotanalytics.DatasetDatasetContentDeliveryRuleDestination;
+        entryName?: string;
+    }
+
+    export interface DatasetDatasetContentDeliveryRuleDestination {
+        iotEventsDestinationConfiguration?: outputs.iotanalytics.DatasetIotEventsDestinationConfiguration;
+        s3DestinationConfiguration?: outputs.iotanalytics.DatasetS3DestinationConfiguration;
+    }
+
+    export interface DatasetDatasetContentVersionValue {
+        datasetName?: string;
+    }
+
+    export interface DatasetDeltaTime {
+        offsetSeconds: number;
+        timeExpression: string;
+    }
+
+    export interface DatasetDeltaTimeSessionWindowConfiguration {
+        timeoutInMinutes: number;
+    }
+
+    export interface DatasetFilter {
+        deltaTime?: outputs.iotanalytics.DatasetDeltaTime;
+    }
+
+    export interface DatasetGlueConfiguration {
+        databaseName: string;
+        tableName: string;
+    }
+
+    export interface DatasetIotEventsDestinationConfiguration {
+        inputName: string;
+        roleArn: string;
+    }
+
+    export interface DatasetLateDataRule {
+        ruleConfiguration: outputs.iotanalytics.DatasetLateDataRuleConfiguration;
+        ruleName?: string;
+    }
+
+    export interface DatasetLateDataRuleConfiguration {
+        deltaTimeSessionWindowConfiguration?: outputs.iotanalytics.DatasetDeltaTimeSessionWindowConfiguration;
+    }
+
+    export interface DatasetOutputFileUriValue {
+        fileName?: string;
+    }
+
+    export interface DatasetQueryAction {
+        filters?: outputs.iotanalytics.DatasetFilter[];
+        sqlQuery: string;
+    }
+
+    export interface DatasetResourceConfiguration {
+        computeType: string;
+        volumeSizeInGB: number;
+    }
+
+    export interface DatasetRetentionPeriod {
+        numberOfDays: number;
+        unlimited: boolean;
+    }
+
+    export interface DatasetS3DestinationConfiguration {
+        bucket: string;
+        glueConfiguration?: outputs.iotanalytics.DatasetGlueConfiguration;
+        key: string;
+        roleArn: string;
+    }
+
+    export interface DatasetSchedule {
+        scheduleExpression: string;
+    }
+
+    export interface DatasetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DatasetTrigger {
+        schedule?: outputs.iotanalytics.DatasetSchedule;
+        triggeringDataset?: outputs.iotanalytics.DatasetTriggeringDataset;
+    }
+
+    export interface DatasetTriggeringDataset {
+        datasetName: string;
+    }
+
+    export interface DatasetVariable {
+        datasetContentVersionValue?: outputs.iotanalytics.DatasetDatasetContentVersionValue;
+        doubleValue?: number;
+        outputFileUriValue?: outputs.iotanalytics.DatasetOutputFileUriValue;
+        stringValue?: string;
+        variableName: string;
+    }
+
+    export interface DatasetVersioningConfiguration {
+        maxVersions?: number;
+        unlimited?: boolean;
+    }
+
+    export interface DatastoreColumn {
+        name: string;
+        type: string;
+    }
+
+    export interface DatastoreCustomerManagedS3 {
+        bucket: string;
+        keyPrefix?: string;
+        roleArn: string;
+    }
+
+    export interface DatastoreCustomerManagedS3Storage {
+        bucket: string;
+        keyPrefix?: string;
+    }
+
+    export interface DatastoreDatastorePartition {
+        partition?: outputs.iotanalytics.DatastorePartition;
+        timestampPartition?: outputs.iotanalytics.DatastoreTimestampPartition;
+    }
+
+    export interface DatastoreDatastorePartitions {
+        partitions?: outputs.iotanalytics.DatastoreDatastorePartition[];
+    }
+
+    export interface DatastoreDatastoreStorage {
+        customerManagedS3?: outputs.iotanalytics.DatastoreCustomerManagedS3;
+        iotSiteWiseMultiLayerStorage?: outputs.iotanalytics.DatastoreIotSiteWiseMultiLayerStorage;
+        serviceManagedS3?: outputs.iotanalytics.DatastoreServiceManagedS3;
+    }
+
+    export interface DatastoreFileFormatConfiguration {
+        jsonConfiguration?: outputs.iotanalytics.DatastoreJsonConfiguration;
+        parquetConfiguration?: outputs.iotanalytics.DatastoreParquetConfiguration;
+    }
+
+    export interface DatastoreIotSiteWiseMultiLayerStorage {
+        customerManagedS3Storage: outputs.iotanalytics.DatastoreCustomerManagedS3Storage;
+    }
+
+    export interface DatastoreJsonConfiguration {
+    }
+
+    export interface DatastoreParquetConfiguration {
+        schemaDefinition?: outputs.iotanalytics.DatastoreSchemaDefinition;
+    }
+
+    export interface DatastorePartition {
+        attributeName: string;
+    }
+
+    export interface DatastoreRetentionPeriod {
+        numberOfDays?: number;
+        unlimited?: boolean;
+    }
+
+    export interface DatastoreSchemaDefinition {
+        columns?: outputs.iotanalytics.DatastoreColumn[];
+    }
+
+    export interface DatastoreServiceManagedS3 {
+    }
+
+    export interface DatastoreTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DatastoreTimestampPartition {
+        attributeName: string;
+        timestampFormat?: string;
+    }
+
+    export interface PipelineActivity {
+        addAttributes?: outputs.iotanalytics.PipelineAddAttributes;
+        channel?: outputs.iotanalytics.PipelineChannel;
+        datastore?: outputs.iotanalytics.PipelineDatastore;
+        deviceRegistryEnrich?: outputs.iotanalytics.PipelineDeviceRegistryEnrich;
+        deviceShadowEnrich?: outputs.iotanalytics.PipelineDeviceShadowEnrich;
+        filter?: outputs.iotanalytics.PipelineFilter;
+        lambda?: outputs.iotanalytics.PipelineLambda;
+        math?: outputs.iotanalytics.PipelineMath;
+        removeAttributes?: outputs.iotanalytics.PipelineRemoveAttributes;
+        selectAttributes?: outputs.iotanalytics.PipelineSelectAttributes;
+    }
+
+    export interface PipelineAddAttributes {
+        attributes?: any;
+        name?: string;
+        next?: string;
+    }
+
+    export interface PipelineChannel {
+        channelName?: string;
+        name?: string;
+        next?: string;
+    }
+
+    export interface PipelineDatastore {
+        datastoreName?: string;
+        name?: string;
+    }
+
+    export interface PipelineDeviceRegistryEnrich {
+        attribute?: string;
+        name?: string;
+        next?: string;
+        roleArn?: string;
+        thingName?: string;
+    }
+
+    export interface PipelineDeviceShadowEnrich {
+        attribute?: string;
+        name?: string;
+        next?: string;
+        roleArn?: string;
+        thingName?: string;
+    }
+
+    export interface PipelineFilter {
+        filter?: string;
+        name?: string;
+        next?: string;
+    }
+
+    export interface PipelineLambda {
+        batchSize?: number;
+        lambdaName?: string;
+        name?: string;
+        next?: string;
+    }
+
+    export interface PipelineMath {
+        attribute?: string;
+        math?: string;
+        name?: string;
+        next?: string;
+    }
+
+    export interface PipelineRemoveAttributes {
+        attributes?: string[];
+        name?: string;
+        next?: string;
+    }
+
+    export interface PipelineSelectAttributes {
+        attributes?: string[];
+        name?: string;
+        next?: string;
+    }
+
+    export interface PipelineTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -8389,6 +13771,14 @@ export namespace iotsitewise {
 
 }
 
+export namespace iotthingsgraph {
+    export interface FlowTemplateDefinitionDocument {
+        language: string;
+        text: string;
+    }
+
+}
+
 export namespace iotwireless {
     export interface DestinationTag {
         key?: string;
@@ -8963,6 +14353,380 @@ export namespace kinesis {
 
 }
 
+export namespace kinesisanalytics {
+    export interface ApplicationCSVMappingParameters {
+        recordColumnDelimiter: string;
+        recordRowDelimiter: string;
+    }
+
+    export interface ApplicationInput {
+        inputParallelism?: outputs.kinesisanalytics.ApplicationInputParallelism;
+        inputProcessingConfiguration?: outputs.kinesisanalytics.ApplicationInputProcessingConfiguration;
+        inputSchema: outputs.kinesisanalytics.ApplicationInputSchema;
+        kinesisFirehoseInput?: outputs.kinesisanalytics.ApplicationKinesisFirehoseInput;
+        kinesisStreamsInput?: outputs.kinesisanalytics.ApplicationKinesisStreamsInput;
+        namePrefix: string;
+    }
+
+    export interface ApplicationInputLambdaProcessor {
+        resourceARN: string;
+        roleARN: string;
+    }
+
+    export interface ApplicationInputParallelism {
+        count?: number;
+    }
+
+    export interface ApplicationInputProcessingConfiguration {
+        inputLambdaProcessor?: outputs.kinesisanalytics.ApplicationInputLambdaProcessor;
+    }
+
+    export interface ApplicationInputSchema {
+        recordColumns: outputs.kinesisanalytics.ApplicationRecordColumn[];
+        recordEncoding?: string;
+        recordFormat: outputs.kinesisanalytics.ApplicationRecordFormat;
+    }
+
+    export interface ApplicationJSONMappingParameters {
+        recordRowPath: string;
+    }
+
+    export interface ApplicationKinesisFirehoseInput {
+        resourceARN: string;
+        roleARN: string;
+    }
+
+    export interface ApplicationKinesisStreamsInput {
+        resourceARN: string;
+        roleARN: string;
+    }
+
+    export interface ApplicationMappingParameters {
+        cSVMappingParameters?: outputs.kinesisanalytics.ApplicationCSVMappingParameters;
+        jSONMappingParameters?: outputs.kinesisanalytics.ApplicationJSONMappingParameters;
+    }
+
+    export interface ApplicationOutputDestinationSchema {
+        recordFormatType?: string;
+    }
+
+    export interface ApplicationOutputKinesisFirehoseOutput {
+        resourceARN: string;
+        roleARN: string;
+    }
+
+    export interface ApplicationOutputKinesisStreamsOutput {
+        resourceARN: string;
+        roleARN: string;
+    }
+
+    export interface ApplicationOutputLambdaOutput {
+        resourceARN: string;
+        roleARN: string;
+    }
+
+    export interface ApplicationOutputOutput {
+        destinationSchema: outputs.kinesisanalytics.ApplicationOutputDestinationSchema;
+        kinesisFirehoseOutput?: outputs.kinesisanalytics.ApplicationOutputKinesisFirehoseOutput;
+        kinesisStreamsOutput?: outputs.kinesisanalytics.ApplicationOutputKinesisStreamsOutput;
+        lambdaOutput?: outputs.kinesisanalytics.ApplicationOutputLambdaOutput;
+        name?: string;
+    }
+
+    export interface ApplicationRecordColumn {
+        mapping?: string;
+        name: string;
+        sqlType: string;
+    }
+
+    export interface ApplicationRecordFormat {
+        mappingParameters?: outputs.kinesisanalytics.ApplicationMappingParameters;
+        recordFormatType: string;
+    }
+
+    export interface ApplicationReferenceDataSourceCSVMappingParameters {
+        recordColumnDelimiter: string;
+        recordRowDelimiter: string;
+    }
+
+    export interface ApplicationReferenceDataSourceJSONMappingParameters {
+        recordRowPath: string;
+    }
+
+    export interface ApplicationReferenceDataSourceMappingParameters {
+        cSVMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceCSVMappingParameters;
+        jSONMappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceJSONMappingParameters;
+    }
+
+    export interface ApplicationReferenceDataSourceRecordColumn {
+        mapping?: string;
+        name: string;
+        sqlType: string;
+    }
+
+    export interface ApplicationReferenceDataSourceRecordFormat {
+        mappingParameters?: outputs.kinesisanalytics.ApplicationReferenceDataSourceMappingParameters;
+        recordFormatType: string;
+    }
+
+    export interface ApplicationReferenceDataSourceReferenceDataSource {
+        referenceSchema: outputs.kinesisanalytics.ApplicationReferenceDataSourceReferenceSchema;
+        s3ReferenceDataSource?: outputs.kinesisanalytics.ApplicationReferenceDataSourceS3ReferenceDataSource;
+        tableName?: string;
+    }
+
+    export interface ApplicationReferenceDataSourceReferenceSchema {
+        recordColumns: outputs.kinesisanalytics.ApplicationReferenceDataSourceRecordColumn[];
+        recordEncoding?: string;
+        recordFormat: outputs.kinesisanalytics.ApplicationReferenceDataSourceRecordFormat;
+    }
+
+    export interface ApplicationReferenceDataSourceS3ReferenceDataSource {
+        bucketARN: string;
+        fileKey: string;
+        referenceRoleARN: string;
+    }
+
+}
+
+export namespace kinesisanalyticsv2 {
+    export interface ApplicationApplicationCodeConfiguration {
+        codeContent: outputs.kinesisanalyticsv2.ApplicationCodeContent;
+        codeContentType: string;
+    }
+
+    export interface ApplicationApplicationConfiguration {
+        applicationCodeConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationCodeConfiguration;
+        applicationSnapshotConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationSnapshotConfiguration;
+        environmentProperties?: outputs.kinesisanalyticsv2.ApplicationEnvironmentProperties;
+        flinkApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationFlinkApplicationConfiguration;
+        sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationSqlApplicationConfiguration;
+        zeppelinApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfiguration;
+    }
+
+    export interface ApplicationApplicationSnapshotConfiguration {
+        snapshotsEnabled: boolean;
+    }
+
+    export interface ApplicationCSVMappingParameters {
+        recordColumnDelimiter: string;
+        recordRowDelimiter: string;
+    }
+
+    export interface ApplicationCatalogConfiguration {
+        glueDataCatalogConfiguration?: outputs.kinesisanalyticsv2.ApplicationGlueDataCatalogConfiguration;
+    }
+
+    export interface ApplicationCheckpointConfiguration {
+        checkpointInterval?: number;
+        checkpointingEnabled?: boolean;
+        configurationType: string;
+        minPauseBetweenCheckpoints?: number;
+    }
+
+    export interface ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption {
+        logStreamARN: string;
+    }
+
+    export interface ApplicationCodeContent {
+        s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationS3ContentLocation;
+        textContent?: string;
+        zipFileContent?: string;
+    }
+
+    export interface ApplicationCustomArtifactsConfiguration {
+    }
+
+    export interface ApplicationDeployAsApplicationConfiguration {
+        s3ContentLocation: outputs.kinesisanalyticsv2.ApplicationS3ContentBaseLocation;
+    }
+
+    export interface ApplicationEnvironmentProperties {
+        propertyGroups?: outputs.kinesisanalyticsv2.ApplicationPropertyGroup[];
+    }
+
+    export interface ApplicationFlinkApplicationConfiguration {
+        checkpointConfiguration?: outputs.kinesisanalyticsv2.ApplicationCheckpointConfiguration;
+        monitoringConfiguration?: outputs.kinesisanalyticsv2.ApplicationMonitoringConfiguration;
+        parallelismConfiguration?: outputs.kinesisanalyticsv2.ApplicationParallelismConfiguration;
+    }
+
+    export interface ApplicationGlueDataCatalogConfiguration {
+        databaseARN?: string;
+    }
+
+    export interface ApplicationInput {
+        inputParallelism?: outputs.kinesisanalyticsv2.ApplicationInputParallelism;
+        inputProcessingConfiguration?: outputs.kinesisanalyticsv2.ApplicationInputProcessingConfiguration;
+        inputSchema: outputs.kinesisanalyticsv2.ApplicationInputSchema;
+        kinesisFirehoseInput?: outputs.kinesisanalyticsv2.ApplicationKinesisFirehoseInput;
+        kinesisStreamsInput?: outputs.kinesisanalyticsv2.ApplicationKinesisStreamsInput;
+        namePrefix: string;
+    }
+
+    export interface ApplicationInputLambdaProcessor {
+        resourceARN: string;
+    }
+
+    export interface ApplicationInputParallelism {
+        count?: number;
+    }
+
+    export interface ApplicationInputProcessingConfiguration {
+        inputLambdaProcessor?: outputs.kinesisanalyticsv2.ApplicationInputLambdaProcessor;
+    }
+
+    export interface ApplicationInputSchema {
+        recordColumns: outputs.kinesisanalyticsv2.ApplicationRecordColumn[];
+        recordEncoding?: string;
+        recordFormat: outputs.kinesisanalyticsv2.ApplicationRecordFormat;
+    }
+
+    export interface ApplicationJSONMappingParameters {
+        recordRowPath: string;
+    }
+
+    export interface ApplicationKinesisFirehoseInput {
+        resourceARN: string;
+    }
+
+    export interface ApplicationKinesisStreamsInput {
+        resourceARN: string;
+    }
+
+    export interface ApplicationMappingParameters {
+        cSVMappingParameters?: outputs.kinesisanalyticsv2.ApplicationCSVMappingParameters;
+        jSONMappingParameters?: outputs.kinesisanalyticsv2.ApplicationJSONMappingParameters;
+    }
+
+    export interface ApplicationMonitoringConfiguration {
+        configurationType: string;
+        logLevel?: string;
+        metricsLevel?: string;
+    }
+
+    export interface ApplicationOutputDestinationSchema {
+        recordFormatType?: string;
+    }
+
+    export interface ApplicationOutputKinesisFirehoseOutput {
+        resourceARN: string;
+    }
+
+    export interface ApplicationOutputKinesisStreamsOutput {
+        resourceARN: string;
+    }
+
+    export interface ApplicationOutputLambdaOutput {
+        resourceARN: string;
+    }
+
+    export interface ApplicationOutputOutput {
+        destinationSchema: outputs.kinesisanalyticsv2.ApplicationOutputDestinationSchema;
+        kinesisFirehoseOutput?: outputs.kinesisanalyticsv2.ApplicationOutputKinesisFirehoseOutput;
+        kinesisStreamsOutput?: outputs.kinesisanalyticsv2.ApplicationOutputKinesisStreamsOutput;
+        lambdaOutput?: outputs.kinesisanalyticsv2.ApplicationOutputLambdaOutput;
+        name?: string;
+    }
+
+    export interface ApplicationParallelismConfiguration {
+        autoScalingEnabled?: boolean;
+        configurationType: string;
+        parallelism?: number;
+        parallelismPerKPU?: number;
+    }
+
+    export interface ApplicationPropertyGroup {
+        propertyGroupId?: string;
+        propertyMap?: any;
+    }
+
+    export interface ApplicationRecordColumn {
+        mapping?: string;
+        name: string;
+        sqlType: string;
+    }
+
+    export interface ApplicationRecordFormat {
+        mappingParameters?: outputs.kinesisanalyticsv2.ApplicationMappingParameters;
+        recordFormatType: string;
+    }
+
+    export interface ApplicationReferenceDataSourceCSVMappingParameters {
+        recordColumnDelimiter: string;
+        recordRowDelimiter: string;
+    }
+
+    export interface ApplicationReferenceDataSourceJSONMappingParameters {
+        recordRowPath: string;
+    }
+
+    export interface ApplicationReferenceDataSourceMappingParameters {
+        cSVMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceCSVMappingParameters;
+        jSONMappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceJSONMappingParameters;
+    }
+
+    export interface ApplicationReferenceDataSourceRecordColumn {
+        mapping?: string;
+        name: string;
+        sqlType: string;
+    }
+
+    export interface ApplicationReferenceDataSourceRecordFormat {
+        mappingParameters?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceMappingParameters;
+        recordFormatType: string;
+    }
+
+    export interface ApplicationReferenceDataSourceReferenceDataSource {
+        referenceSchema: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceReferenceSchema;
+        s3ReferenceDataSource?: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceS3ReferenceDataSource;
+        tableName?: string;
+    }
+
+    export interface ApplicationReferenceDataSourceReferenceSchema {
+        recordColumns: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceRecordColumn[];
+        recordEncoding?: string;
+        recordFormat: outputs.kinesisanalyticsv2.ApplicationReferenceDataSourceRecordFormat;
+    }
+
+    export interface ApplicationReferenceDataSourceS3ReferenceDataSource {
+        bucketARN: string;
+        fileKey: string;
+    }
+
+    export interface ApplicationS3ContentBaseLocation {
+        basePath: string;
+        bucketARN: string;
+    }
+
+    export interface ApplicationS3ContentLocation {
+        bucketARN?: string;
+        fileKey?: string;
+        objectVersion?: string;
+    }
+
+    export interface ApplicationSqlApplicationConfiguration {
+        inputs?: outputs.kinesisanalyticsv2.ApplicationInput[];
+    }
+
+    export interface ApplicationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ApplicationZeppelinApplicationConfiguration {
+        catalogConfiguration?: outputs.kinesisanalyticsv2.ApplicationCatalogConfiguration;
+        customArtifactsConfiguration?: outputs.kinesisanalyticsv2.ApplicationCustomArtifactsConfiguration;
+        deployAsApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationDeployAsApplicationConfiguration;
+        monitoringConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinMonitoringConfiguration;
+    }
+
+    export interface ApplicationZeppelinMonitoringConfiguration {
+        logLevel?: string;
+    }
+
+}
+
 export namespace kinesisfirehose {
     export interface DeliveryStreamBufferingHints {
         intervalInSeconds?: number;
@@ -9248,7 +15012,69 @@ export namespace kms {
 
 }
 
+export namespace lakeformation {
+    export interface DataLakeSettingsAdmins {
+    }
+
+    export interface PermissionsColumnWildcard {
+        excludedColumnNames?: string[];
+    }
+
+    export interface PermissionsDataLakePrincipal {
+        dataLakePrincipalIdentifier?: string;
+    }
+
+    export interface PermissionsDataLocationResource {
+        catalogId?: string;
+        s3Resource?: string;
+    }
+
+    export interface PermissionsDatabaseResource {
+        catalogId?: string;
+        name?: string;
+    }
+
+    export interface PermissionsResource {
+        dataLocationResource?: outputs.lakeformation.PermissionsDataLocationResource;
+        databaseResource?: outputs.lakeformation.PermissionsDatabaseResource;
+        tableResource?: outputs.lakeformation.PermissionsTableResource;
+        tableWithColumnsResource?: outputs.lakeformation.PermissionsTableWithColumnsResource;
+    }
+
+    export interface PermissionsTableResource {
+        catalogId?: string;
+        databaseName?: string;
+        name?: string;
+        tableWildcard?: outputs.lakeformation.PermissionsTableWildcard;
+    }
+
+    export interface PermissionsTableWildcard {
+    }
+
+    export interface PermissionsTableWithColumnsResource {
+        catalogId?: string;
+        columnNames?: string[];
+        columnWildcard?: outputs.lakeformation.PermissionsColumnWildcard;
+        databaseName?: string;
+        name?: string;
+    }
+
+}
+
 export namespace lambda {
+    export interface AliasAliasRoutingConfiguration {
+        additionalVersionWeights: outputs.lambda.AliasVersionWeight[];
+    }
+
+    export interface AliasProvisionedConcurrencyConfiguration {
+        provisionedConcurrentExecutions: number;
+    }
+
+    export interface AliasVersionWeight {
+        functionVersion: string;
+        functionWeight: number;
+    }
+
     /**
      * When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
      */
@@ -9267,6 +15093,19 @@ export namespace lambda {
          * Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
          */
         untrustedArtifactOnDeployment: enums.lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment;
+    }
+
+    export interface EventInvokeConfigDestinationConfig {
+        onFailure?: outputs.lambda.EventInvokeConfigOnFailure;
+        onSuccess?: outputs.lambda.EventInvokeConfigOnSuccess;
+    }
+
+    export interface EventInvokeConfigOnFailure {
+        destination: string;
+    }
+
+    export interface EventInvokeConfigOnSuccess {
+        destination: string;
     }
 
     /**
@@ -9427,6 +15266,16 @@ export namespace lambda {
         subnetIds?: string[];
     }
 
+    export interface LayerVersionContent {
+        s3Bucket: string;
+        s3Key: string;
+        s3ObjectVersion?: string;
+    }
+
+    export interface VersionProvisionedConcurrencyConfiguration {
+        provisionedConcurrentExecutions: number;
+    }
+
 }
 
 export namespace licensemanager {
@@ -9484,6 +15333,16 @@ export namespace location {
 
     export interface PlaceIndexDataSourceConfiguration {
         intendedUse?: enums.location.PlaceIndexIntendedUse;
+    }
+
+}
+
+export namespace logs {
+    export interface MetricFilterMetricTransformation {
+        defaultValue?: number;
+        metricName: string;
+        metricNamespace: string;
+        metricValue: string;
     }
 
 }
@@ -9665,6 +15524,56 @@ export namespace macie {
     export interface FindingsFilterFindingsFilterListItem {
         id?: string;
         name?: string;
+    }
+
+}
+
+export namespace managedblockchain {
+    export interface MemberApprovalThresholdPolicy {
+        proposalDurationInHours?: number;
+        thresholdComparator?: string;
+        thresholdPercentage?: number;
+    }
+
+    export interface MemberMemberConfiguration {
+        description?: string;
+        memberFrameworkConfiguration?: outputs.managedblockchain.MemberMemberFrameworkConfiguration;
+        name: string;
+    }
+
+    export interface MemberMemberFabricConfiguration {
+        adminPassword: string;
+        adminUsername: string;
+    }
+
+    export interface MemberMemberFrameworkConfiguration {
+        memberFabricConfiguration?: outputs.managedblockchain.MemberMemberFabricConfiguration;
+    }
+
+    export interface MemberNetworkConfiguration {
+        description?: string;
+        framework: string;
+        frameworkVersion: string;
+        name: string;
+        networkFrameworkConfiguration?: outputs.managedblockchain.MemberNetworkFrameworkConfiguration;
+        votingPolicy: outputs.managedblockchain.MemberVotingPolicy;
+    }
+
+    export interface MemberNetworkFabricConfiguration {
+        edition: string;
+    }
+
+    export interface MemberNetworkFrameworkConfiguration {
+        networkFabricConfiguration?: outputs.managedblockchain.MemberNetworkFabricConfiguration;
+    }
+
+    export interface MemberVotingPolicy {
+        approvalThresholdPolicy?: outputs.managedblockchain.MemberApprovalThresholdPolicy;
+    }
+
+    export interface NodeNodeConfiguration {
+        availabilityZone: string;
+        instanceType: string;
     }
 
 }
@@ -9895,6 +15804,1116 @@ export namespace mediaconnect {
          * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
         url?: string;
+    }
+
+}
+
+export namespace mediaconvert {
+    export interface JobTemplateAccelerationSettings {
+        mode: string;
+    }
+
+    export interface JobTemplateHopDestination {
+        priority?: number;
+        queue?: string;
+        waitMinutes?: number;
+    }
+
+}
+
+export namespace medialive {
+    export interface ChannelAacSettings {
+        bitrate?: number;
+        codingMode?: string;
+        inputType?: string;
+        profile?: string;
+        rateControlMode?: string;
+        rawFormat?: string;
+        sampleRate?: number;
+        spec?: string;
+        vbrQuality?: string;
+    }
+
+    export interface ChannelAc3Settings {
+        bitrate?: number;
+        bitstreamMode?: string;
+        codingMode?: string;
+        dialnorm?: number;
+        drcProfile?: string;
+        lfeFilter?: string;
+        metadataControl?: string;
+    }
+
+    export interface ChannelAncillarySourceSettings {
+        sourceAncillaryChannelNumber?: number;
+    }
+
+    export interface ChannelArchiveCdnSettings {
+        archiveS3Settings?: outputs.medialive.ChannelArchiveS3Settings;
+    }
+
+    export interface ChannelArchiveContainerSettings {
+        m2tsSettings?: outputs.medialive.ChannelM2tsSettings;
+        rawSettings?: outputs.medialive.ChannelRawSettings;
+    }
+
+    export interface ChannelArchiveGroupSettings {
+        archiveCdnSettings?: outputs.medialive.ChannelArchiveCdnSettings;
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+        rolloverInterval?: number;
+    }
+
+    export interface ChannelArchiveOutputSettings {
+        containerSettings?: outputs.medialive.ChannelArchiveContainerSettings;
+        extension?: string;
+        nameModifier?: string;
+    }
+
+    export interface ChannelArchiveS3Settings {
+        cannedAcl?: string;
+    }
+
+    export interface ChannelAribDestinationSettings {
+    }
+
+    export interface ChannelAribSourceSettings {
+    }
+
+    export interface ChannelAudioChannelMapping {
+        inputChannelLevels?: outputs.medialive.ChannelInputChannelLevel[];
+        outputChannel?: number;
+    }
+
+    export interface ChannelAudioCodecSettings {
+        aacSettings?: outputs.medialive.ChannelAacSettings;
+        ac3Settings?: outputs.medialive.ChannelAc3Settings;
+        eac3Settings?: outputs.medialive.ChannelEac3Settings;
+        mp2Settings?: outputs.medialive.ChannelMp2Settings;
+        passThroughSettings?: outputs.medialive.ChannelPassThroughSettings;
+        wavSettings?: outputs.medialive.ChannelWavSettings;
+    }
+
+    export interface ChannelAudioDescription {
+        audioNormalizationSettings?: outputs.medialive.ChannelAudioNormalizationSettings;
+        audioSelectorName?: string;
+        audioType?: string;
+        audioTypeControl?: string;
+        codecSettings?: outputs.medialive.ChannelAudioCodecSettings;
+        languageCode?: string;
+        languageCodeControl?: string;
+        name?: string;
+        remixSettings?: outputs.medialive.ChannelRemixSettings;
+        streamName?: string;
+    }
+
+    export interface ChannelAudioLanguageSelection {
+        languageCode?: string;
+        languageSelectionPolicy?: string;
+    }
+
+    export interface ChannelAudioNormalizationSettings {
+        algorithm?: string;
+        algorithmControl?: string;
+        targetLkfs?: number;
+    }
+
+    export interface ChannelAudioOnlyHlsSettings {
+        audioGroupId?: string;
+        audioOnlyImage?: outputs.medialive.ChannelInputLocation;
+        audioTrackType?: string;
+        segmentType?: string;
+    }
+
+    export interface ChannelAudioPidSelection {
+        pid?: number;
+    }
+
+    export interface ChannelAudioSelector {
+        name?: string;
+        selectorSettings?: outputs.medialive.ChannelAudioSelectorSettings;
+    }
+
+    export interface ChannelAudioSelectorSettings {
+        audioLanguageSelection?: outputs.medialive.ChannelAudioLanguageSelection;
+        audioPidSelection?: outputs.medialive.ChannelAudioPidSelection;
+        audioTrackSelection?: outputs.medialive.ChannelAudioTrackSelection;
+    }
+
+    export interface ChannelAudioSilenceFailoverSettings {
+        audioSelectorName?: string;
+        audioSilenceThresholdMsec?: number;
+    }
+
+    export interface ChannelAudioTrack {
+        track?: number;
+    }
+
+    export interface ChannelAudioTrackSelection {
+        tracks?: outputs.medialive.ChannelAudioTrack[];
+    }
+
+    export interface ChannelAutomaticInputFailoverSettings {
+        errorClearTimeMsec?: number;
+        failoverConditions?: outputs.medialive.ChannelFailoverCondition[];
+        inputPreference?: string;
+        secondaryInputId?: string;
+    }
+
+    export interface ChannelAvailBlanking {
+        availBlankingImage?: outputs.medialive.ChannelInputLocation;
+        state?: string;
+    }
+
+    export interface ChannelAvailConfiguration {
+        availSettings?: outputs.medialive.ChannelAvailSettings;
+    }
+
+    export interface ChannelAvailSettings {
+        scte35SpliceInsert?: outputs.medialive.ChannelScte35SpliceInsert;
+        scte35TimeSignalApos?: outputs.medialive.ChannelScte35TimeSignalApos;
+    }
+
+    export interface ChannelBlackoutSlate {
+        blackoutSlateImage?: outputs.medialive.ChannelInputLocation;
+        networkEndBlackout?: string;
+        networkEndBlackoutImage?: outputs.medialive.ChannelInputLocation;
+        networkId?: string;
+        state?: string;
+    }
+
+    export interface ChannelBurnInDestinationSettings {
+        alignment?: string;
+        backgroundColor?: string;
+        backgroundOpacity?: number;
+        font?: outputs.medialive.ChannelInputLocation;
+        fontColor?: string;
+        fontOpacity?: number;
+        fontResolution?: number;
+        fontSize?: string;
+        outlineColor?: string;
+        outlineSize?: number;
+        shadowColor?: string;
+        shadowOpacity?: number;
+        shadowXOffset?: number;
+        shadowYOffset?: number;
+        teletextGridControl?: string;
+        xPosition?: number;
+        yPosition?: number;
+    }
+
+    export interface ChannelCaptionDescription {
+        captionSelectorName?: string;
+        destinationSettings?: outputs.medialive.ChannelCaptionDestinationSettings;
+        languageCode?: string;
+        languageDescription?: string;
+        name?: string;
+    }
+
+    export interface ChannelCaptionDestinationSettings {
+        aribDestinationSettings?: outputs.medialive.ChannelAribDestinationSettings;
+        burnInDestinationSettings?: outputs.medialive.ChannelBurnInDestinationSettings;
+        dvbSubDestinationSettings?: outputs.medialive.ChannelDvbSubDestinationSettings;
+        ebuTtDDestinationSettings?: outputs.medialive.ChannelEbuTtDDestinationSettings;
+        embeddedDestinationSettings?: outputs.medialive.ChannelEmbeddedDestinationSettings;
+        embeddedPlusScte20DestinationSettings?: outputs.medialive.ChannelEmbeddedPlusScte20DestinationSettings;
+        rtmpCaptionInfoDestinationSettings?: outputs.medialive.ChannelRtmpCaptionInfoDestinationSettings;
+        scte20PlusEmbeddedDestinationSettings?: outputs.medialive.ChannelScte20PlusEmbeddedDestinationSettings;
+        scte27DestinationSettings?: outputs.medialive.ChannelScte27DestinationSettings;
+        smpteTtDestinationSettings?: outputs.medialive.ChannelSmpteTtDestinationSettings;
+        teletextDestinationSettings?: outputs.medialive.ChannelTeletextDestinationSettings;
+        ttmlDestinationSettings?: outputs.medialive.ChannelTtmlDestinationSettings;
+        webvttDestinationSettings?: outputs.medialive.ChannelWebvttDestinationSettings;
+    }
+
+    export interface ChannelCaptionLanguageMapping {
+        captionChannel?: number;
+        languageCode?: string;
+        languageDescription?: string;
+    }
+
+    export interface ChannelCaptionRectangle {
+        height?: number;
+        leftOffset?: number;
+        topOffset?: number;
+        width?: number;
+    }
+
+    export interface ChannelCaptionSelector {
+        languageCode?: string;
+        name?: string;
+        selectorSettings?: outputs.medialive.ChannelCaptionSelectorSettings;
+    }
+
+    export interface ChannelCaptionSelectorSettings {
+        ancillarySourceSettings?: outputs.medialive.ChannelAncillarySourceSettings;
+        aribSourceSettings?: outputs.medialive.ChannelAribSourceSettings;
+        dvbSubSourceSettings?: outputs.medialive.ChannelDvbSubSourceSettings;
+        embeddedSourceSettings?: outputs.medialive.ChannelEmbeddedSourceSettings;
+        scte20SourceSettings?: outputs.medialive.ChannelScte20SourceSettings;
+        scte27SourceSettings?: outputs.medialive.ChannelScte27SourceSettings;
+        teletextSourceSettings?: outputs.medialive.ChannelTeletextSourceSettings;
+    }
+
+    export interface ChannelCdiInputSpecification {
+        resolution?: string;
+    }
+
+    export interface ChannelColorSpacePassthroughSettings {
+    }
+
+    export interface ChannelDvbNitSettings {
+        networkId?: number;
+        networkName?: string;
+        repInterval?: number;
+    }
+
+    export interface ChannelDvbSdtSettings {
+        outputSdt?: string;
+        repInterval?: number;
+        serviceName?: string;
+        serviceProviderName?: string;
+    }
+
+    export interface ChannelDvbSubDestinationSettings {
+        alignment?: string;
+        backgroundColor?: string;
+        backgroundOpacity?: number;
+        font?: outputs.medialive.ChannelInputLocation;
+        fontColor?: string;
+        fontOpacity?: number;
+        fontResolution?: number;
+        fontSize?: string;
+        outlineColor?: string;
+        outlineSize?: number;
+        shadowColor?: string;
+        shadowOpacity?: number;
+        shadowXOffset?: number;
+        shadowYOffset?: number;
+        teletextGridControl?: string;
+        xPosition?: number;
+        yPosition?: number;
+    }
+
+    export interface ChannelDvbSubSourceSettings {
+        pid?: number;
+    }
+
+    export interface ChannelDvbTdtSettings {
+        repInterval?: number;
+    }
+
+    export interface ChannelEac3Settings {
+        attenuationControl?: string;
+        bitrate?: number;
+        bitstreamMode?: string;
+        codingMode?: string;
+        dcFilter?: string;
+        dialnorm?: number;
+        drcLine?: string;
+        drcRf?: string;
+        lfeControl?: string;
+        lfeFilter?: string;
+        loRoCenterMixLevel?: number;
+        loRoSurroundMixLevel?: number;
+        ltRtCenterMixLevel?: number;
+        ltRtSurroundMixLevel?: number;
+        metadataControl?: string;
+        passthroughControl?: string;
+        phaseControl?: string;
+        stereoDownmix?: string;
+        surroundExMode?: string;
+        surroundMode?: string;
+    }
+
+    export interface ChannelEbuTtDDestinationSettings {
+        copyrightHolder?: string;
+        fillLineGap?: string;
+        fontFamily?: string;
+        styleControl?: string;
+    }
+
+    export interface ChannelEmbeddedDestinationSettings {
+    }
+
+    export interface ChannelEmbeddedPlusScte20DestinationSettings {
+    }
+
+    export interface ChannelEmbeddedSourceSettings {
+        convert608To708?: string;
+        scte20Detection?: string;
+        source608ChannelNumber?: number;
+        source608TrackNumber?: number;
+    }
+
+    export interface ChannelEncoderSettings {
+        audioDescriptions?: outputs.medialive.ChannelAudioDescription[];
+        availBlanking?: outputs.medialive.ChannelAvailBlanking;
+        availConfiguration?: outputs.medialive.ChannelAvailConfiguration;
+        blackoutSlate?: outputs.medialive.ChannelBlackoutSlate;
+        captionDescriptions?: outputs.medialive.ChannelCaptionDescription[];
+        featureActivations?: outputs.medialive.ChannelFeatureActivations;
+        globalConfiguration?: outputs.medialive.ChannelGlobalConfiguration;
+        motionGraphicsConfiguration?: outputs.medialive.ChannelMotionGraphicsConfiguration;
+        nielsenConfiguration?: outputs.medialive.ChannelNielsenConfiguration;
+        outputGroups?: outputs.medialive.ChannelOutputGroup[];
+        timecodeConfig?: outputs.medialive.ChannelTimecodeConfig;
+        videoDescriptions?: outputs.medialive.ChannelVideoDescription[];
+    }
+
+    export interface ChannelFailoverCondition {
+        failoverConditionSettings?: outputs.medialive.ChannelFailoverConditionSettings;
+    }
+
+    export interface ChannelFailoverConditionSettings {
+        audioSilenceSettings?: outputs.medialive.ChannelAudioSilenceFailoverSettings;
+        inputLossSettings?: outputs.medialive.ChannelInputLossFailoverSettings;
+        videoBlackSettings?: outputs.medialive.ChannelVideoBlackFailoverSettings;
+    }
+
+    export interface ChannelFeatureActivations {
+        inputPrepareScheduleActions?: string;
+    }
+
+    export interface ChannelFecOutputSettings {
+        columnDepth?: number;
+        includeFec?: string;
+        rowLength?: number;
+    }
+
+    export interface ChannelFmp4HlsSettings {
+        audioRenditionSets?: string;
+        nielsenId3Behavior?: string;
+        timedMetadataBehavior?: string;
+    }
+
+    export interface ChannelFrameCaptureCdnSettings {
+        frameCaptureS3Settings?: outputs.medialive.ChannelFrameCaptureS3Settings;
+    }
+
+    export interface ChannelFrameCaptureGroupSettings {
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+        frameCaptureCdnSettings?: outputs.medialive.ChannelFrameCaptureCdnSettings;
+    }
+
+    export interface ChannelFrameCaptureHlsSettings {
+    }
+
+    export interface ChannelFrameCaptureOutputSettings {
+        nameModifier?: string;
+    }
+
+    export interface ChannelFrameCaptureS3Settings {
+        cannedAcl?: string;
+    }
+
+    export interface ChannelFrameCaptureSettings {
+        captureInterval?: number;
+        captureIntervalUnits?: string;
+    }
+
+    export interface ChannelGlobalConfiguration {
+        initialAudioGain?: number;
+        inputEndAction?: string;
+        inputLossBehavior?: outputs.medialive.ChannelInputLossBehavior;
+        outputLockingMode?: string;
+        outputTimingSource?: string;
+        supportLowFramerateInputs?: string;
+    }
+
+    export interface ChannelH264ColorSpaceSettings {
+        colorSpacePassthroughSettings?: outputs.medialive.ChannelColorSpacePassthroughSettings;
+        rec601Settings?: outputs.medialive.ChannelRec601Settings;
+        rec709Settings?: outputs.medialive.ChannelRec709Settings;
+    }
+
+    export interface ChannelH264FilterSettings {
+        temporalFilterSettings?: outputs.medialive.ChannelTemporalFilterSettings;
+    }
+
+    export interface ChannelH264Settings {
+        adaptiveQuantization?: string;
+        afdSignaling?: string;
+        bitrate?: number;
+        bufFillPct?: number;
+        bufSize?: number;
+        colorMetadata?: string;
+        colorSpaceSettings?: outputs.medialive.ChannelH264ColorSpaceSettings;
+        entropyEncoding?: string;
+        filterSettings?: outputs.medialive.ChannelH264FilterSettings;
+        fixedAfd?: string;
+        flickerAq?: string;
+        forceFieldPictures?: string;
+        framerateControl?: string;
+        framerateDenominator?: number;
+        framerateNumerator?: number;
+        gopBReference?: string;
+        gopClosedCadence?: number;
+        gopNumBFrames?: number;
+        gopSize?: number;
+        gopSizeUnits?: string;
+        level?: string;
+        lookAheadRateControl?: string;
+        maxBitrate?: number;
+        minIInterval?: number;
+        numRefFrames?: number;
+        parControl?: string;
+        parDenominator?: number;
+        parNumerator?: number;
+        profile?: string;
+        qualityLevel?: string;
+        qvbrQualityLevel?: number;
+        rateControlMode?: string;
+        scanType?: string;
+        sceneChangeDetect?: string;
+        slices?: number;
+        softness?: number;
+        spatialAq?: string;
+        subgopLength?: string;
+        syntax?: string;
+        temporalAq?: string;
+        timecodeInsertion?: string;
+    }
+
+    export interface ChannelH265ColorSpaceSettings {
+        colorSpacePassthroughSettings?: outputs.medialive.ChannelColorSpacePassthroughSettings;
+        hdr10Settings?: outputs.medialive.ChannelHdr10Settings;
+        rec601Settings?: outputs.medialive.ChannelRec601Settings;
+        rec709Settings?: outputs.medialive.ChannelRec709Settings;
+    }
+
+    export interface ChannelH265FilterSettings {
+        temporalFilterSettings?: outputs.medialive.ChannelTemporalFilterSettings;
+    }
+
+    export interface ChannelH265Settings {
+        adaptiveQuantization?: string;
+        afdSignaling?: string;
+        alternativeTransferFunction?: string;
+        bitrate?: number;
+        bufSize?: number;
+        colorMetadata?: string;
+        colorSpaceSettings?: outputs.medialive.ChannelH265ColorSpaceSettings;
+        filterSettings?: outputs.medialive.ChannelH265FilterSettings;
+        fixedAfd?: string;
+        flickerAq?: string;
+        framerateDenominator?: number;
+        framerateNumerator?: number;
+        gopClosedCadence?: number;
+        gopSize?: number;
+        gopSizeUnits?: string;
+        level?: string;
+        lookAheadRateControl?: string;
+        maxBitrate?: number;
+        minIInterval?: number;
+        parDenominator?: number;
+        parNumerator?: number;
+        profile?: string;
+        qvbrQualityLevel?: number;
+        rateControlMode?: string;
+        scanType?: string;
+        sceneChangeDetect?: string;
+        slices?: number;
+        tier?: string;
+        timecodeInsertion?: string;
+    }
+
+    export interface ChannelHdr10Settings {
+        maxCll?: number;
+        maxFall?: number;
+    }
+
+    export interface ChannelHlsAkamaiSettings {
+        connectionRetryInterval?: number;
+        filecacheDuration?: number;
+        httpTransferMode?: string;
+        numRetries?: number;
+        restartDelay?: number;
+        salt?: string;
+        token?: string;
+    }
+
+    export interface ChannelHlsBasicPutSettings {
+        connectionRetryInterval?: number;
+        filecacheDuration?: number;
+        numRetries?: number;
+        restartDelay?: number;
+    }
+
+    export interface ChannelHlsCdnSettings {
+        hlsAkamaiSettings?: outputs.medialive.ChannelHlsAkamaiSettings;
+        hlsBasicPutSettings?: outputs.medialive.ChannelHlsBasicPutSettings;
+        hlsMediaStoreSettings?: outputs.medialive.ChannelHlsMediaStoreSettings;
+        hlsS3Settings?: outputs.medialive.ChannelHlsS3Settings;
+        hlsWebdavSettings?: outputs.medialive.ChannelHlsWebdavSettings;
+    }
+
+    export interface ChannelHlsGroupSettings {
+        adMarkers?: string[];
+        baseUrlContent?: string;
+        baseUrlContent1?: string;
+        baseUrlManifest?: string;
+        baseUrlManifest1?: string;
+        captionLanguageMappings?: outputs.medialive.ChannelCaptionLanguageMapping[];
+        captionLanguageSetting?: string;
+        clientCache?: string;
+        codecSpecification?: string;
+        constantIv?: string;
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+        directoryStructure?: string;
+        discontinuityTags?: string;
+        encryptionType?: string;
+        hlsCdnSettings?: outputs.medialive.ChannelHlsCdnSettings;
+        hlsId3SegmentTagging?: string;
+        iFrameOnlyPlaylists?: string;
+        incompleteSegmentBehavior?: string;
+        indexNSegments?: number;
+        inputLossAction?: string;
+        ivInManifest?: string;
+        ivSource?: string;
+        keepSegments?: number;
+        keyFormat?: string;
+        keyFormatVersions?: string;
+        keyProviderSettings?: outputs.medialive.ChannelKeyProviderSettings;
+        manifestCompression?: string;
+        manifestDurationFormat?: string;
+        minSegmentLength?: number;
+        mode?: string;
+        outputSelection?: string;
+        programDateTime?: string;
+        programDateTimePeriod?: number;
+        redundantManifest?: string;
+        segmentLength?: number;
+        segmentationMode?: string;
+        segmentsPerSubdirectory?: number;
+        streamInfResolution?: string;
+        timedMetadataId3Frame?: string;
+        timedMetadataId3Period?: number;
+        timestampDeltaMilliseconds?: number;
+        tsFileMode?: string;
+    }
+
+    export interface ChannelHlsInputSettings {
+        bandwidth?: number;
+        bufferSegments?: number;
+        retries?: number;
+        retryInterval?: number;
+    }
+
+    export interface ChannelHlsMediaStoreSettings {
+        connectionRetryInterval?: number;
+        filecacheDuration?: number;
+        mediaStoreStorageClass?: string;
+        numRetries?: number;
+        restartDelay?: number;
+    }
+
+    export interface ChannelHlsOutputSettings {
+        h265PackagingType?: string;
+        hlsSettings?: outputs.medialive.ChannelHlsSettings;
+        nameModifier?: string;
+        segmentModifier?: string;
+    }
+
+    export interface ChannelHlsS3Settings {
+        cannedAcl?: string;
+    }
+
+    export interface ChannelHlsSettings {
+        audioOnlyHlsSettings?: outputs.medialive.ChannelAudioOnlyHlsSettings;
+        fmp4HlsSettings?: outputs.medialive.ChannelFmp4HlsSettings;
+        frameCaptureHlsSettings?: outputs.medialive.ChannelFrameCaptureHlsSettings;
+        standardHlsSettings?: outputs.medialive.ChannelStandardHlsSettings;
+    }
+
+    export interface ChannelHlsWebdavSettings {
+        connectionRetryInterval?: number;
+        filecacheDuration?: number;
+        httpTransferMode?: string;
+        numRetries?: number;
+        restartDelay?: number;
+    }
+
+    export interface ChannelHtmlMotionGraphicsSettings {
+    }
+
+    export interface ChannelInputAttachment {
+        automaticInputFailoverSettings?: outputs.medialive.ChannelAutomaticInputFailoverSettings;
+        inputAttachmentName?: string;
+        inputId?: string;
+        inputSettings?: outputs.medialive.ChannelInputSettings;
+    }
+
+    export interface ChannelInputChannelLevel {
+        gain?: number;
+        inputChannel?: number;
+    }
+
+    export interface ChannelInputLocation {
+        passwordParam?: string;
+        uri?: string;
+        username?: string;
+    }
+
+    export interface ChannelInputLossBehavior {
+        blackFrameMsec?: number;
+        inputLossImageColor?: string;
+        inputLossImageSlate?: outputs.medialive.ChannelInputLocation;
+        inputLossImageType?: string;
+        repeatFrameMsec?: number;
+    }
+
+    export interface ChannelInputLossFailoverSettings {
+        inputLossThresholdMsec?: number;
+    }
+
+    export interface ChannelInputSettings {
+        audioSelectors?: outputs.medialive.ChannelAudioSelector[];
+        captionSelectors?: outputs.medialive.ChannelCaptionSelector[];
+        deblockFilter?: string;
+        denoiseFilter?: string;
+        filterStrength?: number;
+        inputFilter?: string;
+        networkInputSettings?: outputs.medialive.ChannelNetworkInputSettings;
+        smpte2038DataPreference?: string;
+        sourceEndBehavior?: string;
+        videoSelector?: outputs.medialive.ChannelVideoSelector;
+    }
+
+    export interface ChannelInputSpecification {
+        codec?: string;
+        maximumBitrate?: string;
+        resolution?: string;
+    }
+
+    export interface ChannelKeyProviderSettings {
+        staticKeySettings?: outputs.medialive.ChannelStaticKeySettings;
+    }
+
+    export interface ChannelM2tsSettings {
+        absentInputAudioBehavior?: string;
+        arib?: string;
+        aribCaptionsPid?: string;
+        aribCaptionsPidControl?: string;
+        audioBufferModel?: string;
+        audioFramesPerPes?: number;
+        audioPids?: string;
+        audioStreamType?: string;
+        bitrate?: number;
+        bufferModel?: string;
+        ccDescriptor?: string;
+        dvbNitSettings?: outputs.medialive.ChannelDvbNitSettings;
+        dvbSdtSettings?: outputs.medialive.ChannelDvbSdtSettings;
+        dvbSubPids?: string;
+        dvbTdtSettings?: outputs.medialive.ChannelDvbTdtSettings;
+        dvbTeletextPid?: string;
+        ebif?: string;
+        ebpAudioInterval?: string;
+        ebpLookaheadMs?: number;
+        ebpPlacement?: string;
+        ecmPid?: string;
+        esRateInPes?: string;
+        etvPlatformPid?: string;
+        etvSignalPid?: string;
+        fragmentTime?: number;
+        klv?: string;
+        klvDataPids?: string;
+        nielsenId3Behavior?: string;
+        nullPacketBitrate?: number;
+        patInterval?: number;
+        pcrControl?: string;
+        pcrPeriod?: number;
+        pcrPid?: string;
+        pmtInterval?: number;
+        pmtPid?: string;
+        programNum?: number;
+        rateMode?: string;
+        scte27Pids?: string;
+        scte35Control?: string;
+        scte35Pid?: string;
+        segmentationMarkers?: string;
+        segmentationStyle?: string;
+        segmentationTime?: number;
+        timedMetadataBehavior?: string;
+        timedMetadataPid?: string;
+        transportStreamId?: number;
+        videoPid?: string;
+    }
+
+    export interface ChannelM3u8Settings {
+        audioFramesPerPes?: number;
+        audioPids?: string;
+        ecmPid?: string;
+        nielsenId3Behavior?: string;
+        patInterval?: number;
+        pcrControl?: string;
+        pcrPeriod?: number;
+        pcrPid?: string;
+        pmtInterval?: number;
+        pmtPid?: string;
+        programNum?: number;
+        scte35Behavior?: string;
+        scte35Pid?: string;
+        timedMetadataBehavior?: string;
+        timedMetadataPid?: string;
+        transportStreamId?: number;
+        videoPid?: string;
+    }
+
+    export interface ChannelMediaPackageGroupSettings {
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+    }
+
+    export interface ChannelMediaPackageOutputDestinationSettings {
+        channelId?: string;
+    }
+
+    export interface ChannelMediaPackageOutputSettings {
+    }
+
+    export interface ChannelMotionGraphicsConfiguration {
+        motionGraphicsInsertion?: string;
+        motionGraphicsSettings?: outputs.medialive.ChannelMotionGraphicsSettings;
+    }
+
+    export interface ChannelMotionGraphicsSettings {
+        htmlMotionGraphicsSettings?: outputs.medialive.ChannelHtmlMotionGraphicsSettings;
+    }
+
+    export interface ChannelMp2Settings {
+        bitrate?: number;
+        codingMode?: string;
+        sampleRate?: number;
+    }
+
+    export interface ChannelMpeg2FilterSettings {
+        temporalFilterSettings?: outputs.medialive.ChannelTemporalFilterSettings;
+    }
+
+    export interface ChannelMpeg2Settings {
+        adaptiveQuantization?: string;
+        afdSignaling?: string;
+        colorMetadata?: string;
+        colorSpace?: string;
+        displayAspectRatio?: string;
+        filterSettings?: outputs.medialive.ChannelMpeg2FilterSettings;
+        fixedAfd?: string;
+        framerateDenominator?: number;
+        framerateNumerator?: number;
+        gopClosedCadence?: number;
+        gopNumBFrames?: number;
+        gopSize?: number;
+        gopSizeUnits?: string;
+        scanType?: string;
+        subgopLength?: string;
+        timecodeInsertion?: string;
+    }
+
+    export interface ChannelMsSmoothGroupSettings {
+        acquisitionPointId?: string;
+        audioOnlyTimecodeControl?: string;
+        certificateMode?: string;
+        connectionRetryInterval?: number;
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+        eventId?: string;
+        eventIdMode?: string;
+        eventStopBehavior?: string;
+        filecacheDuration?: number;
+        fragmentLength?: number;
+        inputLossAction?: string;
+        numRetries?: number;
+        restartDelay?: number;
+        segmentationMode?: string;
+        sendDelayMs?: number;
+        sparseTrackType?: string;
+        streamManifestBehavior?: string;
+        timestampOffset?: string;
+        timestampOffsetMode?: string;
+    }
+
+    export interface ChannelMsSmoothOutputSettings {
+        h265PackagingType?: string;
+        nameModifier?: string;
+    }
+
+    export interface ChannelMultiplexGroupSettings {
+    }
+
+    export interface ChannelMultiplexOutputSettings {
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+    }
+
+    export interface ChannelMultiplexProgramChannelDestinationSettings {
+        multiplexId?: string;
+        programName?: string;
+    }
+
+    export interface ChannelNetworkInputSettings {
+        hlsInputSettings?: outputs.medialive.ChannelHlsInputSettings;
+        serverValidation?: string;
+    }
+
+    export interface ChannelNielsenConfiguration {
+        distributorId?: string;
+        nielsenPcmToId3Tagging?: string;
+    }
+
+    export interface ChannelOutput {
+        audioDescriptionNames?: string[];
+        captionDescriptionNames?: string[];
+        outputName?: string;
+        outputSettings?: outputs.medialive.ChannelOutputSettings;
+        videoDescriptionName?: string;
+    }
+
+    export interface ChannelOutputDestination {
+        id?: string;
+        mediaPackageSettings?: outputs.medialive.ChannelMediaPackageOutputDestinationSettings[];
+        multiplexSettings?: outputs.medialive.ChannelMultiplexProgramChannelDestinationSettings;
+        settings?: outputs.medialive.ChannelOutputDestinationSettings[];
+    }
+
+    export interface ChannelOutputDestinationSettings {
+        passwordParam?: string;
+        streamName?: string;
+        url?: string;
+        username?: string;
+    }
+
+    export interface ChannelOutputGroup {
+        name?: string;
+        outputGroupSettings?: outputs.medialive.ChannelOutputGroupSettings;
+        outputs?: outputs.medialive.ChannelOutput[];
+    }
+
+    export interface ChannelOutputGroupSettings {
+        archiveGroupSettings?: outputs.medialive.ChannelArchiveGroupSettings;
+        frameCaptureGroupSettings?: outputs.medialive.ChannelFrameCaptureGroupSettings;
+        hlsGroupSettings?: outputs.medialive.ChannelHlsGroupSettings;
+        mediaPackageGroupSettings?: outputs.medialive.ChannelMediaPackageGroupSettings;
+        msSmoothGroupSettings?: outputs.medialive.ChannelMsSmoothGroupSettings;
+        multiplexGroupSettings?: outputs.medialive.ChannelMultiplexGroupSettings;
+        rtmpGroupSettings?: outputs.medialive.ChannelRtmpGroupSettings;
+        udpGroupSettings?: outputs.medialive.ChannelUdpGroupSettings;
+    }
+
+    export interface ChannelOutputLocationRef {
+        destinationRefId?: string;
+    }
+
+    export interface ChannelOutputSettings {
+        archiveOutputSettings?: outputs.medialive.ChannelArchiveOutputSettings;
+        frameCaptureOutputSettings?: outputs.medialive.ChannelFrameCaptureOutputSettings;
+        hlsOutputSettings?: outputs.medialive.ChannelHlsOutputSettings;
+        mediaPackageOutputSettings?: outputs.medialive.ChannelMediaPackageOutputSettings;
+        msSmoothOutputSettings?: outputs.medialive.ChannelMsSmoothOutputSettings;
+        multiplexOutputSettings?: outputs.medialive.ChannelMultiplexOutputSettings;
+        rtmpOutputSettings?: outputs.medialive.ChannelRtmpOutputSettings;
+        udpOutputSettings?: outputs.medialive.ChannelUdpOutputSettings;
+    }
+
+    export interface ChannelPassThroughSettings {
+    }
+
+    export interface ChannelRawSettings {
+    }
+
+    export interface ChannelRec601Settings {
+    }
+
+    export interface ChannelRec709Settings {
+    }
+
+    export interface ChannelRemixSettings {
+        channelMappings?: outputs.medialive.ChannelAudioChannelMapping[];
+        channelsIn?: number;
+        channelsOut?: number;
+    }
+
+    export interface ChannelRtmpCaptionInfoDestinationSettings {
+    }
+
+    export interface ChannelRtmpGroupSettings {
+        adMarkers?: string[];
+        authenticationScheme?: string;
+        cacheFullBehavior?: string;
+        cacheLength?: number;
+        captionData?: string;
+        inputLossAction?: string;
+        restartDelay?: number;
+    }
+
+    export interface ChannelRtmpOutputSettings {
+        certificateMode?: string;
+        connectionRetryInterval?: number;
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+        numRetries?: number;
+    }
+
+    export interface ChannelScte20PlusEmbeddedDestinationSettings {
+    }
+
+    export interface ChannelScte20SourceSettings {
+        convert608To708?: string;
+        source608ChannelNumber?: number;
+    }
+
+    export interface ChannelScte27DestinationSettings {
+    }
+
+    export interface ChannelScte27SourceSettings {
+        pid?: number;
+    }
+
+    export interface ChannelScte35SpliceInsert {
+        adAvailOffset?: number;
+        noRegionalBlackoutFlag?: string;
+        webDeliveryAllowedFlag?: string;
+    }
+
+    export interface ChannelScte35TimeSignalApos {
+        adAvailOffset?: number;
+        noRegionalBlackoutFlag?: string;
+        webDeliveryAllowedFlag?: string;
+    }
+
+    export interface ChannelSmpteTtDestinationSettings {
+    }
+
+    export interface ChannelStandardHlsSettings {
+        audioRenditionSets?: string;
+        m3u8Settings?: outputs.medialive.ChannelM3u8Settings;
+    }
+
+    export interface ChannelStaticKeySettings {
+        keyProviderServer?: outputs.medialive.ChannelInputLocation;
+        staticKeyValue?: string;
+    }
+
+    export interface ChannelTeletextDestinationSettings {
+    }
+
+    export interface ChannelTeletextSourceSettings {
+        outputRectangle?: outputs.medialive.ChannelCaptionRectangle;
+        pageNumber?: string;
+    }
+
+    export interface ChannelTemporalFilterSettings {
+        postFilterSharpening?: string;
+        strength?: string;
+    }
+
+    export interface ChannelTimecodeConfig {
+        source?: string;
+        syncThreshold?: number;
+    }
+
+    export interface ChannelTtmlDestinationSettings {
+        styleControl?: string;
+    }
+
+    export interface ChannelUdpContainerSettings {
+        m2tsSettings?: outputs.medialive.ChannelM2tsSettings;
+    }
+
+    export interface ChannelUdpGroupSettings {
+        inputLossAction?: string;
+        timedMetadataId3Frame?: string;
+        timedMetadataId3Period?: number;
+    }
+
+    export interface ChannelUdpOutputSettings {
+        bufferMsec?: number;
+        containerSettings?: outputs.medialive.ChannelUdpContainerSettings;
+        destination?: outputs.medialive.ChannelOutputLocationRef;
+        fecOutputSettings?: outputs.medialive.ChannelFecOutputSettings;
+    }
+
+    export interface ChannelVideoBlackFailoverSettings {
+        blackDetectThreshold?: number;
+        videoBlackThresholdMsec?: number;
+    }
+
+    export interface ChannelVideoCodecSettings {
+        frameCaptureSettings?: outputs.medialive.ChannelFrameCaptureSettings;
+        h264Settings?: outputs.medialive.ChannelH264Settings;
+        h265Settings?: outputs.medialive.ChannelH265Settings;
+        mpeg2Settings?: outputs.medialive.ChannelMpeg2Settings;
+    }
+
+    export interface ChannelVideoDescription {
+        codecSettings?: outputs.medialive.ChannelVideoCodecSettings;
+        height?: number;
+        name?: string;
+        respondToAfd?: string;
+        scalingBehavior?: string;
+        sharpness?: number;
+        width?: number;
+    }
+
+    export interface ChannelVideoSelector {
+        colorSpace?: string;
+        colorSpaceSettings?: outputs.medialive.ChannelVideoSelectorColorSpaceSettings;
+        colorSpaceUsage?: string;
+        selectorSettings?: outputs.medialive.ChannelVideoSelectorSettings;
+    }
+
+    export interface ChannelVideoSelectorColorSpaceSettings {
+        hdr10Settings?: outputs.medialive.ChannelHdr10Settings;
+    }
+
+    export interface ChannelVideoSelectorPid {
+        pid?: number;
+    }
+
+    export interface ChannelVideoSelectorProgramId {
+        programId?: number;
+    }
+
+    export interface ChannelVideoSelectorSettings {
+        videoSelectorPid?: outputs.medialive.ChannelVideoSelectorPid;
+        videoSelectorProgramId?: outputs.medialive.ChannelVideoSelectorProgramId;
+    }
+
+    export interface ChannelVpcOutputSettings {
+        publicAddressAllocationIds?: string[];
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+    }
+
+    export interface ChannelWavSettings {
+        bitDepth?: number;
+        codingMode?: string;
+        sampleRate?: number;
+    }
+
+    export interface ChannelWebvttDestinationSettings {
+    }
+
+    export interface InputInputDestinationRequest {
+        streamName?: string;
+    }
+
+    export interface InputInputDeviceSettings {
+        id?: string;
+    }
+
+    export interface InputInputSourceRequest {
+        passwordParam?: string;
+        url?: string;
+        username?: string;
+    }
+
+    export interface InputInputVpcRequest {
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+    }
+
+    export interface InputMediaConnectFlowRequest {
+        flowArn?: string;
+    }
+
+    export interface InputSecurityGroupInputWhitelistRuleCidr {
+        cidr?: string;
     }
 
 }
@@ -10478,6 +17497,135 @@ export namespace mediapackage {
 
 }
 
+export namespace mediastore {
+    export interface ContainerCorsRule {
+        allowedHeaders?: string[];
+        allowedMethods?: string[];
+        allowedOrigins?: string[];
+        exposeHeaders?: string[];
+        maxAgeSeconds?: number;
+    }
+
+    export interface ContainerMetricPolicy {
+        containerLevelMetrics: string;
+        metricPolicyRules?: outputs.mediastore.ContainerMetricPolicyRule[];
+    }
+
+    export interface ContainerMetricPolicyRule {
+        objectGroup: string;
+        objectGroupName: string;
+    }
+
+    export interface ContainerTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace msk {
+    export interface ClusterBrokerLogs {
+        cloudWatchLogs?: outputs.msk.ClusterCloudWatchLogs;
+        firehose?: outputs.msk.ClusterFirehose;
+        s3?: outputs.msk.ClusterS3;
+    }
+
+    export interface ClusterBrokerNodeGroupInfo {
+        brokerAZDistribution?: string;
+        clientSubnets: string[];
+        instanceType: string;
+        securityGroups?: string[];
+        storageInfo?: outputs.msk.ClusterStorageInfo;
+    }
+
+    export interface ClusterClientAuthentication {
+        sasl?: outputs.msk.ClusterSasl;
+        tls?: outputs.msk.ClusterTls;
+    }
+
+    export interface ClusterCloudWatchLogs {
+        enabled: boolean;
+        logGroup?: string;
+    }
+
+    export interface ClusterConfigurationInfo {
+        arn: string;
+        revision: number;
+    }
+
+    export interface ClusterEBSStorageInfo {
+        volumeSize?: number;
+    }
+
+    export interface ClusterEncryptionAtRest {
+        dataVolumeKMSKeyId: string;
+    }
+
+    export interface ClusterEncryptionInTransit {
+        clientBroker?: string;
+        inCluster?: boolean;
+    }
+
+    export interface ClusterEncryptionInfo {
+        encryptionAtRest?: outputs.msk.ClusterEncryptionAtRest;
+        encryptionInTransit?: outputs.msk.ClusterEncryptionInTransit;
+    }
+
+    export interface ClusterFirehose {
+        deliveryStream?: string;
+        enabled: boolean;
+    }
+
+    export interface ClusterIam {
+        enabled: boolean;
+    }
+
+    export interface ClusterJmxExporter {
+        enabledInBroker: boolean;
+    }
+
+    export interface ClusterLoggingInfo {
+        brokerLogs: outputs.msk.ClusterBrokerLogs;
+    }
+
+    export interface ClusterNodeExporter {
+        enabledInBroker: boolean;
+    }
+
+    export interface ClusterOpenMonitoring {
+        prometheus: outputs.msk.ClusterPrometheus;
+    }
+
+    export interface ClusterPrometheus {
+        jmxExporter?: outputs.msk.ClusterJmxExporter;
+        nodeExporter?: outputs.msk.ClusterNodeExporter;
+    }
+
+    export interface ClusterS3 {
+        bucket?: string;
+        enabled: boolean;
+        prefix?: string;
+    }
+
+    export interface ClusterSasl {
+        iam?: outputs.msk.ClusterIam;
+        scram?: outputs.msk.ClusterScram;
+    }
+
+    export interface ClusterScram {
+        enabled: boolean;
+    }
+
+    export interface ClusterStorageInfo {
+        eBSStorageInfo?: outputs.msk.ClusterEBSStorageInfo;
+    }
+
+    export interface ClusterTls {
+        certificateAuthorityArnList?: string[];
+    }
+
+}
+
 export namespace mwaa {
     /**
      * Logging configuration for the environment.
@@ -10517,6 +17665,39 @@ export namespace mwaa {
      * A map of tags for the environment.
      */
     export interface EnvironmentTagMap {
+    }
+
+}
+
+export namespace neptune {
+    export interface DBClusterDBClusterRole {
+        featureName?: string;
+        roleArn: string;
+    }
+
+    export interface DBClusterParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBClusterTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBInstanceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBSubnetGroupTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -10843,6 +18024,143 @@ export namespace nimblestudio {
 
 }
 
+export namespace opsworks {
+    export interface AppDataSource {
+        arn?: string;
+        databaseName?: string;
+        type?: string;
+    }
+
+    export interface AppEnvironmentVariable {
+        key: string;
+        secure?: boolean;
+        value: string;
+    }
+
+    export interface AppSource {
+        password?: string;
+        revision?: string;
+        sshKey?: string;
+        type?: string;
+        url?: string;
+        username?: string;
+    }
+
+    export interface AppSslConfiguration {
+        certificate?: string;
+        chain?: string;
+        privateKey?: string;
+    }
+
+    export interface InstanceBlockDeviceMapping {
+        deviceName?: string;
+        ebs?: outputs.opsworks.InstanceEbsBlockDevice;
+        noDevice?: string;
+        virtualName?: string;
+    }
+
+    export interface InstanceEbsBlockDevice {
+        deleteOnTermination?: boolean;
+        iops?: number;
+        snapshotId?: string;
+        volumeSize?: number;
+        volumeType?: string;
+    }
+
+    export interface InstanceTimeBasedAutoScaling {
+        friday?: any;
+        monday?: any;
+        saturday?: any;
+        sunday?: any;
+        thursday?: any;
+        tuesday?: any;
+        wednesday?: any;
+    }
+
+    export interface LayerAutoScalingThresholds {
+        cpuThreshold?: number;
+        ignoreMetricsTime?: number;
+        instanceCount?: number;
+        loadThreshold?: number;
+        memoryThreshold?: number;
+        thresholdsWaitTime?: number;
+    }
+
+    export interface LayerLifecycleEventConfiguration {
+        shutdownEventConfiguration?: outputs.opsworks.LayerShutdownEventConfiguration;
+    }
+
+    export interface LayerLoadBasedAutoScaling {
+        downScaling?: outputs.opsworks.LayerAutoScalingThresholds;
+        enable?: boolean;
+        upScaling?: outputs.opsworks.LayerAutoScalingThresholds;
+    }
+
+    export interface LayerRecipes {
+        configure?: string[];
+        deploy?: string[];
+        setup?: string[];
+        shutdown?: string[];
+        undeploy?: string[];
+    }
+
+    export interface LayerShutdownEventConfiguration {
+        delayUntilElbConnectionsDrained?: boolean;
+        executionTimeout?: number;
+    }
+
+    export interface LayerTag {
+        key: string;
+        value: string;
+    }
+
+    export interface LayerVolumeConfiguration {
+        encrypted?: boolean;
+        iops?: number;
+        mountPoint?: string;
+        numberOfDisks?: number;
+        raidLevel?: number;
+        size?: number;
+        volumeType?: string;
+    }
+
+    export interface StackChefConfiguration {
+        berkshelfVersion?: string;
+        manageBerkshelf?: boolean;
+    }
+
+    export interface StackElasticIp {
+        ip: string;
+        name?: string;
+    }
+
+    export interface StackRdsDbInstance {
+        dbPassword: string;
+        dbUser: string;
+        rdsDbInstanceArn: string;
+    }
+
+    export interface StackSource {
+        password?: string;
+        revision?: string;
+        sshKey?: string;
+        type?: string;
+        url?: string;
+        username?: string;
+    }
+
+    export interface StackStackConfigurationManager {
+        name?: string;
+        version?: string;
+    }
+
+    export interface StackTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace opsworkscm {
     export interface ServerEngineAttribute {
         name?: string;
@@ -10856,7 +18174,289 @@ export namespace opsworkscm {
 
 }
 
+export namespace pinpoint {
+    export interface ApplicationSettingsCampaignHook {
+        lambdaFunctionName?: string;
+        mode?: string;
+        webUrl?: string;
+    }
+
+    export interface ApplicationSettingsLimits {
+        daily?: number;
+        maximumDuration?: number;
+        messagesPerSecond?: number;
+        total?: number;
+    }
+
+    export interface ApplicationSettingsQuietTime {
+        end: string;
+        start: string;
+    }
+
+    export interface CampaignCampaignEmailMessage {
+        body?: string;
+        fromAddress?: string;
+        htmlBody?: string;
+        title?: string;
+    }
+
+    export interface CampaignCampaignEventFilter {
+        dimensions?: outputs.pinpoint.CampaignEventDimensions;
+        filterType?: string;
+    }
+
+    export interface CampaignCampaignHook {
+        lambdaFunctionName?: string;
+        mode?: string;
+        webUrl?: string;
+    }
+
+    export interface CampaignCampaignSmsMessage {
+        body?: string;
+        entityId?: string;
+        messageType?: string;
+        originationNumber?: string;
+        senderId?: string;
+        templateId?: string;
+    }
+
+    export interface CampaignEventDimensions {
+        attributes?: any;
+        eventType?: outputs.pinpoint.CampaignSetDimension;
+        metrics?: any;
+    }
+
+    export interface CampaignLimits {
+        daily?: number;
+        maximumDuration?: number;
+        messagesPerSecond?: number;
+        total?: number;
+    }
+
+    export interface CampaignMessage {
+        action?: string;
+        body?: string;
+        imageIconUrl?: string;
+        imageSmallIconUrl?: string;
+        imageUrl?: string;
+        jsonBody?: string;
+        mediaUrl?: string;
+        rawContent?: string;
+        silentPush?: boolean;
+        timeToLive?: number;
+        title?: string;
+        url?: string;
+    }
+
+    export interface CampaignMessageConfiguration {
+        aDMMessage?: outputs.pinpoint.CampaignMessage;
+        aPNSMessage?: outputs.pinpoint.CampaignMessage;
+        baiduMessage?: outputs.pinpoint.CampaignMessage;
+        defaultMessage?: outputs.pinpoint.CampaignMessage;
+        emailMessage?: outputs.pinpoint.CampaignCampaignEmailMessage;
+        gCMMessage?: outputs.pinpoint.CampaignMessage;
+        sMSMessage?: outputs.pinpoint.CampaignCampaignSmsMessage;
+    }
+
+    export interface CampaignQuietTime {
+        end: string;
+        start: string;
+    }
+
+    export interface CampaignSchedule {
+        endTime?: string;
+        eventFilter?: outputs.pinpoint.CampaignCampaignEventFilter;
+        frequency?: string;
+        isLocalTime?: boolean;
+        quietTime?: outputs.pinpoint.CampaignQuietTime;
+        startTime?: string;
+        timeZone?: string;
+    }
+
+    export interface CampaignSetDimension {
+        dimensionType?: string;
+        values?: string[];
+    }
+
+    export interface CampaignWriteTreatmentResource {
+        messageConfiguration?: outputs.pinpoint.CampaignMessageConfiguration;
+        schedule?: outputs.pinpoint.CampaignSchedule;
+        sizePercent?: number;
+        treatmentDescription?: string;
+        treatmentName?: string;
+    }
+
+    export interface PushTemplateAPNSPushNotificationTemplate {
+        action?: string;
+        body?: string;
+        mediaUrl?: string;
+        sound?: string;
+        title?: string;
+        url?: string;
+    }
+
+    export interface PushTemplateAndroidPushNotificationTemplate {
+        action?: string;
+        body?: string;
+        imageIconUrl?: string;
+        imageUrl?: string;
+        smallImageIconUrl?: string;
+        sound?: string;
+        title?: string;
+        url?: string;
+    }
+
+    export interface PushTemplateDefaultPushNotificationTemplate {
+        action?: string;
+        body?: string;
+        sound?: string;
+        title?: string;
+        url?: string;
+    }
+
+    export interface SegmentBehavior {
+        recency?: outputs.pinpoint.SegmentRecency;
+    }
+
+    export interface SegmentCoordinates {
+        latitude: number;
+        longitude: number;
+    }
+
+    export interface SegmentDemographic {
+        appVersion?: outputs.pinpoint.SegmentSetDimension;
+        channel?: outputs.pinpoint.SegmentSetDimension;
+        deviceType?: outputs.pinpoint.SegmentSetDimension;
+        make?: outputs.pinpoint.SegmentSetDimension;
+        model?: outputs.pinpoint.SegmentSetDimension;
+        platform?: outputs.pinpoint.SegmentSetDimension;
+    }
+
+    export interface SegmentGPSPoint {
+        coordinates: outputs.pinpoint.SegmentCoordinates;
+        rangeInKilometers: number;
+    }
+
+    export interface SegmentGroups {
+        dimensions?: outputs.pinpoint.SegmentSegmentDimensions[];
+        sourceSegments?: outputs.pinpoint.SegmentSourceSegments[];
+        sourceType?: string;
+        type?: string;
+    }
+
+    export interface SegmentLocation {
+        country?: outputs.pinpoint.SegmentSetDimension;
+        gPSPoint?: outputs.pinpoint.SegmentGPSPoint;
+    }
+
+    export interface SegmentRecency {
+        duration: string;
+        recencyType: string;
+    }
+
+    export interface SegmentSegmentDimensions {
+        attributes?: any;
+        behavior?: outputs.pinpoint.SegmentBehavior;
+        demographic?: outputs.pinpoint.SegmentDemographic;
+        location?: outputs.pinpoint.SegmentLocation;
+        metrics?: any;
+        userAttributes?: any;
+    }
+
+    export interface SegmentSegmentGroups {
+        groups?: outputs.pinpoint.SegmentGroups[];
+        include?: string;
+    }
+
+    export interface SegmentSetDimension {
+        dimensionType?: string;
+        values?: string[];
+    }
+
+    export interface SegmentSourceSegments {
+        id: string;
+        version?: number;
+    }
+
+}
+
+export namespace pinpointemail {
+    export interface ConfigurationSetDeliveryOptions {
+        sendingPoolName?: string;
+    }
+
+    export interface ConfigurationSetEventDestinationCloudWatchDestination {
+        dimensionConfigurations?: outputs.pinpointemail.ConfigurationSetEventDestinationDimensionConfiguration[];
+    }
+
+    export interface ConfigurationSetEventDestinationDimensionConfiguration {
+        defaultDimensionValue: string;
+        dimensionName: string;
+        dimensionValueSource: string;
+    }
+
+    export interface ConfigurationSetEventDestinationEventDestination {
+        cloudWatchDestination?: outputs.pinpointemail.ConfigurationSetEventDestinationCloudWatchDestination;
+        enabled?: boolean;
+        kinesisFirehoseDestination?: outputs.pinpointemail.ConfigurationSetEventDestinationKinesisFirehoseDestination;
+        matchingEventTypes: string[];
+        pinpointDestination?: outputs.pinpointemail.ConfigurationSetEventDestinationPinpointDestination;
+        snsDestination?: outputs.pinpointemail.ConfigurationSetEventDestinationSnsDestination;
+    }
+
+    export interface ConfigurationSetEventDestinationKinesisFirehoseDestination {
+        deliveryStreamArn: string;
+        iamRoleArn: string;
+    }
+
+    export interface ConfigurationSetEventDestinationPinpointDestination {
+        applicationArn?: string;
+    }
+
+    export interface ConfigurationSetEventDestinationSnsDestination {
+        topicArn: string;
+    }
+
+    export interface ConfigurationSetReputationOptions {
+        reputationMetricsEnabled?: boolean;
+    }
+
+    export interface ConfigurationSetSendingOptions {
+        sendingEnabled?: boolean;
+    }
+
+    export interface ConfigurationSetTags {
+        key?: string;
+        value?: string;
+    }
+
+    export interface ConfigurationSetTrackingOptions {
+        customRedirectDomain?: string;
+    }
+
+    export interface DedicatedIpPoolTags {
+        key?: string;
+        value?: string;
+    }
+
+    export interface IdentityMailFromAttributes {
+        behaviorOnMxFailure?: string;
+        mailFromDomain?: string;
+    }
+
+    export interface IdentityTags {
+        key?: string;
+        value?: string;
+    }
+
+}
+
 export namespace qldb {
+    export interface LedgerTag {
+        key: string;
+        value: string;
+    }
+
     export interface StreamKinesisConfiguration {
         aggregationEnabled?: boolean;
         streamArn?: string;
@@ -12351,7 +19951,57 @@ export namespace quicksight {
 
 }
 
+export namespace ram {
+    export interface ResourceShareTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace rds {
+    export interface DBClusterDBClusterRole {
+        featureName?: string;
+        roleArn: string;
+    }
+
+    export interface DBClusterParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBClusterScalingConfiguration {
+        autoPause?: boolean;
+        maxCapacity?: number;
+        minCapacity?: number;
+        secondsUntilAutoPause?: number;
+    }
+
+    export interface DBClusterTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBInstanceDBInstanceRole {
+        featureName: string;
+        roleArn: string;
+    }
+
+    export interface DBInstanceProcessorFeature {
+        name?: string;
+        value?: string;
+    }
+
+    export interface DBInstanceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
     export interface DBProxyAuthFormat {
         /**
          * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
@@ -12408,6 +20058,42 @@ export namespace rds {
         sessionPinningFilters?: string[];
     }
 
+    export interface DBSecurityGroupIngress {
+        cIDRIP?: string;
+        eC2SecurityGroupId?: string;
+        eC2SecurityGroupName?: string;
+        eC2SecurityGroupOwnerId?: string;
+    }
+
+    export interface DBSecurityGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DBSubnetGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface OptionGroupOptionConfiguration {
+        dBSecurityGroupMemberships?: string[];
+        optionName: string;
+        optionSettings?: outputs.rds.OptionGroupOptionSetting[];
+        optionVersion?: string;
+        port?: number;
+        vpcSecurityGroupMemberships?: string[];
+    }
+
+    export interface OptionGroupOptionSetting {
+        name?: string;
+        value?: string;
+    }
+
+    export interface OptionGroupTag {
+        key: string;
+        value: string;
+    }
+
 }
 
 export namespace redshift {
@@ -12419,6 +20105,26 @@ export namespace redshift {
     export interface ClusterLoggingProperties {
         bucketName: string;
         s3KeyPrefix?: string;
+    }
+
+    export interface ClusterParameterGroupParameter {
+        parameterName: string;
+        parameterValue: string;
+    }
+
+    export interface ClusterParameterGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ClusterSecurityGroupTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ClusterSubnetGroupTag {
+        key: string;
+        value: string;
     }
 
     /**
@@ -12476,6 +20182,17 @@ export namespace robomaker {
      * A key-value pair to associate with a resource.
      */
     export interface FleetTags {
+    }
+
+    export interface RobotApplicationRobotSoftwareSuite {
+        name: string;
+        version: string;
+    }
+
+    export interface RobotApplicationSourceConfig {
+        architecture: string;
+        s3Bucket: string;
+        s3Key: string;
     }
 
     /**
@@ -12615,6 +20332,48 @@ export namespace route53 {
          * The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
          */
         vPCRegion: string;
+    }
+
+    export interface RecordSetAliasTarget {
+        dNSName: string;
+        evaluateTargetHealth?: boolean;
+        hostedZoneId: string;
+    }
+
+    export interface RecordSetGeoLocation {
+        continentCode?: string;
+        countryCode?: string;
+        subdivisionCode?: string;
+    }
+
+    export interface RecordSetGroupAliasTarget {
+        dNSName: string;
+        evaluateTargetHealth?: boolean;
+        hostedZoneId: string;
+    }
+
+    export interface RecordSetGroupGeoLocation {
+        continentCode?: string;
+        countryCode?: string;
+        subdivisionCode?: string;
+    }
+
+    export interface RecordSetGroupRecordSet {
+        aliasTarget?: outputs.route53.RecordSetGroupAliasTarget;
+        comment?: string;
+        failover?: string;
+        geoLocation?: outputs.route53.RecordSetGroupGeoLocation;
+        healthCheckId?: string;
+        hostedZoneId?: string;
+        hostedZoneName?: string;
+        multiValueAnswer?: boolean;
+        name: string;
+        region?: string;
+        resourceRecords?: string[];
+        setIdentifier?: string;
+        tTL?: string;
+        type: string;
+        weight?: number;
     }
 
 }
@@ -12849,6 +20608,26 @@ export namespace route53resolver {
         value: string;
     }
 
+    export interface ResolverEndpointIpAddressRequest {
+        ip?: string;
+        subnetId: string;
+    }
+
+    export interface ResolverEndpointTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ResolverRuleTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ResolverRuleTargetAddress {
+        ip: string;
+        port?: string;
+    }
+
 }
 
 export namespace s3 {
@@ -12884,6 +20663,316 @@ export namespace s3 {
          * If this field is specified, this access point will only allow connections from the specified VPC ID.
          */
         vpcId?: string;
+    }
+
+    export interface BucketAbortIncompleteMultipartUpload {
+        daysAfterInitiation: number;
+    }
+
+    export interface BucketAccelerateConfiguration {
+        accelerationStatus: string;
+    }
+
+    export interface BucketAccessControlTranslation {
+        owner: string;
+    }
+
+    export interface BucketAnalyticsConfiguration {
+        id: string;
+        prefix?: string;
+        storageClassAnalysis: outputs.s3.BucketStorageClassAnalysis;
+        tagFilters?: outputs.s3.BucketTagFilter[];
+    }
+
+    export interface BucketBucketEncryption {
+        serverSideEncryptionConfiguration: outputs.s3.BucketServerSideEncryptionRule[];
+    }
+
+    export interface BucketCorsConfiguration {
+        corsRules: outputs.s3.BucketCorsRule[];
+    }
+
+    export interface BucketCorsRule {
+        allowedHeaders?: string[];
+        allowedMethods: string[];
+        allowedOrigins: string[];
+        exposedHeaders?: string[];
+        id?: string;
+        maxAge?: number;
+    }
+
+    export interface BucketDataExport {
+        destination: outputs.s3.BucketDestination;
+        outputSchemaVersion: string;
+    }
+
+    export interface BucketDefaultRetention {
+        days?: number;
+        mode?: string;
+        years?: number;
+    }
+
+    export interface BucketDeleteMarkerReplication {
+        status?: string;
+    }
+
+    export interface BucketDestination {
+        bucketAccountId?: string;
+        bucketArn: string;
+        format: string;
+        prefix?: string;
+    }
+
+    export interface BucketEncryptionConfiguration {
+        replicaKmsKeyID: string;
+    }
+
+    export interface BucketFilterRule {
+        name: string;
+        value: string;
+    }
+
+    export interface BucketIntelligentTieringConfiguration {
+        id: string;
+        prefix?: string;
+        status: string;
+        tagFilters?: outputs.s3.BucketTagFilter[];
+        tierings: outputs.s3.BucketTiering[];
+    }
+
+    export interface BucketInventoryConfiguration {
+        destination: outputs.s3.BucketDestination;
+        enabled: boolean;
+        id: string;
+        includedObjectVersions: string;
+        optionalFields?: string[];
+        prefix?: string;
+        scheduleFrequency: string;
+    }
+
+    export interface BucketLambdaConfiguration {
+        event: string;
+        filter?: outputs.s3.BucketNotificationFilter;
+        function: string;
+    }
+
+    export interface BucketLifecycleConfiguration {
+        rules: outputs.s3.BucketRule[];
+    }
+
+    export interface BucketLoggingConfiguration {
+        destinationBucketName?: string;
+        logFilePrefix?: string;
+    }
+
+    export interface BucketMetrics {
+        eventThreshold?: outputs.s3.BucketReplicationTimeValue;
+        status: string;
+    }
+
+    export interface BucketMetricsConfiguration {
+        id: string;
+        prefix?: string;
+        tagFilters?: outputs.s3.BucketTagFilter[];
+    }
+
+    export interface BucketNoncurrentVersionTransition {
+        storageClass: string;
+        transitionInDays: number;
+    }
+
+    export interface BucketNotificationConfiguration {
+        lambdaConfigurations?: outputs.s3.BucketLambdaConfiguration[];
+        queueConfigurations?: outputs.s3.BucketQueueConfiguration[];
+        topicConfigurations?: outputs.s3.BucketTopicConfiguration[];
+    }
+
+    export interface BucketNotificationFilter {
+        s3Key: outputs.s3.BucketS3KeyFilter;
+    }
+
+    export interface BucketObjectLockConfiguration {
+        objectLockEnabled?: string;
+        rule?: outputs.s3.BucketObjectLockRule;
+    }
+
+    export interface BucketObjectLockRule {
+        defaultRetention?: outputs.s3.BucketDefaultRetention;
+    }
+
+    export interface BucketOwnershipControls {
+        rules: outputs.s3.BucketOwnershipControlsRule[];
+    }
+
+    export interface BucketOwnershipControlsRule {
+        objectOwnership?: string;
+    }
+
+    export interface BucketPublicAccessBlockConfiguration {
+        blockPublicAcls?: boolean;
+        blockPublicPolicy?: boolean;
+        ignorePublicAcls?: boolean;
+        restrictPublicBuckets?: boolean;
+    }
+
+    export interface BucketQueueConfiguration {
+        event: string;
+        filter?: outputs.s3.BucketNotificationFilter;
+        queue: string;
+    }
+
+    export interface BucketRedirectAllRequestsTo {
+        hostName: string;
+        protocol?: string;
+    }
+
+    export interface BucketRedirectRule {
+        hostName?: string;
+        httpRedirectCode?: string;
+        protocol?: string;
+        replaceKeyPrefixWith?: string;
+        replaceKeyWith?: string;
+    }
+
+    export interface BucketReplicaModifications {
+        status: string;
+    }
+
+    export interface BucketReplicationConfiguration {
+        role: string;
+        rules: outputs.s3.BucketReplicationRule[];
+    }
+
+    export interface BucketReplicationDestination {
+        accessControlTranslation?: outputs.s3.BucketAccessControlTranslation;
+        account?: string;
+        bucket: string;
+        encryptionConfiguration?: outputs.s3.BucketEncryptionConfiguration;
+        metrics?: outputs.s3.BucketMetrics;
+        replicationTime?: outputs.s3.BucketReplicationTime;
+        storageClass?: string;
+    }
+
+    export interface BucketReplicationRule {
+        deleteMarkerReplication?: outputs.s3.BucketDeleteMarkerReplication;
+        destination: outputs.s3.BucketReplicationDestination;
+        filter?: outputs.s3.BucketReplicationRuleFilter;
+        id?: string;
+        prefix?: string;
+        priority?: number;
+        sourceSelectionCriteria?: outputs.s3.BucketSourceSelectionCriteria;
+        status: string;
+    }
+
+    export interface BucketReplicationRuleAndOperator {
+        prefix?: string;
+        tagFilters?: outputs.s3.BucketTagFilter[];
+    }
+
+    export interface BucketReplicationRuleFilter {
+        and?: outputs.s3.BucketReplicationRuleAndOperator;
+        prefix?: string;
+        tagFilter?: outputs.s3.BucketTagFilter;
+    }
+
+    export interface BucketReplicationTime {
+        status: string;
+        time: outputs.s3.BucketReplicationTimeValue;
+    }
+
+    export interface BucketReplicationTimeValue {
+        minutes: number;
+    }
+
+    export interface BucketRoutingRule {
+        redirectRule: outputs.s3.BucketRedirectRule;
+        routingRuleCondition?: outputs.s3.BucketRoutingRuleCondition;
+    }
+
+    export interface BucketRoutingRuleCondition {
+        httpErrorCodeReturnedEquals?: string;
+        keyPrefixEquals?: string;
+    }
+
+    export interface BucketRule {
+        abortIncompleteMultipartUpload?: outputs.s3.BucketAbortIncompleteMultipartUpload;
+        expirationDate?: string;
+        expirationInDays?: number;
+        expiredObjectDeleteMarker?: boolean;
+        id?: string;
+        noncurrentVersionExpirationInDays?: number;
+        noncurrentVersionTransition?: outputs.s3.BucketNoncurrentVersionTransition;
+        noncurrentVersionTransitions?: outputs.s3.BucketNoncurrentVersionTransition[];
+        prefix?: string;
+        status: string;
+        tagFilters?: outputs.s3.BucketTagFilter[];
+        transition?: outputs.s3.BucketTransition;
+        transitions?: outputs.s3.BucketTransition[];
+    }
+
+    export interface BucketS3KeyFilter {
+        rules: outputs.s3.BucketFilterRule[];
+    }
+
+    export interface BucketServerSideEncryptionByDefault {
+        kMSMasterKeyID?: string;
+        sSEAlgorithm: string;
+    }
+
+    export interface BucketServerSideEncryptionRule {
+        bucketKeyEnabled?: boolean;
+        serverSideEncryptionByDefault?: outputs.s3.BucketServerSideEncryptionByDefault;
+    }
+
+    export interface BucketSourceSelectionCriteria {
+        replicaModifications?: outputs.s3.BucketReplicaModifications;
+        sseKmsEncryptedObjects?: outputs.s3.BucketSseKmsEncryptedObjects;
+    }
+
+    export interface BucketSseKmsEncryptedObjects {
+        status: string;
+    }
+
+    export interface BucketStorageClassAnalysis {
+        dataExport?: outputs.s3.BucketDataExport;
+    }
+
+    export interface BucketTag {
+        key: string;
+        value: string;
+    }
+
+    export interface BucketTagFilter {
+        key: string;
+        value: string;
+    }
+
+    export interface BucketTiering {
+        accessTier: string;
+        days: number;
+    }
+
+    export interface BucketTopicConfiguration {
+        event: string;
+        filter?: outputs.s3.BucketNotificationFilter;
+        topic: string;
+    }
+
+    export interface BucketTransition {
+        storageClass: string;
+        transitionDate?: string;
+        transitionInDays?: number;
+    }
+
+    export interface BucketVersioningConfiguration {
+        status: string;
+    }
+
+    export interface BucketWebsiteConfiguration {
+        errorDocument?: string;
+        indexDocument?: string;
+        redirectAllRequestsTo?: outputs.s3.BucketRedirectAllRequestsTo;
+        routingRules?: outputs.s3.BucketRoutingRule[];
     }
 
     export interface MultiRegionAccessPointPublicAccessBlockConfiguration {
@@ -13234,6 +21323,17 @@ export namespace sagemaker {
     }
 
     export interface AppTag {
+        key: string;
+        value: string;
+    }
+
+    export interface CodeRepositoryGitConfig {
+        branch?: string;
+        repositoryUrl: string;
+        secretArn?: string;
+    }
+
+    export interface CodeRepositoryTag {
         key: string;
         value: string;
     }
@@ -13601,6 +21701,97 @@ export namespace sagemaker {
         sharingSettings?: outputs.sagemaker.DomainSharingSettings;
     }
 
+    export interface EndpointAlarm {
+        alarmName: string;
+    }
+
+    export interface EndpointAutoRollbackConfig {
+        alarms: outputs.sagemaker.EndpointAlarm[];
+    }
+
+    export interface EndpointBlueGreenUpdatePolicy {
+        maximumExecutionTimeoutInSeconds?: number;
+        terminationWaitInSeconds?: number;
+        trafficRoutingConfiguration: outputs.sagemaker.EndpointTrafficRoutingConfig;
+    }
+
+    export interface EndpointCapacitySize {
+        type: string;
+        value: number;
+    }
+
+    export interface EndpointConfigAsyncInferenceClientConfig {
+        maxConcurrentInvocationsPerInstance?: number;
+    }
+
+    export interface EndpointConfigAsyncInferenceConfig {
+        clientConfig?: outputs.sagemaker.EndpointConfigAsyncInferenceClientConfig;
+        outputConfig: outputs.sagemaker.EndpointConfigAsyncInferenceOutputConfig;
+    }
+
+    export interface EndpointConfigAsyncInferenceNotificationConfig {
+        errorTopic?: string;
+        successTopic?: string;
+    }
+
+    export interface EndpointConfigAsyncInferenceOutputConfig {
+        kmsKeyId?: string;
+        notificationConfig?: outputs.sagemaker.EndpointConfigAsyncInferenceNotificationConfig;
+        s3OutputPath: string;
+    }
+
+    export interface EndpointConfigCaptureContentTypeHeader {
+        csvContentTypes?: string[];
+        jsonContentTypes?: string[];
+    }
+
+    export interface EndpointConfigCaptureOption {
+        captureMode: string;
+    }
+
+    export interface EndpointConfigDataCaptureConfig {
+        captureContentTypeHeader?: outputs.sagemaker.EndpointConfigCaptureContentTypeHeader;
+        captureOptions: outputs.sagemaker.EndpointConfigCaptureOption[];
+        destinationS3Uri: string;
+        enableCapture?: boolean;
+        initialSamplingPercentage: number;
+        kmsKeyId?: string;
+    }
+
+    export interface EndpointConfigProductionVariant {
+        acceleratorType?: string;
+        initialInstanceCount: number;
+        initialVariantWeight: number;
+        instanceType: string;
+        modelName: string;
+        variantName: string;
+    }
+
+    export interface EndpointConfigTag {
+        key: string;
+        value: string;
+    }
+
+    export interface EndpointDeploymentConfig {
+        autoRollbackConfiguration?: outputs.sagemaker.EndpointAutoRollbackConfig;
+        blueGreenUpdatePolicy: outputs.sagemaker.EndpointBlueGreenUpdatePolicy;
+    }
+
+    export interface EndpointTag {
+        key: string;
+        value: string;
+    }
+
+    export interface EndpointTrafficRoutingConfig {
+        canarySize?: outputs.sagemaker.EndpointCapacitySize;
+        type: string;
+        waitIntervalInSeconds?: number;
+    }
+
+    export interface EndpointVariantProperty {
+        variantPropertyType?: string;
+    }
+
     export interface FeatureGroupFeatureDefinition {
         featureName: string;
         featureType: enums.sagemaker.FeatureGroupFeatureDefinitionFeatureType;
@@ -13843,6 +22034,17 @@ export namespace sagemaker {
         subnets: string[];
     }
 
+    export interface ModelContainerDefinition {
+        containerHostname?: string;
+        environment?: any;
+        image?: string;
+        imageConfig?: outputs.sagemaker.ModelImageConfig;
+        mode?: string;
+        modelDataUrl?: string;
+        modelPackageName?: string;
+        multiModelConfig?: outputs.sagemaker.ModelMultiModelConfig;
+    }
+
     /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
@@ -14036,6 +22238,19 @@ export namespace sagemaker {
          * The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
          */
         subnets: string[];
+    }
+
+    export interface ModelImageConfig {
+        repositoryAccessMode: string;
+        repositoryAuthConfig?: outputs.sagemaker.ModelRepositoryAuthConfig;
+    }
+
+    export interface ModelInferenceExecutionConfig {
+        mode: string;
+    }
+
+    export interface ModelMultiModelConfig {
+        modelCacheSetting?: string;
     }
 
     /**
@@ -14273,6 +22488,20 @@ export namespace sagemaker {
         /**
          * The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
          */
+        subnets: string[];
+    }
+
+    export interface ModelRepositoryAuthConfig {
+        repositoryCredentialsProviderArn: string;
+    }
+
+    export interface ModelTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ModelVpcConfig {
+        securityGroupIds: string[];
         subnets: string[];
     }
 
@@ -14553,6 +22782,15 @@ export namespace sagemaker {
         subnets: string[];
     }
 
+    export interface NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook {
+        content?: string;
+    }
+
+    export interface NotebookInstanceTag {
+        key: string;
+        value: string;
+    }
+
     export interface PipelineTag {
         key: string;
         value: string;
@@ -14675,9 +22913,80 @@ export namespace sagemaker {
         sharingSettings?: outputs.sagemaker.UserProfileSharingSettings;
     }
 
+    export interface WorkteamCognitoMemberDefinition {
+        cognitoClientId: string;
+        cognitoUserGroup: string;
+        cognitoUserPool: string;
+    }
+
+    export interface WorkteamMemberDefinition {
+        cognitoMemberDefinition: outputs.sagemaker.WorkteamCognitoMemberDefinition;
+    }
+
+    export interface WorkteamNotificationConfiguration {
+        notificationTopicArn: string;
+    }
+
+    export interface WorkteamTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace secretsmanager {
+    export interface RotationScheduleHostedRotationLambda {
+        kmsKeyArn?: string;
+        masterSecretArn?: string;
+        masterSecretKmsKeyArn?: string;
+        rotationLambdaName?: string;
+        rotationType: string;
+        vpcSecurityGroupIds?: string;
+        vpcSubnetIds?: string;
+    }
+
+    export interface RotationScheduleRotationRules {
+        automaticallyAfterDays?: number;
+    }
+
+    export interface SecretGenerateSecretString {
+        excludeCharacters?: string;
+        excludeLowercase?: boolean;
+        excludeNumbers?: boolean;
+        excludePunctuation?: boolean;
+        excludeUppercase?: boolean;
+        generateStringKey?: string;
+        includeSpace?: boolean;
+        passwordLength?: number;
+        requireEachIncludedType?: boolean;
+        secretStringTemplate?: string;
+    }
+
+    export interface SecretReplicaRegion {
+        kmsKeyId?: string;
+        region: string;
+    }
+
+    export interface SecretTag {
+        key: string;
+        value: string;
+    }
+
 }
 
 export namespace servicecatalog {
+    export interface CloudFormationProductProvisioningArtifactProperties {
+        description?: string;
+        disableTemplateValidation?: boolean;
+        info: any;
+        name?: string;
+    }
+
+    export interface CloudFormationProductTag {
+        key: string;
+        value: string;
+    }
+
     export interface CloudFormationProvisionedProductProvisioningParameter {
         key: string;
         value: string;
@@ -14698,6 +23007,11 @@ export namespace servicecatalog {
         value: string;
     }
 
+    export interface PortfolioTag {
+        key: string;
+        value: string;
+    }
+
     export interface ServiceActionDefinitionParameter {
         key: string;
         value: string;
@@ -14714,7 +23028,98 @@ export namespace servicecatalogappregistry {
 
 }
 
+export namespace servicediscovery {
+    export interface HttpNamespaceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface PrivateDnsNamespacePrivateDnsPropertiesMutable {
+        sOA?: outputs.servicediscovery.PrivateDnsNamespaceSOA;
+    }
+
+    export interface PrivateDnsNamespaceProperties {
+        dnsProperties?: outputs.servicediscovery.PrivateDnsNamespacePrivateDnsPropertiesMutable;
+    }
+
+    export interface PrivateDnsNamespaceSOA {
+        tTL?: number;
+    }
+
+    export interface PrivateDnsNamespaceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface PublicDnsNamespaceProperties {
+        dnsProperties?: outputs.servicediscovery.PublicDnsNamespacePublicDnsPropertiesMutable;
+    }
+
+    export interface PublicDnsNamespacePublicDnsPropertiesMutable {
+        sOA?: outputs.servicediscovery.PublicDnsNamespaceSOA;
+    }
+
+    export interface PublicDnsNamespaceSOA {
+        tTL?: number;
+    }
+
+    export interface PublicDnsNamespaceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ServiceDnsConfig {
+        dnsRecords: outputs.servicediscovery.ServiceDnsRecord[];
+        namespaceId?: string;
+        routingPolicy?: string;
+    }
+
+    export interface ServiceDnsRecord {
+        tTL: number;
+        type: string;
+    }
+
+    export interface ServiceHealthCheckConfig {
+        failureThreshold?: number;
+        resourcePath?: string;
+        type: string;
+    }
+
+    export interface ServiceHealthCheckCustomConfig {
+        failureThreshold?: number;
+    }
+
+    export interface ServiceTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace ses {
+    export interface ConfigurationSetEventDestinationCloudWatchDestination {
+        dimensionConfigurations?: outputs.ses.ConfigurationSetEventDestinationDimensionConfiguration[];
+    }
+
+    export interface ConfigurationSetEventDestinationDimensionConfiguration {
+        defaultDimensionValue: string;
+        dimensionName: string;
+        dimensionValueSource: string;
+    }
+
+    export interface ConfigurationSetEventDestinationEventDestination {
+        cloudWatchDestination?: outputs.ses.ConfigurationSetEventDestinationCloudWatchDestination;
+        enabled?: boolean;
+        kinesisFirehoseDestination?: outputs.ses.ConfigurationSetEventDestinationKinesisFirehoseDestination;
+        matchingEventTypes: string[];
+        name?: string;
+    }
+
+    export interface ConfigurationSetEventDestinationKinesisFirehoseDestination {
+        deliveryStreamARN: string;
+        iAMRoleARN: string;
+    }
+
     export interface ContactListTag {
         key: string;
         value: string;
@@ -14736,6 +23141,83 @@ export namespace ses {
         topicName: string;
     }
 
+    export interface ReceiptFilterFilter {
+        ipFilter: outputs.ses.ReceiptFilterIpFilter;
+        name?: string;
+    }
+
+    export interface ReceiptFilterIpFilter {
+        cidr: string;
+        policy: string;
+    }
+
+    export interface ReceiptRuleAction {
+        addHeaderAction?: outputs.ses.ReceiptRuleAddHeaderAction;
+        bounceAction?: outputs.ses.ReceiptRuleBounceAction;
+        lambdaAction?: outputs.ses.ReceiptRuleLambdaAction;
+        s3Action?: outputs.ses.ReceiptRuleS3Action;
+        sNSAction?: outputs.ses.ReceiptRuleSNSAction;
+        stopAction?: outputs.ses.ReceiptRuleStopAction;
+        workmailAction?: outputs.ses.ReceiptRuleWorkmailAction;
+    }
+
+    export interface ReceiptRuleAddHeaderAction {
+        headerName: string;
+        headerValue: string;
+    }
+
+    export interface ReceiptRuleBounceAction {
+        message: string;
+        sender: string;
+        smtpReplyCode: string;
+        statusCode?: string;
+        topicArn?: string;
+    }
+
+    export interface ReceiptRuleLambdaAction {
+        functionArn: string;
+        invocationType?: string;
+        topicArn?: string;
+    }
+
+    export interface ReceiptRuleRule {
+        actions?: outputs.ses.ReceiptRuleAction[];
+        enabled?: boolean;
+        name?: string;
+        recipients?: string[];
+        scanEnabled?: boolean;
+        tlsPolicy?: string;
+    }
+
+    export interface ReceiptRuleS3Action {
+        bucketName: string;
+        kmsKeyArn?: string;
+        objectKeyPrefix?: string;
+        topicArn?: string;
+    }
+
+    export interface ReceiptRuleSNSAction {
+        encoding?: string;
+        topicArn?: string;
+    }
+
+    export interface ReceiptRuleStopAction {
+        scope: string;
+        topicArn?: string;
+    }
+
+    export interface ReceiptRuleWorkmailAction {
+        organizationArn: string;
+        topicArn?: string;
+    }
+
+    export interface TemplateTemplate {
+        htmlPart?: string;
+        subjectPart?: string;
+        templateName?: string;
+        textPart?: string;
+    }
+
 }
 
 export namespace signer {
@@ -14747,6 +23229,27 @@ export namespace signer {
     export interface SigningProfileTag {
         key?: string;
         value?: string;
+    }
+
+}
+
+export namespace sns {
+    export interface TopicSubscription {
+        endpoint: string;
+        protocol: string;
+    }
+
+    export interface TopicTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace sqs {
+    export interface QueueTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -14802,6 +23305,103 @@ export namespace ssm {
          * The value of the tag.
          */
         value?: string;
+    }
+
+    export interface MaintenanceWindowTag {
+        key: string;
+        value: string;
+    }
+
+    export interface MaintenanceWindowTargetTargets {
+        key: string;
+        values: string[];
+    }
+
+    export interface MaintenanceWindowTaskLoggingInfo {
+        region: string;
+        s3Bucket: string;
+        s3Prefix?: string;
+    }
+
+    export interface MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+        documentVersion?: string;
+        parameters?: any;
+    }
+
+    export interface MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+        clientContext?: string;
+        payload?: string;
+        qualifier?: string;
+    }
+
+    export interface MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+        comment?: string;
+        documentHash?: string;
+        documentHashType?: string;
+        notificationConfig?: outputs.ssm.MaintenanceWindowTaskNotificationConfig;
+        outputS3BucketName?: string;
+        outputS3KeyPrefix?: string;
+        parameters?: any;
+        serviceRoleArn?: string;
+        timeoutSeconds?: number;
+    }
+
+    export interface MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+        input?: string;
+        name?: string;
+    }
+
+    export interface MaintenanceWindowTaskNotificationConfig {
+        notificationArn: string;
+        notificationEvents?: string[];
+        notificationType?: string;
+    }
+
+    export interface MaintenanceWindowTaskTarget {
+        key: string;
+        values: string[];
+    }
+
+    export interface MaintenanceWindowTaskTaskInvocationParameters {
+        maintenanceWindowAutomationParameters?: outputs.ssm.MaintenanceWindowTaskMaintenanceWindowAutomationParameters;
+        maintenanceWindowLambdaParameters?: outputs.ssm.MaintenanceWindowTaskMaintenanceWindowLambdaParameters;
+        maintenanceWindowRunCommandParameters?: outputs.ssm.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters;
+        maintenanceWindowStepFunctionsParameters?: outputs.ssm.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters;
+    }
+
+    export interface PatchBaselinePatchFilter {
+        key?: string;
+        values?: string[];
+    }
+
+    export interface PatchBaselinePatchFilterGroup {
+        patchFilters?: outputs.ssm.PatchBaselinePatchFilter[];
+    }
+
+    export interface PatchBaselinePatchSource {
+        configuration?: string;
+        name?: string;
+        products?: string[];
+    }
+
+    export interface PatchBaselinePatchStringDate {
+    }
+
+    export interface PatchBaselineRule {
+        approveAfterDays?: number;
+        approveUntilDate?: outputs.ssm.PatchBaselinePatchStringDate;
+        complianceLevel?: string;
+        enableNonSecurity?: boolean;
+        patchFilterGroup?: outputs.ssm.PatchBaselinePatchFilterGroup;
+    }
+
+    export interface PatchBaselineRuleGroup {
+        patchRules?: outputs.ssm.PatchBaselineRule[];
+    }
+
+    export interface PatchBaselineTag {
+        key: string;
+        value: string;
     }
 
     export interface ResourceDataSyncAwsOrganizationsSource {
@@ -15007,6 +23607,11 @@ export namespace sso {
 }
 
 export namespace stepfunctions {
+    export interface ActivityTagsEntry {
+        key: string;
+        value: string;
+    }
+
     export interface StateMachineCloudWatchLogsLogGroup {
         logGroupArn?: string;
     }
@@ -15136,6 +23741,212 @@ export namespace timestream {
     export interface TableTag {
         key?: string;
         value?: string;
+    }
+
+}
+
+export namespace transfer {
+    export interface ServerEndpointDetails {
+        addressAllocationIds?: string[];
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+        vpcEndpointId?: string;
+        vpcId?: string;
+    }
+
+    export interface ServerIdentityProviderDetails {
+        directoryId?: string;
+        invocationRole?: string;
+        url?: string;
+    }
+
+    export interface ServerProtocol {
+    }
+
+    export interface ServerProtocolDetails {
+        passiveIp?: string;
+    }
+
+    export interface ServerTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ServerWorkflowDetail {
+        executionRole: string;
+        workflowId: string;
+    }
+
+    export interface ServerWorkflowDetails {
+        onUpload: outputs.transfer.ServerWorkflowDetail[];
+    }
+
+    export interface UserHomeDirectoryMapEntry {
+        entry: string;
+        target: string;
+    }
+
+    export interface UserPosixProfile {
+        gid: number;
+        secondaryGids?: number[];
+        uid: number;
+    }
+
+    export interface UserSshPublicKey {
+    }
+
+    export interface UserTag {
+        key: string;
+        value: string;
+    }
+
+}
+
+export namespace waf {
+    export interface ByteMatchSetByteMatchTuple {
+        fieldToMatch: outputs.waf.ByteMatchSetFieldToMatch;
+        positionalConstraint: string;
+        targetString?: string;
+        targetStringBase64?: string;
+        textTransformation: string;
+    }
+
+    export interface ByteMatchSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface IPSetIPSetDescriptor {
+        type: string;
+        value: string;
+    }
+
+    export interface RulePredicate {
+        dataId: string;
+        negated: boolean;
+        type: string;
+    }
+
+    export interface SizeConstraintSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface SizeConstraintSetSizeConstraint {
+        comparisonOperator: string;
+        fieldToMatch: outputs.waf.SizeConstraintSetFieldToMatch;
+        size: number;
+        textTransformation: string;
+    }
+
+    export interface SqlInjectionMatchSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface SqlInjectionMatchSetSqlInjectionMatchTuple {
+        fieldToMatch: outputs.waf.SqlInjectionMatchSetFieldToMatch;
+        textTransformation: string;
+    }
+
+    export interface WebACLActivatedRule {
+        action?: outputs.waf.WebACLWafAction;
+        priority: number;
+        ruleId: string;
+    }
+
+    export interface WebACLWafAction {
+        type: string;
+    }
+
+    export interface XssMatchSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface XssMatchSetXssMatchTuple {
+        fieldToMatch: outputs.waf.XssMatchSetFieldToMatch;
+        textTransformation: string;
+    }
+
+}
+
+export namespace wafregional {
+    export interface ByteMatchSetByteMatchTuple {
+        fieldToMatch: outputs.wafregional.ByteMatchSetFieldToMatch;
+        positionalConstraint: string;
+        targetString?: string;
+        targetStringBase64?: string;
+        textTransformation: string;
+    }
+
+    export interface ByteMatchSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface GeoMatchSetGeoMatchConstraint {
+        type: string;
+        value: string;
+    }
+
+    export interface IPSetIPSetDescriptor {
+        type: string;
+        value: string;
+    }
+
+    export interface RateBasedRulePredicate {
+        dataId: string;
+        negated: boolean;
+        type: string;
+    }
+
+    export interface RulePredicate {
+        dataId: string;
+        negated: boolean;
+        type: string;
+    }
+
+    export interface SizeConstraintSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface SizeConstraintSetSizeConstraint {
+        comparisonOperator: string;
+        fieldToMatch: outputs.wafregional.SizeConstraintSetFieldToMatch;
+        size: number;
+        textTransformation: string;
+    }
+
+    export interface SqlInjectionMatchSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface SqlInjectionMatchSetSqlInjectionMatchTuple {
+        fieldToMatch: outputs.wafregional.SqlInjectionMatchSetFieldToMatch;
+        textTransformation: string;
+    }
+
+    export interface WebACLAction {
+        type: string;
+    }
+
+    export interface WebACLRule {
+        action: outputs.wafregional.WebACLAction;
+        priority: number;
+        ruleId: string;
+    }
+
+    export interface XssMatchSetFieldToMatch {
+        data?: string;
+        type: string;
+    }
+
+    export interface XssMatchSetXssMatchTuple {
+        fieldToMatch: outputs.wafregional.XssMatchSetFieldToMatch;
+        textTransformation: string;
     }
 
 }
@@ -15730,6 +24541,19 @@ export namespace workspaces {
     export interface ConnectionAliasTag {
         key: string;
         value: string;
+    }
+
+    export interface WorkspaceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface WorkspaceWorkspaceProperties {
+        computeTypeName?: string;
+        rootVolumeSizeGib?: number;
+        runningMode?: string;
+        runningModeAutoStopTimeoutInMinutes?: number;
+        userVolumeSizeGib?: number;
     }
 
 }

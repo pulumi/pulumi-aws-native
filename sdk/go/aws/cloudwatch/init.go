@@ -21,8 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cloudwatch:Alarm":
+		r = &Alarm{}
+	case "aws-native:cloudwatch:AnomalyDetector":
+		r = &AnomalyDetector{}
 	case "aws-native:cloudwatch:CompositeAlarm":
 		r = &CompositeAlarm{}
+	case "aws-native:cloudwatch:Dashboard":
+		r = &Dashboard{}
+	case "aws-native:cloudwatch:InsightRule":
+		r = &InsightRule{}
 	case "aws-native:cloudwatch:MetricStream":
 		r = &MetricStream{}
 	default:

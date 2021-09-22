@@ -6379,6 +6379,794 @@ func (o RealtimeLogConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOut
 	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
 }
 
+type StreamingDistributionLogging struct {
+	Bucket  string `pulumi:"bucket"`
+	Enabled bool   `pulumi:"enabled"`
+	Prefix  string `pulumi:"prefix"`
+}
+
+// StreamingDistributionLoggingInput is an input type that accepts StreamingDistributionLoggingArgs and StreamingDistributionLoggingOutput values.
+// You can construct a concrete instance of `StreamingDistributionLoggingInput` via:
+//
+//          StreamingDistributionLoggingArgs{...}
+type StreamingDistributionLoggingInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionLoggingOutput() StreamingDistributionLoggingOutput
+	ToStreamingDistributionLoggingOutputWithContext(context.Context) StreamingDistributionLoggingOutput
+}
+
+type StreamingDistributionLoggingArgs struct {
+	Bucket  pulumi.StringInput `pulumi:"bucket"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Prefix  pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (StreamingDistributionLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingOutput() StreamingDistributionLoggingOutput {
+	return i.ToStreamingDistributionLoggingOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingOutputWithContext(ctx context.Context) StreamingDistributionLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionLoggingOutput)
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return i.ToStreamingDistributionLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionLoggingOutput).ToStreamingDistributionLoggingPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionLoggingPtrInput is an input type that accepts StreamingDistributionLoggingArgs, StreamingDistributionLoggingPtr and StreamingDistributionLoggingPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionLoggingPtrInput` via:
+//
+//          StreamingDistributionLoggingArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionLoggingPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput
+	ToStreamingDistributionLoggingPtrOutputWithContext(context.Context) StreamingDistributionLoggingPtrOutput
+}
+
+type streamingDistributionLoggingPtrType StreamingDistributionLoggingArgs
+
+func StreamingDistributionLoggingPtr(v *StreamingDistributionLoggingArgs) StreamingDistributionLoggingPtrInput {
+	return (*streamingDistributionLoggingPtrType)(v)
+}
+
+func (*streamingDistributionLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (i *streamingDistributionLoggingPtrType) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return i.ToStreamingDistributionLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionLoggingPtrType) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionLoggingPtrOutput)
+}
+
+type StreamingDistributionLoggingOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingOutput() StreamingDistributionLoggingOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingOutputWithContext(ctx context.Context) StreamingDistributionLoggingOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return o.ToStreamingDistributionLoggingPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionLogging) *StreamingDistributionLogging {
+		return &v
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+func (o StreamingDistributionLoggingOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionLogging) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o StreamingDistributionLoggingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingDistributionLogging) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o StreamingDistributionLoggingOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionLogging) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type StreamingDistributionLoggingPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (o StreamingDistributionLoggingPtrOutput) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingPtrOutput) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingPtrOutput) Elem() StreamingDistributionLoggingOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) StreamingDistributionLogging {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionLogging
+		return ret
+	}).(StreamingDistributionLoggingOutput)
+}
+
+func (o StreamingDistributionLoggingPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionLoggingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o StreamingDistributionLoggingPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingDistributionS3Origin struct {
+	DomainName           string `pulumi:"domainName"`
+	OriginAccessIdentity string `pulumi:"originAccessIdentity"`
+}
+
+// StreamingDistributionS3OriginInput is an input type that accepts StreamingDistributionS3OriginArgs and StreamingDistributionS3OriginOutput values.
+// You can construct a concrete instance of `StreamingDistributionS3OriginInput` via:
+//
+//          StreamingDistributionS3OriginArgs{...}
+type StreamingDistributionS3OriginInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionS3OriginOutput() StreamingDistributionS3OriginOutput
+	ToStreamingDistributionS3OriginOutputWithContext(context.Context) StreamingDistributionS3OriginOutput
+}
+
+type StreamingDistributionS3OriginArgs struct {
+	DomainName           pulumi.StringInput `pulumi:"domainName"`
+	OriginAccessIdentity pulumi.StringInput `pulumi:"originAccessIdentity"`
+}
+
+func (StreamingDistributionS3OriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginOutput() StreamingDistributionS3OriginOutput {
+	return i.ToStreamingDistributionS3OriginOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginOutputWithContext(ctx context.Context) StreamingDistributionS3OriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionS3OriginOutput)
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return i.ToStreamingDistributionS3OriginPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionS3OriginOutput).ToStreamingDistributionS3OriginPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionS3OriginPtrInput is an input type that accepts StreamingDistributionS3OriginArgs, StreamingDistributionS3OriginPtr and StreamingDistributionS3OriginPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionS3OriginPtrInput` via:
+//
+//          StreamingDistributionS3OriginArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionS3OriginPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput
+	ToStreamingDistributionS3OriginPtrOutputWithContext(context.Context) StreamingDistributionS3OriginPtrOutput
+}
+
+type streamingDistributionS3OriginPtrType StreamingDistributionS3OriginArgs
+
+func StreamingDistributionS3OriginPtr(v *StreamingDistributionS3OriginArgs) StreamingDistributionS3OriginPtrInput {
+	return (*streamingDistributionS3OriginPtrType)(v)
+}
+
+func (*streamingDistributionS3OriginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (i *streamingDistributionS3OriginPtrType) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return i.ToStreamingDistributionS3OriginPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionS3OriginPtrType) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionS3OriginPtrOutput)
+}
+
+type StreamingDistributionS3OriginOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionS3OriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginOutput() StreamingDistributionS3OriginOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginOutputWithContext(ctx context.Context) StreamingDistributionS3OriginOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return o.ToStreamingDistributionS3OriginPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionS3Origin) *StreamingDistributionS3Origin {
+		return &v
+	}).(StreamingDistributionS3OriginPtrOutput)
+}
+
+func (o StreamingDistributionS3OriginOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionS3Origin) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o StreamingDistributionS3OriginOutput) OriginAccessIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionS3Origin) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
+}
+
+type StreamingDistributionS3OriginPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionS3OriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) Elem() StreamingDistributionS3OriginOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) StreamingDistributionS3Origin {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionS3Origin
+		return ret
+	}).(StreamingDistributionS3OriginOutput)
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OriginAccessIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamingDistributionStreamingDistributionConfig struct {
+	Aliases        []string                            `pulumi:"aliases"`
+	Comment        string                              `pulumi:"comment"`
+	Enabled        bool                                `pulumi:"enabled"`
+	Logging        *StreamingDistributionLogging       `pulumi:"logging"`
+	PriceClass     *string                             `pulumi:"priceClass"`
+	S3Origin       StreamingDistributionS3Origin       `pulumi:"s3Origin"`
+	TrustedSigners StreamingDistributionTrustedSigners `pulumi:"trustedSigners"`
+}
+
+// StreamingDistributionStreamingDistributionConfigInput is an input type that accepts StreamingDistributionStreamingDistributionConfigArgs and StreamingDistributionStreamingDistributionConfigOutput values.
+// You can construct a concrete instance of `StreamingDistributionStreamingDistributionConfigInput` via:
+//
+//          StreamingDistributionStreamingDistributionConfigArgs{...}
+type StreamingDistributionStreamingDistributionConfigInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput
+	ToStreamingDistributionStreamingDistributionConfigOutputWithContext(context.Context) StreamingDistributionStreamingDistributionConfigOutput
+}
+
+type StreamingDistributionStreamingDistributionConfigArgs struct {
+	Aliases        pulumi.StringArrayInput                  `pulumi:"aliases"`
+	Comment        pulumi.StringInput                       `pulumi:"comment"`
+	Enabled        pulumi.BoolInput                         `pulumi:"enabled"`
+	Logging        StreamingDistributionLoggingPtrInput     `pulumi:"logging"`
+	PriceClass     pulumi.StringPtrInput                    `pulumi:"priceClass"`
+	S3Origin       StreamingDistributionS3OriginInput       `pulumi:"s3Origin"`
+	TrustedSigners StreamingDistributionTrustedSignersInput `pulumi:"trustedSigners"`
+}
+
+func (StreamingDistributionStreamingDistributionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput {
+	return i.ToStreamingDistributionStreamingDistributionConfigOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigOutput)
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return i.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigOutput).ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionStreamingDistributionConfigPtrInput is an input type that accepts StreamingDistributionStreamingDistributionConfigArgs, StreamingDistributionStreamingDistributionConfigPtr and StreamingDistributionStreamingDistributionConfigPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionStreamingDistributionConfigPtrInput` via:
+//
+//          StreamingDistributionStreamingDistributionConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionStreamingDistributionConfigPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput
+	ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput
+}
+
+type streamingDistributionStreamingDistributionConfigPtrType StreamingDistributionStreamingDistributionConfigArgs
+
+func StreamingDistributionStreamingDistributionConfigPtr(v *StreamingDistributionStreamingDistributionConfigArgs) StreamingDistributionStreamingDistributionConfigPtrInput {
+	return (*streamingDistributionStreamingDistributionConfigPtrType)(v)
+}
+
+func (*streamingDistributionStreamingDistributionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (i *streamingDistributionStreamingDistributionConfigPtrType) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return i.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionStreamingDistributionConfigPtrType) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigPtrOutput)
+}
+
+type StreamingDistributionStreamingDistributionConfigOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionStreamingDistributionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionStreamingDistributionConfig) *StreamingDistributionStreamingDistributionConfig {
+		return &v
+	}).(StreamingDistributionStreamingDistributionConfigPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) Logging() StreamingDistributionLoggingPtrOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) *StreamingDistributionLogging {
+		return v.Logging
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) *string { return v.PriceClass }).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) S3Origin() StreamingDistributionS3OriginOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) StreamingDistributionS3Origin {
+		return v.S3Origin
+	}).(StreamingDistributionS3OriginOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) TrustedSigners() StreamingDistributionTrustedSignersOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) StreamingDistributionTrustedSigners {
+		return v.TrustedSigners
+	}).(StreamingDistributionTrustedSignersOutput)
+}
+
+type StreamingDistributionStreamingDistributionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionStreamingDistributionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Elem() StreamingDistributionStreamingDistributionConfigOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) StreamingDistributionStreamingDistributionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionStreamingDistributionConfig
+		return ret
+	}).(StreamingDistributionStreamingDistributionConfigOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aliases
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Logging() StreamingDistributionLoggingPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceClass
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) S3Origin() StreamingDistributionS3OriginPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionS3Origin {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Origin
+	}).(StreamingDistributionS3OriginPtrOutput)
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) TrustedSigners() StreamingDistributionTrustedSignersPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionTrustedSigners {
+		if v == nil {
+			return nil
+		}
+		return &v.TrustedSigners
+	}).(StreamingDistributionTrustedSignersPtrOutput)
+}
+
+type StreamingDistributionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StreamingDistributionTagInput is an input type that accepts StreamingDistributionTagArgs and StreamingDistributionTagOutput values.
+// You can construct a concrete instance of `StreamingDistributionTagInput` via:
+//
+//          StreamingDistributionTagArgs{...}
+type StreamingDistributionTagInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionTagOutput() StreamingDistributionTagOutput
+	ToStreamingDistributionTagOutputWithContext(context.Context) StreamingDistributionTagOutput
+}
+
+type StreamingDistributionTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StreamingDistributionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionTag)(nil)).Elem()
+}
+
+func (i StreamingDistributionTagArgs) ToStreamingDistributionTagOutput() StreamingDistributionTagOutput {
+	return i.ToStreamingDistributionTagOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionTagArgs) ToStreamingDistributionTagOutputWithContext(ctx context.Context) StreamingDistributionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTagOutput)
+}
+
+// StreamingDistributionTagArrayInput is an input type that accepts StreamingDistributionTagArray and StreamingDistributionTagArrayOutput values.
+// You can construct a concrete instance of `StreamingDistributionTagArrayInput` via:
+//
+//          StreamingDistributionTagArray{ StreamingDistributionTagArgs{...} }
+type StreamingDistributionTagArrayInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionTagArrayOutput() StreamingDistributionTagArrayOutput
+	ToStreamingDistributionTagArrayOutputWithContext(context.Context) StreamingDistributionTagArrayOutput
+}
+
+type StreamingDistributionTagArray []StreamingDistributionTagInput
+
+func (StreamingDistributionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingDistributionTag)(nil)).Elem()
+}
+
+func (i StreamingDistributionTagArray) ToStreamingDistributionTagArrayOutput() StreamingDistributionTagArrayOutput {
+	return i.ToStreamingDistributionTagArrayOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionTagArray) ToStreamingDistributionTagArrayOutputWithContext(ctx context.Context) StreamingDistributionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTagArrayOutput)
+}
+
+type StreamingDistributionTagOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionTag)(nil)).Elem()
+}
+
+func (o StreamingDistributionTagOutput) ToStreamingDistributionTagOutput() StreamingDistributionTagOutput {
+	return o
+}
+
+func (o StreamingDistributionTagOutput) ToStreamingDistributionTagOutputWithContext(ctx context.Context) StreamingDistributionTagOutput {
+	return o
+}
+
+func (o StreamingDistributionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StreamingDistributionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StreamingDistributionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamingDistributionTag)(nil)).Elem()
+}
+
+func (o StreamingDistributionTagArrayOutput) ToStreamingDistributionTagArrayOutput() StreamingDistributionTagArrayOutput {
+	return o
+}
+
+func (o StreamingDistributionTagArrayOutput) ToStreamingDistributionTagArrayOutputWithContext(ctx context.Context) StreamingDistributionTagArrayOutput {
+	return o
+}
+
+func (o StreamingDistributionTagArrayOutput) Index(i pulumi.IntInput) StreamingDistributionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingDistributionTag {
+		return vs[0].([]StreamingDistributionTag)[vs[1].(int)]
+	}).(StreamingDistributionTagOutput)
+}
+
+type StreamingDistributionTrustedSigners struct {
+	AwsAccountNumbers []string `pulumi:"awsAccountNumbers"`
+	Enabled           bool     `pulumi:"enabled"`
+}
+
+// StreamingDistributionTrustedSignersInput is an input type that accepts StreamingDistributionTrustedSignersArgs and StreamingDistributionTrustedSignersOutput values.
+// You can construct a concrete instance of `StreamingDistributionTrustedSignersInput` via:
+//
+//          StreamingDistributionTrustedSignersArgs{...}
+type StreamingDistributionTrustedSignersInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionTrustedSignersOutput() StreamingDistributionTrustedSignersOutput
+	ToStreamingDistributionTrustedSignersOutputWithContext(context.Context) StreamingDistributionTrustedSignersOutput
+}
+
+type StreamingDistributionTrustedSignersArgs struct {
+	AwsAccountNumbers pulumi.StringArrayInput `pulumi:"awsAccountNumbers"`
+	Enabled           pulumi.BoolInput        `pulumi:"enabled"`
+}
+
+func (StreamingDistributionTrustedSignersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersOutput() StreamingDistributionTrustedSignersOutput {
+	return i.ToStreamingDistributionTrustedSignersOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTrustedSignersOutput)
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return i.ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTrustedSignersOutput).ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionTrustedSignersPtrInput is an input type that accepts StreamingDistributionTrustedSignersArgs, StreamingDistributionTrustedSignersPtr and StreamingDistributionTrustedSignersPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionTrustedSignersPtrInput` via:
+//
+//          StreamingDistributionTrustedSignersArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionTrustedSignersPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput
+	ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Context) StreamingDistributionTrustedSignersPtrOutput
+}
+
+type streamingDistributionTrustedSignersPtrType StreamingDistributionTrustedSignersArgs
+
+func StreamingDistributionTrustedSignersPtr(v *StreamingDistributionTrustedSignersArgs) StreamingDistributionTrustedSignersPtrInput {
+	return (*streamingDistributionTrustedSignersPtrType)(v)
+}
+
+func (*streamingDistributionTrustedSignersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (i *streamingDistributionTrustedSignersPtrType) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return i.ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionTrustedSignersPtrType) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTrustedSignersPtrOutput)
+}
+
+type StreamingDistributionTrustedSignersOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionTrustedSignersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersOutput() StreamingDistributionTrustedSignersOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return o.ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionTrustedSigners) *StreamingDistributionTrustedSigners {
+		return &v
+	}).(StreamingDistributionTrustedSignersPtrOutput)
+}
+
+func (o StreamingDistributionTrustedSignersOutput) AwsAccountNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingDistributionTrustedSigners) []string { return v.AwsAccountNumbers }).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionTrustedSignersOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingDistributionTrustedSigners) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type StreamingDistributionTrustedSignersPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionTrustedSignersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) Elem() StreamingDistributionTrustedSignersOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) StreamingDistributionTrustedSigners {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionTrustedSigners
+		return ret
+	}).(StreamingDistributionTrustedSignersOutput)
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) AwsAccountNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigOutput{})
 	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigPtrOutput{})
@@ -6460,4 +7248,14 @@ func init() {
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointArrayOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigKinesisStreamConfigOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionLoggingOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionLoggingPtrOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionS3OriginOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionS3OriginPtrOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionStreamingDistributionConfigOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionStreamingDistributionConfigPtrOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionTagOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionTagArrayOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersPtrOutput{})
 }

@@ -40,6 +40,7 @@ __all__ = [
     'SecurityProfileMetricValueArgs',
     'SecurityProfileStatisticalThresholdArgs',
     'SecurityProfileTagArgs',
+    'ThingAttributePayloadArgs',
     'TopicRuleActionArgs',
     'TopicRuleAssetPropertyTimestampArgs',
     'TopicRuleAssetPropertyValueArgs',
@@ -1405,6 +1406,23 @@ class SecurityProfileTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ThingAttributePayloadArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[Any] = None):
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[Any]:
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[Any]):
+        pulumi.set(self, "attributes", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,106 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GroupPolicy struct {
+	PolicyDocument interface{} `pulumi:"policyDocument"`
+	PolicyName     string      `pulumi:"policyName"`
+}
+
+// GroupPolicyInput is an input type that accepts GroupPolicyArgs and GroupPolicyOutput values.
+// You can construct a concrete instance of `GroupPolicyInput` via:
+//
+//          GroupPolicyArgs{...}
+type GroupPolicyInput interface {
+	pulumi.Input
+
+	ToGroupPolicyOutput() GroupPolicyOutput
+	ToGroupPolicyOutputWithContext(context.Context) GroupPolicyOutput
+}
+
+type GroupPolicyArgs struct {
+	PolicyDocument pulumi.Input       `pulumi:"policyDocument"`
+	PolicyName     pulumi.StringInput `pulumi:"policyName"`
+}
+
+func (GroupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicy)(nil)).Elem()
+}
+
+func (i GroupPolicyArgs) ToGroupPolicyOutput() GroupPolicyOutput {
+	return i.ToGroupPolicyOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyArgs) ToGroupPolicyOutputWithContext(ctx context.Context) GroupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyOutput)
+}
+
+// GroupPolicyArrayInput is an input type that accepts GroupPolicyArray and GroupPolicyArrayOutput values.
+// You can construct a concrete instance of `GroupPolicyArrayInput` via:
+//
+//          GroupPolicyArray{ GroupPolicyArgs{...} }
+type GroupPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicyArrayOutput() GroupPolicyArrayOutput
+	ToGroupPolicyArrayOutputWithContext(context.Context) GroupPolicyArrayOutput
+}
+
+type GroupPolicyArray []GroupPolicyInput
+
+func (GroupPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicy)(nil)).Elem()
+}
+
+func (i GroupPolicyArray) ToGroupPolicyArrayOutput() GroupPolicyArrayOutput {
+	return i.ToGroupPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicyArray) ToGroupPolicyArrayOutputWithContext(ctx context.Context) GroupPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyArrayOutput)
+}
+
+type GroupPolicyOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicy)(nil)).Elem()
+}
+
+func (o GroupPolicyOutput) ToGroupPolicyOutput() GroupPolicyOutput {
+	return o
+}
+
+func (o GroupPolicyOutput) ToGroupPolicyOutputWithContext(ctx context.Context) GroupPolicyOutput {
+	return o
+}
+
+func (o GroupPolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v GroupPolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o GroupPolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicy) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+type GroupPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicy)(nil)).Elem()
+}
+
+func (o GroupPolicyArrayOutput) ToGroupPolicyArrayOutput() GroupPolicyArrayOutput {
+	return o
+}
+
+func (o GroupPolicyArrayOutput) ToGroupPolicyArrayOutputWithContext(ctx context.Context) GroupPolicyArrayOutput {
+	return o
+}
+
+func (o GroupPolicyArrayOutput) Index(i pulumi.IntInput) GroupPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicy {
+		return vs[0].([]GroupPolicy)[vs[1].(int)]
+	}).(GroupPolicyOutput)
+}
+
 // A key-value pair to associate with a resource.
 type OIDCProviderTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -117,6 +217,206 @@ func (o OIDCProviderTagArrayOutput) Index(i pulumi.IntInput) OIDCProviderTagOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OIDCProviderTag {
 		return vs[0].([]OIDCProviderTag)[vs[1].(int)]
 	}).(OIDCProviderTagOutput)
+}
+
+type RolePolicy struct {
+	PolicyDocument interface{} `pulumi:"policyDocument"`
+	PolicyName     string      `pulumi:"policyName"`
+}
+
+// RolePolicyInput is an input type that accepts RolePolicyArgs and RolePolicyOutput values.
+// You can construct a concrete instance of `RolePolicyInput` via:
+//
+//          RolePolicyArgs{...}
+type RolePolicyInput interface {
+	pulumi.Input
+
+	ToRolePolicyOutput() RolePolicyOutput
+	ToRolePolicyOutputWithContext(context.Context) RolePolicyOutput
+}
+
+type RolePolicyArgs struct {
+	PolicyDocument pulumi.Input       `pulumi:"policyDocument"`
+	PolicyName     pulumi.StringInput `pulumi:"policyName"`
+}
+
+func (RolePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePolicy)(nil)).Elem()
+}
+
+func (i RolePolicyArgs) ToRolePolicyOutput() RolePolicyOutput {
+	return i.ToRolePolicyOutputWithContext(context.Background())
+}
+
+func (i RolePolicyArgs) ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyOutput)
+}
+
+// RolePolicyArrayInput is an input type that accepts RolePolicyArray and RolePolicyArrayOutput values.
+// You can construct a concrete instance of `RolePolicyArrayInput` via:
+//
+//          RolePolicyArray{ RolePolicyArgs{...} }
+type RolePolicyArrayInput interface {
+	pulumi.Input
+
+	ToRolePolicyArrayOutput() RolePolicyArrayOutput
+	ToRolePolicyArrayOutputWithContext(context.Context) RolePolicyArrayOutput
+}
+
+type RolePolicyArray []RolePolicyInput
+
+func (RolePolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RolePolicy)(nil)).Elem()
+}
+
+func (i RolePolicyArray) ToRolePolicyArrayOutput() RolePolicyArrayOutput {
+	return i.ToRolePolicyArrayOutputWithContext(context.Background())
+}
+
+func (i RolePolicyArray) ToRolePolicyArrayOutputWithContext(ctx context.Context) RolePolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyArrayOutput)
+}
+
+type RolePolicyOutput struct{ *pulumi.OutputState }
+
+func (RolePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RolePolicy)(nil)).Elem()
+}
+
+func (o RolePolicyOutput) ToRolePolicyOutput() RolePolicyOutput {
+	return o
+}
+
+func (o RolePolicyOutput) ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput {
+	return o
+}
+
+func (o RolePolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v RolePolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o RolePolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v RolePolicy) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+type RolePolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (RolePolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RolePolicy)(nil)).Elem()
+}
+
+func (o RolePolicyArrayOutput) ToRolePolicyArrayOutput() RolePolicyArrayOutput {
+	return o
+}
+
+func (o RolePolicyArrayOutput) ToRolePolicyArrayOutputWithContext(ctx context.Context) RolePolicyArrayOutput {
+	return o
+}
+
+func (o RolePolicyArrayOutput) Index(i pulumi.IntInput) RolePolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RolePolicy {
+		return vs[0].([]RolePolicy)[vs[1].(int)]
+	}).(RolePolicyOutput)
+}
+
+type RoleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// RoleTagInput is an input type that accepts RoleTagArgs and RoleTagOutput values.
+// You can construct a concrete instance of `RoleTagInput` via:
+//
+//          RoleTagArgs{...}
+type RoleTagInput interface {
+	pulumi.Input
+
+	ToRoleTagOutput() RoleTagOutput
+	ToRoleTagOutputWithContext(context.Context) RoleTagOutput
+}
+
+type RoleTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RoleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleTag)(nil)).Elem()
+}
+
+func (i RoleTagArgs) ToRoleTagOutput() RoleTagOutput {
+	return i.ToRoleTagOutputWithContext(context.Background())
+}
+
+func (i RoleTagArgs) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleTagOutput)
+}
+
+// RoleTagArrayInput is an input type that accepts RoleTagArray and RoleTagArrayOutput values.
+// You can construct a concrete instance of `RoleTagArrayInput` via:
+//
+//          RoleTagArray{ RoleTagArgs{...} }
+type RoleTagArrayInput interface {
+	pulumi.Input
+
+	ToRoleTagArrayOutput() RoleTagArrayOutput
+	ToRoleTagArrayOutputWithContext(context.Context) RoleTagArrayOutput
+}
+
+type RoleTagArray []RoleTagInput
+
+func (RoleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleTag)(nil)).Elem()
+}
+
+func (i RoleTagArray) ToRoleTagArrayOutput() RoleTagArrayOutput {
+	return i.ToRoleTagArrayOutputWithContext(context.Background())
+}
+
+func (i RoleTagArray) ToRoleTagArrayOutputWithContext(ctx context.Context) RoleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleTagArrayOutput)
+}
+
+type RoleTagOutput struct{ *pulumi.OutputState }
+
+func (RoleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleTag)(nil)).Elem()
+}
+
+func (o RoleTagOutput) ToRoleTagOutput() RoleTagOutput {
+	return o
+}
+
+func (o RoleTagOutput) ToRoleTagOutputWithContext(ctx context.Context) RoleTagOutput {
+	return o
+}
+
+func (o RoleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RoleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RoleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleTag)(nil)).Elem()
+}
+
+func (o RoleTagArrayOutput) ToRoleTagArrayOutput() RoleTagArrayOutput {
+	return o
+}
+
+func (o RoleTagArrayOutput) ToRoleTagArrayOutputWithContext(ctx context.Context) RoleTagArrayOutput {
+	return o
+}
+
+func (o RoleTagArrayOutput) Index(i pulumi.IntInput) RoleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleTag {
+		return vs[0].([]RoleTag)[vs[1].(int)]
+	}).(RoleTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -337,6 +637,354 @@ func (o ServerCertificateTagArrayOutput) Index(i pulumi.IntInput) ServerCertific
 	}).(ServerCertificateTagOutput)
 }
 
+type UserLoginProfile struct {
+	Password              string `pulumi:"password"`
+	PasswordResetRequired *bool  `pulumi:"passwordResetRequired"`
+}
+
+// UserLoginProfileInput is an input type that accepts UserLoginProfileArgs and UserLoginProfileOutput values.
+// You can construct a concrete instance of `UserLoginProfileInput` via:
+//
+//          UserLoginProfileArgs{...}
+type UserLoginProfileInput interface {
+	pulumi.Input
+
+	ToUserLoginProfileOutput() UserLoginProfileOutput
+	ToUserLoginProfileOutputWithContext(context.Context) UserLoginProfileOutput
+}
+
+type UserLoginProfileArgs struct {
+	Password              pulumi.StringInput  `pulumi:"password"`
+	PasswordResetRequired pulumi.BoolPtrInput `pulumi:"passwordResetRequired"`
+}
+
+func (UserLoginProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserLoginProfile)(nil)).Elem()
+}
+
+func (i UserLoginProfileArgs) ToUserLoginProfileOutput() UserLoginProfileOutput {
+	return i.ToUserLoginProfileOutputWithContext(context.Background())
+}
+
+func (i UserLoginProfileArgs) ToUserLoginProfileOutputWithContext(ctx context.Context) UserLoginProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfileOutput)
+}
+
+func (i UserLoginProfileArgs) ToUserLoginProfilePtrOutput() UserLoginProfilePtrOutput {
+	return i.ToUserLoginProfilePtrOutputWithContext(context.Background())
+}
+
+func (i UserLoginProfileArgs) ToUserLoginProfilePtrOutputWithContext(ctx context.Context) UserLoginProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfileOutput).ToUserLoginProfilePtrOutputWithContext(ctx)
+}
+
+// UserLoginProfilePtrInput is an input type that accepts UserLoginProfileArgs, UserLoginProfilePtr and UserLoginProfilePtrOutput values.
+// You can construct a concrete instance of `UserLoginProfilePtrInput` via:
+//
+//          UserLoginProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type UserLoginProfilePtrInput interface {
+	pulumi.Input
+
+	ToUserLoginProfilePtrOutput() UserLoginProfilePtrOutput
+	ToUserLoginProfilePtrOutputWithContext(context.Context) UserLoginProfilePtrOutput
+}
+
+type userLoginProfilePtrType UserLoginProfileArgs
+
+func UserLoginProfilePtr(v *UserLoginProfileArgs) UserLoginProfilePtrInput {
+	return (*userLoginProfilePtrType)(v)
+}
+
+func (*userLoginProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserLoginProfile)(nil)).Elem()
+}
+
+func (i *userLoginProfilePtrType) ToUserLoginProfilePtrOutput() UserLoginProfilePtrOutput {
+	return i.ToUserLoginProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *userLoginProfilePtrType) ToUserLoginProfilePtrOutputWithContext(ctx context.Context) UserLoginProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfilePtrOutput)
+}
+
+type UserLoginProfileOutput struct{ *pulumi.OutputState }
+
+func (UserLoginProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserLoginProfile)(nil)).Elem()
+}
+
+func (o UserLoginProfileOutput) ToUserLoginProfileOutput() UserLoginProfileOutput {
+	return o
+}
+
+func (o UserLoginProfileOutput) ToUserLoginProfileOutputWithContext(ctx context.Context) UserLoginProfileOutput {
+	return o
+}
+
+func (o UserLoginProfileOutput) ToUserLoginProfilePtrOutput() UserLoginProfilePtrOutput {
+	return o.ToUserLoginProfilePtrOutputWithContext(context.Background())
+}
+
+func (o UserLoginProfileOutput) ToUserLoginProfilePtrOutputWithContext(ctx context.Context) UserLoginProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserLoginProfile) *UserLoginProfile {
+		return &v
+	}).(UserLoginProfilePtrOutput)
+}
+
+func (o UserLoginProfileOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v UserLoginProfile) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o UserLoginProfileOutput) PasswordResetRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserLoginProfile) *bool { return v.PasswordResetRequired }).(pulumi.BoolPtrOutput)
+}
+
+type UserLoginProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (UserLoginProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserLoginProfile)(nil)).Elem()
+}
+
+func (o UserLoginProfilePtrOutput) ToUserLoginProfilePtrOutput() UserLoginProfilePtrOutput {
+	return o
+}
+
+func (o UserLoginProfilePtrOutput) ToUserLoginProfilePtrOutputWithContext(ctx context.Context) UserLoginProfilePtrOutput {
+	return o
+}
+
+func (o UserLoginProfilePtrOutput) Elem() UserLoginProfileOutput {
+	return o.ApplyT(func(v *UserLoginProfile) UserLoginProfile {
+		if v != nil {
+			return *v
+		}
+		var ret UserLoginProfile
+		return ret
+	}).(UserLoginProfileOutput)
+}
+
+func (o UserLoginProfilePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserLoginProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserLoginProfilePtrOutput) PasswordResetRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserLoginProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordResetRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+type UserPolicy struct {
+	PolicyDocument interface{} `pulumi:"policyDocument"`
+	PolicyName     string      `pulumi:"policyName"`
+}
+
+// UserPolicyInput is an input type that accepts UserPolicyArgs and UserPolicyOutput values.
+// You can construct a concrete instance of `UserPolicyInput` via:
+//
+//          UserPolicyArgs{...}
+type UserPolicyInput interface {
+	pulumi.Input
+
+	ToUserPolicyOutput() UserPolicyOutput
+	ToUserPolicyOutputWithContext(context.Context) UserPolicyOutput
+}
+
+type UserPolicyArgs struct {
+	PolicyDocument pulumi.Input       `pulumi:"policyDocument"`
+	PolicyName     pulumi.StringInput `pulumi:"policyName"`
+}
+
+func (UserPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPolicy)(nil)).Elem()
+}
+
+func (i UserPolicyArgs) ToUserPolicyOutput() UserPolicyOutput {
+	return i.ToUserPolicyOutputWithContext(context.Background())
+}
+
+func (i UserPolicyArgs) ToUserPolicyOutputWithContext(ctx context.Context) UserPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyOutput)
+}
+
+// UserPolicyArrayInput is an input type that accepts UserPolicyArray and UserPolicyArrayOutput values.
+// You can construct a concrete instance of `UserPolicyArrayInput` via:
+//
+//          UserPolicyArray{ UserPolicyArgs{...} }
+type UserPolicyArrayInput interface {
+	pulumi.Input
+
+	ToUserPolicyArrayOutput() UserPolicyArrayOutput
+	ToUserPolicyArrayOutputWithContext(context.Context) UserPolicyArrayOutput
+}
+
+type UserPolicyArray []UserPolicyInput
+
+func (UserPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPolicy)(nil)).Elem()
+}
+
+func (i UserPolicyArray) ToUserPolicyArrayOutput() UserPolicyArrayOutput {
+	return i.ToUserPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i UserPolicyArray) ToUserPolicyArrayOutputWithContext(ctx context.Context) UserPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyArrayOutput)
+}
+
+type UserPolicyOutput struct{ *pulumi.OutputState }
+
+func (UserPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPolicy)(nil)).Elem()
+}
+
+func (o UserPolicyOutput) ToUserPolicyOutput() UserPolicyOutput {
+	return o
+}
+
+func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) UserPolicyOutput {
+	return o
+}
+
+func (o UserPolicyOutput) PolicyDocument() pulumi.AnyOutput {
+	return o.ApplyT(func(v UserPolicy) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+}
+
+func (o UserPolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPolicy) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+type UserPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (UserPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserPolicy)(nil)).Elem()
+}
+
+func (o UserPolicyArrayOutput) ToUserPolicyArrayOutput() UserPolicyArrayOutput {
+	return o
+}
+
+func (o UserPolicyArrayOutput) ToUserPolicyArrayOutputWithContext(ctx context.Context) UserPolicyArrayOutput {
+	return o
+}
+
+func (o UserPolicyArrayOutput) Index(i pulumi.IntInput) UserPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPolicy {
+		return vs[0].([]UserPolicy)[vs[1].(int)]
+	}).(UserPolicyOutput)
+}
+
+type UserTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// UserTagInput is an input type that accepts UserTagArgs and UserTagOutput values.
+// You can construct a concrete instance of `UserTagInput` via:
+//
+//          UserTagArgs{...}
+type UserTagInput interface {
+	pulumi.Input
+
+	ToUserTagOutput() UserTagOutput
+	ToUserTagOutputWithContext(context.Context) UserTagOutput
+}
+
+type UserTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (UserTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (i UserTagArgs) ToUserTagOutput() UserTagOutput {
+	return i.ToUserTagOutputWithContext(context.Background())
+}
+
+func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
+}
+
+// UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
+// You can construct a concrete instance of `UserTagArrayInput` via:
+//
+//          UserTagArray{ UserTagArgs{...} }
+type UserTagArrayInput interface {
+	pulumi.Input
+
+	ToUserTagArrayOutput() UserTagArrayOutput
+	ToUserTagArrayOutputWithContext(context.Context) UserTagArrayOutput
+}
+
+type UserTagArray []UserTagInput
+
+func (UserTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (i UserTagArray) ToUserTagArrayOutput() UserTagArrayOutput {
+	return i.ToUserTagArrayOutputWithContext(context.Background())
+}
+
+func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
+}
+
+type UserTagOutput struct{ *pulumi.OutputState }
+
+func (UserTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserTag)(nil)).Elem()
+}
+
+func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
+	return o
+}
+
+func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
+	return o
+}
+
+func (o UserTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o UserTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type UserTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UserTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserTag)(nil)).Elem()
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
+	return o
+}
+
+func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
+		return vs[0].([]UserTag)[vs[1].(int)]
+	}).(UserTagOutput)
+}
+
 // A key-value pair to associate with a resource.
 type VirtualMFADeviceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -447,12 +1095,24 @@ func (o VirtualMFADeviceTagArrayOutput) Index(i pulumi.IntInput) VirtualMFADevic
 }
 
 func init() {
+	pulumi.RegisterOutputType(GroupPolicyOutput{})
+	pulumi.RegisterOutputType(GroupPolicyArrayOutput{})
 	pulumi.RegisterOutputType(OIDCProviderTagOutput{})
 	pulumi.RegisterOutputType(OIDCProviderTagArrayOutput{})
+	pulumi.RegisterOutputType(RolePolicyOutput{})
+	pulumi.RegisterOutputType(RolePolicyArrayOutput{})
+	pulumi.RegisterOutputType(RoleTagOutput{})
+	pulumi.RegisterOutputType(RoleTagArrayOutput{})
 	pulumi.RegisterOutputType(SAMLProviderTagOutput{})
 	pulumi.RegisterOutputType(SAMLProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerCertificateTagOutput{})
 	pulumi.RegisterOutputType(ServerCertificateTagArrayOutput{})
+	pulumi.RegisterOutputType(UserLoginProfileOutput{})
+	pulumi.RegisterOutputType(UserLoginProfilePtrOutput{})
+	pulumi.RegisterOutputType(UserPolicyOutput{})
+	pulumi.RegisterOutputType(UserPolicyArrayOutput{})
+	pulumi.RegisterOutputType(UserTagOutput{})
+	pulumi.RegisterOutputType(UserTagArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMFADeviceTagOutput{})
 	pulumi.RegisterOutputType(VirtualMFADeviceTagArrayOutput{})
 }

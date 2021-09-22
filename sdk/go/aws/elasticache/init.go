@@ -21,8 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:elasticache:CacheCluster":
+		r = &CacheCluster{}
 	case "aws-native:elasticache:GlobalReplicationGroup":
 		r = &GlobalReplicationGroup{}
+	case "aws-native:elasticache:ParameterGroup":
+		r = &ParameterGroup{}
+	case "aws-native:elasticache:ReplicationGroup":
+		r = &ReplicationGroup{}
+	case "aws-native:elasticache:SecurityGroup":
+		r = &SecurityGroup{}
+	case "aws-native:elasticache:SecurityGroupIngress":
+		r = &SecurityGroupIngress{}
+	case "aws-native:elasticache:SubnetGroup":
+		r = &SubnetGroup{}
 	case "aws-native:elasticache:User":
 		r = &User{}
 	case "aws-native:elasticache:UserGroup":

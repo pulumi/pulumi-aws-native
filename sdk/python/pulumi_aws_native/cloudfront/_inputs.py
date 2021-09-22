@@ -51,6 +51,11 @@ __all__ = [
     'PublicKeyPublicKeyConfigArgs',
     'RealtimeLogConfigEndPointArgs',
     'RealtimeLogConfigKinesisStreamConfigArgs',
+    'StreamingDistributionLoggingArgs',
+    'StreamingDistributionS3OriginArgs',
+    'StreamingDistributionStreamingDistributionConfigArgs',
+    'StreamingDistributionTagArgs',
+    'StreamingDistributionTrustedSignersArgs',
 ]
 
 @pulumi.input_type
@@ -2177,5 +2182,210 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
     @stream_arn.setter
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
+
+
+@pulumi.input_type
+class StreamingDistributionLoggingArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 enabled: pulumi.Input[bool],
+                 prefix: pulumi.Input[str]):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class StreamingDistributionS3OriginArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 origin_access_identity: pulumi.Input[str]):
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="originAccessIdentity")
+    def origin_access_identity(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "origin_access_identity")
+
+    @origin_access_identity.setter
+    def origin_access_identity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin_access_identity", value)
+
+
+@pulumi.input_type
+class StreamingDistributionStreamingDistributionConfigArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[str],
+                 enabled: pulumi.Input[bool],
+                 s3_origin: pulumi.Input['StreamingDistributionS3OriginArgs'],
+                 trusted_signers: pulumi.Input['StreamingDistributionTrustedSignersArgs'],
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging: Optional[pulumi.Input['StreamingDistributionLoggingArgs']] = None,
+                 price_class: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "s3_origin", s3_origin)
+        pulumi.set(__self__, "trusted_signers", trusted_signers)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if price_class is not None:
+            pulumi.set(__self__, "price_class", price_class)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[str]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="s3Origin")
+    def s3_origin(self) -> pulumi.Input['StreamingDistributionS3OriginArgs']:
+        return pulumi.get(self, "s3_origin")
+
+    @s3_origin.setter
+    def s3_origin(self, value: pulumi.Input['StreamingDistributionS3OriginArgs']):
+        pulumi.set(self, "s3_origin", value)
+
+    @property
+    @pulumi.getter(name="trustedSigners")
+    def trusted_signers(self) -> pulumi.Input['StreamingDistributionTrustedSignersArgs']:
+        return pulumi.get(self, "trusted_signers")
+
+    @trusted_signers.setter
+    def trusted_signers(self, value: pulumi.Input['StreamingDistributionTrustedSignersArgs']):
+        pulumi.set(self, "trusted_signers", value)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aliases", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input['StreamingDistributionLoggingArgs']]:
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input['StreamingDistributionLoggingArgs']]):
+        pulumi.set(self, "logging", value)
+
+    @property
+    @pulumi.getter(name="priceClass")
+    def price_class(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "price_class")
+
+    @price_class.setter
+    def price_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "price_class", value)
+
+
+@pulumi.input_type
+class StreamingDistributionTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class StreamingDistributionTrustedSignersArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 aws_account_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if aws_account_numbers is not None:
+            pulumi.set(__self__, "aws_account_numbers", aws_account_numbers)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="awsAccountNumbers")
+    def aws_account_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "aws_account_numbers")
+
+    @aws_account_numbers.setter
+    def aws_account_numbers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aws_account_numbers", value)
 
 

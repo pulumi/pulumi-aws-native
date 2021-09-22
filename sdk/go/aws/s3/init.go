@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:s3:AccessPoint":
 		r = &AccessPoint{}
+	case "aws-native:s3:Bucket":
+		r = &Bucket{}
+	case "aws-native:s3:BucketPolicy":
+		r = &BucketPolicy{}
 	case "aws-native:s3:MultiRegionAccessPoint":
 		r = &MultiRegionAccessPoint{}
 	case "aws-native:s3:MultiRegionAccessPointPolicy":

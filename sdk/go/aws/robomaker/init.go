@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Fleet{}
 	case "aws-native:robomaker:Robot":
 		r = &Robot{}
+	case "aws-native:robomaker:RobotApplication":
+		r = &RobotApplication{}
 	case "aws-native:robomaker:RobotApplicationVersion":
 		r = &RobotApplicationVersion{}
 	case "aws-native:robomaker:SimulationApplication":

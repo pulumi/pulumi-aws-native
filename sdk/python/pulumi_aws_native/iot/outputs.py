@@ -42,6 +42,7 @@ __all__ = [
     'SecurityProfileMetricValue',
     'SecurityProfileStatisticalThreshold',
     'SecurityProfileTag',
+    'ThingAttributePayload',
     'TopicRuleAction',
     'TopicRuleAssetPropertyTimestamp',
     'TopicRuleAssetPropertyValue',
@@ -1501,6 +1502,19 @@ class SecurityProfileTag(dict):
         The tag's value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ThingAttributePayload(dict):
+    def __init__(__self__, *,
+                 attributes: Optional[Any] = None):
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[Any]:
+        return pulumi.get(self, "attributes")
 
 
 @pulumi.output_type

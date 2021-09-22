@@ -5,4 +5,11 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .auto_scaling_group import *
+from .launch_configuration import *
+from .lifecycle_hook import *
+from .scaling_policy import *
+from .scheduled_action import *
 from .warm_pool import *
+from ._inputs import *
+from . import outputs

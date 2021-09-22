@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:certificatemanager:Account":
 		r = &Account{}
+	case "aws-native:certificatemanager:Certificate":
+		r = &Certificate{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

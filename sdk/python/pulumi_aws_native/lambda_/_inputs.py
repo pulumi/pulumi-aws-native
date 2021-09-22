@@ -10,8 +10,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AliasAliasRoutingConfigurationArgs',
+    'AliasProvisionedConcurrencyConfigurationArgs',
+    'AliasVersionWeightArgs',
     'CodeSigningConfigAllowedPublishersArgs',
     'CodeSigningConfigCodeSigningPoliciesArgs',
+    'EventInvokeConfigDestinationConfigArgs',
+    'EventInvokeConfigOnFailureArgs',
+    'EventInvokeConfigOnSuccessArgs',
     'EventSourceMappingDestinationConfigArgs',
     'EventSourceMappingEndpointsArgs',
     'EventSourceMappingOnFailureArgs',
@@ -25,7 +31,68 @@ __all__ = [
     'FunctionTagArgs',
     'FunctionTracingConfigArgs',
     'FunctionVpcConfigArgs',
+    'LayerVersionContentArgs',
+    'VersionProvisionedConcurrencyConfigurationArgs',
 ]
+
+@pulumi.input_type
+class AliasAliasRoutingConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_version_weights: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+
+    @property
+    @pulumi.getter(name="additionalVersionWeights")
+    def additional_version_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]:
+        return pulumi.get(self, "additional_version_weights")
+
+    @additional_version_weights.setter
+    def additional_version_weights(self, value: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
+        pulumi.set(self, "additional_version_weights", value)
+
+
+@pulumi.input_type
+class AliasProvisionedConcurrencyConfigurationArgs:
+    def __init__(__self__, *,
+                 provisioned_concurrent_executions: pulumi.Input[int]):
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrentExecutions")
+    def provisioned_concurrent_executions(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "provisioned_concurrent_executions")
+
+    @provisioned_concurrent_executions.setter
+    def provisioned_concurrent_executions(self, value: pulumi.Input[int]):
+        pulumi.set(self, "provisioned_concurrent_executions", value)
+
+
+@pulumi.input_type
+class AliasVersionWeightArgs:
+    def __init__(__self__, *,
+                 function_version: pulumi.Input[str],
+                 function_weight: pulumi.Input[float]):
+        pulumi.set(__self__, "function_version", function_version)
+        pulumi.set(__self__, "function_weight", function_weight)
+
+    @property
+    @pulumi.getter(name="functionVersion")
+    def function_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "function_version")
+
+    @function_version.setter
+    def function_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_version", value)
+
+    @property
+    @pulumi.getter(name="functionWeight")
+    def function_weight(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "function_weight")
+
+    @function_weight.setter
+    def function_weight(self, value: pulumi.Input[float]):
+        pulumi.set(self, "function_weight", value)
+
 
 @pulumi.input_type
 class CodeSigningConfigAllowedPublishersArgs:
@@ -71,6 +138,67 @@ class CodeSigningConfigCodeSigningPoliciesArgs:
     @untrusted_artifact_on_deployment.setter
     def untrusted_artifact_on_deployment(self, value: pulumi.Input['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment']):
         pulumi.set(self, "untrusted_artifact_on_deployment", value)
+
+
+@pulumi.input_type
+class EventInvokeConfigDestinationConfigArgs:
+    def __init__(__self__, *,
+                 on_failure: Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']] = None,
+                 on_success: Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']] = None):
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if on_success is not None:
+            pulumi.set(__self__, "on_success", on_success)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']]:
+        return pulumi.get(self, "on_failure")
+
+    @on_failure.setter
+    def on_failure(self, value: Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']]):
+        pulumi.set(self, "on_failure", value)
+
+    @property
+    @pulumi.getter(name="onSuccess")
+    def on_success(self) -> Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']]:
+        return pulumi.get(self, "on_success")
+
+    @on_success.setter
+    def on_success(self, value: Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']]):
+        pulumi.set(self, "on_success", value)
+
+
+@pulumi.input_type
+class EventInvokeConfigOnFailureArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[str]):
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
+
+
+@pulumi.input_type
+class EventInvokeConfigOnSuccessArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[str]):
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
 
 
 @pulumi.input_type
@@ -536,5 +664,60 @@ class FunctionVpcConfigArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+
+@pulumi.input_type
+class LayerVersionContentArgs:
+    def __init__(__self__, *,
+                 s3_bucket: pulumi.Input[str],
+                 s3_key: pulumi.Input[str],
+                 s3_object_version: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_version is not None:
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_key", value)
+
+    @property
+    @pulumi.getter(name="s3ObjectVersion")
+    def s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_object_version")
+
+    @s3_object_version.setter
+    def s3_object_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_object_version", value)
+
+
+@pulumi.input_type
+class VersionProvisionedConcurrencyConfigurationArgs:
+    def __init__(__self__, *,
+                 provisioned_concurrent_executions: pulumi.Input[int]):
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrentExecutions")
+    def provisioned_concurrent_executions(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "provisioned_concurrent_executions")
+
+    @provisioned_concurrent_executions.setter
+    def provisioned_concurrent_executions(self, value: pulumi.Input[int]):
+        pulumi.set(self, "provisioned_concurrent_executions", value)
 
 
