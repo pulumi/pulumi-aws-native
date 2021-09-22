@@ -89,7 +89,7 @@ var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
 
 func newAwsNativeProvider(host *provider.HostClient, name, version string,
 	pulumiSchema, cloudAPIResourcesBytes []byte) (pulumirpc.ResourceProviderServer, error) {
-	resourceMap, err := loadMetadata(cloudAPIResourcesBytes)
+	resourceMap, err := LoadMetadata(cloudAPIResourcesBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -104,8 +104,8 @@ func newAwsNativeProvider(host *provider.HostClient, name, version string,
 	}, nil
 }
 
-// loadMetadata deserializes the provided compressed json byte array into a CloudAPIMetadata struct.
-func loadMetadata(metadataBytes []byte) (*schema.CloudAPIMetadata, error) {
+// LoadMetadata deserializes the provided compressed json byte array into a CloudAPIMetadata struct.
+func LoadMetadata(metadataBytes []byte) (*schema.CloudAPIMetadata, error) {
 	var resourceMap schema.CloudAPIMetadata
 
 	uncompressed, err := gzip.NewReader(bytes.NewReader(metadataBytes))

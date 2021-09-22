@@ -11,8 +11,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
@@ -39,7 +39,7 @@ func main() {
 		log.Fatalf("failed to load schema: %v", err)
 	}
 
-	metadata, err := loadMetadata()
+	metadata, err := provider.LoadMetadata(cloudApiResources)
 	if err != nil {
 		log.Fatalf("failed to load metadata: %v", err)
 	}
@@ -128,21 +128,4 @@ func loadSchema() (*schema.PackageSpec, error) {
 		pkgSpec.Version = version.Version
 	}
 	return &pkgSpec, nil
-}
-
-// loadMetadata deserializes the provided compressed json byte array into a CloudAPIMetadata struct.
-func loadMetadata() (*pschema.CloudAPIMetadata, error) {
-	var resourceMap pschema.CloudAPIMetadata
-
-	uncompressed, err := gzip.NewReader(bytes.NewReader(cloudApiResources))
-	if err != nil {
-		return nil, errors.Wrap(err, "expand compressed metadata")
-	}
-	if err = json.NewDecoder(uncompressed).Decode(&resourceMap); err != nil {
-		return nil, errors.Wrap(err, "unmarshalling resource map")
-	}
-	if err = uncompressed.Close(); err != nil {
-		return nil, errors.Wrap(err, "closing uncompress stream for metadata")
-	}
-	return &resourceMap, nil
 }
