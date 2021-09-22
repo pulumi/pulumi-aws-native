@@ -7,11 +7,11 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
-	"github.com/pkg/errors"
 	"log"
 	"os"
 	"strings"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
 	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
