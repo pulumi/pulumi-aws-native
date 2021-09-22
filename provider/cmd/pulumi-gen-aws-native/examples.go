@@ -24,7 +24,7 @@ import (
 	"text/template"
 )
 
-func generateExamples(pkgSpec *schema.PackageSpec, languages []string) error {
+func generateExamples(pkgSpec *schema.PackageSpec, metadata *pschema.CloudAPIMetadata, languages []string) error {
 	// Find all snippets in the AWS CloudFormation Docs repo.
 	folder := path.Join(".", "aws-cloudformation-user-guide", "doc_source")
 	examples, err := findAllExamples(folder)
@@ -46,7 +46,7 @@ func generateExamples(pkgSpec *schema.PackageSpec, languages []string) error {
 	total := 0
 	examplesRenderData := map[string][]exampleRenderData{}
 	for _, yaml := range examples {
-		example, err := generateExample(yaml, languages, hcl2Cache, loaderOption)
+		example, err := generateExample(yaml, metadata, languages, hcl2Cache, loaderOption)
 		if err != nil {
 			// Skip all snippets that don't produce valid examples.
 			continue
@@ -77,16 +77,21 @@ func generateExamples(pkgSpec *schema.PackageSpec, languages []string) error {
 	return nil
 }
 
-func generateExample(yaml string, languages []string, bindOpts ...hcl2.BindOption) (*resourceExample, error) {
-	body, err := cf2pulumi.RenderText(yaml)
+func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages []string, bindOpts ...hcl2.BindOption) (*resourceExample, error) {
+	body, diagnostics, err := cf2pulumi.RenderText(yaml, metadata)
 	if err != nil {
 		return nil, errors.Wrapf(err, "rendering YAML")
+	}
+	parser := syntax.NewParser()
+	if diagnostics.HasErrors() {
+		buf := new(bytes.Buffer)
+		_ = parser.NewDiagnosticWriter(buf, 0, false).WriteDiagnostics(parser.Diagnostics)
+		return nil, errors.Errorf("parser diagnostic errors: %s", buf)
 	}
 
 	cf2pulumi.FormatBody(body)
 	text := fmt.Sprintf("%v", body)
 
-	parser := syntax.NewParser()
 	if err := parser.ParseFile(strings.NewReader(text), "program.pp"); err != nil {
 		return nil, errors.Wrapf(err, "parsing IR")
 	}

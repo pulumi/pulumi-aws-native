@@ -83,13 +83,17 @@ func main() {
 			}
 
 			fmt.Println("Generating examples...")
-			err = generateExamples(supportedSpec, []string{"nodejs", "python", "dotnet", "go"})
+			err = generateExamples(supportedSpec, meta, []string{"nodejs", "python", "dotnet", "go"})
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
 			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-			writePulumiSchema(*supportedSpec, providerDir, "schema.json",true)
+			writePulumiSchema(*supportedSpec, providerDir, "schema.json", true)
 
+			// Emit the resource metadata for cf2pulumi.
+			if err = writeMetadata(meta, cf2pulumiDir, "main", false); err != nil {
+				break
+			}
 			// Also, emit the resource metadata for the provider.
 			if err = writeMetadata(meta, providerDir, "main", true); err != nil {
 				break
