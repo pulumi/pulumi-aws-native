@@ -40765,7 +40765,8 @@
                     "environment": [
                         "AWS_ACCESS_KEY_ID"
                     ]
-                }
+                },
+                "secret": true
             },
             "allowedAccountIds": {
                 "type": "array",
@@ -40834,7 +40835,8 @@
             },
             "secretKey": {
                 "type": "string",
-                "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console."
+                "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console.",
+                "secret": true
             },
             "sharedCredentialsFile": {
                 "type": "string",
@@ -40876,7 +40878,8 @@
                     "environment": [
                         "AWS_SESSION_TOKEN"
                     ]
-                }
+                },
+                "secret": true
             }
         },
         "requiredInputs": [

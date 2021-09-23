@@ -227,6 +227,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 						},
 					},
 					Description: "The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.",
+					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"allowedAccountIds": {
@@ -289,6 +290,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				},
 				"secretKey": {
 					Description: "The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.",
+					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"sharedCredentialsFile": {
@@ -331,6 +333,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 						},
 					},
 					Description: "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
+					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 			},

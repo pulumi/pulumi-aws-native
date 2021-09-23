@@ -466,7 +466,7 @@ class Provider(pulumi.ProviderResource):
 
             if access_key is None:
                 access_key = _utilities.get_env('AWS_ACCESS_KEY_ID')
-            __props__.__dict__["access_key"] = access_key
+            __props__.__dict__["access_key"] = None if access_key is None else pulumi.Output.secret(access_key)
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
@@ -484,7 +484,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
             __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
-            __props__.__dict__["secret_key"] = secret_key
+            __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             if shared_credentials_file is None:
                 shared_credentials_file = _utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
             __props__.__dict__["shared_credentials_file"] = shared_credentials_file
@@ -503,7 +503,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["skip_requesting_account_id"] = pulumi.Output.from_input(skip_requesting_account_id).apply(pulumi.runtime.to_json) if skip_requesting_account_id is not None else None
             if token is None:
                 token = _utilities.get_env('AWS_SESSION_TOKEN')
-            __props__.__dict__["token"] = token
+            __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
         super(Provider, __self__).__init__(
             'aws-native',
             resource_name,

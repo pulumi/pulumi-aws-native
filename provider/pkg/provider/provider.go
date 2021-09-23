@@ -32,6 +32,7 @@ import (
 	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
@@ -212,6 +213,24 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		} else {
 			glog.V(4).Info(`using AWS shared credentials file at path: "~/.aws/credentials"`)
 		}
+	}
+
+	var accessKey, secretKey, token string
+
+	if v, ok := vars["aws-native:config:accessKey"]; ok {
+		accessKey = v
+	}
+	if v, ok := vars["aws-native:config:secretKey"]; ok {
+		secretKey = v
+	}
+	if v, ok := vars["aws-native:config:token"]; ok {
+		token = v
+	}
+
+	if len(accessKey) > 0 || len(secretKey) > 0 || len(token) > 0 {
+		// If all required values are not present/valid, the client will return an appropriate error.
+		credsProvider := credentials.NewStaticCredentialsProvider(accessKey, secretKey, token)
+		loadOptions = append(loadOptions, config.WithCredentialsProvider(credsProvider))
 	}
 
 	loadOptions = append(loadOptions, config.WithAPIOptions(pulumiUserAgent()))
