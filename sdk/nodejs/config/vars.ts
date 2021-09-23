@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
+import {Region} from "..";
+
 declare var exports: any;
 const __config = new pulumi.Config("aws-native");
 
@@ -121,10 +123,10 @@ Object.defineProperty(exports, "profile", {
 /**
  * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
  */
-export declare const region: string | undefined;
+export declare const region: Region | undefined;
 Object.defineProperty(exports, "region", {
     get() {
-        return __config.get("region");
+        return <Region>__config.get("region");
     },
     enumerable: true,
 });

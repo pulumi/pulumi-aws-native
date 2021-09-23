@@ -11,14 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The provider type for the native AWS package.
+// The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 type Provider struct {
 	pulumi.ProviderResourceState
 
 	// The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
-	// List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
-	AllowedAccountIds pulumi.StringPtrOutput `pulumi:"allowedAccountIds"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
@@ -74,13 +72,13 @@ type providerArgs struct {
 	// The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
 	AccessKey *string `pulumi:"accessKey"`
 	// List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
-	AllowedAccountIds *string `pulumi:"allowedAccountIds"`
+	AllowedAccountIds []string `pulumi:"allowedAccountIds"`
 	// Configuration for retrieving temporary credentials from the STS service.
 	AssumeRole *ProviderAssumeRole `pulumi:"assumeRole"`
 	// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// Configuration block for customizing service endpoints.
-	Endpoints *ProviderEndpoint `pulumi:"endpoints"`
+	Endpoints []ProviderEndpoint `pulumi:"endpoints"`
 	// List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
 	ForbiddenAccountIds []string `pulumi:"forbiddenAccountIds"`
 	// Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
@@ -118,13 +116,13 @@ type ProviderArgs struct {
 	// The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
 	AccessKey pulumi.StringPtrInput
 	// List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
-	AllowedAccountIds pulumi.StringPtrInput
+	AllowedAccountIds pulumi.StringArrayInput
 	// Configuration for retrieving temporary credentials from the STS service.
 	AssumeRole ProviderAssumeRolePtrInput
 	// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 	DefaultTags ProviderDefaultTagsPtrInput
 	// Configuration block for customizing service endpoints.
-	Endpoints ProviderEndpointPtrInput
+	Endpoints ProviderEndpointArrayInput
 	// List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
 	ForbiddenAccountIds pulumi.StringArrayInput
 	// Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.

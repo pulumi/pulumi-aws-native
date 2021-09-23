@@ -16,6 +16,9 @@ export * from "./getUrlSuffix";
 export * from "./importValue";
 export * from "./provider";
 
+// Export enums:
+export * from "./types/enums";
+
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
 import * as acmpca from "./acmpca";

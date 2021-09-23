@@ -5,8 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "./types";
 import * as utilities from "./utilities";
 
+import {Region} from "./index";
+
 /**
- * The provider type for the native AWS package.
+ * The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
@@ -28,17 +30,13 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly accessKey!: pulumi.Output<string | undefined>;
     /**
-     * List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
-     */
-    public readonly allowedAccountIds!: pulumi.Output<string | undefined>;
-    /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
     public readonly profile!: pulumi.Output<string | undefined>;
     /**
      * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
      */
-    public readonly region!: pulumi.Output<string | undefined>;
+    public readonly region!: pulumi.Output<Region | undefined>;
     /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
@@ -67,7 +65,7 @@ export class Provider extends pulumi.ProviderResource {
                 throw new Error("Missing required property 'region'");
             }
             inputs["accessKey"] = (args ? args.accessKey : undefined) ?? utilities.getEnv("AWS_ACCESS_KEY_ID");
-            inputs["allowedAccountIds"] = args ? args.allowedAccountIds : undefined;
+            inputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             inputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             inputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
@@ -76,7 +74,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             inputs["profile"] = (args ? args.profile : undefined) ?? utilities.getEnv("AWS_PROFILE");
-            inputs["region"] = (args ? args.region : undefined) ?? utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            inputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
             inputs["secretKey"] = args ? args.secretKey : undefined;
             inputs["sharedCredentialsFile"] = args ? args.sharedCredentialsFile : undefined;
@@ -105,7 +103,7 @@ export interface ProviderArgs {
     /**
      * List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
      */
-    allowedAccountIds?: pulumi.Input<string>;
+    allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration for retrieving temporary credentials from the STS service.
      */
@@ -117,7 +115,7 @@ export interface ProviderArgs {
     /**
      * Configuration block for customizing service endpoints.
      */
-    endpoints?: pulumi.Input<inputs.ProviderEndpointArgs>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpointArgs>[]>;
     /**
      * List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
      */
@@ -141,7 +139,7 @@ export interface ProviderArgs {
     /**
      * The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
      */
-    region: pulumi.Input<string>;
+    region: pulumi.Input<Region>;
     /**
      * Set this to true to force the request to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
      */

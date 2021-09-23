@@ -751,6 +751,40 @@ var ignoreTags = pschema.ComplexTypeSpec{
 	},
 }
 
+var region = pschema.ComplexTypeSpec{
+	ObjectTypeSpec: pschema.ObjectTypeSpec{
+		Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
+		Type:        "string",
+	},
+	Enum: []pschema.EnumValueSpec{
+		{Name: "AFSouth1", Value: "af-south-1", Description: "Africa (Cape Town)"},
+		{Name: "APEast1", Value: "ap-east-1", Description: "Asia Pacific (Hong Kong)"},
+		{Name: "APNortheast1", Value: "ap-northeast-1", Description: "Asia Pacific (Tokyo)"},
+		{Name: "APNortheast2", Value: "ap-northeast-2", Description: "Asia Pacific (Seoul)"},
+		{Name: "APNortheast3", Value: "ap-northeast-3", Description: "Asia Pacific (Osaka)"},
+		{Name: "APSouth1", Value: "ap-south-1", Description: "Asia Pacific (Mumbai)"},
+		{Name: "APSoutheast1", Value: "ap-southeast-1", Description: "Asia Pacific (Singapore)"},
+		{Name: "APSoutheast2", Value: "ap-southeast-2", Description: "Asia Pacific (Sydney)"},
+		{Name: "CACentral", Value: "ca-central-1", Description: "Canada (Central)"},
+		{Name: "CNNorth1", Value: "cn-north-1", Description: "China (Beijing)"},
+		{Name: "CNNorthwest1", Value: "cn-northwest-1", Description: "China (Ningxia)"},
+		{Name: "EUCentral1", Value: "eu-central-1", Description: "Europe (Frankfurt)"},
+		{Name: "EUNorth1", Value: "eu-north-1", Description: "Europe (Stockholm)"},
+		{Name: "EUWest1", Value: "eu-west-1", Description: "Europe (Ireland)"},
+		{Name: "EUWest2", Value: "eu-west-2", Description: "Europe (London)"},
+		{Name: "EUWest3", Value: "eu-west-3", Description: "Europe (Paris)"},
+		{Name: "EUSouth1", Value: "eu-south-1", Description: "Europe (Milan)"},
+		{Name: "MESouth1", Value: "me-south-1", Description: "Middle East (Bahrain)"},
+		{Name: "SAEast1", Value: "sa-east-1", Description: "South America (São Paulo)"},
+		{Name: "USGovEast1", Value: "us-gov-east-1", Description: "AWS GovCloud (US-East)"},
+		{Name: "USGovWest1", Value: "us-gov-west-1", Description: "AWS GovCloud (US-West)"},
+		{Name: "USEast1", Value: "us-east-1", Description: "US East (N. Virginia)"},
+		{Name: "USEast2", Value: "us-east-2", Description: "US East (Ohio)"},
+		{Name: "USWest1", Value: "us-west-1", Description: "US West (N. California)"},
+		{Name: "USWest2", Value: "us-west-2", Description: "US West (Oregon)"},
+	},
+}
+
 // typeOverlays augment the types defined by the schema.
 var typeOverlays = map[string]pschema.ComplexTypeSpec{
 	"aws-native:config:AssumeRole":         assumeRole,
@@ -761,4 +795,5 @@ var typeOverlays = map[string]pschema.ComplexTypeSpec{
 	"aws-native:index:ProviderEndpoint":    configToProvider(endpoints),
 	"aws-native:config:IgnoreTags":         ignoreTags,
 	"aws-native:index:ProviderIgnoreTags":  configToProvider(ignoreTags),
+	"aws-native:index:Region":              region,
 }
