@@ -16,10 +16,10 @@ class ProviderArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str],
                  access_key: Optional[pulumi.Input[str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[str]] = None,
+                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
-                 endpoints: Optional[pulumi.Input['ProviderEndpointArgs']] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
@@ -38,10 +38,10 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
-        :param pulumi.Input[str] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         :param pulumi.Input['ProviderAssumeRoleArgs'] assume_role: Configuration for retrieving temporary credentials from the STS service.
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-        :param pulumi.Input['ProviderEndpointArgs'] endpoints: Configuration block for customizing service endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]] endpoints: Configuration block for customizing service endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] forbidden_account_ids: List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
         :param pulumi.Input['ProviderIgnoreTagsArgs'] ignore_tags: Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`.
@@ -139,14 +139,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="allowedAccountIds")
-    def allowed_account_ids(self) -> Optional[pulumi.Input[str]]:
+    def allowed_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         """
         return pulumi.get(self, "allowed_account_ids")
 
     @allowed_account_ids.setter
-    def allowed_account_ids(self, value: Optional[pulumi.Input[str]]):
+    def allowed_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "allowed_account_ids", value)
 
     @property
@@ -175,14 +175,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input['ProviderEndpointArgs']]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]:
         """
         Configuration block for customizing service endpoints.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input['ProviderEndpointArgs']]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -360,10 +360,10 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[str]] = None,
+                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
@@ -381,15 +381,15 @@ class Provider(pulumi.ProviderResource):
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        The provider type for the native AWS package.
+        The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
-        :param pulumi.Input[str] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         :param pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']] assume_role: Configuration for retrieving temporary credentials from the STS service.
         :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
-        :param pulumi.Input[pulumi.InputType['ProviderEndpointArgs']] endpoints: Configuration block for customizing service endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]] endpoints: Configuration block for customizing service endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] forbidden_account_ids: List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
         :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`.
@@ -413,7 +413,7 @@ class Provider(pulumi.ProviderResource):
                  args: ProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The provider type for the native AWS package.
+        The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.
@@ -431,10 +431,10 @@ class Provider(pulumi.ProviderResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[str]] = None,
+                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
-                 endpoints: Optional[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
@@ -465,7 +465,7 @@ class Provider(pulumi.ProviderResource):
             if access_key is None:
                 access_key = _utilities.get_env('AWS_ACCESS_KEY_ID')
             __props__.__dict__["access_key"] = access_key
-            __props__.__dict__["allowed_account_ids"] = allowed_account_ids
+            __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
@@ -513,14 +513,6 @@ class Provider(pulumi.ProviderResource):
         The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         """
         return pulumi.get(self, "access_key")
-
-    @property
-    @pulumi.getter(name="allowedAccountIds")
-    def allowed_account_ids(self) -> pulumi.Output[Optional[str]]:
-        """
-        List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
-        """
-        return pulumi.get(self, "allowed_account_ids")
 
     @property
     @pulumi.getter

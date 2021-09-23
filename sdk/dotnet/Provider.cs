@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative
 {
     /// <summary>
-    /// The provider type for the native AWS package.
+    /// The provider type for the AWS native package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [AwsNativeResourceType("pulumi:providers:aws-native")]
     public partial class Provider : Pulumi.ProviderResource
@@ -20,12 +20,6 @@ namespace Pulumi.AwsNative
         /// </summary>
         [Output("accessKey")]
         public Output<string?> AccessKey { get; private set; } = null!;
-
-        /// <summary>
-        /// List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
-        /// </summary>
-        [Output("allowedAccountIds")]
-        public Output<string?> AllowedAccountIds { get; private set; } = null!;
 
         /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -91,11 +85,17 @@ namespace Pulumi.AwsNative
         [Input("accessKey")]
         public Input<string>? AccessKey { get; set; }
 
+        [Input("allowedAccountIds", json: true)]
+        private InputList<string>? _allowedAccountIds;
+
         /// <summary>
         /// List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         /// </summary>
-        [Input("allowedAccountIds")]
-        public Input<string>? AllowedAccountIds { get; set; }
+        public InputList<string> AllowedAccountIds
+        {
+            get => _allowedAccountIds ?? (_allowedAccountIds = new InputList<string>());
+            set => _allowedAccountIds = value;
+        }
 
         /// <summary>
         /// Configuration for retrieving temporary credentials from the STS service.
@@ -109,11 +109,17 @@ namespace Pulumi.AwsNative
         [Input("defaultTags", json: true)]
         public Input<Inputs.ProviderDefaultTagsArgs>? DefaultTags { get; set; }
 
+        [Input("endpoints", json: true)]
+        private InputList<Inputs.ProviderEndpointArgs>? _endpoints;
+
         /// <summary>
         /// Configuration block for customizing service endpoints.
         /// </summary>
-        [Input("endpoints", json: true)]
-        public Input<Inputs.ProviderEndpointArgs>? Endpoints { get; set; }
+        public InputList<Inputs.ProviderEndpointArgs> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputList<Inputs.ProviderEndpointArgs>());
+            set => _endpoints = value;
+        }
 
         [Input("forbiddenAccountIds", json: true)]
         private InputList<string>? _forbiddenAccountIds;
