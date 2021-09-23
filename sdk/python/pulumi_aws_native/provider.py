@@ -86,8 +86,6 @@ class ProviderArgs:
             pulumi.set(__self__, "profile", profile)
         if s3_force_path_style is not None:
             pulumi.set(__self__, "s3_force_path_style", s3_force_path_style)
-        if secret_key is None:
-            secret_key = _utilities.get_env('AWS_SECRET_ACCESS_KEY')
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if shared_credentials_file is None:
@@ -486,8 +484,6 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
             __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
-            if secret_key is None:
-                secret_key = _utilities.get_env('AWS_SECRET_ACCESS_KEY')
             __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             if shared_credentials_file is None:
                 shared_credentials_file = _utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
