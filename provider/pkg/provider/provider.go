@@ -21,6 +21,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"os/user"
+	"path/filepath"
+	"runtime"
 	"runtime/debug"
 	"strings"
 	"time"
@@ -193,6 +196,21 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		loadOptions = append(loadOptions, config.WithSharedConfigProfile(profile))
 	} else {
 		glog.V(4).Infof(`using AWS profile: "default"`)
+	}
+
+	if sharedCredentialsFilePath, ok := vars["aws-native:config:sharedCredentialsFile"]; ok {
+		glog.V(4).Infof("using AWS shared credentials file at path: %q", sharedCredentialsFilePath)
+		normalizedPath, err := normalizeFilePath(sharedCredentialsFilePath)
+		if err != nil {
+			return nil, fmt.Errorf("failed to load shared credentials file: %w", err)
+		}
+		loadOptions = append(loadOptions, config.WithSharedCredentialsFiles([]string{normalizedPath}))
+	} else {
+		if runtime.GOOS == "windows" {
+			glog.V(4).Infof(`using AWS shared credentials file at path: "C:\Users\USERNAME\.aws\credentials"`)
+		} else {
+			glog.V(4).Infof(`using AWS shared credentials file at path: "~/.aws/credentials"`)
+		}
 	}
 
 	loadOptions = append(loadOptions, config.WithAPIOptions(pulumiUserAgent()))
@@ -871,4 +889,24 @@ func pulumiUserAgent() []func(*middleware.Stack) error {
 		awsmiddleware.AddUserAgentKeyValue("Pulumi", getPulumiVersion()),
 		awsmiddleware.AddUserAgentKeyValue("PulumiAwsNative", version.Version),
 	}
+}
+
+// normalizeFilePath expands home directory prefixes to a canonical path.
+func normalizeFilePath(filePath string) (string, error) {
+	if strings.HasPrefix(filePath, `~/`) {
+		usr, err := user.Current()
+		if err != nil {
+			return "", err
+		}
+		dir := usr.HomeDir
+		filePath = filepath.Join(dir, filePath[2:])
+	} else if strings.HasPrefix(filePath, `%USERPROFILE%\`) {
+		usr, err := user.Current()
+		if err != nil {
+			return "", err
+		}
+		dir := usr.HomeDir
+		filePath = filepath.Join(dir, filePath[14:])
+	}
+	return filePath, nil
 }
