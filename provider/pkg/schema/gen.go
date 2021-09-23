@@ -292,6 +292,11 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"sharedCredentialsFile": {
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"AWS_SHARED_CREDENTIALS_FILE",
+						},
+					},
 					Description: "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},

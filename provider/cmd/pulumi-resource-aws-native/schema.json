@@ -40838,7 +40838,12 @@
             },
             "sharedCredentialsFile": {
                 "type": "string",
-                "description": "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`."
+                "description": "The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.",
+                "defaultInfo": {
+                    "environment": [
+                        "AWS_SHARED_CREDENTIALS_FILE"
+                    ]
+                }
             },
             "skipCredentialsValidation": {
                 "type": "boolean",
