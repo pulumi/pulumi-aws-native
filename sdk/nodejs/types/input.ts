@@ -3577,6 +3577,22 @@ export namespace appsync {
 
 }
 
+export namespace aps {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface WorkspaceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace ask {
     export interface SkillAuthenticationConfigurationArgs {
         clientId: pulumi.Input<string>;
@@ -11368,6 +11384,53 @@ export namespace guardduty {
     }
 }
 
+export namespace healthlake {
+    /**
+     * The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
+     */
+    export interface FHIRDatastoreKmsEncryptionConfigArgs {
+        /**
+         * The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
+         */
+        cmkType: pulumi.Input<enums.healthlake.FHIRDatastoreKmsEncryptionConfigCmkType>;
+        /**
+         * The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    /**
+     * The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
+     */
+    export interface FHIRDatastorePreloadDataConfigArgs {
+        /**
+         * The type of preloaded data. Only Synthea preloaded data is supported.
+         */
+        preloadDataType: pulumi.Input<enums.healthlake.FHIRDatastorePreloadDataConfigPreloadDataType>;
+    }
+
+    /**
+     * The server-side encryption key configuration for a customer provided encryption key.
+     */
+    export interface FHIRDatastoreSseConfigurationArgs {
+        kmsEncryptionConfig: pulumi.Input<inputs.healthlake.FHIRDatastoreKmsEncryptionConfigArgs>;
+    }
+
+    /**
+     * A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
+     */
+    export interface FHIRDatastoreTagArgs {
+        /**
+         * The key of the tag.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value of the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace iam {
     export interface GroupPolicyArgs {
         policyDocument: any;
@@ -17666,6 +17729,82 @@ export namespace nimblestudio {
     export interface StudioStudioEncryptionConfigurationArgs {
         keyArn?: pulumi.Input<string>;
         keyType: pulumi.Input<string>;
+    }
+}
+
+export namespace opensearchservice {
+    export interface DomainAdvancedSecurityOptionsInputArgs {
+        enabled?: pulumi.Input<boolean>;
+        internalUserDatabaseEnabled?: pulumi.Input<boolean>;
+        masterUserOptions?: pulumi.Input<inputs.opensearchservice.DomainMasterUserOptionsArgs>;
+    }
+
+    export interface DomainClusterConfigArgs {
+        dedicatedMasterCount?: pulumi.Input<number>;
+        dedicatedMasterEnabled?: pulumi.Input<boolean>;
+        dedicatedMasterType?: pulumi.Input<string>;
+        instanceCount?: pulumi.Input<number>;
+        instanceType?: pulumi.Input<string>;
+        warmCount?: pulumi.Input<number>;
+        warmEnabled?: pulumi.Input<boolean>;
+        warmType?: pulumi.Input<string>;
+        zoneAwarenessConfig?: pulumi.Input<inputs.opensearchservice.DomainZoneAwarenessConfigArgs>;
+        zoneAwarenessEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainCognitoOptionsArgs {
+        enabled?: pulumi.Input<boolean>;
+        identityPoolId?: pulumi.Input<string>;
+        roleArn?: pulumi.Input<string>;
+        userPoolId?: pulumi.Input<string>;
+    }
+
+    export interface DomainDomainEndpointOptionsArgs {
+        customEndpoint?: pulumi.Input<string>;
+        customEndpointCertificateArn?: pulumi.Input<string>;
+        customEndpointEnabled?: pulumi.Input<boolean>;
+        enforceHTTPS?: pulumi.Input<boolean>;
+        tLSSecurityPolicy?: pulumi.Input<string>;
+    }
+
+    export interface DomainEBSOptionsArgs {
+        eBSEnabled?: pulumi.Input<boolean>;
+        iops?: pulumi.Input<number>;
+        volumeSize?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
+    }
+
+    export interface DomainEncryptionAtRestOptionsArgs {
+        enabled?: pulumi.Input<boolean>;
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface DomainMasterUserOptionsArgs {
+        masterUserARN?: pulumi.Input<string>;
+        masterUserName?: pulumi.Input<string>;
+        masterUserPassword?: pulumi.Input<string>;
+    }
+
+    export interface DomainNodeToNodeEncryptionOptionsArgs {
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainSnapshotOptionsArgs {
+        automatedSnapshotStartHour?: pulumi.Input<number>;
+    }
+
+    export interface DomainTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface DomainVPCOptionsArgs {
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainZoneAwarenessConfigArgs {
+        availabilityZoneCount?: pulumi.Input<number>;
     }
 }
 

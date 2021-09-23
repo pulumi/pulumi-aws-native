@@ -2920,6 +2920,23 @@ export namespace appsync {
 
 }
 
+export namespace aps {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface WorkspaceTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+}
+
 export namespace ask {
     export interface SkillAuthenticationConfiguration {
         clientId: string;
@@ -11630,6 +11647,68 @@ export namespace guardduty {
 
 }
 
+export namespace healthlake {
+    /**
+     * The time that a Data Store was created.
+     */
+    export interface FHIRDatastoreCreatedAt {
+        /**
+         * Nanoseconds.
+         */
+        nanos: number;
+        /**
+         * Seconds since epoch.
+         */
+        seconds: string;
+    }
+
+    /**
+     * The customer-managed-key (CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
+     */
+    export interface FHIRDatastoreKmsEncryptionConfig {
+        /**
+         * The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs.
+         */
+        cmkType: enums.healthlake.FHIRDatastoreKmsEncryptionConfigCmkType;
+        /**
+         * The KMS encryption key id/alias used to encrypt the Data Store contents at rest.
+         */
+        kmsKeyId?: string;
+    }
+
+    /**
+     * The preloaded data configuration for the Data Store. Only data preloaded from Synthea is supported.
+     */
+    export interface FHIRDatastorePreloadDataConfig {
+        /**
+         * The type of preloaded data. Only Synthea preloaded data is supported.
+         */
+        preloadDataType: enums.healthlake.FHIRDatastorePreloadDataConfigPreloadDataType;
+    }
+
+    /**
+     * The server-side encryption key configuration for a customer provided encryption key.
+     */
+    export interface FHIRDatastoreSseConfiguration {
+        kmsEncryptionConfig: outputs.healthlake.FHIRDatastoreKmsEncryptionConfig;
+    }
+
+    /**
+     * A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.
+     */
+    export interface FHIRDatastoreTag {
+        /**
+         * The key of the tag.
+         */
+        key: string;
+        /**
+         * The value of the tag.
+         */
+        value: string;
+    }
+
+}
+
 export namespace iam {
     export interface GroupPolicy {
         policyDocument: any;
@@ -18020,6 +18099,94 @@ export namespace nimblestudio {
     export interface StudioStudioEncryptionConfiguration {
         keyArn?: string;
         keyType: string;
+    }
+
+}
+
+export namespace opensearchservice {
+    export interface DomainAdvancedSecurityOptionsInput {
+        enabled?: boolean;
+        internalUserDatabaseEnabled?: boolean;
+        masterUserOptions?: outputs.opensearchservice.DomainMasterUserOptions;
+    }
+
+    export interface DomainClusterConfig {
+        dedicatedMasterCount?: number;
+        dedicatedMasterEnabled?: boolean;
+        dedicatedMasterType?: string;
+        instanceCount?: number;
+        instanceType?: string;
+        warmCount?: number;
+        warmEnabled?: boolean;
+        warmType?: string;
+        zoneAwarenessConfig?: outputs.opensearchservice.DomainZoneAwarenessConfig;
+        zoneAwarenessEnabled?: boolean;
+    }
+
+    export interface DomainCognitoOptions {
+        enabled?: boolean;
+        identityPoolId?: string;
+        roleArn?: string;
+        userPoolId?: string;
+    }
+
+    export interface DomainDomainEndpointOptions {
+        customEndpoint?: string;
+        customEndpointCertificateArn?: string;
+        customEndpointEnabled?: boolean;
+        enforceHTTPS?: boolean;
+        tLSSecurityPolicy?: string;
+    }
+
+    export interface DomainEBSOptions {
+        eBSEnabled?: boolean;
+        iops?: number;
+        volumeSize?: number;
+        volumeType?: string;
+    }
+
+    export interface DomainEncryptionAtRestOptions {
+        enabled?: boolean;
+        kmsKeyId?: string;
+    }
+
+    export interface DomainMasterUserOptions {
+        masterUserARN?: string;
+        masterUserName?: string;
+        masterUserPassword?: string;
+    }
+
+    export interface DomainNodeToNodeEncryptionOptions {
+        enabled?: boolean;
+    }
+
+    export interface DomainServiceSoftwareOptions {
+        automatedUpdateDate?: string;
+        cancellable?: boolean;
+        currentVersion?: string;
+        description?: string;
+        newVersion?: string;
+        optionalDeployment?: boolean;
+        updateAvailable?: boolean;
+        updateStatus?: string;
+    }
+
+    export interface DomainSnapshotOptions {
+        automatedSnapshotStartHour?: number;
+    }
+
+    export interface DomainTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DomainVPCOptions {
+        securityGroupIds?: string[];
+        subnetIds?: string[];
+    }
+
+    export interface DomainZoneAwarenessConfig {
+        availabilityZoneCount?: number;
     }
 
 }

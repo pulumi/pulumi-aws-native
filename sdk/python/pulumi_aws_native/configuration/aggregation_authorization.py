@@ -54,12 +54,7 @@ class AggregationAuthorizationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""AggregationAuthorization is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class AggregationAuthorization(pulumi.CustomResource):
-    warnings.warn("""AggregationAuthorization is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -102,7 +97,6 @@ class AggregationAuthorization(pulumi.CustomResource):
                  authorized_aws_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AggregationAuthorizationTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""AggregationAuthorization is deprecated: AggregationAuthorization is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

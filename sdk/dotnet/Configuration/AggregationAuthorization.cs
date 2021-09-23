@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Configuration
     /// <summary>
     /// Resource Type definition for AWS::Config::AggregationAuthorization
     /// </summary>
-    [Obsolete(@"AggregationAuthorization is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:AggregationAuthorization")]
     public partial class AggregationAuthorization : Pulumi.CustomResource
     {

@@ -108,12 +108,7 @@ class TransitGatewayVpcAttachmentArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-warnings.warn("""TransitGatewayVpcAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class TransitGatewayVpcAttachment(pulumi.CustomResource):
-    warnings.warn("""TransitGatewayVpcAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -165,7 +160,6 @@ class TransitGatewayVpcAttachment(pulumi.CustomResource):
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TransitGatewayVpcAttachment is deprecated: TransitGatewayVpcAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
