@@ -88,6 +88,8 @@ class ProviderArgs:
             pulumi.set(__self__, "s3_force_path_style", s3_force_path_style)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
+        if shared_credentials_file is None:
+            shared_credentials_file = _utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
         if shared_credentials_file is not None:
             pulumi.set(__self__, "shared_credentials_file", shared_credentials_file)
         if skip_credentials_validation is None:
@@ -483,6 +485,8 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["s3_force_path_style"] = pulumi.Output.from_input(s3_force_path_style).apply(pulumi.runtime.to_json) if s3_force_path_style is not None else None
             __props__.__dict__["secret_key"] = secret_key
+            if shared_credentials_file is None:
+                shared_credentials_file = _utilities.get_env('AWS_SHARED_CREDENTIALS_FILE')
             __props__.__dict__["shared_credentials_file"] = shared_credentials_file
             if skip_credentials_validation is None:
                 skip_credentials_validation = True

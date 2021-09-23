@@ -45,6 +45,9 @@ func NewProvider(ctx *pulumi.Context,
 	if args.Region == nil {
 		args.Region = pulumi.String(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
 	}
+	if args.SharedCredentialsFile == nil {
+		args.SharedCredentialsFile = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_SHARED_CREDENTIALS_FILE").(string))
+	}
 	if args.SkipCredentialsValidation == nil {
 		args.SkipCredentialsValidation = pulumi.BoolPtr(true)
 	}
