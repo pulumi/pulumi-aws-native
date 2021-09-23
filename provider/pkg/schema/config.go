@@ -795,5 +795,5 @@ var typeOverlays = map[string]pschema.ComplexTypeSpec{
 	"aws-native:index:ProviderEndpoint":    configToProvider(endpoints),
 	"aws-native:config:IgnoreTags":         ignoreTags,
 	"aws-native:index:ProviderIgnoreTags":  configToProvider(ignoreTags),
-	"aws-native:index:Region":              region,
+	"aws-native:index/Region:Region":       region,
 }

@@ -43,15 +43,15 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				},
 				"assumeRole": {
 					Description: "Configuration for retrieving temporary credentials from the STS service.",
-					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:AssumeRole"},
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:AssumeRole"},
 				},
 				"defaultTags": {
 					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
-					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:DefaultTags"},
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:DefaultTags"},
 				},
 				"endpoints": {
 					Description: "Configuration block for customizing service endpoints.",
-					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:Endpoints"},
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:Endpoints"},
 				},
 				"forbiddenAccountIds": {
 					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
@@ -59,7 +59,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				},
 				"ignoreTags": {
 					Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
-					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:config:IgnoreTags"},
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:IgnoreTags"},
 				},
 				"insecure": {
 					Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
@@ -77,7 +77,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 					TypeSpec: pschema.TypeSpec{
 						Type: "string",
-						Ref:  "#/types/" + "aws-native:index/region:Region",
+						Ref:  "#/types/aws-native:index/region:Region",
 					},
 				},
 				"s3ForcePathStyle": {
@@ -139,15 +139,15 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					},
 					"assumeRole": {
 						Description: "Configuration for retrieving temporary credentials from the STS service.",
-						TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderAssumeRole"},
+						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAssumeRole"},
 					},
 					"defaultTags": {
 						Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
-						TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderDefaultTags"},
+						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderDefaultTags"},
 					},
 					"endpoints": {
 						Description: "Configuration block for customizing service endpoints.",
-						TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderEndpoint"}},
+						TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"}},
 					},
 					"forbiddenAccountIds": {
 						Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
@@ -155,7 +155,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					},
 					"ignoreTags": {
 						Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
-						TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderIgnoreTags"},
+						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderIgnoreTags"},
 					},
 					"insecure": {
 						Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
@@ -173,7 +173,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 						Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 						TypeSpec: pschema.TypeSpec{
 							Type: "string",
-							Ref:  "#/types/" + "aws-native:index/region:Region",
+							Ref:  "#/types/aws-native:index/region:Region",
 						},
 					},
 					"s3ForcePathStyle": {
@@ -235,15 +235,15 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				},
 				"assumeRole": {
 					Description: "Configuration for retrieving temporary credentials from the STS service.",
-					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderAssumeRole"},
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAssumeRole"},
 				},
 				"defaultTags": {
 					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
-					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderDefaultTags"},
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderDefaultTags"},
 				},
 				"endpoints": {
 					Description: "Configuration block for customizing service endpoints.",
-					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderEndpoint"}},
+					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"}},
 				},
 				"forbiddenAccountIds": {
 					Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
@@ -251,7 +251,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 				},
 				"ignoreTags": {
 					Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
-					TypeSpec:    pschema.TypeSpec{Ref: "#/types/" + "aws-native:index:ProviderIgnoreTags"},
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderIgnoreTags"},
 				},
 				"insecure": {
 					Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
@@ -280,7 +280,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					Description: "The region where AWS operations will take place. Examples are `us-east-1`, `us-west-2`, etc.",
 					TypeSpec: pschema.TypeSpec{
 						Type: "string",
-						Ref:  "#/types/" + "aws-native:index/region:Region",
+						Ref:  "#/types/aws-native:index/region:Region",
 					},
 				},
 				"s3ForcePathStyle": {
