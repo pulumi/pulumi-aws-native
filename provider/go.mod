@@ -6,6 +6,7 @@ require (
 	github.com/apparentlymart/go-cidr v1.1.0
 	github.com/aws/aws-sdk-go-v2 v1.9.0
 	github.com/aws/aws-sdk-go-v2/config v1.5.0
+	github.com/aws/aws-sdk-go-v2/credentials v1.3.1
 	github.com/aws/aws-sdk-go-v2/service/cloudcontrol v1.9.0
 	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.10.0
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.12.0
