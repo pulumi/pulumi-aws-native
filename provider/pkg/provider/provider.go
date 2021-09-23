@@ -207,9 +207,9 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		loadOptions = append(loadOptions, config.WithSharedCredentialsFiles([]string{normalizedPath}))
 	} else {
 		if runtime.GOOS == "windows" {
-			glog.V(4).Infof(`using AWS shared credentials file at path: "%USERPROFILE%\.aws\credentials"`)
+			glog.V(4).Info(`using AWS shared credentials file at path: "%USERPROFILE%\.aws\credentials"`)
 		} else {
-			glog.V(4).Infof(`using AWS shared credentials file at path: "~/.aws/credentials"`)
+			glog.V(4).Info(`using AWS shared credentials file at path: "~/.aws/credentials"`)
 		}
 	}
 
