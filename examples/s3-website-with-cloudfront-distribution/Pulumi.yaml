@@ -1,3 +1,0 @@
-name: s3-website-with-cloudfront-distribution
-runtime: nodejs
-description: A minimal TypeScript Pulumi program

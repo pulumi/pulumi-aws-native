@@ -1,6 +1,0 @@
-name: py-macos-ec2
-runtime:
-  name: python
-  options:
-    virtualenv: venv
-description: A macOS EC2 instance on a dedicated host

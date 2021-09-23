@@ -1,3 +1,0 @@
-name: vpc-single-instance-in-subnet
-runtime: nodejs
-description: A minimal TypeScript Pulumi program
