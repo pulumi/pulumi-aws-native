@@ -25,6 +25,8 @@ jobs:
           repo: pulumi/pulumictl
       - name: Install Pulumi CLI
         uses: pulumi/action-install-pulumi-cli@v1.0.1
+      - name: Initialize submodules
+        run: make init_submodules
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
