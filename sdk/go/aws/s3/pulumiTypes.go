@@ -2906,9 +2906,10 @@ func (o BucketMetricsPtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 type BucketMetricsConfiguration struct {
-	Id         string            `pulumi:"id"`
-	Prefix     *string           `pulumi:"prefix"`
-	TagFilters []BucketTagFilter `pulumi:"tagFilters"`
+	AccessPointArn *string           `pulumi:"accessPointArn"`
+	Id             string            `pulumi:"id"`
+	Prefix         *string           `pulumi:"prefix"`
+	TagFilters     []BucketTagFilter `pulumi:"tagFilters"`
 }
 
 // BucketMetricsConfigurationInput is an input type that accepts BucketMetricsConfigurationArgs and BucketMetricsConfigurationOutput values.
@@ -2923,9 +2924,10 @@ type BucketMetricsConfigurationInput interface {
 }
 
 type BucketMetricsConfigurationArgs struct {
-	Id         pulumi.StringInput        `pulumi:"id"`
-	Prefix     pulumi.StringPtrInput     `pulumi:"prefix"`
-	TagFilters BucketTagFilterArrayInput `pulumi:"tagFilters"`
+	AccessPointArn pulumi.StringPtrInput     `pulumi:"accessPointArn"`
+	Id             pulumi.StringInput        `pulumi:"id"`
+	Prefix         pulumi.StringPtrInput     `pulumi:"prefix"`
+	TagFilters     BucketTagFilterArrayInput `pulumi:"tagFilters"`
 }
 
 func (BucketMetricsConfigurationArgs) ElementType() reflect.Type {
@@ -2977,6 +2979,10 @@ func (o BucketMetricsConfigurationOutput) ToBucketMetricsConfigurationOutput() B
 
 func (o BucketMetricsConfigurationOutput) ToBucketMetricsConfigurationOutputWithContext(ctx context.Context) BucketMetricsConfigurationOutput {
 	return o
+}
+
+func (o BucketMetricsConfigurationOutput) AccessPointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketMetricsConfiguration) *string { return v.AccessPointArn }).(pulumi.StringPtrOutput)
 }
 
 func (o BucketMetricsConfigurationOutput) Id() pulumi.StringOutput {

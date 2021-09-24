@@ -951,6 +951,169 @@ func (o BackupSelectionConditionResourceTypeArrayOutput) Index(i pulumi.IntInput
 	}).(BackupSelectionConditionResourceTypeOutput)
 }
 
+type BackupVaultLockConfigurationType struct {
+	ChangeableForDays *float64 `pulumi:"changeableForDays"`
+	MaxRetentionDays  *float64 `pulumi:"maxRetentionDays"`
+	MinRetentionDays  *float64 `pulumi:"minRetentionDays"`
+}
+
+// BackupVaultLockConfigurationTypeInput is an input type that accepts BackupVaultLockConfigurationTypeArgs and BackupVaultLockConfigurationTypeOutput values.
+// You can construct a concrete instance of `BackupVaultLockConfigurationTypeInput` via:
+//
+//          BackupVaultLockConfigurationTypeArgs{...}
+type BackupVaultLockConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToBackupVaultLockConfigurationTypeOutput() BackupVaultLockConfigurationTypeOutput
+	ToBackupVaultLockConfigurationTypeOutputWithContext(context.Context) BackupVaultLockConfigurationTypeOutput
+}
+
+type BackupVaultLockConfigurationTypeArgs struct {
+	ChangeableForDays pulumi.Float64PtrInput `pulumi:"changeableForDays"`
+	MaxRetentionDays  pulumi.Float64PtrInput `pulumi:"maxRetentionDays"`
+	MinRetentionDays  pulumi.Float64PtrInput `pulumi:"minRetentionDays"`
+}
+
+func (BackupVaultLockConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVaultLockConfigurationType)(nil)).Elem()
+}
+
+func (i BackupVaultLockConfigurationTypeArgs) ToBackupVaultLockConfigurationTypeOutput() BackupVaultLockConfigurationTypeOutput {
+	return i.ToBackupVaultLockConfigurationTypeOutputWithContext(context.Background())
+}
+
+func (i BackupVaultLockConfigurationTypeArgs) ToBackupVaultLockConfigurationTypeOutputWithContext(ctx context.Context) BackupVaultLockConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultLockConfigurationTypeOutput)
+}
+
+func (i BackupVaultLockConfigurationTypeArgs) ToBackupVaultLockConfigurationTypePtrOutput() BackupVaultLockConfigurationTypePtrOutput {
+	return i.ToBackupVaultLockConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i BackupVaultLockConfigurationTypeArgs) ToBackupVaultLockConfigurationTypePtrOutputWithContext(ctx context.Context) BackupVaultLockConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultLockConfigurationTypeOutput).ToBackupVaultLockConfigurationTypePtrOutputWithContext(ctx)
+}
+
+// BackupVaultLockConfigurationTypePtrInput is an input type that accepts BackupVaultLockConfigurationTypeArgs, BackupVaultLockConfigurationTypePtr and BackupVaultLockConfigurationTypePtrOutput values.
+// You can construct a concrete instance of `BackupVaultLockConfigurationTypePtrInput` via:
+//
+//          BackupVaultLockConfigurationTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupVaultLockConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToBackupVaultLockConfigurationTypePtrOutput() BackupVaultLockConfigurationTypePtrOutput
+	ToBackupVaultLockConfigurationTypePtrOutputWithContext(context.Context) BackupVaultLockConfigurationTypePtrOutput
+}
+
+type backupVaultLockConfigurationTypePtrType BackupVaultLockConfigurationTypeArgs
+
+func BackupVaultLockConfigurationTypePtr(v *BackupVaultLockConfigurationTypeArgs) BackupVaultLockConfigurationTypePtrInput {
+	return (*backupVaultLockConfigurationTypePtrType)(v)
+}
+
+func (*backupVaultLockConfigurationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupVaultLockConfigurationType)(nil)).Elem()
+}
+
+func (i *backupVaultLockConfigurationTypePtrType) ToBackupVaultLockConfigurationTypePtrOutput() BackupVaultLockConfigurationTypePtrOutput {
+	return i.ToBackupVaultLockConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i *backupVaultLockConfigurationTypePtrType) ToBackupVaultLockConfigurationTypePtrOutputWithContext(ctx context.Context) BackupVaultLockConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultLockConfigurationTypePtrOutput)
+}
+
+type BackupVaultLockConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupVaultLockConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVaultLockConfigurationType)(nil)).Elem()
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) ToBackupVaultLockConfigurationTypeOutput() BackupVaultLockConfigurationTypeOutput {
+	return o
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) ToBackupVaultLockConfigurationTypeOutputWithContext(ctx context.Context) BackupVaultLockConfigurationTypeOutput {
+	return o
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) ToBackupVaultLockConfigurationTypePtrOutput() BackupVaultLockConfigurationTypePtrOutput {
+	return o.ToBackupVaultLockConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) ToBackupVaultLockConfigurationTypePtrOutputWithContext(ctx context.Context) BackupVaultLockConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultLockConfigurationType) *BackupVaultLockConfigurationType {
+		return &v
+	}).(BackupVaultLockConfigurationTypePtrOutput)
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) ChangeableForDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BackupVaultLockConfigurationType) *float64 { return v.ChangeableForDays }).(pulumi.Float64PtrOutput)
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) MaxRetentionDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BackupVaultLockConfigurationType) *float64 { return v.MaxRetentionDays }).(pulumi.Float64PtrOutput)
+}
+
+func (o BackupVaultLockConfigurationTypeOutput) MinRetentionDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BackupVaultLockConfigurationType) *float64 { return v.MinRetentionDays }).(pulumi.Float64PtrOutput)
+}
+
+type BackupVaultLockConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupVaultLockConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupVaultLockConfigurationType)(nil)).Elem()
+}
+
+func (o BackupVaultLockConfigurationTypePtrOutput) ToBackupVaultLockConfigurationTypePtrOutput() BackupVaultLockConfigurationTypePtrOutput {
+	return o
+}
+
+func (o BackupVaultLockConfigurationTypePtrOutput) ToBackupVaultLockConfigurationTypePtrOutputWithContext(ctx context.Context) BackupVaultLockConfigurationTypePtrOutput {
+	return o
+}
+
+func (o BackupVaultLockConfigurationTypePtrOutput) Elem() BackupVaultLockConfigurationTypeOutput {
+	return o.ApplyT(func(v *BackupVaultLockConfigurationType) BackupVaultLockConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupVaultLockConfigurationType
+		return ret
+	}).(BackupVaultLockConfigurationTypeOutput)
+}
+
+func (o BackupVaultLockConfigurationTypePtrOutput) ChangeableForDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeableForDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o BackupVaultLockConfigurationTypePtrOutput) MaxRetentionDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRetentionDays
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o BackupVaultLockConfigurationTypePtrOutput) MinRetentionDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinRetentionDays
+	}).(pulumi.Float64PtrOutput)
+}
+
 type BackupVaultNotificationObjectType struct {
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
 	SNSTopicArn       string   `pulumi:"sNSTopicArn"`
@@ -1114,6 +1277,8 @@ func init() {
 	pulumi.RegisterOutputType(BackupSelectionBackupSelectionResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(BackupVaultLockConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(BackupVaultLockConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupVaultNotificationObjectTypeOutput{})
 	pulumi.RegisterOutputType(BackupVaultNotificationObjectTypePtrOutput{})
 }

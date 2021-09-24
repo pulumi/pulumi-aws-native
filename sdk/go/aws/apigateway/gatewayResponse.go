@@ -17,11 +17,16 @@ import (
 type GatewayResponse struct {
 	pulumi.CustomResourceState
 
-	ResponseParameters pulumi.AnyOutput       `pulumi:"responseParameters"`
-	ResponseTemplates  pulumi.AnyOutput       `pulumi:"responseTemplates"`
-	ResponseType       pulumi.StringOutput    `pulumi:"responseType"`
-	RestApiId          pulumi.StringOutput    `pulumi:"restApiId"`
-	StatusCode         pulumi.StringPtrOutput `pulumi:"statusCode"`
+	// The response parameters (paths, query strings, and headers) for the response.
+	ResponseParameters pulumi.AnyOutput `pulumi:"responseParameters"`
+	// The response templates for the response.
+	ResponseTemplates pulumi.AnyOutput `pulumi:"responseTemplates"`
+	// The type of the Gateway Response.
+	ResponseType pulumi.StringOutput `pulumi:"responseType"`
+	// The identifier of the API.
+	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
+	// The HTTP status code for the response.
+	StatusCode pulumi.StringPtrOutput `pulumi:"statusCode"`
 }
 
 // NewGatewayResponse registers a new resource with the given unique name, arguments, and options.
@@ -69,20 +74,30 @@ func (GatewayResponseState) ElementType() reflect.Type {
 }
 
 type gatewayResponseArgs struct {
+	// The response parameters (paths, query strings, and headers) for the response.
 	ResponseParameters interface{} `pulumi:"responseParameters"`
-	ResponseTemplates  interface{} `pulumi:"responseTemplates"`
-	ResponseType       string      `pulumi:"responseType"`
-	RestApiId          string      `pulumi:"restApiId"`
-	StatusCode         *string     `pulumi:"statusCode"`
+	// The response templates for the response.
+	ResponseTemplates interface{} `pulumi:"responseTemplates"`
+	// The type of the Gateway Response.
+	ResponseType string `pulumi:"responseType"`
+	// The identifier of the API.
+	RestApiId string `pulumi:"restApiId"`
+	// The HTTP status code for the response.
+	StatusCode *string `pulumi:"statusCode"`
 }
 
 // The set of arguments for constructing a GatewayResponse resource.
 type GatewayResponseArgs struct {
+	// The response parameters (paths, query strings, and headers) for the response.
 	ResponseParameters pulumi.Input
-	ResponseTemplates  pulumi.Input
-	ResponseType       pulumi.StringInput
-	RestApiId          pulumi.StringInput
-	StatusCode         pulumi.StringPtrInput
+	// The response templates for the response.
+	ResponseTemplates pulumi.Input
+	// The type of the Gateway Response.
+	ResponseType pulumi.StringInput
+	// The identifier of the API.
+	RestApiId pulumi.StringInput
+	// The HTTP status code for the response.
+	StatusCode pulumi.StringPtrInput
 }
 
 func (GatewayResponseArgs) ElementType() reflect.Type {

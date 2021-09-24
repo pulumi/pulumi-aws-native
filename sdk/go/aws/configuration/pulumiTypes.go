@@ -10,8 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// A key-value pair to associate with a resource.
 type AggregationAuthorizationTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -26,8 +29,11 @@ type AggregationAuthorizationTagInput interface {
 	ToAggregationAuthorizationTagOutputWithContext(context.Context) AggregationAuthorizationTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type AggregationAuthorizationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -68,6 +74,7 @@ func (i AggregationAuthorizationTagArray) ToAggregationAuthorizationTagArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AggregationAuthorizationTagArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type AggregationAuthorizationTagOutput struct{ *pulumi.OutputState }
 
 func (AggregationAuthorizationTagOutput) ElementType() reflect.Type {
@@ -82,10 +89,12 @@ func (o AggregationAuthorizationTagOutput) ToAggregationAuthorizationTagOutputWi
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o AggregationAuthorizationTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AggregationAuthorizationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o AggregationAuthorizationTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AggregationAuthorizationTag) string { return v.Value }).(pulumi.StringOutput)
 }

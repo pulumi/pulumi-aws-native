@@ -14,12 +14,13 @@ import (
 type BackupVault struct {
 	pulumi.CustomResourceState
 
-	AccessPolicy     pulumi.AnyOutput                           `pulumi:"accessPolicy"`
-	BackupVaultArn   pulumi.StringOutput                        `pulumi:"backupVaultArn"`
-	BackupVaultName  pulumi.StringOutput                        `pulumi:"backupVaultName"`
-	BackupVaultTags  pulumi.AnyOutput                           `pulumi:"backupVaultTags"`
-	EncryptionKeyArn pulumi.StringPtrOutput                     `pulumi:"encryptionKeyArn"`
-	Notifications    BackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
+	AccessPolicy      pulumi.AnyOutput                           `pulumi:"accessPolicy"`
+	BackupVaultArn    pulumi.StringOutput                        `pulumi:"backupVaultArn"`
+	BackupVaultName   pulumi.StringOutput                        `pulumi:"backupVaultName"`
+	BackupVaultTags   pulumi.AnyOutput                           `pulumi:"backupVaultTags"`
+	EncryptionKeyArn  pulumi.StringPtrOutput                     `pulumi:"encryptionKeyArn"`
+	LockConfiguration BackupVaultLockConfigurationTypePtrOutput  `pulumi:"lockConfiguration"`
+	Notifications     BackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
 }
 
 // NewBackupVault registers a new resource with the given unique name, arguments, and options.
@@ -61,18 +62,20 @@ func (BackupVaultState) ElementType() reflect.Type {
 }
 
 type backupVaultArgs struct {
-	AccessPolicy     interface{}                        `pulumi:"accessPolicy"`
-	BackupVaultTags  interface{}                        `pulumi:"backupVaultTags"`
-	EncryptionKeyArn *string                            `pulumi:"encryptionKeyArn"`
-	Notifications    *BackupVaultNotificationObjectType `pulumi:"notifications"`
+	AccessPolicy      interface{}                        `pulumi:"accessPolicy"`
+	BackupVaultTags   interface{}                        `pulumi:"backupVaultTags"`
+	EncryptionKeyArn  *string                            `pulumi:"encryptionKeyArn"`
+	LockConfiguration *BackupVaultLockConfigurationType  `pulumi:"lockConfiguration"`
+	Notifications     *BackupVaultNotificationObjectType `pulumi:"notifications"`
 }
 
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
-	AccessPolicy     pulumi.Input
-	BackupVaultTags  pulumi.Input
-	EncryptionKeyArn pulumi.StringPtrInput
-	Notifications    BackupVaultNotificationObjectTypePtrInput
+	AccessPolicy      pulumi.Input
+	BackupVaultTags   pulumi.Input
+	EncryptionKeyArn  pulumi.StringPtrInput
+	LockConfiguration BackupVaultLockConfigurationTypePtrInput
+	Notifications     BackupVaultNotificationObjectTypePtrInput
 }
 
 func (BackupVaultArgs) ElementType() reflect.Type {

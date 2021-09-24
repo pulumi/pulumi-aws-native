@@ -28,6 +28,7 @@ type Queue struct {
 	MessageRetentionPeriod        pulumi.IntPtrOutput    `pulumi:"messageRetentionPeriod"`
 	QueueName                     pulumi.StringPtrOutput `pulumi:"queueName"`
 	ReceiveMessageWaitTimeSeconds pulumi.IntPtrOutput    `pulumi:"receiveMessageWaitTimeSeconds"`
+	RedriveAllowPolicy            pulumi.AnyOutput       `pulumi:"redriveAllowPolicy"`
 	RedrivePolicy                 pulumi.AnyOutput       `pulumi:"redrivePolicy"`
 	Tags                          QueueTagArrayOutput    `pulumi:"tags"`
 	VisibilityTimeout             pulumi.IntPtrOutput    `pulumi:"visibilityTimeout"`
@@ -83,6 +84,7 @@ type queueArgs struct {
 	MessageRetentionPeriod        *int        `pulumi:"messageRetentionPeriod"`
 	QueueName                     *string     `pulumi:"queueName"`
 	ReceiveMessageWaitTimeSeconds *int        `pulumi:"receiveMessageWaitTimeSeconds"`
+	RedriveAllowPolicy            interface{} `pulumi:"redriveAllowPolicy"`
 	RedrivePolicy                 interface{} `pulumi:"redrivePolicy"`
 	Tags                          []QueueTag  `pulumi:"tags"`
 	VisibilityTimeout             *int        `pulumi:"visibilityTimeout"`
@@ -101,6 +103,7 @@ type QueueArgs struct {
 	MessageRetentionPeriod        pulumi.IntPtrInput
 	QueueName                     pulumi.StringPtrInput
 	ReceiveMessageWaitTimeSeconds pulumi.IntPtrInput
+	RedriveAllowPolicy            pulumi.Input
 	RedrivePolicy                 pulumi.Input
 	Tags                          QueueTagArrayInput
 	VisibilityTimeout             pulumi.IntPtrInput

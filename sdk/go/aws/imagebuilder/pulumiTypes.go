@@ -1557,7 +1557,7 @@ type ImageRecipeAdditionalInstanceConfiguration struct {
 	// Contains settings for the SSM agent on your build instance.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Use this property to provide commands or a command script to run when you launch your build instance.
-	UserDataOverride string `pulumi:"userDataOverride"`
+	UserDataOverride *string `pulumi:"userDataOverride"`
 }
 
 // ImageRecipeAdditionalInstanceConfigurationInput is an input type that accepts ImageRecipeAdditionalInstanceConfigurationArgs and ImageRecipeAdditionalInstanceConfigurationOutput values.
@@ -1576,7 +1576,7 @@ type ImageRecipeAdditionalInstanceConfigurationArgs struct {
 	// Contains settings for the SSM agent on your build instance.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput `pulumi:"systemsManagerAgent"`
 	// Use this property to provide commands or a command script to run when you launch your build instance.
-	UserDataOverride pulumi.StringInput `pulumi:"userDataOverride"`
+	UserDataOverride pulumi.StringPtrInput `pulumi:"userDataOverride"`
 }
 
 func (ImageRecipeAdditionalInstanceConfigurationArgs) ElementType() reflect.Type {
@@ -1665,8 +1665,8 @@ func (o ImageRecipeAdditionalInstanceConfigurationOutput) SystemsManagerAgent() 
 }
 
 // Use this property to provide commands or a command script to run when you launch your build instance.
-func (o ImageRecipeAdditionalInstanceConfigurationOutput) UserDataOverride() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageRecipeAdditionalInstanceConfiguration) string { return v.UserDataOverride }).(pulumi.StringOutput)
+func (o ImageRecipeAdditionalInstanceConfigurationOutput) UserDataOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeAdditionalInstanceConfiguration) *string { return v.UserDataOverride }).(pulumi.StringPtrOutput)
 }
 
 type ImageRecipeAdditionalInstanceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1709,7 +1709,7 @@ func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) UserDataOverride() 
 		if v == nil {
 			return nil
 		}
-		return &v.UserDataOverride
+		return v.UserDataOverride
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2318,8 +2318,8 @@ func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInpu
 
 // Contains settings for the SSM agent on your build instance.
 type ImageRecipeSystemsManagerAgent struct {
-	// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
-	UninstallAfterBuild bool `pulumi:"uninstallAfterBuild"`
+	// Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
+	UninstallAfterBuild *bool `pulumi:"uninstallAfterBuild"`
 }
 
 // ImageRecipeSystemsManagerAgentInput is an input type that accepts ImageRecipeSystemsManagerAgentArgs and ImageRecipeSystemsManagerAgentOutput values.
@@ -2335,8 +2335,8 @@ type ImageRecipeSystemsManagerAgentInput interface {
 
 // Contains settings for the SSM agent on your build instance.
 type ImageRecipeSystemsManagerAgentArgs struct {
-	// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
-	UninstallAfterBuild pulumi.BoolInput `pulumi:"uninstallAfterBuild"`
+	// Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
+	UninstallAfterBuild pulumi.BoolPtrInput `pulumi:"uninstallAfterBuild"`
 }
 
 func (ImageRecipeSystemsManagerAgentArgs) ElementType() reflect.Type {
@@ -2417,9 +2417,9 @@ func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPt
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
-func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolOutput {
-	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) bool { return v.UninstallAfterBuild }).(pulumi.BoolOutput)
+// Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
+func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) *bool { return v.UninstallAfterBuild }).(pulumi.BoolPtrOutput)
 }
 
 type ImageRecipeSystemsManagerAgentPtrOutput struct{ *pulumi.OutputState }
@@ -2446,13 +2446,13 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManage
 	}).(ImageRecipeSystemsManagerAgentOutput)
 }
 
-// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
+// Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
 func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.UninstallAfterBuild
+		return v.UninstallAfterBuild
 	}).(pulumi.BoolPtrOutput)
 }
 
