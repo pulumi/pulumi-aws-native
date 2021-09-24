@@ -2844,6 +2844,11 @@ export namespace appsync {
         lambdaFunctionArn: string;
     }
 
+    export interface DataSourceOpenSearchServiceConfig {
+        awsRegion: string;
+        endpoint: string;
+    }
+
     export interface DataSourceRdsHttpEndpointConfig {
         awsRegion: string;
         awsSecretStoreArn: string;
@@ -3367,6 +3372,12 @@ export namespace backup {
         conditionKey: string;
         conditionType: string;
         conditionValue: string;
+    }
+
+    export interface BackupVaultLockConfigurationType {
+        changeableForDays?: number;
+        maxRetentionDays?: number;
+        minRetentionDays?: number;
     }
 
     export interface BackupVaultNotificationObjectType {
@@ -5737,8 +5748,17 @@ export namespace config {
 }
 
 export namespace configuration {
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface AggregationAuthorizationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         value: string;
     }
 
@@ -11990,7 +12010,7 @@ export namespace imagebuilder {
         /**
          * Use this property to provide commands or a command script to run when you launch your build instance.
          */
-        userDataOverride: string;
+        userDataOverride?: string;
     }
 
     /**
@@ -12082,9 +12102,9 @@ export namespace imagebuilder {
      */
     export interface ImageRecipeSystemsManagerAgent {
         /**
-         * This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
+         * Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
          */
-        uninstallAfterBuild: boolean;
+        uninstallAfterBuild?: boolean;
     }
 
     /**
@@ -12515,6 +12535,7 @@ export namespace iot {
         kafka?: outputs.iot.TopicRuleKafkaAction;
         kinesis?: outputs.iot.TopicRuleKinesisAction;
         lambda?: outputs.iot.TopicRuleLambdaAction;
+        openSearch?: outputs.iot.TopicRuleOpenSearchAction;
         republish?: outputs.iot.TopicRuleRepublishAction;
         s3?: outputs.iot.TopicRuleS3Action;
         sns?: outputs.iot.TopicRuleSnsAction;
@@ -12655,6 +12676,14 @@ export namespace iot {
 
     export interface TopicRuleLambdaAction {
         functionArn?: string;
+    }
+
+    export interface TopicRuleOpenSearchAction {
+        endpoint: string;
+        id: string;
+        index: string;
+        roleArn: string;
+        type: string;
     }
 
     export interface TopicRulePutAssetPropertyValueEntry {
@@ -20938,6 +20967,7 @@ export namespace s3 {
     }
 
     export interface BucketMetricsConfiguration {
+        accessPointArn?: string;
         id: string;
         prefix?: string;
         tagFilters?: outputs.s3.BucketTagFilter[];

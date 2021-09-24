@@ -46,6 +46,7 @@ export class DataSource extends pulumi.CustomResource {
     public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
     public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
     public readonly name!: pulumi.Output<string>;
+    public readonly openSearchServiceConfig!: pulumi.Output<outputs.appsync.DataSourceOpenSearchServiceConfig | undefined>;
     public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
     public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     public readonly type!: pulumi.Output<string>;
@@ -79,6 +80,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["httpConfig"] = args ? args.httpConfig : undefined;
             inputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["openSearchServiceConfig"] = args ? args.openSearchServiceConfig : undefined;
             inputs["relationalDatabaseConfig"] = args ? args.relationalDatabaseConfig : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -92,6 +94,7 @@ export class DataSource extends pulumi.CustomResource {
             inputs["httpConfig"] = undefined /*out*/;
             inputs["lambdaConfig"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["openSearchServiceConfig"] = undefined /*out*/;
             inputs["relationalDatabaseConfig"] = undefined /*out*/;
             inputs["serviceRoleArn"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -114,6 +117,7 @@ export interface DataSourceArgs {
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs>;
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfigArgs>;
     name: pulumi.Input<string>;
+    openSearchServiceConfig?: pulumi.Input<inputs.appsync.DataSourceOpenSearchServiceConfigArgs>;
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfigArgs>;
     serviceRoleArn?: pulumi.Input<string>;
     type: pulumi.Input<string>;

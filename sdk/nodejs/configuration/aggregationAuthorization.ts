@@ -35,8 +35,21 @@ export class AggregationAuthorization extends pulumi.CustomResource {
         return obj['__pulumiType'] === AggregationAuthorization.__pulumiType;
     }
 
+    /**
+     * The ARN of the AggregationAuthorization.
+     */
+    public /*out*/ readonly aggregationAuthorizationArn!: pulumi.Output<string>;
+    /**
+     * The 12-digit account ID of the account authorized to aggregate data.
+     */
     public readonly authorizedAccountId!: pulumi.Output<string>;
+    /**
+     * The region authorized to collect aggregated data.
+     */
     public readonly authorizedAwsRegion!: pulumi.Output<string>;
+    /**
+     * The tags for the AggregationAuthorization.
+     */
     public readonly tags!: pulumi.Output<outputs.configuration.AggregationAuthorizationTag[] | undefined>;
 
     /**
@@ -59,7 +72,9 @@ export class AggregationAuthorization extends pulumi.CustomResource {
             inputs["authorizedAccountId"] = args ? args.authorizedAccountId : undefined;
             inputs["authorizedAwsRegion"] = args ? args.authorizedAwsRegion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["aggregationAuthorizationArn"] = undefined /*out*/;
         } else {
+            inputs["aggregationAuthorizationArn"] = undefined /*out*/;
             inputs["authorizedAccountId"] = undefined /*out*/;
             inputs["authorizedAwsRegion"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -75,7 +90,16 @@ export class AggregationAuthorization extends pulumi.CustomResource {
  * The set of arguments for constructing a AggregationAuthorization resource.
  */
 export interface AggregationAuthorizationArgs {
+    /**
+     * The 12-digit account ID of the account authorized to aggregate data.
+     */
     authorizedAccountId: pulumi.Input<string>;
+    /**
+     * The region authorized to collect aggregated data.
+     */
     authorizedAwsRegion: pulumi.Input<string>;
+    /**
+     * The tags for the AggregationAuthorization.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.configuration.AggregationAuthorizationTagArgs>[]>;
 }

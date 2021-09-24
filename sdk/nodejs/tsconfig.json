@@ -19,7 +19,6 @@
         "acmpca/certificateAuthority.ts",
         "acmpca/certificateAuthorityActivation.ts",
         "acmpca/index.ts",
-        "acmpca/permission.ts",
         "amazonmq/broker.ts",
         "amazonmq/configuration.ts",
         "amazonmq/configurationAssociation.ts",
