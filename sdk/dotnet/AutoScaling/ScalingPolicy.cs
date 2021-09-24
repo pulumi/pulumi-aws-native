@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// <summary>
     /// Resource Type definition for AWS::AutoScaling::ScalingPolicy
     /// </summary>
-    [Obsolete(@"ScalingPolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:autoscaling:ScalingPolicy")]
     public partial class ScalingPolicy : Pulumi.CustomResource
     {

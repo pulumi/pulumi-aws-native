@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::AppSync::ApiKey
 //
-// Deprecated: ApiKey is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ApiKey is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ApiKey struct {
 	pulumi.CustomResourceState
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// <summary>
     /// Resource Type definition for AWS::GuardDuty::ThreatIntelSet
     /// </summary>
-    [Obsolete(@"ThreatIntelSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:ThreatIntelSet")]
     public partial class ThreatIntelSet : Pulumi.CustomResource
     {

@@ -43,11 +43,11 @@ class IPSetArgs:
         pulumi.set(self, "i_p_set_descriptors", value)
 
 
-warnings.warn("""IPSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class IPSet(pulumi.CustomResource):
-    warnings.warn("""IPSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -89,7 +89,7 @@ class IPSet(pulumi.CustomResource):
                  i_p_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetIPSetDescriptorArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""IPSet is deprecated: IPSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""IPSet is deprecated: IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -115,11 +115,11 @@ class GameSessionQueueArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-warnings.warn("""GameSessionQueue is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class GameSessionQueue(pulumi.CustomResource):
-    warnings.warn("""GameSessionQueue is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -173,7 +173,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  priority_configuration: Optional[pulumi.Input[pulumi.InputType['GameSessionQueuePriorityConfigurationArgs']]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""GameSessionQueue is deprecated: GameSessionQueue is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""GameSessionQueue is deprecated: GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -75,11 +75,11 @@ class ModelArgs:
         pulumi.set(self, "description", value)
 
 
-warnings.warn("""Model is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Model(pulumi.CustomResource):
-    warnings.warn("""Model is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -127,7 +127,7 @@ class Model(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Model is deprecated: Model is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Model is deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Route53Resolver::ResolverRule
 //
-// Deprecated: ResolverRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ResolverRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ResolverRule struct {
 	pulumi.CustomResourceState
 

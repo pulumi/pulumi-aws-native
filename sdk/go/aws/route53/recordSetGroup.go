@@ -12,7 +12,7 @@ import (
 
 // Resource Type definition for AWS::Route53::RecordSetGroup
 //
-// Deprecated: RecordSetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: RecordSetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type RecordSetGroup struct {
 	pulumi.CustomResourceState
 

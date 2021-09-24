@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeBuild
     /// <summary>
     /// Resource Type definition for AWS::CodeBuild::ReportGroup
     /// </summary>
-    [Obsolete(@"ReportGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ReportGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codebuild:ReportGroup")]
     public partial class ReportGroup : Pulumi.CustomResource
     {

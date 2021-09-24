@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaLive
     /// <summary>
     /// Resource Type definition for AWS::MediaLive::Input
     /// </summary>
-    [Obsolete(@"Input is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:medialive:Input")]
     public partial class Input : Pulumi.CustomResource
     {

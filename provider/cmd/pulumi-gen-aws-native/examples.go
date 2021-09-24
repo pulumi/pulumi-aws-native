@@ -51,8 +51,8 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *pschema.CloudAPIMet
 			// Skip all snippets that don't produce valid examples.
 			continue
 		}
-		if example.ResourceType == "aws-native:wafv2:WebACL" {
-			// TODO: This example is non-deterministic - figure out why.
+		if strings.HasPrefix(example.ResourceType, "aws-native:wafv2:WebACL") {
+			// TODO: These examples are non-deterministic - figure out why.
 			continue
 		}
 		var existing []exampleRenderData

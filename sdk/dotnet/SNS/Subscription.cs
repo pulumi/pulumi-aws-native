@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SNS
     /// <summary>
     /// Resource Type definition for AWS::SNS::Subscription
     /// </summary>
-    [Obsolete(@"Subscription is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Subscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sns:Subscription")]
     public partial class Subscription : Pulumi.CustomResource
     {

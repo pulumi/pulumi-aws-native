@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeDeploy
     /// <summary>
     /// Resource Type definition for AWS::CodeDeploy::DeploymentGroup
     /// </summary>
-    [Obsolete(@"DeploymentGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codedeploy:DeploymentGroup")]
     public partial class DeploymentGroup : Pulumi.CustomResource
     {

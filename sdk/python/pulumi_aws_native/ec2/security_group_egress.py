@@ -124,11 +124,11 @@ class SecurityGroupEgressInitArgs:
         pulumi.set(self, "to_port", value)
 
 
-warnings.warn("""SecurityGroupEgress is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SecurityGroupEgress(pulumi.CustomResource):
-    warnings.warn("""SecurityGroupEgress is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -184,7 +184,7 @@ class SecurityGroupEgress(pulumi.CustomResource):
                  ip_protocol: Optional[pulumi.Input[str]] = None,
                  to_port: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""SecurityGroupEgress is deprecated: SecurityGroupEgress is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SecurityGroupEgress is deprecated: SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

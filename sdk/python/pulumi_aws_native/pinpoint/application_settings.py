@@ -79,11 +79,11 @@ class ApplicationSettingsArgs:
         pulumi.set(self, "quiet_time", value)
 
 
-warnings.warn("""ApplicationSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApplicationSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ApplicationSettings(pulumi.CustomResource):
-    warnings.warn("""ApplicationSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ApplicationSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -131,7 +131,7 @@ class ApplicationSettings(pulumi.CustomResource):
                  limits: Optional[pulumi.Input[pulumi.InputType['ApplicationSettingsLimitsArgs']]] = None,
                  quiet_time: Optional[pulumi.Input[pulumi.InputType['ApplicationSettingsQuietTimeArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationSettings is deprecated: ApplicationSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApplicationSettings is deprecated: ApplicationSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

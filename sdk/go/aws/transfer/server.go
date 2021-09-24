@@ -12,7 +12,7 @@ import (
 
 // Resource Type definition for AWS::Transfer::Server
 //
-// Deprecated: Server is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: Server is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Server struct {
 	pulumi.CustomResourceState
 

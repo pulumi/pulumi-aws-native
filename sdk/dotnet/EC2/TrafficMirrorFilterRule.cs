@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::TrafficMirrorFilterRule
     /// </summary>
-    [Obsolete(@"TrafficMirrorFilterRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"TrafficMirrorFilterRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:TrafficMirrorFilterRule")]
     public partial class TrafficMirrorFilterRule : Pulumi.CustomResource
     {

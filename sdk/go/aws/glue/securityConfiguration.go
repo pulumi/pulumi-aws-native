@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Glue::SecurityConfiguration
 //
-// Deprecated: SecurityConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
 

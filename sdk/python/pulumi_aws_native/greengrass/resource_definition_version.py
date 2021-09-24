@@ -42,11 +42,11 @@ class ResourceDefinitionVersionArgs:
         pulumi.set(self, "resources", value)
 
 
-warnings.warn("""ResourceDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ResourceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ResourceDefinitionVersion(pulumi.CustomResource):
-    warnings.warn("""ResourceDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ResourceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -88,7 +88,7 @@ class ResourceDefinitionVersion(pulumi.CustomResource):
                  resource_definition_id: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDefinitionVersionResourceInstanceArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ResourceDefinitionVersion is deprecated: ResourceDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ResourceDefinitionVersion is deprecated: ResourceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

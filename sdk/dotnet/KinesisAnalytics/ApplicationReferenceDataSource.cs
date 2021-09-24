@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.KinesisAnalytics
     /// <summary>
     /// Resource Type definition for AWS::KinesisAnalytics::ApplicationReferenceDataSource
     /// </summary>
-    [Obsolete(@"ApplicationReferenceDataSource is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ApplicationReferenceDataSource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesisanalytics:ApplicationReferenceDataSource")]
     public partial class ApplicationReferenceDataSource : Pulumi.CustomResource
     {

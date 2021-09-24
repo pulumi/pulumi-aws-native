@@ -54,11 +54,11 @@ class ReceiptRuleArgs:
         pulumi.set(self, "after", value)
 
 
-warnings.warn("""ReceiptRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ReceiptRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ReceiptRule(pulumi.CustomResource):
-    warnings.warn("""ReceiptRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ReceiptRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -102,7 +102,7 @@ class ReceiptRule(pulumi.CustomResource):
                  rule: Optional[pulumi.Input[pulumi.InputType['ReceiptRuleRuleArgs']]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ReceiptRule is deprecated: ReceiptRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ReceiptRule is deprecated: ReceiptRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

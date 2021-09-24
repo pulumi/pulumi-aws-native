@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WAF
     /// <summary>
     /// Resource Type definition for AWS::WAF::ByteMatchSet
     /// </summary>
-    [Obsolete(@"ByteMatchSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ByteMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:waf:ByteMatchSet")]
     public partial class ByteMatchSet : Pulumi.CustomResource
     {

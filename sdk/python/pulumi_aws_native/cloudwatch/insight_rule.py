@@ -65,11 +65,11 @@ class InsightRuleArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""InsightRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""InsightRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class InsightRule(pulumi.CustomResource):
-    warnings.warn("""InsightRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""InsightRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -115,7 +115,7 @@ class InsightRule(pulumi.CustomResource):
                  rule_state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['InsightRuleTagsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""InsightRule is deprecated: InsightRule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""InsightRule is deprecated: InsightRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

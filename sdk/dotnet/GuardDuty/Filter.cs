@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GuardDuty
     /// <summary>
     /// Resource Type definition for AWS::GuardDuty::Filter
     /// </summary>
-    [Obsolete(@"Filter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Filter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:Filter")]
     public partial class Filter : Pulumi.CustomResource
     {

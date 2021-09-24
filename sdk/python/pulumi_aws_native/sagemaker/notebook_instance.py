@@ -186,11 +186,11 @@ class NotebookInstanceArgs:
         pulumi.set(self, "volume_size_in_gb", value)
 
 
-warnings.warn("""NotebookInstance is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""NotebookInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class NotebookInstance(pulumi.CustomResource):
-    warnings.warn("""NotebookInstance is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""NotebookInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -256,7 +256,7 @@ class NotebookInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotebookInstanceTagArgs']]]]] = None,
                  volume_size_in_gb: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""NotebookInstance is deprecated: NotebookInstance is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""NotebookInstance is deprecated: NotebookInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

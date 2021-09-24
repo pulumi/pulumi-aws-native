@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.LakeFormation
     /// <summary>
     /// Resource Type definition for AWS::LakeFormation::Resource
     /// </summary>
-    [Obsolete(@"Resource is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Resource is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lakeformation:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {

@@ -174,11 +174,11 @@ class ImageBuilderArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-warnings.warn("""ImageBuilder is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ImageBuilder(pulumi.CustomResource):
-    warnings.warn("""ImageBuilder is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -242,7 +242,7 @@ class ImageBuilder(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderTagArgs']]]]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ImageBuilder is deprecated: ImageBuilder is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ImageBuilder is deprecated: ImageBuilder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -65,11 +65,11 @@ class SMSChannelArgs:
         pulumi.set(self, "short_code", value)
 
 
-warnings.warn("""SMSChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SMSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SMSChannel(pulumi.CustomResource):
-    warnings.warn("""SMSChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SMSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -115,7 +115,7 @@ class SMSChannel(pulumi.CustomResource):
                  sender_id: Optional[pulumi.Input[str]] = None,
                  short_code: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SMSChannel is deprecated: SMSChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SMSChannel is deprecated: SMSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

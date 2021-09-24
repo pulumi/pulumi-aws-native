@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Greengrass::ConnectorDefinitionVersion
 //
-// Deprecated: ConnectorDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ConnectorDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ConnectorDefinitionVersion struct {
 	pulumi.CustomResourceState
 

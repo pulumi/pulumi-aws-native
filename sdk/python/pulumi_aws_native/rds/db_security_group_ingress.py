@@ -77,11 +77,11 @@ class DBSecurityGroupIngressInitArgs:
         pulumi.set(self, "e_c2_security_group_owner_id", value)
 
 
-warnings.warn("""DBSecurityGroupIngress is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DBSecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class DBSecurityGroupIngress(pulumi.CustomResource):
-    warnings.warn("""DBSecurityGroupIngress is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""DBSecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -129,7 +129,7 @@ class DBSecurityGroupIngress(pulumi.CustomResource):
                  e_c2_security_group_name: Optional[pulumi.Input[str]] = None,
                  e_c2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DBSecurityGroupIngress is deprecated: DBSecurityGroupIngress is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DBSecurityGroupIngress is deprecated: DBSecurityGroupIngress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

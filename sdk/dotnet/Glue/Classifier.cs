@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// Resource Type definition for AWS::Glue::Classifier
     /// </summary>
-    [Obsolete(@"Classifier is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Classifier is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:Classifier")]
     public partial class Classifier : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// <summary>
     /// Resource Type definition for AWS::AutoScaling::LaunchConfiguration
     /// </summary>
-    [Obsolete(@"LaunchConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"LaunchConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:autoscaling:LaunchConfiguration")]
     public partial class LaunchConfiguration : Pulumi.CustomResource
     {

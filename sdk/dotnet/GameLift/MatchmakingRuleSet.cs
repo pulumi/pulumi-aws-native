@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GameLift
     /// <summary>
     /// Resource Type definition for AWS::GameLift::MatchmakingRuleSet
     /// </summary>
-    [Obsolete(@"MatchmakingRuleSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:MatchmakingRuleSet")]
     public partial class MatchmakingRuleSet : Pulumi.CustomResource
     {

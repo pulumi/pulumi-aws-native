@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// Resource Type definition for AWS::IoT::Policy
     /// </summary>
-    [Obsolete(@"Policy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Policy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {

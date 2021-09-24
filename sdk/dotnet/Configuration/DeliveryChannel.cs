@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Configuration
     /// <summary>
     /// Resource Type definition for AWS::Config::DeliveryChannel
     /// </summary>
-    [Obsolete(@"DeliveryChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DeliveryChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:configuration:DeliveryChannel")]
     public partial class DeliveryChannel : Pulumi.CustomResource
     {

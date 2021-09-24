@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSM
     /// <summary>
     /// Resource Type definition for AWS::SSM::MaintenanceWindowTarget
     /// </summary>
-    [Obsolete(@"MaintenanceWindowTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"MaintenanceWindowTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ssm:MaintenanceWindowTarget")]
     public partial class MaintenanceWindowTarget : Pulumi.CustomResource
     {

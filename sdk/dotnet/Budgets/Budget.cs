@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Budgets
     /// <summary>
     /// Resource Type definition for AWS::Budgets::Budget
     /// </summary>
-    [Obsolete(@"Budget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Budget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:budgets:Budget")]
     public partial class Budget : Pulumi.CustomResource
     {

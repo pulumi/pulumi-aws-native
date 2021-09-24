@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EMR
     /// <summary>
     /// Resource Type definition for AWS::EMR::SecurityConfiguration
     /// </summary>
-    [Obsolete(@"SecurityConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:SecurityConfiguration")]
     public partial class SecurityConfiguration : Pulumi.CustomResource
     {

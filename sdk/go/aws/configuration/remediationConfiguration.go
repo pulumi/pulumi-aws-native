@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Config::RemediationConfiguration
 //
-// Deprecated: RemediationConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: RemediationConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type RemediationConfiguration struct {
 	pulumi.CustomResourceState
 

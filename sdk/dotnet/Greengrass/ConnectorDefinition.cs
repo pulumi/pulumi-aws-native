@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// <summary>
     /// Resource Type definition for AWS::Greengrass::ConnectorDefinition
     /// </summary>
-    [Obsolete(@"ConnectorDefinition is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ConnectorDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:ConnectorDefinition")]
     public partial class ConnectorDefinition : Pulumi.CustomResource
     {

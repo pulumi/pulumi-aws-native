@@ -40,11 +40,11 @@ class SubnetCidrBlockArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-warnings.warn("""SubnetCidrBlock is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SubnetCidrBlock(pulumi.CustomResource):
-    warnings.warn("""SubnetCidrBlock is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -86,7 +86,7 @@ class SubnetCidrBlock(pulumi.CustomResource):
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SubnetCidrBlock is deprecated: SubnetCidrBlock is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SubnetCidrBlock is deprecated: SubnetCidrBlock is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

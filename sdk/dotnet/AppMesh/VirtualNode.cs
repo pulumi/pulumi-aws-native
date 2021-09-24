@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// <summary>
     /// Resource Type definition for AWS::AppMesh::VirtualNode
     /// </summary>
-    [Obsolete(@"VirtualNode is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"VirtualNode is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:VirtualNode")]
     public partial class VirtualNode : Pulumi.CustomResource
     {

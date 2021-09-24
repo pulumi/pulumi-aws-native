@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.RoboMaker
     /// <summary>
     /// Resource Type definition for AWS::RoboMaker::RobotApplication
     /// </summary>
-    [Obsolete(@"RobotApplication is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"RobotApplication is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:robomaker:RobotApplication")]
     public partial class RobotApplication : Pulumi.CustomResource
     {

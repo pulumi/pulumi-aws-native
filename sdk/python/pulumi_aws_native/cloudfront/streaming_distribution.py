@@ -42,11 +42,11 @@ class StreamingDistributionArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""StreamingDistribution is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class StreamingDistribution(pulumi.CustomResource):
-    warnings.warn("""StreamingDistribution is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -88,7 +88,7 @@ class StreamingDistribution(pulumi.CustomResource):
                  streaming_distribution_config: Optional[pulumi.Input[pulumi.InputType['StreamingDistributionStreamingDistributionConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingDistributionTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""StreamingDistribution is deprecated: StreamingDistribution is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""StreamingDistribution is deprecated: StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -53,11 +53,11 @@ class MetricFilterArgs:
         pulumi.set(self, "metric_transformations", value)
 
 
-warnings.warn("""MetricFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class MetricFilter(pulumi.CustomResource):
-    warnings.warn("""MetricFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -101,7 +101,7 @@ class MetricFilter(pulumi.CustomResource):
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  metric_transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricFilterMetricTransformationArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""MetricFilter is deprecated: MetricFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""MetricFilter is deprecated: MetricFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

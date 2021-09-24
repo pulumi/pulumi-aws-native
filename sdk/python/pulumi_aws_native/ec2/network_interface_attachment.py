@@ -63,11 +63,11 @@ class NetworkInterfaceAttachmentArgs:
         pulumi.set(self, "delete_on_termination", value)
 
 
-warnings.warn("""NetworkInterfaceAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class NetworkInterfaceAttachment(pulumi.CustomResource):
-    warnings.warn("""NetworkInterfaceAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -113,7 +113,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkInterfaceAttachment is deprecated: NetworkInterfaceAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""NetworkInterfaceAttachment is deprecated: NetworkInterfaceAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

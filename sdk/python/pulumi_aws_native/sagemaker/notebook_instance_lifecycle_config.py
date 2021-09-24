@@ -56,11 +56,11 @@ class NotebookInstanceLifecycleConfigArgs:
         pulumi.set(self, "on_start", value)
 
 
-warnings.warn("""NotebookInstanceLifecycleConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""NotebookInstanceLifecycleConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
-    warnings.warn("""NotebookInstanceLifecycleConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""NotebookInstanceLifecycleConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -104,7 +104,7 @@ class NotebookInstanceLifecycleConfig(pulumi.CustomResource):
                  on_create: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs']]]]] = None,
                  on_start: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""NotebookInstanceLifecycleConfig is deprecated: NotebookInstanceLifecycleConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""NotebookInstanceLifecycleConfig is deprecated: NotebookInstanceLifecycleConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

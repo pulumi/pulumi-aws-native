@@ -114,11 +114,11 @@ class ScalingPolicyArgs:
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
-warnings.warn("""ScalingPolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ScalingPolicy(pulumi.CustomResource):
-    warnings.warn("""ScalingPolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -172,7 +172,7 @@ class ScalingPolicy(pulumi.CustomResource):
                  step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyStepScalingPolicyConfigurationArgs']]] = None,
                  target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ScalingPolicy is deprecated: ScalingPolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ScalingPolicy is deprecated: ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

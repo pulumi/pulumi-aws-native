@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     /// <summary>
     /// Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
     /// </summary>
-    [Obsolete(@"ConfigurationTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:ConfigurationTemplate")]
     public partial class ConfigurationTemplate : Pulumi.CustomResource
     {

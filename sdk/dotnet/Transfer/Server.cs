@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Transfer
     /// <summary>
     /// Resource Type definition for AWS::Transfer::Server
     /// </summary>
-    [Obsolete(@"Server is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Server is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:transfer:Server")]
     public partial class Server : Pulumi.CustomResource
     {

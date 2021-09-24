@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Events
     /// <summary>
     /// Resource Type definition for AWS::Events::EventBusPolicy
     /// </summary>
-    [Obsolete(@"EventBusPolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"EventBusPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:events:EventBusPolicy")]
     public partial class EventBusPolicy : Pulumi.CustomResource
     {

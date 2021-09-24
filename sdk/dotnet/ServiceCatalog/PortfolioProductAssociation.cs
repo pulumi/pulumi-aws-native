@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// <summary>
     /// Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
     /// </summary>
-    [Obsolete(@"PortfolioProductAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"PortfolioProductAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:PortfolioProductAssociation")]
     public partial class PortfolioProductAssociation : Pulumi.CustomResource
     {

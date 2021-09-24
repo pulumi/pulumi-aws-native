@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DAX
     /// <summary>
     /// Resource Type definition for AWS::DAX::SubnetGroup
     /// </summary>
-    [Obsolete(@"SubnetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dax:SubnetGroup")]
     public partial class SubnetGroup : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SES
     /// <summary>
     /// Resource Type definition for AWS::SES::ReceiptFilter
     /// </summary>
-    [Obsolete(@"ReceiptFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ReceiptFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ses:ReceiptFilter")]
     public partial class ReceiptFilter : Pulumi.CustomResource
     {

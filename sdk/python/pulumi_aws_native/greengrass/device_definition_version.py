@@ -42,11 +42,11 @@ class DeviceDefinitionVersionArgs:
         pulumi.set(self, "devices", value)
 
 
-warnings.warn("""DeviceDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DeviceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class DeviceDefinitionVersion(pulumi.CustomResource):
-    warnings.warn("""DeviceDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""DeviceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -88,7 +88,7 @@ class DeviceDefinitionVersion(pulumi.CustomResource):
                  device_definition_id: Optional[pulumi.Input[str]] = None,
                  devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceDefinitionVersionDeviceArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DeviceDefinitionVersion is deprecated: DeviceDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DeviceDefinitionVersion is deprecated: DeviceDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

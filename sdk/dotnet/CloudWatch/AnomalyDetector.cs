@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// <summary>
     /// Resource Type definition for AWS::CloudWatch::AnomalyDetector
     /// </summary>
-    [Obsolete(@"AnomalyDetector is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudwatch:AnomalyDetector")]
     public partial class AnomalyDetector : Pulumi.CustomResource
     {

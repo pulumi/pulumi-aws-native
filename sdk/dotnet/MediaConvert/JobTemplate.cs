@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaConvert
     /// <summary>
     /// Resource Type definition for AWS::MediaConvert::JobTemplate
     /// </summary>
-    [Obsolete(@"JobTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"JobTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:mediaconvert:JobTemplate")]
     public partial class JobTemplate : Pulumi.CustomResource
     {

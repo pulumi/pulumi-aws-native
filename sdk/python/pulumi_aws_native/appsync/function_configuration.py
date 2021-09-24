@@ -136,11 +136,11 @@ class FunctionConfigurationArgs:
         pulumi.set(self, "sync_config", value)
 
 
-warnings.warn("""FunctionConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class FunctionConfiguration(pulumi.CustomResource):
-    warnings.warn("""FunctionConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -198,7 +198,7 @@ class FunctionConfiguration(pulumi.CustomResource):
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""FunctionConfiguration is deprecated: FunctionConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""FunctionConfiguration is deprecated: FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
  *
- * @deprecated SubscriptionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SubscriptionDefinitionVersion {
-        pulumi.log.warn("SubscriptionDefinitionVersion is deprecated: SubscriptionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("SubscriptionDefinitionVersion is deprecated: SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new SubscriptionDefinitionVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -48,9 +48,9 @@ export class SubscriptionDefinitionVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated SubscriptionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubscriptionDefinitionVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SubscriptionDefinitionVersion is deprecated: SubscriptionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("SubscriptionDefinitionVersion is deprecated: SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

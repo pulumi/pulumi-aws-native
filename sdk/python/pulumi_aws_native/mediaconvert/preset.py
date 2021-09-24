@@ -77,11 +77,11 @@ class PresetArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Preset is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Preset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Preset(pulumi.CustomResource):
-    warnings.warn("""Preset is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Preset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -129,7 +129,7 @@ class Preset(pulumi.CustomResource):
                  settings_json: Optional[Any] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Preset is deprecated: Preset is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Preset is deprecated: Preset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

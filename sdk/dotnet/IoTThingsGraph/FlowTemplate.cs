@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTThingsGraph
     /// <summary>
     /// Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
     /// </summary>
-    [Obsolete(@"FlowTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"FlowTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotthingsgraph:FlowTemplate")]
     public partial class FlowTemplate : Pulumi.CustomResource
     {

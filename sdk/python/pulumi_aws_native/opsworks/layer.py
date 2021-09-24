@@ -241,11 +241,11 @@ class LayerArgs:
         pulumi.set(self, "volume_configurations", value)
 
 
-warnings.warn("""Layer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Layer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Layer(pulumi.CustomResource):
-    warnings.warn("""Layer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Layer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -321,7 +321,7 @@ class Layer(pulumi.CustomResource):
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LayerVolumeConfigurationArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Layer is deprecated: Layer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Layer is deprecated: Layer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

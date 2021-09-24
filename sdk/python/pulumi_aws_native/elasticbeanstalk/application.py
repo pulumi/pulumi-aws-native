@@ -56,11 +56,11 @@ class ApplicationArgs:
         pulumi.set(self, "resource_lifecycle_config", value)
 
 
-warnings.warn("""Application is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Application(pulumi.CustomResource):
-    warnings.warn("""Application is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -104,7 +104,7 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_lifecycle_config: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationResourceLifecycleConfigArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Application is deprecated: Application is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

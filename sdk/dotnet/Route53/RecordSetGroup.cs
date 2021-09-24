@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53
     /// <summary>
     /// Resource Type definition for AWS::Route53::RecordSetGroup
     /// </summary>
-    [Obsolete(@"RecordSetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"RecordSetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:route53:RecordSetGroup")]
     public partial class RecordSetGroup : Pulumi.CustomResource
     {

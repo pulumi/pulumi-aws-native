@@ -184,11 +184,11 @@ class ClientVpnEndpointArgs:
         pulumi.set(self, "vpn_port", value)
 
 
-warnings.warn("""ClientVpnEndpoint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ClientVpnEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ClientVpnEndpoint(pulumi.CustomResource):
-    warnings.warn("""ClientVpnEndpoint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ClientVpnEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -254,7 +254,7 @@ class ClientVpnEndpoint(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpn_port: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""ClientVpnEndpoint is deprecated: ClientVpnEndpoint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ClientVpnEndpoint is deprecated: ClientVpnEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

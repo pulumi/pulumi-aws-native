@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Inspector
     /// <summary>
     /// Resource Type definition for AWS::Inspector::AssessmentTarget
     /// </summary>
-    [Obsolete(@"AssessmentTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"AssessmentTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:inspector:AssessmentTarget")]
     public partial class AssessmentTarget : Pulumi.CustomResource
     {

@@ -63,11 +63,11 @@ class ApiMappingArgs:
         pulumi.set(self, "api_mapping_key", value)
 
 
-warnings.warn("""ApiMapping is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ApiMapping(pulumi.CustomResource):
-    warnings.warn("""ApiMapping is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -113,7 +113,7 @@ class ApiMapping(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiMapping is deprecated: ApiMapping is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApiMapping is deprecated: ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Redshift
     /// <summary>
     /// Resource Type definition for AWS::Redshift::ClusterParameterGroup
     /// </summary>
-    [Obsolete(@"ClusterParameterGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ClusterParameterGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:redshift:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : Pulumi.CustomResource
     {

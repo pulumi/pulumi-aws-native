@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Greengrass
     /// <summary>
     /// Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
     /// </summary>
-    [Obsolete(@"LoggerDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"LoggerDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:greengrass:LoggerDefinitionVersion")]
     public partial class LoggerDefinitionVersion : Pulumi.CustomResource
     {

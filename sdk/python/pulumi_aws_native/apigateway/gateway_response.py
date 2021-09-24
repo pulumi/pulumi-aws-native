@@ -76,11 +76,11 @@ class GatewayResponseArgs:
         pulumi.set(self, "status_code", value)
 
 
-warnings.warn("""GatewayResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class GatewayResponse(pulumi.CustomResource):
-    warnings.warn("""GatewayResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -128,7 +128,7 @@ class GatewayResponse(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  status_code: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GatewayResponse is deprecated: GatewayResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""GatewayResponse is deprecated: GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

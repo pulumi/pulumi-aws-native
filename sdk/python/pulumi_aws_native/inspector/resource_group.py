@@ -31,11 +31,11 @@ class ResourceGroupArgs:
         pulumi.set(self, "resource_group_tags", value)
 
 
-warnings.warn("""ResourceGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ResourceGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ResourceGroup(pulumi.CustomResource):
-    warnings.warn("""ResourceGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ResourceGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -75,7 +75,7 @@ class ResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ResourceGroup is deprecated: ResourceGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ResourceGroup is deprecated: ResourceGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

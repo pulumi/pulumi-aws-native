@@ -67,11 +67,11 @@ class VersionArgs:
         pulumi.set(self, "provisioned_concurrency_config", value)
 
 
-warnings.warn("""Version is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Version(pulumi.CustomResource):
-    warnings.warn("""Version is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -117,7 +117,7 @@ class Version(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[str]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input[pulumi.InputType['VersionProvisionedConcurrencyConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Version is deprecated: Version is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Version is deprecated: Version is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

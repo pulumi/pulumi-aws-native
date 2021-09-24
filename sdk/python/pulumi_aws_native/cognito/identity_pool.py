@@ -151,11 +151,11 @@ class IdentityPoolArgs:
         pulumi.set(self, "supported_login_providers", value)
 
 
-warnings.warn("""IdentityPool is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class IdentityPool(pulumi.CustomResource):
-    warnings.warn("""IdentityPool is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -215,7 +215,7 @@ class IdentityPool(pulumi.CustomResource):
                  saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  supported_login_providers: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""IdentityPool is deprecated: IdentityPool is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""IdentityPool is deprecated: IdentityPool is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

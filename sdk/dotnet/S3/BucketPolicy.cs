@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.S3
     /// <summary>
     /// Resource Type definition for AWS::S3::BucketPolicy
     /// </summary>
-    [Obsolete(@"BucketPolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"BucketPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:s3:BucketPolicy")]
     public partial class BucketPolicy : Pulumi.CustomResource
     {

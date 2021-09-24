@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.StepFunctions
     /// <summary>
     /// Resource Type definition for AWS::StepFunctions::Activity
     /// </summary>
-    [Obsolete(@"Activity is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Activity is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:stepfunctions:Activity")]
     public partial class Activity : Pulumi.CustomResource
     {

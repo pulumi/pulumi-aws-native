@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IAM
     /// <summary>
     /// Resource Type definition for AWS::IAM::UserToGroupAddition
     /// </summary>
-    [Obsolete(@"UserToGroupAddition is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"UserToGroupAddition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iam:UserToGroupAddition")]
     public partial class UserToGroupAddition : Pulumi.CustomResource
     {

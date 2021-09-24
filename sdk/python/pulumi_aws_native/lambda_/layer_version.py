@@ -79,11 +79,11 @@ class LayerVersionArgs:
         pulumi.set(self, "license_info", value)
 
 
-warnings.warn("""LayerVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class LayerVersion(pulumi.CustomResource):
-    warnings.warn("""LayerVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -131,7 +131,7 @@ class LayerVersion(pulumi.CustomResource):
                  layer_name: Optional[pulumi.Input[str]] = None,
                  license_info: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LayerVersion is deprecated: LayerVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""LayerVersion is deprecated: LayerVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

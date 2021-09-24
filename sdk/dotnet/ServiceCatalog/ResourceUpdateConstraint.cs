@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// <summary>
     /// Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
     /// </summary>
-    [Obsolete(@"ResourceUpdateConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ResourceUpdateConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:ResourceUpdateConstraint")]
     public partial class ResourceUpdateConstraint : Pulumi.CustomResource
     {

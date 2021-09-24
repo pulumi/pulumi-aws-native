@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// <summary>
     /// Resource Type definition for AWS::ElastiCache::ReplicationGroup
     /// </summary>
-    [Obsolete(@"ReplicationGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ReplicationGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:ReplicationGroup")]
     public partial class ReplicationGroup : Pulumi.CustomResource
     {

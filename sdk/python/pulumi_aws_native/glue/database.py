@@ -42,11 +42,11 @@ class DatabaseArgs:
         pulumi.set(self, "database_input", value)
 
 
-warnings.warn("""Database is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Database is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Database(pulumi.CustomResource):
-    warnings.warn("""Database is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Database is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -88,7 +88,7 @@ class Database(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_input: Optional[pulumi.Input[pulumi.InputType['DatabaseDatabaseInputArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Database is deprecated: Database is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Database is deprecated: Database is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

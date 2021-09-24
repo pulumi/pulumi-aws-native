@@ -138,11 +138,11 @@ class FileSystemArgs:
         pulumi.set(self, "windows_configuration", value)
 
 
-warnings.warn("""FileSystem is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""FileSystem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class FileSystem(pulumi.CustomResource):
-    warnings.warn("""FileSystem is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""FileSystem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -200,7 +200,7 @@ class FileSystem(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemTagArgs']]]]] = None,
                  windows_configuration: Optional[pulumi.Input[pulumi.InputType['FileSystemWindowsConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""FileSystem is deprecated: FileSystem is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""FileSystem is deprecated: FileSystem is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

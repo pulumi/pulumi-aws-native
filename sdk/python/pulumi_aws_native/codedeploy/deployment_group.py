@@ -222,11 +222,11 @@ class DeploymentGroupArgs:
         pulumi.set(self, "trigger_configurations", value)
 
 
-warnings.warn("""DeploymentGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class DeploymentGroup(pulumi.CustomResource):
-    warnings.warn("""DeploymentGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -298,7 +298,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DeploymentGroup is deprecated: DeploymentGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DeploymentGroup is deprecated: DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

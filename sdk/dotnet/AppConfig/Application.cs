@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppConfig
     /// <summary>
     /// Resource Type definition for AWS::AppConfig::Application
     /// </summary>
-    [Obsolete(@"Application is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appconfig:Application")]
     public partial class Application : Pulumi.CustomResource
     {

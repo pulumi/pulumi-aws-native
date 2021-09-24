@@ -79,11 +79,11 @@ class StackArgs:
         pulumi.set(self, "timeout_in_minutes", value)
 
 
-warnings.warn("""Stack is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Stack(pulumi.CustomResource):
-    warnings.warn("""Stack is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -131,7 +131,7 @@ class Stack(pulumi.CustomResource):
                  template_url: Optional[pulumi.Input[str]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""Stack is deprecated: Stack is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Stack is deprecated: Stack is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

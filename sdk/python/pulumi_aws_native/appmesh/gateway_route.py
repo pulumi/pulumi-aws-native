@@ -89,11 +89,11 @@ class GatewayRouteArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""GatewayRoute is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""GatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class GatewayRoute(pulumi.CustomResource):
-    warnings.warn("""GatewayRoute is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""GatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -143,7 +143,7 @@ class GatewayRoute(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayRouteTagArgs']]]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GatewayRoute is deprecated: GatewayRoute is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""GatewayRoute is deprecated: GatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

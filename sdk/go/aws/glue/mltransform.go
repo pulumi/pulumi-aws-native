@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Glue::MLTransform
 //
-// Deprecated: MLTransform is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type MLTransform struct {
 	pulumi.CustomResourceState
 

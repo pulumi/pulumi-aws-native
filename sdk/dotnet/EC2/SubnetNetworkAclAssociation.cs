@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
     /// </summary>
-    [Obsolete(@"SubnetNetworkAclAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SubnetNetworkAclAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:SubnetNetworkAclAssociation")]
     public partial class SubnetNetworkAclAssociation : Pulumi.CustomResource
     {

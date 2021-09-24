@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceDiscovery
     /// <summary>
     /// Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace
     /// </summary>
-    [Obsolete(@"PublicDnsNamespace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicediscovery:PublicDnsNamespace")]
     public partial class PublicDnsNamespace : Pulumi.CustomResource
     {

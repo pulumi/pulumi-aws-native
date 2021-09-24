@@ -63,11 +63,11 @@ class LayerVersionPermissionArgs:
         pulumi.set(self, "organization_id", value)
 
 
-warnings.warn("""LayerVersionPermission is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""LayerVersionPermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class LayerVersionPermission(pulumi.CustomResource):
-    warnings.warn("""LayerVersionPermission is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""LayerVersionPermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -113,7 +113,7 @@ class LayerVersionPermission(pulumi.CustomResource):
                  organization_id: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LayerVersionPermission is deprecated: LayerVersionPermission is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""LayerVersionPermission is deprecated: LayerVersionPermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

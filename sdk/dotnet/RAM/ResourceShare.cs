@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.RAM
     /// <summary>
     /// Resource Type definition for AWS::RAM::ResourceShare
     /// </summary>
-    [Obsolete(@"ResourceShare is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ResourceShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ram:ResourceShare")]
     public partial class ResourceShare : Pulumi.CustomResource
     {

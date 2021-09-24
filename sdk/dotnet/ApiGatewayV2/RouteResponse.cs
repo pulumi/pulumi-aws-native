@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// <summary>
     /// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
     /// </summary>
-    [Obsolete(@"RouteResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:RouteResponse")]
     public partial class RouteResponse : Pulumi.CustomResource
     {

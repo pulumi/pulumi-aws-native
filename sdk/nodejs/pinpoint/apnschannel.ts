@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::APNSChannel
  *
- * @deprecated APNSChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class APNSChannel extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class APNSChannel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): APNSChannel {
-        pulumi.log.warn("APNSChannel is deprecated: APNSChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("APNSChannel is deprecated: APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new APNSChannel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,9 +54,9 @@ export class APNSChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated APNSChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: APNSChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("APNSChannel is deprecated: APNSChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("APNSChannel is deprecated: APNSChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

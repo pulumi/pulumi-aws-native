@@ -173,11 +173,11 @@ class MLTransformArgs:
         pulumi.set(self, "worker_type", value)
 
 
-warnings.warn("""MLTransform is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class MLTransform(pulumi.CustomResource):
-    warnings.warn("""MLTransform is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -241,7 +241,7 @@ class MLTransform(pulumi.CustomResource):
                  transform_parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformTransformParametersArgs']]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""MLTransform is deprecated: MLTransform is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""MLTransform is deprecated: MLTransform is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

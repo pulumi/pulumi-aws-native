@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeStar
     /// <summary>
     /// Resource Type definition for AWS::CodeStar::GitHubRepository
     /// </summary>
-    [Obsolete(@"GitHubRepository is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"GitHubRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codestar:GitHubRepository")]
     public partial class GitHubRepository : Pulumi.CustomResource
     {

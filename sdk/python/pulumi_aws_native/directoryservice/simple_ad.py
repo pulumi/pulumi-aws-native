@@ -112,11 +112,11 @@ class SimpleADArgs:
         pulumi.set(self, "short_name", value)
 
 
-warnings.warn("""SimpleAD is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class SimpleAD(pulumi.CustomResource):
-    warnings.warn("""SimpleAD is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -170,7 +170,7 @@ class SimpleAD(pulumi.CustomResource):
                  size: Optional[pulumi.Input[str]] = None,
                  vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleADVpcSettingsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""SimpleAD is deprecated: SimpleAD is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""SimpleAD is deprecated: SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

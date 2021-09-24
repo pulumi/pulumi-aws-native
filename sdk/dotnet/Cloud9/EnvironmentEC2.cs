@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Cloud9
     /// <summary>
     /// Resource Type definition for AWS::Cloud9::EnvironmentEC2
     /// </summary>
-    [Obsolete(@"EnvironmentEC2 is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloud9:EnvironmentEC2")]
     public partial class EnvironmentEC2 : Pulumi.CustomResource
     {

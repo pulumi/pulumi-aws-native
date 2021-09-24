@@ -51,11 +51,11 @@ class UserPoolUserToGroupAttachmentArgs:
         pulumi.set(self, "username", value)
 
 
-warnings.warn("""UserPoolUserToGroupAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""UserPoolUserToGroupAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class UserPoolUserToGroupAttachment(pulumi.CustomResource):
-    warnings.warn("""UserPoolUserToGroupAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""UserPoolUserToGroupAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -99,7 +99,7 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""UserPoolUserToGroupAttachment is deprecated: UserPoolUserToGroupAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""UserPoolUserToGroupAttachment is deprecated: UserPoolUserToGroupAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

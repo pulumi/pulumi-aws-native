@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT1Click
     /// <summary>
     /// Resource Type definition for AWS::IoT1Click::Placement
     /// </summary>
-    [Obsolete(@"Placement is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Placement is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iot1click:Placement")]
     public partial class Placement : Pulumi.CustomResource
     {

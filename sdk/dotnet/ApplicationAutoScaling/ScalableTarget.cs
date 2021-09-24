@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
     /// <summary>
     /// Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
     /// </summary>
-    [Obsolete(@"ScalableTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:applicationautoscaling:ScalableTarget")]
     public partial class ScalableTarget : Pulumi.CustomResource
     {

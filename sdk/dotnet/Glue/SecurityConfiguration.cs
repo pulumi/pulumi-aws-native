@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// Resource Type definition for AWS::Glue::SecurityConfiguration
     /// </summary>
-    [Obsolete(@"SecurityConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:SecurityConfiguration")]
     public partial class SecurityConfiguration : Pulumi.CustomResource
     {

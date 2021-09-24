@@ -77,11 +77,11 @@ class AssessmentTemplateArgs:
         pulumi.set(self, "user_attributes_for_findings", value)
 
 
-warnings.warn("""AssessmentTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""AssessmentTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class AssessmentTemplate(pulumi.CustomResource):
-    warnings.warn("""AssessmentTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""AssessmentTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -129,7 +129,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                  rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_attributes_for_findings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTemplateTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""AssessmentTemplate is deprecated: AssessmentTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""AssessmentTemplate is deprecated: AssessmentTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

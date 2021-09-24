@@ -110,11 +110,11 @@ class ScalableTargetArgs:
         pulumi.set(self, "suspended_state", value)
 
 
-warnings.warn("""ScalableTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ScalableTarget(pulumi.CustomResource):
-    warnings.warn("""ScalableTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -168,7 +168,7 @@ class ScalableTarget(pulumi.CustomResource):
                  service_namespace: Optional[pulumi.Input[str]] = None,
                  suspended_state: Optional[pulumi.Input[pulumi.InputType['ScalableTargetSuspendedStateArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ScalableTarget is deprecated: ScalableTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ScalableTarget is deprecated: ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
