@@ -150,8 +150,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 				return true
 			case arg.IsBool() && arg.BoolValue():
 				return true
-			default:
-				return false
 			}
 		}
 		return false
