@@ -12,8 +12,6 @@ import (
 )
 
 // Resource Type definition for AWS::Config::AggregationAuthorization
-//
-// Deprecated: AggregationAuthorization is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type AggregationAuthorization struct {
 	pulumi.CustomResourceState
 

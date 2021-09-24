@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./certificate";
 export * from "./certificateAuthority";
 export * from "./certificateAuthorityActivation";
+export * from "./permission";
 
 // Import resources to register:
 import { Certificate } from "./certificate";
 import { CertificateAuthority } from "./certificateAuthority";
 import { CertificateAuthorityActivation } from "./certificateAuthorityActivation";
+import { Permission } from "./permission";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +26,8 @@ const _module = {
                 return new CertificateAuthority(name, <any>undefined, { urn })
             case "aws-native:acmpca:CertificateAuthorityActivation":
                 return new CertificateAuthorityActivation(name, <any>undefined, { urn })
+            case "aws-native:acmpca:Permission":
+                return new Permission(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -8,5 +8,6 @@ import typing
 from .certificate import *
 from .certificate_authority import *
 from .certificate_authority_activation import *
+from .permission import *
 from ._inputs import *
 from . import outputs

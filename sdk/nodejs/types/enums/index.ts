@@ -36,6 +36,7 @@ import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
+import * as healthlake from "./healthlake";
 import * as imagebuilder from "./imagebuilder";
 import * as iot from "./iot";
 import * as iotevents from "./iotevents";
@@ -110,6 +111,7 @@ export {
     glue,
     greengrassv2,
     groundstation,
+    healthlake,
     imagebuilder,
     iot,
     iotevents,

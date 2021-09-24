@@ -298,6 +298,62 @@
                 "certificateAuthorityArn"
             ]
         },
+        "aws-native:acmpca:Permission": {
+            "cf": "AWS::ACMPCA::Permission",
+            "inputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided."
+                },
+                "certificateAuthorityArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission."
+                },
+                "principal": {
+                    "type": "string",
+                    "description": "The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com."
+                },
+                "sourceAccount": {
+                    "type": "string",
+                    "description": "The ID of the calling account."
+                }
+            },
+            "outputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided."
+                },
+                "certificateAuthorityArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission."
+                },
+                "principal": {
+                    "type": "string",
+                    "description": "The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com."
+                },
+                "sourceAccount": {
+                    "type": "string",
+                    "description": "The ID of the calling account."
+                }
+            },
+            "required": [
+                "actions",
+                "certificateAuthorityArn",
+                "principal"
+            ],
+            "createOnly": [
+                "actions",
+                "certificateAuthorityArn",
+                "principal",
+                "sourceAccount"
+            ]
+        },
         "aws-native:amplify:App": {
             "cf": "AWS::Amplify::App",
             "inputs": {
@@ -1571,6 +1627,47 @@
                 "serviceName",
                 "tags"
             ]
+        },
+        "aws-native:aps:Workspace": {
+            "cf": "AWS::APS::Workspace",
+            "inputs": {
+                "alias": {
+                    "type": "string",
+                    "description": "AMP Workspace alias."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:aps:WorkspaceTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "alias": {
+                    "type": "string",
+                    "description": "AMP Workspace alias."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "Workspace arn."
+                },
+                "prometheusEndpoint": {
+                    "type": "string",
+                    "description": "AMP Workspace prometheus endpoint"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:aps:WorkspaceTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "Required to identify a specific APS Workspace."
+                }
+            }
         },
         "aws-native:athena:DataCatalog": {
             "cf": "AWS::Athena::DataCatalog",
@@ -4034,6 +4131,45 @@
                 "tags"
             ]
         },
+        "aws-native:configuration:AggregationAuthorization": {
+            "cf": "AWS::Config::AggregationAuthorization",
+            "inputs": {
+                "authorizedAccountId": {
+                    "type": "string"
+                },
+                "authorizedAwsRegion": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:configuration:AggregationAuthorizationTag"
+                    }
+                }
+            },
+            "outputs": {
+                "authorizedAccountId": {
+                    "type": "string"
+                },
+                "authorizedAwsRegion": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:configuration:AggregationAuthorizationTag"
+                    }
+                }
+            },
+            "required": [
+                "authorizedAccountId",
+                "authorizedAwsRegion"
+            ],
+            "createOnly": [
+                "authorizedAccountId",
+                "authorizedAwsRegion"
+            ]
+        },
         "aws-native:configuration:ConfigurationAggregator": {
             "cf": "AWS::Config::ConfigurationAggregator",
             "inputs": {
@@ -6438,25 +6574,6 @@
                 "gatewayId"
             ]
         },
-        "aws-native:ec2:InternetGateway": {
-            "cf": "AWS::EC2::InternetGateway",
-            "inputs": {
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:InternetGatewayTag"
-                    }
-                }
-            },
-            "outputs": {
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:InternetGatewayTag"
-                    }
-                }
-            }
-        },
         "aws-native:ec2:LocalGatewayRoute": {
             "cf": "AWS::EC2::LocalGatewayRoute",
             "inputs": {
@@ -7335,6 +7452,86 @@
                 "peerRegion",
                 "peerTransitGatewayId",
                 "transitGatewayId"
+            ]
+        },
+        "aws-native:ec2:TransitGatewayVpcAttachment": {
+            "cf": "AWS::EC2::TransitGatewayVpcAttachment",
+            "inputs": {
+                "addSubnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "options": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The options for the transit gateway vpc attachment."
+                },
+                "removeSubnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:TransitGatewayVpcAttachmentTag"
+                    }
+                },
+                "transitGatewayId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "addSubnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "options": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The options for the transit gateway vpc attachment."
+                },
+                "removeSubnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:TransitGatewayVpcAttachmentTag"
+                    }
+                },
+                "transitGatewayId": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "createOnly": [
+                "subnetIds",
+                "transitGatewayId",
+                "vpcId"
             ]
         },
         "aws-native:ecr:RegistryPolicy": {
@@ -11081,6 +11278,74 @@
                 "minimumViableContactDurationSeconds",
                 "name",
                 "trackingConfigArn"
+            ]
+        },
+        "aws-native:healthlake:FHIRDatastore": {
+            "cf": "AWS::HealthLake::FHIRDatastore",
+            "inputs": {
+                "datastoreName": {
+                    "type": "string"
+                },
+                "datastoreTypeVersion": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreDatastoreTypeVersion"
+                },
+                "preloadDataConfig": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastorePreloadDataConfig"
+                },
+                "sseConfiguration": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreSseConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:healthlake:FHIRDatastoreTag"
+                    }
+                }
+            },
+            "outputs": {
+                "createdAt": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreCreatedAt"
+                },
+                "datastoreArn": {
+                    "type": "string"
+                },
+                "datastoreEndpoint": {
+                    "type": "string"
+                },
+                "datastoreId": {
+                    "type": "string"
+                },
+                "datastoreName": {
+                    "type": "string"
+                },
+                "datastoreStatus": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreDatastoreStatus"
+                },
+                "datastoreTypeVersion": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreDatastoreTypeVersion"
+                },
+                "preloadDataConfig": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastorePreloadDataConfig"
+                },
+                "sseConfiguration": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreSseConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:healthlake:FHIRDatastoreTag"
+                    }
+                }
+            },
+            "required": [
+                "datastoreTypeVersion"
+            ],
+            "createOnly": [
+                "datastoreName",
+                "datastoreTypeVersion",
+                "kmsEncryptionConfig",
+                "preloadDataConfig",
+                "sseConfiguration"
             ]
         },
         "aws-native:iam:OIDCProvider": {
@@ -18187,6 +18452,127 @@
                 "studioId",
                 "subtype",
                 "tags"
+            ]
+        },
+        "aws-native:opensearchservice:Domain": {
+            "cf": "AWS::OpenSearchService::Domain",
+            "inputs": {
+                "accessPolicies": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "advancedOptions": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "advancedSecurityOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput"
+                },
+                "clusterConfig": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainClusterConfig"
+                },
+                "cognitoOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainCognitoOptions"
+                },
+                "domainEndpointOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainDomainEndpointOptions"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "eBSOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainEBSOptions"
+                },
+                "encryptionAtRestOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainEncryptionAtRestOptions"
+                },
+                "engineVersion": {
+                    "type": "string"
+                },
+                "logPublishingOptions": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "nodeToNodeEncryptionOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainNodeToNodeEncryptionOptions"
+                },
+                "snapshotOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainSnapshotOptions"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:opensearchservice:DomainTag"
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this Domain."
+                },
+                "vPCOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainVPCOptions"
+                }
+            },
+            "outputs": {
+                "accessPolicies": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "advancedOptions": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "advancedSecurityOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput"
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "clusterConfig": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainClusterConfig"
+                },
+                "cognitoOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainCognitoOptions"
+                },
+                "domainEndpoint": {
+                    "type": "string"
+                },
+                "domainEndpointOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainDomainEndpointOptions"
+                },
+                "domainEndpoints": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "eBSOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainEBSOptions"
+                },
+                "encryptionAtRestOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainEncryptionAtRestOptions"
+                },
+                "engineVersion": {
+                    "type": "string"
+                },
+                "logPublishingOptions": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "nodeToNodeEncryptionOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainNodeToNodeEncryptionOptions"
+                },
+                "serviceSoftwareOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainServiceSoftwareOptions"
+                },
+                "snapshotOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainSnapshotOptions"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:opensearchservice:DomainTag"
+                    },
+                    "description": "An arbitrary set of tags (key-value pairs) for this Domain."
+                },
+                "vPCOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainVPCOptions"
+                }
+            },
+            "createOnly": [
+                "advancedSecurityOptions",
+                "domainName"
             ]
         },
         "aws-native:opsworkscm:Server": {
@@ -27422,6 +27808,18 @@
                 }
             }
         },
+        "aws-native:aps:WorkspaceTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
         "aws-native:athena:DataCatalogTag": {
             "properties": {
                 "key": {
@@ -28982,6 +29380,16 @@
                     "type": "string"
                 },
                 "targetType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:configuration:AggregationAuthorizationTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
                     "type": "string"
                 }
             }
@@ -30990,16 +31398,6 @@
                 }
             }
         },
-        "aws-native:ec2:InternetGatewayTag": {
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
         "aws-native:ec2:LocalGatewayRouteTableVPCAssociationTag": {
             "properties": {
                 "key": {
@@ -31870,6 +32268,16 @@
             }
         },
         "aws-native:ec2:TransitGatewayTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:TransitGatewayVpcAttachmentTag": {
             "properties": {
                 "key": {
                     "type": "string"
@@ -34705,6 +35113,57 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:healthlake:FHIRDatastoreCreatedAt": {
+            "properties": {
+                "nanos": {
+                    "type": "integer",
+                    "description": "Nanoseconds."
+                },
+                "seconds": {
+                    "type": "string",
+                    "description": "Seconds since epoch."
+                }
+            }
+        },
+        "aws-native:healthlake:FHIRDatastoreKmsEncryptionConfig": {
+            "properties": {
+                "cmkType": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreKmsEncryptionConfigCmkType",
+                    "description": "The type of customer-managed-key (CMK) used for encryption. The two types of supported CMKs are customer owned CMKs and AWS owned CMKs."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS encryption key id/alias used to encrypt the Data Store contents at rest."
+                }
+            }
+        },
+        "aws-native:healthlake:FHIRDatastorePreloadDataConfig": {
+            "properties": {
+                "preloadDataType": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastorePreloadDataConfigPreloadDataType",
+                    "description": "The type of preloaded data. Only Synthea preloaded data is supported."
+                }
+            }
+        },
+        "aws-native:healthlake:FHIRDatastoreSseConfiguration": {
+            "properties": {
+                "kmsEncryptionConfig": {
+                    "$ref": "#/types/aws-native:healthlake:FHIRDatastoreKmsEncryptionConfig"
+                }
+            }
+        },
+        "aws-native:healthlake:FHIRDatastoreTag": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the tag."
                 }
             }
         },
@@ -40892,6 +41351,202 @@
                 },
                 "keyType": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "internalUserDatabaseEnabled": {
+                    "type": "boolean"
+                },
+                "masterUserOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainMasterUserOptions"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainClusterConfig": {
+            "properties": {
+                "dedicatedMasterCount": {
+                    "type": "integer"
+                },
+                "dedicatedMasterEnabled": {
+                    "type": "boolean"
+                },
+                "dedicatedMasterType": {
+                    "type": "string"
+                },
+                "instanceCount": {
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "warmCount": {
+                    "type": "integer"
+                },
+                "warmEnabled": {
+                    "type": "boolean"
+                },
+                "warmType": {
+                    "type": "string"
+                },
+                "zoneAwarenessConfig": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainZoneAwarenessConfig"
+                },
+                "zoneAwarenessEnabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainCognitoOptions": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "identityPoolId": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "userPoolId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainDomainEndpointOptions": {
+            "properties": {
+                "customEndpoint": {
+                    "type": "string"
+                },
+                "customEndpointCertificateArn": {
+                    "type": "string"
+                },
+                "customEndpointEnabled": {
+                    "type": "boolean"
+                },
+                "enforceHTTPS": {
+                    "type": "boolean"
+                },
+                "tLSSecurityPolicy": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainEBSOptions": {
+            "properties": {
+                "eBSEnabled": {
+                    "type": "boolean"
+                },
+                "iops": {
+                    "type": "integer"
+                },
+                "volumeSize": {
+                    "type": "integer"
+                },
+                "volumeType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainEncryptionAtRestOptions": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "kmsKeyId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainMasterUserOptions": {
+            "properties": {
+                "masterUserARN": {
+                    "type": "string"
+                },
+                "masterUserName": {
+                    "type": "string"
+                },
+                "masterUserPassword": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainNodeToNodeEncryptionOptions": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainServiceSoftwareOptions": {
+            "properties": {
+                "automatedUpdateDate": {
+                    "type": "string"
+                },
+                "cancellable": {
+                    "type": "boolean"
+                },
+                "currentVersion": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "newVersion": {
+                    "type": "string"
+                },
+                "optionalDeployment": {
+                    "type": "boolean"
+                },
+                "updateAvailable": {
+                    "type": "boolean"
+                },
+                "updateStatus": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainSnapshotOptions": {
+            "properties": {
+                "automatedSnapshotStartHour": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainVPCOptions": {
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainZoneAwarenessConfig": {
+            "properties": {
+                "availabilityZoneCount": {
+                    "type": "integer"
                 }
             }
         },

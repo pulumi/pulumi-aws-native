@@ -50,6 +50,8 @@ if typing.TYPE_CHECKING:
     appstream = __appstream
     import pulumi_aws_native.appsync as __appsync
     appsync = __appsync
+    import pulumi_aws_native.aps as __aps
+    aps = __aps
     import pulumi_aws_native.ask as __ask
     ask = __ask
     import pulumi_aws_native.athena as __athena
@@ -188,6 +190,8 @@ if typing.TYPE_CHECKING:
     groundstation = __groundstation
     import pulumi_aws_native.guardduty as __guardduty
     guardduty = __guardduty
+    import pulumi_aws_native.healthlake as __healthlake
+    healthlake = __healthlake
     import pulumi_aws_native.iam as __iam
     iam = __iam
     import pulumi_aws_native.imagebuilder as __imagebuilder
@@ -266,6 +270,8 @@ if typing.TYPE_CHECKING:
     networkmanager = __networkmanager
     import pulumi_aws_native.nimblestudio as __nimblestudio
     nimblestudio = __nimblestudio
+    import pulumi_aws_native.opensearchservice as __opensearchservice
+    opensearchservice = __opensearchservice
     import pulumi_aws_native.opsworks as __opsworks
     opsworks = __opsworks
     import pulumi_aws_native.opsworkscm as __opsworkscm
@@ -366,6 +372,7 @@ else:
     apprunner = _utilities.lazy_import('pulumi_aws_native.apprunner')
     appstream = _utilities.lazy_import('pulumi_aws_native.appstream')
     appsync = _utilities.lazy_import('pulumi_aws_native.appsync')
+    aps = _utilities.lazy_import('pulumi_aws_native.aps')
     ask = _utilities.lazy_import('pulumi_aws_native.ask')
     athena = _utilities.lazy_import('pulumi_aws_native.athena')
     auditmanager = _utilities.lazy_import('pulumi_aws_native.auditmanager')
@@ -435,6 +442,7 @@ else:
     greengrassv2 = _utilities.lazy_import('pulumi_aws_native.greengrassv2')
     groundstation = _utilities.lazy_import('pulumi_aws_native.groundstation')
     guardduty = _utilities.lazy_import('pulumi_aws_native.guardduty')
+    healthlake = _utilities.lazy_import('pulumi_aws_native.healthlake')
     iam = _utilities.lazy_import('pulumi_aws_native.iam')
     imagebuilder = _utilities.lazy_import('pulumi_aws_native.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws_native.inspector')
@@ -474,6 +482,7 @@ else:
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
+    opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
@@ -535,7 +544,8 @@ _utilities.register(
   "classes": {
    "aws-native:acmpca:Certificate": "Certificate",
    "aws-native:acmpca:CertificateAuthority": "CertificateAuthority",
-   "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation"
+   "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation",
+   "aws-native:acmpca:Permission": "Permission"
   }
  },
  {
@@ -699,6 +709,14 @@ _utilities.register(
    "aws-native:appsync:GraphQLApi": "GraphQLApi",
    "aws-native:appsync:GraphQLSchema": "GraphQLSchema",
    "aws-native:appsync:Resolver": "Resolver"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "aps",
+  "fqn": "pulumi_aws_native.aps",
+  "classes": {
+   "aws-native:aps:Workspace": "Workspace"
   }
  },
  {
@@ -1508,6 +1526,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "healthlake",
+  "fqn": "pulumi_aws_native.healthlake",
+  "classes": {
+   "aws-native:healthlake:FHIRDatastore": "FHIRDatastore"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "iam",
   "fqn": "pulumi_aws_native.iam",
   "classes": {
@@ -1936,6 +1962,14 @@ _utilities.register(
    "aws-native:nimblestudio:StreamingImage": "StreamingImage",
    "aws-native:nimblestudio:Studio": "Studio",
    "aws-native:nimblestudio:StudioComponent": "StudioComponent"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "opensearchservice",
+  "fqn": "pulumi_aws_native.opensearchservice",
+  "classes": {
+   "aws-native:opensearchservice:Domain": "Domain"
   }
  },
  {

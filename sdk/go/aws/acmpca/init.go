@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CertificateAuthority{}
 	case "aws-native:acmpca:CertificateAuthorityActivation":
 		r = &CertificateAuthorityActivation{}
+	case "aws-native:acmpca:Permission":
+		r = &Permission{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

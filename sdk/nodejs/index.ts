@@ -35,6 +35,7 @@ import * as appmesh from "./appmesh";
 import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
+import * as aps from "./aps";
 import * as ask from "./ask";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
@@ -104,6 +105,7 @@ import * as greengrass from "./greengrass";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
 import * as guardduty from "./guardduty";
+import * as healthlake from "./healthlake";
 import * as iam from "./iam";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
@@ -143,6 +145,7 @@ import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
+import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
 import * as pinpoint from "./pinpoint";
@@ -203,6 +206,7 @@ export {
     apprunner,
     appstream,
     appsync,
+    aps,
     ask,
     athena,
     auditmanager,
@@ -272,6 +276,7 @@ export {
     greengrassv2,
     groundstation,
     guardduty,
+    healthlake,
     iam,
     imagebuilder,
     inspector,
@@ -311,6 +316,7 @@ export {
     networkfirewall,
     networkmanager,
     nimblestudio,
+    opensearchservice,
     opsworks,
     opsworkscm,
     pinpoint,
