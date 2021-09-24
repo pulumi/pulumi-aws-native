@@ -125,11 +125,11 @@ class APNSVoipSandboxChannelArgs:
         pulumi.set(self, "token_key_id", value)
 
 
-warnings.warn("""APNSVoipSandboxChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""APNSVoipSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class APNSVoipSandboxChannel(pulumi.CustomResource):
-    warnings.warn("""APNSVoipSandboxChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""APNSVoipSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -185,7 +185,7 @@ class APNSVoipSandboxChannel(pulumi.CustomResource):
                  token_key: Optional[pulumi.Input[str]] = None,
                  token_key_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""APNSVoipSandboxChannel is deprecated: APNSVoipSandboxChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""APNSVoipSandboxChannel is deprecated: APNSVoipSandboxChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

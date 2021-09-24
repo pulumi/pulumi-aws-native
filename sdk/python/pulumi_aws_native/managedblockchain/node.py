@@ -53,11 +53,11 @@ class NodeArgs:
         pulumi.set(self, "node_configuration", value)
 
 
-warnings.warn("""Node is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Node(pulumi.CustomResource):
-    warnings.warn("""Node is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -101,7 +101,7 @@ class Node(pulumi.CustomResource):
                  network_id: Optional[pulumi.Input[str]] = None,
                  node_configuration: Optional[pulumi.Input[pulumi.InputType['NodeNodeConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Node is deprecated: Node is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Node is deprecated: Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

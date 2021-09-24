@@ -151,11 +151,11 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""NetworkInterface is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""NetworkInterface is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class NetworkInterface(pulumi.CustomResource):
-    warnings.warn("""NetworkInterface is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""NetworkInterface is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -215,7 +215,7 @@ class NetworkInterface(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkInterface is deprecated: NetworkInterface is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""NetworkInterface is deprecated: NetworkInterface is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

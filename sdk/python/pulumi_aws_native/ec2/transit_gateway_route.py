@@ -65,11 +65,11 @@ class TransitGatewayRouteArgs:
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
-warnings.warn("""TransitGatewayRoute is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""TransitGatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class TransitGatewayRoute(pulumi.CustomResource):
-    warnings.warn("""TransitGatewayRoute is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""TransitGatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -115,7 +115,7 @@ class TransitGatewayRoute(pulumi.CustomResource):
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TransitGatewayRoute is deprecated: TransitGatewayRoute is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""TransitGatewayRoute is deprecated: TransitGatewayRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

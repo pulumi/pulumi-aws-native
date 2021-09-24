@@ -44,11 +44,11 @@ class DataLakeSettingsArgs:
         pulumi.set(self, "trusted_resource_owners", value)
 
 
-warnings.warn("""DataLakeSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class DataLakeSettings(pulumi.CustomResource):
-    warnings.warn("""DataLakeSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -90,7 +90,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  admins: Optional[pulumi.Input[pulumi.InputType['DataLakeSettingsAdminsArgs']]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DataLakeSettings is deprecated: DataLakeSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""DataLakeSettings is deprecated: DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -91,11 +91,11 @@ class ComputeEnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""ComputeEnvironment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ComputeEnvironment(pulumi.CustomResource):
-    warnings.warn("""ComputeEnvironment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -145,7 +145,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ComputeEnvironment is deprecated: ComputeEnvironment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ComputeEnvironment is deprecated: ComputeEnvironment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

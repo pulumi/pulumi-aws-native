@@ -78,11 +78,11 @@ class EIPAssociationArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
-warnings.warn("""EIPAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class EIPAssociation(pulumi.CustomResource):
-    warnings.warn("""EIPAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -130,7 +130,7 @@ class EIPAssociation(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""EIPAssociation is deprecated: EIPAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""EIPAssociation is deprecated: EIPAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -68,11 +68,11 @@ class TrafficMirrorTargetArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""TrafficMirrorTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""TrafficMirrorTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class TrafficMirrorTarget(pulumi.CustomResource):
-    warnings.warn("""TrafficMirrorTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""TrafficMirrorTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -118,7 +118,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficMirrorTargetTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""TrafficMirrorTarget is deprecated: TrafficMirrorTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""TrafficMirrorTarget is deprecated: TrafficMirrorTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

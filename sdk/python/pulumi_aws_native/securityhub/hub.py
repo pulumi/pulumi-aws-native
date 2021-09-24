@@ -30,11 +30,11 @@ class HubArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Hub is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Hub(pulumi.CustomResource):
-    warnings.warn("""Hub is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -74,7 +74,7 @@ class Hub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Hub is deprecated: Hub is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Hub is deprecated: Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

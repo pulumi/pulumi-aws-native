@@ -31,11 +31,11 @@ class ReceiptFilterArgs:
         pulumi.set(self, "filter", value)
 
 
-warnings.warn("""ReceiptFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ReceiptFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ReceiptFilter(pulumi.CustomResource):
-    warnings.warn("""ReceiptFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ReceiptFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -75,7 +75,7 @@ class ReceiptFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter: Optional[pulumi.Input[pulumi.InputType['ReceiptFilterFilterArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ReceiptFilter is deprecated: ReceiptFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ReceiptFilter is deprecated: ReceiptFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

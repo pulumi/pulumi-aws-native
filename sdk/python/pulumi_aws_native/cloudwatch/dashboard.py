@@ -41,11 +41,11 @@ class DashboardArgs:
         pulumi.set(self, "dashboard_name", value)
 
 
-warnings.warn("""Dashboard is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Dashboard is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Dashboard(pulumi.CustomResource):
-    warnings.warn("""Dashboard is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Dashboard is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -87,7 +87,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_body: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Dashboard is deprecated: Dashboard is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Dashboard is deprecated: Dashboard is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

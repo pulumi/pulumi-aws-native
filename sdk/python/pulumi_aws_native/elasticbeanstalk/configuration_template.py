@@ -103,11 +103,11 @@ class ConfigurationTemplateArgs:
         pulumi.set(self, "source_configuration", value)
 
 
-warnings.warn("""ConfigurationTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ConfigurationTemplate(pulumi.CustomResource):
-    warnings.warn("""ConfigurationTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -159,7 +159,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationTemplateSourceConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConfigurationTemplate is deprecated: ConfigurationTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ConfigurationTemplate is deprecated: ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -102,11 +102,11 @@ class PipelineArgs:
         pulumi.set(self, "pipeline_tags", value)
 
 
-warnings.warn("""Pipeline is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Pipeline(pulumi.CustomResource):
-    warnings.warn("""Pipeline is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -158,7 +158,7 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelinePipelineObjectArgs']]]]] = None,
                  pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelinePipelineTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Pipeline is deprecated: Pipeline is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

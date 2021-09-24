@@ -86,11 +86,11 @@ class HostedConfigurationVersionArgs:
         pulumi.set(self, "latest_version_number", value)
 
 
-warnings.warn("""HostedConfigurationVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class HostedConfigurationVersion(pulumi.CustomResource):
-    warnings.warn("""HostedConfigurationVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -140,7 +140,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  latest_version_number: Optional[pulumi.Input[float]] = None,
                  __props__=None):
-        pulumi.log.warn("""HostedConfigurationVersion is deprecated: HostedConfigurationVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""HostedConfigurationVersion is deprecated: HostedConfigurationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

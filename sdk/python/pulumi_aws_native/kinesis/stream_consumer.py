@@ -40,11 +40,11 @@ class StreamConsumerArgs:
         pulumi.set(self, "stream_arn", value)
 
 
-warnings.warn("""StreamConsumer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""StreamConsumer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class StreamConsumer(pulumi.CustomResource):
-    warnings.warn("""StreamConsumer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""StreamConsumer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -86,7 +86,7 @@ class StreamConsumer(pulumi.CustomResource):
                  consumer_name: Optional[pulumi.Input[str]] = None,
                  stream_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""StreamConsumer is deprecated: StreamConsumer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""StreamConsumer is deprecated: StreamConsumer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

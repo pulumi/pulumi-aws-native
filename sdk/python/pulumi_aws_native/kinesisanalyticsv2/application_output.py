@@ -42,11 +42,11 @@ class ApplicationOutputArgs:
         pulumi.set(self, "output", value)
 
 
-warnings.warn("""ApplicationOutput is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ApplicationOutput(pulumi.CustomResource):
-    warnings.warn("""ApplicationOutput is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -88,7 +88,7 @@ class ApplicationOutput(pulumi.CustomResource):
                  application_name: Optional[pulumi.Input[str]] = None,
                  output: Optional[pulumi.Input[pulumi.InputType['ApplicationOutputOutputArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationOutput is deprecated: ApplicationOutput is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApplicationOutput is deprecated: ApplicationOutput is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

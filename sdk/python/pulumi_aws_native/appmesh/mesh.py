@@ -56,11 +56,11 @@ class MeshArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Mesh is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Mesh(pulumi.CustomResource):
-    warnings.warn("""Mesh is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -104,7 +104,7 @@ class Mesh(pulumi.CustomResource):
                  spec: Optional[pulumi.Input[pulumi.InputType['MeshMeshSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MeshTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Mesh is deprecated: Mesh is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Mesh is deprecated: Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

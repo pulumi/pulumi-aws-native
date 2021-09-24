@@ -330,11 +330,11 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "v_pc_zone_identifier", value)
 
 
-warnings.warn("""AutoScalingGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class AutoScalingGroup(pulumi.CustomResource):
-    warnings.warn("""AutoScalingGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -424,7 +424,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  v_pc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""AutoScalingGroup is deprecated: AutoScalingGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""AutoScalingGroup is deprecated: AutoScalingGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

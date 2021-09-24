@@ -40,11 +40,11 @@ class RegexPatternSetArgs:
         pulumi.set(self, "regex_pattern_strings", value)
 
 
-warnings.warn("""RegexPatternSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""RegexPatternSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class RegexPatternSet(pulumi.CustomResource):
-    warnings.warn("""RegexPatternSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""RegexPatternSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -86,7 +86,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""RegexPatternSet is deprecated: RegexPatternSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""RegexPatternSet is deprecated: RegexPatternSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

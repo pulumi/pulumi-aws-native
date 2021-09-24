@@ -67,11 +67,11 @@ class RotationScheduleArgs:
         pulumi.set(self, "rotation_rules", value)
 
 
-warnings.warn("""RotationSchedule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""RotationSchedule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class RotationSchedule(pulumi.CustomResource):
-    warnings.warn("""RotationSchedule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""RotationSchedule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -117,7 +117,7 @@ class RotationSchedule(pulumi.CustomResource):
                  rotation_rules: Optional[pulumi.Input[pulumi.InputType['RotationScheduleRotationRulesArgs']]] = None,
                  secret_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RotationSchedule is deprecated: RotationSchedule is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""RotationSchedule is deprecated: RotationSchedule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

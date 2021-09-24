@@ -88,11 +88,11 @@ class LaunchRoleConstraintArgs:
         pulumi.set(self, "role_arn", value)
 
 
-warnings.warn("""LaunchRoleConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""LaunchRoleConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class LaunchRoleConstraint(pulumi.CustomResource):
-    warnings.warn("""LaunchRoleConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""LaunchRoleConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -142,7 +142,7 @@ class LaunchRoleConstraint(pulumi.CustomResource):
                  product_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LaunchRoleConstraint is deprecated: LaunchRoleConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""LaunchRoleConstraint is deprecated: LaunchRoleConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

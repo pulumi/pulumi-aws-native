@@ -102,11 +102,11 @@ class VPNConnectionArgs:
         pulumi.set(self, "vpn_tunnel_options_specifications", value)
 
 
-warnings.warn("""VPNConnection is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class VPNConnection(pulumi.CustomResource):
-    warnings.warn("""VPNConnection is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -158,7 +158,7 @@ class VPNConnection(pulumi.CustomResource):
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPNConnectionVpnTunnelOptionsSpecificationArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPNConnection is deprecated: VPNConnection is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""VPNConnection is deprecated: VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

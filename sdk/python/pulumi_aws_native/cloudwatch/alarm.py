@@ -270,11 +270,11 @@ class AlarmArgs:
         pulumi.set(self, "unit", value)
 
 
-warnings.warn("""Alarm is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Alarm is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Alarm(pulumi.CustomResource):
-    warnings.warn("""Alarm is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Alarm is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -354,7 +354,7 @@ class Alarm(pulumi.CustomResource):
                  treat_missing_data: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Alarm is deprecated: Alarm is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Alarm is deprecated: Alarm is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

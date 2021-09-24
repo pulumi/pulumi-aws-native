@@ -42,11 +42,11 @@ class ScalingPlanArgs:
         pulumi.set(self, "scaling_instructions", value)
 
 
-warnings.warn("""ScalingPlan is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ScalingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ScalingPlan(pulumi.CustomResource):
-    warnings.warn("""ScalingPlan is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ScalingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -88,7 +88,7 @@ class ScalingPlan(pulumi.CustomResource):
                  application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']]] = None,
                  scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ScalingPlan is deprecated: ScalingPlan is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ScalingPlan is deprecated: ScalingPlan is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

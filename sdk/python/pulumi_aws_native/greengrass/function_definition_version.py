@@ -54,11 +54,11 @@ class FunctionDefinitionVersionArgs:
         pulumi.set(self, "default_config", value)
 
 
-warnings.warn("""FunctionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""FunctionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class FunctionDefinitionVersion(pulumi.CustomResource):
-    warnings.warn("""FunctionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""FunctionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -102,7 +102,7 @@ class FunctionDefinitionVersion(pulumi.CustomResource):
                  function_definition_id: Optional[pulumi.Input[str]] = None,
                  functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionDefinitionVersionFunctionArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""FunctionDefinitionVersion is deprecated: FunctionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""FunctionDefinitionVersion is deprecated: FunctionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

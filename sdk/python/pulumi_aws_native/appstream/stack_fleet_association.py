@@ -40,11 +40,11 @@ class StackFleetAssociationArgs:
         pulumi.set(self, "stack_name", value)
 
 
-warnings.warn("""StackFleetAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""StackFleetAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class StackFleetAssociation(pulumi.CustomResource):
-    warnings.warn("""StackFleetAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""StackFleetAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -86,7 +86,7 @@ class StackFleetAssociation(pulumi.CustomResource):
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  stack_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""StackFleetAssociation is deprecated: StackFleetAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""StackFleetAssociation is deprecated: StackFleetAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

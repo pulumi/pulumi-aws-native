@@ -75,11 +75,11 @@ class LaunchNotificationConstraintArgs:
         pulumi.set(self, "description", value)
 
 
-warnings.warn("""LaunchNotificationConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""LaunchNotificationConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class LaunchNotificationConstraint(pulumi.CustomResource):
-    warnings.warn("""LaunchNotificationConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""LaunchNotificationConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -127,7 +127,7 @@ class LaunchNotificationConstraint(pulumi.CustomResource):
                  portfolio_id: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LaunchNotificationConstraint is deprecated: LaunchNotificationConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""LaunchNotificationConstraint is deprecated: LaunchNotificationConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -66,11 +66,11 @@ class ReplicationSubnetGroupArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""ReplicationSubnetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ReplicationSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ReplicationSubnetGroup(pulumi.CustomResource):
-    warnings.warn("""ReplicationSubnetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ReplicationSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -116,7 +116,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ReplicationSubnetGroup is deprecated: ReplicationSubnetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ReplicationSubnetGroup is deprecated: ReplicationSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

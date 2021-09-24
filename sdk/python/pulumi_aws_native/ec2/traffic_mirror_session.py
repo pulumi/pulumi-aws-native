@@ -112,11 +112,11 @@ class TrafficMirrorSessionArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
-warnings.warn("""TrafficMirrorSession is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""TrafficMirrorSession is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class TrafficMirrorSession(pulumi.CustomResource):
-    warnings.warn("""TrafficMirrorSession is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""TrafficMirrorSession is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -170,7 +170,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  traffic_mirror_target_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""TrafficMirrorSession is deprecated: TrafficMirrorSession is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""TrafficMirrorSession is deprecated: TrafficMirrorSession is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

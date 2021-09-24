@@ -52,11 +52,11 @@ class ResolverRuleAssociationArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""ResolverRuleAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ResolverRuleAssociation(pulumi.CustomResource):
-    warnings.warn("""ResolverRuleAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -100,7 +100,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  resolver_rule_id: Optional[pulumi.Input[str]] = None,
                  v_pc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ResolverRuleAssociation is deprecated: ResolverRuleAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ResolverRuleAssociation is deprecated: ResolverRuleAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

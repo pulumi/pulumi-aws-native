@@ -65,11 +65,11 @@ class UserProfileArgs:
         pulumi.set(self, "ssh_username", value)
 
 
-warnings.warn("""UserProfile is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""UserProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class UserProfile(pulumi.CustomResource):
-    warnings.warn("""UserProfile is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""UserProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -115,7 +115,7 @@ class UserProfile(pulumi.CustomResource):
                  ssh_public_key: Optional[pulumi.Input[str]] = None,
                  ssh_username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""UserProfile is deprecated: UserProfile is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""UserProfile is deprecated: UserProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

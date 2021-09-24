@@ -152,11 +152,11 @@ class ChannelArgs:
         pulumi.set(self, "vpc", value)
 
 
-warnings.warn("""Channel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Channel(pulumi.CustomResource):
-    warnings.warn("""Channel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -216,7 +216,7 @@ class Channel(pulumi.CustomResource):
                  tags: Optional[Any] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['ChannelVpcOutputSettingsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Channel is deprecated: Channel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Channel is deprecated: Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

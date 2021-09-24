@@ -184,11 +184,11 @@ class MatchmakingConfigurationArgs:
         pulumi.set(self, "notification_target", value)
 
 
-warnings.warn("""MatchmakingConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class MatchmakingConfiguration(pulumi.CustomResource):
-    warnings.warn("""MatchmakingConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -254,7 +254,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  request_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""MatchmakingConfiguration is deprecated: MatchmakingConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""MatchmakingConfiguration is deprecated: MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

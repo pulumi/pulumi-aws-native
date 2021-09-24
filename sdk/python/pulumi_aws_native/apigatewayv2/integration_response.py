@@ -99,11 +99,11 @@ class IntegrationResponseArgs:
         pulumi.set(self, "template_selection_expression", value)
 
 
-warnings.warn("""IntegrationResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class IntegrationResponse(pulumi.CustomResource):
-    warnings.warn("""IntegrationResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -155,7 +155,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  response_templates: Optional[Any] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""IntegrationResponse is deprecated: IntegrationResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""IntegrationResponse is deprecated: IntegrationResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -40,11 +40,11 @@ class TagOptionAssociationArgs:
         pulumi.set(self, "tag_option_id", value)
 
 
-warnings.warn("""TagOptionAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""TagOptionAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class TagOptionAssociation(pulumi.CustomResource):
-    warnings.warn("""TagOptionAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""TagOptionAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -86,7 +86,7 @@ class TagOptionAssociation(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  tag_option_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TagOptionAssociation is deprecated: TagOptionAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""TagOptionAssociation is deprecated: TagOptionAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -140,11 +140,11 @@ class InputArgs:
         pulumi.set(self, "vpc", value)
 
 
-warnings.warn("""Input is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Input(pulumi.CustomResource):
-    warnings.warn("""Input is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -202,7 +202,7 @@ class Input(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  vpc: Optional[pulumi.Input[pulumi.InputType['InputInputVpcRequestArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Input is deprecated: Input is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Input is deprecated: Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

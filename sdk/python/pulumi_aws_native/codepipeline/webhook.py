@@ -110,11 +110,11 @@ class WebhookArgs:
         pulumi.set(self, "register_with_third_party", value)
 
 
-warnings.warn("""Webhook is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Webhook is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Webhook(pulumi.CustomResource):
-    warnings.warn("""Webhook is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Webhook is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -168,7 +168,7 @@ class Webhook(pulumi.CustomResource):
                  target_pipeline: Optional[pulumi.Input[str]] = None,
                  target_pipeline_version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""Webhook is deprecated: Webhook is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Webhook is deprecated: Webhook is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -113,11 +113,11 @@ class WorkspaceArgs:
         pulumi.set(self, "workspace_properties", value)
 
 
-warnings.warn("""Workspace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Workspace(pulumi.CustomResource):
-    warnings.warn("""Workspace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -171,7 +171,7 @@ class Workspace(pulumi.CustomResource):
                  volume_encryption_key: Optional[pulumi.Input[str]] = None,
                  workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Workspace is deprecated: Workspace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Workspace is deprecated: Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

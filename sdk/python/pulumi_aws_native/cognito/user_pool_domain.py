@@ -54,11 +54,11 @@ class UserPoolDomainArgs:
         pulumi.set(self, "custom_domain_config", value)
 
 
-warnings.warn("""UserPoolDomain is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""UserPoolDomain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class UserPoolDomain(pulumi.CustomResource):
-    warnings.warn("""UserPoolDomain is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""UserPoolDomain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -102,7 +102,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""UserPoolDomain is deprecated: UserPoolDomain is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""UserPoolDomain is deprecated: UserPoolDomain is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

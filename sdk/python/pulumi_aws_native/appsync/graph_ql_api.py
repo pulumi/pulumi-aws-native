@@ -126,11 +126,11 @@ class GraphQLApiArgs:
         pulumi.set(self, "xray_enabled", value)
 
 
-warnings.warn("""GraphQLApi is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class GraphQLApi(pulumi.CustomResource):
-    warnings.warn("""GraphQLApi is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -186,7 +186,7 @@ class GraphQLApi(pulumi.CustomResource):
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""GraphQLApi is deprecated: GraphQLApi is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""GraphQLApi is deprecated: GraphQLApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

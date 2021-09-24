@@ -102,11 +102,11 @@ class InstanceFleetConfigArgs:
         pulumi.set(self, "target_spot_capacity", value)
 
 
-warnings.warn("""InstanceFleetConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""InstanceFleetConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class InstanceFleetConfig(pulumi.CustomResource):
-    warnings.warn("""InstanceFleetConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""InstanceFleetConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -158,7 +158,7 @@ class InstanceFleetConfig(pulumi.CustomResource):
                  target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""InstanceFleetConfig is deprecated: InstanceFleetConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""InstanceFleetConfig is deprecated: InstanceFleetConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

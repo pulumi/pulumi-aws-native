@@ -171,11 +171,11 @@ class ReplicationTaskArgs:
         pulumi.set(self, "task_data", value)
 
 
-warnings.warn("""ReplicationTask is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ReplicationTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ReplicationTask(pulumi.CustomResource):
-    warnings.warn("""ReplicationTask is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ReplicationTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -239,7 +239,7 @@ class ReplicationTask(pulumi.CustomResource):
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  task_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ReplicationTask is deprecated: ReplicationTask is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ReplicationTask is deprecated: ReplicationTask is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

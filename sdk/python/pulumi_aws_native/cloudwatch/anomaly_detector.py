@@ -77,11 +77,11 @@ class AnomalyDetectorArgs:
         pulumi.set(self, "dimensions", value)
 
 
-warnings.warn("""AnomalyDetector is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class AnomalyDetector(pulumi.CustomResource):
-    warnings.warn("""AnomalyDetector is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -129,7 +129,7 @@ class AnomalyDetector(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[str]] = None,
                  stat: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""AnomalyDetector is deprecated: AnomalyDetector is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""AnomalyDetector is deprecated: AnomalyDetector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -43,11 +43,11 @@ class FlowTemplateArgs:
         pulumi.set(self, "compatible_namespace_version", value)
 
 
-warnings.warn("""FlowTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""FlowTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class FlowTemplate(pulumi.CustomResource):
-    warnings.warn("""FlowTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""FlowTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -89,7 +89,7 @@ class FlowTemplate(pulumi.CustomResource):
                  compatible_namespace_version: Optional[pulumi.Input[float]] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['FlowTemplateDefinitionDocumentArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""FlowTemplate is deprecated: FlowTemplate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""FlowTemplate is deprecated: FlowTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

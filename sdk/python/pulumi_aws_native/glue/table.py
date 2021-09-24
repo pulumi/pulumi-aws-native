@@ -53,11 +53,11 @@ class TableArgs:
         pulumi.set(self, "table_input", value)
 
 
-warnings.warn("""Table is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class Table(pulumi.CustomResource):
-    warnings.warn("""Table is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -101,7 +101,7 @@ class Table(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  table_input: Optional[pulumi.Input[pulumi.InputType['TableTableInputArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Table is deprecated: Table is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

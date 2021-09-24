@@ -54,11 +54,11 @@ class ApplicationVersionArgs:
         pulumi.set(self, "description", value)
 
 
-warnings.warn("""ApplicationVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class ApplicationVersion(pulumi.CustomResource):
-    warnings.warn("""ApplicationVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -102,7 +102,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  source_bundle: Optional[pulumi.Input[pulumi.InputType['ApplicationVersionSourceBundleArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationVersion is deprecated: ApplicationVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""ApplicationVersion is deprecated: ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -87,11 +87,11 @@ class RouteResponseArgs:
         pulumi.set(self, "response_parameters", value)
 
 
-warnings.warn("""RouteResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class RouteResponse(pulumi.CustomResource):
-    warnings.warn("""RouteResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -141,7 +141,7 @@ class RouteResponse(pulumi.CustomResource):
                  route_id: Optional[pulumi.Input[str]] = None,
                  route_response_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RouteResponse is deprecated: RouteResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""RouteResponse is deprecated: RouteResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

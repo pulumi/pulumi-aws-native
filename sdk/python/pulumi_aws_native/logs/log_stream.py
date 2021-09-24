@@ -41,11 +41,11 @@ class LogStreamArgs:
         pulumi.set(self, "log_stream_name", value)
 
 
-warnings.warn("""LogStream is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class LogStream(pulumi.CustomResource):
-    warnings.warn("""LogStream is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -87,7 +87,7 @@ class LogStream(pulumi.CustomResource):
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  log_stream_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LogStream is deprecated: LogStream is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""LogStream is deprecated: LogStream is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -200,11 +200,11 @@ class RestApiArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""RestApi is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+warnings.warn("""RestApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
 
 class RestApi(pulumi.CustomResource):
-    warnings.warn("""RestApi is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    warnings.warn("""RestApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -272,7 +272,7 @@ class RestApi(pulumi.CustomResource):
                  policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RestApiTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""RestApi is deprecated: RestApi is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
+        pulumi.log.warn("""RestApi is deprecated: RestApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
