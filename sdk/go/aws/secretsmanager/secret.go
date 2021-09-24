@@ -12,7 +12,7 @@ import (
 
 // Resource Type definition for AWS::SecretsManager::Secret
 //
-// Deprecated: Secret is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Secret struct {
 	pulumi.CustomResourceState
 

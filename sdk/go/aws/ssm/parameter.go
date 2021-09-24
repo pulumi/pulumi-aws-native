@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::SSM::Parameter
 //
-// Deprecated: Parameter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: Parameter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Parameter struct {
 	pulumi.CustomResourceState
 

@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
 //
-// Deprecated: SubscriptionDefinitionVersion is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: SubscriptionDefinitionVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SubscriptionDefinitionVersion struct {
 	pulumi.CustomResourceState
 

@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::ApiGateway::GatewayResponse
 //
-// Deprecated: GatewayResponse is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type GatewayResponse struct {
 	pulumi.CustomResourceState
 

@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Glue::Connection
 //
-// Deprecated: Connection is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: Connection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Connection struct {
 	pulumi.CustomResourceState
 

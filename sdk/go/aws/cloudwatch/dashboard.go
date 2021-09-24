@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::CloudWatch::Dashboard
 //
-// Deprecated: Dashboard is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: Dashboard is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Dashboard struct {
 	pulumi.CustomResourceState
 

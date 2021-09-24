@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::Redshift::ClusterSubnetGroup
 //
-// Deprecated: ClusterSubnetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ClusterSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ClusterSubnetGroup struct {
 	pulumi.CustomResourceState
 

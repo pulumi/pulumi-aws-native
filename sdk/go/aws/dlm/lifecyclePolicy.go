@@ -12,7 +12,7 @@ import (
 
 // Resource Type definition for AWS::DLM::LifecyclePolicy
 //
-// Deprecated: LifecyclePolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: LifecyclePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 

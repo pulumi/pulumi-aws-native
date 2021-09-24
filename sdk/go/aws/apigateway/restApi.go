@@ -12,7 +12,7 @@ import (
 
 // Resource Type definition for AWS::ApiGateway::RestApi
 //
-// Deprecated: RestApi is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: RestApi is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type RestApi struct {
 	pulumi.CustomResourceState
 

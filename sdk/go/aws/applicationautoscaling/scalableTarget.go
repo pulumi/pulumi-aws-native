@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
 //
-// Deprecated: ScalableTarget is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ScalableTarget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ScalableTarget struct {
 	pulumi.CustomResourceState
 

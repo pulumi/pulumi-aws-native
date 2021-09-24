@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::SageMaker::CodeRepository
 //
-// Deprecated: CodeRepository is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: CodeRepository is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type CodeRepository struct {
 	pulumi.CustomResourceState
 

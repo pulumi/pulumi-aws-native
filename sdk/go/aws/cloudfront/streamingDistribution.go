@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::CloudFront::StreamingDistribution
 //
-// Deprecated: StreamingDistribution is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type StreamingDistribution struct {
 	pulumi.CustomResourceState
 

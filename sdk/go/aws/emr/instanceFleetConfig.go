@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::EMR::InstanceFleetConfig
 //
-// Deprecated: InstanceFleetConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: InstanceFleetConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type InstanceFleetConfig struct {
 	pulumi.CustomResourceState
 

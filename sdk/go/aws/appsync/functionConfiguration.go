@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::AppSync::FunctionConfiguration
 //
-// Deprecated: FunctionConfiguration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type FunctionConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::PinpointEmail::ConfigurationSet
 //
-// Deprecated: ConfigurationSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 

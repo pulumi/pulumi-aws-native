@@ -13,7 +13,7 @@ import (
 
 // Resource Type definition for AWS::ServiceCatalog::PortfolioShare
 //
-// Deprecated: PortfolioShare is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Deprecated: PortfolioShare is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type PortfolioShare struct {
 	pulumi.CustomResourceState
 
