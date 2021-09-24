@@ -76,7 +76,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["profile"] = (args ? args.profile : undefined) ?? utilities.getEnv("AWS_PROFILE");
             inputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             inputs["s3ForcePathStyle"] = pulumi.output(args ? args.s3ForcePathStyle : undefined).apply(JSON.stringify);
-            inputs["secretKey"] = args?.secretKey ? pulumi.secret(args.secretKey) : undefined;
+            inputs["secretKey"] = (args?.secretKey ? pulumi.secret(args.secretKey) : undefined) ?? utilities.getEnv("AWS_SECRET_ACCESS_KEY");
             inputs["sharedCredentialsFile"] = (args ? args.sharedCredentialsFile : undefined) ?? utilities.getEnv("AWS_SHARED_CREDENTIALS_FILE");
             inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) ?? true).apply(JSON.stringify);
             inputs["skipGetEc2Platforms"] = pulumi.output((args ? args.skipGetEc2Platforms : undefined) ?? true).apply(JSON.stringify);

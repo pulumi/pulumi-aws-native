@@ -252,6 +252,7 @@ namespace Pulumi.AwsNative
             AccessKey = Utilities.GetEnv("AWS_ACCESS_KEY_ID");
             Profile = Utilities.GetEnv("AWS_PROFILE");
             Region = Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            SecretKey = Utilities.GetEnv("AWS_SECRET_ACCESS_KEY");
             SharedCredentialsFile = Utilities.GetEnv("AWS_SHARED_CREDENTIALS_FILE");
             SkipCredentialsValidation = true;
             SkipGetEc2Platforms = true;

@@ -41216,6 +41216,11 @@
             "secretKey": {
                 "type": "string",
                 "description": "The secret key for API operations. You can retrieve this from the 'Security \u0026 Credentials' section of the AWS console.",
+                "defaultInfo": {
+                    "environment": [
+                        "AWS_SECRET_ACCESS_KEY"
+                    ]
+                },
                 "secret": true
             },
             "sharedCredentialsFile": {
