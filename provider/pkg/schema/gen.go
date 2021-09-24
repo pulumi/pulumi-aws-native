@@ -584,7 +584,7 @@ func (ctx *context) gatherResourceType() error {
 
 	var deprecationMessage string
 	if !ctx.isSupported {
-		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
+		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
 	}
 	ctx.pkg.Resources[ctx.resourceToken] = pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
