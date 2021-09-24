@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// <summary>
     /// Resource Type definition for AWS::OpsWorks::Volume
     /// </summary>
-    [Obsolete(@"Volume is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:Volume")]
     public partial class Volume : Pulumi.CustomResource
     {

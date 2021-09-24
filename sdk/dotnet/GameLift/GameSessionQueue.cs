@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GameLift
     /// <summary>
     /// Resource Type definition for AWS::GameLift::GameSessionQueue
     /// </summary>
-    [Obsolete(@"GameSessionQueue is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:GameSessionQueue")]
     public partial class GameSessionQueue : Pulumi.CustomResource
     {

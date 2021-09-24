@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     /// <summary>
     /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
     /// </summary>
-    [Obsolete(@"ListenerCertificate is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ListenerCertificate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:ListenerCertificate")]
     public partial class ListenerCertificate : Pulumi.CustomResource
     {

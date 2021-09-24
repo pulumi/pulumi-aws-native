@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Logs
     /// <summary>
     /// Resource Type definition for AWS::Logs::SubscriptionFilter
     /// </summary>
-    [Obsolete(@"SubscriptionFilter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SubscriptionFilter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:logs:SubscriptionFilter")]
     public partial class SubscriptionFilter : Pulumi.CustomResource
     {

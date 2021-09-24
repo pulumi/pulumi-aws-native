@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// <summary>
     /// Resource Type definition for AWS::ElastiCache::SecurityGroup
     /// </summary>
-    [Obsolete(@"SecurityGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SecurityGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:SecurityGroup")]
     public partial class SecurityGroup : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.LakeFormation
     /// <summary>
     /// Resource Type definition for AWS::LakeFormation::DataLakeSettings
     /// </summary>
-    [Obsolete(@"DataLakeSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DataLakeSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:lakeformation:DataLakeSettings")]
     public partial class DataLakeSettings : Pulumi.CustomResource
     {

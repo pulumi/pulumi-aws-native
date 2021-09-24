@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// <summary>
     /// Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
     /// </summary>
-    [Obsolete(@"LaunchNotificationConstraint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"LaunchNotificationConstraint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:servicecatalog:LaunchNotificationConstraint")]
     public partial class LaunchNotificationConstraint : Pulumi.CustomResource
     {

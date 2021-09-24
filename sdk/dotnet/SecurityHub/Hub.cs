@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SecurityHub
     /// <summary>
     /// Resource Type definition for AWS::SecurityHub::Hub
     /// </summary>
-    [Obsolete(@"Hub is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:securityhub:Hub")]
     public partial class Hub : Pulumi.CustomResource
     {

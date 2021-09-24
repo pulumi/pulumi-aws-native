@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Neptune
     /// <summary>
     /// Resource Type definition for AWS::Neptune::DBInstance
     /// </summary>
-    [Obsolete(@"DBInstance is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DBInstance is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:neptune:DBInstance")]
     public partial class DBInstance : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EventSchemas
     /// <summary>
     /// Resource Type definition for AWS::EventSchemas::Discoverer
     /// </summary>
-    [Obsolete(@"Discoverer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eventschemas:Discoverer")]
     public partial class Discoverer : Pulumi.CustomResource
     {

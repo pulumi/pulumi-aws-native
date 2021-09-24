@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// Resource Type definition for AWS::SageMaker::EndpointConfig
     /// </summary>
-    [Obsolete(@"EndpointConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"EndpointConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:sagemaker:EndpointConfig")]
     public partial class EndpointConfig : Pulumi.CustomResource
     {

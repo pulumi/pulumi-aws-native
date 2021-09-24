@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     /// <summary>
     /// Resource Type definition for AWS::ElasticBeanstalk::Environment
     /// </summary>
-    [Obsolete(@"Environment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {

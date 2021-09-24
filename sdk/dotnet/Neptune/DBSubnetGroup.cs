@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Neptune
     /// <summary>
     /// Resource Type definition for AWS::Neptune::DBSubnetGroup
     /// </summary>
-    [Obsolete(@"DBSubnetGroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DBSubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:neptune:DBSubnetGroup")]
     public partial class DBSubnetGroup : Pulumi.CustomResource
     {

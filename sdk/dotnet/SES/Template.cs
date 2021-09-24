@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SES
     /// <summary>
     /// Resource Type definition for AWS::SES::Template
     /// </summary>
-    [Obsolete(@"Template is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Template is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ses:Template")]
     public partial class Template : Pulumi.CustomResource
     {

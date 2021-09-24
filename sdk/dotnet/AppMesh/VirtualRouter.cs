@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppMesh
     /// <summary>
     /// Resource Type definition for AWS::AppMesh::VirtualRouter
     /// </summary>
-    [Obsolete(@"VirtualRouter is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"VirtualRouter is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appmesh:VirtualRouter")]
     public partial class VirtualRouter : Pulumi.CustomResource
     {

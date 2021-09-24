@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SecretsManager
     /// <summary>
     /// Resource Type definition for AWS::SecretsManager::Secret
     /// </summary>
-    [Obsolete(@"Secret is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:secretsmanager:Secret")]
     public partial class Secret : Pulumi.CustomResource
     {

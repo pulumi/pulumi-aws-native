@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DLM
     /// <summary>
     /// Resource Type definition for AWS::DLM::LifecyclePolicy
     /// </summary>
-    [Obsolete(@"LifecyclePolicy is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"LifecyclePolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dlm:LifecyclePolicy")]
     public partial class LifecyclePolicy : Pulumi.CustomResource
     {

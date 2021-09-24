@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaLive
     /// <summary>
     /// Resource Type definition for AWS::MediaLive::Channel
     /// </summary>
-    [Obsolete(@"Channel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Channel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:medialive:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppStream
     /// <summary>
     /// Resource Type definition for AWS::AppStream::DirectoryConfig
     /// </summary>
-    [Obsolete(@"DirectoryConfig is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DirectoryConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:DirectoryConfig")]
     public partial class DirectoryConfig : Pulumi.CustomResource
     {

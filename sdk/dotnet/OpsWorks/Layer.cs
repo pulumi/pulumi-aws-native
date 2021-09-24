@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// <summary>
     /// Resource Type definition for AWS::OpsWorks::Layer
     /// </summary>
-    [Obsolete(@"Layer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Layer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:Layer")]
     public partial class Layer : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// <summary>
     /// Resource Type definition for AWS::Pinpoint::VoiceChannel
     /// </summary>
-    [Obsolete(@"VoiceChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"VoiceChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:VoiceChannel")]
     public partial class VoiceChannel : Pulumi.CustomResource
     {

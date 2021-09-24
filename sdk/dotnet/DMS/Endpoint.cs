@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DMS
     /// <summary>
     /// Resource Type definition for AWS::DMS::Endpoint
     /// </summary>
-    [Obsolete(@"Endpoint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Endpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dms:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {

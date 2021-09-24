@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DynamoDB
     /// <summary>
     /// Resource Type definition for AWS::DynamoDB::Table
     /// </summary>
-    [Obsolete(@"Table is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:dynamodb:Table")]
     public partial class Table : Pulumi.CustomResource
     {

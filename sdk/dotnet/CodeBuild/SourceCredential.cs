@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeBuild
     /// <summary>
     /// Resource Type definition for AWS::CodeBuild::SourceCredential
     /// </summary>
-    [Obsolete(@"SourceCredential is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SourceCredential is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codebuild:SourceCredential")]
     public partial class SourceCredential : Pulumi.CustomResource
     {

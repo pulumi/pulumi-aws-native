@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppSync
     /// <summary>
     /// Resource Type definition for AWS::AppSync::GraphQLSchema
     /// </summary>
-    [Obsolete(@"GraphQLSchema is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"GraphQLSchema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appsync:GraphQLSchema")]
     public partial class GraphQLSchema : Pulumi.CustomResource
     {

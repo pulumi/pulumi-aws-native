@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Batch
     /// <summary>
     /// Resource Type definition for AWS::Batch::JobQueue
     /// </summary>
-    [Obsolete(@"JobQueue is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"JobQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:batch:JobQueue")]
     public partial class JobQueue : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ASK
     /// <summary>
     /// Resource Type definition for Alexa::ASK::Skill
     /// </summary>
-    [Obsolete(@"Skill is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Skill is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ask:Skill")]
     public partial class Skill : Pulumi.CustomResource
     {

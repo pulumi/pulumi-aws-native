@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Kinesis
     /// <summary>
     /// Resource Type definition for AWS::Kinesis::StreamConsumer
     /// </summary>
-    [Obsolete(@"StreamConsumer is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"StreamConsumer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesis:StreamConsumer")]
     public partial class StreamConsumer : Pulumi.CustomResource
     {

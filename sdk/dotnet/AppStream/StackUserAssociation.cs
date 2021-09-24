@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppStream
     /// <summary>
     /// Resource Type definition for AWS::AppStream::StackUserAssociation
     /// </summary>
-    [Obsolete(@"StackUserAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"StackUserAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appstream:StackUserAssociation")]
     public partial class StackUserAssociation : Pulumi.CustomResource
     {

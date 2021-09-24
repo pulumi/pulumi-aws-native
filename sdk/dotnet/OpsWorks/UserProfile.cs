@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.OpsWorks
     /// <summary>
     /// Resource Type definition for AWS::OpsWorks::UserProfile
     /// </summary>
-    [Obsolete(@"UserProfile is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"UserProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:opsworks:UserProfile")]
     public partial class UserProfile : Pulumi.CustomResource
     {

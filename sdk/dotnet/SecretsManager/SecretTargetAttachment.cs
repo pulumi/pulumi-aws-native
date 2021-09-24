@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SecretsManager
     /// <summary>
     /// Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
     /// </summary>
-    [Obsolete(@"SecretTargetAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SecretTargetAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:secretsmanager:SecretTargetAttachment")]
     public partial class SecretTargetAttachment : Pulumi.CustomResource
     {

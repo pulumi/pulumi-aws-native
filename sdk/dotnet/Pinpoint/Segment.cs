@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Pinpoint
     /// <summary>
     /// Resource Type definition for AWS::Pinpoint::Segment
     /// </summary>
-    [Obsolete(@"Segment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Segment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:pinpoint:Segment")]
     public partial class Segment : Pulumi.CustomResource
     {

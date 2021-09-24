@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AmazonMQ
     /// <summary>
     /// Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
     /// </summary>
-    [Obsolete(@"ConfigurationAssociation is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ConfigurationAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:amazonmq:ConfigurationAssociation")]
     public partial class ConfigurationAssociation : Pulumi.CustomResource
     {

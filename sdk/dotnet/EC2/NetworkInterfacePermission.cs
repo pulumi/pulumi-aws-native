@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::NetworkInterfacePermission
     /// </summary>
-    [Obsolete(@"NetworkInterfacePermission is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"NetworkInterfacePermission is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:NetworkInterfacePermission")]
     public partial class NetworkInterfacePermission : Pulumi.CustomResource
     {

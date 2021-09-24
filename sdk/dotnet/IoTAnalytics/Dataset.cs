@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     /// <summary>
     /// Resource Type definition for AWS::IoTAnalytics::Dataset
     /// </summary>
-    [Obsolete(@"Dataset is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Dataset is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:iotanalytics:Dataset")]
     public partial class Dataset : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WAF
     /// <summary>
     /// Resource Type definition for AWS::WAF::SqlInjectionMatchSet
     /// </summary>
-    [Obsolete(@"SqlInjectionMatchSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"SqlInjectionMatchSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:waf:SqlInjectionMatchSet")]
     public partial class SqlInjectionMatchSet : Pulumi.CustomResource
     {

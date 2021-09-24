@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Transfer
     /// <summary>
     /// Resource Type definition for AWS::Transfer::User
     /// </summary>
-    [Obsolete(@"User is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:transfer:User")]
     public partial class User : Pulumi.CustomResource
     {

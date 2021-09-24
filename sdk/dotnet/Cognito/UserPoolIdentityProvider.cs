@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Cognito
     /// <summary>
     /// Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
     /// </summary>
-    [Obsolete(@"UserPoolIdentityProvider is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"UserPoolIdentityProvider is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cognito:UserPoolIdentityProvider")]
     public partial class UserPoolIdentityProvider : Pulumi.CustomResource
     {

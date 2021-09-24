@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// <summary>
     /// Resource Type definition for AWS::CloudFormation::WaitCondition
     /// </summary>
-    [Obsolete(@"WaitCondition is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"WaitCondition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:cloudformation:WaitCondition")]
     public partial class WaitCondition : Pulumi.CustomResource
     {

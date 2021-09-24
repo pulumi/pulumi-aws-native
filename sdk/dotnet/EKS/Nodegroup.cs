@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EKS
     /// <summary>
     /// Resource Type definition for AWS::EKS::Nodegroup
     /// </summary>
-    [Obsolete(@"Nodegroup is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Nodegroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eks:Nodegroup")]
     public partial class Nodegroup : Pulumi.CustomResource
     {

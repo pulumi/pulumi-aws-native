@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
     /// <summary>
     /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
     /// </summary>
-    [Obsolete(@"ApplicationCloudWatchLoggingOption is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ApplicationCloudWatchLoggingOption is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:kinesisanalyticsv2:ApplicationCloudWatchLoggingOption")]
     public partial class ApplicationCloudWatchLoggingOption : Pulumi.CustomResource
     {

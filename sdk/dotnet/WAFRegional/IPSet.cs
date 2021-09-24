@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WAFRegional
     /// <summary>
     /// Resource Type definition for AWS::WAFRegional::IPSet
     /// </summary>
-    [Obsolete(@"IPSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"IPSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:wafregional:IPSet")]
     public partial class IPSet : Pulumi.CustomResource
     {

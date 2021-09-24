@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodePipeline
     /// <summary>
     /// Resource Type definition for AWS::CodePipeline::Pipeline
     /// </summary>
-    [Obsolete(@"Pipeline is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codepipeline:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::ClientVpnEndpoint
     /// </summary>
-    [Obsolete(@"ClientVpnEndpoint is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"ClientVpnEndpoint is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:ClientVpnEndpoint")]
     public partial class ClientVpnEndpoint : Pulumi.CustomResource
     {

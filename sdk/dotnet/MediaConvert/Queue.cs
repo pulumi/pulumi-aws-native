@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaConvert
     /// <summary>
     /// Resource Type definition for AWS::MediaConvert::Queue
     /// </summary>
-    [Obsolete(@"Queue is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"Queue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:mediaconvert:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {

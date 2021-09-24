@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
     /// </summary>
-    [Obsolete(@"DataCatalogEncryptionSettings is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
+    [Obsolete(@"DataCatalogEncryptionSettings is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:glue:DataCatalogEncryptionSettings")]
     public partial class DataCatalogEncryptionSettings : Pulumi.CustomResource
     {
