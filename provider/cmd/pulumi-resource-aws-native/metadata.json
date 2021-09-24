@@ -298,62 +298,6 @@
                 "certificateAuthorityArn"
             ]
         },
-        "aws-native:acmpca:Permission": {
-            "cf": "AWS::ACMPCA::Permission",
-            "inputs": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided."
-                },
-                "certificateAuthorityArn": {
-                    "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission."
-                },
-                "principal": {
-                    "type": "string",
-                    "description": "The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com."
-                },
-                "sourceAccount": {
-                    "type": "string",
-                    "description": "The ID of the calling account."
-                }
-            },
-            "outputs": {
-                "actions": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided."
-                },
-                "certificateAuthorityArn": {
-                    "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission."
-                },
-                "principal": {
-                    "type": "string",
-                    "description": "The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com."
-                },
-                "sourceAccount": {
-                    "type": "string",
-                    "description": "The ID of the calling account."
-                }
-            },
-            "required": [
-                "actions",
-                "certificateAuthorityArn",
-                "principal"
-            ],
-            "createOnly": [
-                "actions",
-                "certificateAuthorityArn",
-                "principal",
-                "sourceAccount"
-            ]
-        },
         "aws-native:amplify:App": {
             "cf": "AWS::Amplify::App",
             "inputs": {
@@ -2141,6 +2085,9 @@
                 "encryptionKeyArn": {
                     "type": "string"
                 },
+                "lockConfiguration": {
+                    "$ref": "#/types/aws-native:backup:BackupVaultLockConfigurationType"
+                },
                 "notifications": {
                     "$ref": "#/types/aws-native:backup:BackupVaultNotificationObjectType"
                 }
@@ -2160,6 +2107,9 @@
                 },
                 "encryptionKeyArn": {
                     "type": "string"
+                },
+                "lockConfiguration": {
+                    "$ref": "#/types/aws-native:backup:BackupVaultLockConfigurationType"
                 },
                 "notifications": {
                     "$ref": "#/types/aws-native:backup:BackupVaultNotificationObjectType"
@@ -4135,30 +4085,40 @@
             "cf": "AWS::Config::AggregationAuthorization",
             "inputs": {
                 "authorizedAccountId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The 12-digit account ID of the account authorized to aggregate data."
                 },
                 "authorizedAwsRegion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The region authorized to collect aggregated data."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:configuration:AggregationAuthorizationTag"
-                    }
+                    },
+                    "description": "The tags for the AggregationAuthorization."
                 }
             },
             "outputs": {
+                "aggregationAuthorizationArn": {
+                    "type": "string",
+                    "description": "The ARN of the AggregationAuthorization."
+                },
                 "authorizedAccountId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The 12-digit account ID of the account authorized to aggregate data."
                 },
                 "authorizedAwsRegion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The region authorized to collect aggregated data."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:configuration:AggregationAuthorizationTag"
-                    }
+                    },
+                    "description": "The tags for the AggregationAuthorization."
                 }
             },
             "required": [
@@ -20533,6 +20493,10 @@
                     "type": "string",
                     "description": "The current revision id."
                 },
+                "environment": {
+                    "type": "string",
+                    "description": "The URI of the Docker image for the robot application."
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the simulation application."
@@ -20568,6 +20532,10 @@
                     "type": "string",
                     "description": "The current revision id."
                 },
+                "environment": {
+                    "type": "string",
+                    "description": "The URI of the Docker image for the robot application."
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the simulation application."
@@ -20596,10 +20564,8 @@
                 }
             },
             "required": [
-                "renderingEngine",
                 "robotSoftwareSuite",
-                "simulationSoftwareSuite",
-                "sources"
+                "simulationSoftwareSuite"
             ],
             "createOnly": [
                 "name"
@@ -28158,6 +28124,19 @@
                 }
             }
         },
+        "aws-native:backup:BackupVaultLockConfigurationType": {
+            "properties": {
+                "changeableForDays": {
+                    "type": "number"
+                },
+                "maxRetentionDays": {
+                    "type": "number"
+                },
+                "minRetentionDays": {
+                    "type": "number"
+                }
+            }
+        },
         "aws-native:backup:BackupVaultNotificationObjectType": {
             "properties": {
                 "backupVaultEvents": {
@@ -29387,10 +29366,12 @@
         "aws-native:configuration:AggregationAuthorizationTag": {
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 }
             }
         },
@@ -35482,7 +35463,7 @@
             "properties": {
                 "uninstallAfterBuild": {
                     "type": "boolean",
-                    "description": "This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false."
+                    "description": "Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false."
                 }
             }
         },
@@ -35984,6 +35965,9 @@
                 "lambda": {
                     "$ref": "#/types/aws-native:iot:TopicRuleLambdaAction"
                 },
+                "openSearch": {
+                    "$ref": "#/types/aws-native:iot:TopicRuleOpenSearchAction"
+                },
                 "republish": {
                     "$ref": "#/types/aws-native:iot:TopicRuleRepublishAction"
                 },
@@ -36309,6 +36293,25 @@
         "aws-native:iot:TopicRuleLambdaAction": {
             "properties": {
                 "functionArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:TopicRuleOpenSearchAction": {
+            "properties": {
+                "endpoint": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "index": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "type": {
                     "type": "string"
                 }
             }
