@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Pinpoint::GCMChannel
  *
- * @deprecated GCMChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated GCMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class GCMChannel extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class GCMChannel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GCMChannel {
-        pulumi.log.warn("GCMChannel is deprecated: GCMChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("GCMChannel is deprecated: GCMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new GCMChannel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -48,9 +48,9 @@ export class GCMChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated GCMChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated GCMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: GCMChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GCMChannel is deprecated: GCMChannel is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("GCMChannel is deprecated: GCMChannel is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

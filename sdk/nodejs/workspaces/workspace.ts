@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::WorkSpaces::Workspace
  *
- * @deprecated Workspace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
-        pulumi.log.warn("Workspace is deprecated: Workspace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Workspace is deprecated: Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,9 +54,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Workspace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Workspace is deprecated: Workspace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Workspace is deprecated: Workspace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace
  *
- * @deprecated PublicDnsNamespace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class PublicDnsNamespace extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PublicDnsNamespace {
-        pulumi.log.warn("PublicDnsNamespace is deprecated: PublicDnsNamespace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("PublicDnsNamespace is deprecated: PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new PublicDnsNamespace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -51,9 +51,9 @@ export class PublicDnsNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated PublicDnsNamespace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: PublicDnsNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PublicDnsNamespace is deprecated: PublicDnsNamespace is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("PublicDnsNamespace is deprecated: PublicDnsNamespace is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

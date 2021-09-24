@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::Cloud9::EnvironmentEC2
  *
- * @deprecated EnvironmentEC2 is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EnvironmentEC2 {
-        pulumi.log.warn("EnvironmentEC2 is deprecated: EnvironmentEC2 is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("EnvironmentEC2 is deprecated: EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new EnvironmentEC2(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,9 +57,9 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated EnvironmentEC2 is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: EnvironmentEC2Args, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("EnvironmentEC2 is deprecated: EnvironmentEC2 is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("EnvironmentEC2 is deprecated: EnvironmentEC2 is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

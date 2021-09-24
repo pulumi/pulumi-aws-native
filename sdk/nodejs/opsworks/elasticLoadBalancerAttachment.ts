@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
  *
- * @deprecated ElasticLoadBalancerAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ElasticLoadBalancerAttachment extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class ElasticLoadBalancerAttachment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ElasticLoadBalancerAttachment {
-        pulumi.log.warn("ElasticLoadBalancerAttachment is deprecated: ElasticLoadBalancerAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ElasticLoadBalancerAttachment is deprecated: ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ElasticLoadBalancerAttachment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -47,9 +47,9 @@ export class ElasticLoadBalancerAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ElasticLoadBalancerAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ElasticLoadBalancerAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ElasticLoadBalancerAttachment is deprecated: ElasticLoadBalancerAttachment is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ElasticLoadBalancerAttachment is deprecated: ElasticLoadBalancerAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

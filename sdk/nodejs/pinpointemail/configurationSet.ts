@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::PinpointEmail::ConfigurationSet
  *
- * @deprecated ConfigurationSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ConfigurationSet extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConfigurationSet {
-        pulumi.log.warn("ConfigurationSet is deprecated: ConfigurationSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ConfigurationSet is deprecated: ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ConfigurationSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -52,9 +52,9 @@ export class ConfigurationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ConfigurationSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ConfigurationSet is deprecated: ConfigurationSet is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ConfigurationSet is deprecated: ConfigurationSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

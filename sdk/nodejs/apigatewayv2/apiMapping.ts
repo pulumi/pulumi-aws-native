@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::ApiMapping
  *
- * @deprecated ApiMapping is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ApiMapping extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class ApiMapping extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiMapping {
-        pulumi.log.warn("ApiMapping is deprecated: ApiMapping is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ApiMapping is deprecated: ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ApiMapping(name, undefined as any, { ...opts, id: id });
     }
 
@@ -49,9 +49,9 @@ export class ApiMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ApiMapping is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApiMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiMapping is deprecated: ApiMapping is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("ApiMapping is deprecated: ApiMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

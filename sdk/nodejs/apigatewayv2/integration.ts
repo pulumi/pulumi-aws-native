@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Integration
  *
- * @deprecated Integration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * @deprecated Integration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Integration extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Integration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Integration {
-        pulumi.log.warn("Integration is deprecated: Integration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Integration is deprecated: Integration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Integration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +64,9 @@ export class Integration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Integration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible. */
+    /** @deprecated Integration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Integration is deprecated: Integration is not yet supported by AWS Cloud Control API, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+        pulumi.log.warn("Integration is deprecated: Integration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
