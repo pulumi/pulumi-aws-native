@@ -20,6 +20,11 @@ class GatewayResponseArgs:
                  status_code: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GatewayResponse resource.
+        :param pulumi.Input[str] response_type: The type of the Gateway Response.
+        :param pulumi.Input[str] rest_api_id: The identifier of the API.
+        :param Any response_parameters: The response parameters (paths, query strings, and headers) for the response.
+        :param Any response_templates: The response templates for the response.
+        :param pulumi.Input[str] status_code: The HTTP status code for the response.
         """
         pulumi.set(__self__, "response_type", response_type)
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -33,6 +38,9 @@ class GatewayResponseArgs:
     @property
     @pulumi.getter(name="responseType")
     def response_type(self) -> pulumi.Input[str]:
+        """
+        The type of the Gateway Response.
+        """
         return pulumi.get(self, "response_type")
 
     @response_type.setter
@@ -42,6 +50,9 @@ class GatewayResponseArgs:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the API.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -51,6 +62,9 @@ class GatewayResponseArgs:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
+        """
+        The response parameters (paths, query strings, and headers) for the response.
+        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -60,6 +74,9 @@ class GatewayResponseArgs:
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[Any]:
+        """
+        The response templates for the response.
+        """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
@@ -69,6 +86,9 @@ class GatewayResponseArgs:
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP status code for the response.
+        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -97,6 +117,11 @@ class GatewayResponse(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any response_parameters: The response parameters (paths, query strings, and headers) for the response.
+        :param Any response_templates: The response templates for the response.
+        :param pulumi.Input[str] response_type: The type of the Gateway Response.
+        :param pulumi.Input[str] rest_api_id: The identifier of the API.
+        :param pulumi.Input[str] status_code: The HTTP status code for the response.
         """
         ...
     @overload
@@ -181,25 +206,40 @@ class GatewayResponse(pulumi.CustomResource):
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The response parameters (paths, query strings, and headers) for the response.
+        """
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The response templates for the response.
+        """
         return pulumi.get(self, "response_templates")
 
     @property
     @pulumi.getter(name="responseType")
     def response_type(self) -> pulumi.Output[str]:
+        """
+        The type of the Gateway Response.
+        """
         return pulumi.get(self, "response_type")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the API.
+        """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Output[Optional[str]]:
+        """
+        The HTTP status code for the response.
+        """
         return pulumi.get(self, "status_code")
 

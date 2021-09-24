@@ -544,8 +544,7 @@ _utilities.register(
   "classes": {
    "aws-native:acmpca:Certificate": "Certificate",
    "aws-native:acmpca:CertificateAuthority": "CertificateAuthority",
-   "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation",
-   "aws-native:acmpca:Permission": "Permission"
+   "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation"
   }
  },
  {

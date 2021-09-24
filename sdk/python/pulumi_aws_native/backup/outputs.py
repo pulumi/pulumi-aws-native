@@ -17,6 +17,7 @@ __all__ = [
     'BackupPlanLifecycleResourceType',
     'BackupSelectionBackupSelectionResourceType',
     'BackupSelectionConditionResourceType',
+    'BackupVaultLockConfigurationType',
     'BackupVaultNotificationObjectType',
 ]
 
@@ -390,6 +391,56 @@ class BackupSelectionConditionResourceType(dict):
     @pulumi.getter(name="conditionValue")
     def condition_value(self) -> str:
         return pulumi.get(self, "condition_value")
+
+
+@pulumi.output_type
+class BackupVaultLockConfigurationType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "changeableForDays":
+            suggest = "changeable_for_days"
+        elif key == "maxRetentionDays":
+            suggest = "max_retention_days"
+        elif key == "minRetentionDays":
+            suggest = "min_retention_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupVaultLockConfigurationType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupVaultLockConfigurationType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupVaultLockConfigurationType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 changeable_for_days: Optional[float] = None,
+                 max_retention_days: Optional[float] = None,
+                 min_retention_days: Optional[float] = None):
+        if changeable_for_days is not None:
+            pulumi.set(__self__, "changeable_for_days", changeable_for_days)
+        if max_retention_days is not None:
+            pulumi.set(__self__, "max_retention_days", max_retention_days)
+        if min_retention_days is not None:
+            pulumi.set(__self__, "min_retention_days", min_retention_days)
+
+    @property
+    @pulumi.getter(name="changeableForDays")
+    def changeable_for_days(self) -> Optional[float]:
+        return pulumi.get(self, "changeable_for_days")
+
+    @property
+    @pulumi.getter(name="maxRetentionDays")
+    def max_retention_days(self) -> Optional[float]:
+        return pulumi.get(self, "max_retention_days")
+
+    @property
+    @pulumi.getter(name="minRetentionDays")
+    def min_retention_days(self) -> Optional[float]:
+        return pulumi.get(self, "min_retention_days")
 
 
 @pulumi.output_type

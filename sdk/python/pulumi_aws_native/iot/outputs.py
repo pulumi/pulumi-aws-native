@@ -65,6 +65,7 @@ __all__ = [
     'TopicRuleKafkaAction',
     'TopicRuleKinesisAction',
     'TopicRuleLambdaAction',
+    'TopicRuleOpenSearchAction',
     'TopicRulePutAssetPropertyValueEntry',
     'TopicRulePutItemInput',
     'TopicRuleRepublishAction',
@@ -1540,6 +1541,8 @@ class TopicRuleAction(dict):
             suggest = "iot_site_wise"
         elif key == "lambda":
             suggest = "lambda_"
+        elif key == "openSearch":
+            suggest = "open_search"
         elif key == "stepFunctions":
             suggest = "step_functions"
 
@@ -1569,6 +1572,7 @@ class TopicRuleAction(dict):
                  kafka: Optional['outputs.TopicRuleKafkaAction'] = None,
                  kinesis: Optional['outputs.TopicRuleKinesisAction'] = None,
                  lambda_: Optional['outputs.TopicRuleLambdaAction'] = None,
+                 open_search: Optional['outputs.TopicRuleOpenSearchAction'] = None,
                  republish: Optional['outputs.TopicRuleRepublishAction'] = None,
                  s3: Optional['outputs.TopicRuleS3Action'] = None,
                  sns: Optional['outputs.TopicRuleSnsAction'] = None,
@@ -1603,6 +1607,8 @@ class TopicRuleAction(dict):
             pulumi.set(__self__, "kinesis", kinesis)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if open_search is not None:
+            pulumi.set(__self__, "open_search", open_search)
         if republish is not None:
             pulumi.set(__self__, "republish", republish)
         if s3 is not None:
@@ -1685,6 +1691,11 @@ class TopicRuleAction(dict):
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.TopicRuleLambdaAction']:
         return pulumi.get(self, "lambda_")
+
+    @property
+    @pulumi.getter(name="openSearch")
+    def open_search(self) -> Optional['outputs.TopicRuleOpenSearchAction']:
+        return pulumi.get(self, "open_search")
 
     @property
     @pulumi.getter
@@ -2727,6 +2738,63 @@ class TopicRuleLambdaAction(dict):
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[str]:
         return pulumi.get(self, "function_arn")
+
+
+@pulumi.output_type
+class TopicRuleOpenSearchAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleOpenSearchAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleOpenSearchAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleOpenSearchAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: str,
+                 id: str,
+                 index: str,
+                 role_arn: str,
+                 type: str):
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def index(self) -> str:
+        return pulumi.get(self, "index")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

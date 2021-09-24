@@ -17,6 +17,7 @@ __all__ = [
     'DataSourceElasticsearchConfig',
     'DataSourceHttpConfig',
     'DataSourceLambdaConfig',
+    'DataSourceOpenSearchServiceConfig',
     'DataSourceRdsHttpEndpointConfig',
     'DataSourceRelationalDatabaseConfig',
     'FunctionConfigurationLambdaConflictHandlerConfig',
@@ -325,6 +326,42 @@ class DataSourceLambdaConfig(dict):
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> str:
         return pulumi.get(self, "lambda_function_arn")
+
+
+@pulumi.output_type
+class DataSourceOpenSearchServiceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceOpenSearchServiceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceOpenSearchServiceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceOpenSearchServiceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: str,
+                 endpoint: str):
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        return pulumi.get(self, "endpoint")
 
 
 @pulumi.output_type

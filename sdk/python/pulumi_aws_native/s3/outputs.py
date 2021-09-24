@@ -908,7 +908,9 @@ class BucketMetricsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "tagFilters":
+        if key == "accessPointArn":
+            suggest = "access_point_arn"
+        elif key == "tagFilters":
             suggest = "tag_filters"
 
         if suggest:
@@ -924,9 +926,12 @@ class BucketMetricsConfiguration(dict):
 
     def __init__(__self__, *,
                  id: str,
+                 access_point_arn: Optional[str] = None,
                  prefix: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
         pulumi.set(__self__, "id", id)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
@@ -936,6 +941,11 @@ class BucketMetricsConfiguration(dict):
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[str]:
+        return pulumi.get(self, "access_point_arn")
 
     @property
     @pulumi.getter

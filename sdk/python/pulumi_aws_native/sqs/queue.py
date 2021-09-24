@@ -26,6 +26,7 @@ class QueueArgs:
                  message_retention_period: Optional[pulumi.Input[int]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  receive_message_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+                 redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None):
@@ -54,6 +55,8 @@ class QueueArgs:
             pulumi.set(__self__, "queue_name", queue_name)
         if receive_message_wait_time_seconds is not None:
             pulumi.set(__self__, "receive_message_wait_time_seconds", receive_message_wait_time_seconds)
+        if redrive_allow_policy is not None:
+            pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
         if tags is not None:
@@ -161,6 +164,15 @@ class QueueArgs:
         pulumi.set(self, "receive_message_wait_time_seconds", value)
 
     @property
+    @pulumi.getter(name="redriveAllowPolicy")
+    def redrive_allow_policy(self) -> Optional[Any]:
+        return pulumi.get(self, "redrive_allow_policy")
+
+    @redrive_allow_policy.setter
+    def redrive_allow_policy(self, value: Optional[Any]):
+        pulumi.set(self, "redrive_allow_policy", value)
+
+    @property
     @pulumi.getter(name="redrivePolicy")
     def redrive_policy(self) -> Optional[Any]:
         return pulumi.get(self, "redrive_policy")
@@ -209,6 +221,7 @@ class Queue(pulumi.CustomResource):
                  message_retention_period: Optional[pulumi.Input[int]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  receive_message_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+                 redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
@@ -254,6 +267,7 @@ class Queue(pulumi.CustomResource):
                  message_retention_period: Optional[pulumi.Input[int]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  receive_message_wait_time_seconds: Optional[pulumi.Input[int]] = None,
+                 redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QueueTagArgs']]]]] = None,
                  visibility_timeout: Optional[pulumi.Input[int]] = None,
@@ -281,6 +295,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["message_retention_period"] = message_retention_period
             __props__.__dict__["queue_name"] = queue_name
             __props__.__dict__["receive_message_wait_time_seconds"] = receive_message_wait_time_seconds
+            __props__.__dict__["redrive_allow_policy"] = redrive_allow_policy
             __props__.__dict__["redrive_policy"] = redrive_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility_timeout"] = visibility_timeout
@@ -319,6 +334,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["message_retention_period"] = None
         __props__.__dict__["queue_name"] = None
         __props__.__dict__["receive_message_wait_time_seconds"] = None
+        __props__.__dict__["redrive_allow_policy"] = None
         __props__.__dict__["redrive_policy"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["visibility_timeout"] = None
@@ -383,6 +399,11 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="receiveMessageWaitTimeSeconds")
     def receive_message_wait_time_seconds(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "receive_message_wait_time_seconds")
+
+    @property
+    @pulumi.getter(name="redriveAllowPolicy")
+    def redrive_allow_policy(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "redrive_allow_policy")
 
     @property
     @pulumi.getter(name="redrivePolicy")

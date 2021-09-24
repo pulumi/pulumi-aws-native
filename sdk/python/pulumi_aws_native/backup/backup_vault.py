@@ -18,6 +18,7 @@ class BackupVaultArgs:
                  access_policy: Optional[Any] = None,
                  backup_vault_tags: Optional[Any] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
+                 lock_configuration: Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']] = None,
                  notifications: Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a BackupVault resource.
@@ -28,6 +29,8 @@ class BackupVaultArgs:
             pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
         if encryption_key_arn is not None:
             pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if lock_configuration is not None:
+            pulumi.set(__self__, "lock_configuration", lock_configuration)
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
 
@@ -59,6 +62,15 @@ class BackupVaultArgs:
         pulumi.set(self, "encryption_key_arn", value)
 
     @property
+    @pulumi.getter(name="lockConfiguration")
+    def lock_configuration(self) -> Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']]:
+        return pulumi.get(self, "lock_configuration")
+
+    @lock_configuration.setter
+    def lock_configuration(self, value: Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']]):
+        pulumi.set(self, "lock_configuration", value)
+
+    @property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']]:
         return pulumi.get(self, "notifications")
@@ -76,6 +88,7 @@ class BackupVault(pulumi.CustomResource):
                  access_policy: Optional[Any] = None,
                  backup_vault_tags: Optional[Any] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
+                 lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
                  notifications: Optional[pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']]] = None,
                  __props__=None):
         """
@@ -111,6 +124,7 @@ class BackupVault(pulumi.CustomResource):
                  access_policy: Optional[Any] = None,
                  backup_vault_tags: Optional[Any] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
+                 lock_configuration: Optional[pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']]] = None,
                  notifications: Optional[pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -127,6 +141,7 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["access_policy"] = access_policy
             __props__.__dict__["backup_vault_tags"] = backup_vault_tags
             __props__.__dict__["encryption_key_arn"] = encryption_key_arn
+            __props__.__dict__["lock_configuration"] = lock_configuration
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["backup_vault_arn"] = None
             __props__.__dict__["backup_vault_name"] = None
@@ -157,6 +172,7 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["backup_vault_name"] = None
         __props__.__dict__["backup_vault_tags"] = None
         __props__.__dict__["encryption_key_arn"] = None
+        __props__.__dict__["lock_configuration"] = None
         __props__.__dict__["notifications"] = None
         return BackupVault(resource_name, opts=opts, __props__=__props__)
 
@@ -184,6 +200,11 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "encryption_key_arn")
+
+    @property
+    @pulumi.getter(name="lockConfiguration")
+    def lock_configuration(self) -> pulumi.Output[Optional['outputs.BackupVaultLockConfigurationType']]:
+        return pulumi.get(self, "lock_configuration")
 
     @property
     @pulumi.getter
