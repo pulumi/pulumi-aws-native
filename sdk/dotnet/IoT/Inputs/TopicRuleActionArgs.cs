@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("lambda")]
         public Input<Inputs.TopicRuleLambdaActionArgs>? Lambda { get; set; }
 
+        [Input("openSearch")]
+        public Input<Inputs.TopicRuleOpenSearchActionArgs>? OpenSearch { get; set; }
+
         [Input("republish")]
         public Input<Inputs.TopicRuleRepublishActionArgs>? Republish { get; set; }
 

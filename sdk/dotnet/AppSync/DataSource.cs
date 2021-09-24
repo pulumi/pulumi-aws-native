@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("openSearchServiceConfig")]
+        public Output<Outputs.DataSourceOpenSearchServiceConfig?> OpenSearchServiceConfig { get; private set; } = null!;
+
         [Output("relationalDatabaseConfig")]
         public Output<Outputs.DataSourceRelationalDatabaseConfig?> RelationalDatabaseConfig { get; private set; } = null!;
 
@@ -114,6 +117,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("openSearchServiceConfig")]
+        public Input<Inputs.DataSourceOpenSearchServiceConfigArgs>? OpenSearchServiceConfig { get; set; }
 
         [Input("relationalDatabaseConfig")]
         public Input<Inputs.DataSourceRelationalDatabaseConfigArgs>? RelationalDatabaseConfig { get; set; }

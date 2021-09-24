@@ -25,6 +25,12 @@ namespace Pulumi.AwsNative.RoboMaker
         public Output<string?> CurrentRevisionId { get; private set; } = null!;
 
         /// <summary>
+        /// The URI of the Docker image for the robot application.
+        /// </summary>
+        [Output("environment")]
+        public Output<string?> Environment { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the simulation application.
         /// </summary>
         [Output("name")]
@@ -34,7 +40,7 @@ namespace Pulumi.AwsNative.RoboMaker
         /// The rendering engine for the simulation application.
         /// </summary>
         [Output("renderingEngine")]
-        public Output<Outputs.SimulationApplicationRenderingEngine> RenderingEngine { get; private set; } = null!;
+        public Output<Outputs.SimulationApplicationRenderingEngine?> RenderingEngine { get; private set; } = null!;
 
         /// <summary>
         /// The robot software suite (ROS distribution) used by the simulation application.
@@ -109,6 +115,12 @@ namespace Pulumi.AwsNative.RoboMaker
         public Input<string>? CurrentRevisionId { get; set; }
 
         /// <summary>
+        /// The URI of the Docker image for the robot application.
+        /// </summary>
+        [Input("environment")]
+        public Input<string>? Environment { get; set; }
+
+        /// <summary>
         /// The name of the simulation application.
         /// </summary>
         [Input("name")]
@@ -117,8 +129,8 @@ namespace Pulumi.AwsNative.RoboMaker
         /// <summary>
         /// The rendering engine for the simulation application.
         /// </summary>
-        [Input("renderingEngine", required: true)]
-        public Input<Inputs.SimulationApplicationRenderingEngineArgs> RenderingEngine { get; set; } = null!;
+        [Input("renderingEngine")]
+        public Input<Inputs.SimulationApplicationRenderingEngineArgs>? RenderingEngine { get; set; }
 
         /// <summary>
         /// The robot software suite (ROS distribution) used by the simulation application.
@@ -132,7 +144,7 @@ namespace Pulumi.AwsNative.RoboMaker
         [Input("simulationSoftwareSuite", required: true)]
         public Input<Inputs.SimulationApplicationSimulationSoftwareSuiteArgs> SimulationSoftwareSuite { get; set; } = null!;
 
-        [Input("sources", required: true)]
+        [Input("sources")]
         private InputList<Inputs.SimulationApplicationSourceConfigArgs>? _sources;
 
         /// <summary>

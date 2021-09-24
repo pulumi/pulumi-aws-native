@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketMetricsConfiguration
     {
+        public readonly string? AccessPointArn;
         public readonly string Id;
         public readonly string? Prefix;
         public readonly ImmutableArray<Outputs.BucketTagFilter> TagFilters;
 
         [OutputConstructor]
         private BucketMetricsConfiguration(
+            string? accessPointArn,
+
             string id,
 
             string? prefix,
 
             ImmutableArray<Outputs.BucketTagFilter> tagFilters)
         {
+            AccessPointArn = accessPointArn;
             Id = id;
             Prefix = prefix;
             TagFilters = tagFilters;

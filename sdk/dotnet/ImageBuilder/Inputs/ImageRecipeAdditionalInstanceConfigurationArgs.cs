@@ -24,8 +24,8 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         /// <summary>
         /// Use this property to provide commands or a command script to run when you launch your build instance.
         /// </summary>
-        [Input("userDataOverride", required: true)]
-        public Input<string> UserDataOverride { get; set; } = null!;
+        [Input("userDataOverride")]
+        public Input<string>? UserDataOverride { get; set; }
 
         public ImageRecipeAdditionalInstanceConfigurationArgs()
         {

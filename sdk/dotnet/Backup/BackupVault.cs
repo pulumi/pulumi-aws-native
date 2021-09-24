@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
+        [Output("lockConfiguration")]
+        public Output<Outputs.BackupVaultLockConfigurationType?> LockConfiguration { get; private set; } = null!;
+
         [Output("notifications")]
         public Output<Outputs.BackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
 
@@ -86,6 +89,9 @@ namespace Pulumi.AwsNative.Backup
 
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
+
+        [Input("lockConfiguration")]
+        public Input<Inputs.BackupVaultLockConfigurationTypeArgs>? LockConfiguration { get; set; }
 
         [Input("notifications")]
         public Input<Inputs.BackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }

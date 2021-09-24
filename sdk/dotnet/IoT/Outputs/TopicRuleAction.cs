@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly Outputs.TopicRuleKafkaAction? Kafka;
         public readonly Outputs.TopicRuleKinesisAction? Kinesis;
         public readonly Outputs.TopicRuleLambdaAction? Lambda;
+        public readonly Outputs.TopicRuleOpenSearchAction? OpenSearch;
         public readonly Outputs.TopicRuleRepublishAction? Republish;
         public readonly Outputs.TopicRuleS3Action? S3;
         public readonly Outputs.TopicRuleSnsAction? Sns;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.TopicRuleLambdaAction? lambda,
 
+            Outputs.TopicRuleOpenSearchAction? openSearch,
+
             Outputs.TopicRuleRepublishAction? republish,
 
             Outputs.TopicRuleS3Action? s3,
@@ -90,6 +93,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
             Kafka = kafka;
             Kinesis = kinesis;
             Lambda = lambda;
+            OpenSearch = openSearch;
             Republish = republish;
             S3 = s3;
             Sns = sns;
