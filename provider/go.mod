@@ -37,3 +37,5 @@ require (
 )
 
 replace github.com/aws/aws-sdk-go-v2/service/cloudcontrol => ../aws-sdk-go-v2-cloudcontrol-preview
+
+replace github.com/lestrrat-go/jsschema => github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b
