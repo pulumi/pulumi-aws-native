@@ -51,7 +51,7 @@
     "Name" : {
       "description" : "FirewallRuleGroupAssociationName",
       "type" : "string",
-      "pattern" : "",
+      "pattern" : "(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)",
       "minLength" : 0,
       "maxLength" : 64
     },

@@ -217,13 +217,13 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 127,
-          "pattern" : "[a-zA-Z0-9\\s\\_\\.\\/\\=\\+\\-]+$"
+          "pattern" : "^(?!aws:.*)[a-zA-Z0-9\\s\\_\\.\\/\\=\\+\\-]+$"
         },
         "Value" : {
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 255,
-          "pattern" : "[a-zA-Z0-9\\s\\_\\.\\/\\=\\+\\-]+$"
+          "pattern" : "^(?!aws:.*)[a-zA-Z0-9\\s\\_\\.\\/\\=\\+\\-]+$"
         }
       },
       "required" : [ "Key", "Value" ]

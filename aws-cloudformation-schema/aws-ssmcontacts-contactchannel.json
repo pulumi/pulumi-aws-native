@@ -15,7 +15,7 @@
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 255,
-      "pattern" : ""
+      "pattern" : "[a-zA-Z 0-9_\\-+'&amp;\\uD83C-\\uDBFF\\uDC00-\\uDFFF\\u2000-\\u3300]+"
     },
     "ChannelType" : {
       "description" : "Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.",

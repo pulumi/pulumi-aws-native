@@ -1,5 +1,6 @@
 {
   "typeName" : "AWS::SSO::InstanceAccessControlAttributeConfiguration",
+  "taggable" : false,
   "description" : "Resource Type definition for SSO InstanceAccessControlAttributeConfiguration",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sso/aws-sso-instanceaccesscontrolattributeconfiguration",
   "definitions" : {
@@ -11,6 +12,7 @@
     },
     "AccessControlAttributeValueSourceList" : {
       "type" : "array",
+      "insertionOrder" : true,
       "items" : {
         "$ref" : "#/definitions/AccessControlAttributeValueSource"
       },
@@ -44,6 +46,7 @@
     },
     "AccessControlAttributeList" : {
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/AccessControlAttribute"
       },
@@ -54,7 +57,7 @@
     "InstanceArn" : {
       "description" : "The ARN of the AWS SSO instance under which the operation will be executed.",
       "type" : "string",
-      "pattern" : "arn:aws:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+      "pattern" : "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
       "minLength" : 10,
       "maxLength" : 1224
     },

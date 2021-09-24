@@ -194,7 +194,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 63,
-          "pattern" : ""
+          "pattern" : "^[a-zA-Z](?!.*--)(?!.*-$)[0-9a-zA-Z\\-]*$"
         },
         "DatabaseHost" : {
           "$ref" : "#/definitions/DatabaseHost"
@@ -231,7 +231,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 63,
-          "pattern" : ""
+          "pattern" : "^[a-z](?!.*--)(?!.*-$)[0-9a-z\\-]*$"
         },
         "DatabaseHost" : {
           "$ref" : "#/definitions/DatabaseHost"

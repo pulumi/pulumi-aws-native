@@ -169,7 +169,7 @@
       "permissions" : [ "states:UpdateStateMachine", "states:TagResource", "states:UntagResource", "states:ListTagsForResource", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "states:DeleteStateMachine" ]
+      "permissions" : [ "states:DeleteStateMachine", "states:DescribeStateMachine" ]
     }
   }
 }

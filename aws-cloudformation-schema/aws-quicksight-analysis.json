@@ -306,7 +306,7 @@
       "type" : "string",
       "maxLength" : 2048,
       "minLength" : 1,
-      "pattern" : "",
+      "pattern" : "[\\u0020-\\u00FF]+",
       "description" : "<p>The descriptive name of the analysis.</p>"
     },
     "Parameters" : {

@@ -836,7 +836,7 @@
       "properties" : {
         "Key" : {
           "type" : "string",
-          "pattern" : "",
+          "pattern" : "^(?!aws:)[\\p{L}\\p{Z}\\p{N}_.:\\/=+\\-@%]*$",
           "minLength" : 1,
           "maxLength" : 128
         },

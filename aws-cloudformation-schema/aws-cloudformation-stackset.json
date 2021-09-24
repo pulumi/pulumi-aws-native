@@ -18,7 +18,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 128,
-          "pattern" : ""
+          "pattern" : "^(?!aws:.*)[a-zA-Z0-9\\s\\:\\_\\.\\/\\=\\+\\-]+$"
         },
         "Value" : {
           "description" : "A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.",
@@ -97,7 +97,8 @@
         "RegionConcurrencyType" : {
           "$ref" : "#/definitions/RegionConcurrencyType"
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "Parameter" : {
       "type" : "object",
@@ -168,7 +169,8 @@
           }
         }
       },
-      "required" : [ "DeploymentTargets", "Regions" ]
+      "required" : [ "DeploymentTargets", "Regions" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {

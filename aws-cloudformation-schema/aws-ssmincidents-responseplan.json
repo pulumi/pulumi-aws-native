@@ -109,7 +109,7 @@
       "properties" : {
         "Key" : {
           "type" : "string",
-          "pattern" : "",
+          "pattern" : "^(?!aws:)[a-zA-Z+-=._:/]+$",
           "minLength" : 1,
           "maxLength" : 128
         },

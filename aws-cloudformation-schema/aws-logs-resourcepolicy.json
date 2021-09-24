@@ -13,7 +13,7 @@
     "PolicyDocument" : {
       "description" : "The policy document",
       "type" : "string",
-      "pattern" : "",
+      "pattern" : "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
       "minLength" : 1,
       "maxLength" : 5120
     }

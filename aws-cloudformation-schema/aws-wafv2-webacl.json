@@ -183,7 +183,7 @@
     "JsonPointerPath" : {
       "description" : "JSON pointer path in the web request's JSON body",
       "type" : "string",
-      "pattern" : ""
+      "pattern" : "^[\\/]+([^~]*(~[01])*)*{1,512}$"
     },
     "GeoMatchStatement" : {
       "type" : "object",
@@ -349,7 +349,7 @@
       "properties" : {
         "HeaderName" : {
           "type" : "string",
-          "pattern" : ""
+          "pattern" : "^[a-zA-Z0-9-]+{1,255}$"
         },
         "FallbackBehavior" : {
           "type" : "string",
@@ -364,7 +364,7 @@
       "properties" : {
         "HeaderName" : {
           "type" : "string",
-          "pattern" : ""
+          "pattern" : "^[a-zA-Z0-9-]+{1,255}$"
         },
         "FallbackBehavior" : {
           "type" : "string",
@@ -798,7 +798,7 @@
     "LabelName" : {
       "description" : "Name of the Label.",
       "type" : "string",
-      "pattern" : ""
+      "pattern" : "^[0-9A-Za-z_:-]{1,1024}$"
     },
     "Label" : {
       "type" : "object",
@@ -812,7 +812,7 @@
     },
     "LabelMatchKey" : {
       "type" : "string",
-      "pattern" : ""
+      "pattern" : "^[0-9A-Za-z_:-]{1,1024}$"
     },
     "LabelMatchScope" : {
       "type" : "string",

@@ -11,7 +11,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 1024,
-          "pattern" : "([\\p{L}\\p{Z}\\p{N}_.:=+\\/\\-@%]*)$"
+          "pattern" : "^(?!aws:.*)([\\p{L}\\p{Z}\\p{N}_.:=+\\/\\-@%]*)$"
         },
         "Value" : {
           "type" : "string",
@@ -176,7 +176,7 @@
       "description" : "A name for the bucket.",
       "maxLength" : 63,
       "minLength" : 3,
-      "pattern" : "",
+      "pattern" : "(?=^.{3,63}$)(?!^(\\d+\\.)+\\d+$)(^(([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])\\.)*([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])$)",
       "type" : "string"
     },
     "OutpostId" : {

@@ -42,7 +42,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 256,
-          "pattern" : ""
+          "pattern" : "[^\\u0000-\\u001F\\u007F]+"
         },
         "Name" : {
           "description" : "The name of the asset model property.",
@@ -204,13 +204,13 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 256,
-          "pattern" : ""
+          "pattern" : "[^\\u0000-\\u001F\\u007F]+"
         },
         "HierarchyLogicalId" : {
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 256,
-          "pattern" : ""
+          "pattern" : "[^\\u0000-\\u001F\\u007F]+"
         }
       },
       "required" : [ "PropertyLogicalId" ]
@@ -226,7 +226,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 256,
-          "pattern" : ""
+          "pattern" : "[^\\u0000-\\u001F\\u007F]+"
         },
         "Name" : {
           "description" : "The name of the asset model hierarchy.",

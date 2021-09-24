@@ -231,6 +231,12 @@
     },
     "Tags" : {
       "type" : "object",
+      "patternProperties" : {
+        "^(?!aws:)[a-zA-Z+-=._:/]{1,128}$" : {
+          "type" : "string",
+          "maxLength" : 256
+        }
+      },
       "maxProperties" : 50,
       "additionalProperties" : false
     }

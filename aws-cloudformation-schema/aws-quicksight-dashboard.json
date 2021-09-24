@@ -415,7 +415,7 @@
       "type" : "string",
       "maxLength" : 2048,
       "minLength" : 1,
-      "pattern" : "",
+      "pattern" : "[\\u0020-\\u00FF]+",
       "description" : "<p>The display name of the dashboard.</p>"
     },
     "Parameters" : {
