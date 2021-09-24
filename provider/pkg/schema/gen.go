@@ -289,6 +289,11 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"secretKey": {
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"AWS_SECRET_ACCESS_KEY",
+						},
+					},
 					Description: "The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.",
 					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
