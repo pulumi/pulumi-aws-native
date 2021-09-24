@@ -135,6 +135,88 @@ func (p *cfnProvider) GetSchema(ctx context.Context, req *pulumirpc.GetSchemaReq
 
 // CheckConfig validates the configuration for this provider.
 func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckRequest) (*pulumirpc.CheckResponse, error) {
+	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
+		Label:        fmt.Sprintf("%s.CheckConfig.news", p.name),
+		KeepUnknowns: true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	truthyValue := func(argName resource.PropertyKey, props resource.PropertyMap) bool {
+		if arg := props[argName]; arg.HasValue() {
+			switch {
+			case arg.IsString() && len(arg.StringValue()) > 0:
+				return true
+			case arg.IsBool() && arg.BoolValue():
+				return true
+			default:
+				return false
+			}
+		}
+		return false
+	}
+
+	// These provider values are not yet implemented, so return an error and link to the relevant issue(s).
+	var failures []*pulumirpc.CheckFailure
+	for k := range news {
+		switch k {
+		case "allowedAccountIds":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/105")})
+		case "assumeRole":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/106")})
+		case "defaultTags":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/107")})
+		case "endpoints":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/108")})
+		case "forbiddenAccountIds":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/109")})
+		case "ignoreTags":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/110")})
+		case "insecure":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/111")})
+		case "maxRetries":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/112")})
+		case "s3ForcePathStyle":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/113")})
+		case "skipCredentialsValidation":
+			if !truthyValue(k, news) {
+				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/114")})
+			}
+		case "skipGetEc2Platforms":
+			if !truthyValue(k, news) {
+				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/115")})
+			}
+		case "skipMetadataApiCheck":
+			if !truthyValue(k, news) {
+				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/116")})
+			}
+		case "skipRegionValidation":
+			if !truthyValue(k, news) {
+				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/117")})
+			}
+		case "skipRequestingAccountId":
+			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
+				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/118")})
+		}
+	}
+	if failures != nil {
+		return &pulumirpc.CheckResponse{Failures: failures}, nil
+	}
+
 	return &pulumirpc.CheckResponse{Inputs: req.GetNews()}, nil
 }
 
