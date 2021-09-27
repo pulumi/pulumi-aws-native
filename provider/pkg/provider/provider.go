@@ -23,13 +23,13 @@ import (
 	"fmt"
 	"os/user"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"runtime/debug"
 	"strings"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
-	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
@@ -41,6 +41,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 	"github.com/aws/smithy-go"
 	"github.com/aws/smithy-go/middleware"
+	smithyhttp "github.com/aws/smithy-go/transport/http"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
@@ -313,7 +314,11 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		loadOptions = append(loadOptions, config.WithCredentialsProvider(credsProvider))
 	}
 
-	loadOptions = append(loadOptions, config.WithAPIOptions(pulumiUserAgent()))
+	// Attach custom middleware to the client.
+	loadOptions = append(loadOptions, config.WithAPIOptions(func() (v []func(stack *middleware.Stack) error) {
+		v = append(v, attachCustomMiddleware)
+		return v
+	}()))
 
 	if glog.V(9) {
 		loadOptions = append(loadOptions, config.WithClientLogMode(aws.LogRequestWithBody|aws.LogResponseWithBody))
@@ -981,14 +986,38 @@ func getPulumiVersion() string {
 	return "3.0"
 }
 
-// pulumiUserAgent adds a Pulumi-specific user-agent to the request middleware.
-// The resulting string looks like this: `APN/1.0 Pulumi/1.0 PulumiAwsNative/0.0.2`
-func pulumiUserAgent() []func(*middleware.Stack) error {
-	return []func(*middleware.Stack) error{
-		awsmiddleware.AddUserAgentKeyValue("APN", "1.0"),
-		awsmiddleware.AddUserAgentKeyValue("Pulumi", getPulumiVersion()),
-		awsmiddleware.AddUserAgentKeyValue("PulumiAwsNative", version.Version),
+// pulumiUserAgentMiddleware adds a Pulumi-specific user-agent to the request middleware.
+// Example: APN/1.0 Pulumi/1.0 PulumiAwsNative/1.12,
+var pulumiUserAgentMiddleware = middleware.BuildMiddlewareFunc("PulumiUserAgent", func(
+	ctx context.Context, input middleware.BuildInput, next middleware.BuildHandler,
+) (
+	out middleware.BuildOutput, metadata middleware.Metadata, err error,
+) {
+	request, ok := input.Request.(*smithyhttp.Request)
+	if !ok {
+		return out, metadata, fmt.Errorf("unknown transport type %T", input.Request)
 	}
+
+	const userAgentKey = "User-Agent"
+
+	value := request.Header.Get(userAgentKey)
+
+	re := regexp.MustCompile(`([0-9]+.[0-9]+)`) // Ignore subminor version for APN string.
+	vMajorMinor := re.FindString(version.Version)
+	agent := fmt.Sprintf("APN/1.0 Pulumi/1.0 PulumiAwsNative/%s,", vMajorMinor)
+	if len(value) > 0 {
+		value = agent + " " + value
+	} else {
+		value = agent
+	}
+
+	request.Header.Set(userAgentKey, value)
+
+	return next.HandleBuild(ctx, input)
+})
+
+func attachCustomMiddleware(stack *middleware.Stack) error {
+	return stack.Build.Add(pulumiUserAgentMiddleware, middleware.After)
 }
 
 // normalizeFilePath expands home directory prefixes to a canonical path.
