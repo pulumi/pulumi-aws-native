@@ -14219,30 +14219,30 @@ export namespace kinesisanalytics {
         jSONMappingParameters?: pulumi.Input<inputs.kinesisanalytics.ApplicationJSONMappingParametersArgs>;
     }
 
-    export interface ApplicationOutputDestinationSchemaArgs {
+    export interface ApplicationOutputResourceDestinationSchemaArgs {
         recordFormatType?: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputKinesisFirehoseOutputArgs {
+    export interface ApplicationOutputResourceKinesisFirehoseOutputArgs {
         resourceARN: pulumi.Input<string>;
         roleARN: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputKinesisStreamsOutputArgs {
+    export interface ApplicationOutputResourceKinesisStreamsOutputArgs {
         resourceARN: pulumi.Input<string>;
         roleARN: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputLambdaOutputArgs {
+    export interface ApplicationOutputResourceLambdaOutputArgs {
         resourceARN: pulumi.Input<string>;
         roleARN: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputOutputArgs {
-        destinationSchema: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputDestinationSchemaArgs>;
-        kinesisFirehoseOutput?: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputKinesisFirehoseOutputArgs>;
-        kinesisStreamsOutput?: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputKinesisStreamsOutputArgs>;
-        lambdaOutput?: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputLambdaOutputArgs>;
+    export interface ApplicationOutputResourceOutputArgs {
+        destinationSchema: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputResourceDestinationSchemaArgs>;
+        kinesisFirehoseOutput?: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputResourceKinesisFirehoseOutputArgs>;
+        kinesisStreamsOutput?: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputResourceKinesisStreamsOutputArgs>;
+        lambdaOutput?: pulumi.Input<inputs.kinesisanalytics.ApplicationOutputResourceLambdaOutputArgs>;
         name?: pulumi.Input<string>;
     }
 
@@ -14417,27 +14417,27 @@ export namespace kinesisanalyticsv2 {
         metricsLevel?: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputDestinationSchemaArgs {
+    export interface ApplicationOutputResourceDestinationSchemaArgs {
         recordFormatType?: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputKinesisFirehoseOutputArgs {
+    export interface ApplicationOutputResourceKinesisFirehoseOutputArgs {
         resourceARN: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputKinesisStreamsOutputArgs {
+    export interface ApplicationOutputResourceKinesisStreamsOutputArgs {
         resourceARN: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputLambdaOutputArgs {
+    export interface ApplicationOutputResourceLambdaOutputArgs {
         resourceARN: pulumi.Input<string>;
     }
 
-    export interface ApplicationOutputOutputArgs {
-        destinationSchema: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputDestinationSchemaArgs>;
-        kinesisFirehoseOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputKinesisFirehoseOutputArgs>;
-        kinesisStreamsOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputKinesisStreamsOutputArgs>;
-        lambdaOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputLambdaOutputArgs>;
+    export interface ApplicationOutputResourceOutputArgs {
+        destinationSchema: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputResourceDestinationSchemaArgs>;
+        kinesisFirehoseOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputResourceKinesisFirehoseOutputArgs>;
+        kinesisStreamsOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputResourceKinesisStreamsOutputArgs>;
+        lambdaOutput?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationOutputResourceLambdaOutputArgs>;
         name?: pulumi.Input<string>;
     }
 

@@ -843,6 +843,13 @@ func typeToken(typ string) string {
 	resourceName := resourceTypeComponents[2]
 	module := strings.ToLower(moduleName(typ))
 	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
+
+	// Override name to avoid duplicate
+	// See https://github.com/pulumi/pulumi/issues/8018
+	if strings.Contains(resourceName, "ApplicationOutput") {
+		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
+	}
+
 	return fmt.Sprintf("%s:%s:%s", packageName, module, resourceName)
 }
 

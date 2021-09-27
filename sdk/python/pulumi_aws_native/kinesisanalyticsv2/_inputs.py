@@ -32,11 +32,11 @@ __all__ = [
     'ApplicationKinesisStreamsInputArgs',
     'ApplicationMappingParametersArgs',
     'ApplicationMonitoringConfigurationArgs',
-    'ApplicationOutputDestinationSchemaArgs',
-    'ApplicationOutputKinesisFirehoseOutputArgs',
-    'ApplicationOutputKinesisStreamsOutputArgs',
-    'ApplicationOutputLambdaOutputArgs',
-    'ApplicationOutputOutputArgs',
+    'ApplicationOutputResourceDestinationSchemaArgs',
+    'ApplicationOutputResourceKinesisFirehoseOutputArgs',
+    'ApplicationOutputResourceKinesisStreamsOutputArgs',
+    'ApplicationOutputResourceLambdaOutputArgs',
+    'ApplicationOutputResourceOutputArgs',
     'ApplicationParallelismConfigurationArgs',
     'ApplicationPropertyGroupArgs',
     'ApplicationRecordColumnArgs',
@@ -709,7 +709,7 @@ class ApplicationMonitoringConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationOutputDestinationSchemaArgs:
+class ApplicationOutputResourceDestinationSchemaArgs:
     def __init__(__self__, *,
                  record_format_type: Optional[pulumi.Input[str]] = None):
         if record_format_type is not None:
@@ -726,7 +726,7 @@ class ApplicationOutputDestinationSchemaArgs:
 
 
 @pulumi.input_type
-class ApplicationOutputKinesisFirehoseOutputArgs:
+class ApplicationOutputResourceKinesisFirehoseOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str]):
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -742,7 +742,7 @@ class ApplicationOutputKinesisFirehoseOutputArgs:
 
 
 @pulumi.input_type
-class ApplicationOutputKinesisStreamsOutputArgs:
+class ApplicationOutputResourceKinesisStreamsOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str]):
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -758,7 +758,7 @@ class ApplicationOutputKinesisStreamsOutputArgs:
 
 
 @pulumi.input_type
-class ApplicationOutputLambdaOutputArgs:
+class ApplicationOutputResourceLambdaOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str]):
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -774,12 +774,12 @@ class ApplicationOutputLambdaOutputArgs:
 
 
 @pulumi.input_type
-class ApplicationOutputOutputArgs:
+class ApplicationOutputResourceOutputArgs:
     def __init__(__self__, *,
-                 destination_schema: pulumi.Input['ApplicationOutputDestinationSchemaArgs'],
-                 kinesis_firehose_output: Optional[pulumi.Input['ApplicationOutputKinesisFirehoseOutputArgs']] = None,
-                 kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputKinesisStreamsOutputArgs']] = None,
-                 lambda_output: Optional[pulumi.Input['ApplicationOutputLambdaOutputArgs']] = None,
+                 destination_schema: pulumi.Input['ApplicationOutputResourceDestinationSchemaArgs'],
+                 kinesis_firehose_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisFirehoseOutputArgs']] = None,
+                 kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']] = None,
+                 lambda_output: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "destination_schema", destination_schema)
         if kinesis_firehose_output is not None:
@@ -793,38 +793,38 @@ class ApplicationOutputOutputArgs:
 
     @property
     @pulumi.getter(name="destinationSchema")
-    def destination_schema(self) -> pulumi.Input['ApplicationOutputDestinationSchemaArgs']:
+    def destination_schema(self) -> pulumi.Input['ApplicationOutputResourceDestinationSchemaArgs']:
         return pulumi.get(self, "destination_schema")
 
     @destination_schema.setter
-    def destination_schema(self, value: pulumi.Input['ApplicationOutputDestinationSchemaArgs']):
+    def destination_schema(self, value: pulumi.Input['ApplicationOutputResourceDestinationSchemaArgs']):
         pulumi.set(self, "destination_schema", value)
 
     @property
     @pulumi.getter(name="kinesisFirehoseOutput")
-    def kinesis_firehose_output(self) -> Optional[pulumi.Input['ApplicationOutputKinesisFirehoseOutputArgs']]:
+    def kinesis_firehose_output(self) -> Optional[pulumi.Input['ApplicationOutputResourceKinesisFirehoseOutputArgs']]:
         return pulumi.get(self, "kinesis_firehose_output")
 
     @kinesis_firehose_output.setter
-    def kinesis_firehose_output(self, value: Optional[pulumi.Input['ApplicationOutputKinesisFirehoseOutputArgs']]):
+    def kinesis_firehose_output(self, value: Optional[pulumi.Input['ApplicationOutputResourceKinesisFirehoseOutputArgs']]):
         pulumi.set(self, "kinesis_firehose_output", value)
 
     @property
     @pulumi.getter(name="kinesisStreamsOutput")
-    def kinesis_streams_output(self) -> Optional[pulumi.Input['ApplicationOutputKinesisStreamsOutputArgs']]:
+    def kinesis_streams_output(self) -> Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']]:
         return pulumi.get(self, "kinesis_streams_output")
 
     @kinesis_streams_output.setter
-    def kinesis_streams_output(self, value: Optional[pulumi.Input['ApplicationOutputKinesisStreamsOutputArgs']]):
+    def kinesis_streams_output(self, value: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']]):
         pulumi.set(self, "kinesis_streams_output", value)
 
     @property
     @pulumi.getter(name="lambdaOutput")
-    def lambda_output(self) -> Optional[pulumi.Input['ApplicationOutputLambdaOutputArgs']]:
+    def lambda_output(self) -> Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']]:
         return pulumi.get(self, "lambda_output")
 
     @lambda_output.setter
-    def lambda_output(self, value: Optional[pulumi.Input['ApplicationOutputLambdaOutputArgs']]):
+    def lambda_output(self, value: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']]):
         pulumi.set(self, "lambda_output", value)
 
     @property

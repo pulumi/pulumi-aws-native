@@ -1338,132 +1338,132 @@ func (o ApplicationMappingParametersPtrOutput) JSONMappingParameters() Applicati
 	}).(ApplicationJSONMappingParametersPtrOutput)
 }
 
-type ApplicationOutputDestinationSchema struct {
+type ApplicationOutputResourceDestinationSchema struct {
 	RecordFormatType *string `pulumi:"recordFormatType"`
 }
 
-// ApplicationOutputDestinationSchemaInput is an input type that accepts ApplicationOutputDestinationSchemaArgs and ApplicationOutputDestinationSchemaOutput values.
-// You can construct a concrete instance of `ApplicationOutputDestinationSchemaInput` via:
+// ApplicationOutputResourceDestinationSchemaInput is an input type that accepts ApplicationOutputResourceDestinationSchemaArgs and ApplicationOutputResourceDestinationSchemaOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceDestinationSchemaInput` via:
 //
-//          ApplicationOutputDestinationSchemaArgs{...}
-type ApplicationOutputDestinationSchemaInput interface {
+//          ApplicationOutputResourceDestinationSchemaArgs{...}
+type ApplicationOutputResourceDestinationSchemaInput interface {
 	pulumi.Input
 
-	ToApplicationOutputDestinationSchemaOutput() ApplicationOutputDestinationSchemaOutput
-	ToApplicationOutputDestinationSchemaOutputWithContext(context.Context) ApplicationOutputDestinationSchemaOutput
+	ToApplicationOutputResourceDestinationSchemaOutput() ApplicationOutputResourceDestinationSchemaOutput
+	ToApplicationOutputResourceDestinationSchemaOutputWithContext(context.Context) ApplicationOutputResourceDestinationSchemaOutput
 }
 
-type ApplicationOutputDestinationSchemaArgs struct {
+type ApplicationOutputResourceDestinationSchemaArgs struct {
 	RecordFormatType pulumi.StringPtrInput `pulumi:"recordFormatType"`
 }
 
-func (ApplicationOutputDestinationSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputDestinationSchema)(nil)).Elem()
+func (ApplicationOutputResourceDestinationSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceDestinationSchema)(nil)).Elem()
 }
 
-func (i ApplicationOutputDestinationSchemaArgs) ToApplicationOutputDestinationSchemaOutput() ApplicationOutputDestinationSchemaOutput {
-	return i.ToApplicationOutputDestinationSchemaOutputWithContext(context.Background())
+func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResourceDestinationSchemaOutput() ApplicationOutputResourceDestinationSchemaOutput {
+	return i.ToApplicationOutputResourceDestinationSchemaOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputDestinationSchemaArgs) ToApplicationOutputDestinationSchemaOutputWithContext(ctx context.Context) ApplicationOutputDestinationSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputDestinationSchemaOutput)
+func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResourceDestinationSchemaOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaOutput)
 }
 
-func (i ApplicationOutputDestinationSchemaArgs) ToApplicationOutputDestinationSchemaPtrOutput() ApplicationOutputDestinationSchemaPtrOutput {
-	return i.ToApplicationOutputDestinationSchemaPtrOutputWithContext(context.Background())
+func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return i.ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputDestinationSchemaArgs) ToApplicationOutputDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputDestinationSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputDestinationSchemaOutput).ToApplicationOutputDestinationSchemaPtrOutputWithContext(ctx)
+func (i ApplicationOutputResourceDestinationSchemaArgs) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaOutput).ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx)
 }
 
-// ApplicationOutputDestinationSchemaPtrInput is an input type that accepts ApplicationOutputDestinationSchemaArgs, ApplicationOutputDestinationSchemaPtr and ApplicationOutputDestinationSchemaPtrOutput values.
-// You can construct a concrete instance of `ApplicationOutputDestinationSchemaPtrInput` via:
+// ApplicationOutputResourceDestinationSchemaPtrInput is an input type that accepts ApplicationOutputResourceDestinationSchemaArgs, ApplicationOutputResourceDestinationSchemaPtr and ApplicationOutputResourceDestinationSchemaPtrOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceDestinationSchemaPtrInput` via:
 //
-//          ApplicationOutputDestinationSchemaArgs{...}
+//          ApplicationOutputResourceDestinationSchemaArgs{...}
 //
 //  or:
 //
 //          nil
-type ApplicationOutputDestinationSchemaPtrInput interface {
+type ApplicationOutputResourceDestinationSchemaPtrInput interface {
 	pulumi.Input
 
-	ToApplicationOutputDestinationSchemaPtrOutput() ApplicationOutputDestinationSchemaPtrOutput
-	ToApplicationOutputDestinationSchemaPtrOutputWithContext(context.Context) ApplicationOutputDestinationSchemaPtrOutput
+	ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput
+	ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput
 }
 
-type applicationOutputDestinationSchemaPtrType ApplicationOutputDestinationSchemaArgs
+type applicationOutputResourceDestinationSchemaPtrType ApplicationOutputResourceDestinationSchemaArgs
 
-func ApplicationOutputDestinationSchemaPtr(v *ApplicationOutputDestinationSchemaArgs) ApplicationOutputDestinationSchemaPtrInput {
-	return (*applicationOutputDestinationSchemaPtrType)(v)
+func ApplicationOutputResourceDestinationSchemaPtr(v *ApplicationOutputResourceDestinationSchemaArgs) ApplicationOutputResourceDestinationSchemaPtrInput {
+	return (*applicationOutputResourceDestinationSchemaPtrType)(v)
 }
 
-func (*applicationOutputDestinationSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputDestinationSchema)(nil)).Elem()
+func (*applicationOutputResourceDestinationSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceDestinationSchema)(nil)).Elem()
 }
 
-func (i *applicationOutputDestinationSchemaPtrType) ToApplicationOutputDestinationSchemaPtrOutput() ApplicationOutputDestinationSchemaPtrOutput {
-	return i.ToApplicationOutputDestinationSchemaPtrOutputWithContext(context.Background())
+func (i *applicationOutputResourceDestinationSchemaPtrType) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return i.ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationOutputDestinationSchemaPtrType) ToApplicationOutputDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputDestinationSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputDestinationSchemaPtrOutput)
+func (i *applicationOutputResourceDestinationSchemaPtrType) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceDestinationSchemaPtrOutput)
 }
 
-type ApplicationOutputDestinationSchemaOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceDestinationSchemaOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputDestinationSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputDestinationSchema)(nil)).Elem()
+func (ApplicationOutputResourceDestinationSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceDestinationSchema)(nil)).Elem()
 }
 
-func (o ApplicationOutputDestinationSchemaOutput) ToApplicationOutputDestinationSchemaOutput() ApplicationOutputDestinationSchemaOutput {
+func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaOutput() ApplicationOutputResourceDestinationSchemaOutput {
 	return o
 }
 
-func (o ApplicationOutputDestinationSchemaOutput) ToApplicationOutputDestinationSchemaOutputWithContext(ctx context.Context) ApplicationOutputDestinationSchemaOutput {
+func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaOutput {
 	return o
 }
 
-func (o ApplicationOutputDestinationSchemaOutput) ToApplicationOutputDestinationSchemaPtrOutput() ApplicationOutputDestinationSchemaPtrOutput {
-	return o.ToApplicationOutputDestinationSchemaPtrOutputWithContext(context.Background())
+func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return o.ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationOutputDestinationSchemaOutput) ToApplicationOutputDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputDestinationSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputDestinationSchema) *ApplicationOutputDestinationSchema {
+func (o ApplicationOutputResourceDestinationSchemaOutput) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceDestinationSchema) *ApplicationOutputResourceDestinationSchema {
 		return &v
-	}).(ApplicationOutputDestinationSchemaPtrOutput)
+	}).(ApplicationOutputResourceDestinationSchemaPtrOutput)
 }
 
-func (o ApplicationOutputDestinationSchemaOutput) RecordFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationOutputDestinationSchema) *string { return v.RecordFormatType }).(pulumi.StringPtrOutput)
+func (o ApplicationOutputResourceDestinationSchemaOutput) RecordFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceDestinationSchema) *string { return v.RecordFormatType }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationOutputDestinationSchemaPtrOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceDestinationSchemaPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputDestinationSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputDestinationSchema)(nil)).Elem()
+func (ApplicationOutputResourceDestinationSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceDestinationSchema)(nil)).Elem()
 }
 
-func (o ApplicationOutputDestinationSchemaPtrOutput) ToApplicationOutputDestinationSchemaPtrOutput() ApplicationOutputDestinationSchemaPtrOutput {
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutput() ApplicationOutputResourceDestinationSchemaPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputDestinationSchemaPtrOutput) ToApplicationOutputDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputDestinationSchemaPtrOutput {
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) ToApplicationOutputResourceDestinationSchemaPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceDestinationSchemaPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputDestinationSchemaPtrOutput) Elem() ApplicationOutputDestinationSchemaOutput {
-	return o.ApplyT(func(v *ApplicationOutputDestinationSchema) ApplicationOutputDestinationSchema {
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) Elem() ApplicationOutputResourceDestinationSchemaOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceDestinationSchema) ApplicationOutputResourceDestinationSchema {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationOutputDestinationSchema
+		var ret ApplicationOutputResourceDestinationSchema
 		return ret
-	}).(ApplicationOutputDestinationSchemaOutput)
+	}).(ApplicationOutputResourceDestinationSchemaOutput)
 }
 
-func (o ApplicationOutputDestinationSchemaPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputDestinationSchema) *string {
+func (o ApplicationOutputResourceDestinationSchemaPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceDestinationSchema) *string {
 		if v == nil {
 			return nil
 		}
@@ -1471,138 +1471,138 @@ func (o ApplicationOutputDestinationSchemaPtrOutput) RecordFormatType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApplicationOutputKinesisFirehoseOutput struct {
+type ApplicationOutputResourceKinesisFirehoseOutput struct {
 	ResourceARN string `pulumi:"resourceARN"`
 	RoleARN     string `pulumi:"roleARN"`
 }
 
-// ApplicationOutputKinesisFirehoseOutputInput is an input type that accepts ApplicationOutputKinesisFirehoseOutputArgs and ApplicationOutputKinesisFirehoseOutputOutput values.
-// You can construct a concrete instance of `ApplicationOutputKinesisFirehoseOutputInput` via:
+// ApplicationOutputResourceKinesisFirehoseOutputInput is an input type that accepts ApplicationOutputResourceKinesisFirehoseOutputArgs and ApplicationOutputResourceKinesisFirehoseOutputOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceKinesisFirehoseOutputInput` via:
 //
-//          ApplicationOutputKinesisFirehoseOutputArgs{...}
-type ApplicationOutputKinesisFirehoseOutputInput interface {
+//          ApplicationOutputResourceKinesisFirehoseOutputArgs{...}
+type ApplicationOutputResourceKinesisFirehoseOutputInput interface {
 	pulumi.Input
 
-	ToApplicationOutputKinesisFirehoseOutputOutput() ApplicationOutputKinesisFirehoseOutputOutput
-	ToApplicationOutputKinesisFirehoseOutputOutputWithContext(context.Context) ApplicationOutputKinesisFirehoseOutputOutput
+	ToApplicationOutputResourceKinesisFirehoseOutputOutput() ApplicationOutputResourceKinesisFirehoseOutputOutput
+	ToApplicationOutputResourceKinesisFirehoseOutputOutputWithContext(context.Context) ApplicationOutputResourceKinesisFirehoseOutputOutput
 }
 
-type ApplicationOutputKinesisFirehoseOutputArgs struct {
+type ApplicationOutputResourceKinesisFirehoseOutputArgs struct {
 	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
 	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
 }
 
-func (ApplicationOutputKinesisFirehoseOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputKinesisFirehoseOutput)(nil)).Elem()
+func (ApplicationOutputResourceKinesisFirehoseOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceKinesisFirehoseOutput)(nil)).Elem()
 }
 
-func (i ApplicationOutputKinesisFirehoseOutputArgs) ToApplicationOutputKinesisFirehoseOutputOutput() ApplicationOutputKinesisFirehoseOutputOutput {
-	return i.ToApplicationOutputKinesisFirehoseOutputOutputWithContext(context.Background())
+func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputResourceKinesisFirehoseOutputOutput() ApplicationOutputResourceKinesisFirehoseOutputOutput {
+	return i.ToApplicationOutputResourceKinesisFirehoseOutputOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputKinesisFirehoseOutputArgs) ToApplicationOutputKinesisFirehoseOutputOutputWithContext(ctx context.Context) ApplicationOutputKinesisFirehoseOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputKinesisFirehoseOutputOutput)
+func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputResourceKinesisFirehoseOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisFirehoseOutputOutput)
 }
 
-func (i ApplicationOutputKinesisFirehoseOutputArgs) ToApplicationOutputKinesisFirehoseOutputPtrOutput() ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return i.ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(context.Background())
+func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return i.ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputKinesisFirehoseOutputArgs) ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputKinesisFirehoseOutputOutput).ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx)
+func (i ApplicationOutputResourceKinesisFirehoseOutputArgs) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisFirehoseOutputOutput).ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx)
 }
 
-// ApplicationOutputKinesisFirehoseOutputPtrInput is an input type that accepts ApplicationOutputKinesisFirehoseOutputArgs, ApplicationOutputKinesisFirehoseOutputPtr and ApplicationOutputKinesisFirehoseOutputPtrOutput values.
-// You can construct a concrete instance of `ApplicationOutputKinesisFirehoseOutputPtrInput` via:
+// ApplicationOutputResourceKinesisFirehoseOutputPtrInput is an input type that accepts ApplicationOutputResourceKinesisFirehoseOutputArgs, ApplicationOutputResourceKinesisFirehoseOutputPtr and ApplicationOutputResourceKinesisFirehoseOutputPtrOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceKinesisFirehoseOutputPtrInput` via:
 //
-//          ApplicationOutputKinesisFirehoseOutputArgs{...}
+//          ApplicationOutputResourceKinesisFirehoseOutputArgs{...}
 //
 //  or:
 //
 //          nil
-type ApplicationOutputKinesisFirehoseOutputPtrInput interface {
+type ApplicationOutputResourceKinesisFirehoseOutputPtrInput interface {
 	pulumi.Input
 
-	ToApplicationOutputKinesisFirehoseOutputPtrOutput() ApplicationOutputKinesisFirehoseOutputPtrOutput
-	ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(context.Context) ApplicationOutputKinesisFirehoseOutputPtrOutput
+	ToApplicationOutputResourceKinesisFirehoseOutputPtrOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput
+	ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(context.Context) ApplicationOutputResourceKinesisFirehoseOutputPtrOutput
 }
 
-type applicationOutputKinesisFirehoseOutputPtrType ApplicationOutputKinesisFirehoseOutputArgs
+type applicationOutputResourceKinesisFirehoseOutputPtrType ApplicationOutputResourceKinesisFirehoseOutputArgs
 
-func ApplicationOutputKinesisFirehoseOutputPtr(v *ApplicationOutputKinesisFirehoseOutputArgs) ApplicationOutputKinesisFirehoseOutputPtrInput {
-	return (*applicationOutputKinesisFirehoseOutputPtrType)(v)
+func ApplicationOutputResourceKinesisFirehoseOutputPtr(v *ApplicationOutputResourceKinesisFirehoseOutputArgs) ApplicationOutputResourceKinesisFirehoseOutputPtrInput {
+	return (*applicationOutputResourceKinesisFirehoseOutputPtrType)(v)
 }
 
-func (*applicationOutputKinesisFirehoseOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputKinesisFirehoseOutput)(nil)).Elem()
+func (*applicationOutputResourceKinesisFirehoseOutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceKinesisFirehoseOutput)(nil)).Elem()
 }
 
-func (i *applicationOutputKinesisFirehoseOutputPtrType) ToApplicationOutputKinesisFirehoseOutputPtrOutput() ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return i.ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(context.Background())
+func (i *applicationOutputResourceKinesisFirehoseOutputPtrType) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return i.ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationOutputKinesisFirehoseOutputPtrType) ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputKinesisFirehoseOutputPtrOutput)
+func (i *applicationOutputResourceKinesisFirehoseOutputPtrType) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
-type ApplicationOutputKinesisFirehoseOutputOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceKinesisFirehoseOutputOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputKinesisFirehoseOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputKinesisFirehoseOutput)(nil)).Elem()
+func (ApplicationOutputResourceKinesisFirehoseOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceKinesisFirehoseOutput)(nil)).Elem()
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputOutput) ToApplicationOutputKinesisFirehoseOutputOutput() ApplicationOutputKinesisFirehoseOutputOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutputResourceKinesisFirehoseOutputOutput() ApplicationOutputResourceKinesisFirehoseOutputOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputOutput) ToApplicationOutputKinesisFirehoseOutputOutputWithContext(ctx context.Context) ApplicationOutputKinesisFirehoseOutputOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutputResourceKinesisFirehoseOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputOutput) ToApplicationOutputKinesisFirehoseOutputPtrOutput() ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return o.ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(context.Background())
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return o.ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputOutput) ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputKinesisFirehoseOutput) *ApplicationOutputKinesisFirehoseOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceKinesisFirehoseOutput) *ApplicationOutputResourceKinesisFirehoseOutput {
 		return &v
-	}).(ApplicationOutputKinesisFirehoseOutputPtrOutput)
+	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputKinesisFirehoseOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputKinesisFirehoseOutput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisFirehoseOutputOutput) RoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisFirehoseOutput) string { return v.RoleARN }).(pulumi.StringOutput)
 }
 
-type ApplicationOutputKinesisFirehoseOutputPtrOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceKinesisFirehoseOutputPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputKinesisFirehoseOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputKinesisFirehoseOutput)(nil)).Elem()
+func (ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceKinesisFirehoseOutput)(nil)).Elem()
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputPtrOutput) ToApplicationOutputKinesisFirehoseOutputPtrOutput() ApplicationOutputKinesisFirehoseOutputPtrOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputPtrOutput) ToApplicationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisFirehoseOutputPtrOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ToApplicationOutputResourceKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputPtrOutput) Elem() ApplicationOutputKinesisFirehoseOutputOutput {
-	return o.ApplyT(func(v *ApplicationOutputKinesisFirehoseOutput) ApplicationOutputKinesisFirehoseOutput {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) Elem() ApplicationOutputResourceKinesisFirehoseOutputOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceKinesisFirehoseOutput) ApplicationOutputResourceKinesisFirehoseOutput {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationOutputKinesisFirehoseOutput
+		var ret ApplicationOutputResourceKinesisFirehoseOutput
 		return ret
-	}).(ApplicationOutputKinesisFirehoseOutputOutput)
+	}).(ApplicationOutputResourceKinesisFirehoseOutputOutput)
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputKinesisFirehoseOutput) *string {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceKinesisFirehoseOutput) *string {
 		if v == nil {
 			return nil
 		}
@@ -1610,8 +1610,8 @@ func (o ApplicationOutputKinesisFirehoseOutputPtrOutput) ResourceARN() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutputKinesisFirehoseOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputKinesisFirehoseOutput) *string {
+func (o ApplicationOutputResourceKinesisFirehoseOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceKinesisFirehoseOutput) *string {
 		if v == nil {
 			return nil
 		}
@@ -1619,138 +1619,138 @@ func (o ApplicationOutputKinesisFirehoseOutputPtrOutput) RoleARN() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApplicationOutputKinesisStreamsOutput struct {
+type ApplicationOutputResourceKinesisStreamsOutput struct {
 	ResourceARN string `pulumi:"resourceARN"`
 	RoleARN     string `pulumi:"roleARN"`
 }
 
-// ApplicationOutputKinesisStreamsOutputInput is an input type that accepts ApplicationOutputKinesisStreamsOutputArgs and ApplicationOutputKinesisStreamsOutputOutput values.
-// You can construct a concrete instance of `ApplicationOutputKinesisStreamsOutputInput` via:
+// ApplicationOutputResourceKinesisStreamsOutputInput is an input type that accepts ApplicationOutputResourceKinesisStreamsOutputArgs and ApplicationOutputResourceKinesisStreamsOutputOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceKinesisStreamsOutputInput` via:
 //
-//          ApplicationOutputKinesisStreamsOutputArgs{...}
-type ApplicationOutputKinesisStreamsOutputInput interface {
+//          ApplicationOutputResourceKinesisStreamsOutputArgs{...}
+type ApplicationOutputResourceKinesisStreamsOutputInput interface {
 	pulumi.Input
 
-	ToApplicationOutputKinesisStreamsOutputOutput() ApplicationOutputKinesisStreamsOutputOutput
-	ToApplicationOutputKinesisStreamsOutputOutputWithContext(context.Context) ApplicationOutputKinesisStreamsOutputOutput
+	ToApplicationOutputResourceKinesisStreamsOutputOutput() ApplicationOutputResourceKinesisStreamsOutputOutput
+	ToApplicationOutputResourceKinesisStreamsOutputOutputWithContext(context.Context) ApplicationOutputResourceKinesisStreamsOutputOutput
 }
 
-type ApplicationOutputKinesisStreamsOutputArgs struct {
+type ApplicationOutputResourceKinesisStreamsOutputArgs struct {
 	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
 	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
 }
 
-func (ApplicationOutputKinesisStreamsOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputKinesisStreamsOutput)(nil)).Elem()
+func (ApplicationOutputResourceKinesisStreamsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceKinesisStreamsOutput)(nil)).Elem()
 }
 
-func (i ApplicationOutputKinesisStreamsOutputArgs) ToApplicationOutputKinesisStreamsOutputOutput() ApplicationOutputKinesisStreamsOutputOutput {
-	return i.ToApplicationOutputKinesisStreamsOutputOutputWithContext(context.Background())
+func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputResourceKinesisStreamsOutputOutput() ApplicationOutputResourceKinesisStreamsOutputOutput {
+	return i.ToApplicationOutputResourceKinesisStreamsOutputOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputKinesisStreamsOutputArgs) ToApplicationOutputKinesisStreamsOutputOutputWithContext(ctx context.Context) ApplicationOutputKinesisStreamsOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputKinesisStreamsOutputOutput)
+func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputResourceKinesisStreamsOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisStreamsOutputOutput)
 }
 
-func (i ApplicationOutputKinesisStreamsOutputArgs) ToApplicationOutputKinesisStreamsOutputPtrOutput() ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return i.ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(context.Background())
+func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputResourceKinesisStreamsOutputPtrOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return i.ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputKinesisStreamsOutputArgs) ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputKinesisStreamsOutputOutput).ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(ctx)
+func (i ApplicationOutputResourceKinesisStreamsOutputArgs) ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisStreamsOutputOutput).ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx)
 }
 
-// ApplicationOutputKinesisStreamsOutputPtrInput is an input type that accepts ApplicationOutputKinesisStreamsOutputArgs, ApplicationOutputKinesisStreamsOutputPtr and ApplicationOutputKinesisStreamsOutputPtrOutput values.
-// You can construct a concrete instance of `ApplicationOutputKinesisStreamsOutputPtrInput` via:
+// ApplicationOutputResourceKinesisStreamsOutputPtrInput is an input type that accepts ApplicationOutputResourceKinesisStreamsOutputArgs, ApplicationOutputResourceKinesisStreamsOutputPtr and ApplicationOutputResourceKinesisStreamsOutputPtrOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceKinesisStreamsOutputPtrInput` via:
 //
-//          ApplicationOutputKinesisStreamsOutputArgs{...}
+//          ApplicationOutputResourceKinesisStreamsOutputArgs{...}
 //
 //  or:
 //
 //          nil
-type ApplicationOutputKinesisStreamsOutputPtrInput interface {
+type ApplicationOutputResourceKinesisStreamsOutputPtrInput interface {
 	pulumi.Input
 
-	ToApplicationOutputKinesisStreamsOutputPtrOutput() ApplicationOutputKinesisStreamsOutputPtrOutput
-	ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(context.Context) ApplicationOutputKinesisStreamsOutputPtrOutput
+	ToApplicationOutputResourceKinesisStreamsOutputPtrOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput
+	ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(context.Context) ApplicationOutputResourceKinesisStreamsOutputPtrOutput
 }
 
-type applicationOutputKinesisStreamsOutputPtrType ApplicationOutputKinesisStreamsOutputArgs
+type applicationOutputResourceKinesisStreamsOutputPtrType ApplicationOutputResourceKinesisStreamsOutputArgs
 
-func ApplicationOutputKinesisStreamsOutputPtr(v *ApplicationOutputKinesisStreamsOutputArgs) ApplicationOutputKinesisStreamsOutputPtrInput {
-	return (*applicationOutputKinesisStreamsOutputPtrType)(v)
+func ApplicationOutputResourceKinesisStreamsOutputPtr(v *ApplicationOutputResourceKinesisStreamsOutputArgs) ApplicationOutputResourceKinesisStreamsOutputPtrInput {
+	return (*applicationOutputResourceKinesisStreamsOutputPtrType)(v)
 }
 
-func (*applicationOutputKinesisStreamsOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputKinesisStreamsOutput)(nil)).Elem()
+func (*applicationOutputResourceKinesisStreamsOutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceKinesisStreamsOutput)(nil)).Elem()
 }
 
-func (i *applicationOutputKinesisStreamsOutputPtrType) ToApplicationOutputKinesisStreamsOutputPtrOutput() ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return i.ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(context.Background())
+func (i *applicationOutputResourceKinesisStreamsOutputPtrType) ToApplicationOutputResourceKinesisStreamsOutputPtrOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return i.ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationOutputKinesisStreamsOutputPtrType) ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputKinesisStreamsOutputPtrOutput)
+func (i *applicationOutputResourceKinesisStreamsOutputPtrType) ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
-type ApplicationOutputKinesisStreamsOutputOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceKinesisStreamsOutputOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputKinesisStreamsOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputKinesisStreamsOutput)(nil)).Elem()
+func (ApplicationOutputResourceKinesisStreamsOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceKinesisStreamsOutput)(nil)).Elem()
 }
 
-func (o ApplicationOutputKinesisStreamsOutputOutput) ToApplicationOutputKinesisStreamsOutputOutput() ApplicationOutputKinesisStreamsOutputOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutputResourceKinesisStreamsOutputOutput() ApplicationOutputResourceKinesisStreamsOutputOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisStreamsOutputOutput) ToApplicationOutputKinesisStreamsOutputOutputWithContext(ctx context.Context) ApplicationOutputKinesisStreamsOutputOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutputResourceKinesisStreamsOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisStreamsOutputOutput) ToApplicationOutputKinesisStreamsOutputPtrOutput() ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return o.ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(context.Background())
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutputResourceKinesisStreamsOutputPtrOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return o.ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationOutputKinesisStreamsOutputOutput) ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputKinesisStreamsOutput) *ApplicationOutputKinesisStreamsOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceKinesisStreamsOutput) *ApplicationOutputResourceKinesisStreamsOutput {
 		return &v
-	}).(ApplicationOutputKinesisStreamsOutputPtrOutput)
+	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
-func (o ApplicationOutputKinesisStreamsOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputKinesisStreamsOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutputKinesisStreamsOutputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputKinesisStreamsOutput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceKinesisStreamsOutputOutput) RoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceKinesisStreamsOutput) string { return v.RoleARN }).(pulumi.StringOutput)
 }
 
-type ApplicationOutputKinesisStreamsOutputPtrOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceKinesisStreamsOutputPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputKinesisStreamsOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputKinesisStreamsOutput)(nil)).Elem()
+func (ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceKinesisStreamsOutput)(nil)).Elem()
 }
 
-func (o ApplicationOutputKinesisStreamsOutputPtrOutput) ToApplicationOutputKinesisStreamsOutputPtrOutput() ApplicationOutputKinesisStreamsOutputPtrOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToApplicationOutputResourceKinesisStreamsOutputPtrOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisStreamsOutputPtrOutput) ToApplicationOutputKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputKinesisStreamsOutputPtrOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ToApplicationOutputResourceKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputKinesisStreamsOutputPtrOutput) Elem() ApplicationOutputKinesisStreamsOutputOutput {
-	return o.ApplyT(func(v *ApplicationOutputKinesisStreamsOutput) ApplicationOutputKinesisStreamsOutput {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) Elem() ApplicationOutputResourceKinesisStreamsOutputOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceKinesisStreamsOutput) ApplicationOutputResourceKinesisStreamsOutput {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationOutputKinesisStreamsOutput
+		var ret ApplicationOutputResourceKinesisStreamsOutput
 		return ret
-	}).(ApplicationOutputKinesisStreamsOutputOutput)
+	}).(ApplicationOutputResourceKinesisStreamsOutputOutput)
 }
 
-func (o ApplicationOutputKinesisStreamsOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputKinesisStreamsOutput) *string {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceKinesisStreamsOutput) *string {
 		if v == nil {
 			return nil
 		}
@@ -1758,8 +1758,8 @@ func (o ApplicationOutputKinesisStreamsOutputPtrOutput) ResourceARN() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutputKinesisStreamsOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputKinesisStreamsOutput) *string {
+func (o ApplicationOutputResourceKinesisStreamsOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceKinesisStreamsOutput) *string {
 		if v == nil {
 			return nil
 		}
@@ -1767,138 +1767,138 @@ func (o ApplicationOutputKinesisStreamsOutputPtrOutput) RoleARN() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApplicationOutputLambdaOutput struct {
+type ApplicationOutputResourceLambdaOutput struct {
 	ResourceARN string `pulumi:"resourceARN"`
 	RoleARN     string `pulumi:"roleARN"`
 }
 
-// ApplicationOutputLambdaOutputInput is an input type that accepts ApplicationOutputLambdaOutputArgs and ApplicationOutputLambdaOutputOutput values.
-// You can construct a concrete instance of `ApplicationOutputLambdaOutputInput` via:
+// ApplicationOutputResourceLambdaOutputInput is an input type that accepts ApplicationOutputResourceLambdaOutputArgs and ApplicationOutputResourceLambdaOutputOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceLambdaOutputInput` via:
 //
-//          ApplicationOutputLambdaOutputArgs{...}
-type ApplicationOutputLambdaOutputInput interface {
+//          ApplicationOutputResourceLambdaOutputArgs{...}
+type ApplicationOutputResourceLambdaOutputInput interface {
 	pulumi.Input
 
-	ToApplicationOutputLambdaOutputOutput() ApplicationOutputLambdaOutputOutput
-	ToApplicationOutputLambdaOutputOutputWithContext(context.Context) ApplicationOutputLambdaOutputOutput
+	ToApplicationOutputResourceLambdaOutputOutput() ApplicationOutputResourceLambdaOutputOutput
+	ToApplicationOutputResourceLambdaOutputOutputWithContext(context.Context) ApplicationOutputResourceLambdaOutputOutput
 }
 
-type ApplicationOutputLambdaOutputArgs struct {
+type ApplicationOutputResourceLambdaOutputArgs struct {
 	ResourceARN pulumi.StringInput `pulumi:"resourceARN"`
 	RoleARN     pulumi.StringInput `pulumi:"roleARN"`
 }
 
-func (ApplicationOutputLambdaOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputLambdaOutput)(nil)).Elem()
+func (ApplicationOutputResourceLambdaOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceLambdaOutput)(nil)).Elem()
 }
 
-func (i ApplicationOutputLambdaOutputArgs) ToApplicationOutputLambdaOutputOutput() ApplicationOutputLambdaOutputOutput {
-	return i.ToApplicationOutputLambdaOutputOutputWithContext(context.Background())
+func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLambdaOutputOutput() ApplicationOutputResourceLambdaOutputOutput {
+	return i.ToApplicationOutputResourceLambdaOutputOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputLambdaOutputArgs) ToApplicationOutputLambdaOutputOutputWithContext(ctx context.Context) ApplicationOutputLambdaOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputLambdaOutputOutput)
+func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLambdaOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceLambdaOutputOutput)
 }
 
-func (i ApplicationOutputLambdaOutputArgs) ToApplicationOutputLambdaOutputPtrOutput() ApplicationOutputLambdaOutputPtrOutput {
-	return i.ToApplicationOutputLambdaOutputPtrOutputWithContext(context.Background())
+func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLambdaOutputPtrOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
+	return i.ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputLambdaOutputArgs) ToApplicationOutputLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputLambdaOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputLambdaOutputOutput).ToApplicationOutputLambdaOutputPtrOutputWithContext(ctx)
+func (i ApplicationOutputResourceLambdaOutputArgs) ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceLambdaOutputOutput).ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx)
 }
 
-// ApplicationOutputLambdaOutputPtrInput is an input type that accepts ApplicationOutputLambdaOutputArgs, ApplicationOutputLambdaOutputPtr and ApplicationOutputLambdaOutputPtrOutput values.
-// You can construct a concrete instance of `ApplicationOutputLambdaOutputPtrInput` via:
+// ApplicationOutputResourceLambdaOutputPtrInput is an input type that accepts ApplicationOutputResourceLambdaOutputArgs, ApplicationOutputResourceLambdaOutputPtr and ApplicationOutputResourceLambdaOutputPtrOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceLambdaOutputPtrInput` via:
 //
-//          ApplicationOutputLambdaOutputArgs{...}
+//          ApplicationOutputResourceLambdaOutputArgs{...}
 //
 //  or:
 //
 //          nil
-type ApplicationOutputLambdaOutputPtrInput interface {
+type ApplicationOutputResourceLambdaOutputPtrInput interface {
 	pulumi.Input
 
-	ToApplicationOutputLambdaOutputPtrOutput() ApplicationOutputLambdaOutputPtrOutput
-	ToApplicationOutputLambdaOutputPtrOutputWithContext(context.Context) ApplicationOutputLambdaOutputPtrOutput
+	ToApplicationOutputResourceLambdaOutputPtrOutput() ApplicationOutputResourceLambdaOutputPtrOutput
+	ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(context.Context) ApplicationOutputResourceLambdaOutputPtrOutput
 }
 
-type applicationOutputLambdaOutputPtrType ApplicationOutputLambdaOutputArgs
+type applicationOutputResourceLambdaOutputPtrType ApplicationOutputResourceLambdaOutputArgs
 
-func ApplicationOutputLambdaOutputPtr(v *ApplicationOutputLambdaOutputArgs) ApplicationOutputLambdaOutputPtrInput {
-	return (*applicationOutputLambdaOutputPtrType)(v)
+func ApplicationOutputResourceLambdaOutputPtr(v *ApplicationOutputResourceLambdaOutputArgs) ApplicationOutputResourceLambdaOutputPtrInput {
+	return (*applicationOutputResourceLambdaOutputPtrType)(v)
 }
 
-func (*applicationOutputLambdaOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputLambdaOutput)(nil)).Elem()
+func (*applicationOutputResourceLambdaOutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceLambdaOutput)(nil)).Elem()
 }
 
-func (i *applicationOutputLambdaOutputPtrType) ToApplicationOutputLambdaOutputPtrOutput() ApplicationOutputLambdaOutputPtrOutput {
-	return i.ToApplicationOutputLambdaOutputPtrOutputWithContext(context.Background())
+func (i *applicationOutputResourceLambdaOutputPtrType) ToApplicationOutputResourceLambdaOutputPtrOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
+	return i.ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(context.Background())
 }
 
-func (i *applicationOutputLambdaOutputPtrType) ToApplicationOutputLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputLambdaOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputLambdaOutputPtrOutput)
+func (i *applicationOutputResourceLambdaOutputPtrType) ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
-type ApplicationOutputLambdaOutputOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceLambdaOutputOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputLambdaOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputLambdaOutput)(nil)).Elem()
+func (ApplicationOutputResourceLambdaOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceLambdaOutput)(nil)).Elem()
 }
 
-func (o ApplicationOutputLambdaOutputOutput) ToApplicationOutputLambdaOutputOutput() ApplicationOutputLambdaOutputOutput {
+func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResourceLambdaOutputOutput() ApplicationOutputResourceLambdaOutputOutput {
 	return o
 }
 
-func (o ApplicationOutputLambdaOutputOutput) ToApplicationOutputLambdaOutputOutputWithContext(ctx context.Context) ApplicationOutputLambdaOutputOutput {
+func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResourceLambdaOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputOutput {
 	return o
 }
 
-func (o ApplicationOutputLambdaOutputOutput) ToApplicationOutputLambdaOutputPtrOutput() ApplicationOutputLambdaOutputPtrOutput {
-	return o.ToApplicationOutputLambdaOutputPtrOutputWithContext(context.Background())
+func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResourceLambdaOutputPtrOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
+	return o.ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationOutputLambdaOutputOutput) ToApplicationOutputLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputLambdaOutputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputLambdaOutput) *ApplicationOutputLambdaOutput {
+func (o ApplicationOutputResourceLambdaOutputOutput) ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceLambdaOutput) *ApplicationOutputResourceLambdaOutput {
 		return &v
-	}).(ApplicationOutputLambdaOutputPtrOutput)
+	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
-func (o ApplicationOutputLambdaOutputOutput) ResourceARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputLambdaOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceLambdaOutputOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.ResourceARN }).(pulumi.StringOutput)
 }
 
-func (o ApplicationOutputLambdaOutputOutput) RoleARN() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationOutputLambdaOutput) string { return v.RoleARN }).(pulumi.StringOutput)
+func (o ApplicationOutputResourceLambdaOutputOutput) RoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceLambdaOutput) string { return v.RoleARN }).(pulumi.StringOutput)
 }
 
-type ApplicationOutputLambdaOutputPtrOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceLambdaOutputPtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputLambdaOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputLambdaOutput)(nil)).Elem()
+func (ApplicationOutputResourceLambdaOutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceLambdaOutput)(nil)).Elem()
 }
 
-func (o ApplicationOutputLambdaOutputPtrOutput) ToApplicationOutputLambdaOutputPtrOutput() ApplicationOutputLambdaOutputPtrOutput {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToApplicationOutputResourceLambdaOutputPtrOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputLambdaOutputPtrOutput) ToApplicationOutputLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputLambdaOutputPtrOutput {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) ToApplicationOutputResourceLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceLambdaOutputPtrOutput {
 	return o
 }
 
-func (o ApplicationOutputLambdaOutputPtrOutput) Elem() ApplicationOutputLambdaOutputOutput {
-	return o.ApplyT(func(v *ApplicationOutputLambdaOutput) ApplicationOutputLambdaOutput {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) Elem() ApplicationOutputResourceLambdaOutputOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceLambdaOutput) ApplicationOutputResourceLambdaOutput {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationOutputLambdaOutput
+		var ret ApplicationOutputResourceLambdaOutput
 		return ret
-	}).(ApplicationOutputLambdaOutputOutput)
+	}).(ApplicationOutputResourceLambdaOutputOutput)
 }
 
-func (o ApplicationOutputLambdaOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputLambdaOutput) *string {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceLambdaOutput) *string {
 		if v == nil {
 			return nil
 		}
@@ -1906,8 +1906,8 @@ func (o ApplicationOutputLambdaOutputPtrOutput) ResourceARN() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ApplicationOutputLambdaOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputLambdaOutput) *string {
+func (o ApplicationOutputResourceLambdaOutputPtrOutput) RoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceLambdaOutput) *string {
 		if v == nil {
 			return nil
 		}
@@ -1915,196 +1915,200 @@ func (o ApplicationOutputLambdaOutputPtrOutput) RoleARN() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApplicationOutputResourceOutput struct {
-	DestinationSchema     ApplicationOutputDestinationSchema      `pulumi:"destinationSchema"`
-	KinesisFirehoseOutput *ApplicationOutputKinesisFirehoseOutput `pulumi:"kinesisFirehoseOutput"`
-	KinesisStreamsOutput  *ApplicationOutputKinesisStreamsOutput  `pulumi:"kinesisStreamsOutput"`
-	LambdaOutput          *ApplicationOutputLambdaOutput          `pulumi:"lambdaOutput"`
-	Name                  *string                                 `pulumi:"name"`
+type ApplicationOutputResourceOutputType struct {
+	DestinationSchema     ApplicationOutputResourceDestinationSchema      `pulumi:"destinationSchema"`
+	KinesisFirehoseOutput *ApplicationOutputResourceKinesisFirehoseOutput `pulumi:"kinesisFirehoseOutput"`
+	KinesisStreamsOutput  *ApplicationOutputResourceKinesisStreamsOutput  `pulumi:"kinesisStreamsOutput"`
+	LambdaOutput          *ApplicationOutputResourceLambdaOutput          `pulumi:"lambdaOutput"`
+	Name                  *string                                         `pulumi:"name"`
 }
 
-// ApplicationOutputResourceOutputInput is an input type that accepts ApplicationOutputResourceOutputArgs and ApplicationOutputResourceOutputOutput values.
-// You can construct a concrete instance of `ApplicationOutputResourceOutputInput` via:
+// ApplicationOutputResourceOutputTypeInput is an input type that accepts ApplicationOutputResourceOutputTypeArgs and ApplicationOutputResourceOutputTypeOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceOutputTypeInput` via:
 //
-//          ApplicationOutputResourceOutputArgs{...}
-type ApplicationOutputResourceOutputInput interface {
+//          ApplicationOutputResourceOutputTypeArgs{...}
+type ApplicationOutputResourceOutputTypeInput interface {
 	pulumi.Input
 
-	ToApplicationOutputResourceOutputOutput() ApplicationOutputResourceOutputOutput
-	ToApplicationOutputResourceOutputOutputWithContext(context.Context) ApplicationOutputResourceOutputOutput
+	ToApplicationOutputResourceOutputTypeOutput() ApplicationOutputResourceOutputTypeOutput
+	ToApplicationOutputResourceOutputTypeOutputWithContext(context.Context) ApplicationOutputResourceOutputTypeOutput
 }
 
-type ApplicationOutputResourceOutputArgs struct {
-	DestinationSchema     ApplicationOutputDestinationSchemaInput        `pulumi:"destinationSchema"`
-	KinesisFirehoseOutput ApplicationOutputKinesisFirehoseOutputPtrInput `pulumi:"kinesisFirehoseOutput"`
-	KinesisStreamsOutput  ApplicationOutputKinesisStreamsOutputPtrInput  `pulumi:"kinesisStreamsOutput"`
-	LambdaOutput          ApplicationOutputLambdaOutputPtrInput          `pulumi:"lambdaOutput"`
-	Name                  pulumi.StringPtrInput                          `pulumi:"name"`
+type ApplicationOutputResourceOutputTypeArgs struct {
+	DestinationSchema     ApplicationOutputResourceDestinationSchemaInput        `pulumi:"destinationSchema"`
+	KinesisFirehoseOutput ApplicationOutputResourceKinesisFirehoseOutputPtrInput `pulumi:"kinesisFirehoseOutput"`
+	KinesisStreamsOutput  ApplicationOutputResourceKinesisStreamsOutputPtrInput  `pulumi:"kinesisStreamsOutput"`
+	LambdaOutput          ApplicationOutputResourceLambdaOutputPtrInput          `pulumi:"lambdaOutput"`
+	Name                  pulumi.StringPtrInput                                  `pulumi:"name"`
 }
 
-func (ApplicationOutputResourceOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputResourceOutput)(nil)).Elem()
+func (ApplicationOutputResourceOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceOutputType)(nil)).Elem()
 }
 
-func (i ApplicationOutputResourceOutputArgs) ToApplicationOutputResourceOutputOutput() ApplicationOutputResourceOutputOutput {
-	return i.ToApplicationOutputResourceOutputOutputWithContext(context.Background())
+func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutputTypeOutput() ApplicationOutputResourceOutputTypeOutput {
+	return i.ToApplicationOutputResourceOutputTypeOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputResourceOutputArgs) ToApplicationOutputResourceOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputOutput)
+func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutputTypeOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypeOutput)
 }
 
-func (i ApplicationOutputResourceOutputArgs) ToApplicationOutputResourceOutputPtrOutput() ApplicationOutputResourceOutputPtrOutput {
-	return i.ToApplicationOutputResourceOutputPtrOutputWithContext(context.Background())
+func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
+	return i.ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationOutputResourceOutputArgs) ToApplicationOutputResourceOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputOutput).ToApplicationOutputResourceOutputPtrOutputWithContext(ctx)
+func (i ApplicationOutputResourceOutputTypeArgs) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypeOutput).ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx)
 }
 
-// ApplicationOutputResourceOutputPtrInput is an input type that accepts ApplicationOutputResourceOutputArgs, ApplicationOutputResourceOutputPtr and ApplicationOutputResourceOutputPtrOutput values.
-// You can construct a concrete instance of `ApplicationOutputResourceOutputPtrInput` via:
+// ApplicationOutputResourceOutputTypePtrInput is an input type that accepts ApplicationOutputResourceOutputTypeArgs, ApplicationOutputResourceOutputTypePtr and ApplicationOutputResourceOutputTypePtrOutput values.
+// You can construct a concrete instance of `ApplicationOutputResourceOutputTypePtrInput` via:
 //
-//          ApplicationOutputResourceOutputArgs{...}
+//          ApplicationOutputResourceOutputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type ApplicationOutputResourceOutputPtrInput interface {
+type ApplicationOutputResourceOutputTypePtrInput interface {
 	pulumi.Input
 
-	ToApplicationOutputResourceOutputPtrOutput() ApplicationOutputResourceOutputPtrOutput
-	ToApplicationOutputResourceOutputPtrOutputWithContext(context.Context) ApplicationOutputResourceOutputPtrOutput
+	ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput
+	ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Context) ApplicationOutputResourceOutputTypePtrOutput
 }
 
-type applicationOutputResourceOutputPtrType ApplicationOutputResourceOutputArgs
+type applicationOutputResourceOutputTypePtrType ApplicationOutputResourceOutputTypeArgs
 
-func ApplicationOutputResourceOutputPtr(v *ApplicationOutputResourceOutputArgs) ApplicationOutputResourceOutputPtrInput {
-	return (*applicationOutputResourceOutputPtrType)(v)
+func ApplicationOutputResourceOutputTypePtr(v *ApplicationOutputResourceOutputTypeArgs) ApplicationOutputResourceOutputTypePtrInput {
+	return (*applicationOutputResourceOutputTypePtrType)(v)
 }
 
-func (*applicationOutputResourceOutputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputResourceOutput)(nil)).Elem()
+func (*applicationOutputResourceOutputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceOutputType)(nil)).Elem()
 }
 
-func (i *applicationOutputResourceOutputPtrType) ToApplicationOutputResourceOutputPtrOutput() ApplicationOutputResourceOutputPtrOutput {
-	return i.ToApplicationOutputResourceOutputPtrOutputWithContext(context.Background())
+func (i *applicationOutputResourceOutputTypePtrType) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
+	return i.ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *applicationOutputResourceOutputPtrType) ToApplicationOutputResourceOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputPtrOutput)
+func (i *applicationOutputResourceOutputTypePtrType) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutputResourceOutputTypePtrOutput)
 }
 
-type ApplicationOutputResourceOutputOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputResourceOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationOutputResourceOutput)(nil)).Elem()
+func (ApplicationOutputResourceOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationOutputResourceOutputType)(nil)).Elem()
 }
 
-func (o ApplicationOutputResourceOutputOutput) ToApplicationOutputResourceOutputOutput() ApplicationOutputResourceOutputOutput {
+func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypeOutput() ApplicationOutputResourceOutputTypeOutput {
 	return o
 }
 
-func (o ApplicationOutputResourceOutputOutput) ToApplicationOutputResourceOutputOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputOutput {
+func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypeOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypeOutput {
 	return o
 }
 
-func (o ApplicationOutputResourceOutputOutput) ToApplicationOutputResourceOutputPtrOutput() ApplicationOutputResourceOutputPtrOutput {
-	return o.ToApplicationOutputResourceOutputPtrOutputWithContext(context.Background())
+func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
+	return o.ToApplicationOutputResourceOutputTypePtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationOutputResourceOutputOutput) ToApplicationOutputResourceOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceOutput) *ApplicationOutputResourceOutput {
+func (o ApplicationOutputResourceOutputTypeOutput) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationOutputResourceOutputType) *ApplicationOutputResourceOutputType {
 		return &v
-	}).(ApplicationOutputResourceOutputPtrOutput)
+	}).(ApplicationOutputResourceOutputTypePtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputOutput) DestinationSchema() ApplicationOutputDestinationSchemaOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceOutput) ApplicationOutputDestinationSchema { return v.DestinationSchema }).(ApplicationOutputDestinationSchemaOutput)
+func (o ApplicationOutputResourceOutputTypeOutput) DestinationSchema() ApplicationOutputResourceDestinationSchemaOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceOutputType) ApplicationOutputResourceDestinationSchema {
+		return v.DestinationSchema
+	}).(ApplicationOutputResourceDestinationSchemaOutput)
 }
 
-func (o ApplicationOutputResourceOutputOutput) KinesisFirehoseOutput() ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceOutput) *ApplicationOutputKinesisFirehoseOutput {
+func (o ApplicationOutputResourceOutputTypeOutput) KinesisFirehoseOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisFirehoseOutput {
 		return v.KinesisFirehoseOutput
-	}).(ApplicationOutputKinesisFirehoseOutputPtrOutput)
+	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputOutput) KinesisStreamsOutput() ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceOutput) *ApplicationOutputKinesisStreamsOutput {
+func (o ApplicationOutputResourceOutputTypeOutput) KinesisStreamsOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisStreamsOutput {
 		return v.KinesisStreamsOutput
-	}).(ApplicationOutputKinesisStreamsOutputPtrOutput)
+	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputOutput) LambdaOutput() ApplicationOutputLambdaOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceOutput) *ApplicationOutputLambdaOutput { return v.LambdaOutput }).(ApplicationOutputLambdaOutputPtrOutput)
+func (o ApplicationOutputResourceOutputTypeOutput) LambdaOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceOutputType) *ApplicationOutputResourceLambdaOutput {
+		return v.LambdaOutput
+	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationOutputResourceOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o ApplicationOutputResourceOutputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationOutputResourceOutputType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationOutputResourceOutputPtrOutput struct{ *pulumi.OutputState }
+type ApplicationOutputResourceOutputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationOutputResourceOutputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationOutputResourceOutput)(nil)).Elem()
+func (ApplicationOutputResourceOutputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationOutputResourceOutputType)(nil)).Elem()
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) ToApplicationOutputResourceOutputPtrOutput() ApplicationOutputResourceOutputPtrOutput {
+func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutput() ApplicationOutputResourceOutputTypePtrOutput {
 	return o
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) ToApplicationOutputResourceOutputPtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputPtrOutput {
+func (o ApplicationOutputResourceOutputTypePtrOutput) ToApplicationOutputResourceOutputTypePtrOutputWithContext(ctx context.Context) ApplicationOutputResourceOutputTypePtrOutput {
 	return o
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) Elem() ApplicationOutputResourceOutputOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutput) ApplicationOutputResourceOutput {
+func (o ApplicationOutputResourceOutputTypePtrOutput) Elem() ApplicationOutputResourceOutputTypeOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) ApplicationOutputResourceOutputType {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationOutputResourceOutput
+		var ret ApplicationOutputResourceOutputType
 		return ret
-	}).(ApplicationOutputResourceOutputOutput)
+	}).(ApplicationOutputResourceOutputTypeOutput)
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) DestinationSchema() ApplicationOutputDestinationSchemaPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutput) *ApplicationOutputDestinationSchema {
+func (o ApplicationOutputResourceOutputTypePtrOutput) DestinationSchema() ApplicationOutputResourceDestinationSchemaPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceDestinationSchema {
 		if v == nil {
 			return nil
 		}
 		return &v.DestinationSchema
-	}).(ApplicationOutputDestinationSchemaPtrOutput)
+	}).(ApplicationOutputResourceDestinationSchemaPtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) KinesisFirehoseOutput() ApplicationOutputKinesisFirehoseOutputPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutput) *ApplicationOutputKinesisFirehoseOutput {
+func (o ApplicationOutputResourceOutputTypePtrOutput) KinesisFirehoseOutput() ApplicationOutputResourceKinesisFirehoseOutputPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisFirehoseOutput {
 		if v == nil {
 			return nil
 		}
 		return v.KinesisFirehoseOutput
-	}).(ApplicationOutputKinesisFirehoseOutputPtrOutput)
+	}).(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) KinesisStreamsOutput() ApplicationOutputKinesisStreamsOutputPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutput) *ApplicationOutputKinesisStreamsOutput {
+func (o ApplicationOutputResourceOutputTypePtrOutput) KinesisStreamsOutput() ApplicationOutputResourceKinesisStreamsOutputPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceKinesisStreamsOutput {
 		if v == nil {
 			return nil
 		}
 		return v.KinesisStreamsOutput
-	}).(ApplicationOutputKinesisStreamsOutputPtrOutput)
+	}).(ApplicationOutputResourceKinesisStreamsOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) LambdaOutput() ApplicationOutputLambdaOutputPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutput) *ApplicationOutputLambdaOutput {
+func (o ApplicationOutputResourceOutputTypePtrOutput) LambdaOutput() ApplicationOutputResourceLambdaOutputPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *ApplicationOutputResourceLambdaOutput {
 		if v == nil {
 			return nil
 		}
 		return v.LambdaOutput
-	}).(ApplicationOutputLambdaOutputPtrOutput)
+	}).(ApplicationOutputResourceLambdaOutputPtrOutput)
 }
 
-func (o ApplicationOutputResourceOutputPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationOutputResourceOutput) *string {
+func (o ApplicationOutputResourceOutputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationOutputResourceOutputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3479,16 +3483,16 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationKinesisStreamsInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMappingParametersOutput{})
 	pulumi.RegisterOutputType(ApplicationMappingParametersPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputDestinationSchemaOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputDestinationSchemaPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputKinesisFirehoseOutputOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputKinesisFirehoseOutputPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputKinesisStreamsOutputOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputKinesisStreamsOutputPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputLambdaOutputOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputLambdaOutputPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputResourceOutputOutput{})
-	pulumi.RegisterOutputType(ApplicationOutputResourceOutputPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceDestinationSchemaOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceDestinationSchemaPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisFirehoseOutputOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisFirehoseOutputPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisStreamsOutputOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceKinesisStreamsOutputPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceLambdaOutputOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceLambdaOutputPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceOutputTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationOutputResourceOutputTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordColumnOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordColumnArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationRecordFormatOutput{})

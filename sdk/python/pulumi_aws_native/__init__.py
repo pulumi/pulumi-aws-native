@@ -1716,7 +1716,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.kinesisanalytics",
   "classes": {
    "aws-native:kinesisanalytics:Application": "Application",
-   "aws-native:kinesisanalytics:ApplicationOutput": "ApplicationOutput",
+   "aws-native:kinesisanalytics:ApplicationOutputResource": "ApplicationOutputResource",
    "aws-native:kinesisanalytics:ApplicationReferenceDataSource": "ApplicationReferenceDataSource"
   }
  },
@@ -1727,7 +1727,7 @@ _utilities.register(
   "classes": {
    "aws-native:kinesisanalyticsv2:Application": "Application",
    "aws-native:kinesisanalyticsv2:ApplicationCloudWatchLoggingOption": "ApplicationCloudWatchLoggingOption",
-   "aws-native:kinesisanalyticsv2:ApplicationOutput": "ApplicationOutput",
+   "aws-native:kinesisanalyticsv2:ApplicationOutputResource": "ApplicationOutputResource",
    "aws-native:kinesisanalyticsv2:ApplicationReferenceDataSource": "ApplicationReferenceDataSource"
   }
  },

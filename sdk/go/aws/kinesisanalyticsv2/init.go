@@ -25,7 +25,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "aws-native:kinesisanalyticsv2:ApplicationCloudWatchLoggingOption":
 		r = &ApplicationCloudWatchLoggingOption{}
-	case "aws-native:kinesisanalyticsv2:ApplicationOutput":
+	case "aws-native:kinesisanalyticsv2:ApplicationOutputResource":
 		r = &ApplicationOutputResource{}
 	case "aws-native:kinesisanalyticsv2:ApplicationReferenceDataSource":
 		r = &ApplicationReferenceDataSource{}

@@ -33,11 +33,11 @@ __all__ = [
     'ApplicationKinesisStreamsInput',
     'ApplicationMappingParameters',
     'ApplicationMonitoringConfiguration',
-    'ApplicationOutputDestinationSchema',
-    'ApplicationOutputKinesisFirehoseOutput',
-    'ApplicationOutputKinesisStreamsOutput',
-    'ApplicationOutputLambdaOutput',
-    'ApplicationOutputOutput',
+    'ApplicationOutputResourceDestinationSchema',
+    'ApplicationOutputResourceKinesisFirehoseOutput',
+    'ApplicationOutputResourceKinesisStreamsOutput',
+    'ApplicationOutputResourceLambdaOutput',
+    'ApplicationOutputResourceOutput',
     'ApplicationParallelismConfiguration',
     'ApplicationPropertyGroup',
     'ApplicationRecordColumn',
@@ -931,7 +931,7 @@ class ApplicationMonitoringConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationOutputDestinationSchema(dict):
+class ApplicationOutputResourceDestinationSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -939,14 +939,14 @@ class ApplicationOutputDestinationSchema(dict):
             suggest = "record_format_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputDestinationSchema. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputResourceDestinationSchema. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationOutputDestinationSchema.__key_warning(key)
+        ApplicationOutputResourceDestinationSchema.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationOutputDestinationSchema.__key_warning(key)
+        ApplicationOutputResourceDestinationSchema.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -961,7 +961,7 @@ class ApplicationOutputDestinationSchema(dict):
 
 
 @pulumi.output_type
-class ApplicationOutputKinesisFirehoseOutput(dict):
+class ApplicationOutputResourceKinesisFirehoseOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -969,14 +969,14 @@ class ApplicationOutputKinesisFirehoseOutput(dict):
             suggest = "resource_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputKinesisFirehoseOutput. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputResourceKinesisFirehoseOutput. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationOutputKinesisFirehoseOutput.__key_warning(key)
+        ApplicationOutputResourceKinesisFirehoseOutput.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationOutputKinesisFirehoseOutput.__key_warning(key)
+        ApplicationOutputResourceKinesisFirehoseOutput.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -990,7 +990,7 @@ class ApplicationOutputKinesisFirehoseOutput(dict):
 
 
 @pulumi.output_type
-class ApplicationOutputKinesisStreamsOutput(dict):
+class ApplicationOutputResourceKinesisStreamsOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -998,14 +998,14 @@ class ApplicationOutputKinesisStreamsOutput(dict):
             suggest = "resource_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputKinesisStreamsOutput. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputResourceKinesisStreamsOutput. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationOutputKinesisStreamsOutput.__key_warning(key)
+        ApplicationOutputResourceKinesisStreamsOutput.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationOutputKinesisStreamsOutput.__key_warning(key)
+        ApplicationOutputResourceKinesisStreamsOutput.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1019,7 +1019,7 @@ class ApplicationOutputKinesisStreamsOutput(dict):
 
 
 @pulumi.output_type
-class ApplicationOutputLambdaOutput(dict):
+class ApplicationOutputResourceLambdaOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1027,14 +1027,14 @@ class ApplicationOutputLambdaOutput(dict):
             suggest = "resource_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputLambdaOutput. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputResourceLambdaOutput. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationOutputLambdaOutput.__key_warning(key)
+        ApplicationOutputResourceLambdaOutput.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationOutputLambdaOutput.__key_warning(key)
+        ApplicationOutputResourceLambdaOutput.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1048,7 +1048,7 @@ class ApplicationOutputLambdaOutput(dict):
 
 
 @pulumi.output_type
-class ApplicationOutputOutput(dict):
+class ApplicationOutputResourceOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1062,21 +1062,21 @@ class ApplicationOutputOutput(dict):
             suggest = "lambda_output"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputOutput. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationOutputResourceOutput. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ApplicationOutputOutput.__key_warning(key)
+        ApplicationOutputResourceOutput.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ApplicationOutputOutput.__key_warning(key)
+        ApplicationOutputResourceOutput.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 destination_schema: 'outputs.ApplicationOutputDestinationSchema',
-                 kinesis_firehose_output: Optional['outputs.ApplicationOutputKinesisFirehoseOutput'] = None,
-                 kinesis_streams_output: Optional['outputs.ApplicationOutputKinesisStreamsOutput'] = None,
-                 lambda_output: Optional['outputs.ApplicationOutputLambdaOutput'] = None,
+                 destination_schema: 'outputs.ApplicationOutputResourceDestinationSchema',
+                 kinesis_firehose_output: Optional['outputs.ApplicationOutputResourceKinesisFirehoseOutput'] = None,
+                 kinesis_streams_output: Optional['outputs.ApplicationOutputResourceKinesisStreamsOutput'] = None,
+                 lambda_output: Optional['outputs.ApplicationOutputResourceLambdaOutput'] = None,
                  name: Optional[str] = None):
         pulumi.set(__self__, "destination_schema", destination_schema)
         if kinesis_firehose_output is not None:
@@ -1090,22 +1090,22 @@ class ApplicationOutputOutput(dict):
 
     @property
     @pulumi.getter(name="destinationSchema")
-    def destination_schema(self) -> 'outputs.ApplicationOutputDestinationSchema':
+    def destination_schema(self) -> 'outputs.ApplicationOutputResourceDestinationSchema':
         return pulumi.get(self, "destination_schema")
 
     @property
     @pulumi.getter(name="kinesisFirehoseOutput")
-    def kinesis_firehose_output(self) -> Optional['outputs.ApplicationOutputKinesisFirehoseOutput']:
+    def kinesis_firehose_output(self) -> Optional['outputs.ApplicationOutputResourceKinesisFirehoseOutput']:
         return pulumi.get(self, "kinesis_firehose_output")
 
     @property
     @pulumi.getter(name="kinesisStreamsOutput")
-    def kinesis_streams_output(self) -> Optional['outputs.ApplicationOutputKinesisStreamsOutput']:
+    def kinesis_streams_output(self) -> Optional['outputs.ApplicationOutputResourceKinesisStreamsOutput']:
         return pulumi.get(self, "kinesis_streams_output")
 
     @property
     @pulumi.getter(name="lambdaOutput")
-    def lambda_output(self) -> Optional['outputs.ApplicationOutputLambdaOutput']:
+    def lambda_output(self) -> Optional['outputs.ApplicationOutputResourceLambdaOutput']:
         return pulumi.get(self, "lambda_output")
 
     @property
