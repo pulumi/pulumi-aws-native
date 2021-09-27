@@ -846,7 +846,8 @@ func typeToken(typ string) string {
 
 	// Override name to avoid duplicate
 	// See https://github.com/pulumi/pulumi/issues/8018
-	if strings.Contains(resourceName, "ApplicationOutput") {
+	switch typ {
+	case "AWS::KinesisAnalytics::ApplicationOutput", "AWS::KinesisAnalyticsV2::ApplicationOutput":
 		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
 	}
 
