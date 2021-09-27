@@ -1166,7 +1166,7 @@ func RenderTemplate(file *ast.File, metadata *schema.CloudAPIMetadata) (*model.B
 			return nil, nil, fmt.Errorf("template must be a mapping")
 		}
 	default:
-		return nil, nil, fmt.Errorf("template must contain at most one document")
+		return nil, nil, fmt.Errorf("template is malformed")
 	}
 
 	supportedResourceTokens := codegen.NewStringSet()
