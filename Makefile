@@ -99,7 +99,7 @@ generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_DIR) ${VERSION}
 
 build_go::
-	#cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
+	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && echo "module fake_go_module // Exclude this directory from Go tools\n\ngo 1.16" > 'sdk/nodejs/go.mod'
