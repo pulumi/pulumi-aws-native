@@ -20,6 +20,9 @@ class AggregationAuthorizationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AggregationAuthorizationTagArgs']]]] = None):
         """
         The set of arguments for constructing a AggregationAuthorization resource.
+        :param pulumi.Input[str] authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
+        :param pulumi.Input[str] authorized_aws_region: The region authorized to collect aggregated data.
+        :param pulumi.Input[Sequence[pulumi.Input['AggregationAuthorizationTagArgs']]] tags: The tags for the AggregationAuthorization.
         """
         pulumi.set(__self__, "authorized_account_id", authorized_account_id)
         pulumi.set(__self__, "authorized_aws_region", authorized_aws_region)
@@ -29,6 +32,9 @@ class AggregationAuthorizationArgs:
     @property
     @pulumi.getter(name="authorizedAccountId")
     def authorized_account_id(self) -> pulumi.Input[str]:
+        """
+        The 12-digit account ID of the account authorized to aggregate data.
+        """
         return pulumi.get(self, "authorized_account_id")
 
     @authorized_account_id.setter
@@ -38,6 +44,9 @@ class AggregationAuthorizationArgs:
     @property
     @pulumi.getter(name="authorizedAwsRegion")
     def authorized_aws_region(self) -> pulumi.Input[str]:
+        """
+        The region authorized to collect aggregated data.
+        """
         return pulumi.get(self, "authorized_aws_region")
 
     @authorized_aws_region.setter
@@ -47,6 +56,9 @@ class AggregationAuthorizationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AggregationAuthorizationTagArgs']]]]:
+        """
+        The tags for the AggregationAuthorization.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -68,6 +80,9 @@ class AggregationAuthorization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
+        :param pulumi.Input[str] authorized_aws_region: The region authorized to collect aggregated data.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AggregationAuthorizationTagArgs']]]] tags: The tags for the AggregationAuthorization.
         """
         ...
     @overload
@@ -115,6 +130,7 @@ class AggregationAuthorization(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorized_aws_region'")
             __props__.__dict__["authorized_aws_region"] = authorized_aws_region
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["aggregation_authorization_arn"] = None
         super(AggregationAuthorization, __self__).__init__(
             'aws-native:configuration:AggregationAuthorization',
             resource_name,
@@ -137,23 +153,41 @@ class AggregationAuthorization(pulumi.CustomResource):
 
         __props__ = AggregationAuthorizationArgs.__new__(AggregationAuthorizationArgs)
 
+        __props__.__dict__["aggregation_authorization_arn"] = None
         __props__.__dict__["authorized_account_id"] = None
         __props__.__dict__["authorized_aws_region"] = None
         __props__.__dict__["tags"] = None
         return AggregationAuthorization(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="aggregationAuthorizationArn")
+    def aggregation_authorization_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the AggregationAuthorization.
+        """
+        return pulumi.get(self, "aggregation_authorization_arn")
+
+    @property
     @pulumi.getter(name="authorizedAccountId")
     def authorized_account_id(self) -> pulumi.Output[str]:
+        """
+        The 12-digit account ID of the account authorized to aggregate data.
+        """
         return pulumi.get(self, "authorized_account_id")
 
     @property
     @pulumi.getter(name="authorizedAwsRegion")
     def authorized_aws_region(self) -> pulumi.Output[str]:
+        """
+        The region authorized to collect aggregated data.
+        """
         return pulumi.get(self, "authorized_aws_region")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AggregationAuthorizationTag']]]:
+        """
+        The tags for the AggregationAuthorization.
+        """
         return pulumi.get(self, "tags")
 

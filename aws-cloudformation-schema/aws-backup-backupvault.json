@@ -20,6 +20,21 @@
       },
       "required" : [ "SNSTopicArn", "BackupVaultEvents" ]
     },
+    "LockConfigurationType" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "minRetentionDays" : {
+          "type" : "number"
+        },
+        "maxRetentionDays" : {
+          "type" : "number"
+        },
+        "changeableForDays" : {
+          "type" : "number"
+        }
+      }
+    },
     "BackupVaultNamePattern" : {
       "type" : "string",
       "pattern" : "^[a-zA-Z0-9\\-\\_]{2,50}$"
@@ -47,6 +62,9 @@
     "Notifications" : {
       "$ref" : "#/definitions/NotificationObjectType"
     },
+    "LockConfiguration" : {
+      "$ref" : "#/definitions/LockConfigurationType"
+    },
     "BackupVaultArn" : {
       "type" : "string"
     }
@@ -58,13 +76,13 @@
   "primaryIdentifier" : [ "/properties/BackupVaultName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "backup:CreateBackupVault", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications", "backup-storage:Mount", "backup-storage:MountCapsule", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt", "kms:RetireGrant", "kms:DescribeKey" ]
+      "permissions" : [ "backup:CreateBackupVault", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications", "backup:PutBackupVaultLockConfiguration", "backup-storage:Mount", "backup-storage:MountCapsule", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt", "kms:RetireGrant", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "backup:DescribeBackupVault", "backup:GetBackupVaultNotifications", "backup:GetBackupVaultAccessPolicy", "backup:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "backup:DescribeBackupVault", "backup:DeleteBackupVaultAccessPolicy", "backup:DeleteBackupVaultNotifications", "backup:ListTags", "backup:TagResource", "backup:UntagResource", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications" ]
+      "permissions" : [ "backup:DescribeBackupVault", "backup:DeleteBackupVaultAccessPolicy", "backup:DeleteBackupVaultNotifications", "backup:DeleteBackupVaultLockConfiguration", "backup:ListTags", "backup:TagResource", "backup:UntagResource", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications" ]
     },
     "delete" : {
       "permissions" : [ "backup:DeleteBackupVault" ]

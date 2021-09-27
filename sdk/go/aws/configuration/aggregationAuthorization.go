@@ -15,9 +15,14 @@ import (
 type AggregationAuthorization struct {
 	pulumi.CustomResourceState
 
-	AuthorizedAccountId pulumi.StringOutput                    `pulumi:"authorizedAccountId"`
-	AuthorizedAwsRegion pulumi.StringOutput                    `pulumi:"authorizedAwsRegion"`
-	Tags                AggregationAuthorizationTagArrayOutput `pulumi:"tags"`
+	// The ARN of the AggregationAuthorization.
+	AggregationAuthorizationArn pulumi.StringOutput `pulumi:"aggregationAuthorizationArn"`
+	// The 12-digit account ID of the account authorized to aggregate data.
+	AuthorizedAccountId pulumi.StringOutput `pulumi:"authorizedAccountId"`
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion pulumi.StringOutput `pulumi:"authorizedAwsRegion"`
+	// The tags for the AggregationAuthorization.
+	Tags AggregationAuthorizationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAggregationAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -65,16 +70,22 @@ func (AggregationAuthorizationState) ElementType() reflect.Type {
 }
 
 type aggregationAuthorizationArgs struct {
-	AuthorizedAccountId string                        `pulumi:"authorizedAccountId"`
-	AuthorizedAwsRegion string                        `pulumi:"authorizedAwsRegion"`
-	Tags                []AggregationAuthorizationTag `pulumi:"tags"`
+	// The 12-digit account ID of the account authorized to aggregate data.
+	AuthorizedAccountId string `pulumi:"authorizedAccountId"`
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion string `pulumi:"authorizedAwsRegion"`
+	// The tags for the AggregationAuthorization.
+	Tags []AggregationAuthorizationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AggregationAuthorization resource.
 type AggregationAuthorizationArgs struct {
+	// The 12-digit account ID of the account authorized to aggregate data.
 	AuthorizedAccountId pulumi.StringInput
+	// The region authorized to collect aggregated data.
 	AuthorizedAwsRegion pulumi.StringInput
-	Tags                AggregationAuthorizationTagArrayInput
+	// The tags for the AggregationAuthorization.
+	Tags AggregationAuthorizationTagArrayInput
 }
 
 func (AggregationAuthorizationArgs) ElementType() reflect.Type {

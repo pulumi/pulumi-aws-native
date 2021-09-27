@@ -42,6 +42,7 @@
       "type" : "array",
       "description" : "Any tags assigned to the DHCP options set.",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }

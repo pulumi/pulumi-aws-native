@@ -134,12 +134,16 @@
         "$ref" : "#/definitions/SourceConfig"
       }
     },
+    "Environment" : {
+      "description" : "The URI of the Docker image for the robot application.",
+      "type" : "string"
+    },
     "Tags" : {
       "$ref" : "#/definitions/Tags"
     }
   },
   "additionalProperties" : false,
-  "required" : [ "RenderingEngine", "RobotSoftwareSuite", "SimulationSoftwareSuite", "Sources" ],
+  "required" : [ "RobotSoftwareSuite", "SimulationSoftwareSuite" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

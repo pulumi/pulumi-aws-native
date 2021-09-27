@@ -1,5 +1,6 @@
 {
   "typeName" : "AWS::SSO::PermissionSet",
+  "taggable" : true,
   "description" : "Resource Type definition for SSO PermissionSet",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sso/aws-sso-permissionset",
   "definitions" : {
@@ -41,7 +42,7 @@
     "PermissionSetArn" : {
       "description" : "The permission set that the policy will be attached to",
       "type" : "string",
-      "pattern" : "arn:aws:sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
+      "pattern" : "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
       "minLength" : 10,
       "maxLength" : 1224
     },
@@ -55,14 +56,14 @@
     "InstanceArn" : {
       "description" : "The sso instance arn that the permission set is owned.",
       "type" : "string",
-      "pattern" : "arn:aws:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+      "pattern" : "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
       "minLength" : 10,
       "maxLength" : 1224
     },
     "SessionDuration" : {
       "description" : "The length of time that a user can be signed in to an AWS account.",
       "type" : "string",
-      "pattern" : "",
+      "pattern" : "^(-?)P(?=\\d|T\\d)(?:(\\d+)Y)?(?:(\\d+)M)?(?:(\\d+)([DW]))?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+(?:\\.\\d+)?)S)?)?$",
       "minLength" : 1,
       "maxLength" : 100
     },

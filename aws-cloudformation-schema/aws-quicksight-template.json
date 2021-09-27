@@ -324,7 +324,7 @@
       "type" : "string",
       "maxLength" : 2048,
       "minLength" : 1,
-      "pattern" : "",
+      "pattern" : "[\\u0020-\\u00FF]+",
       "description" : "<p>A display name for the template.</p>"
     },
     "Permissions" : {

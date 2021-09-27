@@ -3501,6 +3501,11 @@ export namespace appsync {
         lambdaFunctionArn: pulumi.Input<string>;
     }
 
+    export interface DataSourceOpenSearchServiceConfigArgs {
+        awsRegion: pulumi.Input<string>;
+        endpoint: pulumi.Input<string>;
+    }
+
     export interface DataSourceRdsHttpEndpointConfigArgs {
         awsRegion: pulumi.Input<string>;
         awsSecretStoreArn: pulumi.Input<string>;
@@ -4002,6 +4007,12 @@ export namespace backup {
         conditionKey: pulumi.Input<string>;
         conditionType: pulumi.Input<string>;
         conditionValue: pulumi.Input<string>;
+    }
+
+    export interface BackupVaultLockConfigurationTypeArgs {
+        changeableForDays?: pulumi.Input<number>;
+        maxRetentionDays?: pulumi.Input<number>;
+        minRetentionDays?: pulumi.Input<number>;
     }
 
     export interface BackupVaultNotificationObjectTypeArgs {
@@ -5649,8 +5660,17 @@ export namespace config {
 }
 
 export namespace configuration {
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface AggregationAuthorizationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         value: pulumi.Input<string>;
     }
 
@@ -11711,7 +11731,7 @@ export namespace imagebuilder {
         /**
          * Use this property to provide commands or a command script to run when you launch your build instance.
          */
-        userDataOverride: pulumi.Input<string>;
+        userDataOverride?: pulumi.Input<string>;
     }
 
     /**
@@ -11803,9 +11823,9 @@ export namespace imagebuilder {
      */
     export interface ImageRecipeSystemsManagerAgentArgs {
         /**
-         * This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
+         * Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
          */
-        uninstallAfterBuild: pulumi.Input<boolean>;
+        uninstallAfterBuild?: pulumi.Input<boolean>;
     }
 
     /**
@@ -12228,6 +12248,7 @@ export namespace iot {
         kafka?: pulumi.Input<inputs.iot.TopicRuleKafkaActionArgs>;
         kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesisActionArgs>;
         lambda?: pulumi.Input<inputs.iot.TopicRuleLambdaActionArgs>;
+        openSearch?: pulumi.Input<inputs.iot.TopicRuleOpenSearchActionArgs>;
         republish?: pulumi.Input<inputs.iot.TopicRuleRepublishActionArgs>;
         s3?: pulumi.Input<inputs.iot.TopicRuleS3ActionArgs>;
         sns?: pulumi.Input<inputs.iot.TopicRuleSnsActionArgs>;
@@ -12368,6 +12389,14 @@ export namespace iot {
 
     export interface TopicRuleLambdaActionArgs {
         functionArn?: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleOpenSearchActionArgs {
+        endpoint: pulumi.Input<string>;
+        id: pulumi.Input<string>;
+        index: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 
     export interface TopicRulePutAssetPropertyValueEntryArgs {
@@ -20246,6 +20275,7 @@ export namespace s3 {
     }
 
     export interface BucketMetricsConfigurationArgs {
+        accessPointArn?: pulumi.Input<string>;
         id: pulumi.Input<string>;
         prefix?: pulumi.Input<string>;
         tagFilters?: pulumi.Input<pulumi.Input<inputs.s3.BucketTagFilterArgs>[]>;

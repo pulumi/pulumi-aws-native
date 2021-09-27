@@ -18,10 +18,12 @@ type SimulationApplication struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The current revision id.
 	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
+	// The URI of the Docker image for the robot application.
+	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The name of the simulation application.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The rendering engine for the simulation application.
-	RenderingEngine SimulationApplicationRenderingEngineOutput `pulumi:"renderingEngine"`
+	RenderingEngine SimulationApplicationRenderingEnginePtrOutput `pulumi:"renderingEngine"`
 	// The robot software suite (ROS distribution) used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuiteOutput `pulumi:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
@@ -38,17 +40,11 @@ func NewSimulationApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RenderingEngine == nil {
-		return nil, errors.New("invalid value for required argument 'RenderingEngine'")
-	}
 	if args.RobotSoftwareSuite == nil {
 		return nil, errors.New("invalid value for required argument 'RobotSoftwareSuite'")
 	}
 	if args.SimulationSoftwareSuite == nil {
 		return nil, errors.New("invalid value for required argument 'SimulationSoftwareSuite'")
-	}
-	if args.Sources == nil {
-		return nil, errors.New("invalid value for required argument 'Sources'")
 	}
 	var resource SimulationApplication
 	err := ctx.RegisterResource("aws-native:robomaker:SimulationApplication", name, args, &resource, opts...)
@@ -84,10 +80,12 @@ func (SimulationApplicationState) ElementType() reflect.Type {
 type simulationApplicationArgs struct {
 	// The current revision id.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
+	// The URI of the Docker image for the robot application.
+	Environment *string `pulumi:"environment"`
 	// The name of the simulation application.
 	Name *string `pulumi:"name"`
 	// The rendering engine for the simulation application.
-	RenderingEngine SimulationApplicationRenderingEngine `pulumi:"renderingEngine"`
+	RenderingEngine *SimulationApplicationRenderingEngine `pulumi:"renderingEngine"`
 	// The robot software suite (ROS distribution) used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
@@ -101,10 +99,12 @@ type simulationApplicationArgs struct {
 type SimulationApplicationArgs struct {
 	// The current revision id.
 	CurrentRevisionId pulumi.StringPtrInput
+	// The URI of the Docker image for the robot application.
+	Environment pulumi.StringPtrInput
 	// The name of the simulation application.
 	Name pulumi.StringPtrInput
 	// The rendering engine for the simulation application.
-	RenderingEngine SimulationApplicationRenderingEngineInput
+	RenderingEngine SimulationApplicationRenderingEnginePtrInput
 	// The robot software suite (ROS distribution) used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuiteInput
 	// The simulation software suite used by the simulation application.

@@ -23,6 +23,7 @@ class DataSourceArgs:
                  elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
+                 open_search_service_config: Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']] = None,
                  relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -41,6 +42,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "http_config", http_config)
         if lambda_config is not None:
             pulumi.set(__self__, "lambda_config", lambda_config)
+        if open_search_service_config is not None:
+            pulumi.set(__self__, "open_search_service_config", open_search_service_config)
         if relational_database_config is not None:
             pulumi.set(__self__, "relational_database_config", relational_database_config)
         if service_role_arn is not None:
@@ -119,6 +122,15 @@ class DataSourceArgs:
         pulumi.set(self, "lambda_config", value)
 
     @property
+    @pulumi.getter(name="openSearchServiceConfig")
+    def open_search_service_config(self) -> Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']]:
+        return pulumi.get(self, "open_search_service_config")
+
+    @open_search_service_config.setter
+    def open_search_service_config(self, value: Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']]):
+        pulumi.set(self, "open_search_service_config", value)
+
+    @property
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
         return pulumi.get(self, "relational_database_config")
@@ -154,6 +166,7 @@ class DataSource(pulumi.CustomResource):
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_search_service_config: Optional[pulumi.Input[pulumi.InputType['DataSourceOpenSearchServiceConfigArgs']]] = None,
                  relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -195,6 +208,7 @@ class DataSource(pulumi.CustomResource):
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_search_service_config: Optional[pulumi.Input[pulumi.InputType['DataSourceOpenSearchServiceConfigArgs']]] = None,
                  relational_database_config: Optional[pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -222,6 +236,7 @@ class DataSource(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["open_search_service_config"] = open_search_service_config
             __props__.__dict__["relational_database_config"] = relational_database_config
             __props__.__dict__["service_role_arn"] = service_role_arn
             if type is None and not opts.urn:
@@ -258,6 +273,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["http_config"] = None
         __props__.__dict__["lambda_config"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["open_search_service_config"] = None
         __props__.__dict__["relational_database_config"] = None
         __props__.__dict__["service_role_arn"] = None
         __props__.__dict__["type"] = None
@@ -302,6 +318,11 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="openSearchServiceConfig")
+    def open_search_service_config(self) -> pulumi.Output[Optional['outputs.DataSourceOpenSearchServiceConfig']]:
+        return pulumi.get(self, "open_search_service_config")
 
     @property
     @pulumi.getter(name="relationalDatabaseConfig")

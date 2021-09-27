@@ -5,7 +5,7 @@
   "definitions" : {
     "JsonString" : {
       "type" : "string",
-      "pattern" : ""
+      "pattern" : "^[{}\\[\\]:.,\"0-9A-z\\-_\\s]{1,8192}$"
     },
     "ConfigData" : {
       "type" : "object",

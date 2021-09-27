@@ -808,9 +808,12 @@ class BucketLoggingConfigurationArgs:
 class BucketMetricsConfigurationArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
+                 access_point_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None):
         pulumi.set(__self__, "id", id)
+        if access_point_arn is not None:
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
@@ -824,6 +827,15 @@ class BucketMetricsConfigurationArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "access_point_arn")
+
+    @access_point_arn.setter
+    def access_point_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_point_arn", value)
 
     @property
     @pulumi.getter

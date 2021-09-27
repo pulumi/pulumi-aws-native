@@ -3,16 +3,22 @@
   "description" : "Resource Type definition for AWS::AppSync::DataSource",
   "additionalProperties" : false,
   "properties" : {
-    "DataSourceArn" : {
-      "type" : "string"
-    },
-    "Type" : {
-      "type" : "string"
+    "OpenSearchServiceConfig" : {
+      "$ref" : "#/definitions/OpenSearchServiceConfig"
     },
     "Description" : {
       "type" : "string"
     },
     "ServiceRoleArn" : {
+      "type" : "string"
+    },
+    "Name" : {
+      "type" : "string"
+    },
+    "DataSourceArn" : {
+      "type" : "string"
+    },
+    "Type" : {
       "type" : "string"
     },
     "HttpConfig" : {
@@ -28,9 +34,6 @@
       "type" : "string"
     },
     "ApiId" : {
-      "type" : "string"
-    },
-    "Name" : {
       "type" : "string"
     },
     "DynamoDBConfig" : {
@@ -62,6 +65,19 @@
         }
       },
       "required" : [ "AwsRegion", "DbClusterIdentifier", "AwsSecretStoreArn" ]
+    },
+    "OpenSearchServiceConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AwsRegion" : {
+          "type" : "string"
+        },
+        "Endpoint" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "AwsRegion", "Endpoint" ]
     },
     "AwsIamConfig" : {
       "type" : "object",

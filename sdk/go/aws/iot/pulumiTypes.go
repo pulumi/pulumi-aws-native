@@ -4746,6 +4746,7 @@ type TopicRuleAction struct {
 	Kafka            *TopicRuleKafkaAction            `pulumi:"kafka"`
 	Kinesis          *TopicRuleKinesisAction          `pulumi:"kinesis"`
 	Lambda           *TopicRuleLambdaAction           `pulumi:"lambda"`
+	OpenSearch       *TopicRuleOpenSearchAction       `pulumi:"openSearch"`
 	Republish        *TopicRuleRepublishAction        `pulumi:"republish"`
 	S3               *TopicRuleS3Action               `pulumi:"s3"`
 	Sns              *TopicRuleSnsAction              `pulumi:"sns"`
@@ -4780,6 +4781,7 @@ type TopicRuleActionArgs struct {
 	Kafka            TopicRuleKafkaActionPtrInput            `pulumi:"kafka"`
 	Kinesis          TopicRuleKinesisActionPtrInput          `pulumi:"kinesis"`
 	Lambda           TopicRuleLambdaActionPtrInput           `pulumi:"lambda"`
+	OpenSearch       TopicRuleOpenSearchActionPtrInput       `pulumi:"openSearch"`
 	Republish        TopicRuleRepublishActionPtrInput        `pulumi:"republish"`
 	S3               TopicRuleS3ActionPtrInput               `pulumi:"s3"`
 	Sns              TopicRuleSnsActionPtrInput              `pulumi:"sns"`
@@ -4944,6 +4946,10 @@ func (o TopicRuleActionOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 
 func (o TopicRuleActionOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLambdaAction { return v.Lambda }).(TopicRuleLambdaActionPtrOutput)
+}
+
+func (o TopicRuleActionOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
+	return o.ApplyT(func(v TopicRuleAction) *TopicRuleOpenSearchAction { return v.OpenSearch }).(TopicRuleOpenSearchActionPtrOutput)
 }
 
 func (o TopicRuleActionOutput) Republish() TopicRuleRepublishActionPtrOutput {
@@ -5118,6 +5124,15 @@ func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 		}
 		return v.Lambda
 	}).(TopicRuleLambdaActionPtrOutput)
+}
+
+func (o TopicRuleActionPtrOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
+	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleOpenSearchAction {
+		if v == nil {
+			return nil
+		}
+		return v.OpenSearch
+	}).(TopicRuleOpenSearchActionPtrOutput)
 }
 
 func (o TopicRuleActionPtrOutput) Republish() TopicRuleRepublishActionPtrOutput {
@@ -8430,6 +8445,199 @@ func (o TopicRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleOpenSearchAction struct {
+	Endpoint string `pulumi:"endpoint"`
+	Id       string `pulumi:"id"`
+	Index    string `pulumi:"index"`
+	RoleArn  string `pulumi:"roleArn"`
+	Type     string `pulumi:"type"`
+}
+
+// TopicRuleOpenSearchActionInput is an input type that accepts TopicRuleOpenSearchActionArgs and TopicRuleOpenSearchActionOutput values.
+// You can construct a concrete instance of `TopicRuleOpenSearchActionInput` via:
+//
+//          TopicRuleOpenSearchActionArgs{...}
+type TopicRuleOpenSearchActionInput interface {
+	pulumi.Input
+
+	ToTopicRuleOpenSearchActionOutput() TopicRuleOpenSearchActionOutput
+	ToTopicRuleOpenSearchActionOutputWithContext(context.Context) TopicRuleOpenSearchActionOutput
+}
+
+type TopicRuleOpenSearchActionArgs struct {
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	Id       pulumi.StringInput `pulumi:"id"`
+	Index    pulumi.StringInput `pulumi:"index"`
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
+	Type     pulumi.StringInput `pulumi:"type"`
+}
+
+func (TopicRuleOpenSearchActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleOpenSearchAction)(nil)).Elem()
+}
+
+func (i TopicRuleOpenSearchActionArgs) ToTopicRuleOpenSearchActionOutput() TopicRuleOpenSearchActionOutput {
+	return i.ToTopicRuleOpenSearchActionOutputWithContext(context.Background())
+}
+
+func (i TopicRuleOpenSearchActionArgs) ToTopicRuleOpenSearchActionOutputWithContext(ctx context.Context) TopicRuleOpenSearchActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOpenSearchActionOutput)
+}
+
+func (i TopicRuleOpenSearchActionArgs) ToTopicRuleOpenSearchActionPtrOutput() TopicRuleOpenSearchActionPtrOutput {
+	return i.ToTopicRuleOpenSearchActionPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleOpenSearchActionArgs) ToTopicRuleOpenSearchActionPtrOutputWithContext(ctx context.Context) TopicRuleOpenSearchActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOpenSearchActionOutput).ToTopicRuleOpenSearchActionPtrOutputWithContext(ctx)
+}
+
+// TopicRuleOpenSearchActionPtrInput is an input type that accepts TopicRuleOpenSearchActionArgs, TopicRuleOpenSearchActionPtr and TopicRuleOpenSearchActionPtrOutput values.
+// You can construct a concrete instance of `TopicRuleOpenSearchActionPtrInput` via:
+//
+//          TopicRuleOpenSearchActionArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleOpenSearchActionPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleOpenSearchActionPtrOutput() TopicRuleOpenSearchActionPtrOutput
+	ToTopicRuleOpenSearchActionPtrOutputWithContext(context.Context) TopicRuleOpenSearchActionPtrOutput
+}
+
+type topicRuleOpenSearchActionPtrType TopicRuleOpenSearchActionArgs
+
+func TopicRuleOpenSearchActionPtr(v *TopicRuleOpenSearchActionArgs) TopicRuleOpenSearchActionPtrInput {
+	return (*topicRuleOpenSearchActionPtrType)(v)
+}
+
+func (*topicRuleOpenSearchActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleOpenSearchAction)(nil)).Elem()
+}
+
+func (i *topicRuleOpenSearchActionPtrType) ToTopicRuleOpenSearchActionPtrOutput() TopicRuleOpenSearchActionPtrOutput {
+	return i.ToTopicRuleOpenSearchActionPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleOpenSearchActionPtrType) ToTopicRuleOpenSearchActionPtrOutputWithContext(ctx context.Context) TopicRuleOpenSearchActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOpenSearchActionPtrOutput)
+}
+
+type TopicRuleOpenSearchActionOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleOpenSearchActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleOpenSearchAction)(nil)).Elem()
+}
+
+func (o TopicRuleOpenSearchActionOutput) ToTopicRuleOpenSearchActionOutput() TopicRuleOpenSearchActionOutput {
+	return o
+}
+
+func (o TopicRuleOpenSearchActionOutput) ToTopicRuleOpenSearchActionOutputWithContext(ctx context.Context) TopicRuleOpenSearchActionOutput {
+	return o
+}
+
+func (o TopicRuleOpenSearchActionOutput) ToTopicRuleOpenSearchActionPtrOutput() TopicRuleOpenSearchActionPtrOutput {
+	return o.ToTopicRuleOpenSearchActionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleOpenSearchActionOutput) ToTopicRuleOpenSearchActionPtrOutputWithContext(ctx context.Context) TopicRuleOpenSearchActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleOpenSearchAction) *TopicRuleOpenSearchAction {
+		return &v
+	}).(TopicRuleOpenSearchActionPtrOutput)
+}
+
+func (o TopicRuleOpenSearchActionOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleOpenSearchActionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleOpenSearchActionOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Index }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleOpenSearchActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleOpenSearchActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleOpenSearchAction) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TopicRuleOpenSearchActionPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleOpenSearchActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleOpenSearchAction)(nil)).Elem()
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) ToTopicRuleOpenSearchActionPtrOutput() TopicRuleOpenSearchActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) ToTopicRuleOpenSearchActionPtrOutputWithContext(ctx context.Context) TopicRuleOpenSearchActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) Elem() TopicRuleOpenSearchActionOutput {
+	return o.ApplyT(func(v *TopicRuleOpenSearchAction) TopicRuleOpenSearchAction {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleOpenSearchAction
+		return ret
+	}).(TopicRuleOpenSearchActionOutput)
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleOpenSearchActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleOpenSearchAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRulePutAssetPropertyValueEntry struct {
 	AssetId        *string                       `pulumi:"assetId"`
 	EntryId        *string                       `pulumi:"entryId"`
@@ -10546,6 +10754,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleKinesisActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleOpenSearchActionOutput{})
+	pulumi.RegisterOutputType(TopicRuleOpenSearchActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryArrayOutput{})
 	pulumi.RegisterOutputType(TopicRulePutItemInputOutput{})

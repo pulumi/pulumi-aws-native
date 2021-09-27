@@ -16,18 +16,33 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:GatewayResponse")]
     public partial class GatewayResponse : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The response parameters (paths, query strings, and headers) for the response.
+        /// </summary>
         [Output("responseParameters")]
         public Output<object?> ResponseParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// The response templates for the response.
+        /// </summary>
         [Output("responseTemplates")]
         public Output<object?> ResponseTemplates { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the Gateway Response.
+        /// </summary>
         [Output("responseType")]
         public Output<string> ResponseType { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the API.
+        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The HTTP status code for the response.
+        /// </summary>
         [Output("statusCode")]
         public Output<string?> StatusCode { get; private set; } = null!;
 
@@ -76,18 +91,33 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GatewayResponseArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The response parameters (paths, query strings, and headers) for the response.
+        /// </summary>
         [Input("responseParameters")]
         public Input<object>? ResponseParameters { get; set; }
 
+        /// <summary>
+        /// The response templates for the response.
+        /// </summary>
         [Input("responseTemplates")]
         public Input<object>? ResponseTemplates { get; set; }
 
+        /// <summary>
+        /// The type of the Gateway Response.
+        /// </summary>
         [Input("responseType", required: true)]
         public Input<string> ResponseType { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the API.
+        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP status code for the response.
+        /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
 

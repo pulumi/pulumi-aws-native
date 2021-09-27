@@ -40,6 +40,7 @@ export class BackupVault extends pulumi.CustomResource {
     public /*out*/ readonly backupVaultName!: pulumi.Output<string>;
     public readonly backupVaultTags!: pulumi.Output<any | undefined>;
     public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
+    public readonly lockConfiguration!: pulumi.Output<outputs.backup.BackupVaultLockConfigurationType | undefined>;
     public readonly notifications!: pulumi.Output<outputs.backup.BackupVaultNotificationObjectType | undefined>;
 
     /**
@@ -56,6 +57,7 @@ export class BackupVault extends pulumi.CustomResource {
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             inputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
             inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
+            inputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["backupVaultArn"] = undefined /*out*/;
             inputs["backupVaultName"] = undefined /*out*/;
@@ -65,6 +67,7 @@ export class BackupVault extends pulumi.CustomResource {
             inputs["backupVaultName"] = undefined /*out*/;
             inputs["backupVaultTags"] = undefined /*out*/;
             inputs["encryptionKeyArn"] = undefined /*out*/;
+            inputs["lockConfiguration"] = undefined /*out*/;
             inputs["notifications"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -81,5 +84,6 @@ export interface BackupVaultArgs {
     accessPolicy?: any;
     backupVaultTags?: any;
     encryptionKeyArn?: pulumi.Input<string>;
+    lockConfiguration?: pulumi.Input<inputs.backup.BackupVaultLockConfigurationTypeArgs>;
     notifications?: pulumi.Input<inputs.backup.BackupVaultNotificationObjectTypeArgs>;
 }

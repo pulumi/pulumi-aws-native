@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.S3.Inputs
 
     public sealed class BucketMetricsConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("accessPointArn")]
+        public Input<string>? AccessPointArn { get; set; }
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

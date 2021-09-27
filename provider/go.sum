@@ -454,8 +454,6 @@ github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c h1:pGh5EFIfc
 github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c/go.mod h1:xw2Gm4Mg+ST9s8fHR1VkUIyOJMJnSloRZlPQB+wyVpY=
 github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d h1:1eeFdKL5ySmmYevvKv7iECIc4dTATeKTtBqP4/nXxDk=
 github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d/go.mod h1:h+r25adx46+IvUSt/rTTvXNnCDnu3lRTkMPPR/GdCwk=
-github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3 h1:TSKrrGm89gmmVlrG34ZzCIOMNVk5kkSV1P88Dt38DiE=
-github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3/go.mod h1:SVfIykmWQyFuRToBTKQ8AcveWeOunS2phYxA8hJ/6Gg=
 github.com/lestrrat-go/jsval v0.0.0-20181205002323-20277e9befc0 h1:w4rIjeCV/gQpxtn3i1voyF6Hd7v1mRGIB63F7RZOk1U=
 github.com/lestrrat-go/jsval v0.0.0-20181205002323-20277e9befc0/go.mod h1:hazjwMAn+trtmUnjvhIzSIZ0YS+2egAMonQMjDhcC2s=
 github.com/lestrrat-go/pdebug v0.0.0-20210111095411-35b07dbf089b h1:2v0K4PeWeccG1wpznCE71PqO5scFzSj3jZGkQaVYEWg=
@@ -483,6 +481,8 @@ github.com/mattn/go-runewidth v0.0.8 h1:3tS41NlGYSmhhe/8fhGRzc+z3AYCw1Fe1WAyLuuj
 github.com/mattn/go-runewidth v0.0.8/go.mod h1:H031xJmbD/WCDINGzjvQ9THkh0rPKHF+m2gUSrubnMI=
 github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5Ld7szi9bcBfOoFv/3dc6xSMkL2PC0=
 github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b/go.mod h1:01TrycV0kFyexm33Z7vhZRXopbI8J3TDReVlkTgMUxE=
+github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b h1:aIpebasR+2tVaZSLOajIyvN/wsR6d1F97dmFc0IzG8E=
+github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b/go.mod h1:i1nU2aK8qY0ffKDDR93W5QThp1RplMQzs/8Q8EsvBlM=
 github.com/mitchellh/cli v1.0.0/go.mod h1:hNIlj7HEI86fIcpObd7a0FcrxTWetlwJDGcceTlRvqc=
 github.com/mitchellh/copystructure v1.0.0/go.mod h1:SNtv71yrdKgLRyLFxmLdkAbkKEFWgYaq1OVrnRcwhnw=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=

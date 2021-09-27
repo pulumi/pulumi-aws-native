@@ -15,12 +15,27 @@ namespace Pulumi.AwsNative.Configuration
     [AwsNativeResourceType("aws-native:configuration:AggregationAuthorization")]
     public partial class AggregationAuthorization : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the AggregationAuthorization.
+        /// </summary>
+        [Output("aggregationAuthorizationArn")]
+        public Output<string> AggregationAuthorizationArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The 12-digit account ID of the account authorized to aggregate data.
+        /// </summary>
         [Output("authorizedAccountId")]
         public Output<string> AuthorizedAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// The region authorized to collect aggregated data.
+        /// </summary>
         [Output("authorizedAwsRegion")]
         public Output<string> AuthorizedAwsRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the AggregationAuthorization.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.AggregationAuthorizationTag>> Tags { get; private set; } = null!;
 
@@ -69,14 +84,24 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class AggregationAuthorizationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The 12-digit account ID of the account authorized to aggregate data.
+        /// </summary>
         [Input("authorizedAccountId", required: true)]
         public Input<string> AuthorizedAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The region authorized to collect aggregated data.
+        /// </summary>
         [Input("authorizedAwsRegion", required: true)]
         public Input<string> AuthorizedAwsRegion { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.AggregationAuthorizationTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the AggregationAuthorization.
+        /// </summary>
         public InputList<Inputs.AggregationAuthorizationTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.AggregationAuthorizationTagArgs>());

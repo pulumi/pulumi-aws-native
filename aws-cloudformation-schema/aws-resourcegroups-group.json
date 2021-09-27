@@ -54,7 +54,7 @@
       "properties" : {
         "Key" : {
           "type" : "string",
-          "pattern" : ""
+          "pattern" : "^(?!aws:).+"
         },
         "Value" : {
           "type" : "string"

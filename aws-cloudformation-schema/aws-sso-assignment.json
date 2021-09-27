@@ -1,12 +1,13 @@
 {
   "typeName" : "AWS::SSO::Assignment",
+  "taggable" : false,
   "description" : "Resource Type definition for SSO assignmet",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sso/aws-sso-assignment",
   "properties" : {
     "InstanceArn" : {
       "description" : "The sso instance that the permission set is owned.",
       "type" : "string",
-      "pattern" : "arn:aws:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+      "pattern" : "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
       "minLength" : 10,
       "maxLength" : 1224
     },
@@ -23,7 +24,7 @@
     "PermissionSetArn" : {
       "description" : "The permission set that the assignemt will be assigned",
       "type" : "string",
-      "pattern" : "arn:aws:sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
+      "pattern" : "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
       "minLength" : 10,
       "maxLength" : 1224
     },

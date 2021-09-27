@@ -176,6 +176,9 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/SnsTopicArn" ],
   "createOnlyProperties" : [ "/properties/TrailName" ],
   "primaryIdentifier" : [ "/properties/TrailName" ],
+  "propertyTransform" : {
+    "/properties/KMSKeyId" : "$join([\"arn:(aws)[-]{0,1}[a-z]{0,2}[-]{0,1}[a-z]{0,3}:kms:[a-z]{2}[-]{1}[a-z]{3,10}[-]{0,1}[a-z]{0,10}[-]{1}[1-3]{1}:[0-9]{12}[:]{1}key\\/\", KMSKeyId])"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "CloudTrail:CreateTrail", "CloudTrail:StartLogging", "CloudTrail:AddTags", "CloudTrail:PutEventSelectors", "CloudTrail:PutInsightSelectors", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole", "organizations:DescribeOrganization", "organizations:ListAWSServiceAccessForOrganization" ]

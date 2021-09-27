@@ -26,14 +26,14 @@
     "IamRoleArn" : {
       "description" : "The ARN of the IAM role that defines the permissions for AWS Chatbot",
       "type" : "string",
-      "pattern" : ""
+      "pattern" : "^arn:(aws[a-zA-Z-]*)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$"
     },
     "SnsTopicArns" : {
       "description" : "ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.",
       "type" : "array",
       "items" : {
         "type" : "string",
-        "pattern" : ""
+        "pattern" : "^arn:(aws[a-zA-Z-]*)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$"
       }
     },
     "LoggingLevel" : {
@@ -45,7 +45,7 @@
     "Arn" : {
       "description" : "Amazon Resource Name (ARN) of the configuration",
       "type" : "string",
-      "pattern" : ""
+      "pattern" : "^arn:(aws[a-zA-Z-]*)?:chatbot:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$"
     }
   },
   "required" : [ "SlackWorkspaceId", "SlackChannelId", "ConfigurationName", "IamRoleArn" ],

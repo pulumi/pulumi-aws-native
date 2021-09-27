@@ -94,7 +94,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 128,
-          "pattern" : ""
+          "pattern" : "^(?!aws:)[a-zA-Z+-=._:/]+$"
         },
         "Value" : {
           "type" : "string",

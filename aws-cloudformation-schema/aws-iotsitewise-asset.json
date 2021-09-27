@@ -14,7 +14,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 256,
-          "pattern" : ""
+          "pattern" : "[^\\u0000-\\u001F\\u007F]+"
         },
         "Alias" : {
           "description" : "The property alias that identifies the property.",
@@ -38,7 +38,7 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 256,
-          "pattern" : ""
+          "pattern" : "[^\\u0000-\\u001F\\u007F]+"
         },
         "ChildAssetId" : {
           "description" : "The ID of the child asset to be associated.",

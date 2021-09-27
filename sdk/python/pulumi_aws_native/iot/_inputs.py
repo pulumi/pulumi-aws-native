@@ -63,6 +63,7 @@ __all__ = [
     'TopicRuleKafkaActionArgs',
     'TopicRuleKinesisActionArgs',
     'TopicRuleLambdaActionArgs',
+    'TopicRuleOpenSearchActionArgs',
     'TopicRulePutAssetPropertyValueEntryArgs',
     'TopicRulePutItemInputArgs',
     'TopicRuleRepublishActionArgs',
@@ -1442,6 +1443,7 @@ class TopicRuleActionArgs:
                  kafka: Optional[pulumi.Input['TopicRuleKafkaActionArgs']] = None,
                  kinesis: Optional[pulumi.Input['TopicRuleKinesisActionArgs']] = None,
                  lambda_: Optional[pulumi.Input['TopicRuleLambdaActionArgs']] = None,
+                 open_search: Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']] = None,
                  republish: Optional[pulumi.Input['TopicRuleRepublishActionArgs']] = None,
                  s3: Optional[pulumi.Input['TopicRuleS3ActionArgs']] = None,
                  sns: Optional[pulumi.Input['TopicRuleSnsActionArgs']] = None,
@@ -1476,6 +1478,8 @@ class TopicRuleActionArgs:
             pulumi.set(__self__, "kinesis", kinesis)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if open_search is not None:
+            pulumi.set(__self__, "open_search", open_search)
         if republish is not None:
             pulumi.set(__self__, "republish", republish)
         if s3 is not None:
@@ -1614,6 +1618,15 @@ class TopicRuleActionArgs:
     @lambda_.setter
     def lambda_(self, value: Optional[pulumi.Input['TopicRuleLambdaActionArgs']]):
         pulumi.set(self, "lambda_", value)
+
+    @property
+    @pulumi.getter(name="openSearch")
+    def open_search(self) -> Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']]:
+        return pulumi.get(self, "open_search")
+
+    @open_search.setter
+    def open_search(self, value: Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']]):
+        pulumi.set(self, "open_search", value)
 
     @property
     @pulumi.getter
@@ -2586,6 +2599,66 @@ class TopicRuleLambdaActionArgs:
     @function_arn.setter
     def function_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "function_arn", value)
+
+
+@pulumi.input_type
+class TopicRuleOpenSearchActionArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[str],
+                 id: pulumi.Input[str],
+                 index: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def index(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "index")
+
+    @index.setter
+    def index(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

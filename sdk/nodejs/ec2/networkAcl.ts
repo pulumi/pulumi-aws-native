@@ -38,13 +38,7 @@ export class NetworkAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkAcl.__pulumiType;
     }
 
-    /**
-     * The tags to assign to the network ACL.
-     */
     public readonly tags!: pulumi.Output<outputs.ec2.NetworkAclTag[] | undefined>;
-    /**
-     * The ID of the VPC.
-     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -80,12 +74,6 @@ export class NetworkAcl extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkAcl resource.
  */
 export interface NetworkAclArgs {
-    /**
-     * The tags to assign to the network ACL.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclTagArgs>[]>;
-    /**
-     * The ID of the VPC.
-     */
     vpcId: pulumi.Input<string>;
 }

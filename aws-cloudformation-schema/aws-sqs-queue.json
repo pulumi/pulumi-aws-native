@@ -24,6 +24,9 @@
     "KmsDataKeyReusePeriodSeconds" : {
       "type" : "integer"
     },
+    "RedriveAllowPolicy" : {
+      "type" : "object"
+    },
     "DelaySeconds" : {
       "type" : "integer"
     },

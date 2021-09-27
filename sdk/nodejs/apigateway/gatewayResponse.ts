@@ -37,10 +37,25 @@ export class GatewayResponse extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayResponse.__pulumiType;
     }
 
+    /**
+     * The response parameters (paths, query strings, and headers) for the response.
+     */
     public readonly responseParameters!: pulumi.Output<any | undefined>;
+    /**
+     * The response templates for the response.
+     */
     public readonly responseTemplates!: pulumi.Output<any | undefined>;
+    /**
+     * The type of the Gateway Response.
+     */
     public readonly responseType!: pulumi.Output<string>;
+    /**
+     * The identifier of the API.
+     */
     public readonly restApiId!: pulumi.Output<string>;
+    /**
+     * The HTTP status code for the response.
+     */
     public readonly statusCode!: pulumi.Output<string | undefined>;
 
     /**
@@ -85,9 +100,24 @@ export class GatewayResponse extends pulumi.CustomResource {
  * The set of arguments for constructing a GatewayResponse resource.
  */
 export interface GatewayResponseArgs {
+    /**
+     * The response parameters (paths, query strings, and headers) for the response.
+     */
     responseParameters?: any;
+    /**
+     * The response templates for the response.
+     */
     responseTemplates?: any;
+    /**
+     * The type of the Gateway Response.
+     */
     responseType: pulumi.Input<string>;
+    /**
+     * The identifier of the API.
+     */
     restApiId: pulumi.Input<string>;
+    /**
+     * The HTTP status code for the response.
+     */
     statusCode?: pulumi.Input<string>;
 }

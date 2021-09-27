@@ -124,7 +124,7 @@
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 1284,
-      "pattern" : ""
+      "pattern" : "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}"
     },
     "DataSourceVpcConfiguration" : {
       "type" : "object",
@@ -616,7 +616,7 @@
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 256,
-      "pattern" : ""
+      "pattern" : "^(?!\\s).+@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
     },
     "ServiceNowConfiguration" : {
       "type" : "object",
@@ -673,7 +673,7 @@
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 2048,
-      "pattern" : ""
+      "pattern" : "^(?!(^(https?|ftp|file):\\/\\/))[a-z0-9-]+(\\.service-now\\.com)$"
     },
     "ServiceNowKnowledgeArticleConfiguration" : {
       "type" : "object",
@@ -1051,7 +1051,7 @@
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 1284,
-      "pattern" : ""
+      "pattern" : "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}"
     },
     "Schedule" : {
       "description" : "Schedule",

@@ -16,6 +16,7 @@ __all__ = [
     'DataSourceElasticsearchConfigArgs',
     'DataSourceHttpConfigArgs',
     'DataSourceLambdaConfigArgs',
+    'DataSourceOpenSearchServiceConfigArgs',
     'DataSourceRdsHttpEndpointConfigArgs',
     'DataSourceRelationalDatabaseConfigArgs',
     'FunctionConfigurationLambdaConflictHandlerConfigArgs',
@@ -259,6 +260,33 @@ class DataSourceLambdaConfigArgs:
     @lambda_function_arn.setter
     def lambda_function_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "lambda_function_arn", value)
+
+
+@pulumi.input_type
+class DataSourceOpenSearchServiceConfigArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input[str],
+                 endpoint: pulumi.Input[str]):
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
 
 
 @pulumi.input_type

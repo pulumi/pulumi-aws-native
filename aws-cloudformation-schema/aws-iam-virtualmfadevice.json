@@ -12,7 +12,7 @@
     "Path" : {
       "minLength" : 1,
       "maxLength" : 512,
-      "pattern" : "",
+      "pattern" : "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
       "type" : "string"
     },
     "SerialNumber" : {

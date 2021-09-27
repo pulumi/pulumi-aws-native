@@ -6,7 +6,7 @@
     "Id" : {
       "description" : "The ID of the PackagingGroup.",
       "type" : "string",
-      "pattern" : "",
+      "pattern" : "\\A[0-9a-zA-Z-_]+\\Z",
       "minLength" : 1,
       "maxLength" : 256
     },
@@ -71,7 +71,7 @@
         "LogGroupName" : {
           "description" : "Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.",
           "type" : "string",
-          "pattern" : "",
+          "pattern" : "\\A\\/aws\\/MediaPackage\\/[0-9a-zA-Z-_\\/\\.#]+\\Z",
           "minLength" : 1,
           "maxLength" : 512
         }

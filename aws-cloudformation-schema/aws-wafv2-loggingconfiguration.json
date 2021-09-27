@@ -89,7 +89,7 @@
                   "minItems" : 1,
                   "items" : {
                     "type" : "string",
-                    "pattern" : ""
+                    "pattern" : "^[\\/]+([^~]*(~[01])*)*{1,512}$"
                   }
                 }
               }

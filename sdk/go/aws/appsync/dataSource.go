@@ -25,6 +25,7 @@ type DataSource struct {
 	HttpConfig               DataSourceHttpConfigPtrOutput               `pulumi:"httpConfig"`
 	LambdaConfig             DataSourceLambdaConfigPtrOutput             `pulumi:"lambdaConfig"`
 	Name                     pulumi.StringOutput                         `pulumi:"name"`
+	OpenSearchServiceConfig  DataSourceOpenSearchServiceConfigPtrOutput  `pulumi:"openSearchServiceConfig"`
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
 	ServiceRoleArn           pulumi.StringPtrOutput                      `pulumi:"serviceRoleArn"`
 	Type                     pulumi.StringOutput                         `pulumi:"type"`
@@ -85,6 +86,7 @@ type dataSourceArgs struct {
 	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
 	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
 	Name                     string                              `pulumi:"name"`
+	OpenSearchServiceConfig  *DataSourceOpenSearchServiceConfig  `pulumi:"openSearchServiceConfig"`
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	ServiceRoleArn           *string                             `pulumi:"serviceRoleArn"`
 	Type                     string                              `pulumi:"type"`
@@ -99,6 +101,7 @@ type DataSourceArgs struct {
 	HttpConfig               DataSourceHttpConfigPtrInput
 	LambdaConfig             DataSourceLambdaConfigPtrInput
 	Name                     pulumi.StringInput
+	OpenSearchServiceConfig  DataSourceOpenSearchServiceConfigPtrInput
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	ServiceRoleArn           pulumi.StringPtrInput
 	Type                     pulumi.StringInput

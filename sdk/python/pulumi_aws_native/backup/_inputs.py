@@ -16,6 +16,7 @@ __all__ = [
     'BackupPlanLifecycleResourceTypeArgs',
     'BackupSelectionBackupSelectionResourceTypeArgs',
     'BackupSelectionConditionResourceTypeArgs',
+    'BackupVaultLockConfigurationTypeArgs',
     'BackupVaultNotificationObjectTypeArgs',
 ]
 
@@ -340,6 +341,47 @@ class BackupSelectionConditionResourceTypeArgs:
     @condition_value.setter
     def condition_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "condition_value", value)
+
+
+@pulumi.input_type
+class BackupVaultLockConfigurationTypeArgs:
+    def __init__(__self__, *,
+                 changeable_for_days: Optional[pulumi.Input[float]] = None,
+                 max_retention_days: Optional[pulumi.Input[float]] = None,
+                 min_retention_days: Optional[pulumi.Input[float]] = None):
+        if changeable_for_days is not None:
+            pulumi.set(__self__, "changeable_for_days", changeable_for_days)
+        if max_retention_days is not None:
+            pulumi.set(__self__, "max_retention_days", max_retention_days)
+        if min_retention_days is not None:
+            pulumi.set(__self__, "min_retention_days", min_retention_days)
+
+    @property
+    @pulumi.getter(name="changeableForDays")
+    def changeable_for_days(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "changeable_for_days")
+
+    @changeable_for_days.setter
+    def changeable_for_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "changeable_for_days", value)
+
+    @property
+    @pulumi.getter(name="maxRetentionDays")
+    def max_retention_days(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max_retention_days")
+
+    @max_retention_days.setter
+    def max_retention_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_retention_days", value)
+
+    @property
+    @pulumi.getter(name="minRetentionDays")
+    def min_retention_days(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min_retention_days")
+
+    @min_retention_days.setter
+    def min_retention_days(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_retention_days", value)
 
 
 @pulumi.input_type

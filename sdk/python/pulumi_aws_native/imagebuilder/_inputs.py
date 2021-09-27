@@ -592,28 +592,17 @@ class ImagePipelineScheduleArgs:
 @pulumi.input_type
 class ImageRecipeAdditionalInstanceConfigurationArgs:
     def __init__(__self__, *,
-                 user_data_override: pulumi.Input[str],
-                 systems_manager_agent: Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']] = None):
+                 systems_manager_agent: Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']] = None,
+                 user_data_override: Optional[pulumi.Input[str]] = None):
         """
         Specify additional settings and launch scripts for your build instances.
-        :param pulumi.Input[str] user_data_override: Use this property to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input['ImageRecipeSystemsManagerAgentArgs'] systems_manager_agent: Contains settings for the SSM agent on your build instance.
+        :param pulumi.Input[str] user_data_override: Use this property to provide commands or a command script to run when you launch your build instance.
         """
-        pulumi.set(__self__, "user_data_override", user_data_override)
         if systems_manager_agent is not None:
             pulumi.set(__self__, "systems_manager_agent", systems_manager_agent)
-
-    @property
-    @pulumi.getter(name="userDataOverride")
-    def user_data_override(self) -> pulumi.Input[str]:
-        """
-        Use this property to provide commands or a command script to run when you launch your build instance.
-        """
-        return pulumi.get(self, "user_data_override")
-
-    @user_data_override.setter
-    def user_data_override(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_data_override", value)
+        if user_data_override is not None:
+            pulumi.set(__self__, "user_data_override", user_data_override)
 
     @property
     @pulumi.getter(name="systemsManagerAgent")
@@ -626,6 +615,18 @@ class ImageRecipeAdditionalInstanceConfigurationArgs:
     @systems_manager_agent.setter
     def systems_manager_agent(self, value: Optional[pulumi.Input['ImageRecipeSystemsManagerAgentArgs']]):
         pulumi.set(self, "systems_manager_agent", value)
+
+    @property
+    @pulumi.getter(name="userDataOverride")
+    def user_data_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this property to provide commands or a command script to run when you launch your build instance.
+        """
+        return pulumi.get(self, "user_data_override")
+
+    @user_data_override.setter
+    def user_data_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data_override", value)
 
 
 @pulumi.input_type
@@ -901,23 +902,24 @@ class ImageRecipeInstanceBlockDeviceMappingArgs:
 @pulumi.input_type
 class ImageRecipeSystemsManagerAgentArgs:
     def __init__(__self__, *,
-                 uninstall_after_build: pulumi.Input[bool]):
+                 uninstall_after_build: Optional[pulumi.Input[bool]] = None):
         """
         Contains settings for the SSM agent on your build instance.
-        :param pulumi.Input[bool] uninstall_after_build: This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
+        :param pulumi.Input[bool] uninstall_after_build: Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
         """
-        pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
+        if uninstall_after_build is not None:
+            pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
 
     @property
     @pulumi.getter(name="uninstallAfterBuild")
-    def uninstall_after_build(self) -> pulumi.Input[bool]:
+    def uninstall_after_build(self) -> Optional[pulumi.Input[bool]]:
         """
-        This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
+        Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
         """
         return pulumi.get(self, "uninstall_after_build")
 
     @uninstall_after_build.setter
-    def uninstall_after_build(self, value: pulumi.Input[bool]):
+    def uninstall_after_build(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "uninstall_after_build", value)
 
 

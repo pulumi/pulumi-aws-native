@@ -121,7 +121,7 @@
           "description" : "An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.",
           "minLength" : 3,
           "maxLength" : 63,
-          "pattern" : ""
+          "pattern" : "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$"
         },
         "S3Key" : {
           "type" : "string",

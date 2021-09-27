@@ -41,13 +41,17 @@ export class SimulationApplication extends pulumi.CustomResource {
      */
     public readonly currentRevisionId!: pulumi.Output<string | undefined>;
     /**
+     * The URI of the Docker image for the robot application.
+     */
+    public readonly environment!: pulumi.Output<string | undefined>;
+    /**
      * The name of the simulation application.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The rendering engine for the simulation application.
      */
-    public readonly renderingEngine!: pulumi.Output<outputs.robomaker.SimulationApplicationRenderingEngine>;
+    public readonly renderingEngine!: pulumi.Output<outputs.robomaker.SimulationApplicationRenderingEngine | undefined>;
     /**
      * The robot software suite (ROS distribution) used by the simulation application.
      */
@@ -59,7 +63,7 @@ export class SimulationApplication extends pulumi.CustomResource {
     /**
      * The sources of the simulation application.
      */
-    public readonly sources!: pulumi.Output<outputs.robomaker.SimulationApplicationSourceConfig[]>;
+    public readonly sources!: pulumi.Output<outputs.robomaker.SimulationApplicationSourceConfig[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.robomaker.SimulationApplicationTags | undefined>;
 
     /**
@@ -73,19 +77,14 @@ export class SimulationApplication extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.renderingEngine === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'renderingEngine'");
-            }
             if ((!args || args.robotSoftwareSuite === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'robotSoftwareSuite'");
             }
             if ((!args || args.simulationSoftwareSuite === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'simulationSoftwareSuite'");
             }
-            if ((!args || args.sources === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sources'");
-            }
             inputs["currentRevisionId"] = args ? args.currentRevisionId : undefined;
+            inputs["environment"] = args ? args.environment : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["renderingEngine"] = args ? args.renderingEngine : undefined;
             inputs["robotSoftwareSuite"] = args ? args.robotSoftwareSuite : undefined;
@@ -96,6 +95,7 @@ export class SimulationApplication extends pulumi.CustomResource {
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["currentRevisionId"] = undefined /*out*/;
+            inputs["environment"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["renderingEngine"] = undefined /*out*/;
             inputs["robotSoftwareSuite"] = undefined /*out*/;
@@ -119,13 +119,17 @@ export interface SimulationApplicationArgs {
      */
     currentRevisionId?: pulumi.Input<string>;
     /**
+     * The URI of the Docker image for the robot application.
+     */
+    environment?: pulumi.Input<string>;
+    /**
      * The name of the simulation application.
      */
     name?: pulumi.Input<string>;
     /**
      * The rendering engine for the simulation application.
      */
-    renderingEngine: pulumi.Input<inputs.robomaker.SimulationApplicationRenderingEngineArgs>;
+    renderingEngine?: pulumi.Input<inputs.robomaker.SimulationApplicationRenderingEngineArgs>;
     /**
      * The robot software suite (ROS distribution) used by the simulation application.
      */
@@ -137,6 +141,6 @@ export interface SimulationApplicationArgs {
     /**
      * The sources of the simulation application.
      */
-    sources: pulumi.Input<pulumi.Input<inputs.robomaker.SimulationApplicationSourceConfigArgs>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.robomaker.SimulationApplicationSourceConfigArgs>[]>;
     tags?: pulumi.Input<inputs.robomaker.SimulationApplicationTagsArgs>;
 }

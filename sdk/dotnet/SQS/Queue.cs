@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.SQS
         [Output("receiveMessageWaitTimeSeconds")]
         public Output<int?> ReceiveMessageWaitTimeSeconds { get; private set; } = null!;
 
+        [Output("redriveAllowPolicy")]
+        public Output<object?> RedriveAllowPolicy { get; private set; } = null!;
+
         [Output("redrivePolicy")]
         public Output<object?> RedrivePolicy { get; private set; } = null!;
 
@@ -138,6 +141,9 @@ namespace Pulumi.AwsNative.SQS
 
         [Input("receiveMessageWaitTimeSeconds")]
         public Input<int>? ReceiveMessageWaitTimeSeconds { get; set; }
+
+        [Input("redriveAllowPolicy")]
+        public Input<object>? RedriveAllowPolicy { get; set; }
 
         [Input("redrivePolicy")]
         public Input<object>? RedrivePolicy { get; set; }

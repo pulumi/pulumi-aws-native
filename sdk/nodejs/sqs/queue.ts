@@ -50,6 +50,7 @@ export class Queue extends pulumi.CustomResource {
     public readonly messageRetentionPeriod!: pulumi.Output<number | undefined>;
     public readonly queueName!: pulumi.Output<string | undefined>;
     public readonly receiveMessageWaitTimeSeconds!: pulumi.Output<number | undefined>;
+    public readonly redriveAllowPolicy!: pulumi.Output<any | undefined>;
     public readonly redrivePolicy!: pulumi.Output<any | undefined>;
     public readonly tags!: pulumi.Output<outputs.sqs.QueueTag[] | undefined>;
     public readonly visibilityTimeout!: pulumi.Output<number | undefined>;
@@ -78,6 +79,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["messageRetentionPeriod"] = args ? args.messageRetentionPeriod : undefined;
             inputs["queueName"] = args ? args.queueName : undefined;
             inputs["receiveMessageWaitTimeSeconds"] = args ? args.receiveMessageWaitTimeSeconds : undefined;
+            inputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
             inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["visibilityTimeout"] = args ? args.visibilityTimeout : undefined;
@@ -95,6 +97,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["messageRetentionPeriod"] = undefined /*out*/;
             inputs["queueName"] = undefined /*out*/;
             inputs["receiveMessageWaitTimeSeconds"] = undefined /*out*/;
+            inputs["redriveAllowPolicy"] = undefined /*out*/;
             inputs["redrivePolicy"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["visibilityTimeout"] = undefined /*out*/;
@@ -121,6 +124,7 @@ export interface QueueArgs {
     messageRetentionPeriod?: pulumi.Input<number>;
     queueName?: pulumi.Input<string>;
     receiveMessageWaitTimeSeconds?: pulumi.Input<number>;
+    redriveAllowPolicy?: any;
     redrivePolicy?: any;
     tags?: pulumi.Input<pulumi.Input<inputs.sqs.QueueTagArgs>[]>;
     visibilityTimeout?: pulumi.Input<number>;

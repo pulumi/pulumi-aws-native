@@ -668,6 +668,9 @@
         },
         "Prefix" : {
           "type" : "string"
+        },
+        "AccessPointArn" : {
+          "type" : "string"
         }
       },
       "required" : [ "Id" ]

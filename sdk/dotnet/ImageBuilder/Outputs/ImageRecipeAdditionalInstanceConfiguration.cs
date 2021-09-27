@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// <summary>
         /// Use this property to provide commands or a command script to run when you launch your build instance.
         /// </summary>
-        public readonly string UserDataOverride;
+        public readonly string? UserDataOverride;
 
         [OutputConstructor]
         private ImageRecipeAdditionalInstanceConfiguration(
             Outputs.ImageRecipeSystemsManagerAgent? systemsManagerAgent,
 
-            string userDataOverride)
+            string? userDataOverride)
         {
             SystemsManagerAgent = systemsManagerAgent;
             UserDataOverride = userDataOverride;
