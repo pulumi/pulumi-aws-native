@@ -1,7 +1,6 @@
 # Native AWS Pulumi Provider (preview)
 
 The native AWS Provider for Pulumi lets you use AWS resources in your cloud programs.
-This provider uses the AWS Cloud API and therefore provides full access to AWS CloudFormation resources.
 
 The provider is currently in private preview.
 
