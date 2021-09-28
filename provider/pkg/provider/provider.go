@@ -808,7 +808,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	default:
 		spec, ok := p.resourceMap.Resources[resourceToken]
 		if !ok {
-			return nil, errors.Errorf("Resource type %s not found6", resourceToken)
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
 		}
 		cfType = spec.CfType
 	}
