@@ -46,7 +46,7 @@ $ pulumi stack output --json --show-secrets
 
 ### Part 2: Assuming the Role
 
-The Pulumi program in `assume-role` creates an S3 bucket after assuming the Role created in Part 1. It should be run
+The Pulumi program in `assume-role` creates a LogGroup after assuming the Role created in Part 1. It should be run
 with the unprivileged user credentials created in Part 1. This can be configured as follows, from the `assume-role`
 directory, replacing `{YOUR_STACK_PATH/assume-role-create}` with the full name of your stack from Part 1. Full name of your stack is available at [`app.pulumi.com`][app]
 

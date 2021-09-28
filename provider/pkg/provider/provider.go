@@ -336,13 +336,6 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 			return nil, fmt.Errorf("failed to unmarshal 'assumeRole' config: %w", err)
 		}
 
-		if assumeRole.Tags != nil {
-			glog.Warningf("assumeRole:tags is not yet implemented")
-		}
-		if assumeRole.TransitiveTagKeys != nil {
-			glog.Warningf("assumeRole:transitiveTagKeys is not yet implemented")
-		}
-
 		creds := stscreds.NewAssumeRoleProvider(sts.NewFromConfig(cfg), "roleArn",
 			func(o *stscreds.AssumeRoleOptions) {
 				if assumeRole.DurationSeconds != nil {
@@ -359,6 +352,12 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 				}
 				if assumeRole.SessionName != nil {
 					o.RoleSessionName = *assumeRole.SessionName
+				}
+				for k, v := range assumeRole.Tags {
+					o.Tags = append(o.Tags, ststypes.Tag{Key: aws.String(k), Value: aws.String(v)})
+				}
+				if assumeRole.TransitiveTagKeys != nil {
+					o.TransitiveTagKeys = assumeRole.TransitiveTagKeys
 				}
 			})
 		cfg.Credentials = aws.NewCredentialsCache(creds)
