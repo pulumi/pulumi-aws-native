@@ -33,12 +33,14 @@ import (
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
+	"github.com/aws/aws-sdk-go-v2/credentials/stscreds"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
+	ststypes "github.com/aws/aws-sdk-go-v2/service/sts/types"
 	"github.com/aws/smithy-go"
 	"github.com/aws/smithy-go/middleware"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
@@ -163,9 +165,6 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		case "allowedAccountIds":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/105")})
-		case "assumeRole":
-			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/106")})
 		case "defaultTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
 				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/107")})
@@ -328,6 +327,40 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	cfg, err := config.LoadDefaultConfig(ctx, loadOptions...)
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not load AWS config")
+	}
+
+	if assumeRoleJson, ok := vars["aws-native:config:assumeRole"]; ok {
+		var assumeRole ProviderAssumeRole
+		err := json.Unmarshal([]byte(assumeRoleJson), &assumeRole)
+		if err != nil {
+			return nil, fmt.Errorf("failed to unmarshal 'assumeRole' config: %w", err)
+		}
+
+		creds := stscreds.NewAssumeRoleProvider(sts.NewFromConfig(cfg), "roleArn",
+			func(o *stscreds.AssumeRoleOptions) {
+				if assumeRole.DurationSeconds != nil {
+					o.Duration = time.Duration(*(assumeRole.DurationSeconds)) * time.Second
+				}
+				o.ExternalID = assumeRole.ExternalId
+				o.Policy = assumeRole.Policy
+
+				for _, arn := range assumeRole.PolicyArns {
+					o.PolicyARNs = append(o.PolicyARNs, ststypes.PolicyDescriptorType{Arn: aws.String(arn)})
+				}
+				if assumeRole.RoleArn != nil {
+					o.RoleARN = *assumeRole.RoleArn
+				}
+				if assumeRole.SessionName != nil {
+					o.RoleSessionName = *assumeRole.SessionName
+				}
+				for k, v := range assumeRole.Tags {
+					o.Tags = append(o.Tags, ststypes.Tag{Key: aws.String(k), Value: aws.String(v)})
+				}
+				if assumeRole.TransitiveTagKeys != nil {
+					o.TransitiveTagKeys = assumeRole.TransitiveTagKeys
+				}
+			})
+		cfg.Credentials = aws.NewCredentialsCache(creds)
 	}
 
 	p.cfn, p.cctl, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), cloudcontrol.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)

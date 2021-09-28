@@ -4,14 +4,14 @@ go 1.15
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
-	github.com/aws/aws-sdk-go-v2 v1.9.0
-	github.com/aws/aws-sdk-go-v2/config v1.5.0
-	github.com/aws/aws-sdk-go-v2/credentials v1.3.1
+	github.com/aws/aws-sdk-go-v2 v1.9.1
+	github.com/aws/aws-sdk-go-v2/config v1.8.2
+	github.com/aws/aws-sdk-go-v2/credentials v1.4.2
 	github.com/aws/aws-sdk-go-v2/service/cloudcontrol v1.9.0
-	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.10.0
-	github.com/aws/aws-sdk-go-v2/service/ec2 v1.12.0
-	github.com/aws/aws-sdk-go-v2/service/ssm v1.8.0
-	github.com/aws/aws-sdk-go-v2/service/sts v1.6.0
+	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.10.1
+	github.com/aws/aws-sdk-go-v2/service/ec2 v1.18.0
+	github.com/aws/aws-sdk-go-v2/service/ssm v1.11.0
+	github.com/aws/aws-sdk-go-v2/service/sts v1.7.1
 	github.com/aws/smithy-go v1.8.0
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/evanphx/json-patch v0.5.2 // indirect
@@ -21,6 +21,7 @@ require (
 	github.com/google/uuid v1.2.0
 	github.com/hashicorp/hcl/v2 v2.3.0
 	github.com/jpillora/backoff v1.0.0
+	github.com/kr/pretty v0.3.0 // indirect
 	github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c // indirect
 	github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d // indirect
 	github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3
@@ -36,6 +37,7 @@ require (
 	google.golang.org/grpc v1.37.0
 )
 
-replace github.com/aws/aws-sdk-go-v2/service/cloudcontrol => ../aws-sdk-go-v2-cloudcontrol-preview
-
-replace github.com/lestrrat-go/jsschema => github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b
+replace (
+	github.com/aws/aws-sdk-go-v2/service/cloudcontrol => ../aws-sdk-go-v2-cloudcontrol-preview
+	github.com/lestrrat-go/jsschema => github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b
+)
