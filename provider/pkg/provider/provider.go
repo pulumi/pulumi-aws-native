@@ -58,7 +58,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
-	"github.com/ryboe/q"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -345,24 +344,24 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 			glog.Warningf("assumeRole:transitiveTagKeys is not yet implemented")
 		}
 
-		q.Q(assumeRole)
-		creds := stscreds.NewAssumeRoleProvider(sts.NewFromConfig(cfg), "roleArn", func(o *stscreds.AssumeRoleOptions) {
-			if assumeRole.DurationSeconds != nil {
-				o.Duration = time.Duration(*(assumeRole.DurationSeconds)) * time.Second
-			}
-			o.ExternalID = assumeRole.ExternalId
-			o.Policy = assumeRole.Policy
+		creds := stscreds.NewAssumeRoleProvider(sts.NewFromConfig(cfg), "roleArn",
+			func(o *stscreds.AssumeRoleOptions) {
+				if assumeRole.DurationSeconds != nil {
+					o.Duration = time.Duration(*(assumeRole.DurationSeconds)) * time.Second
+				}
+				o.ExternalID = assumeRole.ExternalId
+				o.Policy = assumeRole.Policy
 
-			for _, arn := range assumeRole.PolicyArns {
-				o.PolicyARNs = append(o.PolicyARNs, ststypes.PolicyDescriptorType{Arn: aws.String(arn)})
-			}
-			if assumeRole.RoleArn != nil {
-				o.RoleARN = *assumeRole.RoleArn
-			}
-			if assumeRole.SessionName != nil {
-				o.RoleSessionName = *assumeRole.SessionName
-			}
-		})
+				for _, arn := range assumeRole.PolicyArns {
+					o.PolicyARNs = append(o.PolicyARNs, ststypes.PolicyDescriptorType{Arn: aws.String(arn)})
+				}
+				if assumeRole.RoleArn != nil {
+					o.RoleARN = *assumeRole.RoleArn
+				}
+				if assumeRole.SessionName != nil {
+					o.RoleSessionName = *assumeRole.SessionName
+				}
+			})
 		cfg.Credentials = aws.NewCredentialsCache(creds)
 	}
 

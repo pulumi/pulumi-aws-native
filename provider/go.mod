@@ -21,6 +21,7 @@ require (
 	github.com/google/uuid v1.2.0
 	github.com/hashicorp/hcl/v2 v2.3.0
 	github.com/jpillora/backoff v1.0.0
+	github.com/kr/pretty v0.3.0 // indirect
 	github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c // indirect
 	github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d // indirect
 	github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3
@@ -32,7 +33,6 @@ require (
 	github.com/pulumi/pulumi-aws-native/sdk v0.1.0
 	github.com/pulumi/pulumi/pkg/v3 v3.12.0
 	github.com/pulumi/pulumi/sdk/v3 v3.12.0
-	github.com/ryboe/q v1.0.14
 	github.com/stretchr/testify v1.7.0
 	github.com/zclconf/go-cty v1.3.1
 	google.golang.org/grpc v1.37.0
