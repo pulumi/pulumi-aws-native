@@ -12275,6 +12275,35 @@
                 "name"
             ]
         },
+        "aws-native:index:ExtensionResource": {
+            "cf": "",
+            "inputs": {
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Dictionary of the extension resource properties."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "CloudFormation type name."
+                }
+            },
+            "outputs": {
+                "outputs": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "description": "Dictionary of the extension resource attributes."
+                }
+            },
+            "createOnly": [
+                "type",
+                "properties"
+            ]
+        },
         "aws-native:iot:AccountAuditConfiguration": {
             "cf": "AWS::IoT::AccountAuditConfiguration",
             "inputs": {
