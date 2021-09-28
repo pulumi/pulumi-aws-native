@@ -23,3 +23,7 @@ type CloudAPIResource struct {
 type CloudAPIType struct {
 	Properties map[string]pschema.PropertySpec `json:"properties"`
 }
+
+// ExtensionResourceToken is a Pulumi token for the resource to deploy
+// custom third-party CloudFormation types.
+const ExtensionResourceToken = "aws-native:index:ExtensionResource"
