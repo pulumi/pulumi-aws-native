@@ -21,5 +21,6 @@ type CloudAPIResource struct {
 
 // CloudAPIType contains metadata for an auxiliary type.
 type CloudAPIType struct {
-	Properties map[string]pschema.PropertySpec `json:"properties"`
+	Type       string                          `json:"type"`
+	Properties map[string]pschema.PropertySpec `json:"properties,omitempty"`
 }

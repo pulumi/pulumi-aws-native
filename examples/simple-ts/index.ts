@@ -15,3 +15,29 @@ const logGroup = new aws.logs.LogGroup("log-test", {
 });
 
 export const arn = logGroup.arn;
+
+new aws.wafv2.WebACL("acl", { 
+    scope: aws.types.enums.wafv2.WebACLScope.Regional, 
+    defaultAction: { block: {} }, 
+    rules: [{ 
+        name: "AWS-AWSManagedRulesCommonRuleSet", 
+        priority: 1, 
+        statement: { 
+            managedRuleGroupStatement: { 
+                vendorName: "AWS", 
+                name: "AWSManagedRulesCommonRuleSet" 
+            } 
+        }, 
+        overrideAction: { none: {} }, 
+        visibilityConfig: { 
+            sampledRequestsEnabled: true, 
+            cloudWatchMetricsEnabled: true, 
+            metricName: "AWSManagedRulesCommonRuleSet" 
+        } 
+    }], 
+    visibilityConfig: { 
+        cloudWatchMetricsEnabled: true, 
+        metricName: "frontend", 
+        sampledRequestsEnabled: true 
+    },
+});
