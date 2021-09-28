@@ -79,12 +79,7 @@ class VPCArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""VPC is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VPC(pulumi.CustomResource):
-    warnings.warn("""VPC is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +126,6 @@ class VPC(pulumi.CustomResource):
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPC is deprecated: VPC is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

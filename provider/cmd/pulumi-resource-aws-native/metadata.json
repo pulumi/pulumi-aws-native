@@ -6534,6 +6534,45 @@
                 "gatewayId"
             ]
         },
+        "aws-native:ec2:Host": {
+            "cf": "AWS::EC2::Host",
+            "inputs": {
+                "autoPlacement": {
+                    "type": "string"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "hostRecovery": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "autoPlacement": {
+                    "type": "string"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "hostRecovery": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "availabilityZone",
+                "instanceType"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "instanceType"
+            ]
+        },
         "aws-native:ec2:LocalGatewayRoute": {
             "cf": "AWS::EC2::LocalGatewayRoute",
             "inputs": {
@@ -7492,6 +7531,73 @@
                 "subnetIds",
                 "transitGatewayId",
                 "vpcId"
+            ]
+        },
+        "aws-native:ec2:VPC": {
+            "cf": "AWS::EC2::VPC",
+            "inputs": {
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "enableDnsHostnames": {
+                    "type": "boolean"
+                },
+                "enableDnsSupport": {
+                    "type": "boolean"
+                },
+                "instanceTenancy": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPCTag"
+                    }
+                }
+            },
+            "outputs": {
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "cidrBlockAssociations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "defaultNetworkAcl": {
+                    "type": "string"
+                },
+                "defaultSecurityGroup": {
+                    "type": "string"
+                },
+                "enableDnsHostnames": {
+                    "type": "boolean"
+                },
+                "enableDnsSupport": {
+                    "type": "boolean"
+                },
+                "instanceTenancy": {
+                    "type": "string"
+                },
+                "ipv6CidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPCTag"
+                    }
+                }
+            },
+            "required": [
+                "cidrBlock"
+            ],
+            "createOnly": [
+                "cidrBlock"
             ]
         },
         "aws-native:ecr:RegistryPolicy": {
@@ -8585,6 +8691,84 @@
             "createOnly": [
                 "addonName",
                 "clusterName"
+            ]
+        },
+        "aws-native:eks:Cluster": {
+            "cf": "AWS::EKS::Cluster",
+            "inputs": {
+                "encryptionConfig": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterEncryptionConfig"
+                    }
+                },
+                "kubernetesNetworkConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "resourcesVpcConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "certificateAuthorityData": {
+                    "type": "string"
+                },
+                "clusterSecurityGroupId": {
+                    "type": "string"
+                },
+                "encryptionConfig": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterEncryptionConfig"
+                    }
+                },
+                "encryptionConfigKeyArn": {
+                    "type": "string"
+                },
+                "endpoint": {
+                    "type": "string"
+                },
+                "kubernetesNetworkConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "openIdConnectIssuerUrl": {
+                    "type": "string"
+                },
+                "resourcesVpcConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "resourcesVpcConfig",
+                "roleArn"
+            ],
+            "createOnly": [
+                "encryptionConfig",
+                "kubernetesNetworkConfig",
+                "name",
+                "resourcesVpcConfig",
+                "roleArn"
             ]
         },
         "aws-native:eks:FargateProfile": {
@@ -33111,6 +33295,17 @@
                 }
             }
         },
+        "aws-native:ec2:VPCTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:ecr:ReplicationConfigurationReplicationConfiguration": {
             "type": "object",
             "properties": {
@@ -34306,6 +34501,53 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
+        "aws-native:eks:ClusterEncryptionConfig": {
+            "type": "object",
+            "properties": {
+                "provider": {
+                    "$ref": "#/types/aws-native:eks:ClusterProvider"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:eks:ClusterKubernetesNetworkConfig": {
+            "type": "object",
+            "properties": {
+                "serviceIpv4Cidr": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:eks:ClusterProvider": {
+            "type": "object",
+            "properties": {
+                "keyArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:eks:ClusterResourcesVpcConfig": {
+            "type": "object",
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },

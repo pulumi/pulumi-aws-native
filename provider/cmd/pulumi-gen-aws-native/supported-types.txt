@@ -2,6 +2,7 @@ AWS::ACMPCA::Certificate
 AWS::ACMPCA::CertificateAuthority
 AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
+AWS::APS::RuleGroupsNamespace
 AWS::APS::Workspace
 AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
@@ -96,6 +97,7 @@ AWS::EC2::EgressOnlyInternetGateway
 AWS::EC2::EnclaveCertificateIamRoleAssociation
 AWS::EC2::FlowLog
 AWS::EC2::GatewayRouteTableAssociation
+AWS::EC2::Host
 AWS::EC2::LocalGatewayRoute
 AWS::EC2::LocalGatewayRouteTableVPCAssociation
 AWS::EC2::NetworkInsightsAnalysis
@@ -110,6 +112,7 @@ AWS::EC2::TransitGatewayMulticastGroupMember
 AWS::EC2::TransitGatewayMulticastGroupSource
 AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
+AWS::EC2::VPC
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
@@ -124,6 +127,7 @@ AWS::EFS::AccessPoint
 AWS::EFS::FileSystem
 AWS::EFS::MountTarget
 AWS::EKS::Addon
+AWS::EKS::Cluster
 AWS::EKS::FargateProfile
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping

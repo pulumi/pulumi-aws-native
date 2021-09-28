@@ -12,8 +12,6 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::Host
-//
-// Deprecated: Host is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Host struct {
 	pulumi.CustomResourceState
 
