@@ -6,6 +6,7 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./cidr";
+export * from "./extensionResource";
 export * from "./getAccountId";
 export * from "./getAzs";
 export * from "./getPartition";
@@ -361,6 +362,22 @@ export {
     workspaces,
     xray,
 };
+
+// Import resources to register:
+import { ExtensionResource } from "./extensionResource";
+
+const _module = {
+    version: utilities.getVersion(),
+    construct: (name: string, type: string, urn: string): pulumi.Resource => {
+        switch (type) {
+            case "aws-native:index:ExtensionResource":
+                return new ExtensionResource(name, <any>undefined, { urn })
+            default:
+                throw new Error(`unknown resource type ${type}`);
+        }
+    },
+};
+pulumi.runtime.registerResourceModule("aws-native", "index", _module)
 
 import { Provider } from "./provider";
 
