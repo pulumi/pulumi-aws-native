@@ -23,7 +23,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:kinesisanalytics:Application":
 		r = &Application{}
-	case "aws-native:kinesisanalytics:ApplicationOutput":
+	case "aws-native:kinesisanalytics:ApplicationOutputResource":
 		r = &ApplicationOutputResource{}
 	case "aws-native:kinesisanalytics:ApplicationReferenceDataSource":
 		r = &ApplicationReferenceDataSource{}

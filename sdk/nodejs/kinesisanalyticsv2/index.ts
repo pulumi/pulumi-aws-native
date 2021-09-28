@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./application";
 export * from "./applicationCloudWatchLoggingOption";
-export * from "./applicationOutput";
+export * from "./applicationOutputResource";
 export * from "./applicationReferenceDataSource";
 
 // Import resources to register:
 import { Application } from "./application";
 import { ApplicationCloudWatchLoggingOption } from "./applicationCloudWatchLoggingOption";
-import { ApplicationOutput } from "./applicationOutput";
+import { ApplicationOutputResource } from "./applicationOutputResource";
 import { ApplicationReferenceDataSource } from "./applicationReferenceDataSource";
 
 const _module = {
@@ -24,8 +24,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:kinesisanalyticsv2:ApplicationCloudWatchLoggingOption":
                 return new ApplicationCloudWatchLoggingOption(name, <any>undefined, { urn })
-            case "aws-native:kinesisanalyticsv2:ApplicationOutput":
-                return new ApplicationOutput(name, <any>undefined, { urn })
+            case "aws-native:kinesisanalyticsv2:ApplicationOutputResource":
+                return new ApplicationOutputResource(name, <any>undefined, { urn })
             case "aws-native:kinesisanalyticsv2:ApplicationReferenceDataSource":
                 return new ApplicationReferenceDataSource(name, <any>undefined, { urn })
             default:

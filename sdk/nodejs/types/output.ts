@@ -14514,30 +14514,30 @@ export namespace kinesisanalytics {
         jSONMappingParameters?: outputs.kinesisanalytics.ApplicationJSONMappingParameters;
     }
 
-    export interface ApplicationOutputDestinationSchema {
+    export interface ApplicationOutputResourceDestinationSchema {
         recordFormatType?: string;
     }
 
-    export interface ApplicationOutputKinesisFirehoseOutput {
+    export interface ApplicationOutputResourceKinesisFirehoseOutput {
         resourceARN: string;
         roleARN: string;
     }
 
-    export interface ApplicationOutputKinesisStreamsOutput {
+    export interface ApplicationOutputResourceKinesisStreamsOutput {
         resourceARN: string;
         roleARN: string;
     }
 
-    export interface ApplicationOutputLambdaOutput {
+    export interface ApplicationOutputResourceLambdaOutput {
         resourceARN: string;
         roleARN: string;
     }
 
-    export interface ApplicationOutputOutput {
-        destinationSchema: outputs.kinesisanalytics.ApplicationOutputDestinationSchema;
-        kinesisFirehoseOutput?: outputs.kinesisanalytics.ApplicationOutputKinesisFirehoseOutput;
-        kinesisStreamsOutput?: outputs.kinesisanalytics.ApplicationOutputKinesisStreamsOutput;
-        lambdaOutput?: outputs.kinesisanalytics.ApplicationOutputLambdaOutput;
+    export interface ApplicationOutputResourceOutput {
+        destinationSchema: outputs.kinesisanalytics.ApplicationOutputResourceDestinationSchema;
+        kinesisFirehoseOutput?: outputs.kinesisanalytics.ApplicationOutputResourceKinesisFirehoseOutput;
+        kinesisStreamsOutput?: outputs.kinesisanalytics.ApplicationOutputResourceKinesisStreamsOutput;
+        lambdaOutput?: outputs.kinesisanalytics.ApplicationOutputResourceLambdaOutput;
         name?: string;
     }
 
@@ -14713,27 +14713,27 @@ export namespace kinesisanalyticsv2 {
         metricsLevel?: string;
     }
 
-    export interface ApplicationOutputDestinationSchema {
+    export interface ApplicationOutputResourceDestinationSchema {
         recordFormatType?: string;
     }
 
-    export interface ApplicationOutputKinesisFirehoseOutput {
+    export interface ApplicationOutputResourceKinesisFirehoseOutput {
         resourceARN: string;
     }
 
-    export interface ApplicationOutputKinesisStreamsOutput {
+    export interface ApplicationOutputResourceKinesisStreamsOutput {
         resourceARN: string;
     }
 
-    export interface ApplicationOutputLambdaOutput {
+    export interface ApplicationOutputResourceLambdaOutput {
         resourceARN: string;
     }
 
-    export interface ApplicationOutputOutput {
-        destinationSchema: outputs.kinesisanalyticsv2.ApplicationOutputDestinationSchema;
-        kinesisFirehoseOutput?: outputs.kinesisanalyticsv2.ApplicationOutputKinesisFirehoseOutput;
-        kinesisStreamsOutput?: outputs.kinesisanalyticsv2.ApplicationOutputKinesisStreamsOutput;
-        lambdaOutput?: outputs.kinesisanalyticsv2.ApplicationOutputLambdaOutput;
+    export interface ApplicationOutputResourceOutput {
+        destinationSchema: outputs.kinesisanalyticsv2.ApplicationOutputResourceDestinationSchema;
+        kinesisFirehoseOutput?: outputs.kinesisanalyticsv2.ApplicationOutputResourceKinesisFirehoseOutput;
+        kinesisStreamsOutput?: outputs.kinesisanalyticsv2.ApplicationOutputResourceKinesisStreamsOutput;
+        lambdaOutput?: outputs.kinesisanalyticsv2.ApplicationOutputResourceLambdaOutput;
         name?: string;
     }
 

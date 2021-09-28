@@ -6,12 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./application";
-export * from "./applicationOutput";
+export * from "./applicationOutputResource";
 export * from "./applicationReferenceDataSource";
 
 // Import resources to register:
 import { Application } from "./application";
-import { ApplicationOutput } from "./applicationOutput";
+import { ApplicationOutputResource } from "./applicationOutputResource";
 import { ApplicationReferenceDataSource } from "./applicationReferenceDataSource";
 
 const _module = {
@@ -20,8 +20,8 @@ const _module = {
         switch (type) {
             case "aws-native:kinesisanalytics:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "aws-native:kinesisanalytics:ApplicationOutput":
-                return new ApplicationOutput(name, <any>undefined, { urn })
+            case "aws-native:kinesisanalytics:ApplicationOutputResource":
+                return new ApplicationOutputResource(name, <any>undefined, { urn })
             case "aws-native:kinesisanalytics:ApplicationReferenceDataSource":
                 return new ApplicationReferenceDataSource(name, <any>undefined, { urn })
             default:

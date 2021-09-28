@@ -6,7 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .application import *
-from .application_output import *
+from .application_output_resource import *
 from .application_reference_data_source import *
 from ._inputs import *
 from . import outputs
