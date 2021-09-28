@@ -71,12 +71,15 @@ func validateProperty(types map[string]CloudAPIType, required codegen.StringSet,
 		}
 
 		typName := strings.TrimPrefix(spec.Ref, "#/types/")
-		if !property.IsObject() {
-			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an object", path)}}, nil
-		}
 		typeSpec, ok := types[typName]
 		if !ok {
 			return nil, errors.Errorf("could not find property type %v in schema", typName)
+		}
+		if typeSpec.Type != "object" {
+			return validatePrimitive(typeSpec.Type, path, property)
+		}
+		if !property.IsObject() {
+			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an object", path)}}, nil
 		}
 		return validateProperties(types, required, typeSpec.Properties, path, property.ObjectValue())
 	}

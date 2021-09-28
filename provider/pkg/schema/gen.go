@@ -671,6 +671,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 					},
 				}
 				ctx.metadata.Types[tok] = CloudAPIType{
+					Type:       "object",
 					Properties: specs,
 				}
 			}
@@ -806,6 +807,7 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 		}
 	}
 	ctx.pkg.Types[tok] = *enumSpec
+	ctx.metadata.Types[tok] = CloudAPIType{Type: enumSpec.Type}
 
 	referencedTypeName := fmt.Sprintf("#/types/%s", tok)
 	return &pschema.TypeSpec{
