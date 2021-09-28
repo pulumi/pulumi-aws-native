@@ -30,7 +30,6 @@ require (
 	github.com/lestrrat-go/structinfo v0.0.0-20210312050401-7f8bd69d6acb // indirect
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi-aws-native/sdk v0.1.0
 	github.com/pulumi/pulumi/pkg/v3 v3.12.0
 	github.com/pulumi/pulumi/sdk/v3 v3.12.0
 	github.com/stretchr/testify v1.7.0
@@ -41,5 +40,4 @@ require (
 replace (
 	github.com/aws/aws-sdk-go-v2/service/cloudcontrol => ../aws-sdk-go-v2-cloudcontrol-preview
 	github.com/lestrrat-go/jsschema => github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b
-	github.com/pulumi/pulumi-aws-native/sdk => ../sdk
 )

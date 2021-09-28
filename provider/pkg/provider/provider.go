@@ -52,7 +52,6 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
-	pulumiaws "github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
@@ -331,7 +330,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	if assumeRoleJson, ok := vars["aws-native:config:assumeRole"]; ok {
-		var assumeRole pulumiaws.ProviderAssumeRole
+		var assumeRole ProviderAssumeRole
 		err := json.Unmarshal([]byte(assumeRoleJson), &assumeRole)
 		if err != nil {
 			return nil, fmt.Errorf("failed to unmarshal 'assumeRole' config: %w", err)
