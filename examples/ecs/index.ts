@@ -1,4 +1,4 @@
-import * as aws_native from "@pulumipreview/aws-native";
+import * as aws_native from "@pulumi/aws-native";
 import * as old from "./unsupported";
 
 // A basic resource - good to play with.

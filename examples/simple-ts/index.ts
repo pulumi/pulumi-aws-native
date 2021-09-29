@@ -1,6 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
-import * as aws from "@pulumipreview/aws-native";
+import * as aws from "@pulumi/aws-native";
 import * as random from "@pulumi/random";
 
 const name = new random.RandomString("name", {

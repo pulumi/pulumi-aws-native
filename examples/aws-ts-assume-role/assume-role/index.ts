@@ -3,7 +3,7 @@
 import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 import * as random from "@pulumi/random";
-import * as awsnative from "@pulumipreview/aws-native";
+import * as awsnative from "@pulumi/aws-native";
 
 const config = new pulumi.Config();
 const roleToAssumeARN = config.require("roleToAssumeARN");
