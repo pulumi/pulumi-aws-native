@@ -574,13 +574,32 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	resourceToken := string(urn.Type())
-	spec, ok := p.resourceMap.Resources[resourceToken]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceToken)
-	}
+	var cfType string
+	var payload map[string]interface{}
+	switch resourceToken {
+	case schema.ExtensionResourceToken:
+		// For a custom resource, both CF type and inputs shape are defined explicitly in the SDK.
+		inputsMap := inputs.Mappable()
+		if v, has := inputsMap["type"].(string); has {
+			cfType = v
+		} else {
+			return nil, errors.New("no 'type' property in extension resource inputs")
+		}
+		if v, has := inputsMap["properties"].(map[string]interface{}); has {
+			payload = v
+		} else {
+			return nil, errors.New("no 'properties' property in extension resource inputs")
+		}
+	default:
+		spec, ok := p.resourceMap.Resources[resourceToken]
+		if !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
+		cfType = spec.CfType
 
-	// Convert SDK inputs to CFN payload.
-	payload := schema.SdkToCfn(&spec, p.resourceMap.Types, inputs.MapRepl(nil, mapReplStripSecrets))
+		// Convert SDK inputs to CFN payload.
+		payload = schema.SdkToCfn(&spec, p.resourceMap.Types, inputs.MapRepl(nil, mapReplStripSecrets))
+	}
 
 	// Serialize inputs as a desired state JSON.
 	jsonBytes, err := json.Marshal(payload)
@@ -591,10 +610,10 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	// Create the resource with Cloud API.
 	clientToken := uuid.New().String()
-	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, spec.CfType, clientToken, desiredState)
+	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, cfType, clientToken, desiredState)
 	res, err := p.cctl.CreateResource(ctx, &cloudcontrol.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
-		TypeName:     aws.String(spec.CfType),
+		TypeName:     aws.String(cfType),
 		DesiredState: aws.String(desiredState),
 	})
 	if err != nil {
@@ -610,12 +629,21 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	// Retrieve the resource state from AWS.
 	id := *pi.Identifier
-	glog.V(9).Infof("%s.GetResource %q id %q", label, spec.CfType, id)
-	resourceState, err := p.readResourceState(ctx, spec.CfType, id)
+	glog.V(9).Infof("%s.GetResource %q id %q", label, cfType, id)
+	resourceState, err := p.readResourceState(ctx, cfType, id)
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading resource state")
 	}
 	outputs := schema.CfnToSdk(resourceState)
+
+	switch resourceToken {
+	case schema.ExtensionResourceToken:
+		// Wrap all outputs into an explicit property so that they are available
+		// to SDK consumers as an untyped map.
+		outputs = map[string]interface{}{
+			"outputs": outputs,
+		}
+	}
 
 	// Store both outputs and inputs into the state.
 	checkpoint, err := plugin.MarshalProperties(
@@ -798,17 +826,32 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	glog.V(9).Infof("%s executing", label)
 
 	resourceToken := string(urn.Type())
-	spec, ok := p.resourceMap.Resources[resourceToken]
-	if !ok {
-		return nil, errors.Errorf("Resource type %s not found", resourceToken)
+	var cfType string
+	switch resourceToken {
+	case schema.ExtensionResourceToken:
+		// Retrieve the old state and inputs to fetch the CF type.
+		oldState, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.properties", label), SkipNulls: true,
+		})
+		if err != nil {
+			return nil, err
+		}
+		oldInputs := parseCheckpointObject(oldState).Mappable()
+		cfType = oldInputs["type"].(string)
+	default:
+		spec, ok := p.resourceMap.Resources[resourceToken]
+		if !ok {
+			return nil, errors.Errorf("Resource type %s not found", resourceToken)
+		}
+		cfType = spec.CfType
 	}
 	id := req.GetId()
 
 	clientToken := uuid.New().String()
-	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, spec.CfType, id, clientToken)
+	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, cfType, id, clientToken)
 	res, err := p.cctl.DeleteResource(ctx, &cloudcontrol.DeleteResourceInput{
 		ClientToken: aws.String(clientToken),
-		TypeName:    aws.String(spec.CfType),
+		TypeName:    aws.String(cfType),
 		Identifier:  aws.String(id),
 	})
 	if err != nil {

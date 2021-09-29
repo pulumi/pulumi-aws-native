@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .cidr import *
+from .extension_resource import *
 from .get_account_id import *
 from .get_azs import *
 from .get_partition import *
@@ -1563,6 +1564,14 @@ _utilities.register(
    "aws-native:imagebuilder:ImagePipeline": "ImagePipeline",
    "aws-native:imagebuilder:ImageRecipe": "ImageRecipe",
    "aws-native:imagebuilder:InfrastructureConfiguration": "InfrastructureConfiguration"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "index",
+  "fqn": "pulumi_aws_native",
+  "classes": {
+   "aws-native:index:ExtensionResource": "ExtensionResource"
   }
  },
  {

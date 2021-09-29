@@ -347,7 +347,43 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			},
 		},
 		Types:     map[string]pschema.ComplexTypeSpec{},
-		Resources: map[string]pschema.ResourceSpec{},
+		Resources: map[string]pschema.ResourceSpec{
+			ExtensionResourceToken: {
+				ObjectTypeSpec: pschema.ObjectTypeSpec{
+					Description: "A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.",
+					Properties: map[string]pschema.PropertySpec{
+						"outputs": {
+							Description: "Dictionary of the extension resource attributes.",
+							TypeSpec: pschema.TypeSpec{
+								Type: "object",
+								AdditionalProperties: &pschema.TypeSpec{
+									Ref: "pulumi.json#/Any",
+								},
+							},
+						},
+					},
+					Required: []string{"outputs"},
+				},
+				InputProperties: map[string]pschema.PropertySpec{
+					"type": {
+						Description: "CloudFormation type name.",
+						TypeSpec: pschema.TypeSpec{
+							Type: "string",
+						},
+					},
+					"properties": {
+						Description: "Dictionary of the extension resource properties.",
+						TypeSpec: pschema.TypeSpec{
+							Type: "object",
+							AdditionalProperties: &pschema.TypeSpec{
+								Ref: "pulumi.json#/Any",
+							},
+						},
+					},
+				},
+				RequiredInputs: []string{"type", "properties"},
+			},
+		},
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]pschema.RawMessage{},
 	}
@@ -384,7 +420,13 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 	})
 
 	metadata := CloudAPIMetadata{
-		Resources: map[string]CloudAPIResource{},
+		Resources: map[string]CloudAPIResource{
+			ExtensionResourceToken: {
+				Inputs:     p.Resources[ExtensionResourceToken].InputProperties,
+				Outputs:    p.Resources[ExtensionResourceToken].Properties,
+				CreateOnly: []string{"type", "properties"},
+			},
+		},
 		Types:     map[string]CloudAPIType{},
 	}
 

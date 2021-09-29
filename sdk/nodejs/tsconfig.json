@@ -429,6 +429,7 @@
         "eventschemas/registry.ts",
         "eventschemas/registryPolicy.ts",
         "eventschemas/schema.ts",
+        "extensionResource.ts",
         "finspace/environment.ts",
         "finspace/index.ts",
         "fis/experimentTemplate.ts",
