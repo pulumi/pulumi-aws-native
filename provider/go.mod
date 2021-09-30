@@ -7,7 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2 v1.9.1
 	github.com/aws/aws-sdk-go-v2/config v1.8.2
 	github.com/aws/aws-sdk-go-v2/credentials v1.4.2
-	github.com/aws/aws-sdk-go-v2/service/cloudcontrol v1.9.0
+	github.com/aws/aws-sdk-go-v2/service/cloudcontrol v1.0.0
 	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.10.1
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.18.0
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.11.0
@@ -38,6 +38,5 @@ require (
 )
 
 replace (
-	github.com/aws/aws-sdk-go-v2/service/cloudcontrol => ../aws-sdk-go-v2-cloudcontrol-preview
 	github.com/lestrrat-go/jsschema => github.com/mikhailshilkov/jsschema v0.0.0-20210924145243-fc93fd28ee1b
 )
