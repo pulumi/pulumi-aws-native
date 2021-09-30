@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .rule_groups_namespace import *
 from .workspace import *
 from ._inputs import *
 from . import outputs

@@ -8,6 +8,65 @@ using Pulumi;
 namespace Pulumi.AwsNative.KinesisFirehose
 {
     [EnumType]
+    public readonly struct DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod : IEquatable<DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod NoRotation { get; } = new DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("NoRotation");
+        public static DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod OneHour { get; } = new DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("OneHour");
+        public static DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod OneDay { get; } = new DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("OneDay");
+        public static DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod OneWeek { get; } = new DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("OneWeek");
+        public static DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod OneMonth { get; } = new DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("OneMonth");
+
+        public static bool operator ==(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod left, DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod left, DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod other && Equals(other);
+        public bool Equals(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode FailedDocumentsOnly { get; } = new DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode("FailedDocumentsOnly");
+        public static DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode AllDocuments { get; } = new DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode("AllDocuments");
+
+        public static bool operator ==(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode left, DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode left, DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode other && Equals(other);
+        public bool Equals(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType : IEquatable<DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType>
     {
         private readonly string _value;

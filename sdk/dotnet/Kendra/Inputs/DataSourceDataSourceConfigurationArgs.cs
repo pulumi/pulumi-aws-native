@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("sharePointConfiguration")]
         public Input<Inputs.DataSourceSharePointConfigurationArgs>? SharePointConfiguration { get; set; }
 
+        [Input("webCrawlerConfiguration")]
+        public Input<Inputs.DataSourceWebCrawlerConfigurationArgs>? WebCrawlerConfiguration { get; set; }
+
+        [Input("workDocsConfiguration")]
+        public Input<Inputs.DataSourceWorkDocsConfigurationArgs>? WorkDocsConfiguration { get; set; }
+
         public DataSourceDataSourceConfigurationArgs()
         {
         }

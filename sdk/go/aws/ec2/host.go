@@ -15,10 +15,16 @@ import (
 type Host struct {
 	pulumi.CustomResourceState
 
-	AutoPlacement    pulumi.StringPtrOutput `pulumi:"autoPlacement"`
-	AvailabilityZone pulumi.StringOutput    `pulumi:"availabilityZone"`
-	HostRecovery     pulumi.StringPtrOutput `pulumi:"hostRecovery"`
-	InstanceType     pulumi.StringOutput    `pulumi:"instanceType"`
+	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+	AutoPlacement HostAutoPlacementPtrOutput `pulumi:"autoPlacement"`
+	// The Availability Zone in which to allocate the Dedicated Host.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// Id of the host created.
+	HostId pulumi.StringOutput `pulumi:"hostId"`
+	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+	HostRecovery HostHostRecoveryPtrOutput `pulumi:"hostRecovery"`
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 }
 
 // NewHost registers a new resource with the given unique name, arguments, and options.
@@ -66,18 +72,26 @@ func (HostState) ElementType() reflect.Type {
 }
 
 type hostArgs struct {
-	AutoPlacement    *string `pulumi:"autoPlacement"`
-	AvailabilityZone string  `pulumi:"availabilityZone"`
-	HostRecovery     *string `pulumi:"hostRecovery"`
-	InstanceType     string  `pulumi:"instanceType"`
+	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+	AutoPlacement *HostAutoPlacement `pulumi:"autoPlacement"`
+	// The Availability Zone in which to allocate the Dedicated Host.
+	AvailabilityZone string `pulumi:"availabilityZone"`
+	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+	HostRecovery *HostHostRecovery `pulumi:"hostRecovery"`
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+	InstanceType string `pulumi:"instanceType"`
 }
 
 // The set of arguments for constructing a Host resource.
 type HostArgs struct {
-	AutoPlacement    pulumi.StringPtrInput
+	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+	AutoPlacement HostAutoPlacementPtrInput
+	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone pulumi.StringInput
-	HostRecovery     pulumi.StringPtrInput
-	InstanceType     pulumi.StringInput
+	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+	HostRecovery HostHostRecoveryPtrInput
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+	InstanceType pulumi.StringInput
 }
 
 func (HostArgs) ElementType() reflect.Type {

@@ -37,4 +37,38 @@ namespace Pulumi.AwsNative.EKS
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// name of the log type
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterLoggingTypeConfigType : IEquatable<ClusterLoggingTypeConfigType>
+    {
+        private readonly string _value;
+
+        private ClusterLoggingTypeConfigType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterLoggingTypeConfigType Api { get; } = new ClusterLoggingTypeConfigType("api");
+        public static ClusterLoggingTypeConfigType Audit { get; } = new ClusterLoggingTypeConfigType("audit");
+        public static ClusterLoggingTypeConfigType Authenticator { get; } = new ClusterLoggingTypeConfigType("authenticator");
+        public static ClusterLoggingTypeConfigType ControllerManager { get; } = new ClusterLoggingTypeConfigType("controllerManager");
+        public static ClusterLoggingTypeConfigType Scheduler { get; } = new ClusterLoggingTypeConfigType("scheduler");
+
+        public static bool operator ==(ClusterLoggingTypeConfigType left, ClusterLoggingTypeConfigType right) => left.Equals(right);
+        public static bool operator !=(ClusterLoggingTypeConfigType left, ClusterLoggingTypeConfigType right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterLoggingTypeConfigType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterLoggingTypeConfigType other && Equals(other);
+        public bool Equals(ClusterLoggingTypeConfigType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -21,6 +21,8 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly Outputs.DataSourceSalesforceConfiguration? SalesforceConfiguration;
         public readonly Outputs.DataSourceServiceNowConfiguration? ServiceNowConfiguration;
         public readonly Outputs.DataSourceSharePointConfiguration? SharePointConfiguration;
+        public readonly Outputs.DataSourceWebCrawlerConfiguration? WebCrawlerConfiguration;
+        public readonly Outputs.DataSourceWorkDocsConfiguration? WorkDocsConfiguration;
 
         [OutputConstructor]
         private DataSourceDataSourceConfiguration(
@@ -38,7 +40,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Outputs.DataSourceServiceNowConfiguration? serviceNowConfiguration,
 
-            Outputs.DataSourceSharePointConfiguration? sharePointConfiguration)
+            Outputs.DataSourceSharePointConfiguration? sharePointConfiguration,
+
+            Outputs.DataSourceWebCrawlerConfiguration? webCrawlerConfiguration,
+
+            Outputs.DataSourceWorkDocsConfiguration? workDocsConfiguration)
         {
             ConfluenceConfiguration = confluenceConfiguration;
             DatabaseConfiguration = databaseConfiguration;
@@ -48,6 +54,8 @@ namespace Pulumi.AwsNative.Kendra.Outputs
             SalesforceConfiguration = salesforceConfiguration;
             ServiceNowConfiguration = serviceNowConfiguration;
             SharePointConfiguration = sharePointConfiguration;
+            WebCrawlerConfiguration = webCrawlerConfiguration;
+            WorkDocsConfiguration = workDocsConfiguration;
         }
     }
 }

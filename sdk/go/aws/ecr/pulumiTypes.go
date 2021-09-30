@@ -259,6 +259,8 @@ func (o ReplicationConfigurationReplicationDestinationArrayOutput) Index(i pulum
 type ReplicationConfigurationReplicationRule struct {
 	// An array of objects representing the details of a replication destination.
 	Destinations []ReplicationConfigurationReplicationDestination `pulumi:"destinations"`
+	// An array of objects representing the details of a repository filter.
+	RepositoryFilters []ReplicationConfigurationRepositoryFilter `pulumi:"repositoryFilters"`
 }
 
 // ReplicationConfigurationReplicationRuleInput is an input type that accepts ReplicationConfigurationReplicationRuleArgs and ReplicationConfigurationReplicationRuleOutput values.
@@ -276,6 +278,8 @@ type ReplicationConfigurationReplicationRuleInput interface {
 type ReplicationConfigurationReplicationRuleArgs struct {
 	// An array of objects representing the details of a replication destination.
 	Destinations ReplicationConfigurationReplicationDestinationArrayInput `pulumi:"destinations"`
+	// An array of objects representing the details of a repository filter.
+	RepositoryFilters ReplicationConfigurationRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
 }
 
 func (ReplicationConfigurationReplicationRuleArgs) ElementType() reflect.Type {
@@ -337,6 +341,13 @@ func (o ReplicationConfigurationReplicationRuleOutput) Destinations() Replicatio
 	}).(ReplicationConfigurationReplicationDestinationArrayOutput)
 }
 
+// An array of objects representing the details of a repository filter.
+func (o ReplicationConfigurationReplicationRuleOutput) RepositoryFilters() ReplicationConfigurationRepositoryFilterArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigurationReplicationRule) []ReplicationConfigurationRepositoryFilter {
+		return v.RepositoryFilters
+	}).(ReplicationConfigurationRepositoryFilterArrayOutput)
+}
+
 type ReplicationConfigurationReplicationRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationRuleArrayOutput) ElementType() reflect.Type {
@@ -355,6 +366,111 @@ func (o ReplicationConfigurationReplicationRuleArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationReplicationRule {
 		return vs[0].([]ReplicationConfigurationReplicationRule)[vs[1].(int)]
 	}).(ReplicationConfigurationReplicationRuleOutput)
+}
+
+// An array of objects representing the details of a repository filter.
+type ReplicationConfigurationRepositoryFilter struct {
+	Filter     string                             `pulumi:"filter"`
+	FilterType ReplicationConfigurationFilterType `pulumi:"filterType"`
+}
+
+// ReplicationConfigurationRepositoryFilterInput is an input type that accepts ReplicationConfigurationRepositoryFilterArgs and ReplicationConfigurationRepositoryFilterOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationRepositoryFilterInput` via:
+//
+//          ReplicationConfigurationRepositoryFilterArgs{...}
+type ReplicationConfigurationRepositoryFilterInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationRepositoryFilterOutput() ReplicationConfigurationRepositoryFilterOutput
+	ToReplicationConfigurationRepositoryFilterOutputWithContext(context.Context) ReplicationConfigurationRepositoryFilterOutput
+}
+
+// An array of objects representing the details of a repository filter.
+type ReplicationConfigurationRepositoryFilterArgs struct {
+	Filter     pulumi.StringInput                      `pulumi:"filter"`
+	FilterType ReplicationConfigurationFilterTypeInput `pulumi:"filterType"`
+}
+
+func (ReplicationConfigurationRepositoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationRepositoryFilterArgs) ToReplicationConfigurationRepositoryFilterOutput() ReplicationConfigurationRepositoryFilterOutput {
+	return i.ToReplicationConfigurationRepositoryFilterOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationRepositoryFilterArgs) ToReplicationConfigurationRepositoryFilterOutputWithContext(ctx context.Context) ReplicationConfigurationRepositoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationRepositoryFilterOutput)
+}
+
+// ReplicationConfigurationRepositoryFilterArrayInput is an input type that accepts ReplicationConfigurationRepositoryFilterArray and ReplicationConfigurationRepositoryFilterArrayOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationRepositoryFilterArrayInput` via:
+//
+//          ReplicationConfigurationRepositoryFilterArray{ ReplicationConfigurationRepositoryFilterArgs{...} }
+type ReplicationConfigurationRepositoryFilterArrayInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationRepositoryFilterArrayOutput() ReplicationConfigurationRepositoryFilterArrayOutput
+	ToReplicationConfigurationRepositoryFilterArrayOutputWithContext(context.Context) ReplicationConfigurationRepositoryFilterArrayOutput
+}
+
+type ReplicationConfigurationRepositoryFilterArray []ReplicationConfigurationRepositoryFilterInput
+
+func (ReplicationConfigurationRepositoryFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationRepositoryFilterArray) ToReplicationConfigurationRepositoryFilterArrayOutput() ReplicationConfigurationRepositoryFilterArrayOutput {
+	return i.ToReplicationConfigurationRepositoryFilterArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationRepositoryFilterArray) ToReplicationConfigurationRepositoryFilterArrayOutputWithContext(ctx context.Context) ReplicationConfigurationRepositoryFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationRepositoryFilterArrayOutput)
+}
+
+// An array of objects representing the details of a repository filter.
+type ReplicationConfigurationRepositoryFilterOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationRepositoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationRepositoryFilterOutput) ToReplicationConfigurationRepositoryFilterOutput() ReplicationConfigurationRepositoryFilterOutput {
+	return o
+}
+
+func (o ReplicationConfigurationRepositoryFilterOutput) ToReplicationConfigurationRepositoryFilterOutputWithContext(ctx context.Context) ReplicationConfigurationRepositoryFilterOutput {
+	return o
+}
+
+func (o ReplicationConfigurationRepositoryFilterOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationConfigurationRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationRepositoryFilterOutput) FilterType() ReplicationConfigurationFilterTypeOutput {
+	return o.ApplyT(func(v ReplicationConfigurationRepositoryFilter) ReplicationConfigurationFilterType {
+		return v.FilterType
+	}).(ReplicationConfigurationFilterTypeOutput)
+}
+
+type ReplicationConfigurationRepositoryFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationRepositoryFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationRepositoryFilterArrayOutput) ToReplicationConfigurationRepositoryFilterArrayOutput() ReplicationConfigurationRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationRepositoryFilterArrayOutput) ToReplicationConfigurationRepositoryFilterArrayOutputWithContext(ctx context.Context) ReplicationConfigurationRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o ReplicationConfigurationRepositoryFilterArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationRepositoryFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfigurationRepositoryFilter {
+		return vs[0].([]ReplicationConfigurationRepositoryFilter)[vs[1].(int)]
+	}).(ReplicationConfigurationRepositoryFilterOutput)
 }
 
 // The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
@@ -923,6 +1039,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationRepositoryFilterOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationRepositoryFilterArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationOutput{})

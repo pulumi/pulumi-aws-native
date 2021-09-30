@@ -131,6 +131,26 @@ export const FlowLogTrafficType = {
  */
 export type FlowLogTrafficType = (typeof FlowLogTrafficType)[keyof typeof FlowLogTrafficType];
 
+export const HostAutoPlacement = {
+    On: "on",
+    Off: "off",
+} as const;
+
+/**
+ * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+ */
+export type HostAutoPlacement = (typeof HostAutoPlacement)[keyof typeof HostAutoPlacement];
+
+export const HostHostRecovery = {
+    On: "on",
+    Off: "off",
+} as const;
+
+/**
+ * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+ */
+export type HostHostRecovery = (typeof HostHostRecovery)[keyof typeof HostHostRecovery];
+
 export const NetworkInsightsAnalysisStatus = {
     Running: "running",
     Failed: "failed",

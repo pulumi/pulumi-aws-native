@@ -41,6 +41,7 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly clusterConfig!: pulumi.Output<outputs.opensearchservice.DomainClusterConfig | undefined>;
     public readonly cognitoOptions!: pulumi.Output<outputs.opensearchservice.DomainCognitoOptions | undefined>;
+    public /*out*/ readonly domainArn!: pulumi.Output<string>;
     public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
     public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainDomainEndpointOptions | undefined>;
     public /*out*/ readonly domainEndpoints!: pulumi.Output<any>;
@@ -85,6 +86,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vPCOptions"] = args ? args.vPCOptions : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["domainArn"] = undefined /*out*/;
             inputs["domainEndpoint"] = undefined /*out*/;
             inputs["domainEndpoints"] = undefined /*out*/;
             inputs["serviceSoftwareOptions"] = undefined /*out*/;
@@ -95,6 +97,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["clusterConfig"] = undefined /*out*/;
             inputs["cognitoOptions"] = undefined /*out*/;
+            inputs["domainArn"] = undefined /*out*/;
             inputs["domainEndpoint"] = undefined /*out*/;
             inputs["domainEndpointOptions"] = undefined /*out*/;
             inputs["domainEndpoints"] = undefined /*out*/;

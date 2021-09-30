@@ -187,12 +187,7 @@ class StageArgs:
         pulumi.set(self, "variables", value)
 
 
-warnings.warn("""Stage is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Stage(pulumi.CustomResource):
-    warnings.warn("""Stage is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -257,7 +252,6 @@ class Stage(pulumi.CustomResource):
                  tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  variables: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Stage is deprecated: Stage is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

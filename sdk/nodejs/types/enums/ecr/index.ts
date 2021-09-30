@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ReplicationConfigurationFilterType = {
+    PrefixMatch: "PREFIX_MATCH",
+} as const;
+
+/**
+ * Type of repository filter
+ */
+export type ReplicationConfigurationFilterType = (typeof ReplicationConfigurationFilterType)[keyof typeof ReplicationConfigurationFilterType];
+
 export const RepositoryEncryptionType = {
     Aes256: "AES256",
     Kms: "KMS",

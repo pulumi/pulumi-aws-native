@@ -20,6 +20,7 @@ type Domain struct {
 	Arn                         pulumi.StringOutput                         `pulumi:"arn"`
 	ClusterConfig               DomainClusterConfigPtrOutput                `pulumi:"clusterConfig"`
 	CognitoOptions              DomainCognitoOptionsPtrOutput               `pulumi:"cognitoOptions"`
+	DomainArn                   pulumi.StringOutput                         `pulumi:"domainArn"`
 	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
 	DomainEndpointOptions       DomainDomainEndpointOptionsPtrOutput        `pulumi:"domainEndpointOptions"`
 	DomainEndpoints             pulumi.AnyOutput                            `pulumi:"domainEndpoints"`

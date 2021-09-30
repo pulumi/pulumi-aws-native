@@ -7,18 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EKS.Outputs
+namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    [OutputType]
-    public sealed class ClusterProvider
+    public sealed class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs : Pulumi.ResourceArgs
     {
-        public readonly string? KeyArn;
+        [Input("durationInSeconds")]
+        public Input<int>? DurationInSeconds { get; set; }
 
-        [OutputConstructor]
-        private ClusterProvider(string? keyArn)
+        public DeliveryStreamAmazonopensearchserviceRetryOptionsArgs()
         {
-            KeyArn = keyArn;
         }
     }
 }

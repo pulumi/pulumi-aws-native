@@ -16,6 +16,7 @@ __all__ = ['DeliveryStreamArgs', 'DeliveryStream']
 @pulumi.input_type
 class DeliveryStreamArgs:
     def __init__(__self__, *,
+                 amazonopensearchservice_destination_configuration: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs']] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']] = None,
@@ -30,6 +31,8 @@ class DeliveryStreamArgs:
         """
         The set of arguments for constructing a DeliveryStream resource.
         """
+        if amazonopensearchservice_destination_configuration is not None:
+            pulumi.set(__self__, "amazonopensearchservice_destination_configuration", amazonopensearchservice_destination_configuration)
         if delivery_stream_encryption_configuration_input is not None:
             pulumi.set(__self__, "delivery_stream_encryption_configuration_input", delivery_stream_encryption_configuration_input)
         if delivery_stream_name is not None:
@@ -52,6 +55,15 @@ class DeliveryStreamArgs:
             pulumi.set(__self__, "splunk_destination_configuration", splunk_destination_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="amazonopensearchserviceDestinationConfiguration")
+    def amazonopensearchservice_destination_configuration(self) -> Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs']]:
+        return pulumi.get(self, "amazonopensearchservice_destination_configuration")
+
+    @amazonopensearchservice_destination_configuration.setter
+    def amazonopensearchservice_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs']]):
+        pulumi.set(self, "amazonopensearchservice_destination_configuration", value)
 
     @property
     @pulumi.getter(name="deliveryStreamEncryptionConfigurationInput")
@@ -158,6 +170,7 @@ class DeliveryStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 amazonopensearchservice_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs']]] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']] = None,
@@ -200,6 +213,7 @@ class DeliveryStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 amazonopensearchservice_destination_configuration: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs']]] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[pulumi.InputType['DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamDeliveryStreamType']] = None,
@@ -223,6 +237,7 @@ class DeliveryStream(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeliveryStreamArgs.__new__(DeliveryStreamArgs)
 
+            __props__.__dict__["amazonopensearchservice_destination_configuration"] = amazonopensearchservice_destination_configuration
             __props__.__dict__["delivery_stream_encryption_configuration_input"] = delivery_stream_encryption_configuration_input
             __props__.__dict__["delivery_stream_name"] = delivery_stream_name
             __props__.__dict__["delivery_stream_type"] = delivery_stream_type
@@ -257,6 +272,7 @@ class DeliveryStream(pulumi.CustomResource):
 
         __props__ = DeliveryStreamArgs.__new__(DeliveryStreamArgs)
 
+        __props__.__dict__["amazonopensearchservice_destination_configuration"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["delivery_stream_encryption_configuration_input"] = None
         __props__.__dict__["delivery_stream_name"] = None
@@ -270,6 +286,11 @@ class DeliveryStream(pulumi.CustomResource):
         __props__.__dict__["splunk_destination_configuration"] = None
         __props__.__dict__["tags"] = None
         return DeliveryStream(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="amazonopensearchserviceDestinationConfiguration")
+    def amazonopensearchservice_destination_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration']]:
+        return pulumi.get(self, "amazonopensearchservice_destination_configuration")
 
     @property
     @pulumi.getter

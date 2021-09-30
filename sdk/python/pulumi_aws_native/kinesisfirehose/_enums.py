@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod',
+    'DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode',
     'DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType',
     'DeliveryStreamDeliveryStreamType',
     'DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod',
@@ -18,6 +20,19 @@ __all__ = [
     'DeliveryStreamS3DestinationConfigurationCompressionFormat',
     'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
 ]
+
+
+class DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod(str, Enum):
+    NO_ROTATION = "NoRotation"
+    ONE_HOUR = "OneHour"
+    ONE_DAY = "OneDay"
+    ONE_WEEK = "OneWeek"
+    ONE_MONTH = "OneMonth"
+
+
+class DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode(str, Enum):
+    FAILED_DOCUMENTS_ONLY = "FailedDocumentsOnly"
+    ALL_DOCUMENTS = "AllDocuments"
 
 
 class DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType(str, Enum):

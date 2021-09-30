@@ -43,12 +43,7 @@ class NetworkAclArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""NetworkAcl is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class NetworkAcl(pulumi.CustomResource):
-    warnings.warn("""NetworkAcl is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -89,7 +84,6 @@ class NetworkAcl(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""NetworkAcl is deprecated: NetworkAcl is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

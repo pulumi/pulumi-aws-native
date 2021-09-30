@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.MSK.Outputs
     public sealed class ClusterTls
     {
         public readonly ImmutableArray<string> CertificateAuthorityArnList;
+        public readonly bool? Enabled;
 
         [OutputConstructor]
-        private ClusterTls(ImmutableArray<string> certificateAuthorityArnList)
+        private ClusterTls(
+            ImmutableArray<string> certificateAuthorityArnList,
+
+            bool? enabled)
         {
             CertificateAuthorityArnList = certificateAuthorityArnList;
+            Enabled = enabled;
         }
     }
 }

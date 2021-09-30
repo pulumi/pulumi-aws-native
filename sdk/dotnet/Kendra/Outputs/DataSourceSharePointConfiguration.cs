@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> InclusionPatterns;
         public readonly string SecretArn;
         public readonly Pulumi.AwsNative.Kendra.DataSourceSharePointConfigurationSharePointVersion SharePointVersion;
+        public readonly Outputs.DataSourceS3Path? SslCertificateS3Path;
         public readonly ImmutableArray<string> Urls;
         public readonly bool? UseChangeLog;
         public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
@@ -46,6 +47,8 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Pulumi.AwsNative.Kendra.DataSourceSharePointConfigurationSharePointVersion sharePointVersion,
 
+            Outputs.DataSourceS3Path? sslCertificateS3Path,
+
             ImmutableArray<string> urls,
 
             bool? useChangeLog,
@@ -60,6 +63,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
             InclusionPatterns = inclusionPatterns;
             SecretArn = secretArn;
             SharePointVersion = sharePointVersion;
+            SslCertificateS3Path = sslCertificateS3Path;
             Urls = urls;
             UseChangeLog = useChangeLog;
             VpcConfiguration = vpcConfiguration;

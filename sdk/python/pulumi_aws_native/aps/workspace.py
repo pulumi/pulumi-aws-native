@@ -15,17 +15,33 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 @pulumi.input_type
 class WorkspaceArgs:
     def __init__(__self__, *,
+                 alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
+        :param pulumi.Input[str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[str] alias: AMP Workspace alias.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        if alert_manager_definition is not None:
+            pulumi.set(__self__, "alert_manager_definition", alert_manager_definition)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="alertManagerDefinition")
+    def alert_manager_definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AMP Workspace alert manager definition data
+        """
+        return pulumi.get(self, "alert_manager_definition")
+
+    @alert_manager_definition.setter
+    def alert_manager_definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_manager_definition", value)
 
     @property
     @pulumi.getter
@@ -57,6 +73,7 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
                  __props__=None):
@@ -65,6 +82,7 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[str] alias: AMP Workspace alias.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -92,6 +110,7 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_manager_definition: Optional[pulumi.Input[str]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceTagArgs']]]]] = None,
                  __props__=None):
@@ -106,6 +125,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            __props__.__dict__["alert_manager_definition"] = alert_manager_definition
             __props__.__dict__["alias"] = alias
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -133,12 +153,21 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+        __props__.__dict__["alert_manager_definition"] = None
         __props__.__dict__["alias"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["prometheus_endpoint"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["workspace_id"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alertManagerDefinition")
+    def alert_manager_definition(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AMP Workspace alert manager definition data
+        """
+        return pulumi.get(self, "alert_manager_definition")
 
     @property
     @pulumi.getter

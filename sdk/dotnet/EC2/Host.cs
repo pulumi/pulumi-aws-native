@@ -15,15 +15,33 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:ec2:Host")]
     public partial class Host : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        /// </summary>
         [Output("autoPlacement")]
-        public Output<string?> AutoPlacement { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.HostAutoPlacement?> AutoPlacement { get; private set; } = null!;
 
+        /// <summary>
+        /// The Availability Zone in which to allocate the Dedicated Host.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
-        [Output("hostRecovery")]
-        public Output<string?> HostRecovery { get; private set; } = null!;
+        /// <summary>
+        /// Id of the host created.
+        /// </summary>
+        [Output("hostId")]
+        public Output<string> HostId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        /// </summary>
+        [Output("hostRecovery")]
+        public Output<Pulumi.AwsNative.EC2.HostHostRecovery?> HostRecovery { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+        /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
 
@@ -72,15 +90,27 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class HostArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        /// </summary>
         [Input("autoPlacement")]
-        public Input<string>? AutoPlacement { get; set; }
+        public Input<Pulumi.AwsNative.EC2.HostAutoPlacement>? AutoPlacement { get; set; }
 
+        /// <summary>
+        /// The Availability Zone in which to allocate the Dedicated Host.
+        /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        /// </summary>
         [Input("hostRecovery")]
-        public Input<string>? HostRecovery { get; set; }
+        public Input<Pulumi.AwsNative.EC2.HostHostRecovery>? HostRecovery { get; set; }
 
+        /// <summary>
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+        /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
 

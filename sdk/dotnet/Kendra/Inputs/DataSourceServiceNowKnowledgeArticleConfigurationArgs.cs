@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.Kendra.Inputs
             set => _fieldMappings = value;
         }
 
+        [Input("filterQuery")]
+        public Input<string>? FilterQuery { get; set; }
+
         [Input("includeAttachmentFilePatterns")]
         private InputList<string>? _includeAttachmentFilePatterns;
         public InputList<string> IncludeAttachmentFilePatterns

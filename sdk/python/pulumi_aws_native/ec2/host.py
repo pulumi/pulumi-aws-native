@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['HostArgs', 'Host']
 
@@ -15,10 +16,14 @@ class HostArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  instance_type: pulumi.Input[str],
-                 auto_placement: Optional[pulumi.Input[str]] = None,
-                 host_recovery: Optional[pulumi.Input[str]] = None):
+                 auto_placement: Optional[pulumi.Input['HostAutoPlacement']] = None,
+                 host_recovery: Optional[pulumi.Input['HostHostRecovery']] = None):
         """
         The set of arguments for constructing a Host resource.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
+        :param pulumi.Input[str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+        :param pulumi.Input['HostAutoPlacement'] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        :param pulumi.Input['HostHostRecovery'] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -30,6 +35,9 @@ class HostArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[str]:
+        """
+        The Availability Zone in which to allocate the Dedicated Host.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -39,6 +47,9 @@ class HostArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -47,20 +58,26 @@ class HostArgs:
 
     @property
     @pulumi.getter(name="autoPlacement")
-    def auto_placement(self) -> Optional[pulumi.Input[str]]:
+    def auto_placement(self) -> Optional[pulumi.Input['HostAutoPlacement']]:
+        """
+        Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        """
         return pulumi.get(self, "auto_placement")
 
     @auto_placement.setter
-    def auto_placement(self, value: Optional[pulumi.Input[str]]):
+    def auto_placement(self, value: Optional[pulumi.Input['HostAutoPlacement']]):
         pulumi.set(self, "auto_placement", value)
 
     @property
     @pulumi.getter(name="hostRecovery")
-    def host_recovery(self) -> Optional[pulumi.Input[str]]:
+    def host_recovery(self) -> Optional[pulumi.Input['HostHostRecovery']]:
+        """
+        Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        """
         return pulumi.get(self, "host_recovery")
 
     @host_recovery.setter
-    def host_recovery(self, value: Optional[pulumi.Input[str]]):
+    def host_recovery(self, value: Optional[pulumi.Input['HostHostRecovery']]):
         pulumi.set(self, "host_recovery", value)
 
 
@@ -69,9 +86,9 @@ class Host(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_placement: Optional[pulumi.Input[str]] = None,
+                 auto_placement: Optional[pulumi.Input['HostAutoPlacement']] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 host_recovery: Optional[pulumi.Input[str]] = None,
+                 host_recovery: Optional[pulumi.Input['HostHostRecovery']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -79,6 +96,10 @@ class Host(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['HostAutoPlacement'] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
+        :param pulumi.Input['HostHostRecovery'] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        :param pulumi.Input[str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
         """
         ...
     @overload
@@ -104,9 +125,9 @@ class Host(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_placement: Optional[pulumi.Input[str]] = None,
+                 auto_placement: Optional[pulumi.Input['HostAutoPlacement']] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 host_recovery: Optional[pulumi.Input[str]] = None,
+                 host_recovery: Optional[pulumi.Input['HostHostRecovery']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -128,6 +149,7 @@ class Host(pulumi.CustomResource):
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["host_id"] = None
         super(Host, __self__).__init__(
             'aws-native:ec2:Host',
             resource_name,
@@ -152,27 +174,48 @@ class Host(pulumi.CustomResource):
 
         __props__.__dict__["auto_placement"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["host_id"] = None
         __props__.__dict__["host_recovery"] = None
         __props__.__dict__["instance_type"] = None
         return Host(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="autoPlacement")
-    def auto_placement(self) -> pulumi.Output[Optional[str]]:
+    def auto_placement(self) -> pulumi.Output[Optional['HostAutoPlacement']]:
+        """
+        Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        """
         return pulumi.get(self, "auto_placement")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
+        """
+        The Availability Zone in which to allocate the Dedicated Host.
+        """
         return pulumi.get(self, "availability_zone")
 
     @property
+    @pulumi.getter(name="hostId")
+    def host_id(self) -> pulumi.Output[str]:
+        """
+        Id of the host created.
+        """
+        return pulumi.get(self, "host_id")
+
+    @property
     @pulumi.getter(name="hostRecovery")
-    def host_recovery(self) -> pulumi.Output[Optional[str]]:
+    def host_recovery(self) -> pulumi.Output[Optional['HostHostRecovery']]:
+        """
+        Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        """
         return pulumi.get(self, "host_recovery")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
+        """
+        Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+        """
         return pulumi.get(self, "instance_type")
 

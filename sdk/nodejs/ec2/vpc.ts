@@ -35,14 +35,47 @@ export class VPC extends pulumi.CustomResource {
         return obj['__pulumiType'] === VPC.__pulumiType;
     }
 
+    /**
+     * The primary IPv4 CIDR block for the VPC.
+     */
     public readonly cidrBlock!: pulumi.Output<string>;
+    /**
+     * A list of IPv4 CIDR block association IDs for the VPC.
+     */
     public /*out*/ readonly cidrBlockAssociations!: pulumi.Output<string[]>;
+    /**
+     * The default network ACL ID that is associated with the VPC.
+     */
     public /*out*/ readonly defaultNetworkAcl!: pulumi.Output<string>;
+    /**
+     * The default security group ID that is associated with the VPC.
+     */
     public /*out*/ readonly defaultSecurityGroup!: pulumi.Output<string>;
+    /**
+     * Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+     */
     public readonly enableDnsHostnames!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+     */
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
+    /**
+     * The allowed tenancy of instances launched into the VPC.
+     *
+     * "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+     *
+     * "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+     *
+     * Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+     */
     public readonly instanceTenancy!: pulumi.Output<string | undefined>;
+    /**
+     * A list of IPv6 CIDR blocks that are associated with the VPC.
+     */
     public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
+    /**
+     * The tags for the VPC.
+     */
     public readonly tags!: pulumi.Output<outputs.ec2.VPCTag[] | undefined>;
 
     /**
@@ -90,9 +123,30 @@ export class VPC extends pulumi.CustomResource {
  * The set of arguments for constructing a VPC resource.
  */
 export interface VPCArgs {
+    /**
+     * The primary IPv4 CIDR block for the VPC.
+     */
     cidrBlock: pulumi.Input<string>;
+    /**
+     * Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+     */
     enableDnsHostnames?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+     */
     enableDnsSupport?: pulumi.Input<boolean>;
+    /**
+     * The allowed tenancy of instances launched into the VPC.
+     *
+     * "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+     *
+     * "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+     *
+     * Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+     */
     instanceTenancy?: pulumi.Input<string>;
+    /**
+     * The tags for the VPC.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.VPCTagArgs>[]>;
 }

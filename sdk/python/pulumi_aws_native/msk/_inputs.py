@@ -30,6 +30,7 @@ __all__ = [
     'ClusterScramArgs',
     'ClusterStorageInfoArgs',
     'ClusterTlsArgs',
+    'ClusterUnauthenticatedArgs',
 ]
 
 @pulumi.input_type
@@ -140,11 +141,14 @@ class ClusterBrokerNodeGroupInfoArgs:
 class ClusterClientAuthenticationArgs:
     def __init__(__self__, *,
                  sasl: Optional[pulumi.Input['ClusterSaslArgs']] = None,
-                 tls: Optional[pulumi.Input['ClusterTlsArgs']] = None):
+                 tls: Optional[pulumi.Input['ClusterTlsArgs']] = None,
+                 unauthenticated: Optional[pulumi.Input['ClusterUnauthenticatedArgs']] = None):
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
+        if unauthenticated is not None:
+            pulumi.set(__self__, "unauthenticated", unauthenticated)
 
     @property
     @pulumi.getter
@@ -163,6 +167,15 @@ class ClusterClientAuthenticationArgs:
     @tls.setter
     def tls(self, value: Optional[pulumi.Input['ClusterTlsArgs']]):
         pulumi.set(self, "tls", value)
+
+    @property
+    @pulumi.getter
+    def unauthenticated(self) -> Optional[pulumi.Input['ClusterUnauthenticatedArgs']]:
+        return pulumi.get(self, "unauthenticated")
+
+    @unauthenticated.setter
+    def unauthenticated(self, value: Optional[pulumi.Input['ClusterUnauthenticatedArgs']]):
+        pulumi.set(self, "unauthenticated", value)
 
 
 @pulumi.input_type
@@ -553,9 +566,12 @@ class ClusterStorageInfoArgs:
 @pulumi.input_type
 class ClusterTlsArgs:
     def __init__(__self__, *,
-                 certificate_authority_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 certificate_authority_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
         if certificate_authority_arn_list is not None:
             pulumi.set(__self__, "certificate_authority_arn_list", certificate_authority_arn_list)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="certificateAuthorityArnList")
@@ -565,5 +581,30 @@ class ClusterTlsArgs:
     @certificate_authority_arn_list.setter
     def certificate_authority_arn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "certificate_authority_arn_list", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ClusterUnauthenticatedArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
 
 

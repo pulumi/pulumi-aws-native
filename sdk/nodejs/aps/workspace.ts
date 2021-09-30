@@ -36,6 +36,10 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * The AMP Workspace alert manager definition data
+     */
+    public readonly alertManagerDefinition!: pulumi.Output<string | undefined>;
+    /**
      * AMP Workspace alias.
      */
     public readonly alias!: pulumi.Output<string | undefined>;
@@ -67,12 +71,14 @@ export class Workspace extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            inputs["alertManagerDefinition"] = args ? args.alertManagerDefinition : undefined;
             inputs["alias"] = args ? args.alias : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["prometheusEndpoint"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         } else {
+            inputs["alertManagerDefinition"] = undefined /*out*/;
             inputs["alias"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["prometheusEndpoint"] = undefined /*out*/;
@@ -90,6 +96,10 @@ export class Workspace extends pulumi.CustomResource {
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
+    /**
+     * The AMP Workspace alert manager definition data
+     */
+    alertManagerDefinition?: pulumi.Input<string>;
     /**
      * AMP Workspace alias.
      */

@@ -334,6 +334,34 @@ namespace Pulumi.AwsNative.Kendra
     }
 
     [EnumType]
+    public readonly struct DataSourceServiceNowAuthenticationType : IEquatable<DataSourceServiceNowAuthenticationType>
+    {
+        private readonly string _value;
+
+        private DataSourceServiceNowAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceServiceNowAuthenticationType HttpBasic { get; } = new DataSourceServiceNowAuthenticationType("HTTP_BASIC");
+        public static DataSourceServiceNowAuthenticationType Oauth2 { get; } = new DataSourceServiceNowAuthenticationType("OAUTH2");
+
+        public static bool operator ==(DataSourceServiceNowAuthenticationType left, DataSourceServiceNowAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(DataSourceServiceNowAuthenticationType left, DataSourceServiceNowAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceServiceNowAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceServiceNowAuthenticationType other && Equals(other);
+        public bool Equals(DataSourceServiceNowAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSourceServiceNowBuildVersionType : IEquatable<DataSourceServiceNowBuildVersionType>
     {
         private readonly string _value;
@@ -372,6 +400,8 @@ namespace Pulumi.AwsNative.Kendra
         }
 
         public static DataSourceSharePointConfigurationSharePointVersion SharepointOnline { get; } = new DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_ONLINE");
+        public static DataSourceSharePointConfigurationSharePointVersion Sharepoint2013 { get; } = new DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_2013");
+        public static DataSourceSharePointConfigurationSharePointVersion Sharepoint2016 { get; } = new DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_2016");
 
         public static bool operator ==(DataSourceSharePointConfigurationSharePointVersion left, DataSourceSharePointConfigurationSharePointVersion right) => left.Equals(right);
         public static bool operator !=(DataSourceSharePointConfigurationSharePointVersion left, DataSourceSharePointConfigurationSharePointVersion right) => !left.Equals(right);
@@ -410,6 +440,8 @@ namespace Pulumi.AwsNative.Kendra
         public static DataSourceType Custom { get; } = new DataSourceType("CUSTOM");
         public static DataSourceType Confluence { get; } = new DataSourceType("CONFLUENCE");
         public static DataSourceType Googledrive { get; } = new DataSourceType("GOOGLEDRIVE");
+        public static DataSourceType Webcrawler { get; } = new DataSourceType("WEBCRAWLER");
+        public static DataSourceType Workdocs { get; } = new DataSourceType("WORKDOCS");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
@@ -419,6 +451,35 @@ namespace Pulumi.AwsNative.Kendra
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceType other && Equals(other);
         public bool Equals(DataSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode : IEquatable<DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode>
+    {
+        private readonly string _value;
+
+        private DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode HostOnly { get; } = new DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode("HOST_ONLY");
+        public static DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode Subdomains { get; } = new DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode("SUBDOMAINS");
+        public static DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode Everything { get; } = new DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode("EVERYTHING");
+
+        public static bool operator ==(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode left, DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode right) => left.Equals(right);
+        public static bool operator !=(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode left, DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode other && Equals(other);
+        public bool Equals(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

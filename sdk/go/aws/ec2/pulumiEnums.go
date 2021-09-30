@@ -1703,6 +1703,336 @@ func (in *flowLogTrafficTypePtr) ToFlowLogTrafficTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FlowLogTrafficTypePtrOutput)
 }
 
+// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+type HostAutoPlacement string
+
+const (
+	HostAutoPlacementOn  = HostAutoPlacement("on")
+	HostAutoPlacementOff = HostAutoPlacement("off")
+)
+
+func (HostAutoPlacement) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostAutoPlacement)(nil)).Elem()
+}
+
+func (e HostAutoPlacement) ToHostAutoPlacementOutput() HostAutoPlacementOutput {
+	return pulumi.ToOutput(e).(HostAutoPlacementOutput)
+}
+
+func (e HostAutoPlacement) ToHostAutoPlacementOutputWithContext(ctx context.Context) HostAutoPlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostAutoPlacementOutput)
+}
+
+func (e HostAutoPlacement) ToHostAutoPlacementPtrOutput() HostAutoPlacementPtrOutput {
+	return e.ToHostAutoPlacementPtrOutputWithContext(context.Background())
+}
+
+func (e HostAutoPlacement) ToHostAutoPlacementPtrOutputWithContext(ctx context.Context) HostAutoPlacementPtrOutput {
+	return HostAutoPlacement(e).ToHostAutoPlacementOutputWithContext(ctx).ToHostAutoPlacementPtrOutputWithContext(ctx)
+}
+
+func (e HostAutoPlacement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostAutoPlacement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostAutoPlacement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostAutoPlacement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostAutoPlacementOutput struct{ *pulumi.OutputState }
+
+func (HostAutoPlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostAutoPlacement)(nil)).Elem()
+}
+
+func (o HostAutoPlacementOutput) ToHostAutoPlacementOutput() HostAutoPlacementOutput {
+	return o
+}
+
+func (o HostAutoPlacementOutput) ToHostAutoPlacementOutputWithContext(ctx context.Context) HostAutoPlacementOutput {
+	return o
+}
+
+func (o HostAutoPlacementOutput) ToHostAutoPlacementPtrOutput() HostAutoPlacementPtrOutput {
+	return o.ToHostAutoPlacementPtrOutputWithContext(context.Background())
+}
+
+func (o HostAutoPlacementOutput) ToHostAutoPlacementPtrOutputWithContext(ctx context.Context) HostAutoPlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostAutoPlacement) *HostAutoPlacement {
+		return &v
+	}).(HostAutoPlacementPtrOutput)
+}
+
+func (o HostAutoPlacementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostAutoPlacementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostAutoPlacement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostAutoPlacementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostAutoPlacementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostAutoPlacement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostAutoPlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (HostAutoPlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostAutoPlacement)(nil)).Elem()
+}
+
+func (o HostAutoPlacementPtrOutput) ToHostAutoPlacementPtrOutput() HostAutoPlacementPtrOutput {
+	return o
+}
+
+func (o HostAutoPlacementPtrOutput) ToHostAutoPlacementPtrOutputWithContext(ctx context.Context) HostAutoPlacementPtrOutput {
+	return o
+}
+
+func (o HostAutoPlacementPtrOutput) Elem() HostAutoPlacementOutput {
+	return o.ApplyT(func(v *HostAutoPlacement) HostAutoPlacement {
+		if v != nil {
+			return *v
+		}
+		var ret HostAutoPlacement
+		return ret
+	}).(HostAutoPlacementOutput)
+}
+
+func (o HostAutoPlacementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostAutoPlacementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostAutoPlacement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostAutoPlacementInput is an input type that accepts HostAutoPlacementArgs and HostAutoPlacementOutput values.
+// You can construct a concrete instance of `HostAutoPlacementInput` via:
+//
+//          HostAutoPlacementArgs{...}
+type HostAutoPlacementInput interface {
+	pulumi.Input
+
+	ToHostAutoPlacementOutput() HostAutoPlacementOutput
+	ToHostAutoPlacementOutputWithContext(context.Context) HostAutoPlacementOutput
+}
+
+var hostAutoPlacementPtrType = reflect.TypeOf((**HostAutoPlacement)(nil)).Elem()
+
+type HostAutoPlacementPtrInput interface {
+	pulumi.Input
+
+	ToHostAutoPlacementPtrOutput() HostAutoPlacementPtrOutput
+	ToHostAutoPlacementPtrOutputWithContext(context.Context) HostAutoPlacementPtrOutput
+}
+
+type hostAutoPlacementPtr string
+
+func HostAutoPlacementPtr(v string) HostAutoPlacementPtrInput {
+	return (*hostAutoPlacementPtr)(&v)
+}
+
+func (*hostAutoPlacementPtr) ElementType() reflect.Type {
+	return hostAutoPlacementPtrType
+}
+
+func (in *hostAutoPlacementPtr) ToHostAutoPlacementPtrOutput() HostAutoPlacementPtrOutput {
+	return pulumi.ToOutput(in).(HostAutoPlacementPtrOutput)
+}
+
+func (in *hostAutoPlacementPtr) ToHostAutoPlacementPtrOutputWithContext(ctx context.Context) HostAutoPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostAutoPlacementPtrOutput)
+}
+
+// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+type HostHostRecovery string
+
+const (
+	HostHostRecoveryOn  = HostHostRecovery("on")
+	HostHostRecoveryOff = HostHostRecovery("off")
+)
+
+func (HostHostRecovery) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostHostRecovery)(nil)).Elem()
+}
+
+func (e HostHostRecovery) ToHostHostRecoveryOutput() HostHostRecoveryOutput {
+	return pulumi.ToOutput(e).(HostHostRecoveryOutput)
+}
+
+func (e HostHostRecovery) ToHostHostRecoveryOutputWithContext(ctx context.Context) HostHostRecoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostHostRecoveryOutput)
+}
+
+func (e HostHostRecovery) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
+	return e.ToHostHostRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (e HostHostRecovery) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
+	return HostHostRecovery(e).ToHostHostRecoveryOutputWithContext(ctx).ToHostHostRecoveryPtrOutputWithContext(ctx)
+}
+
+func (e HostHostRecovery) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostHostRecovery) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostHostRecovery) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostHostRecovery) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostHostRecoveryOutput struct{ *pulumi.OutputState }
+
+func (HostHostRecoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostHostRecovery)(nil)).Elem()
+}
+
+func (o HostHostRecoveryOutput) ToHostHostRecoveryOutput() HostHostRecoveryOutput {
+	return o
+}
+
+func (o HostHostRecoveryOutput) ToHostHostRecoveryOutputWithContext(ctx context.Context) HostHostRecoveryOutput {
+	return o
+}
+
+func (o HostHostRecoveryOutput) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
+	return o.ToHostHostRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (o HostHostRecoveryOutput) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostHostRecovery) *HostHostRecovery {
+		return &v
+	}).(HostHostRecoveryPtrOutput)
+}
+
+func (o HostHostRecoveryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostHostRecoveryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostHostRecovery) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostHostRecoveryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostHostRecoveryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostHostRecovery) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostHostRecoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (HostHostRecoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostHostRecovery)(nil)).Elem()
+}
+
+func (o HostHostRecoveryPtrOutput) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
+	return o
+}
+
+func (o HostHostRecoveryPtrOutput) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
+	return o
+}
+
+func (o HostHostRecoveryPtrOutput) Elem() HostHostRecoveryOutput {
+	return o.ApplyT(func(v *HostHostRecovery) HostHostRecovery {
+		if v != nil {
+			return *v
+		}
+		var ret HostHostRecovery
+		return ret
+	}).(HostHostRecoveryOutput)
+}
+
+func (o HostHostRecoveryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostHostRecoveryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostHostRecovery) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostHostRecoveryInput is an input type that accepts HostHostRecoveryArgs and HostHostRecoveryOutput values.
+// You can construct a concrete instance of `HostHostRecoveryInput` via:
+//
+//          HostHostRecoveryArgs{...}
+type HostHostRecoveryInput interface {
+	pulumi.Input
+
+	ToHostHostRecoveryOutput() HostHostRecoveryOutput
+	ToHostHostRecoveryOutputWithContext(context.Context) HostHostRecoveryOutput
+}
+
+var hostHostRecoveryPtrType = reflect.TypeOf((**HostHostRecovery)(nil)).Elem()
+
+type HostHostRecoveryPtrInput interface {
+	pulumi.Input
+
+	ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput
+	ToHostHostRecoveryPtrOutputWithContext(context.Context) HostHostRecoveryPtrOutput
+}
+
+type hostHostRecoveryPtr string
+
+func HostHostRecoveryPtr(v string) HostHostRecoveryPtrInput {
+	return (*hostHostRecoveryPtr)(&v)
+}
+
+func (*hostHostRecoveryPtr) ElementType() reflect.Type {
+	return hostHostRecoveryPtrType
+}
+
+func (in *hostHostRecoveryPtr) ToHostHostRecoveryPtrOutput() HostHostRecoveryPtrOutput {
+	return pulumi.ToOutput(in).(HostHostRecoveryPtrOutput)
+}
+
+func (in *hostHostRecoveryPtr) ToHostHostRecoveryPtrOutputWithContext(ctx context.Context) HostHostRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostHostRecoveryPtrOutput)
+}
+
 type NetworkInsightsAnalysisStatus string
 
 const (
@@ -3583,6 +3913,10 @@ func init() {
 	pulumi.RegisterOutputType(FlowLogResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypeOutput{})
 	pulumi.RegisterOutputType(FlowLogTrafficTypePtrOutput{})
+	pulumi.RegisterOutputType(HostAutoPlacementOutput{})
+	pulumi.RegisterOutputType(HostAutoPlacementPtrOutput{})
+	pulumi.RegisterOutputType(HostHostRecoveryOutput{})
+	pulumi.RegisterOutputType(HostHostRecoveryPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisStatusOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisStatusPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathProtocolOutput{})

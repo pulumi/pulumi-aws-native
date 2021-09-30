@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -34,9 +35,25 @@ export class Host extends pulumi.CustomResource {
         return obj['__pulumiType'] === Host.__pulumiType;
     }
 
-    public readonly autoPlacement!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+     */
+    public readonly autoPlacement!: pulumi.Output<enums.ec2.HostAutoPlacement | undefined>;
+    /**
+     * The Availability Zone in which to allocate the Dedicated Host.
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
-    public readonly hostRecovery!: pulumi.Output<string | undefined>;
+    /**
+     * Id of the host created.
+     */
+    public /*out*/ readonly hostId!: pulumi.Output<string>;
+    /**
+     * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+     */
+    public readonly hostRecovery!: pulumi.Output<enums.ec2.HostHostRecovery | undefined>;
+    /**
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+     */
     public readonly instanceType!: pulumi.Output<string>;
 
     /**
@@ -60,9 +77,11 @@ export class Host extends pulumi.CustomResource {
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["hostRecovery"] = args ? args.hostRecovery : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
+            inputs["hostId"] = undefined /*out*/;
         } else {
             inputs["autoPlacement"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
+            inputs["hostId"] = undefined /*out*/;
             inputs["hostRecovery"] = undefined /*out*/;
             inputs["instanceType"] = undefined /*out*/;
         }
@@ -77,8 +96,20 @@ export class Host extends pulumi.CustomResource {
  * The set of arguments for constructing a Host resource.
  */
 export interface HostArgs {
-    autoPlacement?: pulumi.Input<string>;
+    /**
+     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+     */
+    autoPlacement?: pulumi.Input<enums.ec2.HostAutoPlacement>;
+    /**
+     * The Availability Zone in which to allocate the Dedicated Host.
+     */
     availabilityZone: pulumi.Input<string>;
-    hostRecovery?: pulumi.Input<string>;
+    /**
+     * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+     */
+    hostRecovery?: pulumi.Input<enums.ec2.HostHostRecovery>;
+    /**
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
+     */
     instanceType: pulumi.Input<string>;
 }

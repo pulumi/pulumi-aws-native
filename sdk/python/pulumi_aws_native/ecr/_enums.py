@@ -5,9 +5,17 @@
 from enum import Enum
 
 __all__ = [
+    'ReplicationConfigurationFilterType',
     'RepositoryEncryptionType',
     'RepositoryImageTagMutability',
 ]
+
+
+class ReplicationConfigurationFilterType(str, Enum):
+    """
+    Type of repository filter
+    """
+    PREFIX_MATCH = "PREFIX_MATCH"
 
 
 class RepositoryEncryptionType(str, Enum):

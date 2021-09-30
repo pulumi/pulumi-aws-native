@@ -15,9 +15,11 @@ __all__ = [
     'DataSourceSalesforceChatterFeedIncludeFilterType',
     'DataSourceSalesforceKnowledgeArticleState',
     'DataSourceSalesforceStandardObjectName',
+    'DataSourceServiceNowAuthenticationType',
     'DataSourceServiceNowBuildVersionType',
     'DataSourceSharePointConfigurationSharePointVersion',
     'DataSourceType',
+    'DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode',
     'FaqFileFormat',
     'IndexDocumentAttributeValueType',
     'IndexEdition',
@@ -123,6 +125,11 @@ class DataSourceSalesforceStandardObjectName(str, Enum):
     USER = "USER"
 
 
+class DataSourceServiceNowAuthenticationType(str, Enum):
+    HTTP_BASIC = "HTTP_BASIC"
+    OAUTH2 = "OAUTH2"
+
+
 class DataSourceServiceNowBuildVersionType(str, Enum):
     LONDON = "LONDON"
     OTHERS = "OTHERS"
@@ -130,6 +137,8 @@ class DataSourceServiceNowBuildVersionType(str, Enum):
 
 class DataSourceSharePointConfigurationSharePointVersion(str, Enum):
     SHAREPOINT_ONLINE = "SHAREPOINT_ONLINE"
+    SHAREPOINT2013 = "SHAREPOINT_2013"
+    SHAREPOINT2016 = "SHAREPOINT_2016"
 
 
 class DataSourceType(str, Enum):
@@ -145,6 +154,14 @@ class DataSourceType(str, Enum):
     CUSTOM = "CUSTOM"
     CONFLUENCE = "CONFLUENCE"
     GOOGLEDRIVE = "GOOGLEDRIVE"
+    WEBCRAWLER = "WEBCRAWLER"
+    WORKDOCS = "WORKDOCS"
+
+
+class DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode(str, Enum):
+    HOST_ONLY = "HOST_ONLY"
+    SUBDOMAINS = "SUBDOMAINS"
+    EVERYTHING = "EVERYTHING"
 
 
 class FaqFileFormat(str, Enum):

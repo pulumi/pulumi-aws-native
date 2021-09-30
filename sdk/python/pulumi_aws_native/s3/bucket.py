@@ -260,12 +260,7 @@ class BucketArgs:
         pulumi.set(self, "website_configuration", value)
 
 
-warnings.warn("""Bucket is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Bucket(pulumi.CustomResource):
-    warnings.warn("""Bucket is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -342,7 +337,6 @@ class Bucket(pulumi.CustomResource):
                  versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningConfigurationArgs']]] = None,
                  website_configuration: Optional[pulumi.Input[pulumi.InputType['BucketWebsiteConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Bucket is deprecated: Bucket is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

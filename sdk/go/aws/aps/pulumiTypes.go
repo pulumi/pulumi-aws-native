@@ -11,6 +11,115 @@ import (
 )
 
 // A key-value pair to associate with a resource.
+type RuleGroupsNamespaceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// RuleGroupsNamespaceTagInput is an input type that accepts RuleGroupsNamespaceTagArgs and RuleGroupsNamespaceTagOutput values.
+// You can construct a concrete instance of `RuleGroupsNamespaceTagInput` via:
+//
+//          RuleGroupsNamespaceTagArgs{...}
+type RuleGroupsNamespaceTagInput interface {
+	pulumi.Input
+
+	ToRuleGroupsNamespaceTagOutput() RuleGroupsNamespaceTagOutput
+	ToRuleGroupsNamespaceTagOutputWithContext(context.Context) RuleGroupsNamespaceTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type RuleGroupsNamespaceTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RuleGroupsNamespaceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupsNamespaceTag)(nil)).Elem()
+}
+
+func (i RuleGroupsNamespaceTagArgs) ToRuleGroupsNamespaceTagOutput() RuleGroupsNamespaceTagOutput {
+	return i.ToRuleGroupsNamespaceTagOutputWithContext(context.Background())
+}
+
+func (i RuleGroupsNamespaceTagArgs) ToRuleGroupsNamespaceTagOutputWithContext(ctx context.Context) RuleGroupsNamespaceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupsNamespaceTagOutput)
+}
+
+// RuleGroupsNamespaceTagArrayInput is an input type that accepts RuleGroupsNamespaceTagArray and RuleGroupsNamespaceTagArrayOutput values.
+// You can construct a concrete instance of `RuleGroupsNamespaceTagArrayInput` via:
+//
+//          RuleGroupsNamespaceTagArray{ RuleGroupsNamespaceTagArgs{...} }
+type RuleGroupsNamespaceTagArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupsNamespaceTagArrayOutput() RuleGroupsNamespaceTagArrayOutput
+	ToRuleGroupsNamespaceTagArrayOutputWithContext(context.Context) RuleGroupsNamespaceTagArrayOutput
+}
+
+type RuleGroupsNamespaceTagArray []RuleGroupsNamespaceTagInput
+
+func (RuleGroupsNamespaceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupsNamespaceTag)(nil)).Elem()
+}
+
+func (i RuleGroupsNamespaceTagArray) ToRuleGroupsNamespaceTagArrayOutput() RuleGroupsNamespaceTagArrayOutput {
+	return i.ToRuleGroupsNamespaceTagArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupsNamespaceTagArray) ToRuleGroupsNamespaceTagArrayOutputWithContext(ctx context.Context) RuleGroupsNamespaceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupsNamespaceTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RuleGroupsNamespaceTagOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupsNamespaceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupsNamespaceTag)(nil)).Elem()
+}
+
+func (o RuleGroupsNamespaceTagOutput) ToRuleGroupsNamespaceTagOutput() RuleGroupsNamespaceTagOutput {
+	return o
+}
+
+func (o RuleGroupsNamespaceTagOutput) ToRuleGroupsNamespaceTagOutputWithContext(ctx context.Context) RuleGroupsNamespaceTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RuleGroupsNamespaceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupsNamespaceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RuleGroupsNamespaceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupsNamespaceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RuleGroupsNamespaceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupsNamespaceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupsNamespaceTag)(nil)).Elem()
+}
+
+func (o RuleGroupsNamespaceTagArrayOutput) ToRuleGroupsNamespaceTagArrayOutput() RuleGroupsNamespaceTagArrayOutput {
+	return o
+}
+
+func (o RuleGroupsNamespaceTagArrayOutput) ToRuleGroupsNamespaceTagArrayOutputWithContext(ctx context.Context) RuleGroupsNamespaceTagArrayOutput {
+	return o
+}
+
+func (o RuleGroupsNamespaceTagArrayOutput) Index(i pulumi.IntInput) RuleGroupsNamespaceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupsNamespaceTag {
+		return vs[0].([]RuleGroupsNamespaceTag)[vs[1].(int)]
+	}).(RuleGroupsNamespaceTagOutput)
+}
+
+// A key-value pair to associate with a resource.
 type WorkspaceTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
@@ -120,6 +229,8 @@ func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(RuleGroupsNamespaceTagOutput{})
+	pulumi.RegisterOutputType(RuleGroupsNamespaceTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceTagOutput{})
 	pulumi.RegisterOutputType(WorkspaceTagArrayOutput{})
 }

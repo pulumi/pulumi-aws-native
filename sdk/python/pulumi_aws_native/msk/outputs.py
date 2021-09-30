@@ -31,6 +31,7 @@ __all__ = [
     'ClusterScram',
     'ClusterStorageInfo',
     'ClusterTls',
+    'ClusterUnauthenticated',
 ]
 
 @pulumi.output_type
@@ -151,11 +152,14 @@ class ClusterBrokerNodeGroupInfo(dict):
 class ClusterClientAuthentication(dict):
     def __init__(__self__, *,
                  sasl: Optional['outputs.ClusterSasl'] = None,
-                 tls: Optional['outputs.ClusterTls'] = None):
+                 tls: Optional['outputs.ClusterTls'] = None,
+                 unauthenticated: Optional['outputs.ClusterUnauthenticated'] = None):
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
+        if unauthenticated is not None:
+            pulumi.set(__self__, "unauthenticated", unauthenticated)
 
     @property
     @pulumi.getter
@@ -166,6 +170,11 @@ class ClusterClientAuthentication(dict):
     @pulumi.getter
     def tls(self) -> Optional['outputs.ClusterTls']:
         return pulumi.get(self, "tls")
+
+    @property
+    @pulumi.getter
+    def unauthenticated(self) -> Optional['outputs.ClusterUnauthenticated']:
+        return pulumi.get(self, "unauthenticated")
 
 
 @pulumi.output_type
@@ -662,13 +671,33 @@ class ClusterTls(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_authority_arn_list: Optional[Sequence[str]] = None):
+                 certificate_authority_arn_list: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None):
         if certificate_authority_arn_list is not None:
             pulumi.set(__self__, "certificate_authority_arn_list", certificate_authority_arn_list)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="certificateAuthorityArnList")
     def certificate_authority_arn_list(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "certificate_authority_arn_list")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterUnauthenticated(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
 
 

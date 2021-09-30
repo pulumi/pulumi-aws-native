@@ -10,6 +10,9 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DeliveryStreamAmazonopensearchserviceBufferingHintsArgs',
+    'DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs',
+    'DeliveryStreamAmazonopensearchserviceRetryOptionsArgs',
     'DeliveryStreamBufferingHintsArgs',
     'DeliveryStreamCloudWatchLoggingOptionsArgs',
     'DeliveryStreamCopyCommandArgs',
@@ -48,6 +51,210 @@ __all__ = [
     'DeliveryStreamTagArgs',
     'DeliveryStreamVpcConfigurationArgs',
 ]
+
+@pulumi.input_type
+class DeliveryStreamAmazonopensearchserviceBufferingHintsArgs:
+    def __init__(__self__, *,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 size_in_mbs: Optional[pulumi.Input[int]] = None):
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if size_in_mbs is not None:
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="sizeInMBs")
+    def size_in_mbs(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "size_in_mbs")
+
+    @size_in_mbs.setter
+    def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size_in_mbs", value)
+
+
+@pulumi.input_type
+class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 index_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+                 buffering_hints: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceBufferingHintsArgs']] = None,
+                 cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
+                 cluster_endpoint: Optional[pulumi.Input[str]] = None,
+                 domain_arn: Optional[pulumi.Input[str]] = None,
+                 index_rotation_period: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod']] = None,
+                 processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
+                 retry_options: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceRetryOptionsArgs']] = None,
+                 s3_backup_mode: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode']] = None,
+                 type_name: Optional[pulumi.Input[str]] = None,
+                 vpc_configuration: Optional[pulumi.Input['DeliveryStreamVpcConfigurationArgs']] = None):
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if buffering_hints is not None:
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
+        if cloud_watch_logging_options is not None:
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
+        if cluster_endpoint is not None:
+            pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+        if domain_arn is not None:
+            pulumi.set(__self__, "domain_arn", domain_arn)
+        if index_rotation_period is not None:
+            pulumi.set(__self__, "index_rotation_period", index_rotation_period)
+        if processing_configuration is not None:
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if retry_options is not None:
+            pulumi.set(__self__, "retry_options", retry_options)
+        if s3_backup_mode is not None:
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
+        if type_name is not None:
+            pulumi.set(__self__, "type_name", type_name)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter(name="roleARN")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']):
+        pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter(name="bufferingHints")
+    def buffering_hints(self) -> Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceBufferingHintsArgs']]:
+        return pulumi.get(self, "buffering_hints")
+
+    @buffering_hints.setter
+    def buffering_hints(self, value: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceBufferingHintsArgs']]):
+        pulumi.set(self, "buffering_hints", value)
+
+    @property
+    @pulumi.getter(name="cloudWatchLoggingOptions")
+    def cloud_watch_logging_options(self) -> Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]:
+        return pulumi.get(self, "cloud_watch_logging_options")
+
+    @cloud_watch_logging_options.setter
+    def cloud_watch_logging_options(self, value: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']]):
+        pulumi.set(self, "cloud_watch_logging_options", value)
+
+    @property
+    @pulumi.getter(name="clusterEndpoint")
+    def cluster_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cluster_endpoint")
+
+    @cluster_endpoint.setter
+    def cluster_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_endpoint", value)
+
+    @property
+    @pulumi.getter(name="domainARN")
+    def domain_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "domain_arn")
+
+    @domain_arn.setter
+    def domain_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_arn", value)
+
+    @property
+    @pulumi.getter(name="indexRotationPeriod")
+    def index_rotation_period(self) -> Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod']]:
+        return pulumi.get(self, "index_rotation_period")
+
+    @index_rotation_period.setter
+    def index_rotation_period(self, value: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod']]):
+        pulumi.set(self, "index_rotation_period", value)
+
+    @property
+    @pulumi.getter(name="processingConfiguration")
+    def processing_configuration(self) -> Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]:
+        return pulumi.get(self, "processing_configuration")
+
+    @processing_configuration.setter
+    def processing_configuration(self, value: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']]):
+        pulumi.set(self, "processing_configuration", value)
+
+    @property
+    @pulumi.getter(name="retryOptions")
+    def retry_options(self) -> Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceRetryOptionsArgs']]:
+        return pulumi.get(self, "retry_options")
+
+    @retry_options.setter
+    def retry_options(self, value: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceRetryOptionsArgs']]):
+        pulumi.set(self, "retry_options", value)
+
+    @property
+    @pulumi.getter(name="s3BackupMode")
+    def s3_backup_mode(self) -> Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode']]:
+        return pulumi.get(self, "s3_backup_mode")
+
+    @s3_backup_mode.setter
+    def s3_backup_mode(self, value: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode']]):
+        pulumi.set(self, "s3_backup_mode", value)
+
+    @property
+    @pulumi.getter(name="typeName")
+    def type_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type_name")
+
+    @type_name.setter
+    def type_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_name", value)
+
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional[pulumi.Input['DeliveryStreamVpcConfigurationArgs']]:
+        return pulumi.get(self, "vpc_configuration")
+
+    @vpc_configuration.setter
+    def vpc_configuration(self, value: Optional[pulumi.Input['DeliveryStreamVpcConfigurationArgs']]):
+        pulumi.set(self, "vpc_configuration", value)
+
+
+@pulumi.input_type
+class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs:
+    def __init__(__self__, *,
+                 duration_in_seconds: Optional[pulumi.Input[int]] = None):
+        if duration_in_seconds is not None:
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="durationInSeconds")
+    def duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "duration_in_seconds")
+
+    @duration_in_seconds.setter
+    def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration_in_seconds", value)
+
 
 @pulumi.input_type
 class DeliveryStreamBufferingHintsArgs:

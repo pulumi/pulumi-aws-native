@@ -14,18 +14,19 @@ import (
 type DeliveryStream struct {
 	pulumi.CustomResourceState
 
-	Arn                                        pulumi.StringOutput                                               `pulumi:"arn"`
-	DeliveryStreamEncryptionConfigurationInput DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
-	DeliveryStreamName                         pulumi.StringPtrOutput                                            `pulumi:"deliveryStreamName"`
-	DeliveryStreamType                         DeliveryStreamDeliveryStreamTypePtrOutput                         `pulumi:"deliveryStreamType"`
-	ElasticsearchDestinationConfiguration      DeliveryStreamElasticsearchDestinationConfigurationPtrOutput      `pulumi:"elasticsearchDestinationConfiguration"`
-	ExtendedS3DestinationConfiguration         DeliveryStreamExtendedS3DestinationConfigurationPtrOutput         `pulumi:"extendedS3DestinationConfiguration"`
-	HttpEndpointDestinationConfiguration       DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput       `pulumi:"httpEndpointDestinationConfiguration"`
-	KinesisStreamSourceConfiguration           DeliveryStreamKinesisStreamSourceConfigurationPtrOutput           `pulumi:"kinesisStreamSourceConfiguration"`
-	RedshiftDestinationConfiguration           DeliveryStreamRedshiftDestinationConfigurationPtrOutput           `pulumi:"redshiftDestinationConfiguration"`
-	S3DestinationConfiguration                 DeliveryStreamS3DestinationConfigurationPtrOutput                 `pulumi:"s3DestinationConfiguration"`
-	SplunkDestinationConfiguration             DeliveryStreamSplunkDestinationConfigurationPtrOutput             `pulumi:"splunkDestinationConfiguration"`
-	Tags                                       DeliveryStreamTagArrayOutput                                      `pulumi:"tags"`
+	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput `pulumi:"amazonopensearchserviceDestinationConfiguration"`
+	Arn                                             pulumi.StringOutput                                                    `pulumi:"arn"`
+	DeliveryStreamEncryptionConfigurationInput      DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput      `pulumi:"deliveryStreamEncryptionConfigurationInput"`
+	DeliveryStreamName                              pulumi.StringPtrOutput                                                 `pulumi:"deliveryStreamName"`
+	DeliveryStreamType                              DeliveryStreamDeliveryStreamTypePtrOutput                              `pulumi:"deliveryStreamType"`
+	ElasticsearchDestinationConfiguration           DeliveryStreamElasticsearchDestinationConfigurationPtrOutput           `pulumi:"elasticsearchDestinationConfiguration"`
+	ExtendedS3DestinationConfiguration              DeliveryStreamExtendedS3DestinationConfigurationPtrOutput              `pulumi:"extendedS3DestinationConfiguration"`
+	HttpEndpointDestinationConfiguration            DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput            `pulumi:"httpEndpointDestinationConfiguration"`
+	KinesisStreamSourceConfiguration                DeliveryStreamKinesisStreamSourceConfigurationPtrOutput                `pulumi:"kinesisStreamSourceConfiguration"`
+	RedshiftDestinationConfiguration                DeliveryStreamRedshiftDestinationConfigurationPtrOutput                `pulumi:"redshiftDestinationConfiguration"`
+	S3DestinationConfiguration                      DeliveryStreamS3DestinationConfigurationPtrOutput                      `pulumi:"s3DestinationConfiguration"`
+	SplunkDestinationConfiguration                  DeliveryStreamSplunkDestinationConfigurationPtrOutput                  `pulumi:"splunkDestinationConfiguration"`
+	Tags                                            DeliveryStreamTagArrayOutput                                           `pulumi:"tags"`
 }
 
 // NewDeliveryStream registers a new resource with the given unique name, arguments, and options.
@@ -67,32 +68,34 @@ func (DeliveryStreamState) ElementType() reflect.Type {
 }
 
 type deliveryStreamArgs struct {
-	DeliveryStreamEncryptionConfigurationInput *DeliveryStreamDeliveryStreamEncryptionConfigurationInput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
-	DeliveryStreamName                         *string                                                   `pulumi:"deliveryStreamName"`
-	DeliveryStreamType                         *DeliveryStreamDeliveryStreamType                         `pulumi:"deliveryStreamType"`
-	ElasticsearchDestinationConfiguration      *DeliveryStreamElasticsearchDestinationConfiguration      `pulumi:"elasticsearchDestinationConfiguration"`
-	ExtendedS3DestinationConfiguration         *DeliveryStreamExtendedS3DestinationConfiguration         `pulumi:"extendedS3DestinationConfiguration"`
-	HttpEndpointDestinationConfiguration       *DeliveryStreamHttpEndpointDestinationConfiguration       `pulumi:"httpEndpointDestinationConfiguration"`
-	KinesisStreamSourceConfiguration           *DeliveryStreamKinesisStreamSourceConfiguration           `pulumi:"kinesisStreamSourceConfiguration"`
-	RedshiftDestinationConfiguration           *DeliveryStreamRedshiftDestinationConfiguration           `pulumi:"redshiftDestinationConfiguration"`
-	S3DestinationConfiguration                 *DeliveryStreamS3DestinationConfiguration                 `pulumi:"s3DestinationConfiguration"`
-	SplunkDestinationConfiguration             *DeliveryStreamSplunkDestinationConfiguration             `pulumi:"splunkDestinationConfiguration"`
-	Tags                                       []DeliveryStreamTag                                       `pulumi:"tags"`
+	AmazonopensearchserviceDestinationConfiguration *DeliveryStreamAmazonopensearchserviceDestinationConfiguration `pulumi:"amazonopensearchserviceDestinationConfiguration"`
+	DeliveryStreamEncryptionConfigurationInput      *DeliveryStreamDeliveryStreamEncryptionConfigurationInput      `pulumi:"deliveryStreamEncryptionConfigurationInput"`
+	DeliveryStreamName                              *string                                                        `pulumi:"deliveryStreamName"`
+	DeliveryStreamType                              *DeliveryStreamDeliveryStreamType                              `pulumi:"deliveryStreamType"`
+	ElasticsearchDestinationConfiguration           *DeliveryStreamElasticsearchDestinationConfiguration           `pulumi:"elasticsearchDestinationConfiguration"`
+	ExtendedS3DestinationConfiguration              *DeliveryStreamExtendedS3DestinationConfiguration              `pulumi:"extendedS3DestinationConfiguration"`
+	HttpEndpointDestinationConfiguration            *DeliveryStreamHttpEndpointDestinationConfiguration            `pulumi:"httpEndpointDestinationConfiguration"`
+	KinesisStreamSourceConfiguration                *DeliveryStreamKinesisStreamSourceConfiguration                `pulumi:"kinesisStreamSourceConfiguration"`
+	RedshiftDestinationConfiguration                *DeliveryStreamRedshiftDestinationConfiguration                `pulumi:"redshiftDestinationConfiguration"`
+	S3DestinationConfiguration                      *DeliveryStreamS3DestinationConfiguration                      `pulumi:"s3DestinationConfiguration"`
+	SplunkDestinationConfiguration                  *DeliveryStreamSplunkDestinationConfiguration                  `pulumi:"splunkDestinationConfiguration"`
+	Tags                                            []DeliveryStreamTag                                            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeliveryStream resource.
 type DeliveryStreamArgs struct {
-	DeliveryStreamEncryptionConfigurationInput DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput
-	DeliveryStreamName                         pulumi.StringPtrInput
-	DeliveryStreamType                         DeliveryStreamDeliveryStreamTypePtrInput
-	ElasticsearchDestinationConfiguration      DeliveryStreamElasticsearchDestinationConfigurationPtrInput
-	ExtendedS3DestinationConfiguration         DeliveryStreamExtendedS3DestinationConfigurationPtrInput
-	HttpEndpointDestinationConfiguration       DeliveryStreamHttpEndpointDestinationConfigurationPtrInput
-	KinesisStreamSourceConfiguration           DeliveryStreamKinesisStreamSourceConfigurationPtrInput
-	RedshiftDestinationConfiguration           DeliveryStreamRedshiftDestinationConfigurationPtrInput
-	S3DestinationConfiguration                 DeliveryStreamS3DestinationConfigurationPtrInput
-	SplunkDestinationConfiguration             DeliveryStreamSplunkDestinationConfigurationPtrInput
-	Tags                                       DeliveryStreamTagArrayInput
+	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput
+	DeliveryStreamEncryptionConfigurationInput      DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput
+	DeliveryStreamName                              pulumi.StringPtrInput
+	DeliveryStreamType                              DeliveryStreamDeliveryStreamTypePtrInput
+	ElasticsearchDestinationConfiguration           DeliveryStreamElasticsearchDestinationConfigurationPtrInput
+	ExtendedS3DestinationConfiguration              DeliveryStreamExtendedS3DestinationConfigurationPtrInput
+	HttpEndpointDestinationConfiguration            DeliveryStreamHttpEndpointDestinationConfigurationPtrInput
+	KinesisStreamSourceConfiguration                DeliveryStreamKinesisStreamSourceConfigurationPtrInput
+	RedshiftDestinationConfiguration                DeliveryStreamRedshiftDestinationConfigurationPtrInput
+	S3DestinationConfiguration                      DeliveryStreamS3DestinationConfigurationPtrInput
+	SplunkDestinationConfiguration                  DeliveryStreamSplunkDestinationConfigurationPtrInput
+	Tags                                            DeliveryStreamTagArrayInput
 }
 
 func (DeliveryStreamArgs) ElementType() reflect.Type {

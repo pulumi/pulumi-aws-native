@@ -22,6 +22,17 @@ class VPCArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VPCTagArgs']]]] = None):
         """
         The set of arguments for constructing a VPC resource.
+        :param pulumi.Input[str] cidr_block: The primary IPv4 CIDR block for the VPC.
+        :param pulumi.Input[bool] enable_dns_hostnames: Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        :param pulumi.Input[bool] enable_dns_support: Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        :param pulumi.Input[str] instance_tenancy: The allowed tenancy of instances launched into the VPC.
+               
+               "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+               
+               "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+               
+               Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        :param pulumi.Input[Sequence[pulumi.Input['VPCTagArgs']]] tags: The tags for the VPC.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
         if enable_dns_hostnames is not None:
@@ -36,6 +47,9 @@ class VPCArgs:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Input[str]:
+        """
+        The primary IPv4 CIDR block for the VPC.
+        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -45,6 +59,9 @@ class VPCArgs:
     @property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        """
         return pulumi.get(self, "enable_dns_hostnames")
 
     @enable_dns_hostnames.setter
@@ -54,6 +71,9 @@ class VPCArgs:
     @property
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        """
         return pulumi.get(self, "enable_dns_support")
 
     @enable_dns_support.setter
@@ -63,6 +83,15 @@ class VPCArgs:
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The allowed tenancy of instances launched into the VPC.
+
+        "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+
+        "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+
+        Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        """
         return pulumi.get(self, "instance_tenancy")
 
     @instance_tenancy.setter
@@ -72,6 +101,9 @@ class VPCArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VPCTagArgs']]]]:
+        """
+        The tags for the VPC.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,6 +127,17 @@ class VPC(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr_block: The primary IPv4 CIDR block for the VPC.
+        :param pulumi.Input[bool] enable_dns_hostnames: Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        :param pulumi.Input[bool] enable_dns_support: Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        :param pulumi.Input[str] instance_tenancy: The allowed tenancy of instances launched into the VPC.
+               
+               "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+               
+               "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+               
+               Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VPCTagArgs']]]] tags: The tags for the VPC.
         """
         ...
     @overload
@@ -184,45 +227,78 @@ class VPC(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
+        """
+        The primary IPv4 CIDR block for the VPC.
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter(name="cidrBlockAssociations")
     def cidr_block_associations(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of IPv4 CIDR block association IDs for the VPC.
+        """
         return pulumi.get(self, "cidr_block_associations")
 
     @property
     @pulumi.getter(name="defaultNetworkAcl")
     def default_network_acl(self) -> pulumi.Output[str]:
+        """
+        The default network ACL ID that is associated with the VPC.
+        """
         return pulumi.get(self, "default_network_acl")
 
     @property
     @pulumi.getter(name="defaultSecurityGroup")
     def default_security_group(self) -> pulumi.Output[str]:
+        """
+        The default security group ID that is associated with the VPC.
+        """
         return pulumi.get(self, "default_security_group")
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        """
         return pulumi.get(self, "enable_dns_hostnames")
 
     @property
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        """
         return pulumi.get(self, "enable_dns_support")
 
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The allowed tenancy of instances launched into the VPC.
+
+        "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+
+        "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+
+        Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        """
         return pulumi.get(self, "instance_tenancy")
 
     @property
     @pulumi.getter(name="ipv6CidrBlocks")
     def ipv6_cidr_blocks(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of IPv6 CIDR blocks that are associated with the VPC.
+        """
         return pulumi.get(self, "ipv6_cidr_blocks")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VPCTag']]]:
+        """
+        The tags for the VPC.
+        """
         return pulumi.get(self, "tags")
 
