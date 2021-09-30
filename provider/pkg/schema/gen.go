@@ -789,10 +789,19 @@ func (ctx *context) genProperties(parentName string, typeSchema *jsschema.Schema
 		if err != nil {
 			return nil, nil, errors.Wrapf(err, "property %s", name)
 		}
-		specs[sdkName] = pschema.PropertySpec{
+		propertySpec := pschema.PropertySpec{
 			Description: value.Description,
 			TypeSpec:    *typeSpec,
 		}
+		// TODO: temporary workaround to get the 0.1.0 out, let's find a better solution later.
+		if name == "ClusterLogging" {
+			propertySpec.Language = map[string]pschema.RawMessage{
+				"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
+					Name: "ClusterLoggingValue",
+				}),
+			}
+		}
+		specs[sdkName] = propertySpec
 	}
 	for _, name := range typeSchema.Required {
 		sdkName := ToSdkName(name)
