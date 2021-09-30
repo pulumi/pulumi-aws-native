@@ -5,6 +5,8 @@ With AWS Native, you get same-day access to all new AWS resources and all new pr
 You can use AWS Native from a Pulumi program written in any Pulumi language: C#, Go, JavaScript/TypeScript, and Python.
 You'll need to [install and configure the Pulumi CLI](https://pulumi.com/docs/get-started/install) if you haven't already.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oKxaZCyu2OQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ---
 **NOTE**
 
