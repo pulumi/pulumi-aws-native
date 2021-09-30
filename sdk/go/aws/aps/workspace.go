@@ -14,6 +14,8 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
+	// The AMP Workspace alert manager definition data
+	AlertManagerDefinition pulumi.StringPtrOutput `pulumi:"alertManagerDefinition"`
 	// AMP Workspace alias.
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
 	// Workspace arn.
@@ -65,6 +67,8 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// The AMP Workspace alert manager definition data
+	AlertManagerDefinition *string `pulumi:"alertManagerDefinition"`
 	// AMP Workspace alias.
 	Alias *string `pulumi:"alias"`
 	// An array of key-value pairs to apply to this resource.
@@ -73,6 +77,8 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// The AMP Workspace alert manager definition data
+	AlertManagerDefinition pulumi.StringPtrInput
 	// AMP Workspace alias.
 	Alias pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.

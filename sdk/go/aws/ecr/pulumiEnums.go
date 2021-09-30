@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of repository filter
+type ReplicationConfigurationFilterType string
+
+const (
+	ReplicationConfigurationFilterTypePrefixMatch = ReplicationConfigurationFilterType("PREFIX_MATCH")
+)
+
+func (ReplicationConfigurationFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationFilterType)(nil)).Elem()
+}
+
+func (e ReplicationConfigurationFilterType) ToReplicationConfigurationFilterTypeOutput() ReplicationConfigurationFilterTypeOutput {
+	return pulumi.ToOutput(e).(ReplicationConfigurationFilterTypeOutput)
+}
+
+func (e ReplicationConfigurationFilterType) ToReplicationConfigurationFilterTypeOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationConfigurationFilterTypeOutput)
+}
+
+func (e ReplicationConfigurationFilterType) ToReplicationConfigurationFilterTypePtrOutput() ReplicationConfigurationFilterTypePtrOutput {
+	return e.ToReplicationConfigurationFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationFilterType) ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypePtrOutput {
+	return ReplicationConfigurationFilterType(e).ToReplicationConfigurationFilterTypeOutputWithContext(ctx).ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e ReplicationConfigurationFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationConfigurationFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationConfigurationFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationConfigurationFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationFilterType)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToReplicationConfigurationFilterTypeOutput() ReplicationConfigurationFilterTypeOutput {
+	return o
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToReplicationConfigurationFilterTypeOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypeOutput {
+	return o
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToReplicationConfigurationFilterTypePtrOutput() ReplicationConfigurationFilterTypePtrOutput {
+	return o.ToReplicationConfigurationFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationFilterType) *ReplicationConfigurationFilterType {
+		return &v
+	}).(ReplicationConfigurationFilterTypePtrOutput)
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationConfigurationFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationConfigurationFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationFilterType)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationFilterTypePtrOutput) ToReplicationConfigurationFilterTypePtrOutput() ReplicationConfigurationFilterTypePtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationFilterTypePtrOutput) ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypePtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationFilterTypePtrOutput) Elem() ReplicationConfigurationFilterTypeOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationFilterType) ReplicationConfigurationFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationFilterType
+		return ret
+	}).(ReplicationConfigurationFilterTypeOutput)
+}
+
+func (o ReplicationConfigurationFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationConfigurationFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationConfigurationFilterTypeInput is an input type that accepts ReplicationConfigurationFilterTypeArgs and ReplicationConfigurationFilterTypeOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationFilterTypeInput` via:
+//
+//          ReplicationConfigurationFilterTypeArgs{...}
+type ReplicationConfigurationFilterTypeInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationFilterTypeOutput() ReplicationConfigurationFilterTypeOutput
+	ToReplicationConfigurationFilterTypeOutputWithContext(context.Context) ReplicationConfigurationFilterTypeOutput
+}
+
+var replicationConfigurationFilterTypePtrType = reflect.TypeOf((**ReplicationConfigurationFilterType)(nil)).Elem()
+
+type ReplicationConfigurationFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationFilterTypePtrOutput() ReplicationConfigurationFilterTypePtrOutput
+	ToReplicationConfigurationFilterTypePtrOutputWithContext(context.Context) ReplicationConfigurationFilterTypePtrOutput
+}
+
+type replicationConfigurationFilterTypePtr string
+
+func ReplicationConfigurationFilterTypePtr(v string) ReplicationConfigurationFilterTypePtrInput {
+	return (*replicationConfigurationFilterTypePtr)(&v)
+}
+
+func (*replicationConfigurationFilterTypePtr) ElementType() reflect.Type {
+	return replicationConfigurationFilterTypePtrType
+}
+
+func (in *replicationConfigurationFilterTypePtr) ToReplicationConfigurationFilterTypePtrOutput() ReplicationConfigurationFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(ReplicationConfigurationFilterTypePtrOutput)
+}
+
+func (in *replicationConfigurationFilterTypePtr) ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigurationFilterTypePtrOutput)
+}
+
 // The encryption type to use.
 type RepositoryEncryptionType string
 
@@ -341,6 +505,8 @@ func (in *repositoryImageTagMutabilityPtr) ToRepositoryImageTagMutabilityPtrOutp
 }
 
 func init() {
+	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(RepositoryEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityOutput{})

@@ -15,15 +15,30 @@ import (
 type VPC struct {
 	pulumi.CustomResourceState
 
-	CidrBlock             pulumi.StringOutput      `pulumi:"cidrBlock"`
+	// The primary IPv4 CIDR block for the VPC.
+	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
+	// A list of IPv4 CIDR block association IDs for the VPC.
 	CidrBlockAssociations pulumi.StringArrayOutput `pulumi:"cidrBlockAssociations"`
-	DefaultNetworkAcl     pulumi.StringOutput      `pulumi:"defaultNetworkAcl"`
-	DefaultSecurityGroup  pulumi.StringOutput      `pulumi:"defaultSecurityGroup"`
-	EnableDnsHostnames    pulumi.BoolPtrOutput     `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport      pulumi.BoolPtrOutput     `pulumi:"enableDnsSupport"`
-	InstanceTenancy       pulumi.StringPtrOutput   `pulumi:"instanceTenancy"`
-	Ipv6CidrBlocks        pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
-	Tags                  VPCTagArrayOutput        `pulumi:"tags"`
+	// The default network ACL ID that is associated with the VPC.
+	DefaultNetworkAcl pulumi.StringOutput `pulumi:"defaultNetworkAcl"`
+	// The default security group ID that is associated with the VPC.
+	DefaultSecurityGroup pulumi.StringOutput `pulumi:"defaultSecurityGroup"`
+	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+	EnableDnsHostnames pulumi.BoolPtrOutput `pulumi:"enableDnsHostnames"`
+	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+	EnableDnsSupport pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
+	// The allowed tenancy of instances launched into the VPC.
+	//
+	// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	//
+	// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+	//
+	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+	InstanceTenancy pulumi.StringPtrOutput `pulumi:"instanceTenancy"`
+	// A list of IPv6 CIDR blocks that are associated with the VPC.
+	Ipv6CidrBlocks pulumi.StringArrayOutput `pulumi:"ipv6CidrBlocks"`
+	// The tags for the VPC.
+	Tags VPCTagArrayOutput `pulumi:"tags"`
 }
 
 // NewVPC registers a new resource with the given unique name, arguments, and options.
@@ -68,20 +83,42 @@ func (VPCState) ElementType() reflect.Type {
 }
 
 type vpcArgs struct {
-	CidrBlock          string   `pulumi:"cidrBlock"`
-	EnableDnsHostnames *bool    `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport   *bool    `pulumi:"enableDnsSupport"`
-	InstanceTenancy    *string  `pulumi:"instanceTenancy"`
-	Tags               []VPCTag `pulumi:"tags"`
+	// The primary IPv4 CIDR block for the VPC.
+	CidrBlock string `pulumi:"cidrBlock"`
+	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
+	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
+	// The allowed tenancy of instances launched into the VPC.
+	//
+	// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	//
+	// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+	//
+	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+	InstanceTenancy *string `pulumi:"instanceTenancy"`
+	// The tags for the VPC.
+	Tags []VPCTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VPC resource.
 type VPCArgs struct {
-	CidrBlock          pulumi.StringInput
+	// The primary IPv4 CIDR block for the VPC.
+	CidrBlock pulumi.StringInput
+	// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
 	EnableDnsHostnames pulumi.BoolPtrInput
-	EnableDnsSupport   pulumi.BoolPtrInput
-	InstanceTenancy    pulumi.StringPtrInput
-	Tags               VPCTagArrayInput
+	// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+	EnableDnsSupport pulumi.BoolPtrInput
+	// The allowed tenancy of instances launched into the VPC.
+	//
+	// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+	//
+	// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+	//
+	// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+	InstanceTenancy pulumi.StringPtrInput
+	// The tags for the VPC.
+	Tags VPCTagArrayInput
 }
 
 func (VPCArgs) ElementType() reflect.Type {

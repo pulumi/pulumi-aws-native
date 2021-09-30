@@ -1786,6 +1786,170 @@ func (in *dataSourceSalesforceStandardObjectNamePtr) ToDataSourceSalesforceStand
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceSalesforceStandardObjectNamePtrOutput)
 }
 
+type DataSourceServiceNowAuthenticationType string
+
+const (
+	DataSourceServiceNowAuthenticationTypeHttpBasic = DataSourceServiceNowAuthenticationType("HTTP_BASIC")
+	DataSourceServiceNowAuthenticationTypeOauth2    = DataSourceServiceNowAuthenticationType("OAUTH2")
+)
+
+func (DataSourceServiceNowAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceServiceNowAuthenticationType)(nil)).Elem()
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToDataSourceServiceNowAuthenticationTypeOutput() DataSourceServiceNowAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceServiceNowAuthenticationTypeOutput)
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToDataSourceServiceNowAuthenticationTypeOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceServiceNowAuthenticationTypeOutput)
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToDataSourceServiceNowAuthenticationTypePtrOutput() DataSourceServiceNowAuthenticationTypePtrOutput {
+	return e.ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypePtrOutput {
+	return DataSourceServiceNowAuthenticationType(e).ToDataSourceServiceNowAuthenticationTypeOutputWithContext(ctx).ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceServiceNowAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceServiceNowAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceServiceNowAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceServiceNowAuthenticationType)(nil)).Elem()
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToDataSourceServiceNowAuthenticationTypeOutput() DataSourceServiceNowAuthenticationTypeOutput {
+	return o
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToDataSourceServiceNowAuthenticationTypeOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypeOutput {
+	return o
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToDataSourceServiceNowAuthenticationTypePtrOutput() DataSourceServiceNowAuthenticationTypePtrOutput {
+	return o.ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceServiceNowAuthenticationType) *DataSourceServiceNowAuthenticationType {
+		return &v
+	}).(DataSourceServiceNowAuthenticationTypePtrOutput)
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceServiceNowAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceServiceNowAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceServiceNowAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceServiceNowAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceServiceNowAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceServiceNowAuthenticationType)(nil)).Elem()
+}
+
+func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToDataSourceServiceNowAuthenticationTypePtrOutput() DataSourceServiceNowAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DataSourceServiceNowAuthenticationTypePtrOutput) Elem() DataSourceServiceNowAuthenticationTypeOutput {
+	return o.ApplyT(func(v *DataSourceServiceNowAuthenticationType) DataSourceServiceNowAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceServiceNowAuthenticationType
+		return ret
+	}).(DataSourceServiceNowAuthenticationTypeOutput)
+}
+
+func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceServiceNowAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceServiceNowAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceServiceNowAuthenticationTypeInput is an input type that accepts DataSourceServiceNowAuthenticationTypeArgs and DataSourceServiceNowAuthenticationTypeOutput values.
+// You can construct a concrete instance of `DataSourceServiceNowAuthenticationTypeInput` via:
+//
+//          DataSourceServiceNowAuthenticationTypeArgs{...}
+type DataSourceServiceNowAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceServiceNowAuthenticationTypeOutput() DataSourceServiceNowAuthenticationTypeOutput
+	ToDataSourceServiceNowAuthenticationTypeOutputWithContext(context.Context) DataSourceServiceNowAuthenticationTypeOutput
+}
+
+var dataSourceServiceNowAuthenticationTypePtrType = reflect.TypeOf((**DataSourceServiceNowAuthenticationType)(nil)).Elem()
+
+type DataSourceServiceNowAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceServiceNowAuthenticationTypePtrOutput() DataSourceServiceNowAuthenticationTypePtrOutput
+	ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(context.Context) DataSourceServiceNowAuthenticationTypePtrOutput
+}
+
+type dataSourceServiceNowAuthenticationTypePtr string
+
+func DataSourceServiceNowAuthenticationTypePtr(v string) DataSourceServiceNowAuthenticationTypePtrInput {
+	return (*dataSourceServiceNowAuthenticationTypePtr)(&v)
+}
+
+func (*dataSourceServiceNowAuthenticationTypePtr) ElementType() reflect.Type {
+	return dataSourceServiceNowAuthenticationTypePtrType
+}
+
+func (in *dataSourceServiceNowAuthenticationTypePtr) ToDataSourceServiceNowAuthenticationTypePtrOutput() DataSourceServiceNowAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceServiceNowAuthenticationTypePtrOutput)
+}
+
+func (in *dataSourceServiceNowAuthenticationTypePtr) ToDataSourceServiceNowAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceServiceNowAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceServiceNowAuthenticationTypePtrOutput)
+}
+
 type DataSourceServiceNowBuildVersionType string
 
 const (
@@ -1954,6 +2118,8 @@ type DataSourceSharePointConfigurationSharePointVersion string
 
 const (
 	DataSourceSharePointConfigurationSharePointVersionSharepointOnline = DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_ONLINE")
+	DataSourceSharePointConfigurationSharePointVersionSharepoint2013   = DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_2013")
+	DataSourceSharePointConfigurationSharePointVersionSharepoint2016   = DataSourceSharePointConfigurationSharePointVersion("SHAREPOINT_2016")
 )
 
 func (DataSourceSharePointConfigurationSharePointVersion) ElementType() reflect.Type {
@@ -2126,6 +2292,8 @@ const (
 	DataSourceTypeCustom      = DataSourceType("CUSTOM")
 	DataSourceTypeConfluence  = DataSourceType("CONFLUENCE")
 	DataSourceTypeGoogledrive = DataSourceType("GOOGLEDRIVE")
+	DataSourceTypeWebcrawler  = DataSourceType("WEBCRAWLER")
+	DataSourceTypeWorkdocs    = DataSourceType("WORKDOCS")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -2283,6 +2451,171 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput
 
 func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
+}
+
+type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode string
+
+const (
+	DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeHostOnly   = DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode("HOST_ONLY")
+	DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeSubdomains = DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode("SUBDOMAINS")
+	DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeEverything = DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode("EVERYTHING")
+)
+
+func (DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode)(nil)).Elem()
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput {
+	return pulumi.ToOutput(e).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput)
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput)
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return e.ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode(e).ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutputWithContext(ctx).ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode)(nil)).Elem()
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return o.ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) *DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode {
+		return &v
+	}).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput)
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode)(nil)).Elem()
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return o
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) Elem() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput {
+	return o.ApplyT(func(v *DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode
+		return ret
+	}).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput)
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput is an input type that accepts DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeArgs and DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput values.
+// You can construct a concrete instance of `DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput` via:
+//
+//          DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeArgs{...}
+type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeInput interface {
+	pulumi.Input
+
+	ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput
+	ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutputWithContext(context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput
+}
+
+var dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrType = reflect.TypeOf((**DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode)(nil)).Elem()
+
+type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput
+	ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput
+}
+
+type dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr string
+
+func DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr(v string) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrInput {
+	return (*dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr)(&v)
+}
+
+func (*dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr) ElementType() reflect.Type {
+	return dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrType
+}
+
+func (in *dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput() DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput)
+}
+
+func (in *dataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtr) ToDataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutputWithContext(ctx context.Context) DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput)
 }
 
 // Format of the input file
@@ -3297,12 +3630,16 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSalesforceKnowledgeArticleStateArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectNameOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceStandardObjectNamePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceServiceNowAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceServiceNowAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceServiceNowBuildVersionTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceServiceNowBuildVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSharePointConfigurationSharePointVersionOutput{})
 	pulumi.RegisterOutputType(DataSourceSharePointConfigurationSharePointVersionPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModeOutput{})
+	pulumi.RegisterOutputType(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput{})
 	pulumi.RegisterOutputType(FaqFileFormatOutput{})
 	pulumi.RegisterOutputType(FaqFileFormatPtrOutput{})
 	pulumi.RegisterOutputType(IndexDocumentAttributeValueTypeOutput{})

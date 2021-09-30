@@ -367,8 +367,9 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterStorageInfoPtr
 }
 
 type ClusterClientAuthentication struct {
-	Sasl *ClusterSasl `pulumi:"sasl"`
-	Tls  *ClusterTls  `pulumi:"tls"`
+	Sasl            *ClusterSasl            `pulumi:"sasl"`
+	Tls             *ClusterTls             `pulumi:"tls"`
+	Unauthenticated *ClusterUnauthenticated `pulumi:"unauthenticated"`
 }
 
 // ClusterClientAuthenticationInput is an input type that accepts ClusterClientAuthenticationArgs and ClusterClientAuthenticationOutput values.
@@ -383,8 +384,9 @@ type ClusterClientAuthenticationInput interface {
 }
 
 type ClusterClientAuthenticationArgs struct {
-	Sasl ClusterSaslPtrInput `pulumi:"sasl"`
-	Tls  ClusterTlsPtrInput  `pulumi:"tls"`
+	Sasl            ClusterSaslPtrInput            `pulumi:"sasl"`
+	Tls             ClusterTlsPtrInput             `pulumi:"tls"`
+	Unauthenticated ClusterUnauthenticatedPtrInput `pulumi:"unauthenticated"`
 }
 
 func (ClusterClientAuthenticationArgs) ElementType() reflect.Type {
@@ -472,6 +474,10 @@ func (o ClusterClientAuthenticationOutput) Tls() ClusterTlsPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterTls { return v.Tls }).(ClusterTlsPtrOutput)
 }
 
+func (o ClusterClientAuthenticationOutput) Unauthenticated() ClusterUnauthenticatedPtrOutput {
+	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterUnauthenticated { return v.Unauthenticated }).(ClusterUnauthenticatedPtrOutput)
+}
+
 type ClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationPtrOutput) ElementType() reflect.Type {
@@ -512,6 +518,15 @@ func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterTlsPtrOutput {
 		}
 		return v.Tls
 	}).(ClusterTlsPtrOutput)
+}
+
+func (o ClusterClientAuthenticationPtrOutput) Unauthenticated() ClusterUnauthenticatedPtrOutput {
+	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterUnauthenticated {
+		if v == nil {
+			return nil
+		}
+		return v.Unauthenticated
+	}).(ClusterUnauthenticatedPtrOutput)
 }
 
 type ClusterCloudWatchLogs struct {
@@ -2912,6 +2927,7 @@ func (o ClusterStorageInfoPtrOutput) EBSStorageInfo() ClusterEBSStorageInfoPtrOu
 
 type ClusterTls struct {
 	CertificateAuthorityArnList []string `pulumi:"certificateAuthorityArnList"`
+	Enabled                     *bool    `pulumi:"enabled"`
 }
 
 // ClusterTlsInput is an input type that accepts ClusterTlsArgs and ClusterTlsOutput values.
@@ -2927,6 +2943,7 @@ type ClusterTlsInput interface {
 
 type ClusterTlsArgs struct {
 	CertificateAuthorityArnList pulumi.StringArrayInput `pulumi:"certificateAuthorityArnList"`
+	Enabled                     pulumi.BoolPtrInput     `pulumi:"enabled"`
 }
 
 func (ClusterTlsArgs) ElementType() reflect.Type {
@@ -3010,6 +3027,10 @@ func (o ClusterTlsOutput) CertificateAuthorityArnList() pulumi.StringArrayOutput
 	return o.ApplyT(func(v ClusterTls) []string { return v.CertificateAuthorityArnList }).(pulumi.StringArrayOutput)
 }
 
+func (o ClusterTlsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterTls) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
 type ClusterTlsPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterTlsPtrOutput) ElementType() reflect.Type {
@@ -3041,6 +3062,148 @@ func (o ClusterTlsPtrOutput) CertificateAuthorityArnList() pulumi.StringArrayOut
 		}
 		return v.CertificateAuthorityArnList
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ClusterTlsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterUnauthenticated struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ClusterUnauthenticatedInput is an input type that accepts ClusterUnauthenticatedArgs and ClusterUnauthenticatedOutput values.
+// You can construct a concrete instance of `ClusterUnauthenticatedInput` via:
+//
+//          ClusterUnauthenticatedArgs{...}
+type ClusterUnauthenticatedInput interface {
+	pulumi.Input
+
+	ToClusterUnauthenticatedOutput() ClusterUnauthenticatedOutput
+	ToClusterUnauthenticatedOutputWithContext(context.Context) ClusterUnauthenticatedOutput
+}
+
+type ClusterUnauthenticatedArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClusterUnauthenticatedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUnauthenticated)(nil)).Elem()
+}
+
+func (i ClusterUnauthenticatedArgs) ToClusterUnauthenticatedOutput() ClusterUnauthenticatedOutput {
+	return i.ToClusterUnauthenticatedOutputWithContext(context.Background())
+}
+
+func (i ClusterUnauthenticatedArgs) ToClusterUnauthenticatedOutputWithContext(ctx context.Context) ClusterUnauthenticatedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUnauthenticatedOutput)
+}
+
+func (i ClusterUnauthenticatedArgs) ToClusterUnauthenticatedPtrOutput() ClusterUnauthenticatedPtrOutput {
+	return i.ToClusterUnauthenticatedPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterUnauthenticatedArgs) ToClusterUnauthenticatedPtrOutputWithContext(ctx context.Context) ClusterUnauthenticatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUnauthenticatedOutput).ToClusterUnauthenticatedPtrOutputWithContext(ctx)
+}
+
+// ClusterUnauthenticatedPtrInput is an input type that accepts ClusterUnauthenticatedArgs, ClusterUnauthenticatedPtr and ClusterUnauthenticatedPtrOutput values.
+// You can construct a concrete instance of `ClusterUnauthenticatedPtrInput` via:
+//
+//          ClusterUnauthenticatedArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterUnauthenticatedPtrInput interface {
+	pulumi.Input
+
+	ToClusterUnauthenticatedPtrOutput() ClusterUnauthenticatedPtrOutput
+	ToClusterUnauthenticatedPtrOutputWithContext(context.Context) ClusterUnauthenticatedPtrOutput
+}
+
+type clusterUnauthenticatedPtrType ClusterUnauthenticatedArgs
+
+func ClusterUnauthenticatedPtr(v *ClusterUnauthenticatedArgs) ClusterUnauthenticatedPtrInput {
+	return (*clusterUnauthenticatedPtrType)(v)
+}
+
+func (*clusterUnauthenticatedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUnauthenticated)(nil)).Elem()
+}
+
+func (i *clusterUnauthenticatedPtrType) ToClusterUnauthenticatedPtrOutput() ClusterUnauthenticatedPtrOutput {
+	return i.ToClusterUnauthenticatedPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterUnauthenticatedPtrType) ToClusterUnauthenticatedPtrOutputWithContext(ctx context.Context) ClusterUnauthenticatedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterUnauthenticatedPtrOutput)
+}
+
+type ClusterUnauthenticatedOutput struct{ *pulumi.OutputState }
+
+func (ClusterUnauthenticatedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterUnauthenticated)(nil)).Elem()
+}
+
+func (o ClusterUnauthenticatedOutput) ToClusterUnauthenticatedOutput() ClusterUnauthenticatedOutput {
+	return o
+}
+
+func (o ClusterUnauthenticatedOutput) ToClusterUnauthenticatedOutputWithContext(ctx context.Context) ClusterUnauthenticatedOutput {
+	return o
+}
+
+func (o ClusterUnauthenticatedOutput) ToClusterUnauthenticatedPtrOutput() ClusterUnauthenticatedPtrOutput {
+	return o.ToClusterUnauthenticatedPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterUnauthenticatedOutput) ToClusterUnauthenticatedPtrOutputWithContext(ctx context.Context) ClusterUnauthenticatedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUnauthenticated) *ClusterUnauthenticated {
+		return &v
+	}).(ClusterUnauthenticatedPtrOutput)
+}
+
+func (o ClusterUnauthenticatedOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterUnauthenticated) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClusterUnauthenticatedPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterUnauthenticatedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterUnauthenticated)(nil)).Elem()
+}
+
+func (o ClusterUnauthenticatedPtrOutput) ToClusterUnauthenticatedPtrOutput() ClusterUnauthenticatedPtrOutput {
+	return o
+}
+
+func (o ClusterUnauthenticatedPtrOutput) ToClusterUnauthenticatedPtrOutputWithContext(ctx context.Context) ClusterUnauthenticatedPtrOutput {
+	return o
+}
+
+func (o ClusterUnauthenticatedPtrOutput) Elem() ClusterUnauthenticatedOutput {
+	return o.ApplyT(func(v *ClusterUnauthenticated) ClusterUnauthenticated {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterUnauthenticated
+		return ret
+	}).(ClusterUnauthenticatedOutput)
+}
+
+func (o ClusterUnauthenticatedPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterUnauthenticated) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func init() {
@@ -3086,4 +3249,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterStorageInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTlsOutput{})
 	pulumi.RegisterOutputType(ClusterTlsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterUnauthenticatedOutput{})
+	pulumi.RegisterOutputType(ClusterUnauthenticatedPtrOutput{})
 }
