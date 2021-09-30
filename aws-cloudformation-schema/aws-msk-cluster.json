@@ -84,6 +84,16 @@
         }
       }
     },
+    "Unauthenticated" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Enabled" ]
+    },
     "NodeExporter" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -259,6 +269,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "Enabled" : {
+          "type" : "boolean"
+        },
         "CertificateAuthorityArnList" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -277,6 +290,9 @@
         },
         "Tls" : {
           "$ref" : "#/definitions/Tls"
+        },
+        "Unauthenticated" : {
+          "$ref" : "#/definitions/Unauthenticated"
         }
       }
     },
@@ -304,7 +320,7 @@
     }
   },
   "required" : [ "BrokerNodeGroupInfo", "KafkaVersion", "NumberOfBrokerNodes", "ClusterName" ],
-  "createOnlyProperties" : [ "/properties/ClientAuthentication", "/properties/EncryptionInfo", "/properties/ClusterName", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

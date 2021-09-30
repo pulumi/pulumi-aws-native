@@ -1,6 +1,6 @@
 {
-  "typeName" : "AWS::APS::Workspace",
-  "description" : "Resource Type definition for AWS::APS::Workspace",
+  "typeName" : "AWS::APS::RuleGroupsNamespace",
+  "description" : "RuleGroupsNamespace schema for cloudformation.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "definitions" : {
     "Tag" : {
@@ -25,33 +25,25 @@
     }
   },
   "properties" : {
-    "WorkspaceId" : {
-      "description" : "Required to identify a specific APS Workspace.",
+    "Workspace" : {
+      "description" : "Required to identify a specific APS Workspace associated with this RuleGroupsNamespace.",
       "type" : "string",
-      "pattern" : "^[a-zA-Z0-9][a-zA-Z0-9_-]{1,99}\\Z",
-      "minLength" : 1,
-      "maxLength" : 100
+      "pattern" : "^arn:(aws|aws-us-gov|aws-cn):aps:[a-z0-9-]+:[0-9]+:workspace/[a-zA-Z0-9-]+$"
     },
-    "Alias" : {
-      "description" : "AMP Workspace alias.",
+    "Name" : {
+      "description" : "The RuleGroupsNamespace name.",
       "type" : "string",
-      "minLength" : 0,
-      "maxLength" : 100
+      "minLength" : 1,
+      "maxLength" : 64
+    },
+    "Data" : {
+      "description" : "The RuleGroupsNamespace data.",
+      "type" : "string"
     },
     "Arn" : {
-      "description" : "Workspace arn.",
+      "description" : "The RuleGroupsNamespace ARN.",
       "type" : "string",
-      "pattern" : "^arn:\b(aws|aws-us-gov|aws-cn)\b:aps:[a-z0-9-]+:[0-9]+:workspace/[a-zA-Z0-9-]+$",
-      "minLength" : 1,
-      "maxLength" : 128
-    },
-    "AlertManagerDefinition" : {
-      "description" : "The AMP Workspace alert manager definition data",
-      "type" : "string"
-    },
-    "PrometheusEndpoint" : {
-      "description" : "AMP Workspace prometheus endpoint",
-      "type" : "string"
+      "pattern" : "^arn:(aws|aws-us-gov|aws-cn):aps:[a-z0-9-]+:[0-9]+:rulegroupsnamespace/[a-zA-Z0-9-]+/[0-9A-Za-z][-.0-9A-Z_a-z]*$"
     },
     "Tags" : {
       "description" : "An array of key-value pairs to apply to this resource.",
@@ -64,25 +56,23 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ ],
-  "readOnlyProperties" : [ "/properties/WorkspaceId", "/properties/Arn", "/properties/PrometheusEndpoint" ],
+  "required" : [ "Workspace", "Data" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
   "taggable" : true,
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "aps:CreateWorkspace", "aps:TagResource", "aps:CreateAlertManagerDefinition" ]
+      "permissions" : [ "aps:CreateRuleGroupsNamespace", "aps:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "aps:DescribeWorkspace", "aps:ListTagsForResource", "aps:DescribeAlertManagerDefinition" ]
+      "permissions" : [ "aps:DescribeRuleGroupsNamespace", "aps:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "aps:UpdateWorkspaceAlias", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource", "aps:PutAlertManagerDefinition" ]
+      "permissions" : [ "aps:PutRuleGroupsNamespace", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "aps:DeleteWorkspace", "aps:DeleteAlertManagerDefinition" ]
-    },
-    "list" : {
-      "permissions" : [ "aps:ListWorkspaces", "aps:ListTagsForResource" ]
+      "permissions" : [ "aps:DeleteRuleGroupsNamespace" ]
     }
   }
 }
