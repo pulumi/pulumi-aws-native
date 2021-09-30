@@ -3586,6 +3586,20 @@ export namespace aps {
     /**
      * A key-value pair to associate with a resource.
      */
+    export interface RuleGroupsNamespaceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface WorkspaceTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -8099,6 +8113,18 @@ export namespace ecr {
          * An array of objects representing the details of a replication destination.
          */
         destinations: pulumi.Input<pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationDestinationArgs>[]>;
+        /**
+         * An array of objects representing the details of a repository filter.
+         */
+        repositoryFilters?: pulumi.Input<pulumi.Input<inputs.ecr.ReplicationConfigurationRepositoryFilterArgs>[]>;
+    }
+
+    /**
+     * An array of objects representing the details of a repository filter.
+     */
+    export interface ReplicationConfigurationRepositoryFilterArgs {
+        filter: pulumi.Input<string>;
+        filterType: pulumi.Input<enums.ecr.ReplicationConfigurationFilterType>;
     }
 
     /**
@@ -8685,22 +8711,95 @@ export namespace eks {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The cluster control plane logging configuration for your cluster. 
+     */
+    export interface ClusterClusterLoggingArgs {
+        enabledTypes?: pulumi.Input<pulumi.Input<inputs.eks.ClusterLoggingTypeConfigArgs>[]>;
+    }
+
+    /**
+     * The encryption configuration for the cluster
+     */
     export interface ClusterEncryptionConfigArgs {
-        provider?: pulumi.Input<inputs.eks.ClusterProviderArgs>;
+        /**
+         * The encryption provider for the cluster.
+         */
+        provider?: any;
+        /**
+         * Specifies the resources to be encrypted. The only supported value is "secrets".
+         */
         resources?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * The Kubernetes network configuration for the cluster.
+     */
     export interface ClusterKubernetesNetworkConfigArgs {
+        /**
+         * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+         */
         serviceIpv4Cidr?: pulumi.Input<string>;
     }
 
-    export interface ClusterProviderArgs {
-        keyArn?: pulumi.Input<string>;
+    /**
+     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+     */
+    export interface ClusterLoggingArgs {
+        /**
+         * The cluster control plane logging configuration for your cluster. 
+         */
+        clusterLogging?: pulumi.Input<inputs.eks.ClusterClusterLoggingArgs>;
     }
 
+    /**
+     * Enabled Logging Type
+     */
+    export interface ClusterLoggingTypeConfigArgs {
+        /**
+         * name of the log type
+         */
+        type?: pulumi.Input<enums.eks.ClusterLoggingTypeConfigType>;
+    }
+
+    /**
+     * An object representing the VPC configuration to use for an Amazon EKS cluster.
+     */
     export interface ClusterResourcesVpcConfigArgs {
+        /**
+         * Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+         */
+        endpointPrivateAccess?: pulumi.Input<boolean>;
+        /**
+         * Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+         */
+        endpointPublicAccess?: pulumi.Input<boolean>;
+        /**
+         * The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+         */
+        publicAccessCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
+         */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+         */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ClusterTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -13866,6 +13965,8 @@ export namespace kendra {
         salesforceConfiguration?: pulumi.Input<inputs.kendra.DataSourceSalesforceConfigurationArgs>;
         serviceNowConfiguration?: pulumi.Input<inputs.kendra.DataSourceServiceNowConfigurationArgs>;
         sharePointConfiguration?: pulumi.Input<inputs.kendra.DataSourceSharePointConfigurationArgs>;
+        webCrawlerConfiguration?: pulumi.Input<inputs.kendra.DataSourceWebCrawlerConfigurationArgs>;
+        workDocsConfiguration?: pulumi.Input<inputs.kendra.DataSourceWorkDocsConfigurationArgs>;
     }
 
     export interface DataSourceDataSourceToIndexFieldMappingArgs {
@@ -13915,6 +14016,12 @@ export namespace kendra {
     export interface DataSourceOneDriveUsersArgs {
         oneDriveUserList?: pulumi.Input<pulumi.Input<string>[]>;
         oneDriveUserS3Path?: pulumi.Input<inputs.kendra.DataSourceS3PathArgs>;
+    }
+
+    export interface DataSourceProxyConfigurationArgs {
+        credentials?: pulumi.Input<string>;
+        host: pulumi.Input<string>;
+        port: pulumi.Input<number>;
     }
 
     /**
@@ -13985,6 +14092,7 @@ export namespace kendra {
     }
 
     export interface DataSourceServiceNowConfigurationArgs {
+        authenticationType?: pulumi.Input<enums.kendra.DataSourceServiceNowAuthenticationType>;
         hostUrl: pulumi.Input<string>;
         knowledgeArticleConfiguration?: pulumi.Input<inputs.kendra.DataSourceServiceNowKnowledgeArticleConfigurationArgs>;
         secretArn: pulumi.Input<string>;
@@ -13998,6 +14106,7 @@ export namespace kendra {
         documentTitleFieldName?: pulumi.Input<string>;
         excludeAttachmentFilePatterns?: pulumi.Input<pulumi.Input<string>[]>;
         fieldMappings?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceDataSourceToIndexFieldMappingArgs>[]>;
+        filterQuery?: pulumi.Input<string>;
         includeAttachmentFilePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -14022,6 +14131,7 @@ export namespace kendra {
         inclusionPatterns?: pulumi.Input<pulumi.Input<string>[]>;
         secretArn: pulumi.Input<string>;
         sharePointVersion: pulumi.Input<enums.kendra.DataSourceSharePointConfigurationSharePointVersion>;
+        sslCertificateS3Path?: pulumi.Input<inputs.kendra.DataSourceS3PathArgs>;
         urls: pulumi.Input<pulumi.Input<string>[]>;
         useChangeLog?: pulumi.Input<boolean>;
         vpcConfiguration?: pulumi.Input<inputs.kendra.DataSourceDataSourceVpcConfigurationArgs>;
@@ -14043,6 +14153,51 @@ export namespace kendra {
          * A string containing the value for the tag
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface DataSourceWebCrawlerAuthenticationConfigurationArgs {
+        basicAuthentication?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceWebCrawlerBasicAuthenticationArgs>[]>;
+    }
+
+    export interface DataSourceWebCrawlerBasicAuthenticationArgs {
+        credentials: pulumi.Input<string>;
+        host: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceWebCrawlerConfigurationArgs {
+        authenticationConfiguration?: pulumi.Input<inputs.kendra.DataSourceWebCrawlerAuthenticationConfigurationArgs>;
+        crawlDepth?: pulumi.Input<number>;
+        maxContentSizePerPageInMegaBytes?: pulumi.Input<number>;
+        maxLinksPerPage?: pulumi.Input<number>;
+        maxUrlsPerMinuteCrawlRate?: pulumi.Input<number>;
+        proxyConfiguration?: pulumi.Input<inputs.kendra.DataSourceProxyConfigurationArgs>;
+        urlExclusionPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+        urlInclusionPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+        urls: pulumi.Input<inputs.kendra.DataSourceWebCrawlerUrlsArgs>;
+    }
+
+    export interface DataSourceWebCrawlerSeedUrlConfigurationArgs {
+        seedUrls: pulumi.Input<pulumi.Input<string>[]>;
+        webCrawlerMode?: pulumi.Input<enums.kendra.DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode>;
+    }
+
+    export interface DataSourceWebCrawlerSiteMapsConfigurationArgs {
+        siteMaps: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataSourceWebCrawlerUrlsArgs {
+        seedUrlConfiguration?: pulumi.Input<inputs.kendra.DataSourceWebCrawlerSeedUrlConfigurationArgs>;
+        siteMapsConfiguration?: pulumi.Input<inputs.kendra.DataSourceWebCrawlerSiteMapsConfigurationArgs>;
+    }
+
+    export interface DataSourceWorkDocsConfigurationArgs {
+        crawlComments?: pulumi.Input<boolean>;
+        exclusionPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+        fieldMappings?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceDataSourceToIndexFieldMappingArgs>[]>;
+        inclusionPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+        organizationId: pulumi.Input<string>;
+        useChangeLog?: pulumi.Input<boolean>;
     }
 
     export interface FaqS3PathArgs {
@@ -14133,7 +14288,6 @@ export namespace kendra {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<number>;
     }
-
 }
 
 export namespace kinesis {
@@ -14540,6 +14694,31 @@ export namespace kinesisanalyticsv2 {
 }
 
 export namespace kinesisfirehose {
+    export interface DeliveryStreamAmazonopensearchserviceBufferingHintsArgs {
+        intervalInSeconds?: pulumi.Input<number>;
+        sizeInMBs?: pulumi.Input<number>;
+    }
+
+    export interface DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs {
+        bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceBufferingHintsArgs>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
+        clusterEndpoint?: pulumi.Input<string>;
+        domainARN?: pulumi.Input<string>;
+        indexName: pulumi.Input<string>;
+        indexRotationPeriod?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod>;
+        processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
+        retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceRetryOptionsArgs>;
+        roleARN: pulumi.Input<string>;
+        s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode>;
+        s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
+        typeName?: pulumi.Input<string>;
+        vpcConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamVpcConfigurationArgs>;
+    }
+
+    export interface DeliveryStreamAmazonopensearchserviceRetryOptionsArgs {
+        durationInSeconds?: pulumi.Input<number>;
+    }
+
     export interface DeliveryStreamBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
         sizeInMBs?: pulumi.Input<number>;
@@ -17288,6 +17467,7 @@ export namespace msk {
     export interface ClusterClientAuthenticationArgs {
         sasl?: pulumi.Input<inputs.msk.ClusterSaslArgs>;
         tls?: pulumi.Input<inputs.msk.ClusterTlsArgs>;
+        unauthenticated?: pulumi.Input<inputs.msk.ClusterUnauthenticatedArgs>;
     }
 
     export interface ClusterCloudWatchLogsArgs {
@@ -17369,6 +17549,11 @@ export namespace msk {
 
     export interface ClusterTlsArgs {
         certificateAuthorityArnList?: pulumi.Input<pulumi.Input<string>[]>;
+        enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterUnauthenticatedArgs {
+        enabled: pulumi.Input<boolean>;
     }
 
 }

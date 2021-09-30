@@ -35,6 +35,7 @@ export class DeliveryStream extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeliveryStream.__pulumiType;
     }
 
+    public readonly amazonopensearchserviceDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly deliveryStreamEncryptionConfigurationInput!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInput | undefined>;
     public readonly deliveryStreamName!: pulumi.Output<string | undefined>;
@@ -59,6 +60,7 @@ export class DeliveryStream extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            inputs["amazonopensearchserviceDestinationConfiguration"] = args ? args.amazonopensearchserviceDestinationConfiguration : undefined;
             inputs["deliveryStreamEncryptionConfigurationInput"] = args ? args.deliveryStreamEncryptionConfigurationInput : undefined;
             inputs["deliveryStreamName"] = args ? args.deliveryStreamName : undefined;
             inputs["deliveryStreamType"] = args ? args.deliveryStreamType : undefined;
@@ -72,6 +74,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
         } else {
+            inputs["amazonopensearchserviceDestinationConfiguration"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["deliveryStreamEncryptionConfigurationInput"] = undefined /*out*/;
             inputs["deliveryStreamName"] = undefined /*out*/;
@@ -96,6 +99,7 @@ export class DeliveryStream extends pulumi.CustomResource {
  * The set of arguments for constructing a DeliveryStream resource.
  */
 export interface DeliveryStreamArgs {
+    amazonopensearchserviceDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>;
     deliveryStreamEncryptionConfigurationInput?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs>;
     deliveryStreamName?: pulumi.Input<string>;
     deliveryStreamType?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamDeliveryStreamType>;

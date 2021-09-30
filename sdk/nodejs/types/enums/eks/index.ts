@@ -11,3 +11,16 @@ export const AddonResolveConflicts = {
  * Resolve parameter value conflicts
  */
 export type AddonResolveConflicts = (typeof AddonResolveConflicts)[keyof typeof AddonResolveConflicts];
+
+export const ClusterLoggingTypeConfigType = {
+    Api: "api",
+    Audit: "audit",
+    Authenticator: "authenticator",
+    ControllerManager: "controllerManager",
+    Scheduler: "scheduler",
+} as const;
+
+/**
+ * name of the log type
+ */
+export type ClusterLoggingTypeConfigType = (typeof ClusterLoggingTypeConfigType)[keyof typeof ClusterLoggingTypeConfigType];

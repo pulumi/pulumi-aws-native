@@ -118,6 +118,13 @@ export const DataSourceSalesforceStandardObjectName = {
 
 export type DataSourceSalesforceStandardObjectName = (typeof DataSourceSalesforceStandardObjectName)[keyof typeof DataSourceSalesforceStandardObjectName];
 
+export const DataSourceServiceNowAuthenticationType = {
+    HttpBasic: "HTTP_BASIC",
+    Oauth2: "OAUTH2",
+} as const;
+
+export type DataSourceServiceNowAuthenticationType = (typeof DataSourceServiceNowAuthenticationType)[keyof typeof DataSourceServiceNowAuthenticationType];
+
 export const DataSourceServiceNowBuildVersionType = {
     London: "LONDON",
     Others: "OTHERS",
@@ -127,6 +134,8 @@ export type DataSourceServiceNowBuildVersionType = (typeof DataSourceServiceNowB
 
 export const DataSourceSharePointConfigurationSharePointVersion = {
     SharepointOnline: "SHAREPOINT_ONLINE",
+    Sharepoint2013: "SHAREPOINT_2013",
+    Sharepoint2016: "SHAREPOINT_2016",
 } as const;
 
 export type DataSourceSharePointConfigurationSharePointVersion = (typeof DataSourceSharePointConfigurationSharePointVersion)[keyof typeof DataSourceSharePointConfigurationSharePointVersion];
@@ -141,12 +150,22 @@ export const DataSourceType = {
     Custom: "CUSTOM",
     Confluence: "CONFLUENCE",
     Googledrive: "GOOGLEDRIVE",
+    Webcrawler: "WEBCRAWLER",
+    Workdocs: "WORKDOCS",
 } as const;
 
 /**
  * Data source type
  */
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+export const DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode = {
+    HostOnly: "HOST_ONLY",
+    Subdomains: "SUBDOMAINS",
+    Everything: "EVERYTHING",
+} as const;
+
+export type DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode = (typeof DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode)[keyof typeof DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode];
 
 export const FaqFileFormat = {
     Csv: "CSV",

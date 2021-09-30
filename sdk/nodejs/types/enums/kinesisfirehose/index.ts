@@ -2,6 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod = {
+    NoRotation: "NoRotation",
+    OneHour: "OneHour",
+    OneDay: "OneDay",
+    OneWeek: "OneWeek",
+    OneMonth: "OneMonth",
+} as const;
+
+export type DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod = (typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod)[keyof typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod];
+
+export const DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode = {
+    FailedDocumentsOnly: "FailedDocumentsOnly",
+    AllDocuments: "AllDocuments",
+} as const;
+
+export type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode = (typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode)[keyof typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode];
+
 export const DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType = {
     AwsOwnedCmk: "AWS_OWNED_CMK",
     CustomerManagedCmk: "CUSTOMER_MANAGED_CMK",
