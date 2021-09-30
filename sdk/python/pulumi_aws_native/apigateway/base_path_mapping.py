@@ -65,12 +65,7 @@ class BasePathMappingArgs:
         pulumi.set(self, "stage", value)
 
 
-warnings.warn("""BasePathMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class BasePathMapping(pulumi.CustomResource):
-    warnings.warn("""BasePathMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -115,7 +110,6 @@ class BasePathMapping(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""BasePathMapping is deprecated: BasePathMapping is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

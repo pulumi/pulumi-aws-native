@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AddonResolveConflicts',
+    'ClusterLoggingTypeConfigType',
 ]
 
 
@@ -15,3 +16,14 @@ class AddonResolveConflicts(str, Enum):
     """
     NONE = "NONE"
     OVERWRITE = "OVERWRITE"
+
+
+class ClusterLoggingTypeConfigType(str, Enum):
+    """
+    name of the log type
+    """
+    API = "api"
+    AUDIT = "audit"
+    AUTHENTICATOR = "authenticator"
+    CONTROLLER_MANAGER = "controllerManager"
+    SCHEDULER = "scheduler"

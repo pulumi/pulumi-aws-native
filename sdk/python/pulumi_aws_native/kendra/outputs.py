@@ -32,6 +32,7 @@ __all__ = [
     'DataSourceGoogleDriveConfiguration',
     'DataSourceOneDriveConfiguration',
     'DataSourceOneDriveUsers',
+    'DataSourceProxyConfiguration',
     'DataSourceS3DataSourceConfiguration',
     'DataSourceS3Path',
     'DataSourceSalesforceChatterFeedConfiguration',
@@ -47,6 +48,13 @@ __all__ = [
     'DataSourceSharePointConfiguration',
     'DataSourceSqlConfiguration',
     'DataSourceTag',
+    'DataSourceWebCrawlerAuthenticationConfiguration',
+    'DataSourceWebCrawlerBasicAuthentication',
+    'DataSourceWebCrawlerConfiguration',
+    'DataSourceWebCrawlerSeedUrlConfiguration',
+    'DataSourceWebCrawlerSiteMapsConfiguration',
+    'DataSourceWebCrawlerUrls',
+    'DataSourceWorkDocsConfiguration',
     'FaqS3Path',
     'FaqTag',
     'IndexCapacityUnitsConfiguration',
@@ -750,6 +758,10 @@ class DataSourceDataSourceConfiguration(dict):
             suggest = "service_now_configuration"
         elif key == "sharePointConfiguration":
             suggest = "share_point_configuration"
+        elif key == "webCrawlerConfiguration":
+            suggest = "web_crawler_configuration"
+        elif key == "workDocsConfiguration":
+            suggest = "work_docs_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceDataSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -770,7 +782,9 @@ class DataSourceDataSourceConfiguration(dict):
                  s3_configuration: Optional['outputs.DataSourceS3DataSourceConfiguration'] = None,
                  salesforce_configuration: Optional['outputs.DataSourceSalesforceConfiguration'] = None,
                  service_now_configuration: Optional['outputs.DataSourceServiceNowConfiguration'] = None,
-                 share_point_configuration: Optional['outputs.DataSourceSharePointConfiguration'] = None):
+                 share_point_configuration: Optional['outputs.DataSourceSharePointConfiguration'] = None,
+                 web_crawler_configuration: Optional['outputs.DataSourceWebCrawlerConfiguration'] = None,
+                 work_docs_configuration: Optional['outputs.DataSourceWorkDocsConfiguration'] = None):
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
         if database_configuration is not None:
@@ -787,6 +801,10 @@ class DataSourceDataSourceConfiguration(dict):
             pulumi.set(__self__, "service_now_configuration", service_now_configuration)
         if share_point_configuration is not None:
             pulumi.set(__self__, "share_point_configuration", share_point_configuration)
+        if web_crawler_configuration is not None:
+            pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
+        if work_docs_configuration is not None:
+            pulumi.set(__self__, "work_docs_configuration", work_docs_configuration)
 
     @property
     @pulumi.getter(name="confluenceConfiguration")
@@ -827,6 +845,16 @@ class DataSourceDataSourceConfiguration(dict):
     @pulumi.getter(name="sharePointConfiguration")
     def share_point_configuration(self) -> Optional['outputs.DataSourceSharePointConfiguration']:
         return pulumi.get(self, "share_point_configuration")
+
+    @property
+    @pulumi.getter(name="webCrawlerConfiguration")
+    def web_crawler_configuration(self) -> Optional['outputs.DataSourceWebCrawlerConfiguration']:
+        return pulumi.get(self, "web_crawler_configuration")
+
+    @property
+    @pulumi.getter(name="workDocsConfiguration")
+    def work_docs_configuration(self) -> Optional['outputs.DataSourceWorkDocsConfiguration']:
+        return pulumi.get(self, "work_docs_configuration")
 
 
 @pulumi.output_type
@@ -1236,6 +1264,33 @@ class DataSourceOneDriveUsers(dict):
     @pulumi.getter(name="oneDriveUserS3Path")
     def one_drive_user_s3_path(self) -> Optional['outputs.DataSourceS3Path']:
         return pulumi.get(self, "one_drive_user_s3_path")
+
+
+@pulumi.output_type
+class DataSourceProxyConfiguration(dict):
+    def __init__(__self__, *,
+                 host: str,
+                 port: int,
+                 credentials: Optional[str] = None):
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[str]:
+        return pulumi.get(self, "credentials")
 
 
 @pulumi.output_type
@@ -1770,6 +1825,8 @@ class DataSourceServiceNowConfiguration(dict):
             suggest = "secret_arn"
         elif key == "serviceNowBuildVersion":
             suggest = "service_now_build_version"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
         elif key == "knowledgeArticleConfiguration":
             suggest = "knowledge_article_configuration"
         elif key == "serviceCatalogConfiguration":
@@ -1790,11 +1847,14 @@ class DataSourceServiceNowConfiguration(dict):
                  host_url: str,
                  secret_arn: str,
                  service_now_build_version: 'DataSourceServiceNowBuildVersionType',
+                 authentication_type: Optional['DataSourceServiceNowAuthenticationType'] = None,
                  knowledge_article_configuration: Optional['outputs.DataSourceServiceNowKnowledgeArticleConfiguration'] = None,
                  service_catalog_configuration: Optional['outputs.DataSourceServiceNowServiceCatalogConfiguration'] = None):
         pulumi.set(__self__, "host_url", host_url)
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "service_now_build_version", service_now_build_version)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if knowledge_article_configuration is not None:
             pulumi.set(__self__, "knowledge_article_configuration", knowledge_article_configuration)
         if service_catalog_configuration is not None:
@@ -1814,6 +1874,11 @@ class DataSourceServiceNowConfiguration(dict):
     @pulumi.getter(name="serviceNowBuildVersion")
     def service_now_build_version(self) -> 'DataSourceServiceNowBuildVersionType':
         return pulumi.get(self, "service_now_build_version")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional['DataSourceServiceNowAuthenticationType']:
+        return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter(name="knowledgeArticleConfiguration")
@@ -1841,6 +1906,8 @@ class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
             suggest = "exclude_attachment_file_patterns"
         elif key == "fieldMappings":
             suggest = "field_mappings"
+        elif key == "filterQuery":
+            suggest = "filter_query"
         elif key == "includeAttachmentFilePatterns":
             suggest = "include_attachment_file_patterns"
 
@@ -1861,6 +1928,7 @@ class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
                  document_title_field_name: Optional[str] = None,
                  exclude_attachment_file_patterns: Optional[Sequence[str]] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceDataSourceToIndexFieldMapping']] = None,
+                 filter_query: Optional[str] = None,
                  include_attachment_file_patterns: Optional[Sequence[str]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
@@ -1871,6 +1939,8 @@ class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
             pulumi.set(__self__, "exclude_attachment_file_patterns", exclude_attachment_file_patterns)
         if field_mappings is not None:
             pulumi.set(__self__, "field_mappings", field_mappings)
+        if filter_query is not None:
+            pulumi.set(__self__, "filter_query", filter_query)
         if include_attachment_file_patterns is not None:
             pulumi.set(__self__, "include_attachment_file_patterns", include_attachment_file_patterns)
 
@@ -1898,6 +1968,11 @@ class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
     @pulumi.getter(name="fieldMappings")
     def field_mappings(self) -> Optional[Sequence['outputs.DataSourceDataSourceToIndexFieldMapping']]:
         return pulumi.get(self, "field_mappings")
+
+    @property
+    @pulumi.getter(name="filterQuery")
+    def filter_query(self) -> Optional[str]:
+        return pulumi.get(self, "filter_query")
 
     @property
     @pulumi.getter(name="includeAttachmentFilePatterns")
@@ -2008,6 +2083,8 @@ class DataSourceSharePointConfiguration(dict):
             suggest = "field_mappings"
         elif key == "inclusionPatterns":
             suggest = "inclusion_patterns"
+        elif key == "sslCertificateS3Path":
+            suggest = "ssl_certificate_s3_path"
         elif key == "useChangeLog":
             suggest = "use_change_log"
         elif key == "vpcConfiguration":
@@ -2034,6 +2111,7 @@ class DataSourceSharePointConfiguration(dict):
                  exclusion_patterns: Optional[Sequence[str]] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceDataSourceToIndexFieldMapping']] = None,
                  inclusion_patterns: Optional[Sequence[str]] = None,
+                 ssl_certificate_s3_path: Optional['outputs.DataSourceS3Path'] = None,
                  use_change_log: Optional[bool] = None,
                  vpc_configuration: Optional['outputs.DataSourceDataSourceVpcConfiguration'] = None):
         """
@@ -2054,6 +2132,8 @@ class DataSourceSharePointConfiguration(dict):
             pulumi.set(__self__, "field_mappings", field_mappings)
         if inclusion_patterns is not None:
             pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
+        if ssl_certificate_s3_path is not None:
+            pulumi.set(__self__, "ssl_certificate_s3_path", ssl_certificate_s3_path)
         if use_change_log is not None:
             pulumi.set(__self__, "use_change_log", use_change_log)
         if vpc_configuration is not None:
@@ -2103,6 +2183,11 @@ class DataSourceSharePointConfiguration(dict):
     @pulumi.getter(name="inclusionPatterns")
     def inclusion_patterns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "inclusion_patterns")
+
+    @property
+    @pulumi.getter(name="sslCertificateS3Path")
+    def ssl_certificate_s3_path(self) -> Optional['outputs.DataSourceS3Path']:
+        return pulumi.get(self, "ssl_certificate_s3_path")
 
     @property
     @pulumi.getter(name="useChangeLog")
@@ -2176,6 +2261,356 @@ class DataSourceTag(dict):
         A string containing the value for the tag
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DataSourceWebCrawlerAuthenticationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basicAuthentication":
+            suggest = "basic_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceWebCrawlerAuthenticationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceWebCrawlerAuthenticationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceWebCrawlerAuthenticationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 basic_authentication: Optional[Sequence['outputs.DataSourceWebCrawlerBasicAuthentication']] = None):
+        if basic_authentication is not None:
+            pulumi.set(__self__, "basic_authentication", basic_authentication)
+
+    @property
+    @pulumi.getter(name="basicAuthentication")
+    def basic_authentication(self) -> Optional[Sequence['outputs.DataSourceWebCrawlerBasicAuthentication']]:
+        return pulumi.get(self, "basic_authentication")
+
+
+@pulumi.output_type
+class DataSourceWebCrawlerBasicAuthentication(dict):
+    def __init__(__self__, *,
+                 credentials: str,
+                 host: str,
+                 port: int):
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> str:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DataSourceWebCrawlerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationConfiguration":
+            suggest = "authentication_configuration"
+        elif key == "crawlDepth":
+            suggest = "crawl_depth"
+        elif key == "maxContentSizePerPageInMegaBytes":
+            suggest = "max_content_size_per_page_in_mega_bytes"
+        elif key == "maxLinksPerPage":
+            suggest = "max_links_per_page"
+        elif key == "maxUrlsPerMinuteCrawlRate":
+            suggest = "max_urls_per_minute_crawl_rate"
+        elif key == "proxyConfiguration":
+            suggest = "proxy_configuration"
+        elif key == "urlExclusionPatterns":
+            suggest = "url_exclusion_patterns"
+        elif key == "urlInclusionPatterns":
+            suggest = "url_inclusion_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceWebCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceWebCrawlerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceWebCrawlerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 urls: 'outputs.DataSourceWebCrawlerUrls',
+                 authentication_configuration: Optional['outputs.DataSourceWebCrawlerAuthenticationConfiguration'] = None,
+                 crawl_depth: Optional[int] = None,
+                 max_content_size_per_page_in_mega_bytes: Optional[float] = None,
+                 max_links_per_page: Optional[int] = None,
+                 max_urls_per_minute_crawl_rate: Optional[int] = None,
+                 proxy_configuration: Optional['outputs.DataSourceProxyConfiguration'] = None,
+                 url_exclusion_patterns: Optional[Sequence[str]] = None,
+                 url_inclusion_patterns: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "urls", urls)
+        if authentication_configuration is not None:
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if crawl_depth is not None:
+            pulumi.set(__self__, "crawl_depth", crawl_depth)
+        if max_content_size_per_page_in_mega_bytes is not None:
+            pulumi.set(__self__, "max_content_size_per_page_in_mega_bytes", max_content_size_per_page_in_mega_bytes)
+        if max_links_per_page is not None:
+            pulumi.set(__self__, "max_links_per_page", max_links_per_page)
+        if max_urls_per_minute_crawl_rate is not None:
+            pulumi.set(__self__, "max_urls_per_minute_crawl_rate", max_urls_per_minute_crawl_rate)
+        if proxy_configuration is not None:
+            pulumi.set(__self__, "proxy_configuration", proxy_configuration)
+        if url_exclusion_patterns is not None:
+            pulumi.set(__self__, "url_exclusion_patterns", url_exclusion_patterns)
+        if url_inclusion_patterns is not None:
+            pulumi.set(__self__, "url_inclusion_patterns", url_inclusion_patterns)
+
+    @property
+    @pulumi.getter
+    def urls(self) -> 'outputs.DataSourceWebCrawlerUrls':
+        return pulumi.get(self, "urls")
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> Optional['outputs.DataSourceWebCrawlerAuthenticationConfiguration']:
+        return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="crawlDepth")
+    def crawl_depth(self) -> Optional[int]:
+        return pulumi.get(self, "crawl_depth")
+
+    @property
+    @pulumi.getter(name="maxContentSizePerPageInMegaBytes")
+    def max_content_size_per_page_in_mega_bytes(self) -> Optional[float]:
+        return pulumi.get(self, "max_content_size_per_page_in_mega_bytes")
+
+    @property
+    @pulumi.getter(name="maxLinksPerPage")
+    def max_links_per_page(self) -> Optional[int]:
+        return pulumi.get(self, "max_links_per_page")
+
+    @property
+    @pulumi.getter(name="maxUrlsPerMinuteCrawlRate")
+    def max_urls_per_minute_crawl_rate(self) -> Optional[int]:
+        return pulumi.get(self, "max_urls_per_minute_crawl_rate")
+
+    @property
+    @pulumi.getter(name="proxyConfiguration")
+    def proxy_configuration(self) -> Optional['outputs.DataSourceProxyConfiguration']:
+        return pulumi.get(self, "proxy_configuration")
+
+    @property
+    @pulumi.getter(name="urlExclusionPatterns")
+    def url_exclusion_patterns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "url_exclusion_patterns")
+
+    @property
+    @pulumi.getter(name="urlInclusionPatterns")
+    def url_inclusion_patterns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "url_inclusion_patterns")
+
+
+@pulumi.output_type
+class DataSourceWebCrawlerSeedUrlConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seedUrls":
+            suggest = "seed_urls"
+        elif key == "webCrawlerMode":
+            suggest = "web_crawler_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceWebCrawlerSeedUrlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceWebCrawlerSeedUrlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceWebCrawlerSeedUrlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 seed_urls: Sequence[str],
+                 web_crawler_mode: Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode'] = None):
+        pulumi.set(__self__, "seed_urls", seed_urls)
+        if web_crawler_mode is not None:
+            pulumi.set(__self__, "web_crawler_mode", web_crawler_mode)
+
+    @property
+    @pulumi.getter(name="seedUrls")
+    def seed_urls(self) -> Sequence[str]:
+        return pulumi.get(self, "seed_urls")
+
+    @property
+    @pulumi.getter(name="webCrawlerMode")
+    def web_crawler_mode(self) -> Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']:
+        return pulumi.get(self, "web_crawler_mode")
+
+
+@pulumi.output_type
+class DataSourceWebCrawlerSiteMapsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "siteMaps":
+            suggest = "site_maps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceWebCrawlerSiteMapsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceWebCrawlerSiteMapsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceWebCrawlerSiteMapsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 site_maps: Sequence[str]):
+        pulumi.set(__self__, "site_maps", site_maps)
+
+    @property
+    @pulumi.getter(name="siteMaps")
+    def site_maps(self) -> Sequence[str]:
+        return pulumi.get(self, "site_maps")
+
+
+@pulumi.output_type
+class DataSourceWebCrawlerUrls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seedUrlConfiguration":
+            suggest = "seed_url_configuration"
+        elif key == "siteMapsConfiguration":
+            suggest = "site_maps_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceWebCrawlerUrls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceWebCrawlerUrls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceWebCrawlerUrls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 seed_url_configuration: Optional['outputs.DataSourceWebCrawlerSeedUrlConfiguration'] = None,
+                 site_maps_configuration: Optional['outputs.DataSourceWebCrawlerSiteMapsConfiguration'] = None):
+        if seed_url_configuration is not None:
+            pulumi.set(__self__, "seed_url_configuration", seed_url_configuration)
+        if site_maps_configuration is not None:
+            pulumi.set(__self__, "site_maps_configuration", site_maps_configuration)
+
+    @property
+    @pulumi.getter(name="seedUrlConfiguration")
+    def seed_url_configuration(self) -> Optional['outputs.DataSourceWebCrawlerSeedUrlConfiguration']:
+        return pulumi.get(self, "seed_url_configuration")
+
+    @property
+    @pulumi.getter(name="siteMapsConfiguration")
+    def site_maps_configuration(self) -> Optional['outputs.DataSourceWebCrawlerSiteMapsConfiguration']:
+        return pulumi.get(self, "site_maps_configuration")
+
+
+@pulumi.output_type
+class DataSourceWorkDocsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationId":
+            suggest = "organization_id"
+        elif key == "crawlComments":
+            suggest = "crawl_comments"
+        elif key == "exclusionPatterns":
+            suggest = "exclusion_patterns"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+        elif key == "inclusionPatterns":
+            suggest = "inclusion_patterns"
+        elif key == "useChangeLog":
+            suggest = "use_change_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceWorkDocsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceWorkDocsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceWorkDocsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organization_id: str,
+                 crawl_comments: Optional[bool] = None,
+                 exclusion_patterns: Optional[Sequence[str]] = None,
+                 field_mappings: Optional[Sequence['outputs.DataSourceDataSourceToIndexFieldMapping']] = None,
+                 inclusion_patterns: Optional[Sequence[str]] = None,
+                 use_change_log: Optional[bool] = None):
+        pulumi.set(__self__, "organization_id", organization_id)
+        if crawl_comments is not None:
+            pulumi.set(__self__, "crawl_comments", crawl_comments)
+        if exclusion_patterns is not None:
+            pulumi.set(__self__, "exclusion_patterns", exclusion_patterns)
+        if field_mappings is not None:
+            pulumi.set(__self__, "field_mappings", field_mappings)
+        if inclusion_patterns is not None:
+            pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
+        if use_change_log is not None:
+            pulumi.set(__self__, "use_change_log", use_change_log)
+
+    @property
+    @pulumi.getter(name="organizationId")
+    def organization_id(self) -> str:
+        return pulumi.get(self, "organization_id")
+
+    @property
+    @pulumi.getter(name="crawlComments")
+    def crawl_comments(self) -> Optional[bool]:
+        return pulumi.get(self, "crawl_comments")
+
+    @property
+    @pulumi.getter(name="exclusionPatterns")
+    def exclusion_patterns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exclusion_patterns")
+
+    @property
+    @pulumi.getter(name="fieldMappings")
+    def field_mappings(self) -> Optional[Sequence['outputs.DataSourceDataSourceToIndexFieldMapping']]:
+        return pulumi.get(self, "field_mappings")
+
+    @property
+    @pulumi.getter(name="inclusionPatterns")
+    def inclusion_patterns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "inclusion_patterns")
+
+    @property
+    @pulumi.getter(name="useChangeLog")
+    def use_change_log(self) -> Optional[bool]:
+        return pulumi.get(self, "use_change_log")
 
 
 @pulumi.output_type

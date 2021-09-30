@@ -13,6 +13,7 @@ __all__ = [
     'ReplicationConfigurationReplicationConfigurationArgs',
     'ReplicationConfigurationReplicationDestinationArgs',
     'ReplicationConfigurationReplicationRuleArgs',
+    'ReplicationConfigurationRepositoryFilterArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
     'RepositoryLifecyclePolicyArgs',
@@ -75,12 +76,16 @@ class ReplicationConfigurationReplicationDestinationArgs:
 @pulumi.input_type
 class ReplicationConfigurationReplicationRuleArgs:
     def __init__(__self__, *,
-                 destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]):
+                 destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]],
+                 repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]] = None):
         """
         An array of objects representing the details of a replication destination.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]] destinations: An array of objects representing the details of a replication destination.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]] repository_filters: An array of objects representing the details of a repository filter.
         """
         pulumi.set(__self__, "destinations", destinations)
+        if repository_filters is not None:
+            pulumi.set(__self__, "repository_filters", repository_filters)
 
     @property
     @pulumi.getter
@@ -93,6 +98,48 @@ class ReplicationConfigurationReplicationRuleArgs:
     @destinations.setter
     def destinations(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]):
         pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]]:
+        """
+        An array of objects representing the details of a repository filter.
+        """
+        return pulumi.get(self, "repository_filters")
+
+    @repository_filters.setter
+    def repository_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]]):
+        pulumi.set(self, "repository_filters", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationRepositoryFilterArgs:
+    def __init__(__self__, *,
+                 filter: pulumi.Input[str],
+                 filter_type: pulumi.Input['ReplicationConfigurationFilterType']):
+        """
+        An array of objects representing the details of a repository filter.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input['ReplicationConfigurationFilterType']:
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input['ReplicationConfigurationFilterType']):
+        pulumi.set(self, "filter_type", value)
 
 
 @pulumi.input_type

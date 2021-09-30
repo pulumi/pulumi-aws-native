@@ -299,6 +299,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_pc_options"] = v_pc_options
             __props__.__dict__["arn"] = None
+            __props__.__dict__["domain_arn"] = None
             __props__.__dict__["domain_endpoint"] = None
             __props__.__dict__["domain_endpoints"] = None
             __props__.__dict__["service_software_options"] = None
@@ -330,6 +331,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["cluster_config"] = None
         __props__.__dict__["cognito_options"] = None
+        __props__.__dict__["domain_arn"] = None
         __props__.__dict__["domain_endpoint"] = None
         __props__.__dict__["domain_endpoint_options"] = None
         __props__.__dict__["domain_endpoints"] = None
@@ -374,6 +376,11 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> pulumi.Output[Optional['outputs.DomainCognitoOptions']]:
         return pulumi.get(self, "cognito_options")
+
+    @property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "domain_arn")
 
     @property
     @pulumi.getter(name="domainEndpoint")

@@ -14,6 +14,7 @@ __all__ = [
     'ReplicationConfigurationReplicationConfiguration',
     'ReplicationConfigurationReplicationDestination',
     'ReplicationConfigurationReplicationRule',
+    'ReplicationConfigurationRepositoryFilter',
     'RepositoryEncryptionConfiguration',
     'RepositoryImageScanningConfiguration',
     'RepositoryLifecyclePolicy',
@@ -89,13 +90,34 @@ class ReplicationConfigurationReplicationRule(dict):
     """
     An array of objects representing the details of a replication destination.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryFilters":
+            suggest = "repository_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationConfigurationReplicationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationConfigurationReplicationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationConfigurationReplicationRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 destinations: Sequence['outputs.ReplicationConfigurationReplicationDestination']):
+                 destinations: Sequence['outputs.ReplicationConfigurationReplicationDestination'],
+                 repository_filters: Optional[Sequence['outputs.ReplicationConfigurationRepositoryFilter']] = None):
         """
         An array of objects representing the details of a replication destination.
         :param Sequence['ReplicationConfigurationReplicationDestination'] destinations: An array of objects representing the details of a replication destination.
+        :param Sequence['ReplicationConfigurationRepositoryFilter'] repository_filters: An array of objects representing the details of a repository filter.
         """
         pulumi.set(__self__, "destinations", destinations)
+        if repository_filters is not None:
+            pulumi.set(__self__, "repository_filters", repository_filters)
 
     @property
     @pulumi.getter
@@ -104,6 +126,56 @@ class ReplicationConfigurationReplicationRule(dict):
         An array of objects representing the details of a replication destination.
         """
         return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> Optional[Sequence['outputs.ReplicationConfigurationRepositoryFilter']]:
+        """
+        An array of objects representing the details of a repository filter.
+        """
+        return pulumi.get(self, "repository_filters")
+
+
+@pulumi.output_type
+class ReplicationConfigurationRepositoryFilter(dict):
+    """
+    An array of objects representing the details of a repository filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationConfigurationRepositoryFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationConfigurationRepositoryFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationConfigurationRepositoryFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter: str,
+                 filter_type: 'ReplicationConfigurationFilterType'):
+        """
+        An array of objects representing the details of a repository filter.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> str:
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> 'ReplicationConfigurationFilterType':
+        return pulumi.get(self, "filter_type")
 
 
 @pulumi.output_type

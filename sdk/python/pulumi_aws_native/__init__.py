@@ -545,7 +545,8 @@ _utilities.register(
   "classes": {
    "aws-native:acmpca:Certificate": "Certificate",
    "aws-native:acmpca:CertificateAuthority": "CertificateAuthority",
-   "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation"
+   "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation",
+   "aws-native:acmpca:Permission": "Permission"
   }
  },
  {
@@ -716,6 +717,7 @@ _utilities.register(
   "mod": "aps",
   "fqn": "pulumi_aws_native.aps",
   "classes": {
+   "aws-native:aps:RuleGroupsNamespace": "RuleGroupsNamespace",
    "aws-native:aps:Workspace": "Workspace"
   }
  },

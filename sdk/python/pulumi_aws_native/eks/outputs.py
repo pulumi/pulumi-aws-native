@@ -12,10 +12,13 @@ from ._enums import *
 
 __all__ = [
     'AddonTag',
+    'ClusterClusterLogging',
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
-    'ClusterProvider',
+    'ClusterLogging',
+    'ClusterLoggingTypeConfig',
     'ClusterResourcesVpcConfig',
+    'ClusterTag',
     'FargateProfileLabel',
     'FargateProfileSelector',
     'FargateProfileTag',
@@ -60,10 +63,54 @@ class AddonTag(dict):
 
 
 @pulumi.output_type
-class ClusterEncryptionConfig(dict):
+class ClusterClusterLogging(dict):
+    """
+    The cluster control plane logging configuration for your cluster. 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledTypes":
+            suggest = "enabled_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterClusterLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterClusterLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterClusterLogging.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 provider: Optional['outputs.ClusterProvider'] = None,
+                 enabled_types: Optional[Sequence['outputs.ClusterLoggingTypeConfig']] = None):
+        """
+        The cluster control plane logging configuration for your cluster. 
+        """
+        if enabled_types is not None:
+            pulumi.set(__self__, "enabled_types", enabled_types)
+
+    @property
+    @pulumi.getter(name="enabledTypes")
+    def enabled_types(self) -> Optional[Sequence['outputs.ClusterLoggingTypeConfig']]:
+        return pulumi.get(self, "enabled_types")
+
+
+@pulumi.output_type
+class ClusterEncryptionConfig(dict):
+    """
+    The encryption configuration for the cluster
+    """
+    def __init__(__self__, *,
+                 provider: Optional[Any] = None,
                  resources: Optional[Sequence[str]] = None):
+        """
+        The encryption configuration for the cluster
+        :param Any provider: The encryption provider for the cluster.
+        :param Sequence[str] resources: Specifies the resources to be encrypted. The only supported value is "secrets".
+        """
         if provider is not None:
             pulumi.set(__self__, "provider", provider)
         if resources is not None:
@@ -71,17 +118,26 @@ class ClusterEncryptionConfig(dict):
 
     @property
     @pulumi.getter
-    def provider(self) -> Optional['outputs.ClusterProvider']:
+    def provider(self) -> Optional[Any]:
+        """
+        The encryption provider for the cluster.
+        """
         return pulumi.get(self, "provider")
 
     @property
     @pulumi.getter
     def resources(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the resources to be encrypted. The only supported value is "secrets".
+        """
         return pulumi.get(self, "resources")
 
 
 @pulumi.output_type
 class ClusterKubernetesNetworkConfig(dict):
+    """
+    The Kubernetes network configuration for the cluster.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -101,52 +157,101 @@ class ClusterKubernetesNetworkConfig(dict):
 
     def __init__(__self__, *,
                  service_ipv4_cidr: Optional[str] = None):
+        """
+        The Kubernetes network configuration for the cluster.
+        :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+        """
         if service_ipv4_cidr is not None:
             pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
 
     @property
     @pulumi.getter(name="serviceIpv4Cidr")
     def service_ipv4_cidr(self) -> Optional[str]:
+        """
+        The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+        """
         return pulumi.get(self, "service_ipv4_cidr")
 
 
 @pulumi.output_type
-class ClusterProvider(dict):
+class ClusterLogging(dict):
+    """
+    Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keyArn":
-            suggest = "key_arn"
+        if key == "clusterLogging":
+            suggest = "cluster_logging"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterProvider. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLogging. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ClusterProvider.__key_warning(key)
+        ClusterLogging.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ClusterProvider.__key_warning(key)
+        ClusterLogging.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_arn: Optional[str] = None):
-        if key_arn is not None:
-            pulumi.set(__self__, "key_arn", key_arn)
+                 cluster_logging: Optional['outputs.ClusterClusterLogging'] = None):
+        """
+        Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+        :param 'ClusterClusterLogging' cluster_logging: The cluster control plane logging configuration for your cluster. 
+        """
+        if cluster_logging is not None:
+            pulumi.set(__self__, "cluster_logging", cluster_logging)
 
     @property
-    @pulumi.getter(name="keyArn")
-    def key_arn(self) -> Optional[str]:
-        return pulumi.get(self, "key_arn")
+    @pulumi.getter(name="clusterLogging")
+    def cluster_logging(self) -> Optional['outputs.ClusterClusterLogging']:
+        """
+        The cluster control plane logging configuration for your cluster. 
+        """
+        return pulumi.get(self, "cluster_logging")
+
+
+@pulumi.output_type
+class ClusterLoggingTypeConfig(dict):
+    """
+    Enabled Logging Type
+    """
+    def __init__(__self__, *,
+                 type: Optional['ClusterLoggingTypeConfigType'] = None):
+        """
+        Enabled Logging Type
+        :param 'ClusterLoggingTypeConfigType' type: name of the log type
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['ClusterLoggingTypeConfigType']:
+        """
+        name of the log type
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class ClusterResourcesVpcConfig(dict):
+    """
+    An object representing the VPC configuration to use for an Amazon EKS cluster.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "subnetIds":
             suggest = "subnet_ids"
+        elif key == "endpointPrivateAccess":
+            suggest = "endpoint_private_access"
+        elif key == "endpointPublicAccess":
+            suggest = "endpoint_public_access"
+        elif key == "publicAccessCidrs":
+            suggest = "public_access_cidrs"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
 
@@ -163,20 +268,100 @@ class ClusterResourcesVpcConfig(dict):
 
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
+                 endpoint_private_access: Optional[bool] = None,
+                 endpoint_public_access: Optional[bool] = None,
+                 public_access_cidrs: Optional[Sequence[str]] = None,
                  security_group_ids: Optional[Sequence[str]] = None):
+        """
+        An object representing the VPC configuration to use for an Amazon EKS cluster.
+        :param Sequence[str] subnet_ids: Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+        :param bool endpoint_private_access: Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+        :param bool endpoint_public_access: Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+        :param Sequence[str] public_access_cidrs: The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+        :param Sequence[str] security_group_ids: Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
+        """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if endpoint_private_access is not None:
+            pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
+        if endpoint_public_access is not None:
+            pulumi.set(__self__, "endpoint_public_access", endpoint_public_access)
+        if public_access_cidrs is not None:
+            pulumi.set(__self__, "public_access_cidrs", public_access_cidrs)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
+        """
+        Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
+        """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="endpointPrivateAccess")
+    def endpoint_private_access(self) -> Optional[bool]:
+        """
+        Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.
+        """
+        return pulumi.get(self, "endpoint_private_access")
+
+    @property
+    @pulumi.getter(name="endpointPublicAccess")
+    def endpoint_public_access(self) -> Optional[bool]:
+        """
+        Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server.
+        """
+        return pulumi.get(self, "endpoint_public_access")
+
+    @property
+    @pulumi.getter(name="publicAccessCidrs")
+    def public_access_cidrs(self) -> Optional[Sequence[str]]:
+        """
+        The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks.
+        """
+        return pulumi.get(self, "public_access_cidrs")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
+        """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class ClusterTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
