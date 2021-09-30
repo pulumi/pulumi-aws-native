@@ -298,6 +298,62 @@
                 "certificateAuthorityArn"
             ]
         },
+        "aws-native:acmpca:Permission": {
+            "cf": "AWS::ACMPCA::Permission",
+            "inputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided."
+                },
+                "certificateAuthorityArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission."
+                },
+                "principal": {
+                    "type": "string",
+                    "description": "The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com."
+                },
+                "sourceAccount": {
+                    "type": "string",
+                    "description": "The ID of the calling account."
+                }
+            },
+            "outputs": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The actions that the specified AWS service principal can use. Actions IssueCertificate, GetCertificate and ListPermissions must be provided."
+                },
+                "certificateAuthorityArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Private Certificate Authority that grants the permission."
+                },
+                "principal": {
+                    "type": "string",
+                    "description": "The AWS service or identity that receives the permission. At this time, the only valid principal is acm.amazonaws.com."
+                },
+                "sourceAccount": {
+                    "type": "string",
+                    "description": "The ID of the calling account."
+                }
+            },
+            "required": [
+                "actions",
+                "certificateAuthorityArn",
+                "principal"
+            ],
+            "createOnly": [
+                "actions",
+                "certificateAuthorityArn",
+                "principal",
+                "sourceAccount"
+            ]
+        },
         "aws-native:amplify:App": {
             "cf": "AWS::Amplify::App",
             "inputs": {
@@ -707,6 +763,44 @@
                 "value"
             ]
         },
+        "aws-native:apigateway:BasePathMapping": {
+            "cf": "AWS::ApiGateway::BasePathMapping",
+            "inputs": {
+                "basePath": {
+                    "type": "string"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "stage": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "basePath": {
+                    "type": "string"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "stage": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "domainName"
+            ],
+            "createOnly": [
+                "basePath",
+                "domainName"
+            ]
+        },
         "aws-native:apigateway:ClientCertificate": {
             "cf": "AWS::ApiGateway::ClientCertificate",
             "inputs": {
@@ -875,6 +969,108 @@
                 "domainName"
             ]
         },
+        "aws-native:apigateway:Method": {
+            "cf": "AWS::ApiGateway::Method",
+            "inputs": {
+                "apiKeyRequired": {
+                    "type": "boolean"
+                },
+                "authorizationScopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "authorizationType": {
+                    "type": "string"
+                },
+                "authorizerId": {
+                    "type": "string"
+                },
+                "httpMethod": {
+                    "type": "string"
+                },
+                "integration": {
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegration"
+                },
+                "methodResponses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:MethodMethodResponse"
+                    }
+                },
+                "operationName": {
+                    "type": "string"
+                },
+                "requestModels": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "requestParameters": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "requestValidatorId": {
+                    "type": "string"
+                },
+                "resourceId": {
+                    "type": "string"
+                },
+                "restApiId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "apiKeyRequired": {
+                    "type": "boolean"
+                },
+                "authorizationScopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "authorizationType": {
+                    "type": "string"
+                },
+                "authorizerId": {
+                    "type": "string"
+                },
+                "httpMethod": {
+                    "type": "string"
+                },
+                "integration": {
+                    "$ref": "#/types/aws-native:apigateway:MethodIntegration"
+                },
+                "methodResponses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:MethodMethodResponse"
+                    }
+                },
+                "operationName": {
+                    "type": "string"
+                },
+                "requestModels": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "requestParameters": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "requestValidatorId": {
+                    "type": "string"
+                },
+                "resourceId": {
+                    "type": "string"
+                },
+                "restApiId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "httpMethod",
+                "resourceId",
+                "restApiId"
+            ]
+        },
         "aws-native:apigateway:Model": {
             "cf": "AWS::ApiGateway::Model",
             "inputs": {
@@ -1023,6 +1219,116 @@
                 "parentId",
                 "pathPart",
                 "restApiId"
+            ]
+        },
+        "aws-native:apigateway:Stage": {
+            "cf": "AWS::ApiGateway::Stage",
+            "inputs": {
+                "accessLogSetting": {
+                    "$ref": "#/types/aws-native:apigateway:StageAccessLogSetting"
+                },
+                "cacheClusterEnabled": {
+                    "type": "boolean"
+                },
+                "cacheClusterSize": {
+                    "type": "string"
+                },
+                "canarySetting": {
+                    "$ref": "#/types/aws-native:apigateway:StageCanarySetting"
+                },
+                "clientCertificateId": {
+                    "type": "string"
+                },
+                "deploymentId": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "documentationVersion": {
+                    "type": "string"
+                },
+                "methodSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:StageMethodSetting"
+                    }
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "stageName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:StageTag"
+                    }
+                },
+                "tracingEnabled": {
+                    "type": "boolean"
+                },
+                "variables": {
+                    "$ref": "pulumi.json#/Any"
+                }
+            },
+            "outputs": {
+                "accessLogSetting": {
+                    "$ref": "#/types/aws-native:apigateway:StageAccessLogSetting"
+                },
+                "cacheClusterEnabled": {
+                    "type": "boolean"
+                },
+                "cacheClusterSize": {
+                    "type": "string"
+                },
+                "canarySetting": {
+                    "$ref": "#/types/aws-native:apigateway:StageCanarySetting"
+                },
+                "clientCertificateId": {
+                    "type": "string"
+                },
+                "deploymentId": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "documentationVersion": {
+                    "type": "string"
+                },
+                "methodSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:StageMethodSetting"
+                    }
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "stageName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:StageTag"
+                    }
+                },
+                "tracingEnabled": {
+                    "type": "boolean"
+                },
+                "variables": {
+                    "$ref": "pulumi.json#/Any"
+                }
+            },
+            "required": [
+                "restApiId"
+            ],
+            "createOnly": [
+                "restApiId",
+                "stageName"
             ]
         },
         "aws-native:apigateway:UsagePlan": {
@@ -1572,9 +1878,69 @@
                 "tags"
             ]
         },
+        "aws-native:aps:RuleGroupsNamespace": {
+            "cf": "AWS::APS::RuleGroupsNamespace",
+            "inputs": {
+                "data": {
+                    "type": "string",
+                    "description": "The RuleGroupsNamespace data."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The RuleGroupsNamespace name."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:aps:RuleGroupsNamespaceTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "workspace": {
+                    "type": "string",
+                    "description": "Required to identify a specific APS Workspace associated with this RuleGroupsNamespace."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The RuleGroupsNamespace ARN."
+                },
+                "data": {
+                    "type": "string",
+                    "description": "The RuleGroupsNamespace data."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The RuleGroupsNamespace name."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:aps:RuleGroupsNamespaceTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
+                },
+                "workspace": {
+                    "type": "string",
+                    "description": "Required to identify a specific APS Workspace associated with this RuleGroupsNamespace."
+                }
+            },
+            "required": [
+                "data",
+                "workspace"
+            ],
+            "createOnly": [
+                "name"
+            ]
+        },
         "aws-native:aps:Workspace": {
             "cf": "AWS::APS::Workspace",
             "inputs": {
+                "alertManagerDefinition": {
+                    "type": "string",
+                    "description": "The AMP Workspace alert manager definition data"
+                },
                 "alias": {
                     "type": "string",
                     "description": "AMP Workspace alias."
@@ -1588,6 +1954,10 @@
                 }
             },
             "outputs": {
+                "alertManagerDefinition": {
+                    "type": "string",
+                    "description": "The AMP Workspace alert manager definition data"
+                },
                 "alias": {
                     "type": "string",
                     "description": "AMP Workspace alias."
@@ -6538,30 +6908,42 @@
             "cf": "AWS::EC2::Host",
             "inputs": {
                 "autoPlacement": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:ec2:HostAutoPlacement",
+                    "description": "Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID."
                 },
                 "availabilityZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Availability Zone in which to allocate the Dedicated Host."
                 },
                 "hostRecovery": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:ec2:HostHostRecovery",
+                    "description": "Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default."
                 },
                 "instanceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only."
                 }
             },
             "outputs": {
                 "autoPlacement": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:ec2:HostAutoPlacement",
+                    "description": "Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID."
                 },
                 "availabilityZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Availability Zone in which to allocate the Dedicated Host."
+                },
+                "hostId": {
+                    "type": "string",
+                    "description": "Id of the host created."
                 },
                 "hostRecovery": {
-                    "type": "string"
+                    "$ref": "#/types/aws-native:ec2:HostHostRecovery",
+                    "description": "Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default."
                 },
                 "instanceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only."
                 }
             },
             "required": [
@@ -6676,6 +7058,37 @@
             ],
             "createOnly": [
                 "localGatewayRouteTableId",
+                "vpcId"
+            ]
+        },
+        "aws-native:ec2:NetworkAcl": {
+            "cf": "AWS::EC2::NetworkAcl",
+            "inputs": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkAclTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:NetworkAclTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "vpcId"
+            ],
+            "createOnly": [
                 "vpcId"
             ]
         },
@@ -6922,6 +7335,37 @@
                 "prefixListName"
             ]
         },
+        "aws-native:ec2:RouteTable": {
+            "cf": "AWS::EC2::RouteTable",
+            "inputs": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:RouteTableTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "vpcId"
+            ],
+            "createOnly": [
+                "vpcId"
+            ]
+        },
         "aws-native:ec2:SpotFleet": {
             "cf": "AWS::EC2::SpotFleet",
             "inputs": {
@@ -6956,6 +7400,32 @@
                 "spotFleetRequestConfigData/Type",
                 "spotFleetRequestConfigData/ValidFrom",
                 "spotFleetRequestConfigData/ValidUntil"
+            ]
+        },
+        "aws-native:ec2:SubnetRouteTableAssociation": {
+            "cf": "AWS::EC2::SubnetRouteTableAssociation",
+            "inputs": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "routeTableId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "routeTableId",
+                "subnetId"
+            ],
+            "createOnly": [
+                "subnetId"
             ]
         },
         "aws-native:ec2:TransitGateway": {
@@ -7537,60 +8007,74 @@
             "cf": "AWS::EC2::VPC",
             "inputs": {
                 "cidrBlock": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The primary IPv4 CIDR block for the VPC."
                 },
                 "enableDnsHostnames": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs."
                 },
                 "enableDnsSupport": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range \"plus two\" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default."
                 },
                 "instanceTenancy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The allowed tenancy of instances launched into the VPC.\n\n\"default\": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n\n\"dedicated\": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.\n\nUpdating InstanceTenancy requires no replacement only if you are updating its value from \"dedicated\" to \"default\". Updating InstanceTenancy from \"default\" to \"dedicated\" requires replacement."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:VPCTag"
-                    }
+                    },
+                    "description": "The tags for the VPC."
                 }
             },
             "outputs": {
                 "cidrBlock": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The primary IPv4 CIDR block for the VPC."
                 },
                 "cidrBlockAssociations": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of IPv4 CIDR block association IDs for the VPC."
                 },
                 "defaultNetworkAcl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The default network ACL ID that is associated with the VPC."
                 },
                 "defaultSecurityGroup": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The default security group ID that is associated with the VPC."
                 },
                 "enableDnsHostnames": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs."
                 },
                 "enableDnsSupport": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range \"plus two\" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default."
                 },
                 "instanceTenancy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The allowed tenancy of instances launched into the VPC.\n\n\"default\": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n\n\"dedicated\": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.\n\nUpdating InstanceTenancy requires no replacement only if you are updating its value from \"dedicated\" to \"default\". Updating InstanceTenancy from \"default\" to \"dedicated\" requires replacement."
                 },
                 "ipv6CidrBlocks": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "A list of IPv6 CIDR blocks that are associated with the VPC."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:VPCTag"
-                    }
+                    },
+                    "description": "The tags for the VPC."
                 }
             },
             "required": [
@@ -8705,28 +9189,44 @@
                 "kubernetesNetworkConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
                 },
+                "logging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging"
+                },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name to give to your cluster."
                 },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
                 "roleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 },
                 "version": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used."
                 }
             },
             "outputs": {
                 "arn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod."
                 },
                 "certificateAuthorityData": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The certificate-authority-data for your cluster."
                 },
                 "clusterSecurityGroupId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication."
                 },
                 "encryptionConfig": {
                     "type": "array",
@@ -8735,28 +9235,44 @@
                     }
                 },
                 "encryptionConfigKeyArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Amazon Resource Name (ARN) or alias of the customer master key (CMK)."
                 },
                 "endpoint": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com."
                 },
                 "kubernetesNetworkConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterKubernetesNetworkConfig"
                 },
+                "logging": {
+                    "$ref": "#/types/aws-native:eks:ClusterLogging"
+                },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name to give to your cluster."
                 },
                 "openIdConnectIssuerUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template."
                 },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
                 "roleArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterTag"
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 },
                 "version": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used."
                 }
             },
             "required": [
@@ -8767,7 +9283,8 @@
                 "encryptionConfig",
                 "kubernetesNetworkConfig",
                 "name",
-                "resourcesVpcConfig",
+                "resourcesVpcConfig/SecurityGroupIds",
+                "resourcesVpcConfig/SubnetIds",
                 "roleArn"
             ]
         },
@@ -15021,6 +15538,9 @@
         "aws-native:kinesisfirehose:DeliveryStream": {
             "cf": "AWS::KinesisFirehose::DeliveryStream",
             "inputs": {
+                "amazonopensearchserviceDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfiguration"
+                },
                 "deliveryStreamEncryptionConfigurationInput": {
                     "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamDeliveryStreamEncryptionConfigurationInput"
                 },
@@ -15059,6 +15579,9 @@
                 }
             },
             "outputs": {
+                "amazonopensearchserviceDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfiguration"
+                },
                 "arn": {
                     "type": "string"
                 },
@@ -15100,6 +15623,7 @@
                 }
             },
             "createOnly": [
+                "amazonopensearchserviceDestinationConfiguration/VpcConfiguration",
                 "deliveryStreamName",
                 "deliveryStreamType",
                 "elasticsearchDestinationConfiguration/VpcConfiguration",
@@ -18699,6 +19223,9 @@
                 "cognitoOptions": {
                     "$ref": "#/types/aws-native:opensearchservice:DomainCognitoOptions"
                 },
+                "domainArn": {
+                    "type": "string"
+                },
                 "domainEndpoint": {
                     "type": "string"
                 },
@@ -21853,6 +22380,182 @@
                 "vpcConfiguration"
             ]
         },
+        "aws-native:s3:Bucket": {
+            "cf": "AWS::S3::Bucket",
+            "inputs": {
+                "accelerateConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketAccelerateConfiguration"
+                },
+                "accessControl": {
+                    "type": "string"
+                },
+                "analyticsConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketAnalyticsConfiguration"
+                    }
+                },
+                "bucketEncryption": {
+                    "$ref": "#/types/aws-native:s3:BucketBucketEncryption"
+                },
+                "bucketName": {
+                    "type": "string"
+                },
+                "corsConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketCorsConfiguration"
+                },
+                "intelligentTieringConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketIntelligentTieringConfiguration"
+                    }
+                },
+                "inventoryConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketInventoryConfiguration"
+                    }
+                },
+                "lifecycleConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketLifecycleConfiguration"
+                },
+                "loggingConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketLoggingConfiguration"
+                },
+                "metricsConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketMetricsConfiguration"
+                    }
+                },
+                "notificationConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketNotificationConfiguration"
+                },
+                "objectLockConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketObjectLockConfiguration"
+                },
+                "objectLockEnabled": {
+                    "type": "boolean"
+                },
+                "ownershipControls": {
+                    "$ref": "#/types/aws-native:s3:BucketOwnershipControls"
+                },
+                "publicAccessBlockConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketPublicAccessBlockConfiguration"
+                },
+                "replicationConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTag"
+                    }
+                },
+                "versioningConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketVersioningConfiguration"
+                },
+                "websiteConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketWebsiteConfiguration"
+                }
+            },
+            "outputs": {
+                "accelerateConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketAccelerateConfiguration"
+                },
+                "accessControl": {
+                    "type": "string"
+                },
+                "analyticsConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketAnalyticsConfiguration"
+                    }
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "bucketEncryption": {
+                    "$ref": "#/types/aws-native:s3:BucketBucketEncryption"
+                },
+                "bucketName": {
+                    "type": "string"
+                },
+                "corsConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketCorsConfiguration"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "dualStackDomainName": {
+                    "type": "string"
+                },
+                "intelligentTieringConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketIntelligentTieringConfiguration"
+                    }
+                },
+                "inventoryConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketInventoryConfiguration"
+                    }
+                },
+                "lifecycleConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketLifecycleConfiguration"
+                },
+                "loggingConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketLoggingConfiguration"
+                },
+                "metricsConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketMetricsConfiguration"
+                    }
+                },
+                "notificationConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketNotificationConfiguration"
+                },
+                "objectLockConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketObjectLockConfiguration"
+                },
+                "objectLockEnabled": {
+                    "type": "boolean"
+                },
+                "ownershipControls": {
+                    "$ref": "#/types/aws-native:s3:BucketOwnershipControls"
+                },
+                "publicAccessBlockConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketPublicAccessBlockConfiguration"
+                },
+                "regionalDomainName": {
+                    "type": "string"
+                },
+                "replicationConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationConfiguration"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTag"
+                    }
+                },
+                "versioningConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketVersioningConfiguration"
+                },
+                "websiteConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketWebsiteConfiguration"
+                },
+                "websiteURL": {
+                    "type": "string"
+                }
+            },
+            "createOnly": [
+                "bucketName",
+                "objectLockEnabled"
+            ]
+        },
         "aws-native:s3:MultiRegionAccessPoint": {
             "cf": "AWS::S3::MultiRegionAccessPoint",
             "inputs": {
@@ -24883,6 +25586,37 @@
                 "name"
             ]
         },
+        "aws-native:stepfunctions:Activity": {
+            "cf": "AWS::StepFunctions::Activity",
+            "inputs": {
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:stepfunctions:ActivityTagsEntry"
+                    }
+                }
+            },
+            "outputs": {
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:stepfunctions:ActivityTagsEntry"
+                    }
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "createOnly": [
+                "name"
+            ]
+        },
         "aws-native:stepfunctions:StateMachine": {
             "cf": "AWS::StepFunctions::StateMachine",
             "inputs": {
@@ -26463,6 +27197,167 @@
             }
         },
         "aws-native:apigateway:DomainNameTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigateway:MethodIntegration": {
+            "type": "object",
+            "properties": {
+                "cacheKeyParameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "cacheNamespace": {
+                    "type": "string"
+                },
+                "connectionId": {
+                    "type": "string"
+                },
+                "connectionType": {
+                    "type": "string"
+                },
+                "contentHandling": {
+                    "type": "string"
+                },
+                "credentials": {
+                    "type": "string"
+                },
+                "integrationHttpMethod": {
+                    "type": "string"
+                },
+                "integrationResponses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:MethodIntegrationResponse"
+                    }
+                },
+                "passthroughBehavior": {
+                    "type": "string"
+                },
+                "requestParameters": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "requestTemplates": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "timeoutInMillis": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "uri": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigateway:MethodIntegrationResponse": {
+            "type": "object",
+            "properties": {
+                "contentHandling": {
+                    "type": "string"
+                },
+                "responseParameters": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "responseTemplates": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "selectionPattern": {
+                    "type": "string"
+                },
+                "statusCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigateway:MethodMethodResponse": {
+            "type": "object",
+            "properties": {
+                "responseModels": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "responseParameters": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "statusCode": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigateway:StageAccessLogSetting": {
+            "type": "object",
+            "properties": {
+                "destinationArn": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigateway:StageCanarySetting": {
+            "type": "object",
+            "properties": {
+                "deploymentId": {
+                    "type": "string"
+                },
+                "percentTraffic": {
+                    "type": "number"
+                },
+                "stageVariableOverrides": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "useStageCache": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:apigateway:StageMethodSetting": {
+            "type": "object",
+            "properties": {
+                "cacheDataEncrypted": {
+                    "type": "boolean"
+                },
+                "cacheTtlInSeconds": {
+                    "type": "integer"
+                },
+                "cachingEnabled": {
+                    "type": "boolean"
+                },
+                "dataTraceEnabled": {
+                    "type": "boolean"
+                },
+                "httpMethod": {
+                    "type": "string"
+                },
+                "loggingLevel": {
+                    "type": "string"
+                },
+                "metricsEnabled": {
+                    "type": "boolean"
+                },
+                "resourcePath": {
+                    "type": "string"
+                },
+                "throttlingBurstLimit": {
+                    "type": "integer"
+                },
+                "throttlingRateLimit": {
+                    "type": "number"
+                }
+            }
+        },
+        "aws-native:apigateway:StageTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -28246,6 +29141,19 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:aps:RuleGroupsNamespaceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -32356,7 +33264,24 @@
         "aws-native:ec2:FlowLogTrafficType": {
             "type": "string"
         },
+        "aws-native:ec2:HostAutoPlacement": {
+            "type": "string"
+        },
+        "aws-native:ec2:HostHostRecovery": {
+            "type": "string"
+        },
         "aws-native:ec2:LocalGatewayRouteTableVPCAssociationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:NetworkAclTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -32783,6 +33708,17 @@
             }
         },
         "aws-native:ec2:PrefixListTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:RouteTableTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -33335,6 +34271,9 @@
                 }
             }
         },
+        "aws-native:ecr:ReplicationConfigurationFilterType": {
+            "type": "string"
+        },
         "aws-native:ecr:ReplicationConfigurationReplicationConfiguration": {
             "type": "object",
             "properties": {
@@ -33367,6 +34306,24 @@
                         "$ref": "#/types/aws-native:ecr:ReplicationConfigurationReplicationDestination"
                     },
                     "description": "An array of objects representing the details of a replication destination."
+                },
+                "repositoryFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ecr:ReplicationConfigurationRepositoryFilter"
+                    },
+                    "description": "An array of objects representing the details of a repository filter."
+                }
+            }
+        },
+        "aws-native:ecr:ReplicationConfigurationRepositoryFilter": {
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "type": "string"
+                },
+                "filterType": {
+                    "$ref": "#/types/aws-native:ecr:ReplicationConfigurationFilterType"
                 }
             }
         },
@@ -34533,17 +35490,30 @@
                 }
             }
         },
+        "aws-native:eks:ClusterClusterLogging": {
+            "type": "object",
+            "properties": {
+                "enabledTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterLoggingTypeConfig"
+                    }
+                }
+            }
+        },
         "aws-native:eks:ClusterEncryptionConfig": {
             "type": "object",
             "properties": {
                 "provider": {
-                    "$ref": "#/types/aws-native:eks:ClusterProvider"
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The encryption provider for the cluster."
                 },
                 "resources": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies the resources to be encrypted. The only supported value is \"secrets\"."
                 }
             }
         },
@@ -34551,32 +35521,81 @@
             "type": "object",
             "properties": {
                 "serviceIpv4Cidr": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. "
                 }
             }
         },
-        "aws-native:eks:ClusterProvider": {
+        "aws-native:eks:ClusterLogging": {
             "type": "object",
             "properties": {
-                "keyArn": {
-                    "type": "string"
+                "clusterLogging": {
+                    "$ref": "#/types/aws-native:eks:ClusterClusterLogging",
+                    "description": "The cluster control plane logging configuration for your cluster. ",
+                    "language": {
+                        "csharp": {
+                            "name": "ClusterLoggingValue"
+                        }
+                    }
                 }
             }
+        },
+        "aws-native:eks:ClusterLoggingTypeConfig": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:eks:ClusterLoggingTypeConfigType",
+                    "description": "name of the log type"
+                }
+            }
+        },
+        "aws-native:eks:ClusterLoggingTypeConfigType": {
+            "type": "string"
         },
         "aws-native:eks:ClusterResourcesVpcConfig": {
             "type": "object",
             "properties": {
+                "endpointPrivateAccess": {
+                    "type": "boolean",
+                    "description": "Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods."
+                },
+                "endpointPublicAccess": {
+                    "type": "boolean",
+                    "description": "Set this value to false to disable public access to your cluster's Kubernetes API server endpoint. If you disable public access, your cluster's Kubernetes API server can only receive requests from within the cluster VPC. The default value for this parameter is true, which enables public access for your Kubernetes API server."
+                },
+                "publicAccessCidrs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The CIDR blocks that are allowed access to your cluster's public Kubernetes API server endpoint. Communication to the endpoint from addresses outside of the CIDR blocks that you specify is denied. The default value is 0.0.0.0/0. If you've disabled private endpoint access and you have nodes or AWS Fargate pods in the cluster, then ensure that you specify the necessary CIDR blocks."
+                },
                 "securityGroupIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used."
                 },
                 "subnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane."
+                }
+            }
+        },
+        "aws-native:eks:ClusterTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -39760,6 +40779,12 @@
                 },
                 "sharePointConfiguration": {
                     "$ref": "#/types/aws-native:kendra:DataSourceSharePointConfiguration"
+                },
+                "webCrawlerConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceWebCrawlerConfiguration"
+                },
+                "workDocsConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceWorkDocsConfiguration"
                 }
             }
         },
@@ -39918,6 +40943,20 @@
                 },
                 "oneDriveUserS3Path": {
                     "$ref": "#/types/aws-native:kendra:DataSourceS3Path"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceProxyConfiguration": {
+            "type": "object",
+            "properties": {
+                "credentials": {
+                    "type": "string"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
                 }
             }
         },
@@ -40131,12 +41170,18 @@
         "aws-native:kendra:DataSourceSalesforceStandardObjectName": {
             "type": "string"
         },
+        "aws-native:kendra:DataSourceServiceNowAuthenticationType": {
+            "type": "string"
+        },
         "aws-native:kendra:DataSourceServiceNowBuildVersionType": {
             "type": "string"
         },
         "aws-native:kendra:DataSourceServiceNowConfiguration": {
             "type": "object",
             "properties": {
+                "authenticationType": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceServiceNowAuthenticationType"
+                },
                 "hostUrl": {
                     "type": "string"
                 },
@@ -40177,6 +41222,9 @@
                     "items": {
                         "$ref": "#/types/aws-native:kendra:DataSourceDataSourceToIndexFieldMapping"
                     }
+                },
+                "filterQuery": {
+                    "type": "string"
                 },
                 "includeAttachmentFilePatterns": {
                     "type": "array",
@@ -40254,6 +41302,9 @@
                 "sharePointVersion": {
                     "$ref": "#/types/aws-native:kendra:DataSourceSharePointConfigurationSharePointVersion"
                 },
+                "sslCertificateS3Path": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceS3Path"
+                },
                 "urls": {
                     "type": "array",
                     "items": {
@@ -40294,6 +41345,140 @@
         },
         "aws-native:kendra:DataSourceType": {
             "type": "string"
+        },
+        "aws-native:kendra:DataSourceWebCrawlerAuthenticationConfiguration": {
+            "type": "object",
+            "properties": {
+                "basicAuthentication": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kendra:DataSourceWebCrawlerBasicAuthentication"
+                    }
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceWebCrawlerBasicAuthentication": {
+            "type": "object",
+            "properties": {
+                "credentials": {
+                    "type": "string"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceWebCrawlerConfiguration": {
+            "type": "object",
+            "properties": {
+                "authenticationConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceWebCrawlerAuthenticationConfiguration"
+                },
+                "crawlDepth": {
+                    "type": "integer"
+                },
+                "maxContentSizePerPageInMegaBytes": {
+                    "type": "number"
+                },
+                "maxLinksPerPage": {
+                    "type": "integer"
+                },
+                "maxUrlsPerMinuteCrawlRate": {
+                    "type": "integer"
+                },
+                "proxyConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceProxyConfiguration"
+                },
+                "urlExclusionPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "urlInclusionPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "urls": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceWebCrawlerUrls"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceWebCrawlerSeedUrlConfiguration": {
+            "type": "object",
+            "properties": {
+                "seedUrls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "webCrawlerMode": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode": {
+            "type": "string"
+        },
+        "aws-native:kendra:DataSourceWebCrawlerSiteMapsConfiguration": {
+            "type": "object",
+            "properties": {
+                "siteMaps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceWebCrawlerUrls": {
+            "type": "object",
+            "properties": {
+                "seedUrlConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceWebCrawlerSeedUrlConfiguration"
+                },
+                "siteMapsConfiguration": {
+                    "$ref": "#/types/aws-native:kendra:DataSourceWebCrawlerSiteMapsConfiguration"
+                }
+            }
+        },
+        "aws-native:kendra:DataSourceWorkDocsConfiguration": {
+            "type": "object",
+            "properties": {
+                "crawlComments": {
+                    "type": "boolean"
+                },
+                "exclusionPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "fieldMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kendra:DataSourceDataSourceToIndexFieldMapping"
+                    }
+                },
+                "inclusionPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "organizationId": {
+                    "type": "string"
+                },
+                "useChangeLog": {
+                    "type": "boolean"
+                }
+            }
         },
         "aws-native:kendra:FaqFileFormat": {
             "type": "string"
@@ -40511,6 +41696,75 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceBufferingHints": {
+            "type": "object",
+            "properties": {
+                "intervalInSeconds": {
+                    "type": "integer"
+                },
+                "sizeInMBs": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "bufferingHints": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceBufferingHints"
+                },
+                "cloudWatchLoggingOptions": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamCloudWatchLoggingOptions"
+                },
+                "clusterEndpoint": {
+                    "type": "string"
+                },
+                "domainARN": {
+                    "type": "string"
+                },
+                "indexName": {
+                    "type": "string"
+                },
+                "indexRotationPeriod": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod"
+                },
+                "processingConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamProcessingConfiguration"
+                },
+                "retryOptions": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceRetryOptions"
+                },
+                "roleARN": {
+                    "type": "string"
+                },
+                "s3BackupMode": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode"
+                },
+                "s3Configuration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamS3DestinationConfiguration"
+                },
+                "typeName": {
+                    "type": "string"
+                },
+                "vpcConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamVpcConfiguration"
+                }
+            }
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod": {
+            "type": "string"
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode": {
+            "type": "string"
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceRetryOptions": {
+            "type": "object",
+            "properties": {
+                "durationInSeconds": {
+                    "type": "integer"
                 }
             }
         },
@@ -46191,6 +47445,788 @@
                 }
             }
         },
+        "aws-native:s3:BucketAbortIncompleteMultipartUpload": {
+            "type": "object",
+            "properties": {
+                "daysAfterInitiation": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:s3:BucketAccelerateConfiguration": {
+            "type": "object",
+            "properties": {
+                "accelerationStatus": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketAccessControlTranslation": {
+            "type": "object",
+            "properties": {
+                "owner": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketAnalyticsConfiguration": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "storageClassAnalysis": {
+                    "$ref": "#/types/aws-native:s3:BucketStorageClassAnalysis"
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTagFilter"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketBucketEncryption": {
+            "type": "object",
+            "properties": {
+                "serverSideEncryptionConfiguration": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketServerSideEncryptionRule"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketCorsConfiguration": {
+            "type": "object",
+            "properties": {
+                "corsRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketCorsRule"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketCorsRule": {
+            "type": "object",
+            "properties": {
+                "allowedHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "allowedMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "allowedOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exposedHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "maxAge": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:s3:BucketDataExport": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:s3:BucketDestination"
+                },
+                "outputSchemaVersion": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketDefaultRetention": {
+            "type": "object",
+            "properties": {
+                "days": {
+                    "type": "integer"
+                },
+                "mode": {
+                    "type": "string"
+                },
+                "years": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:s3:BucketDeleteMarkerReplication": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketDestination": {
+            "type": "object",
+            "properties": {
+                "bucketAccountId": {
+                    "type": "string"
+                },
+                "bucketArn": {
+                    "type": "string"
+                },
+                "format": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketEncryptionConfiguration": {
+            "type": "object",
+            "properties": {
+                "replicaKmsKeyID": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketFilterRule": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketIntelligentTieringConfiguration": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTagFilter"
+                    }
+                },
+                "tierings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTiering"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketInventoryConfiguration": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:s3:BucketDestination"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "includedObjectVersions": {
+                    "type": "string"
+                },
+                "optionalFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "scheduleFrequency": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketLambdaConfiguration": {
+            "type": "object",
+            "properties": {
+                "event": {
+                    "type": "string"
+                },
+                "filter": {
+                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter"
+                },
+                "function": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketLifecycleConfiguration": {
+            "type": "object",
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketRule"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketLoggingConfiguration": {
+            "type": "object",
+            "properties": {
+                "destinationBucketName": {
+                    "type": "string"
+                },
+                "logFilePrefix": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketMetrics": {
+            "type": "object",
+            "properties": {
+                "eventThreshold": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationTimeValue"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketMetricsConfiguration": {
+            "type": "object",
+            "properties": {
+                "accessPointArn": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTagFilter"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketNoncurrentVersionTransition": {
+            "type": "object",
+            "properties": {
+                "storageClass": {
+                    "type": "string"
+                },
+                "transitionInDays": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:s3:BucketNotificationConfiguration": {
+            "type": "object",
+            "properties": {
+                "lambdaConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketLambdaConfiguration"
+                    }
+                },
+                "queueConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketQueueConfiguration"
+                    }
+                },
+                "topicConfigurations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTopicConfiguration"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketNotificationFilter": {
+            "type": "object",
+            "properties": {
+                "s3Key": {
+                    "$ref": "#/types/aws-native:s3:BucketS3KeyFilter"
+                }
+            }
+        },
+        "aws-native:s3:BucketObjectLockConfiguration": {
+            "type": "object",
+            "properties": {
+                "objectLockEnabled": {
+                    "type": "string"
+                },
+                "rule": {
+                    "$ref": "#/types/aws-native:s3:BucketObjectLockRule"
+                }
+            }
+        },
+        "aws-native:s3:BucketObjectLockRule": {
+            "type": "object",
+            "properties": {
+                "defaultRetention": {
+                    "$ref": "#/types/aws-native:s3:BucketDefaultRetention"
+                }
+            }
+        },
+        "aws-native:s3:BucketOwnershipControls": {
+            "type": "object",
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketOwnershipControlsRule"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketOwnershipControlsRule": {
+            "type": "object",
+            "properties": {
+                "objectOwnership": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketPublicAccessBlockConfiguration": {
+            "type": "object",
+            "properties": {
+                "blockPublicAcls": {
+                    "type": "boolean"
+                },
+                "blockPublicPolicy": {
+                    "type": "boolean"
+                },
+                "ignorePublicAcls": {
+                    "type": "boolean"
+                },
+                "restrictPublicBuckets": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:s3:BucketQueueConfiguration": {
+            "type": "object",
+            "properties": {
+                "event": {
+                    "type": "string"
+                },
+                "filter": {
+                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter"
+                },
+                "queue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketRedirectAllRequestsTo": {
+            "type": "object",
+            "properties": {
+                "hostName": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketRedirectRule": {
+            "type": "object",
+            "properties": {
+                "hostName": {
+                    "type": "string"
+                },
+                "httpRedirectCode": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "replaceKeyPrefixWith": {
+                    "type": "string"
+                },
+                "replaceKeyWith": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicaModifications": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicationConfiguration": {
+            "type": "object",
+            "properties": {
+                "role": {
+                    "type": "string"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketReplicationRule"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicationDestination": {
+            "type": "object",
+            "properties": {
+                "accessControlTranslation": {
+                    "$ref": "#/types/aws-native:s3:BucketAccessControlTranslation"
+                },
+                "account": {
+                    "type": "string"
+                },
+                "bucket": {
+                    "type": "string"
+                },
+                "encryptionConfiguration": {
+                    "$ref": "#/types/aws-native:s3:BucketEncryptionConfiguration"
+                },
+                "metrics": {
+                    "$ref": "#/types/aws-native:s3:BucketMetrics"
+                },
+                "replicationTime": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationTime"
+                },
+                "storageClass": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicationRule": {
+            "type": "object",
+            "properties": {
+                "deleteMarkerReplication": {
+                    "$ref": "#/types/aws-native:s3:BucketDeleteMarkerReplication"
+                },
+                "destination": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationDestination"
+                },
+                "filter": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationRuleFilter"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "sourceSelectionCriteria": {
+                    "$ref": "#/types/aws-native:s3:BucketSourceSelectionCriteria"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicationRuleAndOperator": {
+            "type": "object",
+            "properties": {
+                "prefix": {
+                    "type": "string"
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTagFilter"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicationRuleFilter": {
+            "type": "object",
+            "properties": {
+                "and": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationRuleAndOperator"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "tagFilter": {
+                    "$ref": "#/types/aws-native:s3:BucketTagFilter"
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicationTime": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                },
+                "time": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicationTimeValue"
+                }
+            }
+        },
+        "aws-native:s3:BucketReplicationTimeValue": {
+            "type": "object",
+            "properties": {
+                "minutes": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:s3:BucketRoutingRule": {
+            "type": "object",
+            "properties": {
+                "redirectRule": {
+                    "$ref": "#/types/aws-native:s3:BucketRedirectRule"
+                },
+                "routingRuleCondition": {
+                    "$ref": "#/types/aws-native:s3:BucketRoutingRuleCondition"
+                }
+            }
+        },
+        "aws-native:s3:BucketRoutingRuleCondition": {
+            "type": "object",
+            "properties": {
+                "httpErrorCodeReturnedEquals": {
+                    "type": "string"
+                },
+                "keyPrefixEquals": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketRule": {
+            "type": "object",
+            "properties": {
+                "abortIncompleteMultipartUpload": {
+                    "$ref": "#/types/aws-native:s3:BucketAbortIncompleteMultipartUpload"
+                },
+                "expirationDate": {
+                    "type": "string"
+                },
+                "expirationInDays": {
+                    "type": "integer"
+                },
+                "expiredObjectDeleteMarker": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "noncurrentVersionExpirationInDays": {
+                    "type": "integer"
+                },
+                "noncurrentVersionTransition": {
+                    "$ref": "#/types/aws-native:s3:BucketNoncurrentVersionTransition"
+                },
+                "noncurrentVersionTransitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketNoncurrentVersionTransition"
+                    }
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tagFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTagFilter"
+                    }
+                },
+                "transition": {
+                    "$ref": "#/types/aws-native:s3:BucketTransition"
+                },
+                "transitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketTransition"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketS3KeyFilter": {
+            "type": "object",
+            "properties": {
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketFilterRule"
+                    }
+                }
+            }
+        },
+        "aws-native:s3:BucketServerSideEncryptionByDefault": {
+            "type": "object",
+            "properties": {
+                "kMSMasterKeyID": {
+                    "type": "string"
+                },
+                "sSEAlgorithm": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketServerSideEncryptionRule": {
+            "type": "object",
+            "properties": {
+                "bucketKeyEnabled": {
+                    "type": "boolean"
+                },
+                "serverSideEncryptionByDefault": {
+                    "$ref": "#/types/aws-native:s3:BucketServerSideEncryptionByDefault"
+                }
+            }
+        },
+        "aws-native:s3:BucketSourceSelectionCriteria": {
+            "type": "object",
+            "properties": {
+                "replicaModifications": {
+                    "$ref": "#/types/aws-native:s3:BucketReplicaModifications"
+                },
+                "sseKmsEncryptedObjects": {
+                    "$ref": "#/types/aws-native:s3:BucketSseKmsEncryptedObjects"
+                }
+            }
+        },
+        "aws-native:s3:BucketSseKmsEncryptedObjects": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketStorageClassAnalysis": {
+            "type": "object",
+            "properties": {
+                "dataExport": {
+                    "$ref": "#/types/aws-native:s3:BucketDataExport"
+                }
+            }
+        },
+        "aws-native:s3:BucketTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketTagFilter": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketTiering": {
+            "type": "object",
+            "properties": {
+                "accessTier": {
+                    "type": "string"
+                },
+                "days": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:s3:BucketTopicConfiguration": {
+            "type": "object",
+            "properties": {
+                "event": {
+                    "type": "string"
+                },
+                "filter": {
+                    "$ref": "#/types/aws-native:s3:BucketNotificationFilter"
+                },
+                "topic": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketTransition": {
+            "type": "object",
+            "properties": {
+                "storageClass": {
+                    "type": "string"
+                },
+                "transitionDate": {
+                    "type": "string"
+                },
+                "transitionInDays": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:s3:BucketVersioningConfiguration": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:s3:BucketWebsiteConfiguration": {
+            "type": "object",
+            "properties": {
+                "errorDocument": {
+                    "type": "string"
+                },
+                "indexDocument": {
+                    "type": "string"
+                },
+                "redirectAllRequestsTo": {
+                    "$ref": "#/types/aws-native:s3:BucketRedirectAllRequestsTo"
+                },
+                "routingRules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:s3:BucketRoutingRule"
+                    }
+                }
+            }
+        },
         "aws-native:s3:MultiRegionAccessPointPublicAccessBlockConfiguration": {
             "type": "object",
             "properties": {
@@ -48800,6 +50836,17 @@
             }
         },
         "aws-native:sso:PermissionSetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:stepfunctions:ActivityTagsEntry": {
             "type": "object",
             "properties": {
                 "key": {
