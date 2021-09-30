@@ -21,6 +21,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"os"
 	"os/user"
 	"path/filepath"
 	"regexp"
@@ -264,7 +265,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	// loadOptions are used to override default config loading behavior.
 	var loadOptions []func(*config.LoadOptions) error
 
-	if region, ok := vars["aws-native:config:region"]; ok {
+	if region, ok := varsOrEnv(vars, "aws-native:config:region", "AWS_REGION", "AWS_DEFAULT_REGION"); ok {
 		glog.V(4).Infof("using AWS region: %q", region)
 		loadOptions = append(loadOptions, config.WithRegion(region))
 		p.region = region
@@ -272,14 +273,14 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		return nil, errors.New("missing required property 'region'")
 	}
 
-	if profile, ok := vars["aws-native:config:profile"]; ok {
+	if profile, ok := varsOrEnv(vars, "aws-native:config:profile", "AWS_PROFILE"); ok {
 		glog.V(4).Infof("using AWS profile: %q", profile)
 		loadOptions = append(loadOptions, config.WithSharedConfigProfile(profile))
 	} else {
 		glog.V(4).Infof(`using AWS profile: "default"`)
 	}
 
-	if sharedCredentialsFilePath, ok := vars["aws-native:config:sharedCredentialsFile"]; ok {
+	if sharedCredentialsFilePath, ok := varsOrEnv(vars, "aws-native:config:sharedCredentialsFile", "AWS_SHARED_CREDENTIALS_FILE"); ok {
 		glog.V(4).Infof("using AWS shared credentials file at path: %q", sharedCredentialsFilePath)
 		normalizedPath, err := normalizeFilePath(sharedCredentialsFilePath)
 		if err != nil {
@@ -297,13 +298,13 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 
 	var accessKey, secretKey, token string
 
-	if v, ok := vars["aws-native:config:accessKey"]; ok {
+	if v, ok := varsOrEnv(vars, "aws-native:config:accessKey", "AWS_ACCESS_KEY_ID"); ok {
 		accessKey = v
 	}
-	if v, ok := vars["aws-native:config:secretKey"]; ok {
+	if v, ok := varsOrEnv(vars, "aws-native:config:secretKey", "AWS_SECRET_ACCESS_KEY"); ok {
 		secretKey = v
 	}
-	if v, ok := vars["aws-native:config:token"]; ok {
+	if v, ok := varsOrEnv(vars, "aws-native:config:token", "AWS_SESSION_TOKEN"); ok {
 		token = v
 	}
 
@@ -379,6 +380,18 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	return &pulumirpc.ConfigureResponse{
 		AcceptSecrets: true,
 	}, nil
+}
+
+func varsOrEnv(vars map[string]string, key string, env ...string) (string, bool) {
+	if val, ok := vars[key]; ok {
+		return val, true
+	}
+	for _, e := range env {
+		if val, ok := os.LookupEnv(e); ok {
+			return val, true
+		}
+	}
+	return "", false
 }
 
 var functions = map[string]func(*cfnProvider, context.Context, resource.PropertyMap) (resource.PropertyMap, error){
