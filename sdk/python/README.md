@@ -51,7 +51,7 @@ Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-aws-native
 Navigate to the ECS example and run Pulumi:
 
 ```
-$ cd ./exampes/ecs
+$ cd ./examples/ecs
 $ yarn link @pulumi/aws-native
 $ pulumi config set aws:region us-west-2
 $ pulumi config set aws-native:region us-west-2
