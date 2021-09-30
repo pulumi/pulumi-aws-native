@@ -8,6 +8,6 @@
     "@pulumi/random": "^4.0.0"
   },
   "peerDependencies": {
-    "@pulumipreview/aws-native": "dev"
+    "@pulumi/aws-native": "dev"
   }
 }
