@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string? DocumentTitleFieldName;
         public readonly ImmutableArray<string> ExcludeAttachmentFilePatterns;
         public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
+        public readonly string? FilterQuery;
         public readonly ImmutableArray<string> IncludeAttachmentFilePatterns;
 
         [OutputConstructor]
@@ -32,6 +33,8 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
 
+            string? filterQuery,
+
             ImmutableArray<string> includeAttachmentFilePatterns)
         {
             CrawlAttachments = crawlAttachments;
@@ -39,6 +42,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
             DocumentTitleFieldName = documentTitleFieldName;
             ExcludeAttachmentFilePatterns = excludeAttachmentFilePatterns;
             FieldMappings = fieldMappings;
+            FilterQuery = filterQuery;
             IncludeAttachmentFilePatterns = includeAttachmentFilePatterns;
         }
     }

@@ -7,16 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EKS.Inputs
+namespace Pulumi.AwsNative.MSK.Outputs
 {
 
-    public sealed class ClusterProviderArgs : Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class ClusterUnauthenticated
     {
-        [Input("keyArn")]
-        public Input<string>? KeyArn { get; set; }
+        public readonly bool Enabled;
 
-        public ClusterProviderArgs()
+        [OutputConstructor]
+        private ClusterUnauthenticated(bool enabled)
         {
+            Enabled = enabled;
         }
     }
 }

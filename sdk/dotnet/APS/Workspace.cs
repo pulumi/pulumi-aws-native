@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.APS
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The AMP Workspace alert manager definition data
+        /// </summary>
+        [Output("alertManagerDefinition")]
+        public Output<string?> AlertManagerDefinition { get; private set; } = null!;
+
+        /// <summary>
         /// AMP Workspace alias.
         /// </summary>
         [Output("alias")]
@@ -90,6 +96,12 @@ namespace Pulumi.AwsNative.APS
 
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AMP Workspace alert manager definition data
+        /// </summary>
+        [Input("alertManagerDefinition")]
+        public Input<string>? AlertManagerDefinition { get; set; }
+
         /// <summary>
         /// AMP Workspace alias.
         /// </summary>

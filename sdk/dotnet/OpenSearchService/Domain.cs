@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("cognitoOptions")]
         public Output<Outputs.DomainCognitoOptions?> CognitoOptions { get; private set; } = null!;
 
+        [Output("domainArn")]
+        public Output<string> DomainArn { get; private set; } = null!;
+
         [Output("domainEndpoint")]
         public Output<string> DomainEndpoint { get; private set; } = null!;
 

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.MSK.Inputs
         [Input("tls")]
         public Input<Inputs.ClusterTlsArgs>? Tls { get; set; }
 
+        [Input("unauthenticated")]
+        public Input<Inputs.ClusterUnauthenticatedArgs>? Unauthenticated { get; set; }
+
         public ClusterClientAuthenticationArgs()
         {
         }

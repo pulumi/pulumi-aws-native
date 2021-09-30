@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.ECR.Outputs
         /// An array of objects representing the details of a replication destination.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationDestination> Destinations;
+        /// <summary>
+        /// An array of objects representing the details of a repository filter.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ReplicationConfigurationRepositoryFilter> RepositoryFilters;
 
         [OutputConstructor]
-        private ReplicationConfigurationReplicationRule(ImmutableArray<Outputs.ReplicationConfigurationReplicationDestination> destinations)
+        private ReplicationConfigurationReplicationRule(
+            ImmutableArray<Outputs.ReplicationConfigurationReplicationDestination> destinations,
+
+            ImmutableArray<Outputs.ReplicationConfigurationRepositoryFilter> repositoryFilters)
         {
             Destinations = destinations;
+            RepositoryFilters = repositoryFilters;
         }
     }
 }

@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.ECR
 {
     /// <summary>
+    /// Type of repository filter
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationConfigurationFilterType : IEquatable<ReplicationConfigurationFilterType>
+    {
+        private readonly string _value;
+
+        private ReplicationConfigurationFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationConfigurationFilterType PrefixMatch { get; } = new ReplicationConfigurationFilterType("PREFIX_MATCH");
+
+        public static bool operator ==(ReplicationConfigurationFilterType left, ReplicationConfigurationFilterType right) => left.Equals(right);
+        public static bool operator !=(ReplicationConfigurationFilterType left, ReplicationConfigurationFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationConfigurationFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationConfigurationFilterType other && Equals(other);
+        public bool Equals(ReplicationConfigurationFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The encryption type to use.
     /// </summary>
     [EnumType]

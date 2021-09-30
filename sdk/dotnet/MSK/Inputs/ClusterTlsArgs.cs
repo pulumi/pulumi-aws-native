@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.MSK.Inputs
             set => _certificateAuthorityArnList = value;
         }
 
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         public ClusterTlsArgs()
         {
         }

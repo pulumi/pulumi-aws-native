@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         [Input("sharePointVersion", required: true)]
         public Input<Pulumi.AwsNative.Kendra.DataSourceSharePointConfigurationSharePointVersion> SharePointVersion { get; set; } = null!;
 
+        [Input("sslCertificateS3Path")]
+        public Input<Inputs.DataSourceS3PathArgs>? SslCertificateS3Path { get; set; }
+
         [Input("urls", required: true)]
         private InputList<string>? _urls;
         public InputList<string> Urls

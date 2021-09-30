@@ -15,30 +15,63 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:ec2:VPC")]
     public partial class VPC : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The primary IPv4 CIDR block for the VPC.
+        /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of IPv4 CIDR block association IDs for the VPC.
+        /// </summary>
         [Output("cidrBlockAssociations")]
         public Output<ImmutableArray<string>> CidrBlockAssociations { get; private set; } = null!;
 
+        /// <summary>
+        /// The default network ACL ID that is associated with the VPC.
+        /// </summary>
         [Output("defaultNetworkAcl")]
         public Output<string> DefaultNetworkAcl { get; private set; } = null!;
 
+        /// <summary>
+        /// The default security group ID that is associated with the VPC.
+        /// </summary>
         [Output("defaultSecurityGroup")]
         public Output<string> DefaultSecurityGroup { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        /// </summary>
         [Output("enableDnsHostnames")]
         public Output<bool?> EnableDnsHostnames { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        /// </summary>
         [Output("enableDnsSupport")]
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
+        /// <summary>
+        /// The allowed tenancy of instances launched into the VPC.
+        /// 
+        /// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+        /// 
+        /// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+        /// 
+        /// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        /// </summary>
         [Output("instanceTenancy")]
         public Output<string?> InstanceTenancy { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of IPv6 CIDR blocks that are associated with the VPC.
+        /// </summary>
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the VPC.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VPCTag>> Tags { get; private set; } = null!;
 
@@ -87,20 +120,42 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class VPCArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The primary IPv4 CIDR block for the VPC.
+        /// </summary>
         [Input("cidrBlock", required: true)]
         public Input<string> CidrBlock { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs.
+        /// </summary>
         [Input("enableDnsHostnames")]
         public Input<bool>? EnableDnsHostnames { get; set; }
 
+        /// <summary>
+        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default.
+        /// </summary>
         [Input("enableDnsSupport")]
         public Input<bool>? EnableDnsSupport { get; set; }
 
+        /// <summary>
+        /// The allowed tenancy of instances launched into the VPC.
+        /// 
+        /// "default": An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.
+        /// 
+        /// "dedicated": An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.
+        /// 
+        /// Updating InstanceTenancy requires no replacement only if you are updating its value from "dedicated" to "default". Updating InstanceTenancy from "default" to "dedicated" requires replacement.
+        /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VPCTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the VPC.
+        /// </summary>
         public InputList<Inputs.VPCTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.VPCTagArgs>());

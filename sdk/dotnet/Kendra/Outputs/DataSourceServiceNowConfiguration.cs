@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     [OutputType]
     public sealed class DataSourceServiceNowConfiguration
     {
+        public readonly Pulumi.AwsNative.Kendra.DataSourceServiceNowAuthenticationType? AuthenticationType;
         public readonly string HostUrl;
         public readonly Outputs.DataSourceServiceNowKnowledgeArticleConfiguration? KnowledgeArticleConfiguration;
         public readonly string SecretArn;
@@ -21,6 +22,8 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
         [OutputConstructor]
         private DataSourceServiceNowConfiguration(
+            Pulumi.AwsNative.Kendra.DataSourceServiceNowAuthenticationType? authenticationType,
+
             string hostUrl,
 
             Outputs.DataSourceServiceNowKnowledgeArticleConfiguration? knowledgeArticleConfiguration,
@@ -31,6 +34,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Pulumi.AwsNative.Kendra.DataSourceServiceNowBuildVersionType serviceNowBuildVersion)
         {
+            AuthenticationType = authenticationType;
             HostUrl = hostUrl;
             KnowledgeArticleConfiguration = knowledgeArticleConfiguration;
             SecretArn = secretArn;

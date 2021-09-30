@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.MSK.Outputs
     {
         public readonly Outputs.ClusterSasl? Sasl;
         public readonly Outputs.ClusterTls? Tls;
+        public readonly Outputs.ClusterUnauthenticated? Unauthenticated;
 
         [OutputConstructor]
         private ClusterClientAuthentication(
             Outputs.ClusterSasl? sasl,
 
-            Outputs.ClusterTls? tls)
+            Outputs.ClusterTls? tls,
+
+            Outputs.ClusterUnauthenticated? unauthenticated)
         {
             Sasl = sasl;
             Tls = tls;
+            Unauthenticated = unauthenticated;
         }
     }
 }

@@ -27,6 +27,18 @@ namespace Pulumi.AwsNative.ECR.Inputs
             set => _destinations = value;
         }
 
+        [Input("repositoryFilters")]
+        private InputList<Inputs.ReplicationConfigurationRepositoryFilterArgs>? _repositoryFilters;
+
+        /// <summary>
+        /// An array of objects representing the details of a repository filter.
+        /// </summary>
+        public InputList<Inputs.ReplicationConfigurationRepositoryFilterArgs> RepositoryFilters
+        {
+            get => _repositoryFilters ?? (_repositoryFilters = new InputList<Inputs.ReplicationConfigurationRepositoryFilterArgs>());
+            set => _repositoryFilters = value;
+        }
+
         public ReplicationConfigurationReplicationRuleArgs()
         {
         }

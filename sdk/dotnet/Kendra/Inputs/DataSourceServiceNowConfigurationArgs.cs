@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
     public sealed class DataSourceServiceNowConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("authenticationType")]
+        public Input<Pulumi.AwsNative.Kendra.DataSourceServiceNowAuthenticationType>? AuthenticationType { get; set; }
+
         [Input("hostUrl", required: true)]
         public Input<string> HostUrl { get; set; } = null!;
 
