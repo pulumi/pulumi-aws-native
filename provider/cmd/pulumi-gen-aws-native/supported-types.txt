@@ -35,6 +35,8 @@ AWS::AutoScaling::WarmPool
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
+AWS::Backup::Framework
+AWS::Backup::ReportPlan
 AWS::Budgets::BudgetsAction
 AWS::CE::CostCategory
 AWS::Cassandra::Keyspace
@@ -133,7 +135,6 @@ AWS::EFS::AccessPoint
 AWS::EFS::FileSystem
 AWS::EFS::MountTarget
 AWS::EKS::Addon
-AWS::EKS::Cluster
 AWS::EKS::FargateProfile
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
