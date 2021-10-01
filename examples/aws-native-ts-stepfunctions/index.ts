@@ -1,7 +1,7 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
 import * as aws from "@pulumi/aws";
-import * as awsnative from "@pulumipreview/aws-native";
+import * as awsnative from "@pulumi/aws-native";
 import * as pulumi from "@pulumi/pulumi";
 
 const region = aws.config.requireRegion();
