@@ -160,7 +160,7 @@ func (ctx *renderContext) renderSub(name string, value ast.Node) (model.Expressi
 		return nil, fmt.Errorf("the first argument to 'Fn::Sub' must be a string")
 	}
 
-	var environment map[string]model.Expression
+	environment := make(map[string]model.Expression)
 	if len(arr) == 2 {
 		values, ok := mapValues(arr[1])
 		if !ok {
