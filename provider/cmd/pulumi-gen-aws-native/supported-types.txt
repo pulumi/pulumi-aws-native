@@ -111,6 +111,7 @@ AWS::EC2::NetworkInsightsPath
 AWS::EC2::PrefixList
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
+AWS::EC2::Subnet
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayConnect
@@ -231,6 +232,8 @@ AWS::Lambda::EventSourceMapping
 AWS::Lambda::Function
 AWS::LicenseManager::Grant
 AWS::LicenseManager::License
+AWS::Lightsail::Disk
+AWS::Lightsail::Instance
 AWS::Location::GeofenceCollection
 AWS::Location::Map
 AWS::Location::PlaceIndex

@@ -7402,6 +7402,86 @@
                 "spotFleetRequestConfigData/ValidUntil"
             ]
         },
+        "aws-native:ec2:Subnet": {
+            "cf": "AWS::EC2::Subnet",
+            "inputs": {
+                "assignIpv6AddressOnCreation": {
+                    "type": "boolean"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string"
+                },
+                "mapPublicIpOnLaunch": {
+                    "type": "boolean"
+                },
+                "outpostArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SubnetTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "assignIpv6AddressOnCreation": {
+                    "type": "boolean"
+                },
+                "availabilityZone": {
+                    "type": "string"
+                },
+                "cidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlock": {
+                    "type": "string"
+                },
+                "ipv6CidrBlocks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "mapPublicIpOnLaunch": {
+                    "type": "boolean"
+                },
+                "networkAclAssociationId": {
+                    "type": "string"
+                },
+                "outpostArn": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:SubnetTag"
+                    }
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "cidrBlock",
+                "vpcId"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "cidrBlock",
+                "outpostArn",
+                "vpcId"
+            ]
+        },
         "aws-native:ec2:SubnetRouteTableAssociation": {
             "cf": "AWS::EC2::SubnetRouteTableAssociation",
             "inputs": {
@@ -34063,6 +34143,17 @@
                     "items": {
                         "$ref": "#/types/aws-native:ec2:SpotFleetTargetGroup"
                     }
+                }
+            }
+        },
+        "aws-native:ec2:SubnetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
