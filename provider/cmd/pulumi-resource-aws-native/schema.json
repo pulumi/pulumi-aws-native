@@ -4947,6 +4947,66 @@
                 "value"
             ]
         },
+        "aws-native:autoscaling:LaunchConfigurationBlockDevice": {
+            "properties": {
+                "deleteOnTermination": {
+                    "type": "boolean"
+                },
+                "encrypted": {
+                    "type": "boolean"
+                },
+                "iops": {
+                    "type": "integer"
+                },
+                "snapshotId": {
+                    "type": "string"
+                },
+                "throughput": {
+                    "type": "integer"
+                },
+                "volumeSize": {
+                    "type": "integer"
+                },
+                "volumeType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping": {
+            "properties": {
+                "deviceName": {
+                    "type": "string"
+                },
+                "ebs": {
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDevice"
+                },
+                "noDevice": {
+                    "type": "boolean"
+                },
+                "virtualName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "deviceName"
+            ]
+        },
+        "aws-native:autoscaling:LaunchConfigurationMetadataOptions": {
+            "properties": {
+                "httpEndpoint": {
+                    "type": "string"
+                },
+                "httpPutResponseHopLimit": {
+                    "type": "integer"
+                },
+                "httpTokens": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
         "aws-native:backup:BackupPlanAdvancedBackupSettingResourceType": {
             "properties": {
                 "backupOptions": {
@@ -18893,6 +18953,36 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:iam:RolePolicy": {
+            "properties": {
+                "policyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "policyName": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "policyDocument",
+                "policyName"
+            ]
+        },
+        "aws-native:iam:RoleTag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -43660,6 +43750,88 @@
                 }
             }
         },
+        "aws-native:apigateway:Authorizer": {
+            "description": "Resource Type definition for AWS::ApiGateway::Authorizer",
+            "properties": {
+                "authType": {
+                    "type": "string"
+                },
+                "authorizerCredentials": {
+                    "type": "string"
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer"
+                },
+                "authorizerUri": {
+                    "type": "string"
+                },
+                "identitySource": {
+                    "type": "string"
+                },
+                "identityValidationExpression": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "providerARNs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "restApiId",
+                "type"
+            ],
+            "inputProperties": {
+                "authType": {
+                    "type": "string"
+                },
+                "authorizerCredentials": {
+                    "type": "string"
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer"
+                },
+                "authorizerUri": {
+                    "type": "string"
+                },
+                "identitySource": {
+                    "type": "string"
+                },
+                "identityValidationExpression": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "providerARNs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "restApiId",
+                "type"
+            ]
+        },
         "aws-native:apigateway:BasePathMapping": {
             "description": "Resource Type definition for AWS::ApiGateway::BasePathMapping",
             "properties": {
@@ -45277,6 +45449,154 @@
                     "description": "The tags associated with the assessment."
                 }
             }
+        },
+        "aws-native:autoscaling:LaunchConfiguration": {
+            "description": "Resource Type definition for AWS::AutoScaling::LaunchConfiguration",
+            "properties": {
+                "associatePublicIpAddress": {
+                    "type": "boolean"
+                },
+                "blockDeviceMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
+                    }
+                },
+                "classicLinkVPCId": {
+                    "type": "string"
+                },
+                "classicLinkVPCSecurityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "iamInstanceProfile": {
+                    "type": "string"
+                },
+                "imageId": {
+                    "type": "string"
+                },
+                "instanceId": {
+                    "type": "string"
+                },
+                "instanceMonitoring": {
+                    "type": "boolean"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "kernelId": {
+                    "type": "string"
+                },
+                "keyName": {
+                    "type": "string"
+                },
+                "launchConfigurationName": {
+                    "type": "string"
+                },
+                "metadataOptions": {
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                },
+                "placementTenancy": {
+                    "type": "string"
+                },
+                "ramDiskId": {
+                    "type": "string"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "spotPrice": {
+                    "type": "string"
+                },
+                "userData": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "imageId",
+                "instanceType"
+            ],
+            "inputProperties": {
+                "associatePublicIpAddress": {
+                    "type": "boolean"
+                },
+                "blockDeviceMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
+                    }
+                },
+                "classicLinkVPCId": {
+                    "type": "string"
+                },
+                "classicLinkVPCSecurityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "iamInstanceProfile": {
+                    "type": "string"
+                },
+                "imageId": {
+                    "type": "string"
+                },
+                "instanceId": {
+                    "type": "string"
+                },
+                "instanceMonitoring": {
+                    "type": "boolean"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "kernelId": {
+                    "type": "string"
+                },
+                "keyName": {
+                    "type": "string"
+                },
+                "launchConfigurationName": {
+                    "type": "string"
+                },
+                "metadataOptions": {
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                },
+                "placementTenancy": {
+                    "type": "string"
+                },
+                "ramDiskId": {
+                    "type": "string"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "spotPrice": {
+                    "type": "string"
+                },
+                "userData": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "imageId",
+                "instanceType"
+            ]
         },
         "aws-native:autoscaling:WarmPool": {
             "description": "Resource schema for AWS::AutoScaling::WarmPool.",
@@ -50550,6 +50870,38 @@
                 "spotFleetRequestConfigData"
             ]
         },
+        "aws-native:ec2:SubnetNetworkAclAssociation": {
+            "description": "Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation",
+            "properties": {
+                "associationId": {
+                    "type": "string"
+                },
+                "networkAclId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "associationId",
+                "networkAclId",
+                "subnetId"
+            ],
+            "inputProperties": {
+                "networkAclId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "networkAclId",
+                "subnetId"
+            ]
+        },
         "aws-native:ec2:SubnetRouteTableAssociation": {
             "description": "Resource Type definition for AWS::EC2::SubnetRouteTableAssociation",
             "properties": {
@@ -55277,6 +55629,100 @@
             },
             "requiredInputs": [
                 "thumbprintList"
+            ]
+        },
+        "aws-native:iam:Role": {
+            "description": "Resource Type definition for AWS::IAM::Role\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Example\n```csharp\nusing Pulumi;\nusing AwsNative = Pulumi.AwsNative;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var awsPartition = invoke.Partition;\n        var automationExecutionRole = new AwsNative.IAM.Role(\"automationExecutionRole\", new AwsNative.IAM.RoleArgs\n        {\n            AssumeRolePolicyDocument = \n            {\n                { \"version\", \"2012-10-17\" },\n                { \"statement\", \n                {\n                    \n                    {\n                        { \"effect\", \"Allow\" },\n                        { \"principal\", \n                        {\n                            { \"service\", \"ssm.amazonaws.com\" },\n                        } },\n                        { \"action\", \n                        {\n                            \"sts:AssumeRole\",\n                        } },\n                    },\n                } },\n            },\n            Path = \"/\",\n            ManagedPolicyArns = \n            {\n                $\"arn:{awsPartition}:iam::aws:policy/AmazonEC2FullAccess\",\n            },\n        });\n        var automationAssociation = new AwsNative.SSM.Association(\"automationAssociation\", new AwsNative.SSM.AssociationArgs\n        {\n            Name = \"AWS-StopEC2Instance\",\n            Parameters = \n            {\n                { \"automationAssumeRole\", \n                {\n                    automationExecutionRole.Arn,\n                } },\n            },\n            Targets = \n            {\n                new AwsNative.SSM.Inputs.AssociationTargetArgs\n                {\n                    Key = \"ParameterValues\",\n                    Values = \n                    {\n                        \"i-1234567890abcdef0\",\n                    },\n                },\n            },\n            AutomationTargetParameterName = \"InstanceId\",\n        });\n    }\n\n}\n\n```\n\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam\"\n\t\"github.com/pulumi/pulumi-aws-native/sdk/go/aws/ssm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tawsPartition := invoke.Partition\n\t\tautomationExecutionRole, err := iam.NewRole(ctx, \"automationExecutionRole\", \u0026iam.RoleArgs{\n\t\t\tAssumeRolePolicyDocument: pulumi.Any{\n\t\t\t\tVersion: \"2012-10-17\",\n\t\t\t\tStatement: []map[string]interface{}{\n\t\t\t\t\tmap[string]interface{}{\n\t\t\t\t\t\t\"effect\": \"Allow\",\n\t\t\t\t\t\t\"principal\": map[string]interface{}{\n\t\t\t\t\t\t\t\"service\": \"ssm.amazonaws.com\",\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\"action\": []string{\n\t\t\t\t\t\t\t\"sts:AssumeRole\",\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tPath: pulumi.String(\"/\"),\n\t\t\tManagedPolicyArns: pulumi.StringArray{\n\t\t\t\tpulumi.String(fmt.Sprintf(\"%v%v%v\", \"arn:\", awsPartition, \":iam::aws:policy/AmazonEC2FullAccess\")),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ssm.NewAssociation(ctx, \"automationAssociation\", \u0026ssm.AssociationArgs{\n\t\t\tName: pulumi.String(\"AWS-StopEC2Instance\"),\n\t\t\tParameters: pulumi.Any{\n\t\t\t\tAutomationAssumeRole: pulumi.StringArray{\n\t\t\t\t\tautomationExecutionRole.Arn,\n\t\t\t\t},\n\t\t\t},\n\t\t\tTargets: []ssm.AssociationTargetArgs{\n\t\t\t\t\u0026ssm.AssociationTargetArgs{\n\t\t\t\t\tKey: pulumi.String(\"ParameterValues\"),\n\t\t\t\t\tValues: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"i-1234567890abcdef0\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tAutomationTargetParameterName: pulumi.String(\"InstanceId\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as aws_native from \"@pulumi/aws-native\";\n\nconst awsPartition = aws_native.getPartition().then(invoke =\u003e invoke.partition);\nconst automationExecutionRole = new aws_native.iam.Role(\"automationExecutionRole\", {\n    assumeRolePolicyDocument: {\n        version: \"2012-10-17\",\n        statement: [{\n            effect: \"Allow\",\n            principal: {\n                service: \"ssm.amazonaws.com\",\n            },\n            action: [\"sts:AssumeRole\"],\n        }],\n    },\n    path: \"/\",\n    managedPolicyArns: [`arn:${awsPartition}:iam::aws:policy/AmazonEC2FullAccess`],\n});\nconst automationAssociation = new aws_native.ssm.Association(\"automationAssociation\", {\n    name: \"AWS-StopEC2Instance\",\n    parameters: {\n        automationAssumeRole: [automationExecutionRole.arn],\n    },\n    targets: [{\n        key: \"ParameterValues\",\n        values: [\"i-1234567890abcdef0\"],\n    }],\n    automationTargetParameterName: \"InstanceId\",\n});\n\n```\n\n```python\nimport pulumi\nimport pulumi_aws_native as aws_native\n\naws_partition = invoke.partition\nautomation_execution_role = aws_native.iam.Role(\"automationExecutionRole\",\n    assume_role_policy_document={\n        \"version\": \"2012-10-17\",\n        \"statement\": [{\n            \"effect\": \"Allow\",\n            \"principal\": {\n                \"service\": \"ssm.amazonaws.com\",\n            },\n            \"action\": [\"sts:AssumeRole\"],\n        }],\n    },\n    path=\"/\",\n    managed_policy_arns=[f\"arn:{aws_partition}:iam::aws:policy/AmazonEC2FullAccess\"])\nautomation_association = aws_native.ssm.Association(\"automationAssociation\",\n    name=\"AWS-StopEC2Instance\",\n    parameters={\n        \"automationAssumeRole\": [automation_execution_role.arn],\n    },\n    targets=[aws_native.ssm.AssociationTargetArgs(\n        key=\"ParameterValues\",\n        values=[\"i-1234567890abcdef0\"],\n    )],\n    automation_target_parameter_name=\"InstanceId\")\n\n```\n\n{{% /example %}}\n{{% /examples %}}\n",
+            "properties": {
+                "arn": {
+                    "type": "string"
+                },
+                "assumeRolePolicyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "managedPolicyArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxSessionDuration": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "permissionsBoundary": {
+                    "type": "string"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RolePolicy"
+                    }
+                },
+                "roleId": {
+                    "type": "string"
+                },
+                "roleName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RoleTag"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "arn",
+                "assumeRolePolicyDocument",
+                "roleId"
+            ],
+            "inputProperties": {
+                "assumeRolePolicyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "managedPolicyArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxSessionDuration": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "permissionsBoundary": {
+                    "type": "string"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RolePolicy"
+                    }
+                },
+                "roleName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RoleTag"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "assumeRolePolicyDocument"
             ]
         },
         "aws-native:iam:SAMLProvider": {

@@ -40,12 +40,7 @@ class SubnetNetworkAclAssociationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-warnings.warn("""SubnetNetworkAclAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SubnetNetworkAclAssociation(pulumi.CustomResource):
-    warnings.warn("""SubnetNetworkAclAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -86,7 +81,6 @@ class SubnetNetworkAclAssociation(pulumi.CustomResource):
                  network_acl_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SubnetNetworkAclAssociation is deprecated: SubnetNetworkAclAssociation is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

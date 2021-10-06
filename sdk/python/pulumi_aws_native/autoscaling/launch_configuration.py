@@ -246,12 +246,7 @@ class LaunchConfigurationArgs:
         pulumi.set(self, "user_data", value)
 
 
-warnings.warn("""LaunchConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class LaunchConfiguration(pulumi.CustomResource):
-    warnings.warn("""LaunchConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -326,7 +321,6 @@ class LaunchConfiguration(pulumi.CustomResource):
                  spot_price: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LaunchConfiguration is deprecated: LaunchConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
