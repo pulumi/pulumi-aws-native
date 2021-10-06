@@ -10,6 +10,7 @@ env:
   PROVIDER: aws-native
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_API: https://api.pulumi-staging.io
+  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   TRAVIS_OS_NAME: linux
 jobs:
@@ -139,6 +140,8 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+        with:
+          ref: ${{ env.PR_COMMIT_SHA }}
       - name: Checkout Scripts Repo
         uses: actions/checkout@v2
         with:
