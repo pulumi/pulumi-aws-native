@@ -17,9 +17,9 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -64,16 +64,16 @@ func main() {
 		os.Exit(-1)
 	}
 
-	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
+	hcl2Cache := pcl.Cache(pcl.NewPackageCache())
 	pkg, err := schema.ImportSpec(*pkgSpec, nil)
 	if err != nil {
 		log.Fatalf("failed to parse import the spec: %v", err)
 	}
-	loaderOption := hcl2.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
+	loaderOption := pcl.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
 		"aws-native": pkg,
 	}))
 
-	program, diags, err := hcl2.BindProgram(parser.Files, hcl2Cache, loaderOption)
+	program, diags, err := pcl.BindProgram(parser.Files, hcl2Cache, loaderOption)
 	if err != nil {
 		log.Fatalf("failed to bind program: %v", err)
 	}
