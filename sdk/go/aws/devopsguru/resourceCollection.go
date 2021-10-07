@@ -15,9 +15,9 @@ import (
 type ResourceCollection struct {
 	pulumi.CustomResourceState
 
-	ResourceCollectionFilter ResourceCollectionResourceCollectionFilterOutput `pulumi:"resourceCollectionFilter"`
+	ResourceCollectionFilter ResourceCollectionFilterOutput `pulumi:"resourceCollectionFilter"`
 	// The type of ResourceCollection
-	ResourceCollectionType ResourceCollectionResourceCollectionTypeOutput `pulumi:"resourceCollectionType"`
+	ResourceCollectionType ResourceCollectionTypeOutput `pulumi:"resourceCollectionType"`
 }
 
 // NewResourceCollection registers a new resource with the given unique name, arguments, and options.
@@ -62,12 +62,12 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 }
 
 type resourceCollectionArgs struct {
-	ResourceCollectionFilter ResourceCollectionResourceCollectionFilter `pulumi:"resourceCollectionFilter"`
+	ResourceCollectionFilter ResourceCollectionFilter `pulumi:"resourceCollectionFilter"`
 }
 
 // The set of arguments for constructing a ResourceCollection resource.
 type ResourceCollectionArgs struct {
-	ResourceCollectionFilter ResourceCollectionResourceCollectionFilterInput
+	ResourceCollectionFilter ResourceCollectionFilterInput
 }
 
 func (ResourceCollectionArgs) ElementType() reflect.Type {

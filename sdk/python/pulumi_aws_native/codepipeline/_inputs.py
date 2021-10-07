@@ -24,8 +24,8 @@ __all__ = [
     'PipelineStageDeclarationArgs',
     'PipelineStageTransitionArgs',
     'PipelineTagArgs',
-    'WebhookWebhookAuthConfigurationArgs',
-    'WebhookWebhookFilterRuleArgs',
+    'WebhookAuthConfigurationArgs',
+    'WebhookFilterRuleArgs',
 ]
 
 @pulumi.input_type
@@ -626,7 +626,7 @@ class PipelineTagArgs:
 
 
 @pulumi.input_type
-class WebhookWebhookAuthConfigurationArgs:
+class WebhookAuthConfigurationArgs:
     def __init__(__self__, *,
                  allowed_ip_range: Optional[pulumi.Input[str]] = None,
                  secret_token: Optional[pulumi.Input[str]] = None):
@@ -655,7 +655,7 @@ class WebhookWebhookAuthConfigurationArgs:
 
 
 @pulumi.input_type
-class WebhookWebhookFilterRuleArgs:
+class WebhookFilterRuleArgs:
     def __init__(__self__, *,
                  json_path: pulumi.Input[str],
                  match_equals: Optional[pulumi.Input[str]] = None):

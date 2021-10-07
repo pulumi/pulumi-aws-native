@@ -11,14 +11,14 @@ from . import outputs
 
 __all__ = [
     'MemberApprovalThresholdPolicy',
-    'MemberMemberConfiguration',
-    'MemberMemberFabricConfiguration',
-    'MemberMemberFrameworkConfiguration',
+    'MemberConfiguration',
+    'MemberFabricConfiguration',
+    'MemberFrameworkConfiguration',
     'MemberNetworkConfiguration',
     'MemberNetworkFabricConfiguration',
     'MemberNetworkFrameworkConfiguration',
     'MemberVotingPolicy',
-    'NodeNodeConfiguration',
+    'NodeConfiguration',
 ]
 
 @pulumi.output_type
@@ -72,7 +72,7 @@ class MemberApprovalThresholdPolicy(dict):
 
 
 @pulumi.output_type
-class MemberMemberConfiguration(dict):
+class MemberConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -80,20 +80,20 @@ class MemberMemberConfiguration(dict):
             suggest = "member_framework_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MemberMemberConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MemberConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MemberMemberConfiguration.__key_warning(key)
+        MemberConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MemberMemberConfiguration.__key_warning(key)
+        MemberConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
-                 member_framework_configuration: Optional['outputs.MemberMemberFrameworkConfiguration'] = None):
+                 member_framework_configuration: Optional['outputs.MemberFrameworkConfiguration'] = None):
         pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -112,12 +112,12 @@ class MemberMemberConfiguration(dict):
 
     @property
     @pulumi.getter(name="memberFrameworkConfiguration")
-    def member_framework_configuration(self) -> Optional['outputs.MemberMemberFrameworkConfiguration']:
+    def member_framework_configuration(self) -> Optional['outputs.MemberFrameworkConfiguration']:
         return pulumi.get(self, "member_framework_configuration")
 
 
 @pulumi.output_type
-class MemberMemberFabricConfiguration(dict):
+class MemberFabricConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -127,14 +127,14 @@ class MemberMemberFabricConfiguration(dict):
             suggest = "admin_username"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MemberMemberFabricConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MemberFabricConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MemberMemberFabricConfiguration.__key_warning(key)
+        MemberFabricConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MemberMemberFabricConfiguration.__key_warning(key)
+        MemberFabricConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -155,7 +155,7 @@ class MemberMemberFabricConfiguration(dict):
 
 
 @pulumi.output_type
-class MemberMemberFrameworkConfiguration(dict):
+class MemberFrameworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -163,24 +163,24 @@ class MemberMemberFrameworkConfiguration(dict):
             suggest = "member_fabric_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MemberMemberFrameworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MemberFrameworkConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MemberMemberFrameworkConfiguration.__key_warning(key)
+        MemberFrameworkConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MemberMemberFrameworkConfiguration.__key_warning(key)
+        MemberFrameworkConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 member_fabric_configuration: Optional['outputs.MemberMemberFabricConfiguration'] = None):
+                 member_fabric_configuration: Optional['outputs.MemberFabricConfiguration'] = None):
         if member_fabric_configuration is not None:
             pulumi.set(__self__, "member_fabric_configuration", member_fabric_configuration)
 
     @property
     @pulumi.getter(name="memberFabricConfiguration")
-    def member_fabric_configuration(self) -> Optional['outputs.MemberMemberFabricConfiguration']:
+    def member_fabric_configuration(self) -> Optional['outputs.MemberFabricConfiguration']:
         return pulumi.get(self, "member_fabric_configuration")
 
 
@@ -327,7 +327,7 @@ class MemberVotingPolicy(dict):
 
 
 @pulumi.output_type
-class NodeNodeConfiguration(dict):
+class NodeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -337,14 +337,14 @@ class NodeNodeConfiguration(dict):
             suggest = "instance_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NodeNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NodeConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        NodeNodeConfiguration.__key_warning(key)
+        NodeConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        NodeNodeConfiguration.__key_warning(key)
+        NodeConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

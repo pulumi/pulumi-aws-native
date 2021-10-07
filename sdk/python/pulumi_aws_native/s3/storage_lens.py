@@ -16,7 +16,7 @@ __all__ = ['StorageLensArgs', 'StorageLens']
 @pulumi.input_type
 class StorageLensArgs:
     def __init__(__self__, *,
-                 storage_lens_configuration: pulumi.Input['StorageLensStorageLensConfigurationArgs'],
+                 storage_lens_configuration: pulumi.Input['StorageLensConfigurationArgs'],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageLens resource.
@@ -28,11 +28,11 @@ class StorageLensArgs:
 
     @property
     @pulumi.getter(name="storageLensConfiguration")
-    def storage_lens_configuration(self) -> pulumi.Input['StorageLensStorageLensConfigurationArgs']:
+    def storage_lens_configuration(self) -> pulumi.Input['StorageLensConfigurationArgs']:
         return pulumi.get(self, "storage_lens_configuration")
 
     @storage_lens_configuration.setter
-    def storage_lens_configuration(self, value: pulumi.Input['StorageLensStorageLensConfigurationArgs']):
+    def storage_lens_configuration(self, value: pulumi.Input['StorageLensConfigurationArgs']):
         pulumi.set(self, "storage_lens_configuration", value)
 
     @property
@@ -53,7 +53,7 @@ class StorageLens(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensStorageLensConfigurationArgs']]] = None,
+                 storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -87,7 +87,7 @@ class StorageLens(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensStorageLensConfigurationArgs']]] = None,
+                 storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageLensTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -133,7 +133,7 @@ class StorageLens(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageLensConfiguration")
-    def storage_lens_configuration(self) -> pulumi.Output['outputs.StorageLensStorageLensConfiguration']:
+    def storage_lens_configuration(self) -> pulumi.Output['outputs.StorageLensConfiguration']:
         return pulumi.get(self, "storage_lens_configuration")
 
     @property

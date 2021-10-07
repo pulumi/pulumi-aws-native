@@ -10,38 +10,15 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ReplicationConfigurationReplicationConfigurationArgs',
     'ReplicationConfigurationReplicationDestinationArgs',
     'ReplicationConfigurationReplicationRuleArgs',
     'ReplicationConfigurationRepositoryFilterArgs',
+    'ReplicationConfigurationArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
     'RepositoryLifecyclePolicyArgs',
     'RepositoryTagArgs',
 ]
-
-@pulumi.input_type
-class ReplicationConfigurationReplicationConfigurationArgs:
-    def __init__(__self__, *,
-                 rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
-        """
-        An object representing the replication configuration for a registry.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
-        """
-        pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]:
-        """
-        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
-        pulumi.set(self, "rules", value)
-
 
 @pulumi.input_type
 class ReplicationConfigurationReplicationDestinationArgs:
@@ -140,6 +117,29 @@ class ReplicationConfigurationRepositoryFilterArgs:
     @filter_type.setter
     def filter_type(self, value: pulumi.Input['ReplicationConfigurationFilterType']):
         pulumi.set(self, "filter_type", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
+        """
+        An object representing the replication configuration for a registry.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        """
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]:
+        """
+        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
+        pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type

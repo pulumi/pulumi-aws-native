@@ -4518,98 +4518,98 @@ func (o InstanceHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-type InstanceInstanceIpv6Address struct {
+type InstanceIpv6Address struct {
 	Ipv6Address string `pulumi:"ipv6Address"`
 }
 
-// InstanceInstanceIpv6AddressInput is an input type that accepts InstanceInstanceIpv6AddressArgs and InstanceInstanceIpv6AddressOutput values.
-// You can construct a concrete instance of `InstanceInstanceIpv6AddressInput` via:
+// InstanceIpv6AddressInput is an input type that accepts InstanceIpv6AddressArgs and InstanceIpv6AddressOutput values.
+// You can construct a concrete instance of `InstanceIpv6AddressInput` via:
 //
-//          InstanceInstanceIpv6AddressArgs{...}
-type InstanceInstanceIpv6AddressInput interface {
+//          InstanceIpv6AddressArgs{...}
+type InstanceIpv6AddressInput interface {
 	pulumi.Input
 
-	ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput
-	ToInstanceInstanceIpv6AddressOutputWithContext(context.Context) InstanceInstanceIpv6AddressOutput
+	ToInstanceIpv6AddressOutput() InstanceIpv6AddressOutput
+	ToInstanceIpv6AddressOutputWithContext(context.Context) InstanceIpv6AddressOutput
 }
 
-type InstanceInstanceIpv6AddressArgs struct {
+type InstanceIpv6AddressArgs struct {
 	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
 }
 
-func (InstanceInstanceIpv6AddressArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceInstanceIpv6Address)(nil)).Elem()
+func (InstanceIpv6AddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceIpv6Address)(nil)).Elem()
 }
 
-func (i InstanceInstanceIpv6AddressArgs) ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput {
-	return i.ToInstanceInstanceIpv6AddressOutputWithContext(context.Background())
+func (i InstanceIpv6AddressArgs) ToInstanceIpv6AddressOutput() InstanceIpv6AddressOutput {
+	return i.ToInstanceIpv6AddressOutputWithContext(context.Background())
 }
 
-func (i InstanceInstanceIpv6AddressArgs) ToInstanceInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceIpv6AddressOutput)
+func (i InstanceIpv6AddressArgs) ToInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceIpv6AddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceIpv6AddressOutput)
 }
 
-// InstanceInstanceIpv6AddressArrayInput is an input type that accepts InstanceInstanceIpv6AddressArray and InstanceInstanceIpv6AddressArrayOutput values.
-// You can construct a concrete instance of `InstanceInstanceIpv6AddressArrayInput` via:
+// InstanceIpv6AddressArrayInput is an input type that accepts InstanceIpv6AddressArray and InstanceIpv6AddressArrayOutput values.
+// You can construct a concrete instance of `InstanceIpv6AddressArrayInput` via:
 //
-//          InstanceInstanceIpv6AddressArray{ InstanceInstanceIpv6AddressArgs{...} }
-type InstanceInstanceIpv6AddressArrayInput interface {
+//          InstanceIpv6AddressArray{ InstanceIpv6AddressArgs{...} }
+type InstanceIpv6AddressArrayInput interface {
 	pulumi.Input
 
-	ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput
-	ToInstanceInstanceIpv6AddressArrayOutputWithContext(context.Context) InstanceInstanceIpv6AddressArrayOutput
+	ToInstanceIpv6AddressArrayOutput() InstanceIpv6AddressArrayOutput
+	ToInstanceIpv6AddressArrayOutputWithContext(context.Context) InstanceIpv6AddressArrayOutput
 }
 
-type InstanceInstanceIpv6AddressArray []InstanceInstanceIpv6AddressInput
+type InstanceIpv6AddressArray []InstanceIpv6AddressInput
 
-func (InstanceInstanceIpv6AddressArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InstanceInstanceIpv6Address)(nil)).Elem()
+func (InstanceIpv6AddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceIpv6Address)(nil)).Elem()
 }
 
-func (i InstanceInstanceIpv6AddressArray) ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput {
-	return i.ToInstanceInstanceIpv6AddressArrayOutputWithContext(context.Background())
+func (i InstanceIpv6AddressArray) ToInstanceIpv6AddressArrayOutput() InstanceIpv6AddressArrayOutput {
+	return i.ToInstanceIpv6AddressArrayOutputWithContext(context.Background())
 }
 
-func (i InstanceInstanceIpv6AddressArray) ToInstanceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceIpv6AddressArrayOutput)
+func (i InstanceIpv6AddressArray) ToInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceIpv6AddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceIpv6AddressArrayOutput)
 }
 
-type InstanceInstanceIpv6AddressOutput struct{ *pulumi.OutputState }
+type InstanceIpv6AddressOutput struct{ *pulumi.OutputState }
 
-func (InstanceInstanceIpv6AddressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceInstanceIpv6Address)(nil)).Elem()
+func (InstanceIpv6AddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceIpv6Address)(nil)).Elem()
 }
 
-func (o InstanceInstanceIpv6AddressOutput) ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput {
+func (o InstanceIpv6AddressOutput) ToInstanceIpv6AddressOutput() InstanceIpv6AddressOutput {
 	return o
 }
 
-func (o InstanceInstanceIpv6AddressOutput) ToInstanceInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressOutput {
+func (o InstanceIpv6AddressOutput) ToInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceIpv6AddressOutput {
 	return o
 }
 
-func (o InstanceInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
-	return o.ApplyT(func(v InstanceInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
+func (o InstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
 }
 
-type InstanceInstanceIpv6AddressArrayOutput struct{ *pulumi.OutputState }
+type InstanceIpv6AddressArrayOutput struct{ *pulumi.OutputState }
 
-func (InstanceInstanceIpv6AddressArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InstanceInstanceIpv6Address)(nil)).Elem()
+func (InstanceIpv6AddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceIpv6Address)(nil)).Elem()
 }
 
-func (o InstanceInstanceIpv6AddressArrayOutput) ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput {
+func (o InstanceIpv6AddressArrayOutput) ToInstanceIpv6AddressArrayOutput() InstanceIpv6AddressArrayOutput {
 	return o
 }
 
-func (o InstanceInstanceIpv6AddressArrayOutput) ToInstanceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressArrayOutput {
+func (o InstanceIpv6AddressArrayOutput) ToInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceIpv6AddressArrayOutput {
 	return o
 }
 
-func (o InstanceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) InstanceInstanceIpv6AddressOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceInstanceIpv6Address {
-		return vs[0].([]InstanceInstanceIpv6Address)[vs[1].(int)]
-	}).(InstanceInstanceIpv6AddressOutput)
+func (o InstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) InstanceIpv6AddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceIpv6Address {
+		return vs[0].([]InstanceIpv6Address)[vs[1].(int)]
+	}).(InstanceIpv6AddressOutput)
 }
 
 type InstanceLaunchTemplateSpecification struct {
@@ -4876,7 +4876,7 @@ type InstanceNetworkInterface struct {
 	DeviceIndex                    string                                  `pulumi:"deviceIndex"`
 	GroupSet                       []string                                `pulumi:"groupSet"`
 	Ipv6AddressCount               *int                                    `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  []InstanceInstanceIpv6Address           `pulumi:"ipv6Addresses"`
+	Ipv6Addresses                  []InstanceIpv6Address                   `pulumi:"ipv6Addresses"`
 	NetworkInterfaceId             *string                                 `pulumi:"networkInterfaceId"`
 	PrivateIpAddress               *string                                 `pulumi:"privateIpAddress"`
 	PrivateIpAddresses             []InstancePrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
@@ -4902,7 +4902,7 @@ type InstanceNetworkInterfaceArgs struct {
 	DeviceIndex                    pulumi.StringInput                              `pulumi:"deviceIndex"`
 	GroupSet                       pulumi.StringArrayInput                         `pulumi:"groupSet"`
 	Ipv6AddressCount               pulumi.IntPtrInput                              `pulumi:"ipv6AddressCount"`
-	Ipv6Addresses                  InstanceInstanceIpv6AddressArrayInput           `pulumi:"ipv6Addresses"`
+	Ipv6Addresses                  InstanceIpv6AddressArrayInput                   `pulumi:"ipv6Addresses"`
 	NetworkInterfaceId             pulumi.StringPtrInput                           `pulumi:"networkInterfaceId"`
 	PrivateIpAddress               pulumi.StringPtrInput                           `pulumi:"privateIpAddress"`
 	PrivateIpAddresses             InstancePrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
@@ -4985,8 +4985,8 @@ func (o InstanceNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
 }
 
-func (o InstanceNetworkInterfaceOutput) Ipv6Addresses() InstanceInstanceIpv6AddressArrayOutput {
-	return o.ApplyT(func(v InstanceNetworkInterface) []InstanceInstanceIpv6Address { return v.Ipv6Addresses }).(InstanceInstanceIpv6AddressArrayOutput)
+func (o InstanceNetworkInterfaceOutput) Ipv6Addresses() InstanceIpv6AddressArrayOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) []InstanceIpv6Address { return v.Ipv6Addresses }).(InstanceIpv6AddressArrayOutput)
 }
 
 func (o InstanceNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
@@ -6338,6 +6338,533 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type LaunchTemplateData struct {
+	BlockDeviceMappings               []LaunchTemplateBlockDeviceMapping              `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification  *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	CpuOptions                        *LaunchTemplateCpuOptions                       `pulumi:"cpuOptions"`
+	CreditSpecification               *LaunchTemplateCreditSpecification              `pulumi:"creditSpecification"`
+	DisableApiTermination             *bool                                           `pulumi:"disableApiTermination"`
+	EbsOptimized                      *bool                                           `pulumi:"ebsOptimized"`
+	ElasticGpuSpecifications          []LaunchTemplateElasticGpuSpecification         `pulumi:"elasticGpuSpecifications"`
+	ElasticInferenceAccelerators      []LaunchTemplateElasticInferenceAccelerator     `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions                    *LaunchTemplateEnclaveOptions                   `pulumi:"enclaveOptions"`
+	HibernationOptions                *LaunchTemplateHibernationOptions               `pulumi:"hibernationOptions"`
+	IamInstanceProfile                *LaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfile"`
+	ImageId                           *string                                         `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior *string                                         `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions            `pulumi:"instanceMarketOptions"`
+	InstanceType                      *string                                         `pulumi:"instanceType"`
+	KernelId                          *string                                         `pulumi:"kernelId"`
+	KeyName                           *string                                         `pulumi:"keyName"`
+	LicenseSpecifications             []LaunchTemplateLicenseSpecification            `pulumi:"licenseSpecifications"`
+	MetadataOptions                   *LaunchTemplateMetadataOptions                  `pulumi:"metadataOptions"`
+	Monitoring                        *LaunchTemplateMonitoring                       `pulumi:"monitoring"`
+	NetworkInterfaces                 []LaunchTemplateNetworkInterface                `pulumi:"networkInterfaces"`
+	Placement                         *LaunchTemplatePlacement                        `pulumi:"placement"`
+	RamDiskId                         *string                                         `pulumi:"ramDiskId"`
+	SecurityGroupIds                  []string                                        `pulumi:"securityGroupIds"`
+	SecurityGroups                    []string                                        `pulumi:"securityGroups"`
+	TagSpecifications                 []LaunchTemplateTagSpecification                `pulumi:"tagSpecifications"`
+	UserData                          *string                                         `pulumi:"userData"`
+}
+
+// LaunchTemplateDataInput is an input type that accepts LaunchTemplateDataArgs and LaunchTemplateDataOutput values.
+// You can construct a concrete instance of `LaunchTemplateDataInput` via:
+//
+//          LaunchTemplateDataArgs{...}
+type LaunchTemplateDataInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateDataOutput() LaunchTemplateDataOutput
+	ToLaunchTemplateDataOutputWithContext(context.Context) LaunchTemplateDataOutput
+}
+
+type LaunchTemplateDataArgs struct {
+	BlockDeviceMappings               LaunchTemplateBlockDeviceMappingArrayInput             `pulumi:"blockDeviceMappings"`
+	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
+	CpuOptions                        LaunchTemplateCpuOptionsPtrInput                       `pulumi:"cpuOptions"`
+	CreditSpecification               LaunchTemplateCreditSpecificationPtrInput              `pulumi:"creditSpecification"`
+	DisableApiTermination             pulumi.BoolPtrInput                                    `pulumi:"disableApiTermination"`
+	EbsOptimized                      pulumi.BoolPtrInput                                    `pulumi:"ebsOptimized"`
+	ElasticGpuSpecifications          LaunchTemplateElasticGpuSpecificationArrayInput        `pulumi:"elasticGpuSpecifications"`
+	ElasticInferenceAccelerators      LaunchTemplateElasticInferenceAcceleratorArrayInput    `pulumi:"elasticInferenceAccelerators"`
+	EnclaveOptions                    LaunchTemplateEnclaveOptionsPtrInput                   `pulumi:"enclaveOptions"`
+	HibernationOptions                LaunchTemplateHibernationOptionsPtrInput               `pulumi:"hibernationOptions"`
+	IamInstanceProfile                LaunchTemplateIamInstanceProfilePtrInput               `pulumi:"iamInstanceProfile"`
+	ImageId                           pulumi.StringPtrInput                                  `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput                                  `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput            `pulumi:"instanceMarketOptions"`
+	InstanceType                      pulumi.StringPtrInput                                  `pulumi:"instanceType"`
+	KernelId                          pulumi.StringPtrInput                                  `pulumi:"kernelId"`
+	KeyName                           pulumi.StringPtrInput                                  `pulumi:"keyName"`
+	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayInput           `pulumi:"licenseSpecifications"`
+	MetadataOptions                   LaunchTemplateMetadataOptionsPtrInput                  `pulumi:"metadataOptions"`
+	Monitoring                        LaunchTemplateMonitoringPtrInput                       `pulumi:"monitoring"`
+	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput               `pulumi:"networkInterfaces"`
+	Placement                         LaunchTemplatePlacementPtrInput                        `pulumi:"placement"`
+	RamDiskId                         pulumi.StringPtrInput                                  `pulumi:"ramDiskId"`
+	SecurityGroupIds                  pulumi.StringArrayInput                                `pulumi:"securityGroupIds"`
+	SecurityGroups                    pulumi.StringArrayInput                                `pulumi:"securityGroups"`
+	TagSpecifications                 LaunchTemplateTagSpecificationArrayInput               `pulumi:"tagSpecifications"`
+	UserData                          pulumi.StringPtrInput                                  `pulumi:"userData"`
+}
+
+func (LaunchTemplateDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateData)(nil)).Elem()
+}
+
+func (i LaunchTemplateDataArgs) ToLaunchTemplateDataOutput() LaunchTemplateDataOutput {
+	return i.ToLaunchTemplateDataOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateDataArgs) ToLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataOutput)
+}
+
+func (i LaunchTemplateDataArgs) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
+	return i.ToLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateDataArgs) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataOutput).ToLaunchTemplateDataPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateDataPtrInput is an input type that accepts LaunchTemplateDataArgs, LaunchTemplateDataPtr and LaunchTemplateDataPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateDataPtrInput` via:
+//
+//          LaunchTemplateDataArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateDataPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput
+	ToLaunchTemplateDataPtrOutputWithContext(context.Context) LaunchTemplateDataPtrOutput
+}
+
+type launchTemplateDataPtrType LaunchTemplateDataArgs
+
+func LaunchTemplateDataPtr(v *LaunchTemplateDataArgs) LaunchTemplateDataPtrInput {
+	return (*launchTemplateDataPtrType)(v)
+}
+
+func (*launchTemplateDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateData)(nil)).Elem()
+}
+
+func (i *launchTemplateDataPtrType) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
+	return i.ToLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateDataPtrType) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateDataPtrOutput)
+}
+
+type LaunchTemplateDataOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateData)(nil)).Elem()
+}
+
+func (o LaunchTemplateDataOutput) ToLaunchTemplateDataOutput() LaunchTemplateDataOutput {
+	return o
+}
+
+func (o LaunchTemplateDataOutput) ToLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateDataOutput {
+	return o
+}
+
+func (o LaunchTemplateDataOutput) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
+	return o.ToLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateDataOutput) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateData) *LaunchTemplateData {
+		return &v
+	}).(LaunchTemplateDataPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateBlockDeviceMapping { return v.BlockDeviceMappings }).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
+		return v.CapacityReservationSpecification
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCpuOptions { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateCreditSpecification { return v.CreditSpecification }).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticGpuSpecification { return v.ElasticGpuSpecifications }).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticInferenceAccelerator {
+		return v.ElasticInferenceAccelerators
+	}).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateEnclaveOptions { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateHibernationOptions { return v.HibernationOptions }).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateIamInstanceProfile { return v.IamInstanceProfile }).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *string { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceMarketOptions { return v.InstanceMarketOptions }).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *string { return v.KernelId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateLicenseSpecification { return v.LicenseSpecifications }).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMetadataOptions { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateMonitoring { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) Placement() LaunchTemplatePlacementPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplatePlacement { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateTagSpecification { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateData) *string { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateDataPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateData)(nil)).Elem()
+}
+
+func (o LaunchTemplateDataPtrOutput) ToLaunchTemplateDataPtrOutput() LaunchTemplateDataPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateDataPtrOutput) ToLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateDataPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateDataPtrOutput) Elem() LaunchTemplateDataOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) LaunchTemplateData {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateData
+		return ret
+	}).(LaunchTemplateDataOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDeviceMappings
+	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationSpecification
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateCpuOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CpuOptions
+	}).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateCreditSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CreditSpecification
+	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableApiTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EbsOptimized
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticGpuSpecifications
+	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateElasticInferenceAccelerator {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticInferenceAccelerators
+	}).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateEnclaveOptions {
+		if v == nil {
+			return nil
+		}
+		return v.EnclaveOptions
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateHibernationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.HibernationOptions
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateIamInstanceProfile {
+		if v == nil {
+			return nil
+		}
+		return v.IamInstanceProfile
+	}).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInitiatedShutdownBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMarketOptions
+	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KernelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateLicenseSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseSpecifications
+	}).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateMetadataOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataOptions
+	}).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplateMonitoring {
+		if v == nil {
+			return nil
+		}
+		return v.Monitoring
+	}).(LaunchTemplateMonitoringPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateNetworkInterface {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaces
+	}).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) Placement() LaunchTemplatePlacementPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *LaunchTemplatePlacement {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
+	}).(LaunchTemplatePlacementPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RamDiskId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) []LaunchTemplateTagSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.TagSpecifications
+	}).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+func (o LaunchTemplateDataPtrOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserData
+	}).(pulumi.StringPtrOutput)
+}
+
 type LaunchTemplateEbs struct {
 	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
 	Encrypted           *bool   `pulumi:"encrypted"`
@@ -6668,6 +7195,106 @@ func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateElasticGpuSpecification {
 		return vs[0].([]LaunchTemplateElasticGpuSpecification)[vs[1].(int)]
 	}).(LaunchTemplateElasticGpuSpecificationOutput)
+}
+
+type LaunchTemplateElasticInferenceAccelerator struct {
+	Count *int    `pulumi:"count"`
+	Type  *string `pulumi:"type"`
+}
+
+// LaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateElasticInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorInput` via:
+//
+//          LaunchTemplateElasticInferenceAcceleratorArgs{...}
+type LaunchTemplateElasticInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput
+	ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorOutput
+}
+
+type LaunchTemplateElasticInferenceAcceleratorArgs struct {
+	Count pulumi.IntPtrInput    `pulumi:"count"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
+	return i.ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorOutput)
+}
+
+// LaunchTemplateElasticInferenceAcceleratorArrayInput is an input type that accepts LaunchTemplateElasticInferenceAcceleratorArray and LaunchTemplateElasticInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticInferenceAcceleratorArrayInput` via:
+//
+//          LaunchTemplateElasticInferenceAcceleratorArray{ LaunchTemplateElasticInferenceAcceleratorArgs{...} }
+type LaunchTemplateElasticInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateElasticInferenceAcceleratorArrayOutput
+	ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Context) LaunchTemplateElasticInferenceAcceleratorArrayOutput
+}
+
+type LaunchTemplateElasticInferenceAcceleratorArray []LaunchTemplateElasticInferenceAcceleratorInput
+
+func (LaunchTemplateElasticInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i LaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return i.ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+type LaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) LaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateElasticInferenceAccelerator {
+		return vs[0].([]LaunchTemplateElasticInferenceAccelerator)[vs[1].(int)]
+	}).(LaunchTemplateElasticInferenceAcceleratorOutput)
 }
 
 type LaunchTemplateEnclaveOptions struct {
@@ -7324,747 +7951,6 @@ func (o LaunchTemplateIpv6AddArrayOutput) Index(i pulumi.IntInput) LaunchTemplat
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateIpv6Add {
 		return vs[0].([]LaunchTemplateIpv6Add)[vs[1].(int)]
 	}).(LaunchTemplateIpv6AddOutput)
-}
-
-type LaunchTemplateLaunchTemplateData struct {
-	BlockDeviceMappings               []LaunchTemplateBlockDeviceMapping                        `pulumi:"blockDeviceMappings"`
-	CapacityReservationSpecification  *LaunchTemplateCapacityReservationSpecification           `pulumi:"capacityReservationSpecification"`
-	CpuOptions                        *LaunchTemplateCpuOptions                                 `pulumi:"cpuOptions"`
-	CreditSpecification               *LaunchTemplateCreditSpecification                        `pulumi:"creditSpecification"`
-	DisableApiTermination             *bool                                                     `pulumi:"disableApiTermination"`
-	EbsOptimized                      *bool                                                     `pulumi:"ebsOptimized"`
-	ElasticGpuSpecifications          []LaunchTemplateElasticGpuSpecification                   `pulumi:"elasticGpuSpecifications"`
-	ElasticInferenceAccelerators      []LaunchTemplateLaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions                    *LaunchTemplateEnclaveOptions                             `pulumi:"enclaveOptions"`
-	HibernationOptions                *LaunchTemplateHibernationOptions                         `pulumi:"hibernationOptions"`
-	IamInstanceProfile                *LaunchTemplateIamInstanceProfile                         `pulumi:"iamInstanceProfile"`
-	ImageId                           *string                                                   `pulumi:"imageId"`
-	InstanceInitiatedShutdownBehavior *string                                                   `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             *LaunchTemplateInstanceMarketOptions                      `pulumi:"instanceMarketOptions"`
-	InstanceType                      *string                                                   `pulumi:"instanceType"`
-	KernelId                          *string                                                   `pulumi:"kernelId"`
-	KeyName                           *string                                                   `pulumi:"keyName"`
-	LicenseSpecifications             []LaunchTemplateLicenseSpecification                      `pulumi:"licenseSpecifications"`
-	MetadataOptions                   *LaunchTemplateMetadataOptions                            `pulumi:"metadataOptions"`
-	Monitoring                        *LaunchTemplateMonitoring                                 `pulumi:"monitoring"`
-	NetworkInterfaces                 []LaunchTemplateNetworkInterface                          `pulumi:"networkInterfaces"`
-	Placement                         *LaunchTemplatePlacement                                  `pulumi:"placement"`
-	RamDiskId                         *string                                                   `pulumi:"ramDiskId"`
-	SecurityGroupIds                  []string                                                  `pulumi:"securityGroupIds"`
-	SecurityGroups                    []string                                                  `pulumi:"securityGroups"`
-	TagSpecifications                 []LaunchTemplateTagSpecification                          `pulumi:"tagSpecifications"`
-	UserData                          *string                                                   `pulumi:"userData"`
-}
-
-// LaunchTemplateLaunchTemplateDataInput is an input type that accepts LaunchTemplateLaunchTemplateDataArgs and LaunchTemplateLaunchTemplateDataOutput values.
-// You can construct a concrete instance of `LaunchTemplateLaunchTemplateDataInput` via:
-//
-//          LaunchTemplateLaunchTemplateDataArgs{...}
-type LaunchTemplateLaunchTemplateDataInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput
-	ToLaunchTemplateLaunchTemplateDataOutputWithContext(context.Context) LaunchTemplateLaunchTemplateDataOutput
-}
-
-type LaunchTemplateLaunchTemplateDataArgs struct {
-	BlockDeviceMappings               LaunchTemplateBlockDeviceMappingArrayInput                        `pulumi:"blockDeviceMappings"`
-	CapacityReservationSpecification  LaunchTemplateCapacityReservationSpecificationPtrInput            `pulumi:"capacityReservationSpecification"`
-	CpuOptions                        LaunchTemplateCpuOptionsPtrInput                                  `pulumi:"cpuOptions"`
-	CreditSpecification               LaunchTemplateCreditSpecificationPtrInput                         `pulumi:"creditSpecification"`
-	DisableApiTermination             pulumi.BoolPtrInput                                               `pulumi:"disableApiTermination"`
-	EbsOptimized                      pulumi.BoolPtrInput                                               `pulumi:"ebsOptimized"`
-	ElasticGpuSpecifications          LaunchTemplateElasticGpuSpecificationArrayInput                   `pulumi:"elasticGpuSpecifications"`
-	ElasticInferenceAccelerators      LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions                    LaunchTemplateEnclaveOptionsPtrInput                              `pulumi:"enclaveOptions"`
-	HibernationOptions                LaunchTemplateHibernationOptionsPtrInput                          `pulumi:"hibernationOptions"`
-	IamInstanceProfile                LaunchTemplateIamInstanceProfilePtrInput                          `pulumi:"iamInstanceProfile"`
-	ImageId                           pulumi.StringPtrInput                                             `pulumi:"imageId"`
-	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput                                             `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             LaunchTemplateInstanceMarketOptionsPtrInput                       `pulumi:"instanceMarketOptions"`
-	InstanceType                      pulumi.StringPtrInput                                             `pulumi:"instanceType"`
-	KernelId                          pulumi.StringPtrInput                                             `pulumi:"kernelId"`
-	KeyName                           pulumi.StringPtrInput                                             `pulumi:"keyName"`
-	LicenseSpecifications             LaunchTemplateLicenseSpecificationArrayInput                      `pulumi:"licenseSpecifications"`
-	MetadataOptions                   LaunchTemplateMetadataOptionsPtrInput                             `pulumi:"metadataOptions"`
-	Monitoring                        LaunchTemplateMonitoringPtrInput                                  `pulumi:"monitoring"`
-	NetworkInterfaces                 LaunchTemplateNetworkInterfaceArrayInput                          `pulumi:"networkInterfaces"`
-	Placement                         LaunchTemplatePlacementPtrInput                                   `pulumi:"placement"`
-	RamDiskId                         pulumi.StringPtrInput                                             `pulumi:"ramDiskId"`
-	SecurityGroupIds                  pulumi.StringArrayInput                                           `pulumi:"securityGroupIds"`
-	SecurityGroups                    pulumi.StringArrayInput                                           `pulumi:"securityGroups"`
-	TagSpecifications                 LaunchTemplateTagSpecificationArrayInput                          `pulumi:"tagSpecifications"`
-	UserData                          pulumi.StringPtrInput                                             `pulumi:"userData"`
-}
-
-func (LaunchTemplateLaunchTemplateDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateLaunchTemplateData)(nil)).Elem()
-}
-
-func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput {
-	return i.ToLaunchTemplateLaunchTemplateDataOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataOutput)
-}
-
-func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
-	return i.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataOutput).ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx)
-}
-
-// LaunchTemplateLaunchTemplateDataPtrInput is an input type that accepts LaunchTemplateLaunchTemplateDataArgs, LaunchTemplateLaunchTemplateDataPtr and LaunchTemplateLaunchTemplateDataPtrOutput values.
-// You can construct a concrete instance of `LaunchTemplateLaunchTemplateDataPtrInput` via:
-//
-//          LaunchTemplateLaunchTemplateDataArgs{...}
-//
-//  or:
-//
-//          nil
-type LaunchTemplateLaunchTemplateDataPtrInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput
-	ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Context) LaunchTemplateLaunchTemplateDataPtrOutput
-}
-
-type launchTemplateLaunchTemplateDataPtrType LaunchTemplateLaunchTemplateDataArgs
-
-func LaunchTemplateLaunchTemplateDataPtr(v *LaunchTemplateLaunchTemplateDataArgs) LaunchTemplateLaunchTemplateDataPtrInput {
-	return (*launchTemplateLaunchTemplateDataPtrType)(v)
-}
-
-func (*launchTemplateLaunchTemplateDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateLaunchTemplateData)(nil)).Elem()
-}
-
-func (i *launchTemplateLaunchTemplateDataPtrType) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
-	return i.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
-}
-
-func (i *launchTemplateLaunchTemplateDataPtrType) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataPtrOutput)
-}
-
-type LaunchTemplateLaunchTemplateDataOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateLaunchTemplateDataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateLaunchTemplateData)(nil)).Elem()
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
-	return o.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateLaunchTemplateData) *LaunchTemplateLaunchTemplateData {
-		return &v
-	}).(LaunchTemplateLaunchTemplateDataPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
-		return v.BlockDeviceMappings
-	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
-		return v.CapacityReservationSpecification
-	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCpuOptions { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCreditSpecification {
-		return v.CreditSpecification
-	}).(LaunchTemplateCreditSpecificationPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
-		return v.ElasticGpuSpecifications
-	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
-		return v.ElasticInferenceAccelerators
-	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateHibernationOptions {
-		return v.HibernationOptions
-	}).(LaunchTemplateHibernationOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateIamInstanceProfile {
-		return v.IamInstanceProfile
-	}).(LaunchTemplateIamInstanceProfilePtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) ImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.ImageId }).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
-		return v.InstanceMarketOptions
-	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) KernelId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.KernelId }).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.KeyName }).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateLicenseSpecification {
-		return v.LicenseSpecifications
-	}).(LaunchTemplateLicenseSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateMetadataOptions { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateMonitoring { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) Placement() LaunchTemplatePlacementPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplatePlacement { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateTagSpecification { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.UserData }).(pulumi.StringPtrOutput)
-}
-
-type LaunchTemplateLaunchTemplateDataPtrOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateLaunchTemplateDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LaunchTemplateLaunchTemplateData)(nil)).Elem()
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) Elem() LaunchTemplateLaunchTemplateDataOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) LaunchTemplateLaunchTemplateData {
-		if v != nil {
-			return *v
-		}
-		var ret LaunchTemplateLaunchTemplateData
-		return ret
-	}).(LaunchTemplateLaunchTemplateDataOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
-		if v == nil {
-			return nil
-		}
-		return v.BlockDeviceMappings
-	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.CapacityReservationSpecification
-	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCpuOptions {
-		if v == nil {
-			return nil
-		}
-		return v.CpuOptions
-	}).(LaunchTemplateCpuOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCreditSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.CreditSpecification
-	}).(LaunchTemplateCreditSpecificationPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) DisableApiTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableApiTermination
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EbsOptimized
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.ElasticGpuSpecifications
-	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) ElasticInferenceAccelerators() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
-		if v == nil {
-			return nil
-		}
-		return v.ElasticInferenceAccelerators
-	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions {
-		if v == nil {
-			return nil
-		}
-		return v.EnclaveOptions
-	}).(LaunchTemplateEnclaveOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateHibernationOptions {
-		if v == nil {
-			return nil
-		}
-		return v.HibernationOptions
-	}).(LaunchTemplateHibernationOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateIamInstanceProfile {
-		if v == nil {
-			return nil
-		}
-		return v.IamInstanceProfile
-	}).(LaunchTemplateIamInstanceProfilePtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) ImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ImageId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceInitiatedShutdownBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceMarketOptions
-	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) KernelId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KernelId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateLicenseSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseSpecifications
-	}).(LaunchTemplateLicenseSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateMetadataOptions {
-		if v == nil {
-			return nil
-		}
-		return v.MetadataOptions
-	}).(LaunchTemplateMetadataOptionsPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateMonitoring {
-		if v == nil {
-			return nil
-		}
-		return v.Monitoring
-	}).(LaunchTemplateMonitoringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateNetworkInterface {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkInterfaces
-	}).(LaunchTemplateNetworkInterfaceArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) Placement() LaunchTemplatePlacementPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplatePlacement {
-		if v == nil {
-			return nil
-		}
-		return v.Placement
-	}).(LaunchTemplatePlacementPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) RamDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RamDiskId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateTagSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.TagSpecifications
-	}).(LaunchTemplateTagSpecificationArrayOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateDataPtrOutput) UserData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserData
-	}).(pulumi.StringPtrOutput)
-}
-
-type LaunchTemplateLaunchTemplateElasticInferenceAccelerator struct {
-	Count *int    `pulumi:"count"`
-	Type  *string `pulumi:"type"`
-}
-
-// LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput values.
-// You can construct a concrete instance of `LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput` via:
-//
-//          LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs{...}
-type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput
-	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput
-}
-
-type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs struct {
-	Count pulumi.IntPtrInput    `pulumi:"count"`
-	Type  pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
-	return i.ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput)
-}
-
-// LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput is an input type that accepts LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray and LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput values.
-// You can construct a concrete instance of `LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput` via:
-//
-//          LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray{ LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs{...} }
-type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput
-	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput
-}
-
-type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray []LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput
-
-func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return i.ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
-}
-
-type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateElasticInferenceAccelerator) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
-}
-
-func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
-		return vs[0].([]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)[vs[1].(int)]
-	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput)
-}
-
-type LaunchTemplateLaunchTemplateTagSpecification struct {
-	ResourceType *string             `pulumi:"resourceType"`
-	Tags         []LaunchTemplateTag `pulumi:"tags"`
-}
-
-// LaunchTemplateLaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateLaunchTemplateTagSpecificationArgs and LaunchTemplateLaunchTemplateTagSpecificationOutput values.
-// You can construct a concrete instance of `LaunchTemplateLaunchTemplateTagSpecificationInput` via:
-//
-//          LaunchTemplateLaunchTemplateTagSpecificationArgs{...}
-type LaunchTemplateLaunchTemplateTagSpecificationInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput
-	ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput
-}
-
-type LaunchTemplateLaunchTemplateTagSpecificationArgs struct {
-	ResourceType pulumi.StringPtrInput       `pulumi:"resourceType"`
-	Tags         LaunchTemplateTagArrayInput `pulumi:"tags"`
-}
-
-func (LaunchTemplateLaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
-}
-
-func (i LaunchTemplateLaunchTemplateTagSpecificationArgs) ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput {
-	return i.ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateLaunchTemplateTagSpecificationArgs) ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateTagSpecificationOutput)
-}
-
-// LaunchTemplateLaunchTemplateTagSpecificationArrayInput is an input type that accepts LaunchTemplateLaunchTemplateTagSpecificationArray and LaunchTemplateLaunchTemplateTagSpecificationArrayOutput values.
-// You can construct a concrete instance of `LaunchTemplateLaunchTemplateTagSpecificationArrayInput` via:
-//
-//          LaunchTemplateLaunchTemplateTagSpecificationArray{ LaunchTemplateLaunchTemplateTagSpecificationArgs{...} }
-type LaunchTemplateLaunchTemplateTagSpecificationArrayInput interface {
-	pulumi.Input
-
-	ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput
-	ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput
-}
-
-type LaunchTemplateLaunchTemplateTagSpecificationArray []LaunchTemplateLaunchTemplateTagSpecificationInput
-
-func (LaunchTemplateLaunchTemplateTagSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
-}
-
-func (i LaunchTemplateLaunchTemplateTagSpecificationArray) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
-	return i.ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(context.Background())
-}
-
-func (i LaunchTemplateLaunchTemplateTagSpecificationArray) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateTagSpecificationArrayOutput)
-}
-
-type LaunchTemplateLaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateLaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
-}
-
-func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
-}
-
-func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) Tags() LaunchTemplateTagArrayOutput {
-	return o.ApplyT(func(v LaunchTemplateLaunchTemplateTagSpecification) []LaunchTemplateTag { return v.Tags }).(LaunchTemplateTagArrayOutput)
-}
-
-type LaunchTemplateLaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
-
-func (LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
-}
-
-func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
-	return o
-}
-
-func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLaunchTemplateTagSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLaunchTemplateTagSpecification {
-		return vs[0].([]LaunchTemplateLaunchTemplateTagSpecification)[vs[1].(int)]
-	}).(LaunchTemplateLaunchTemplateTagSpecificationOutput)
 }
 
 type LaunchTemplateLicenseSpecification struct {
@@ -14608,6 +14494,200 @@ func (o SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput) Index(i pulum
 	}).(SpotFleetInstanceNetworkInterfaceSpecificationOutput)
 }
 
+type SpotFleetLaunchSpecification struct {
+	BlockDeviceMappings []SpotFleetBlockDeviceMapping                    `pulumi:"blockDeviceMappings"`
+	EbsOptimized        *bool                                            `pulumi:"ebsOptimized"`
+	IamInstanceProfile  *SpotFleetIamInstanceProfileSpecification        `pulumi:"iamInstanceProfile"`
+	ImageId             string                                           `pulumi:"imageId"`
+	InstanceType        string                                           `pulumi:"instanceType"`
+	KernelId            *string                                          `pulumi:"kernelId"`
+	KeyName             *string                                          `pulumi:"keyName"`
+	Monitoring          *SpotFleetMonitoring                             `pulumi:"monitoring"`
+	NetworkInterfaces   []SpotFleetInstanceNetworkInterfaceSpecification `pulumi:"networkInterfaces"`
+	Placement           *SpotFleetSpotPlacement                          `pulumi:"placement"`
+	RamdiskId           *string                                          `pulumi:"ramdiskId"`
+	SecurityGroups      []SpotFleetGroupIdentifier                       `pulumi:"securityGroups"`
+	SpotPrice           *string                                          `pulumi:"spotPrice"`
+	SubnetId            *string                                          `pulumi:"subnetId"`
+	TagSpecifications   []SpotFleetTagSpecification                      `pulumi:"tagSpecifications"`
+	UserData            *string                                          `pulumi:"userData"`
+	WeightedCapacity    *float64                                         `pulumi:"weightedCapacity"`
+}
+
+// SpotFleetLaunchSpecificationInput is an input type that accepts SpotFleetLaunchSpecificationArgs and SpotFleetLaunchSpecificationOutput values.
+// You can construct a concrete instance of `SpotFleetLaunchSpecificationInput` via:
+//
+//          SpotFleetLaunchSpecificationArgs{...}
+type SpotFleetLaunchSpecificationInput interface {
+	pulumi.Input
+
+	ToSpotFleetLaunchSpecificationOutput() SpotFleetLaunchSpecificationOutput
+	ToSpotFleetLaunchSpecificationOutputWithContext(context.Context) SpotFleetLaunchSpecificationOutput
+}
+
+type SpotFleetLaunchSpecificationArgs struct {
+	BlockDeviceMappings SpotFleetBlockDeviceMappingArrayInput                    `pulumi:"blockDeviceMappings"`
+	EbsOptimized        pulumi.BoolPtrInput                                      `pulumi:"ebsOptimized"`
+	IamInstanceProfile  SpotFleetIamInstanceProfileSpecificationPtrInput         `pulumi:"iamInstanceProfile"`
+	ImageId             pulumi.StringInput                                       `pulumi:"imageId"`
+	InstanceType        pulumi.StringInput                                       `pulumi:"instanceType"`
+	KernelId            pulumi.StringPtrInput                                    `pulumi:"kernelId"`
+	KeyName             pulumi.StringPtrInput                                    `pulumi:"keyName"`
+	Monitoring          SpotFleetMonitoringPtrInput                              `pulumi:"monitoring"`
+	NetworkInterfaces   SpotFleetInstanceNetworkInterfaceSpecificationArrayInput `pulumi:"networkInterfaces"`
+	Placement           SpotFleetSpotPlacementPtrInput                           `pulumi:"placement"`
+	RamdiskId           pulumi.StringPtrInput                                    `pulumi:"ramdiskId"`
+	SecurityGroups      SpotFleetGroupIdentifierArrayInput                       `pulumi:"securityGroups"`
+	SpotPrice           pulumi.StringPtrInput                                    `pulumi:"spotPrice"`
+	SubnetId            pulumi.StringPtrInput                                    `pulumi:"subnetId"`
+	TagSpecifications   SpotFleetTagSpecificationArrayInput                      `pulumi:"tagSpecifications"`
+	UserData            pulumi.StringPtrInput                                    `pulumi:"userData"`
+	WeightedCapacity    pulumi.Float64PtrInput                                   `pulumi:"weightedCapacity"`
+}
+
+func (SpotFleetLaunchSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetLaunchSpecification)(nil)).Elem()
+}
+
+func (i SpotFleetLaunchSpecificationArgs) ToSpotFleetLaunchSpecificationOutput() SpotFleetLaunchSpecificationOutput {
+	return i.ToSpotFleetLaunchSpecificationOutputWithContext(context.Background())
+}
+
+func (i SpotFleetLaunchSpecificationArgs) ToSpotFleetLaunchSpecificationOutputWithContext(ctx context.Context) SpotFleetLaunchSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetLaunchSpecificationOutput)
+}
+
+// SpotFleetLaunchSpecificationArrayInput is an input type that accepts SpotFleetLaunchSpecificationArray and SpotFleetLaunchSpecificationArrayOutput values.
+// You can construct a concrete instance of `SpotFleetLaunchSpecificationArrayInput` via:
+//
+//          SpotFleetLaunchSpecificationArray{ SpotFleetLaunchSpecificationArgs{...} }
+type SpotFleetLaunchSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetLaunchSpecificationArrayOutput() SpotFleetLaunchSpecificationArrayOutput
+	ToSpotFleetLaunchSpecificationArrayOutputWithContext(context.Context) SpotFleetLaunchSpecificationArrayOutput
+}
+
+type SpotFleetLaunchSpecificationArray []SpotFleetLaunchSpecificationInput
+
+func (SpotFleetLaunchSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetLaunchSpecification)(nil)).Elem()
+}
+
+func (i SpotFleetLaunchSpecificationArray) ToSpotFleetLaunchSpecificationArrayOutput() SpotFleetLaunchSpecificationArrayOutput {
+	return i.ToSpotFleetLaunchSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetLaunchSpecificationArray) ToSpotFleetLaunchSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetLaunchSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetLaunchSpecificationArrayOutput)
+}
+
+type SpotFleetLaunchSpecificationOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetLaunchSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetLaunchSpecification)(nil)).Elem()
+}
+
+func (o SpotFleetLaunchSpecificationOutput) ToSpotFleetLaunchSpecificationOutput() SpotFleetLaunchSpecificationOutput {
+	return o
+}
+
+func (o SpotFleetLaunchSpecificationOutput) ToSpotFleetLaunchSpecificationOutputWithContext(ctx context.Context) SpotFleetLaunchSpecificationOutput {
+	return o
+}
+
+func (o SpotFleetLaunchSpecificationOutput) BlockDeviceMappings() SpotFleetBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetBlockDeviceMapping { return v.BlockDeviceMappings }).(SpotFleetBlockDeviceMappingArrayOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) IamInstanceProfile() SpotFleetIamInstanceProfileSpecificationPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *SpotFleetIamInstanceProfileSpecification {
+		return v.IamInstanceProfile
+	}).(SpotFleetIamInstanceProfileSpecificationPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) string { return v.ImageId }).(pulumi.StringOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.KernelId }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) Monitoring() SpotFleetMonitoringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *SpotFleetMonitoring { return v.Monitoring }).(SpotFleetMonitoringPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) NetworkInterfaces() SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetInstanceNetworkInterfaceSpecification {
+		return v.NetworkInterfaces
+	}).(SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) Placement() SpotFleetSpotPlacementPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *SpotFleetSpotPlacement { return v.Placement }).(SpotFleetSpotPlacementPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) RamdiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.RamdiskId }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) SecurityGroups() SpotFleetGroupIdentifierArrayOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetGroupIdentifier { return v.SecurityGroups }).(SpotFleetGroupIdentifierArrayOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) TagSpecifications() SpotFleetTagSpecificationArrayOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) []SpotFleetTagSpecification { return v.TagSpecifications }).(SpotFleetTagSpecificationArrayOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *string { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetLaunchSpecificationOutput) WeightedCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchSpecification) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetLaunchSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetLaunchSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetLaunchSpecification)(nil)).Elem()
+}
+
+func (o SpotFleetLaunchSpecificationArrayOutput) ToSpotFleetLaunchSpecificationArrayOutput() SpotFleetLaunchSpecificationArrayOutput {
+	return o
+}
+
+func (o SpotFleetLaunchSpecificationArrayOutput) ToSpotFleetLaunchSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetLaunchSpecificationArrayOutput {
+	return o
+}
+
+func (o SpotFleetLaunchSpecificationArrayOutput) Index(i pulumi.IntInput) SpotFleetLaunchSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetLaunchSpecification {
+		return vs[0].([]SpotFleetLaunchSpecification)[vs[1].(int)]
+	}).(SpotFleetLaunchSpecificationOutput)
+}
+
 type SpotFleetLaunchTemplateConfig struct {
 	LaunchTemplateSpecification *SpotFleetFleetLaunchTemplateSpecification `pulumi:"launchTemplateSpecification"`
 	Overrides                   []SpotFleetLaunchTemplateOverrides         `pulumi:"overrides"`
@@ -14978,6 +15058,139 @@ func (o SpotFleetLoadBalancersConfigPtrOutput) TargetGroupsConfig() SpotFleetTar
 	}).(SpotFleetTargetGroupsConfigPtrOutput)
 }
 
+type SpotFleetMonitoring struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// SpotFleetMonitoringInput is an input type that accepts SpotFleetMonitoringArgs and SpotFleetMonitoringOutput values.
+// You can construct a concrete instance of `SpotFleetMonitoringInput` via:
+//
+//          SpotFleetMonitoringArgs{...}
+type SpotFleetMonitoringInput interface {
+	pulumi.Input
+
+	ToSpotFleetMonitoringOutput() SpotFleetMonitoringOutput
+	ToSpotFleetMonitoringOutputWithContext(context.Context) SpotFleetMonitoringOutput
+}
+
+type SpotFleetMonitoringArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (SpotFleetMonitoringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetMonitoring)(nil)).Elem()
+}
+
+func (i SpotFleetMonitoringArgs) ToSpotFleetMonitoringOutput() SpotFleetMonitoringOutput {
+	return i.ToSpotFleetMonitoringOutputWithContext(context.Background())
+}
+
+func (i SpotFleetMonitoringArgs) ToSpotFleetMonitoringOutputWithContext(ctx context.Context) SpotFleetMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetMonitoringOutput)
+}
+
+func (i SpotFleetMonitoringArgs) ToSpotFleetMonitoringPtrOutput() SpotFleetMonitoringPtrOutput {
+	return i.ToSpotFleetMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetMonitoringArgs) ToSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetMonitoringOutput).ToSpotFleetMonitoringPtrOutputWithContext(ctx)
+}
+
+// SpotFleetMonitoringPtrInput is an input type that accepts SpotFleetMonitoringArgs, SpotFleetMonitoringPtr and SpotFleetMonitoringPtrOutput values.
+// You can construct a concrete instance of `SpotFleetMonitoringPtrInput` via:
+//
+//          SpotFleetMonitoringArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetMonitoringPtrOutput() SpotFleetMonitoringPtrOutput
+	ToSpotFleetMonitoringPtrOutputWithContext(context.Context) SpotFleetMonitoringPtrOutput
+}
+
+type spotFleetMonitoringPtrType SpotFleetMonitoringArgs
+
+func SpotFleetMonitoringPtr(v *SpotFleetMonitoringArgs) SpotFleetMonitoringPtrInput {
+	return (*spotFleetMonitoringPtrType)(v)
+}
+
+func (*spotFleetMonitoringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetMonitoring)(nil)).Elem()
+}
+
+func (i *spotFleetMonitoringPtrType) ToSpotFleetMonitoringPtrOutput() SpotFleetMonitoringPtrOutput {
+	return i.ToSpotFleetMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetMonitoringPtrType) ToSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetMonitoringPtrOutput)
+}
+
+type SpotFleetMonitoringOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetMonitoring)(nil)).Elem()
+}
+
+func (o SpotFleetMonitoringOutput) ToSpotFleetMonitoringOutput() SpotFleetMonitoringOutput {
+	return o
+}
+
+func (o SpotFleetMonitoringOutput) ToSpotFleetMonitoringOutputWithContext(ctx context.Context) SpotFleetMonitoringOutput {
+	return o
+}
+
+func (o SpotFleetMonitoringOutput) ToSpotFleetMonitoringPtrOutput() SpotFleetMonitoringPtrOutput {
+	return o.ToSpotFleetMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetMonitoringOutput) ToSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetMonitoringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetMonitoring) *SpotFleetMonitoring {
+		return &v
+	}).(SpotFleetMonitoringPtrOutput)
+}
+
+func (o SpotFleetMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotFleetMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type SpotFleetMonitoringPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetMonitoring)(nil)).Elem()
+}
+
+func (o SpotFleetMonitoringPtrOutput) ToSpotFleetMonitoringPtrOutput() SpotFleetMonitoringPtrOutput {
+	return o
+}
+
+func (o SpotFleetMonitoringPtrOutput) ToSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetMonitoringPtrOutput {
+	return o
+}
+
+func (o SpotFleetMonitoringPtrOutput) Elem() SpotFleetMonitoringOutput {
+	return o.ApplyT(func(v *SpotFleetMonitoring) SpotFleetMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetMonitoring
+		return ret
+	}).(SpotFleetMonitoringOutput)
+}
+
+func (o SpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotFleetMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type SpotFleetPrivateIpAddressSpecification struct {
 	Primary          *bool  `pulumi:"primary"`
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
@@ -15076,6 +15289,447 @@ func (o SpotFleetPrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetPrivateIpAddressSpecification {
 		return vs[0].([]SpotFleetPrivateIpAddressSpecification)[vs[1].(int)]
 	}).(SpotFleetPrivateIpAddressSpecificationOutput)
+}
+
+type SpotFleetRequestConfigData struct {
+	AllocationStrategy               *SpotFleetRequestConfigDataAllocationStrategy              `pulumi:"allocationStrategy"`
+	Context                          *string                                                    `pulumi:"context"`
+	ExcessCapacityTerminationPolicy  *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
+	IamFleetRole                     string                                                     `pulumi:"iamFleetRole"`
+	InstanceInterruptionBehavior     *SpotFleetRequestConfigDataInstanceInterruptionBehavior    `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount          *int                                                       `pulumi:"instancePoolsToUseCount"`
+	LaunchSpecifications             []SpotFleetLaunchSpecification                             `pulumi:"launchSpecifications"`
+	LaunchTemplateConfigs            []SpotFleetLaunchTemplateConfig                            `pulumi:"launchTemplateConfigs"`
+	LoadBalancersConfig              *SpotFleetLoadBalancersConfig                              `pulumi:"loadBalancersConfig"`
+	OnDemandAllocationStrategy       *string                                                    `pulumi:"onDemandAllocationStrategy"`
+	OnDemandMaxTotalPrice            *string                                                    `pulumi:"onDemandMaxTotalPrice"`
+	OnDemandTargetCapacity           *int                                                       `pulumi:"onDemandTargetCapacity"`
+	ReplaceUnhealthyInstances        *bool                                                      `pulumi:"replaceUnhealthyInstances"`
+	SpotMaintenanceStrategies        *SpotFleetSpotMaintenanceStrategies                        `pulumi:"spotMaintenanceStrategies"`
+	SpotMaxTotalPrice                *string                                                    `pulumi:"spotMaxTotalPrice"`
+	SpotPrice                        *string                                                    `pulumi:"spotPrice"`
+	TargetCapacity                   int                                                        `pulumi:"targetCapacity"`
+	TerminateInstancesWithExpiration *bool                                                      `pulumi:"terminateInstancesWithExpiration"`
+	Type                             *SpotFleetRequestConfigDataType                            `pulumi:"type"`
+	ValidFrom                        *string                                                    `pulumi:"validFrom"`
+	ValidUntil                       *string                                                    `pulumi:"validUntil"`
+}
+
+// SpotFleetRequestConfigDataInput is an input type that accepts SpotFleetRequestConfigDataArgs and SpotFleetRequestConfigDataOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataInput` via:
+//
+//          SpotFleetRequestConfigDataArgs{...}
+type SpotFleetRequestConfigDataInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataOutput() SpotFleetRequestConfigDataOutput
+	ToSpotFleetRequestConfigDataOutputWithContext(context.Context) SpotFleetRequestConfigDataOutput
+}
+
+type SpotFleetRequestConfigDataArgs struct {
+	AllocationStrategy               SpotFleetRequestConfigDataAllocationStrategyPtrInput              `pulumi:"allocationStrategy"`
+	Context                          pulumi.StringPtrInput                                             `pulumi:"context"`
+	ExcessCapacityTerminationPolicy  SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput `pulumi:"excessCapacityTerminationPolicy"`
+	IamFleetRole                     pulumi.StringInput                                                `pulumi:"iamFleetRole"`
+	InstanceInterruptionBehavior     SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput    `pulumi:"instanceInterruptionBehavior"`
+	InstancePoolsToUseCount          pulumi.IntPtrInput                                                `pulumi:"instancePoolsToUseCount"`
+	LaunchSpecifications             SpotFleetLaunchSpecificationArrayInput                            `pulumi:"launchSpecifications"`
+	LaunchTemplateConfigs            SpotFleetLaunchTemplateConfigArrayInput                           `pulumi:"launchTemplateConfigs"`
+	LoadBalancersConfig              SpotFleetLoadBalancersConfigPtrInput                              `pulumi:"loadBalancersConfig"`
+	OnDemandAllocationStrategy       pulumi.StringPtrInput                                             `pulumi:"onDemandAllocationStrategy"`
+	OnDemandMaxTotalPrice            pulumi.StringPtrInput                                             `pulumi:"onDemandMaxTotalPrice"`
+	OnDemandTargetCapacity           pulumi.IntPtrInput                                                `pulumi:"onDemandTargetCapacity"`
+	ReplaceUnhealthyInstances        pulumi.BoolPtrInput                                               `pulumi:"replaceUnhealthyInstances"`
+	SpotMaintenanceStrategies        SpotFleetSpotMaintenanceStrategiesPtrInput                        `pulumi:"spotMaintenanceStrategies"`
+	SpotMaxTotalPrice                pulumi.StringPtrInput                                             `pulumi:"spotMaxTotalPrice"`
+	SpotPrice                        pulumi.StringPtrInput                                             `pulumi:"spotPrice"`
+	TargetCapacity                   pulumi.IntInput                                                   `pulumi:"targetCapacity"`
+	TerminateInstancesWithExpiration pulumi.BoolPtrInput                                               `pulumi:"terminateInstancesWithExpiration"`
+	Type                             SpotFleetRequestConfigDataTypePtrInput                            `pulumi:"type"`
+	ValidFrom                        pulumi.StringPtrInput                                             `pulumi:"validFrom"`
+	ValidUntil                       pulumi.StringPtrInput                                             `pulumi:"validUntil"`
+}
+
+func (SpotFleetRequestConfigDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigData)(nil)).Elem()
+}
+
+func (i SpotFleetRequestConfigDataArgs) ToSpotFleetRequestConfigDataOutput() SpotFleetRequestConfigDataOutput {
+	return i.ToSpotFleetRequestConfigDataOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestConfigDataArgs) ToSpotFleetRequestConfigDataOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestConfigDataOutput)
+}
+
+func (i SpotFleetRequestConfigDataArgs) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
+	return i.ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestConfigDataArgs) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestConfigDataOutput).ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestConfigDataPtrInput is an input type that accepts SpotFleetRequestConfigDataArgs, SpotFleetRequestConfigDataPtr and SpotFleetRequestConfigDataPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestConfigDataPtrInput` via:
+//
+//          SpotFleetRequestConfigDataArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestConfigDataPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput
+	ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Context) SpotFleetRequestConfigDataPtrOutput
+}
+
+type spotFleetRequestConfigDataPtrType SpotFleetRequestConfigDataArgs
+
+func SpotFleetRequestConfigDataPtr(v *SpotFleetRequestConfigDataArgs) SpotFleetRequestConfigDataPtrInput {
+	return (*spotFleetRequestConfigDataPtrType)(v)
+}
+
+func (*spotFleetRequestConfigDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigData)(nil)).Elem()
+}
+
+func (i *spotFleetRequestConfigDataPtrType) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
+	return i.ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestConfigDataPtrType) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestConfigDataPtrOutput)
+}
+
+type SpotFleetRequestConfigDataOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestConfigData)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataOutput() SpotFleetRequestConfigDataOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
+	return o.ToSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestConfigDataOutput) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestConfigData) *SpotFleetRequestConfigData {
+		return &v
+	}).(SpotFleetRequestConfigDataPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) AllocationStrategy() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataAllocationStrategy {
+		return v.AllocationStrategy
+	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) ExcessCapacityTerminationPolicy() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
+		return v.ExcessCapacityTerminationPolicy
+	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) IamFleetRole() pulumi.StringOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) string { return v.IamFleetRole }).(pulumi.StringOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) InstanceInterruptionBehavior() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataInstanceInterruptionBehavior {
+		return v.InstanceInterruptionBehavior
+	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) LaunchSpecifications() SpotFleetLaunchSpecificationArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) []SpotFleetLaunchSpecification { return v.LaunchSpecifications }).(SpotFleetLaunchSpecificationArrayOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig { return v.LaunchTemplateConfigs }).(SpotFleetLaunchTemplateConfigArrayOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig { return v.LoadBalancersConfig }).(SpotFleetLoadBalancersConfigPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.OnDemandAllocationStrategy }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.OnDemandMaxTotalPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *bool { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
+		return v.SpotMaintenanceStrategies
+	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.SpotMaxTotalPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) TargetCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) int { return v.TargetCapacity }).(pulumi.IntOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *bool { return v.TerminateInstancesWithExpiration }).(pulumi.BoolPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) Type() SpotFleetRequestConfigDataTypePtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *SpotFleetRequestConfigDataType { return v.Type }).(SpotFleetRequestConfigDataTypePtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) ValidFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.ValidFrom }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetRequestConfigDataPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestConfigDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestConfigData)(nil)).Elem()
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ToSpotFleetRequestConfigDataPtrOutput() SpotFleetRequestConfigDataPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ToSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetRequestConfigDataPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) Elem() SpotFleetRequestConfigDataOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) SpotFleetRequestConfigData {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestConfigData
+		return ret
+	}).(SpotFleetRequestConfigDataOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) AllocationStrategy() SpotFleetRequestConfigDataAllocationStrategyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataAllocationStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.AllocationStrategy
+	}).(SpotFleetRequestConfigDataAllocationStrategyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ExcessCapacityTerminationPolicy
+	}).(SpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamFleetRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataInstanceInterruptionBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(SpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstancePoolsToUseCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) LaunchSpecifications() SpotFleetLaunchSpecificationArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchSpecifications
+	}).(SpotFleetLaunchSpecificationArrayOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateConfigs
+	}).(SpotFleetLaunchTemplateConfigArrayOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancersConfig
+	}).(SpotFleetLoadBalancersConfigPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandAllocationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxTotalPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceUnhealthyInstances
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaintenanceStrategies
+	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxTotalPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) SpotPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TerminateInstancesWithExpiration
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) Type() SpotFleetRequestConfigDataTypePtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *SpotFleetRequestConfigDataType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(SpotFleetRequestConfigDataTypePtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ValidFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntil
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpotFleetSpotCapacityRebalance struct {
@@ -15211,886 +15865,6 @@ func (o SpotFleetSpotCapacityRebalancePtrOutput) ReplacementStrategy() SpotFleet
 		}
 		return v.ReplacementStrategy
 	}).(SpotFleetSpotCapacityRebalanceReplacementStrategyPtrOutput)
-}
-
-type SpotFleetSpotFleetLaunchSpecification struct {
-	BlockDeviceMappings []SpotFleetBlockDeviceMapping                    `pulumi:"blockDeviceMappings"`
-	EbsOptimized        *bool                                            `pulumi:"ebsOptimized"`
-	IamInstanceProfile  *SpotFleetIamInstanceProfileSpecification        `pulumi:"iamInstanceProfile"`
-	ImageId             string                                           `pulumi:"imageId"`
-	InstanceType        string                                           `pulumi:"instanceType"`
-	KernelId            *string                                          `pulumi:"kernelId"`
-	KeyName             *string                                          `pulumi:"keyName"`
-	Monitoring          *SpotFleetSpotFleetMonitoring                    `pulumi:"monitoring"`
-	NetworkInterfaces   []SpotFleetInstanceNetworkInterfaceSpecification `pulumi:"networkInterfaces"`
-	Placement           *SpotFleetSpotPlacement                          `pulumi:"placement"`
-	RamdiskId           *string                                          `pulumi:"ramdiskId"`
-	SecurityGroups      []SpotFleetGroupIdentifier                       `pulumi:"securityGroups"`
-	SpotPrice           *string                                          `pulumi:"spotPrice"`
-	SubnetId            *string                                          `pulumi:"subnetId"`
-	TagSpecifications   []SpotFleetSpotFleetTagSpecification             `pulumi:"tagSpecifications"`
-	UserData            *string                                          `pulumi:"userData"`
-	WeightedCapacity    *float64                                         `pulumi:"weightedCapacity"`
-}
-
-// SpotFleetSpotFleetLaunchSpecificationInput is an input type that accepts SpotFleetSpotFleetLaunchSpecificationArgs and SpotFleetSpotFleetLaunchSpecificationOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetLaunchSpecificationInput` via:
-//
-//          SpotFleetSpotFleetLaunchSpecificationArgs{...}
-type SpotFleetSpotFleetLaunchSpecificationInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetLaunchSpecificationOutput() SpotFleetSpotFleetLaunchSpecificationOutput
-	ToSpotFleetSpotFleetLaunchSpecificationOutputWithContext(context.Context) SpotFleetSpotFleetLaunchSpecificationOutput
-}
-
-type SpotFleetSpotFleetLaunchSpecificationArgs struct {
-	BlockDeviceMappings SpotFleetBlockDeviceMappingArrayInput                    `pulumi:"blockDeviceMappings"`
-	EbsOptimized        pulumi.BoolPtrInput                                      `pulumi:"ebsOptimized"`
-	IamInstanceProfile  SpotFleetIamInstanceProfileSpecificationPtrInput         `pulumi:"iamInstanceProfile"`
-	ImageId             pulumi.StringInput                                       `pulumi:"imageId"`
-	InstanceType        pulumi.StringInput                                       `pulumi:"instanceType"`
-	KernelId            pulumi.StringPtrInput                                    `pulumi:"kernelId"`
-	KeyName             pulumi.StringPtrInput                                    `pulumi:"keyName"`
-	Monitoring          SpotFleetSpotFleetMonitoringPtrInput                     `pulumi:"monitoring"`
-	NetworkInterfaces   SpotFleetInstanceNetworkInterfaceSpecificationArrayInput `pulumi:"networkInterfaces"`
-	Placement           SpotFleetSpotPlacementPtrInput                           `pulumi:"placement"`
-	RamdiskId           pulumi.StringPtrInput                                    `pulumi:"ramdiskId"`
-	SecurityGroups      SpotFleetGroupIdentifierArrayInput                       `pulumi:"securityGroups"`
-	SpotPrice           pulumi.StringPtrInput                                    `pulumi:"spotPrice"`
-	SubnetId            pulumi.StringPtrInput                                    `pulumi:"subnetId"`
-	TagSpecifications   SpotFleetSpotFleetTagSpecificationArrayInput             `pulumi:"tagSpecifications"`
-	UserData            pulumi.StringPtrInput                                    `pulumi:"userData"`
-	WeightedCapacity    pulumi.Float64PtrInput                                   `pulumi:"weightedCapacity"`
-}
-
-func (SpotFleetSpotFleetLaunchSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetLaunchSpecification)(nil)).Elem()
-}
-
-func (i SpotFleetSpotFleetLaunchSpecificationArgs) ToSpotFleetSpotFleetLaunchSpecificationOutput() SpotFleetSpotFleetLaunchSpecificationOutput {
-	return i.ToSpotFleetSpotFleetLaunchSpecificationOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetLaunchSpecificationArgs) ToSpotFleetSpotFleetLaunchSpecificationOutputWithContext(ctx context.Context) SpotFleetSpotFleetLaunchSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetLaunchSpecificationOutput)
-}
-
-// SpotFleetSpotFleetLaunchSpecificationArrayInput is an input type that accepts SpotFleetSpotFleetLaunchSpecificationArray and SpotFleetSpotFleetLaunchSpecificationArrayOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetLaunchSpecificationArrayInput` via:
-//
-//          SpotFleetSpotFleetLaunchSpecificationArray{ SpotFleetSpotFleetLaunchSpecificationArgs{...} }
-type SpotFleetSpotFleetLaunchSpecificationArrayInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetLaunchSpecificationArrayOutput() SpotFleetSpotFleetLaunchSpecificationArrayOutput
-	ToSpotFleetSpotFleetLaunchSpecificationArrayOutputWithContext(context.Context) SpotFleetSpotFleetLaunchSpecificationArrayOutput
-}
-
-type SpotFleetSpotFleetLaunchSpecificationArray []SpotFleetSpotFleetLaunchSpecificationInput
-
-func (SpotFleetSpotFleetLaunchSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpotFleetSpotFleetLaunchSpecification)(nil)).Elem()
-}
-
-func (i SpotFleetSpotFleetLaunchSpecificationArray) ToSpotFleetSpotFleetLaunchSpecificationArrayOutput() SpotFleetSpotFleetLaunchSpecificationArrayOutput {
-	return i.ToSpotFleetSpotFleetLaunchSpecificationArrayOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetLaunchSpecificationArray) ToSpotFleetSpotFleetLaunchSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetSpotFleetLaunchSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetLaunchSpecificationArrayOutput)
-}
-
-type SpotFleetSpotFleetLaunchSpecificationOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetLaunchSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetLaunchSpecification)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) ToSpotFleetSpotFleetLaunchSpecificationOutput() SpotFleetSpotFleetLaunchSpecificationOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) ToSpotFleetSpotFleetLaunchSpecificationOutputWithContext(ctx context.Context) SpotFleetSpotFleetLaunchSpecificationOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) BlockDeviceMappings() SpotFleetBlockDeviceMappingArrayOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetBlockDeviceMapping {
-		return v.BlockDeviceMappings
-	}).(SpotFleetBlockDeviceMappingArrayOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) EbsOptimized() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) IamInstanceProfile() SpotFleetIamInstanceProfileSpecificationPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *SpotFleetIamInstanceProfileSpecification {
-		return v.IamInstanceProfile
-	}).(SpotFleetIamInstanceProfileSpecificationPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) ImageId() pulumi.StringOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) string { return v.ImageId }).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) string { return v.InstanceType }).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) KernelId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.KernelId }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.KeyName }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) Monitoring() SpotFleetSpotFleetMonitoringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *SpotFleetSpotFleetMonitoring { return v.Monitoring }).(SpotFleetSpotFleetMonitoringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) NetworkInterfaces() SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetInstanceNetworkInterfaceSpecification {
-		return v.NetworkInterfaces
-	}).(SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) Placement() SpotFleetSpotPlacementPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *SpotFleetSpotPlacement { return v.Placement }).(SpotFleetSpotPlacementPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) RamdiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.RamdiskId }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) SecurityGroups() SpotFleetGroupIdentifierArrayOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetGroupIdentifier { return v.SecurityGroups }).(SpotFleetGroupIdentifierArrayOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) SpotPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) TagSpecifications() SpotFleetSpotFleetTagSpecificationArrayOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) []SpotFleetSpotFleetTagSpecification {
-		return v.TagSpecifications
-	}).(SpotFleetSpotFleetTagSpecificationArrayOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) UserData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *string { return v.UserData }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationOutput) WeightedCapacity() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetLaunchSpecification) *float64 { return v.WeightedCapacity }).(pulumi.Float64PtrOutput)
-}
-
-type SpotFleetSpotFleetLaunchSpecificationArrayOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetLaunchSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpotFleetSpotFleetLaunchSpecification)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationArrayOutput) ToSpotFleetSpotFleetLaunchSpecificationArrayOutput() SpotFleetSpotFleetLaunchSpecificationArrayOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationArrayOutput) ToSpotFleetSpotFleetLaunchSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetSpotFleetLaunchSpecificationArrayOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetLaunchSpecificationArrayOutput) Index(i pulumi.IntInput) SpotFleetSpotFleetLaunchSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetSpotFleetLaunchSpecification {
-		return vs[0].([]SpotFleetSpotFleetLaunchSpecification)[vs[1].(int)]
-	}).(SpotFleetSpotFleetLaunchSpecificationOutput)
-}
-
-type SpotFleetSpotFleetMonitoring struct {
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// SpotFleetSpotFleetMonitoringInput is an input type that accepts SpotFleetSpotFleetMonitoringArgs and SpotFleetSpotFleetMonitoringOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetMonitoringInput` via:
-//
-//          SpotFleetSpotFleetMonitoringArgs{...}
-type SpotFleetSpotFleetMonitoringInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetMonitoringOutput() SpotFleetSpotFleetMonitoringOutput
-	ToSpotFleetSpotFleetMonitoringOutputWithContext(context.Context) SpotFleetSpotFleetMonitoringOutput
-}
-
-type SpotFleetSpotFleetMonitoringArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (SpotFleetSpotFleetMonitoringArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetMonitoring)(nil)).Elem()
-}
-
-func (i SpotFleetSpotFleetMonitoringArgs) ToSpotFleetSpotFleetMonitoringOutput() SpotFleetSpotFleetMonitoringOutput {
-	return i.ToSpotFleetSpotFleetMonitoringOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetMonitoringArgs) ToSpotFleetSpotFleetMonitoringOutputWithContext(ctx context.Context) SpotFleetSpotFleetMonitoringOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetMonitoringOutput)
-}
-
-func (i SpotFleetSpotFleetMonitoringArgs) ToSpotFleetSpotFleetMonitoringPtrOutput() SpotFleetSpotFleetMonitoringPtrOutput {
-	return i.ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetMonitoringArgs) ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetMonitoringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetMonitoringOutput).ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(ctx)
-}
-
-// SpotFleetSpotFleetMonitoringPtrInput is an input type that accepts SpotFleetSpotFleetMonitoringArgs, SpotFleetSpotFleetMonitoringPtr and SpotFleetSpotFleetMonitoringPtrOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetMonitoringPtrInput` via:
-//
-//          SpotFleetSpotFleetMonitoringArgs{...}
-//
-//  or:
-//
-//          nil
-type SpotFleetSpotFleetMonitoringPtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetMonitoringPtrOutput() SpotFleetSpotFleetMonitoringPtrOutput
-	ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(context.Context) SpotFleetSpotFleetMonitoringPtrOutput
-}
-
-type spotFleetSpotFleetMonitoringPtrType SpotFleetSpotFleetMonitoringArgs
-
-func SpotFleetSpotFleetMonitoringPtr(v *SpotFleetSpotFleetMonitoringArgs) SpotFleetSpotFleetMonitoringPtrInput {
-	return (*spotFleetSpotFleetMonitoringPtrType)(v)
-}
-
-func (*spotFleetSpotFleetMonitoringPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetMonitoring)(nil)).Elem()
-}
-
-func (i *spotFleetSpotFleetMonitoringPtrType) ToSpotFleetSpotFleetMonitoringPtrOutput() SpotFleetSpotFleetMonitoringPtrOutput {
-	return i.ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(context.Background())
-}
-
-func (i *spotFleetSpotFleetMonitoringPtrType) ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetMonitoringPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetMonitoringPtrOutput)
-}
-
-type SpotFleetSpotFleetMonitoringOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetMonitoringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetMonitoring)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetMonitoringOutput) ToSpotFleetSpotFleetMonitoringOutput() SpotFleetSpotFleetMonitoringOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetMonitoringOutput) ToSpotFleetSpotFleetMonitoringOutputWithContext(ctx context.Context) SpotFleetSpotFleetMonitoringOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetMonitoringOutput) ToSpotFleetSpotFleetMonitoringPtrOutput() SpotFleetSpotFleetMonitoringPtrOutput {
-	return o.ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetMonitoringOutput) ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetMonitoringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetSpotFleetMonitoring) *SpotFleetSpotFleetMonitoring {
-		return &v
-	}).(SpotFleetSpotFleetMonitoringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type SpotFleetSpotFleetMonitoringPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetMonitoringPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetMonitoring)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetMonitoringPtrOutput) ToSpotFleetSpotFleetMonitoringPtrOutput() SpotFleetSpotFleetMonitoringPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetMonitoringPtrOutput) ToSpotFleetSpotFleetMonitoringPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetMonitoringPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetMonitoringPtrOutput) Elem() SpotFleetSpotFleetMonitoringOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetMonitoring) SpotFleetSpotFleetMonitoring {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetSpotFleetMonitoring
-		return ret
-	}).(SpotFleetSpotFleetMonitoringOutput)
-}
-
-func (o SpotFleetSpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetMonitoring) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigData struct {
-	AllocationStrategy               *SpotFleetSpotFleetRequestConfigDataAllocationStrategy              `pulumi:"allocationStrategy"`
-	Context                          *string                                                             `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
-	IamFleetRole                     string                                                              `pulumi:"iamFleetRole"`
-	InstanceInterruptionBehavior     *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior    `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount          *int                                                                `pulumi:"instancePoolsToUseCount"`
-	LaunchSpecifications             []SpotFleetSpotFleetLaunchSpecification                             `pulumi:"launchSpecifications"`
-	LaunchTemplateConfigs            []SpotFleetLaunchTemplateConfig                                     `pulumi:"launchTemplateConfigs"`
-	LoadBalancersConfig              *SpotFleetLoadBalancersConfig                                       `pulumi:"loadBalancersConfig"`
-	OnDemandAllocationStrategy       *string                                                             `pulumi:"onDemandAllocationStrategy"`
-	OnDemandMaxTotalPrice            *string                                                             `pulumi:"onDemandMaxTotalPrice"`
-	OnDemandTargetCapacity           *int                                                                `pulumi:"onDemandTargetCapacity"`
-	ReplaceUnhealthyInstances        *bool                                                               `pulumi:"replaceUnhealthyInstances"`
-	SpotMaintenanceStrategies        *SpotFleetSpotMaintenanceStrategies                                 `pulumi:"spotMaintenanceStrategies"`
-	SpotMaxTotalPrice                *string                                                             `pulumi:"spotMaxTotalPrice"`
-	SpotPrice                        *string                                                             `pulumi:"spotPrice"`
-	TargetCapacity                   int                                                                 `pulumi:"targetCapacity"`
-	TerminateInstancesWithExpiration *bool                                                               `pulumi:"terminateInstancesWithExpiration"`
-	Type                             *SpotFleetSpotFleetRequestConfigDataType                            `pulumi:"type"`
-	ValidFrom                        *string                                                             `pulumi:"validFrom"`
-	ValidUntil                       *string                                                             `pulumi:"validUntil"`
-}
-
-// SpotFleetSpotFleetRequestConfigDataInput is an input type that accepts SpotFleetSpotFleetRequestConfigDataArgs and SpotFleetSpotFleetRequestConfigDataOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetRequestConfigDataInput` via:
-//
-//          SpotFleetSpotFleetRequestConfigDataArgs{...}
-type SpotFleetSpotFleetRequestConfigDataInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataOutput() SpotFleetSpotFleetRequestConfigDataOutput
-	ToSpotFleetSpotFleetRequestConfigDataOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataOutput
-}
-
-type SpotFleetSpotFleetRequestConfigDataArgs struct {
-	AllocationStrategy               SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrInput              `pulumi:"allocationStrategy"`
-	Context                          pulumi.StringPtrInput                                                      `pulumi:"context"`
-	ExcessCapacityTerminationPolicy  SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrInput `pulumi:"excessCapacityTerminationPolicy"`
-	IamFleetRole                     pulumi.StringInput                                                         `pulumi:"iamFleetRole"`
-	InstanceInterruptionBehavior     SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrInput    `pulumi:"instanceInterruptionBehavior"`
-	InstancePoolsToUseCount          pulumi.IntPtrInput                                                         `pulumi:"instancePoolsToUseCount"`
-	LaunchSpecifications             SpotFleetSpotFleetLaunchSpecificationArrayInput                            `pulumi:"launchSpecifications"`
-	LaunchTemplateConfigs            SpotFleetLaunchTemplateConfigArrayInput                                    `pulumi:"launchTemplateConfigs"`
-	LoadBalancersConfig              SpotFleetLoadBalancersConfigPtrInput                                       `pulumi:"loadBalancersConfig"`
-	OnDemandAllocationStrategy       pulumi.StringPtrInput                                                      `pulumi:"onDemandAllocationStrategy"`
-	OnDemandMaxTotalPrice            pulumi.StringPtrInput                                                      `pulumi:"onDemandMaxTotalPrice"`
-	OnDemandTargetCapacity           pulumi.IntPtrInput                                                         `pulumi:"onDemandTargetCapacity"`
-	ReplaceUnhealthyInstances        pulumi.BoolPtrInput                                                        `pulumi:"replaceUnhealthyInstances"`
-	SpotMaintenanceStrategies        SpotFleetSpotMaintenanceStrategiesPtrInput                                 `pulumi:"spotMaintenanceStrategies"`
-	SpotMaxTotalPrice                pulumi.StringPtrInput                                                      `pulumi:"spotMaxTotalPrice"`
-	SpotPrice                        pulumi.StringPtrInput                                                      `pulumi:"spotPrice"`
-	TargetCapacity                   pulumi.IntInput                                                            `pulumi:"targetCapacity"`
-	TerminateInstancesWithExpiration pulumi.BoolPtrInput                                                        `pulumi:"terminateInstancesWithExpiration"`
-	Type                             SpotFleetSpotFleetRequestConfigDataTypePtrInput                            `pulumi:"type"`
-	ValidFrom                        pulumi.StringPtrInput                                                      `pulumi:"validFrom"`
-	ValidUntil                       pulumi.StringPtrInput                                                      `pulumi:"validUntil"`
-}
-
-func (SpotFleetSpotFleetRequestConfigDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigData)(nil)).Elem()
-}
-
-func (i SpotFleetSpotFleetRequestConfigDataArgs) ToSpotFleetSpotFleetRequestConfigDataOutput() SpotFleetSpotFleetRequestConfigDataOutput {
-	return i.ToSpotFleetSpotFleetRequestConfigDataOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetRequestConfigDataArgs) ToSpotFleetSpotFleetRequestConfigDataOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetRequestConfigDataOutput)
-}
-
-func (i SpotFleetSpotFleetRequestConfigDataArgs) ToSpotFleetSpotFleetRequestConfigDataPtrOutput() SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return i.ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetRequestConfigDataArgs) ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetRequestConfigDataOutput).ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(ctx)
-}
-
-// SpotFleetSpotFleetRequestConfigDataPtrInput is an input type that accepts SpotFleetSpotFleetRequestConfigDataArgs, SpotFleetSpotFleetRequestConfigDataPtr and SpotFleetSpotFleetRequestConfigDataPtrOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetRequestConfigDataPtrInput` via:
-//
-//          SpotFleetSpotFleetRequestConfigDataArgs{...}
-//
-//  or:
-//
-//          nil
-type SpotFleetSpotFleetRequestConfigDataPtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetRequestConfigDataPtrOutput() SpotFleetSpotFleetRequestConfigDataPtrOutput
-	ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(context.Context) SpotFleetSpotFleetRequestConfigDataPtrOutput
-}
-
-type spotFleetSpotFleetRequestConfigDataPtrType SpotFleetSpotFleetRequestConfigDataArgs
-
-func SpotFleetSpotFleetRequestConfigDataPtr(v *SpotFleetSpotFleetRequestConfigDataArgs) SpotFleetSpotFleetRequestConfigDataPtrInput {
-	return (*spotFleetSpotFleetRequestConfigDataPtrType)(v)
-}
-
-func (*spotFleetSpotFleetRequestConfigDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetRequestConfigData)(nil)).Elem()
-}
-
-func (i *spotFleetSpotFleetRequestConfigDataPtrType) ToSpotFleetSpotFleetRequestConfigDataPtrOutput() SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return i.ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (i *spotFleetSpotFleetRequestConfigDataPtrType) ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetRequestConfigDataPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetRequestConfigData)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ToSpotFleetSpotFleetRequestConfigDataOutput() SpotFleetSpotFleetRequestConfigDataOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ToSpotFleetSpotFleetRequestConfigDataOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ToSpotFleetSpotFleetRequestConfigDataPtrOutput() SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return o.ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigData {
-		return &v
-	}).(SpotFleetSpotFleetRequestConfigDataPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) AllocationStrategy() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataAllocationStrategy {
-		return v.AllocationStrategy
-	}).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) Context() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.Context }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ExcessCapacityTerminationPolicy() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
-		return v.ExcessCapacityTerminationPolicy
-	}).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) IamFleetRole() pulumi.StringOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) string { return v.IamFleetRole }).(pulumi.StringOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) InstanceInterruptionBehavior() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior {
-		return v.InstanceInterruptionBehavior
-	}).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *int { return v.InstancePoolsToUseCount }).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) LaunchSpecifications() SpotFleetSpotFleetLaunchSpecificationArrayOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) []SpotFleetSpotFleetLaunchSpecification {
-		return v.LaunchSpecifications
-	}).(SpotFleetSpotFleetLaunchSpecificationArrayOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig {
-		return v.LaunchTemplateConfigs
-	}).(SpotFleetLaunchTemplateConfigArrayOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig {
-		return v.LoadBalancersConfig
-	}).(SpotFleetLoadBalancersConfigPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.OnDemandAllocationStrategy }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.OnDemandMaxTotalPrice }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *int { return v.OnDemandTargetCapacity }).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *bool { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
-		return v.SpotMaintenanceStrategies
-	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.SpotMaxTotalPrice }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) SpotPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) TargetCapacity() pulumi.IntOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) int { return v.TargetCapacity }).(pulumi.IntOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *bool { return v.TerminateInstancesWithExpiration }).(pulumi.BoolPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) Type() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataType { return v.Type }).(SpotFleetSpotFleetRequestConfigDataTypePtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ValidFrom() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.ValidFrom }).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataOutput) ValidUntil() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetRequestConfigData) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetSpotFleetRequestConfigDataPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetRequestConfigDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetSpotFleetRequestConfigData)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ToSpotFleetSpotFleetRequestConfigDataPtrOutput() SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ToSpotFleetSpotFleetRequestConfigDataPtrOutputWithContext(ctx context.Context) SpotFleetSpotFleetRequestConfigDataPtrOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Elem() SpotFleetSpotFleetRequestConfigDataOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) SpotFleetSpotFleetRequestConfigData {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetSpotFleetRequestConfigData
-		return ret
-	}).(SpotFleetSpotFleetRequestConfigDataOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) AllocationStrategy() SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataAllocationStrategy {
-		if v == nil {
-			return nil
-		}
-		return v.AllocationStrategy
-	}).(SpotFleetSpotFleetRequestConfigDataAllocationStrategyPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Context() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Context
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ExcessCapacityTerminationPolicy() SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.ExcessCapacityTerminationPolicy
-	}).(SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicyPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) IamFleetRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.IamFleetRole
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) InstanceInterruptionBehavior() SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceInterruptionBehavior
-	}).(SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehaviorPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) InstancePoolsToUseCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *int {
-		if v == nil {
-			return nil
-		}
-		return v.InstancePoolsToUseCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) LaunchSpecifications() SpotFleetSpotFleetLaunchSpecificationArrayOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) []SpotFleetSpotFleetLaunchSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchSpecifications
-	}).(SpotFleetSpotFleetLaunchSpecificationArrayOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) LaunchTemplateConfigs() SpotFleetLaunchTemplateConfigArrayOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) []SpotFleetLaunchTemplateConfig {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchTemplateConfigs
-	}).(SpotFleetLaunchTemplateConfigArrayOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) LoadBalancersConfig() SpotFleetLoadBalancersConfigPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetLoadBalancersConfig {
-		if v == nil {
-			return nil
-		}
-		return v.LoadBalancersConfig
-	}).(SpotFleetLoadBalancersConfigPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) OnDemandAllocationStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OnDemandAllocationStrategy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) OnDemandMaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OnDemandMaxTotalPrice
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) OnDemandTargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *int {
-		if v == nil {
-			return nil
-		}
-		return v.OnDemandTargetCapacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceUnhealthyInstances
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) SpotMaintenanceStrategies() SpotFleetSpotMaintenanceStrategiesPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotMaintenanceStrategies {
-		if v == nil {
-			return nil
-		}
-		return v.SpotMaintenanceStrategies
-	}).(SpotFleetSpotMaintenanceStrategiesPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) SpotMaxTotalPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SpotMaxTotalPrice
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) SpotPrice() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SpotPrice
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetCapacity
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) TerminateInstancesWithExpiration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.TerminateInstancesWithExpiration
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) Type() SpotFleetSpotFleetRequestConfigDataTypePtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *SpotFleetSpotFleetRequestConfigDataType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(SpotFleetSpotFleetRequestConfigDataTypePtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ValidFrom() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ValidFrom
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SpotFleetSpotFleetRequestConfigDataPtrOutput) ValidUntil() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotFleetSpotFleetRequestConfigData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ValidUntil
-	}).(pulumi.StringPtrOutput)
-}
-
-type SpotFleetSpotFleetTagSpecification struct {
-	ResourceType *SpotFleetSpotFleetTagSpecificationResourceType `pulumi:"resourceType"`
-	Tags         []SpotFleetTag                                  `pulumi:"tags"`
-}
-
-// SpotFleetSpotFleetTagSpecificationInput is an input type that accepts SpotFleetSpotFleetTagSpecificationArgs and SpotFleetSpotFleetTagSpecificationOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetTagSpecificationInput` via:
-//
-//          SpotFleetSpotFleetTagSpecificationArgs{...}
-type SpotFleetSpotFleetTagSpecificationInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetTagSpecificationOutput() SpotFleetSpotFleetTagSpecificationOutput
-	ToSpotFleetSpotFleetTagSpecificationOutputWithContext(context.Context) SpotFleetSpotFleetTagSpecificationOutput
-}
-
-type SpotFleetSpotFleetTagSpecificationArgs struct {
-	ResourceType SpotFleetSpotFleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
-	Tags         SpotFleetTagArrayInput                                 `pulumi:"tags"`
-}
-
-func (SpotFleetSpotFleetTagSpecificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetTagSpecification)(nil)).Elem()
-}
-
-func (i SpotFleetSpotFleetTagSpecificationArgs) ToSpotFleetSpotFleetTagSpecificationOutput() SpotFleetSpotFleetTagSpecificationOutput {
-	return i.ToSpotFleetSpotFleetTagSpecificationOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetTagSpecificationArgs) ToSpotFleetSpotFleetTagSpecificationOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetTagSpecificationOutput)
-}
-
-// SpotFleetSpotFleetTagSpecificationArrayInput is an input type that accepts SpotFleetSpotFleetTagSpecificationArray and SpotFleetSpotFleetTagSpecificationArrayOutput values.
-// You can construct a concrete instance of `SpotFleetSpotFleetTagSpecificationArrayInput` via:
-//
-//          SpotFleetSpotFleetTagSpecificationArray{ SpotFleetSpotFleetTagSpecificationArgs{...} }
-type SpotFleetSpotFleetTagSpecificationArrayInput interface {
-	pulumi.Input
-
-	ToSpotFleetSpotFleetTagSpecificationArrayOutput() SpotFleetSpotFleetTagSpecificationArrayOutput
-	ToSpotFleetSpotFleetTagSpecificationArrayOutputWithContext(context.Context) SpotFleetSpotFleetTagSpecificationArrayOutput
-}
-
-type SpotFleetSpotFleetTagSpecificationArray []SpotFleetSpotFleetTagSpecificationInput
-
-func (SpotFleetSpotFleetTagSpecificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpotFleetSpotFleetTagSpecification)(nil)).Elem()
-}
-
-func (i SpotFleetSpotFleetTagSpecificationArray) ToSpotFleetSpotFleetTagSpecificationArrayOutput() SpotFleetSpotFleetTagSpecificationArrayOutput {
-	return i.ToSpotFleetSpotFleetTagSpecificationArrayOutputWithContext(context.Background())
-}
-
-func (i SpotFleetSpotFleetTagSpecificationArray) ToSpotFleetSpotFleetTagSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetSpotFleetTagSpecificationArrayOutput)
-}
-
-type SpotFleetSpotFleetTagSpecificationOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetTagSpecificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetSpotFleetTagSpecification)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetTagSpecificationOutput) ToSpotFleetSpotFleetTagSpecificationOutput() SpotFleetSpotFleetTagSpecificationOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationOutput) ToSpotFleetSpotFleetTagSpecificationOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationOutput) ResourceType() SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetTagSpecification) *SpotFleetSpotFleetTagSpecificationResourceType {
-		return v.ResourceType
-	}).(SpotFleetSpotFleetTagSpecificationResourceTypePtrOutput)
-}
-
-func (o SpotFleetSpotFleetTagSpecificationOutput) Tags() SpotFleetTagArrayOutput {
-	return o.ApplyT(func(v SpotFleetSpotFleetTagSpecification) []SpotFleetTag { return v.Tags }).(SpotFleetTagArrayOutput)
-}
-
-type SpotFleetSpotFleetTagSpecificationArrayOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetSpotFleetTagSpecificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpotFleetSpotFleetTagSpecification)(nil)).Elem()
-}
-
-func (o SpotFleetSpotFleetTagSpecificationArrayOutput) ToSpotFleetSpotFleetTagSpecificationArrayOutput() SpotFleetSpotFleetTagSpecificationArrayOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationArrayOutput) ToSpotFleetSpotFleetTagSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetSpotFleetTagSpecificationArrayOutput {
-	return o
-}
-
-func (o SpotFleetSpotFleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) SpotFleetSpotFleetTagSpecificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetSpotFleetTagSpecification {
-		return vs[0].([]SpotFleetSpotFleetTagSpecification)[vs[1].(int)]
-	}).(SpotFleetSpotFleetTagSpecificationOutput)
 }
 
 type SpotFleetSpotMaintenanceStrategies struct {
@@ -16487,6 +16261,106 @@ func (o SpotFleetTagArrayOutput) Index(i pulumi.IntInput) SpotFleetTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetTag {
 		return vs[0].([]SpotFleetTag)[vs[1].(int)]
 	}).(SpotFleetTagOutput)
+}
+
+type SpotFleetTagSpecification struct {
+	ResourceType *SpotFleetTagSpecificationResourceType `pulumi:"resourceType"`
+	Tags         []SpotFleetTag                         `pulumi:"tags"`
+}
+
+// SpotFleetTagSpecificationInput is an input type that accepts SpotFleetTagSpecificationArgs and SpotFleetTagSpecificationOutput values.
+// You can construct a concrete instance of `SpotFleetTagSpecificationInput` via:
+//
+//          SpotFleetTagSpecificationArgs{...}
+type SpotFleetTagSpecificationInput interface {
+	pulumi.Input
+
+	ToSpotFleetTagSpecificationOutput() SpotFleetTagSpecificationOutput
+	ToSpotFleetTagSpecificationOutputWithContext(context.Context) SpotFleetTagSpecificationOutput
+}
+
+type SpotFleetTagSpecificationArgs struct {
+	ResourceType SpotFleetTagSpecificationResourceTypePtrInput `pulumi:"resourceType"`
+	Tags         SpotFleetTagArrayInput                        `pulumi:"tags"`
+}
+
+func (SpotFleetTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetTagSpecification)(nil)).Elem()
+}
+
+func (i SpotFleetTagSpecificationArgs) ToSpotFleetTagSpecificationOutput() SpotFleetTagSpecificationOutput {
+	return i.ToSpotFleetTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i SpotFleetTagSpecificationArgs) ToSpotFleetTagSpecificationOutputWithContext(ctx context.Context) SpotFleetTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTagSpecificationOutput)
+}
+
+// SpotFleetTagSpecificationArrayInput is an input type that accepts SpotFleetTagSpecificationArray and SpotFleetTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `SpotFleetTagSpecificationArrayInput` via:
+//
+//          SpotFleetTagSpecificationArray{ SpotFleetTagSpecificationArgs{...} }
+type SpotFleetTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetTagSpecificationArrayOutput() SpotFleetTagSpecificationArrayOutput
+	ToSpotFleetTagSpecificationArrayOutputWithContext(context.Context) SpotFleetTagSpecificationArrayOutput
+}
+
+type SpotFleetTagSpecificationArray []SpotFleetTagSpecificationInput
+
+func (SpotFleetTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetTagSpecification)(nil)).Elem()
+}
+
+func (i SpotFleetTagSpecificationArray) ToSpotFleetTagSpecificationArrayOutput() SpotFleetTagSpecificationArrayOutput {
+	return i.ToSpotFleetTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetTagSpecificationArray) ToSpotFleetTagSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetTagSpecificationArrayOutput)
+}
+
+type SpotFleetTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetTagSpecification)(nil)).Elem()
+}
+
+func (o SpotFleetTagSpecificationOutput) ToSpotFleetTagSpecificationOutput() SpotFleetTagSpecificationOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationOutput) ToSpotFleetTagSpecificationOutputWithContext(ctx context.Context) SpotFleetTagSpecificationOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationOutput) ResourceType() SpotFleetTagSpecificationResourceTypePtrOutput {
+	return o.ApplyT(func(v SpotFleetTagSpecification) *SpotFleetTagSpecificationResourceType { return v.ResourceType }).(SpotFleetTagSpecificationResourceTypePtrOutput)
+}
+
+func (o SpotFleetTagSpecificationOutput) Tags() SpotFleetTagArrayOutput {
+	return o.ApplyT(func(v SpotFleetTagSpecification) []SpotFleetTag { return v.Tags }).(SpotFleetTagArrayOutput)
+}
+
+type SpotFleetTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetTagSpecification)(nil)).Elem()
+}
+
+func (o SpotFleetTagSpecificationArrayOutput) ToSpotFleetTagSpecificationArrayOutput() SpotFleetTagSpecificationArrayOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationArrayOutput) ToSpotFleetTagSpecificationArrayOutputWithContext(ctx context.Context) SpotFleetTagSpecificationArrayOutput {
+	return o
+}
+
+func (o SpotFleetTagSpecificationArrayOutput) Index(i pulumi.IntInput) SpotFleetTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetTagSpecification {
+		return vs[0].([]SpotFleetTagSpecification)[vs[1].(int)]
+	}).(SpotFleetTagSpecificationOutput)
 }
 
 type SpotFleetTargetGroup struct {
@@ -17364,6 +17238,143 @@ func (o TransitGatewayAttachmentTagArrayOutput) Index(i pulumi.IntInput) Transit
 	}).(TransitGatewayAttachmentTagOutput)
 }
 
+type TransitGatewayConnectOptions struct {
+	// The tunnel protocol.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// TransitGatewayConnectOptionsInput is an input type that accepts TransitGatewayConnectOptionsArgs and TransitGatewayConnectOptionsOutput values.
+// You can construct a concrete instance of `TransitGatewayConnectOptionsInput` via:
+//
+//          TransitGatewayConnectOptionsArgs{...}
+type TransitGatewayConnectOptionsInput interface {
+	pulumi.Input
+
+	ToTransitGatewayConnectOptionsOutput() TransitGatewayConnectOptionsOutput
+	ToTransitGatewayConnectOptionsOutputWithContext(context.Context) TransitGatewayConnectOptionsOutput
+}
+
+type TransitGatewayConnectOptionsArgs struct {
+	// The tunnel protocol.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (TransitGatewayConnectOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (i TransitGatewayConnectOptionsArgs) ToTransitGatewayConnectOptionsOutput() TransitGatewayConnectOptionsOutput {
+	return i.ToTransitGatewayConnectOptionsOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayConnectOptionsArgs) ToTransitGatewayConnectOptionsOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectOptionsOutput)
+}
+
+func (i TransitGatewayConnectOptionsArgs) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
+	return i.ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TransitGatewayConnectOptionsArgs) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectOptionsOutput).ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx)
+}
+
+// TransitGatewayConnectOptionsPtrInput is an input type that accepts TransitGatewayConnectOptionsArgs, TransitGatewayConnectOptionsPtr and TransitGatewayConnectOptionsPtrOutput values.
+// You can construct a concrete instance of `TransitGatewayConnectOptionsPtrInput` via:
+//
+//          TransitGatewayConnectOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type TransitGatewayConnectOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput
+	ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Context) TransitGatewayConnectOptionsPtrOutput
+}
+
+type transitGatewayConnectOptionsPtrType TransitGatewayConnectOptionsArgs
+
+func TransitGatewayConnectOptionsPtr(v *TransitGatewayConnectOptionsArgs) TransitGatewayConnectOptionsPtrInput {
+	return (*transitGatewayConnectOptionsPtrType)(v)
+}
+
+func (*transitGatewayConnectOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (i *transitGatewayConnectOptionsPtrType) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
+	return i.ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *transitGatewayConnectOptionsPtrType) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectOptionsPtrOutput)
+}
+
+type TransitGatewayConnectOptionsOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayConnectOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayConnectOptionsOutput) ToTransitGatewayConnectOptionsOutput() TransitGatewayConnectOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayConnectOptionsOutput) ToTransitGatewayConnectOptionsOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsOutput {
+	return o
+}
+
+func (o TransitGatewayConnectOptionsOutput) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
+	return o.ToTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayConnectOptionsOutput) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayConnectOptions) *TransitGatewayConnectOptions {
+		return &v
+	}).(TransitGatewayConnectOptionsPtrOutput)
+}
+
+// The tunnel protocol.
+func (o TransitGatewayConnectOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransitGatewayConnectOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayConnectOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayConnectOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayConnectOptions)(nil)).Elem()
+}
+
+func (o TransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectOptionsPtrOutput {
+	return o
+}
+
+func (o TransitGatewayConnectOptionsPtrOutput) Elem() TransitGatewayConnectOptionsOutput {
+	return o.ApplyT(func(v *TransitGatewayConnectOptions) TransitGatewayConnectOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayConnectOptions
+		return ret
+	}).(TransitGatewayConnectOptionsOutput)
+}
+
+// The tunnel protocol.
+func (o TransitGatewayConnectOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayConnectOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
 type TransitGatewayConnectTag struct {
 	// The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
 	Key *string `pulumi:"key"`
@@ -17468,143 +17479,6 @@ func (o TransitGatewayConnectTagArrayOutput) Index(i pulumi.IntInput) TransitGat
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitGatewayConnectTag {
 		return vs[0].([]TransitGatewayConnectTag)[vs[1].(int)]
 	}).(TransitGatewayConnectTagOutput)
-}
-
-type TransitGatewayConnectTransitGatewayConnectOptions struct {
-	// The tunnel protocol.
-	Protocol *string `pulumi:"protocol"`
-}
-
-// TransitGatewayConnectTransitGatewayConnectOptionsInput is an input type that accepts TransitGatewayConnectTransitGatewayConnectOptionsArgs and TransitGatewayConnectTransitGatewayConnectOptionsOutput values.
-// You can construct a concrete instance of `TransitGatewayConnectTransitGatewayConnectOptionsInput` via:
-//
-//          TransitGatewayConnectTransitGatewayConnectOptionsArgs{...}
-type TransitGatewayConnectTransitGatewayConnectOptionsInput interface {
-	pulumi.Input
-
-	ToTransitGatewayConnectTransitGatewayConnectOptionsOutput() TransitGatewayConnectTransitGatewayConnectOptionsOutput
-	ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(context.Context) TransitGatewayConnectTransitGatewayConnectOptionsOutput
-}
-
-type TransitGatewayConnectTransitGatewayConnectOptionsArgs struct {
-	// The tunnel protocol.
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-}
-
-func (TransitGatewayConnectTransitGatewayConnectOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
-}
-
-func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsOutput() TransitGatewayConnectTransitGatewayConnectOptionsOutput {
-	return i.ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectTransitGatewayConnectOptionsOutput)
-}
-
-func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return i.ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayConnectTransitGatewayConnectOptionsArgs) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectTransitGatewayConnectOptionsOutput).ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx)
-}
-
-// TransitGatewayConnectTransitGatewayConnectOptionsPtrInput is an input type that accepts TransitGatewayConnectTransitGatewayConnectOptionsArgs, TransitGatewayConnectTransitGatewayConnectOptionsPtr and TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput values.
-// You can construct a concrete instance of `TransitGatewayConnectTransitGatewayConnectOptionsPtrInput` via:
-//
-//          TransitGatewayConnectTransitGatewayConnectOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type TransitGatewayConnectTransitGatewayConnectOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput
-	ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput
-}
-
-type transitGatewayConnectTransitGatewayConnectOptionsPtrType TransitGatewayConnectTransitGatewayConnectOptionsArgs
-
-func TransitGatewayConnectTransitGatewayConnectOptionsPtr(v *TransitGatewayConnectTransitGatewayConnectOptionsArgs) TransitGatewayConnectTransitGatewayConnectOptionsPtrInput {
-	return (*transitGatewayConnectTransitGatewayConnectOptionsPtrType)(v)
-}
-
-func (*transitGatewayConnectTransitGatewayConnectOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
-}
-
-func (i *transitGatewayConnectTransitGatewayConnectOptionsPtrType) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return i.ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *transitGatewayConnectTransitGatewayConnectOptionsPtrType) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput)
-}
-
-type TransitGatewayConnectTransitGatewayConnectOptionsOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayConnectTransitGatewayConnectOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
-}
-
-func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsOutput() TransitGatewayConnectTransitGatewayConnectOptionsOutput {
-	return o
-}
-
-func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsOutput {
-	return o
-}
-
-func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return o.ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayConnectTransitGatewayConnectOptions) *TransitGatewayConnectTransitGatewayConnectOptions {
-		return &v
-	}).(TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput)
-}
-
-// The tunnel protocol.
-func (o TransitGatewayConnectTransitGatewayConnectOptionsOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransitGatewayConnectTransitGatewayConnectOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
-}
-
-type TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayConnectTransitGatewayConnectOptions)(nil)).Elem()
-}
-
-func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutput() TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return o
-}
-
-func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) ToTransitGatewayConnectTransitGatewayConnectOptionsPtrOutputWithContext(ctx context.Context) TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput {
-	return o
-}
-
-func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) Elem() TransitGatewayConnectTransitGatewayConnectOptionsOutput {
-	return o.ApplyT(func(v *TransitGatewayConnectTransitGatewayConnectOptions) TransitGatewayConnectTransitGatewayConnectOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TransitGatewayConnectTransitGatewayConnectOptions
-		return ret
-	}).(TransitGatewayConnectTransitGatewayConnectOptionsOutput)
-}
-
-// The tunnel protocol.
-func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TransitGatewayConnectTransitGatewayConnectOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Protocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type TransitGatewayMulticastDomainTag struct {
@@ -18944,8 +18818,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceHibernationOptionsOutput{})
 	pulumi.RegisterOutputType(InstanceHibernationOptionsPtrOutput{})
-	pulumi.RegisterOutputType(InstanceInstanceIpv6AddressOutput{})
-	pulumi.RegisterOutputType(InstanceInstanceIpv6AddressArrayOutput{})
+	pulumi.RegisterOutputType(InstanceIpv6AddressOutput{})
+	pulumi.RegisterOutputType(InstanceIpv6AddressArrayOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLicenseSpecificationOutput{})
@@ -18974,10 +18848,14 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateDataOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateDataPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEbsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEbsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})
@@ -18988,12 +18866,6 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIpv6AddOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateIpv6AddArrayOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateDataOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateDataPtrOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateTagSpecificationOutput{})
-	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsOutput{})
@@ -19086,30 +18958,30 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetInstanceIpv6AddressArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceNetworkInterfaceSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceNetworkInterfaceSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetLaunchSpecificationOutput{})
+	pulumi.RegisterOutputType(SpotFleetLaunchSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetLaunchTemplateConfigOutput{})
 	pulumi.RegisterOutputType(SpotFleetLaunchTemplateConfigArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetLaunchTemplateOverridesOutput{})
 	pulumi.RegisterOutputType(SpotFleetLaunchTemplateOverridesArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetLoadBalancersConfigOutput{})
 	pulumi.RegisterOutputType(SpotFleetLoadBalancersConfigPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetMonitoringOutput{})
+	pulumi.RegisterOutputType(SpotFleetMonitoringPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestConfigDataPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalanceOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotCapacityRebalancePtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetLaunchSpecificationOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetLaunchSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetMonitoringOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetMonitoringPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetRequestConfigDataPtrOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetTagSpecificationOutput{})
-	pulumi.RegisterOutputType(SpotFleetSpotFleetTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotMaintenanceStrategiesOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotMaintenanceStrategiesPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementOutput{})
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetTagSpecificationOutput{})
+	pulumi.RegisterOutputType(SpotFleetTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigOutput{})
@@ -19126,10 +18998,10 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorTargetTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayAttachmentTagArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayConnectOptionsOutput{})
+	pulumi.RegisterOutputType(TransitGatewayConnectOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTagArrayOutput{})
-	pulumi.RegisterOutputType(TransitGatewayConnectTransitGatewayConnectOptionsOutput{})
-	pulumi.RegisterOutputType(TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainTagOutput{})
 	pulumi.RegisterOutputType(TransitGatewayMulticastDomainTagArrayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput{})

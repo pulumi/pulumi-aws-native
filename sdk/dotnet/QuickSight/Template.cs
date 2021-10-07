@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.TemplateTemplateSourceEntity?> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.&lt;/p&gt;
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> TemplateId { get; private set; } = null!;
 
         [Output("version")]
-        public Output<Outputs.TemplateTemplateVersion> Version { get; private set; } = null!;
+        public Output<Outputs.TemplateVersion> Version { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;A description of the current template version being created. This API operation creates the
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("sourceEntity")]
-        public Input<Inputs.TemplateTemplateSourceEntityArgs>? SourceEntity { get; set; }
+        public Input<Inputs.TemplateSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.TemplateTagArgs>? _tags;

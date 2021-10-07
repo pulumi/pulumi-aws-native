@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.WAFRegional
     public partial class IPSet : Pulumi.CustomResource
     {
         [Output("iPSetDescriptors")]
-        public Output<ImmutableArray<Outputs.IPSetIPSetDescriptor>> IPSetDescriptors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IPSetDescriptor>> IPSetDescriptors { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -68,10 +68,10 @@ namespace Pulumi.AwsNative.WAFRegional
     public sealed class IPSetArgs : Pulumi.ResourceArgs
     {
         [Input("iPSetDescriptors")]
-        private InputList<Inputs.IPSetIPSetDescriptorArgs>? _iPSetDescriptors;
-        public InputList<Inputs.IPSetIPSetDescriptorArgs> IPSetDescriptors
+        private InputList<Inputs.IPSetDescriptorArgs>? _iPSetDescriptors;
+        public InputList<Inputs.IPSetDescriptorArgs> IPSetDescriptors
         {
-            get => _iPSetDescriptors ?? (_iPSetDescriptors = new InputList<Inputs.IPSetIPSetDescriptorArgs>());
+            get => _iPSetDescriptors ?? (_iPSetDescriptors = new InputList<Inputs.IPSetDescriptorArgs>());
             set => _iPSetDescriptors = value;
         }
 

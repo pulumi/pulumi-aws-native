@@ -445,7 +445,7 @@ export namespace apigateway {
         useStageCache?: boolean;
     }
 
-    export interface DeploymentDeploymentCanarySettings {
+    export interface DeploymentCanarySettings {
         percentTraffic?: number;
         stageVariableOverrides?: any;
         useStageCache?: boolean;
@@ -538,7 +538,7 @@ export namespace apigateway {
         statusCode: string;
     }
 
-    export interface MethodMethodResponse {
+    export interface MethodResponse {
         responseModels?: any;
         responseParameters?: any;
         statusCode: string;
@@ -704,7 +704,7 @@ export namespace apigatewayv2 {
         issuer?: string;
     }
 
-    export interface DomainNameDomainNameConfiguration {
+    export interface DomainNameConfiguration {
         certificateArn?: string;
         certificateName?: string;
         endpointType?: string;
@@ -783,6 +783,14 @@ export namespace appflow {
         secretKey: string;
     }
 
+    /**
+     * Connector specific configurations needed to create connector profile
+     */
+    export interface ConnectorProfileConfig {
+        connectorProfileCredentials: outputs.appflow.ConnectorProfileCredentials;
+        connectorProfileProperties?: outputs.appflow.ConnectorProfileProperties;
+    }
+
     export interface ConnectorProfileConnectorOAuthRequest {
         /**
          * The code provided by the connector when it has been authenticated via the connected app.
@@ -796,17 +804,9 @@ export namespace appflow {
     }
 
     /**
-     * Connector specific configurations needed to create connector profile
-     */
-    export interface ConnectorProfileConnectorProfileConfig {
-        connectorProfileCredentials: outputs.appflow.ConnectorProfileConnectorProfileCredentials;
-        connectorProfileProperties?: outputs.appflow.ConnectorProfileConnectorProfileProperties;
-    }
-
-    /**
      * Connector specific configuration needed to create connector profile based on Authentication mechanism
      */
-    export interface ConnectorProfileConnectorProfileCredentials {
+    export interface ConnectorProfileCredentials {
         amplitude?: outputs.appflow.ConnectorProfileAmplitudeConnectorProfileCredentials;
         datadog?: outputs.appflow.ConnectorProfileDatadogConnectorProfileCredentials;
         dynatrace?: outputs.appflow.ConnectorProfileDynatraceConnectorProfileCredentials;
@@ -822,23 +822,6 @@ export namespace appflow {
         trendmicro?: outputs.appflow.ConnectorProfileTrendmicroConnectorProfileCredentials;
         veeva?: outputs.appflow.ConnectorProfileVeevaConnectorProfileCredentials;
         zendesk?: outputs.appflow.ConnectorProfileZendeskConnectorProfileCredentials;
-    }
-
-    /**
-     * Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
-     */
-    export interface ConnectorProfileConnectorProfileProperties {
-        datadog?: outputs.appflow.ConnectorProfileDatadogConnectorProfileProperties;
-        dynatrace?: outputs.appflow.ConnectorProfileDynatraceConnectorProfileProperties;
-        inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileProperties;
-        marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileProperties;
-        redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileProperties;
-        salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileProperties;
-        serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileProperties;
-        slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileProperties;
-        snowflake?: outputs.appflow.ConnectorProfileSnowflakeConnectorProfileProperties;
-        veeva?: outputs.appflow.ConnectorProfileVeevaConnectorProfileProperties;
-        zendesk?: outputs.appflow.ConnectorProfileZendeskConnectorProfileProperties;
     }
 
     export interface ConnectorProfileDatadogConnectorProfileCredentials {
@@ -946,6 +929,23 @@ export namespace appflow {
          * The location of the Marketo resource
          */
         instanceUrl: string;
+    }
+
+    /**
+     * Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+     */
+    export interface ConnectorProfileProperties {
+        datadog?: outputs.appflow.ConnectorProfileDatadogConnectorProfileProperties;
+        dynatrace?: outputs.appflow.ConnectorProfileDynatraceConnectorProfileProperties;
+        inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileProperties;
+        marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileProperties;
+        redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileProperties;
+        salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileProperties;
+        serviceNow?: outputs.appflow.ConnectorProfileServiceNowConnectorProfileProperties;
+        slack?: outputs.appflow.ConnectorProfileSlackConnectorProfileProperties;
+        snowflake?: outputs.appflow.ConnectorProfileSnowflakeConnectorProfileProperties;
+        veeva?: outputs.appflow.ConnectorProfileVeevaConnectorProfileProperties;
+        zendesk?: outputs.appflow.ConnectorProfileZendeskConnectorProfileProperties;
     }
 
     export interface ConnectorProfileRedshiftConnectorProfileCredentials {
@@ -1470,14 +1470,7 @@ export namespace appflow {
 }
 
 export namespace appintegrations {
-    export interface EventIntegrationEventFilter {
-        /**
-         * The source of the events.
-         */
-        source: string;
-    }
-
-    export interface EventIntegrationEventIntegrationAssociation {
+    export interface EventIntegrationAssociation {
         /**
          * The metadata associated with the client.
          */
@@ -1498,6 +1491,13 @@ export namespace appintegrations {
          * The identifier for the event integration association.
          */
         eventIntegrationAssociationId?: string;
+    }
+
+    export interface EventIntegrationEventFilter {
+        /**
+         * The source of the events.
+         */
+        source: string;
     }
 
     export interface EventIntegrationMetadata {
@@ -1525,14 +1525,14 @@ export namespace appintegrations {
 }
 
 export namespace applicationautoscaling {
-    export interface ScalableTargetScalableTargetAction {
+    export interface ScalableTargetAction {
         maxCapacity?: number;
         minCapacity?: number;
     }
 
     export interface ScalableTargetScheduledAction {
         endTime?: string;
-        scalableTargetAction?: outputs.applicationautoscaling.ScalableTargetScalableTargetAction;
+        scalableTargetAction?: outputs.applicationautoscaling.ScalableTargetAction;
         schedule: string;
         scheduledActionName: string;
         startTime?: string;
@@ -1844,42 +1844,6 @@ export namespace applicationinsights {
 }
 
 export namespace appmesh {
-    export interface GatewayRouteGatewayRouteHostnameMatch {
-        exact?: string;
-        suffix?: string;
-    }
-
-    export interface GatewayRouteGatewayRouteHostnameRewrite {
-        defaultTargetHostname?: string;
-    }
-
-    export interface GatewayRouteGatewayRouteMetadataMatch {
-        exact?: string;
-        prefix?: string;
-        range?: outputs.appmesh.GatewayRouteGatewayRouteRangeMatch;
-        regex?: string;
-        suffix?: string;
-    }
-
-    export interface GatewayRouteGatewayRouteRangeMatch {
-        end: number;
-        start: number;
-    }
-
-    export interface GatewayRouteGatewayRouteSpec {
-        grpcRoute?: outputs.appmesh.GatewayRouteGrpcGatewayRoute;
-        http2Route?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
-        httpRoute?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
-    }
-
-    export interface GatewayRouteGatewayRouteTarget {
-        virtualService: outputs.appmesh.GatewayRouteGatewayRouteVirtualService;
-    }
-
-    export interface GatewayRouteGatewayRouteVirtualService {
-        virtualServiceName: string;
-    }
-
     export interface GatewayRouteGrpcGatewayRoute {
         action: outputs.appmesh.GatewayRouteGrpcGatewayRouteAction;
         match: outputs.appmesh.GatewayRouteGrpcGatewayRouteMatch;
@@ -1887,23 +1851,32 @@ export namespace appmesh {
 
     export interface GatewayRouteGrpcGatewayRouteAction {
         rewrite?: outputs.appmesh.GatewayRouteGrpcGatewayRouteRewrite;
-        target: outputs.appmesh.GatewayRouteGatewayRouteTarget;
+        target: outputs.appmesh.GatewayRouteTarget;
     }
 
     export interface GatewayRouteGrpcGatewayRouteMatch {
-        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameMatch;
+        hostname?: outputs.appmesh.GatewayRouteHostnameMatch;
         metadata?: outputs.appmesh.GatewayRouteGrpcGatewayRouteMetadata[];
         serviceName?: string;
     }
 
     export interface GatewayRouteGrpcGatewayRouteMetadata {
         invert?: boolean;
-        match?: outputs.appmesh.GatewayRouteGatewayRouteMetadataMatch;
+        match?: outputs.appmesh.GatewayRouteMetadataMatch;
         name: string;
     }
 
     export interface GatewayRouteGrpcGatewayRouteRewrite {
-        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameRewrite;
+        hostname?: outputs.appmesh.GatewayRouteHostnameRewrite;
+    }
+
+    export interface GatewayRouteHostnameMatch {
+        exact?: string;
+        suffix?: string;
+    }
+
+    export interface GatewayRouteHostnameRewrite {
+        defaultTargetHostname?: string;
     }
 
     export interface GatewayRouteHttpGatewayRoute {
@@ -1913,7 +1886,7 @@ export namespace appmesh {
 
     export interface GatewayRouteHttpGatewayRouteAction {
         rewrite?: outputs.appmesh.GatewayRouteHttpGatewayRouteRewrite;
-        target: outputs.appmesh.GatewayRouteGatewayRouteTarget;
+        target: outputs.appmesh.GatewayRouteTarget;
     }
 
     export interface GatewayRouteHttpGatewayRouteHeader {
@@ -1925,14 +1898,14 @@ export namespace appmesh {
     export interface GatewayRouteHttpGatewayRouteHeaderMatch {
         exact?: string;
         prefix?: string;
-        range?: outputs.appmesh.GatewayRouteGatewayRouteRangeMatch;
+        range?: outputs.appmesh.GatewayRouteRangeMatch;
         regex?: string;
         suffix?: string;
     }
 
     export interface GatewayRouteHttpGatewayRouteMatch {
         headers?: outputs.appmesh.GatewayRouteHttpGatewayRouteHeader[];
-        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameMatch;
+        hostname?: outputs.appmesh.GatewayRouteHostnameMatch;
         method?: string;
         path?: outputs.appmesh.GatewayRouteHttpPathMatch;
         prefix?: string;
@@ -1949,7 +1922,7 @@ export namespace appmesh {
     }
 
     export interface GatewayRouteHttpGatewayRouteRewrite {
-        hostname?: outputs.appmesh.GatewayRouteGatewayRouteHostnameRewrite;
+        hostname?: outputs.appmesh.GatewayRouteHostnameRewrite;
         path?: outputs.appmesh.GatewayRouteHttpGatewayRoutePathRewrite;
         prefix?: outputs.appmesh.GatewayRouteHttpGatewayRoutePrefixRewrite;
     }
@@ -1963,9 +1936,28 @@ export namespace appmesh {
         exact?: string;
     }
 
+    export interface GatewayRouteMetadataMatch {
+        exact?: string;
+        prefix?: string;
+        range?: outputs.appmesh.GatewayRouteRangeMatch;
+        regex?: string;
+        suffix?: string;
+    }
+
     export interface GatewayRouteQueryParameter {
         match?: outputs.appmesh.GatewayRouteHttpQueryParameterMatch;
         name: string;
+    }
+
+    export interface GatewayRouteRangeMatch {
+        end: number;
+        start: number;
+    }
+
+    export interface GatewayRouteSpec {
+        grpcRoute?: outputs.appmesh.GatewayRouteGrpcGatewayRoute;
+        http2Route?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
+        httpRoute?: outputs.appmesh.GatewayRouteHttpGatewayRoute;
     }
 
     export interface GatewayRouteTag {
@@ -1973,11 +1965,19 @@ export namespace appmesh {
         value: string;
     }
 
+    export interface GatewayRouteTarget {
+        virtualService: outputs.appmesh.GatewayRouteVirtualService;
+    }
+
+    export interface GatewayRouteVirtualService {
+        virtualServiceName: string;
+    }
+
     export interface MeshEgressFilter {
         type: string;
     }
 
-    export interface MeshMeshSpec {
+    export interface MeshSpec {
         egressFilter?: outputs.appmesh.MeshEgressFilter;
     }
 
@@ -2100,7 +2100,7 @@ export namespace appmesh {
         name: string;
     }
 
-    export interface RouteRouteSpec {
+    export interface RouteSpec {
         grpcRoute?: outputs.appmesh.RouteGrpcRoute;
         http2Route?: outputs.appmesh.RouteHttpRoute;
         httpRoute?: outputs.appmesh.RouteHttpRoute;
@@ -2131,6 +2131,120 @@ export namespace appmesh {
         weight: number;
     }
 
+    export interface VirtualGatewayAccessLog {
+        file?: outputs.appmesh.VirtualGatewayFileAccessLog;
+    }
+
+    export interface VirtualGatewayBackendDefaults {
+        clientPolicy?: outputs.appmesh.VirtualGatewayClientPolicy;
+    }
+
+    export interface VirtualGatewayClientPolicy {
+        tLS?: outputs.appmesh.VirtualGatewayClientPolicyTls;
+    }
+
+    export interface VirtualGatewayClientPolicyTls {
+        certificate?: outputs.appmesh.VirtualGatewayClientTlsCertificate;
+        enforce?: boolean;
+        ports?: number[];
+        validation: outputs.appmesh.VirtualGatewayTlsValidationContext;
+    }
+
+    export interface VirtualGatewayClientTlsCertificate {
+        file?: outputs.appmesh.VirtualGatewayListenerTlsFileCertificate;
+        sDS?: outputs.appmesh.VirtualGatewayListenerTlsSdsCertificate;
+    }
+
+    export interface VirtualGatewayConnectionPool {
+        gRPC?: outputs.appmesh.VirtualGatewayGrpcConnectionPool;
+        hTTP?: outputs.appmesh.VirtualGatewayHttpConnectionPool;
+        hTTP2?: outputs.appmesh.VirtualGatewayHttp2ConnectionPool;
+    }
+
+    export interface VirtualGatewayFileAccessLog {
+        path: string;
+    }
+
+    export interface VirtualGatewayGrpcConnectionPool {
+        maxRequests: number;
+    }
+
+    export interface VirtualGatewayHealthCheckPolicy {
+        healthyThreshold: number;
+        intervalMillis: number;
+        path?: string;
+        port?: number;
+        protocol: string;
+        timeoutMillis: number;
+        unhealthyThreshold: number;
+    }
+
+    export interface VirtualGatewayHttp2ConnectionPool {
+        maxRequests: number;
+    }
+
+    export interface VirtualGatewayHttpConnectionPool {
+        maxConnections: number;
+        maxPendingRequests?: number;
+    }
+
+    export interface VirtualGatewayListener {
+        connectionPool?: outputs.appmesh.VirtualGatewayConnectionPool;
+        healthCheck?: outputs.appmesh.VirtualGatewayHealthCheckPolicy;
+        portMapping: outputs.appmesh.VirtualGatewayPortMapping;
+        tLS?: outputs.appmesh.VirtualGatewayListenerTls;
+    }
+
+    export interface VirtualGatewayListenerTls {
+        certificate: outputs.appmesh.VirtualGatewayListenerTlsCertificate;
+        mode: string;
+        validation?: outputs.appmesh.VirtualGatewayListenerTlsValidationContext;
+    }
+
+    export interface VirtualGatewayListenerTlsAcmCertificate {
+        certificateArn: string;
+    }
+
+    export interface VirtualGatewayListenerTlsCertificate {
+        aCM?: outputs.appmesh.VirtualGatewayListenerTlsAcmCertificate;
+        file?: outputs.appmesh.VirtualGatewayListenerTlsFileCertificate;
+        sDS?: outputs.appmesh.VirtualGatewayListenerTlsSdsCertificate;
+    }
+
+    export interface VirtualGatewayListenerTlsFileCertificate {
+        certificateChain: string;
+        privateKey: string;
+    }
+
+    export interface VirtualGatewayListenerTlsSdsCertificate {
+        secretName: string;
+    }
+
+    export interface VirtualGatewayListenerTlsValidationContext {
+        subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySubjectAlternativeNames;
+        trust: outputs.appmesh.VirtualGatewayListenerTlsValidationContextTrust;
+    }
+
+    export interface VirtualGatewayListenerTlsValidationContextTrust {
+        file?: outputs.appmesh.VirtualGatewayTlsValidationContextFileTrust;
+        sDS?: outputs.appmesh.VirtualGatewayTlsValidationContextSdsTrust;
+    }
+
+    export interface VirtualGatewayLogging {
+        accessLog?: outputs.appmesh.VirtualGatewayAccessLog;
+    }
+
+    export interface VirtualGatewayPortMapping {
+        port: number;
+        protocol: string;
+    }
+
+    export interface VirtualGatewaySpec {
+        backendDefaults?: outputs.appmesh.VirtualGatewayBackendDefaults;
+        listeners: outputs.appmesh.VirtualGatewayListener[];
+        logging?: outputs.appmesh.VirtualGatewayLogging;
+    }
+
     export interface VirtualGatewaySubjectAlternativeNameMatchers {
         exact?: string[];
     }
@@ -2144,141 +2258,27 @@ export namespace appmesh {
         value: string;
     }
 
-    export interface VirtualGatewayVirtualGatewayAccessLog {
-        file?: outputs.appmesh.VirtualGatewayVirtualGatewayFileAccessLog;
-    }
-
-    export interface VirtualGatewayVirtualGatewayBackendDefaults {
-        clientPolicy?: outputs.appmesh.VirtualGatewayVirtualGatewayClientPolicy;
-    }
-
-    export interface VirtualGatewayVirtualGatewayClientPolicy {
-        tLS?: outputs.appmesh.VirtualGatewayVirtualGatewayClientPolicyTls;
-    }
-
-    export interface VirtualGatewayVirtualGatewayClientPolicyTls {
-        certificate?: outputs.appmesh.VirtualGatewayVirtualGatewayClientTlsCertificate;
-        enforce?: boolean;
-        ports?: number[];
-        validation: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContext;
-    }
-
-    export interface VirtualGatewayVirtualGatewayClientTlsCertificate {
-        file?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsFileCertificate;
-        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate;
-    }
-
-    export interface VirtualGatewayVirtualGatewayConnectionPool {
-        gRPC?: outputs.appmesh.VirtualGatewayVirtualGatewayGrpcConnectionPool;
-        hTTP?: outputs.appmesh.VirtualGatewayVirtualGatewayHttpConnectionPool;
-        hTTP2?: outputs.appmesh.VirtualGatewayVirtualGatewayHttp2ConnectionPool;
-    }
-
-    export interface VirtualGatewayVirtualGatewayFileAccessLog {
-        path: string;
-    }
-
-    export interface VirtualGatewayVirtualGatewayGrpcConnectionPool {
-        maxRequests: number;
-    }
-
-    export interface VirtualGatewayVirtualGatewayHealthCheckPolicy {
-        healthyThreshold: number;
-        intervalMillis: number;
-        path?: string;
-        port?: number;
-        protocol: string;
-        timeoutMillis: number;
-        unhealthyThreshold: number;
-    }
-
-    export interface VirtualGatewayVirtualGatewayHttp2ConnectionPool {
-        maxRequests: number;
-    }
-
-    export interface VirtualGatewayVirtualGatewayHttpConnectionPool {
-        maxConnections: number;
-        maxPendingRequests?: number;
-    }
-
-    export interface VirtualGatewayVirtualGatewayListener {
-        connectionPool?: outputs.appmesh.VirtualGatewayVirtualGatewayConnectionPool;
-        healthCheck?: outputs.appmesh.VirtualGatewayVirtualGatewayHealthCheckPolicy;
-        portMapping: outputs.appmesh.VirtualGatewayVirtualGatewayPortMapping;
-        tLS?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTls;
-    }
-
-    export interface VirtualGatewayVirtualGatewayListenerTls {
-        certificate: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsCertificate;
-        mode: string;
-        validation?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsValidationContext;
-    }
-
-    export interface VirtualGatewayVirtualGatewayListenerTlsAcmCertificate {
-        certificateArn: string;
-    }
-
-    export interface VirtualGatewayVirtualGatewayListenerTlsCertificate {
-        aCM?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsAcmCertificate;
-        file?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsFileCertificate;
-        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsSdsCertificate;
-    }
-
-    export interface VirtualGatewayVirtualGatewayListenerTlsFileCertificate {
-        certificateChain: string;
-        privateKey: string;
-    }
-
-    export interface VirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
-        secretName: string;
-    }
-
-    export interface VirtualGatewayVirtualGatewayListenerTlsValidationContext {
+    export interface VirtualGatewayTlsValidationContext {
         subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySubjectAlternativeNames;
-        trust: outputs.appmesh.VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust;
+        trust: outputs.appmesh.VirtualGatewayTlsValidationContextTrust;
     }
 
-    export interface VirtualGatewayVirtualGatewayListenerTlsValidationContextTrust {
-        file?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust;
-        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust;
-    }
-
-    export interface VirtualGatewayVirtualGatewayLogging {
-        accessLog?: outputs.appmesh.VirtualGatewayVirtualGatewayAccessLog;
-    }
-
-    export interface VirtualGatewayVirtualGatewayPortMapping {
-        port: number;
-        protocol: string;
-    }
-
-    export interface VirtualGatewayVirtualGatewaySpec {
-        backendDefaults?: outputs.appmesh.VirtualGatewayVirtualGatewayBackendDefaults;
-        listeners: outputs.appmesh.VirtualGatewayVirtualGatewayListener[];
-        logging?: outputs.appmesh.VirtualGatewayVirtualGatewayLogging;
-    }
-
-    export interface VirtualGatewayVirtualGatewayTlsValidationContext {
-        subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySubjectAlternativeNames;
-        trust: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextTrust;
-    }
-
-    export interface VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
+    export interface VirtualGatewayTlsValidationContextAcmTrust {
         certificateAuthorityArns: string[];
     }
 
-    export interface VirtualGatewayVirtualGatewayTlsValidationContextFileTrust {
+    export interface VirtualGatewayTlsValidationContextFileTrust {
         certificateChain: string;
     }
 
-    export interface VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust {
+    export interface VirtualGatewayTlsValidationContextSdsTrust {
         secretName: string;
     }
 
-    export interface VirtualGatewayVirtualGatewayTlsValidationContextTrust {
-        aCM?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextAcmTrust;
-        file?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextFileTrust;
-        sDS?: outputs.appmesh.VirtualGatewayVirtualGatewayTlsValidationContextSdsTrust;
+    export interface VirtualGatewayTlsValidationContextTrust {
+        aCM?: outputs.appmesh.VirtualGatewayTlsValidationContextAcmTrust;
+        file?: outputs.appmesh.VirtualGatewayTlsValidationContextFileTrust;
+        sDS?: outputs.appmesh.VirtualGatewayTlsValidationContextSdsTrust;
     }
 
     export interface VirtualNodeAccessLog {
@@ -2320,6 +2320,13 @@ export namespace appmesh {
         sDS?: outputs.appmesh.VirtualNodeListenerTlsSdsCertificate;
     }
 
+    export interface VirtualNodeConnectionPool {
+        gRPC?: outputs.appmesh.VirtualNodeGrpcConnectionPool;
+        hTTP?: outputs.appmesh.VirtualNodeHttpConnectionPool;
+        hTTP2?: outputs.appmesh.VirtualNodeHttp2ConnectionPool;
+        tCP?: outputs.appmesh.VirtualNodeTcpConnectionPool;
+    }
+
     export interface VirtualNodeDnsServiceDiscovery {
         hostname: string;
         responseType?: string;
@@ -2332,6 +2339,10 @@ export namespace appmesh {
 
     export interface VirtualNodeFileAccessLog {
         path: string;
+    }
+
+    export interface VirtualNodeGrpcConnectionPool {
+        maxRequests: number;
     }
 
     export interface VirtualNodeGrpcTimeout {
@@ -2349,13 +2360,22 @@ export namespace appmesh {
         unhealthyThreshold: number;
     }
 
+    export interface VirtualNodeHttp2ConnectionPool {
+        maxRequests: number;
+    }
+
+    export interface VirtualNodeHttpConnectionPool {
+        maxConnections: number;
+        maxPendingRequests?: number;
+    }
+
     export interface VirtualNodeHttpTimeout {
         idle?: outputs.appmesh.VirtualNodeDuration;
         perRequest?: outputs.appmesh.VirtualNodeDuration;
     }
 
     export interface VirtualNodeListener {
-        connectionPool?: outputs.appmesh.VirtualNodeVirtualNodeConnectionPool;
+        connectionPool?: outputs.appmesh.VirtualNodeConnectionPool;
         healthCheck?: outputs.appmesh.VirtualNodeHealthCheck;
         outlierDetection?: outputs.appmesh.VirtualNodeOutlierDetection;
         portMapping: outputs.appmesh.VirtualNodePortMapping;
@@ -2426,6 +2446,14 @@ export namespace appmesh {
         dNS?: outputs.appmesh.VirtualNodeDnsServiceDiscovery;
     }
 
+    export interface VirtualNodeSpec {
+        backendDefaults?: outputs.appmesh.VirtualNodeBackendDefaults;
+        backends?: outputs.appmesh.VirtualNodeBackend[];
+        listeners?: outputs.appmesh.VirtualNodeListener[];
+        logging?: outputs.appmesh.VirtualNodeLogging;
+        serviceDiscovery?: outputs.appmesh.VirtualNodeServiceDiscovery;
+    }
+
     export interface VirtualNodeSubjectAlternativeNameMatchers {
         exact?: string[];
     }
@@ -2437,6 +2465,10 @@ export namespace appmesh {
     export interface VirtualNodeTag {
         key: string;
         value: string;
+    }
+
+    export interface VirtualNodeTcpConnectionPool {
+        maxConnections: number;
     }
 
     export interface VirtualNodeTcpTimeout {
@@ -2466,41 +2498,13 @@ export namespace appmesh {
         sDS?: outputs.appmesh.VirtualNodeTlsValidationContextSdsTrust;
     }
 
-    export interface VirtualNodeVirtualNodeConnectionPool {
-        gRPC?: outputs.appmesh.VirtualNodeVirtualNodeGrpcConnectionPool;
-        hTTP?: outputs.appmesh.VirtualNodeVirtualNodeHttpConnectionPool;
-        hTTP2?: outputs.appmesh.VirtualNodeVirtualNodeHttp2ConnectionPool;
-        tCP?: outputs.appmesh.VirtualNodeVirtualNodeTcpConnectionPool;
-    }
-
-    export interface VirtualNodeVirtualNodeGrpcConnectionPool {
-        maxRequests: number;
-    }
-
-    export interface VirtualNodeVirtualNodeHttp2ConnectionPool {
-        maxRequests: number;
-    }
-
-    export interface VirtualNodeVirtualNodeHttpConnectionPool {
-        maxConnections: number;
-        maxPendingRequests?: number;
-    }
-
-    export interface VirtualNodeVirtualNodeSpec {
-        backendDefaults?: outputs.appmesh.VirtualNodeBackendDefaults;
-        backends?: outputs.appmesh.VirtualNodeBackend[];
-        listeners?: outputs.appmesh.VirtualNodeListener[];
-        logging?: outputs.appmesh.VirtualNodeLogging;
-        serviceDiscovery?: outputs.appmesh.VirtualNodeServiceDiscovery;
-    }
-
-    export interface VirtualNodeVirtualNodeTcpConnectionPool {
-        maxConnections: number;
-    }
-
     export interface VirtualNodeVirtualServiceBackend {
         clientPolicy?: outputs.appmesh.VirtualNodeClientPolicy;
         virtualServiceName: string;
+    }
+
+    export interface VirtualRouterListener {
+        portMapping: outputs.appmesh.VirtualRouterPortMapping;
     }
 
     export interface VirtualRouterPortMapping {
@@ -2508,17 +2512,22 @@ export namespace appmesh {
         protocol: string;
     }
 
+    export interface VirtualRouterSpec {
+        listeners: outputs.appmesh.VirtualRouterListener[];
+    }
+
     export interface VirtualRouterTag {
         key: string;
         value: string;
     }
 
-    export interface VirtualRouterVirtualRouterListener {
-        portMapping: outputs.appmesh.VirtualRouterPortMapping;
+    export interface VirtualServiceProvider {
+        virtualNode?: outputs.appmesh.VirtualServiceVirtualNodeServiceProvider;
+        virtualRouter?: outputs.appmesh.VirtualServiceVirtualRouterServiceProvider;
     }
 
-    export interface VirtualRouterVirtualRouterSpec {
-        listeners: outputs.appmesh.VirtualRouterVirtualRouterListener[];
+    export interface VirtualServiceSpec {
+        provider?: outputs.appmesh.VirtualServiceProvider;
     }
 
     export interface VirtualServiceTag {
@@ -2532,15 +2541,6 @@ export namespace appmesh {
 
     export interface VirtualServiceVirtualRouterServiceProvider {
         virtualRouterName: string;
-    }
-
-    export interface VirtualServiceVirtualServiceProvider {
-        virtualNode?: outputs.appmesh.VirtualServiceVirtualNodeServiceProvider;
-        virtualRouter?: outputs.appmesh.VirtualServiceVirtualRouterServiceProvider;
-    }
-
-    export interface VirtualServiceVirtualServiceSpec {
-        provider?: outputs.appmesh.VirtualServiceVirtualServiceProvider;
     }
 }
 
@@ -2967,7 +2967,7 @@ export namespace ask {
         manifest?: any;
     }
 
-    export interface SkillSkillPackage {
+    export interface SkillPackage {
         overrides?: outputs.ask.SkillOverrides;
         s3Bucket: string;
         s3BucketRole?: string;
@@ -2981,6 +2981,28 @@ export namespace athena {
     export interface DataCatalogTag {
         key: string;
         value: string;
+    }
+
+    export interface WorkGroupConfiguration {
+        bytesScannedCutoffPerQuery?: number;
+        enforceWorkGroupConfiguration?: boolean;
+        engineVersion?: outputs.athena.WorkGroupEngineVersion;
+        publishCloudWatchMetricsEnabled?: boolean;
+        requesterPaysEnabled?: boolean;
+        resultConfiguration?: outputs.athena.WorkGroupResultConfiguration;
+    }
+
+    /**
+     * The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
+     */
+    export interface WorkGroupConfigurationUpdates {
+        bytesScannedCutoffPerQuery?: number;
+        enforceWorkGroupConfiguration?: boolean;
+        engineVersion?: outputs.athena.WorkGroupEngineVersion;
+        publishCloudWatchMetricsEnabled?: boolean;
+        removeBytesScannedCutoffPerQuery?: boolean;
+        requesterPaysEnabled?: boolean;
+        resultConfigurationUpdates?: outputs.athena.WorkGroupResultConfigurationUpdates;
     }
 
     /**
@@ -3022,28 +3044,6 @@ export namespace athena {
         value: string;
     }
 
-    export interface WorkGroupWorkGroupConfiguration {
-        bytesScannedCutoffPerQuery?: number;
-        enforceWorkGroupConfiguration?: boolean;
-        engineVersion?: outputs.athena.WorkGroupEngineVersion;
-        publishCloudWatchMetricsEnabled?: boolean;
-        requesterPaysEnabled?: boolean;
-        resultConfiguration?: outputs.athena.WorkGroupResultConfiguration;
-    }
-
-    /**
-     * The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
-     */
-    export interface WorkGroupWorkGroupConfigurationUpdates {
-        bytesScannedCutoffPerQuery?: number;
-        enforceWorkGroupConfiguration?: boolean;
-        engineVersion?: outputs.athena.WorkGroupEngineVersion;
-        publishCloudWatchMetricsEnabled?: boolean;
-        removeBytesScannedCutoffPerQuery?: boolean;
-        requesterPaysEnabled?: boolean;
-        resultConfigurationUpdates?: outputs.athena.WorkGroupResultConfigurationUpdates;
-    }
-
 }
 
 export namespace auditmanager {
@@ -3064,14 +3064,6 @@ export namespace auditmanager {
     }
 
     /**
-     * The destination in which evidence reports are stored for the specified assessment.
-     */
-    export interface AssessmentAssessmentReportsDestination {
-        destination?: string;
-        destinationType?: enums.auditmanager.AssessmentAssessmentReportDestinationType;
-    }
-
-    /**
      * The assignment of a control set to a delegate for review.
      */
     export interface AssessmentDelegation {
@@ -3086,6 +3078,14 @@ export namespace auditmanager {
         roleArn?: string;
         roleType?: enums.auditmanager.AssessmentRoleType;
         status?: enums.auditmanager.AssessmentDelegationStatus;
+    }
+
+    /**
+     * The destination in which evidence reports are stored for the specified assessment.
+     */
+    export interface AssessmentReportsDestination {
+        destination?: string;
+        destinationType?: enums.auditmanager.AssessmentReportDestinationType;
     }
 
     /**
@@ -3347,12 +3347,6 @@ export namespace backup {
         resourceType: string;
     }
 
-    export interface BackupPlanBackupPlanResourceType {
-        advancedBackupSettings?: outputs.backup.BackupPlanAdvancedBackupSettingResourceType[];
-        backupPlanName: string;
-        backupPlanRule: outputs.backup.BackupPlanBackupRuleResourceType[];
-    }
-
     export interface BackupPlanBackupRuleResourceType {
         completionWindowMinutes?: number;
         copyActions?: outputs.backup.BackupPlanCopyActionResourceType[];
@@ -3375,17 +3369,23 @@ export namespace backup {
         moveToColdStorageAfterDays?: number;
     }
 
-    export interface BackupSelectionBackupSelectionResourceType {
-        iamRoleArn: string;
-        listOfTags?: outputs.backup.BackupSelectionConditionResourceType[];
-        resources?: string[];
-        selectionName: string;
+    export interface BackupPlanResourceType {
+        advancedBackupSettings?: outputs.backup.BackupPlanAdvancedBackupSettingResourceType[];
+        backupPlanName: string;
+        backupPlanRule: outputs.backup.BackupPlanBackupRuleResourceType[];
     }
 
     export interface BackupSelectionConditionResourceType {
         conditionKey: string;
         conditionType: string;
         conditionValue: string;
+    }
+
+    export interface BackupSelectionResourceType {
+        iamRoleArn: string;
+        listOfTags?: outputs.backup.BackupSelectionConditionResourceType[];
+        resources?: string[];
+        selectionName: string;
     }
 
     export interface BackupVaultLockConfigurationType {
@@ -3576,17 +3576,6 @@ export namespace batch {
 }
 
 export namespace budgets {
-    export interface BudgetBudgetData {
-        budgetLimit?: outputs.budgets.BudgetSpend;
-        budgetName?: string;
-        budgetType: string;
-        costFilters?: any;
-        costTypes?: outputs.budgets.BudgetCostTypes;
-        plannedBudgetLimits?: any;
-        timePeriod?: outputs.budgets.BudgetTimePeriod;
-        timeUnit: string;
-    }
-
     export interface BudgetCostTypes {
         includeCredit?: boolean;
         includeDiscount?: boolean;
@@ -3599,6 +3588,17 @@ export namespace budgets {
         includeUpfront?: boolean;
         useAmortized?: boolean;
         useBlended?: boolean;
+    }
+
+    export interface BudgetData {
+        budgetLimit?: outputs.budgets.BudgetSpend;
+        budgetName?: string;
+        budgetType: string;
+        costFilters?: any;
+        costTypes?: outputs.budgets.BudgetCostTypes;
+        plannedBudgetLimits?: any;
+        timePeriod?: outputs.budgets.BudgetTimePeriod;
+        timeUnit: string;
     }
 
     export interface BudgetNotification {
@@ -3850,7 +3850,7 @@ export namespace cloudformation {
 }
 
 export namespace cloudfront {
-    export interface CachePolicyCachePolicyConfig {
+    export interface CachePolicyConfig {
         comment?: string;
         defaultTTL: number;
         maxTTL: number;
@@ -3882,7 +3882,7 @@ export namespace cloudfront {
         queryStrings?: string[];
     }
 
-    export interface CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig {
+    export interface CloudFrontOriginAccessIdentityConfig {
         comment: string;
     }
 
@@ -3906,6 +3906,28 @@ export namespace cloudfront {
         trustedKeyGroups?: string[];
         trustedSigners?: string[];
         viewerProtocolPolicy: string;
+    }
+
+    export interface DistributionConfig {
+        aliases?: string[];
+        cNAMEs?: string[];
+        cacheBehaviors?: outputs.cloudfront.DistributionCacheBehavior[];
+        comment?: string;
+        customErrorResponses?: outputs.cloudfront.DistributionCustomErrorResponse[];
+        customOrigin?: outputs.cloudfront.DistributionLegacyCustomOrigin;
+        defaultCacheBehavior?: outputs.cloudfront.DistributionDefaultCacheBehavior;
+        defaultRootObject?: string;
+        enabled: boolean;
+        httpVersion?: string;
+        iPV6Enabled?: boolean;
+        logging?: outputs.cloudfront.DistributionLogging;
+        originGroups?: outputs.cloudfront.DistributionOriginGroups;
+        origins?: outputs.cloudfront.DistributionOrigin[];
+        priceClass?: string;
+        restrictions?: outputs.cloudfront.DistributionRestrictions;
+        s3Origin?: outputs.cloudfront.DistributionLegacyS3Origin;
+        viewerCertificate?: outputs.cloudfront.DistributionViewerCertificate;
+        webACLId?: string;
     }
 
     export interface DistributionCookies {
@@ -3948,28 +3970,6 @@ export namespace cloudfront {
         trustedKeyGroups?: string[];
         trustedSigners?: string[];
         viewerProtocolPolicy: string;
-    }
-
-    export interface DistributionDistributionConfig {
-        aliases?: string[];
-        cNAMEs?: string[];
-        cacheBehaviors?: outputs.cloudfront.DistributionCacheBehavior[];
-        comment?: string;
-        customErrorResponses?: outputs.cloudfront.DistributionCustomErrorResponse[];
-        customOrigin?: outputs.cloudfront.DistributionLegacyCustomOrigin;
-        defaultCacheBehavior?: outputs.cloudfront.DistributionDefaultCacheBehavior;
-        defaultRootObject?: string;
-        enabled: boolean;
-        httpVersion?: string;
-        iPV6Enabled?: boolean;
-        logging?: outputs.cloudfront.DistributionLogging;
-        originGroups?: outputs.cloudfront.DistributionOriginGroups;
-        origins?: outputs.cloudfront.DistributionOrigin[];
-        priceClass?: string;
-        restrictions?: outputs.cloudfront.DistributionRestrictions;
-        s3Origin?: outputs.cloudfront.DistributionLegacyS3Origin;
-        viewerCertificate?: outputs.cloudfront.DistributionViewerCertificate;
-        webACLId?: string;
     }
 
     export interface DistributionForwardedValues {
@@ -4086,19 +4086,27 @@ export namespace cloudfront {
         sslSupportMethod?: string;
     }
 
-    export interface FunctionFunctionConfig {
+    export interface FunctionConfig {
         comment: string;
         runtime: string;
     }
 
-    export interface FunctionFunctionMetadata {
+    export interface FunctionMetadata {
         functionARN?: string;
     }
 
-    export interface KeyGroupKeyGroupConfig {
+    export interface KeyGroupConfig {
         comment?: string;
         items: string[];
         name: string;
+    }
+
+    export interface OriginRequestPolicyConfig {
+        comment?: string;
+        cookiesConfig: outputs.cloudfront.OriginRequestPolicyCookiesConfig;
+        headersConfig: outputs.cloudfront.OriginRequestPolicyHeadersConfig;
+        name: string;
+        queryStringsConfig: outputs.cloudfront.OriginRequestPolicyQueryStringsConfig;
     }
 
     export interface OriginRequestPolicyCookiesConfig {
@@ -4111,20 +4119,12 @@ export namespace cloudfront {
         headers?: string[];
     }
 
-    export interface OriginRequestPolicyOriginRequestPolicyConfig {
-        comment?: string;
-        cookiesConfig: outputs.cloudfront.OriginRequestPolicyCookiesConfig;
-        headersConfig: outputs.cloudfront.OriginRequestPolicyHeadersConfig;
-        name: string;
-        queryStringsConfig: outputs.cloudfront.OriginRequestPolicyQueryStringsConfig;
-    }
-
     export interface OriginRequestPolicyQueryStringsConfig {
         queryStringBehavior: string;
         queryStrings?: string[];
     }
 
-    export interface PublicKeyPublicKeyConfig {
+    export interface PublicKeyConfig {
         callerReference: string;
         comment?: string;
         encodedKey: string;
@@ -4141,6 +4141,16 @@ export namespace cloudfront {
         streamArn: string;
     }
 
+    export interface StreamingDistributionConfig {
+        aliases?: string[];
+        comment: string;
+        enabled: boolean;
+        logging?: outputs.cloudfront.StreamingDistributionLogging;
+        priceClass?: string;
+        s3Origin: outputs.cloudfront.StreamingDistributionS3Origin;
+        trustedSigners: outputs.cloudfront.StreamingDistributionTrustedSigners;
+    }
+
     export interface StreamingDistributionLogging {
         bucket: string;
         enabled: boolean;
@@ -4150,16 +4160,6 @@ export namespace cloudfront {
     export interface StreamingDistributionS3Origin {
         domainName: string;
         originAccessIdentity: string;
-    }
-
-    export interface StreamingDistributionStreamingDistributionConfig {
-        aliases?: string[];
-        comment: string;
-        enabled: boolean;
-        logging?: outputs.cloudfront.StreamingDistributionLogging;
-        priceClass?: string;
-        s3Origin: outputs.cloudfront.StreamingDistributionS3Origin;
-        trustedSigners: outputs.cloudfront.StreamingDistributionTrustedSigners;
     }
 
     export interface StreamingDistributionTag {
@@ -4284,7 +4284,7 @@ export namespace cloudwatch {
     /**
      * This structure defines the metrics that will be streamed.
      */
-    export interface MetricStreamMetricStreamFilter {
+    export interface MetricStreamFilter {
         /**
          * Only metrics with Namespace matching this value will be streamed.
          */
@@ -4356,9 +4356,22 @@ export namespace codebuild {
         maximumBuildsAllowed?: number;
     }
 
+    export interface ProjectBuildBatchConfig {
+        combineArtifacts?: boolean;
+        restrictions?: outputs.codebuild.ProjectBatchRestrictions;
+        serviceRole?: string;
+        timeoutInMins?: number;
+    }
+
     export interface ProjectBuildStatusConfig {
         context?: string;
         targetUrl?: string;
+    }
+
+    export interface ProjectCache {
+        location?: string;
+        modes?: string[];
+        type: string;
     }
 
     export interface ProjectCloudWatchLogsConfig {
@@ -4384,6 +4397,14 @@ export namespace codebuild {
         value: string;
     }
 
+    export interface ProjectFileSystemLocation {
+        identifier: string;
+        location: string;
+        mountOptions?: string;
+        mountPoint: string;
+        type: string;
+    }
+
     export interface ProjectFilterGroup {
     }
 
@@ -4394,38 +4415,6 @@ export namespace codebuild {
     export interface ProjectLogsConfig {
         cloudWatchLogs?: outputs.codebuild.ProjectCloudWatchLogsConfig;
         s3Logs?: outputs.codebuild.ProjectS3LogsConfig;
-    }
-
-    export interface ProjectProjectBuildBatchConfig {
-        combineArtifacts?: boolean;
-        restrictions?: outputs.codebuild.ProjectBatchRestrictions;
-        serviceRole?: string;
-        timeoutInMins?: number;
-    }
-
-    export interface ProjectProjectCache {
-        location?: string;
-        modes?: string[];
-        type: string;
-    }
-
-    export interface ProjectProjectFileSystemLocation {
-        identifier: string;
-        location: string;
-        mountOptions?: string;
-        mountPoint: string;
-        type: string;
-    }
-
-    export interface ProjectProjectSourceVersion {
-        sourceIdentifier: string;
-        sourceVersion?: string;
-    }
-
-    export interface ProjectProjectTriggers {
-        buildType?: string;
-        filterGroups?: outputs.codebuild.ProjectFilterGroup[];
-        webhook?: boolean;
     }
 
     export interface ProjectRegistryCredential {
@@ -4457,9 +4446,20 @@ export namespace codebuild {
         type: string;
     }
 
+    export interface ProjectSourceVersion {
+        sourceIdentifier: string;
+        sourceVersion?: string;
+    }
+
     export interface ProjectTag {
         key: string;
         value: string;
+    }
+
+    export interface ProjectTriggers {
+        buildType?: string;
+        filterGroups?: outputs.codebuild.ProjectFilterGroup[];
+        webhook?: boolean;
     }
 
     export interface ProjectVpcConfig {
@@ -4495,14 +4495,6 @@ export namespace codecommit {
         s3: outputs.codecommit.RepositoryS3;
     }
 
-    export interface RepositoryRepositoryTrigger {
-        branches?: string[];
-        customData?: string;
-        destinationArn: string;
-        events: string[];
-        name: string;
-    }
-
     export interface RepositoryS3 {
         bucket: string;
         key: string;
@@ -4512,6 +4504,14 @@ export namespace codecommit {
     export interface RepositoryTag {
         key: string;
         value: string;
+    }
+
+    export interface RepositoryTrigger {
+        branches?: string[];
+        customData?: string;
+        destinationArn: string;
+        events: string[];
+        name: string;
     }
 
 }
@@ -4796,12 +4796,12 @@ export namespace codepipeline {
         value: string;
     }
 
-    export interface WebhookWebhookAuthConfiguration {
+    export interface WebhookAuthConfiguration {
         allowedIPRange?: string;
         secretToken?: string;
     }
 
-    export interface WebhookWebhookFilterRule {
+    export interface WebhookFilterRule {
         jsonPath: string;
         matchEquals?: string;
     }
@@ -4866,6 +4866,10 @@ export namespace cognito {
 
     export interface UserPoolAccountRecoverySetting {
         recoveryMechanisms?: outputs.cognito.UserPoolRecoveryOption[];
+    }
+
+    export interface UserPoolAddOns {
+        advancedSecurityMode?: string;
     }
 
     export interface UserPoolAdminCreateUserConfig {
@@ -5033,10 +5037,6 @@ export namespace cognito {
     export interface UserPoolUserAttributeType {
         name?: string;
         value?: string;
-    }
-
-    export interface UserPoolUserPoolAddOns {
-        advancedSecurityMode?: string;
     }
 
     export interface UserPoolUsernameConfiguration {
@@ -5830,7 +5830,7 @@ export namespace configuration {
     /**
      * Input parameters in the form of key-value pairs for the conformance pack.
      */
-    export interface ConformancePackConformancePackInputParameter {
+    export interface ConformancePackInputParameter {
         parameterName: string;
         parameterValue: string;
     }
@@ -5897,6 +5897,16 @@ export namespace configuration {
 
 export namespace connect {
     /**
+     * Configuration settings for the quick connect.
+     */
+    export interface QuickConnectConfig {
+        phoneConfig?: outputs.connect.QuickConnectPhoneNumberQuickConnectConfig;
+        queueConfig?: outputs.connect.QuickConnectQueueQuickConnectConfig;
+        quickConnectType: enums.connect.QuickConnectType;
+        userConfig?: outputs.connect.QuickConnectUserQuickConnectConfig;
+    }
+
+    /**
      * The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
      */
     export interface QuickConnectPhoneNumberQuickConnectConfig {
@@ -5909,16 +5919,6 @@ export namespace connect {
     export interface QuickConnectQueueQuickConnectConfig {
         contactFlowArn: string;
         queueArn: string;
-    }
-
-    /**
-     * Configuration settings for the quick connect.
-     */
-    export interface QuickConnectQuickConnectConfig {
-        phoneConfig?: outputs.connect.QuickConnectPhoneNumberQuickConnectConfig;
-        queueConfig?: outputs.connect.QuickConnectQueueQuickConnectConfig;
-        quickConnectType: enums.connect.QuickConnectQuickConnectType;
-        userConfig?: outputs.connect.QuickConnectUserQuickConnectConfig;
     }
 
     /**
@@ -6047,24 +6047,14 @@ export namespace customerprofiles {
         object: string;
     }
 
-    export interface ObjectTypeFieldMap {
-        name?: string;
-        objectTypeField?: outputs.customerprofiles.ObjectTypeObjectTypeField;
-    }
-
-    export interface ObjectTypeKeyMap {
-        name?: string;
-        objectTypeKeyList?: outputs.customerprofiles.ObjectTypeObjectTypeKey[];
-    }
-
     /**
      * Represents a field in a ProfileObjectType.
      */
-    export interface ObjectTypeObjectTypeField {
+    export interface ObjectTypeField {
         /**
          * The content type of the field. Used for determining equality when searching.
          */
-        contentType?: enums.customerprofiles.ObjectTypeObjectTypeFieldContentType;
+        contentType?: enums.customerprofiles.ObjectTypeFieldContentType;
         /**
          * A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
          */
@@ -6075,10 +6065,15 @@ export namespace customerprofiles {
         target?: string;
     }
 
+    export interface ObjectTypeFieldMap {
+        name?: string;
+        objectTypeField?: outputs.customerprofiles.ObjectTypeField;
+    }
+
     /**
      * An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
      */
-    export interface ObjectTypeObjectTypeKey {
+    export interface ObjectTypeKey {
         /**
          * The reference for the key name of the fields map. 
          */
@@ -6086,7 +6081,12 @@ export namespace customerprofiles {
         /**
          * The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
          */
-        standardIdentifiers?: enums.customerprofiles.ObjectTypeObjectTypeKeyStandardIdentifiersItem[];
+        standardIdentifiers?: enums.customerprofiles.ObjectTypeKeyStandardIdentifiersItem[];
+    }
+
+    export interface ObjectTypeKeyMap {
+        name?: string;
+        objectTypeKeyList?: outputs.customerprofiles.ObjectTypeKey[];
     }
 
     export interface ObjectTypeTag {
@@ -6131,20 +6131,6 @@ export namespace databrew {
          */
         glueConnectionName?: string;
         tempDirectory?: outputs.databrew.DatasetS3Location;
-    }
-
-    export interface DatasetDatasetParameter {
-        /**
-         * Add the value of this parameter as a column in a dataset.
-         */
-        createColumn?: boolean;
-        datetimeOptions?: outputs.databrew.DatasetDatetimeOptions;
-        filter?: outputs.databrew.DatasetFilterExpression;
-        name: string;
-        /**
-         * Parameter type
-         */
-        type: enums.databrew.DatasetDatasetParameterType;
     }
 
     export interface DatasetDatetimeOptions {
@@ -6227,6 +6213,20 @@ export namespace databrew {
         multiLine?: boolean;
     }
 
+    export interface DatasetParameter {
+        /**
+         * Add the value of this parameter as a column in a dataset.
+         */
+        createColumn?: boolean;
+        datetimeOptions?: outputs.databrew.DatasetDatetimeOptions;
+        filter?: outputs.databrew.DatasetFilterExpression;
+        name: string;
+        /**
+         * Parameter type
+         */
+        type: enums.databrew.DatasetParameterType;
+    }
+
     /**
      * Path options for dataset
      */
@@ -6240,7 +6240,7 @@ export namespace databrew {
      * A key-value pair to associate dataset parameter name with its definition.
      */
     export interface DatasetPathParameter {
-        datasetParameter: outputs.databrew.DatasetDatasetParameter;
+        datasetParameter: outputs.databrew.DatasetParameter;
         pathParameterName: string;
     }
 
@@ -6303,14 +6303,6 @@ export namespace databrew {
         tempDirectory?: outputs.databrew.JobS3Location;
     }
 
-    /**
-     * Job Sample
-     */
-    export interface JobJobSample {
-        mode?: enums.databrew.JobSampleMode;
-        size?: number;
-    }
-
     export interface JobOutput {
         compressionFormat?: enums.databrew.JobOutputCompressionFormat;
         format?: enums.databrew.JobOutputFormat;
@@ -6367,6 +6359,14 @@ export namespace databrew {
         location: outputs.databrew.JobS3Location;
     }
 
+    /**
+     * Job Sample
+     */
+    export interface JobSample {
+        mode?: enums.databrew.JobSampleMode;
+        size?: number;
+    }
+
     export interface JobStatisticOverride {
         parameters: outputs.databrew.JobParameterMap;
         statistic: string;
@@ -6409,7 +6409,7 @@ export namespace databrew {
          * Step action operation
          */
         operation: string;
-        parameters?: outputs.databrew.RecipeRecipeParameters | outputs.databrew.RecipeParameterMap;
+        parameters?: outputs.databrew.RecipeParameters | outputs.databrew.RecipeParameterMap;
     }
 
     /**
@@ -6449,7 +6449,7 @@ export namespace databrew {
     export interface RecipeParameterMap {
     }
 
-    export interface RecipeRecipeParameters {
+    export interface RecipeParameters {
         aggregateFunction?: string;
         base?: string;
         caseStatement?: string;
@@ -6556,14 +6556,6 @@ export namespace databrew {
         viewFrame?: string;
     }
 
-    export interface RecipeRecipeStep {
-        action: outputs.databrew.RecipeAction;
-        /**
-         * Condition expressions applied to the step action
-         */
-        conditionExpressions?: outputs.databrew.RecipeConditionExpression[];
-    }
-
     /**
      * Input location
      */
@@ -6578,6 +6570,14 @@ export namespace databrew {
     export interface RecipeSecondaryInput {
         dataCatalogInputDefinition?: outputs.databrew.RecipeDataCatalogInputDefinition;
         s3InputDefinition?: outputs.databrew.RecipeS3Location;
+    }
+
+    export interface RecipeStep {
+        action: outputs.databrew.RecipeAction;
+        /**
+         * Condition expressions applied to the step action
+         */
+        conditionExpressions?: outputs.databrew.RecipeConditionExpression[];
     }
 
     /**
@@ -6605,6 +6605,12 @@ export namespace datapipeline {
         stringValue?: string;
     }
 
+    export interface PipelineObject {
+        fields: outputs.datapipeline.PipelineField[];
+        id: string;
+        name: string;
+    }
+
     export interface PipelineParameterAttribute {
         key: string;
         stringValue: string;
@@ -6620,13 +6626,7 @@ export namespace datapipeline {
         stringValue: string;
     }
 
-    export interface PipelinePipelineObject {
-        fields: outputs.datapipeline.PipelineField[];
-        id: string;
-        name: string;
-    }
-
-    export interface PipelinePipelineTag {
+    export interface PipelineTag {
         key: string;
         value: string;
     }
@@ -6863,6 +6863,16 @@ export namespace datasync {
     }
 
     /**
+     * Specifies the schedule you want your task to use for repeated executions.
+     */
+    export interface TaskSchedule {
+        /**
+         * A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+         */
+        scheduleExpression: string;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface TaskTag {
@@ -6874,16 +6884,6 @@ export namespace datasync {
          * The value for an AWS resource tag.
          */
         value: string;
-    }
-
-    /**
-     * Specifies the schedule you want your task to use for repeated executions.
-     */
-    export interface TaskTaskSchedule {
-        /**
-         * A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-         */
-        scheduleExpression: string;
     }
 
 }
@@ -6916,7 +6916,7 @@ export namespace devopsguru {
     /**
      * Information about notification channels you have configured with DevOps Guru.
      */
-    export interface NotificationChannelNotificationChannelConfig {
+    export interface NotificationChannelConfig {
         sns?: outputs.devopsguru.NotificationChannelSnsChannelConfig;
     }
 
@@ -6940,7 +6940,7 @@ export namespace devopsguru {
     /**
      * Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
      */
-    export interface ResourceCollectionResourceCollectionFilter {
+    export interface ResourceCollectionFilter {
         cloudFormation?: outputs.devopsguru.ResourceCollectionCloudFormationCollectionFilter;
     }
 
@@ -7591,7 +7591,7 @@ export namespace ec2 {
         configured?: boolean;
     }
 
-    export interface InstanceInstanceIpv6Address {
+    export interface InstanceIpv6Address {
         ipv6Address: string;
     }
 
@@ -7612,7 +7612,7 @@ export namespace ec2 {
         deviceIndex: string;
         groupSet?: string[];
         ipv6AddressCount?: number;
-        ipv6Addresses?: outputs.ec2.InstanceInstanceIpv6Address[];
+        ipv6Addresses?: outputs.ec2.InstanceIpv6Address[];
         networkInterfaceId?: string;
         privateIpAddress?: string;
         privateIpAddresses?: outputs.ec2.InstancePrivateIpAddressSpecification[];
@@ -7674,6 +7674,36 @@ export namespace ec2 {
         cpuCredits?: string;
     }
 
+    export interface LaunchTemplateData {
+        blockDeviceMappings?: outputs.ec2.LaunchTemplateBlockDeviceMapping[];
+        capacityReservationSpecification?: outputs.ec2.LaunchTemplateCapacityReservationSpecification;
+        cpuOptions?: outputs.ec2.LaunchTemplateCpuOptions;
+        creditSpecification?: outputs.ec2.LaunchTemplateCreditSpecification;
+        disableApiTermination?: boolean;
+        ebsOptimized?: boolean;
+        elasticGpuSpecifications?: outputs.ec2.LaunchTemplateElasticGpuSpecification[];
+        elasticInferenceAccelerators?: outputs.ec2.LaunchTemplateElasticInferenceAccelerator[];
+        enclaveOptions?: outputs.ec2.LaunchTemplateEnclaveOptions;
+        hibernationOptions?: outputs.ec2.LaunchTemplateHibernationOptions;
+        iamInstanceProfile?: outputs.ec2.LaunchTemplateIamInstanceProfile;
+        imageId?: string;
+        instanceInitiatedShutdownBehavior?: string;
+        instanceMarketOptions?: outputs.ec2.LaunchTemplateInstanceMarketOptions;
+        instanceType?: string;
+        kernelId?: string;
+        keyName?: string;
+        licenseSpecifications?: outputs.ec2.LaunchTemplateLicenseSpecification[];
+        metadataOptions?: outputs.ec2.LaunchTemplateMetadataOptions;
+        monitoring?: outputs.ec2.LaunchTemplateMonitoring;
+        networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
+        placement?: outputs.ec2.LaunchTemplatePlacement;
+        ramDiskId?: string;
+        securityGroupIds?: string[];
+        securityGroups?: string[];
+        tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
+        userData?: string;
+    }
+
     export interface LaunchTemplateEbs {
         deleteOnTermination?: boolean;
         encrypted?: boolean;
@@ -7686,6 +7716,11 @@ export namespace ec2 {
     }
 
     export interface LaunchTemplateElasticGpuSpecification {
+        type?: string;
+    }
+
+    export interface LaunchTemplateElasticInferenceAccelerator {
+        count?: number;
         type?: string;
     }
 
@@ -7709,46 +7744,6 @@ export namespace ec2 {
 
     export interface LaunchTemplateIpv6Add {
         ipv6Address?: string;
-    }
-
-    export interface LaunchTemplateLaunchTemplateData {
-        blockDeviceMappings?: outputs.ec2.LaunchTemplateBlockDeviceMapping[];
-        capacityReservationSpecification?: outputs.ec2.LaunchTemplateCapacityReservationSpecification;
-        cpuOptions?: outputs.ec2.LaunchTemplateCpuOptions;
-        creditSpecification?: outputs.ec2.LaunchTemplateCreditSpecification;
-        disableApiTermination?: boolean;
-        ebsOptimized?: boolean;
-        elasticGpuSpecifications?: outputs.ec2.LaunchTemplateElasticGpuSpecification[];
-        elasticInferenceAccelerators?: outputs.ec2.LaunchTemplateLaunchTemplateElasticInferenceAccelerator[];
-        enclaveOptions?: outputs.ec2.LaunchTemplateEnclaveOptions;
-        hibernationOptions?: outputs.ec2.LaunchTemplateHibernationOptions;
-        iamInstanceProfile?: outputs.ec2.LaunchTemplateIamInstanceProfile;
-        imageId?: string;
-        instanceInitiatedShutdownBehavior?: string;
-        instanceMarketOptions?: outputs.ec2.LaunchTemplateInstanceMarketOptions;
-        instanceType?: string;
-        kernelId?: string;
-        keyName?: string;
-        licenseSpecifications?: outputs.ec2.LaunchTemplateLicenseSpecification[];
-        metadataOptions?: outputs.ec2.LaunchTemplateMetadataOptions;
-        monitoring?: outputs.ec2.LaunchTemplateMonitoring;
-        networkInterfaces?: outputs.ec2.LaunchTemplateNetworkInterface[];
-        placement?: outputs.ec2.LaunchTemplatePlacement;
-        ramDiskId?: string;
-        securityGroupIds?: string[];
-        securityGroups?: string[];
-        tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
-        userData?: string;
-    }
-
-    export interface LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
-        count?: number;
-        type?: string;
-    }
-
-    export interface LaunchTemplateLaunchTemplateTagSpecification {
-        resourceType?: string;
-        tags?: outputs.ec2.LaunchTemplateTag[];
     }
 
     export interface LaunchTemplateLicenseSpecification {
@@ -8094,6 +8089,26 @@ export namespace ec2 {
         subnetId?: string;
     }
 
+    export interface SpotFleetLaunchSpecification {
+        blockDeviceMappings?: outputs.ec2.SpotFleetBlockDeviceMapping[];
+        ebsOptimized?: boolean;
+        iamInstanceProfile?: outputs.ec2.SpotFleetIamInstanceProfileSpecification;
+        imageId: string;
+        instanceType: string;
+        kernelId?: string;
+        keyName?: string;
+        monitoring?: outputs.ec2.SpotFleetMonitoring;
+        networkInterfaces?: outputs.ec2.SpotFleetInstanceNetworkInterfaceSpecification[];
+        placement?: outputs.ec2.SpotFleetSpotPlacement;
+        ramdiskId?: string;
+        securityGroups?: outputs.ec2.SpotFleetGroupIdentifier[];
+        spotPrice?: string;
+        subnetId?: string;
+        tagSpecifications?: outputs.ec2.SpotFleetTagSpecification[];
+        userData?: string;
+        weightedCapacity?: number;
+    }
+
     export interface SpotFleetLaunchTemplateConfig {
         launchTemplateSpecification?: outputs.ec2.SpotFleetFleetLaunchTemplateSpecification;
         overrides?: outputs.ec2.SpotFleetLaunchTemplateOverrides[];
@@ -8112,47 +8127,23 @@ export namespace ec2 {
         targetGroupsConfig?: outputs.ec2.SpotFleetTargetGroupsConfig;
     }
 
+    export interface SpotFleetMonitoring {
+        enabled?: boolean;
+    }
+
     export interface SpotFleetPrivateIpAddressSpecification {
         primary?: boolean;
         privateIpAddress: string;
     }
 
-    export interface SpotFleetSpotCapacityRebalance {
-        replacementStrategy?: enums.ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy;
-    }
-
-    export interface SpotFleetSpotFleetLaunchSpecification {
-        blockDeviceMappings?: outputs.ec2.SpotFleetBlockDeviceMapping[];
-        ebsOptimized?: boolean;
-        iamInstanceProfile?: outputs.ec2.SpotFleetIamInstanceProfileSpecification;
-        imageId: string;
-        instanceType: string;
-        kernelId?: string;
-        keyName?: string;
-        monitoring?: outputs.ec2.SpotFleetSpotFleetMonitoring;
-        networkInterfaces?: outputs.ec2.SpotFleetInstanceNetworkInterfaceSpecification[];
-        placement?: outputs.ec2.SpotFleetSpotPlacement;
-        ramdiskId?: string;
-        securityGroups?: outputs.ec2.SpotFleetGroupIdentifier[];
-        spotPrice?: string;
-        subnetId?: string;
-        tagSpecifications?: outputs.ec2.SpotFleetSpotFleetTagSpecification[];
-        userData?: string;
-        weightedCapacity?: number;
-    }
-
-    export interface SpotFleetSpotFleetMonitoring {
-        enabled?: boolean;
-    }
-
-    export interface SpotFleetSpotFleetRequestConfigData {
-        allocationStrategy?: enums.ec2.SpotFleetSpotFleetRequestConfigDataAllocationStrategy;
+    export interface SpotFleetRequestConfigData {
+        allocationStrategy?: enums.ec2.SpotFleetRequestConfigDataAllocationStrategy;
         context?: string;
-        excessCapacityTerminationPolicy?: enums.ec2.SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy;
+        excessCapacityTerminationPolicy?: enums.ec2.SpotFleetRequestConfigDataExcessCapacityTerminationPolicy;
         iamFleetRole: string;
-        instanceInterruptionBehavior?: enums.ec2.SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior;
+        instanceInterruptionBehavior?: enums.ec2.SpotFleetRequestConfigDataInstanceInterruptionBehavior;
         instancePoolsToUseCount?: number;
-        launchSpecifications?: outputs.ec2.SpotFleetSpotFleetLaunchSpecification[];
+        launchSpecifications?: outputs.ec2.SpotFleetLaunchSpecification[];
         launchTemplateConfigs?: outputs.ec2.SpotFleetLaunchTemplateConfig[];
         loadBalancersConfig?: outputs.ec2.SpotFleetLoadBalancersConfig;
         onDemandAllocationStrategy?: string;
@@ -8164,14 +8155,13 @@ export namespace ec2 {
         spotPrice?: string;
         targetCapacity: number;
         terminateInstancesWithExpiration?: boolean;
-        type?: enums.ec2.SpotFleetSpotFleetRequestConfigDataType;
+        type?: enums.ec2.SpotFleetRequestConfigDataType;
         validFrom?: string;
         validUntil?: string;
     }
 
-    export interface SpotFleetSpotFleetTagSpecification {
-        resourceType?: enums.ec2.SpotFleetSpotFleetTagSpecificationResourceType;
-        tags?: outputs.ec2.SpotFleetTag[];
+    export interface SpotFleetSpotCapacityRebalance {
+        replacementStrategy?: enums.ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy;
     }
 
     export interface SpotFleetSpotMaintenanceStrategies {
@@ -8187,6 +8177,11 @@ export namespace ec2 {
     export interface SpotFleetTag {
         key: string;
         value: string;
+    }
+
+    export interface SpotFleetTagSpecification {
+        resourceType?: enums.ec2.SpotFleetTagSpecificationResourceType;
+        tags?: outputs.ec2.SpotFleetTag[];
     }
 
     export interface SpotFleetTargetGroup {
@@ -8227,6 +8222,13 @@ export namespace ec2 {
         value: string;
     }
 
+    export interface TransitGatewayConnectOptions {
+        /**
+         * The tunnel protocol.
+         */
+        protocol?: string;
+    }
+
     export interface TransitGatewayConnectTag {
         /**
          * The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
@@ -8236,13 +8238,6 @@ export namespace ec2 {
          * The value of the tag. Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.
          */
         value?: string;
-    }
-
-    export interface TransitGatewayConnectTransitGatewayConnectOptions {
-        /**
-         * The tunnel protocol.
-         */
-        protocol?: string;
     }
 
     export interface TransitGatewayMulticastDomainTag {
@@ -8329,7 +8324,7 @@ export namespace ecr {
     /**
      * An object representing the replication configuration for a registry.
      */
-    export interface ReplicationConfigurationReplicationConfiguration {
+    export interface ReplicationConfiguration {
         /**
          * An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
          */
@@ -8450,16 +8445,8 @@ export namespace ecs {
     /**
      * The configurations to be set at cluster level.
      */
-    export interface ClusterClusterConfiguration {
+    export interface ClusterConfiguration {
         executeCommandConfiguration?: outputs.ecs.ClusterExecuteCommandConfiguration;
-    }
-
-    /**
-     * The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-     */
-    export interface ClusterClusterSettings {
-        name?: string;
-        value?: string;
     }
 
     /**
@@ -8480,6 +8467,14 @@ export namespace ecs {
         s3BucketName?: string;
         s3EncryptionEnabled?: boolean;
         s3KeyPrefix?: string;
+    }
+
+    /**
+     * The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+     */
+    export interface ClusterSettings {
+        name?: string;
+        value?: string;
     }
 
     /**
@@ -8538,7 +8533,7 @@ export namespace ecs {
         type: enums.ecs.ServicePlacementStrategyType;
     }
 
-    export interface ServiceServiceRegistry {
+    export interface ServiceRegistry {
         containerName?: string;
         containerPort?: number;
         port?: number;
@@ -8731,6 +8726,11 @@ export namespace ecs {
         sourceVolume?: string;
     }
 
+    export interface TaskDefinitionPlacementConstraint {
+        expression?: string;
+        type: string;
+    }
+
     export interface TaskDefinitionPortMapping {
         containerPort?: number;
         hostPort?: number;
@@ -8765,11 +8765,6 @@ export namespace ecs {
     export interface TaskDefinitionTag {
         key?: string;
         value?: string;
-    }
-
-    export interface TaskDefinitionTaskDefinitionPlacementConstraint {
-        expression?: string;
-        type: string;
     }
 
     export interface TaskDefinitionTmpfs {
@@ -8876,11 +8871,6 @@ export namespace ecs {
 }
 
 export namespace efs {
-    export interface AccessPointAccessPointTag {
-        key?: string;
-        value?: string;
-    }
-
     export interface AccessPointCreationInfo {
         /**
          * Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
@@ -8922,6 +8912,11 @@ export namespace efs {
         path?: string;
     }
 
+    export interface AccessPointTag {
+        key?: string;
+        value?: string;
+    }
+
     export interface FileSystemBackupPolicy {
         status: string;
     }
@@ -8951,13 +8946,6 @@ export namespace eks {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
-    }
-
-    /**
-     * The cluster control plane logging configuration for your cluster. 
-     */
-    export interface ClusterClusterLogging {
-        enabledTypes?: outputs.eks.ClusterLoggingTypeConfig[];
     }
 
     /**
@@ -8991,17 +8979,7 @@ export namespace eks {
         /**
          * The cluster control plane logging configuration for your cluster. 
          */
-        clusterLogging?: outputs.eks.ClusterClusterLogging;
-    }
-
-    /**
-     * Enabled Logging Type
-     */
-    export interface ClusterLoggingTypeConfig {
-        /**
-         * name of the log type
-         */
-        type?: enums.eks.ClusterLoggingTypeConfigType;
+        clusterLogging?: outputs.eks.ClusterLogging;
     }
 
     /**
@@ -9133,7 +9111,7 @@ export namespace elasticache {
         value: string;
     }
 
-    export interface GlobalReplicationGroupGlobalReplicationGroupMember {
+    export interface GlobalReplicationGroupMember {
         /**
          * Regionally unique identifier for the member i.e. ReplicationGroupId.
          */
@@ -9145,7 +9123,7 @@ export namespace elasticache {
         /**
          * Indicates the role of the member, primary or secondary.
          */
-        role?: enums.elasticache.GlobalReplicationGroupGlobalReplicationGroupMemberRole;
+        role?: enums.elasticache.GlobalReplicationGroupMemberRole;
     }
 
     export interface GlobalReplicationGroupRegionalConfiguration {
@@ -9225,16 +9203,6 @@ export namespace elasticache {
 }
 
 export namespace elasticbeanstalk {
-    export interface ApplicationApplicationResourceLifecycleConfig {
-        serviceRole?: string;
-        versionLifecycleConfig?: outputs.elasticbeanstalk.ApplicationApplicationVersionLifecycleConfig;
-    }
-
-    export interface ApplicationApplicationVersionLifecycleConfig {
-        maxAgeRule?: outputs.elasticbeanstalk.ApplicationMaxAgeRule;
-        maxCountRule?: outputs.elasticbeanstalk.ApplicationMaxCountRule;
-    }
-
     export interface ApplicationMaxAgeRule {
         deleteSourceFromS3?: boolean;
         enabled?: boolean;
@@ -9245,6 +9213,16 @@ export namespace elasticbeanstalk {
         deleteSourceFromS3?: boolean;
         enabled?: boolean;
         maxCount?: number;
+    }
+
+    export interface ApplicationResourceLifecycleConfig {
+        serviceRole?: string;
+        versionLifecycleConfig?: outputs.elasticbeanstalk.ApplicationVersionLifecycleConfig;
+    }
+
+    export interface ApplicationVersionLifecycleConfig {
+        maxAgeRule?: outputs.elasticbeanstalk.ApplicationMaxAgeRule;
+        maxCountRule?: outputs.elasticbeanstalk.ApplicationMaxCountRule;
     }
 
     export interface ApplicationVersionSourceBundle {
@@ -9526,7 +9504,7 @@ export namespace elasticloadbalancingv2 {
         weight?: number;
     }
 
-    export interface LoadBalancerLoadBalancerAttribute {
+    export interface LoadBalancerAttribute {
         key?: string;
         value?: string;
     }
@@ -9543,6 +9521,11 @@ export namespace elasticloadbalancingv2 {
         value: string;
     }
 
+    export interface TargetGroupAttribute {
+        key?: string;
+        value?: string;
+    }
+
     export interface TargetGroupMatcher {
         grpcCode?: string;
         httpCode?: string;
@@ -9557,11 +9540,6 @@ export namespace elasticloadbalancingv2 {
         availabilityZone?: string;
         id: string;
         port?: number;
-    }
-
-    export interface TargetGroupTargetGroupAttribute {
-        key?: string;
-        value?: string;
     }
 
 }
@@ -9582,14 +9560,6 @@ export namespace elasticsearch {
 
     export interface DomainColdStorageOptions {
         enabled?: boolean;
-    }
-
-    export interface DomainDomainEndpointOptions {
-        customEndpoint?: string;
-        customEndpointCertificateArn?: string;
-        customEndpointEnabled?: boolean;
-        enforceHTTPS?: boolean;
-        tLSSecurityPolicy?: string;
     }
 
     export interface DomainEBSOptions {
@@ -9616,6 +9586,14 @@ export namespace elasticsearch {
     export interface DomainEncryptionAtRestOptions {
         enabled?: boolean;
         kmsKeyId?: string;
+    }
+
+    export interface DomainEndpointOptions {
+        customEndpoint?: string;
+        customEndpointCertificateArn?: string;
+        customEndpointEnabled?: boolean;
+        enforceHTTPS?: boolean;
+        tLSSecurityPolicy?: string;
     }
 
     export interface DomainMasterUserOptions {
@@ -10221,10 +10199,10 @@ export namespace fis {
     /**
      * The actions for the experiment.
      */
-    export interface ExperimentTemplateExperimentTemplateActionMap {
+    export interface ExperimentTemplateActionMap {
     }
 
-    export interface ExperimentTemplateExperimentTemplateStopCondition {
+    export interface ExperimentTemplateStopCondition {
         source: string;
         value?: string;
     }
@@ -10232,7 +10210,7 @@ export namespace fis {
     /**
      * The targets for the experiment.
      */
-    export interface ExperimentTemplateExperimentTemplateTargetMap {
+    export interface ExperimentTemplateTargetMap {
     }
 
 }
@@ -10247,19 +10225,19 @@ export namespace fms {
     }
 
     /**
-     * A policy tag.
-     */
-    export interface PolicyPolicyTag {
-        key: string;
-        value: string;
-    }
-
-    /**
      * A resource tag.
      */
     export interface PolicyResourceTag {
         key: string;
         value?: string;
+    }
+
+    /**
+     * A policy tag.
+     */
+    export interface PolicyTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -10868,7 +10846,7 @@ export namespace glue {
         rowTag: string;
     }
 
-    export interface ConnectionConnectionInput {
+    export interface ConnectionInput {
         connectionProperties?: any;
         connectionType: string;
         description?: string;
@@ -10924,14 +10902,14 @@ export namespace glue {
         s3Targets?: outputs.glue.CrawlerS3Target[];
     }
 
+    export interface DataCatalogEncryptionSettings {
+        connectionPasswordEncryption?: outputs.glue.DataCatalogEncryptionSettingsConnectionPasswordEncryption;
+        encryptionAtRest?: outputs.glue.DataCatalogEncryptionSettingsEncryptionAtRest;
+    }
+
     export interface DataCatalogEncryptionSettingsConnectionPasswordEncryption {
         kmsKeyId?: string;
         returnConnectionPasswordEncrypted?: boolean;
-    }
-
-    export interface DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
-        connectionPasswordEncryption?: outputs.glue.DataCatalogEncryptionSettingsConnectionPasswordEncryption;
-        encryptionAtRest?: outputs.glue.DataCatalogEncryptionSettingsEncryptionAtRest;
     }
 
     export interface DataCatalogEncryptionSettingsEncryptionAtRest {
@@ -10943,23 +10921,29 @@ export namespace glue {
         dataLakePrincipalIdentifier?: string;
     }
 
-    export interface DatabaseDatabaseIdentifier {
+    export interface DatabaseIdentifier {
         catalogId?: string;
         databaseName?: string;
     }
 
-    export interface DatabaseDatabaseInput {
+    export interface DatabaseInput {
         createTableDefaultPermissions?: outputs.glue.DatabasePrincipalPrivileges[];
         description?: string;
         locationUri?: string;
         name?: string;
         parameters?: any;
-        targetDatabase?: outputs.glue.DatabaseDatabaseIdentifier;
+        targetDatabase?: outputs.glue.DatabaseIdentifier;
     }
 
     export interface DatabasePrincipalPrivileges {
         permissions?: string[];
         principal?: outputs.glue.DatabaseDataLakePrincipal;
+    }
+
+    export interface JobCommand {
+        name?: string;
+        pythonVersion?: string;
+        scriptLocation?: string;
     }
 
     export interface JobConnectionsList {
@@ -10968,12 +10952,6 @@ export namespace glue {
 
     export interface JobExecutionProperty {
         maxConcurrentRuns?: number;
-    }
-
-    export interface JobJobCommand {
-        name?: string;
-        pythonVersion?: string;
-        scriptLocation?: string;
     }
 
     export interface JobNotificationProperty {
@@ -11019,15 +10997,15 @@ export namespace glue {
         type?: string;
     }
 
-    export interface PartitionOrder {
-        column: string;
-        sortOrder?: number;
-    }
-
-    export interface PartitionPartitionInput {
+    export interface PartitionInput {
         parameters?: any;
         storageDescriptor?: outputs.glue.PartitionStorageDescriptor;
         values: string[];
+    }
+
+    export interface PartitionOrder {
+        column: string;
+        sortOrder?: number;
     }
 
     export interface PartitionSchemaId {
@@ -11095,20 +11073,6 @@ export namespace glue {
         name?: string;
     }
 
-    /**
-     * Specify checkpoint version for update. This is only required to update the Compatibility.
-     */
-    export interface SchemaSchemaVersion {
-        /**
-         * Indicates if the latest version needs to be updated.
-         */
-        isLatest?: boolean;
-        /**
-         * Indicates the version number in the schema to update.
-         */
-        versionNumber?: number;
-    }
-
     export interface SchemaTag {
         /**
          * A key to identify the tag.
@@ -11118,6 +11082,20 @@ export namespace glue {
          * Corresponding tag value for the key.
          */
         value: string;
+    }
+
+    /**
+     * Specify checkpoint version for update. This is only required to update the Compatibility.
+     */
+    export interface SchemaVersion {
+        /**
+         * Indicates if the latest version needs to be updated.
+         */
+        isLatest?: boolean;
+        /**
+         * Indicates the version number in the schema to update.
+         */
+        versionNumber?: number;
     }
 
     /**
@@ -11161,6 +11139,26 @@ export namespace glue {
         comment?: string;
         name: string;
         type?: string;
+    }
+
+    export interface TableIdentifier {
+        catalogId?: string;
+        databaseName?: string;
+        name?: string;
+    }
+
+    export interface TableInput {
+        description?: string;
+        name?: string;
+        owner?: string;
+        parameters?: any;
+        partitionKeys?: outputs.glue.TableColumn[];
+        retention?: number;
+        storageDescriptor?: outputs.glue.TableStorageDescriptor;
+        tableType?: string;
+        targetTable?: outputs.glue.TableIdentifier;
+        viewExpandedText?: string;
+        viewOriginalText?: string;
     }
 
     export interface TableOrder {
@@ -11208,26 +11206,6 @@ export namespace glue {
         storedAsSubDirectories?: boolean;
     }
 
-    export interface TableTableIdentifier {
-        catalogId?: string;
-        databaseName?: string;
-        name?: string;
-    }
-
-    export interface TableTableInput {
-        description?: string;
-        name?: string;
-        owner?: string;
-        parameters?: any;
-        partitionKeys?: outputs.glue.TableColumn[];
-        retention?: number;
-        storageDescriptor?: outputs.glue.TableStorageDescriptor;
-        tableType?: string;
-        targetTable?: outputs.glue.TableTableIdentifier;
-        viewExpandedText?: string;
-        viewOriginalText?: string;
-    }
-
     export interface TriggerAction {
         arguments?: any;
         crawlerName?: string;
@@ -11263,7 +11241,7 @@ export namespace greengrass {
         parameters?: any;
     }
 
-    export interface ConnectorDefinitionConnectorDefinitionVersion {
+    export interface ConnectorDefinitionVersion {
         connectors: outputs.greengrass.ConnectorDefinitionConnector[];
     }
 
@@ -11280,7 +11258,7 @@ export namespace greengrass {
         thingArn: string;
     }
 
-    export interface CoreDefinitionCoreDefinitionVersion {
+    export interface CoreDefinitionVersion {
         cores: outputs.greengrass.CoreDefinitionCore[];
     }
 
@@ -11298,7 +11276,7 @@ export namespace greengrass {
         thingArn: string;
     }
 
-    export interface DeviceDefinitionDeviceDefinitionVersion {
+    export interface DeviceDefinitionVersion {
         devices: outputs.greengrass.DeviceDefinitionDevice[];
     }
 
@@ -11341,11 +11319,6 @@ export namespace greengrass {
         timeout?: number;
     }
 
-    export interface FunctionDefinitionFunctionDefinitionVersion {
-        defaultConfig?: outputs.greengrass.FunctionDefinitionDefaultConfig;
-        functions: outputs.greengrass.FunctionDefinitionFunction[];
-    }
-
     export interface FunctionDefinitionResourceAccessPolicy {
         permission?: string;
         resourceId: string;
@@ -11354,6 +11327,11 @@ export namespace greengrass {
     export interface FunctionDefinitionRunAs {
         gid?: number;
         uid?: number;
+    }
+
+    export interface FunctionDefinitionVersion {
+        defaultConfig?: outputs.greengrass.FunctionDefinitionDefaultConfig;
+        functions: outputs.greengrass.FunctionDefinitionFunction[];
     }
 
     export interface FunctionDefinitionVersionDefaultConfig {
@@ -11398,7 +11376,7 @@ export namespace greengrass {
         uid?: number;
     }
 
-    export interface GroupGroupVersion {
+    export interface GroupVersion {
         connectorDefinitionVersionArn?: string;
         coreDefinitionVersionArn?: string;
         deviceDefinitionVersionArn?: string;
@@ -11416,7 +11394,7 @@ export namespace greengrass {
         type: string;
     }
 
-    export interface LoggerDefinitionLoggerDefinitionVersion {
+    export interface LoggerDefinitionVersion {
         loggers: outputs.greengrass.LoggerDefinitionLogger[];
     }
 
@@ -11452,10 +11430,6 @@ export namespace greengrass {
         secretsManagerSecretResourceData?: outputs.greengrass.ResourceDefinitionSecretsManagerSecretResourceData;
     }
 
-    export interface ResourceDefinitionResourceDefinitionVersion {
-        resources: outputs.greengrass.ResourceDefinitionResourceInstance[];
-    }
-
     export interface ResourceDefinitionResourceDownloadOwnerSetting {
         groupOwner: string;
         groupPermission: string;
@@ -11482,6 +11456,10 @@ export namespace greengrass {
     export interface ResourceDefinitionSecretsManagerSecretResourceData {
         aRN: string;
         additionalStagingLabelsToDownload?: string[];
+    }
+
+    export interface ResourceDefinitionVersion {
+        resources: outputs.greengrass.ResourceDefinitionResourceInstance[];
     }
 
     export interface ResourceDefinitionVersionGroupOwnerSetting {
@@ -11543,7 +11521,7 @@ export namespace greengrass {
         target: string;
     }
 
-    export interface SubscriptionDefinitionSubscriptionDefinitionVersion {
+    export interface SubscriptionDefinitionVersion {
         subscriptions: outputs.greengrass.SubscriptionDefinitionSubscription[];
     }
 
@@ -11634,7 +11612,7 @@ export namespace groundstation {
         transmitDisabled?: boolean;
     }
 
-    export interface ConfigConfigData {
+    export interface ConfigData {
         antennaDownlinkConfig?: outputs.groundstation.ConfigAntennaDownlinkConfig;
         antennaDownlinkDemodDecodeConfig?: outputs.groundstation.ConfigAntennaDownlinkDemodDecodeConfig;
         antennaUplinkConfig?: outputs.groundstation.ConfigAntennaUplinkConfig;
@@ -12057,20 +12035,6 @@ export namespace imagebuilder {
     }
 
     /**
-     * The image tests configuration used when creating this image.
-     */
-    export interface ImageImageTestsConfiguration {
-        /**
-         * ImageTestsEnabled
-         */
-        imageTestsEnabled?: boolean;
-        /**
-         * TimeoutMinutes
-         */
-        timeoutMinutes?: number;
-    }
-
-    /**
      * Image tests configuration.
      */
     export interface ImagePipelineImageTestsConfiguration {
@@ -12204,6 +12168,20 @@ export namespace imagebuilder {
          * Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
          */
         uninstallAfterBuild?: boolean;
+    }
+
+    /**
+     * The image tests configuration used when creating this image.
+     */
+    export interface ImageTestsConfiguration {
+        /**
+         * ImageTestsEnabled
+         */
+        imageTestsEnabled?: boolean;
+        /**
+         * TimeoutMinutes
+         */
+        timeoutMinutes?: number;
     }
 
     /**
@@ -12785,6 +12763,15 @@ export namespace iot {
         type: string;
     }
 
+    export interface TopicRulePayload {
+        actions: outputs.iot.TopicRuleAction[];
+        awsIotSqlVersion?: string;
+        description?: string;
+        errorAction?: outputs.iot.TopicRuleAction;
+        ruleDisabled?: boolean;
+        sql: string;
+    }
+
     export interface TopicRulePutAssetPropertyValueEntry {
         assetId?: string;
         entryId?: string;
@@ -12858,15 +12845,6 @@ export namespace iot {
         value: string;
     }
 
-    export interface TopicRuleTopicRulePayload {
-        actions: outputs.iot.TopicRuleAction[];
-        awsIotSqlVersion?: string;
-        description?: string;
-        errorAction?: outputs.iot.TopicRuleAction;
-        ruleDisabled?: boolean;
-        sql: string;
-    }
-
 }
 
 export namespace iot1click {
@@ -12878,11 +12856,6 @@ export namespace iot1click {
 }
 
 export namespace iotanalytics {
-    export interface ChannelChannelStorage {
-        customerManagedS3?: outputs.iotanalytics.ChannelCustomerManagedS3;
-        serviceManagedS3?: outputs.iotanalytics.ChannelServiceManagedS3;
-    }
-
     export interface ChannelCustomerManagedS3 {
         bucket: string;
         keyPrefix?: string;
@@ -12895,6 +12868,11 @@ export namespace iotanalytics {
     }
 
     export interface ChannelServiceManagedS3 {
+    }
+
+    export interface ChannelStorage {
+        customerManagedS3?: outputs.iotanalytics.ChannelCustomerManagedS3;
+        serviceManagedS3?: outputs.iotanalytics.ChannelServiceManagedS3;
     }
 
     export interface ChannelTag {
@@ -12915,17 +12893,17 @@ export namespace iotanalytics {
         variables?: outputs.iotanalytics.DatasetVariable[];
     }
 
-    export interface DatasetDatasetContentDeliveryRule {
-        destination: outputs.iotanalytics.DatasetDatasetContentDeliveryRuleDestination;
+    export interface DatasetContentDeliveryRule {
+        destination: outputs.iotanalytics.DatasetContentDeliveryRuleDestination;
         entryName?: string;
     }
 
-    export interface DatasetDatasetContentDeliveryRuleDestination {
+    export interface DatasetContentDeliveryRuleDestination {
         iotEventsDestinationConfiguration?: outputs.iotanalytics.DatasetIotEventsDestinationConfiguration;
         s3DestinationConfiguration?: outputs.iotanalytics.DatasetS3DestinationConfiguration;
     }
 
-    export interface DatasetDatasetContentVersionValue {
+    export interface DatasetContentVersionValue {
         datasetName?: string;
     }
 
@@ -13006,7 +12984,7 @@ export namespace iotanalytics {
     }
 
     export interface DatasetVariable {
-        datasetContentVersionValue?: outputs.iotanalytics.DatasetDatasetContentVersionValue;
+        datasetContentVersionValue?: outputs.iotanalytics.DatasetContentVersionValue;
         doubleValue?: number;
         outputFileUriValue?: outputs.iotanalytics.DatasetOutputFileUriValue;
         stringValue?: string;
@@ -13034,21 +13012,6 @@ export namespace iotanalytics {
         keyPrefix?: string;
     }
 
-    export interface DatastoreDatastorePartition {
-        partition?: outputs.iotanalytics.DatastorePartition;
-        timestampPartition?: outputs.iotanalytics.DatastoreTimestampPartition;
-    }
-
-    export interface DatastoreDatastorePartitions {
-        partitions?: outputs.iotanalytics.DatastoreDatastorePartition[];
-    }
-
-    export interface DatastoreDatastoreStorage {
-        customerManagedS3?: outputs.iotanalytics.DatastoreCustomerManagedS3;
-        iotSiteWiseMultiLayerStorage?: outputs.iotanalytics.DatastoreIotSiteWiseMultiLayerStorage;
-        serviceManagedS3?: outputs.iotanalytics.DatastoreServiceManagedS3;
-    }
-
     export interface DatastoreFileFormatConfiguration {
         jsonConfiguration?: outputs.iotanalytics.DatastoreJsonConfiguration;
         parquetConfiguration?: outputs.iotanalytics.DatastoreParquetConfiguration;
@@ -13066,7 +13029,12 @@ export namespace iotanalytics {
     }
 
     export interface DatastorePartition {
-        attributeName: string;
+        partition?: outputs.iotanalytics.DatastorePartition;
+        timestampPartition?: outputs.iotanalytics.DatastoreTimestampPartition;
+    }
+
+    export interface DatastorePartitions {
+        partitions?: outputs.iotanalytics.DatastorePartition[];
     }
 
     export interface DatastoreRetentionPeriod {
@@ -13079,6 +13047,12 @@ export namespace iotanalytics {
     }
 
     export interface DatastoreServiceManagedS3 {
+    }
+
+    export interface DatastoreStorage {
+        customerManagedS3?: outputs.iotanalytics.DatastoreCustomerManagedS3;
+        iotSiteWiseMultiLayerStorage?: outputs.iotanalytics.DatastoreIotSiteWiseMultiLayerStorage;
+        serviceManagedS3?: outputs.iotanalytics.DatastoreServiceManagedS3;
     }
 
     export interface DatastoreTag {
@@ -13271,7 +13245,7 @@ export namespace iotevents {
     /**
      * Information that defines how a detector operates.
      */
-    export interface DetectorModelDetectorModelDefinition {
+    export interface DetectorModelDefinition {
         /**
          * The state that is entered at the creation of each detector (instance).
          */
@@ -13625,7 +13599,7 @@ export namespace iotevents {
     /**
      * The definition of the input.
      */
-    export interface InputInputDefinition {
+    export interface InputDefinition {
         /**
          * The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
          */
@@ -13667,23 +13641,6 @@ export namespace iotfleethub {
 
 export namespace iotsitewise {
     /**
-     * The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-     */
-    export interface AccessPolicyAccessPolicyIdentity {
-        iamRole?: outputs.iotsitewise.AccessPolicyIamRole;
-        iamUser?: outputs.iotsitewise.AccessPolicyIamUser;
-        user?: outputs.iotsitewise.AccessPolicyUser;
-    }
-
-    /**
-     * The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-     */
-    export interface AccessPolicyAccessPolicyResource {
-        portal?: outputs.iotsitewise.AccessPolicyPortal;
-        project?: outputs.iotsitewise.AccessPolicyProject;
-    }
-
-    /**
      * Contains information for an IAM role identity in an access policy.
      */
     export interface AccessPolicyIamRole {
@@ -13701,6 +13658,15 @@ export namespace iotsitewise {
          * The ARN of the IAM user.
          */
         arn?: string;
+    }
+
+    /**
+     * The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+     */
+    export interface AccessPolicyIdentity {
+        iamRole?: outputs.iotsitewise.AccessPolicyIamRole;
+        iamUser?: outputs.iotsitewise.AccessPolicyIamUser;
+        user?: outputs.iotsitewise.AccessPolicyUser;
     }
 
     /**
@@ -13724,6 +13690,14 @@ export namespace iotsitewise {
     }
 
     /**
+     * The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+     */
+    export interface AccessPolicyResource {
+        portal?: outputs.iotsitewise.AccessPolicyPortal;
+        project?: outputs.iotsitewise.AccessPolicyProject;
+    }
+
+    /**
      * Contains information for a user identity in an access policy.
      */
     export interface AccessPolicyUser {
@@ -13736,7 +13710,7 @@ export namespace iotsitewise {
     /**
      * A hierarchy specifies allowed parent/child asset relationships.
      */
-    export interface AssetAssetHierarchy {
+    export interface AssetHierarchy {
         /**
          * The ID of the child asset to be associated.
          */
@@ -13747,32 +13721,18 @@ export namespace iotsitewise {
         logicalId: string;
     }
 
-    /**
-     * The asset property's definition, alias, and notification state.
-     */
-    export interface AssetAssetProperty {
-        /**
-         * The property alias that identifies the property.
-         */
-        alias?: string;
-        /**
-         * Customer provided ID for property.
-         */
-        logicalId: string;
-        /**
-         * The MQTT notification state (ENABLED or DISABLED) for this asset property.
-         */
-        notificationState?: enums.iotsitewise.AssetAssetPropertyNotificationState;
+    export interface AssetModelAttribute {
+        defaultValue?: string;
     }
 
     /**
      * Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
      */
-    export interface AssetModelAssetModelCompositeModel {
+    export interface AssetModelCompositeModel {
         /**
          * The property definitions of the asset model. You can specify up to 200 properties per asset model.
          */
-        compositeModelProperties?: outputs.iotsitewise.AssetModelAssetModelProperty[];
+        compositeModelProperties?: outputs.iotsitewise.AssetModelProperty[];
         /**
          * A description for the asset composite model.
          */
@@ -13787,10 +13747,21 @@ export namespace iotsitewise {
         type: string;
     }
 
+    export interface AssetModelExpressionVariable {
+        /**
+         * The friendly name of the variable to be used in the expression.
+         */
+        name: string;
+        /**
+         * The variable that identifies an asset property from which to use values.
+         */
+        value: outputs.iotsitewise.AssetModelVariableValue;
+    }
+
     /**
      * Contains information about an asset model hierarchy.
      */
-    export interface AssetModelAssetModelHierarchy {
+    export interface AssetModelHierarchy {
         /**
          * The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
          */
@@ -13805,10 +13776,32 @@ export namespace iotsitewise {
         name: string;
     }
 
+    export interface AssetModelMetric {
+        /**
+         * The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
+         */
+        expression: string;
+        /**
+         * The list of variables used in the expression.
+         */
+        variables: outputs.iotsitewise.AssetModelExpressionVariable[];
+        /**
+         * The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
+         */
+        window: outputs.iotsitewise.AssetModelMetricWindow;
+    }
+
+    /**
+     * Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+     */
+    export interface AssetModelMetricWindow {
+        tumbling?: outputs.iotsitewise.AssetModelTumblingWindow;
+    }
+
     /**
      * Contains information about an asset model property.
      */
-    export interface AssetModelAssetModelProperty {
+    export interface AssetModelProperty {
         /**
          * The data type of the asset model property.
          */
@@ -13833,43 +13826,6 @@ export namespace iotsitewise {
          * The unit of the asset model property, such as Newtons or RPM.
          */
         unit?: string;
-    }
-
-    export interface AssetModelAttribute {
-        defaultValue?: string;
-    }
-
-    export interface AssetModelExpressionVariable {
-        /**
-         * The friendly name of the variable to be used in the expression.
-         */
-        name: string;
-        /**
-         * The variable that identifies an asset property from which to use values.
-         */
-        value: outputs.iotsitewise.AssetModelVariableValue;
-    }
-
-    export interface AssetModelMetric {
-        /**
-         * The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
-         */
-        expression: string;
-        /**
-         * The list of variables used in the expression.
-         */
-        variables: outputs.iotsitewise.AssetModelExpressionVariable[];
-        /**
-         * The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
-         */
-        window: outputs.iotsitewise.AssetModelMetricWindow;
-    }
-
-    /**
-     * Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
-     */
-    export interface AssetModelMetricWindow {
-        tumbling?: outputs.iotsitewise.AssetModelTumblingWindow;
     }
 
     /**
@@ -13911,6 +13867,24 @@ export namespace iotsitewise {
         propertyLogicalId: string;
     }
 
+    /**
+     * The asset property's definition, alias, and notification state.
+     */
+    export interface AssetProperty {
+        /**
+         * The property alias that identifies the property.
+         */
+        alias?: string;
+        /**
+         * Customer provided ID for property.
+         */
+        logicalId: string;
+        /**
+         * The MQTT notification state (ENABLED or DISABLED) for this asset property.
+         */
+        notificationState?: enums.iotsitewise.AssetPropertyNotificationState;
+    }
+
     export interface AssetTag {
         key: string;
         value: string;
@@ -13927,19 +13901,9 @@ export namespace iotsitewise {
     /**
      * Contains a summary of a gateway capability configuration.
      */
-    export interface GatewayGatewayCapabilitySummary {
+    export interface GatewayCapabilitySummary {
         capabilityConfiguration?: string;
         capabilityNamespace: string;
-    }
-
-    /**
-     * Contains a gateway's platform information.
-     */
-    export interface GatewayGatewayPlatform {
-        /**
-         * A gateway that runs on AWS IoT Greengrass.
-         */
-        greengrass: outputs.iotsitewise.GatewayGreengrass;
     }
 
     /**
@@ -13950,6 +13914,16 @@ export namespace iotsitewise {
          * The ARN of the Greengrass group.
          */
         groupArn: string;
+    }
+
+    /**
+     * Contains a gateway's platform information.
+     */
+    export interface GatewayPlatform {
+        /**
+         * A gateway that runs on AWS IoT Greengrass.
+         */
+        greengrass: outputs.iotsitewise.GatewayGreengrass;
     }
 
     /**
@@ -14181,7 +14155,20 @@ export namespace kendra {
         documentDataColumnName: string;
         documentIdColumnName: string;
         documentTitleColumnName?: string;
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
+    }
+
+    export interface DataSourceConfiguration {
+        confluenceConfiguration?: outputs.kendra.DataSourceConfluenceConfiguration;
+        databaseConfiguration?: outputs.kendra.DataSourceDatabaseConfiguration;
+        googleDriveConfiguration?: outputs.kendra.DataSourceGoogleDriveConfiguration;
+        oneDriveConfiguration?: outputs.kendra.DataSourceOneDriveConfiguration;
+        s3Configuration?: outputs.kendra.DataSourceS3DataSourceConfiguration;
+        salesforceConfiguration?: outputs.kendra.DataSourceSalesforceConfiguration;
+        serviceNowConfiguration?: outputs.kendra.DataSourceServiceNowConfiguration;
+        sharePointConfiguration?: outputs.kendra.DataSourceSharePointConfiguration;
+        webCrawlerConfiguration?: outputs.kendra.DataSourceWebCrawlerConfiguration;
+        workDocsConfiguration?: outputs.kendra.DataSourceWorkDocsConfiguration;
     }
 
     export interface DataSourceConfluenceAttachmentConfiguration {
@@ -14215,7 +14202,7 @@ export namespace kendra {
         serverUrl: string;
         spaceConfiguration?: outputs.kendra.DataSourceConfluenceSpaceConfiguration;
         version: enums.kendra.DataSourceConfluenceVersion;
-        vpcConfiguration?: outputs.kendra.DataSourceDataSourceVpcConfiguration;
+        vpcConfiguration?: outputs.kendra.DataSourceVpcConfiguration;
     }
 
     export interface DataSourceConfluencePageConfiguration {
@@ -14250,37 +14237,13 @@ export namespace kendra {
         tableName: string;
     }
 
-    export interface DataSourceDataSourceConfiguration {
-        confluenceConfiguration?: outputs.kendra.DataSourceConfluenceConfiguration;
-        databaseConfiguration?: outputs.kendra.DataSourceDatabaseConfiguration;
-        googleDriveConfiguration?: outputs.kendra.DataSourceGoogleDriveConfiguration;
-        oneDriveConfiguration?: outputs.kendra.DataSourceOneDriveConfiguration;
-        s3Configuration?: outputs.kendra.DataSourceS3DataSourceConfiguration;
-        salesforceConfiguration?: outputs.kendra.DataSourceSalesforceConfiguration;
-        serviceNowConfiguration?: outputs.kendra.DataSourceServiceNowConfiguration;
-        sharePointConfiguration?: outputs.kendra.DataSourceSharePointConfiguration;
-        webCrawlerConfiguration?: outputs.kendra.DataSourceWebCrawlerConfiguration;
-        workDocsConfiguration?: outputs.kendra.DataSourceWorkDocsConfiguration;
-    }
-
-    export interface DataSourceDataSourceToIndexFieldMapping {
-        dataSourceFieldName: string;
-        dateFieldFormat?: string;
-        indexFieldName: string;
-    }
-
-    export interface DataSourceDataSourceVpcConfiguration {
-        securityGroupIds: string[];
-        subnetIds: string[];
-    }
-
     export interface DataSourceDatabaseConfiguration {
         aclConfiguration?: outputs.kendra.DataSourceAclConfiguration;
         columnConfiguration: outputs.kendra.DataSourceColumnConfiguration;
         connectionConfiguration: outputs.kendra.DataSourceConnectionConfiguration;
         databaseEngineType: enums.kendra.DataSourceDatabaseEngineType;
         sqlConfiguration?: outputs.kendra.DataSourceSqlConfiguration;
-        vpcConfiguration?: outputs.kendra.DataSourceDataSourceVpcConfiguration;
+        vpcConfiguration?: outputs.kendra.DataSourceVpcConfiguration;
     }
 
     export interface DataSourceDocumentsMetadataConfiguration {
@@ -14292,7 +14255,7 @@ export namespace kendra {
         excludeSharedDrives?: string[];
         excludeUserAccounts?: string[];
         exclusionPatterns?: string[];
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         inclusionPatterns?: string[];
         secretArn: string;
     }
@@ -14300,7 +14263,7 @@ export namespace kendra {
     export interface DataSourceOneDriveConfiguration {
         disableLocalGroups?: boolean;
         exclusionPatterns?: string[];
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         inclusionPatterns?: string[];
         oneDriveUsers: outputs.kendra.DataSourceOneDriveUsers;
         secretArn: string;
@@ -14338,7 +14301,7 @@ export namespace kendra {
     export interface DataSourceSalesforceChatterFeedConfiguration {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         includeFilterTypes?: enums.kendra.DataSourceSalesforceChatterFeedIncludeFilterType[];
     }
 
@@ -14357,7 +14320,7 @@ export namespace kendra {
     export interface DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         name: string;
     }
 
@@ -14370,18 +14333,18 @@ export namespace kendra {
     export interface DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
     }
 
     export interface DataSourceSalesforceStandardObjectAttachmentConfiguration {
         documentTitleFieldName?: string;
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
     }
 
     export interface DataSourceSalesforceStandardObjectConfiguration {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         name: enums.kendra.DataSourceSalesforceStandardObjectName;
     }
 
@@ -14399,7 +14362,7 @@ export namespace kendra {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
         excludeAttachmentFilePatterns?: string[];
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         filterQuery?: string;
         includeAttachmentFilePatterns?: string[];
     }
@@ -14409,7 +14372,7 @@ export namespace kendra {
         documentDataFieldName: string;
         documentTitleFieldName?: string;
         excludeAttachmentFilePatterns?: string[];
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         includeAttachmentFilePatterns?: string[];
     }
 
@@ -14421,14 +14384,14 @@ export namespace kendra {
         disableLocalGroups?: boolean;
         documentTitleFieldName?: string;
         exclusionPatterns?: string[];
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         inclusionPatterns?: string[];
         secretArn: string;
         sharePointVersion: enums.kendra.DataSourceSharePointConfigurationSharePointVersion;
         sslCertificateS3Path?: outputs.kendra.DataSourceS3Path;
         urls: string[];
         useChangeLog?: boolean;
-        vpcConfiguration?: outputs.kendra.DataSourceDataSourceVpcConfiguration;
+        vpcConfiguration?: outputs.kendra.DataSourceVpcConfiguration;
     }
 
     export interface DataSourceSqlConfiguration {
@@ -14447,6 +14410,17 @@ export namespace kendra {
          * A string containing the value for the tag
          */
         value: string;
+    }
+
+    export interface DataSourceToIndexFieldMapping {
+        dataSourceFieldName: string;
+        dateFieldFormat?: string;
+        indexFieldName: string;
+    }
+
+    export interface DataSourceVpcConfiguration {
+        securityGroupIds: string[];
+        subnetIds: string[];
     }
 
     export interface DataSourceWebCrawlerAuthenticationConfiguration {
@@ -14488,7 +14462,7 @@ export namespace kendra {
     export interface DataSourceWorkDocsConfiguration {
         crawlComments?: boolean;
         exclusionPatterns?: string[];
-        fieldMappings?: outputs.kendra.DataSourceDataSourceToIndexFieldMapping[];
+        fieldMappings?: outputs.kendra.DataSourceToIndexFieldMapping[];
         inclusionPatterns?: string[];
         organizationId: string;
         useChangeLog?: boolean;
@@ -14589,11 +14563,11 @@ export namespace kinesis {
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
      */
-    export interface StreamStreamEncryption {
+    export interface StreamEncryption {
         /**
          * The encryption type to use. The only valid value is KMS. 
          */
-        encryptionType: enums.kinesis.StreamStreamEncryptionEncryptionType;
+        encryptionType: enums.kinesis.StreamEncryptionEncryptionType;
         /**
          * The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
          */
@@ -14753,24 +14727,6 @@ export namespace kinesisanalytics {
 }
 
 export namespace kinesisanalyticsv2 {
-    export interface ApplicationApplicationCodeConfiguration {
-        codeContent: outputs.kinesisanalyticsv2.ApplicationCodeContent;
-        codeContentType: string;
-    }
-
-    export interface ApplicationApplicationConfiguration {
-        applicationCodeConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationCodeConfiguration;
-        applicationSnapshotConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationSnapshotConfiguration;
-        environmentProperties?: outputs.kinesisanalyticsv2.ApplicationEnvironmentProperties;
-        flinkApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationFlinkApplicationConfiguration;
-        sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationSqlApplicationConfiguration;
-        zeppelinApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfiguration;
-    }
-
-    export interface ApplicationApplicationSnapshotConfiguration {
-        snapshotsEnabled: boolean;
-    }
-
     export interface ApplicationCSVMappingParameters {
         recordColumnDelimiter: string;
         recordRowDelimiter: string;
@@ -14791,10 +14747,24 @@ export namespace kinesisanalyticsv2 {
         logStreamARN: string;
     }
 
+    export interface ApplicationCodeConfiguration {
+        codeContent: outputs.kinesisanalyticsv2.ApplicationCodeContent;
+        codeContentType: string;
+    }
+
     export interface ApplicationCodeContent {
         s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationS3ContentLocation;
         textContent?: string;
         zipFileContent?: string;
+    }
+
+    export interface ApplicationConfiguration {
+        applicationCodeConfiguration?: outputs.kinesisanalyticsv2.ApplicationCodeConfiguration;
+        applicationSnapshotConfiguration?: outputs.kinesisanalyticsv2.ApplicationSnapshotConfiguration;
+        environmentProperties?: outputs.kinesisanalyticsv2.ApplicationEnvironmentProperties;
+        flinkApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationFlinkApplicationConfiguration;
+        sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationSqlApplicationConfiguration;
+        zeppelinApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationZeppelinApplicationConfiguration;
     }
 
     export interface ApplicationCustomArtifactsConfiguration {
@@ -14968,6 +14938,10 @@ export namespace kinesisanalyticsv2 {
         objectVersion?: string;
     }
 
+    export interface ApplicationSnapshotConfiguration {
+        snapshotsEnabled: boolean;
+    }
+
     export interface ApplicationSqlApplicationConfiguration {
         inputs?: outputs.kinesisanalyticsv2.ApplicationInput[];
     }
@@ -15040,11 +15014,6 @@ export namespace kinesisfirehose {
         schemaConfiguration?: outputs.kinesisfirehose.DeliveryStreamSchemaConfiguration;
     }
 
-    export interface DeliveryStreamDeliveryStreamEncryptionConfigurationInput {
-        keyARN?: string;
-        keyType: enums.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType;
-    }
-
     export interface DeliveryStreamDeserializer {
         hiveJsonSerDe?: outputs.kinesisfirehose.DeliveryStreamHiveJsonSerDe;
         openXJsonSerDe?: outputs.kinesisfirehose.DeliveryStreamOpenXJsonSerDe;
@@ -15083,6 +15052,11 @@ export namespace kinesisfirehose {
     export interface DeliveryStreamEncryptionConfiguration {
         kMSEncryptionConfig?: outputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfig;
         noEncryptionConfig?: enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig;
+    }
+
+    export interface DeliveryStreamEncryptionConfigurationInput {
+        keyARN?: string;
+        keyType: enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationInputKeyType;
     }
 
     export interface DeliveryStreamExtendedS3DestinationConfiguration {
@@ -15350,12 +15324,12 @@ export namespace lakeformation {
 }
 
 export namespace lambda {
-    export interface AliasAliasRoutingConfiguration {
-        additionalVersionWeights: outputs.lambda.AliasVersionWeight[];
-    }
-
     export interface AliasProvisionedConcurrencyConfiguration {
         provisionedConcurrentExecutions: number;
+    }
+
+    export interface AliasRoutingConfiguration {
+        additionalVersionWeights: outputs.lambda.AliasVersionWeight[];
     }
 
     export interface AliasVersionWeight {
@@ -15615,7 +15589,7 @@ export namespace licensemanager {
 }
 
 export namespace location {
-    export interface MapMapConfiguration {
+    export interface MapConfiguration {
         style: string;
     }
 
@@ -15669,13 +15643,6 @@ export namespace lookoutmetrics {
         snsTopicArn: string;
     }
 
-    export interface AnomalyDetectorAnomalyDetectorConfig {
-        /**
-         * Frequency of anomaly detection
-         */
-        anomalyDetectorFrequency: enums.lookoutmetrics.AnomalyDetectorAnomalyDetectorFrequency;
-    }
-
     export interface AnomalyDetectorAppFlowConfig {
         flowName: string;
         roleArn: string;
@@ -15683,6 +15650,13 @@ export namespace lookoutmetrics {
 
     export interface AnomalyDetectorCloudwatchConfig {
         roleArn: string;
+    }
+
+    export interface AnomalyDetectorConfig {
+        /**
+         * Frequency of anomaly detection
+         */
+        anomalyDetectorFrequency: enums.lookoutmetrics.AnomalyDetectorFrequency;
     }
 
     export interface AnomalyDetectorCsvFormatDescriptor {
@@ -15809,7 +15783,7 @@ export namespace macie {
     /**
      * Returned by ListHandler representing filter name and ID.
      */
-    export interface FindingsFilterFindingsFilterListItem {
+    export interface FindingsFilterListItem {
         id?: string;
         name?: string;
     }
@@ -15823,19 +15797,19 @@ export namespace managedblockchain {
         thresholdPercentage?: number;
     }
 
-    export interface MemberMemberConfiguration {
+    export interface MemberConfiguration {
         description?: string;
-        memberFrameworkConfiguration?: outputs.managedblockchain.MemberMemberFrameworkConfiguration;
+        memberFrameworkConfiguration?: outputs.managedblockchain.MemberFrameworkConfiguration;
         name: string;
     }
 
-    export interface MemberMemberFabricConfiguration {
+    export interface MemberFabricConfiguration {
         adminPassword: string;
         adminUsername: string;
     }
 
-    export interface MemberMemberFrameworkConfiguration {
-        memberFabricConfiguration?: outputs.managedblockchain.MemberMemberFabricConfiguration;
+    export interface MemberFrameworkConfiguration {
+        memberFabricConfiguration?: outputs.managedblockchain.MemberFabricConfiguration;
     }
 
     export interface MemberNetworkConfiguration {
@@ -15859,7 +15833,7 @@ export namespace managedblockchain {
         approvalThresholdPolicy?: outputs.managedblockchain.MemberApprovalThresholdPolicy;
     }
 
-    export interface NodeNodeConfiguration {
+    export interface NodeConfiguration {
         availabilityZone: string;
         instanceType: string;
     }
@@ -17177,23 +17151,12 @@ export namespace medialive {
     export interface ChannelWebvttDestinationSettings {
     }
 
-    export interface InputInputDestinationRequest {
+    export interface InputDestinationRequest {
         streamName?: string;
     }
 
-    export interface InputInputDeviceSettings {
+    export interface InputDeviceSettings {
         id?: string;
-    }
-
-    export interface InputInputSourceRequest {
-        passwordParam?: string;
-        url?: string;
-        username?: string;
-    }
-
-    export interface InputInputVpcRequest {
-        securityGroupIds?: string[];
-        subnetIds?: string[];
     }
 
     export interface InputMediaConnectFlowRequest {
@@ -17202,6 +17165,17 @@ export namespace medialive {
 
     export interface InputSecurityGroupInputWhitelistRuleCidr {
         cidr?: string;
+    }
+
+    export interface InputSourceRequest {
+        passwordParam?: string;
+        url?: string;
+        username?: string;
+    }
+
+    export interface InputVpcRequest {
+        securityGroupIds?: string[];
+        subnetIds?: string[];
     }
 
 }
@@ -17964,14 +17938,14 @@ export namespace mwaa {
 }
 
 export namespace neptune {
-    export interface DBClusterDBClusterRole {
-        featureName?: string;
-        roleArn: string;
-    }
-
     export interface DBClusterParameterGroupTag {
         key: string;
         value: string;
+    }
+
+    export interface DBClusterRole {
+        featureName?: string;
+        roleArn: string;
     }
 
     export interface DBClusterTag {
@@ -17997,6 +17971,14 @@ export namespace neptune {
 }
 
 export namespace networkfirewall {
+    export interface FirewallPolicy {
+        statefulRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyStatefulRuleGroupReference[];
+        statelessCustomActions?: outputs.networkfirewall.FirewallPolicyCustomAction[];
+        statelessDefaultActions: string[];
+        statelessFragmentDefaultActions: string[];
+        statelessRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyStatelessRuleGroupReference[];
+    }
+
     export interface FirewallPolicyActionDefinition {
         publishMetricAction?: outputs.networkfirewall.FirewallPolicyPublishMetricAction;
     }
@@ -18008,14 +17990,6 @@ export namespace networkfirewall {
 
     export interface FirewallPolicyDimension {
         value: string;
-    }
-
-    export interface FirewallPolicyFirewallPolicy {
-        statefulRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyStatefulRuleGroupReference[];
-        statelessCustomActions?: outputs.networkfirewall.FirewallPolicyCustomAction[];
-        statelessDefaultActions: string[];
-        statelessFragmentDefaultActions: string[];
-        statelessRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyStatelessRuleGroupReference[];
     }
 
     export interface FirewallPolicyPublishMetricAction {
@@ -18048,6 +18022,10 @@ export namespace networkfirewall {
         value: string;
     }
 
+    export interface LoggingConfiguration {
+        logDestinationConfigs: outputs.networkfirewall.LoggingConfigurationLogDestinationConfig[];
+    }
+
     export interface LoggingConfigurationLogDestinationConfig {
         /**
          * A key-value pair to configure the logDestinations.
@@ -18057,8 +18035,9 @@ export namespace networkfirewall {
         logType: enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogType;
     }
 
-    export interface LoggingConfigurationLoggingConfiguration {
-        logDestinationConfigs: outputs.networkfirewall.LoggingConfigurationLogDestinationConfig[];
+    export interface RuleGroup {
+        ruleVariables?: outputs.networkfirewall.RuleGroupRuleVariables;
+        rulesSource: outputs.networkfirewall.RuleGroupRulesSource;
     }
 
     export interface RuleGroupActionDefinition {
@@ -18108,11 +18087,6 @@ export namespace networkfirewall {
     export interface RuleGroupRuleDefinition {
         actions: string[];
         matchAttributes: outputs.networkfirewall.RuleGroupMatchAttributes;
-    }
-
-    export interface RuleGroupRuleGroup {
-        ruleVariables?: outputs.networkfirewall.RuleGroupRuleVariables;
-        rulesSource: outputs.networkfirewall.RuleGroupRulesSource;
     }
 
     export interface RuleGroupRuleOption {
@@ -18259,7 +18233,7 @@ export namespace nimblestudio {
         streamingImageIds: string[];
     }
 
-    export interface StreamingImageStreamingImageEncryptionConfiguration {
+    export interface StreamingImageEncryptionConfiguration {
         keyArn?: string;
         keyType: string;
     }
@@ -18280,6 +18254,20 @@ export namespace nimblestudio {
         endpoint?: string;
     }
 
+    export interface StudioComponentConfiguration {
+        activeDirectoryConfiguration?: outputs.nimblestudio.StudioComponentActiveDirectoryConfiguration;
+        computeFarmConfiguration?: outputs.nimblestudio.StudioComponentComputeFarmConfiguration;
+        licenseServiceConfiguration?: outputs.nimblestudio.StudioComponentLicenseServiceConfiguration;
+        sharedFileSystemConfiguration?: outputs.nimblestudio.StudioComponentSharedFileSystemConfiguration;
+    }
+
+    export interface StudioComponentInitializationScript {
+        launchProfileProtocolVersion?: string;
+        platform?: string;
+        runContext?: string;
+        script?: string;
+    }
+
     export interface StudioComponentLicenseServiceConfiguration {
         endpoint?: string;
     }
@@ -18297,21 +18285,7 @@ export namespace nimblestudio {
         windowsMountDrive?: string;
     }
 
-    export interface StudioComponentStudioComponentConfiguration {
-        activeDirectoryConfiguration?: outputs.nimblestudio.StudioComponentActiveDirectoryConfiguration;
-        computeFarmConfiguration?: outputs.nimblestudio.StudioComponentComputeFarmConfiguration;
-        licenseServiceConfiguration?: outputs.nimblestudio.StudioComponentLicenseServiceConfiguration;
-        sharedFileSystemConfiguration?: outputs.nimblestudio.StudioComponentSharedFileSystemConfiguration;
-    }
-
-    export interface StudioComponentStudioComponentInitializationScript {
-        launchProfileProtocolVersion?: string;
-        platform?: string;
-        runContext?: string;
-        script?: string;
-    }
-
-    export interface StudioStudioEncryptionConfiguration {
+    export interface StudioEncryptionConfiguration {
         keyArn?: string;
         keyType: string;
     }
@@ -18345,14 +18319,6 @@ export namespace opensearchservice {
         userPoolId?: string;
     }
 
-    export interface DomainDomainEndpointOptions {
-        customEndpoint?: string;
-        customEndpointCertificateArn?: string;
-        customEndpointEnabled?: boolean;
-        enforceHTTPS?: boolean;
-        tLSSecurityPolicy?: string;
-    }
-
     export interface DomainEBSOptions {
         eBSEnabled?: boolean;
         iops?: number;
@@ -18363,6 +18329,14 @@ export namespace opensearchservice {
     export interface DomainEncryptionAtRestOptions {
         enabled?: boolean;
         kmsKeyId?: string;
+    }
+
+    export interface DomainEndpointOptions {
+        customEndpoint?: string;
+        customEndpointCertificateArn?: string;
+        customEndpointEnabled?: boolean;
+        enforceHTTPS?: boolean;
+        tLSSecurityPolicy?: string;
     }
 
     export interface DomainMasterUserOptions {
@@ -18511,6 +18485,11 @@ export namespace opsworks {
         manageBerkshelf?: boolean;
     }
 
+    export interface StackConfigurationManager {
+        name?: string;
+        version?: string;
+    }
+
     export interface StackElasticIp {
         ip: string;
         name?: string;
@@ -18529,11 +18508,6 @@ export namespace opsworks {
         type?: string;
         url?: string;
         username?: string;
-    }
-
-    export interface StackStackConfigurationManager {
-        name?: string;
-        version?: string;
     }
 
     export interface StackTag {
@@ -18575,37 +18549,28 @@ export namespace pinpoint {
         start: string;
     }
 
-    export interface CampaignCampaignEmailMessage {
+    export interface CampaignEmailMessage {
         body?: string;
         fromAddress?: string;
         htmlBody?: string;
         title?: string;
     }
 
-    export interface CampaignCampaignEventFilter {
-        dimensions?: outputs.pinpoint.CampaignEventDimensions;
-        filterType?: string;
-    }
-
-    export interface CampaignCampaignHook {
-        lambdaFunctionName?: string;
-        mode?: string;
-        webUrl?: string;
-    }
-
-    export interface CampaignCampaignSmsMessage {
-        body?: string;
-        entityId?: string;
-        messageType?: string;
-        originationNumber?: string;
-        senderId?: string;
-        templateId?: string;
-    }
-
     export interface CampaignEventDimensions {
         attributes?: any;
         eventType?: outputs.pinpoint.CampaignSetDimension;
         metrics?: any;
+    }
+
+    export interface CampaignEventFilter {
+        dimensions?: outputs.pinpoint.CampaignEventDimensions;
+        filterType?: string;
+    }
+
+    export interface CampaignHook {
+        lambdaFunctionName?: string;
+        mode?: string;
+        webUrl?: string;
     }
 
     export interface CampaignLimits {
@@ -18635,9 +18600,9 @@ export namespace pinpoint {
         aPNSMessage?: outputs.pinpoint.CampaignMessage;
         baiduMessage?: outputs.pinpoint.CampaignMessage;
         defaultMessage?: outputs.pinpoint.CampaignMessage;
-        emailMessage?: outputs.pinpoint.CampaignCampaignEmailMessage;
+        emailMessage?: outputs.pinpoint.CampaignEmailMessage;
         gCMMessage?: outputs.pinpoint.CampaignMessage;
-        sMSMessage?: outputs.pinpoint.CampaignCampaignSmsMessage;
+        sMSMessage?: outputs.pinpoint.CampaignSmsMessage;
     }
 
     export interface CampaignQuietTime {
@@ -18647,7 +18612,7 @@ export namespace pinpoint {
 
     export interface CampaignSchedule {
         endTime?: string;
-        eventFilter?: outputs.pinpoint.CampaignCampaignEventFilter;
+        eventFilter?: outputs.pinpoint.CampaignEventFilter;
         frequency?: string;
         isLocalTime?: boolean;
         quietTime?: outputs.pinpoint.CampaignQuietTime;
@@ -18658,6 +18623,15 @@ export namespace pinpoint {
     export interface CampaignSetDimension {
         dimensionType?: string;
         values?: string[];
+    }
+
+    export interface CampaignSmsMessage {
+        body?: string;
+        entityId?: string;
+        messageType?: string;
+        originationNumber?: string;
+        senderId?: string;
+        templateId?: string;
     }
 
     export interface CampaignWriteTreatmentResource {
@@ -18714,16 +18688,23 @@ export namespace pinpoint {
         platform?: outputs.pinpoint.SegmentSetDimension;
     }
 
+    export interface SegmentDimensions {
+        attributes?: any;
+        behavior?: outputs.pinpoint.SegmentBehavior;
+        demographic?: outputs.pinpoint.SegmentDemographic;
+        location?: outputs.pinpoint.SegmentLocation;
+        metrics?: any;
+        userAttributes?: any;
+    }
+
     export interface SegmentGPSPoint {
         coordinates: outputs.pinpoint.SegmentCoordinates;
         rangeInKilometers: number;
     }
 
     export interface SegmentGroups {
-        dimensions?: outputs.pinpoint.SegmentSegmentDimensions[];
-        sourceSegments?: outputs.pinpoint.SegmentSourceSegments[];
-        sourceType?: string;
-        type?: string;
+        groups?: outputs.pinpoint.SegmentGroups[];
+        include?: string;
     }
 
     export interface SegmentLocation {
@@ -18736,28 +18717,9 @@ export namespace pinpoint {
         recencyType: string;
     }
 
-    export interface SegmentSegmentDimensions {
-        attributes?: any;
-        behavior?: outputs.pinpoint.SegmentBehavior;
-        demographic?: outputs.pinpoint.SegmentDemographic;
-        location?: outputs.pinpoint.SegmentLocation;
-        metrics?: any;
-        userAttributes?: any;
-    }
-
-    export interface SegmentSegmentGroups {
-        groups?: outputs.pinpoint.SegmentGroups[];
-        include?: string;
-    }
-
     export interface SegmentSetDimension {
         dimensionType?: string;
         values?: string[];
-    }
-
-    export interface SegmentSourceSegments {
-        id: string;
-        version?: number;
     }
 
 }
@@ -18862,38 +18824,6 @@ export namespace qldb {
 
 export namespace quicksight {
     /**
-     * <p>A metadata error structure for an analysis.</p>
-     */
-    export interface AnalysisAnalysisError {
-        /**
-         * <p>The message associated with the analysis error.</p>
-         */
-        message?: string;
-        type?: enums.quicksight.AnalysisAnalysisErrorType;
-    }
-
-    /**
-     * <p>The source entity of an analysis.</p>
-     */
-    export interface AnalysisAnalysisSourceEntity {
-        sourceTemplate?: outputs.quicksight.AnalysisAnalysisSourceTemplate;
-    }
-
-    /**
-     * <p>The source template of an analysis.</p>
-     */
-    export interface AnalysisAnalysisSourceTemplate {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-         */
-        arn: string;
-        /**
-         * <p>The dataset references of the source template of an analysis.</p>
-         */
-        dataSetReferences: outputs.quicksight.AnalysisDataSetReference[];
-    }
-
-    /**
      * <p>Dataset reference.</p>
      */
     export interface AnalysisDataSetReference {
@@ -18933,6 +18863,17 @@ export namespace quicksight {
          * <p>The values for the decimal parameter.</p>
          */
         values: number[];
+    }
+
+    /**
+     * <p>A metadata error structure for an analysis.</p>
+     */
+    export interface AnalysisError {
+        /**
+         * <p>The message associated with the analysis error.</p>
+         */
+        message?: string;
+        type?: enums.quicksight.AnalysisErrorType;
     }
 
     /**
@@ -19019,6 +18960,27 @@ export namespace quicksight {
     }
 
     /**
+     * <p>The source entity of an analysis.</p>
+     */
+    export interface AnalysisSourceEntity {
+        sourceTemplate?: outputs.quicksight.AnalysisSourceTemplate;
+    }
+
+    /**
+     * <p>The source template of an analysis.</p>
+     */
+    export interface AnalysisSourceTemplate {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+         */
+        arn: string;
+        /**
+         * <p>The dataset references of the source template of an analysis.</p>
+         */
+        dataSetReferences: outputs.quicksight.AnalysisDataSetReference[];
+    }
+
+    /**
      * <p>A string parameter.</p>
      */
     export interface AnalysisStringParameter {
@@ -19051,92 +19013,7 @@ export namespace quicksight {
      * <p>Ad hoc (one-time) filtering option.</p>
      */
     export interface DashboardAdHocFilteringOption {
-        availabilityStatus?: enums.quicksight.DashboardDashboardBehavior;
-    }
-
-    /**
-     * <p>Dashboard error.</p>
-     */
-    export interface DashboardDashboardError {
-        /**
-         * <p>Message.</p>
-         */
-        message?: string;
-        type?: enums.quicksight.DashboardDashboardErrorType;
-    }
-
-    /**
-     * <p>Dashboard publish options.</p>
-     */
-    export interface DashboardDashboardPublishOptions {
-        adHocFilteringOption?: outputs.quicksight.DashboardAdHocFilteringOption;
-        exportToCSVOption?: outputs.quicksight.DashboardExportToCSVOption;
-        sheetControlsOption?: outputs.quicksight.DashboardSheetControlsOption;
-    }
-
-    /**
-     * <p>Dashboard source entity.</p>
-     */
-    export interface DashboardDashboardSourceEntity {
-        sourceTemplate?: outputs.quicksight.DashboardDashboardSourceTemplate;
-    }
-
-    /**
-     * <p>Dashboard source template.</p>
-     */
-    export interface DashboardDashboardSourceTemplate {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
-        arn: string;
-        /**
-         * <p>Dataset references.</p>
-         */
-        dataSetReferences: outputs.quicksight.DashboardDataSetReference[];
-    }
-
-    /**
-     * <p>Dashboard version.</p>
-     */
-    export interface DashboardDashboardVersion {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
-        arn?: string;
-        /**
-         * <p>The time that this dashboard version was created.</p>
-         */
-        createdTime?: string;
-        /**
-         * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-         *             version of the dashboard.</p>
-         */
-        dataSetArns?: string[];
-        /**
-         * <p>Description.</p>
-         */
-        description?: string;
-        /**
-         * <p>Errors associated with this dashboard version.</p>
-         */
-        errors?: outputs.quicksight.DashboardDashboardError[];
-        /**
-         * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-         */
-        sheets?: outputs.quicksight.DashboardSheet[];
-        /**
-         * <p>Source entity ARN.</p>
-         */
-        sourceEntityArn?: string;
-        status?: enums.quicksight.DashboardResourceStatus;
-        /**
-         * <p>The ARN of the theme associated with a version of the dashboard.</p>
-         */
-        themeArn?: string;
-        /**
-         * <p>Version number for this version of the dashboard.</p>
-         */
-        versionNumber?: number;
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
     /**
@@ -19182,10 +19059,21 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Dashboard error.</p>
+     */
+    export interface DashboardError {
+        /**
+         * <p>Message.</p>
+         */
+        message?: string;
+        type?: enums.quicksight.DashboardErrorType;
+    }
+
+    /**
      * <p>Export to .csv option.</p>
      */
     export interface DashboardExportToCSVOption {
-        availabilityStatus?: enums.quicksight.DashboardDashboardBehavior;
+        availabilityStatus?: enums.quicksight.DashboardBehavior;
     }
 
     /**
@@ -19222,6 +19110,15 @@ export namespace quicksight {
          * <p>String parameters.</p>
          */
         stringParameters?: outputs.quicksight.DashboardStringParameter[];
+    }
+
+    /**
+     * <p>Dashboard publish options.</p>
+     */
+    export interface DashboardPublishOptions {
+        adHocFilteringOption?: outputs.quicksight.DashboardAdHocFilteringOption;
+        exportToCSVOption?: outputs.quicksight.DashboardExportToCSVOption;
+        sheetControlsOption?: outputs.quicksight.DashboardSheetControlsOption;
     }
 
     /**
@@ -19275,7 +19172,28 @@ export namespace quicksight {
      * <p>Sheet controls option.</p>
      */
     export interface DashboardSheetControlsOption {
-        visibilityState?: enums.quicksight.DashboardDashboardUIState;
+        visibilityState?: enums.quicksight.DashboardUIState;
+    }
+
+    /**
+     * <p>Dashboard source entity.</p>
+     */
+    export interface DashboardSourceEntity {
+        sourceTemplate?: outputs.quicksight.DashboardSourceTemplate;
+    }
+
+    /**
+     * <p>Dashboard source template.</p>
+     */
+    export interface DashboardSourceTemplate {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
+        arn: string;
+        /**
+         * <p>Dataset references.</p>
+         */
+        dataSetReferences: outputs.quicksight.DashboardDataSetReference[];
     }
 
     /**
@@ -19305,6 +19223,50 @@ export namespace quicksight {
          * <p>Tag value.</p>
          */
         value: string;
+    }
+
+    /**
+     * <p>Dashboard version.</p>
+     */
+    export interface DashboardVersion {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
+        arn?: string;
+        /**
+         * <p>The time that this dashboard version was created.</p>
+         */
+        createdTime?: string;
+        /**
+         * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+         *             version of the dashboard.</p>
+         */
+        dataSetArns?: string[];
+        /**
+         * <p>Description.</p>
+         */
+        description?: string;
+        /**
+         * <p>Errors associated with this dashboard version.</p>
+         */
+        errors?: outputs.quicksight.DashboardError[];
+        /**
+         * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+         */
+        sheets?: outputs.quicksight.DashboardSheet[];
+        /**
+         * <p>Source entity ARN.</p>
+         */
+        sourceEntityArn?: string;
+        status?: enums.quicksight.DashboardResourceStatus;
+        /**
+         * <p>The ARN of the theme associated with a version of the dashboard.</p>
+         */
+        themeArn?: string;
+        /**
+         * <p>Version number for this version of the dashboard.</p>
+         */
+        versionNumber?: number;
     }
 
     /**
@@ -19506,7 +19468,7 @@ export namespace quicksight {
          *             null, the <code>DataSourceParameters</code> originally used with these
          *                 <code>Credentials</code> is automatically allowed.</p>
          */
-        alternateDataSourceParameters?: outputs.quicksight.DataSourceDataSourceParameters[];
+        alternateDataSourceParameters?: outputs.quicksight.DataSourceParameters[];
         /**
          * <p>Password.</p>
          */
@@ -19521,7 +19483,7 @@ export namespace quicksight {
      * <p>Data source credentials. This is a variant type structure. For this structure to be
      *             valid, only one of the attributes can be non-null.</p>
      */
-    export interface DataSourceDataSourceCredentials {
+    export interface DataSourceCredentials {
         /**
          * <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
          *             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
@@ -19535,36 +19497,12 @@ export namespace quicksight {
     /**
      * <p>Error information for the data source creation or update.</p>
      */
-    export interface DataSourceDataSourceErrorInfo {
+    export interface DataSourceErrorInfo {
         /**
          * <p>Error message.</p>
          */
         message?: string;
-        type?: enums.quicksight.DataSourceDataSourceErrorInfoType;
-    }
-
-    /**
-     * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-     *             This is a variant type structure. For this structure to be valid, only one of the
-     *             attributes can be non-null.</p>
-     */
-    export interface DataSourceDataSourceParameters {
-        amazonElasticsearchParameters?: outputs.quicksight.DataSourceAmazonElasticsearchParameters;
-        athenaParameters?: outputs.quicksight.DataSourceAthenaParameters;
-        auroraParameters?: outputs.quicksight.DataSourceAuroraParameters;
-        auroraPostgreSqlParameters?: outputs.quicksight.DataSourceAuroraPostgreSqlParameters;
-        mariaDbParameters?: outputs.quicksight.DataSourceMariaDbParameters;
-        mySqlParameters?: outputs.quicksight.DataSourceMySqlParameters;
-        oracleParameters?: outputs.quicksight.DataSourceOracleParameters;
-        postgreSqlParameters?: outputs.quicksight.DataSourcePostgreSqlParameters;
-        prestoParameters?: outputs.quicksight.DataSourcePrestoParameters;
-        rdsParameters?: outputs.quicksight.DataSourceRdsParameters;
-        redshiftParameters?: outputs.quicksight.DataSourceRedshiftParameters;
-        s3Parameters?: outputs.quicksight.DataSourceS3Parameters;
-        snowflakeParameters?: outputs.quicksight.DataSourceSnowflakeParameters;
-        sparkParameters?: outputs.quicksight.DataSourceSparkParameters;
-        sqlServerParameters?: outputs.quicksight.DataSourceSqlServerParameters;
-        teradataParameters?: outputs.quicksight.DataSourceTeradataParameters;
+        type?: enums.quicksight.DataSourceErrorInfoType;
     }
 
     /**
@@ -19621,6 +19559,30 @@ export namespace quicksight {
         database: string;
         host: string;
         port: number;
+    }
+
+    /**
+     * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+     *             This is a variant type structure. For this structure to be valid, only one of the
+     *             attributes can be non-null.</p>
+     */
+    export interface DataSourceParameters {
+        amazonElasticsearchParameters?: outputs.quicksight.DataSourceAmazonElasticsearchParameters;
+        athenaParameters?: outputs.quicksight.DataSourceAthenaParameters;
+        auroraParameters?: outputs.quicksight.DataSourceAuroraParameters;
+        auroraPostgreSqlParameters?: outputs.quicksight.DataSourceAuroraPostgreSqlParameters;
+        mariaDbParameters?: outputs.quicksight.DataSourceMariaDbParameters;
+        mySqlParameters?: outputs.quicksight.DataSourceMySqlParameters;
+        oracleParameters?: outputs.quicksight.DataSourceOracleParameters;
+        postgreSqlParameters?: outputs.quicksight.DataSourcePostgreSqlParameters;
+        prestoParameters?: outputs.quicksight.DataSourcePrestoParameters;
+        rdsParameters?: outputs.quicksight.DataSourceRdsParameters;
+        redshiftParameters?: outputs.quicksight.DataSourceRedshiftParameters;
+        s3Parameters?: outputs.quicksight.DataSourceS3Parameters;
+        snowflakeParameters?: outputs.quicksight.DataSourceSnowflakeParameters;
+        sparkParameters?: outputs.quicksight.DataSourceSparkParameters;
+        sqlServerParameters?: outputs.quicksight.DataSourceSqlServerParameters;
+        teradataParameters?: outputs.quicksight.DataSourceTeradataParameters;
     }
 
     /**
@@ -19919,6 +19881,17 @@ export namespace quicksight {
     }
 
     /**
+     * <p>List of errors that occurred when the template version creation failed.</p>
+     */
+    export interface TemplateError {
+        /**
+         * <p>Description of the error type.</p>
+         */
+        message?: string;
+        type?: enums.quicksight.TemplateErrorType;
+    }
+
+    /**
      * <p>Permission for the resource.</p>
      */
     export interface TemplateResourcePermission {
@@ -19966,6 +19939,39 @@ export namespace quicksight {
     }
 
     /**
+     * <p>The source analysis of the template.</p>
+     */
+    export interface TemplateSourceAnalysis {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
+        arn: string;
+        /**
+         * <p>A structure containing information about the dataset references used as placeholders
+         *             in the template.</p>
+         */
+        dataSetReferences: outputs.quicksight.TemplateDataSetReference[];
+    }
+
+    /**
+     * <p>The source entity of the template.</p>
+     */
+    export interface TemplateSourceEntity {
+        sourceAnalysis?: outputs.quicksight.TemplateSourceAnalysis;
+        sourceTemplate?: outputs.quicksight.TemplateSourceTemplate;
+    }
+
+    /**
+     * <p>The source template of the template.</p>
+     */
+    export interface TemplateSourceTemplate {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
+        arn: string;
+    }
+
+    /**
      * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
      *             resource.</p>
      */
@@ -19981,53 +19987,9 @@ export namespace quicksight {
     }
 
     /**
-     * <p>List of errors that occurred when the template version creation failed.</p>
-     */
-    export interface TemplateTemplateError {
-        /**
-         * <p>Description of the error type.</p>
-         */
-        message?: string;
-        type?: enums.quicksight.TemplateTemplateErrorType;
-    }
-
-    /**
-     * <p>The source analysis of the template.</p>
-     */
-    export interface TemplateTemplateSourceAnalysis {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
-        arn: string;
-        /**
-         * <p>A structure containing information about the dataset references used as placeholders
-         *             in the template.</p>
-         */
-        dataSetReferences: outputs.quicksight.TemplateDataSetReference[];
-    }
-
-    /**
-     * <p>The source entity of the template.</p>
-     */
-    export interface TemplateTemplateSourceEntity {
-        sourceAnalysis?: outputs.quicksight.TemplateTemplateSourceAnalysis;
-        sourceTemplate?: outputs.quicksight.TemplateTemplateSourceTemplate;
-    }
-
-    /**
-     * <p>The source template of the template.</p>
-     */
-    export interface TemplateTemplateSourceTemplate {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
-        arn: string;
-    }
-
-    /**
      * <p>A version of a template.</p>
      */
-    export interface TemplateTemplateVersion {
+    export interface TemplateVersion {
         /**
          * <p>The time that this template version was created.</p>
          */
@@ -20045,7 +20007,7 @@ export namespace quicksight {
         /**
          * <p>Errors associated with this template version.</p>
          */
-        errors?: outputs.quicksight.TemplateTemplateError[];
+        errors?: outputs.quicksight.TemplateError[];
         /**
          * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
          */
@@ -20077,6 +20039,17 @@ export namespace quicksight {
     }
 
     /**
+     * <p>The theme configuration. This configuration contains all of the display properties for
+     *             a theme.</p>
+     */
+    export interface ThemeConfiguration {
+        dataColorPalette?: outputs.quicksight.ThemeDataColorPalette;
+        sheet?: outputs.quicksight.ThemeSheetStyle;
+        typography?: outputs.quicksight.ThemeTypography;
+        uIColorPalette?: outputs.quicksight.ThemeUIColorPalette;
+    }
+
+    /**
      * <p>The theme colors that are used for data colors in charts. The colors description is a
      *             hexadecimal color code that consists of six alphanumerical characters, prefixed with
      *                 <code>#</code>, for example #37BFF5. </p>
@@ -20095,6 +20068,17 @@ export namespace quicksight {
          * <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
          */
         minMaxGradient?: string[];
+    }
+
+    /**
+     * <p>Theme error.</p>
+     */
+    export interface ThemeError {
+        /**
+         * <p>The error message.</p>
+         */
+        message?: string;
+        type?: enums.quicksight.ThemeErrorType;
     }
 
     export interface ThemeFont {
@@ -20171,61 +20155,6 @@ export namespace quicksight {
          * <p>Tag value.</p>
          */
         value: string;
-    }
-
-    /**
-     * <p>The theme configuration. This configuration contains all of the display properties for
-     *             a theme.</p>
-     */
-    export interface ThemeThemeConfiguration {
-        dataColorPalette?: outputs.quicksight.ThemeDataColorPalette;
-        sheet?: outputs.quicksight.ThemeSheetStyle;
-        typography?: outputs.quicksight.ThemeTypography;
-        uIColorPalette?: outputs.quicksight.ThemeUIColorPalette;
-    }
-
-    /**
-     * <p>Theme error.</p>
-     */
-    export interface ThemeThemeError {
-        /**
-         * <p>The error message.</p>
-         */
-        message?: string;
-        type?: enums.quicksight.ThemeThemeErrorType;
-    }
-
-    /**
-     * <p>A version of a theme.</p>
-     */
-    export interface ThemeThemeVersion {
-        /**
-         * <p>The Amazon Resource Name (ARN) of the resource.</p>
-         */
-        arn?: string;
-        /**
-         * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-         *             themes initially inherit from a default QuickSight theme.</p>
-         */
-        baseThemeId?: string;
-        configuration?: outputs.quicksight.ThemeThemeConfiguration;
-        /**
-         * <p>The date and time that this theme version was created.</p>
-         */
-        createdTime?: string;
-        /**
-         * <p>The description of the theme.</p>
-         */
-        description?: string;
-        /**
-         * <p>Errors associated with the theme.</p>
-         */
-        errors?: outputs.quicksight.ThemeThemeError[];
-        status?: enums.quicksight.ThemeResourceStatus;
-        /**
-         * <p>The version number of the theme.</p>
-         */
-        versionNumber?: number;
     }
 
     /**
@@ -20331,6 +20260,39 @@ export namespace quicksight {
         warningForeground?: string;
     }
 
+    /**
+     * <p>A version of a theme.</p>
+     */
+    export interface ThemeVersion {
+        /**
+         * <p>The Amazon Resource Name (ARN) of the resource.</p>
+         */
+        arn?: string;
+        /**
+         * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+         *             themes initially inherit from a default QuickSight theme.</p>
+         */
+        baseThemeId?: string;
+        configuration?: outputs.quicksight.ThemeConfiguration;
+        /**
+         * <p>The date and time that this theme version was created.</p>
+         */
+        createdTime?: string;
+        /**
+         * <p>The description of the theme.</p>
+         */
+        description?: string;
+        /**
+         * <p>Errors associated with the theme.</p>
+         */
+        errors?: outputs.quicksight.ThemeError[];
+        status?: enums.quicksight.ThemeResourceStatus;
+        /**
+         * <p>The version number of the theme.</p>
+         */
+        versionNumber?: number;
+    }
+
 }
 
 export namespace ram {
@@ -20342,14 +20304,14 @@ export namespace ram {
 }
 
 export namespace rds {
-    export interface DBClusterDBClusterRole {
-        featureName?: string;
-        roleArn: string;
-    }
-
     export interface DBClusterParameterGroupTag {
         key: string;
         value: string;
+    }
+
+    export interface DBClusterRole {
+        featureName?: string;
+        roleArn: string;
     }
 
     export interface DBClusterScalingConfiguration {
@@ -20364,14 +20326,14 @@ export namespace rds {
         value: string;
     }
 
-    export interface DBInstanceDBInstanceRole {
-        featureName: string;
-        roleArn: string;
-    }
-
     export interface DBInstanceProcessorFeature {
         name?: string;
         value?: string;
+    }
+
+    export interface DBInstanceRole {
+        featureName: string;
+        roleArn: string;
     }
 
     export interface DBInstanceTag {
@@ -20655,7 +20617,7 @@ export namespace route53 {
     /**
      * A key-value pair to associate with a resource.
      */
-    export interface HealthCheckHealthCheckTag {
+    export interface HealthCheckTag {
         /**
          * The key name of the tag.
          */
@@ -20671,25 +20633,11 @@ export namespace route53 {
      *
      * If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
      */
-    export interface HostedZoneHostedZoneConfig {
+    export interface HostedZoneConfig {
         /**
          * Any comments that you want to include about the hosted zone.
          */
         comment?: string;
-    }
-
-    /**
-     * A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-     */
-    export interface HostedZoneHostedZoneTag {
-        /**
-         * The key name of the tag.
-         */
-        key: string;
-        /**
-         * The value for the tag.
-         */
-        value: string;
     }
 
     /**
@@ -20700,6 +20648,20 @@ export namespace route53 {
          * The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
          */
         cloudWatchLogsLogGroupArn: string;
+    }
+
+    /**
+     * A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+     */
+    export interface HostedZoneTag {
+        /**
+         * The key name of the tag.
+         */
+        key: string;
+        /**
+         * The value for the tag.
+         */
+        value: string;
     }
 
     /**
@@ -20761,7 +20723,7 @@ export namespace route53 {
 }
 
 export namespace route53recoverycontrol {
-    export interface ClusterClusterEndpoint {
+    export interface ClusterEndpoint {
         endpoint?: string;
         region?: string;
     }
@@ -21066,10 +21028,6 @@ export namespace s3 {
         tagFilters?: outputs.s3.BucketTagFilter[];
     }
 
-    export interface BucketBucketEncryption {
-        serverSideEncryptionConfiguration: outputs.s3.BucketServerSideEncryptionRule[];
-    }
-
     export interface BucketCorsConfiguration {
         corsRules: outputs.s3.BucketCorsRule[];
     }
@@ -21103,6 +21061,10 @@ export namespace s3 {
         bucketArn: string;
         format: string;
         prefix?: string;
+    }
+
+    export interface BucketEncryption {
+        serverSideEncryptionConfiguration: outputs.s3.BucketServerSideEncryptionRule[];
     }
 
     export interface BucketEncryptionConfiguration {
@@ -21428,6 +21390,26 @@ export namespace s3 {
     }
 
     /**
+     * Specifies the details of Amazon S3 Storage Lens configuration.
+     */
+    export interface StorageLensConfiguration {
+        accountLevel: outputs.s3.StorageLensAccountLevel;
+        awsOrg?: outputs.s3.StorageLensAwsOrg;
+        dataExport?: outputs.s3.StorageLensDataExport;
+        exclude?: outputs.s3.StorageLensBucketsAndRegions;
+        id: string;
+        include?: outputs.s3.StorageLensBucketsAndRegions;
+        /**
+         * Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+         */
+        isEnabled: boolean;
+        /**
+         * The ARN for the Amazon S3 Storage Lens configuration.
+         */
+        storageLensArn?: string;
+    }
+
+    /**
      * Specifies how Amazon S3 Storage Lens metrics should be exported.
      */
     export interface StorageLensDataExport {
@@ -21500,31 +21482,10 @@ export namespace s3 {
         minStorageBytesPercentage?: number;
     }
 
-    /**
-     * Specifies the details of Amazon S3 Storage Lens configuration.
-     */
-    export interface StorageLensStorageLensConfiguration {
-        accountLevel: outputs.s3.StorageLensAccountLevel;
-        awsOrg?: outputs.s3.StorageLensAwsOrg;
-        dataExport?: outputs.s3.StorageLensDataExport;
-        exclude?: outputs.s3.StorageLensBucketsAndRegions;
-        id: string;
-        include?: outputs.s3.StorageLensBucketsAndRegions;
-        /**
-         * Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
-         */
-        isEnabled: boolean;
-        /**
-         * The ARN for the Amazon S3 Storage Lens configuration.
-         */
-        storageLensArn?: string;
-    }
-
     export interface StorageLensTag {
         key: string;
         value: string;
     }
-
 }
 
 export namespace s3objectlambda {
@@ -21930,7 +21891,7 @@ export namespace sagemaker {
     /**
      * Edge device you want to create
      */
-    export interface DeviceDevice {
+    export interface Device {
         /**
          * Description of the device
          */
@@ -22919,6 +22880,19 @@ export namespace sagemaker {
     }
 
     /**
+     * The configuration object that specifies the monitoring schedule and defines the monitoring job.
+     */
+    export interface MonitoringScheduleConfig {
+        monitoringJobDefinition?: outputs.sagemaker.MonitoringScheduleMonitoringJobDefinition;
+        /**
+         * Name of the job definition
+         */
+        monitoringJobDefinitionName?: string;
+        monitoringType?: enums.sagemaker.MonitoringScheduleMonitoringType;
+        scheduleConfig?: outputs.sagemaker.MonitoringScheduleScheduleConfig;
+    }
+
+    /**
      * The baseline constraints resource for a monitoring job.
      */
     export interface MonitoringScheduleConstraintsResource {
@@ -23059,19 +23033,6 @@ export namespace sagemaker {
      */
     export interface MonitoringScheduleMonitoringResources {
         clusterConfig: outputs.sagemaker.MonitoringScheduleClusterConfig;
-    }
-
-    /**
-     * The configuration object that specifies the monitoring schedule and defines the monitoring job.
-     */
-    export interface MonitoringScheduleMonitoringScheduleConfig {
-        monitoringJobDefinition?: outputs.sagemaker.MonitoringScheduleMonitoringJobDefinition;
-        /**
-         * Name of the job definition
-         */
-        monitoringJobDefinitionName?: string;
-        monitoringType?: enums.sagemaker.MonitoringScheduleMonitoringType;
-        scheduleConfig?: outputs.sagemaker.MonitoringScheduleScheduleConfig;
     }
 
     /**
@@ -23594,7 +23555,7 @@ export namespace ses {
         topicArn?: string;
     }
 
-    export interface TemplateTemplate {
+    export interface Template {
         htmlPart?: string;
         subjectPart?: string;
         templateName?: string;
@@ -23668,7 +23629,7 @@ export namespace ssm {
         values?: string[];
     }
 
-    export interface DocumentDocumentRequires {
+    export interface DocumentRequires {
         /**
          * The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
          */
@@ -23825,20 +23786,6 @@ export namespace ssmcontacts {
     }
 
     /**
-     * The contact that SSM Incident Manager is engaging during an incident.
-     */
-    export interface ContactContactTargetInfo {
-        /**
-         * The Amazon Resource Name (ARN) of the contact.
-         */
-        contactId: string;
-        /**
-         * A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-         */
-        isEssential: boolean;
-    }
-
-    /**
      * A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
      */
     export interface ContactStage {
@@ -23853,11 +23800,25 @@ export namespace ssmcontacts {
     }
 
     /**
+     * The contact that SSM Incident Manager is engaging during an incident.
+     */
+    export interface ContactTargetInfo {
+        /**
+         * The Amazon Resource Name (ARN) of the contact.
+         */
+        contactId: string;
+        /**
+         * A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+         */
+        isEssential: boolean;
+    }
+
+    /**
      * The contacts or contact methods that the escalation plan or engagement plan is engaging.
      */
     export interface ContactTargets {
         channelTargetInfo?: outputs.ssmcontacts.ContactChannelTargetInfo;
-        contactTargetInfo?: outputs.ssmcontacts.ContactContactTargetInfo;
+        contactTargetInfo?: outputs.ssmcontacts.ContactTargetInfo;
     }
 
 }
@@ -24199,7 +24160,7 @@ export namespace waf {
         type: string;
     }
 
-    export interface IPSetIPSetDescriptor {
+    export interface IPSetDescriptor {
         type: string;
         value: string;
     }
@@ -24273,7 +24234,7 @@ export namespace wafregional {
         value: string;
     }
 
-    export interface IPSetIPSetDescriptor {
+    export interface IPSetDescriptor {
         type: string;
         value: string;
     }
@@ -24914,9 +24875,9 @@ export namespace wafv2 {
 }
 
 export namespace workspaces {
-    export interface ConnectionAliasConnectionAliasAssociation {
+    export interface ConnectionAliasAssociation {
         associatedAccountId?: string;
-        associationStatus?: enums.workspaces.ConnectionAliasConnectionAliasAssociationAssociationStatus;
+        associationStatus?: enums.workspaces.ConnectionAliasAssociationAssociationStatus;
         connectionIdentifier?: string;
         resourceId?: string;
     }
@@ -24926,17 +24887,17 @@ export namespace workspaces {
         value: string;
     }
 
-    export interface WorkspaceTag {
-        key: string;
-        value: string;
-    }
-
-    export interface WorkspaceWorkspaceProperties {
+    export interface WorkspaceProperties {
         computeTypeName?: string;
         rootVolumeSizeGib?: number;
         runningMode?: string;
         runningModeAutoStopTimeoutInMinutes?: number;
         userVolumeSizeGib?: number;
+    }
+
+    export interface WorkspaceTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -24953,7 +24914,7 @@ export namespace xray {
         notificationsEnabled?: boolean;
     }
 
-    export interface SamplingRuleSamplingRule {
+    export interface SamplingRule {
         /**
          * Matches attributes derived from the request.
          */
@@ -25002,7 +24963,7 @@ export namespace xray {
         version?: number;
     }
 
-    export interface SamplingRuleSamplingRuleRecord {
+    export interface SamplingRuleRecord {
         /**
          * When the rule was created, in Unix time seconds.
          */
@@ -25011,10 +24972,10 @@ export namespace xray {
          * When the rule was modified, in Unix time seconds.
          */
         modifiedAt?: string;
-        samplingRule?: outputs.xray.SamplingRuleSamplingRule;
+        samplingRule?: outputs.xray.SamplingRule;
     }
 
-    export interface SamplingRuleSamplingRuleUpdate {
+    export interface SamplingRuleUpdate {
         /**
          * Matches attributes derived from the request.
          */

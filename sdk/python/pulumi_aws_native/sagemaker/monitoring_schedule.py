@@ -16,18 +16,18 @@ __all__ = ['MonitoringScheduleArgs', 'MonitoringSchedule']
 @pulumi.input_type
 class MonitoringScheduleArgs:
     def __init__(__self__, *,
-                 monitoring_schedule_config: pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs'],
+                 monitoring_schedule_config: pulumi.Input['MonitoringScheduleConfigArgs'],
                  monitoring_schedule_name: pulumi.Input[str],
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
                  last_monitoring_execution_summary: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
-                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleStatus']] = None,
+                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringSchedule resource.
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs'] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
-        :param pulumi.Input['MonitoringScheduleMonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
+        :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
         :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "monitoring_schedule_config", monitoring_schedule_config)
@@ -45,11 +45,11 @@ class MonitoringScheduleArgs:
 
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
-    def monitoring_schedule_config(self) -> pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs']:
+    def monitoring_schedule_config(self) -> pulumi.Input['MonitoringScheduleConfigArgs']:
         return pulumi.get(self, "monitoring_schedule_config")
 
     @monitoring_schedule_config.setter
-    def monitoring_schedule_config(self, value: pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs']):
+    def monitoring_schedule_config(self, value: pulumi.Input['MonitoringScheduleConfigArgs']):
         pulumi.set(self, "monitoring_schedule_config", value)
 
     @property
@@ -96,14 +96,14 @@ class MonitoringScheduleArgs:
 
     @property
     @pulumi.getter(name="monitoringScheduleStatus")
-    def monitoring_schedule_status(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleStatus']]:
+    def monitoring_schedule_status(self) -> Optional[pulumi.Input['MonitoringScheduleStatus']]:
         """
         The status of a schedule job.
         """
         return pulumi.get(self, "monitoring_schedule_status")
 
     @monitoring_schedule_status.setter
-    def monitoring_schedule_status(self, value: Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleStatus']]):
+    def monitoring_schedule_status(self, value: Optional[pulumi.Input['MonitoringScheduleStatus']]):
         pulumi.set(self, "monitoring_schedule_status", value)
 
     @property
@@ -127,9 +127,9 @@ class MonitoringSchedule(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
                  last_monitoring_execution_summary: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']]] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']]] = None,
+                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleStatus']] = None,
+                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -139,7 +139,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
-        :param pulumi.Input['MonitoringScheduleMonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
+        :param pulumi.Input['MonitoringScheduleStatus'] monitoring_schedule_status: The status of a schedule job.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -169,9 +169,9 @@ class MonitoringSchedule(pulumi.CustomResource):
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  failure_reason: Optional[pulumi.Input[str]] = None,
                  last_monitoring_execution_summary: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']]] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']]] = None,
+                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleConfigArgs']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleMonitoringScheduleStatus']] = None,
+                 monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -280,7 +280,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
-    def monitoring_schedule_config(self) -> pulumi.Output['outputs.MonitoringScheduleMonitoringScheduleConfig']:
+    def monitoring_schedule_config(self) -> pulumi.Output['outputs.MonitoringScheduleConfig']:
         return pulumi.get(self, "monitoring_schedule_config")
 
     @property
@@ -290,7 +290,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monitoringScheduleStatus")
-    def monitoring_schedule_status(self) -> pulumi.Output[Optional['MonitoringScheduleMonitoringScheduleStatus']]:
+    def monitoring_schedule_status(self) -> pulumi.Output[Optional['MonitoringScheduleStatus']]:
         """
         The status of a schedule job.
         """

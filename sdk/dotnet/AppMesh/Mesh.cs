@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         [Output("spec")]
-        public Output<Outputs.MeshMeshSpec?> Spec { get; private set; } = null!;
+        public Output<Outputs.MeshSpec?> Spec { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.MeshTag>> Tags { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Input<string>? MeshName { get; set; }
 
         [Input("spec")]
-        public Input<Inputs.MeshMeshSpecArgs>? Spec { get; set; }
+        public Input<Inputs.MeshSpecArgs>? Spec { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.MeshTagArgs>? _tags;

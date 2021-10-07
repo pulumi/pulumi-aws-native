@@ -15,17 +15,17 @@ import (
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
-	Configuration         StudioComponentStudioComponentConfigurationPtrOutput          `pulumi:"configuration"`
-	Description           pulumi.StringPtrOutput                                        `pulumi:"description"`
-	Ec2SecurityGroupIds   pulumi.StringArrayOutput                                      `pulumi:"ec2SecurityGroupIds"`
-	InitializationScripts StudioComponentStudioComponentInitializationScriptArrayOutput `pulumi:"initializationScripts"`
-	Name                  pulumi.StringOutput                                           `pulumi:"name"`
-	ScriptParameters      StudioComponentScriptParameterKeyValueArrayOutput             `pulumi:"scriptParameters"`
-	StudioComponentId     pulumi.StringOutput                                           `pulumi:"studioComponentId"`
-	StudioId              pulumi.StringOutput                                           `pulumi:"studioId"`
-	Subtype               pulumi.StringPtrOutput                                        `pulumi:"subtype"`
-	Tags                  pulumi.AnyOutput                                              `pulumi:"tags"`
-	Type                  pulumi.StringOutput                                           `pulumi:"type"`
+	Configuration         StudioComponentConfigurationPtrOutput             `pulumi:"configuration"`
+	Description           pulumi.StringPtrOutput                            `pulumi:"description"`
+	Ec2SecurityGroupIds   pulumi.StringArrayOutput                          `pulumi:"ec2SecurityGroupIds"`
+	InitializationScripts StudioComponentInitializationScriptArrayOutput    `pulumi:"initializationScripts"`
+	Name                  pulumi.StringOutput                               `pulumi:"name"`
+	ScriptParameters      StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
+	StudioComponentId     pulumi.StringOutput                               `pulumi:"studioComponentId"`
+	StudioId              pulumi.StringOutput                               `pulumi:"studioId"`
+	Subtype               pulumi.StringPtrOutput                            `pulumi:"subtype"`
+	Tags                  pulumi.AnyOutput                                  `pulumi:"tags"`
+	Type                  pulumi.StringOutput                               `pulumi:"type"`
 }
 
 // NewStudioComponent registers a new resource with the given unique name, arguments, and options.
@@ -76,24 +76,24 @@ func (StudioComponentState) ElementType() reflect.Type {
 }
 
 type studioComponentArgs struct {
-	Configuration         *StudioComponentStudioComponentConfiguration         `pulumi:"configuration"`
-	Description           *string                                              `pulumi:"description"`
-	Ec2SecurityGroupIds   []string                                             `pulumi:"ec2SecurityGroupIds"`
-	InitializationScripts []StudioComponentStudioComponentInitializationScript `pulumi:"initializationScripts"`
-	Name                  string                                               `pulumi:"name"`
-	ScriptParameters      []StudioComponentScriptParameterKeyValue             `pulumi:"scriptParameters"`
-	StudioId              string                                               `pulumi:"studioId"`
-	Subtype               *string                                              `pulumi:"subtype"`
-	Tags                  interface{}                                          `pulumi:"tags"`
-	Type                  string                                               `pulumi:"type"`
+	Configuration         *StudioComponentConfiguration            `pulumi:"configuration"`
+	Description           *string                                  `pulumi:"description"`
+	Ec2SecurityGroupIds   []string                                 `pulumi:"ec2SecurityGroupIds"`
+	InitializationScripts []StudioComponentInitializationScript    `pulumi:"initializationScripts"`
+	Name                  string                                   `pulumi:"name"`
+	ScriptParameters      []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
+	StudioId              string                                   `pulumi:"studioId"`
+	Subtype               *string                                  `pulumi:"subtype"`
+	Tags                  interface{}                              `pulumi:"tags"`
+	Type                  string                                   `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StudioComponent resource.
 type StudioComponentArgs struct {
-	Configuration         StudioComponentStudioComponentConfigurationPtrInput
+	Configuration         StudioComponentConfigurationPtrInput
 	Description           pulumi.StringPtrInput
 	Ec2SecurityGroupIds   pulumi.StringArrayInput
-	InitializationScripts StudioComponentStudioComponentInitializationScriptArrayInput
+	InitializationScripts StudioComponentInitializationScriptArrayInput
 	Name                  pulumi.StringInput
 	ScriptParameters      StudioComponentScriptParameterKeyValueArrayInput
 	StudioId              pulumi.StringInput

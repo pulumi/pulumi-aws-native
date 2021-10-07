@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AnalysisAnalysisErrorType = {
+export const AnalysisErrorType = {
     AccessDenied: "ACCESS_DENIED",
     SourceNotFound: "SOURCE_NOT_FOUND",
     DataSetNotFound: "DATA_SET_NOT_FOUND",
@@ -15,7 +15,7 @@ export const AnalysisAnalysisErrorType = {
     ColumnReplacementMissing: "COLUMN_REPLACEMENT_MISSING",
 } as const;
 
-export type AnalysisAnalysisErrorType = (typeof AnalysisAnalysisErrorType)[keyof typeof AnalysisAnalysisErrorType];
+export type AnalysisErrorType = (typeof AnalysisErrorType)[keyof typeof AnalysisErrorType];
 
 export const AnalysisResourceStatus = {
     CreationInProgress: "CREATION_IN_PROGRESS",
@@ -29,14 +29,14 @@ export const AnalysisResourceStatus = {
 
 export type AnalysisResourceStatus = (typeof AnalysisResourceStatus)[keyof typeof AnalysisResourceStatus];
 
-export const DashboardDashboardBehavior = {
+export const DashboardBehavior = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
 } as const;
 
-export type DashboardDashboardBehavior = (typeof DashboardDashboardBehavior)[keyof typeof DashboardDashboardBehavior];
+export type DashboardBehavior = (typeof DashboardBehavior)[keyof typeof DashboardBehavior];
 
-export const DashboardDashboardErrorType = {
+export const DashboardErrorType = {
     AccessDenied: "ACCESS_DENIED",
     SourceNotFound: "SOURCE_NOT_FOUND",
     DataSetNotFound: "DATA_SET_NOT_FOUND",
@@ -49,14 +49,7 @@ export const DashboardDashboardErrorType = {
     ColumnReplacementMissing: "COLUMN_REPLACEMENT_MISSING",
 } as const;
 
-export type DashboardDashboardErrorType = (typeof DashboardDashboardErrorType)[keyof typeof DashboardDashboardErrorType];
-
-export const DashboardDashboardUIState = {
-    Expanded: "EXPANDED",
-    Collapsed: "COLLAPSED",
-} as const;
-
-export type DashboardDashboardUIState = (typeof DashboardDashboardUIState)[keyof typeof DashboardDashboardUIState];
+export type DashboardErrorType = (typeof DashboardErrorType)[keyof typeof DashboardErrorType];
 
 export const DashboardResourceStatus = {
     CreationInProgress: "CREATION_IN_PROGRESS",
@@ -70,6 +63,13 @@ export const DashboardResourceStatus = {
 
 export type DashboardResourceStatus = (typeof DashboardResourceStatus)[keyof typeof DashboardResourceStatus];
 
+export const DashboardUIState = {
+    Expanded: "EXPANDED",
+    Collapsed: "COLLAPSED",
+} as const;
+
+export type DashboardUIState = (typeof DashboardUIState)[keyof typeof DashboardUIState];
+
 export const DataSetColumnDataType = {
     String: "STRING",
     Integer: "INTEGER",
@@ -79,18 +79,18 @@ export const DataSetColumnDataType = {
 
 export type DataSetColumnDataType = (typeof DataSetColumnDataType)[keyof typeof DataSetColumnDataType];
 
-export const DataSetDataSetImportMode = {
-    Spice: "SPICE",
-    DirectQuery: "DIRECT_QUERY",
-} as const;
-
-export type DataSetDataSetImportMode = (typeof DataSetDataSetImportMode)[keyof typeof DataSetDataSetImportMode];
-
 export const DataSetGeoSpatialCountryCode = {
     Us: "US",
 } as const;
 
 export type DataSetGeoSpatialCountryCode = (typeof DataSetGeoSpatialCountryCode)[keyof typeof DataSetGeoSpatialCountryCode];
+
+export const DataSetImportMode = {
+    Spice: "SPICE",
+    DirectQuery: "DIRECT_QUERY",
+} as const;
+
+export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetImportMode];
 
 export const DataSetRowLevelPermissionFormatVersion = {
     Version1: "VERSION_1",
@@ -106,7 +106,7 @@ export const DataSetRowLevelPermissionPolicy = {
 
 export type DataSetRowLevelPermissionPolicy = (typeof DataSetRowLevelPermissionPolicy)[keyof typeof DataSetRowLevelPermissionPolicy];
 
-export const DataSourceDataSourceErrorInfoType = {
+export const DataSourceErrorInfoType = {
     AccessDenied: "ACCESS_DENIED",
     CopySourceNotFound: "COPY_SOURCE_NOT_FOUND",
     Timeout: "TIMEOUT",
@@ -117,9 +117,21 @@ export const DataSourceDataSourceErrorInfoType = {
     Unknown: "UNKNOWN",
 } as const;
 
-export type DataSourceDataSourceErrorInfoType = (typeof DataSourceDataSourceErrorInfoType)[keyof typeof DataSourceDataSourceErrorInfoType];
+export type DataSourceErrorInfoType = (typeof DataSourceErrorInfoType)[keyof typeof DataSourceErrorInfoType];
 
-export const DataSourceDataSourceType = {
+export const DataSourceResourceStatus = {
+    CreationInProgress: "CREATION_IN_PROGRESS",
+    CreationSuccessful: "CREATION_SUCCESSFUL",
+    CreationFailed: "CREATION_FAILED",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    UpdateSuccessful: "UPDATE_SUCCESSFUL",
+    UpdateFailed: "UPDATE_FAILED",
+    Deleted: "DELETED",
+} as const;
+
+export type DataSourceResourceStatus = (typeof DataSourceResourceStatus)[keyof typeof DataSourceResourceStatus];
+
+export const DataSourceType = {
     AdobeAnalytics: "ADOBE_ANALYTICS",
     AmazonElasticsearch: "AMAZON_ELASTICSEARCH",
     Athena: "ATHENA",
@@ -145,19 +157,16 @@ export const DataSourceDataSourceType = {
     Timestream: "TIMESTREAM",
 } as const;
 
-export type DataSourceDataSourceType = (typeof DataSourceDataSourceType)[keyof typeof DataSourceDataSourceType];
+export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
 
-export const DataSourceResourceStatus = {
-    CreationInProgress: "CREATION_IN_PROGRESS",
-    CreationSuccessful: "CREATION_SUCCESSFUL",
-    CreationFailed: "CREATION_FAILED",
-    UpdateInProgress: "UPDATE_IN_PROGRESS",
-    UpdateSuccessful: "UPDATE_SUCCESSFUL",
-    UpdateFailed: "UPDATE_FAILED",
-    Deleted: "DELETED",
+export const TemplateErrorType = {
+    SourceNotFound: "SOURCE_NOT_FOUND",
+    DataSetNotFound: "DATA_SET_NOT_FOUND",
+    InternalFailure: "INTERNAL_FAILURE",
+    AccessDenied: "ACCESS_DENIED",
 } as const;
 
-export type DataSourceResourceStatus = (typeof DataSourceResourceStatus)[keyof typeof DataSourceResourceStatus];
+export type TemplateErrorType = (typeof TemplateErrorType)[keyof typeof TemplateErrorType];
 
 export const TemplateResourceStatus = {
     CreationInProgress: "CREATION_IN_PROGRESS",
@@ -171,14 +180,11 @@ export const TemplateResourceStatus = {
 
 export type TemplateResourceStatus = (typeof TemplateResourceStatus)[keyof typeof TemplateResourceStatus];
 
-export const TemplateTemplateErrorType = {
-    SourceNotFound: "SOURCE_NOT_FOUND",
-    DataSetNotFound: "DATA_SET_NOT_FOUND",
+export const ThemeErrorType = {
     InternalFailure: "INTERNAL_FAILURE",
-    AccessDenied: "ACCESS_DENIED",
 } as const;
 
-export type TemplateTemplateErrorType = (typeof TemplateTemplateErrorType)[keyof typeof TemplateTemplateErrorType];
+export type ThemeErrorType = (typeof ThemeErrorType)[keyof typeof ThemeErrorType];
 
 export const ThemeResourceStatus = {
     CreationInProgress: "CREATION_IN_PROGRESS",
@@ -192,16 +198,10 @@ export const ThemeResourceStatus = {
 
 export type ThemeResourceStatus = (typeof ThemeResourceStatus)[keyof typeof ThemeResourceStatus];
 
-export const ThemeThemeErrorType = {
-    InternalFailure: "INTERNAL_FAILURE",
-} as const;
-
-export type ThemeThemeErrorType = (typeof ThemeThemeErrorType)[keyof typeof ThemeThemeErrorType];
-
-export const ThemeThemeType = {
+export const ThemeType = {
     Quicksight: "QUICKSIGHT",
     Custom: "CUSTOM",
     All: "ALL",
 } as const;
 
-export type ThemeThemeType = (typeof ThemeThemeType)[keyof typeof ThemeThemeType];
+export type ThemeType = (typeof ThemeType)[keyof typeof ThemeType];

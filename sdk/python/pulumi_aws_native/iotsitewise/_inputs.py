@@ -10,112 +10,36 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AccessPolicyAccessPolicyIdentityArgs',
-    'AccessPolicyAccessPolicyResourceArgs',
     'AccessPolicyIamRoleArgs',
     'AccessPolicyIamUserArgs',
+    'AccessPolicyIdentityArgs',
     'AccessPolicyPortalArgs',
     'AccessPolicyProjectArgs',
+    'AccessPolicyResourceArgs',
     'AccessPolicyUserArgs',
-    'AssetAssetHierarchyArgs',
-    'AssetAssetPropertyArgs',
-    'AssetModelAssetModelCompositeModelArgs',
-    'AssetModelAssetModelHierarchyArgs',
-    'AssetModelAssetModelPropertyArgs',
+    'AssetHierarchyArgs',
     'AssetModelAttributeArgs',
+    'AssetModelCompositeModelArgs',
     'AssetModelExpressionVariableArgs',
+    'AssetModelHierarchyArgs',
     'AssetModelMetricWindowArgs',
     'AssetModelMetricArgs',
     'AssetModelPropertyTypeArgs',
+    'AssetModelPropertyArgs',
     'AssetModelTagArgs',
     'AssetModelTransformArgs',
     'AssetModelTumblingWindowArgs',
     'AssetModelVariableValueArgs',
+    'AssetPropertyArgs',
     'AssetTagArgs',
     'DashboardTagArgs',
-    'GatewayGatewayCapabilitySummaryArgs',
-    'GatewayGatewayPlatformArgs',
+    'GatewayCapabilitySummaryArgs',
     'GatewayGreengrassArgs',
+    'GatewayPlatformArgs',
     'GatewayTagArgs',
     'PortalTagArgs',
     'ProjectTagArgs',
 ]
-
-@pulumi.input_type
-class AccessPolicyAccessPolicyIdentityArgs:
-    def __init__(__self__, *,
-                 iam_role: Optional[pulumi.Input['AccessPolicyIamRoleArgs']] = None,
-                 iam_user: Optional[pulumi.Input['AccessPolicyIamUserArgs']] = None,
-                 user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None):
-        """
-        The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-        """
-        if iam_role is not None:
-            pulumi.set(__self__, "iam_role", iam_role)
-        if iam_user is not None:
-            pulumi.set(__self__, "iam_user", iam_user)
-        if user is not None:
-            pulumi.set(__self__, "user", user)
-
-    @property
-    @pulumi.getter(name="iamRole")
-    def iam_role(self) -> Optional[pulumi.Input['AccessPolicyIamRoleArgs']]:
-        return pulumi.get(self, "iam_role")
-
-    @iam_role.setter
-    def iam_role(self, value: Optional[pulumi.Input['AccessPolicyIamRoleArgs']]):
-        pulumi.set(self, "iam_role", value)
-
-    @property
-    @pulumi.getter(name="iamUser")
-    def iam_user(self) -> Optional[pulumi.Input['AccessPolicyIamUserArgs']]:
-        return pulumi.get(self, "iam_user")
-
-    @iam_user.setter
-    def iam_user(self, value: Optional[pulumi.Input['AccessPolicyIamUserArgs']]):
-        pulumi.set(self, "iam_user", value)
-
-    @property
-    @pulumi.getter
-    def user(self) -> Optional[pulumi.Input['AccessPolicyUserArgs']]:
-        return pulumi.get(self, "user")
-
-    @user.setter
-    def user(self, value: Optional[pulumi.Input['AccessPolicyUserArgs']]):
-        pulumi.set(self, "user", value)
-
-
-@pulumi.input_type
-class AccessPolicyAccessPolicyResourceArgs:
-    def __init__(__self__, *,
-                 portal: Optional[pulumi.Input['AccessPolicyPortalArgs']] = None,
-                 project: Optional[pulumi.Input['AccessPolicyProjectArgs']] = None):
-        """
-        The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-        """
-        if portal is not None:
-            pulumi.set(__self__, "portal", portal)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
-
-    @property
-    @pulumi.getter
-    def portal(self) -> Optional[pulumi.Input['AccessPolicyPortalArgs']]:
-        return pulumi.get(self, "portal")
-
-    @portal.setter
-    def portal(self, value: Optional[pulumi.Input['AccessPolicyPortalArgs']]):
-        pulumi.set(self, "portal", value)
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional[pulumi.Input['AccessPolicyProjectArgs']]:
-        return pulumi.get(self, "project")
-
-    @project.setter
-    def project(self, value: Optional[pulumi.Input['AccessPolicyProjectArgs']]):
-        pulumi.set(self, "project", value)
-
 
 @pulumi.input_type
 class AccessPolicyIamRoleArgs:
@@ -163,6 +87,50 @@ class AccessPolicyIamUserArgs:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+
+@pulumi.input_type
+class AccessPolicyIdentityArgs:
+    def __init__(__self__, *,
+                 iam_role: Optional[pulumi.Input['AccessPolicyIamRoleArgs']] = None,
+                 iam_user: Optional[pulumi.Input['AccessPolicyIamUserArgs']] = None,
+                 user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None):
+        """
+        The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+        """
+        if iam_role is not None:
+            pulumi.set(__self__, "iam_role", iam_role)
+        if iam_user is not None:
+            pulumi.set(__self__, "iam_user", iam_user)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="iamRole")
+    def iam_role(self) -> Optional[pulumi.Input['AccessPolicyIamRoleArgs']]:
+        return pulumi.get(self, "iam_role")
+
+    @iam_role.setter
+    def iam_role(self, value: Optional[pulumi.Input['AccessPolicyIamRoleArgs']]):
+        pulumi.set(self, "iam_role", value)
+
+    @property
+    @pulumi.getter(name="iamUser")
+    def iam_user(self) -> Optional[pulumi.Input['AccessPolicyIamUserArgs']]:
+        return pulumi.get(self, "iam_user")
+
+    @iam_user.setter
+    def iam_user(self, value: Optional[pulumi.Input['AccessPolicyIamUserArgs']]):
+        pulumi.set(self, "iam_user", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input['AccessPolicyUserArgs']]:
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input['AccessPolicyUserArgs']]):
+        pulumi.set(self, "user", value)
 
 
 @pulumi.input_type
@@ -214,6 +182,38 @@ class AccessPolicyProjectArgs:
 
 
 @pulumi.input_type
+class AccessPolicyResourceArgs:
+    def __init__(__self__, *,
+                 portal: Optional[pulumi.Input['AccessPolicyPortalArgs']] = None,
+                 project: Optional[pulumi.Input['AccessPolicyProjectArgs']] = None):
+        """
+        The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+        """
+        if portal is not None:
+            pulumi.set(__self__, "portal", portal)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter
+    def portal(self) -> Optional[pulumi.Input['AccessPolicyPortalArgs']]:
+        return pulumi.get(self, "portal")
+
+    @portal.setter
+    def portal(self, value: Optional[pulumi.Input['AccessPolicyPortalArgs']]):
+        pulumi.set(self, "portal", value)
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional[pulumi.Input['AccessPolicyProjectArgs']]:
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: Optional[pulumi.Input['AccessPolicyProjectArgs']]):
+        pulumi.set(self, "project", value)
+
+
+@pulumi.input_type
 class AccessPolicyUserArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -238,7 +238,7 @@ class AccessPolicyUserArgs:
 
 
 @pulumi.input_type
-class AssetAssetHierarchyArgs:
+class AssetHierarchyArgs:
     def __init__(__self__, *,
                  child_asset_id: pulumi.Input[str],
                  logical_id: pulumi.Input[str]):
@@ -276,72 +276,34 @@ class AssetAssetHierarchyArgs:
 
 
 @pulumi.input_type
-class AssetAssetPropertyArgs:
+class AssetModelAttributeArgs:
     def __init__(__self__, *,
-                 logical_id: pulumi.Input[str],
-                 alias: Optional[pulumi.Input[str]] = None,
-                 notification_state: Optional[pulumi.Input['AssetAssetPropertyNotificationState']] = None):
-        """
-        The asset property's definition, alias, and notification state.
-        :param pulumi.Input[str] logical_id: Customer provided ID for property.
-        :param pulumi.Input[str] alias: The property alias that identifies the property.
-        :param pulumi.Input['AssetAssetPropertyNotificationState'] notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
-        """
-        pulumi.set(__self__, "logical_id", logical_id)
-        if alias is not None:
-            pulumi.set(__self__, "alias", alias)
-        if notification_state is not None:
-            pulumi.set(__self__, "notification_state", notification_state)
+                 default_value: Optional[pulumi.Input[str]] = None):
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Input[str]:
-        """
-        Customer provided ID for property.
-        """
-        return pulumi.get(self, "logical_id")
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_value")
 
-    @logical_id.setter
-    def logical_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "logical_id", value)
-
-    @property
-    @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[str]]:
-        """
-        The property alias that identifies the property.
-        """
-        return pulumi.get(self, "alias")
-
-    @alias.setter
-    def alias(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "alias", value)
-
-    @property
-    @pulumi.getter(name="notificationState")
-    def notification_state(self) -> Optional[pulumi.Input['AssetAssetPropertyNotificationState']]:
-        """
-        The MQTT notification state (ENABLED or DISABLED) for this asset property.
-        """
-        return pulumi.get(self, "notification_state")
-
-    @notification_state.setter
-    def notification_state(self, value: Optional[pulumi.Input['AssetAssetPropertyNotificationState']]):
-        pulumi.set(self, "notification_state", value)
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
 
 
 @pulumi.input_type
-class AssetModelAssetModelCompositeModelArgs:
+class AssetModelCompositeModelArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 composite_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelPropertyArgs']]]] = None,
+                 composite_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
         :param pulumi.Input[str] name: A unique, friendly name for the asset composite model.
         :param pulumi.Input[str] type: The type of the composite model. For alarm composite models, this type is AWS/ALARM
-        :param pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelPropertyArgs']]] composite_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]] composite_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
         :param pulumi.Input[str] description: A description for the asset composite model.
         """
         pulumi.set(__self__, "name", name)
@@ -377,14 +339,14 @@ class AssetModelAssetModelCompositeModelArgs:
 
     @property
     @pulumi.getter(name="compositeModelProperties")
-    def composite_model_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelPropertyArgs']]]]:
+    def composite_model_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]]:
         """
         The property definitions of the asset model. You can specify up to 200 properties per asset model.
         """
         return pulumi.get(self, "composite_model_properties")
 
     @composite_model_properties.setter
-    def composite_model_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelAssetModelPropertyArgs']]]]):
+    def composite_model_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]]):
         pulumi.set(self, "composite_model_properties", value)
 
     @property
@@ -401,7 +363,44 @@ class AssetModelAssetModelCompositeModelArgs:
 
 
 @pulumi.input_type
-class AssetModelAssetModelHierarchyArgs:
+class AssetModelExpressionVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input['AssetModelVariableValueArgs']):
+        """
+        :param pulumi.Input[str] name: The friendly name of the variable to be used in the expression.
+        :param pulumi.Input['AssetModelVariableValueArgs'] value: The variable that identifies an asset property from which to use values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The friendly name of the variable to be used in the expression.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['AssetModelVariableValueArgs']:
+        """
+        The variable that identifies an asset property from which to use values.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['AssetModelVariableValueArgs']):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class AssetModelHierarchyArgs:
     def __init__(__self__, *,
                  child_asset_model_id: pulumi.Input[str],
                  logical_id: pulumi.Input[str],
@@ -451,160 +450,6 @@ class AssetModelAssetModelHierarchyArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class AssetModelAssetModelPropertyArgs:
-    def __init__(__self__, *,
-                 data_type: pulumi.Input['AssetModelDataType'],
-                 logical_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 type: pulumi.Input['AssetModelPropertyTypeArgs'],
-                 data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
-                 unit: Optional[pulumi.Input[str]] = None):
-        """
-        Contains information about an asset model property.
-        :param pulumi.Input['AssetModelDataType'] data_type: The data type of the asset model property.
-        :param pulumi.Input[str] logical_id: Customer provided ID for property.
-        :param pulumi.Input[str] name: The name of the asset model property.
-        :param pulumi.Input['AssetModelPropertyTypeArgs'] type: The property type
-        :param pulumi.Input['AssetModelDataTypeSpec'] data_type_spec: The data type of the structure for this property.
-        :param pulumi.Input[str] unit: The unit of the asset model property, such as Newtons or RPM.
-        """
-        pulumi.set(__self__, "data_type", data_type)
-        pulumi.set(__self__, "logical_id", logical_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if data_type_spec is not None:
-            pulumi.set(__self__, "data_type_spec", data_type_spec)
-        if unit is not None:
-            pulumi.set(__self__, "unit", unit)
-
-    @property
-    @pulumi.getter(name="dataType")
-    def data_type(self) -> pulumi.Input['AssetModelDataType']:
-        """
-        The data type of the asset model property.
-        """
-        return pulumi.get(self, "data_type")
-
-    @data_type.setter
-    def data_type(self, value: pulumi.Input['AssetModelDataType']):
-        pulumi.set(self, "data_type", value)
-
-    @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> pulumi.Input[str]:
-        """
-        Customer provided ID for property.
-        """
-        return pulumi.get(self, "logical_id")
-
-    @logical_id.setter
-    def logical_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "logical_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the asset model property.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['AssetModelPropertyTypeArgs']:
-        """
-        The property type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['AssetModelPropertyTypeArgs']):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="dataTypeSpec")
-    def data_type_spec(self) -> Optional[pulumi.Input['AssetModelDataTypeSpec']]:
-        """
-        The data type of the structure for this property.
-        """
-        return pulumi.get(self, "data_type_spec")
-
-    @data_type_spec.setter
-    def data_type_spec(self, value: Optional[pulumi.Input['AssetModelDataTypeSpec']]):
-        pulumi.set(self, "data_type_spec", value)
-
-    @property
-    @pulumi.getter
-    def unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unit of the asset model property, such as Newtons or RPM.
-        """
-        return pulumi.get(self, "unit")
-
-    @unit.setter
-    def unit(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unit", value)
-
-
-@pulumi.input_type
-class AssetModelAttributeArgs:
-    def __init__(__self__, *,
-                 default_value: Optional[pulumi.Input[str]] = None):
-        if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
-
-    @property
-    @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "default_value")
-
-    @default_value.setter
-    def default_value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_value", value)
-
-
-@pulumi.input_type
-class AssetModelExpressionVariableArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 value: pulumi.Input['AssetModelVariableValueArgs']):
-        """
-        :param pulumi.Input[str] name: The friendly name of the variable to be used in the expression.
-        :param pulumi.Input['AssetModelVariableValueArgs'] value: The variable that identifies an asset property from which to use values.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The friendly name of the variable to be used in the expression.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input['AssetModelVariableValueArgs']:
-        """
-        The variable that identifies an asset property from which to use values.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input['AssetModelVariableValueArgs']):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -735,6 +580,106 @@ class AssetModelPropertyTypeArgs:
 
 
 @pulumi.input_type
+class AssetModelPropertyArgs:
+    def __init__(__self__, *,
+                 data_type: pulumi.Input['AssetModelDataType'],
+                 logical_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['AssetModelPropertyTypeArgs'],
+                 data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
+        """
+        Contains information about an asset model property.
+        :param pulumi.Input['AssetModelDataType'] data_type: The data type of the asset model property.
+        :param pulumi.Input[str] logical_id: Customer provided ID for property.
+        :param pulumi.Input[str] name: The name of the asset model property.
+        :param pulumi.Input['AssetModelPropertyTypeArgs'] type: The property type
+        :param pulumi.Input['AssetModelDataTypeSpec'] data_type_spec: The data type of the structure for this property.
+        :param pulumi.Input[str] unit: The unit of the asset model property, such as Newtons or RPM.
+        """
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "logical_id", logical_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if data_type_spec is not None:
+            pulumi.set(__self__, "data_type_spec", data_type_spec)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> pulumi.Input['AssetModelDataType']:
+        """
+        The data type of the asset model property.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: pulumi.Input['AssetModelDataType']):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> pulumi.Input[str]:
+        """
+        Customer provided ID for property.
+        """
+        return pulumi.get(self, "logical_id")
+
+    @logical_id.setter
+    def logical_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "logical_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the asset model property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AssetModelPropertyTypeArgs']:
+        """
+        The property type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AssetModelPropertyTypeArgs']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dataTypeSpec")
+    def data_type_spec(self) -> Optional[pulumi.Input['AssetModelDataTypeSpec']]:
+        """
+        The data type of the structure for this property.
+        """
+        return pulumi.get(self, "data_type_spec")
+
+    @data_type_spec.setter
+    def data_type_spec(self, value: Optional[pulumi.Input['AssetModelDataTypeSpec']]):
+        pulumi.set(self, "data_type_spec", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of the asset model property, such as Newtons or RPM.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
 class AssetModelTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -858,6 +803,61 @@ class AssetModelVariableValueArgs:
 
 
 @pulumi.input_type
+class AssetPropertyArgs:
+    def __init__(__self__, *,
+                 logical_id: pulumi.Input[str],
+                 alias: Optional[pulumi.Input[str]] = None,
+                 notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None):
+        """
+        The asset property's definition, alias, and notification state.
+        :param pulumi.Input[str] logical_id: Customer provided ID for property.
+        :param pulumi.Input[str] alias: The property alias that identifies the property.
+        :param pulumi.Input['AssetPropertyNotificationState'] notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        """
+        pulumi.set(__self__, "logical_id", logical_id)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if notification_state is not None:
+            pulumi.set(__self__, "notification_state", notification_state)
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> pulumi.Input[str]:
+        """
+        Customer provided ID for property.
+        """
+        return pulumi.get(self, "logical_id")
+
+    @logical_id.setter
+    def logical_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "logical_id", value)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property alias that identifies the property.
+        """
+        return pulumi.get(self, "alias")
+
+    @alias.setter
+    def alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alias", value)
+
+    @property
+    @pulumi.getter(name="notificationState")
+    def notification_state(self) -> Optional[pulumi.Input['AssetPropertyNotificationState']]:
+        """
+        The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        """
+        return pulumi.get(self, "notification_state")
+
+    @notification_state.setter
+    def notification_state(self, value: Optional[pulumi.Input['AssetPropertyNotificationState']]):
+        pulumi.set(self, "notification_state", value)
+
+
+@pulumi.input_type
 class AssetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -915,7 +915,7 @@ class DashboardTagArgs:
 
 
 @pulumi.input_type
-class GatewayGatewayCapabilitySummaryArgs:
+class GatewayCapabilitySummaryArgs:
     def __init__(__self__, *,
                  capability_namespace: pulumi.Input[str],
                  capability_configuration: Optional[pulumi.Input[str]] = None):
@@ -946,29 +946,6 @@ class GatewayGatewayCapabilitySummaryArgs:
 
 
 @pulumi.input_type
-class GatewayGatewayPlatformArgs:
-    def __init__(__self__, *,
-                 greengrass: pulumi.Input['GatewayGreengrassArgs']):
-        """
-        Contains a gateway's platform information.
-        :param pulumi.Input['GatewayGreengrassArgs'] greengrass: A gateway that runs on AWS IoT Greengrass.
-        """
-        pulumi.set(__self__, "greengrass", greengrass)
-
-    @property
-    @pulumi.getter
-    def greengrass(self) -> pulumi.Input['GatewayGreengrassArgs']:
-        """
-        A gateway that runs on AWS IoT Greengrass.
-        """
-        return pulumi.get(self, "greengrass")
-
-    @greengrass.setter
-    def greengrass(self, value: pulumi.Input['GatewayGreengrassArgs']):
-        pulumi.set(self, "greengrass", value)
-
-
-@pulumi.input_type
 class GatewayGreengrassArgs:
     def __init__(__self__, *,
                  group_arn: pulumi.Input[str]):
@@ -989,6 +966,29 @@ class GatewayGreengrassArgs:
     @group_arn.setter
     def group_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_arn", value)
+
+
+@pulumi.input_type
+class GatewayPlatformArgs:
+    def __init__(__self__, *,
+                 greengrass: pulumi.Input['GatewayGreengrassArgs']):
+        """
+        Contains a gateway's platform information.
+        :param pulumi.Input['GatewayGreengrassArgs'] greengrass: A gateway that runs on AWS IoT Greengrass.
+        """
+        pulumi.set(__self__, "greengrass", greengrass)
+
+    @property
+    @pulumi.getter
+    def greengrass(self) -> pulumi.Input['GatewayGreengrassArgs']:
+        """
+        A gateway that runs on AWS IoT Greengrass.
+        """
+        return pulumi.get(self, "greengrass")
+
+    @greengrass.setter
+    def greengrass(self, value: pulumi.Input['GatewayGreengrassArgs']):
+        pulumi.set(self, "greengrass", value)
 
 
 @pulumi.input_type

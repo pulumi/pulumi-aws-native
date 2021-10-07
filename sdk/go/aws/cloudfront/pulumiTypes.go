@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type CachePolicyCachePolicyConfig struct {
+type CachePolicyConfig struct {
 	Comment                                  *string                                             `pulumi:"comment"`
 	DefaultTTL                               float64                                             `pulumi:"defaultTTL"`
 	MaxTTL                                   float64                                             `pulumi:"maxTTL"`
@@ -19,18 +19,18 @@ type CachePolicyCachePolicyConfig struct {
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
-// CachePolicyCachePolicyConfigInput is an input type that accepts CachePolicyCachePolicyConfigArgs and CachePolicyCachePolicyConfigOutput values.
-// You can construct a concrete instance of `CachePolicyCachePolicyConfigInput` via:
+// CachePolicyConfigInput is an input type that accepts CachePolicyConfigArgs and CachePolicyConfigOutput values.
+// You can construct a concrete instance of `CachePolicyConfigInput` via:
 //
-//          CachePolicyCachePolicyConfigArgs{...}
-type CachePolicyCachePolicyConfigInput interface {
+//          CachePolicyConfigArgs{...}
+type CachePolicyConfigInput interface {
 	pulumi.Input
 
-	ToCachePolicyCachePolicyConfigOutput() CachePolicyCachePolicyConfigOutput
-	ToCachePolicyCachePolicyConfigOutputWithContext(context.Context) CachePolicyCachePolicyConfigOutput
+	ToCachePolicyConfigOutput() CachePolicyConfigOutput
+	ToCachePolicyConfigOutputWithContext(context.Context) CachePolicyConfigOutput
 }
 
-type CachePolicyCachePolicyConfigArgs struct {
+type CachePolicyConfigArgs struct {
 	Comment                                  pulumi.StringPtrInput                                    `pulumi:"comment"`
 	DefaultTTL                               pulumi.Float64Input                                      `pulumi:"defaultTTL"`
 	MaxTTL                                   pulumi.Float64Input                                      `pulumi:"maxTTL"`
@@ -39,135 +39,135 @@ type CachePolicyCachePolicyConfigArgs struct {
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginInput `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
-func (CachePolicyCachePolicyConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachePolicyCachePolicyConfig)(nil)).Elem()
+func (CachePolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyConfig)(nil)).Elem()
 }
 
-func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigOutput() CachePolicyCachePolicyConfigOutput {
-	return i.ToCachePolicyCachePolicyConfigOutputWithContext(context.Background())
+func (i CachePolicyConfigArgs) ToCachePolicyConfigOutput() CachePolicyConfigOutput {
+	return i.ToCachePolicyConfigOutputWithContext(context.Background())
 }
 
-func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCachePolicyConfigOutput)
+func (i CachePolicyConfigArgs) ToCachePolicyConfigOutputWithContext(ctx context.Context) CachePolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyConfigOutput)
 }
 
-func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
-	return i.ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Background())
+func (i CachePolicyConfigArgs) ToCachePolicyConfigPtrOutput() CachePolicyConfigPtrOutput {
+	return i.ToCachePolicyConfigPtrOutputWithContext(context.Background())
 }
 
-func (i CachePolicyCachePolicyConfigArgs) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCachePolicyConfigOutput).ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx)
+func (i CachePolicyConfigArgs) ToCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyConfigOutput).ToCachePolicyConfigPtrOutputWithContext(ctx)
 }
 
-// CachePolicyCachePolicyConfigPtrInput is an input type that accepts CachePolicyCachePolicyConfigArgs, CachePolicyCachePolicyConfigPtr and CachePolicyCachePolicyConfigPtrOutput values.
-// You can construct a concrete instance of `CachePolicyCachePolicyConfigPtrInput` via:
+// CachePolicyConfigPtrInput is an input type that accepts CachePolicyConfigArgs, CachePolicyConfigPtr and CachePolicyConfigPtrOutput values.
+// You can construct a concrete instance of `CachePolicyConfigPtrInput` via:
 //
-//          CachePolicyCachePolicyConfigArgs{...}
+//          CachePolicyConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type CachePolicyCachePolicyConfigPtrInput interface {
+type CachePolicyConfigPtrInput interface {
 	pulumi.Input
 
-	ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput
-	ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Context) CachePolicyCachePolicyConfigPtrOutput
+	ToCachePolicyConfigPtrOutput() CachePolicyConfigPtrOutput
+	ToCachePolicyConfigPtrOutputWithContext(context.Context) CachePolicyConfigPtrOutput
 }
 
-type cachePolicyCachePolicyConfigPtrType CachePolicyCachePolicyConfigArgs
+type cachePolicyConfigPtrType CachePolicyConfigArgs
 
-func CachePolicyCachePolicyConfigPtr(v *CachePolicyCachePolicyConfigArgs) CachePolicyCachePolicyConfigPtrInput {
-	return (*cachePolicyCachePolicyConfigPtrType)(v)
+func CachePolicyConfigPtr(v *CachePolicyConfigArgs) CachePolicyConfigPtrInput {
+	return (*cachePolicyConfigPtrType)(v)
 }
 
-func (*cachePolicyCachePolicyConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyCachePolicyConfig)(nil)).Elem()
+func (*cachePolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyConfig)(nil)).Elem()
 }
 
-func (i *cachePolicyCachePolicyConfigPtrType) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
-	return i.ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Background())
+func (i *cachePolicyConfigPtrType) ToCachePolicyConfigPtrOutput() CachePolicyConfigPtrOutput {
+	return i.ToCachePolicyConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *cachePolicyCachePolicyConfigPtrType) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCachePolicyConfigPtrOutput)
+func (i *cachePolicyConfigPtrType) ToCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyConfigPtrOutput)
 }
 
-type CachePolicyCachePolicyConfigOutput struct{ *pulumi.OutputState }
+type CachePolicyConfigOutput struct{ *pulumi.OutputState }
 
-func (CachePolicyCachePolicyConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachePolicyCachePolicyConfig)(nil)).Elem()
+func (CachePolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CachePolicyConfig)(nil)).Elem()
 }
 
-func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigOutput() CachePolicyCachePolicyConfigOutput {
+func (o CachePolicyConfigOutput) ToCachePolicyConfigOutput() CachePolicyConfigOutput {
 	return o
 }
 
-func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigOutput {
+func (o CachePolicyConfigOutput) ToCachePolicyConfigOutputWithContext(ctx context.Context) CachePolicyConfigOutput {
 	return o
 }
 
-func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
-	return o.ToCachePolicyCachePolicyConfigPtrOutputWithContext(context.Background())
+func (o CachePolicyConfigOutput) ToCachePolicyConfigPtrOutput() CachePolicyConfigPtrOutput {
+	return o.ToCachePolicyConfigPtrOutputWithContext(context.Background())
 }
 
-func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyCachePolicyConfig) *CachePolicyCachePolicyConfig {
+func (o CachePolicyConfigOutput) ToCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyConfig) *CachePolicyConfig {
 		return &v
-	}).(CachePolicyCachePolicyConfigPtrOutput)
+	}).(CachePolicyConfigPtrOutput)
 }
 
-func (o CachePolicyCachePolicyConfigOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CachePolicyCachePolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+func (o CachePolicyConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CachePolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-func (o CachePolicyCachePolicyConfigOutput) DefaultTTL() pulumi.Float64Output {
-	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.DefaultTTL }).(pulumi.Float64Output)
+func (o CachePolicyConfigOutput) DefaultTTL() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.DefaultTTL }).(pulumi.Float64Output)
 }
 
-func (o CachePolicyCachePolicyConfigOutput) MaxTTL() pulumi.Float64Output {
-	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.MaxTTL }).(pulumi.Float64Output)
+func (o CachePolicyConfigOutput) MaxTTL() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MaxTTL }).(pulumi.Float64Output)
 }
 
-func (o CachePolicyCachePolicyConfigOutput) MinTTL() pulumi.Float64Output {
-	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.MinTTL }).(pulumi.Float64Output)
+func (o CachePolicyConfigOutput) MinTTL() pulumi.Float64Output {
+	return o.ApplyT(func(v CachePolicyConfig) float64 { return v.MinTTL }).(pulumi.Float64Output)
 }
 
-func (o CachePolicyCachePolicyConfigOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CachePolicyCachePolicyConfig) string { return v.Name }).(pulumi.StringOutput)
+func (o CachePolicyConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CachePolicyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o CachePolicyCachePolicyConfigOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
-	return o.ApplyT(func(v CachePolicyCachePolicyConfig) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+func (o CachePolicyConfigOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
+	return o.ApplyT(func(v CachePolicyConfig) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
 		return v.ParametersInCacheKeyAndForwardedToOrigin
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
 }
 
-type CachePolicyCachePolicyConfigPtrOutput struct{ *pulumi.OutputState }
+type CachePolicyConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (CachePolicyCachePolicyConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyCachePolicyConfig)(nil)).Elem()
+func (CachePolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CachePolicyConfig)(nil)).Elem()
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) ToCachePolicyCachePolicyConfigPtrOutput() CachePolicyCachePolicyConfigPtrOutput {
+func (o CachePolicyConfigPtrOutput) ToCachePolicyConfigPtrOutput() CachePolicyConfigPtrOutput {
 	return o
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) ToCachePolicyCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyCachePolicyConfigPtrOutput {
+func (o CachePolicyConfigPtrOutput) ToCachePolicyConfigPtrOutputWithContext(ctx context.Context) CachePolicyConfigPtrOutput {
 	return o
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) Elem() CachePolicyCachePolicyConfigOutput {
-	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) CachePolicyCachePolicyConfig {
+func (o CachePolicyConfigPtrOutput) Elem() CachePolicyConfigOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) CachePolicyConfig {
 		if v != nil {
 			return *v
 		}
-		var ret CachePolicyCachePolicyConfig
+		var ret CachePolicyConfig
 		return ret
-	}).(CachePolicyCachePolicyConfigOutput)
+	}).(CachePolicyConfigOutput)
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *string {
+func (o CachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -175,8 +175,8 @@ func (o CachePolicyCachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
+func (o CachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -184,8 +184,8 @@ func (o CachePolicyCachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
+func (o CachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -193,8 +193,8 @@ func (o CachePolicyCachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
+func (o CachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -202,8 +202,8 @@ func (o CachePolicyCachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *string {
+func (o CachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -211,8 +211,8 @@ func (o CachePolicyCachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CachePolicyCachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+func (o CachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
+	return o.ApplyT(func(v *CachePolicyConfig) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
 		if v == nil {
 			return nil
 		}
@@ -863,132 +863,132 @@ func (o CachePolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig struct {
+type CloudFrontOriginAccessIdentityConfig struct {
 	Comment string `pulumi:"comment"`
 }
 
-// CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigInput is an input type that accepts CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs and CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput values.
-// You can construct a concrete instance of `CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigInput` via:
+// CloudFrontOriginAccessIdentityConfigInput is an input type that accepts CloudFrontOriginAccessIdentityConfigArgs and CloudFrontOriginAccessIdentityConfigOutput values.
+// You can construct a concrete instance of `CloudFrontOriginAccessIdentityConfigInput` via:
 //
-//          CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs{...}
-type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigInput interface {
+//          CloudFrontOriginAccessIdentityConfigArgs{...}
+type CloudFrontOriginAccessIdentityConfigInput interface {
 	pulumi.Input
 
-	ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput
-	ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutputWithContext(context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput
+	ToCloudFrontOriginAccessIdentityConfigOutput() CloudFrontOriginAccessIdentityConfigOutput
+	ToCloudFrontOriginAccessIdentityConfigOutputWithContext(context.Context) CloudFrontOriginAccessIdentityConfigOutput
 }
 
-type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs struct {
+type CloudFrontOriginAccessIdentityConfigArgs struct {
 	Comment pulumi.StringInput `pulumi:"comment"`
 }
 
-func (CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig)(nil)).Elem()
+func (CloudFrontOriginAccessIdentityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFrontOriginAccessIdentityConfig)(nil)).Elem()
 }
 
-func (i CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput {
-	return i.ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutputWithContext(context.Background())
+func (i CloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityConfigOutput() CloudFrontOriginAccessIdentityConfigOutput {
+	return i.ToCloudFrontOriginAccessIdentityConfigOutputWithContext(context.Background())
 }
 
-func (i CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput)
+func (i CloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityConfigOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityConfigOutput)
 }
 
-func (i CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
-	return i.ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Background())
+func (i CloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return i.ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Background())
 }
 
-func (i CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput).ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx)
+func (i CloudFrontOriginAccessIdentityConfigArgs) ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityConfigOutput).ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx)
 }
 
-// CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrInput is an input type that accepts CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs, CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtr and CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput values.
-// You can construct a concrete instance of `CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrInput` via:
+// CloudFrontOriginAccessIdentityConfigPtrInput is an input type that accepts CloudFrontOriginAccessIdentityConfigArgs, CloudFrontOriginAccessIdentityConfigPtr and CloudFrontOriginAccessIdentityConfigPtrOutput values.
+// You can construct a concrete instance of `CloudFrontOriginAccessIdentityConfigPtrInput` via:
 //
-//          CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs{...}
+//          CloudFrontOriginAccessIdentityConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrInput interface {
+type CloudFrontOriginAccessIdentityConfigPtrInput interface {
 	pulumi.Input
 
-	ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput
-	ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput
+	ToCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityConfigPtrOutput
+	ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Context) CloudFrontOriginAccessIdentityConfigPtrOutput
 }
 
-type cloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrType CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs
+type cloudFrontOriginAccessIdentityConfigPtrType CloudFrontOriginAccessIdentityConfigArgs
 
-func CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtr(v *CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrInput {
-	return (*cloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrType)(v)
+func CloudFrontOriginAccessIdentityConfigPtr(v *CloudFrontOriginAccessIdentityConfigArgs) CloudFrontOriginAccessIdentityConfigPtrInput {
+	return (*cloudFrontOriginAccessIdentityConfigPtrType)(v)
 }
 
-func (*cloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig)(nil)).Elem()
+func (*cloudFrontOriginAccessIdentityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFrontOriginAccessIdentityConfig)(nil)).Elem()
 }
 
-func (i *cloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrType) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
-	return i.ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Background())
+func (i *cloudFrontOriginAccessIdentityConfigPtrType) ToCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return i.ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *cloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrType) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput)
+func (i *cloudFrontOriginAccessIdentityConfigPtrType) ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityConfigPtrOutput)
 }
 
-type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput struct{ *pulumi.OutputState }
+type CloudFrontOriginAccessIdentityConfigOutput struct{ *pulumi.OutputState }
 
-func (CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig)(nil)).Elem()
+func (CloudFrontOriginAccessIdentityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFrontOriginAccessIdentityConfig)(nil)).Elem()
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput {
+func (o CloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityConfigOutput() CloudFrontOriginAccessIdentityConfigOutput {
 	return o
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput {
+func (o CloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityConfigOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityConfigOutput {
 	return o
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
-	return o.ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Background())
+func (o CloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return o.ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(context.Background())
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig) *CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig {
+func (o CloudFrontOriginAccessIdentityConfigOutput) ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFrontOriginAccessIdentityConfig) *CloudFrontOriginAccessIdentityConfig {
 		return &v
-	}).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput)
+	}).(CloudFrontOriginAccessIdentityConfigPtrOutput)
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig) string { return v.Comment }).(pulumi.StringOutput)
+func (o CloudFrontOriginAccessIdentityConfigOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFrontOriginAccessIdentityConfig) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput struct{ *pulumi.OutputState }
+type CloudFrontOriginAccessIdentityConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig)(nil)).Elem()
+func (CloudFrontOriginAccessIdentityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFrontOriginAccessIdentityConfig)(nil)).Elem()
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) ToCloudFrontOriginAccessIdentityConfigPtrOutput() CloudFrontOriginAccessIdentityConfigPtrOutput {
 	return o
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput) ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput {
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) ToCloudFrontOriginAccessIdentityConfigPtrOutputWithContext(ctx context.Context) CloudFrontOriginAccessIdentityConfigPtrOutput {
 	return o
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput) Elem() CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput {
-	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig {
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Elem() CloudFrontOriginAccessIdentityConfigOutput {
+	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityConfig) CloudFrontOriginAccessIdentityConfig {
 		if v != nil {
 			return *v
 		}
-		var ret CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
+		var ret CloudFrontOriginAccessIdentityConfig
 		return ret
-	}).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput)
+	}).(CloudFrontOriginAccessIdentityConfigOutput)
 }
 
-func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig) *string {
+func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -1198,6 +1198,409 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionCacheBehavior {
 		return vs[0].([]DistributionCacheBehavior)[vs[1].(int)]
 	}).(DistributionCacheBehaviorOutput)
+}
+
+type DistributionConfig struct {
+	Aliases              []string                          `pulumi:"aliases"`
+	CNAMEs               []string                          `pulumi:"cNAMEs"`
+	CacheBehaviors       []DistributionCacheBehavior       `pulumi:"cacheBehaviors"`
+	Comment              *string                           `pulumi:"comment"`
+	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
+	CustomOrigin         *DistributionLegacyCustomOrigin   `pulumi:"customOrigin"`
+	DefaultCacheBehavior *DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject    *string                           `pulumi:"defaultRootObject"`
+	Enabled              bool                              `pulumi:"enabled"`
+	HttpVersion          *string                           `pulumi:"httpVersion"`
+	IPV6Enabled          *bool                             `pulumi:"iPV6Enabled"`
+	Logging              *DistributionLogging              `pulumi:"logging"`
+	OriginGroups         *DistributionOriginGroups         `pulumi:"originGroups"`
+	Origins              []DistributionOrigin              `pulumi:"origins"`
+	PriceClass           *string                           `pulumi:"priceClass"`
+	Restrictions         *DistributionRestrictions         `pulumi:"restrictions"`
+	S3Origin             *DistributionLegacyS3Origin       `pulumi:"s3Origin"`
+	ViewerCertificate    *DistributionViewerCertificate    `pulumi:"viewerCertificate"`
+	WebACLId             *string                           `pulumi:"webACLId"`
+}
+
+// DistributionConfigInput is an input type that accepts DistributionConfigArgs and DistributionConfigOutput values.
+// You can construct a concrete instance of `DistributionConfigInput` via:
+//
+//          DistributionConfigArgs{...}
+type DistributionConfigInput interface {
+	pulumi.Input
+
+	ToDistributionConfigOutput() DistributionConfigOutput
+	ToDistributionConfigOutputWithContext(context.Context) DistributionConfigOutput
+}
+
+type DistributionConfigArgs struct {
+	Aliases              pulumi.StringArrayInput                   `pulumi:"aliases"`
+	CNAMEs               pulumi.StringArrayInput                   `pulumi:"cNAMEs"`
+	CacheBehaviors       DistributionCacheBehaviorArrayInput       `pulumi:"cacheBehaviors"`
+	Comment              pulumi.StringPtrInput                     `pulumi:"comment"`
+	CustomErrorResponses DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
+	CustomOrigin         DistributionLegacyCustomOriginPtrInput    `pulumi:"customOrigin"`
+	DefaultCacheBehavior DistributionDefaultCacheBehaviorPtrInput  `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject    pulumi.StringPtrInput                     `pulumi:"defaultRootObject"`
+	Enabled              pulumi.BoolInput                          `pulumi:"enabled"`
+	HttpVersion          pulumi.StringPtrInput                     `pulumi:"httpVersion"`
+	IPV6Enabled          pulumi.BoolPtrInput                       `pulumi:"iPV6Enabled"`
+	Logging              DistributionLoggingPtrInput               `pulumi:"logging"`
+	OriginGroups         DistributionOriginGroupsPtrInput          `pulumi:"originGroups"`
+	Origins              DistributionOriginArrayInput              `pulumi:"origins"`
+	PriceClass           pulumi.StringPtrInput                     `pulumi:"priceClass"`
+	Restrictions         DistributionRestrictionsPtrInput          `pulumi:"restrictions"`
+	S3Origin             DistributionLegacyS3OriginPtrInput        `pulumi:"s3Origin"`
+	ViewerCertificate    DistributionViewerCertificatePtrInput     `pulumi:"viewerCertificate"`
+	WebACLId             pulumi.StringPtrInput                     `pulumi:"webACLId"`
+}
+
+func (DistributionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfig)(nil)).Elem()
+}
+
+func (i DistributionConfigArgs) ToDistributionConfigOutput() DistributionConfigOutput {
+	return i.ToDistributionConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigArgs) ToDistributionConfigOutputWithContext(ctx context.Context) DistributionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigOutput)
+}
+
+func (i DistributionConfigArgs) ToDistributionConfigPtrOutput() DistributionConfigPtrOutput {
+	return i.ToDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigArgs) ToDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigOutput).ToDistributionConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionConfigPtrInput is an input type that accepts DistributionConfigArgs, DistributionConfigPtr and DistributionConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigPtrInput` via:
+//
+//          DistributionConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigPtrOutput() DistributionConfigPtrOutput
+	ToDistributionConfigPtrOutputWithContext(context.Context) DistributionConfigPtrOutput
+}
+
+type distributionConfigPtrType DistributionConfigArgs
+
+func DistributionConfigPtr(v *DistributionConfigArgs) DistributionConfigPtrInput {
+	return (*distributionConfigPtrType)(v)
+}
+
+func (*distributionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfig)(nil)).Elem()
+}
+
+func (i *distributionConfigPtrType) ToDistributionConfigPtrOutput() DistributionConfigPtrOutput {
+	return i.ToDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigPtrType) ToDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigPtrOutput)
+}
+
+type DistributionConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfig)(nil)).Elem()
+}
+
+func (o DistributionConfigOutput) ToDistributionConfigOutput() DistributionConfigOutput {
+	return o
+}
+
+func (o DistributionConfigOutput) ToDistributionConfigOutputWithContext(ctx context.Context) DistributionConfigOutput {
+	return o
+}
+
+func (o DistributionConfigOutput) ToDistributionConfigPtrOutput() DistributionConfigPtrOutput {
+	return o.ToDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigOutput) ToDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfig) *DistributionConfig {
+		return &v
+	}).(DistributionConfigPtrOutput)
+}
+
+func (o DistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+func (o DistributionConfigOutput) CNAMEs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfig) []string { return v.CNAMEs }).(pulumi.StringArrayOutput)
+}
+
+func (o DistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
+	return o.ApplyT(func(v DistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
+}
+
+func (o DistributionConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
+	return o.ApplyT(func(v DistributionConfig) []DistributionCustomErrorResponse { return v.CustomErrorResponses }).(DistributionCustomErrorResponseArrayOutput)
+}
+
+func (o DistributionConfigOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionLegacyCustomOrigin { return v.CustomOrigin }).(DistributionLegacyCustomOriginPtrOutput)
+}
+
+func (o DistributionConfigOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionDefaultCacheBehavior { return v.DefaultCacheBehavior }).(DistributionDefaultCacheBehaviorPtrOutput)
+}
+
+func (o DistributionConfigOutput) DefaultRootObject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *string { return v.DefaultRootObject }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DistributionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o DistributionConfigOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigOutput) IPV6Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *bool { return v.IPV6Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DistributionConfigOutput) Logging() DistributionLoggingPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionLogging { return v.Logging }).(DistributionLoggingPtrOutput)
+}
+
+func (o DistributionConfigOutput) OriginGroups() DistributionOriginGroupsPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionOriginGroups { return v.OriginGroups }).(DistributionOriginGroupsPtrOutput)
+}
+
+func (o DistributionConfigOutput) Origins() DistributionOriginArrayOutput {
+	return o.ApplyT(func(v DistributionConfig) []DistributionOrigin { return v.Origins }).(DistributionOriginArrayOutput)
+}
+
+func (o DistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *string { return v.PriceClass }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigOutput) Restrictions() DistributionRestrictionsPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionRestrictions { return v.Restrictions }).(DistributionRestrictionsPtrOutput)
+}
+
+func (o DistributionConfigOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionLegacyS3Origin { return v.S3Origin }).(DistributionLegacyS3OriginPtrOutput)
+}
+
+func (o DistributionConfigOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionViewerCertificate { return v.ViewerCertificate }).(DistributionViewerCertificatePtrOutput)
+}
+
+func (o DistributionConfigOutput) WebACLId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *string { return v.WebACLId }).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfig)(nil)).Elem()
+}
+
+func (o DistributionConfigPtrOutput) ToDistributionConfigPtrOutput() DistributionConfigPtrOutput {
+	return o
+}
+
+func (o DistributionConfigPtrOutput) ToDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionConfigPtrOutput {
+	return o
+}
+
+func (o DistributionConfigPtrOutput) Elem() DistributionConfigOutput {
+	return o.ApplyT(func(v *DistributionConfig) DistributionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfig
+		return ret
+	}).(DistributionConfigOutput)
+}
+
+func (o DistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aliases
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) CNAMEs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CNAMEs
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []DistributionCacheBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.CacheBehaviors
+	}).(DistributionCacheBehaviorArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []DistributionCustomErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CustomErrorResponses
+	}).(DistributionCustomErrorResponseArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionLegacyCustomOrigin {
+		if v == nil {
+			return nil
+		}
+		return v.CustomOrigin
+	}).(DistributionLegacyCustomOriginPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionDefaultCacheBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultCacheBehavior
+	}).(DistributionDefaultCacheBehaviorPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) DefaultRootObject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultRootObject
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) HttpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) IPV6Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IPV6Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Logging() DistributionLoggingPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(DistributionLoggingPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) OriginGroups() DistributionOriginGroupsPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionOriginGroups {
+		if v == nil {
+			return nil
+		}
+		return v.OriginGroups
+	}).(DistributionOriginGroupsPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Origins() DistributionOriginArrayOutput {
+	return o.ApplyT(func(v *DistributionConfig) []DistributionOrigin {
+		if v == nil {
+			return nil
+		}
+		return v.Origins
+	}).(DistributionOriginArrayOutput)
+}
+
+func (o DistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceClass
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Restrictions() DistributionRestrictionsPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionRestrictions {
+		if v == nil {
+			return nil
+		}
+		return v.Restrictions
+	}).(DistributionRestrictionsPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionLegacyS3Origin {
+		if v == nil {
+			return nil
+		}
+		return v.S3Origin
+	}).(DistributionLegacyS3OriginPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionViewerCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.ViewerCertificate
+	}).(DistributionViewerCertificatePtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) WebACLId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebACLId
+	}).(pulumi.StringPtrOutput)
 }
 
 type DistributionCookies struct {
@@ -2057,413 +2460,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ViewerProtocolPolicy() pulumi
 			return nil
 		}
 		return &v.ViewerProtocolPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-type DistributionDistributionConfig struct {
-	Aliases              []string                          `pulumi:"aliases"`
-	CNAMEs               []string                          `pulumi:"cNAMEs"`
-	CacheBehaviors       []DistributionCacheBehavior       `pulumi:"cacheBehaviors"`
-	Comment              *string                           `pulumi:"comment"`
-	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	CustomOrigin         *DistributionLegacyCustomOrigin   `pulumi:"customOrigin"`
-	DefaultCacheBehavior *DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
-	DefaultRootObject    *string                           `pulumi:"defaultRootObject"`
-	Enabled              bool                              `pulumi:"enabled"`
-	HttpVersion          *string                           `pulumi:"httpVersion"`
-	IPV6Enabled          *bool                             `pulumi:"iPV6Enabled"`
-	Logging              *DistributionLogging              `pulumi:"logging"`
-	OriginGroups         *DistributionOriginGroups         `pulumi:"originGroups"`
-	Origins              []DistributionOrigin              `pulumi:"origins"`
-	PriceClass           *string                           `pulumi:"priceClass"`
-	Restrictions         *DistributionRestrictions         `pulumi:"restrictions"`
-	S3Origin             *DistributionLegacyS3Origin       `pulumi:"s3Origin"`
-	ViewerCertificate    *DistributionViewerCertificate    `pulumi:"viewerCertificate"`
-	WebACLId             *string                           `pulumi:"webACLId"`
-}
-
-// DistributionDistributionConfigInput is an input type that accepts DistributionDistributionConfigArgs and DistributionDistributionConfigOutput values.
-// You can construct a concrete instance of `DistributionDistributionConfigInput` via:
-//
-//          DistributionDistributionConfigArgs{...}
-type DistributionDistributionConfigInput interface {
-	pulumi.Input
-
-	ToDistributionDistributionConfigOutput() DistributionDistributionConfigOutput
-	ToDistributionDistributionConfigOutputWithContext(context.Context) DistributionDistributionConfigOutput
-}
-
-type DistributionDistributionConfigArgs struct {
-	Aliases              pulumi.StringArrayInput                   `pulumi:"aliases"`
-	CNAMEs               pulumi.StringArrayInput                   `pulumi:"cNAMEs"`
-	CacheBehaviors       DistributionCacheBehaviorArrayInput       `pulumi:"cacheBehaviors"`
-	Comment              pulumi.StringPtrInput                     `pulumi:"comment"`
-	CustomErrorResponses DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
-	CustomOrigin         DistributionLegacyCustomOriginPtrInput    `pulumi:"customOrigin"`
-	DefaultCacheBehavior DistributionDefaultCacheBehaviorPtrInput  `pulumi:"defaultCacheBehavior"`
-	DefaultRootObject    pulumi.StringPtrInput                     `pulumi:"defaultRootObject"`
-	Enabled              pulumi.BoolInput                          `pulumi:"enabled"`
-	HttpVersion          pulumi.StringPtrInput                     `pulumi:"httpVersion"`
-	IPV6Enabled          pulumi.BoolPtrInput                       `pulumi:"iPV6Enabled"`
-	Logging              DistributionLoggingPtrInput               `pulumi:"logging"`
-	OriginGroups         DistributionOriginGroupsPtrInput          `pulumi:"originGroups"`
-	Origins              DistributionOriginArrayInput              `pulumi:"origins"`
-	PriceClass           pulumi.StringPtrInput                     `pulumi:"priceClass"`
-	Restrictions         DistributionRestrictionsPtrInput          `pulumi:"restrictions"`
-	S3Origin             DistributionLegacyS3OriginPtrInput        `pulumi:"s3Origin"`
-	ViewerCertificate    DistributionViewerCertificatePtrInput     `pulumi:"viewerCertificate"`
-	WebACLId             pulumi.StringPtrInput                     `pulumi:"webACLId"`
-}
-
-func (DistributionDistributionConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionDistributionConfig)(nil)).Elem()
-}
-
-func (i DistributionDistributionConfigArgs) ToDistributionDistributionConfigOutput() DistributionDistributionConfigOutput {
-	return i.ToDistributionDistributionConfigOutputWithContext(context.Background())
-}
-
-func (i DistributionDistributionConfigArgs) ToDistributionDistributionConfigOutputWithContext(ctx context.Context) DistributionDistributionConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionDistributionConfigOutput)
-}
-
-func (i DistributionDistributionConfigArgs) ToDistributionDistributionConfigPtrOutput() DistributionDistributionConfigPtrOutput {
-	return i.ToDistributionDistributionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionDistributionConfigArgs) ToDistributionDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionDistributionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionDistributionConfigOutput).ToDistributionDistributionConfigPtrOutputWithContext(ctx)
-}
-
-// DistributionDistributionConfigPtrInput is an input type that accepts DistributionDistributionConfigArgs, DistributionDistributionConfigPtr and DistributionDistributionConfigPtrOutput values.
-// You can construct a concrete instance of `DistributionDistributionConfigPtrInput` via:
-//
-//          DistributionDistributionConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionDistributionConfigPtrInput interface {
-	pulumi.Input
-
-	ToDistributionDistributionConfigPtrOutput() DistributionDistributionConfigPtrOutput
-	ToDistributionDistributionConfigPtrOutputWithContext(context.Context) DistributionDistributionConfigPtrOutput
-}
-
-type distributionDistributionConfigPtrType DistributionDistributionConfigArgs
-
-func DistributionDistributionConfigPtr(v *DistributionDistributionConfigArgs) DistributionDistributionConfigPtrInput {
-	return (*distributionDistributionConfigPtrType)(v)
-}
-
-func (*distributionDistributionConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionDistributionConfig)(nil)).Elem()
-}
-
-func (i *distributionDistributionConfigPtrType) ToDistributionDistributionConfigPtrOutput() DistributionDistributionConfigPtrOutput {
-	return i.ToDistributionDistributionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionDistributionConfigPtrType) ToDistributionDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionDistributionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionDistributionConfigPtrOutput)
-}
-
-type DistributionDistributionConfigOutput struct{ *pulumi.OutputState }
-
-func (DistributionDistributionConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionDistributionConfig)(nil)).Elem()
-}
-
-func (o DistributionDistributionConfigOutput) ToDistributionDistributionConfigOutput() DistributionDistributionConfigOutput {
-	return o
-}
-
-func (o DistributionDistributionConfigOutput) ToDistributionDistributionConfigOutputWithContext(ctx context.Context) DistributionDistributionConfigOutput {
-	return o
-}
-
-func (o DistributionDistributionConfigOutput) ToDistributionDistributionConfigPtrOutput() DistributionDistributionConfigPtrOutput {
-	return o.ToDistributionDistributionConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionDistributionConfigOutput) ToDistributionDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionDistributionConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDistributionConfig) *DistributionDistributionConfig {
-		return &v
-	}).(DistributionDistributionConfigPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
-}
-
-func (o DistributionDistributionConfigOutput) CNAMEs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) []string { return v.CNAMEs }).(pulumi.StringArrayOutput)
-}
-
-func (o DistributionDistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
-}
-
-func (o DistributionDistributionConfigOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) []DistributionCustomErrorResponse {
-		return v.CustomErrorResponses
-	}).(DistributionCustomErrorResponseArrayOutput)
-}
-
-func (o DistributionDistributionConfigOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionLegacyCustomOrigin { return v.CustomOrigin }).(DistributionLegacyCustomOriginPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionDefaultCacheBehavior {
-		return v.DefaultCacheBehavior
-	}).(DistributionDefaultCacheBehaviorPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) DefaultRootObject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.DefaultRootObject }).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o DistributionDistributionConfigOutput) HttpVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) IPV6Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *bool { return v.IPV6Enabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) Logging() DistributionLoggingPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionLogging { return v.Logging }).(DistributionLoggingPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) OriginGroups() DistributionOriginGroupsPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionOriginGroups { return v.OriginGroups }).(DistributionOriginGroupsPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) Origins() DistributionOriginArrayOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) []DistributionOrigin { return v.Origins }).(DistributionOriginArrayOutput)
-}
-
-func (o DistributionDistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.PriceClass }).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) Restrictions() DistributionRestrictionsPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionRestrictions { return v.Restrictions }).(DistributionRestrictionsPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionLegacyS3Origin { return v.S3Origin }).(DistributionLegacyS3OriginPtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionViewerCertificate { return v.ViewerCertificate }).(DistributionViewerCertificatePtrOutput)
-}
-
-func (o DistributionDistributionConfigOutput) WebACLId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.WebACLId }).(pulumi.StringPtrOutput)
-}
-
-type DistributionDistributionConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionDistributionConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionDistributionConfig)(nil)).Elem()
-}
-
-func (o DistributionDistributionConfigPtrOutput) ToDistributionDistributionConfigPtrOutput() DistributionDistributionConfigPtrOutput {
-	return o
-}
-
-func (o DistributionDistributionConfigPtrOutput) ToDistributionDistributionConfigPtrOutputWithContext(ctx context.Context) DistributionDistributionConfigPtrOutput {
-	return o
-}
-
-func (o DistributionDistributionConfigPtrOutput) Elem() DistributionDistributionConfigOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) DistributionDistributionConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionDistributionConfig
-		return ret
-	}).(DistributionDistributionConfigOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Aliases
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) CNAMEs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CNAMEs
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) []DistributionCacheBehavior {
-		if v == nil {
-			return nil
-		}
-		return v.CacheBehaviors
-	}).(DistributionCacheBehaviorArrayOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Comment
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) []DistributionCustomErrorResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CustomErrorResponses
-	}).(DistributionCustomErrorResponseArrayOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionLegacyCustomOrigin {
-		if v == nil {
-			return nil
-		}
-		return v.CustomOrigin
-	}).(DistributionLegacyCustomOriginPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionDefaultCacheBehavior {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultCacheBehavior
-	}).(DistributionDefaultCacheBehaviorPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) DefaultRootObject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultRootObject
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) HttpVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HttpVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) IPV6Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IPV6Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) Logging() DistributionLoggingPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionLogging {
-		if v == nil {
-			return nil
-		}
-		return v.Logging
-	}).(DistributionLoggingPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) OriginGroups() DistributionOriginGroupsPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionOriginGroups {
-		if v == nil {
-			return nil
-		}
-		return v.OriginGroups
-	}).(DistributionOriginGroupsPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) Origins() DistributionOriginArrayOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) []DistributionOrigin {
-		if v == nil {
-			return nil
-		}
-		return v.Origins
-	}).(DistributionOriginArrayOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PriceClass
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) Restrictions() DistributionRestrictionsPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionRestrictions {
-		if v == nil {
-			return nil
-		}
-		return v.Restrictions
-	}).(DistributionRestrictionsPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionLegacyS3Origin {
-		if v == nil {
-			return nil
-		}
-		return v.S3Origin
-	}).(DistributionLegacyS3OriginPtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionViewerCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.ViewerCertificate
-	}).(DistributionViewerCertificatePtrOutput)
-}
-
-func (o DistributionDistributionConfigPtrOutput) WebACLId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WebACLId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4959,138 +4955,138 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-type FunctionFunctionConfig struct {
+type FunctionConfig struct {
 	Comment string `pulumi:"comment"`
 	Runtime string `pulumi:"runtime"`
 }
 
-// FunctionFunctionConfigInput is an input type that accepts FunctionFunctionConfigArgs and FunctionFunctionConfigOutput values.
-// You can construct a concrete instance of `FunctionFunctionConfigInput` via:
+// FunctionConfigInput is an input type that accepts FunctionConfigArgs and FunctionConfigOutput values.
+// You can construct a concrete instance of `FunctionConfigInput` via:
 //
-//          FunctionFunctionConfigArgs{...}
-type FunctionFunctionConfigInput interface {
+//          FunctionConfigArgs{...}
+type FunctionConfigInput interface {
 	pulumi.Input
 
-	ToFunctionFunctionConfigOutput() FunctionFunctionConfigOutput
-	ToFunctionFunctionConfigOutputWithContext(context.Context) FunctionFunctionConfigOutput
+	ToFunctionConfigOutput() FunctionConfigOutput
+	ToFunctionConfigOutputWithContext(context.Context) FunctionConfigOutput
 }
 
-type FunctionFunctionConfigArgs struct {
+type FunctionConfigArgs struct {
 	Comment pulumi.StringInput `pulumi:"comment"`
 	Runtime pulumi.StringInput `pulumi:"runtime"`
 }
 
-func (FunctionFunctionConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionFunctionConfig)(nil)).Elem()
+func (FunctionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfig)(nil)).Elem()
 }
 
-func (i FunctionFunctionConfigArgs) ToFunctionFunctionConfigOutput() FunctionFunctionConfigOutput {
-	return i.ToFunctionFunctionConfigOutputWithContext(context.Background())
+func (i FunctionConfigArgs) ToFunctionConfigOutput() FunctionConfigOutput {
+	return i.ToFunctionConfigOutputWithContext(context.Background())
 }
 
-func (i FunctionFunctionConfigArgs) ToFunctionFunctionConfigOutputWithContext(ctx context.Context) FunctionFunctionConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionConfigOutput)
+func (i FunctionConfigArgs) ToFunctionConfigOutputWithContext(ctx context.Context) FunctionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigOutput)
 }
 
-func (i FunctionFunctionConfigArgs) ToFunctionFunctionConfigPtrOutput() FunctionFunctionConfigPtrOutput {
-	return i.ToFunctionFunctionConfigPtrOutputWithContext(context.Background())
+func (i FunctionConfigArgs) ToFunctionConfigPtrOutput() FunctionConfigPtrOutput {
+	return i.ToFunctionConfigPtrOutputWithContext(context.Background())
 }
 
-func (i FunctionFunctionConfigArgs) ToFunctionFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionFunctionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionConfigOutput).ToFunctionFunctionConfigPtrOutputWithContext(ctx)
+func (i FunctionConfigArgs) ToFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigOutput).ToFunctionConfigPtrOutputWithContext(ctx)
 }
 
-// FunctionFunctionConfigPtrInput is an input type that accepts FunctionFunctionConfigArgs, FunctionFunctionConfigPtr and FunctionFunctionConfigPtrOutput values.
-// You can construct a concrete instance of `FunctionFunctionConfigPtrInput` via:
+// FunctionConfigPtrInput is an input type that accepts FunctionConfigArgs, FunctionConfigPtr and FunctionConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionConfigPtrInput` via:
 //
-//          FunctionFunctionConfigArgs{...}
+//          FunctionConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type FunctionFunctionConfigPtrInput interface {
+type FunctionConfigPtrInput interface {
 	pulumi.Input
 
-	ToFunctionFunctionConfigPtrOutput() FunctionFunctionConfigPtrOutput
-	ToFunctionFunctionConfigPtrOutputWithContext(context.Context) FunctionFunctionConfigPtrOutput
+	ToFunctionConfigPtrOutput() FunctionConfigPtrOutput
+	ToFunctionConfigPtrOutputWithContext(context.Context) FunctionConfigPtrOutput
 }
 
-type functionFunctionConfigPtrType FunctionFunctionConfigArgs
+type functionConfigPtrType FunctionConfigArgs
 
-func FunctionFunctionConfigPtr(v *FunctionFunctionConfigArgs) FunctionFunctionConfigPtrInput {
-	return (*functionFunctionConfigPtrType)(v)
+func FunctionConfigPtr(v *FunctionConfigArgs) FunctionConfigPtrInput {
+	return (*functionConfigPtrType)(v)
 }
 
-func (*functionFunctionConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionFunctionConfig)(nil)).Elem()
+func (*functionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfig)(nil)).Elem()
 }
 
-func (i *functionFunctionConfigPtrType) ToFunctionFunctionConfigPtrOutput() FunctionFunctionConfigPtrOutput {
-	return i.ToFunctionFunctionConfigPtrOutputWithContext(context.Background())
+func (i *functionConfigPtrType) ToFunctionConfigPtrOutput() FunctionConfigPtrOutput {
+	return i.ToFunctionConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *functionFunctionConfigPtrType) ToFunctionFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionFunctionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionConfigPtrOutput)
+func (i *functionConfigPtrType) ToFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigPtrOutput)
 }
 
-type FunctionFunctionConfigOutput struct{ *pulumi.OutputState }
+type FunctionConfigOutput struct{ *pulumi.OutputState }
 
-func (FunctionFunctionConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionFunctionConfig)(nil)).Elem()
+func (FunctionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfig)(nil)).Elem()
 }
 
-func (o FunctionFunctionConfigOutput) ToFunctionFunctionConfigOutput() FunctionFunctionConfigOutput {
+func (o FunctionConfigOutput) ToFunctionConfigOutput() FunctionConfigOutput {
 	return o
 }
 
-func (o FunctionFunctionConfigOutput) ToFunctionFunctionConfigOutputWithContext(ctx context.Context) FunctionFunctionConfigOutput {
+func (o FunctionConfigOutput) ToFunctionConfigOutputWithContext(ctx context.Context) FunctionConfigOutput {
 	return o
 }
 
-func (o FunctionFunctionConfigOutput) ToFunctionFunctionConfigPtrOutput() FunctionFunctionConfigPtrOutput {
-	return o.ToFunctionFunctionConfigPtrOutputWithContext(context.Background())
+func (o FunctionConfigOutput) ToFunctionConfigPtrOutput() FunctionConfigPtrOutput {
+	return o.ToFunctionConfigPtrOutputWithContext(context.Background())
 }
 
-func (o FunctionFunctionConfigOutput) ToFunctionFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionFunctionConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionFunctionConfig) *FunctionFunctionConfig {
+func (o FunctionConfigOutput) ToFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionConfig) *FunctionConfig {
 		return &v
-	}).(FunctionFunctionConfigPtrOutput)
+	}).(FunctionConfigPtrOutput)
 }
 
-func (o FunctionFunctionConfigOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionFunctionConfig) string { return v.Comment }).(pulumi.StringOutput)
+func (o FunctionConfigOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionConfig) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-func (o FunctionFunctionConfigOutput) Runtime() pulumi.StringOutput {
-	return o.ApplyT(func(v FunctionFunctionConfig) string { return v.Runtime }).(pulumi.StringOutput)
+func (o FunctionConfigOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionConfig) string { return v.Runtime }).(pulumi.StringOutput)
 }
 
-type FunctionFunctionConfigPtrOutput struct{ *pulumi.OutputState }
+type FunctionConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (FunctionFunctionConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionFunctionConfig)(nil)).Elem()
+func (FunctionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfig)(nil)).Elem()
 }
 
-func (o FunctionFunctionConfigPtrOutput) ToFunctionFunctionConfigPtrOutput() FunctionFunctionConfigPtrOutput {
+func (o FunctionConfigPtrOutput) ToFunctionConfigPtrOutput() FunctionConfigPtrOutput {
 	return o
 }
 
-func (o FunctionFunctionConfigPtrOutput) ToFunctionFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionFunctionConfigPtrOutput {
+func (o FunctionConfigPtrOutput) ToFunctionConfigPtrOutputWithContext(ctx context.Context) FunctionConfigPtrOutput {
 	return o
 }
 
-func (o FunctionFunctionConfigPtrOutput) Elem() FunctionFunctionConfigOutput {
-	return o.ApplyT(func(v *FunctionFunctionConfig) FunctionFunctionConfig {
+func (o FunctionConfigPtrOutput) Elem() FunctionConfigOutput {
+	return o.ApplyT(func(v *FunctionConfig) FunctionConfig {
 		if v != nil {
 			return *v
 		}
-		var ret FunctionFunctionConfig
+		var ret FunctionConfig
 		return ret
-	}).(FunctionFunctionConfigOutput)
+	}).(FunctionConfigOutput)
 }
 
-func (o FunctionFunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionFunctionConfig) *string {
+func (o FunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -5098,8 +5094,8 @@ func (o FunctionFunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o FunctionFunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionFunctionConfig) *string {
+func (o FunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -5107,132 +5103,132 @@ func (o FunctionFunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type FunctionFunctionMetadata struct {
+type FunctionMetadata struct {
 	FunctionARN *string `pulumi:"functionARN"`
 }
 
-// FunctionFunctionMetadataInput is an input type that accepts FunctionFunctionMetadataArgs and FunctionFunctionMetadataOutput values.
-// You can construct a concrete instance of `FunctionFunctionMetadataInput` via:
+// FunctionMetadataInput is an input type that accepts FunctionMetadataArgs and FunctionMetadataOutput values.
+// You can construct a concrete instance of `FunctionMetadataInput` via:
 //
-//          FunctionFunctionMetadataArgs{...}
-type FunctionFunctionMetadataInput interface {
+//          FunctionMetadataArgs{...}
+type FunctionMetadataInput interface {
 	pulumi.Input
 
-	ToFunctionFunctionMetadataOutput() FunctionFunctionMetadataOutput
-	ToFunctionFunctionMetadataOutputWithContext(context.Context) FunctionFunctionMetadataOutput
+	ToFunctionMetadataOutput() FunctionMetadataOutput
+	ToFunctionMetadataOutputWithContext(context.Context) FunctionMetadataOutput
 }
 
-type FunctionFunctionMetadataArgs struct {
+type FunctionMetadataArgs struct {
 	FunctionARN pulumi.StringPtrInput `pulumi:"functionARN"`
 }
 
-func (FunctionFunctionMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionFunctionMetadata)(nil)).Elem()
+func (FunctionMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionMetadata)(nil)).Elem()
 }
 
-func (i FunctionFunctionMetadataArgs) ToFunctionFunctionMetadataOutput() FunctionFunctionMetadataOutput {
-	return i.ToFunctionFunctionMetadataOutputWithContext(context.Background())
+func (i FunctionMetadataArgs) ToFunctionMetadataOutput() FunctionMetadataOutput {
+	return i.ToFunctionMetadataOutputWithContext(context.Background())
 }
 
-func (i FunctionFunctionMetadataArgs) ToFunctionFunctionMetadataOutputWithContext(ctx context.Context) FunctionFunctionMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionMetadataOutput)
+func (i FunctionMetadataArgs) ToFunctionMetadataOutputWithContext(ctx context.Context) FunctionMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionMetadataOutput)
 }
 
-func (i FunctionFunctionMetadataArgs) ToFunctionFunctionMetadataPtrOutput() FunctionFunctionMetadataPtrOutput {
-	return i.ToFunctionFunctionMetadataPtrOutputWithContext(context.Background())
+func (i FunctionMetadataArgs) ToFunctionMetadataPtrOutput() FunctionMetadataPtrOutput {
+	return i.ToFunctionMetadataPtrOutputWithContext(context.Background())
 }
 
-func (i FunctionFunctionMetadataArgs) ToFunctionFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionFunctionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionMetadataOutput).ToFunctionFunctionMetadataPtrOutputWithContext(ctx)
+func (i FunctionMetadataArgs) ToFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionMetadataOutput).ToFunctionMetadataPtrOutputWithContext(ctx)
 }
 
-// FunctionFunctionMetadataPtrInput is an input type that accepts FunctionFunctionMetadataArgs, FunctionFunctionMetadataPtr and FunctionFunctionMetadataPtrOutput values.
-// You can construct a concrete instance of `FunctionFunctionMetadataPtrInput` via:
+// FunctionMetadataPtrInput is an input type that accepts FunctionMetadataArgs, FunctionMetadataPtr and FunctionMetadataPtrOutput values.
+// You can construct a concrete instance of `FunctionMetadataPtrInput` via:
 //
-//          FunctionFunctionMetadataArgs{...}
+//          FunctionMetadataArgs{...}
 //
 //  or:
 //
 //          nil
-type FunctionFunctionMetadataPtrInput interface {
+type FunctionMetadataPtrInput interface {
 	pulumi.Input
 
-	ToFunctionFunctionMetadataPtrOutput() FunctionFunctionMetadataPtrOutput
-	ToFunctionFunctionMetadataPtrOutputWithContext(context.Context) FunctionFunctionMetadataPtrOutput
+	ToFunctionMetadataPtrOutput() FunctionMetadataPtrOutput
+	ToFunctionMetadataPtrOutputWithContext(context.Context) FunctionMetadataPtrOutput
 }
 
-type functionFunctionMetadataPtrType FunctionFunctionMetadataArgs
+type functionMetadataPtrType FunctionMetadataArgs
 
-func FunctionFunctionMetadataPtr(v *FunctionFunctionMetadataArgs) FunctionFunctionMetadataPtrInput {
-	return (*functionFunctionMetadataPtrType)(v)
+func FunctionMetadataPtr(v *FunctionMetadataArgs) FunctionMetadataPtrInput {
+	return (*functionMetadataPtrType)(v)
 }
 
-func (*functionFunctionMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionFunctionMetadata)(nil)).Elem()
+func (*functionMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionMetadata)(nil)).Elem()
 }
 
-func (i *functionFunctionMetadataPtrType) ToFunctionFunctionMetadataPtrOutput() FunctionFunctionMetadataPtrOutput {
-	return i.ToFunctionFunctionMetadataPtrOutputWithContext(context.Background())
+func (i *functionMetadataPtrType) ToFunctionMetadataPtrOutput() FunctionMetadataPtrOutput {
+	return i.ToFunctionMetadataPtrOutputWithContext(context.Background())
 }
 
-func (i *functionFunctionMetadataPtrType) ToFunctionFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionFunctionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionMetadataPtrOutput)
+func (i *functionMetadataPtrType) ToFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionMetadataPtrOutput)
 }
 
-type FunctionFunctionMetadataOutput struct{ *pulumi.OutputState }
+type FunctionMetadataOutput struct{ *pulumi.OutputState }
 
-func (FunctionFunctionMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionFunctionMetadata)(nil)).Elem()
+func (FunctionMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionMetadata)(nil)).Elem()
 }
 
-func (o FunctionFunctionMetadataOutput) ToFunctionFunctionMetadataOutput() FunctionFunctionMetadataOutput {
+func (o FunctionMetadataOutput) ToFunctionMetadataOutput() FunctionMetadataOutput {
 	return o
 }
 
-func (o FunctionFunctionMetadataOutput) ToFunctionFunctionMetadataOutputWithContext(ctx context.Context) FunctionFunctionMetadataOutput {
+func (o FunctionMetadataOutput) ToFunctionMetadataOutputWithContext(ctx context.Context) FunctionMetadataOutput {
 	return o
 }
 
-func (o FunctionFunctionMetadataOutput) ToFunctionFunctionMetadataPtrOutput() FunctionFunctionMetadataPtrOutput {
-	return o.ToFunctionFunctionMetadataPtrOutputWithContext(context.Background())
+func (o FunctionMetadataOutput) ToFunctionMetadataPtrOutput() FunctionMetadataPtrOutput {
+	return o.ToFunctionMetadataPtrOutputWithContext(context.Background())
 }
 
-func (o FunctionFunctionMetadataOutput) ToFunctionFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionFunctionMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionFunctionMetadata) *FunctionFunctionMetadata {
+func (o FunctionMetadataOutput) ToFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionMetadata) *FunctionMetadata {
 		return &v
-	}).(FunctionFunctionMetadataPtrOutput)
+	}).(FunctionMetadataPtrOutput)
 }
 
-func (o FunctionFunctionMetadataOutput) FunctionARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionFunctionMetadata) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
+func (o FunctionMetadataOutput) FunctionARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionMetadata) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
 }
 
-type FunctionFunctionMetadataPtrOutput struct{ *pulumi.OutputState }
+type FunctionMetadataPtrOutput struct{ *pulumi.OutputState }
 
-func (FunctionFunctionMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionFunctionMetadata)(nil)).Elem()
+func (FunctionMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionMetadata)(nil)).Elem()
 }
 
-func (o FunctionFunctionMetadataPtrOutput) ToFunctionFunctionMetadataPtrOutput() FunctionFunctionMetadataPtrOutput {
+func (o FunctionMetadataPtrOutput) ToFunctionMetadataPtrOutput() FunctionMetadataPtrOutput {
 	return o
 }
 
-func (o FunctionFunctionMetadataPtrOutput) ToFunctionFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionFunctionMetadataPtrOutput {
+func (o FunctionMetadataPtrOutput) ToFunctionMetadataPtrOutputWithContext(ctx context.Context) FunctionMetadataPtrOutput {
 	return o
 }
 
-func (o FunctionFunctionMetadataPtrOutput) Elem() FunctionFunctionMetadataOutput {
-	return o.ApplyT(func(v *FunctionFunctionMetadata) FunctionFunctionMetadata {
+func (o FunctionMetadataPtrOutput) Elem() FunctionMetadataOutput {
+	return o.ApplyT(func(v *FunctionMetadata) FunctionMetadata {
 		if v != nil {
 			return *v
 		}
-		var ret FunctionFunctionMetadata
+		var ret FunctionMetadata
 		return ret
-	}).(FunctionFunctionMetadataOutput)
+	}).(FunctionMetadataOutput)
 }
 
-func (o FunctionFunctionMetadataPtrOutput) FunctionARN() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionFunctionMetadata) *string {
+func (o FunctionMetadataPtrOutput) FunctionARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionMetadata) *string {
 		if v == nil {
 			return nil
 		}
@@ -5240,144 +5236,144 @@ func (o FunctionFunctionMetadataPtrOutput) FunctionARN() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type KeyGroupKeyGroupConfig struct {
+type KeyGroupConfig struct {
 	Comment *string  `pulumi:"comment"`
 	Items   []string `pulumi:"items"`
 	Name    string   `pulumi:"name"`
 }
 
-// KeyGroupKeyGroupConfigInput is an input type that accepts KeyGroupKeyGroupConfigArgs and KeyGroupKeyGroupConfigOutput values.
-// You can construct a concrete instance of `KeyGroupKeyGroupConfigInput` via:
+// KeyGroupConfigInput is an input type that accepts KeyGroupConfigArgs and KeyGroupConfigOutput values.
+// You can construct a concrete instance of `KeyGroupConfigInput` via:
 //
-//          KeyGroupKeyGroupConfigArgs{...}
-type KeyGroupKeyGroupConfigInput interface {
+//          KeyGroupConfigArgs{...}
+type KeyGroupConfigInput interface {
 	pulumi.Input
 
-	ToKeyGroupKeyGroupConfigOutput() KeyGroupKeyGroupConfigOutput
-	ToKeyGroupKeyGroupConfigOutputWithContext(context.Context) KeyGroupKeyGroupConfigOutput
+	ToKeyGroupConfigOutput() KeyGroupConfigOutput
+	ToKeyGroupConfigOutputWithContext(context.Context) KeyGroupConfigOutput
 }
 
-type KeyGroupKeyGroupConfigArgs struct {
+type KeyGroupConfigArgs struct {
 	Comment pulumi.StringPtrInput   `pulumi:"comment"`
 	Items   pulumi.StringArrayInput `pulumi:"items"`
 	Name    pulumi.StringInput      `pulumi:"name"`
 }
 
-func (KeyGroupKeyGroupConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyGroupKeyGroupConfig)(nil)).Elem()
+func (KeyGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupConfig)(nil)).Elem()
 }
 
-func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigOutput() KeyGroupKeyGroupConfigOutput {
-	return i.ToKeyGroupKeyGroupConfigOutputWithContext(context.Background())
+func (i KeyGroupConfigArgs) ToKeyGroupConfigOutput() KeyGroupConfigOutput {
+	return i.ToKeyGroupConfigOutputWithContext(context.Background())
 }
 
-func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupKeyGroupConfigOutput)
+func (i KeyGroupConfigArgs) ToKeyGroupConfigOutputWithContext(ctx context.Context) KeyGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupConfigOutput)
 }
 
-func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
-	return i.ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Background())
+func (i KeyGroupConfigArgs) ToKeyGroupConfigPtrOutput() KeyGroupConfigPtrOutput {
+	return i.ToKeyGroupConfigPtrOutputWithContext(context.Background())
 }
 
-func (i KeyGroupKeyGroupConfigArgs) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupKeyGroupConfigOutput).ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx)
+func (i KeyGroupConfigArgs) ToKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupConfigOutput).ToKeyGroupConfigPtrOutputWithContext(ctx)
 }
 
-// KeyGroupKeyGroupConfigPtrInput is an input type that accepts KeyGroupKeyGroupConfigArgs, KeyGroupKeyGroupConfigPtr and KeyGroupKeyGroupConfigPtrOutput values.
-// You can construct a concrete instance of `KeyGroupKeyGroupConfigPtrInput` via:
+// KeyGroupConfigPtrInput is an input type that accepts KeyGroupConfigArgs, KeyGroupConfigPtr and KeyGroupConfigPtrOutput values.
+// You can construct a concrete instance of `KeyGroupConfigPtrInput` via:
 //
-//          KeyGroupKeyGroupConfigArgs{...}
+//          KeyGroupConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type KeyGroupKeyGroupConfigPtrInput interface {
+type KeyGroupConfigPtrInput interface {
 	pulumi.Input
 
-	ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput
-	ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Context) KeyGroupKeyGroupConfigPtrOutput
+	ToKeyGroupConfigPtrOutput() KeyGroupConfigPtrOutput
+	ToKeyGroupConfigPtrOutputWithContext(context.Context) KeyGroupConfigPtrOutput
 }
 
-type keyGroupKeyGroupConfigPtrType KeyGroupKeyGroupConfigArgs
+type keyGroupConfigPtrType KeyGroupConfigArgs
 
-func KeyGroupKeyGroupConfigPtr(v *KeyGroupKeyGroupConfigArgs) KeyGroupKeyGroupConfigPtrInput {
-	return (*keyGroupKeyGroupConfigPtrType)(v)
+func KeyGroupConfigPtr(v *KeyGroupConfigArgs) KeyGroupConfigPtrInput {
+	return (*keyGroupConfigPtrType)(v)
 }
 
-func (*keyGroupKeyGroupConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyGroupKeyGroupConfig)(nil)).Elem()
+func (*keyGroupConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupConfig)(nil)).Elem()
 }
 
-func (i *keyGroupKeyGroupConfigPtrType) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
-	return i.ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Background())
+func (i *keyGroupConfigPtrType) ToKeyGroupConfigPtrOutput() KeyGroupConfigPtrOutput {
+	return i.ToKeyGroupConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *keyGroupKeyGroupConfigPtrType) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupKeyGroupConfigPtrOutput)
+func (i *keyGroupConfigPtrType) ToKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupConfigPtrOutput)
 }
 
-type KeyGroupKeyGroupConfigOutput struct{ *pulumi.OutputState }
+type KeyGroupConfigOutput struct{ *pulumi.OutputState }
 
-func (KeyGroupKeyGroupConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyGroupKeyGroupConfig)(nil)).Elem()
+func (KeyGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyGroupConfig)(nil)).Elem()
 }
 
-func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigOutput() KeyGroupKeyGroupConfigOutput {
+func (o KeyGroupConfigOutput) ToKeyGroupConfigOutput() KeyGroupConfigOutput {
 	return o
 }
 
-func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigOutput {
+func (o KeyGroupConfigOutput) ToKeyGroupConfigOutputWithContext(ctx context.Context) KeyGroupConfigOutput {
 	return o
 }
 
-func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
-	return o.ToKeyGroupKeyGroupConfigPtrOutputWithContext(context.Background())
+func (o KeyGroupConfigOutput) ToKeyGroupConfigPtrOutput() KeyGroupConfigPtrOutput {
+	return o.ToKeyGroupConfigPtrOutputWithContext(context.Background())
 }
 
-func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyGroupKeyGroupConfig) *KeyGroupKeyGroupConfig {
+func (o KeyGroupConfigOutput) ToKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyGroupConfig) *KeyGroupConfig {
 		return &v
-	}).(KeyGroupKeyGroupConfigPtrOutput)
+	}).(KeyGroupConfigPtrOutput)
 }
 
-func (o KeyGroupKeyGroupConfigOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyGroupKeyGroupConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+func (o KeyGroupConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyGroupConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-func (o KeyGroupKeyGroupConfigOutput) Items() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v KeyGroupKeyGroupConfig) []string { return v.Items }).(pulumi.StringArrayOutput)
+func (o KeyGroupConfigOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KeyGroupConfig) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
 
-func (o KeyGroupKeyGroupConfigOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyGroupKeyGroupConfig) string { return v.Name }).(pulumi.StringOutput)
+func (o KeyGroupConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyGroupConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type KeyGroupKeyGroupConfigPtrOutput struct{ *pulumi.OutputState }
+type KeyGroupConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (KeyGroupKeyGroupConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyGroupKeyGroupConfig)(nil)).Elem()
+func (KeyGroupConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyGroupConfig)(nil)).Elem()
 }
 
-func (o KeyGroupKeyGroupConfigPtrOutput) ToKeyGroupKeyGroupConfigPtrOutput() KeyGroupKeyGroupConfigPtrOutput {
+func (o KeyGroupConfigPtrOutput) ToKeyGroupConfigPtrOutput() KeyGroupConfigPtrOutput {
 	return o
 }
 
-func (o KeyGroupKeyGroupConfigPtrOutput) ToKeyGroupKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupKeyGroupConfigPtrOutput {
+func (o KeyGroupConfigPtrOutput) ToKeyGroupConfigPtrOutputWithContext(ctx context.Context) KeyGroupConfigPtrOutput {
 	return o
 }
 
-func (o KeyGroupKeyGroupConfigPtrOutput) Elem() KeyGroupKeyGroupConfigOutput {
-	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) KeyGroupKeyGroupConfig {
+func (o KeyGroupConfigPtrOutput) Elem() KeyGroupConfigOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) KeyGroupConfig {
 		if v != nil {
 			return *v
 		}
-		var ret KeyGroupKeyGroupConfig
+		var ret KeyGroupConfig
 		return ret
-	}).(KeyGroupKeyGroupConfigOutput)
+	}).(KeyGroupConfigOutput)
 }
 
-func (o KeyGroupKeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) *string {
+func (o KeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -5385,8 +5381,8 @@ func (o KeyGroupKeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o KeyGroupKeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) []string {
+func (o KeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) []string {
 		if v == nil {
 			return nil
 		}
@@ -5394,13 +5390,206 @@ func (o KeyGroupKeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o KeyGroupKeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) *string {
+func (o KeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyGroupConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+type OriginRequestPolicyConfig struct {
+	Comment            *string                               `pulumi:"comment"`
+	CookiesConfig      OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
+	HeadersConfig      OriginRequestPolicyHeadersConfig      `pulumi:"headersConfig"`
+	Name               string                                `pulumi:"name"`
+	QueryStringsConfig OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
+}
+
+// OriginRequestPolicyConfigInput is an input type that accepts OriginRequestPolicyConfigArgs and OriginRequestPolicyConfigOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyConfigInput` via:
+//
+//          OriginRequestPolicyConfigArgs{...}
+type OriginRequestPolicyConfigInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyConfigOutput() OriginRequestPolicyConfigOutput
+	ToOriginRequestPolicyConfigOutputWithContext(context.Context) OriginRequestPolicyConfigOutput
+}
+
+type OriginRequestPolicyConfigArgs struct {
+	Comment            pulumi.StringPtrInput                      `pulumi:"comment"`
+	CookiesConfig      OriginRequestPolicyCookiesConfigInput      `pulumi:"cookiesConfig"`
+	HeadersConfig      OriginRequestPolicyHeadersConfigInput      `pulumi:"headersConfig"`
+	Name               pulumi.StringInput                         `pulumi:"name"`
+	QueryStringsConfig OriginRequestPolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
+}
+
+func (OriginRequestPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (i OriginRequestPolicyConfigArgs) ToOriginRequestPolicyConfigOutput() OriginRequestPolicyConfigOutput {
+	return i.ToOriginRequestPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyConfigArgs) ToOriginRequestPolicyConfigOutputWithContext(ctx context.Context) OriginRequestPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyConfigOutput)
+}
+
+func (i OriginRequestPolicyConfigArgs) ToOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyConfigPtrOutput {
+	return i.ToOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i OriginRequestPolicyConfigArgs) ToOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyConfigOutput).ToOriginRequestPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// OriginRequestPolicyConfigPtrInput is an input type that accepts OriginRequestPolicyConfigArgs, OriginRequestPolicyConfigPtr and OriginRequestPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `OriginRequestPolicyConfigPtrInput` via:
+//
+//          OriginRequestPolicyConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type OriginRequestPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyConfigPtrOutput
+	ToOriginRequestPolicyConfigPtrOutputWithContext(context.Context) OriginRequestPolicyConfigPtrOutput
+}
+
+type originRequestPolicyConfigPtrType OriginRequestPolicyConfigArgs
+
+func OriginRequestPolicyConfigPtr(v *OriginRequestPolicyConfigArgs) OriginRequestPolicyConfigPtrInput {
+	return (*originRequestPolicyConfigPtrType)(v)
+}
+
+func (*originRequestPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (i *originRequestPolicyConfigPtrType) ToOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyConfigPtrOutput {
+	return i.ToOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *originRequestPolicyConfigPtrType) ToOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyConfigPtrOutput)
+}
+
+type OriginRequestPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyConfigOutput) ToOriginRequestPolicyConfigOutput() OriginRequestPolicyConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyConfigOutput) ToOriginRequestPolicyConfigOutputWithContext(ctx context.Context) OriginRequestPolicyConfigOutput {
+	return o
+}
+
+func (o OriginRequestPolicyConfigOutput) ToOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyConfigPtrOutput {
+	return o.ToOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o OriginRequestPolicyConfigOutput) ToOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyConfig) *OriginRequestPolicyConfig {
+		return &v
+	}).(OriginRequestPolicyConfigPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginRequestPolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigOutput) CookiesConfig() OriginRequestPolicyCookiesConfigOutput {
+	return o.ApplyT(func(v OriginRequestPolicyConfig) OriginRequestPolicyCookiesConfig { return v.CookiesConfig }).(OriginRequestPolicyCookiesConfigOutput)
+}
+
+func (o OriginRequestPolicyConfigOutput) HeadersConfig() OriginRequestPolicyHeadersConfigOutput {
+	return o.ApplyT(func(v OriginRequestPolicyConfig) OriginRequestPolicyHeadersConfig { return v.HeadersConfig }).(OriginRequestPolicyHeadersConfigOutput)
+}
+
+func (o OriginRequestPolicyConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginRequestPolicyConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OriginRequestPolicyConfigOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigOutput {
+	return o.ApplyT(func(v OriginRequestPolicyConfig) OriginRequestPolicyQueryStringsConfig { return v.QueryStringsConfig }).(OriginRequestPolicyQueryStringsConfigOutput)
+}
+
+type OriginRequestPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginRequestPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginRequestPolicyConfig)(nil)).Elem()
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyConfigPtrOutput {
+	return o
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) Elem() OriginRequestPolicyConfigOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) OriginRequestPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyConfig
+		return ret
+	}).(OriginRequestPolicyConfigOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) CookiesConfig() OriginRequestPolicyCookiesConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyCookiesConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.CookiesConfig
+	}).(OriginRequestPolicyCookiesConfigPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) HeadersConfig() OriginRequestPolicyHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyHeadersConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.HeadersConfig
+	}).(OriginRequestPolicyHeadersConfigPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OriginRequestPolicyConfigPtrOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigPtrOutput {
+	return o.ApplyT(func(v *OriginRequestPolicyConfig) *OriginRequestPolicyQueryStringsConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryStringsConfig
+	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
 }
 
 type OriginRequestPolicyCookiesConfig struct {
@@ -5699,205 +5888,6 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-type OriginRequestPolicyOriginRequestPolicyConfig struct {
-	Comment            *string                               `pulumi:"comment"`
-	CookiesConfig      OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
-	HeadersConfig      OriginRequestPolicyHeadersConfig      `pulumi:"headersConfig"`
-	Name               string                                `pulumi:"name"`
-	QueryStringsConfig OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
-}
-
-// OriginRequestPolicyOriginRequestPolicyConfigInput is an input type that accepts OriginRequestPolicyOriginRequestPolicyConfigArgs and OriginRequestPolicyOriginRequestPolicyConfigOutput values.
-// You can construct a concrete instance of `OriginRequestPolicyOriginRequestPolicyConfigInput` via:
-//
-//          OriginRequestPolicyOriginRequestPolicyConfigArgs{...}
-type OriginRequestPolicyOriginRequestPolicyConfigInput interface {
-	pulumi.Input
-
-	ToOriginRequestPolicyOriginRequestPolicyConfigOutput() OriginRequestPolicyOriginRequestPolicyConfigOutput
-	ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(context.Context) OriginRequestPolicyOriginRequestPolicyConfigOutput
-}
-
-type OriginRequestPolicyOriginRequestPolicyConfigArgs struct {
-	Comment            pulumi.StringPtrInput                      `pulumi:"comment"`
-	CookiesConfig      OriginRequestPolicyCookiesConfigInput      `pulumi:"cookiesConfig"`
-	HeadersConfig      OriginRequestPolicyHeadersConfigInput      `pulumi:"headersConfig"`
-	Name               pulumi.StringInput                         `pulumi:"name"`
-	QueryStringsConfig OriginRequestPolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
-}
-
-func (OriginRequestPolicyOriginRequestPolicyConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
-}
-
-func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigOutput() OriginRequestPolicyOriginRequestPolicyConfigOutput {
-	return i.ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(context.Background())
-}
-
-func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOriginRequestPolicyConfigOutput)
-}
-
-func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return i.ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
-}
-
-func (i OriginRequestPolicyOriginRequestPolicyConfigArgs) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOriginRequestPolicyConfigOutput).ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx)
-}
-
-// OriginRequestPolicyOriginRequestPolicyConfigPtrInput is an input type that accepts OriginRequestPolicyOriginRequestPolicyConfigArgs, OriginRequestPolicyOriginRequestPolicyConfigPtr and OriginRequestPolicyOriginRequestPolicyConfigPtrOutput values.
-// You can construct a concrete instance of `OriginRequestPolicyOriginRequestPolicyConfigPtrInput` via:
-//
-//          OriginRequestPolicyOriginRequestPolicyConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type OriginRequestPolicyOriginRequestPolicyConfigPtrInput interface {
-	pulumi.Input
-
-	ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput
-	ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput
-}
-
-type originRequestPolicyOriginRequestPolicyConfigPtrType OriginRequestPolicyOriginRequestPolicyConfigArgs
-
-func OriginRequestPolicyOriginRequestPolicyConfigPtr(v *OriginRequestPolicyOriginRequestPolicyConfigArgs) OriginRequestPolicyOriginRequestPolicyConfigPtrInput {
-	return (*originRequestPolicyOriginRequestPolicyConfigPtrType)(v)
-}
-
-func (*originRequestPolicyOriginRequestPolicyConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
-}
-
-func (i *originRequestPolicyOriginRequestPolicyConfigPtrType) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return i.ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *originRequestPolicyOriginRequestPolicyConfigPtrType) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput)
-}
-
-type OriginRequestPolicyOriginRequestPolicyConfigOutput struct{ *pulumi.OutputState }
-
-func (OriginRequestPolicyOriginRequestPolicyConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigOutput() OriginRequestPolicyOriginRequestPolicyConfigOutput {
-	return o
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigOutput {
-	return o
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return o.ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(context.Background())
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyOriginRequestPolicyConfig {
-		return &v
-	}).(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) CookiesConfig() OriginRequestPolicyCookiesConfigOutput {
-	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyCookiesConfig {
-		return v.CookiesConfig
-	}).(OriginRequestPolicyCookiesConfigOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) HeadersConfig() OriginRequestPolicyHeadersConfigOutput {
-	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyHeadersConfig {
-		return v.HeadersConfig
-	}).(OriginRequestPolicyHeadersConfigOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigOutput {
-	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyQueryStringsConfig {
-		return v.QueryStringsConfig
-	}).(OriginRequestPolicyQueryStringsConfigOutput)
-}
-
-type OriginRequestPolicyOriginRequestPolicyConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyOriginRequestPolicyConfig)(nil)).Elem()
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutput() OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) ToOriginRequestPolicyOriginRequestPolicyConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyOriginRequestPolicyConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Elem() OriginRequestPolicyOriginRequestPolicyConfigOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyOriginRequestPolicyConfig {
-		if v != nil {
-			return *v
-		}
-		var ret OriginRequestPolicyOriginRequestPolicyConfig
-		return ret
-	}).(OriginRequestPolicyOriginRequestPolicyConfigOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Comment
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) CookiesConfig() OriginRequestPolicyCookiesConfigPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyCookiesConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.CookiesConfig
-	}).(OriginRequestPolicyCookiesConfigPtrOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) HeadersConfig() OriginRequestPolicyHeadersConfigPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyHeadersConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadersConfig
-	}).(OriginRequestPolicyHeadersConfigPtrOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyQueryStringsConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.QueryStringsConfig
-	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
-}
-
 type OriginRequestPolicyQueryStringsConfig struct {
 	QueryStringBehavior string   `pulumi:"queryStringBehavior"`
 	QueryStrings        []string `pulumi:"queryStrings"`
@@ -6046,150 +6036,150 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-type PublicKeyPublicKeyConfig struct {
+type PublicKeyConfig struct {
 	CallerReference string  `pulumi:"callerReference"`
 	Comment         *string `pulumi:"comment"`
 	EncodedKey      string  `pulumi:"encodedKey"`
 	Name            string  `pulumi:"name"`
 }
 
-// PublicKeyPublicKeyConfigInput is an input type that accepts PublicKeyPublicKeyConfigArgs and PublicKeyPublicKeyConfigOutput values.
-// You can construct a concrete instance of `PublicKeyPublicKeyConfigInput` via:
+// PublicKeyConfigInput is an input type that accepts PublicKeyConfigArgs and PublicKeyConfigOutput values.
+// You can construct a concrete instance of `PublicKeyConfigInput` via:
 //
-//          PublicKeyPublicKeyConfigArgs{...}
-type PublicKeyPublicKeyConfigInput interface {
+//          PublicKeyConfigArgs{...}
+type PublicKeyConfigInput interface {
 	pulumi.Input
 
-	ToPublicKeyPublicKeyConfigOutput() PublicKeyPublicKeyConfigOutput
-	ToPublicKeyPublicKeyConfigOutputWithContext(context.Context) PublicKeyPublicKeyConfigOutput
+	ToPublicKeyConfigOutput() PublicKeyConfigOutput
+	ToPublicKeyConfigOutputWithContext(context.Context) PublicKeyConfigOutput
 }
 
-type PublicKeyPublicKeyConfigArgs struct {
+type PublicKeyConfigArgs struct {
 	CallerReference pulumi.StringInput    `pulumi:"callerReference"`
 	Comment         pulumi.StringPtrInput `pulumi:"comment"`
 	EncodedKey      pulumi.StringInput    `pulumi:"encodedKey"`
 	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
-func (PublicKeyPublicKeyConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKeyPublicKeyConfig)(nil)).Elem()
+func (PublicKeyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyConfig)(nil)).Elem()
 }
 
-func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigOutput() PublicKeyPublicKeyConfigOutput {
-	return i.ToPublicKeyPublicKeyConfigOutputWithContext(context.Background())
+func (i PublicKeyConfigArgs) ToPublicKeyConfigOutput() PublicKeyConfigOutput {
+	return i.ToPublicKeyConfigOutputWithContext(context.Background())
 }
 
-func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPublicKeyConfigOutput)
+func (i PublicKeyConfigArgs) ToPublicKeyConfigOutputWithContext(ctx context.Context) PublicKeyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyConfigOutput)
 }
 
-func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
-	return i.ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Background())
+func (i PublicKeyConfigArgs) ToPublicKeyConfigPtrOutput() PublicKeyConfigPtrOutput {
+	return i.ToPublicKeyConfigPtrOutputWithContext(context.Background())
 }
 
-func (i PublicKeyPublicKeyConfigArgs) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPublicKeyConfigOutput).ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx)
+func (i PublicKeyConfigArgs) ToPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyConfigOutput).ToPublicKeyConfigPtrOutputWithContext(ctx)
 }
 
-// PublicKeyPublicKeyConfigPtrInput is an input type that accepts PublicKeyPublicKeyConfigArgs, PublicKeyPublicKeyConfigPtr and PublicKeyPublicKeyConfigPtrOutput values.
-// You can construct a concrete instance of `PublicKeyPublicKeyConfigPtrInput` via:
+// PublicKeyConfigPtrInput is an input type that accepts PublicKeyConfigArgs, PublicKeyConfigPtr and PublicKeyConfigPtrOutput values.
+// You can construct a concrete instance of `PublicKeyConfigPtrInput` via:
 //
-//          PublicKeyPublicKeyConfigArgs{...}
+//          PublicKeyConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type PublicKeyPublicKeyConfigPtrInput interface {
+type PublicKeyConfigPtrInput interface {
 	pulumi.Input
 
-	ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput
-	ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Context) PublicKeyPublicKeyConfigPtrOutput
+	ToPublicKeyConfigPtrOutput() PublicKeyConfigPtrOutput
+	ToPublicKeyConfigPtrOutputWithContext(context.Context) PublicKeyConfigPtrOutput
 }
 
-type publicKeyPublicKeyConfigPtrType PublicKeyPublicKeyConfigArgs
+type publicKeyConfigPtrType PublicKeyConfigArgs
 
-func PublicKeyPublicKeyConfigPtr(v *PublicKeyPublicKeyConfigArgs) PublicKeyPublicKeyConfigPtrInput {
-	return (*publicKeyPublicKeyConfigPtrType)(v)
+func PublicKeyConfigPtr(v *PublicKeyConfigArgs) PublicKeyConfigPtrInput {
+	return (*publicKeyConfigPtrType)(v)
 }
 
-func (*publicKeyPublicKeyConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicKeyPublicKeyConfig)(nil)).Elem()
+func (*publicKeyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyConfig)(nil)).Elem()
 }
 
-func (i *publicKeyPublicKeyConfigPtrType) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
-	return i.ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Background())
+func (i *publicKeyConfigPtrType) ToPublicKeyConfigPtrOutput() PublicKeyConfigPtrOutput {
+	return i.ToPublicKeyConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *publicKeyPublicKeyConfigPtrType) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPublicKeyConfigPtrOutput)
+func (i *publicKeyConfigPtrType) ToPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyConfigPtrOutput)
 }
 
-type PublicKeyPublicKeyConfigOutput struct{ *pulumi.OutputState }
+type PublicKeyConfigOutput struct{ *pulumi.OutputState }
 
-func (PublicKeyPublicKeyConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicKeyPublicKeyConfig)(nil)).Elem()
+func (PublicKeyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicKeyConfig)(nil)).Elem()
 }
 
-func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigOutput() PublicKeyPublicKeyConfigOutput {
+func (o PublicKeyConfigOutput) ToPublicKeyConfigOutput() PublicKeyConfigOutput {
 	return o
 }
 
-func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigOutput {
+func (o PublicKeyConfigOutput) ToPublicKeyConfigOutputWithContext(ctx context.Context) PublicKeyConfigOutput {
 	return o
 }
 
-func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
-	return o.ToPublicKeyPublicKeyConfigPtrOutputWithContext(context.Background())
+func (o PublicKeyConfigOutput) ToPublicKeyConfigPtrOutput() PublicKeyConfigPtrOutput {
+	return o.ToPublicKeyConfigPtrOutputWithContext(context.Background())
 }
 
-func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicKeyPublicKeyConfig) *PublicKeyPublicKeyConfig {
+func (o PublicKeyConfigOutput) ToPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicKeyConfig) *PublicKeyConfig {
 		return &v
-	}).(PublicKeyPublicKeyConfigPtrOutput)
+	}).(PublicKeyConfigPtrOutput)
 }
 
-func (o PublicKeyPublicKeyConfigOutput) CallerReference() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.CallerReference }).(pulumi.StringOutput)
+func (o PublicKeyConfigOutput) CallerReference() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyConfig) string { return v.CallerReference }).(pulumi.StringOutput)
 }
 
-func (o PublicKeyPublicKeyConfigOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicKeyPublicKeyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+func (o PublicKeyConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublicKeyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-func (o PublicKeyPublicKeyConfigOutput) EncodedKey() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.EncodedKey }).(pulumi.StringOutput)
+func (o PublicKeyConfigOutput) EncodedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyConfig) string { return v.EncodedKey }).(pulumi.StringOutput)
 }
 
-func (o PublicKeyPublicKeyConfigOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.Name }).(pulumi.StringOutput)
+func (o PublicKeyConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PublicKeyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type PublicKeyPublicKeyConfigPtrOutput struct{ *pulumi.OutputState }
+type PublicKeyConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (PublicKeyPublicKeyConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicKeyPublicKeyConfig)(nil)).Elem()
+func (PublicKeyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublicKeyConfig)(nil)).Elem()
 }
 
-func (o PublicKeyPublicKeyConfigPtrOutput) ToPublicKeyPublicKeyConfigPtrOutput() PublicKeyPublicKeyConfigPtrOutput {
+func (o PublicKeyConfigPtrOutput) ToPublicKeyConfigPtrOutput() PublicKeyConfigPtrOutput {
 	return o
 }
 
-func (o PublicKeyPublicKeyConfigPtrOutput) ToPublicKeyPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyPublicKeyConfigPtrOutput {
+func (o PublicKeyConfigPtrOutput) ToPublicKeyConfigPtrOutputWithContext(ctx context.Context) PublicKeyConfigPtrOutput {
 	return o
 }
 
-func (o PublicKeyPublicKeyConfigPtrOutput) Elem() PublicKeyPublicKeyConfigOutput {
-	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) PublicKeyPublicKeyConfig {
+func (o PublicKeyConfigPtrOutput) Elem() PublicKeyConfigOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) PublicKeyConfig {
 		if v != nil {
 			return *v
 		}
-		var ret PublicKeyPublicKeyConfig
+		var ret PublicKeyConfig
 		return ret
-	}).(PublicKeyPublicKeyConfigOutput)
+	}).(PublicKeyConfigOutput)
 }
 
-func (o PublicKeyPublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+func (o PublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6197,8 +6187,8 @@ func (o PublicKeyPublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PublicKeyPublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+func (o PublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6206,8 +6196,8 @@ func (o PublicKeyPublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PublicKeyPublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+func (o PublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6215,8 +6205,8 @@ func (o PublicKeyPublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o PublicKeyPublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
+func (o PublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicKeyConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6377,6 +6367,229 @@ func (o RealtimeLogConfigKinesisStreamConfigOutput) RoleArn() pulumi.StringOutpu
 
 func (o RealtimeLogConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type StreamingDistributionConfig struct {
+	Aliases        []string                            `pulumi:"aliases"`
+	Comment        string                              `pulumi:"comment"`
+	Enabled        bool                                `pulumi:"enabled"`
+	Logging        *StreamingDistributionLogging       `pulumi:"logging"`
+	PriceClass     *string                             `pulumi:"priceClass"`
+	S3Origin       StreamingDistributionS3Origin       `pulumi:"s3Origin"`
+	TrustedSigners StreamingDistributionTrustedSigners `pulumi:"trustedSigners"`
+}
+
+// StreamingDistributionConfigInput is an input type that accepts StreamingDistributionConfigArgs and StreamingDistributionConfigOutput values.
+// You can construct a concrete instance of `StreamingDistributionConfigInput` via:
+//
+//          StreamingDistributionConfigArgs{...}
+type StreamingDistributionConfigInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionConfigOutput() StreamingDistributionConfigOutput
+	ToStreamingDistributionConfigOutputWithContext(context.Context) StreamingDistributionConfigOutput
+}
+
+type StreamingDistributionConfigArgs struct {
+	Aliases        pulumi.StringArrayInput                  `pulumi:"aliases"`
+	Comment        pulumi.StringInput                       `pulumi:"comment"`
+	Enabled        pulumi.BoolInput                         `pulumi:"enabled"`
+	Logging        StreamingDistributionLoggingPtrInput     `pulumi:"logging"`
+	PriceClass     pulumi.StringPtrInput                    `pulumi:"priceClass"`
+	S3Origin       StreamingDistributionS3OriginInput       `pulumi:"s3Origin"`
+	TrustedSigners StreamingDistributionTrustedSignersInput `pulumi:"trustedSigners"`
+}
+
+func (StreamingDistributionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionConfig)(nil)).Elem()
+}
+
+func (i StreamingDistributionConfigArgs) ToStreamingDistributionConfigOutput() StreamingDistributionConfigOutput {
+	return i.ToStreamingDistributionConfigOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionConfigArgs) ToStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionConfigOutput)
+}
+
+func (i StreamingDistributionConfigArgs) ToStreamingDistributionConfigPtrOutput() StreamingDistributionConfigPtrOutput {
+	return i.ToStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionConfigArgs) ToStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionConfigOutput).ToStreamingDistributionConfigPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionConfigPtrInput is an input type that accepts StreamingDistributionConfigArgs, StreamingDistributionConfigPtr and StreamingDistributionConfigPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionConfigPtrInput` via:
+//
+//          StreamingDistributionConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionConfigPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionConfigPtrOutput() StreamingDistributionConfigPtrOutput
+	ToStreamingDistributionConfigPtrOutputWithContext(context.Context) StreamingDistributionConfigPtrOutput
+}
+
+type streamingDistributionConfigPtrType StreamingDistributionConfigArgs
+
+func StreamingDistributionConfigPtr(v *StreamingDistributionConfigArgs) StreamingDistributionConfigPtrInput {
+	return (*streamingDistributionConfigPtrType)(v)
+}
+
+func (*streamingDistributionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionConfig)(nil)).Elem()
+}
+
+func (i *streamingDistributionConfigPtrType) ToStreamingDistributionConfigPtrOutput() StreamingDistributionConfigPtrOutput {
+	return i.ToStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionConfigPtrType) ToStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionConfigPtrOutput)
+}
+
+type StreamingDistributionConfigOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionConfig)(nil)).Elem()
+}
+
+func (o StreamingDistributionConfigOutput) ToStreamingDistributionConfigOutput() StreamingDistributionConfigOutput {
+	return o
+}
+
+func (o StreamingDistributionConfigOutput) ToStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionConfigOutput {
+	return o
+}
+
+func (o StreamingDistributionConfigOutput) ToStreamingDistributionConfigPtrOutput() StreamingDistributionConfigPtrOutput {
+	return o.ToStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionConfigOutput) ToStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionConfig) *StreamingDistributionConfig {
+		return &v
+	}).(StreamingDistributionConfigPtrOutput)
+}
+
+func (o StreamingDistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingDistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionConfigOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionConfig) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o StreamingDistributionConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingDistributionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o StreamingDistributionConfigOutput) Logging() StreamingDistributionLoggingPtrOutput {
+	return o.ApplyT(func(v StreamingDistributionConfig) *StreamingDistributionLogging { return v.Logging }).(StreamingDistributionLoggingPtrOutput)
+}
+
+func (o StreamingDistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingDistributionConfig) *string { return v.PriceClass }).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionConfigOutput) S3Origin() StreamingDistributionS3OriginOutput {
+	return o.ApplyT(func(v StreamingDistributionConfig) StreamingDistributionS3Origin { return v.S3Origin }).(StreamingDistributionS3OriginOutput)
+}
+
+func (o StreamingDistributionConfigOutput) TrustedSigners() StreamingDistributionTrustedSignersOutput {
+	return o.ApplyT(func(v StreamingDistributionConfig) StreamingDistributionTrustedSigners { return v.TrustedSigners }).(StreamingDistributionTrustedSignersOutput)
+}
+
+type StreamingDistributionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionConfig)(nil)).Elem()
+}
+
+func (o StreamingDistributionConfigPtrOutput) ToStreamingDistributionConfigPtrOutput() StreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionConfigPtrOutput) ToStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionConfigPtrOutput) Elem() StreamingDistributionConfigOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) StreamingDistributionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionConfig
+		return ret
+	}).(StreamingDistributionConfigOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aliases
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) Logging() StreamingDistributionLoggingPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *StreamingDistributionLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceClass
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) S3Origin() StreamingDistributionS3OriginPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *StreamingDistributionS3Origin {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Origin
+	}).(StreamingDistributionS3OriginPtrOutput)
+}
+
+func (o StreamingDistributionConfigPtrOutput) TrustedSigners() StreamingDistributionTrustedSignersPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionConfig) *StreamingDistributionTrustedSigners {
+		if v == nil {
+			return nil
+		}
+		return &v.TrustedSigners
+	}).(StreamingDistributionTrustedSignersPtrOutput)
 }
 
 type StreamingDistributionLogging struct {
@@ -6690,235 +6903,6 @@ func (o StreamingDistributionS3OriginPtrOutput) OriginAccessIdentity() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-type StreamingDistributionStreamingDistributionConfig struct {
-	Aliases        []string                            `pulumi:"aliases"`
-	Comment        string                              `pulumi:"comment"`
-	Enabled        bool                                `pulumi:"enabled"`
-	Logging        *StreamingDistributionLogging       `pulumi:"logging"`
-	PriceClass     *string                             `pulumi:"priceClass"`
-	S3Origin       StreamingDistributionS3Origin       `pulumi:"s3Origin"`
-	TrustedSigners StreamingDistributionTrustedSigners `pulumi:"trustedSigners"`
-}
-
-// StreamingDistributionStreamingDistributionConfigInput is an input type that accepts StreamingDistributionStreamingDistributionConfigArgs and StreamingDistributionStreamingDistributionConfigOutput values.
-// You can construct a concrete instance of `StreamingDistributionStreamingDistributionConfigInput` via:
-//
-//          StreamingDistributionStreamingDistributionConfigArgs{...}
-type StreamingDistributionStreamingDistributionConfigInput interface {
-	pulumi.Input
-
-	ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput
-	ToStreamingDistributionStreamingDistributionConfigOutputWithContext(context.Context) StreamingDistributionStreamingDistributionConfigOutput
-}
-
-type StreamingDistributionStreamingDistributionConfigArgs struct {
-	Aliases        pulumi.StringArrayInput                  `pulumi:"aliases"`
-	Comment        pulumi.StringInput                       `pulumi:"comment"`
-	Enabled        pulumi.BoolInput                         `pulumi:"enabled"`
-	Logging        StreamingDistributionLoggingPtrInput     `pulumi:"logging"`
-	PriceClass     pulumi.StringPtrInput                    `pulumi:"priceClass"`
-	S3Origin       StreamingDistributionS3OriginInput       `pulumi:"s3Origin"`
-	TrustedSigners StreamingDistributionTrustedSignersInput `pulumi:"trustedSigners"`
-}
-
-func (StreamingDistributionStreamingDistributionConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
-}
-
-func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput {
-	return i.ToStreamingDistributionStreamingDistributionConfigOutputWithContext(context.Background())
-}
-
-func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigOutput)
-}
-
-func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return i.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigOutput).ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx)
-}
-
-// StreamingDistributionStreamingDistributionConfigPtrInput is an input type that accepts StreamingDistributionStreamingDistributionConfigArgs, StreamingDistributionStreamingDistributionConfigPtr and StreamingDistributionStreamingDistributionConfigPtrOutput values.
-// You can construct a concrete instance of `StreamingDistributionStreamingDistributionConfigPtrInput` via:
-//
-//          StreamingDistributionStreamingDistributionConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type StreamingDistributionStreamingDistributionConfigPtrInput interface {
-	pulumi.Input
-
-	ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput
-	ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput
-}
-
-type streamingDistributionStreamingDistributionConfigPtrType StreamingDistributionStreamingDistributionConfigArgs
-
-func StreamingDistributionStreamingDistributionConfigPtr(v *StreamingDistributionStreamingDistributionConfigArgs) StreamingDistributionStreamingDistributionConfigPtrInput {
-	return (*streamingDistributionStreamingDistributionConfigPtrType)(v)
-}
-
-func (*streamingDistributionStreamingDistributionConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
-}
-
-func (i *streamingDistributionStreamingDistributionConfigPtrType) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return i.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *streamingDistributionStreamingDistributionConfigPtrType) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigPtrOutput)
-}
-
-type StreamingDistributionStreamingDistributionConfigOutput struct{ *pulumi.OutputState }
-
-func (StreamingDistributionStreamingDistributionConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput {
-	return o
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigOutput {
-	return o
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return o.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionStreamingDistributionConfig) *StreamingDistributionStreamingDistributionConfig {
-		return &v
-	}).(StreamingDistributionStreamingDistributionConfigPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) Logging() StreamingDistributionLoggingPtrOutput {
-	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) *StreamingDistributionLogging {
-		return v.Logging
-	}).(StreamingDistributionLoggingPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) *string { return v.PriceClass }).(pulumi.StringPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) S3Origin() StreamingDistributionS3OriginOutput {
-	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) StreamingDistributionS3Origin {
-		return v.S3Origin
-	}).(StreamingDistributionS3OriginOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigOutput) TrustedSigners() StreamingDistributionTrustedSignersOutput {
-	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) StreamingDistributionTrustedSigners {
-		return v.TrustedSigners
-	}).(StreamingDistributionTrustedSignersOutput)
-}
-
-type StreamingDistributionStreamingDistributionConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (StreamingDistributionStreamingDistributionConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return o
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
-	return o
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Elem() StreamingDistributionStreamingDistributionConfigOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) StreamingDistributionStreamingDistributionConfig {
-		if v != nil {
-			return *v
-		}
-		var ret StreamingDistributionStreamingDistributionConfig
-		return ret
-	}).(StreamingDistributionStreamingDistributionConfigOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Aliases
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Comment
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Logging() StreamingDistributionLoggingPtrOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionLogging {
-		if v == nil {
-			return nil
-		}
-		return v.Logging
-	}).(StreamingDistributionLoggingPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PriceClass
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) S3Origin() StreamingDistributionS3OriginPtrOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionS3Origin {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Origin
-	}).(StreamingDistributionS3OriginPtrOutput)
-}
-
-func (o StreamingDistributionStreamingDistributionConfigPtrOutput) TrustedSigners() StreamingDistributionTrustedSignersPtrOutput {
-	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionTrustedSigners {
-		if v == nil {
-			return nil
-		}
-		return &v.TrustedSigners
-	}).(StreamingDistributionTrustedSignersPtrOutput)
-}
-
 type StreamingDistributionTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -7168,8 +7152,8 @@ func (o StreamingDistributionTrustedSignersPtrOutput) Enabled() pulumi.BoolPtrOu
 }
 
 func init() {
-	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigOutput{})
-	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(CachePolicyConfigOutput{})
+	pulumi.RegisterOutputType(CachePolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyCookiesConfigOutput{})
 	pulumi.RegisterOutputType(CachePolicyCookiesConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyHeadersConfigOutput{})
@@ -7178,10 +7162,12 @@ func init() {
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigOutput{})
 	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigPtrOutput{})
-	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput{})
-	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput{})
+	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigOutput{})
+	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorArrayOutput{})
+	pulumi.RegisterOutputType(DistributionConfigOutput{})
+	pulumi.RegisterOutputType(DistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCookiesOutput{})
 	pulumi.RegisterOutputType(DistributionCookiesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
@@ -7190,8 +7176,6 @@ func init() {
 	pulumi.RegisterOutputType(DistributionCustomOriginConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorPtrOutput{})
-	pulumi.RegisterOutputType(DistributionDistributionConfigOutput{})
-	pulumi.RegisterOutputType(DistributionDistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionForwardedValuesOutput{})
 	pulumi.RegisterOutputType(DistributionForwardedValuesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionFunctionAssociationOutput{})
@@ -7229,31 +7213,31 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTagArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
-	pulumi.RegisterOutputType(FunctionFunctionConfigOutput{})
-	pulumi.RegisterOutputType(FunctionFunctionConfigPtrOutput{})
-	pulumi.RegisterOutputType(FunctionFunctionMetadataOutput{})
-	pulumi.RegisterOutputType(FunctionFunctionMetadataPtrOutput{})
-	pulumi.RegisterOutputType(KeyGroupKeyGroupConfigOutput{})
-	pulumi.RegisterOutputType(KeyGroupKeyGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionConfigOutput{})
+	pulumi.RegisterOutputType(FunctionConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionMetadataOutput{})
+	pulumi.RegisterOutputType(FunctionMetadataPtrOutput{})
+	pulumi.RegisterOutputType(KeyGroupConfigOutput{})
+	pulumi.RegisterOutputType(KeyGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyConfigOutput{})
+	pulumi.RegisterOutputType(OriginRequestPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigPtrOutput{})
-	pulumi.RegisterOutputType(OriginRequestPolicyOriginRequestPolicyConfigOutput{})
-	pulumi.RegisterOutputType(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigPtrOutput{})
-	pulumi.RegisterOutputType(PublicKeyPublicKeyConfigOutput{})
-	pulumi.RegisterOutputType(PublicKeyPublicKeyConfigPtrOutput{})
+	pulumi.RegisterOutputType(PublicKeyConfigOutput{})
+	pulumi.RegisterOutputType(PublicKeyConfigPtrOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointArrayOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigKinesisStreamConfigOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionConfigOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionLoggingOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionLoggingPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionS3OriginOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionS3OriginPtrOutput{})
-	pulumi.RegisterOutputType(StreamingDistributionStreamingDistributionConfigOutput{})
-	pulumi.RegisterOutputType(StreamingDistributionStreamingDistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTagOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTagArrayOutput{})
 	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersOutput{})

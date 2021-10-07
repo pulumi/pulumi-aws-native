@@ -45,7 +45,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dashboardId!: pulumi.Output<string>;
-    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions | undefined>;
+    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardPublishOptions | undefined>;
     /**
      * <p>The last time that this dataset was published.</p>
      */
@@ -67,7 +67,7 @@ export class Dashboard extends pulumi.CustomResource {
      *         <p>To specify no permissions, omit the permissions list.</p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardDashboardSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
      *             dashboard.</p>
@@ -80,7 +80,7 @@ export class Dashboard extends pulumi.CustomResource {
      *             dashboard.</p>
      */
     public readonly themeArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardDashboardVersion>;
+    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardVersion>;
     /**
      * <p>A description for the first version of the dashboard being created.</p>
      */
@@ -148,7 +148,7 @@ export class Dashboard extends pulumi.CustomResource {
 export interface DashboardArgs {
     awsAccountId: pulumi.Input<string>;
     dashboardId: pulumi.Input<string>;
-    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsArgs>;
+    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardPublishOptionsArgs>;
     /**
      * <p>The display name of the dashboard.</p>
      */
@@ -162,7 +162,7 @@ export interface DashboardArgs {
      *         <p>To specify no permissions, omit the permissions list.</p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
-    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardDashboardSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntityArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
      *             dashboard.</p>

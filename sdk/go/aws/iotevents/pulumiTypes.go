@@ -842,147 +842,147 @@ func (o DetectorModelClearTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 }
 
 // Information that defines how a detector operates.
-type DetectorModelDetectorModelDefinition struct {
+type DetectorModelDefinition struct {
 	// The state that is entered at the creation of each detector (instance).
 	InitialStateName string `pulumi:"initialStateName"`
 	// Information about the states of the detector.
 	States []DetectorModelStateType `pulumi:"states"`
 }
 
-// DetectorModelDetectorModelDefinitionInput is an input type that accepts DetectorModelDetectorModelDefinitionArgs and DetectorModelDetectorModelDefinitionOutput values.
-// You can construct a concrete instance of `DetectorModelDetectorModelDefinitionInput` via:
+// DetectorModelDefinitionInput is an input type that accepts DetectorModelDefinitionArgs and DetectorModelDefinitionOutput values.
+// You can construct a concrete instance of `DetectorModelDefinitionInput` via:
 //
-//          DetectorModelDetectorModelDefinitionArgs{...}
-type DetectorModelDetectorModelDefinitionInput interface {
+//          DetectorModelDefinitionArgs{...}
+type DetectorModelDefinitionInput interface {
 	pulumi.Input
 
-	ToDetectorModelDetectorModelDefinitionOutput() DetectorModelDetectorModelDefinitionOutput
-	ToDetectorModelDetectorModelDefinitionOutputWithContext(context.Context) DetectorModelDetectorModelDefinitionOutput
+	ToDetectorModelDefinitionOutput() DetectorModelDefinitionOutput
+	ToDetectorModelDefinitionOutputWithContext(context.Context) DetectorModelDefinitionOutput
 }
 
 // Information that defines how a detector operates.
-type DetectorModelDetectorModelDefinitionArgs struct {
+type DetectorModelDefinitionArgs struct {
 	// The state that is entered at the creation of each detector (instance).
 	InitialStateName pulumi.StringInput `pulumi:"initialStateName"`
 	// Information about the states of the detector.
 	States DetectorModelStateTypeArrayInput `pulumi:"states"`
 }
 
-func (DetectorModelDetectorModelDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModelDetectorModelDefinition)(nil)).Elem()
+func (DetectorModelDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModelDefinition)(nil)).Elem()
 }
 
-func (i DetectorModelDetectorModelDefinitionArgs) ToDetectorModelDetectorModelDefinitionOutput() DetectorModelDetectorModelDefinitionOutput {
-	return i.ToDetectorModelDetectorModelDefinitionOutputWithContext(context.Background())
+func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionOutput() DetectorModelDefinitionOutput {
+	return i.ToDetectorModelDefinitionOutputWithContext(context.Background())
 }
 
-func (i DetectorModelDetectorModelDefinitionArgs) ToDetectorModelDetectorModelDefinitionOutputWithContext(ctx context.Context) DetectorModelDetectorModelDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDetectorModelDefinitionOutput)
+func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionOutputWithContext(ctx context.Context) DetectorModelDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDefinitionOutput)
 }
 
-func (i DetectorModelDetectorModelDefinitionArgs) ToDetectorModelDetectorModelDefinitionPtrOutput() DetectorModelDetectorModelDefinitionPtrOutput {
-	return i.ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(context.Background())
+func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
+	return i.ToDetectorModelDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i DetectorModelDetectorModelDefinitionArgs) ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDetectorModelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDetectorModelDefinitionOutput).ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(ctx)
+func (i DetectorModelDefinitionArgs) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDefinitionOutput).ToDetectorModelDefinitionPtrOutputWithContext(ctx)
 }
 
-// DetectorModelDetectorModelDefinitionPtrInput is an input type that accepts DetectorModelDetectorModelDefinitionArgs, DetectorModelDetectorModelDefinitionPtr and DetectorModelDetectorModelDefinitionPtrOutput values.
-// You can construct a concrete instance of `DetectorModelDetectorModelDefinitionPtrInput` via:
+// DetectorModelDefinitionPtrInput is an input type that accepts DetectorModelDefinitionArgs, DetectorModelDefinitionPtr and DetectorModelDefinitionPtrOutput values.
+// You can construct a concrete instance of `DetectorModelDefinitionPtrInput` via:
 //
-//          DetectorModelDetectorModelDefinitionArgs{...}
+//          DetectorModelDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type DetectorModelDetectorModelDefinitionPtrInput interface {
+type DetectorModelDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToDetectorModelDetectorModelDefinitionPtrOutput() DetectorModelDetectorModelDefinitionPtrOutput
-	ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(context.Context) DetectorModelDetectorModelDefinitionPtrOutput
+	ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput
+	ToDetectorModelDefinitionPtrOutputWithContext(context.Context) DetectorModelDefinitionPtrOutput
 }
 
-type detectorModelDetectorModelDefinitionPtrType DetectorModelDetectorModelDefinitionArgs
+type detectorModelDefinitionPtrType DetectorModelDefinitionArgs
 
-func DetectorModelDetectorModelDefinitionPtr(v *DetectorModelDetectorModelDefinitionArgs) DetectorModelDetectorModelDefinitionPtrInput {
-	return (*detectorModelDetectorModelDefinitionPtrType)(v)
+func DetectorModelDefinitionPtr(v *DetectorModelDefinitionArgs) DetectorModelDefinitionPtrInput {
+	return (*detectorModelDefinitionPtrType)(v)
 }
 
-func (*detectorModelDetectorModelDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetectorModelDetectorModelDefinition)(nil)).Elem()
+func (*detectorModelDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorModelDefinition)(nil)).Elem()
 }
 
-func (i *detectorModelDetectorModelDefinitionPtrType) ToDetectorModelDetectorModelDefinitionPtrOutput() DetectorModelDetectorModelDefinitionPtrOutput {
-	return i.ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(context.Background())
+func (i *detectorModelDefinitionPtrType) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
+	return i.ToDetectorModelDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *detectorModelDetectorModelDefinitionPtrType) ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDetectorModelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDetectorModelDefinitionPtrOutput)
+func (i *detectorModelDefinitionPtrType) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDefinitionPtrOutput)
 }
 
 // Information that defines how a detector operates.
-type DetectorModelDetectorModelDefinitionOutput struct{ *pulumi.OutputState }
+type DetectorModelDefinitionOutput struct{ *pulumi.OutputState }
 
-func (DetectorModelDetectorModelDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DetectorModelDetectorModelDefinition)(nil)).Elem()
+func (DetectorModelDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModelDefinition)(nil)).Elem()
 }
 
-func (o DetectorModelDetectorModelDefinitionOutput) ToDetectorModelDetectorModelDefinitionOutput() DetectorModelDetectorModelDefinitionOutput {
+func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionOutput() DetectorModelDefinitionOutput {
 	return o
 }
 
-func (o DetectorModelDetectorModelDefinitionOutput) ToDetectorModelDetectorModelDefinitionOutputWithContext(ctx context.Context) DetectorModelDetectorModelDefinitionOutput {
+func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionOutputWithContext(ctx context.Context) DetectorModelDefinitionOutput {
 	return o
 }
 
-func (o DetectorModelDetectorModelDefinitionOutput) ToDetectorModelDetectorModelDefinitionPtrOutput() DetectorModelDetectorModelDefinitionPtrOutput {
-	return o.ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(context.Background())
+func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
+	return o.ToDetectorModelDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o DetectorModelDetectorModelDefinitionOutput) ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDetectorModelDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelDetectorModelDefinition) *DetectorModelDetectorModelDefinition {
+func (o DetectorModelDefinitionOutput) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorModelDefinition) *DetectorModelDefinition {
 		return &v
-	}).(DetectorModelDetectorModelDefinitionPtrOutput)
+	}).(DetectorModelDefinitionPtrOutput)
 }
 
 // The state that is entered at the creation of each detector (instance).
-func (o DetectorModelDetectorModelDefinitionOutput) InitialStateName() pulumi.StringOutput {
-	return o.ApplyT(func(v DetectorModelDetectorModelDefinition) string { return v.InitialStateName }).(pulumi.StringOutput)
+func (o DetectorModelDefinitionOutput) InitialStateName() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorModelDefinition) string { return v.InitialStateName }).(pulumi.StringOutput)
 }
 
 // Information about the states of the detector.
-func (o DetectorModelDetectorModelDefinitionOutput) States() DetectorModelStateTypeArrayOutput {
-	return o.ApplyT(func(v DetectorModelDetectorModelDefinition) []DetectorModelStateType { return v.States }).(DetectorModelStateTypeArrayOutput)
+func (o DetectorModelDefinitionOutput) States() DetectorModelStateTypeArrayOutput {
+	return o.ApplyT(func(v DetectorModelDefinition) []DetectorModelStateType { return v.States }).(DetectorModelStateTypeArrayOutput)
 }
 
-type DetectorModelDetectorModelDefinitionPtrOutput struct{ *pulumi.OutputState }
+type DetectorModelDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (DetectorModelDetectorModelDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DetectorModelDetectorModelDefinition)(nil)).Elem()
+func (DetectorModelDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorModelDefinition)(nil)).Elem()
 }
 
-func (o DetectorModelDetectorModelDefinitionPtrOutput) ToDetectorModelDetectorModelDefinitionPtrOutput() DetectorModelDetectorModelDefinitionPtrOutput {
+func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutput() DetectorModelDefinitionPtrOutput {
 	return o
 }
 
-func (o DetectorModelDetectorModelDefinitionPtrOutput) ToDetectorModelDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDetectorModelDefinitionPtrOutput {
+func (o DetectorModelDefinitionPtrOutput) ToDetectorModelDefinitionPtrOutputWithContext(ctx context.Context) DetectorModelDefinitionPtrOutput {
 	return o
 }
 
-func (o DetectorModelDetectorModelDefinitionPtrOutput) Elem() DetectorModelDetectorModelDefinitionOutput {
-	return o.ApplyT(func(v *DetectorModelDetectorModelDefinition) DetectorModelDetectorModelDefinition {
+func (o DetectorModelDefinitionPtrOutput) Elem() DetectorModelDefinitionOutput {
+	return o.ApplyT(func(v *DetectorModelDefinition) DetectorModelDefinition {
 		if v != nil {
 			return *v
 		}
-		var ret DetectorModelDetectorModelDefinition
+		var ret DetectorModelDefinition
 		return ret
-	}).(DetectorModelDetectorModelDefinitionOutput)
+	}).(DetectorModelDefinitionOutput)
 }
 
 // The state that is entered at the creation of each detector (instance).
-func (o DetectorModelDetectorModelDefinitionPtrOutput) InitialStateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DetectorModelDetectorModelDefinition) *string {
+func (o DetectorModelDefinitionPtrOutput) InitialStateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DetectorModelDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -991,8 +991,8 @@ func (o DetectorModelDetectorModelDefinitionPtrOutput) InitialStateName() pulumi
 }
 
 // Information about the states of the detector.
-func (o DetectorModelDetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOutput {
-	return o.ApplyT(func(v *DetectorModelDetectorModelDefinition) []DetectorModelStateType {
+func (o DetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOutput {
+	return o.ApplyT(func(v *DetectorModelDefinition) []DetectorModelStateType {
 		if v == nil {
 			return nil
 		}
@@ -4390,138 +4390,138 @@ func (o InputAttributeArrayOutput) Index(i pulumi.IntInput) InputAttributeOutput
 }
 
 // The definition of the input.
-type InputInputDefinition struct {
+type InputDefinition struct {
 	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 	Attributes []InputAttribute `pulumi:"attributes"`
 }
 
-// InputInputDefinitionInput is an input type that accepts InputInputDefinitionArgs and InputInputDefinitionOutput values.
-// You can construct a concrete instance of `InputInputDefinitionInput` via:
+// InputDefinitionInput is an input type that accepts InputDefinitionArgs and InputDefinitionOutput values.
+// You can construct a concrete instance of `InputDefinitionInput` via:
 //
-//          InputInputDefinitionArgs{...}
-type InputInputDefinitionInput interface {
+//          InputDefinitionArgs{...}
+type InputDefinitionInput interface {
 	pulumi.Input
 
-	ToInputInputDefinitionOutput() InputInputDefinitionOutput
-	ToInputInputDefinitionOutputWithContext(context.Context) InputInputDefinitionOutput
+	ToInputDefinitionOutput() InputDefinitionOutput
+	ToInputDefinitionOutputWithContext(context.Context) InputDefinitionOutput
 }
 
 // The definition of the input.
-type InputInputDefinitionArgs struct {
+type InputDefinitionArgs struct {
 	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 	Attributes InputAttributeArrayInput `pulumi:"attributes"`
 }
 
-func (InputInputDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputDefinition)(nil)).Elem()
+func (InputDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDefinition)(nil)).Elem()
 }
 
-func (i InputInputDefinitionArgs) ToInputInputDefinitionOutput() InputInputDefinitionOutput {
-	return i.ToInputInputDefinitionOutputWithContext(context.Background())
+func (i InputDefinitionArgs) ToInputDefinitionOutput() InputDefinitionOutput {
+	return i.ToInputDefinitionOutputWithContext(context.Background())
 }
 
-func (i InputInputDefinitionArgs) ToInputInputDefinitionOutputWithContext(ctx context.Context) InputInputDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputDefinitionOutput)
+func (i InputDefinitionArgs) ToInputDefinitionOutputWithContext(ctx context.Context) InputDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDefinitionOutput)
 }
 
-func (i InputInputDefinitionArgs) ToInputInputDefinitionPtrOutput() InputInputDefinitionPtrOutput {
-	return i.ToInputInputDefinitionPtrOutputWithContext(context.Background())
+func (i InputDefinitionArgs) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
+	return i.ToInputDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i InputInputDefinitionArgs) ToInputInputDefinitionPtrOutputWithContext(ctx context.Context) InputInputDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputDefinitionOutput).ToInputInputDefinitionPtrOutputWithContext(ctx)
+func (i InputDefinitionArgs) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDefinitionOutput).ToInputDefinitionPtrOutputWithContext(ctx)
 }
 
-// InputInputDefinitionPtrInput is an input type that accepts InputInputDefinitionArgs, InputInputDefinitionPtr and InputInputDefinitionPtrOutput values.
-// You can construct a concrete instance of `InputInputDefinitionPtrInput` via:
+// InputDefinitionPtrInput is an input type that accepts InputDefinitionArgs, InputDefinitionPtr and InputDefinitionPtrOutput values.
+// You can construct a concrete instance of `InputDefinitionPtrInput` via:
 //
-//          InputInputDefinitionArgs{...}
+//          InputDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type InputInputDefinitionPtrInput interface {
+type InputDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToInputInputDefinitionPtrOutput() InputInputDefinitionPtrOutput
-	ToInputInputDefinitionPtrOutputWithContext(context.Context) InputInputDefinitionPtrOutput
+	ToInputDefinitionPtrOutput() InputDefinitionPtrOutput
+	ToInputDefinitionPtrOutputWithContext(context.Context) InputDefinitionPtrOutput
 }
 
-type inputInputDefinitionPtrType InputInputDefinitionArgs
+type inputDefinitionPtrType InputDefinitionArgs
 
-func InputInputDefinitionPtr(v *InputInputDefinitionArgs) InputInputDefinitionPtrInput {
-	return (*inputInputDefinitionPtrType)(v)
+func InputDefinitionPtr(v *InputDefinitionArgs) InputDefinitionPtrInput {
+	return (*inputDefinitionPtrType)(v)
 }
 
-func (*inputInputDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputInputDefinition)(nil)).Elem()
+func (*inputDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputDefinition)(nil)).Elem()
 }
 
-func (i *inputInputDefinitionPtrType) ToInputInputDefinitionPtrOutput() InputInputDefinitionPtrOutput {
-	return i.ToInputInputDefinitionPtrOutputWithContext(context.Background())
+func (i *inputDefinitionPtrType) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
+	return i.ToInputDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *inputInputDefinitionPtrType) ToInputInputDefinitionPtrOutputWithContext(ctx context.Context) InputInputDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputDefinitionPtrOutput)
+func (i *inputDefinitionPtrType) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDefinitionPtrOutput)
 }
 
 // The definition of the input.
-type InputInputDefinitionOutput struct{ *pulumi.OutputState }
+type InputDefinitionOutput struct{ *pulumi.OutputState }
 
-func (InputInputDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputDefinition)(nil)).Elem()
+func (InputDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDefinition)(nil)).Elem()
 }
 
-func (o InputInputDefinitionOutput) ToInputInputDefinitionOutput() InputInputDefinitionOutput {
+func (o InputDefinitionOutput) ToInputDefinitionOutput() InputDefinitionOutput {
 	return o
 }
 
-func (o InputInputDefinitionOutput) ToInputInputDefinitionOutputWithContext(ctx context.Context) InputInputDefinitionOutput {
+func (o InputDefinitionOutput) ToInputDefinitionOutputWithContext(ctx context.Context) InputDefinitionOutput {
 	return o
 }
 
-func (o InputInputDefinitionOutput) ToInputInputDefinitionPtrOutput() InputInputDefinitionPtrOutput {
-	return o.ToInputInputDefinitionPtrOutputWithContext(context.Background())
+func (o InputDefinitionOutput) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
+	return o.ToInputDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o InputInputDefinitionOutput) ToInputInputDefinitionPtrOutputWithContext(ctx context.Context) InputInputDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputInputDefinition) *InputInputDefinition {
+func (o InputDefinitionOutput) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputDefinition) *InputDefinition {
 		return &v
-	}).(InputInputDefinitionPtrOutput)
+	}).(InputDefinitionPtrOutput)
 }
 
 // The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
-func (o InputInputDefinitionOutput) Attributes() InputAttributeArrayOutput {
-	return o.ApplyT(func(v InputInputDefinition) []InputAttribute { return v.Attributes }).(InputAttributeArrayOutput)
+func (o InputDefinitionOutput) Attributes() InputAttributeArrayOutput {
+	return o.ApplyT(func(v InputDefinition) []InputAttribute { return v.Attributes }).(InputAttributeArrayOutput)
 }
 
-type InputInputDefinitionPtrOutput struct{ *pulumi.OutputState }
+type InputDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (InputInputDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputInputDefinition)(nil)).Elem()
+func (InputDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputDefinition)(nil)).Elem()
 }
 
-func (o InputInputDefinitionPtrOutput) ToInputInputDefinitionPtrOutput() InputInputDefinitionPtrOutput {
+func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutput() InputDefinitionPtrOutput {
 	return o
 }
 
-func (o InputInputDefinitionPtrOutput) ToInputInputDefinitionPtrOutputWithContext(ctx context.Context) InputInputDefinitionPtrOutput {
+func (o InputDefinitionPtrOutput) ToInputDefinitionPtrOutputWithContext(ctx context.Context) InputDefinitionPtrOutput {
 	return o
 }
 
-func (o InputInputDefinitionPtrOutput) Elem() InputInputDefinitionOutput {
-	return o.ApplyT(func(v *InputInputDefinition) InputInputDefinition {
+func (o InputDefinitionPtrOutput) Elem() InputDefinitionOutput {
+	return o.ApplyT(func(v *InputDefinition) InputDefinition {
 		if v != nil {
 			return *v
 		}
-		var ret InputInputDefinition
+		var ret InputDefinition
 		return ret
-	}).(InputInputDefinitionOutput)
+	}).(InputDefinitionOutput)
 }
 
 // The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
-func (o InputInputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
-	return o.ApplyT(func(v *InputInputDefinition) []InputAttribute {
+func (o InputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
+	return o.ApplyT(func(v *InputDefinition) []InputAttribute {
 		if v == nil {
 			return nil
 		}
@@ -4649,8 +4649,8 @@ func init() {
 	pulumi.RegisterOutputType(DetectorModelAssetPropertyVariantPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelClearTimerOutput{})
 	pulumi.RegisterOutputType(DetectorModelClearTimerPtrOutput{})
-	pulumi.RegisterOutputType(DetectorModelDetectorModelDefinitionOutput{})
-	pulumi.RegisterOutputType(DetectorModelDetectorModelDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(DetectorModelDefinitionOutput{})
+	pulumi.RegisterOutputType(DetectorModelDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelDynamoDBv2Output{})
@@ -4693,8 +4693,8 @@ func init() {
 	pulumi.RegisterOutputType(DetectorModelTransitionEventArrayOutput{})
 	pulumi.RegisterOutputType(InputAttributeOutput{})
 	pulumi.RegisterOutputType(InputAttributeArrayOutput{})
-	pulumi.RegisterOutputType(InputInputDefinitionOutput{})
-	pulumi.RegisterOutputType(InputInputDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(InputDefinitionOutput{})
+	pulumi.RegisterOutputType(InputDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(InputTagOutput{})
 	pulumi.RegisterOutputType(InputTagArrayOutput{})
 }

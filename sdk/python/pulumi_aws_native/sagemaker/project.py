@@ -209,7 +209,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectStatus")
-    def project_status(self) -> pulumi.Output['ProjectProjectStatus']:
+    def project_status(self) -> pulumi.Output['ProjectStatus']:
         """
         The status of a project.
         """

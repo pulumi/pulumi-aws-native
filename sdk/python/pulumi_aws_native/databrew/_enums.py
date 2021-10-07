@@ -5,10 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'DatasetDatasetParameterType',
     'DatasetFilesLimitOrder',
     'DatasetFilesLimitOrderedBy',
     'DatasetFormat',
+    'DatasetParameterType',
     'JobDatabaseOutputDatabaseOutputMode',
     'JobEncryptionMode',
     'JobLogSubscription',
@@ -18,15 +18,6 @@ __all__ = [
     'JobType',
     'ProjectSampleType',
 ]
-
-
-class DatasetDatasetParameterType(str, Enum):
-    """
-    Parameter type
-    """
-    STRING = "String"
-    NUMBER = "Number"
-    DATETIME = "Datetime"
 
 
 class DatasetFilesLimitOrder(str, Enum):
@@ -52,6 +43,15 @@ class DatasetFormat(str, Enum):
     JSON = "JSON"
     PARQUET = "PARQUET"
     EXCEL = "EXCEL"
+
+
+class DatasetParameterType(str, Enum):
+    """
+    Parameter type
+    """
+    STRING = "String"
+    NUMBER = "Number"
+    DATETIME = "Datetime"
 
 
 class JobDatabaseOutputDatabaseOutputMode(str, Enum):

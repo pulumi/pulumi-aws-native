@@ -23,7 +23,7 @@ class TaskArgs:
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
-                 schedule: Optional[pulumi.Input['TaskTaskScheduleArgs']] = None,
+                 schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]] = None):
         """
         The set of arguments for constructing a Task resource.
@@ -127,11 +127,11 @@ class TaskArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['TaskTaskScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['TaskTaskScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['TaskScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -158,7 +158,7 @@ class Task(pulumi.CustomResource):
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTagArgs']]]]] = None,
                  __props__=None):
@@ -203,7 +203,7 @@ class Task(pulumi.CustomResource):
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTagArgs']]]]] = None,
                  __props__=None):
@@ -338,7 +338,7 @@ class Task(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Output[Optional['outputs.TaskTaskSchedule']]:
+    def schedule(self) -> pulumi.Output[Optional['outputs.TaskSchedule']]:
         return pulumi.get(self, "schedule")
 
     @property

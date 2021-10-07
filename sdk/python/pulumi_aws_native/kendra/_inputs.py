@@ -13,6 +13,7 @@ __all__ = [
     'DataSourceAccessControlListConfigurationArgs',
     'DataSourceAclConfigurationArgs',
     'DataSourceColumnConfigurationArgs',
+    'DataSourceConfigurationArgs',
     'DataSourceConfluenceAttachmentConfigurationArgs',
     'DataSourceConfluenceAttachmentToIndexFieldMappingArgs',
     'DataSourceConfluenceBlogConfigurationArgs',
@@ -23,9 +24,6 @@ __all__ = [
     'DataSourceConfluenceSpaceConfigurationArgs',
     'DataSourceConfluenceSpaceToIndexFieldMappingArgs',
     'DataSourceConnectionConfigurationArgs',
-    'DataSourceDataSourceConfigurationArgs',
-    'DataSourceDataSourceToIndexFieldMappingArgs',
-    'DataSourceDataSourceVpcConfigurationArgs',
     'DataSourceDatabaseConfigurationArgs',
     'DataSourceDocumentsMetadataConfigurationArgs',
     'DataSourceGoogleDriveConfigurationArgs',
@@ -47,6 +45,8 @@ __all__ = [
     'DataSourceSharePointConfigurationArgs',
     'DataSourceSqlConfigurationArgs',
     'DataSourceTagArgs',
+    'DataSourceToIndexFieldMappingArgs',
+    'DataSourceVpcConfigurationArgs',
     'DataSourceWebCrawlerAuthenticationConfigurationArgs',
     'DataSourceWebCrawlerBasicAuthenticationArgs',
     'DataSourceWebCrawlerConfigurationArgs',
@@ -108,7 +108,7 @@ class DataSourceColumnConfigurationArgs:
                  document_data_column_name: pulumi.Input[str],
                  document_id_column_name: pulumi.Input[str],
                  document_title_column_name: Optional[pulumi.Input[str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         pulumi.set(__self__, "change_detecting_columns", change_detecting_columns)
         pulumi.set(__self__, "document_data_column_name", document_data_column_name)
         pulumi.set(__self__, "document_id_column_name", document_id_column_name)
@@ -155,12 +155,137 @@ class DataSourceColumnConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
+
+
+@pulumi.input_type
+class DataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 confluence_configuration: Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']] = None,
+                 database_configuration: Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']] = None,
+                 google_drive_configuration: Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']] = None,
+                 one_drive_configuration: Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']] = None,
+                 s3_configuration: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']] = None,
+                 salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']] = None,
+                 service_now_configuration: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']] = None,
+                 share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
+                 web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
+                 work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None):
+        if confluence_configuration is not None:
+            pulumi.set(__self__, "confluence_configuration", confluence_configuration)
+        if database_configuration is not None:
+            pulumi.set(__self__, "database_configuration", database_configuration)
+        if google_drive_configuration is not None:
+            pulumi.set(__self__, "google_drive_configuration", google_drive_configuration)
+        if one_drive_configuration is not None:
+            pulumi.set(__self__, "one_drive_configuration", one_drive_configuration)
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if salesforce_configuration is not None:
+            pulumi.set(__self__, "salesforce_configuration", salesforce_configuration)
+        if service_now_configuration is not None:
+            pulumi.set(__self__, "service_now_configuration", service_now_configuration)
+        if share_point_configuration is not None:
+            pulumi.set(__self__, "share_point_configuration", share_point_configuration)
+        if web_crawler_configuration is not None:
+            pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
+        if work_docs_configuration is not None:
+            pulumi.set(__self__, "work_docs_configuration", work_docs_configuration)
+
+    @property
+    @pulumi.getter(name="confluenceConfiguration")
+    def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]:
+        return pulumi.get(self, "confluence_configuration")
+
+    @confluence_configuration.setter
+    def confluence_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]):
+        pulumi.set(self, "confluence_configuration", value)
+
+    @property
+    @pulumi.getter(name="databaseConfiguration")
+    def database_configuration(self) -> Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]:
+        return pulumi.get(self, "database_configuration")
+
+    @database_configuration.setter
+    def database_configuration(self, value: Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]):
+        pulumi.set(self, "database_configuration", value)
+
+    @property
+    @pulumi.getter(name="googleDriveConfiguration")
+    def google_drive_configuration(self) -> Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']]:
+        return pulumi.get(self, "google_drive_configuration")
+
+    @google_drive_configuration.setter
+    def google_drive_configuration(self, value: Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']]):
+        pulumi.set(self, "google_drive_configuration", value)
+
+    @property
+    @pulumi.getter(name="oneDriveConfiguration")
+    def one_drive_configuration(self) -> Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]:
+        return pulumi.get(self, "one_drive_configuration")
+
+    @one_drive_configuration.setter
+    def one_drive_configuration(self, value: Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]):
+        pulumi.set(self, "one_drive_configuration", value)
+
+    @property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]:
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]):
+        pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter(name="salesforceConfiguration")
+    def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]:
+        return pulumi.get(self, "salesforce_configuration")
+
+    @salesforce_configuration.setter
+    def salesforce_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]):
+        pulumi.set(self, "salesforce_configuration", value)
+
+    @property
+    @pulumi.getter(name="serviceNowConfiguration")
+    def service_now_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]:
+        return pulumi.get(self, "service_now_configuration")
+
+    @service_now_configuration.setter
+    def service_now_configuration(self, value: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]):
+        pulumi.set(self, "service_now_configuration", value)
+
+    @property
+    @pulumi.getter(name="sharePointConfiguration")
+    def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]:
+        return pulumi.get(self, "share_point_configuration")
+
+    @share_point_configuration.setter
+    def share_point_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]):
+        pulumi.set(self, "share_point_configuration", value)
+
+    @property
+    @pulumi.getter(name="webCrawlerConfiguration")
+    def web_crawler_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]:
+        return pulumi.get(self, "web_crawler_configuration")
+
+    @web_crawler_configuration.setter
+    def web_crawler_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]):
+        pulumi.set(self, "web_crawler_configuration", value)
+
+    @property
+    @pulumi.getter(name="workDocsConfiguration")
+    def work_docs_configuration(self) -> Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']]:
+        return pulumi.get(self, "work_docs_configuration")
+
+    @work_docs_configuration.setter
+    def work_docs_configuration(self, value: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']]):
+        pulumi.set(self, "work_docs_configuration", value)
 
 
 @pulumi.input_type
@@ -299,7 +424,7 @@ class DataSourceConfluenceConfigurationArgs:
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  page_configuration: Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']] = None,
                  space_configuration: Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']] = None):
+                 vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
         pulumi.set(__self__, "secret_arn", secret_arn)
         pulumi.set(__self__, "server_url", server_url)
         pulumi.set(__self__, "version", version)
@@ -401,11 +526,11 @@ class DataSourceConfluenceConfigurationArgs:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -630,197 +755,6 @@ class DataSourceConnectionConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceDataSourceConfigurationArgs:
-    def __init__(__self__, *,
-                 confluence_configuration: Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']] = None,
-                 database_configuration: Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']] = None,
-                 google_drive_configuration: Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']] = None,
-                 one_drive_configuration: Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']] = None,
-                 s3_configuration: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']] = None,
-                 salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']] = None,
-                 service_now_configuration: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']] = None,
-                 share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
-                 web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
-                 work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None):
-        if confluence_configuration is not None:
-            pulumi.set(__self__, "confluence_configuration", confluence_configuration)
-        if database_configuration is not None:
-            pulumi.set(__self__, "database_configuration", database_configuration)
-        if google_drive_configuration is not None:
-            pulumi.set(__self__, "google_drive_configuration", google_drive_configuration)
-        if one_drive_configuration is not None:
-            pulumi.set(__self__, "one_drive_configuration", one_drive_configuration)
-        if s3_configuration is not None:
-            pulumi.set(__self__, "s3_configuration", s3_configuration)
-        if salesforce_configuration is not None:
-            pulumi.set(__self__, "salesforce_configuration", salesforce_configuration)
-        if service_now_configuration is not None:
-            pulumi.set(__self__, "service_now_configuration", service_now_configuration)
-        if share_point_configuration is not None:
-            pulumi.set(__self__, "share_point_configuration", share_point_configuration)
-        if web_crawler_configuration is not None:
-            pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
-        if work_docs_configuration is not None:
-            pulumi.set(__self__, "work_docs_configuration", work_docs_configuration)
-
-    @property
-    @pulumi.getter(name="confluenceConfiguration")
-    def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]:
-        return pulumi.get(self, "confluence_configuration")
-
-    @confluence_configuration.setter
-    def confluence_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceConfigurationArgs']]):
-        pulumi.set(self, "confluence_configuration", value)
-
-    @property
-    @pulumi.getter(name="databaseConfiguration")
-    def database_configuration(self) -> Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]:
-        return pulumi.get(self, "database_configuration")
-
-    @database_configuration.setter
-    def database_configuration(self, value: Optional[pulumi.Input['DataSourceDatabaseConfigurationArgs']]):
-        pulumi.set(self, "database_configuration", value)
-
-    @property
-    @pulumi.getter(name="googleDriveConfiguration")
-    def google_drive_configuration(self) -> Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']]:
-        return pulumi.get(self, "google_drive_configuration")
-
-    @google_drive_configuration.setter
-    def google_drive_configuration(self, value: Optional[pulumi.Input['DataSourceGoogleDriveConfigurationArgs']]):
-        pulumi.set(self, "google_drive_configuration", value)
-
-    @property
-    @pulumi.getter(name="oneDriveConfiguration")
-    def one_drive_configuration(self) -> Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]:
-        return pulumi.get(self, "one_drive_configuration")
-
-    @one_drive_configuration.setter
-    def one_drive_configuration(self, value: Optional[pulumi.Input['DataSourceOneDriveConfigurationArgs']]):
-        pulumi.set(self, "one_drive_configuration", value)
-
-    @property
-    @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]:
-        return pulumi.get(self, "s3_configuration")
-
-    @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]):
-        pulumi.set(self, "s3_configuration", value)
-
-    @property
-    @pulumi.getter(name="salesforceConfiguration")
-    def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]:
-        return pulumi.get(self, "salesforce_configuration")
-
-    @salesforce_configuration.setter
-    def salesforce_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceConfigurationArgs']]):
-        pulumi.set(self, "salesforce_configuration", value)
-
-    @property
-    @pulumi.getter(name="serviceNowConfiguration")
-    def service_now_configuration(self) -> Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]:
-        return pulumi.get(self, "service_now_configuration")
-
-    @service_now_configuration.setter
-    def service_now_configuration(self, value: Optional[pulumi.Input['DataSourceServiceNowConfigurationArgs']]):
-        pulumi.set(self, "service_now_configuration", value)
-
-    @property
-    @pulumi.getter(name="sharePointConfiguration")
-    def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]:
-        return pulumi.get(self, "share_point_configuration")
-
-    @share_point_configuration.setter
-    def share_point_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']]):
-        pulumi.set(self, "share_point_configuration", value)
-
-    @property
-    @pulumi.getter(name="webCrawlerConfiguration")
-    def web_crawler_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]:
-        return pulumi.get(self, "web_crawler_configuration")
-
-    @web_crawler_configuration.setter
-    def web_crawler_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]):
-        pulumi.set(self, "web_crawler_configuration", value)
-
-    @property
-    @pulumi.getter(name="workDocsConfiguration")
-    def work_docs_configuration(self) -> Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']]:
-        return pulumi.get(self, "work_docs_configuration")
-
-    @work_docs_configuration.setter
-    def work_docs_configuration(self, value: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']]):
-        pulumi.set(self, "work_docs_configuration", value)
-
-
-@pulumi.input_type
-class DataSourceDataSourceToIndexFieldMappingArgs:
-    def __init__(__self__, *,
-                 data_source_field_name: pulumi.Input[str],
-                 index_field_name: pulumi.Input[str],
-                 date_field_format: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "data_source_field_name", data_source_field_name)
-        pulumi.set(__self__, "index_field_name", index_field_name)
-        if date_field_format is not None:
-            pulumi.set(__self__, "date_field_format", date_field_format)
-
-    @property
-    @pulumi.getter(name="dataSourceFieldName")
-    def data_source_field_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "data_source_field_name")
-
-    @data_source_field_name.setter
-    def data_source_field_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_source_field_name", value)
-
-    @property
-    @pulumi.getter(name="indexFieldName")
-    def index_field_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "index_field_name")
-
-    @index_field_name.setter
-    def index_field_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "index_field_name", value)
-
-    @property
-    @pulumi.getter(name="dateFieldFormat")
-    def date_field_format(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "date_field_format")
-
-    @date_field_format.setter
-    def date_field_format(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "date_field_format", value)
-
-
-@pulumi.input_type
-class DataSourceDataSourceVpcConfigurationArgs:
-    def __init__(__self__, *,
-                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "security_group_ids", security_group_ids)
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "security_group_ids")
-
-    @security_group_ids.setter
-    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "security_group_ids", value)
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "subnet_ids")
-
-    @subnet_ids.setter
-    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "subnet_ids", value)
-
-
-@pulumi.input_type
 class DataSourceDatabaseConfigurationArgs:
     def __init__(__self__, *,
                  column_configuration: pulumi.Input['DataSourceColumnConfigurationArgs'],
@@ -828,7 +762,7 @@ class DataSourceDatabaseConfigurationArgs:
                  database_engine_type: pulumi.Input['DataSourceDatabaseEngineType'],
                  acl_configuration: Optional[pulumi.Input['DataSourceAclConfigurationArgs']] = None,
                  sql_configuration: Optional[pulumi.Input['DataSourceSqlConfigurationArgs']] = None,
-                 vpc_configuration: Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']] = None):
+                 vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
         pulumi.set(__self__, "column_configuration", column_configuration)
         pulumi.set(__self__, "connection_configuration", connection_configuration)
         pulumi.set(__self__, "database_engine_type", database_engine_type)
@@ -886,11 +820,11 @@ class DataSourceDatabaseConfigurationArgs:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -919,7 +853,7 @@ class DataSourceGoogleDriveConfigurationArgs:
                  exclude_shared_drives: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  exclude_user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "secret_arn", secret_arn)
         if exclude_mime_types is not None:
@@ -982,11 +916,11 @@ class DataSourceGoogleDriveConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @property
@@ -1007,7 +941,7 @@ class DataSourceOneDriveConfigurationArgs:
                  tenant_domain: pulumi.Input[str],
                  disable_local_groups: Optional[pulumi.Input[bool]] = None,
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "one_drive_users", one_drive_users)
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -1068,11 +1002,11 @@ class DataSourceOneDriveConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @property
@@ -1264,7 +1198,7 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[str],
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  include_filter_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
@@ -1294,11 +1228,11 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @property
@@ -1428,7 +1362,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
                  document_data_field_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         pulumi.set(__self__, "name", name)
         if document_title_field_name is not None:
@@ -1465,11 +1399,11 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
@@ -1518,7 +1452,7 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[str],
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             pulumi.set(__self__, "document_title_field_name", document_title_field_name)
@@ -1545,11 +1479,11 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
@@ -1557,7 +1491,7 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
 class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
     def __init__(__self__, *,
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         if document_title_field_name is not None:
             pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if field_mappings is not None:
@@ -1574,11 +1508,11 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
@@ -1588,7 +1522,7 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
                  document_data_field_name: pulumi.Input[str],
                  name: pulumi.Input['DataSourceSalesforceStandardObjectName'],
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         pulumi.set(__self__, "name", name)
         if document_title_field_name is not None:
@@ -1625,11 +1559,11 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
 
@@ -1714,7 +1648,7 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
                  crawl_attachments: Optional[pulumi.Input[bool]] = None,
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  filter_query: Optional[pulumi.Input[str]] = None,
                  include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
@@ -1769,11 +1703,11 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @property
@@ -1802,7 +1736,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
                  crawl_attachments: Optional[pulumi.Input[bool]] = None,
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
@@ -1854,11 +1788,11 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @property
@@ -1881,11 +1815,11 @@ class DataSourceSharePointConfigurationArgs:
                  disable_local_groups: Optional[pulumi.Input[bool]] = None,
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ssl_certificate_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None,
                  use_change_log: Optional[pulumi.Input[bool]] = None,
-                 vpc_configuration: Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']] = None):
+                 vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
         """
         SharePoint configuration
         """
@@ -1976,11 +1910,11 @@ class DataSourceSharePointConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @property
@@ -2012,11 +1946,11 @@ class DataSourceSharePointConfigurationArgs:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -2073,6 +2007,72 @@ class DataSourceTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DataSourceToIndexFieldMappingArgs:
+    def __init__(__self__, *,
+                 data_source_field_name: pulumi.Input[str],
+                 index_field_name: pulumi.Input[str],
+                 date_field_format: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_source_field_name", data_source_field_name)
+        pulumi.set(__self__, "index_field_name", index_field_name)
+        if date_field_format is not None:
+            pulumi.set(__self__, "date_field_format", date_field_format)
+
+    @property
+    @pulumi.getter(name="dataSourceFieldName")
+    def data_source_field_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source_field_name")
+
+    @data_source_field_name.setter
+    def data_source_field_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source_field_name", value)
+
+    @property
+    @pulumi.getter(name="indexFieldName")
+    def index_field_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "index_field_name")
+
+    @index_field_name.setter
+    def index_field_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_field_name", value)
+
+    @property
+    @pulumi.getter(name="dateFieldFormat")
+    def date_field_format(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "date_field_format")
+
+    @date_field_format.setter
+    def date_field_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_field_format", value)
+
+
+@pulumi.input_type
+class DataSourceVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 @pulumi.input_type
@@ -2321,7 +2321,7 @@ class DataSourceWorkDocsConfigurationArgs:
                  organization_id: pulumi.Input[str],
                  crawl_comments: Optional[pulumi.Input[bool]] = None,
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
+                 field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_change_log: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "organization_id", organization_id)
@@ -2365,11 +2365,11 @@ class DataSourceWorkDocsConfigurationArgs:
 
     @property
     @pulumi.getter(name="fieldMappings")
-    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]:
+    def field_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]:
         return pulumi.get(self, "field_mappings")
 
     @field_mappings.setter
-    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]]):
+    def field_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]]):
         pulumi.set(self, "field_mappings", value)
 
     @property

@@ -22,8 +22,8 @@ type Theme struct {
 	// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
 	// 				<code>ListThemes</code> or choose <b>Themes</b> from
 	// 			within a QuickSight analysis. </p>
-	BaseThemeId   pulumi.StringPtrOutput           `pulumi:"baseThemeId"`
-	Configuration ThemeThemeConfigurationPtrOutput `pulumi:"configuration"`
+	BaseThemeId   pulumi.StringPtrOutput      `pulumi:"baseThemeId"`
+	Configuration ThemeConfigurationPtrOutput `pulumi:"configuration"`
 	// <p>The date and time that the theme was created.</p>
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// <p>The date and time that the theme was last updated.</p>
@@ -35,10 +35,10 @@ type Theme struct {
 	Permissions ThemeResourcePermissionArrayOutput `pulumi:"permissions"`
 	// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
 	// 			resource.</p>
-	Tags    ThemeTagArrayOutput     `pulumi:"tags"`
-	ThemeId pulumi.StringOutput     `pulumi:"themeId"`
-	Type    ThemeThemeTypeOutput    `pulumi:"type"`
-	Version ThemeThemeVersionOutput `pulumi:"version"`
+	Tags    ThemeTagArrayOutput `pulumi:"tags"`
+	ThemeId pulumi.StringOutput `pulumi:"themeId"`
+	Type    ThemeTypeOutput     `pulumi:"type"`
+	Version ThemeVersionOutput  `pulumi:"version"`
 	// <p>A description of the first version of the theme that you're creating. Every time
 	// 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
 	// 			theme has a description of the version in the <code>VersionDescription</code>
@@ -96,8 +96,8 @@ type themeArgs struct {
 	// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
 	// 				<code>ListThemes</code> or choose <b>Themes</b> from
 	// 			within a QuickSight analysis. </p>
-	BaseThemeId   *string                  `pulumi:"baseThemeId"`
-	Configuration *ThemeThemeConfiguration `pulumi:"configuration"`
+	BaseThemeId   *string             `pulumi:"baseThemeId"`
+	Configuration *ThemeConfiguration `pulumi:"configuration"`
 	// <p>A display name for the theme.</p>
 	Name *string `pulumi:"name"`
 	// <p>A valid grouping of resource permissions to apply to the new theme.
@@ -122,7 +122,7 @@ type ThemeArgs struct {
 	// 				<code>ListThemes</code> or choose <b>Themes</b> from
 	// 			within a QuickSight analysis. </p>
 	BaseThemeId   pulumi.StringPtrInput
-	Configuration ThemeThemeConfigurationPtrInput
+	Configuration ThemeConfigurationPtrInput
 	// <p>A display name for the theme.</p>
 	Name pulumi.StringPtrInput
 	// <p>A valid grouping of resource permissions to apply to the new theme.

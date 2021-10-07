@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class VirtualNodeListener
     {
-        public readonly Outputs.VirtualNodeVirtualNodeConnectionPool? ConnectionPool;
+        public readonly Outputs.VirtualNodeConnectionPool? ConnectionPool;
         public readonly Outputs.VirtualNodeHealthCheck? HealthCheck;
         public readonly Outputs.VirtualNodeOutlierDetection? OutlierDetection;
         public readonly Outputs.VirtualNodePortMapping PortMapping;
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
 
         [OutputConstructor]
         private VirtualNodeListener(
-            Outputs.VirtualNodeVirtualNodeConnectionPool? connectionPool,
+            Outputs.VirtualNodeConnectionPool? connectionPool,
 
             Outputs.VirtualNodeHealthCheck? healthCheck,
 

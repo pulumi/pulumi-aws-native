@@ -129,7 +129,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clusterEndpoints")
-    def cluster_endpoints(self) -> pulumi.Output[Sequence['outputs.ClusterClusterEndpoint']]:
+    def cluster_endpoints(self) -> pulumi.Output[Sequence['outputs.ClusterEndpoint']]:
         """
         Endpoints for the cluster.
         """

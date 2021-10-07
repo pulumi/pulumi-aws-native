@@ -206,7 +206,7 @@ class EventIntegration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def associations(self) -> pulumi.Output[Sequence['outputs.EventIntegrationEventIntegrationAssociation']]:
+    def associations(self) -> pulumi.Output[Sequence['outputs.EventIntegrationAssociation']]:
         """
         The associations with the event integration.
         """

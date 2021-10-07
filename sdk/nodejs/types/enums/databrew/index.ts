@@ -2,17 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const DatasetDatasetParameterType = {
-    String: "String",
-    Number: "Number",
-    Datetime: "Datetime",
-} as const;
-
-/**
- * Parameter type
- */
-export type DatasetDatasetParameterType = (typeof DatasetDatasetParameterType)[keyof typeof DatasetDatasetParameterType];
-
 export const DatasetFilesLimitOrder = {
     Ascending: "ASCENDING",
     Descending: "DESCENDING",
@@ -43,6 +32,17 @@ export const DatasetFormat = {
  * Dataset format
  */
 export type DatasetFormat = (typeof DatasetFormat)[keyof typeof DatasetFormat];
+
+export const DatasetParameterType = {
+    String: "String",
+    Number: "Number",
+    Datetime: "Datetime",
+} as const;
+
+/**
+ * Parameter type
+ */
+export type DatasetParameterType = (typeof DatasetParameterType)[keyof typeof DatasetParameterType];
 
 export const JobDatabaseOutputDatabaseOutputMode = {
     NewTable: "NEW_TABLE",

@@ -20,7 +20,7 @@ class SchemaArgs:
                  data_format: pulumi.Input['SchemaDataFormat'],
                  name: pulumi.Input[str],
                  schema_definition: pulumi.Input[str],
-                 checkpoint_version: Optional[pulumi.Input['SchemaSchemaVersionArgs']] = None,
+                 checkpoint_version: Optional[pulumi.Input['SchemaVersionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None):
@@ -96,11 +96,11 @@ class SchemaArgs:
 
     @property
     @pulumi.getter(name="checkpointVersion")
-    def checkpoint_version(self) -> Optional[pulumi.Input['SchemaSchemaVersionArgs']]:
+    def checkpoint_version(self) -> Optional[pulumi.Input['SchemaVersionArgs']]:
         return pulumi.get(self, "checkpoint_version")
 
     @checkpoint_version.setter
-    def checkpoint_version(self, value: Optional[pulumi.Input['SchemaSchemaVersionArgs']]):
+    def checkpoint_version(self, value: Optional[pulumi.Input['SchemaVersionArgs']]):
         pulumi.set(self, "checkpoint_version", value)
 
     @property
@@ -142,7 +142,7 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 checkpoint_version: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaVersionArgs']]] = None,
+                 checkpoint_version: Optional[pulumi.Input[pulumi.InputType['SchemaVersionArgs']]] = None,
                  compatibility: Optional[pulumi.Input['SchemaCompatibility']] = None,
                  data_format: Optional[pulumi.Input['SchemaDataFormat']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 checkpoint_version: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaVersionArgs']]] = None,
+                 checkpoint_version: Optional[pulumi.Input[pulumi.InputType['SchemaVersionArgs']]] = None,
                  compatibility: Optional[pulumi.Input['SchemaCompatibility']] = None,
                  data_format: Optional[pulumi.Input['SchemaDataFormat']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -269,7 +269,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="checkpointVersion")
-    def checkpoint_version(self) -> pulumi.Output[Optional['outputs.SchemaSchemaVersion']]:
+    def checkpoint_version(self) -> pulumi.Output[Optional['outputs.SchemaVersion']]:
         return pulumi.get(self, "checkpoint_version")
 
     @property

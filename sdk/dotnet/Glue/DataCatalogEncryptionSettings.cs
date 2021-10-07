@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Glue
         public Output<string> CatalogId { get; private set; } = null!;
 
         [Output("dataCatalogEncryptionSettings")]
-        public Output<Outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> DataCatalogEncryptionSettingsValue { get; private set; } = null!;
+        public Output<Outputs.DataCatalogEncryptionSettings> DataCatalogEncryptionSettingsValue { get; private set; } = null!;
 
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Glue
         public Input<string> CatalogId { get; set; } = null!;
 
         [Input("dataCatalogEncryptionSettings", required: true)]
-        public Input<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> DataCatalogEncryptionSettingsValue { get; set; } = null!;
+        public Input<Inputs.DataCatalogEncryptionSettingsArgs> DataCatalogEncryptionSettingsValue { get; set; } = null!;
 
         public DataCatalogEncryptionSettingsArgs()
         {

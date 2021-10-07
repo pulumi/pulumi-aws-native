@@ -16,8 +16,8 @@ __all__ = ['HostedZoneArgs', 'HostedZone']
 class HostedZoneArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 hosted_zone_config: Optional[pulumi.Input['HostedZoneHostedZoneConfigArgs']] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]]] = None,
+                 hosted_zone_config: Optional[pulumi.Input['HostedZoneConfigArgs']] = None,
+                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]] = None,
                  query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
                  v_pcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]] = None):
         """
@@ -25,7 +25,7 @@ class HostedZoneArgs:
         :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
                
                If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
-        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
                
                For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]] v_pcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
@@ -56,16 +56,16 @@ class HostedZoneArgs:
 
     @property
     @pulumi.getter(name="hostedZoneConfig")
-    def hosted_zone_config(self) -> Optional[pulumi.Input['HostedZoneHostedZoneConfigArgs']]:
+    def hosted_zone_config(self) -> Optional[pulumi.Input['HostedZoneConfigArgs']]:
         return pulumi.get(self, "hosted_zone_config")
 
     @hosted_zone_config.setter
-    def hosted_zone_config(self, value: Optional[pulumi.Input['HostedZoneHostedZoneConfigArgs']]):
+    def hosted_zone_config(self, value: Optional[pulumi.Input['HostedZoneConfigArgs']]):
         pulumi.set(self, "hosted_zone_config", value)
 
     @property
     @pulumi.getter(name="hostedZoneTags")
-    def hosted_zone_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]]]:
+    def hosted_zone_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]]:
         """
         Adds, edits, or deletes tags for a health check or a hosted zone.
 
@@ -74,7 +74,7 @@ class HostedZoneArgs:
         return pulumi.get(self, "hosted_zone_tags")
 
     @hosted_zone_tags.setter
-    def hosted_zone_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]]]):
+    def hosted_zone_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneTagArgs']]]]):
         pulumi.set(self, "hosted_zone_tags", value)
 
     @property
@@ -104,8 +104,8 @@ class HostedZone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneHostedZoneConfigArgs']]] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneHostedZoneTagArgs']]]]] = None,
+                 hosted_zone_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneConfigArgs']]] = None,
+                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneTagArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneQueryLoggingConfigArgs']]] = None,
                  v_pcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]]] = None,
@@ -115,7 +115,7 @@ class HostedZone(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneHostedZoneTagArgs']]]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneTagArgs']]]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
                
                For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
@@ -147,8 +147,8 @@ class HostedZone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosted_zone_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneHostedZoneConfigArgs']]] = None,
-                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneHostedZoneTagArgs']]]]] = None,
+                 hosted_zone_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneConfigArgs']]] = None,
+                 hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneTagArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  query_logging_config: Optional[pulumi.Input[pulumi.InputType['HostedZoneQueryLoggingConfigArgs']]] = None,
                  v_pcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]]] = None,
@@ -204,12 +204,12 @@ class HostedZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostedZoneConfig")
-    def hosted_zone_config(self) -> pulumi.Output[Optional['outputs.HostedZoneHostedZoneConfig']]:
+    def hosted_zone_config(self) -> pulumi.Output[Optional['outputs.HostedZoneConfig']]:
         return pulumi.get(self, "hosted_zone_config")
 
     @property
     @pulumi.getter(name="hostedZoneTags")
-    def hosted_zone_tags(self) -> pulumi.Output[Optional[Sequence['outputs.HostedZoneHostedZoneTag']]]:
+    def hosted_zone_tags(self) -> pulumi.Output[Optional[Sequence['outputs.HostedZoneTag']]]:
         """
         Adds, edits, or deletes tags for a health check or a hosted zone.
 

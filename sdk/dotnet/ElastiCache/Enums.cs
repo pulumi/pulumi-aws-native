@@ -11,26 +11,26 @@ namespace Pulumi.AwsNative.ElastiCache
     /// Indicates the role of the member, primary or secondary.
     /// </summary>
     [EnumType]
-    public readonly struct GlobalReplicationGroupGlobalReplicationGroupMemberRole : IEquatable<GlobalReplicationGroupGlobalReplicationGroupMemberRole>
+    public readonly struct GlobalReplicationGroupMemberRole : IEquatable<GlobalReplicationGroupMemberRole>
     {
         private readonly string _value;
 
-        private GlobalReplicationGroupGlobalReplicationGroupMemberRole(string value)
+        private GlobalReplicationGroupMemberRole(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static GlobalReplicationGroupGlobalReplicationGroupMemberRole Primary { get; } = new GlobalReplicationGroupGlobalReplicationGroupMemberRole("PRIMARY");
-        public static GlobalReplicationGroupGlobalReplicationGroupMemberRole Secondary { get; } = new GlobalReplicationGroupGlobalReplicationGroupMemberRole("SECONDARY");
+        public static GlobalReplicationGroupMemberRole Primary { get; } = new GlobalReplicationGroupMemberRole("PRIMARY");
+        public static GlobalReplicationGroupMemberRole Secondary { get; } = new GlobalReplicationGroupMemberRole("SECONDARY");
 
-        public static bool operator ==(GlobalReplicationGroupGlobalReplicationGroupMemberRole left, GlobalReplicationGroupGlobalReplicationGroupMemberRole right) => left.Equals(right);
-        public static bool operator !=(GlobalReplicationGroupGlobalReplicationGroupMemberRole left, GlobalReplicationGroupGlobalReplicationGroupMemberRole right) => !left.Equals(right);
+        public static bool operator ==(GlobalReplicationGroupMemberRole left, GlobalReplicationGroupMemberRole right) => left.Equals(right);
+        public static bool operator !=(GlobalReplicationGroupMemberRole left, GlobalReplicationGroupMemberRole right) => !left.Equals(right);
 
-        public static explicit operator string(GlobalReplicationGroupGlobalReplicationGroupMemberRole value) => value._value;
+        public static explicit operator string(GlobalReplicationGroupMemberRole value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GlobalReplicationGroupGlobalReplicationGroupMemberRole other && Equals(other);
-        public bool Equals(GlobalReplicationGroupGlobalReplicationGroupMemberRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is GlobalReplicationGroupMemberRole other && Equals(other);
+        public bool Equals(GlobalReplicationGroupMemberRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -56,12 +56,12 @@ export class MonitoringSchedule extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the monitoring schedule.
      */
     public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
-    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
+    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleConfig>;
     public readonly monitoringScheduleName!: pulumi.Output<string>;
     /**
      * The status of a schedule job.
      */
-    public readonly monitoringScheduleStatus!: pulumi.Output<enums.sagemaker.MonitoringScheduleMonitoringScheduleStatus | undefined>;
+    public readonly monitoringScheduleStatus!: pulumi.Output<enums.sagemaker.MonitoringScheduleStatus | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -126,12 +126,12 @@ export interface MonitoringScheduleArgs {
      * Describes metadata on the last execution to run, if there was one.
      */
     lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
-    monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs>;
+    monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleConfigArgs>;
     monitoringScheduleName: pulumi.Input<string>;
     /**
      * The status of a schedule job.
      */
-    monitoringScheduleStatus?: pulumi.Input<enums.sagemaker.MonitoringScheduleMonitoringScheduleStatus>;
+    monitoringScheduleStatus?: pulumi.Input<enums.sagemaker.MonitoringScheduleStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

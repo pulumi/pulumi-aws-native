@@ -39,7 +39,7 @@ export class Asset extends pulumi.CustomResource {
      * The ARN of the asset
      */
     public /*out*/ readonly assetArn!: pulumi.Output<string>;
-    public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetAssetHierarchy[] | undefined>;
+    public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetHierarchy[] | undefined>;
     /**
      * The ID of the asset
      */
@@ -52,7 +52,7 @@ export class Asset extends pulumi.CustomResource {
      * A unique, friendly name for the asset.
      */
     public readonly assetName!: pulumi.Output<string>;
-    public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetAssetProperty[] | undefined>;
+    public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetProperty[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset.
      */
@@ -102,7 +102,7 @@ export class Asset extends pulumi.CustomResource {
  * The set of arguments for constructing a Asset resource.
  */
 export interface AssetArgs {
-    assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetAssetHierarchyArgs>[]>;
+    assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetHierarchyArgs>[]>;
     /**
      * The ID of the asset model from which to create the asset.
      */
@@ -111,7 +111,7 @@ export interface AssetArgs {
      * A unique, friendly name for the asset.
      */
     assetName: pulumi.Input<string>;
-    assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetAssetPropertyArgs>[]>;
+    assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetPropertyArgs>[]>;
     /**
      * A list of key-value pairs that contain metadata for the asset.
      */

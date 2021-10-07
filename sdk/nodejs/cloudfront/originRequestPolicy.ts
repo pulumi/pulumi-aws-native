@@ -36,7 +36,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
-    public readonly originRequestPolicyConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyOriginRequestPolicyConfig>;
+    public readonly originRequestPolicyConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyConfig>;
 
     /**
      * Create a OriginRequestPolicy resource with the given unique name, arguments, and options.
@@ -69,5 +69,5 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginRequestPolicy resource.
  */
 export interface OriginRequestPolicyArgs {
-    originRequestPolicyConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyOriginRequestPolicyConfigArgs>;
+    originRequestPolicyConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyConfigArgs>;
 }

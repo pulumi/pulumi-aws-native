@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight
         ///             are automatically allowed.&lt;/p&gt;
         /// </summary>
         [Output("alternateDataSourceParameters")]
-        public Output<ImmutableArray<Outputs.DataSourceDataSourceParameters>> AlternateDataSourceParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataSourceParameters>> AlternateDataSourceParameters { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The Amazon Resource Name (ARN) of the data source.&lt;/p&gt;
@@ -45,16 +45,16 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> CreatedTime { get; private set; } = null!;
 
         [Output("credentials")]
-        public Output<Outputs.DataSourceDataSourceCredentials?> Credentials { get; private set; } = null!;
+        public Output<Outputs.DataSourceCredentials?> Credentials { get; private set; } = null!;
 
         [Output("dataSourceId")]
         public Output<string?> DataSourceId { get; private set; } = null!;
 
         [Output("dataSourceParameters")]
-        public Output<Outputs.DataSourceDataSourceParameters?> DataSourceParameters { get; private set; } = null!;
+        public Output<Outputs.DataSourceParameters?> DataSourceParameters { get; private set; } = null!;
 
         [Output("errorInfo")]
-        public Output<Outputs.DataSourceDataSourceErrorInfo?> ErrorInfo { get; private set; } = null!;
+        public Output<Outputs.DataSourceErrorInfo?> ErrorInfo { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The last time that this data source was updated.&lt;/p&gt;
@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.DataSourceTag>> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<Pulumi.AwsNative.QuickSight.DataSourceDataSourceType?> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.DataSourceType?> Type { get; private set; } = null!;
 
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.QuickSight
     public sealed class DataSourceArgs : Pulumi.ResourceArgs
     {
         [Input("alternateDataSourceParameters")]
-        private InputList<Inputs.DataSourceDataSourceParametersArgs>? _alternateDataSourceParameters;
+        private InputList<Inputs.DataSourceParametersArgs>? _alternateDataSourceParameters;
 
         /// <summary>
         /// &lt;p&gt;A set of alternate data source parameters that you want to share for the credentials
@@ -151,9 +151,9 @@ namespace Pulumi.AwsNative.QuickSight
         ///             the &lt;code&gt;Credentials&lt;/code&gt; originally used with this &lt;code&gt;DataSourceParameters&lt;/code&gt;
         ///             are automatically allowed.&lt;/p&gt;
         /// </summary>
-        public InputList<Inputs.DataSourceDataSourceParametersArgs> AlternateDataSourceParameters
+        public InputList<Inputs.DataSourceParametersArgs> AlternateDataSourceParameters
         {
-            get => _alternateDataSourceParameters ?? (_alternateDataSourceParameters = new InputList<Inputs.DataSourceDataSourceParametersArgs>());
+            get => _alternateDataSourceParameters ?? (_alternateDataSourceParameters = new InputList<Inputs.DataSourceParametersArgs>());
             set => _alternateDataSourceParameters = value;
         }
 
@@ -161,16 +161,16 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? AwsAccountId { get; set; }
 
         [Input("credentials")]
-        public Input<Inputs.DataSourceDataSourceCredentialsArgs>? Credentials { get; set; }
+        public Input<Inputs.DataSourceCredentialsArgs>? Credentials { get; set; }
 
         [Input("dataSourceId")]
         public Input<string>? DataSourceId { get; set; }
 
         [Input("dataSourceParameters")]
-        public Input<Inputs.DataSourceDataSourceParametersArgs>? DataSourceParameters { get; set; }
+        public Input<Inputs.DataSourceParametersArgs>? DataSourceParameters { get; set; }
 
         [Input("errorInfo")]
-        public Input<Inputs.DataSourceDataSourceErrorInfoArgs>? ErrorInfo { get; set; }
+        public Input<Inputs.DataSourceErrorInfoArgs>? ErrorInfo { get; set; }
 
         /// <summary>
         /// &lt;p&gt;A display name for the data source.&lt;/p&gt;
@@ -206,7 +206,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("type")]
-        public Input<Pulumi.AwsNative.QuickSight.DataSourceDataSourceType>? Type { get; set; }
+        public Input<Pulumi.AwsNative.QuickSight.DataSourceType>? Type { get; set; }
 
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }

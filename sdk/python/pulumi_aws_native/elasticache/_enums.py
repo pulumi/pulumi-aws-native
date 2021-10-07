@@ -5,13 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'GlobalReplicationGroupGlobalReplicationGroupMemberRole',
+    'GlobalReplicationGroupMemberRole',
     'UserEngine',
     'UserGroupEngine',
 ]
 
 
-class GlobalReplicationGroupGlobalReplicationGroupMemberRole(str, Enum):
+class GlobalReplicationGroupMemberRole(str, Enum):
     """
     Indicates the role of the member, primary or secondary.
     """

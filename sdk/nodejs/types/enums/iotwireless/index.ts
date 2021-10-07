@@ -12,14 +12,14 @@ export const DestinationExpressionType = {
  */
 export type DestinationExpressionType = (typeof DestinationExpressionType)[keyof typeof DestinationExpressionType];
 
-export const TaskDefinitionTaskDefinitionType = {
+export const TaskDefinitionType = {
     Update: "UPDATE",
 } as const;
 
 /**
  * A filter to list only the wireless gateway task definitions that use this task definition type
  */
-export type TaskDefinitionTaskDefinitionType = (typeof TaskDefinitionTaskDefinitionType)[keyof typeof TaskDefinitionTaskDefinitionType];
+export type TaskDefinitionType = (typeof TaskDefinitionType)[keyof typeof TaskDefinitionType];
 
 export const WirelessDeviceType = {
     Sidewalk: "Sidewalk",

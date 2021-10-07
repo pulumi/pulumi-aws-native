@@ -41,7 +41,7 @@ export class Method extends pulumi.CustomResource {
     public readonly authorizerId!: pulumi.Output<string | undefined>;
     public readonly httpMethod!: pulumi.Output<string>;
     public readonly integration!: pulumi.Output<outputs.apigateway.MethodIntegration | undefined>;
-    public readonly methodResponses!: pulumi.Output<outputs.apigateway.MethodMethodResponse[] | undefined>;
+    public readonly methodResponses!: pulumi.Output<outputs.apigateway.MethodResponse[] | undefined>;
     public readonly operationName!: pulumi.Output<string | undefined>;
     public readonly requestModels!: pulumi.Output<any | undefined>;
     public readonly requestParameters!: pulumi.Output<any | undefined>;
@@ -114,7 +114,7 @@ export interface MethodArgs {
     authorizerId?: pulumi.Input<string>;
     httpMethod: pulumi.Input<string>;
     integration?: pulumi.Input<inputs.apigateway.MethodIntegrationArgs>;
-    methodResponses?: pulumi.Input<pulumi.Input<inputs.apigateway.MethodMethodResponseArgs>[]>;
+    methodResponses?: pulumi.Input<pulumi.Input<inputs.apigateway.MethodResponseArgs>[]>;
     operationName?: pulumi.Input<string>;
     requestModels?: any;
     requestParameters?: any;

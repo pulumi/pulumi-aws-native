@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public partial class Deployment : Pulumi.CustomResource
     {
         [Output("deploymentCanarySettings")]
-        public Output<Outputs.DeploymentDeploymentCanarySettings?> DeploymentCanarySettings { get; private set; } = null!;
+        public Output<Outputs.DeploymentCanarySettings?> DeploymentCanarySettings { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class DeploymentArgs : Pulumi.ResourceArgs
     {
         [Input("deploymentCanarySettings")]
-        public Input<Inputs.DeploymentDeploymentCanarySettingsArgs>? DeploymentCanarySettings { get; set; }
+        public Input<Inputs.DeploymentCanarySettingsArgs>? DeploymentCanarySettings { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }

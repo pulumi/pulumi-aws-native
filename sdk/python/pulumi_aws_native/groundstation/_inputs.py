@@ -13,8 +13,8 @@ __all__ = [
     'ConfigAntennaDownlinkConfigArgs',
     'ConfigAntennaDownlinkDemodDecodeConfigArgs',
     'ConfigAntennaUplinkConfigArgs',
-    'ConfigConfigDataArgs',
     'ConfigDataflowEndpointConfigArgs',
+    'ConfigDataArgs',
     'ConfigDecodeConfigArgs',
     'ConfigDemodulationConfigArgs',
     'ConfigEirpArgs',
@@ -135,7 +135,36 @@ class ConfigAntennaUplinkConfigArgs:
 
 
 @pulumi.input_type
-class ConfigConfigDataArgs:
+class ConfigDataflowEndpointConfigArgs:
+    def __init__(__self__, *,
+                 dataflow_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 dataflow_endpoint_region: Optional[pulumi.Input[str]] = None):
+        if dataflow_endpoint_name is not None:
+            pulumi.set(__self__, "dataflow_endpoint_name", dataflow_endpoint_name)
+        if dataflow_endpoint_region is not None:
+            pulumi.set(__self__, "dataflow_endpoint_region", dataflow_endpoint_region)
+
+    @property
+    @pulumi.getter(name="dataflowEndpointName")
+    def dataflow_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dataflow_endpoint_name")
+
+    @dataflow_endpoint_name.setter
+    def dataflow_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataflow_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="dataflowEndpointRegion")
+    def dataflow_endpoint_region(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dataflow_endpoint_region")
+
+    @dataflow_endpoint_region.setter
+    def dataflow_endpoint_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataflow_endpoint_region", value)
+
+
+@pulumi.input_type
+class ConfigDataArgs:
     def __init__(__self__, *,
                  antenna_downlink_config: Optional[pulumi.Input['ConfigAntennaDownlinkConfigArgs']] = None,
                  antenna_downlink_demod_decode_config: Optional[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs']] = None,
@@ -221,35 +250,6 @@ class ConfigConfigDataArgs:
     @uplink_echo_config.setter
     def uplink_echo_config(self, value: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']]):
         pulumi.set(self, "uplink_echo_config", value)
-
-
-@pulumi.input_type
-class ConfigDataflowEndpointConfigArgs:
-    def __init__(__self__, *,
-                 dataflow_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 dataflow_endpoint_region: Optional[pulumi.Input[str]] = None):
-        if dataflow_endpoint_name is not None:
-            pulumi.set(__self__, "dataflow_endpoint_name", dataflow_endpoint_name)
-        if dataflow_endpoint_region is not None:
-            pulumi.set(__self__, "dataflow_endpoint_region", dataflow_endpoint_region)
-
-    @property
-    @pulumi.getter(name="dataflowEndpointName")
-    def dataflow_endpoint_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "dataflow_endpoint_name")
-
-    @dataflow_endpoint_name.setter
-    def dataflow_endpoint_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "dataflow_endpoint_name", value)
-
-    @property
-    @pulumi.getter(name="dataflowEndpointRegion")
-    def dataflow_endpoint_region(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "dataflow_endpoint_region")
-
-    @dataflow_endpoint_region.setter
-    def dataflow_endpoint_region(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "dataflow_endpoint_region", value)
 
 
 @pulumi.input_type

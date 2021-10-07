@@ -23,13 +23,13 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> LatestVersionNumber { get; private set; } = null!;
 
         [Output("launchTemplateData")]
-        public Output<Outputs.LaunchTemplateLaunchTemplateData?> LaunchTemplateData { get; private set; } = null!;
+        public Output<Outputs.LaunchTemplateData?> LaunchTemplateData { get; private set; } = null!;
 
         [Output("launchTemplateName")]
         public Output<string?> LaunchTemplateName { get; private set; } = null!;
 
         [Output("tagSpecifications")]
-        public Output<ImmutableArray<Outputs.LaunchTemplateLaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LaunchTemplateTagSpecification>> TagSpecifications { get; private set; } = null!;
 
 
         /// <summary>
@@ -77,16 +77,16 @@ namespace Pulumi.AwsNative.EC2
     public sealed class LaunchTemplateArgs : Pulumi.ResourceArgs
     {
         [Input("launchTemplateData")]
-        public Input<Inputs.LaunchTemplateLaunchTemplateDataArgs>? LaunchTemplateData { get; set; }
+        public Input<Inputs.LaunchTemplateDataArgs>? LaunchTemplateData { get; set; }
 
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
         [Input("tagSpecifications")]
-        private InputList<Inputs.LaunchTemplateLaunchTemplateTagSpecificationArgs>? _tagSpecifications;
-        public InputList<Inputs.LaunchTemplateLaunchTemplateTagSpecificationArgs> TagSpecifications
+        private InputList<Inputs.LaunchTemplateTagSpecificationArgs>? _tagSpecifications;
+        public InputList<Inputs.LaunchTemplateTagSpecificationArgs> TagSpecifications
         {
-            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateLaunchTemplateTagSpecificationArgs>());
+            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.LaunchTemplateTagSpecificationArgs>());
             set => _tagSpecifications = value;
         }
 

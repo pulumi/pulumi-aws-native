@@ -33,10 +33,10 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         [Input("fieldMappings")]
-        private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
-        public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
+        private InputList<Inputs.DataSourceToIndexFieldMappingArgs>? _fieldMappings;
+        public InputList<Inputs.DataSourceToIndexFieldMappingArgs> FieldMappings
         {
-            get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
+            get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceToIndexFieldMappingArgs>());
             set => _fieldMappings = value;
         }
 
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<bool>? UseChangeLog { get; set; }
 
         [Input("vpcConfiguration")]
-        public Input<Inputs.DataSourceDataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
+        public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public DataSourceSharePointConfigurationArgs()
         {

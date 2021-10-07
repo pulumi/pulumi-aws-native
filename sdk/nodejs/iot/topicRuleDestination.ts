@@ -46,7 +46,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * The status of the TopicRuleDestination.
      */
-    public readonly status!: pulumi.Output<enums.iot.TopicRuleDestinationTopicRuleDestinationStatus | undefined>;
+    public readonly status!: pulumi.Output<enums.iot.TopicRuleDestinationStatus | undefined>;
     /**
      * The reasoning for the current status of the TopicRuleDestination.
      */
@@ -97,7 +97,7 @@ export interface TopicRuleDestinationArgs {
     /**
      * The status of the TopicRuleDestination.
      */
-    status?: pulumi.Input<enums.iot.TopicRuleDestinationTopicRuleDestinationStatus>;
+    status?: pulumi.Input<enums.iot.TopicRuleDestinationStatus>;
     /**
      * VPC destination properties.
      */

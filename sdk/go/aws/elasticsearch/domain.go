@@ -23,7 +23,7 @@ type Domain struct {
 	CognitoOptions              DomainCognitoOptionsPtrOutput               `pulumi:"cognitoOptions"`
 	DomainArn                   pulumi.StringOutput                         `pulumi:"domainArn"`
 	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
-	DomainEndpointOptions       DomainDomainEndpointOptionsPtrOutput        `pulumi:"domainEndpointOptions"`
+	DomainEndpointOptions       DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
 	DomainName                  pulumi.StringPtrOutput                      `pulumi:"domainName"`
 	EBSOptions                  DomainEBSOptionsPtrOutput                   `pulumi:"eBSOptions"`
 	ElasticsearchClusterConfig  DomainElasticsearchClusterConfigPtrOutput   `pulumi:"elasticsearchClusterConfig"`
@@ -79,7 +79,7 @@ type domainArgs struct {
 	AdvancedOptions             interface{}                         `pulumi:"advancedOptions"`
 	AdvancedSecurityOptions     *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
 	CognitoOptions              *DomainCognitoOptions               `pulumi:"cognitoOptions"`
-	DomainEndpointOptions       *DomainDomainEndpointOptions        `pulumi:"domainEndpointOptions"`
+	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
 	DomainName                  *string                             `pulumi:"domainName"`
 	EBSOptions                  *DomainEBSOptions                   `pulumi:"eBSOptions"`
 	ElasticsearchClusterConfig  *DomainElasticsearchClusterConfig   `pulumi:"elasticsearchClusterConfig"`
@@ -98,7 +98,7 @@ type DomainArgs struct {
 	AdvancedOptions             pulumi.Input
 	AdvancedSecurityOptions     DomainAdvancedSecurityOptionsInputPtrInput
 	CognitoOptions              DomainCognitoOptionsPtrInput
-	DomainEndpointOptions       DomainDomainEndpointOptionsPtrInput
+	DomainEndpointOptions       DomainEndpointOptionsPtrInput
 	DomainName                  pulumi.StringPtrInput
 	EBSOptions                  DomainEBSOptionsPtrInput
 	ElasticsearchClusterConfig  DomainElasticsearchClusterConfigPtrInput

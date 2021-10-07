@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.EC2
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         /// </summary>
         [Output("hostRecovery")]
-        public Output<Pulumi.AwsNative.EC2.HostHostRecovery?> HostRecovery { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.HostRecovery?> HostRecovery { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.EC2
         /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         /// </summary>
         [Input("hostRecovery")]
-        public Input<Pulumi.AwsNative.EC2.HostHostRecovery>? HostRecovery { get; set; }
+        public Input<Pulumi.AwsNative.EC2.HostRecovery>? HostRecovery { get; set; }
 
         /// <summary>
         /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.

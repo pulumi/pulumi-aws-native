@@ -31,7 +31,7 @@ class UserPoolArgs:
                  sms_authentication_message: Optional[pulumi.Input[str]] = None,
                  sms_configuration: Optional[pulumi.Input['UserPoolSmsConfigurationArgs']] = None,
                  sms_verification_message: Optional[pulumi.Input[str]] = None,
-                 user_pool_add_ons: Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']] = None,
+                 user_pool_add_ons: Optional[pulumi.Input['UserPoolAddOnsArgs']] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[Any] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -231,11 +231,11 @@ class UserPoolArgs:
 
     @property
     @pulumi.getter(name="userPoolAddOns")
-    def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']]:
+    def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolAddOnsArgs']]:
         return pulumi.get(self, "user_pool_add_ons")
 
     @user_pool_add_ons.setter
-    def user_pool_add_ons(self, value: Optional[pulumi.Input['UserPoolUserPoolAddOnsArgs']]):
+    def user_pool_add_ons(self, value: Optional[pulumi.Input['UserPoolAddOnsArgs']]):
         pulumi.set(self, "user_pool_add_ons", value)
 
     @property
@@ -310,7 +310,7 @@ class UserPool(pulumi.CustomResource):
                  sms_authentication_message: Optional[pulumi.Input[str]] = None,
                  sms_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']]] = None,
                  sms_verification_message: Optional[pulumi.Input[str]] = None,
-                 user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolUserPoolAddOnsArgs']]] = None,
+                 user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolAddOnsArgs']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[Any] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -363,7 +363,7 @@ class UserPool(pulumi.CustomResource):
                  sms_authentication_message: Optional[pulumi.Input[str]] = None,
                  sms_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']]] = None,
                  sms_verification_message: Optional[pulumi.Input[str]] = None,
-                 user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolUserPoolAddOnsArgs']]] = None,
+                 user_pool_add_ons: Optional[pulumi.Input[pulumi.InputType['UserPoolAddOnsArgs']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[Any] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -553,7 +553,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userPoolAddOns")
-    def user_pool_add_ons(self) -> pulumi.Output[Optional['outputs.UserPoolUserPoolAddOns']]:
+    def user_pool_add_ons(self) -> pulumi.Output[Optional['outputs.UserPoolAddOns']]:
         return pulumi.get(self, "user_pool_add_ons")
 
     @property

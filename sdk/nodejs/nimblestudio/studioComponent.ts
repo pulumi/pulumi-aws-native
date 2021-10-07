@@ -35,10 +35,10 @@ export class StudioComponent extends pulumi.CustomResource {
         return obj['__pulumiType'] === StudioComponent.__pulumiType;
     }
 
-    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentStudioComponentConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly ec2SecurityGroupIds!: pulumi.Output<string[] | undefined>;
-    public readonly initializationScripts!: pulumi.Output<outputs.nimblestudio.StudioComponentStudioComponentInitializationScript[] | undefined>;
+    public readonly initializationScripts!: pulumi.Output<outputs.nimblestudio.StudioComponentInitializationScript[] | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
     public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
@@ -102,10 +102,10 @@ export class StudioComponent extends pulumi.CustomResource {
  * The set of arguments for constructing a StudioComponent resource.
  */
 export interface StudioComponentArgs {
-    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentStudioComponentConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfigurationArgs>;
     description?: pulumi.Input<string>;
     ec2SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentStudioComponentInitializationScriptArgs>[]>;
+    initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentInitializationScriptArgs>[]>;
     name: pulumi.Input<string>;
     scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
     studioId: pulumi.Input<string>;

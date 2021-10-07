@@ -499,150 +499,150 @@ func (o ApplicationSettingsQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type CampaignCampaignEmailMessage struct {
+type CampaignEmailMessage struct {
 	Body        *string `pulumi:"body"`
 	FromAddress *string `pulumi:"fromAddress"`
 	HtmlBody    *string `pulumi:"htmlBody"`
 	Title       *string `pulumi:"title"`
 }
 
-// CampaignCampaignEmailMessageInput is an input type that accepts CampaignCampaignEmailMessageArgs and CampaignCampaignEmailMessageOutput values.
-// You can construct a concrete instance of `CampaignCampaignEmailMessageInput` via:
+// CampaignEmailMessageInput is an input type that accepts CampaignEmailMessageArgs and CampaignEmailMessageOutput values.
+// You can construct a concrete instance of `CampaignEmailMessageInput` via:
 //
-//          CampaignCampaignEmailMessageArgs{...}
-type CampaignCampaignEmailMessageInput interface {
+//          CampaignEmailMessageArgs{...}
+type CampaignEmailMessageInput interface {
 	pulumi.Input
 
-	ToCampaignCampaignEmailMessageOutput() CampaignCampaignEmailMessageOutput
-	ToCampaignCampaignEmailMessageOutputWithContext(context.Context) CampaignCampaignEmailMessageOutput
+	ToCampaignEmailMessageOutput() CampaignEmailMessageOutput
+	ToCampaignEmailMessageOutputWithContext(context.Context) CampaignEmailMessageOutput
 }
 
-type CampaignCampaignEmailMessageArgs struct {
+type CampaignEmailMessageArgs struct {
 	Body        pulumi.StringPtrInput `pulumi:"body"`
 	FromAddress pulumi.StringPtrInput `pulumi:"fromAddress"`
 	HtmlBody    pulumi.StringPtrInput `pulumi:"htmlBody"`
 	Title       pulumi.StringPtrInput `pulumi:"title"`
 }
 
-func (CampaignCampaignEmailMessageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignEmailMessage)(nil)).Elem()
+func (CampaignEmailMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEmailMessage)(nil)).Elem()
 }
 
-func (i CampaignCampaignEmailMessageArgs) ToCampaignCampaignEmailMessageOutput() CampaignCampaignEmailMessageOutput {
-	return i.ToCampaignCampaignEmailMessageOutputWithContext(context.Background())
+func (i CampaignEmailMessageArgs) ToCampaignEmailMessageOutput() CampaignEmailMessageOutput {
+	return i.ToCampaignEmailMessageOutputWithContext(context.Background())
 }
 
-func (i CampaignCampaignEmailMessageArgs) ToCampaignCampaignEmailMessageOutputWithContext(ctx context.Context) CampaignCampaignEmailMessageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignEmailMessageOutput)
+func (i CampaignEmailMessageArgs) ToCampaignEmailMessageOutputWithContext(ctx context.Context) CampaignEmailMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEmailMessageOutput)
 }
 
-func (i CampaignCampaignEmailMessageArgs) ToCampaignCampaignEmailMessagePtrOutput() CampaignCampaignEmailMessagePtrOutput {
-	return i.ToCampaignCampaignEmailMessagePtrOutputWithContext(context.Background())
+func (i CampaignEmailMessageArgs) ToCampaignEmailMessagePtrOutput() CampaignEmailMessagePtrOutput {
+	return i.ToCampaignEmailMessagePtrOutputWithContext(context.Background())
 }
 
-func (i CampaignCampaignEmailMessageArgs) ToCampaignCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignEmailMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignEmailMessageOutput).ToCampaignCampaignEmailMessagePtrOutputWithContext(ctx)
+func (i CampaignEmailMessageArgs) ToCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignEmailMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEmailMessageOutput).ToCampaignEmailMessagePtrOutputWithContext(ctx)
 }
 
-// CampaignCampaignEmailMessagePtrInput is an input type that accepts CampaignCampaignEmailMessageArgs, CampaignCampaignEmailMessagePtr and CampaignCampaignEmailMessagePtrOutput values.
-// You can construct a concrete instance of `CampaignCampaignEmailMessagePtrInput` via:
+// CampaignEmailMessagePtrInput is an input type that accepts CampaignEmailMessageArgs, CampaignEmailMessagePtr and CampaignEmailMessagePtrOutput values.
+// You can construct a concrete instance of `CampaignEmailMessagePtrInput` via:
 //
-//          CampaignCampaignEmailMessageArgs{...}
+//          CampaignEmailMessageArgs{...}
 //
 //  or:
 //
 //          nil
-type CampaignCampaignEmailMessagePtrInput interface {
+type CampaignEmailMessagePtrInput interface {
 	pulumi.Input
 
-	ToCampaignCampaignEmailMessagePtrOutput() CampaignCampaignEmailMessagePtrOutput
-	ToCampaignCampaignEmailMessagePtrOutputWithContext(context.Context) CampaignCampaignEmailMessagePtrOutput
+	ToCampaignEmailMessagePtrOutput() CampaignEmailMessagePtrOutput
+	ToCampaignEmailMessagePtrOutputWithContext(context.Context) CampaignEmailMessagePtrOutput
 }
 
-type campaignCampaignEmailMessagePtrType CampaignCampaignEmailMessageArgs
+type campaignEmailMessagePtrType CampaignEmailMessageArgs
 
-func CampaignCampaignEmailMessagePtr(v *CampaignCampaignEmailMessageArgs) CampaignCampaignEmailMessagePtrInput {
-	return (*campaignCampaignEmailMessagePtrType)(v)
+func CampaignEmailMessagePtr(v *CampaignEmailMessageArgs) CampaignEmailMessagePtrInput {
+	return (*campaignEmailMessagePtrType)(v)
 }
 
-func (*campaignCampaignEmailMessagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignEmailMessage)(nil)).Elem()
+func (*campaignEmailMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEmailMessage)(nil)).Elem()
 }
 
-func (i *campaignCampaignEmailMessagePtrType) ToCampaignCampaignEmailMessagePtrOutput() CampaignCampaignEmailMessagePtrOutput {
-	return i.ToCampaignCampaignEmailMessagePtrOutputWithContext(context.Background())
+func (i *campaignEmailMessagePtrType) ToCampaignEmailMessagePtrOutput() CampaignEmailMessagePtrOutput {
+	return i.ToCampaignEmailMessagePtrOutputWithContext(context.Background())
 }
 
-func (i *campaignCampaignEmailMessagePtrType) ToCampaignCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignEmailMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignEmailMessagePtrOutput)
+func (i *campaignEmailMessagePtrType) ToCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignEmailMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEmailMessagePtrOutput)
 }
 
-type CampaignCampaignEmailMessageOutput struct{ *pulumi.OutputState }
+type CampaignEmailMessageOutput struct{ *pulumi.OutputState }
 
-func (CampaignCampaignEmailMessageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignEmailMessage)(nil)).Elem()
+func (CampaignEmailMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEmailMessage)(nil)).Elem()
 }
 
-func (o CampaignCampaignEmailMessageOutput) ToCampaignCampaignEmailMessageOutput() CampaignCampaignEmailMessageOutput {
+func (o CampaignEmailMessageOutput) ToCampaignEmailMessageOutput() CampaignEmailMessageOutput {
 	return o
 }
 
-func (o CampaignCampaignEmailMessageOutput) ToCampaignCampaignEmailMessageOutputWithContext(ctx context.Context) CampaignCampaignEmailMessageOutput {
+func (o CampaignEmailMessageOutput) ToCampaignEmailMessageOutputWithContext(ctx context.Context) CampaignEmailMessageOutput {
 	return o
 }
 
-func (o CampaignCampaignEmailMessageOutput) ToCampaignCampaignEmailMessagePtrOutput() CampaignCampaignEmailMessagePtrOutput {
-	return o.ToCampaignCampaignEmailMessagePtrOutputWithContext(context.Background())
+func (o CampaignEmailMessageOutput) ToCampaignEmailMessagePtrOutput() CampaignEmailMessagePtrOutput {
+	return o.ToCampaignEmailMessagePtrOutputWithContext(context.Background())
 }
 
-func (o CampaignCampaignEmailMessageOutput) ToCampaignCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignEmailMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignCampaignEmailMessage) *CampaignCampaignEmailMessage {
+func (o CampaignEmailMessageOutput) ToCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignEmailMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignEmailMessage) *CampaignEmailMessage {
 		return &v
-	}).(CampaignCampaignEmailMessagePtrOutput)
+	}).(CampaignEmailMessagePtrOutput)
 }
 
-func (o CampaignCampaignEmailMessageOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignEmailMessage) *string { return v.Body }).(pulumi.StringPtrOutput)
+func (o CampaignEmailMessageOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignEmailMessage) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignCampaignEmailMessageOutput) FromAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignEmailMessage) *string { return v.FromAddress }).(pulumi.StringPtrOutput)
+func (o CampaignEmailMessageOutput) FromAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignEmailMessage) *string { return v.FromAddress }).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignCampaignEmailMessageOutput) HtmlBody() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignEmailMessage) *string { return v.HtmlBody }).(pulumi.StringPtrOutput)
+func (o CampaignEmailMessageOutput) HtmlBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignEmailMessage) *string { return v.HtmlBody }).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignCampaignEmailMessageOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignEmailMessage) *string { return v.Title }).(pulumi.StringPtrOutput)
+func (o CampaignEmailMessageOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignEmailMessage) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-type CampaignCampaignEmailMessagePtrOutput struct{ *pulumi.OutputState }
+type CampaignEmailMessagePtrOutput struct{ *pulumi.OutputState }
 
-func (CampaignCampaignEmailMessagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignEmailMessage)(nil)).Elem()
+func (CampaignEmailMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEmailMessage)(nil)).Elem()
 }
 
-func (o CampaignCampaignEmailMessagePtrOutput) ToCampaignCampaignEmailMessagePtrOutput() CampaignCampaignEmailMessagePtrOutput {
+func (o CampaignEmailMessagePtrOutput) ToCampaignEmailMessagePtrOutput() CampaignEmailMessagePtrOutput {
 	return o
 }
 
-func (o CampaignCampaignEmailMessagePtrOutput) ToCampaignCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignEmailMessagePtrOutput {
+func (o CampaignEmailMessagePtrOutput) ToCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignEmailMessagePtrOutput {
 	return o
 }
 
-func (o CampaignCampaignEmailMessagePtrOutput) Elem() CampaignCampaignEmailMessageOutput {
-	return o.ApplyT(func(v *CampaignCampaignEmailMessage) CampaignCampaignEmailMessage {
+func (o CampaignEmailMessagePtrOutput) Elem() CampaignEmailMessageOutput {
+	return o.ApplyT(func(v *CampaignEmailMessage) CampaignEmailMessage {
 		if v != nil {
 			return *v
 		}
-		var ret CampaignCampaignEmailMessage
+		var ret CampaignEmailMessage
 		return ret
-	}).(CampaignCampaignEmailMessageOutput)
+	}).(CampaignEmailMessageOutput)
 }
 
-func (o CampaignCampaignEmailMessagePtrOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignEmailMessage) *string {
+func (o CampaignEmailMessagePtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignEmailMessage) *string {
 		if v == nil {
 			return nil
 		}
@@ -650,8 +650,8 @@ func (o CampaignCampaignEmailMessagePtrOutput) Body() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignCampaignEmailMessagePtrOutput) FromAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignEmailMessage) *string {
+func (o CampaignEmailMessagePtrOutput) FromAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignEmailMessage) *string {
 		if v == nil {
 			return nil
 		}
@@ -659,8 +659,8 @@ func (o CampaignCampaignEmailMessagePtrOutput) FromAddress() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignCampaignEmailMessagePtrOutput) HtmlBody() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignEmailMessage) *string {
+func (o CampaignEmailMessagePtrOutput) HtmlBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignEmailMessage) *string {
 		if v == nil {
 			return nil
 		}
@@ -668,531 +668,12 @@ func (o CampaignCampaignEmailMessagePtrOutput) HtmlBody() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignCampaignEmailMessagePtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignEmailMessage) *string {
+func (o CampaignEmailMessagePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignEmailMessage) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-type CampaignCampaignEventFilter struct {
-	Dimensions *CampaignEventDimensions `pulumi:"dimensions"`
-	FilterType *string                  `pulumi:"filterType"`
-}
-
-// CampaignCampaignEventFilterInput is an input type that accepts CampaignCampaignEventFilterArgs and CampaignCampaignEventFilterOutput values.
-// You can construct a concrete instance of `CampaignCampaignEventFilterInput` via:
-//
-//          CampaignCampaignEventFilterArgs{...}
-type CampaignCampaignEventFilterInput interface {
-	pulumi.Input
-
-	ToCampaignCampaignEventFilterOutput() CampaignCampaignEventFilterOutput
-	ToCampaignCampaignEventFilterOutputWithContext(context.Context) CampaignCampaignEventFilterOutput
-}
-
-type CampaignCampaignEventFilterArgs struct {
-	Dimensions CampaignEventDimensionsPtrInput `pulumi:"dimensions"`
-	FilterType pulumi.StringPtrInput           `pulumi:"filterType"`
-}
-
-func (CampaignCampaignEventFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignEventFilter)(nil)).Elem()
-}
-
-func (i CampaignCampaignEventFilterArgs) ToCampaignCampaignEventFilterOutput() CampaignCampaignEventFilterOutput {
-	return i.ToCampaignCampaignEventFilterOutputWithContext(context.Background())
-}
-
-func (i CampaignCampaignEventFilterArgs) ToCampaignCampaignEventFilterOutputWithContext(ctx context.Context) CampaignCampaignEventFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignEventFilterOutput)
-}
-
-func (i CampaignCampaignEventFilterArgs) ToCampaignCampaignEventFilterPtrOutput() CampaignCampaignEventFilterPtrOutput {
-	return i.ToCampaignCampaignEventFilterPtrOutputWithContext(context.Background())
-}
-
-func (i CampaignCampaignEventFilterArgs) ToCampaignCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignCampaignEventFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignEventFilterOutput).ToCampaignCampaignEventFilterPtrOutputWithContext(ctx)
-}
-
-// CampaignCampaignEventFilterPtrInput is an input type that accepts CampaignCampaignEventFilterArgs, CampaignCampaignEventFilterPtr and CampaignCampaignEventFilterPtrOutput values.
-// You can construct a concrete instance of `CampaignCampaignEventFilterPtrInput` via:
-//
-//          CampaignCampaignEventFilterArgs{...}
-//
-//  or:
-//
-//          nil
-type CampaignCampaignEventFilterPtrInput interface {
-	pulumi.Input
-
-	ToCampaignCampaignEventFilterPtrOutput() CampaignCampaignEventFilterPtrOutput
-	ToCampaignCampaignEventFilterPtrOutputWithContext(context.Context) CampaignCampaignEventFilterPtrOutput
-}
-
-type campaignCampaignEventFilterPtrType CampaignCampaignEventFilterArgs
-
-func CampaignCampaignEventFilterPtr(v *CampaignCampaignEventFilterArgs) CampaignCampaignEventFilterPtrInput {
-	return (*campaignCampaignEventFilterPtrType)(v)
-}
-
-func (*campaignCampaignEventFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignEventFilter)(nil)).Elem()
-}
-
-func (i *campaignCampaignEventFilterPtrType) ToCampaignCampaignEventFilterPtrOutput() CampaignCampaignEventFilterPtrOutput {
-	return i.ToCampaignCampaignEventFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *campaignCampaignEventFilterPtrType) ToCampaignCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignCampaignEventFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignEventFilterPtrOutput)
-}
-
-type CampaignCampaignEventFilterOutput struct{ *pulumi.OutputState }
-
-func (CampaignCampaignEventFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignEventFilter)(nil)).Elem()
-}
-
-func (o CampaignCampaignEventFilterOutput) ToCampaignCampaignEventFilterOutput() CampaignCampaignEventFilterOutput {
-	return o
-}
-
-func (o CampaignCampaignEventFilterOutput) ToCampaignCampaignEventFilterOutputWithContext(ctx context.Context) CampaignCampaignEventFilterOutput {
-	return o
-}
-
-func (o CampaignCampaignEventFilterOutput) ToCampaignCampaignEventFilterPtrOutput() CampaignCampaignEventFilterPtrOutput {
-	return o.ToCampaignCampaignEventFilterPtrOutputWithContext(context.Background())
-}
-
-func (o CampaignCampaignEventFilterOutput) ToCampaignCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignCampaignEventFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignCampaignEventFilter) *CampaignCampaignEventFilter {
-		return &v
-	}).(CampaignCampaignEventFilterPtrOutput)
-}
-
-func (o CampaignCampaignEventFilterOutput) Dimensions() CampaignEventDimensionsPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignEventFilter) *CampaignEventDimensions { return v.Dimensions }).(CampaignEventDimensionsPtrOutput)
-}
-
-func (o CampaignCampaignEventFilterOutput) FilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignEventFilter) *string { return v.FilterType }).(pulumi.StringPtrOutput)
-}
-
-type CampaignCampaignEventFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (CampaignCampaignEventFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignEventFilter)(nil)).Elem()
-}
-
-func (o CampaignCampaignEventFilterPtrOutput) ToCampaignCampaignEventFilterPtrOutput() CampaignCampaignEventFilterPtrOutput {
-	return o
-}
-
-func (o CampaignCampaignEventFilterPtrOutput) ToCampaignCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignCampaignEventFilterPtrOutput {
-	return o
-}
-
-func (o CampaignCampaignEventFilterPtrOutput) Elem() CampaignCampaignEventFilterOutput {
-	return o.ApplyT(func(v *CampaignCampaignEventFilter) CampaignCampaignEventFilter {
-		if v != nil {
-			return *v
-		}
-		var ret CampaignCampaignEventFilter
-		return ret
-	}).(CampaignCampaignEventFilterOutput)
-}
-
-func (o CampaignCampaignEventFilterPtrOutput) Dimensions() CampaignEventDimensionsPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignEventFilter) *CampaignEventDimensions {
-		if v == nil {
-			return nil
-		}
-		return v.Dimensions
-	}).(CampaignEventDimensionsPtrOutput)
-}
-
-func (o CampaignCampaignEventFilterPtrOutput) FilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignEventFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FilterType
-	}).(pulumi.StringPtrOutput)
-}
-
-type CampaignCampaignHook struct {
-	LambdaFunctionName *string `pulumi:"lambdaFunctionName"`
-	Mode               *string `pulumi:"mode"`
-	WebUrl             *string `pulumi:"webUrl"`
-}
-
-// CampaignCampaignHookInput is an input type that accepts CampaignCampaignHookArgs and CampaignCampaignHookOutput values.
-// You can construct a concrete instance of `CampaignCampaignHookInput` via:
-//
-//          CampaignCampaignHookArgs{...}
-type CampaignCampaignHookInput interface {
-	pulumi.Input
-
-	ToCampaignCampaignHookOutput() CampaignCampaignHookOutput
-	ToCampaignCampaignHookOutputWithContext(context.Context) CampaignCampaignHookOutput
-}
-
-type CampaignCampaignHookArgs struct {
-	LambdaFunctionName pulumi.StringPtrInput `pulumi:"lambdaFunctionName"`
-	Mode               pulumi.StringPtrInput `pulumi:"mode"`
-	WebUrl             pulumi.StringPtrInput `pulumi:"webUrl"`
-}
-
-func (CampaignCampaignHookArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignHook)(nil)).Elem()
-}
-
-func (i CampaignCampaignHookArgs) ToCampaignCampaignHookOutput() CampaignCampaignHookOutput {
-	return i.ToCampaignCampaignHookOutputWithContext(context.Background())
-}
-
-func (i CampaignCampaignHookArgs) ToCampaignCampaignHookOutputWithContext(ctx context.Context) CampaignCampaignHookOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignHookOutput)
-}
-
-func (i CampaignCampaignHookArgs) ToCampaignCampaignHookPtrOutput() CampaignCampaignHookPtrOutput {
-	return i.ToCampaignCampaignHookPtrOutputWithContext(context.Background())
-}
-
-func (i CampaignCampaignHookArgs) ToCampaignCampaignHookPtrOutputWithContext(ctx context.Context) CampaignCampaignHookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignHookOutput).ToCampaignCampaignHookPtrOutputWithContext(ctx)
-}
-
-// CampaignCampaignHookPtrInput is an input type that accepts CampaignCampaignHookArgs, CampaignCampaignHookPtr and CampaignCampaignHookPtrOutput values.
-// You can construct a concrete instance of `CampaignCampaignHookPtrInput` via:
-//
-//          CampaignCampaignHookArgs{...}
-//
-//  or:
-//
-//          nil
-type CampaignCampaignHookPtrInput interface {
-	pulumi.Input
-
-	ToCampaignCampaignHookPtrOutput() CampaignCampaignHookPtrOutput
-	ToCampaignCampaignHookPtrOutputWithContext(context.Context) CampaignCampaignHookPtrOutput
-}
-
-type campaignCampaignHookPtrType CampaignCampaignHookArgs
-
-func CampaignCampaignHookPtr(v *CampaignCampaignHookArgs) CampaignCampaignHookPtrInput {
-	return (*campaignCampaignHookPtrType)(v)
-}
-
-func (*campaignCampaignHookPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignHook)(nil)).Elem()
-}
-
-func (i *campaignCampaignHookPtrType) ToCampaignCampaignHookPtrOutput() CampaignCampaignHookPtrOutput {
-	return i.ToCampaignCampaignHookPtrOutputWithContext(context.Background())
-}
-
-func (i *campaignCampaignHookPtrType) ToCampaignCampaignHookPtrOutputWithContext(ctx context.Context) CampaignCampaignHookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignHookPtrOutput)
-}
-
-type CampaignCampaignHookOutput struct{ *pulumi.OutputState }
-
-func (CampaignCampaignHookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignHook)(nil)).Elem()
-}
-
-func (o CampaignCampaignHookOutput) ToCampaignCampaignHookOutput() CampaignCampaignHookOutput {
-	return o
-}
-
-func (o CampaignCampaignHookOutput) ToCampaignCampaignHookOutputWithContext(ctx context.Context) CampaignCampaignHookOutput {
-	return o
-}
-
-func (o CampaignCampaignHookOutput) ToCampaignCampaignHookPtrOutput() CampaignCampaignHookPtrOutput {
-	return o.ToCampaignCampaignHookPtrOutputWithContext(context.Background())
-}
-
-func (o CampaignCampaignHookOutput) ToCampaignCampaignHookPtrOutputWithContext(ctx context.Context) CampaignCampaignHookPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignCampaignHook) *CampaignCampaignHook {
-		return &v
-	}).(CampaignCampaignHookPtrOutput)
-}
-
-func (o CampaignCampaignHookOutput) LambdaFunctionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignHook) *string { return v.LambdaFunctionName }).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignHookOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignHook) *string { return v.Mode }).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignHookOutput) WebUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignHook) *string { return v.WebUrl }).(pulumi.StringPtrOutput)
-}
-
-type CampaignCampaignHookPtrOutput struct{ *pulumi.OutputState }
-
-func (CampaignCampaignHookPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignHook)(nil)).Elem()
-}
-
-func (o CampaignCampaignHookPtrOutput) ToCampaignCampaignHookPtrOutput() CampaignCampaignHookPtrOutput {
-	return o
-}
-
-func (o CampaignCampaignHookPtrOutput) ToCampaignCampaignHookPtrOutputWithContext(ctx context.Context) CampaignCampaignHookPtrOutput {
-	return o
-}
-
-func (o CampaignCampaignHookPtrOutput) Elem() CampaignCampaignHookOutput {
-	return o.ApplyT(func(v *CampaignCampaignHook) CampaignCampaignHook {
-		if v != nil {
-			return *v
-		}
-		var ret CampaignCampaignHook
-		return ret
-	}).(CampaignCampaignHookOutput)
-}
-
-func (o CampaignCampaignHookPtrOutput) LambdaFunctionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignHook) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LambdaFunctionName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignHookPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignHook) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Mode
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignHookPtrOutput) WebUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignHook) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WebUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-type CampaignCampaignSmsMessage struct {
-	Body              *string `pulumi:"body"`
-	EntityId          *string `pulumi:"entityId"`
-	MessageType       *string `pulumi:"messageType"`
-	OriginationNumber *string `pulumi:"originationNumber"`
-	SenderId          *string `pulumi:"senderId"`
-	TemplateId        *string `pulumi:"templateId"`
-}
-
-// CampaignCampaignSmsMessageInput is an input type that accepts CampaignCampaignSmsMessageArgs and CampaignCampaignSmsMessageOutput values.
-// You can construct a concrete instance of `CampaignCampaignSmsMessageInput` via:
-//
-//          CampaignCampaignSmsMessageArgs{...}
-type CampaignCampaignSmsMessageInput interface {
-	pulumi.Input
-
-	ToCampaignCampaignSmsMessageOutput() CampaignCampaignSmsMessageOutput
-	ToCampaignCampaignSmsMessageOutputWithContext(context.Context) CampaignCampaignSmsMessageOutput
-}
-
-type CampaignCampaignSmsMessageArgs struct {
-	Body              pulumi.StringPtrInput `pulumi:"body"`
-	EntityId          pulumi.StringPtrInput `pulumi:"entityId"`
-	MessageType       pulumi.StringPtrInput `pulumi:"messageType"`
-	OriginationNumber pulumi.StringPtrInput `pulumi:"originationNumber"`
-	SenderId          pulumi.StringPtrInput `pulumi:"senderId"`
-	TemplateId        pulumi.StringPtrInput `pulumi:"templateId"`
-}
-
-func (CampaignCampaignSmsMessageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignSmsMessage)(nil)).Elem()
-}
-
-func (i CampaignCampaignSmsMessageArgs) ToCampaignCampaignSmsMessageOutput() CampaignCampaignSmsMessageOutput {
-	return i.ToCampaignCampaignSmsMessageOutputWithContext(context.Background())
-}
-
-func (i CampaignCampaignSmsMessageArgs) ToCampaignCampaignSmsMessageOutputWithContext(ctx context.Context) CampaignCampaignSmsMessageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignSmsMessageOutput)
-}
-
-func (i CampaignCampaignSmsMessageArgs) ToCampaignCampaignSmsMessagePtrOutput() CampaignCampaignSmsMessagePtrOutput {
-	return i.ToCampaignCampaignSmsMessagePtrOutputWithContext(context.Background())
-}
-
-func (i CampaignCampaignSmsMessageArgs) ToCampaignCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignSmsMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignSmsMessageOutput).ToCampaignCampaignSmsMessagePtrOutputWithContext(ctx)
-}
-
-// CampaignCampaignSmsMessagePtrInput is an input type that accepts CampaignCampaignSmsMessageArgs, CampaignCampaignSmsMessagePtr and CampaignCampaignSmsMessagePtrOutput values.
-// You can construct a concrete instance of `CampaignCampaignSmsMessagePtrInput` via:
-//
-//          CampaignCampaignSmsMessageArgs{...}
-//
-//  or:
-//
-//          nil
-type CampaignCampaignSmsMessagePtrInput interface {
-	pulumi.Input
-
-	ToCampaignCampaignSmsMessagePtrOutput() CampaignCampaignSmsMessagePtrOutput
-	ToCampaignCampaignSmsMessagePtrOutputWithContext(context.Context) CampaignCampaignSmsMessagePtrOutput
-}
-
-type campaignCampaignSmsMessagePtrType CampaignCampaignSmsMessageArgs
-
-func CampaignCampaignSmsMessagePtr(v *CampaignCampaignSmsMessageArgs) CampaignCampaignSmsMessagePtrInput {
-	return (*campaignCampaignSmsMessagePtrType)(v)
-}
-
-func (*campaignCampaignSmsMessagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignSmsMessage)(nil)).Elem()
-}
-
-func (i *campaignCampaignSmsMessagePtrType) ToCampaignCampaignSmsMessagePtrOutput() CampaignCampaignSmsMessagePtrOutput {
-	return i.ToCampaignCampaignSmsMessagePtrOutputWithContext(context.Background())
-}
-
-func (i *campaignCampaignSmsMessagePtrType) ToCampaignCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignSmsMessagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CampaignCampaignSmsMessagePtrOutput)
-}
-
-type CampaignCampaignSmsMessageOutput struct{ *pulumi.OutputState }
-
-func (CampaignCampaignSmsMessageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CampaignCampaignSmsMessage)(nil)).Elem()
-}
-
-func (o CampaignCampaignSmsMessageOutput) ToCampaignCampaignSmsMessageOutput() CampaignCampaignSmsMessageOutput {
-	return o
-}
-
-func (o CampaignCampaignSmsMessageOutput) ToCampaignCampaignSmsMessageOutputWithContext(ctx context.Context) CampaignCampaignSmsMessageOutput {
-	return o
-}
-
-func (o CampaignCampaignSmsMessageOutput) ToCampaignCampaignSmsMessagePtrOutput() CampaignCampaignSmsMessagePtrOutput {
-	return o.ToCampaignCampaignSmsMessagePtrOutputWithContext(context.Background())
-}
-
-func (o CampaignCampaignSmsMessageOutput) ToCampaignCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignSmsMessagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignCampaignSmsMessage) *CampaignCampaignSmsMessage {
-		return &v
-	}).(CampaignCampaignSmsMessagePtrOutput)
-}
-
-func (o CampaignCampaignSmsMessageOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignSmsMessage) *string { return v.Body }).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessageOutput) EntityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignSmsMessage) *string { return v.EntityId }).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessageOutput) MessageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignSmsMessage) *string { return v.MessageType }).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessageOutput) OriginationNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignSmsMessage) *string { return v.OriginationNumber }).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessageOutput) SenderId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignSmsMessage) *string { return v.SenderId }).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessageOutput) TemplateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CampaignCampaignSmsMessage) *string { return v.TemplateId }).(pulumi.StringPtrOutput)
-}
-
-type CampaignCampaignSmsMessagePtrOutput struct{ *pulumi.OutputState }
-
-func (CampaignCampaignSmsMessagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CampaignCampaignSmsMessage)(nil)).Elem()
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) ToCampaignCampaignSmsMessagePtrOutput() CampaignCampaignSmsMessagePtrOutput {
-	return o
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) ToCampaignCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignCampaignSmsMessagePtrOutput {
-	return o
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) Elem() CampaignCampaignSmsMessageOutput {
-	return o.ApplyT(func(v *CampaignCampaignSmsMessage) CampaignCampaignSmsMessage {
-		if v != nil {
-			return *v
-		}
-		var ret CampaignCampaignSmsMessage
-		return ret
-	}).(CampaignCampaignSmsMessageOutput)
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) Body() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignSmsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Body
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) EntityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignSmsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EntityId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) MessageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignSmsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MessageType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) OriginationNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignSmsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginationNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) SenderId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignSmsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SenderId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CampaignCampaignSmsMessagePtrOutput) TemplateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CampaignCampaignSmsMessage) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TemplateId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1357,6 +838,317 @@ func (o CampaignEventDimensionsPtrOutput) Metrics() pulumi.AnyOutput {
 		}
 		return v.Metrics
 	}).(pulumi.AnyOutput)
+}
+
+type CampaignEventFilter struct {
+	Dimensions *CampaignEventDimensions `pulumi:"dimensions"`
+	FilterType *string                  `pulumi:"filterType"`
+}
+
+// CampaignEventFilterInput is an input type that accepts CampaignEventFilterArgs and CampaignEventFilterOutput values.
+// You can construct a concrete instance of `CampaignEventFilterInput` via:
+//
+//          CampaignEventFilterArgs{...}
+type CampaignEventFilterInput interface {
+	pulumi.Input
+
+	ToCampaignEventFilterOutput() CampaignEventFilterOutput
+	ToCampaignEventFilterOutputWithContext(context.Context) CampaignEventFilterOutput
+}
+
+type CampaignEventFilterArgs struct {
+	Dimensions CampaignEventDimensionsPtrInput `pulumi:"dimensions"`
+	FilterType pulumi.StringPtrInput           `pulumi:"filterType"`
+}
+
+func (CampaignEventFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEventFilter)(nil)).Elem()
+}
+
+func (i CampaignEventFilterArgs) ToCampaignEventFilterOutput() CampaignEventFilterOutput {
+	return i.ToCampaignEventFilterOutputWithContext(context.Background())
+}
+
+func (i CampaignEventFilterArgs) ToCampaignEventFilterOutputWithContext(ctx context.Context) CampaignEventFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventFilterOutput)
+}
+
+func (i CampaignEventFilterArgs) ToCampaignEventFilterPtrOutput() CampaignEventFilterPtrOutput {
+	return i.ToCampaignEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignEventFilterArgs) ToCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignEventFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventFilterOutput).ToCampaignEventFilterPtrOutputWithContext(ctx)
+}
+
+// CampaignEventFilterPtrInput is an input type that accepts CampaignEventFilterArgs, CampaignEventFilterPtr and CampaignEventFilterPtrOutput values.
+// You can construct a concrete instance of `CampaignEventFilterPtrInput` via:
+//
+//          CampaignEventFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type CampaignEventFilterPtrInput interface {
+	pulumi.Input
+
+	ToCampaignEventFilterPtrOutput() CampaignEventFilterPtrOutput
+	ToCampaignEventFilterPtrOutputWithContext(context.Context) CampaignEventFilterPtrOutput
+}
+
+type campaignEventFilterPtrType CampaignEventFilterArgs
+
+func CampaignEventFilterPtr(v *CampaignEventFilterArgs) CampaignEventFilterPtrInput {
+	return (*campaignEventFilterPtrType)(v)
+}
+
+func (*campaignEventFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEventFilter)(nil)).Elem()
+}
+
+func (i *campaignEventFilterPtrType) ToCampaignEventFilterPtrOutput() CampaignEventFilterPtrOutput {
+	return i.ToCampaignEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignEventFilterPtrType) ToCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignEventFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventFilterPtrOutput)
+}
+
+type CampaignEventFilterOutput struct{ *pulumi.OutputState }
+
+func (CampaignEventFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEventFilter)(nil)).Elem()
+}
+
+func (o CampaignEventFilterOutput) ToCampaignEventFilterOutput() CampaignEventFilterOutput {
+	return o
+}
+
+func (o CampaignEventFilterOutput) ToCampaignEventFilterOutputWithContext(ctx context.Context) CampaignEventFilterOutput {
+	return o
+}
+
+func (o CampaignEventFilterOutput) ToCampaignEventFilterPtrOutput() CampaignEventFilterPtrOutput {
+	return o.ToCampaignEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignEventFilterOutput) ToCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignEventFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignEventFilter) *CampaignEventFilter {
+		return &v
+	}).(CampaignEventFilterPtrOutput)
+}
+
+func (o CampaignEventFilterOutput) Dimensions() CampaignEventDimensionsPtrOutput {
+	return o.ApplyT(func(v CampaignEventFilter) *CampaignEventDimensions { return v.Dimensions }).(CampaignEventDimensionsPtrOutput)
+}
+
+func (o CampaignEventFilterOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignEventFilter) *string { return v.FilterType }).(pulumi.StringPtrOutput)
+}
+
+type CampaignEventFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignEventFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEventFilter)(nil)).Elem()
+}
+
+func (o CampaignEventFilterPtrOutput) ToCampaignEventFilterPtrOutput() CampaignEventFilterPtrOutput {
+	return o
+}
+
+func (o CampaignEventFilterPtrOutput) ToCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignEventFilterPtrOutput {
+	return o
+}
+
+func (o CampaignEventFilterPtrOutput) Elem() CampaignEventFilterOutput {
+	return o.ApplyT(func(v *CampaignEventFilter) CampaignEventFilter {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignEventFilter
+		return ret
+	}).(CampaignEventFilterOutput)
+}
+
+func (o CampaignEventFilterPtrOutput) Dimensions() CampaignEventDimensionsPtrOutput {
+	return o.ApplyT(func(v *CampaignEventFilter) *CampaignEventDimensions {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(CampaignEventDimensionsPtrOutput)
+}
+
+func (o CampaignEventFilterPtrOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignEventFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignHook struct {
+	LambdaFunctionName *string `pulumi:"lambdaFunctionName"`
+	Mode               *string `pulumi:"mode"`
+	WebUrl             *string `pulumi:"webUrl"`
+}
+
+// CampaignHookInput is an input type that accepts CampaignHookArgs and CampaignHookOutput values.
+// You can construct a concrete instance of `CampaignHookInput` via:
+//
+//          CampaignHookArgs{...}
+type CampaignHookInput interface {
+	pulumi.Input
+
+	ToCampaignHookOutput() CampaignHookOutput
+	ToCampaignHookOutputWithContext(context.Context) CampaignHookOutput
+}
+
+type CampaignHookArgs struct {
+	LambdaFunctionName pulumi.StringPtrInput `pulumi:"lambdaFunctionName"`
+	Mode               pulumi.StringPtrInput `pulumi:"mode"`
+	WebUrl             pulumi.StringPtrInput `pulumi:"webUrl"`
+}
+
+func (CampaignHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignHook)(nil)).Elem()
+}
+
+func (i CampaignHookArgs) ToCampaignHookOutput() CampaignHookOutput {
+	return i.ToCampaignHookOutputWithContext(context.Background())
+}
+
+func (i CampaignHookArgs) ToCampaignHookOutputWithContext(ctx context.Context) CampaignHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignHookOutput)
+}
+
+func (i CampaignHookArgs) ToCampaignHookPtrOutput() CampaignHookPtrOutput {
+	return i.ToCampaignHookPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignHookArgs) ToCampaignHookPtrOutputWithContext(ctx context.Context) CampaignHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignHookOutput).ToCampaignHookPtrOutputWithContext(ctx)
+}
+
+// CampaignHookPtrInput is an input type that accepts CampaignHookArgs, CampaignHookPtr and CampaignHookPtrOutput values.
+// You can construct a concrete instance of `CampaignHookPtrInput` via:
+//
+//          CampaignHookArgs{...}
+//
+//  or:
+//
+//          nil
+type CampaignHookPtrInput interface {
+	pulumi.Input
+
+	ToCampaignHookPtrOutput() CampaignHookPtrOutput
+	ToCampaignHookPtrOutputWithContext(context.Context) CampaignHookPtrOutput
+}
+
+type campaignHookPtrType CampaignHookArgs
+
+func CampaignHookPtr(v *CampaignHookArgs) CampaignHookPtrInput {
+	return (*campaignHookPtrType)(v)
+}
+
+func (*campaignHookPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignHook)(nil)).Elem()
+}
+
+func (i *campaignHookPtrType) ToCampaignHookPtrOutput() CampaignHookPtrOutput {
+	return i.ToCampaignHookPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignHookPtrType) ToCampaignHookPtrOutputWithContext(ctx context.Context) CampaignHookPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignHookPtrOutput)
+}
+
+type CampaignHookOutput struct{ *pulumi.OutputState }
+
+func (CampaignHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignHook)(nil)).Elem()
+}
+
+func (o CampaignHookOutput) ToCampaignHookOutput() CampaignHookOutput {
+	return o
+}
+
+func (o CampaignHookOutput) ToCampaignHookOutputWithContext(ctx context.Context) CampaignHookOutput {
+	return o
+}
+
+func (o CampaignHookOutput) ToCampaignHookPtrOutput() CampaignHookPtrOutput {
+	return o.ToCampaignHookPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignHookOutput) ToCampaignHookPtrOutputWithContext(ctx context.Context) CampaignHookPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignHook) *CampaignHook {
+		return &v
+	}).(CampaignHookPtrOutput)
+}
+
+func (o CampaignHookOutput) LambdaFunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignHook) *string { return v.LambdaFunctionName }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignHookOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignHook) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignHookOutput) WebUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignHook) *string { return v.WebUrl }).(pulumi.StringPtrOutput)
+}
+
+type CampaignHookPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignHookPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignHook)(nil)).Elem()
+}
+
+func (o CampaignHookPtrOutput) ToCampaignHookPtrOutput() CampaignHookPtrOutput {
+	return o
+}
+
+func (o CampaignHookPtrOutput) ToCampaignHookPtrOutputWithContext(ctx context.Context) CampaignHookPtrOutput {
+	return o
+}
+
+func (o CampaignHookPtrOutput) Elem() CampaignHookOutput {
+	return o.ApplyT(func(v *CampaignHook) CampaignHook {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignHook
+		return ret
+	}).(CampaignHookOutput)
+}
+
+func (o CampaignHookPtrOutput) LambdaFunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignHook) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignHookPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignHook) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignHookPtrOutput) WebUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignHook) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WebUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 type CampaignLimits struct {
@@ -1836,13 +1628,13 @@ func (o CampaignMessagePtrOutput) Url() pulumi.StringPtrOutput {
 }
 
 type CampaignMessageConfiguration struct {
-	ADMMessage     *CampaignMessage              `pulumi:"aDMMessage"`
-	APNSMessage    *CampaignMessage              `pulumi:"aPNSMessage"`
-	BaiduMessage   *CampaignMessage              `pulumi:"baiduMessage"`
-	DefaultMessage *CampaignMessage              `pulumi:"defaultMessage"`
-	EmailMessage   *CampaignCampaignEmailMessage `pulumi:"emailMessage"`
-	GCMMessage     *CampaignMessage              `pulumi:"gCMMessage"`
-	SMSMessage     *CampaignCampaignSmsMessage   `pulumi:"sMSMessage"`
+	ADMMessage     *CampaignMessage      `pulumi:"aDMMessage"`
+	APNSMessage    *CampaignMessage      `pulumi:"aPNSMessage"`
+	BaiduMessage   *CampaignMessage      `pulumi:"baiduMessage"`
+	DefaultMessage *CampaignMessage      `pulumi:"defaultMessage"`
+	EmailMessage   *CampaignEmailMessage `pulumi:"emailMessage"`
+	GCMMessage     *CampaignMessage      `pulumi:"gCMMessage"`
+	SMSMessage     *CampaignSmsMessage   `pulumi:"sMSMessage"`
 }
 
 // CampaignMessageConfigurationInput is an input type that accepts CampaignMessageConfigurationArgs and CampaignMessageConfigurationOutput values.
@@ -1857,13 +1649,13 @@ type CampaignMessageConfigurationInput interface {
 }
 
 type CampaignMessageConfigurationArgs struct {
-	ADMMessage     CampaignMessagePtrInput              `pulumi:"aDMMessage"`
-	APNSMessage    CampaignMessagePtrInput              `pulumi:"aPNSMessage"`
-	BaiduMessage   CampaignMessagePtrInput              `pulumi:"baiduMessage"`
-	DefaultMessage CampaignMessagePtrInput              `pulumi:"defaultMessage"`
-	EmailMessage   CampaignCampaignEmailMessagePtrInput `pulumi:"emailMessage"`
-	GCMMessage     CampaignMessagePtrInput              `pulumi:"gCMMessage"`
-	SMSMessage     CampaignCampaignSmsMessagePtrInput   `pulumi:"sMSMessage"`
+	ADMMessage     CampaignMessagePtrInput      `pulumi:"aDMMessage"`
+	APNSMessage    CampaignMessagePtrInput      `pulumi:"aPNSMessage"`
+	BaiduMessage   CampaignMessagePtrInput      `pulumi:"baiduMessage"`
+	DefaultMessage CampaignMessagePtrInput      `pulumi:"defaultMessage"`
+	EmailMessage   CampaignEmailMessagePtrInput `pulumi:"emailMessage"`
+	GCMMessage     CampaignMessagePtrInput      `pulumi:"gCMMessage"`
+	SMSMessage     CampaignSmsMessagePtrInput   `pulumi:"sMSMessage"`
 }
 
 func (CampaignMessageConfigurationArgs) ElementType() reflect.Type {
@@ -1959,16 +1751,16 @@ func (o CampaignMessageConfigurationOutput) DefaultMessage() CampaignMessagePtrO
 	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.DefaultMessage }).(CampaignMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationOutput) EmailMessage() CampaignCampaignEmailMessagePtrOutput {
-	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignCampaignEmailMessage { return v.EmailMessage }).(CampaignCampaignEmailMessagePtrOutput)
+func (o CampaignMessageConfigurationOutput) EmailMessage() CampaignEmailMessagePtrOutput {
+	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignEmailMessage { return v.EmailMessage }).(CampaignEmailMessagePtrOutput)
 }
 
 func (o CampaignMessageConfigurationOutput) GCMMessage() CampaignMessagePtrOutput {
 	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignMessage { return v.GCMMessage }).(CampaignMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationOutput) SMSMessage() CampaignCampaignSmsMessagePtrOutput {
-	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignCampaignSmsMessage { return v.SMSMessage }).(CampaignCampaignSmsMessagePtrOutput)
+func (o CampaignMessageConfigurationOutput) SMSMessage() CampaignSmsMessagePtrOutput {
+	return o.ApplyT(func(v CampaignMessageConfiguration) *CampaignSmsMessage { return v.SMSMessage }).(CampaignSmsMessagePtrOutput)
 }
 
 type CampaignMessageConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2031,13 +1823,13 @@ func (o CampaignMessageConfigurationPtrOutput) DefaultMessage() CampaignMessageP
 	}).(CampaignMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationPtrOutput) EmailMessage() CampaignCampaignEmailMessagePtrOutput {
-	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignCampaignEmailMessage {
+func (o CampaignMessageConfigurationPtrOutput) EmailMessage() CampaignEmailMessagePtrOutput {
+	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignEmailMessage {
 		if v == nil {
 			return nil
 		}
 		return v.EmailMessage
-	}).(CampaignCampaignEmailMessagePtrOutput)
+	}).(CampaignEmailMessagePtrOutput)
 }
 
 func (o CampaignMessageConfigurationPtrOutput) GCMMessage() CampaignMessagePtrOutput {
@@ -2049,13 +1841,13 @@ func (o CampaignMessageConfigurationPtrOutput) GCMMessage() CampaignMessagePtrOu
 	}).(CampaignMessagePtrOutput)
 }
 
-func (o CampaignMessageConfigurationPtrOutput) SMSMessage() CampaignCampaignSmsMessagePtrOutput {
-	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignCampaignSmsMessage {
+func (o CampaignMessageConfigurationPtrOutput) SMSMessage() CampaignSmsMessagePtrOutput {
+	return o.ApplyT(func(v *CampaignMessageConfiguration) *CampaignSmsMessage {
 		if v == nil {
 			return nil
 		}
 		return v.SMSMessage
-	}).(CampaignCampaignSmsMessagePtrOutput)
+	}).(CampaignSmsMessagePtrOutput)
 }
 
 type CampaignQuietTime struct {
@@ -2207,13 +1999,13 @@ func (o CampaignQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
 }
 
 type CampaignSchedule struct {
-	EndTime     *string                      `pulumi:"endTime"`
-	EventFilter *CampaignCampaignEventFilter `pulumi:"eventFilter"`
-	Frequency   *string                      `pulumi:"frequency"`
-	IsLocalTime *bool                        `pulumi:"isLocalTime"`
-	QuietTime   *CampaignQuietTime           `pulumi:"quietTime"`
-	StartTime   *string                      `pulumi:"startTime"`
-	TimeZone    *string                      `pulumi:"timeZone"`
+	EndTime     *string              `pulumi:"endTime"`
+	EventFilter *CampaignEventFilter `pulumi:"eventFilter"`
+	Frequency   *string              `pulumi:"frequency"`
+	IsLocalTime *bool                `pulumi:"isLocalTime"`
+	QuietTime   *CampaignQuietTime   `pulumi:"quietTime"`
+	StartTime   *string              `pulumi:"startTime"`
+	TimeZone    *string              `pulumi:"timeZone"`
 }
 
 // CampaignScheduleInput is an input type that accepts CampaignScheduleArgs and CampaignScheduleOutput values.
@@ -2228,13 +2020,13 @@ type CampaignScheduleInput interface {
 }
 
 type CampaignScheduleArgs struct {
-	EndTime     pulumi.StringPtrInput               `pulumi:"endTime"`
-	EventFilter CampaignCampaignEventFilterPtrInput `pulumi:"eventFilter"`
-	Frequency   pulumi.StringPtrInput               `pulumi:"frequency"`
-	IsLocalTime pulumi.BoolPtrInput                 `pulumi:"isLocalTime"`
-	QuietTime   CampaignQuietTimePtrInput           `pulumi:"quietTime"`
-	StartTime   pulumi.StringPtrInput               `pulumi:"startTime"`
-	TimeZone    pulumi.StringPtrInput               `pulumi:"timeZone"`
+	EndTime     pulumi.StringPtrInput       `pulumi:"endTime"`
+	EventFilter CampaignEventFilterPtrInput `pulumi:"eventFilter"`
+	Frequency   pulumi.StringPtrInput       `pulumi:"frequency"`
+	IsLocalTime pulumi.BoolPtrInput         `pulumi:"isLocalTime"`
+	QuietTime   CampaignQuietTimePtrInput   `pulumi:"quietTime"`
+	StartTime   pulumi.StringPtrInput       `pulumi:"startTime"`
+	TimeZone    pulumi.StringPtrInput       `pulumi:"timeZone"`
 }
 
 func (CampaignScheduleArgs) ElementType() reflect.Type {
@@ -2318,8 +2110,8 @@ func (o CampaignScheduleOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignSchedule) *string { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignScheduleOutput) EventFilter() CampaignCampaignEventFilterPtrOutput {
-	return o.ApplyT(func(v CampaignSchedule) *CampaignCampaignEventFilter { return v.EventFilter }).(CampaignCampaignEventFilterPtrOutput)
+func (o CampaignScheduleOutput) EventFilter() CampaignEventFilterPtrOutput {
+	return o.ApplyT(func(v CampaignSchedule) *CampaignEventFilter { return v.EventFilter }).(CampaignEventFilterPtrOutput)
 }
 
 func (o CampaignScheduleOutput) Frequency() pulumi.StringPtrOutput {
@@ -2375,13 +2167,13 @@ func (o CampaignSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CampaignSchedulePtrOutput) EventFilter() CampaignCampaignEventFilterPtrOutput {
-	return o.ApplyT(func(v *CampaignSchedule) *CampaignCampaignEventFilter {
+func (o CampaignSchedulePtrOutput) EventFilter() CampaignEventFilterPtrOutput {
+	return o.ApplyT(func(v *CampaignSchedule) *CampaignEventFilter {
 		if v == nil {
 			return nil
 		}
 		return v.EventFilter
-	}).(CampaignCampaignEventFilterPtrOutput)
+	}).(CampaignEventFilterPtrOutput)
 }
 
 func (o CampaignSchedulePtrOutput) Frequency() pulumi.StringPtrOutput {
@@ -2575,6 +2367,214 @@ func (o CampaignSetDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 		}
 		return v.Values
 	}).(pulumi.StringArrayOutput)
+}
+
+type CampaignSmsMessage struct {
+	Body              *string `pulumi:"body"`
+	EntityId          *string `pulumi:"entityId"`
+	MessageType       *string `pulumi:"messageType"`
+	OriginationNumber *string `pulumi:"originationNumber"`
+	SenderId          *string `pulumi:"senderId"`
+	TemplateId        *string `pulumi:"templateId"`
+}
+
+// CampaignSmsMessageInput is an input type that accepts CampaignSmsMessageArgs and CampaignSmsMessageOutput values.
+// You can construct a concrete instance of `CampaignSmsMessageInput` via:
+//
+//          CampaignSmsMessageArgs{...}
+type CampaignSmsMessageInput interface {
+	pulumi.Input
+
+	ToCampaignSmsMessageOutput() CampaignSmsMessageOutput
+	ToCampaignSmsMessageOutputWithContext(context.Context) CampaignSmsMessageOutput
+}
+
+type CampaignSmsMessageArgs struct {
+	Body              pulumi.StringPtrInput `pulumi:"body"`
+	EntityId          pulumi.StringPtrInput `pulumi:"entityId"`
+	MessageType       pulumi.StringPtrInput `pulumi:"messageType"`
+	OriginationNumber pulumi.StringPtrInput `pulumi:"originationNumber"`
+	SenderId          pulumi.StringPtrInput `pulumi:"senderId"`
+	TemplateId        pulumi.StringPtrInput `pulumi:"templateId"`
+}
+
+func (CampaignSmsMessageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignSmsMessage)(nil)).Elem()
+}
+
+func (i CampaignSmsMessageArgs) ToCampaignSmsMessageOutput() CampaignSmsMessageOutput {
+	return i.ToCampaignSmsMessageOutputWithContext(context.Background())
+}
+
+func (i CampaignSmsMessageArgs) ToCampaignSmsMessageOutputWithContext(ctx context.Context) CampaignSmsMessageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignSmsMessageOutput)
+}
+
+func (i CampaignSmsMessageArgs) ToCampaignSmsMessagePtrOutput() CampaignSmsMessagePtrOutput {
+	return i.ToCampaignSmsMessagePtrOutputWithContext(context.Background())
+}
+
+func (i CampaignSmsMessageArgs) ToCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignSmsMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignSmsMessageOutput).ToCampaignSmsMessagePtrOutputWithContext(ctx)
+}
+
+// CampaignSmsMessagePtrInput is an input type that accepts CampaignSmsMessageArgs, CampaignSmsMessagePtr and CampaignSmsMessagePtrOutput values.
+// You can construct a concrete instance of `CampaignSmsMessagePtrInput` via:
+//
+//          CampaignSmsMessageArgs{...}
+//
+//  or:
+//
+//          nil
+type CampaignSmsMessagePtrInput interface {
+	pulumi.Input
+
+	ToCampaignSmsMessagePtrOutput() CampaignSmsMessagePtrOutput
+	ToCampaignSmsMessagePtrOutputWithContext(context.Context) CampaignSmsMessagePtrOutput
+}
+
+type campaignSmsMessagePtrType CampaignSmsMessageArgs
+
+func CampaignSmsMessagePtr(v *CampaignSmsMessageArgs) CampaignSmsMessagePtrInput {
+	return (*campaignSmsMessagePtrType)(v)
+}
+
+func (*campaignSmsMessagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignSmsMessage)(nil)).Elem()
+}
+
+func (i *campaignSmsMessagePtrType) ToCampaignSmsMessagePtrOutput() CampaignSmsMessagePtrOutput {
+	return i.ToCampaignSmsMessagePtrOutputWithContext(context.Background())
+}
+
+func (i *campaignSmsMessagePtrType) ToCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignSmsMessagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignSmsMessagePtrOutput)
+}
+
+type CampaignSmsMessageOutput struct{ *pulumi.OutputState }
+
+func (CampaignSmsMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignSmsMessage)(nil)).Elem()
+}
+
+func (o CampaignSmsMessageOutput) ToCampaignSmsMessageOutput() CampaignSmsMessageOutput {
+	return o
+}
+
+func (o CampaignSmsMessageOutput) ToCampaignSmsMessageOutputWithContext(ctx context.Context) CampaignSmsMessageOutput {
+	return o
+}
+
+func (o CampaignSmsMessageOutput) ToCampaignSmsMessagePtrOutput() CampaignSmsMessagePtrOutput {
+	return o.ToCampaignSmsMessagePtrOutputWithContext(context.Background())
+}
+
+func (o CampaignSmsMessageOutput) ToCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignSmsMessagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignSmsMessage) *CampaignSmsMessage {
+		return &v
+	}).(CampaignSmsMessagePtrOutput)
+}
+
+func (o CampaignSmsMessageOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignSmsMessage) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessageOutput) EntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignSmsMessage) *string { return v.EntityId }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessageOutput) MessageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignSmsMessage) *string { return v.MessageType }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessageOutput) OriginationNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignSmsMessage) *string { return v.OriginationNumber }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessageOutput) SenderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignSmsMessage) *string { return v.SenderId }).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessageOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignSmsMessage) *string { return v.TemplateId }).(pulumi.StringPtrOutput)
+}
+
+type CampaignSmsMessagePtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignSmsMessagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignSmsMessage)(nil)).Elem()
+}
+
+func (o CampaignSmsMessagePtrOutput) ToCampaignSmsMessagePtrOutput() CampaignSmsMessagePtrOutput {
+	return o
+}
+
+func (o CampaignSmsMessagePtrOutput) ToCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignSmsMessagePtrOutput {
+	return o
+}
+
+func (o CampaignSmsMessagePtrOutput) Elem() CampaignSmsMessageOutput {
+	return o.ApplyT(func(v *CampaignSmsMessage) CampaignSmsMessage {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignSmsMessage
+		return ret
+	}).(CampaignSmsMessageOutput)
+}
+
+func (o CampaignSmsMessagePtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignSmsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessagePtrOutput) EntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignSmsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessagePtrOutput) MessageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignSmsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessagePtrOutput) OriginationNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignSmsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OriginationNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessagePtrOutput) SenderId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignSmsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SenderId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignSmsMessagePtrOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignSmsMessage) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateId
+	}).(pulumi.StringPtrOutput)
 }
 
 type CampaignWriteTreatmentResource struct {
@@ -3823,6 +3823,214 @@ func (o SegmentDemographicPtrOutput) Platform() SegmentSetDimensionPtrOutput {
 	}).(SegmentSetDimensionPtrOutput)
 }
 
+type SegmentDimensions struct {
+	Attributes     interface{}         `pulumi:"attributes"`
+	Behavior       *SegmentBehavior    `pulumi:"behavior"`
+	Demographic    *SegmentDemographic `pulumi:"demographic"`
+	Location       *SegmentLocation    `pulumi:"location"`
+	Metrics        interface{}         `pulumi:"metrics"`
+	UserAttributes interface{}         `pulumi:"userAttributes"`
+}
+
+// SegmentDimensionsInput is an input type that accepts SegmentDimensionsArgs and SegmentDimensionsOutput values.
+// You can construct a concrete instance of `SegmentDimensionsInput` via:
+//
+//          SegmentDimensionsArgs{...}
+type SegmentDimensionsInput interface {
+	pulumi.Input
+
+	ToSegmentDimensionsOutput() SegmentDimensionsOutput
+	ToSegmentDimensionsOutputWithContext(context.Context) SegmentDimensionsOutput
+}
+
+type SegmentDimensionsArgs struct {
+	Attributes     pulumi.Input               `pulumi:"attributes"`
+	Behavior       SegmentBehaviorPtrInput    `pulumi:"behavior"`
+	Demographic    SegmentDemographicPtrInput `pulumi:"demographic"`
+	Location       SegmentLocationPtrInput    `pulumi:"location"`
+	Metrics        pulumi.Input               `pulumi:"metrics"`
+	UserAttributes pulumi.Input               `pulumi:"userAttributes"`
+}
+
+func (SegmentDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDimensions)(nil)).Elem()
+}
+
+func (i SegmentDimensionsArgs) ToSegmentDimensionsOutput() SegmentDimensionsOutput {
+	return i.ToSegmentDimensionsOutputWithContext(context.Background())
+}
+
+func (i SegmentDimensionsArgs) ToSegmentDimensionsOutputWithContext(ctx context.Context) SegmentDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsOutput)
+}
+
+func (i SegmentDimensionsArgs) ToSegmentDimensionsPtrOutput() SegmentDimensionsPtrOutput {
+	return i.ToSegmentDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDimensionsArgs) ToSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsOutput).ToSegmentDimensionsPtrOutputWithContext(ctx)
+}
+
+// SegmentDimensionsPtrInput is an input type that accepts SegmentDimensionsArgs, SegmentDimensionsPtr and SegmentDimensionsPtrOutput values.
+// You can construct a concrete instance of `SegmentDimensionsPtrInput` via:
+//
+//          SegmentDimensionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SegmentDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDimensionsPtrOutput() SegmentDimensionsPtrOutput
+	ToSegmentDimensionsPtrOutputWithContext(context.Context) SegmentDimensionsPtrOutput
+}
+
+type segmentDimensionsPtrType SegmentDimensionsArgs
+
+func SegmentDimensionsPtr(v *SegmentDimensionsArgs) SegmentDimensionsPtrInput {
+	return (*segmentDimensionsPtrType)(v)
+}
+
+func (*segmentDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDimensions)(nil)).Elem()
+}
+
+func (i *segmentDimensionsPtrType) ToSegmentDimensionsPtrOutput() SegmentDimensionsPtrOutput {
+	return i.ToSegmentDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDimensionsPtrType) ToSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsPtrOutput)
+}
+
+type SegmentDimensionsOutput struct{ *pulumi.OutputState }
+
+func (SegmentDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDimensions)(nil)).Elem()
+}
+
+func (o SegmentDimensionsOutput) ToSegmentDimensionsOutput() SegmentDimensionsOutput {
+	return o
+}
+
+func (o SegmentDimensionsOutput) ToSegmentDimensionsOutputWithContext(ctx context.Context) SegmentDimensionsOutput {
+	return o
+}
+
+func (o SegmentDimensionsOutput) ToSegmentDimensionsPtrOutput() SegmentDimensionsPtrOutput {
+	return o.ToSegmentDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDimensionsOutput) ToSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDimensions) *SegmentDimensions {
+		return &v
+	}).(SegmentDimensionsPtrOutput)
+}
+
+func (o SegmentDimensionsOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v SegmentDimensions) interface{} { return v.Attributes }).(pulumi.AnyOutput)
+}
+
+func (o SegmentDimensionsOutput) Behavior() SegmentBehaviorPtrOutput {
+	return o.ApplyT(func(v SegmentDimensions) *SegmentBehavior { return v.Behavior }).(SegmentBehaviorPtrOutput)
+}
+
+func (o SegmentDimensionsOutput) Demographic() SegmentDemographicPtrOutput {
+	return o.ApplyT(func(v SegmentDimensions) *SegmentDemographic { return v.Demographic }).(SegmentDemographicPtrOutput)
+}
+
+func (o SegmentDimensionsOutput) Location() SegmentLocationPtrOutput {
+	return o.ApplyT(func(v SegmentDimensions) *SegmentLocation { return v.Location }).(SegmentLocationPtrOutput)
+}
+
+func (o SegmentDimensionsOutput) Metrics() pulumi.AnyOutput {
+	return o.ApplyT(func(v SegmentDimensions) interface{} { return v.Metrics }).(pulumi.AnyOutput)
+}
+
+func (o SegmentDimensionsOutput) UserAttributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v SegmentDimensions) interface{} { return v.UserAttributes }).(pulumi.AnyOutput)
+}
+
+type SegmentDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDimensions)(nil)).Elem()
+}
+
+func (o SegmentDimensionsPtrOutput) ToSegmentDimensionsPtrOutput() SegmentDimensionsPtrOutput {
+	return o
+}
+
+func (o SegmentDimensionsPtrOutput) ToSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentDimensionsPtrOutput {
+	return o
+}
+
+func (o SegmentDimensionsPtrOutput) Elem() SegmentDimensionsOutput {
+	return o.ApplyT(func(v *SegmentDimensions) SegmentDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDimensions
+		return ret
+	}).(SegmentDimensionsOutput)
+}
+
+func (o SegmentDimensionsPtrOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SegmentDimensions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(pulumi.AnyOutput)
+}
+
+func (o SegmentDimensionsPtrOutput) Behavior() SegmentBehaviorPtrOutput {
+	return o.ApplyT(func(v *SegmentDimensions) *SegmentBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.Behavior
+	}).(SegmentBehaviorPtrOutput)
+}
+
+func (o SegmentDimensionsPtrOutput) Demographic() SegmentDemographicPtrOutput {
+	return o.ApplyT(func(v *SegmentDimensions) *SegmentDemographic {
+		if v == nil {
+			return nil
+		}
+		return v.Demographic
+	}).(SegmentDemographicPtrOutput)
+}
+
+func (o SegmentDimensionsPtrOutput) Location() SegmentLocationPtrOutput {
+	return o.ApplyT(func(v *SegmentDimensions) *SegmentLocation {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(SegmentLocationPtrOutput)
+}
+
+func (o SegmentDimensionsPtrOutput) Metrics() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SegmentDimensions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Metrics
+	}).(pulumi.AnyOutput)
+}
+
+func (o SegmentDimensionsPtrOutput) UserAttributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SegmentDimensions) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttributes
+	}).(pulumi.AnyOutput)
+}
+
 type SegmentGPSPoint struct {
 	Coordinates       SegmentCoordinates `pulumi:"coordinates"`
 	RangeInKilometers float64            `pulumi:"rangeInKilometers"`
@@ -3972,10 +4180,8 @@ func (o SegmentGPSPointPtrOutput) RangeInKilometers() pulumi.Float64PtrOutput {
 }
 
 type SegmentGroups struct {
-	Dimensions     []SegmentSegmentDimensions `pulumi:"dimensions"`
-	SourceSegments []SegmentSourceSegments    `pulumi:"sourceSegments"`
-	SourceType     *string                    `pulumi:"sourceType"`
-	Type           *string                    `pulumi:"type"`
+	Groups  []SegmentGroups `pulumi:"groups"`
+	Include *string         `pulumi:"include"`
 }
 
 // SegmentGroupsInput is an input type that accepts SegmentGroupsArgs and SegmentGroupsOutput values.
@@ -3990,10 +4196,8 @@ type SegmentGroupsInput interface {
 }
 
 type SegmentGroupsArgs struct {
-	Dimensions     SegmentSegmentDimensionsArrayInput `pulumi:"dimensions"`
-	SourceSegments SegmentSourceSegmentsArrayInput    `pulumi:"sourceSegments"`
-	SourceType     pulumi.StringPtrInput              `pulumi:"sourceType"`
-	Type           pulumi.StringPtrInput              `pulumi:"type"`
+	Groups  SegmentGroupsArrayInput `pulumi:"groups"`
+	Include pulumi.StringPtrInput   `pulumi:"include"`
 }
 
 func (SegmentGroupsArgs) ElementType() reflect.Type {
@@ -4006,6 +4210,47 @@ func (i SegmentGroupsArgs) ToSegmentGroupsOutput() SegmentGroupsOutput {
 
 func (i SegmentGroupsArgs) ToSegmentGroupsOutputWithContext(ctx context.Context) SegmentGroupsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentGroupsOutput)
+}
+
+func (i SegmentGroupsArgs) ToSegmentGroupsPtrOutput() SegmentGroupsPtrOutput {
+	return i.ToSegmentGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentGroupsArgs) ToSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentGroupsOutput).ToSegmentGroupsPtrOutputWithContext(ctx)
+}
+
+// SegmentGroupsPtrInput is an input type that accepts SegmentGroupsArgs, SegmentGroupsPtr and SegmentGroupsPtrOutput values.
+// You can construct a concrete instance of `SegmentGroupsPtrInput` via:
+//
+//          SegmentGroupsArgs{...}
+//
+//  or:
+//
+//          nil
+type SegmentGroupsPtrInput interface {
+	pulumi.Input
+
+	ToSegmentGroupsPtrOutput() SegmentGroupsPtrOutput
+	ToSegmentGroupsPtrOutputWithContext(context.Context) SegmentGroupsPtrOutput
+}
+
+type segmentGroupsPtrType SegmentGroupsArgs
+
+func SegmentGroupsPtr(v *SegmentGroupsArgs) SegmentGroupsPtrInput {
+	return (*segmentGroupsPtrType)(v)
+}
+
+func (*segmentGroupsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentGroups)(nil)).Elem()
+}
+
+func (i *segmentGroupsPtrType) ToSegmentGroupsPtrOutput() SegmentGroupsPtrOutput {
+	return i.ToSegmentGroupsPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentGroupsPtrType) ToSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentGroupsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentGroupsPtrOutput)
 }
 
 // SegmentGroupsArrayInput is an input type that accepts SegmentGroupsArray and SegmentGroupsArrayOutput values.
@@ -4047,20 +4292,64 @@ func (o SegmentGroupsOutput) ToSegmentGroupsOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SegmentGroupsOutput) Dimensions() SegmentSegmentDimensionsArrayOutput {
-	return o.ApplyT(func(v SegmentGroups) []SegmentSegmentDimensions { return v.Dimensions }).(SegmentSegmentDimensionsArrayOutput)
+func (o SegmentGroupsOutput) ToSegmentGroupsPtrOutput() SegmentGroupsPtrOutput {
+	return o.ToSegmentGroupsPtrOutputWithContext(context.Background())
 }
 
-func (o SegmentGroupsOutput) SourceSegments() SegmentSourceSegmentsArrayOutput {
-	return o.ApplyT(func(v SegmentGroups) []SegmentSourceSegments { return v.SourceSegments }).(SegmentSourceSegmentsArrayOutput)
+func (o SegmentGroupsOutput) ToSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentGroupsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentGroups) *SegmentGroups {
+		return &v
+	}).(SegmentGroupsPtrOutput)
 }
 
-func (o SegmentGroupsOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SegmentGroups) *string { return v.SourceType }).(pulumi.StringPtrOutput)
+func (o SegmentGroupsOutput) Groups() SegmentGroupsArrayOutput {
+	return o.ApplyT(func(v SegmentGroups) []SegmentGroups { return v.Groups }).(SegmentGroupsArrayOutput)
 }
 
-func (o SegmentGroupsOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SegmentGroups) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o SegmentGroupsOutput) Include() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SegmentGroups) *string { return v.Include }).(pulumi.StringPtrOutput)
+}
+
+type SegmentGroupsPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentGroupsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentGroups)(nil)).Elem()
+}
+
+func (o SegmentGroupsPtrOutput) ToSegmentGroupsPtrOutput() SegmentGroupsPtrOutput {
+	return o
+}
+
+func (o SegmentGroupsPtrOutput) ToSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentGroupsPtrOutput {
+	return o
+}
+
+func (o SegmentGroupsPtrOutput) Elem() SegmentGroupsOutput {
+	return o.ApplyT(func(v *SegmentGroups) SegmentGroups {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentGroups
+		return ret
+	}).(SegmentGroupsOutput)
+}
+
+func (o SegmentGroupsPtrOutput) Groups() SegmentGroupsArrayOutput {
+	return o.ApplyT(func(v *SegmentGroups) []SegmentGroups {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(SegmentGroupsArrayOutput)
+}
+
+func (o SegmentGroupsPtrOutput) Include() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SegmentGroups) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringPtrOutput)
 }
 
 type SegmentGroupsArrayOutput struct{ *pulumi.OutputState }
@@ -4379,407 +4668,6 @@ func (o SegmentRecencyPtrOutput) RecencyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type SegmentSegmentDimensions struct {
-	Attributes     interface{}         `pulumi:"attributes"`
-	Behavior       *SegmentBehavior    `pulumi:"behavior"`
-	Demographic    *SegmentDemographic `pulumi:"demographic"`
-	Location       *SegmentLocation    `pulumi:"location"`
-	Metrics        interface{}         `pulumi:"metrics"`
-	UserAttributes interface{}         `pulumi:"userAttributes"`
-}
-
-// SegmentSegmentDimensionsInput is an input type that accepts SegmentSegmentDimensionsArgs and SegmentSegmentDimensionsOutput values.
-// You can construct a concrete instance of `SegmentSegmentDimensionsInput` via:
-//
-//          SegmentSegmentDimensionsArgs{...}
-type SegmentSegmentDimensionsInput interface {
-	pulumi.Input
-
-	ToSegmentSegmentDimensionsOutput() SegmentSegmentDimensionsOutput
-	ToSegmentSegmentDimensionsOutputWithContext(context.Context) SegmentSegmentDimensionsOutput
-}
-
-type SegmentSegmentDimensionsArgs struct {
-	Attributes     pulumi.Input               `pulumi:"attributes"`
-	Behavior       SegmentBehaviorPtrInput    `pulumi:"behavior"`
-	Demographic    SegmentDemographicPtrInput `pulumi:"demographic"`
-	Location       SegmentLocationPtrInput    `pulumi:"location"`
-	Metrics        pulumi.Input               `pulumi:"metrics"`
-	UserAttributes pulumi.Input               `pulumi:"userAttributes"`
-}
-
-func (SegmentSegmentDimensionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentSegmentDimensions)(nil)).Elem()
-}
-
-func (i SegmentSegmentDimensionsArgs) ToSegmentSegmentDimensionsOutput() SegmentSegmentDimensionsOutput {
-	return i.ToSegmentSegmentDimensionsOutputWithContext(context.Background())
-}
-
-func (i SegmentSegmentDimensionsArgs) ToSegmentSegmentDimensionsOutputWithContext(ctx context.Context) SegmentSegmentDimensionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSegmentDimensionsOutput)
-}
-
-func (i SegmentSegmentDimensionsArgs) ToSegmentSegmentDimensionsPtrOutput() SegmentSegmentDimensionsPtrOutput {
-	return i.ToSegmentSegmentDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (i SegmentSegmentDimensionsArgs) ToSegmentSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentSegmentDimensionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSegmentDimensionsOutput).ToSegmentSegmentDimensionsPtrOutputWithContext(ctx)
-}
-
-// SegmentSegmentDimensionsPtrInput is an input type that accepts SegmentSegmentDimensionsArgs, SegmentSegmentDimensionsPtr and SegmentSegmentDimensionsPtrOutput values.
-// You can construct a concrete instance of `SegmentSegmentDimensionsPtrInput` via:
-//
-//          SegmentSegmentDimensionsArgs{...}
-//
-//  or:
-//
-//          nil
-type SegmentSegmentDimensionsPtrInput interface {
-	pulumi.Input
-
-	ToSegmentSegmentDimensionsPtrOutput() SegmentSegmentDimensionsPtrOutput
-	ToSegmentSegmentDimensionsPtrOutputWithContext(context.Context) SegmentSegmentDimensionsPtrOutput
-}
-
-type segmentSegmentDimensionsPtrType SegmentSegmentDimensionsArgs
-
-func SegmentSegmentDimensionsPtr(v *SegmentSegmentDimensionsArgs) SegmentSegmentDimensionsPtrInput {
-	return (*segmentSegmentDimensionsPtrType)(v)
-}
-
-func (*segmentSegmentDimensionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SegmentSegmentDimensions)(nil)).Elem()
-}
-
-func (i *segmentSegmentDimensionsPtrType) ToSegmentSegmentDimensionsPtrOutput() SegmentSegmentDimensionsPtrOutput {
-	return i.ToSegmentSegmentDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (i *segmentSegmentDimensionsPtrType) ToSegmentSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentSegmentDimensionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSegmentDimensionsPtrOutput)
-}
-
-// SegmentSegmentDimensionsArrayInput is an input type that accepts SegmentSegmentDimensionsArray and SegmentSegmentDimensionsArrayOutput values.
-// You can construct a concrete instance of `SegmentSegmentDimensionsArrayInput` via:
-//
-//          SegmentSegmentDimensionsArray{ SegmentSegmentDimensionsArgs{...} }
-type SegmentSegmentDimensionsArrayInput interface {
-	pulumi.Input
-
-	ToSegmentSegmentDimensionsArrayOutput() SegmentSegmentDimensionsArrayOutput
-	ToSegmentSegmentDimensionsArrayOutputWithContext(context.Context) SegmentSegmentDimensionsArrayOutput
-}
-
-type SegmentSegmentDimensionsArray []SegmentSegmentDimensionsInput
-
-func (SegmentSegmentDimensionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SegmentSegmentDimensions)(nil)).Elem()
-}
-
-func (i SegmentSegmentDimensionsArray) ToSegmentSegmentDimensionsArrayOutput() SegmentSegmentDimensionsArrayOutput {
-	return i.ToSegmentSegmentDimensionsArrayOutputWithContext(context.Background())
-}
-
-func (i SegmentSegmentDimensionsArray) ToSegmentSegmentDimensionsArrayOutputWithContext(ctx context.Context) SegmentSegmentDimensionsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSegmentDimensionsArrayOutput)
-}
-
-type SegmentSegmentDimensionsOutput struct{ *pulumi.OutputState }
-
-func (SegmentSegmentDimensionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentSegmentDimensions)(nil)).Elem()
-}
-
-func (o SegmentSegmentDimensionsOutput) ToSegmentSegmentDimensionsOutput() SegmentSegmentDimensionsOutput {
-	return o
-}
-
-func (o SegmentSegmentDimensionsOutput) ToSegmentSegmentDimensionsOutputWithContext(ctx context.Context) SegmentSegmentDimensionsOutput {
-	return o
-}
-
-func (o SegmentSegmentDimensionsOutput) ToSegmentSegmentDimensionsPtrOutput() SegmentSegmentDimensionsPtrOutput {
-	return o.ToSegmentSegmentDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (o SegmentSegmentDimensionsOutput) ToSegmentSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentSegmentDimensionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentSegmentDimensions) *SegmentSegmentDimensions {
-		return &v
-	}).(SegmentSegmentDimensionsPtrOutput)
-}
-
-func (o SegmentSegmentDimensionsOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v SegmentSegmentDimensions) interface{} { return v.Attributes }).(pulumi.AnyOutput)
-}
-
-func (o SegmentSegmentDimensionsOutput) Behavior() SegmentBehaviorPtrOutput {
-	return o.ApplyT(func(v SegmentSegmentDimensions) *SegmentBehavior { return v.Behavior }).(SegmentBehaviorPtrOutput)
-}
-
-func (o SegmentSegmentDimensionsOutput) Demographic() SegmentDemographicPtrOutput {
-	return o.ApplyT(func(v SegmentSegmentDimensions) *SegmentDemographic { return v.Demographic }).(SegmentDemographicPtrOutput)
-}
-
-func (o SegmentSegmentDimensionsOutput) Location() SegmentLocationPtrOutput {
-	return o.ApplyT(func(v SegmentSegmentDimensions) *SegmentLocation { return v.Location }).(SegmentLocationPtrOutput)
-}
-
-func (o SegmentSegmentDimensionsOutput) Metrics() pulumi.AnyOutput {
-	return o.ApplyT(func(v SegmentSegmentDimensions) interface{} { return v.Metrics }).(pulumi.AnyOutput)
-}
-
-func (o SegmentSegmentDimensionsOutput) UserAttributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v SegmentSegmentDimensions) interface{} { return v.UserAttributes }).(pulumi.AnyOutput)
-}
-
-type SegmentSegmentDimensionsPtrOutput struct{ *pulumi.OutputState }
-
-func (SegmentSegmentDimensionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SegmentSegmentDimensions)(nil)).Elem()
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) ToSegmentSegmentDimensionsPtrOutput() SegmentSegmentDimensionsPtrOutput {
-	return o
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) ToSegmentSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentSegmentDimensionsPtrOutput {
-	return o
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) Elem() SegmentSegmentDimensionsOutput {
-	return o.ApplyT(func(v *SegmentSegmentDimensions) SegmentSegmentDimensions {
-		if v != nil {
-			return *v
-		}
-		var ret SegmentSegmentDimensions
-		return ret
-	}).(SegmentSegmentDimensionsOutput)
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) Attributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SegmentSegmentDimensions) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Attributes
-	}).(pulumi.AnyOutput)
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) Behavior() SegmentBehaviorPtrOutput {
-	return o.ApplyT(func(v *SegmentSegmentDimensions) *SegmentBehavior {
-		if v == nil {
-			return nil
-		}
-		return v.Behavior
-	}).(SegmentBehaviorPtrOutput)
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) Demographic() SegmentDemographicPtrOutput {
-	return o.ApplyT(func(v *SegmentSegmentDimensions) *SegmentDemographic {
-		if v == nil {
-			return nil
-		}
-		return v.Demographic
-	}).(SegmentDemographicPtrOutput)
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) Location() SegmentLocationPtrOutput {
-	return o.ApplyT(func(v *SegmentSegmentDimensions) *SegmentLocation {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(SegmentLocationPtrOutput)
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) Metrics() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SegmentSegmentDimensions) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Metrics
-	}).(pulumi.AnyOutput)
-}
-
-func (o SegmentSegmentDimensionsPtrOutput) UserAttributes() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SegmentSegmentDimensions) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.UserAttributes
-	}).(pulumi.AnyOutput)
-}
-
-type SegmentSegmentDimensionsArrayOutput struct{ *pulumi.OutputState }
-
-func (SegmentSegmentDimensionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SegmentSegmentDimensions)(nil)).Elem()
-}
-
-func (o SegmentSegmentDimensionsArrayOutput) ToSegmentSegmentDimensionsArrayOutput() SegmentSegmentDimensionsArrayOutput {
-	return o
-}
-
-func (o SegmentSegmentDimensionsArrayOutput) ToSegmentSegmentDimensionsArrayOutputWithContext(ctx context.Context) SegmentSegmentDimensionsArrayOutput {
-	return o
-}
-
-func (o SegmentSegmentDimensionsArrayOutput) Index(i pulumi.IntInput) SegmentSegmentDimensionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentSegmentDimensions {
-		return vs[0].([]SegmentSegmentDimensions)[vs[1].(int)]
-	}).(SegmentSegmentDimensionsOutput)
-}
-
-type SegmentSegmentGroups struct {
-	Groups  []SegmentGroups `pulumi:"groups"`
-	Include *string         `pulumi:"include"`
-}
-
-// SegmentSegmentGroupsInput is an input type that accepts SegmentSegmentGroupsArgs and SegmentSegmentGroupsOutput values.
-// You can construct a concrete instance of `SegmentSegmentGroupsInput` via:
-//
-//          SegmentSegmentGroupsArgs{...}
-type SegmentSegmentGroupsInput interface {
-	pulumi.Input
-
-	ToSegmentSegmentGroupsOutput() SegmentSegmentGroupsOutput
-	ToSegmentSegmentGroupsOutputWithContext(context.Context) SegmentSegmentGroupsOutput
-}
-
-type SegmentSegmentGroupsArgs struct {
-	Groups  SegmentGroupsArrayInput `pulumi:"groups"`
-	Include pulumi.StringPtrInput   `pulumi:"include"`
-}
-
-func (SegmentSegmentGroupsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentSegmentGroups)(nil)).Elem()
-}
-
-func (i SegmentSegmentGroupsArgs) ToSegmentSegmentGroupsOutput() SegmentSegmentGroupsOutput {
-	return i.ToSegmentSegmentGroupsOutputWithContext(context.Background())
-}
-
-func (i SegmentSegmentGroupsArgs) ToSegmentSegmentGroupsOutputWithContext(ctx context.Context) SegmentSegmentGroupsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSegmentGroupsOutput)
-}
-
-func (i SegmentSegmentGroupsArgs) ToSegmentSegmentGroupsPtrOutput() SegmentSegmentGroupsPtrOutput {
-	return i.ToSegmentSegmentGroupsPtrOutputWithContext(context.Background())
-}
-
-func (i SegmentSegmentGroupsArgs) ToSegmentSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentSegmentGroupsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSegmentGroupsOutput).ToSegmentSegmentGroupsPtrOutputWithContext(ctx)
-}
-
-// SegmentSegmentGroupsPtrInput is an input type that accepts SegmentSegmentGroupsArgs, SegmentSegmentGroupsPtr and SegmentSegmentGroupsPtrOutput values.
-// You can construct a concrete instance of `SegmentSegmentGroupsPtrInput` via:
-//
-//          SegmentSegmentGroupsArgs{...}
-//
-//  or:
-//
-//          nil
-type SegmentSegmentGroupsPtrInput interface {
-	pulumi.Input
-
-	ToSegmentSegmentGroupsPtrOutput() SegmentSegmentGroupsPtrOutput
-	ToSegmentSegmentGroupsPtrOutputWithContext(context.Context) SegmentSegmentGroupsPtrOutput
-}
-
-type segmentSegmentGroupsPtrType SegmentSegmentGroupsArgs
-
-func SegmentSegmentGroupsPtr(v *SegmentSegmentGroupsArgs) SegmentSegmentGroupsPtrInput {
-	return (*segmentSegmentGroupsPtrType)(v)
-}
-
-func (*segmentSegmentGroupsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SegmentSegmentGroups)(nil)).Elem()
-}
-
-func (i *segmentSegmentGroupsPtrType) ToSegmentSegmentGroupsPtrOutput() SegmentSegmentGroupsPtrOutput {
-	return i.ToSegmentSegmentGroupsPtrOutputWithContext(context.Background())
-}
-
-func (i *segmentSegmentGroupsPtrType) ToSegmentSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentSegmentGroupsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSegmentGroupsPtrOutput)
-}
-
-type SegmentSegmentGroupsOutput struct{ *pulumi.OutputState }
-
-func (SegmentSegmentGroupsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentSegmentGroups)(nil)).Elem()
-}
-
-func (o SegmentSegmentGroupsOutput) ToSegmentSegmentGroupsOutput() SegmentSegmentGroupsOutput {
-	return o
-}
-
-func (o SegmentSegmentGroupsOutput) ToSegmentSegmentGroupsOutputWithContext(ctx context.Context) SegmentSegmentGroupsOutput {
-	return o
-}
-
-func (o SegmentSegmentGroupsOutput) ToSegmentSegmentGroupsPtrOutput() SegmentSegmentGroupsPtrOutput {
-	return o.ToSegmentSegmentGroupsPtrOutputWithContext(context.Background())
-}
-
-func (o SegmentSegmentGroupsOutput) ToSegmentSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentSegmentGroupsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentSegmentGroups) *SegmentSegmentGroups {
-		return &v
-	}).(SegmentSegmentGroupsPtrOutput)
-}
-
-func (o SegmentSegmentGroupsOutput) Groups() SegmentGroupsArrayOutput {
-	return o.ApplyT(func(v SegmentSegmentGroups) []SegmentGroups { return v.Groups }).(SegmentGroupsArrayOutput)
-}
-
-func (o SegmentSegmentGroupsOutput) Include() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SegmentSegmentGroups) *string { return v.Include }).(pulumi.StringPtrOutput)
-}
-
-type SegmentSegmentGroupsPtrOutput struct{ *pulumi.OutputState }
-
-func (SegmentSegmentGroupsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SegmentSegmentGroups)(nil)).Elem()
-}
-
-func (o SegmentSegmentGroupsPtrOutput) ToSegmentSegmentGroupsPtrOutput() SegmentSegmentGroupsPtrOutput {
-	return o
-}
-
-func (o SegmentSegmentGroupsPtrOutput) ToSegmentSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentSegmentGroupsPtrOutput {
-	return o
-}
-
-func (o SegmentSegmentGroupsPtrOutput) Elem() SegmentSegmentGroupsOutput {
-	return o.ApplyT(func(v *SegmentSegmentGroups) SegmentSegmentGroups {
-		if v != nil {
-			return *v
-		}
-		var ret SegmentSegmentGroups
-		return ret
-	}).(SegmentSegmentGroupsOutput)
-}
-
-func (o SegmentSegmentGroupsPtrOutput) Groups() SegmentGroupsArrayOutput {
-	return o.ApplyT(func(v *SegmentSegmentGroups) []SegmentGroups {
-		if v == nil {
-			return nil
-		}
-		return v.Groups
-	}).(SegmentGroupsArrayOutput)
-}
-
-func (o SegmentSegmentGroupsPtrOutput) Include() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SegmentSegmentGroups) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Include
-	}).(pulumi.StringPtrOutput)
-}
-
 type SegmentSetDimension struct {
 	DimensionType *string  `pulumi:"dimensionType"`
 	Values        []string `pulumi:"values"`
@@ -4928,106 +4816,6 @@ func (o SegmentSetDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-type SegmentSourceSegments struct {
-	Id      string `pulumi:"id"`
-	Version *int   `pulumi:"version"`
-}
-
-// SegmentSourceSegmentsInput is an input type that accepts SegmentSourceSegmentsArgs and SegmentSourceSegmentsOutput values.
-// You can construct a concrete instance of `SegmentSourceSegmentsInput` via:
-//
-//          SegmentSourceSegmentsArgs{...}
-type SegmentSourceSegmentsInput interface {
-	pulumi.Input
-
-	ToSegmentSourceSegmentsOutput() SegmentSourceSegmentsOutput
-	ToSegmentSourceSegmentsOutputWithContext(context.Context) SegmentSourceSegmentsOutput
-}
-
-type SegmentSourceSegmentsArgs struct {
-	Id      pulumi.StringInput `pulumi:"id"`
-	Version pulumi.IntPtrInput `pulumi:"version"`
-}
-
-func (SegmentSourceSegmentsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentSourceSegments)(nil)).Elem()
-}
-
-func (i SegmentSourceSegmentsArgs) ToSegmentSourceSegmentsOutput() SegmentSourceSegmentsOutput {
-	return i.ToSegmentSourceSegmentsOutputWithContext(context.Background())
-}
-
-func (i SegmentSourceSegmentsArgs) ToSegmentSourceSegmentsOutputWithContext(ctx context.Context) SegmentSourceSegmentsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSourceSegmentsOutput)
-}
-
-// SegmentSourceSegmentsArrayInput is an input type that accepts SegmentSourceSegmentsArray and SegmentSourceSegmentsArrayOutput values.
-// You can construct a concrete instance of `SegmentSourceSegmentsArrayInput` via:
-//
-//          SegmentSourceSegmentsArray{ SegmentSourceSegmentsArgs{...} }
-type SegmentSourceSegmentsArrayInput interface {
-	pulumi.Input
-
-	ToSegmentSourceSegmentsArrayOutput() SegmentSourceSegmentsArrayOutput
-	ToSegmentSourceSegmentsArrayOutputWithContext(context.Context) SegmentSourceSegmentsArrayOutput
-}
-
-type SegmentSourceSegmentsArray []SegmentSourceSegmentsInput
-
-func (SegmentSourceSegmentsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SegmentSourceSegments)(nil)).Elem()
-}
-
-func (i SegmentSourceSegmentsArray) ToSegmentSourceSegmentsArrayOutput() SegmentSourceSegmentsArrayOutput {
-	return i.ToSegmentSourceSegmentsArrayOutputWithContext(context.Background())
-}
-
-func (i SegmentSourceSegmentsArray) ToSegmentSourceSegmentsArrayOutputWithContext(ctx context.Context) SegmentSourceSegmentsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SegmentSourceSegmentsArrayOutput)
-}
-
-type SegmentSourceSegmentsOutput struct{ *pulumi.OutputState }
-
-func (SegmentSourceSegmentsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SegmentSourceSegments)(nil)).Elem()
-}
-
-func (o SegmentSourceSegmentsOutput) ToSegmentSourceSegmentsOutput() SegmentSourceSegmentsOutput {
-	return o
-}
-
-func (o SegmentSourceSegmentsOutput) ToSegmentSourceSegmentsOutputWithContext(ctx context.Context) SegmentSourceSegmentsOutput {
-	return o
-}
-
-func (o SegmentSourceSegmentsOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v SegmentSourceSegments) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o SegmentSourceSegmentsOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SegmentSourceSegments) *int { return v.Version }).(pulumi.IntPtrOutput)
-}
-
-type SegmentSourceSegmentsArrayOutput struct{ *pulumi.OutputState }
-
-func (SegmentSourceSegmentsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SegmentSourceSegments)(nil)).Elem()
-}
-
-func (o SegmentSourceSegmentsArrayOutput) ToSegmentSourceSegmentsArrayOutput() SegmentSourceSegmentsArrayOutput {
-	return o
-}
-
-func (o SegmentSourceSegmentsArrayOutput) ToSegmentSourceSegmentsArrayOutputWithContext(ctx context.Context) SegmentSourceSegmentsArrayOutput {
-	return o
-}
-
-func (o SegmentSourceSegmentsArrayOutput) Index(i pulumi.IntInput) SegmentSourceSegmentsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentSourceSegments {
-		return vs[0].([]SegmentSourceSegments)[vs[1].(int)]
-	}).(SegmentSourceSegmentsOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ApplicationSettingsCampaignHookOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsCampaignHookPtrOutput{})
@@ -5035,16 +4823,14 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSettingsLimitsPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsQuietTimeOutput{})
 	pulumi.RegisterOutputType(ApplicationSettingsQuietTimePtrOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignEmailMessageOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignEmailMessagePtrOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignEventFilterOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignEventFilterPtrOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignHookOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignHookPtrOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignSmsMessageOutput{})
-	pulumi.RegisterOutputType(CampaignCampaignSmsMessagePtrOutput{})
+	pulumi.RegisterOutputType(CampaignEmailMessageOutput{})
+	pulumi.RegisterOutputType(CampaignEmailMessagePtrOutput{})
 	pulumi.RegisterOutputType(CampaignEventDimensionsOutput{})
 	pulumi.RegisterOutputType(CampaignEventDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(CampaignEventFilterOutput{})
+	pulumi.RegisterOutputType(CampaignEventFilterPtrOutput{})
+	pulumi.RegisterOutputType(CampaignHookOutput{})
+	pulumi.RegisterOutputType(CampaignHookPtrOutput{})
 	pulumi.RegisterOutputType(CampaignLimitsOutput{})
 	pulumi.RegisterOutputType(CampaignLimitsPtrOutput{})
 	pulumi.RegisterOutputType(CampaignMessageOutput{})
@@ -5057,6 +4843,8 @@ func init() {
 	pulumi.RegisterOutputType(CampaignSchedulePtrOutput{})
 	pulumi.RegisterOutputType(CampaignSetDimensionOutput{})
 	pulumi.RegisterOutputType(CampaignSetDimensionPtrOutput{})
+	pulumi.RegisterOutputType(CampaignSmsMessageOutput{})
+	pulumi.RegisterOutputType(CampaignSmsMessagePtrOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceOutput{})
 	pulumi.RegisterOutputType(CampaignWriteTreatmentResourceArrayOutput{})
 	pulumi.RegisterOutputType(PushTemplateAPNSPushNotificationTemplateOutput{})
@@ -5071,21 +4859,17 @@ func init() {
 	pulumi.RegisterOutputType(SegmentCoordinatesPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDemographicOutput{})
 	pulumi.RegisterOutputType(SegmentDemographicPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDimensionsOutput{})
+	pulumi.RegisterOutputType(SegmentDimensionsPtrOutput{})
 	pulumi.RegisterOutputType(SegmentGPSPointOutput{})
 	pulumi.RegisterOutputType(SegmentGPSPointPtrOutput{})
 	pulumi.RegisterOutputType(SegmentGroupsOutput{})
+	pulumi.RegisterOutputType(SegmentGroupsPtrOutput{})
 	pulumi.RegisterOutputType(SegmentGroupsArrayOutput{})
 	pulumi.RegisterOutputType(SegmentLocationOutput{})
 	pulumi.RegisterOutputType(SegmentLocationPtrOutput{})
 	pulumi.RegisterOutputType(SegmentRecencyOutput{})
 	pulumi.RegisterOutputType(SegmentRecencyPtrOutput{})
-	pulumi.RegisterOutputType(SegmentSegmentDimensionsOutput{})
-	pulumi.RegisterOutputType(SegmentSegmentDimensionsPtrOutput{})
-	pulumi.RegisterOutputType(SegmentSegmentDimensionsArrayOutput{})
-	pulumi.RegisterOutputType(SegmentSegmentGroupsOutput{})
-	pulumi.RegisterOutputType(SegmentSegmentGroupsPtrOutput{})
 	pulumi.RegisterOutputType(SegmentSetDimensionOutput{})
 	pulumi.RegisterOutputType(SegmentSetDimensionPtrOutput{})
-	pulumi.RegisterOutputType(SegmentSourceSegmentsOutput{})
-	pulumi.RegisterOutputType(SegmentSourceSegmentsArrayOutput{})
 }

@@ -24,7 +24,7 @@ type FindingsFilter struct {
 	// Findings filter criteria.
 	FindingCriteria FindingsFilterFindingCriteriaOutput `pulumi:"findingCriteria"`
 	// Findings filters list.
-	FindingsFilterListItems FindingsFilterFindingsFilterListItemArrayOutput `pulumi:"findingsFilterListItems"`
+	FindingsFilterListItems FindingsFilterListItemArrayOutput `pulumi:"findingsFilterListItems"`
 	// Findings filter name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Findings filter position.

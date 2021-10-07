@@ -39,7 +39,7 @@ export class Member extends pulumi.CustomResource {
     }
 
     public readonly invitationId!: pulumi.Output<string | undefined>;
-    public readonly memberConfiguration!: pulumi.Output<outputs.managedblockchain.MemberMemberConfiguration>;
+    public readonly memberConfiguration!: pulumi.Output<outputs.managedblockchain.MemberConfiguration>;
     public /*out*/ readonly memberId!: pulumi.Output<string>;
     public readonly networkConfiguration!: pulumi.Output<outputs.managedblockchain.MemberNetworkConfiguration | undefined>;
     public readonly networkId!: pulumi.Output<string | undefined>;
@@ -84,7 +84,7 @@ export class Member extends pulumi.CustomResource {
  */
 export interface MemberArgs {
     invitationId?: pulumi.Input<string>;
-    memberConfiguration: pulumi.Input<inputs.managedblockchain.MemberMemberConfigurationArgs>;
+    memberConfiguration: pulumi.Input<inputs.managedblockchain.MemberConfigurationArgs>;
     networkConfiguration?: pulumi.Input<inputs.managedblockchain.MemberNetworkConfigurationArgs>;
     networkId?: pulumi.Input<string>;
 }

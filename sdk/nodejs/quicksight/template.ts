@@ -56,13 +56,13 @@ export class Template extends pulumi.CustomResource {
      * <p>A list of resource permissions to be set on the template. </p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateTemplateSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
      */
     public readonly tags!: pulumi.Output<outputs.quicksight.TemplateTag[] | undefined>;
     public readonly templateId!: pulumi.Output<string>;
-    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateTemplateVersion>;
+    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateVersion>;
     /**
      * <p>A description of the current template version being created. This API operation creates the
      * 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
@@ -132,7 +132,7 @@ export interface TemplateArgs {
      * <p>A list of resource permissions to be set on the template. </p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
-    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateTemplateSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
      */

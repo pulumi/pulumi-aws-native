@@ -17,8 +17,8 @@ import (
 type IPSet struct {
 	pulumi.CustomResourceState
 
-	IPSetDescriptors IPSetIPSetDescriptorArrayOutput `pulumi:"iPSetDescriptors"`
-	Name             pulumi.StringOutput             `pulumi:"name"`
+	IPSetDescriptors IPSetDescriptorArrayOutput `pulumi:"iPSetDescriptors"`
+	Name             pulumi.StringOutput        `pulumi:"name"`
 }
 
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
@@ -63,13 +63,13 @@ func (IPSetState) ElementType() reflect.Type {
 }
 
 type ipsetArgs struct {
-	IPSetDescriptors []IPSetIPSetDescriptor `pulumi:"iPSetDescriptors"`
-	Name             string                 `pulumi:"name"`
+	IPSetDescriptors []IPSetDescriptor `pulumi:"iPSetDescriptors"`
+	Name             string            `pulumi:"name"`
 }
 
 // The set of arguments for constructing a IPSet resource.
 type IPSetArgs struct {
-	IPSetDescriptors IPSetIPSetDescriptorArrayInput
+	IPSetDescriptors IPSetDescriptorArrayInput
 	Name             pulumi.StringInput
 }
 

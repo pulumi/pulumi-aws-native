@@ -26,10 +26,10 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<bool?> BadgeEnabled { get; private set; } = null!;
 
         [Output("buildBatchConfig")]
-        public Output<Outputs.ProjectProjectBuildBatchConfig?> BuildBatchConfig { get; private set; } = null!;
+        public Output<Outputs.ProjectBuildBatchConfig?> BuildBatchConfig { get; private set; } = null!;
 
         [Output("cache")]
-        public Output<Outputs.ProjectProjectCache?> Cache { get; private set; } = null!;
+        public Output<Outputs.ProjectCache?> Cache { get; private set; } = null!;
 
         [Output("concurrentBuildLimit")]
         public Output<int?> ConcurrentBuildLimit { get; private set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<Outputs.ProjectEnvironment> Environment { get; private set; } = null!;
 
         [Output("fileSystemLocations")]
-        public Output<ImmutableArray<Outputs.ProjectProjectFileSystemLocation>> FileSystemLocations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ProjectFileSystemLocation>> FileSystemLocations { get; private set; } = null!;
 
         [Output("logsConfig")]
         public Output<Outputs.ProjectLogsConfig?> LogsConfig { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<ImmutableArray<Outputs.ProjectArtifacts>> SecondaryArtifacts { get; private set; } = null!;
 
         [Output("secondarySourceVersions")]
-        public Output<ImmutableArray<Outputs.ProjectProjectSourceVersion>> SecondarySourceVersions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ProjectSourceVersion>> SecondarySourceVersions { get; private set; } = null!;
 
         [Output("secondarySources")]
         public Output<ImmutableArray<Outputs.ProjectSource>> SecondarySources { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<int?> TimeoutInMinutes { get; private set; } = null!;
 
         [Output("triggers")]
-        public Output<Outputs.ProjectProjectTriggers?> Triggers { get; private set; } = null!;
+        public Output<Outputs.ProjectTriggers?> Triggers { get; private set; } = null!;
 
         [Output("visibility")]
         public Output<string?> Visibility { get; private set; } = null!;
@@ -143,10 +143,10 @@ namespace Pulumi.AwsNative.CodeBuild
         public Input<bool>? BadgeEnabled { get; set; }
 
         [Input("buildBatchConfig")]
-        public Input<Inputs.ProjectProjectBuildBatchConfigArgs>? BuildBatchConfig { get; set; }
+        public Input<Inputs.ProjectBuildBatchConfigArgs>? BuildBatchConfig { get; set; }
 
         [Input("cache")]
-        public Input<Inputs.ProjectProjectCacheArgs>? Cache { get; set; }
+        public Input<Inputs.ProjectCacheArgs>? Cache { get; set; }
 
         [Input("concurrentBuildLimit")]
         public Input<int>? ConcurrentBuildLimit { get; set; }
@@ -161,10 +161,10 @@ namespace Pulumi.AwsNative.CodeBuild
         public Input<Inputs.ProjectEnvironmentArgs> Environment { get; set; } = null!;
 
         [Input("fileSystemLocations")]
-        private InputList<Inputs.ProjectProjectFileSystemLocationArgs>? _fileSystemLocations;
-        public InputList<Inputs.ProjectProjectFileSystemLocationArgs> FileSystemLocations
+        private InputList<Inputs.ProjectFileSystemLocationArgs>? _fileSystemLocations;
+        public InputList<Inputs.ProjectFileSystemLocationArgs> FileSystemLocations
         {
-            get => _fileSystemLocations ?? (_fileSystemLocations = new InputList<Inputs.ProjectProjectFileSystemLocationArgs>());
+            get => _fileSystemLocations ?? (_fileSystemLocations = new InputList<Inputs.ProjectFileSystemLocationArgs>());
             set => _fileSystemLocations = value;
         }
 
@@ -189,10 +189,10 @@ namespace Pulumi.AwsNative.CodeBuild
         }
 
         [Input("secondarySourceVersions")]
-        private InputList<Inputs.ProjectProjectSourceVersionArgs>? _secondarySourceVersions;
-        public InputList<Inputs.ProjectProjectSourceVersionArgs> SecondarySourceVersions
+        private InputList<Inputs.ProjectSourceVersionArgs>? _secondarySourceVersions;
+        public InputList<Inputs.ProjectSourceVersionArgs> SecondarySourceVersions
         {
-            get => _secondarySourceVersions ?? (_secondarySourceVersions = new InputList<Inputs.ProjectProjectSourceVersionArgs>());
+            get => _secondarySourceVersions ?? (_secondarySourceVersions = new InputList<Inputs.ProjectSourceVersionArgs>());
             set => _secondarySourceVersions = value;
         }
 
@@ -225,7 +225,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public Input<int>? TimeoutInMinutes { get; set; }
 
         [Input("triggers")]
-        public Input<Inputs.ProjectProjectTriggersArgs>? Triggers { get; set; }
+        public Input<Inputs.ProjectTriggersArgs>? Triggers { get; set; }
 
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }

@@ -39,7 +39,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.GroupGroupVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.GroupVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -89,7 +89,7 @@ export class Group extends pulumi.CustomResource {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.GroupGroupVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.GroupVersionArgs>;
     name: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
     tags?: any;

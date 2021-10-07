@@ -16,7 +16,7 @@ __all__ = ['ConformancePackArgs', 'ConformancePack']
 class ConformancePackArgs:
     def __init__(__self__, *,
                  conformance_pack_name: pulumi.Input[str],
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackConformancePackInputParameterArgs']]]] = None,
+                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]] = None,
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class ConformancePackArgs:
         """
         The set of arguments for constructing a ConformancePack resource.
         :param pulumi.Input[str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
-        :param pulumi.Input[Sequence[pulumi.Input['ConformancePackConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
         :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
@@ -56,14 +56,14 @@ class ConformancePackArgs:
 
     @property
     @pulumi.getter(name="conformancePackInputParameters")
-    def conformance_pack_input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackConformancePackInputParameterArgs']]]]:
+    def conformance_pack_input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]:
         """
         A list of ConformancePackInputParameter objects.
         """
         return pulumi.get(self, "conformance_pack_input_parameters")
 
     @conformance_pack_input_parameters.setter
-    def conformance_pack_input_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackConformancePackInputParameterArgs']]]]):
+    def conformance_pack_input_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]):
         pulumi.set(self, "conformance_pack_input_parameters", value)
 
     @property
@@ -120,7 +120,7 @@ class ConformancePack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackConformancePackInputParameterArgs']]]]] = None,
+                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackInputParameterArgs']]]]] = None,
                  conformance_pack_name: Optional[pulumi.Input[str]] = None,
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class ConformancePack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackConformancePackInputParameterArgs']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackInputParameterArgs']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
         :param pulumi.Input[str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
         :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
@@ -163,7 +163,7 @@ class ConformancePack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackConformancePackInputParameterArgs']]]]] = None,
+                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackInputParameterArgs']]]]] = None,
                  conformance_pack_name: Optional[pulumi.Input[str]] = None,
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
@@ -221,7 +221,7 @@ class ConformancePack(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="conformancePackInputParameters")
-    def conformance_pack_input_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ConformancePackConformancePackInputParameter']]]:
+    def conformance_pack_input_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ConformancePackInputParameter']]]:
         """
         A list of ConformancePackInputParameter objects.
         """

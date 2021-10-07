@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     public partial class NotificationChannel : Pulumi.CustomResource
     {
         [Output("config")]
-        public Output<Outputs.NotificationChannelNotificationChannelConfig> Config { get; private set; } = null!;
+        public Output<Outputs.NotificationChannelConfig> Config { get; private set; } = null!;
 
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
     {
         [Input("config", required: true)]
-        public Input<Inputs.NotificationChannelNotificationChannelConfigArgs> Config { get; set; } = null!;
+        public Input<Inputs.NotificationChannelConfigArgs> Config { get; set; } = null!;
 
         public NotificationChannelArgs()
         {

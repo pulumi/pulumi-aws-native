@@ -17,7 +17,7 @@ type Channel struct {
 	pulumi.CustomResourceState
 
 	ChannelName     pulumi.StringPtrOutput          `pulumi:"channelName"`
-	ChannelStorage  ChannelChannelStoragePtrOutput  `pulumi:"channelStorage"`
+	ChannelStorage  ChannelStoragePtrOutput         `pulumi:"channelStorage"`
 	RetentionPeriod ChannelRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
 	Tags            ChannelTagArrayOutput           `pulumi:"tags"`
 }
@@ -62,7 +62,7 @@ func (ChannelState) ElementType() reflect.Type {
 
 type channelArgs struct {
 	ChannelName     *string                 `pulumi:"channelName"`
-	ChannelStorage  *ChannelChannelStorage  `pulumi:"channelStorage"`
+	ChannelStorage  *ChannelStorage         `pulumi:"channelStorage"`
 	RetentionPeriod *ChannelRetentionPeriod `pulumi:"retentionPeriod"`
 	Tags            []ChannelTag            `pulumi:"tags"`
 }
@@ -70,7 +70,7 @@ type channelArgs struct {
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
 	ChannelName     pulumi.StringPtrInput
-	ChannelStorage  ChannelChannelStoragePtrInput
+	ChannelStorage  ChannelStoragePtrInput
 	RetentionPeriod ChannelRetentionPeriodPtrInput
 	Tags            ChannelTagArrayInput
 }

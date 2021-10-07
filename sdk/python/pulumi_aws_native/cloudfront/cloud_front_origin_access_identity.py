@@ -15,7 +15,7 @@ __all__ = ['CloudFrontOriginAccessIdentityArgs', 'CloudFrontOriginAccessIdentity
 @pulumi.input_type
 class CloudFrontOriginAccessIdentityArgs:
     def __init__(__self__, *,
-                 cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']):
+                 cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs']):
         """
         The set of arguments for constructing a CloudFrontOriginAccessIdentity resource.
         """
@@ -23,11 +23,11 @@ class CloudFrontOriginAccessIdentityArgs:
 
     @property
     @pulumi.getter(name="cloudFrontOriginAccessIdentityConfig")
-    def cloud_front_origin_access_identity_config(self) -> pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']:
+    def cloud_front_origin_access_identity_config(self) -> pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs']:
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
 
     @cloud_front_origin_access_identity_config.setter
-    def cloud_front_origin_access_identity_config(self, value: pulumi.Input['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']):
+    def cloud_front_origin_access_identity_config(self, value: pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs']):
         pulumi.set(self, "cloud_front_origin_access_identity_config", value)
 
 
@@ -36,7 +36,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']]] = None,
+                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -68,7 +68,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs']]] = None,
+                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -113,7 +113,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cloudFrontOriginAccessIdentityConfig")
-    def cloud_front_origin_access_identity_config(self) -> pulumi.Output['outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig']:
+    def cloud_front_origin_access_identity_config(self) -> pulumi.Output['outputs.CloudFrontOriginAccessIdentityConfig']:
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
 
     @property

@@ -39,7 +39,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     public readonly catalogId!: pulumi.Output<string>;
-    public readonly databaseInput!: pulumi.Output<outputs.glue.DatabaseDatabaseInput>;
+    public readonly databaseInput!: pulumi.Output<outputs.glue.DatabaseInput>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -78,5 +78,5 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseArgs {
     catalogId: pulumi.Input<string>;
-    databaseInput: pulumi.Input<inputs.glue.DatabaseDatabaseInputArgs>;
+    databaseInput: pulumi.Input<inputs.glue.DatabaseInputArgs>;
 }

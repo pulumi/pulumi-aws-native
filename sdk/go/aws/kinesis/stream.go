@@ -24,7 +24,7 @@ type Stream struct {
 	// The number of shards that the stream uses.
 	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
-	StreamEncryption StreamStreamEncryptionPtrOutput `pulumi:"streamEncryption"`
+	StreamEncryption StreamEncryptionPtrOutput `pulumi:"streamEncryption"`
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	Tags StreamTagArrayOutput `pulumi:"tags"`
 }
@@ -78,7 +78,7 @@ type streamArgs struct {
 	// The number of shards that the stream uses.
 	ShardCount int `pulumi:"shardCount"`
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
-	StreamEncryption *StreamStreamEncryption `pulumi:"streamEncryption"`
+	StreamEncryption *StreamEncryption `pulumi:"streamEncryption"`
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	Tags []StreamTag `pulumi:"tags"`
 }
@@ -92,7 +92,7 @@ type StreamArgs struct {
 	// The number of shards that the stream uses.
 	ShardCount pulumi.IntInput
 	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
-	StreamEncryption StreamStreamEncryptionPtrInput
+	StreamEncryption StreamEncryptionPtrInput
 	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
 	Tags StreamTagArrayInput
 }

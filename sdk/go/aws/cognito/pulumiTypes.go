@@ -560,6 +560,139 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRe
 	}).(UserPoolRecoveryOptionArrayOutput)
 }
 
+type UserPoolAddOns struct {
+	AdvancedSecurityMode *string `pulumi:"advancedSecurityMode"`
+}
+
+// UserPoolAddOnsInput is an input type that accepts UserPoolAddOnsArgs and UserPoolAddOnsOutput values.
+// You can construct a concrete instance of `UserPoolAddOnsInput` via:
+//
+//          UserPoolAddOnsArgs{...}
+type UserPoolAddOnsInput interface {
+	pulumi.Input
+
+	ToUserPoolAddOnsOutput() UserPoolAddOnsOutput
+	ToUserPoolAddOnsOutputWithContext(context.Context) UserPoolAddOnsOutput
+}
+
+type UserPoolAddOnsArgs struct {
+	AdvancedSecurityMode pulumi.StringPtrInput `pulumi:"advancedSecurityMode"`
+}
+
+func (UserPoolAddOnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAddOns)(nil)).Elem()
+}
+
+func (i UserPoolAddOnsArgs) ToUserPoolAddOnsOutput() UserPoolAddOnsOutput {
+	return i.ToUserPoolAddOnsOutputWithContext(context.Background())
+}
+
+func (i UserPoolAddOnsArgs) ToUserPoolAddOnsOutputWithContext(ctx context.Context) UserPoolAddOnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAddOnsOutput)
+}
+
+func (i UserPoolAddOnsArgs) ToUserPoolAddOnsPtrOutput() UserPoolAddOnsPtrOutput {
+	return i.ToUserPoolAddOnsPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolAddOnsArgs) ToUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolAddOnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAddOnsOutput).ToUserPoolAddOnsPtrOutputWithContext(ctx)
+}
+
+// UserPoolAddOnsPtrInput is an input type that accepts UserPoolAddOnsArgs, UserPoolAddOnsPtr and UserPoolAddOnsPtrOutput values.
+// You can construct a concrete instance of `UserPoolAddOnsPtrInput` via:
+//
+//          UserPoolAddOnsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolAddOnsPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolAddOnsPtrOutput() UserPoolAddOnsPtrOutput
+	ToUserPoolAddOnsPtrOutputWithContext(context.Context) UserPoolAddOnsPtrOutput
+}
+
+type userPoolAddOnsPtrType UserPoolAddOnsArgs
+
+func UserPoolAddOnsPtr(v *UserPoolAddOnsArgs) UserPoolAddOnsPtrInput {
+	return (*userPoolAddOnsPtrType)(v)
+}
+
+func (*userPoolAddOnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolAddOns)(nil)).Elem()
+}
+
+func (i *userPoolAddOnsPtrType) ToUserPoolAddOnsPtrOutput() UserPoolAddOnsPtrOutput {
+	return i.ToUserPoolAddOnsPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolAddOnsPtrType) ToUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolAddOnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAddOnsPtrOutput)
+}
+
+type UserPoolAddOnsOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAddOnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolAddOns)(nil)).Elem()
+}
+
+func (o UserPoolAddOnsOutput) ToUserPoolAddOnsOutput() UserPoolAddOnsOutput {
+	return o
+}
+
+func (o UserPoolAddOnsOutput) ToUserPoolAddOnsOutputWithContext(ctx context.Context) UserPoolAddOnsOutput {
+	return o
+}
+
+func (o UserPoolAddOnsOutput) ToUserPoolAddOnsPtrOutput() UserPoolAddOnsPtrOutput {
+	return o.ToUserPoolAddOnsPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolAddOnsOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolAddOnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolAddOns) *UserPoolAddOns {
+		return &v
+	}).(UserPoolAddOnsPtrOutput)
+}
+
+func (o UserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolAddOns) *string { return v.AdvancedSecurityMode }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolAddOnsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolAddOnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolAddOns)(nil)).Elem()
+}
+
+func (o UserPoolAddOnsPtrOutput) ToUserPoolAddOnsPtrOutput() UserPoolAddOnsPtrOutput {
+	return o
+}
+
+func (o UserPoolAddOnsPtrOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolAddOnsPtrOutput {
+	return o
+}
+
+func (o UserPoolAddOnsPtrOutput) Elem() UserPoolAddOnsOutput {
+	return o.ApplyT(func(v *UserPoolAddOns) UserPoolAddOns {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolAddOns
+		return ret
+	}).(UserPoolAddOnsOutput)
+}
+
+func (o UserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolAddOns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedSecurityMode
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserPoolAdminCreateUserConfig struct {
 	AllowAdminCreateUserOnly  *bool                          `pulumi:"allowAdminCreateUserOnly"`
 	InviteMessageTemplate     *UserPoolInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
@@ -4829,139 +4962,6 @@ func (o UserPoolUserAttributeTypeArrayOutput) Index(i pulumi.IntInput) UserPoolU
 	}).(UserPoolUserAttributeTypeOutput)
 }
 
-type UserPoolUserPoolAddOns struct {
-	AdvancedSecurityMode *string `pulumi:"advancedSecurityMode"`
-}
-
-// UserPoolUserPoolAddOnsInput is an input type that accepts UserPoolUserPoolAddOnsArgs and UserPoolUserPoolAddOnsOutput values.
-// You can construct a concrete instance of `UserPoolUserPoolAddOnsInput` via:
-//
-//          UserPoolUserPoolAddOnsArgs{...}
-type UserPoolUserPoolAddOnsInput interface {
-	pulumi.Input
-
-	ToUserPoolUserPoolAddOnsOutput() UserPoolUserPoolAddOnsOutput
-	ToUserPoolUserPoolAddOnsOutputWithContext(context.Context) UserPoolUserPoolAddOnsOutput
-}
-
-type UserPoolUserPoolAddOnsArgs struct {
-	AdvancedSecurityMode pulumi.StringPtrInput `pulumi:"advancedSecurityMode"`
-}
-
-func (UserPoolUserPoolAddOnsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUserPoolAddOns)(nil)).Elem()
-}
-
-func (i UserPoolUserPoolAddOnsArgs) ToUserPoolUserPoolAddOnsOutput() UserPoolUserPoolAddOnsOutput {
-	return i.ToUserPoolUserPoolAddOnsOutputWithContext(context.Background())
-}
-
-func (i UserPoolUserPoolAddOnsArgs) ToUserPoolUserPoolAddOnsOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserPoolAddOnsOutput)
-}
-
-func (i UserPoolUserPoolAddOnsArgs) ToUserPoolUserPoolAddOnsPtrOutput() UserPoolUserPoolAddOnsPtrOutput {
-	return i.ToUserPoolUserPoolAddOnsPtrOutputWithContext(context.Background())
-}
-
-func (i UserPoolUserPoolAddOnsArgs) ToUserPoolUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserPoolAddOnsOutput).ToUserPoolUserPoolAddOnsPtrOutputWithContext(ctx)
-}
-
-// UserPoolUserPoolAddOnsPtrInput is an input type that accepts UserPoolUserPoolAddOnsArgs, UserPoolUserPoolAddOnsPtr and UserPoolUserPoolAddOnsPtrOutput values.
-// You can construct a concrete instance of `UserPoolUserPoolAddOnsPtrInput` via:
-//
-//          UserPoolUserPoolAddOnsArgs{...}
-//
-//  or:
-//
-//          nil
-type UserPoolUserPoolAddOnsPtrInput interface {
-	pulumi.Input
-
-	ToUserPoolUserPoolAddOnsPtrOutput() UserPoolUserPoolAddOnsPtrOutput
-	ToUserPoolUserPoolAddOnsPtrOutputWithContext(context.Context) UserPoolUserPoolAddOnsPtrOutput
-}
-
-type userPoolUserPoolAddOnsPtrType UserPoolUserPoolAddOnsArgs
-
-func UserPoolUserPoolAddOnsPtr(v *UserPoolUserPoolAddOnsArgs) UserPoolUserPoolAddOnsPtrInput {
-	return (*userPoolUserPoolAddOnsPtrType)(v)
-}
-
-func (*userPoolUserPoolAddOnsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolUserPoolAddOns)(nil)).Elem()
-}
-
-func (i *userPoolUserPoolAddOnsPtrType) ToUserPoolUserPoolAddOnsPtrOutput() UserPoolUserPoolAddOnsPtrOutput {
-	return i.ToUserPoolUserPoolAddOnsPtrOutputWithContext(context.Background())
-}
-
-func (i *userPoolUserPoolAddOnsPtrType) ToUserPoolUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserPoolAddOnsPtrOutput)
-}
-
-type UserPoolUserPoolAddOnsOutput struct{ *pulumi.OutputState }
-
-func (UserPoolUserPoolAddOnsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUserPoolAddOns)(nil)).Elem()
-}
-
-func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsOutput() UserPoolUserPoolAddOnsOutput {
-	return o
-}
-
-func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsOutput {
-	return o
-}
-
-func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsPtrOutput() UserPoolUserPoolAddOnsPtrOutput {
-	return o.ToUserPoolUserPoolAddOnsPtrOutputWithContext(context.Background())
-}
-
-func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolUserPoolAddOns) *UserPoolUserPoolAddOns {
-		return &v
-	}).(UserPoolUserPoolAddOnsPtrOutput)
-}
-
-func (o UserPoolUserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserPoolUserPoolAddOns) *string { return v.AdvancedSecurityMode }).(pulumi.StringPtrOutput)
-}
-
-type UserPoolUserPoolAddOnsPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPoolUserPoolAddOnsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolUserPoolAddOns)(nil)).Elem()
-}
-
-func (o UserPoolUserPoolAddOnsPtrOutput) ToUserPoolUserPoolAddOnsPtrOutput() UserPoolUserPoolAddOnsPtrOutput {
-	return o
-}
-
-func (o UserPoolUserPoolAddOnsPtrOutput) ToUserPoolUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsPtrOutput {
-	return o
-}
-
-func (o UserPoolUserPoolAddOnsPtrOutput) Elem() UserPoolUserPoolAddOnsOutput {
-	return o.ApplyT(func(v *UserPoolUserPoolAddOns) UserPoolUserPoolAddOns {
-		if v != nil {
-			return *v
-		}
-		var ret UserPoolUserPoolAddOns
-		return ret
-	}).(UserPoolUserPoolAddOnsOutput)
-}
-
-func (o UserPoolUserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPoolUserPoolAddOns) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdvancedSecurityMode
-	}).(pulumi.StringPtrOutput)
-}
-
 type UserPoolUsernameConfiguration struct {
 	CaseSensitive *bool `pulumi:"caseSensitive"`
 }
@@ -5312,6 +5312,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolPushSyncPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolAddOnsOutput{})
+	pulumi.RegisterOutputType(UserPoolAddOnsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigOutput{})
 	pulumi.RegisterOutputType(UserPoolAdminCreateUserConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientAnalyticsConfigurationOutput{})
@@ -5366,8 +5368,6 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolStringAttributeConstraintsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUserAttributeTypeOutput{})
 	pulumi.RegisterOutputType(UserPoolUserAttributeTypeArrayOutput{})
-	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsOutput{})
-	pulumi.RegisterOutputType(UserPoolUserPoolAddOnsPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUsernameConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolUsernameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplateOutput{})

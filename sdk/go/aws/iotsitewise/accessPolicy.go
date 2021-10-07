@@ -20,11 +20,11 @@ type AccessPolicy struct {
 	// The ID of the access policy.
 	AccessPolicyId pulumi.StringOutput `pulumi:"accessPolicyId"`
 	// The identity for this access policy. Choose either a user or a group but not both.
-	AccessPolicyIdentity AccessPolicyAccessPolicyIdentityOutput `pulumi:"accessPolicyIdentity"`
+	AccessPolicyIdentity AccessPolicyIdentityOutput `pulumi:"accessPolicyIdentity"`
 	// The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
 	AccessPolicyPermission pulumi.StringOutput `pulumi:"accessPolicyPermission"`
 	// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-	AccessPolicyResource AccessPolicyAccessPolicyResourceOutput `pulumi:"accessPolicyResource"`
+	AccessPolicyResource AccessPolicyResourceOutput `pulumi:"accessPolicyResource"`
 }
 
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -76,21 +76,21 @@ func (AccessPolicyState) ElementType() reflect.Type {
 
 type accessPolicyArgs struct {
 	// The identity for this access policy. Choose either a user or a group but not both.
-	AccessPolicyIdentity AccessPolicyAccessPolicyIdentity `pulumi:"accessPolicyIdentity"`
+	AccessPolicyIdentity AccessPolicyIdentity `pulumi:"accessPolicyIdentity"`
 	// The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
 	AccessPolicyPermission string `pulumi:"accessPolicyPermission"`
 	// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-	AccessPolicyResource AccessPolicyAccessPolicyResource `pulumi:"accessPolicyResource"`
+	AccessPolicyResource AccessPolicyResource `pulumi:"accessPolicyResource"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
 type AccessPolicyArgs struct {
 	// The identity for this access policy. Choose either a user or a group but not both.
-	AccessPolicyIdentity AccessPolicyAccessPolicyIdentityInput
+	AccessPolicyIdentity AccessPolicyIdentityInput
 	// The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
 	AccessPolicyPermission pulumi.StringInput
 	// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-	AccessPolicyResource AccessPolicyAccessPolicyResourceInput
+	AccessPolicyResource AccessPolicyResourceInput
 }
 
 func (AccessPolicyArgs) ElementType() reflect.Type {

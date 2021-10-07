@@ -16,7 +16,7 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 class AccessPointArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointAccessPointTagArgs']]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
                  root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None):
@@ -51,11 +51,11 @@ class AccessPointArgs:
 
     @property
     @pulumi.getter(name="accessPointTags")
-    def access_point_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointAccessPointTagArgs']]]]:
+    def access_point_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]]:
         return pulumi.get(self, "access_point_tags")
 
     @access_point_tags.setter
-    def access_point_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointAccessPointTagArgs']]]]):
+    def access_point_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]]):
         pulumi.set(self, "access_point_tags", value)
 
     @property
@@ -100,7 +100,7 @@ class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointAccessPointTagArgs']]]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointTagArgs']]]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
@@ -140,7 +140,7 @@ class AccessPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointAccessPointTagArgs']]]]] = None,
+                 access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointTagArgs']]]]] = None,
                  client_token: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  posix_user: Optional[pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']]] = None,
@@ -204,7 +204,7 @@ class AccessPoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPointTags")
-    def access_point_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessPointAccessPointTag']]]:
+    def access_point_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessPointTag']]]:
         return pulumi.get(self, "access_point_tags")
 
     @property

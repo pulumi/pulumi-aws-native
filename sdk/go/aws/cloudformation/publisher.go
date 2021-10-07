@@ -26,7 +26,7 @@ type Publisher struct {
 	// The URL to the publisher's profile with the identity provider.
 	PublisherProfile pulumi.StringOutput `pulumi:"publisherProfile"`
 	// Whether the publisher is verified.
-	PublisherStatus PublisherPublisherStatusOutput `pulumi:"publisherStatus"`
+	PublisherStatus PublisherStatusOutput `pulumi:"publisherStatus"`
 }
 
 // NewPublisher registers a new resource with the given unique name, arguments, and options.

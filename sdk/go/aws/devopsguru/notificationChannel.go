@@ -15,7 +15,7 @@ import (
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
-	Config NotificationChannelNotificationChannelConfigOutput `pulumi:"config"`
+	Config NotificationChannelConfigOutput `pulumi:"config"`
 }
 
 // NewNotificationChannel registers a new resource with the given unique name, arguments, and options.
@@ -60,12 +60,12 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
-	Config NotificationChannelNotificationChannelConfig `pulumi:"config"`
+	Config NotificationChannelConfig `pulumi:"config"`
 }
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
-	Config NotificationChannelNotificationChannelConfigInput
+	Config NotificationChannelConfigInput
 }
 
 func (NotificationChannelArgs) ElementType() reflect.Type {

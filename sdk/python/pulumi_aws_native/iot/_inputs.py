@@ -64,6 +64,7 @@ __all__ = [
     'TopicRuleKinesisActionArgs',
     'TopicRuleLambdaActionArgs',
     'TopicRuleOpenSearchActionArgs',
+    'TopicRulePayloadArgs',
     'TopicRulePutAssetPropertyValueEntryArgs',
     'TopicRulePutItemInputArgs',
     'TopicRuleRepublishActionArgs',
@@ -76,7 +77,6 @@ __all__ = [
     'TopicRuleTimestreamActionArgs',
     'TopicRuleTimestreamDimensionArgs',
     'TopicRuleTimestreamTimestampArgs',
-    'TopicRuleTopicRulePayloadArgs',
 ]
 
 @pulumi.input_type
@@ -2662,6 +2662,81 @@ class TopicRuleOpenSearchActionArgs:
 
 
 @pulumi.input_type
+class TopicRulePayloadArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]],
+                 sql: pulumi.Input[str],
+                 aws_iot_sql_version: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 error_action: Optional[pulumi.Input['TopicRuleActionArgs']] = None,
+                 rule_disabled: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "sql", sql)
+        if aws_iot_sql_version is not None:
+            pulumi.set(__self__, "aws_iot_sql_version", aws_iot_sql_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if error_action is not None:
+            pulumi.set(__self__, "error_action", error_action)
+        if rule_disabled is not None:
+            pulumi.set(__self__, "rule_disabled", rule_disabled)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]]:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def sql(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "sql")
+
+    @sql.setter
+    def sql(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql", value)
+
+    @property
+    @pulumi.getter(name="awsIotSqlVersion")
+    def aws_iot_sql_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "aws_iot_sql_version")
+
+    @aws_iot_sql_version.setter
+    def aws_iot_sql_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_iot_sql_version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="errorAction")
+    def error_action(self) -> Optional[pulumi.Input['TopicRuleActionArgs']]:
+        return pulumi.get(self, "error_action")
+
+    @error_action.setter
+    def error_action(self, value: Optional[pulumi.Input['TopicRuleActionArgs']]):
+        pulumi.set(self, "error_action", value)
+
+    @property
+    @pulumi.getter(name="ruleDisabled")
+    def rule_disabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "rule_disabled")
+
+    @rule_disabled.setter
+    def rule_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rule_disabled", value)
+
+
+@pulumi.input_type
 class TopicRulePutAssetPropertyValueEntryArgs:
     def __init__(__self__, *,
                  property_values: pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgs']]],
@@ -3137,80 +3212,5 @@ class TopicRuleTimestreamTimestampArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class TopicRuleTopicRulePayloadArgs:
-    def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]],
-                 sql: pulumi.Input[str],
-                 aws_iot_sql_version: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 error_action: Optional[pulumi.Input['TopicRuleActionArgs']] = None,
-                 rule_disabled: Optional[pulumi.Input[bool]] = None):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "sql", sql)
-        if aws_iot_sql_version is not None:
-            pulumi.set(__self__, "aws_iot_sql_version", aws_iot_sql_version)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if error_action is not None:
-            pulumi.set(__self__, "error_action", error_action)
-        if rule_disabled is not None:
-            pulumi.set(__self__, "rule_disabled", rule_disabled)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]]:
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]]):
-        pulumi.set(self, "actions", value)
-
-    @property
-    @pulumi.getter
-    def sql(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "sql")
-
-    @sql.setter
-    def sql(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sql", value)
-
-    @property
-    @pulumi.getter(name="awsIotSqlVersion")
-    def aws_iot_sql_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "aws_iot_sql_version")
-
-    @aws_iot_sql_version.setter
-    def aws_iot_sql_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "aws_iot_sql_version", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="errorAction")
-    def error_action(self) -> Optional[pulumi.Input['TopicRuleActionArgs']]:
-        return pulumi.get(self, "error_action")
-
-    @error_action.setter
-    def error_action(self, value: Optional[pulumi.Input['TopicRuleActionArgs']]):
-        pulumi.set(self, "error_action", value)
-
-    @property
-    @pulumi.getter(name="ruleDisabled")
-    def rule_disabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "rule_disabled")
-
-    @rule_disabled.setter
-    def rule_disabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "rule_disabled", value)
 
 

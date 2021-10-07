@@ -18,8 +18,8 @@ class MetricStreamArgs:
                  firehose_arn: pulumi.Input[str],
                  output_format: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]] = None,
+                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
+                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]] = None):
         """
@@ -27,8 +27,8 @@ class MetricStreamArgs:
         :param pulumi.Input[str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
         :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
         :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[str] name: Name of the metric stream.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]] tags: A set of tags to assign to the delivery stream.
         """
@@ -82,26 +82,26 @@ class MetricStreamArgs:
 
     @property
     @pulumi.getter(name="excludeFilters")
-    def exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]:
+    def exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]:
         """
         Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "exclude_filters")
 
     @exclude_filters.setter
-    def exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]):
+    def exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]):
         pulumi.set(self, "exclude_filters", value)
 
     @property
     @pulumi.getter(name="includeFilters")
-    def include_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]:
+    def include_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]:
         """
         Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "include_filters")
 
     @include_filters.setter
-    def include_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]):
+    def include_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]):
         pulumi.set(self, "include_filters", value)
 
     @property
@@ -134,9 +134,9 @@ class MetricStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]]] = None,
+                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
                  firehose_arn: Optional[pulumi.Input[str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]]] = None,
+                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -147,9 +147,9 @@ class MetricStream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[str] name: Name of the metric stream.
         :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
         :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
@@ -179,9 +179,9 @@ class MetricStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]]] = None,
+                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
                  firehose_arn: Optional[pulumi.Input[str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]]] = None,
+                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -268,7 +268,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludeFilters")
-    def exclude_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamMetricStreamFilter']]]:
+    def exclude_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamFilter']]]:
         """
         Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
@@ -284,7 +284,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includeFilters")
-    def include_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamMetricStreamFilter']]]:
+    def include_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamFilter']]]:
         """
         Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """

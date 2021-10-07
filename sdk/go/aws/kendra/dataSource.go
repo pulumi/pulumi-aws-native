@@ -15,13 +15,13 @@ import (
 type DataSource struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                        `pulumi:"arn"`
-	DataSourceConfiguration DataSourceDataSourceConfigurationPtrOutput `pulumi:"dataSourceConfiguration"`
-	Description             pulumi.StringPtrOutput                     `pulumi:"description"`
-	IndexId                 pulumi.StringOutput                        `pulumi:"indexId"`
-	Name                    pulumi.StringOutput                        `pulumi:"name"`
-	RoleArn                 pulumi.StringPtrOutput                     `pulumi:"roleArn"`
-	Schedule                pulumi.StringPtrOutput                     `pulumi:"schedule"`
+	Arn                     pulumi.StringOutput              `pulumi:"arn"`
+	DataSourceConfiguration DataSourceConfigurationPtrOutput `pulumi:"dataSourceConfiguration"`
+	Description             pulumi.StringPtrOutput           `pulumi:"description"`
+	IndexId                 pulumi.StringOutput              `pulumi:"indexId"`
+	Name                    pulumi.StringOutput              `pulumi:"name"`
+	RoleArn                 pulumi.StringPtrOutput           `pulumi:"roleArn"`
+	Schedule                pulumi.StringPtrOutput           `pulumi:"schedule"`
 	// Tags for labeling the data source
 	Tags DataSourceTagArrayOutput `pulumi:"tags"`
 	Type DataSourceTypeOutput     `pulumi:"type"`
@@ -75,12 +75,12 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
-	DataSourceConfiguration *DataSourceDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
-	Description             *string                            `pulumi:"description"`
-	IndexId                 string                             `pulumi:"indexId"`
-	Name                    string                             `pulumi:"name"`
-	RoleArn                 *string                            `pulumi:"roleArn"`
-	Schedule                *string                            `pulumi:"schedule"`
+	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
+	Description             *string                  `pulumi:"description"`
+	IndexId                 string                   `pulumi:"indexId"`
+	Name                    string                   `pulumi:"name"`
+	RoleArn                 *string                  `pulumi:"roleArn"`
+	Schedule                *string                  `pulumi:"schedule"`
 	// Tags for labeling the data source
 	Tags []DataSourceTag `pulumi:"tags"`
 	Type DataSourceType  `pulumi:"type"`
@@ -88,7 +88,7 @@ type dataSourceArgs struct {
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
-	DataSourceConfiguration DataSourceDataSourceConfigurationPtrInput
+	DataSourceConfiguration DataSourceConfigurationPtrInput
 	Description             pulumi.StringPtrInput
 	IndexId                 pulumi.StringInput
 	Name                    pulumi.StringInput

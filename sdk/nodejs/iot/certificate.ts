@@ -37,7 +37,7 @@ export class Certificate extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly cACertificatePem!: pulumi.Output<string | undefined>;
-    public readonly certificateMode!: pulumi.Output<enums.iot.CertificateCertificateMode | undefined>;
+    public readonly certificateMode!: pulumi.Output<enums.iot.CertificateMode | undefined>;
     public readonly certificatePem!: pulumi.Output<string | undefined>;
     public readonly certificateSigningRequest!: pulumi.Output<string | undefined>;
     public readonly status!: pulumi.Output<enums.iot.CertificateStatus>;
@@ -82,7 +82,7 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     cACertificatePem?: pulumi.Input<string>;
-    certificateMode?: pulumi.Input<enums.iot.CertificateCertificateMode>;
+    certificateMode?: pulumi.Input<enums.iot.CertificateMode>;
     certificatePem?: pulumi.Input<string>;
     certificateSigningRequest?: pulumi.Input<string>;
     status: pulumi.Input<enums.iot.CertificateStatus>;

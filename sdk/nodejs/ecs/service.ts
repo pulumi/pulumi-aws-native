@@ -55,7 +55,7 @@ export class Service extends pulumi.CustomResource {
     public readonly schedulingStrategy!: pulumi.Output<enums.ecs.ServiceSchedulingStrategy | undefined>;
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
     public readonly serviceName!: pulumi.Output<string | undefined>;
-    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistry[] | undefined>;
+    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceRegistry[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.ecs.ServiceTag[] | undefined>;
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
 
@@ -147,7 +147,7 @@ export interface ServiceArgs {
     role?: pulumi.Input<string>;
     schedulingStrategy?: pulumi.Input<enums.ecs.ServiceSchedulingStrategy>;
     serviceName?: pulumi.Input<string>;
-    serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceRegistryArgs>[]>;
+    serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceRegistryArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceTagArgs>[]>;
     taskDefinition?: pulumi.Input<string>;
 }

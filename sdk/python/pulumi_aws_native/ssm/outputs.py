@@ -15,7 +15,7 @@ __all__ = [
     'AssociationS3OutputLocation',
     'AssociationTarget',
     'DocumentAttachmentsSource',
-    'DocumentDocumentRequires',
+    'DocumentRequires',
     'DocumentTag',
     'MaintenanceWindowTag',
     'MaintenanceWindowTargetTargets',
@@ -182,7 +182,7 @@ class DocumentAttachmentsSource(dict):
 
 
 @pulumi.output_type
-class DocumentDocumentRequires(dict):
+class DocumentRequires(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  version: Optional[str] = None):

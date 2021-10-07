@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ConnectionAliasConnectionAliasAssociationAssociationStatus = {
+export const ConnectionAliasAssociationAssociationStatus = {
     NotAssociated: "NOT_ASSOCIATED",
     PendingAssociation: "PENDING_ASSOCIATION",
     AssociatedWithOwnerAccount: "ASSOCIATED_WITH_OWNER_ACCOUNT",
@@ -10,12 +10,12 @@ export const ConnectionAliasConnectionAliasAssociationAssociationStatus = {
     PendingDisassociation: "PENDING_DISASSOCIATION",
 } as const;
 
-export type ConnectionAliasConnectionAliasAssociationAssociationStatus = (typeof ConnectionAliasConnectionAliasAssociationAssociationStatus)[keyof typeof ConnectionAliasConnectionAliasAssociationAssociationStatus];
+export type ConnectionAliasAssociationAssociationStatus = (typeof ConnectionAliasAssociationAssociationStatus)[keyof typeof ConnectionAliasAssociationAssociationStatus];
 
-export const ConnectionAliasConnectionAliasState = {
+export const ConnectionAliasState = {
     Creating: "CREATING",
     Created: "CREATED",
     Deleting: "DELETING",
 } as const;
 
-export type ConnectionAliasConnectionAliasState = (typeof ConnectionAliasConnectionAliasState)[keyof typeof ConnectionAliasConnectionAliasState];
+export type ConnectionAliasState = (typeof ConnectionAliasState)[keyof typeof ConnectionAliasState];

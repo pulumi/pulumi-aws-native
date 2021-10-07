@@ -11,27 +11,27 @@ namespace Pulumi.AwsNative.Connect
     /// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     /// </summary>
     [EnumType]
-    public readonly struct QuickConnectQuickConnectType : IEquatable<QuickConnectQuickConnectType>
+    public readonly struct QuickConnectType : IEquatable<QuickConnectType>
     {
         private readonly string _value;
 
-        private QuickConnectQuickConnectType(string value)
+        private QuickConnectType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static QuickConnectQuickConnectType PhoneNumber { get; } = new QuickConnectQuickConnectType("PHONE_NUMBER");
-        public static QuickConnectQuickConnectType Queue { get; } = new QuickConnectQuickConnectType("QUEUE");
-        public static QuickConnectQuickConnectType User { get; } = new QuickConnectQuickConnectType("USER");
+        public static QuickConnectType PhoneNumber { get; } = new QuickConnectType("PHONE_NUMBER");
+        public static QuickConnectType Queue { get; } = new QuickConnectType("QUEUE");
+        public static QuickConnectType User { get; } = new QuickConnectType("USER");
 
-        public static bool operator ==(QuickConnectQuickConnectType left, QuickConnectQuickConnectType right) => left.Equals(right);
-        public static bool operator !=(QuickConnectQuickConnectType left, QuickConnectQuickConnectType right) => !left.Equals(right);
+        public static bool operator ==(QuickConnectType left, QuickConnectType right) => left.Equals(right);
+        public static bool operator !=(QuickConnectType left, QuickConnectType right) => !left.Equals(right);
 
-        public static explicit operator string(QuickConnectQuickConnectType value) => value._value;
+        public static explicit operator string(QuickConnectType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is QuickConnectQuickConnectType other && Equals(other);
-        public bool Equals(QuickConnectQuickConnectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is QuickConnectType other && Equals(other);
+        public bool Equals(QuickConnectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

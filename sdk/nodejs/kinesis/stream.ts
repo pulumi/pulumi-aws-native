@@ -54,7 +54,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
      */
-    public readonly streamEncryption!: pulumi.Output<outputs.kinesis.StreamStreamEncryption | undefined>;
+    public readonly streamEncryption!: pulumi.Output<outputs.kinesis.StreamEncryption | undefined>;
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */
@@ -114,7 +114,7 @@ export interface StreamArgs {
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
      */
-    streamEncryption?: pulumi.Input<inputs.kinesis.StreamStreamEncryptionArgs>;
+    streamEncryption?: pulumi.Input<inputs.kinesis.StreamEncryptionArgs>;
     /**
      * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
      */

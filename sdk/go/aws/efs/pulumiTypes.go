@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type AccessPointAccessPointTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
-}
-
-// AccessPointAccessPointTagInput is an input type that accepts AccessPointAccessPointTagArgs and AccessPointAccessPointTagOutput values.
-// You can construct a concrete instance of `AccessPointAccessPointTagInput` via:
-//
-//          AccessPointAccessPointTagArgs{...}
-type AccessPointAccessPointTagInput interface {
-	pulumi.Input
-
-	ToAccessPointAccessPointTagOutput() AccessPointAccessPointTagOutput
-	ToAccessPointAccessPointTagOutputWithContext(context.Context) AccessPointAccessPointTagOutput
-}
-
-type AccessPointAccessPointTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (AccessPointAccessPointTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointAccessPointTag)(nil)).Elem()
-}
-
-func (i AccessPointAccessPointTagArgs) ToAccessPointAccessPointTagOutput() AccessPointAccessPointTagOutput {
-	return i.ToAccessPointAccessPointTagOutputWithContext(context.Background())
-}
-
-func (i AccessPointAccessPointTagArgs) ToAccessPointAccessPointTagOutputWithContext(ctx context.Context) AccessPointAccessPointTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAccessPointTagOutput)
-}
-
-// AccessPointAccessPointTagArrayInput is an input type that accepts AccessPointAccessPointTagArray and AccessPointAccessPointTagArrayOutput values.
-// You can construct a concrete instance of `AccessPointAccessPointTagArrayInput` via:
-//
-//          AccessPointAccessPointTagArray{ AccessPointAccessPointTagArgs{...} }
-type AccessPointAccessPointTagArrayInput interface {
-	pulumi.Input
-
-	ToAccessPointAccessPointTagArrayOutput() AccessPointAccessPointTagArrayOutput
-	ToAccessPointAccessPointTagArrayOutputWithContext(context.Context) AccessPointAccessPointTagArrayOutput
-}
-
-type AccessPointAccessPointTagArray []AccessPointAccessPointTagInput
-
-func (AccessPointAccessPointTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessPointAccessPointTag)(nil)).Elem()
-}
-
-func (i AccessPointAccessPointTagArray) ToAccessPointAccessPointTagArrayOutput() AccessPointAccessPointTagArrayOutput {
-	return i.ToAccessPointAccessPointTagArrayOutputWithContext(context.Background())
-}
-
-func (i AccessPointAccessPointTagArray) ToAccessPointAccessPointTagArrayOutputWithContext(ctx context.Context) AccessPointAccessPointTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAccessPointTagArrayOutput)
-}
-
-type AccessPointAccessPointTagOutput struct{ *pulumi.OutputState }
-
-func (AccessPointAccessPointTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPointAccessPointTag)(nil)).Elem()
-}
-
-func (o AccessPointAccessPointTagOutput) ToAccessPointAccessPointTagOutput() AccessPointAccessPointTagOutput {
-	return o
-}
-
-func (o AccessPointAccessPointTagOutput) ToAccessPointAccessPointTagOutputWithContext(ctx context.Context) AccessPointAccessPointTagOutput {
-	return o
-}
-
-func (o AccessPointAccessPointTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPointAccessPointTag) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o AccessPointAccessPointTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccessPointAccessPointTag) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type AccessPointAccessPointTagArrayOutput struct{ *pulumi.OutputState }
-
-func (AccessPointAccessPointTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessPointAccessPointTag)(nil)).Elem()
-}
-
-func (o AccessPointAccessPointTagArrayOutput) ToAccessPointAccessPointTagArrayOutput() AccessPointAccessPointTagArrayOutput {
-	return o
-}
-
-func (o AccessPointAccessPointTagArrayOutput) ToAccessPointAccessPointTagArrayOutputWithContext(ctx context.Context) AccessPointAccessPointTagArrayOutput {
-	return o
-}
-
-func (o AccessPointAccessPointTagArrayOutput) Index(i pulumi.IntInput) AccessPointAccessPointTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessPointAccessPointTag {
-		return vs[0].([]AccessPointAccessPointTag)[vs[1].(int)]
-	}).(AccessPointAccessPointTagOutput)
-}
-
 type AccessPointCreationInfo struct {
 	// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 	OwnerGid string `pulumi:"ownerGid"`
@@ -616,6 +516,106 @@ func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AccessPointTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// AccessPointTagInput is an input type that accepts AccessPointTagArgs and AccessPointTagOutput values.
+// You can construct a concrete instance of `AccessPointTagInput` via:
+//
+//          AccessPointTagArgs{...}
+type AccessPointTagInput interface {
+	pulumi.Input
+
+	ToAccessPointTagOutput() AccessPointTagOutput
+	ToAccessPointTagOutputWithContext(context.Context) AccessPointTagOutput
+}
+
+type AccessPointTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AccessPointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointTag)(nil)).Elem()
+}
+
+func (i AccessPointTagArgs) ToAccessPointTagOutput() AccessPointTagOutput {
+	return i.ToAccessPointTagOutputWithContext(context.Background())
+}
+
+func (i AccessPointTagArgs) ToAccessPointTagOutputWithContext(ctx context.Context) AccessPointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTagOutput)
+}
+
+// AccessPointTagArrayInput is an input type that accepts AccessPointTagArray and AccessPointTagArrayOutput values.
+// You can construct a concrete instance of `AccessPointTagArrayInput` via:
+//
+//          AccessPointTagArray{ AccessPointTagArgs{...} }
+type AccessPointTagArrayInput interface {
+	pulumi.Input
+
+	ToAccessPointTagArrayOutput() AccessPointTagArrayOutput
+	ToAccessPointTagArrayOutputWithContext(context.Context) AccessPointTagArrayOutput
+}
+
+type AccessPointTagArray []AccessPointTagInput
+
+func (AccessPointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessPointTag)(nil)).Elem()
+}
+
+func (i AccessPointTagArray) ToAccessPointTagArrayOutput() AccessPointTagArrayOutput {
+	return i.ToAccessPointTagArrayOutputWithContext(context.Background())
+}
+
+func (i AccessPointTagArray) ToAccessPointTagArrayOutputWithContext(ctx context.Context) AccessPointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTagArrayOutput)
+}
+
+type AccessPointTagOutput struct{ *pulumi.OutputState }
+
+func (AccessPointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointTag)(nil)).Elem()
+}
+
+func (o AccessPointTagOutput) ToAccessPointTagOutput() AccessPointTagOutput {
+	return o
+}
+
+func (o AccessPointTagOutput) ToAccessPointTagOutputWithContext(ctx context.Context) AccessPointTagOutput {
+	return o
+}
+
+func (o AccessPointTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o AccessPointTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessPointTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AccessPointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessPointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessPointTag)(nil)).Elem()
+}
+
+func (o AccessPointTagArrayOutput) ToAccessPointTagArrayOutput() AccessPointTagArrayOutput {
+	return o
+}
+
+func (o AccessPointTagArrayOutput) ToAccessPointTagArrayOutputWithContext(ctx context.Context) AccessPointTagArrayOutput {
+	return o
+}
+
+func (o AccessPointTagArrayOutput) Index(i pulumi.IntInput) AccessPointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessPointTag {
+		return vs[0].([]AccessPointTag)[vs[1].(int)]
+	}).(AccessPointTagOutput)
+}
+
 type FileSystemBackupPolicy struct {
 	Status string `pulumi:"status"`
 }
@@ -950,14 +950,14 @@ func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSyste
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccessPointAccessPointTagOutput{})
-	pulumi.RegisterOutputType(AccessPointAccessPointTagArrayOutput{})
 	pulumi.RegisterOutputType(AccessPointCreationInfoOutput{})
 	pulumi.RegisterOutputType(AccessPointCreationInfoPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})
 	pulumi.RegisterOutputType(AccessPointPosixUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointTagOutput{})
+	pulumi.RegisterOutputType(AccessPointTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemBackupPolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemElasticFileSystemTagOutput{})

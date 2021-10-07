@@ -18,7 +18,7 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSource',
     'ConfigurationAggregatorTag',
     'ConfigurationRecorderRecordingGroup',
-    'ConformancePackConformancePackInputParameter',
+    'ConformancePackInputParameter',
     'DeliveryChannelConfigSnapshotDeliveryProperties',
     'OrganizationConfigRuleOrganizationCustomRuleMetadata',
     'OrganizationConfigRuleOrganizationManagedRuleMetadata',
@@ -397,7 +397,7 @@ class ConfigurationRecorderRecordingGroup(dict):
 
 
 @pulumi.output_type
-class ConformancePackConformancePackInputParameter(dict):
+class ConformancePackInputParameter(dict):
     """
     Input parameters in the form of key-value pairs for the conformance pack.
     """
@@ -410,14 +410,14 @@ class ConformancePackConformancePackInputParameter(dict):
             suggest = "parameter_value"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConformancePackConformancePackInputParameter. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConformancePackInputParameter. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConformancePackConformancePackInputParameter.__key_warning(key)
+        ConformancePackInputParameter.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConformancePackConformancePackInputParameter.__key_warning(key)
+        ConformancePackInputParameter.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -22,7 +22,7 @@ type Host struct {
 	// Id of the host created.
 	HostId pulumi.StringOutput `pulumi:"hostId"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-	HostRecovery HostHostRecoveryPtrOutput `pulumi:"hostRecovery"`
+	HostRecovery HostRecoveryPtrOutput `pulumi:"hostRecovery"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 }
@@ -77,7 +77,7 @@ type hostArgs struct {
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-	HostRecovery *HostHostRecovery `pulumi:"hostRecovery"`
+	HostRecovery *HostRecovery `pulumi:"hostRecovery"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
 	InstanceType string `pulumi:"instanceType"`
 }
@@ -89,7 +89,7 @@ type HostArgs struct {
 	// The Availability Zone in which to allocate the Dedicated Host.
 	AvailabilityZone pulumi.StringInput
 	// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
-	HostRecovery HostHostRecoveryPtrInput
+	HostRecovery HostRecoveryPtrInput
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
 	InstanceType pulumi.StringInput
 }

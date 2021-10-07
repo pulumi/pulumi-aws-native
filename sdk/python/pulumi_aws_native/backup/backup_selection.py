@@ -15,7 +15,7 @@ __all__ = ['BackupSelectionArgs', 'BackupSelection']
 @pulumi.input_type
 class BackupSelectionArgs:
     def __init__(__self__, *,
-                 backup_selection: pulumi.Input['BackupSelectionBackupSelectionResourceTypeArgs']):
+                 backup_selection: pulumi.Input['BackupSelectionResourceTypeArgs']):
         """
         The set of arguments for constructing a BackupSelection resource.
         """
@@ -23,11 +23,11 @@ class BackupSelectionArgs:
 
     @property
     @pulumi.getter(name="backupSelection")
-    def backup_selection(self) -> pulumi.Input['BackupSelectionBackupSelectionResourceTypeArgs']:
+    def backup_selection(self) -> pulumi.Input['BackupSelectionResourceTypeArgs']:
         return pulumi.get(self, "backup_selection")
 
     @backup_selection.setter
-    def backup_selection(self, value: pulumi.Input['BackupSelectionBackupSelectionResourceTypeArgs']):
+    def backup_selection(self, value: pulumi.Input['BackupSelectionResourceTypeArgs']):
         pulumi.set(self, "backup_selection", value)
 
 
@@ -36,7 +36,7 @@ class BackupSelection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionBackupSelectionResourceTypeArgs']]] = None,
+                 backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::BackupSelection
@@ -68,7 +68,7 @@ class BackupSelection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionBackupSelectionResourceTypeArgs']]] = None,
+                 backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -120,7 +120,7 @@ class BackupSelection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupSelection")
-    def backup_selection(self) -> pulumi.Output['outputs.BackupSelectionBackupSelectionResourceType']:
+    def backup_selection(self) -> pulumi.Output['outputs.BackupSelectionResourceType']:
         return pulumi.get(self, "backup_selection")
 
     @property

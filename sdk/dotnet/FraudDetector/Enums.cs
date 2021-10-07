@@ -7,37 +7,6 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.FraudDetector
 {
-    /// <summary>
-    /// The desired detector version status for the detector
-    /// </summary>
-    [EnumType]
-    public readonly struct DetectorDetectorVersionStatus : IEquatable<DetectorDetectorVersionStatus>
-    {
-        private readonly string _value;
-
-        private DetectorDetectorVersionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DetectorDetectorVersionStatus Draft { get; } = new DetectorDetectorVersionStatus("DRAFT");
-        public static DetectorDetectorVersionStatus Active { get; } = new DetectorDetectorVersionStatus("ACTIVE");
-
-        public static bool operator ==(DetectorDetectorVersionStatus left, DetectorDetectorVersionStatus right) => left.Equals(right);
-        public static bool operator !=(DetectorDetectorVersionStatus left, DetectorDetectorVersionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(DetectorDetectorVersionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DetectorDetectorVersionStatus other && Equals(other);
-        public bool Equals(DetectorDetectorVersionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct DetectorEventVariableDataSource : IEquatable<DetectorEventVariableDataSource>
     {
@@ -202,6 +171,37 @@ namespace Pulumi.AwsNative.FraudDetector
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DetectorRuleLanguage other && Equals(other);
         public bool Equals(DetectorRuleLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The desired detector version status for the detector
+    /// </summary>
+    [EnumType]
+    public readonly struct DetectorVersionStatus : IEquatable<DetectorVersionStatus>
+    {
+        private readonly string _value;
+
+        private DetectorVersionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DetectorVersionStatus Draft { get; } = new DetectorVersionStatus("DRAFT");
+        public static DetectorVersionStatus Active { get; } = new DetectorVersionStatus("ACTIVE");
+
+        public static bool operator ==(DetectorVersionStatus left, DetectorVersionStatus right) => left.Equals(right);
+        public static bool operator !=(DetectorVersionStatus left, DetectorVersionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DetectorVersionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DetectorVersionStatus other && Equals(other);
+        public bool Equals(DetectorVersionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -393,57 +393,57 @@ namespace Pulumi.AwsNative.FraudDetector
     /// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
     /// </summary>
     [EnumType]
-    public readonly struct VariableVariableType : IEquatable<VariableVariableType>
+    public readonly struct VariableType : IEquatable<VariableType>
     {
         private readonly string _value;
 
-        private VariableVariableType(string value)
+        private VariableType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static VariableVariableType AuthCode { get; } = new VariableVariableType("AUTH_CODE");
-        public static VariableVariableType Avs { get; } = new VariableVariableType("AVS");
-        public static VariableVariableType BillingAddressL1 { get; } = new VariableVariableType("BILLING_ADDRESS_L1");
-        public static VariableVariableType BillingAddressL2 { get; } = new VariableVariableType("BILLING_ADDRESS_L2");
-        public static VariableVariableType BillingCity { get; } = new VariableVariableType("BILLING_CITY");
-        public static VariableVariableType BillingCountry { get; } = new VariableVariableType("BILLING_COUNTRY");
-        public static VariableVariableType BillingName { get; } = new VariableVariableType("BILLING_NAME");
-        public static VariableVariableType BillingPhone { get; } = new VariableVariableType("BILLING_PHONE");
-        public static VariableVariableType BillingState { get; } = new VariableVariableType("BILLING_STATE");
-        public static VariableVariableType BillingZip { get; } = new VariableVariableType("BILLING_ZIP");
-        public static VariableVariableType CardBin { get; } = new VariableVariableType("CARD_BIN");
-        public static VariableVariableType Categorical { get; } = new VariableVariableType("CATEGORICAL");
-        public static VariableVariableType CurrencyCode { get; } = new VariableVariableType("CURRENCY_CODE");
-        public static VariableVariableType EmailAddress { get; } = new VariableVariableType("EMAIL_ADDRESS");
-        public static VariableVariableType Fingerprint { get; } = new VariableVariableType("FINGERPRINT");
-        public static VariableVariableType FraudLabel { get; } = new VariableVariableType("FRAUD_LABEL");
-        public static VariableVariableType FreeFormText { get; } = new VariableVariableType("FREE_FORM_TEXT");
-        public static VariableVariableType IpAddress { get; } = new VariableVariableType("IP_ADDRESS");
-        public static VariableVariableType Numeric { get; } = new VariableVariableType("NUMERIC");
-        public static VariableVariableType OrderId { get; } = new VariableVariableType("ORDER_ID");
-        public static VariableVariableType PaymentType { get; } = new VariableVariableType("PAYMENT_TYPE");
-        public static VariableVariableType PhoneNumber { get; } = new VariableVariableType("PHONE_NUMBER");
-        public static VariableVariableType Price { get; } = new VariableVariableType("PRICE");
-        public static VariableVariableType ProductCategory { get; } = new VariableVariableType("PRODUCT_CATEGORY");
-        public static VariableVariableType ShippingAddressL1 { get; } = new VariableVariableType("SHIPPING_ADDRESS_L1");
-        public static VariableVariableType ShippingAddressL2 { get; } = new VariableVariableType("SHIPPING_ADDRESS_L2");
-        public static VariableVariableType ShippingCity { get; } = new VariableVariableType("SHIPPING_CITY");
-        public static VariableVariableType ShippingCountry { get; } = new VariableVariableType("SHIPPING_COUNTRY");
-        public static VariableVariableType ShippingName { get; } = new VariableVariableType("SHIPPING_NAME");
-        public static VariableVariableType ShippingPhone { get; } = new VariableVariableType("SHIPPING_PHONE");
-        public static VariableVariableType ShippingState { get; } = new VariableVariableType("SHIPPING_STATE");
-        public static VariableVariableType ShippingZip { get; } = new VariableVariableType("SHIPPING_ZIP");
-        public static VariableVariableType Useragent { get; } = new VariableVariableType("USERAGENT");
+        public static VariableType AuthCode { get; } = new VariableType("AUTH_CODE");
+        public static VariableType Avs { get; } = new VariableType("AVS");
+        public static VariableType BillingAddressL1 { get; } = new VariableType("BILLING_ADDRESS_L1");
+        public static VariableType BillingAddressL2 { get; } = new VariableType("BILLING_ADDRESS_L2");
+        public static VariableType BillingCity { get; } = new VariableType("BILLING_CITY");
+        public static VariableType BillingCountry { get; } = new VariableType("BILLING_COUNTRY");
+        public static VariableType BillingName { get; } = new VariableType("BILLING_NAME");
+        public static VariableType BillingPhone { get; } = new VariableType("BILLING_PHONE");
+        public static VariableType BillingState { get; } = new VariableType("BILLING_STATE");
+        public static VariableType BillingZip { get; } = new VariableType("BILLING_ZIP");
+        public static VariableType CardBin { get; } = new VariableType("CARD_BIN");
+        public static VariableType Categorical { get; } = new VariableType("CATEGORICAL");
+        public static VariableType CurrencyCode { get; } = new VariableType("CURRENCY_CODE");
+        public static VariableType EmailAddress { get; } = new VariableType("EMAIL_ADDRESS");
+        public static VariableType Fingerprint { get; } = new VariableType("FINGERPRINT");
+        public static VariableType FraudLabel { get; } = new VariableType("FRAUD_LABEL");
+        public static VariableType FreeFormText { get; } = new VariableType("FREE_FORM_TEXT");
+        public static VariableType IpAddress { get; } = new VariableType("IP_ADDRESS");
+        public static VariableType Numeric { get; } = new VariableType("NUMERIC");
+        public static VariableType OrderId { get; } = new VariableType("ORDER_ID");
+        public static VariableType PaymentType { get; } = new VariableType("PAYMENT_TYPE");
+        public static VariableType PhoneNumber { get; } = new VariableType("PHONE_NUMBER");
+        public static VariableType Price { get; } = new VariableType("PRICE");
+        public static VariableType ProductCategory { get; } = new VariableType("PRODUCT_CATEGORY");
+        public static VariableType ShippingAddressL1 { get; } = new VariableType("SHIPPING_ADDRESS_L1");
+        public static VariableType ShippingAddressL2 { get; } = new VariableType("SHIPPING_ADDRESS_L2");
+        public static VariableType ShippingCity { get; } = new VariableType("SHIPPING_CITY");
+        public static VariableType ShippingCountry { get; } = new VariableType("SHIPPING_COUNTRY");
+        public static VariableType ShippingName { get; } = new VariableType("SHIPPING_NAME");
+        public static VariableType ShippingPhone { get; } = new VariableType("SHIPPING_PHONE");
+        public static VariableType ShippingState { get; } = new VariableType("SHIPPING_STATE");
+        public static VariableType ShippingZip { get; } = new VariableType("SHIPPING_ZIP");
+        public static VariableType Useragent { get; } = new VariableType("USERAGENT");
 
-        public static bool operator ==(VariableVariableType left, VariableVariableType right) => left.Equals(right);
-        public static bool operator !=(VariableVariableType left, VariableVariableType right) => !left.Equals(right);
+        public static bool operator ==(VariableType left, VariableType right) => left.Equals(right);
+        public static bool operator !=(VariableType left, VariableType right) => !left.Equals(right);
 
-        public static explicit operator string(VariableVariableType value) => value._value;
+        public static explicit operator string(VariableType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is VariableVariableType other && Equals(other);
-        public bool Equals(VariableVariableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is VariableType other && Equals(other);
+        public bool Equals(VariableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

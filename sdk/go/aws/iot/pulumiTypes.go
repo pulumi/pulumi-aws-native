@@ -8638,6 +8638,214 @@ func (o TopicRuleOpenSearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRulePayload struct {
+	Actions          []TopicRuleAction `pulumi:"actions"`
+	AwsIotSqlVersion *string           `pulumi:"awsIotSqlVersion"`
+	Description      *string           `pulumi:"description"`
+	ErrorAction      *TopicRuleAction  `pulumi:"errorAction"`
+	RuleDisabled     *bool             `pulumi:"ruleDisabled"`
+	Sql              string            `pulumi:"sql"`
+}
+
+// TopicRulePayloadInput is an input type that accepts TopicRulePayloadArgs and TopicRulePayloadOutput values.
+// You can construct a concrete instance of `TopicRulePayloadInput` via:
+//
+//          TopicRulePayloadArgs{...}
+type TopicRulePayloadInput interface {
+	pulumi.Input
+
+	ToTopicRulePayloadOutput() TopicRulePayloadOutput
+	ToTopicRulePayloadOutputWithContext(context.Context) TopicRulePayloadOutput
+}
+
+type TopicRulePayloadArgs struct {
+	Actions          TopicRuleActionArrayInput `pulumi:"actions"`
+	AwsIotSqlVersion pulumi.StringPtrInput     `pulumi:"awsIotSqlVersion"`
+	Description      pulumi.StringPtrInput     `pulumi:"description"`
+	ErrorAction      TopicRuleActionPtrInput   `pulumi:"errorAction"`
+	RuleDisabled     pulumi.BoolPtrInput       `pulumi:"ruleDisabled"`
+	Sql              pulumi.StringInput        `pulumi:"sql"`
+}
+
+func (TopicRulePayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRulePayload)(nil)).Elem()
+}
+
+func (i TopicRulePayloadArgs) ToTopicRulePayloadOutput() TopicRulePayloadOutput {
+	return i.ToTopicRulePayloadOutputWithContext(context.Background())
+}
+
+func (i TopicRulePayloadArgs) ToTopicRulePayloadOutputWithContext(ctx context.Context) TopicRulePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePayloadOutput)
+}
+
+func (i TopicRulePayloadArgs) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
+	return i.ToTopicRulePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRulePayloadArgs) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePayloadOutput).ToTopicRulePayloadPtrOutputWithContext(ctx)
+}
+
+// TopicRulePayloadPtrInput is an input type that accepts TopicRulePayloadArgs, TopicRulePayloadPtr and TopicRulePayloadPtrOutput values.
+// You can construct a concrete instance of `TopicRulePayloadPtrInput` via:
+//
+//          TopicRulePayloadArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRulePayloadPtrInput interface {
+	pulumi.Input
+
+	ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput
+	ToTopicRulePayloadPtrOutputWithContext(context.Context) TopicRulePayloadPtrOutput
+}
+
+type topicRulePayloadPtrType TopicRulePayloadArgs
+
+func TopicRulePayloadPtr(v *TopicRulePayloadArgs) TopicRulePayloadPtrInput {
+	return (*topicRulePayloadPtrType)(v)
+}
+
+func (*topicRulePayloadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRulePayload)(nil)).Elem()
+}
+
+func (i *topicRulePayloadPtrType) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
+	return i.ToTopicRulePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRulePayloadPtrType) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePayloadPtrOutput)
+}
+
+type TopicRulePayloadOutput struct{ *pulumi.OutputState }
+
+func (TopicRulePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRulePayload)(nil)).Elem()
+}
+
+func (o TopicRulePayloadOutput) ToTopicRulePayloadOutput() TopicRulePayloadOutput {
+	return o
+}
+
+func (o TopicRulePayloadOutput) ToTopicRulePayloadOutputWithContext(ctx context.Context) TopicRulePayloadOutput {
+	return o
+}
+
+func (o TopicRulePayloadOutput) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
+	return o.ToTopicRulePayloadPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRulePayloadOutput) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRulePayload) *TopicRulePayload {
+		return &v
+	}).(TopicRulePayloadPtrOutput)
+}
+
+func (o TopicRulePayloadOutput) Actions() TopicRuleActionArrayOutput {
+	return o.ApplyT(func(v TopicRulePayload) []TopicRuleAction { return v.Actions }).(TopicRuleActionArrayOutput)
+}
+
+func (o TopicRulePayloadOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRulePayload) *string { return v.AwsIotSqlVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRulePayloadOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRulePayload) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRulePayloadOutput) ErrorAction() TopicRuleActionPtrOutput {
+	return o.ApplyT(func(v TopicRulePayload) *TopicRuleAction { return v.ErrorAction }).(TopicRuleActionPtrOutput)
+}
+
+func (o TopicRulePayloadOutput) RuleDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRulePayload) *bool { return v.RuleDisabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicRulePayloadOutput) Sql() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRulePayload) string { return v.Sql }).(pulumi.StringOutput)
+}
+
+type TopicRulePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRulePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRulePayload)(nil)).Elem()
+}
+
+func (o TopicRulePayloadPtrOutput) ToTopicRulePayloadPtrOutput() TopicRulePayloadPtrOutput {
+	return o
+}
+
+func (o TopicRulePayloadPtrOutput) ToTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRulePayloadPtrOutput {
+	return o
+}
+
+func (o TopicRulePayloadPtrOutput) Elem() TopicRulePayloadOutput {
+	return o.ApplyT(func(v *TopicRulePayload) TopicRulePayload {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRulePayload
+		return ret
+	}).(TopicRulePayloadOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
+	return o.ApplyT(func(v *TopicRulePayload) []TopicRuleAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(TopicRuleActionArrayOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsIotSqlVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *TopicRuleAction {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorAction
+	}).(TopicRuleActionPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RuleDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRulePayload) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sql
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRulePutAssetPropertyValueEntry struct {
 	AssetId        *string                       `pulumi:"assetId"`
 	EntryId        *string                       `pulumi:"entryId"`
@@ -10438,214 +10646,6 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type TopicRuleTopicRulePayload struct {
-	Actions          []TopicRuleAction `pulumi:"actions"`
-	AwsIotSqlVersion *string           `pulumi:"awsIotSqlVersion"`
-	Description      *string           `pulumi:"description"`
-	ErrorAction      *TopicRuleAction  `pulumi:"errorAction"`
-	RuleDisabled     *bool             `pulumi:"ruleDisabled"`
-	Sql              string            `pulumi:"sql"`
-}
-
-// TopicRuleTopicRulePayloadInput is an input type that accepts TopicRuleTopicRulePayloadArgs and TopicRuleTopicRulePayloadOutput values.
-// You can construct a concrete instance of `TopicRuleTopicRulePayloadInput` via:
-//
-//          TopicRuleTopicRulePayloadArgs{...}
-type TopicRuleTopicRulePayloadInput interface {
-	pulumi.Input
-
-	ToTopicRuleTopicRulePayloadOutput() TopicRuleTopicRulePayloadOutput
-	ToTopicRuleTopicRulePayloadOutputWithContext(context.Context) TopicRuleTopicRulePayloadOutput
-}
-
-type TopicRuleTopicRulePayloadArgs struct {
-	Actions          TopicRuleActionArrayInput `pulumi:"actions"`
-	AwsIotSqlVersion pulumi.StringPtrInput     `pulumi:"awsIotSqlVersion"`
-	Description      pulumi.StringPtrInput     `pulumi:"description"`
-	ErrorAction      TopicRuleActionPtrInput   `pulumi:"errorAction"`
-	RuleDisabled     pulumi.BoolPtrInput       `pulumi:"ruleDisabled"`
-	Sql              pulumi.StringInput        `pulumi:"sql"`
-}
-
-func (TopicRuleTopicRulePayloadArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleTopicRulePayload)(nil)).Elem()
-}
-
-func (i TopicRuleTopicRulePayloadArgs) ToTopicRuleTopicRulePayloadOutput() TopicRuleTopicRulePayloadOutput {
-	return i.ToTopicRuleTopicRulePayloadOutputWithContext(context.Background())
-}
-
-func (i TopicRuleTopicRulePayloadArgs) ToTopicRuleTopicRulePayloadOutputWithContext(ctx context.Context) TopicRuleTopicRulePayloadOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTopicRulePayloadOutput)
-}
-
-func (i TopicRuleTopicRulePayloadArgs) ToTopicRuleTopicRulePayloadPtrOutput() TopicRuleTopicRulePayloadPtrOutput {
-	return i.ToTopicRuleTopicRulePayloadPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleTopicRulePayloadArgs) ToTopicRuleTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRuleTopicRulePayloadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTopicRulePayloadOutput).ToTopicRuleTopicRulePayloadPtrOutputWithContext(ctx)
-}
-
-// TopicRuleTopicRulePayloadPtrInput is an input type that accepts TopicRuleTopicRulePayloadArgs, TopicRuleTopicRulePayloadPtr and TopicRuleTopicRulePayloadPtrOutput values.
-// You can construct a concrete instance of `TopicRuleTopicRulePayloadPtrInput` via:
-//
-//          TopicRuleTopicRulePayloadArgs{...}
-//
-//  or:
-//
-//          nil
-type TopicRuleTopicRulePayloadPtrInput interface {
-	pulumi.Input
-
-	ToTopicRuleTopicRulePayloadPtrOutput() TopicRuleTopicRulePayloadPtrOutput
-	ToTopicRuleTopicRulePayloadPtrOutputWithContext(context.Context) TopicRuleTopicRulePayloadPtrOutput
-}
-
-type topicRuleTopicRulePayloadPtrType TopicRuleTopicRulePayloadArgs
-
-func TopicRuleTopicRulePayloadPtr(v *TopicRuleTopicRulePayloadArgs) TopicRuleTopicRulePayloadPtrInput {
-	return (*topicRuleTopicRulePayloadPtrType)(v)
-}
-
-func (*topicRuleTopicRulePayloadPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleTopicRulePayload)(nil)).Elem()
-}
-
-func (i *topicRuleTopicRulePayloadPtrType) ToTopicRuleTopicRulePayloadPtrOutput() TopicRuleTopicRulePayloadPtrOutput {
-	return i.ToTopicRuleTopicRulePayloadPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleTopicRulePayloadPtrType) ToTopicRuleTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRuleTopicRulePayloadPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTopicRulePayloadPtrOutput)
-}
-
-type TopicRuleTopicRulePayloadOutput struct{ *pulumi.OutputState }
-
-func (TopicRuleTopicRulePayloadOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleTopicRulePayload)(nil)).Elem()
-}
-
-func (o TopicRuleTopicRulePayloadOutput) ToTopicRuleTopicRulePayloadOutput() TopicRuleTopicRulePayloadOutput {
-	return o
-}
-
-func (o TopicRuleTopicRulePayloadOutput) ToTopicRuleTopicRulePayloadOutputWithContext(ctx context.Context) TopicRuleTopicRulePayloadOutput {
-	return o
-}
-
-func (o TopicRuleTopicRulePayloadOutput) ToTopicRuleTopicRulePayloadPtrOutput() TopicRuleTopicRulePayloadPtrOutput {
-	return o.ToTopicRuleTopicRulePayloadPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleTopicRulePayloadOutput) ToTopicRuleTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRuleTopicRulePayloadPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleTopicRulePayload) *TopicRuleTopicRulePayload {
-		return &v
-	}).(TopicRuleTopicRulePayloadPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadOutput) Actions() TopicRuleActionArrayOutput {
-	return o.ApplyT(func(v TopicRuleTopicRulePayload) []TopicRuleAction { return v.Actions }).(TopicRuleActionArrayOutput)
-}
-
-func (o TopicRuleTopicRulePayloadOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleTopicRulePayload) *string { return v.AwsIotSqlVersion }).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleTopicRulePayload) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadOutput) ErrorAction() TopicRuleActionPtrOutput {
-	return o.ApplyT(func(v TopicRuleTopicRulePayload) *TopicRuleAction { return v.ErrorAction }).(TopicRuleActionPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadOutput) RuleDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TopicRuleTopicRulePayload) *bool { return v.RuleDisabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadOutput) Sql() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleTopicRulePayload) string { return v.Sql }).(pulumi.StringOutput)
-}
-
-type TopicRuleTopicRulePayloadPtrOutput struct{ *pulumi.OutputState }
-
-func (TopicRuleTopicRulePayloadPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleTopicRulePayload)(nil)).Elem()
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) ToTopicRuleTopicRulePayloadPtrOutput() TopicRuleTopicRulePayloadPtrOutput {
-	return o
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) ToTopicRuleTopicRulePayloadPtrOutputWithContext(ctx context.Context) TopicRuleTopicRulePayloadPtrOutput {
-	return o
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) Elem() TopicRuleTopicRulePayloadOutput {
-	return o.ApplyT(func(v *TopicRuleTopicRulePayload) TopicRuleTopicRulePayload {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleTopicRulePayload
-		return ret
-	}).(TopicRuleTopicRulePayloadOutput)
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
-	return o.ApplyT(func(v *TopicRuleTopicRulePayload) []TopicRuleAction {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(TopicRuleActionArrayOutput)
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AwsIotSqlVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
-	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *TopicRuleAction {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorAction
-	}).(TopicRuleActionPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RuleDisabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o TopicRuleTopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Sql
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationPtrOutput{})
@@ -10756,6 +10756,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleLambdaActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRulePayloadOutput{})
+	pulumi.RegisterOutputType(TopicRulePayloadPtrOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryOutput{})
 	pulumi.RegisterOutputType(TopicRulePutAssetPropertyValueEntryArrayOutput{})
 	pulumi.RegisterOutputType(TopicRulePutItemInputOutput{})
@@ -10780,6 +10782,4 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleTimestreamDimensionArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamTimestampOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamTimestampPtrOutput{})
-	pulumi.RegisterOutputType(TopicRuleTopicRulePayloadOutput{})
-	pulumi.RegisterOutputType(TopicRuleTopicRulePayloadPtrOutput{})
 }

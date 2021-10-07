@@ -11,367 +11,258 @@ import (
 )
 
 // A key-value pair to associate with a resource.
-type HealthCheckHealthCheckTag struct {
+type HealthCheckTag struct {
 	// The key name of the tag.
 	Key string `pulumi:"key"`
 	// The value for the tag.
 	Value string `pulumi:"value"`
 }
 
-// HealthCheckHealthCheckTagInput is an input type that accepts HealthCheckHealthCheckTagArgs and HealthCheckHealthCheckTagOutput values.
-// You can construct a concrete instance of `HealthCheckHealthCheckTagInput` via:
+// HealthCheckTagInput is an input type that accepts HealthCheckTagArgs and HealthCheckTagOutput values.
+// You can construct a concrete instance of `HealthCheckTagInput` via:
 //
-//          HealthCheckHealthCheckTagArgs{...}
-type HealthCheckHealthCheckTagInput interface {
+//          HealthCheckTagArgs{...}
+type HealthCheckTagInput interface {
 	pulumi.Input
 
-	ToHealthCheckHealthCheckTagOutput() HealthCheckHealthCheckTagOutput
-	ToHealthCheckHealthCheckTagOutputWithContext(context.Context) HealthCheckHealthCheckTagOutput
+	ToHealthCheckTagOutput() HealthCheckTagOutput
+	ToHealthCheckTagOutputWithContext(context.Context) HealthCheckTagOutput
 }
 
 // A key-value pair to associate with a resource.
-type HealthCheckHealthCheckTagArgs struct {
+type HealthCheckTagArgs struct {
 	// The key name of the tag.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The value for the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (HealthCheckHealthCheckTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckHealthCheckTag)(nil)).Elem()
+func (HealthCheckTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckTag)(nil)).Elem()
 }
 
-func (i HealthCheckHealthCheckTagArgs) ToHealthCheckHealthCheckTagOutput() HealthCheckHealthCheckTagOutput {
-	return i.ToHealthCheckHealthCheckTagOutputWithContext(context.Background())
+func (i HealthCheckTagArgs) ToHealthCheckTagOutput() HealthCheckTagOutput {
+	return i.ToHealthCheckTagOutputWithContext(context.Background())
 }
 
-func (i HealthCheckHealthCheckTagArgs) ToHealthCheckHealthCheckTagOutputWithContext(ctx context.Context) HealthCheckHealthCheckTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckHealthCheckTagOutput)
+func (i HealthCheckTagArgs) ToHealthCheckTagOutputWithContext(ctx context.Context) HealthCheckTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckTagOutput)
 }
 
-// HealthCheckHealthCheckTagArrayInput is an input type that accepts HealthCheckHealthCheckTagArray and HealthCheckHealthCheckTagArrayOutput values.
-// You can construct a concrete instance of `HealthCheckHealthCheckTagArrayInput` via:
+// HealthCheckTagArrayInput is an input type that accepts HealthCheckTagArray and HealthCheckTagArrayOutput values.
+// You can construct a concrete instance of `HealthCheckTagArrayInput` via:
 //
-//          HealthCheckHealthCheckTagArray{ HealthCheckHealthCheckTagArgs{...} }
-type HealthCheckHealthCheckTagArrayInput interface {
+//          HealthCheckTagArray{ HealthCheckTagArgs{...} }
+type HealthCheckTagArrayInput interface {
 	pulumi.Input
 
-	ToHealthCheckHealthCheckTagArrayOutput() HealthCheckHealthCheckTagArrayOutput
-	ToHealthCheckHealthCheckTagArrayOutputWithContext(context.Context) HealthCheckHealthCheckTagArrayOutput
+	ToHealthCheckTagArrayOutput() HealthCheckTagArrayOutput
+	ToHealthCheckTagArrayOutputWithContext(context.Context) HealthCheckTagArrayOutput
 }
 
-type HealthCheckHealthCheckTagArray []HealthCheckHealthCheckTagInput
+type HealthCheckTagArray []HealthCheckTagInput
 
-func (HealthCheckHealthCheckTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthCheckHealthCheckTag)(nil)).Elem()
+func (HealthCheckTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthCheckTag)(nil)).Elem()
 }
 
-func (i HealthCheckHealthCheckTagArray) ToHealthCheckHealthCheckTagArrayOutput() HealthCheckHealthCheckTagArrayOutput {
-	return i.ToHealthCheckHealthCheckTagArrayOutputWithContext(context.Background())
+func (i HealthCheckTagArray) ToHealthCheckTagArrayOutput() HealthCheckTagArrayOutput {
+	return i.ToHealthCheckTagArrayOutputWithContext(context.Background())
 }
 
-func (i HealthCheckHealthCheckTagArray) ToHealthCheckHealthCheckTagArrayOutputWithContext(ctx context.Context) HealthCheckHealthCheckTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckHealthCheckTagArrayOutput)
+func (i HealthCheckTagArray) ToHealthCheckTagArrayOutputWithContext(ctx context.Context) HealthCheckTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
-type HealthCheckHealthCheckTagOutput struct{ *pulumi.OutputState }
+type HealthCheckTagOutput struct{ *pulumi.OutputState }
 
-func (HealthCheckHealthCheckTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthCheckHealthCheckTag)(nil)).Elem()
+func (HealthCheckTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthCheckTag)(nil)).Elem()
 }
 
-func (o HealthCheckHealthCheckTagOutput) ToHealthCheckHealthCheckTagOutput() HealthCheckHealthCheckTagOutput {
+func (o HealthCheckTagOutput) ToHealthCheckTagOutput() HealthCheckTagOutput {
 	return o
 }
 
-func (o HealthCheckHealthCheckTagOutput) ToHealthCheckHealthCheckTagOutputWithContext(ctx context.Context) HealthCheckHealthCheckTagOutput {
+func (o HealthCheckTagOutput) ToHealthCheckTagOutputWithContext(ctx context.Context) HealthCheckTagOutput {
 	return o
 }
 
 // The key name of the tag.
-func (o HealthCheckHealthCheckTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckTag) string { return v.Key }).(pulumi.StringOutput)
+func (o HealthCheckTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
 // The value for the tag.
-func (o HealthCheckHealthCheckTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthCheckHealthCheckTag) string { return v.Value }).(pulumi.StringOutput)
+func (o HealthCheckTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HealthCheckTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type HealthCheckHealthCheckTagArrayOutput struct{ *pulumi.OutputState }
+type HealthCheckTagArrayOutput struct{ *pulumi.OutputState }
 
-func (HealthCheckHealthCheckTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthCheckHealthCheckTag)(nil)).Elem()
+func (HealthCheckTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HealthCheckTag)(nil)).Elem()
 }
 
-func (o HealthCheckHealthCheckTagArrayOutput) ToHealthCheckHealthCheckTagArrayOutput() HealthCheckHealthCheckTagArrayOutput {
+func (o HealthCheckTagArrayOutput) ToHealthCheckTagArrayOutput() HealthCheckTagArrayOutput {
 	return o
 }
 
-func (o HealthCheckHealthCheckTagArrayOutput) ToHealthCheckHealthCheckTagArrayOutputWithContext(ctx context.Context) HealthCheckHealthCheckTagArrayOutput {
+func (o HealthCheckTagArrayOutput) ToHealthCheckTagArrayOutputWithContext(ctx context.Context) HealthCheckTagArrayOutput {
 	return o
 }
 
-func (o HealthCheckHealthCheckTagArrayOutput) Index(i pulumi.IntInput) HealthCheckHealthCheckTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthCheckHealthCheckTag {
-		return vs[0].([]HealthCheckHealthCheckTag)[vs[1].(int)]
-	}).(HealthCheckHealthCheckTagOutput)
+func (o HealthCheckTagArrayOutput) Index(i pulumi.IntInput) HealthCheckTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthCheckTag {
+		return vs[0].([]HealthCheckTag)[vs[1].(int)]
+	}).(HealthCheckTagOutput)
 }
 
 // A complex type that contains an optional comment.
 //
 // If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
-type HostedZoneHostedZoneConfig struct {
+type HostedZoneConfig struct {
 	// Any comments that you want to include about the hosted zone.
 	Comment *string `pulumi:"comment"`
 }
 
-// HostedZoneHostedZoneConfigInput is an input type that accepts HostedZoneHostedZoneConfigArgs and HostedZoneHostedZoneConfigOutput values.
-// You can construct a concrete instance of `HostedZoneHostedZoneConfigInput` via:
+// HostedZoneConfigInput is an input type that accepts HostedZoneConfigArgs and HostedZoneConfigOutput values.
+// You can construct a concrete instance of `HostedZoneConfigInput` via:
 //
-//          HostedZoneHostedZoneConfigArgs{...}
-type HostedZoneHostedZoneConfigInput interface {
+//          HostedZoneConfigArgs{...}
+type HostedZoneConfigInput interface {
 	pulumi.Input
 
-	ToHostedZoneHostedZoneConfigOutput() HostedZoneHostedZoneConfigOutput
-	ToHostedZoneHostedZoneConfigOutputWithContext(context.Context) HostedZoneHostedZoneConfigOutput
+	ToHostedZoneConfigOutput() HostedZoneConfigOutput
+	ToHostedZoneConfigOutputWithContext(context.Context) HostedZoneConfigOutput
 }
 
 // A complex type that contains an optional comment.
 //
 // If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
-type HostedZoneHostedZoneConfigArgs struct {
+type HostedZoneConfigArgs struct {
 	// Any comments that you want to include about the hosted zone.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 }
 
-func (HostedZoneHostedZoneConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneHostedZoneConfig)(nil)).Elem()
+func (HostedZoneConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneConfig)(nil)).Elem()
 }
 
-func (i HostedZoneHostedZoneConfigArgs) ToHostedZoneHostedZoneConfigOutput() HostedZoneHostedZoneConfigOutput {
-	return i.ToHostedZoneHostedZoneConfigOutputWithContext(context.Background())
+func (i HostedZoneConfigArgs) ToHostedZoneConfigOutput() HostedZoneConfigOutput {
+	return i.ToHostedZoneConfigOutputWithContext(context.Background())
 }
 
-func (i HostedZoneHostedZoneConfigArgs) ToHostedZoneHostedZoneConfigOutputWithContext(ctx context.Context) HostedZoneHostedZoneConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneConfigOutput)
+func (i HostedZoneConfigArgs) ToHostedZoneConfigOutputWithContext(ctx context.Context) HostedZoneConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneConfigOutput)
 }
 
-func (i HostedZoneHostedZoneConfigArgs) ToHostedZoneHostedZoneConfigPtrOutput() HostedZoneHostedZoneConfigPtrOutput {
-	return i.ToHostedZoneHostedZoneConfigPtrOutputWithContext(context.Background())
+func (i HostedZoneConfigArgs) ToHostedZoneConfigPtrOutput() HostedZoneConfigPtrOutput {
+	return i.ToHostedZoneConfigPtrOutputWithContext(context.Background())
 }
 
-func (i HostedZoneHostedZoneConfigArgs) ToHostedZoneHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneHostedZoneConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneConfigOutput).ToHostedZoneHostedZoneConfigPtrOutputWithContext(ctx)
+func (i HostedZoneConfigArgs) ToHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneConfigOutput).ToHostedZoneConfigPtrOutputWithContext(ctx)
 }
 
-// HostedZoneHostedZoneConfigPtrInput is an input type that accepts HostedZoneHostedZoneConfigArgs, HostedZoneHostedZoneConfigPtr and HostedZoneHostedZoneConfigPtrOutput values.
-// You can construct a concrete instance of `HostedZoneHostedZoneConfigPtrInput` via:
+// HostedZoneConfigPtrInput is an input type that accepts HostedZoneConfigArgs, HostedZoneConfigPtr and HostedZoneConfigPtrOutput values.
+// You can construct a concrete instance of `HostedZoneConfigPtrInput` via:
 //
-//          HostedZoneHostedZoneConfigArgs{...}
+//          HostedZoneConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type HostedZoneHostedZoneConfigPtrInput interface {
+type HostedZoneConfigPtrInput interface {
 	pulumi.Input
 
-	ToHostedZoneHostedZoneConfigPtrOutput() HostedZoneHostedZoneConfigPtrOutput
-	ToHostedZoneHostedZoneConfigPtrOutputWithContext(context.Context) HostedZoneHostedZoneConfigPtrOutput
+	ToHostedZoneConfigPtrOutput() HostedZoneConfigPtrOutput
+	ToHostedZoneConfigPtrOutputWithContext(context.Context) HostedZoneConfigPtrOutput
 }
 
-type hostedZoneHostedZoneConfigPtrType HostedZoneHostedZoneConfigArgs
+type hostedZoneConfigPtrType HostedZoneConfigArgs
 
-func HostedZoneHostedZoneConfigPtr(v *HostedZoneHostedZoneConfigArgs) HostedZoneHostedZoneConfigPtrInput {
-	return (*hostedZoneHostedZoneConfigPtrType)(v)
+func HostedZoneConfigPtr(v *HostedZoneConfigArgs) HostedZoneConfigPtrInput {
+	return (*hostedZoneConfigPtrType)(v)
 }
 
-func (*hostedZoneHostedZoneConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostedZoneHostedZoneConfig)(nil)).Elem()
+func (*hostedZoneConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneConfig)(nil)).Elem()
 }
 
-func (i *hostedZoneHostedZoneConfigPtrType) ToHostedZoneHostedZoneConfigPtrOutput() HostedZoneHostedZoneConfigPtrOutput {
-	return i.ToHostedZoneHostedZoneConfigPtrOutputWithContext(context.Background())
+func (i *hostedZoneConfigPtrType) ToHostedZoneConfigPtrOutput() HostedZoneConfigPtrOutput {
+	return i.ToHostedZoneConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *hostedZoneHostedZoneConfigPtrType) ToHostedZoneHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneHostedZoneConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneConfigPtrOutput)
+func (i *hostedZoneConfigPtrType) ToHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneConfigPtrOutput)
 }
 
 // A complex type that contains an optional comment.
 //
 // If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
-type HostedZoneHostedZoneConfigOutput struct{ *pulumi.OutputState }
+type HostedZoneConfigOutput struct{ *pulumi.OutputState }
 
-func (HostedZoneHostedZoneConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneHostedZoneConfig)(nil)).Elem()
+func (HostedZoneConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneConfig)(nil)).Elem()
 }
 
-func (o HostedZoneHostedZoneConfigOutput) ToHostedZoneHostedZoneConfigOutput() HostedZoneHostedZoneConfigOutput {
+func (o HostedZoneConfigOutput) ToHostedZoneConfigOutput() HostedZoneConfigOutput {
 	return o
 }
 
-func (o HostedZoneHostedZoneConfigOutput) ToHostedZoneHostedZoneConfigOutputWithContext(ctx context.Context) HostedZoneHostedZoneConfigOutput {
+func (o HostedZoneConfigOutput) ToHostedZoneConfigOutputWithContext(ctx context.Context) HostedZoneConfigOutput {
 	return o
 }
 
-func (o HostedZoneHostedZoneConfigOutput) ToHostedZoneHostedZoneConfigPtrOutput() HostedZoneHostedZoneConfigPtrOutput {
-	return o.ToHostedZoneHostedZoneConfigPtrOutputWithContext(context.Background())
+func (o HostedZoneConfigOutput) ToHostedZoneConfigPtrOutput() HostedZoneConfigPtrOutput {
+	return o.ToHostedZoneConfigPtrOutputWithContext(context.Background())
 }
 
-func (o HostedZoneHostedZoneConfigOutput) ToHostedZoneHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneHostedZoneConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneHostedZoneConfig) *HostedZoneHostedZoneConfig {
+func (o HostedZoneConfigOutput) ToHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneConfig) *HostedZoneConfig {
 		return &v
-	}).(HostedZoneHostedZoneConfigPtrOutput)
+	}).(HostedZoneConfigPtrOutput)
 }
 
 // Any comments that you want to include about the hosted zone.
-func (o HostedZoneHostedZoneConfigOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostedZoneHostedZoneConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+func (o HostedZoneConfigOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostedZoneConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-type HostedZoneHostedZoneConfigPtrOutput struct{ *pulumi.OutputState }
+type HostedZoneConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (HostedZoneHostedZoneConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostedZoneHostedZoneConfig)(nil)).Elem()
+func (HostedZoneConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneConfig)(nil)).Elem()
 }
 
-func (o HostedZoneHostedZoneConfigPtrOutput) ToHostedZoneHostedZoneConfigPtrOutput() HostedZoneHostedZoneConfigPtrOutput {
+func (o HostedZoneConfigPtrOutput) ToHostedZoneConfigPtrOutput() HostedZoneConfigPtrOutput {
 	return o
 }
 
-func (o HostedZoneHostedZoneConfigPtrOutput) ToHostedZoneHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneHostedZoneConfigPtrOutput {
+func (o HostedZoneConfigPtrOutput) ToHostedZoneConfigPtrOutputWithContext(ctx context.Context) HostedZoneConfigPtrOutput {
 	return o
 }
 
-func (o HostedZoneHostedZoneConfigPtrOutput) Elem() HostedZoneHostedZoneConfigOutput {
-	return o.ApplyT(func(v *HostedZoneHostedZoneConfig) HostedZoneHostedZoneConfig {
+func (o HostedZoneConfigPtrOutput) Elem() HostedZoneConfigOutput {
+	return o.ApplyT(func(v *HostedZoneConfig) HostedZoneConfig {
 		if v != nil {
 			return *v
 		}
-		var ret HostedZoneHostedZoneConfig
+		var ret HostedZoneConfig
 		return ret
-	}).(HostedZoneHostedZoneConfigOutput)
+	}).(HostedZoneConfigOutput)
 }
 
 // Any comments that you want to include about the hosted zone.
-func (o HostedZoneHostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostedZoneHostedZoneConfig) *string {
+func (o HostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedZoneConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Comment
 	}).(pulumi.StringPtrOutput)
-}
-
-// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-type HostedZoneHostedZoneTag struct {
-	// The key name of the tag.
-	Key string `pulumi:"key"`
-	// The value for the tag.
-	Value string `pulumi:"value"`
-}
-
-// HostedZoneHostedZoneTagInput is an input type that accepts HostedZoneHostedZoneTagArgs and HostedZoneHostedZoneTagOutput values.
-// You can construct a concrete instance of `HostedZoneHostedZoneTagInput` via:
-//
-//          HostedZoneHostedZoneTagArgs{...}
-type HostedZoneHostedZoneTagInput interface {
-	pulumi.Input
-
-	ToHostedZoneHostedZoneTagOutput() HostedZoneHostedZoneTagOutput
-	ToHostedZoneHostedZoneTagOutputWithContext(context.Context) HostedZoneHostedZoneTagOutput
-}
-
-// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-type HostedZoneHostedZoneTagArgs struct {
-	// The key name of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (HostedZoneHostedZoneTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneHostedZoneTag)(nil)).Elem()
-}
-
-func (i HostedZoneHostedZoneTagArgs) ToHostedZoneHostedZoneTagOutput() HostedZoneHostedZoneTagOutput {
-	return i.ToHostedZoneHostedZoneTagOutputWithContext(context.Background())
-}
-
-func (i HostedZoneHostedZoneTagArgs) ToHostedZoneHostedZoneTagOutputWithContext(ctx context.Context) HostedZoneHostedZoneTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneTagOutput)
-}
-
-// HostedZoneHostedZoneTagArrayInput is an input type that accepts HostedZoneHostedZoneTagArray and HostedZoneHostedZoneTagArrayOutput values.
-// You can construct a concrete instance of `HostedZoneHostedZoneTagArrayInput` via:
-//
-//          HostedZoneHostedZoneTagArray{ HostedZoneHostedZoneTagArgs{...} }
-type HostedZoneHostedZoneTagArrayInput interface {
-	pulumi.Input
-
-	ToHostedZoneHostedZoneTagArrayOutput() HostedZoneHostedZoneTagArrayOutput
-	ToHostedZoneHostedZoneTagArrayOutputWithContext(context.Context) HostedZoneHostedZoneTagArrayOutput
-}
-
-type HostedZoneHostedZoneTagArray []HostedZoneHostedZoneTagInput
-
-func (HostedZoneHostedZoneTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostedZoneHostedZoneTag)(nil)).Elem()
-}
-
-func (i HostedZoneHostedZoneTagArray) ToHostedZoneHostedZoneTagArrayOutput() HostedZoneHostedZoneTagArrayOutput {
-	return i.ToHostedZoneHostedZoneTagArrayOutputWithContext(context.Background())
-}
-
-func (i HostedZoneHostedZoneTagArray) ToHostedZoneHostedZoneTagArrayOutputWithContext(ctx context.Context) HostedZoneHostedZoneTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneTagArrayOutput)
-}
-
-// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-type HostedZoneHostedZoneTagOutput struct{ *pulumi.OutputState }
-
-func (HostedZoneHostedZoneTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostedZoneHostedZoneTag)(nil)).Elem()
-}
-
-func (o HostedZoneHostedZoneTagOutput) ToHostedZoneHostedZoneTagOutput() HostedZoneHostedZoneTagOutput {
-	return o
-}
-
-func (o HostedZoneHostedZoneTagOutput) ToHostedZoneHostedZoneTagOutputWithContext(ctx context.Context) HostedZoneHostedZoneTagOutput {
-	return o
-}
-
-// The key name of the tag.
-func (o HostedZoneHostedZoneTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneHostedZoneTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// The value for the tag.
-func (o HostedZoneHostedZoneTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v HostedZoneHostedZoneTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type HostedZoneHostedZoneTagArrayOutput struct{ *pulumi.OutputState }
-
-func (HostedZoneHostedZoneTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostedZoneHostedZoneTag)(nil)).Elem()
-}
-
-func (o HostedZoneHostedZoneTagArrayOutput) ToHostedZoneHostedZoneTagArrayOutput() HostedZoneHostedZoneTagArrayOutput {
-	return o
-}
-
-func (o HostedZoneHostedZoneTagArrayOutput) ToHostedZoneHostedZoneTagArrayOutputWithContext(ctx context.Context) HostedZoneHostedZoneTagArrayOutput {
-	return o
-}
-
-func (o HostedZoneHostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneHostedZoneTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedZoneHostedZoneTag {
-		return vs[0].([]HostedZoneHostedZoneTag)[vs[1].(int)]
-	}).(HostedZoneHostedZoneTagOutput)
 }
 
 // A complex type that contains information about a configuration for DNS query logging.
@@ -512,6 +403,115 @@ func (o HostedZoneQueryLoggingConfigPtrOutput) CloudWatchLogsLogGroupArn() pulum
 		}
 		return &v.CloudWatchLogsLogGroupArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+type HostedZoneTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// HostedZoneTagInput is an input type that accepts HostedZoneTagArgs and HostedZoneTagOutput values.
+// You can construct a concrete instance of `HostedZoneTagInput` via:
+//
+//          HostedZoneTagArgs{...}
+type HostedZoneTagInput interface {
+	pulumi.Input
+
+	ToHostedZoneTagOutput() HostedZoneTagOutput
+	ToHostedZoneTagOutputWithContext(context.Context) HostedZoneTagOutput
+}
+
+// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+type HostedZoneTagArgs struct {
+	// The key name of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (HostedZoneTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneTag)(nil)).Elem()
+}
+
+func (i HostedZoneTagArgs) ToHostedZoneTagOutput() HostedZoneTagOutput {
+	return i.ToHostedZoneTagOutputWithContext(context.Background())
+}
+
+func (i HostedZoneTagArgs) ToHostedZoneTagOutputWithContext(ctx context.Context) HostedZoneTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneTagOutput)
+}
+
+// HostedZoneTagArrayInput is an input type that accepts HostedZoneTagArray and HostedZoneTagArrayOutput values.
+// You can construct a concrete instance of `HostedZoneTagArrayInput` via:
+//
+//          HostedZoneTagArray{ HostedZoneTagArgs{...} }
+type HostedZoneTagArrayInput interface {
+	pulumi.Input
+
+	ToHostedZoneTagArrayOutput() HostedZoneTagArrayOutput
+	ToHostedZoneTagArrayOutputWithContext(context.Context) HostedZoneTagArrayOutput
+}
+
+type HostedZoneTagArray []HostedZoneTagInput
+
+func (HostedZoneTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedZoneTag)(nil)).Elem()
+}
+
+func (i HostedZoneTagArray) ToHostedZoneTagArrayOutput() HostedZoneTagArrayOutput {
+	return i.ToHostedZoneTagArrayOutputWithContext(context.Background())
+}
+
+func (i HostedZoneTagArray) ToHostedZoneTagArrayOutputWithContext(ctx context.Context) HostedZoneTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneTagArrayOutput)
+}
+
+// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+type HostedZoneTagOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneTag)(nil)).Elem()
+}
+
+func (o HostedZoneTagOutput) ToHostedZoneTagOutput() HostedZoneTagOutput {
+	return o
+}
+
+func (o HostedZoneTagOutput) ToHostedZoneTagOutputWithContext(ctx context.Context) HostedZoneTagOutput {
+	return o
+}
+
+// The key name of the tag.
+func (o HostedZoneTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v HostedZoneTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag.
+func (o HostedZoneTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v HostedZoneTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type HostedZoneTagArrayOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostedZoneTag)(nil)).Elem()
+}
+
+func (o HostedZoneTagArrayOutput) ToHostedZoneTagArrayOutput() HostedZoneTagArrayOutput {
+	return o
+}
+
+func (o HostedZoneTagArrayOutput) ToHostedZoneTagArrayOutputWithContext(ctx context.Context) HostedZoneTagArrayOutput {
+	return o
+}
+
+func (o HostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostedZoneTag {
+		return vs[0].([]HostedZoneTag)[vs[1].(int)]
+	}).(HostedZoneTagOutput)
 }
 
 // A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
@@ -1454,14 +1454,14 @@ func (o RecordSetGroupRecordSetArrayOutput) Index(i pulumi.IntInput) RecordSetGr
 }
 
 func init() {
-	pulumi.RegisterOutputType(HealthCheckHealthCheckTagOutput{})
-	pulumi.RegisterOutputType(HealthCheckHealthCheckTagArrayOutput{})
-	pulumi.RegisterOutputType(HostedZoneHostedZoneConfigOutput{})
-	pulumi.RegisterOutputType(HostedZoneHostedZoneConfigPtrOutput{})
-	pulumi.RegisterOutputType(HostedZoneHostedZoneTagOutput{})
-	pulumi.RegisterOutputType(HostedZoneHostedZoneTagArrayOutput{})
+	pulumi.RegisterOutputType(HealthCheckTagOutput{})
+	pulumi.RegisterOutputType(HealthCheckTagArrayOutput{})
+	pulumi.RegisterOutputType(HostedZoneConfigOutput{})
+	pulumi.RegisterOutputType(HostedZoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigOutput{})
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(HostedZoneTagOutput{})
+	pulumi.RegisterOutputType(HostedZoneTagArrayOutput{})
 	pulumi.RegisterOutputType(HostedZoneVPCOutput{})
 	pulumi.RegisterOutputType(HostedZoneVPCArrayOutput{})
 	pulumi.RegisterOutputType(RecordSetAliasTargetOutput{})

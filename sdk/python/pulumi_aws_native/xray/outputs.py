@@ -11,9 +11,9 @@ from . import outputs
 
 __all__ = [
     'GroupInsightsConfiguration',
-    'SamplingRuleSamplingRule',
-    'SamplingRuleSamplingRuleRecord',
-    'SamplingRuleSamplingRuleUpdate',
+    'SamplingRule',
+    'SamplingRuleRecord',
+    'SamplingRuleUpdate',
 ]
 
 @pulumi.output_type
@@ -67,7 +67,7 @@ class GroupInsightsConfiguration(dict):
 
 
 @pulumi.output_type
-class SamplingRuleSamplingRule(dict):
+class SamplingRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,14 +91,14 @@ class SamplingRuleSamplingRule(dict):
             suggest = "u_rl_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SamplingRuleSamplingRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SamplingRule. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SamplingRuleSamplingRule.__key_warning(key)
+        SamplingRule.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SamplingRuleSamplingRule.__key_warning(key)
+        SamplingRule.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -255,7 +255,7 @@ class SamplingRuleSamplingRule(dict):
 
 
 @pulumi.output_type
-class SamplingRuleSamplingRuleRecord(dict):
+class SamplingRuleRecord(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -267,20 +267,20 @@ class SamplingRuleSamplingRuleRecord(dict):
             suggest = "sampling_rule"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SamplingRuleSamplingRuleRecord. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SamplingRuleRecord. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SamplingRuleSamplingRuleRecord.__key_warning(key)
+        SamplingRuleRecord.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SamplingRuleSamplingRuleRecord.__key_warning(key)
+        SamplingRuleRecord.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  created_at: Optional[str] = None,
                  modified_at: Optional[str] = None,
-                 sampling_rule: Optional['outputs.SamplingRuleSamplingRule'] = None):
+                 sampling_rule: Optional['outputs.SamplingRule'] = None):
         """
         :param str created_at: When the rule was created, in Unix time seconds.
         :param str modified_at: When the rule was modified, in Unix time seconds.
@@ -310,12 +310,12 @@ class SamplingRuleSamplingRuleRecord(dict):
 
     @property
     @pulumi.getter(name="samplingRule")
-    def sampling_rule(self) -> Optional['outputs.SamplingRuleSamplingRule']:
+    def sampling_rule(self) -> Optional['outputs.SamplingRule']:
         return pulumi.get(self, "sampling_rule")
 
 
 @pulumi.output_type
-class SamplingRuleSamplingRuleUpdate(dict):
+class SamplingRuleUpdate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -339,14 +339,14 @@ class SamplingRuleSamplingRuleUpdate(dict):
             suggest = "u_rl_path"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SamplingRuleSamplingRuleUpdate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SamplingRuleUpdate. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SamplingRuleSamplingRuleUpdate.__key_warning(key)
+        SamplingRuleUpdate.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SamplingRuleSamplingRuleUpdate.__key_warning(key)
+        SamplingRuleUpdate.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

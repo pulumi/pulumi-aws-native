@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("objectTypeKeyList")]
-        private InputList<Inputs.ObjectTypeObjectTypeKeyArgs>? _objectTypeKeyList;
-        public InputList<Inputs.ObjectTypeObjectTypeKeyArgs> ObjectTypeKeyList
+        private InputList<Inputs.ObjectTypeKeyArgs>? _objectTypeKeyList;
+        public InputList<Inputs.ObjectTypeKeyArgs> ObjectTypeKeyList
         {
-            get => _objectTypeKeyList ?? (_objectTypeKeyList = new InputList<Inputs.ObjectTypeObjectTypeKeyArgs>());
+            get => _objectTypeKeyList ?? (_objectTypeKeyList = new InputList<Inputs.ObjectTypeKeyArgs>());
             set => _objectTypeKeyList = value;
         }
 

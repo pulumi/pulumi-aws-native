@@ -10,6 +10,203 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FirewallPolicyType struct {
+	StatefulRuleGroupReferences     []FirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
+	StatelessCustomActions          []FirewallPolicyCustomAction                `pulumi:"statelessCustomActions"`
+	StatelessDefaultActions         []string                                    `pulumi:"statelessDefaultActions"`
+	StatelessFragmentDefaultActions []string                                    `pulumi:"statelessFragmentDefaultActions"`
+	StatelessRuleGroupReferences    []FirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
+}
+
+// FirewallPolicyTypeInput is an input type that accepts FirewallPolicyTypeArgs and FirewallPolicyTypeOutput values.
+// You can construct a concrete instance of `FirewallPolicyTypeInput` via:
+//
+//          FirewallPolicyTypeArgs{...}
+type FirewallPolicyTypeInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyTypeOutput() FirewallPolicyTypeOutput
+	ToFirewallPolicyTypeOutputWithContext(context.Context) FirewallPolicyTypeOutput
+}
+
+type FirewallPolicyTypeArgs struct {
+	StatefulRuleGroupReferences     FirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
+	StatelessCustomActions          FirewallPolicyCustomActionArrayInput                `pulumi:"statelessCustomActions"`
+	StatelessDefaultActions         pulumi.StringArrayInput                             `pulumi:"statelessDefaultActions"`
+	StatelessFragmentDefaultActions pulumi.StringArrayInput                             `pulumi:"statelessFragmentDefaultActions"`
+	StatelessRuleGroupReferences    FirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
+}
+
+func (FirewallPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyType)(nil)).Elem()
+}
+
+func (i FirewallPolicyTypeArgs) ToFirewallPolicyTypeOutput() FirewallPolicyTypeOutput {
+	return i.ToFirewallPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyTypeArgs) ToFirewallPolicyTypeOutputWithContext(ctx context.Context) FirewallPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTypeOutput)
+}
+
+func (i FirewallPolicyTypeArgs) ToFirewallPolicyTypePtrOutput() FirewallPolicyTypePtrOutput {
+	return i.ToFirewallPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyTypeArgs) ToFirewallPolicyTypePtrOutputWithContext(ctx context.Context) FirewallPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTypeOutput).ToFirewallPolicyTypePtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyTypePtrInput is an input type that accepts FirewallPolicyTypeArgs, FirewallPolicyTypePtr and FirewallPolicyTypePtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyTypePtrInput` via:
+//
+//          FirewallPolicyTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type FirewallPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyTypePtrOutput() FirewallPolicyTypePtrOutput
+	ToFirewallPolicyTypePtrOutputWithContext(context.Context) FirewallPolicyTypePtrOutput
+}
+
+type firewallPolicyTypePtrType FirewallPolicyTypeArgs
+
+func FirewallPolicyTypePtr(v *FirewallPolicyTypeArgs) FirewallPolicyTypePtrInput {
+	return (*firewallPolicyTypePtrType)(v)
+}
+
+func (*firewallPolicyTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyType)(nil)).Elem()
+}
+
+func (i *firewallPolicyTypePtrType) ToFirewallPolicyTypePtrOutput() FirewallPolicyTypePtrOutput {
+	return i.ToFirewallPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyTypePtrType) ToFirewallPolicyTypePtrOutputWithContext(ctx context.Context) FirewallPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyTypePtrOutput)
+}
+
+type FirewallPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyType)(nil)).Elem()
+}
+
+func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutput() FirewallPolicyTypeOutput {
+	return o
+}
+
+func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypeOutputWithContext(ctx context.Context) FirewallPolicyTypeOutput {
+	return o
+}
+
+func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypePtrOutput() FirewallPolicyTypePtrOutput {
+	return o.ToFirewallPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyTypeOutput) ToFirewallPolicyTypePtrOutputWithContext(ctx context.Context) FirewallPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyType) *FirewallPolicyType {
+		return &v
+	}).(FirewallPolicyTypePtrOutput)
+}
+
+func (o FirewallPolicyTypeOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyStatefulRuleGroupReference {
+		return v.StatefulRuleGroupReferences
+	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
+}
+
+func (o FirewallPolicyTypeOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyCustomAction { return v.StatelessCustomActions }).(FirewallPolicyCustomActionArrayOutput)
+}
+
+func (o FirewallPolicyTypeOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyType) []string { return v.StatelessDefaultActions }).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypeOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyType) []string { return v.StatelessFragmentDefaultActions }).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypeOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyStatelessRuleGroupReference {
+		return v.StatelessRuleGroupReferences
+	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+type FirewallPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyType)(nil)).Elem()
+}
+
+func (o FirewallPolicyTypePtrOutput) ToFirewallPolicyTypePtrOutput() FirewallPolicyTypePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyTypePtrOutput) ToFirewallPolicyTypePtrOutputWithContext(ctx context.Context) FirewallPolicyTypePtrOutput {
+	return o
+}
+
+func (o FirewallPolicyTypePtrOutput) Elem() FirewallPolicyTypeOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) FirewallPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyType
+		return ret
+	}).(FirewallPolicyTypeOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyStatefulRuleGroupReference {
+		if v == nil {
+			return nil
+		}
+		return v.StatefulRuleGroupReferences
+	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyCustomAction {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessCustomActions
+	}).(FirewallPolicyCustomActionArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessDefaultActions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessFragmentDefaultActions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) []FirewallPolicyStatelessRuleGroupReference {
+		if v == nil {
+			return nil
+		}
+		return v.StatelessRuleGroupReferences
+	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
 type FirewallPolicyActionDefinition struct {
 	PublishMetricAction *FirewallPolicyPublishMetricAction `pulumi:"publishMetricAction"`
 }
@@ -253,203 +450,6 @@ func (o FirewallPolicyDimensionArrayOutput) Index(i pulumi.IntInput) FirewallPol
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyDimension {
 		return vs[0].([]FirewallPolicyDimension)[vs[1].(int)]
 	}).(FirewallPolicyDimensionOutput)
-}
-
-type FirewallPolicyFirewallPolicy struct {
-	StatefulRuleGroupReferences     []FirewallPolicyStatefulRuleGroupReference  `pulumi:"statefulRuleGroupReferences"`
-	StatelessCustomActions          []FirewallPolicyCustomAction                `pulumi:"statelessCustomActions"`
-	StatelessDefaultActions         []string                                    `pulumi:"statelessDefaultActions"`
-	StatelessFragmentDefaultActions []string                                    `pulumi:"statelessFragmentDefaultActions"`
-	StatelessRuleGroupReferences    []FirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
-}
-
-// FirewallPolicyFirewallPolicyInput is an input type that accepts FirewallPolicyFirewallPolicyArgs and FirewallPolicyFirewallPolicyOutput values.
-// You can construct a concrete instance of `FirewallPolicyFirewallPolicyInput` via:
-//
-//          FirewallPolicyFirewallPolicyArgs{...}
-type FirewallPolicyFirewallPolicyInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyFirewallPolicyOutput() FirewallPolicyFirewallPolicyOutput
-	ToFirewallPolicyFirewallPolicyOutputWithContext(context.Context) FirewallPolicyFirewallPolicyOutput
-}
-
-type FirewallPolicyFirewallPolicyArgs struct {
-	StatefulRuleGroupReferences     FirewallPolicyStatefulRuleGroupReferenceArrayInput  `pulumi:"statefulRuleGroupReferences"`
-	StatelessCustomActions          FirewallPolicyCustomActionArrayInput                `pulumi:"statelessCustomActions"`
-	StatelessDefaultActions         pulumi.StringArrayInput                             `pulumi:"statelessDefaultActions"`
-	StatelessFragmentDefaultActions pulumi.StringArrayInput                             `pulumi:"statelessFragmentDefaultActions"`
-	StatelessRuleGroupReferences    FirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
-}
-
-func (FirewallPolicyFirewallPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyFirewallPolicy)(nil)).Elem()
-}
-
-func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyOutput() FirewallPolicyFirewallPolicyOutput {
-	return i.ToFirewallPolicyFirewallPolicyOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyOutput)
-}
-
-func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return i.ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyOutput).ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx)
-}
-
-// FirewallPolicyFirewallPolicyPtrInput is an input type that accepts FirewallPolicyFirewallPolicyArgs, FirewallPolicyFirewallPolicyPtr and FirewallPolicyFirewallPolicyPtrOutput values.
-// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPtrInput` via:
-//
-//          FirewallPolicyFirewallPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallPolicyFirewallPolicyPtrInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput
-	ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPtrOutput
-}
-
-type firewallPolicyFirewallPolicyPtrType FirewallPolicyFirewallPolicyArgs
-
-func FirewallPolicyFirewallPolicyPtr(v *FirewallPolicyFirewallPolicyArgs) FirewallPolicyFirewallPolicyPtrInput {
-	return (*firewallPolicyFirewallPolicyPtrType)(v)
-}
-
-func (*firewallPolicyFirewallPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyFirewallPolicy)(nil)).Elem()
-}
-
-func (i *firewallPolicyFirewallPolicyPtrType) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return i.ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallPolicyFirewallPolicyPtrType) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPtrOutput)
-}
-
-type FirewallPolicyFirewallPolicyOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyFirewallPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyFirewallPolicy)(nil)).Elem()
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyOutput() FirewallPolicyFirewallPolicyOutput {
-	return o
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyOutput {
-	return o
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return o.ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicy {
-		return &v
-	}).(FirewallPolicyFirewallPolicyPtrOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []FirewallPolicyStatefulRuleGroupReference {
-		return v.StatefulRuleGroupReferences
-	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []FirewallPolicyCustomAction { return v.StatelessCustomActions }).(FirewallPolicyCustomActionArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []string { return v.StatelessDefaultActions }).(pulumi.StringArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []string { return v.StatelessFragmentDefaultActions }).(pulumi.StringArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []FirewallPolicyStatelessRuleGroupReference {
-		return v.StatelessRuleGroupReferences
-	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
-}
-
-type FirewallPolicyFirewallPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyFirewallPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyFirewallPolicy)(nil)).Elem()
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPolicyOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) FirewallPolicyFirewallPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallPolicyFirewallPolicy
-		return ret
-	}).(FirewallPolicyFirewallPolicyOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyStatefulRuleGroupReference {
-		if v == nil {
-			return nil
-		}
-		return v.StatefulRuleGroupReferences
-	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessCustomActions
-	}).(FirewallPolicyCustomActionArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessDefaultActions
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessFragmentDefaultActions
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyStatelessRuleGroupReference {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessRuleGroupReferences
-	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
 type FirewallPolicyPublishMetricAction struct {
@@ -1076,6 +1076,141 @@ func (o FirewallTagArrayOutput) Index(i pulumi.IntInput) FirewallTagOutput {
 	}).(FirewallTagOutput)
 }
 
+type LoggingConfigurationType struct {
+	LogDestinationConfigs []LoggingConfigurationLogDestinationConfig `pulumi:"logDestinationConfigs"`
+}
+
+// LoggingConfigurationTypeInput is an input type that accepts LoggingConfigurationTypeArgs and LoggingConfigurationTypeOutput values.
+// You can construct a concrete instance of `LoggingConfigurationTypeInput` via:
+//
+//          LoggingConfigurationTypeArgs{...}
+type LoggingConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationTypeOutput() LoggingConfigurationTypeOutput
+	ToLoggingConfigurationTypeOutputWithContext(context.Context) LoggingConfigurationTypeOutput
+}
+
+type LoggingConfigurationTypeArgs struct {
+	LogDestinationConfigs LoggingConfigurationLogDestinationConfigArrayInput `pulumi:"logDestinationConfigs"`
+}
+
+func (LoggingConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationType)(nil)).Elem()
+}
+
+func (i LoggingConfigurationTypeArgs) ToLoggingConfigurationTypeOutput() LoggingConfigurationTypeOutput {
+	return i.ToLoggingConfigurationTypeOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationTypeArgs) ToLoggingConfigurationTypeOutputWithContext(ctx context.Context) LoggingConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTypeOutput)
+}
+
+func (i LoggingConfigurationTypeArgs) ToLoggingConfigurationTypePtrOutput() LoggingConfigurationTypePtrOutput {
+	return i.ToLoggingConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationTypeArgs) ToLoggingConfigurationTypePtrOutputWithContext(ctx context.Context) LoggingConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTypeOutput).ToLoggingConfigurationTypePtrOutputWithContext(ctx)
+}
+
+// LoggingConfigurationTypePtrInput is an input type that accepts LoggingConfigurationTypeArgs, LoggingConfigurationTypePtr and LoggingConfigurationTypePtrOutput values.
+// You can construct a concrete instance of `LoggingConfigurationTypePtrInput` via:
+//
+//          LoggingConfigurationTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type LoggingConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationTypePtrOutput() LoggingConfigurationTypePtrOutput
+	ToLoggingConfigurationTypePtrOutputWithContext(context.Context) LoggingConfigurationTypePtrOutput
+}
+
+type loggingConfigurationTypePtrType LoggingConfigurationTypeArgs
+
+func LoggingConfigurationTypePtr(v *LoggingConfigurationTypeArgs) LoggingConfigurationTypePtrInput {
+	return (*loggingConfigurationTypePtrType)(v)
+}
+
+func (*loggingConfigurationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationType)(nil)).Elem()
+}
+
+func (i *loggingConfigurationTypePtrType) ToLoggingConfigurationTypePtrOutput() LoggingConfigurationTypePtrOutput {
+	return i.ToLoggingConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (i *loggingConfigurationTypePtrType) ToLoggingConfigurationTypePtrOutputWithContext(ctx context.Context) LoggingConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationTypePtrOutput)
+}
+
+type LoggingConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationType)(nil)).Elem()
+}
+
+func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypeOutput() LoggingConfigurationTypeOutput {
+	return o
+}
+
+func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypeOutputWithContext(ctx context.Context) LoggingConfigurationTypeOutput {
+	return o
+}
+
+func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypePtrOutput() LoggingConfigurationTypePtrOutput {
+	return o.ToLoggingConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o LoggingConfigurationTypeOutput) ToLoggingConfigurationTypePtrOutputWithContext(ctx context.Context) LoggingConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationType) *LoggingConfigurationType {
+		return &v
+	}).(LoggingConfigurationTypePtrOutput)
+}
+
+func (o LoggingConfigurationTypeOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
+	return o.ApplyT(func(v LoggingConfigurationType) []LoggingConfigurationLogDestinationConfig {
+		return v.LogDestinationConfigs
+	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
+}
+
+type LoggingConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoggingConfigurationType)(nil)).Elem()
+}
+
+func (o LoggingConfigurationTypePtrOutput) ToLoggingConfigurationTypePtrOutput() LoggingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationTypePtrOutput) ToLoggingConfigurationTypePtrOutputWithContext(ctx context.Context) LoggingConfigurationTypePtrOutput {
+	return o
+}
+
+func (o LoggingConfigurationTypePtrOutput) Elem() LoggingConfigurationTypeOutput {
+	return o.ApplyT(func(v *LoggingConfigurationType) LoggingConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationType
+		return ret
+	}).(LoggingConfigurationTypeOutput)
+}
+
+func (o LoggingConfigurationTypePtrOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
+	return o.ApplyT(func(v *LoggingConfigurationType) []LoggingConfigurationLogDestinationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LogDestinationConfigs
+	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
+}
+
 type LoggingConfigurationLogDestinationConfig struct {
 	// A key-value pair to configure the logDestinations.
 	LogDestination     interface{}                                                `pulumi:"logDestination"`
@@ -1189,139 +1324,152 @@ func (o LoggingConfigurationLogDestinationConfigArrayOutput) Index(i pulumi.IntI
 	}).(LoggingConfigurationLogDestinationConfigOutput)
 }
 
-type LoggingConfigurationLoggingConfiguration struct {
-	LogDestinationConfigs []LoggingConfigurationLogDestinationConfig `pulumi:"logDestinationConfigs"`
+type RuleGroupType struct {
+	RuleVariables *RuleGroupRuleVariables `pulumi:"ruleVariables"`
+	RulesSource   RuleGroupRulesSource    `pulumi:"rulesSource"`
 }
 
-// LoggingConfigurationLoggingConfigurationInput is an input type that accepts LoggingConfigurationLoggingConfigurationArgs and LoggingConfigurationLoggingConfigurationOutput values.
-// You can construct a concrete instance of `LoggingConfigurationLoggingConfigurationInput` via:
+// RuleGroupTypeInput is an input type that accepts RuleGroupTypeArgs and RuleGroupTypeOutput values.
+// You can construct a concrete instance of `RuleGroupTypeInput` via:
 //
-//          LoggingConfigurationLoggingConfigurationArgs{...}
-type LoggingConfigurationLoggingConfigurationInput interface {
+//          RuleGroupTypeArgs{...}
+type RuleGroupTypeInput interface {
 	pulumi.Input
 
-	ToLoggingConfigurationLoggingConfigurationOutput() LoggingConfigurationLoggingConfigurationOutput
-	ToLoggingConfigurationLoggingConfigurationOutputWithContext(context.Context) LoggingConfigurationLoggingConfigurationOutput
+	ToRuleGroupTypeOutput() RuleGroupTypeOutput
+	ToRuleGroupTypeOutputWithContext(context.Context) RuleGroupTypeOutput
 }
 
-type LoggingConfigurationLoggingConfigurationArgs struct {
-	LogDestinationConfigs LoggingConfigurationLogDestinationConfigArrayInput `pulumi:"logDestinationConfigs"`
+type RuleGroupTypeArgs struct {
+	RuleVariables RuleGroupRuleVariablesPtrInput `pulumi:"ruleVariables"`
+	RulesSource   RuleGroupRulesSourceInput      `pulumi:"rulesSource"`
 }
 
-func (LoggingConfigurationLoggingConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationLoggingConfiguration)(nil)).Elem()
+func (RuleGroupTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupType)(nil)).Elem()
 }
 
-func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationOutput() LoggingConfigurationLoggingConfigurationOutput {
-	return i.ToLoggingConfigurationLoggingConfigurationOutputWithContext(context.Background())
+func (i RuleGroupTypeArgs) ToRuleGroupTypeOutput() RuleGroupTypeOutput {
+	return i.ToRuleGroupTypeOutputWithContext(context.Background())
 }
 
-func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationOutput)
+func (i RuleGroupTypeArgs) ToRuleGroupTypeOutputWithContext(ctx context.Context) RuleGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTypeOutput)
 }
 
-func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
-	return i.ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Background())
+func (i RuleGroupTypeArgs) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
+	return i.ToRuleGroupTypePtrOutputWithContext(context.Background())
 }
 
-func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationOutput).ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx)
+func (i RuleGroupTypeArgs) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTypeOutput).ToRuleGroupTypePtrOutputWithContext(ctx)
 }
 
-// LoggingConfigurationLoggingConfigurationPtrInput is an input type that accepts LoggingConfigurationLoggingConfigurationArgs, LoggingConfigurationLoggingConfigurationPtr and LoggingConfigurationLoggingConfigurationPtrOutput values.
-// You can construct a concrete instance of `LoggingConfigurationLoggingConfigurationPtrInput` via:
+// RuleGroupTypePtrInput is an input type that accepts RuleGroupTypeArgs, RuleGroupTypePtr and RuleGroupTypePtrOutput values.
+// You can construct a concrete instance of `RuleGroupTypePtrInput` via:
 //
-//          LoggingConfigurationLoggingConfigurationArgs{...}
+//          RuleGroupTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type LoggingConfigurationLoggingConfigurationPtrInput interface {
+type RuleGroupTypePtrInput interface {
 	pulumi.Input
 
-	ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput
-	ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Context) LoggingConfigurationLoggingConfigurationPtrOutput
+	ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput
+	ToRuleGroupTypePtrOutputWithContext(context.Context) RuleGroupTypePtrOutput
 }
 
-type loggingConfigurationLoggingConfigurationPtrType LoggingConfigurationLoggingConfigurationArgs
+type ruleGroupTypePtrType RuleGroupTypeArgs
 
-func LoggingConfigurationLoggingConfigurationPtr(v *LoggingConfigurationLoggingConfigurationArgs) LoggingConfigurationLoggingConfigurationPtrInput {
-	return (*loggingConfigurationLoggingConfigurationPtrType)(v)
+func RuleGroupTypePtr(v *RuleGroupTypeArgs) RuleGroupTypePtrInput {
+	return (*ruleGroupTypePtrType)(v)
 }
 
-func (*loggingConfigurationLoggingConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationLoggingConfiguration)(nil)).Elem()
+func (*ruleGroupTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupType)(nil)).Elem()
 }
 
-func (i *loggingConfigurationLoggingConfigurationPtrType) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
-	return i.ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Background())
+func (i *ruleGroupTypePtrType) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
+	return i.ToRuleGroupTypePtrOutputWithContext(context.Background())
 }
 
-func (i *loggingConfigurationLoggingConfigurationPtrType) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationPtrOutput)
+func (i *ruleGroupTypePtrType) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTypePtrOutput)
 }
 
-type LoggingConfigurationLoggingConfigurationOutput struct{ *pulumi.OutputState }
+type RuleGroupTypeOutput struct{ *pulumi.OutputState }
 
-func (LoggingConfigurationLoggingConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationLoggingConfiguration)(nil)).Elem()
+func (RuleGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupType)(nil)).Elem()
 }
 
-func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLoggingConfigurationOutput() LoggingConfigurationLoggingConfigurationOutput {
+func (o RuleGroupTypeOutput) ToRuleGroupTypeOutput() RuleGroupTypeOutput {
 	return o
 }
 
-func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationOutput {
+func (o RuleGroupTypeOutput) ToRuleGroupTypeOutputWithContext(ctx context.Context) RuleGroupTypeOutput {
 	return o
 }
 
-func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
-	return o.ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Background())
+func (o RuleGroupTypeOutput) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
+	return o.ToRuleGroupTypePtrOutputWithContext(context.Background())
 }
 
-func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationLoggingConfiguration) *LoggingConfigurationLoggingConfiguration {
+func (o RuleGroupTypeOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupType) *RuleGroupType {
 		return &v
-	}).(LoggingConfigurationLoggingConfigurationPtrOutput)
+	}).(RuleGroupTypePtrOutput)
 }
 
-func (o LoggingConfigurationLoggingConfigurationOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
-	return o.ApplyT(func(v LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLogDestinationConfig {
-		return v.LogDestinationConfigs
-	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
+func (o RuleGroupTypeOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
+	return o.ApplyT(func(v RuleGroupType) *RuleGroupRuleVariables { return v.RuleVariables }).(RuleGroupRuleVariablesPtrOutput)
 }
 
-type LoggingConfigurationLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationLoggingConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationLoggingConfiguration)(nil)).Elem()
+func (o RuleGroupTypeOutput) RulesSource() RuleGroupRulesSourceOutput {
+	return o.ApplyT(func(v RuleGroupType) RuleGroupRulesSource { return v.RulesSource }).(RuleGroupRulesSourceOutput)
 }
 
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
+type RuleGroupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupType)(nil)).Elem()
+}
+
+func (o RuleGroupTypePtrOutput) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
 	return o
 }
 
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
+func (o RuleGroupTypePtrOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
 	return o
 }
 
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) Elem() LoggingConfigurationLoggingConfigurationOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) LoggingConfigurationLoggingConfiguration {
+func (o RuleGroupTypePtrOutput) Elem() RuleGroupTypeOutput {
+	return o.ApplyT(func(v *RuleGroupType) RuleGroupType {
 		if v != nil {
 			return *v
 		}
-		var ret LoggingConfigurationLoggingConfiguration
+		var ret RuleGroupType
 		return ret
-	}).(LoggingConfigurationLoggingConfigurationOutput)
+	}).(RuleGroupTypeOutput)
 }
 
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLogDestinationConfig {
+func (o RuleGroupTypePtrOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupType) *RuleGroupRuleVariables {
 		if v == nil {
 			return nil
 		}
-		return v.LogDestinationConfigs
-	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
+		return v.RuleVariables
+	}).(RuleGroupRuleVariablesPtrOutput)
+}
+
+func (o RuleGroupTypePtrOutput) RulesSource() RuleGroupRulesSourcePtrOutput {
+	return o.ApplyT(func(v *RuleGroupType) *RuleGroupRulesSource {
+		if v == nil {
+			return nil
+		}
+		return &v.RulesSource
+	}).(RuleGroupRulesSourcePtrOutput)
 }
 
 type RuleGroupActionDefinition struct {
@@ -2105,154 +2253,6 @@ func (o RuleGroupRuleDefinitionOutput) Actions() pulumi.StringArrayOutput {
 
 func (o RuleGroupRuleDefinitionOutput) MatchAttributes() RuleGroupMatchAttributesOutput {
 	return o.ApplyT(func(v RuleGroupRuleDefinition) RuleGroupMatchAttributes { return v.MatchAttributes }).(RuleGroupMatchAttributesOutput)
-}
-
-type RuleGroupRuleGroup struct {
-	RuleVariables *RuleGroupRuleVariables `pulumi:"ruleVariables"`
-	RulesSource   RuleGroupRulesSource    `pulumi:"rulesSource"`
-}
-
-// RuleGroupRuleGroupInput is an input type that accepts RuleGroupRuleGroupArgs and RuleGroupRuleGroupOutput values.
-// You can construct a concrete instance of `RuleGroupRuleGroupInput` via:
-//
-//          RuleGroupRuleGroupArgs{...}
-type RuleGroupRuleGroupInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleGroupOutput() RuleGroupRuleGroupOutput
-	ToRuleGroupRuleGroupOutputWithContext(context.Context) RuleGroupRuleGroupOutput
-}
-
-type RuleGroupRuleGroupArgs struct {
-	RuleVariables RuleGroupRuleVariablesPtrInput `pulumi:"ruleVariables"`
-	RulesSource   RuleGroupRulesSourceInput      `pulumi:"rulesSource"`
-}
-
-func (RuleGroupRuleGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleGroup)(nil)).Elem()
-}
-
-func (i RuleGroupRuleGroupArgs) ToRuleGroupRuleGroupOutput() RuleGroupRuleGroupOutput {
-	return i.ToRuleGroupRuleGroupOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleGroupArgs) ToRuleGroupRuleGroupOutputWithContext(ctx context.Context) RuleGroupRuleGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupOutput)
-}
-
-func (i RuleGroupRuleGroupArgs) ToRuleGroupRuleGroupPtrOutput() RuleGroupRuleGroupPtrOutput {
-	return i.ToRuleGroupRuleGroupPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleGroupArgs) ToRuleGroupRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupOutput).ToRuleGroupRuleGroupPtrOutputWithContext(ctx)
-}
-
-// RuleGroupRuleGroupPtrInput is an input type that accepts RuleGroupRuleGroupArgs, RuleGroupRuleGroupPtr and RuleGroupRuleGroupPtrOutput values.
-// You can construct a concrete instance of `RuleGroupRuleGroupPtrInput` via:
-//
-//          RuleGroupRuleGroupArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupRuleGroupPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleGroupPtrOutput() RuleGroupRuleGroupPtrOutput
-	ToRuleGroupRuleGroupPtrOutputWithContext(context.Context) RuleGroupRuleGroupPtrOutput
-}
-
-type ruleGroupRuleGroupPtrType RuleGroupRuleGroupArgs
-
-func RuleGroupRuleGroupPtr(v *RuleGroupRuleGroupArgs) RuleGroupRuleGroupPtrInput {
-	return (*ruleGroupRuleGroupPtrType)(v)
-}
-
-func (*ruleGroupRuleGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleGroup)(nil)).Elem()
-}
-
-func (i *ruleGroupRuleGroupPtrType) ToRuleGroupRuleGroupPtrOutput() RuleGroupRuleGroupPtrOutput {
-	return i.ToRuleGroupRuleGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupRuleGroupPtrType) ToRuleGroupRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleGroupPtrOutput)
-}
-
-type RuleGroupRuleGroupOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleGroup)(nil)).Elem()
-}
-
-func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupOutput() RuleGroupRuleGroupOutput {
-	return o
-}
-
-func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupOutputWithContext(ctx context.Context) RuleGroupRuleGroupOutput {
-	return o
-}
-
-func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutput() RuleGroupRuleGroupPtrOutput {
-	return o.ToRuleGroupRuleGroupPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroup) *RuleGroupRuleGroup {
-		return &v
-	}).(RuleGroupRuleGroupPtrOutput)
-}
-
-func (o RuleGroupRuleGroupOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroup) *RuleGroupRuleVariables { return v.RuleVariables }).(RuleGroupRuleVariablesPtrOutput)
-}
-
-func (o RuleGroupRuleGroupOutput) RulesSource() RuleGroupRulesSourceOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroup) RuleGroupRulesSource { return v.RulesSource }).(RuleGroupRulesSourceOutput)
-}
-
-type RuleGroupRuleGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRuleGroup)(nil)).Elem()
-}
-
-func (o RuleGroupRuleGroupPtrOutput) ToRuleGroupRuleGroupPtrOutput() RuleGroupRuleGroupPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleGroupPtrOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupPtrOutput {
-	return o
-}
-
-func (o RuleGroupRuleGroupPtrOutput) Elem() RuleGroupRuleGroupOutput {
-	return o.ApplyT(func(v *RuleGroupRuleGroup) RuleGroupRuleGroup {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupRuleGroup
-		return ret
-	}).(RuleGroupRuleGroupOutput)
-}
-
-func (o RuleGroupRuleGroupPtrOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleGroup) *RuleGroupRuleVariables {
-		if v == nil {
-			return nil
-		}
-		return v.RuleVariables
-	}).(RuleGroupRuleVariablesPtrOutput)
-}
-
-func (o RuleGroupRuleGroupPtrOutput) RulesSource() RuleGroupRulesSourcePtrOutput {
-	return o.ApplyT(func(v *RuleGroupRuleGroup) *RuleGroupRulesSource {
-		if v == nil {
-			return nil
-		}
-		return &v.RulesSource
-	}).(RuleGroupRulesSourcePtrOutput)
 }
 
 type RuleGroupRuleOption struct {
@@ -3401,13 +3401,13 @@ func (o RuleGroupTagArrayOutput) Index(i pulumi.IntInput) RuleGroupTagOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyActionDefinitionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDimensionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDimensionArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceOutput{})
@@ -3420,10 +3420,12 @@ func init() {
 	pulumi.RegisterOutputType(FirewallSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(FirewallTagOutput{})
 	pulumi.RegisterOutputType(FirewallTagArrayOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigArrayOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupTypeOutput{})
+	pulumi.RegisterOutputType(RuleGroupTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupActionDefinitionOutput{})
 	pulumi.RegisterOutputType(RuleGroupAddressOutput{})
 	pulumi.RegisterOutputType(RuleGroupAddressArrayOutput{})
@@ -3438,8 +3440,6 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleDefinitionOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleGroupOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleGroupPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOptionOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOptionArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleVariablesOutput{})

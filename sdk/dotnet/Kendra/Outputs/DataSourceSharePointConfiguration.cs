@@ -20,14 +20,14 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly bool? DisableLocalGroups;
         public readonly string? DocumentTitleFieldName;
         public readonly ImmutableArray<string> ExclusionPatterns;
-        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
         public readonly ImmutableArray<string> InclusionPatterns;
         public readonly string SecretArn;
         public readonly Pulumi.AwsNative.Kendra.DataSourceSharePointConfigurationSharePointVersion SharePointVersion;
         public readonly Outputs.DataSourceS3Path? SslCertificateS3Path;
         public readonly ImmutableArray<string> Urls;
         public readonly bool? UseChangeLog;
-        public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
+        public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]
         private DataSourceSharePointConfiguration(
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             ImmutableArray<string> exclusionPatterns,
 
-            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
+            ImmutableArray<Outputs.DataSourceToIndexFieldMapping> fieldMappings,
 
             ImmutableArray<string> inclusionPatterns,
 
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             bool? useChangeLog,
 
-            Outputs.DataSourceDataSourceVpcConfiguration? vpcConfiguration)
+            Outputs.DataSourceVpcConfiguration? vpcConfiguration)
         {
             CrawlAttachments = crawlAttachments;
             DisableLocalGroups = disableLocalGroups;

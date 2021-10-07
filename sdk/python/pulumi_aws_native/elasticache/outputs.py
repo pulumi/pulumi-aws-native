@@ -16,7 +16,7 @@ __all__ = [
     'CacheClusterKinesisFirehoseDestinationDetails',
     'CacheClusterLogDeliveryConfigurationRequest',
     'CacheClusterTag',
-    'GlobalReplicationGroupGlobalReplicationGroupMember',
+    'GlobalReplicationGroupMember',
     'GlobalReplicationGroupRegionalConfiguration',
     'GlobalReplicationGroupReshardingConfiguration',
     'ParameterGroupTag',
@@ -204,7 +204,7 @@ class CacheClusterTag(dict):
 
 
 @pulumi.output_type
-class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
+class GlobalReplicationGroupMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -214,24 +214,24 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
             suggest = "replication_group_region"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GlobalReplicationGroupGlobalReplicationGroupMember. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GlobalReplicationGroupMember. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GlobalReplicationGroupGlobalReplicationGroupMember.__key_warning(key)
+        GlobalReplicationGroupMember.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GlobalReplicationGroupGlobalReplicationGroupMember.__key_warning(key)
+        GlobalReplicationGroupMember.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  replication_group_id: Optional[str] = None,
                  replication_group_region: Optional[str] = None,
-                 role: Optional['GlobalReplicationGroupGlobalReplicationGroupMemberRole'] = None):
+                 role: Optional['GlobalReplicationGroupMemberRole'] = None):
         """
         :param str replication_group_id: Regionally unique identifier for the member i.e. ReplicationGroupId.
         :param str replication_group_region: The AWS region of the Global Datastore member.
-        :param 'GlobalReplicationGroupGlobalReplicationGroupMemberRole' role: Indicates the role of the member, primary or secondary.
+        :param 'GlobalReplicationGroupMemberRole' role: Indicates the role of the member, primary or secondary.
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -258,7 +258,7 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
 
     @property
     @pulumi.getter
-    def role(self) -> Optional['GlobalReplicationGroupGlobalReplicationGroupMemberRole']:
+    def role(self) -> Optional['GlobalReplicationGroupMemberRole']:
         """
         Indicates the role of the member, primary or secondary.
         """

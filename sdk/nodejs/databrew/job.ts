@@ -52,7 +52,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Job Sample
      */
-    public readonly jobSample!: pulumi.Output<outputs.databrew.JobJobSample | undefined>;
+    public readonly jobSample!: pulumi.Output<outputs.databrew.JobSample | undefined>;
     /**
      * Log subscription
      */
@@ -185,7 +185,7 @@ export interface JobArgs {
     /**
      * Job Sample
      */
-    jobSample?: pulumi.Input<inputs.databrew.JobJobSampleArgs>;
+    jobSample?: pulumi.Input<inputs.databrew.JobSampleArgs>;
     /**
      * Log subscription
      */

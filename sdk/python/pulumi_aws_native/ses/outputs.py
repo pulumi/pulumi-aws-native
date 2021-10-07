@@ -27,7 +27,7 @@ __all__ = [
     'ReceiptRuleSNSAction',
     'ReceiptRuleStopAction',
     'ReceiptRuleWorkmailAction',
-    'TemplateTemplate',
+    'Template',
 ]
 
 @pulumi.output_type
@@ -840,7 +840,7 @@ class ReceiptRuleWorkmailAction(dict):
 
 
 @pulumi.output_type
-class TemplateTemplate(dict):
+class Template(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -854,14 +854,14 @@ class TemplateTemplate(dict):
             suggest = "text_part"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateTemplate. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in Template. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TemplateTemplate.__key_warning(key)
+        Template.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TemplateTemplate.__key_warning(key)
+        Template.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

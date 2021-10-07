@@ -11,140 +11,138 @@ import (
 )
 
 // An object representing the replication configuration for a registry.
-type ReplicationConfigurationReplicationConfiguration struct {
+type ReplicationConfigurationType struct {
 	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
 	Rules []ReplicationConfigurationReplicationRule `pulumi:"rules"`
 }
 
-// ReplicationConfigurationReplicationConfigurationInput is an input type that accepts ReplicationConfigurationReplicationConfigurationArgs and ReplicationConfigurationReplicationConfigurationOutput values.
-// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationInput` via:
+// ReplicationConfigurationTypeInput is an input type that accepts ReplicationConfigurationTypeArgs and ReplicationConfigurationTypeOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationTypeInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationArgs{...}
-type ReplicationConfigurationReplicationConfigurationInput interface {
+//          ReplicationConfigurationTypeArgs{...}
+type ReplicationConfigurationTypeInput interface {
 	pulumi.Input
 
-	ToReplicationConfigurationReplicationConfigurationOutput() ReplicationConfigurationReplicationConfigurationOutput
-	ToReplicationConfigurationReplicationConfigurationOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationOutput
+	ToReplicationConfigurationTypeOutput() ReplicationConfigurationTypeOutput
+	ToReplicationConfigurationTypeOutputWithContext(context.Context) ReplicationConfigurationTypeOutput
 }
 
 // An object representing the replication configuration for a registry.
-type ReplicationConfigurationReplicationConfigurationArgs struct {
+type ReplicationConfigurationTypeArgs struct {
 	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
 	Rules ReplicationConfigurationReplicationRuleArrayInput `pulumi:"rules"`
 }
 
-func (ReplicationConfigurationReplicationConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+func (ReplicationConfigurationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationType)(nil)).Elem()
 }
 
-func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationOutput() ReplicationConfigurationReplicationConfigurationOutput {
-	return i.ToReplicationConfigurationReplicationConfigurationOutputWithContext(context.Background())
+func (i ReplicationConfigurationTypeArgs) ToReplicationConfigurationTypeOutput() ReplicationConfigurationTypeOutput {
+	return i.ToReplicationConfigurationTypeOutputWithContext(context.Background())
 }
 
-func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationOutput)
+func (i ReplicationConfigurationTypeArgs) ToReplicationConfigurationTypeOutputWithContext(ctx context.Context) ReplicationConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationTypeOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
-	return i.ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Background())
+func (i ReplicationConfigurationTypeArgs) ToReplicationConfigurationTypePtrOutput() ReplicationConfigurationTypePtrOutput {
+	return i.ToReplicationConfigurationTypePtrOutputWithContext(context.Background())
 }
 
-func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationOutput).ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx)
+func (i ReplicationConfigurationTypeArgs) ToReplicationConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationTypeOutput).ToReplicationConfigurationTypePtrOutputWithContext(ctx)
 }
 
-// ReplicationConfigurationReplicationConfigurationPtrInput is an input type that accepts ReplicationConfigurationReplicationConfigurationArgs, ReplicationConfigurationReplicationConfigurationPtr and ReplicationConfigurationReplicationConfigurationPtrOutput values.
-// You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationPtrInput` via:
+// ReplicationConfigurationTypePtrInput is an input type that accepts ReplicationConfigurationTypeArgs, ReplicationConfigurationTypePtr and ReplicationConfigurationTypePtrOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationTypePtrInput` via:
 //
-//          ReplicationConfigurationReplicationConfigurationArgs{...}
+//          ReplicationConfigurationTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type ReplicationConfigurationReplicationConfigurationPtrInput interface {
+type ReplicationConfigurationTypePtrInput interface {
 	pulumi.Input
 
-	ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput
-	ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput
+	ToReplicationConfigurationTypePtrOutput() ReplicationConfigurationTypePtrOutput
+	ToReplicationConfigurationTypePtrOutputWithContext(context.Context) ReplicationConfigurationTypePtrOutput
 }
 
-type replicationConfigurationReplicationConfigurationPtrType ReplicationConfigurationReplicationConfigurationArgs
+type replicationConfigurationTypePtrType ReplicationConfigurationTypeArgs
 
-func ReplicationConfigurationReplicationConfigurationPtr(v *ReplicationConfigurationReplicationConfigurationArgs) ReplicationConfigurationReplicationConfigurationPtrInput {
-	return (*replicationConfigurationReplicationConfigurationPtrType)(v)
+func ReplicationConfigurationTypePtr(v *ReplicationConfigurationTypeArgs) ReplicationConfigurationTypePtrInput {
+	return (*replicationConfigurationTypePtrType)(v)
 }
 
-func (*replicationConfigurationReplicationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+func (*replicationConfigurationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationType)(nil)).Elem()
 }
 
-func (i *replicationConfigurationReplicationConfigurationPtrType) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
-	return i.ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Background())
+func (i *replicationConfigurationTypePtrType) ToReplicationConfigurationTypePtrOutput() ReplicationConfigurationTypePtrOutput {
+	return i.ToReplicationConfigurationTypePtrOutputWithContext(context.Background())
 }
 
-func (i *replicationConfigurationReplicationConfigurationPtrType) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationPtrOutput)
+func (i *replicationConfigurationTypePtrType) ToReplicationConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationTypePtrOutput)
 }
 
 // An object representing the replication configuration for a registry.
-type ReplicationConfigurationReplicationConfigurationOutput struct{ *pulumi.OutputState }
+type ReplicationConfigurationTypeOutput struct{ *pulumi.OutputState }
 
-func (ReplicationConfigurationReplicationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+func (ReplicationConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationType)(nil)).Elem()
 }
 
-func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationOutput() ReplicationConfigurationReplicationConfigurationOutput {
+func (o ReplicationConfigurationTypeOutput) ToReplicationConfigurationTypeOutput() ReplicationConfigurationTypeOutput {
 	return o
 }
 
-func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationOutput {
+func (o ReplicationConfigurationTypeOutput) ToReplicationConfigurationTypeOutputWithContext(ctx context.Context) ReplicationConfigurationTypeOutput {
 	return o
 }
 
-func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
-	return o.ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(context.Background())
+func (o ReplicationConfigurationTypeOutput) ToReplicationConfigurationTypePtrOutput() ReplicationConfigurationTypePtrOutput {
+	return o.ToReplicationConfigurationTypePtrOutputWithContext(context.Background())
 }
 
-func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationReplicationConfiguration) *ReplicationConfigurationReplicationConfiguration {
+func (o ReplicationConfigurationTypeOutput) ToReplicationConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationType) *ReplicationConfigurationType {
 		return &v
-	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
+	}).(ReplicationConfigurationTypePtrOutput)
 }
 
 // An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
-func (o ReplicationConfigurationReplicationConfigurationOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
-	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationRule {
-		return v.Rules
-	}).(ReplicationConfigurationReplicationRuleArrayOutput)
+func (o ReplicationConfigurationTypeOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
+	return o.ApplyT(func(v ReplicationConfigurationType) []ReplicationConfigurationReplicationRule { return v.Rules }).(ReplicationConfigurationReplicationRuleArrayOutput)
 }
 
-type ReplicationConfigurationReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
+type ReplicationConfigurationTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ReplicationConfigurationReplicationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfigurationReplicationConfiguration)(nil)).Elem()
+func (ReplicationConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationType)(nil)).Elem()
 }
 
-func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
+func (o ReplicationConfigurationTypePtrOutput) ToReplicationConfigurationTypePtrOutput() ReplicationConfigurationTypePtrOutput {
 	return o
 }
 
-func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
+func (o ReplicationConfigurationTypePtrOutput) ToReplicationConfigurationTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationTypePtrOutput {
 	return o
 }
 
-func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() ReplicationConfigurationReplicationConfigurationOutput {
-	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) ReplicationConfigurationReplicationConfiguration {
+func (o ReplicationConfigurationTypePtrOutput) Elem() ReplicationConfigurationTypeOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationType) ReplicationConfigurationType {
 		if v != nil {
 			return *v
 		}
-		var ret ReplicationConfigurationReplicationConfiguration
+		var ret ReplicationConfigurationType
 		return ret
-	}).(ReplicationConfigurationReplicationConfigurationOutput)
+	}).(ReplicationConfigurationTypeOutput)
 }
 
 // An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
-func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
-	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationRule {
+func (o ReplicationConfigurationTypePtrOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationType) []ReplicationConfigurationReplicationRule {
 		if v == nil {
 			return nil
 		}
@@ -1033,8 +1031,8 @@ func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationOutput{})
-	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationRuleOutput{})

@@ -15,7 +15,7 @@ __all__ = ['BackupPlanArgs', 'BackupPlan']
 @pulumi.input_type
 class BackupPlanArgs:
     def __init__(__self__, *,
-                 backup_plan: pulumi.Input['BackupPlanBackupPlanResourceTypeArgs'],
+                 backup_plan: pulumi.Input['BackupPlanResourceTypeArgs'],
                  backup_plan_tags: Optional[Any] = None):
         """
         The set of arguments for constructing a BackupPlan resource.
@@ -26,11 +26,11 @@ class BackupPlanArgs:
 
     @property
     @pulumi.getter(name="backupPlan")
-    def backup_plan(self) -> pulumi.Input['BackupPlanBackupPlanResourceTypeArgs']:
+    def backup_plan(self) -> pulumi.Input['BackupPlanResourceTypeArgs']:
         return pulumi.get(self, "backup_plan")
 
     @backup_plan.setter
-    def backup_plan(self, value: pulumi.Input['BackupPlanBackupPlanResourceTypeArgs']):
+    def backup_plan(self, value: pulumi.Input['BackupPlanResourceTypeArgs']):
         pulumi.set(self, "backup_plan", value)
 
     @property
@@ -48,7 +48,7 @@ class BackupPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']]] = None,
+                 backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']]] = None,
                  backup_plan_tags: Optional[Any] = None,
                  __props__=None):
         """
@@ -81,7 +81,7 @@ class BackupPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanBackupPlanResourceTypeArgs']]] = None,
+                 backup_plan: Optional[pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']]] = None,
                  backup_plan_tags: Optional[Any] = None,
                  __props__=None):
         if opts is None:
@@ -133,7 +133,7 @@ class BackupPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupPlan")
-    def backup_plan(self) -> pulumi.Output['outputs.BackupPlanBackupPlanResourceType']:
+    def backup_plan(self) -> pulumi.Output['outputs.BackupPlanResourceType']:
         return pulumi.get(self, "backup_plan")
 
     @property

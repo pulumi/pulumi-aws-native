@@ -20,7 +20,7 @@ type Campaign struct {
 	AdditionalTreatments CampaignWriteTreatmentResourceArrayOutput `pulumi:"additionalTreatments"`
 	ApplicationId        pulumi.StringOutput                       `pulumi:"applicationId"`
 	Arn                  pulumi.StringOutput                       `pulumi:"arn"`
-	CampaignHook         CampaignCampaignHookPtrOutput             `pulumi:"campaignHook"`
+	CampaignHook         CampaignHookPtrOutput                     `pulumi:"campaignHook"`
 	CampaignId           pulumi.StringOutput                       `pulumi:"campaignId"`
 	Description          pulumi.StringPtrOutput                    `pulumi:"description"`
 	HoldoutPercent       pulumi.IntPtrOutput                       `pulumi:"holdoutPercent"`
@@ -92,7 +92,7 @@ func (CampaignState) ElementType() reflect.Type {
 type campaignArgs struct {
 	AdditionalTreatments []CampaignWriteTreatmentResource `pulumi:"additionalTreatments"`
 	ApplicationId        string                           `pulumi:"applicationId"`
-	CampaignHook         *CampaignCampaignHook            `pulumi:"campaignHook"`
+	CampaignHook         *CampaignHook                    `pulumi:"campaignHook"`
 	Description          *string                          `pulumi:"description"`
 	HoldoutPercent       *int                             `pulumi:"holdoutPercent"`
 	IsPaused             *bool                            `pulumi:"isPaused"`
@@ -111,7 +111,7 @@ type campaignArgs struct {
 type CampaignArgs struct {
 	AdditionalTreatments CampaignWriteTreatmentResourceArrayInput
 	ApplicationId        pulumi.StringInput
-	CampaignHook         CampaignCampaignHookPtrInput
+	CampaignHook         CampaignHookPtrInput
 	Description          pulumi.StringPtrInput
 	HoldoutPercent       pulumi.IntPtrInput
 	IsPaused             pulumi.BoolPtrInput

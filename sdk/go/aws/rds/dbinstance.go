@@ -19,7 +19,7 @@ type DBInstance struct {
 
 	AllocatedStorage                   pulumi.StringPtrOutput                `pulumi:"allocatedStorage"`
 	AllowMajorVersionUpgrade           pulumi.BoolPtrOutput                  `pulumi:"allowMajorVersionUpgrade"`
-	AssociatedRoles                    DBInstanceDBInstanceRoleArrayOutput   `pulumi:"associatedRoles"`
+	AssociatedRoles                    DBInstanceRoleArrayOutput             `pulumi:"associatedRoles"`
 	AutoMinorVersionUpgrade            pulumi.BoolPtrOutput                  `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone                   pulumi.StringPtrOutput                `pulumi:"availabilityZone"`
 	BackupRetentionPeriod              pulumi.IntPtrOutput                   `pulumi:"backupRetentionPeriod"`
@@ -117,7 +117,7 @@ func (DBInstanceState) ElementType() reflect.Type {
 type dbinstanceArgs struct {
 	AllocatedStorage                   *string                      `pulumi:"allocatedStorage"`
 	AllowMajorVersionUpgrade           *bool                        `pulumi:"allowMajorVersionUpgrade"`
-	AssociatedRoles                    []DBInstanceDBInstanceRole   `pulumi:"associatedRoles"`
+	AssociatedRoles                    []DBInstanceRole             `pulumi:"associatedRoles"`
 	AutoMinorVersionUpgrade            *bool                        `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone                   *string                      `pulumi:"availabilityZone"`
 	BackupRetentionPeriod              *int                         `pulumi:"backupRetentionPeriod"`
@@ -175,7 +175,7 @@ type dbinstanceArgs struct {
 type DBInstanceArgs struct {
 	AllocatedStorage                   pulumi.StringPtrInput
 	AllowMajorVersionUpgrade           pulumi.BoolPtrInput
-	AssociatedRoles                    DBInstanceDBInstanceRoleArrayInput
+	AssociatedRoles                    DBInstanceRoleArrayInput
 	AutoMinorVersionUpgrade            pulumi.BoolPtrInput
 	AvailabilityZone                   pulumi.StringPtrInput
 	BackupRetentionPeriod              pulumi.IntPtrInput

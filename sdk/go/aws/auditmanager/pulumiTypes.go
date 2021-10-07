@@ -318,159 +318,6 @@ func (o AssessmentAWSServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAWSS
 	}).(AssessmentAWSServiceOutput)
 }
 
-// The destination in which evidence reports are stored for the specified assessment.
-type AssessmentAssessmentReportsDestination struct {
-	Destination     *string                                    `pulumi:"destination"`
-	DestinationType *AssessmentAssessmentReportDestinationType `pulumi:"destinationType"`
-}
-
-// AssessmentAssessmentReportsDestinationInput is an input type that accepts AssessmentAssessmentReportsDestinationArgs and AssessmentAssessmentReportsDestinationOutput values.
-// You can construct a concrete instance of `AssessmentAssessmentReportsDestinationInput` via:
-//
-//          AssessmentAssessmentReportsDestinationArgs{...}
-type AssessmentAssessmentReportsDestinationInput interface {
-	pulumi.Input
-
-	ToAssessmentAssessmentReportsDestinationOutput() AssessmentAssessmentReportsDestinationOutput
-	ToAssessmentAssessmentReportsDestinationOutputWithContext(context.Context) AssessmentAssessmentReportsDestinationOutput
-}
-
-// The destination in which evidence reports are stored for the specified assessment.
-type AssessmentAssessmentReportsDestinationArgs struct {
-	Destination     pulumi.StringPtrInput                             `pulumi:"destination"`
-	DestinationType AssessmentAssessmentReportDestinationTypePtrInput `pulumi:"destinationType"`
-}
-
-func (AssessmentAssessmentReportsDestinationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAssessmentReportsDestination)(nil)).Elem()
-}
-
-func (i AssessmentAssessmentReportsDestinationArgs) ToAssessmentAssessmentReportsDestinationOutput() AssessmentAssessmentReportsDestinationOutput {
-	return i.ToAssessmentAssessmentReportsDestinationOutputWithContext(context.Background())
-}
-
-func (i AssessmentAssessmentReportsDestinationArgs) ToAssessmentAssessmentReportsDestinationOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAssessmentReportsDestinationOutput)
-}
-
-func (i AssessmentAssessmentReportsDestinationArgs) ToAssessmentAssessmentReportsDestinationPtrOutput() AssessmentAssessmentReportsDestinationPtrOutput {
-	return i.ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentAssessmentReportsDestinationArgs) ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAssessmentReportsDestinationOutput).ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(ctx)
-}
-
-// AssessmentAssessmentReportsDestinationPtrInput is an input type that accepts AssessmentAssessmentReportsDestinationArgs, AssessmentAssessmentReportsDestinationPtr and AssessmentAssessmentReportsDestinationPtrOutput values.
-// You can construct a concrete instance of `AssessmentAssessmentReportsDestinationPtrInput` via:
-//
-//          AssessmentAssessmentReportsDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentAssessmentReportsDestinationPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentAssessmentReportsDestinationPtrOutput() AssessmentAssessmentReportsDestinationPtrOutput
-	ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(context.Context) AssessmentAssessmentReportsDestinationPtrOutput
-}
-
-type assessmentAssessmentReportsDestinationPtrType AssessmentAssessmentReportsDestinationArgs
-
-func AssessmentAssessmentReportsDestinationPtr(v *AssessmentAssessmentReportsDestinationArgs) AssessmentAssessmentReportsDestinationPtrInput {
-	return (*assessmentAssessmentReportsDestinationPtrType)(v)
-}
-
-func (*assessmentAssessmentReportsDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAssessmentReportsDestination)(nil)).Elem()
-}
-
-func (i *assessmentAssessmentReportsDestinationPtrType) ToAssessmentAssessmentReportsDestinationPtrOutput() AssessmentAssessmentReportsDestinationPtrOutput {
-	return i.ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentAssessmentReportsDestinationPtrType) ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAssessmentReportsDestinationPtrOutput)
-}
-
-// The destination in which evidence reports are stored for the specified assessment.
-type AssessmentAssessmentReportsDestinationOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAssessmentReportsDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAssessmentReportsDestination)(nil)).Elem()
-}
-
-func (o AssessmentAssessmentReportsDestinationOutput) ToAssessmentAssessmentReportsDestinationOutput() AssessmentAssessmentReportsDestinationOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportsDestinationOutput) ToAssessmentAssessmentReportsDestinationOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportsDestinationOutput) ToAssessmentAssessmentReportsDestinationPtrOutput() AssessmentAssessmentReportsDestinationPtrOutput {
-	return o.ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentReportsDestinationOutput) ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentAssessmentReportsDestination) *AssessmentAssessmentReportsDestination {
-		return &v
-	}).(AssessmentAssessmentReportsDestinationPtrOutput)
-}
-
-func (o AssessmentAssessmentReportsDestinationOutput) Destination() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) *string { return v.Destination }).(pulumi.StringPtrOutput)
-}
-
-func (o AssessmentAssessmentReportsDestinationOutput) DestinationType() AssessmentAssessmentReportDestinationTypePtrOutput {
-	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) *AssessmentAssessmentReportDestinationType {
-		return v.DestinationType
-	}).(AssessmentAssessmentReportDestinationTypePtrOutput)
-}
-
-type AssessmentAssessmentReportsDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAssessmentReportsDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAssessmentReportsDestination)(nil)).Elem()
-}
-
-func (o AssessmentAssessmentReportsDestinationPtrOutput) ToAssessmentAssessmentReportsDestinationPtrOutput() AssessmentAssessmentReportsDestinationPtrOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportsDestinationPtrOutput) ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationPtrOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportsDestinationPtrOutput) Elem() AssessmentAssessmentReportsDestinationOutput {
-	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) AssessmentAssessmentReportsDestination {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentAssessmentReportsDestination
-		return ret
-	}).(AssessmentAssessmentReportsDestinationOutput)
-}
-
-func (o AssessmentAssessmentReportsDestinationPtrOutput) Destination() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Destination
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AssessmentAssessmentReportsDestinationPtrOutput) DestinationType() AssessmentAssessmentReportDestinationTypePtrOutput {
-	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *AssessmentAssessmentReportDestinationType {
-		if v == nil {
-			return nil
-		}
-		return v.DestinationType
-	}).(AssessmentAssessmentReportDestinationTypePtrOutput)
-}
-
 // The assignment of a control set to a delegate for review.
 type AssessmentDelegation struct {
 	AssessmentId   *string                     `pulumi:"assessmentId"`
@@ -626,6 +473,157 @@ func (o AssessmentDelegationArrayOutput) Index(i pulumi.IntInput) AssessmentDele
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentDelegation {
 		return vs[0].([]AssessmentDelegation)[vs[1].(int)]
 	}).(AssessmentDelegationOutput)
+}
+
+// The destination in which evidence reports are stored for the specified assessment.
+type AssessmentReportsDestination struct {
+	Destination     *string                          `pulumi:"destination"`
+	DestinationType *AssessmentReportDestinationType `pulumi:"destinationType"`
+}
+
+// AssessmentReportsDestinationInput is an input type that accepts AssessmentReportsDestinationArgs and AssessmentReportsDestinationOutput values.
+// You can construct a concrete instance of `AssessmentReportsDestinationInput` via:
+//
+//          AssessmentReportsDestinationArgs{...}
+type AssessmentReportsDestinationInput interface {
+	pulumi.Input
+
+	ToAssessmentReportsDestinationOutput() AssessmentReportsDestinationOutput
+	ToAssessmentReportsDestinationOutputWithContext(context.Context) AssessmentReportsDestinationOutput
+}
+
+// The destination in which evidence reports are stored for the specified assessment.
+type AssessmentReportsDestinationArgs struct {
+	Destination     pulumi.StringPtrInput                   `pulumi:"destination"`
+	DestinationType AssessmentReportDestinationTypePtrInput `pulumi:"destinationType"`
+}
+
+func (AssessmentReportsDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentReportsDestination)(nil)).Elem()
+}
+
+func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationOutput() AssessmentReportsDestinationOutput {
+	return i.ToAssessmentReportsDestinationOutputWithContext(context.Background())
+}
+
+func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationOutputWithContext(ctx context.Context) AssessmentReportsDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportsDestinationOutput)
+}
+
+func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationPtrOutput() AssessmentReportsDestinationPtrOutput {
+	return i.ToAssessmentReportsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i AssessmentReportsDestinationArgs) ToAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentReportsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportsDestinationOutput).ToAssessmentReportsDestinationPtrOutputWithContext(ctx)
+}
+
+// AssessmentReportsDestinationPtrInput is an input type that accepts AssessmentReportsDestinationArgs, AssessmentReportsDestinationPtr and AssessmentReportsDestinationPtrOutput values.
+// You can construct a concrete instance of `AssessmentReportsDestinationPtrInput` via:
+//
+//          AssessmentReportsDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type AssessmentReportsDestinationPtrInput interface {
+	pulumi.Input
+
+	ToAssessmentReportsDestinationPtrOutput() AssessmentReportsDestinationPtrOutput
+	ToAssessmentReportsDestinationPtrOutputWithContext(context.Context) AssessmentReportsDestinationPtrOutput
+}
+
+type assessmentReportsDestinationPtrType AssessmentReportsDestinationArgs
+
+func AssessmentReportsDestinationPtr(v *AssessmentReportsDestinationArgs) AssessmentReportsDestinationPtrInput {
+	return (*assessmentReportsDestinationPtrType)(v)
+}
+
+func (*assessmentReportsDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentReportsDestination)(nil)).Elem()
+}
+
+func (i *assessmentReportsDestinationPtrType) ToAssessmentReportsDestinationPtrOutput() AssessmentReportsDestinationPtrOutput {
+	return i.ToAssessmentReportsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *assessmentReportsDestinationPtrType) ToAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentReportsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportsDestinationPtrOutput)
+}
+
+// The destination in which evidence reports are stored for the specified assessment.
+type AssessmentReportsDestinationOutput struct{ *pulumi.OutputState }
+
+func (AssessmentReportsDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentReportsDestination)(nil)).Elem()
+}
+
+func (o AssessmentReportsDestinationOutput) ToAssessmentReportsDestinationOutput() AssessmentReportsDestinationOutput {
+	return o
+}
+
+func (o AssessmentReportsDestinationOutput) ToAssessmentReportsDestinationOutputWithContext(ctx context.Context) AssessmentReportsDestinationOutput {
+	return o
+}
+
+func (o AssessmentReportsDestinationOutput) ToAssessmentReportsDestinationPtrOutput() AssessmentReportsDestinationPtrOutput {
+	return o.ToAssessmentReportsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentReportsDestinationOutput) ToAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentReportsDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentReportsDestination) *AssessmentReportsDestination {
+		return &v
+	}).(AssessmentReportsDestinationPtrOutput)
+}
+
+func (o AssessmentReportsDestinationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssessmentReportsDestination) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+func (o AssessmentReportsDestinationOutput) DestinationType() AssessmentReportDestinationTypePtrOutput {
+	return o.ApplyT(func(v AssessmentReportsDestination) *AssessmentReportDestinationType { return v.DestinationType }).(AssessmentReportDestinationTypePtrOutput)
+}
+
+type AssessmentReportsDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentReportsDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentReportsDestination)(nil)).Elem()
+}
+
+func (o AssessmentReportsDestinationPtrOutput) ToAssessmentReportsDestinationPtrOutput() AssessmentReportsDestinationPtrOutput {
+	return o
+}
+
+func (o AssessmentReportsDestinationPtrOutput) ToAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentReportsDestinationPtrOutput {
+	return o
+}
+
+func (o AssessmentReportsDestinationPtrOutput) Elem() AssessmentReportsDestinationOutput {
+	return o.ApplyT(func(v *AssessmentReportsDestination) AssessmentReportsDestination {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentReportsDestination
+		return ret
+	}).(AssessmentReportsDestinationOutput)
+}
+
+func (o AssessmentReportsDestinationPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentReportsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AssessmentReportsDestinationPtrOutput) DestinationType() AssessmentReportDestinationTypePtrOutput {
+	return o.ApplyT(func(v *AssessmentReportsDestination) *AssessmentReportDestinationType {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationType
+	}).(AssessmentReportDestinationTypePtrOutput)
 }
 
 // The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
@@ -1005,10 +1003,10 @@ func init() {
 	pulumi.RegisterOutputType(AssessmentAWSAccountArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSServiceOutput{})
 	pulumi.RegisterOutputType(AssessmentAWSServiceArrayOutput{})
-	pulumi.RegisterOutputType(AssessmentAssessmentReportsDestinationOutput{})
-	pulumi.RegisterOutputType(AssessmentAssessmentReportsDestinationPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationArrayOutput{})
+	pulumi.RegisterOutputType(AssessmentReportsDestinationOutput{})
+	pulumi.RegisterOutputType(AssessmentReportsDestinationPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentRoleOutput{})
 	pulumi.RegisterOutputType(AssessmentRoleArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentScopeOutput{})

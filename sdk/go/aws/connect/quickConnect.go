@@ -24,7 +24,7 @@ type QuickConnect struct {
 	// The Amazon Resource Name (ARN) for the quick connect.
 	QuickConnectArn pulumi.StringOutput `pulumi:"quickConnectArn"`
 	// Configuration settings for the quick connect.
-	QuickConnectConfig QuickConnectQuickConnectConfigOutput `pulumi:"quickConnectConfig"`
+	QuickConnectConfig QuickConnectConfigOutput `pulumi:"quickConnectConfig"`
 	// One or more tags.
 	Tags QuickConnectTagArrayOutput `pulumi:"tags"`
 }
@@ -84,7 +84,7 @@ type quickConnectArgs struct {
 	// The name of the quick connect.
 	Name string `pulumi:"name"`
 	// Configuration settings for the quick connect.
-	QuickConnectConfig QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
+	QuickConnectConfig QuickConnectConfig `pulumi:"quickConnectConfig"`
 	// One or more tags.
 	Tags []QuickConnectTag `pulumi:"tags"`
 }
@@ -98,7 +98,7 @@ type QuickConnectArgs struct {
 	// The name of the quick connect.
 	Name pulumi.StringInput
 	// Configuration settings for the quick connect.
-	QuickConnectConfig QuickConnectQuickConnectConfigInput
+	QuickConnectConfig QuickConnectConfigInput
 	// One or more tags.
 	Tags QuickConnectTagArrayInput
 }

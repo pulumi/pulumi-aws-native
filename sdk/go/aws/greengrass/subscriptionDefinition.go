@@ -17,11 +17,11 @@ import (
 type SubscriptionDefinition struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                                          `pulumi:"arn"`
-	InitialVersion   SubscriptionDefinitionSubscriptionDefinitionVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput                                          `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput                                          `pulumi:"name"`
-	Tags             pulumi.AnyOutput                                             `pulumi:"tags"`
+	Arn              pulumi.StringOutput                        `pulumi:"arn"`
+	InitialVersion   SubscriptionDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput                        `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput                        `pulumi:"name"`
+	Tags             pulumi.AnyOutput                           `pulumi:"tags"`
 }
 
 // NewSubscriptionDefinition registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (SubscriptionDefinitionState) ElementType() reflect.Type {
 }
 
 type subscriptionDefinitionArgs struct {
-	InitialVersion *SubscriptionDefinitionSubscriptionDefinitionVersion `pulumi:"initialVersion"`
-	Name           string                                               `pulumi:"name"`
-	Tags           interface{}                                          `pulumi:"tags"`
+	InitialVersion *SubscriptionDefinitionVersionType `pulumi:"initialVersion"`
+	Name           string                             `pulumi:"name"`
+	Tags           interface{}                        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubscriptionDefinition resource.
 type SubscriptionDefinitionArgs struct {
-	InitialVersion SubscriptionDefinitionSubscriptionDefinitionVersionPtrInput
+	InitialVersion SubscriptionDefinitionVersionTypePtrInput
 	Name           pulumi.StringInput
 	Tags           pulumi.Input
 }

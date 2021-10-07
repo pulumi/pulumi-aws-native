@@ -19,16 +19,6 @@ export const FleetCertificateConfigurationCertificateType = {
 
 export type FleetCertificateConfigurationCertificateType = (typeof FleetCertificateConfigurationCertificateType)[keyof typeof FleetCertificateConfigurationCertificateType];
 
-export const FleetFleetType = {
-    OnDemand: "ON_DEMAND",
-    Spot: "SPOT",
-} as const;
-
-/**
- * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
- */
-export type FleetFleetType = (typeof FleetFleetType)[keyof typeof FleetFleetType];
-
 export const FleetIpPermissionProtocol = {
     Tcp: "TCP",
     Udp: "UDP",
@@ -48,6 +38,16 @@ export const FleetNewGameSessionProtectionPolicy = {
  * A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
  */
 export type FleetNewGameSessionProtectionPolicy = (typeof FleetNewGameSessionProtectionPolicy)[keyof typeof FleetNewGameSessionProtectionPolicy];
+
+export const FleetType = {
+    OnDemand: "ON_DEMAND",
+    Spot: "SPOT",
+} as const;
+
+/**
+ * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+ */
+export type FleetType = (typeof FleetType)[keyof typeof FleetType];
 
 export const GameServerGroupBalancingStrategy = {
     SpotOnly: "SPOT_ONLY",

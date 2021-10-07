@@ -199,7 +199,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modelPackageGroupStatus")
-    def model_package_group_status(self) -> pulumi.Output['ModelPackageGroupModelPackageGroupStatus']:
+    def model_package_group_status(self) -> pulumi.Output['ModelPackageGroupStatus']:
         """
         The status of a modelpackage group job.
         """

@@ -5,19 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'AssetAssetPropertyNotificationState',
     'AssetModelDataType',
     'AssetModelDataTypeSpec',
     'AssetModelTypeName',
+    'AssetPropertyNotificationState',
 ]
-
-
-class AssetAssetPropertyNotificationState(str, Enum):
-    """
-    The MQTT notification state (ENABLED or DISABLED) for this asset property.
-    """
-    ENABLED = "ENABLED"
-    DISABLED = "DISABLED"
 
 
 class AssetModelDataType(str, Enum):
@@ -37,3 +29,11 @@ class AssetModelTypeName(str, Enum):
     ATTRIBUTE = "Attribute"
     TRANSFORM = "Transform"
     METRIC = "Metric"
+
+
+class AssetPropertyNotificationState(str, Enum):
+    """
+    The MQTT notification state (ENABLED or DISABLED) for this asset property.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"

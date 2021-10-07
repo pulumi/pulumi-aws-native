@@ -43,7 +43,7 @@ export class Stack extends pulumi.CustomResource {
     public readonly chefConfiguration!: pulumi.Output<outputs.opsworks.StackChefConfiguration | undefined>;
     public readonly cloneAppIds!: pulumi.Output<string[] | undefined>;
     public readonly clonePermissions!: pulumi.Output<boolean | undefined>;
-    public readonly configurationManager!: pulumi.Output<outputs.opsworks.StackStackConfigurationManager | undefined>;
+    public readonly configurationManager!: pulumi.Output<outputs.opsworks.StackConfigurationManager | undefined>;
     public readonly customCookbooksSource!: pulumi.Output<outputs.opsworks.StackSource | undefined>;
     public readonly customJson!: pulumi.Output<any | undefined>;
     public readonly defaultAvailabilityZone!: pulumi.Output<string | undefined>;
@@ -154,7 +154,7 @@ export interface StackArgs {
     chefConfiguration?: pulumi.Input<inputs.opsworks.StackChefConfigurationArgs>;
     cloneAppIds?: pulumi.Input<pulumi.Input<string>[]>;
     clonePermissions?: pulumi.Input<boolean>;
-    configurationManager?: pulumi.Input<inputs.opsworks.StackStackConfigurationManagerArgs>;
+    configurationManager?: pulumi.Input<inputs.opsworks.StackConfigurationManagerArgs>;
     customCookbooksSource?: pulumi.Input<inputs.opsworks.StackSourceArgs>;
     customJson?: any;
     defaultAvailabilityZone?: pulumi.Input<string>;

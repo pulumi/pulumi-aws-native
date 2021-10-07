@@ -10,171 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The MQTT notification state (ENABLED or DISABLED) for this asset property.
-type AssetAssetPropertyNotificationState string
-
-const (
-	AssetAssetPropertyNotificationStateEnabled  = AssetAssetPropertyNotificationState("ENABLED")
-	AssetAssetPropertyNotificationStateDisabled = AssetAssetPropertyNotificationState("DISABLED")
-)
-
-func (AssetAssetPropertyNotificationState) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetAssetPropertyNotificationState)(nil)).Elem()
-}
-
-func (e AssetAssetPropertyNotificationState) ToAssetAssetPropertyNotificationStateOutput() AssetAssetPropertyNotificationStateOutput {
-	return pulumi.ToOutput(e).(AssetAssetPropertyNotificationStateOutput)
-}
-
-func (e AssetAssetPropertyNotificationState) ToAssetAssetPropertyNotificationStateOutputWithContext(ctx context.Context) AssetAssetPropertyNotificationStateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AssetAssetPropertyNotificationStateOutput)
-}
-
-func (e AssetAssetPropertyNotificationState) ToAssetAssetPropertyNotificationStatePtrOutput() AssetAssetPropertyNotificationStatePtrOutput {
-	return e.ToAssetAssetPropertyNotificationStatePtrOutputWithContext(context.Background())
-}
-
-func (e AssetAssetPropertyNotificationState) ToAssetAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetAssetPropertyNotificationStatePtrOutput {
-	return AssetAssetPropertyNotificationState(e).ToAssetAssetPropertyNotificationStateOutputWithContext(ctx).ToAssetAssetPropertyNotificationStatePtrOutputWithContext(ctx)
-}
-
-func (e AssetAssetPropertyNotificationState) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssetAssetPropertyNotificationState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssetAssetPropertyNotificationState) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AssetAssetPropertyNotificationState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AssetAssetPropertyNotificationStateOutput struct{ *pulumi.OutputState }
-
-func (AssetAssetPropertyNotificationStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetAssetPropertyNotificationState)(nil)).Elem()
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToAssetAssetPropertyNotificationStateOutput() AssetAssetPropertyNotificationStateOutput {
-	return o
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToAssetAssetPropertyNotificationStateOutputWithContext(ctx context.Context) AssetAssetPropertyNotificationStateOutput {
-	return o
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToAssetAssetPropertyNotificationStatePtrOutput() AssetAssetPropertyNotificationStatePtrOutput {
-	return o.ToAssetAssetPropertyNotificationStatePtrOutputWithContext(context.Background())
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToAssetAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetAssetPropertyNotificationStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetAssetPropertyNotificationState) *AssetAssetPropertyNotificationState {
-		return &v
-	}).(AssetAssetPropertyNotificationStatePtrOutput)
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssetAssetPropertyNotificationState) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssetAssetPropertyNotificationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssetAssetPropertyNotificationState) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AssetAssetPropertyNotificationStatePtrOutput struct{ *pulumi.OutputState }
-
-func (AssetAssetPropertyNotificationStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssetAssetPropertyNotificationState)(nil)).Elem()
-}
-
-func (o AssetAssetPropertyNotificationStatePtrOutput) ToAssetAssetPropertyNotificationStatePtrOutput() AssetAssetPropertyNotificationStatePtrOutput {
-	return o
-}
-
-func (o AssetAssetPropertyNotificationStatePtrOutput) ToAssetAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetAssetPropertyNotificationStatePtrOutput {
-	return o
-}
-
-func (o AssetAssetPropertyNotificationStatePtrOutput) Elem() AssetAssetPropertyNotificationStateOutput {
-	return o.ApplyT(func(v *AssetAssetPropertyNotificationState) AssetAssetPropertyNotificationState {
-		if v != nil {
-			return *v
-		}
-		var ret AssetAssetPropertyNotificationState
-		return ret
-	}).(AssetAssetPropertyNotificationStateOutput)
-}
-
-func (o AssetAssetPropertyNotificationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssetAssetPropertyNotificationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssetAssetPropertyNotificationState) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AssetAssetPropertyNotificationStateInput is an input type that accepts AssetAssetPropertyNotificationStateArgs and AssetAssetPropertyNotificationStateOutput values.
-// You can construct a concrete instance of `AssetAssetPropertyNotificationStateInput` via:
-//
-//          AssetAssetPropertyNotificationStateArgs{...}
-type AssetAssetPropertyNotificationStateInput interface {
-	pulumi.Input
-
-	ToAssetAssetPropertyNotificationStateOutput() AssetAssetPropertyNotificationStateOutput
-	ToAssetAssetPropertyNotificationStateOutputWithContext(context.Context) AssetAssetPropertyNotificationStateOutput
-}
-
-var assetAssetPropertyNotificationStatePtrType = reflect.TypeOf((**AssetAssetPropertyNotificationState)(nil)).Elem()
-
-type AssetAssetPropertyNotificationStatePtrInput interface {
-	pulumi.Input
-
-	ToAssetAssetPropertyNotificationStatePtrOutput() AssetAssetPropertyNotificationStatePtrOutput
-	ToAssetAssetPropertyNotificationStatePtrOutputWithContext(context.Context) AssetAssetPropertyNotificationStatePtrOutput
-}
-
-type assetAssetPropertyNotificationStatePtr string
-
-func AssetAssetPropertyNotificationStatePtr(v string) AssetAssetPropertyNotificationStatePtrInput {
-	return (*assetAssetPropertyNotificationStatePtr)(&v)
-}
-
-func (*assetAssetPropertyNotificationStatePtr) ElementType() reflect.Type {
-	return assetAssetPropertyNotificationStatePtrType
-}
-
-func (in *assetAssetPropertyNotificationStatePtr) ToAssetAssetPropertyNotificationStatePtrOutput() AssetAssetPropertyNotificationStatePtrOutput {
-	return pulumi.ToOutput(in).(AssetAssetPropertyNotificationStatePtrOutput)
-}
-
-func (in *assetAssetPropertyNotificationStatePtr) ToAssetAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetAssetPropertyNotificationStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AssetAssetPropertyNotificationStatePtrOutput)
-}
-
 type AssetModelDataType string
 
 const (
@@ -671,13 +506,178 @@ func (in *assetModelTypeNamePtr) ToAssetModelTypeNamePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AssetModelTypeNamePtrOutput)
 }
 
+// The MQTT notification state (ENABLED or DISABLED) for this asset property.
+type AssetPropertyNotificationState string
+
+const (
+	AssetPropertyNotificationStateEnabled  = AssetPropertyNotificationState("ENABLED")
+	AssetPropertyNotificationStateDisabled = AssetPropertyNotificationState("DISABLED")
+)
+
+func (AssetPropertyNotificationState) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetPropertyNotificationState)(nil)).Elem()
+}
+
+func (e AssetPropertyNotificationState) ToAssetPropertyNotificationStateOutput() AssetPropertyNotificationStateOutput {
+	return pulumi.ToOutput(e).(AssetPropertyNotificationStateOutput)
+}
+
+func (e AssetPropertyNotificationState) ToAssetPropertyNotificationStateOutputWithContext(ctx context.Context) AssetPropertyNotificationStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssetPropertyNotificationStateOutput)
+}
+
+func (e AssetPropertyNotificationState) ToAssetPropertyNotificationStatePtrOutput() AssetPropertyNotificationStatePtrOutput {
+	return e.ToAssetPropertyNotificationStatePtrOutputWithContext(context.Background())
+}
+
+func (e AssetPropertyNotificationState) ToAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetPropertyNotificationStatePtrOutput {
+	return AssetPropertyNotificationState(e).ToAssetPropertyNotificationStateOutputWithContext(ctx).ToAssetPropertyNotificationStatePtrOutputWithContext(ctx)
+}
+
+func (e AssetPropertyNotificationState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssetPropertyNotificationState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssetPropertyNotificationState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssetPropertyNotificationState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssetPropertyNotificationStateOutput struct{ *pulumi.OutputState }
+
+func (AssetPropertyNotificationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetPropertyNotificationState)(nil)).Elem()
+}
+
+func (o AssetPropertyNotificationStateOutput) ToAssetPropertyNotificationStateOutput() AssetPropertyNotificationStateOutput {
+	return o
+}
+
+func (o AssetPropertyNotificationStateOutput) ToAssetPropertyNotificationStateOutputWithContext(ctx context.Context) AssetPropertyNotificationStateOutput {
+	return o
+}
+
+func (o AssetPropertyNotificationStateOutput) ToAssetPropertyNotificationStatePtrOutput() AssetPropertyNotificationStatePtrOutput {
+	return o.ToAssetPropertyNotificationStatePtrOutputWithContext(context.Background())
+}
+
+func (o AssetPropertyNotificationStateOutput) ToAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetPropertyNotificationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetPropertyNotificationState) *AssetPropertyNotificationState {
+		return &v
+	}).(AssetPropertyNotificationStatePtrOutput)
+}
+
+func (o AssetPropertyNotificationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssetPropertyNotificationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssetPropertyNotificationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssetPropertyNotificationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssetPropertyNotificationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssetPropertyNotificationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssetPropertyNotificationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (AssetPropertyNotificationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssetPropertyNotificationState)(nil)).Elem()
+}
+
+func (o AssetPropertyNotificationStatePtrOutput) ToAssetPropertyNotificationStatePtrOutput() AssetPropertyNotificationStatePtrOutput {
+	return o
+}
+
+func (o AssetPropertyNotificationStatePtrOutput) ToAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetPropertyNotificationStatePtrOutput {
+	return o
+}
+
+func (o AssetPropertyNotificationStatePtrOutput) Elem() AssetPropertyNotificationStateOutput {
+	return o.ApplyT(func(v *AssetPropertyNotificationState) AssetPropertyNotificationState {
+		if v != nil {
+			return *v
+		}
+		var ret AssetPropertyNotificationState
+		return ret
+	}).(AssetPropertyNotificationStateOutput)
+}
+
+func (o AssetPropertyNotificationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssetPropertyNotificationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssetPropertyNotificationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssetPropertyNotificationStateInput is an input type that accepts AssetPropertyNotificationStateArgs and AssetPropertyNotificationStateOutput values.
+// You can construct a concrete instance of `AssetPropertyNotificationStateInput` via:
+//
+//          AssetPropertyNotificationStateArgs{...}
+type AssetPropertyNotificationStateInput interface {
+	pulumi.Input
+
+	ToAssetPropertyNotificationStateOutput() AssetPropertyNotificationStateOutput
+	ToAssetPropertyNotificationStateOutputWithContext(context.Context) AssetPropertyNotificationStateOutput
+}
+
+var assetPropertyNotificationStatePtrType = reflect.TypeOf((**AssetPropertyNotificationState)(nil)).Elem()
+
+type AssetPropertyNotificationStatePtrInput interface {
+	pulumi.Input
+
+	ToAssetPropertyNotificationStatePtrOutput() AssetPropertyNotificationStatePtrOutput
+	ToAssetPropertyNotificationStatePtrOutputWithContext(context.Context) AssetPropertyNotificationStatePtrOutput
+}
+
+type assetPropertyNotificationStatePtr string
+
+func AssetPropertyNotificationStatePtr(v string) AssetPropertyNotificationStatePtrInput {
+	return (*assetPropertyNotificationStatePtr)(&v)
+}
+
+func (*assetPropertyNotificationStatePtr) ElementType() reflect.Type {
+	return assetPropertyNotificationStatePtrType
+}
+
+func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtrOutput() AssetPropertyNotificationStatePtrOutput {
+	return pulumi.ToOutput(in).(AssetPropertyNotificationStatePtrOutput)
+}
+
+func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetPropertyNotificationStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssetPropertyNotificationStatePtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(AssetAssetPropertyNotificationStateOutput{})
-	pulumi.RegisterOutputType(AssetAssetPropertyNotificationStatePtrOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypeOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypePtrOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypeSpecOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypeSpecPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelTypeNameOutput{})
 	pulumi.RegisterOutputType(AssetModelTypeNamePtrOutput{})
+	pulumi.RegisterOutputType(AssetPropertyNotificationStateOutput{})
+	pulumi.RegisterOutputType(AssetPropertyNotificationStatePtrOutput{})
 }

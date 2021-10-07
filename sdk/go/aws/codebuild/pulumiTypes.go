@@ -456,6 +456,184 @@ func (o ProjectBatchRestrictionsPtrOutput) MaximumBuildsAllowed() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type ProjectBuildBatchConfig struct {
+	CombineArtifacts *bool                     `pulumi:"combineArtifacts"`
+	Restrictions     *ProjectBatchRestrictions `pulumi:"restrictions"`
+	ServiceRole      *string                   `pulumi:"serviceRole"`
+	TimeoutInMins    *int                      `pulumi:"timeoutInMins"`
+}
+
+// ProjectBuildBatchConfigInput is an input type that accepts ProjectBuildBatchConfigArgs and ProjectBuildBatchConfigOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigInput` via:
+//
+//          ProjectBuildBatchConfigArgs{...}
+type ProjectBuildBatchConfigInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput
+	ToProjectBuildBatchConfigOutputWithContext(context.Context) ProjectBuildBatchConfigOutput
+}
+
+type ProjectBuildBatchConfigArgs struct {
+	CombineArtifacts pulumi.BoolPtrInput              `pulumi:"combineArtifacts"`
+	Restrictions     ProjectBatchRestrictionsPtrInput `pulumi:"restrictions"`
+	ServiceRole      pulumi.StringPtrInput            `pulumi:"serviceRole"`
+	TimeoutInMins    pulumi.IntPtrInput               `pulumi:"timeoutInMins"`
+}
+
+func (ProjectBuildBatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput {
+	return i.ToProjectBuildBatchConfigOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectBuildBatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigOutput)
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectBuildBatchConfigArgs) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigOutput).ToProjectBuildBatchConfigPtrOutputWithContext(ctx)
+}
+
+// ProjectBuildBatchConfigPtrInput is an input type that accepts ProjectBuildBatchConfigArgs, ProjectBuildBatchConfigPtr and ProjectBuildBatchConfigPtrOutput values.
+// You can construct a concrete instance of `ProjectBuildBatchConfigPtrInput` via:
+//
+//          ProjectBuildBatchConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectBuildBatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput
+	ToProjectBuildBatchConfigPtrOutputWithContext(context.Context) ProjectBuildBatchConfigPtrOutput
+}
+
+type projectBuildBatchConfigPtrType ProjectBuildBatchConfigArgs
+
+func ProjectBuildBatchConfigPtr(v *ProjectBuildBatchConfigArgs) ProjectBuildBatchConfigPtrInput {
+	return (*projectBuildBatchConfigPtrType)(v)
+}
+
+func (*projectBuildBatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (i *projectBuildBatchConfigPtrType) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return i.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *projectBuildBatchConfigPtrType) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectBuildBatchConfigPtrOutput)
+}
+
+type ProjectBuildBatchConfigOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigOutput() ProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectBuildBatchConfigOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return o.ToProjectBuildBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectBuildBatchConfig) *ProjectBuildBatchConfig {
+		return &v
+	}).(ProjectBuildBatchConfigPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *bool { return v.CombineArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *ProjectBatchRestrictions { return v.Restrictions }).(ProjectBatchRestrictionsPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProjectBuildBatchConfig) *int { return v.TimeoutInMins }).(pulumi.IntPtrOutput)
+}
+
+type ProjectBuildBatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectBuildBatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectBuildBatchConfig)(nil)).Elem()
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutput() ProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
+	return o
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) Elem() ProjectBuildBatchConfigOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) ProjectBuildBatchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectBuildBatchConfig
+		return ret
+	}).(ProjectBuildBatchConfigOutput)
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) CombineArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CombineArtifacts
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *ProjectBatchRestrictions {
+		if v == nil {
+			return nil
+		}
+		return v.Restrictions
+	}).(ProjectBatchRestrictionsPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectBuildBatchConfigPtrOutput) TimeoutInMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMins
+	}).(pulumi.IntPtrOutput)
+}
+
 type ProjectBuildStatusConfig struct {
 	Context   *string `pulumi:"context"`
 	TargetUrl *string `pulumi:"targetUrl"`
@@ -601,6 +779,169 @@ func (o ProjectBuildStatusConfigPtrOutput) TargetUrl() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.TargetUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectCache struct {
+	Location *string  `pulumi:"location"`
+	Modes    []string `pulumi:"modes"`
+	Type     string   `pulumi:"type"`
+}
+
+// ProjectCacheInput is an input type that accepts ProjectCacheArgs and ProjectCacheOutput values.
+// You can construct a concrete instance of `ProjectCacheInput` via:
+//
+//          ProjectCacheArgs{...}
+type ProjectCacheInput interface {
+	pulumi.Input
+
+	ToProjectCacheOutput() ProjectCacheOutput
+	ToProjectCacheOutputWithContext(context.Context) ProjectCacheOutput
+}
+
+type ProjectCacheArgs struct {
+	Location pulumi.StringPtrInput   `pulumi:"location"`
+	Modes    pulumi.StringArrayInput `pulumi:"modes"`
+	Type     pulumi.StringInput      `pulumi:"type"`
+}
+
+func (ProjectCacheArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCache)(nil)).Elem()
+}
+
+func (i ProjectCacheArgs) ToProjectCacheOutput() ProjectCacheOutput {
+	return i.ToProjectCacheOutputWithContext(context.Background())
+}
+
+func (i ProjectCacheArgs) ToProjectCacheOutputWithContext(ctx context.Context) ProjectCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCacheOutput)
+}
+
+func (i ProjectCacheArgs) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return i.ToProjectCachePtrOutputWithContext(context.Background())
+}
+
+func (i ProjectCacheArgs) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCacheOutput).ToProjectCachePtrOutputWithContext(ctx)
+}
+
+// ProjectCachePtrInput is an input type that accepts ProjectCacheArgs, ProjectCachePtr and ProjectCachePtrOutput values.
+// You can construct a concrete instance of `ProjectCachePtrInput` via:
+//
+//          ProjectCacheArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectCachePtrInput interface {
+	pulumi.Input
+
+	ToProjectCachePtrOutput() ProjectCachePtrOutput
+	ToProjectCachePtrOutputWithContext(context.Context) ProjectCachePtrOutput
+}
+
+type projectCachePtrType ProjectCacheArgs
+
+func ProjectCachePtr(v *ProjectCacheArgs) ProjectCachePtrInput {
+	return (*projectCachePtrType)(v)
+}
+
+func (*projectCachePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCache)(nil)).Elem()
+}
+
+func (i *projectCachePtrType) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return i.ToProjectCachePtrOutputWithContext(context.Background())
+}
+
+func (i *projectCachePtrType) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectCachePtrOutput)
+}
+
+type ProjectCacheOutput struct{ *pulumi.OutputState }
+
+func (ProjectCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectCache)(nil)).Elem()
+}
+
+func (o ProjectCacheOutput) ToProjectCacheOutput() ProjectCacheOutput {
+	return o
+}
+
+func (o ProjectCacheOutput) ToProjectCacheOutputWithContext(ctx context.Context) ProjectCacheOutput {
+	return o
+}
+
+func (o ProjectCacheOutput) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return o.ToProjectCachePtrOutputWithContext(context.Background())
+}
+
+func (o ProjectCacheOutput) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectCache) *ProjectCache {
+		return &v
+	}).(ProjectCachePtrOutput)
+}
+
+func (o ProjectCacheOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectCache) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectCacheOutput) Modes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectCache) []string { return v.Modes }).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectCacheOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectCache) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectCachePtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectCachePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectCache)(nil)).Elem()
+}
+
+func (o ProjectCachePtrOutput) ToProjectCachePtrOutput() ProjectCachePtrOutput {
+	return o
+}
+
+func (o ProjectCachePtrOutput) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
+	return o
+}
+
+func (o ProjectCachePtrOutput) Elem() ProjectCacheOutput {
+	return o.ApplyT(func(v *ProjectCache) ProjectCache {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectCache
+		return ret
+	}).(ProjectCacheOutput)
+}
+
+func (o ProjectCachePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCache) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectCachePtrOutput) Modes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectCache) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Modes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectCache) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1111,6 +1452,124 @@ func (o ProjectEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ProjectE
 	}).(ProjectEnvironmentVariableOutput)
 }
 
+type ProjectFileSystemLocation struct {
+	Identifier   string  `pulumi:"identifier"`
+	Location     string  `pulumi:"location"`
+	MountOptions *string `pulumi:"mountOptions"`
+	MountPoint   string  `pulumi:"mountPoint"`
+	Type         string  `pulumi:"type"`
+}
+
+// ProjectFileSystemLocationInput is an input type that accepts ProjectFileSystemLocationArgs and ProjectFileSystemLocationOutput values.
+// You can construct a concrete instance of `ProjectFileSystemLocationInput` via:
+//
+//          ProjectFileSystemLocationArgs{...}
+type ProjectFileSystemLocationInput interface {
+	pulumi.Input
+
+	ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput
+	ToProjectFileSystemLocationOutputWithContext(context.Context) ProjectFileSystemLocationOutput
+}
+
+type ProjectFileSystemLocationArgs struct {
+	Identifier   pulumi.StringInput    `pulumi:"identifier"`
+	Location     pulumi.StringInput    `pulumi:"location"`
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
+	MountPoint   pulumi.StringInput    `pulumi:"mountPoint"`
+	Type         pulumi.StringInput    `pulumi:"type"`
+}
+
+func (ProjectFileSystemLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (i ProjectFileSystemLocationArgs) ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput {
+	return i.ToProjectFileSystemLocationOutputWithContext(context.Background())
+}
+
+func (i ProjectFileSystemLocationArgs) ToProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectFileSystemLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationOutput)
+}
+
+// ProjectFileSystemLocationArrayInput is an input type that accepts ProjectFileSystemLocationArray and ProjectFileSystemLocationArrayOutput values.
+// You can construct a concrete instance of `ProjectFileSystemLocationArrayInput` via:
+//
+//          ProjectFileSystemLocationArray{ ProjectFileSystemLocationArgs{...} }
+type ProjectFileSystemLocationArrayInput interface {
+	pulumi.Input
+
+	ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput
+	ToProjectFileSystemLocationArrayOutputWithContext(context.Context) ProjectFileSystemLocationArrayOutput
+}
+
+type ProjectFileSystemLocationArray []ProjectFileSystemLocationInput
+
+func (ProjectFileSystemLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (i ProjectFileSystemLocationArray) ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput {
+	return i.ToProjectFileSystemLocationArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectFileSystemLocationArray) ToProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectFileSystemLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFileSystemLocationArrayOutput)
+}
+
+type ProjectFileSystemLocationOutput struct{ *pulumi.OutputState }
+
+func (ProjectFileSystemLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutput() ProjectFileSystemLocationOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationOutput) ToProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectFileSystemLocationOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o ProjectFileSystemLocationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o ProjectFileSystemLocationOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectFileSystemLocationOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+func (o ProjectFileSystemLocationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectFileSystemLocation) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectFileSystemLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectFileSystemLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFileSystemLocation)(nil)).Elem()
+}
+
+func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOutput() ProjectFileSystemLocationArrayOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationArrayOutput) ToProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectFileSystemLocationArrayOutput {
+	return o
+}
+
+func (o ProjectFileSystemLocationArrayOutput) Index(i pulumi.IntInput) ProjectFileSystemLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectFileSystemLocation {
+		return vs[0].([]ProjectFileSystemLocation)[vs[1].(int)]
+	}).(ProjectFileSystemLocationOutput)
+}
+
 type ProjectFilterGroup struct {
 }
 
@@ -1478,728 +1937,6 @@ func (o ProjectLogsConfigPtrOutput) S3Logs() ProjectS3LogsConfigPtrOutput {
 		}
 		return v.S3Logs
 	}).(ProjectS3LogsConfigPtrOutput)
-}
-
-type ProjectProjectBuildBatchConfig struct {
-	CombineArtifacts *bool                     `pulumi:"combineArtifacts"`
-	Restrictions     *ProjectBatchRestrictions `pulumi:"restrictions"`
-	ServiceRole      *string                   `pulumi:"serviceRole"`
-	TimeoutInMins    *int                      `pulumi:"timeoutInMins"`
-}
-
-// ProjectProjectBuildBatchConfigInput is an input type that accepts ProjectProjectBuildBatchConfigArgs and ProjectProjectBuildBatchConfigOutput values.
-// You can construct a concrete instance of `ProjectProjectBuildBatchConfigInput` via:
-//
-//          ProjectProjectBuildBatchConfigArgs{...}
-type ProjectProjectBuildBatchConfigInput interface {
-	pulumi.Input
-
-	ToProjectProjectBuildBatchConfigOutput() ProjectProjectBuildBatchConfigOutput
-	ToProjectProjectBuildBatchConfigOutputWithContext(context.Context) ProjectProjectBuildBatchConfigOutput
-}
-
-type ProjectProjectBuildBatchConfigArgs struct {
-	CombineArtifacts pulumi.BoolPtrInput              `pulumi:"combineArtifacts"`
-	Restrictions     ProjectBatchRestrictionsPtrInput `pulumi:"restrictions"`
-	ServiceRole      pulumi.StringPtrInput            `pulumi:"serviceRole"`
-	TimeoutInMins    pulumi.IntPtrInput               `pulumi:"timeoutInMins"`
-}
-
-func (ProjectProjectBuildBatchConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectBuildBatchConfig)(nil)).Elem()
-}
-
-func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigOutput() ProjectProjectBuildBatchConfigOutput {
-	return i.ToProjectProjectBuildBatchConfigOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectBuildBatchConfigOutput)
-}
-
-func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
-	return i.ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectBuildBatchConfigArgs) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectBuildBatchConfigOutput).ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx)
-}
-
-// ProjectProjectBuildBatchConfigPtrInput is an input type that accepts ProjectProjectBuildBatchConfigArgs, ProjectProjectBuildBatchConfigPtr and ProjectProjectBuildBatchConfigPtrOutput values.
-// You can construct a concrete instance of `ProjectProjectBuildBatchConfigPtrInput` via:
-//
-//          ProjectProjectBuildBatchConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ProjectProjectBuildBatchConfigPtrInput interface {
-	pulumi.Input
-
-	ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput
-	ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Context) ProjectProjectBuildBatchConfigPtrOutput
-}
-
-type projectProjectBuildBatchConfigPtrType ProjectProjectBuildBatchConfigArgs
-
-func ProjectProjectBuildBatchConfigPtr(v *ProjectProjectBuildBatchConfigArgs) ProjectProjectBuildBatchConfigPtrInput {
-	return (*projectProjectBuildBatchConfigPtrType)(v)
-}
-
-func (*projectProjectBuildBatchConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectProjectBuildBatchConfig)(nil)).Elem()
-}
-
-func (i *projectProjectBuildBatchConfigPtrType) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
-	return i.ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *projectProjectBuildBatchConfigPtrType) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectBuildBatchConfigPtrOutput)
-}
-
-type ProjectProjectBuildBatchConfigOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectBuildBatchConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectBuildBatchConfig)(nil)).Elem()
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigOutput() ProjectProjectBuildBatchConfigOutput {
-	return o
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigOutput {
-	return o
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
-	return o.ToProjectProjectBuildBatchConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProjectBuildBatchConfig) *ProjectProjectBuildBatchConfig {
-		return &v
-	}).(ProjectProjectBuildBatchConfigPtrOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) CombineArtifacts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *bool { return v.CombineArtifacts }).(pulumi.BoolPtrOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
-	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *ProjectBatchRestrictions { return v.Restrictions }).(ProjectBatchRestrictionsPtrOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) ServiceRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigOutput) TimeoutInMins() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ProjectProjectBuildBatchConfig) *int { return v.TimeoutInMins }).(pulumi.IntPtrOutput)
-}
-
-type ProjectProjectBuildBatchConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectBuildBatchConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectProjectBuildBatchConfig)(nil)).Elem()
-}
-
-func (o ProjectProjectBuildBatchConfigPtrOutput) ToProjectProjectBuildBatchConfigPtrOutput() ProjectProjectBuildBatchConfigPtrOutput {
-	return o
-}
-
-func (o ProjectProjectBuildBatchConfigPtrOutput) ToProjectProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectProjectBuildBatchConfigPtrOutput {
-	return o
-}
-
-func (o ProjectProjectBuildBatchConfigPtrOutput) Elem() ProjectProjectBuildBatchConfigOutput {
-	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) ProjectProjectBuildBatchConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectProjectBuildBatchConfig
-		return ret
-	}).(ProjectProjectBuildBatchConfigOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigPtrOutput) CombineArtifacts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CombineArtifacts
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigPtrOutput) Restrictions() ProjectBatchRestrictionsPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *ProjectBatchRestrictions {
-		if v == nil {
-			return nil
-		}
-		return v.Restrictions
-	}).(ProjectBatchRestrictionsPtrOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigPtrOutput) ServiceRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceRole
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectProjectBuildBatchConfigPtrOutput) TimeoutInMins() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectBuildBatchConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TimeoutInMins
-	}).(pulumi.IntPtrOutput)
-}
-
-type ProjectProjectCache struct {
-	Location *string  `pulumi:"location"`
-	Modes    []string `pulumi:"modes"`
-	Type     string   `pulumi:"type"`
-}
-
-// ProjectProjectCacheInput is an input type that accepts ProjectProjectCacheArgs and ProjectProjectCacheOutput values.
-// You can construct a concrete instance of `ProjectProjectCacheInput` via:
-//
-//          ProjectProjectCacheArgs{...}
-type ProjectProjectCacheInput interface {
-	pulumi.Input
-
-	ToProjectProjectCacheOutput() ProjectProjectCacheOutput
-	ToProjectProjectCacheOutputWithContext(context.Context) ProjectProjectCacheOutput
-}
-
-type ProjectProjectCacheArgs struct {
-	Location pulumi.StringPtrInput   `pulumi:"location"`
-	Modes    pulumi.StringArrayInput `pulumi:"modes"`
-	Type     pulumi.StringInput      `pulumi:"type"`
-}
-
-func (ProjectProjectCacheArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectCache)(nil)).Elem()
-}
-
-func (i ProjectProjectCacheArgs) ToProjectProjectCacheOutput() ProjectProjectCacheOutput {
-	return i.ToProjectProjectCacheOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectCacheArgs) ToProjectProjectCacheOutputWithContext(ctx context.Context) ProjectProjectCacheOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectCacheOutput)
-}
-
-func (i ProjectProjectCacheArgs) ToProjectProjectCachePtrOutput() ProjectProjectCachePtrOutput {
-	return i.ToProjectProjectCachePtrOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectCacheArgs) ToProjectProjectCachePtrOutputWithContext(ctx context.Context) ProjectProjectCachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectCacheOutput).ToProjectProjectCachePtrOutputWithContext(ctx)
-}
-
-// ProjectProjectCachePtrInput is an input type that accepts ProjectProjectCacheArgs, ProjectProjectCachePtr and ProjectProjectCachePtrOutput values.
-// You can construct a concrete instance of `ProjectProjectCachePtrInput` via:
-//
-//          ProjectProjectCacheArgs{...}
-//
-//  or:
-//
-//          nil
-type ProjectProjectCachePtrInput interface {
-	pulumi.Input
-
-	ToProjectProjectCachePtrOutput() ProjectProjectCachePtrOutput
-	ToProjectProjectCachePtrOutputWithContext(context.Context) ProjectProjectCachePtrOutput
-}
-
-type projectProjectCachePtrType ProjectProjectCacheArgs
-
-func ProjectProjectCachePtr(v *ProjectProjectCacheArgs) ProjectProjectCachePtrInput {
-	return (*projectProjectCachePtrType)(v)
-}
-
-func (*projectProjectCachePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectProjectCache)(nil)).Elem()
-}
-
-func (i *projectProjectCachePtrType) ToProjectProjectCachePtrOutput() ProjectProjectCachePtrOutput {
-	return i.ToProjectProjectCachePtrOutputWithContext(context.Background())
-}
-
-func (i *projectProjectCachePtrType) ToProjectProjectCachePtrOutputWithContext(ctx context.Context) ProjectProjectCachePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectCachePtrOutput)
-}
-
-type ProjectProjectCacheOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectCacheOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectCache)(nil)).Elem()
-}
-
-func (o ProjectProjectCacheOutput) ToProjectProjectCacheOutput() ProjectProjectCacheOutput {
-	return o
-}
-
-func (o ProjectProjectCacheOutput) ToProjectProjectCacheOutputWithContext(ctx context.Context) ProjectProjectCacheOutput {
-	return o
-}
-
-func (o ProjectProjectCacheOutput) ToProjectProjectCachePtrOutput() ProjectProjectCachePtrOutput {
-	return o.ToProjectProjectCachePtrOutputWithContext(context.Background())
-}
-
-func (o ProjectProjectCacheOutput) ToProjectProjectCachePtrOutputWithContext(ctx context.Context) ProjectProjectCachePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProjectCache) *ProjectProjectCache {
-		return &v
-	}).(ProjectProjectCachePtrOutput)
-}
-
-func (o ProjectProjectCacheOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectProjectCache) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectProjectCacheOutput) Modes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ProjectProjectCache) []string { return v.Modes }).(pulumi.StringArrayOutput)
-}
-
-func (o ProjectProjectCacheOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProjectCache) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProjectProjectCachePtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectCachePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectProjectCache)(nil)).Elem()
-}
-
-func (o ProjectProjectCachePtrOutput) ToProjectProjectCachePtrOutput() ProjectProjectCachePtrOutput {
-	return o
-}
-
-func (o ProjectProjectCachePtrOutput) ToProjectProjectCachePtrOutputWithContext(ctx context.Context) ProjectProjectCachePtrOutput {
-	return o
-}
-
-func (o ProjectProjectCachePtrOutput) Elem() ProjectProjectCacheOutput {
-	return o.ApplyT(func(v *ProjectProjectCache) ProjectProjectCache {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectProjectCache
-		return ret
-	}).(ProjectProjectCacheOutput)
-}
-
-func (o ProjectProjectCachePtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectCache) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectProjectCachePtrOutput) Modes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ProjectProjectCache) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Modes
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o ProjectProjectCachePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectCache) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type ProjectProjectFileSystemLocation struct {
-	Identifier   string  `pulumi:"identifier"`
-	Location     string  `pulumi:"location"`
-	MountOptions *string `pulumi:"mountOptions"`
-	MountPoint   string  `pulumi:"mountPoint"`
-	Type         string  `pulumi:"type"`
-}
-
-// ProjectProjectFileSystemLocationInput is an input type that accepts ProjectProjectFileSystemLocationArgs and ProjectProjectFileSystemLocationOutput values.
-// You can construct a concrete instance of `ProjectProjectFileSystemLocationInput` via:
-//
-//          ProjectProjectFileSystemLocationArgs{...}
-type ProjectProjectFileSystemLocationInput interface {
-	pulumi.Input
-
-	ToProjectProjectFileSystemLocationOutput() ProjectProjectFileSystemLocationOutput
-	ToProjectProjectFileSystemLocationOutputWithContext(context.Context) ProjectProjectFileSystemLocationOutput
-}
-
-type ProjectProjectFileSystemLocationArgs struct {
-	Identifier   pulumi.StringInput    `pulumi:"identifier"`
-	Location     pulumi.StringInput    `pulumi:"location"`
-	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
-	MountPoint   pulumi.StringInput    `pulumi:"mountPoint"`
-	Type         pulumi.StringInput    `pulumi:"type"`
-}
-
-func (ProjectProjectFileSystemLocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectFileSystemLocation)(nil)).Elem()
-}
-
-func (i ProjectProjectFileSystemLocationArgs) ToProjectProjectFileSystemLocationOutput() ProjectProjectFileSystemLocationOutput {
-	return i.ToProjectProjectFileSystemLocationOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectFileSystemLocationArgs) ToProjectProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectProjectFileSystemLocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectFileSystemLocationOutput)
-}
-
-// ProjectProjectFileSystemLocationArrayInput is an input type that accepts ProjectProjectFileSystemLocationArray and ProjectProjectFileSystemLocationArrayOutput values.
-// You can construct a concrete instance of `ProjectProjectFileSystemLocationArrayInput` via:
-//
-//          ProjectProjectFileSystemLocationArray{ ProjectProjectFileSystemLocationArgs{...} }
-type ProjectProjectFileSystemLocationArrayInput interface {
-	pulumi.Input
-
-	ToProjectProjectFileSystemLocationArrayOutput() ProjectProjectFileSystemLocationArrayOutput
-	ToProjectProjectFileSystemLocationArrayOutputWithContext(context.Context) ProjectProjectFileSystemLocationArrayOutput
-}
-
-type ProjectProjectFileSystemLocationArray []ProjectProjectFileSystemLocationInput
-
-func (ProjectProjectFileSystemLocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectProjectFileSystemLocation)(nil)).Elem()
-}
-
-func (i ProjectProjectFileSystemLocationArray) ToProjectProjectFileSystemLocationArrayOutput() ProjectProjectFileSystemLocationArrayOutput {
-	return i.ToProjectProjectFileSystemLocationArrayOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectFileSystemLocationArray) ToProjectProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectProjectFileSystemLocationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectFileSystemLocationArrayOutput)
-}
-
-type ProjectProjectFileSystemLocationOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectFileSystemLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectFileSystemLocation)(nil)).Elem()
-}
-
-func (o ProjectProjectFileSystemLocationOutput) ToProjectProjectFileSystemLocationOutput() ProjectProjectFileSystemLocationOutput {
-	return o
-}
-
-func (o ProjectProjectFileSystemLocationOutput) ToProjectProjectFileSystemLocationOutputWithContext(ctx context.Context) ProjectProjectFileSystemLocationOutput {
-	return o
-}
-
-func (o ProjectProjectFileSystemLocationOutput) Identifier() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProjectFileSystemLocation) string { return v.Identifier }).(pulumi.StringOutput)
-}
-
-func (o ProjectProjectFileSystemLocationOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProjectFileSystemLocation) string { return v.Location }).(pulumi.StringOutput)
-}
-
-func (o ProjectProjectFileSystemLocationOutput) MountOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectProjectFileSystemLocation) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectProjectFileSystemLocationOutput) MountPoint() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProjectFileSystemLocation) string { return v.MountPoint }).(pulumi.StringOutput)
-}
-
-func (o ProjectProjectFileSystemLocationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProjectFileSystemLocation) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProjectProjectFileSystemLocationArrayOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectFileSystemLocationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectProjectFileSystemLocation)(nil)).Elem()
-}
-
-func (o ProjectProjectFileSystemLocationArrayOutput) ToProjectProjectFileSystemLocationArrayOutput() ProjectProjectFileSystemLocationArrayOutput {
-	return o
-}
-
-func (o ProjectProjectFileSystemLocationArrayOutput) ToProjectProjectFileSystemLocationArrayOutputWithContext(ctx context.Context) ProjectProjectFileSystemLocationArrayOutput {
-	return o
-}
-
-func (o ProjectProjectFileSystemLocationArrayOutput) Index(i pulumi.IntInput) ProjectProjectFileSystemLocationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProjectFileSystemLocation {
-		return vs[0].([]ProjectProjectFileSystemLocation)[vs[1].(int)]
-	}).(ProjectProjectFileSystemLocationOutput)
-}
-
-type ProjectProjectSourceVersion struct {
-	SourceIdentifier string  `pulumi:"sourceIdentifier"`
-	SourceVersion    *string `pulumi:"sourceVersion"`
-}
-
-// ProjectProjectSourceVersionInput is an input type that accepts ProjectProjectSourceVersionArgs and ProjectProjectSourceVersionOutput values.
-// You can construct a concrete instance of `ProjectProjectSourceVersionInput` via:
-//
-//          ProjectProjectSourceVersionArgs{...}
-type ProjectProjectSourceVersionInput interface {
-	pulumi.Input
-
-	ToProjectProjectSourceVersionOutput() ProjectProjectSourceVersionOutput
-	ToProjectProjectSourceVersionOutputWithContext(context.Context) ProjectProjectSourceVersionOutput
-}
-
-type ProjectProjectSourceVersionArgs struct {
-	SourceIdentifier pulumi.StringInput    `pulumi:"sourceIdentifier"`
-	SourceVersion    pulumi.StringPtrInput `pulumi:"sourceVersion"`
-}
-
-func (ProjectProjectSourceVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectSourceVersion)(nil)).Elem()
-}
-
-func (i ProjectProjectSourceVersionArgs) ToProjectProjectSourceVersionOutput() ProjectProjectSourceVersionOutput {
-	return i.ToProjectProjectSourceVersionOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectSourceVersionArgs) ToProjectProjectSourceVersionOutputWithContext(ctx context.Context) ProjectProjectSourceVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectSourceVersionOutput)
-}
-
-// ProjectProjectSourceVersionArrayInput is an input type that accepts ProjectProjectSourceVersionArray and ProjectProjectSourceVersionArrayOutput values.
-// You can construct a concrete instance of `ProjectProjectSourceVersionArrayInput` via:
-//
-//          ProjectProjectSourceVersionArray{ ProjectProjectSourceVersionArgs{...} }
-type ProjectProjectSourceVersionArrayInput interface {
-	pulumi.Input
-
-	ToProjectProjectSourceVersionArrayOutput() ProjectProjectSourceVersionArrayOutput
-	ToProjectProjectSourceVersionArrayOutputWithContext(context.Context) ProjectProjectSourceVersionArrayOutput
-}
-
-type ProjectProjectSourceVersionArray []ProjectProjectSourceVersionInput
-
-func (ProjectProjectSourceVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectProjectSourceVersion)(nil)).Elem()
-}
-
-func (i ProjectProjectSourceVersionArray) ToProjectProjectSourceVersionArrayOutput() ProjectProjectSourceVersionArrayOutput {
-	return i.ToProjectProjectSourceVersionArrayOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectSourceVersionArray) ToProjectProjectSourceVersionArrayOutputWithContext(ctx context.Context) ProjectProjectSourceVersionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectSourceVersionArrayOutput)
-}
-
-type ProjectProjectSourceVersionOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectSourceVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectSourceVersion)(nil)).Elem()
-}
-
-func (o ProjectProjectSourceVersionOutput) ToProjectProjectSourceVersionOutput() ProjectProjectSourceVersionOutput {
-	return o
-}
-
-func (o ProjectProjectSourceVersionOutput) ToProjectProjectSourceVersionOutputWithContext(ctx context.Context) ProjectProjectSourceVersionOutput {
-	return o
-}
-
-func (o ProjectProjectSourceVersionOutput) SourceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProjectSourceVersion) string { return v.SourceIdentifier }).(pulumi.StringOutput)
-}
-
-func (o ProjectProjectSourceVersionOutput) SourceVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectProjectSourceVersion) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
-}
-
-type ProjectProjectSourceVersionArrayOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectSourceVersionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectProjectSourceVersion)(nil)).Elem()
-}
-
-func (o ProjectProjectSourceVersionArrayOutput) ToProjectProjectSourceVersionArrayOutput() ProjectProjectSourceVersionArrayOutput {
-	return o
-}
-
-func (o ProjectProjectSourceVersionArrayOutput) ToProjectProjectSourceVersionArrayOutputWithContext(ctx context.Context) ProjectProjectSourceVersionArrayOutput {
-	return o
-}
-
-func (o ProjectProjectSourceVersionArrayOutput) Index(i pulumi.IntInput) ProjectProjectSourceVersionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectProjectSourceVersion {
-		return vs[0].([]ProjectProjectSourceVersion)[vs[1].(int)]
-	}).(ProjectProjectSourceVersionOutput)
-}
-
-type ProjectProjectTriggers struct {
-	BuildType    *string              `pulumi:"buildType"`
-	FilterGroups []ProjectFilterGroup `pulumi:"filterGroups"`
-	Webhook      *bool                `pulumi:"webhook"`
-}
-
-// ProjectProjectTriggersInput is an input type that accepts ProjectProjectTriggersArgs and ProjectProjectTriggersOutput values.
-// You can construct a concrete instance of `ProjectProjectTriggersInput` via:
-//
-//          ProjectProjectTriggersArgs{...}
-type ProjectProjectTriggersInput interface {
-	pulumi.Input
-
-	ToProjectProjectTriggersOutput() ProjectProjectTriggersOutput
-	ToProjectProjectTriggersOutputWithContext(context.Context) ProjectProjectTriggersOutput
-}
-
-type ProjectProjectTriggersArgs struct {
-	BuildType    pulumi.StringPtrInput        `pulumi:"buildType"`
-	FilterGroups ProjectFilterGroupArrayInput `pulumi:"filterGroups"`
-	Webhook      pulumi.BoolPtrInput          `pulumi:"webhook"`
-}
-
-func (ProjectProjectTriggersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectTriggers)(nil)).Elem()
-}
-
-func (i ProjectProjectTriggersArgs) ToProjectProjectTriggersOutput() ProjectProjectTriggersOutput {
-	return i.ToProjectProjectTriggersOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectTriggersArgs) ToProjectProjectTriggersOutputWithContext(ctx context.Context) ProjectProjectTriggersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectTriggersOutput)
-}
-
-func (i ProjectProjectTriggersArgs) ToProjectProjectTriggersPtrOutput() ProjectProjectTriggersPtrOutput {
-	return i.ToProjectProjectTriggersPtrOutputWithContext(context.Background())
-}
-
-func (i ProjectProjectTriggersArgs) ToProjectProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectProjectTriggersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectTriggersOutput).ToProjectProjectTriggersPtrOutputWithContext(ctx)
-}
-
-// ProjectProjectTriggersPtrInput is an input type that accepts ProjectProjectTriggersArgs, ProjectProjectTriggersPtr and ProjectProjectTriggersPtrOutput values.
-// You can construct a concrete instance of `ProjectProjectTriggersPtrInput` via:
-//
-//          ProjectProjectTriggersArgs{...}
-//
-//  or:
-//
-//          nil
-type ProjectProjectTriggersPtrInput interface {
-	pulumi.Input
-
-	ToProjectProjectTriggersPtrOutput() ProjectProjectTriggersPtrOutput
-	ToProjectProjectTriggersPtrOutputWithContext(context.Context) ProjectProjectTriggersPtrOutput
-}
-
-type projectProjectTriggersPtrType ProjectProjectTriggersArgs
-
-func ProjectProjectTriggersPtr(v *ProjectProjectTriggersArgs) ProjectProjectTriggersPtrInput {
-	return (*projectProjectTriggersPtrType)(v)
-}
-
-func (*projectProjectTriggersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectProjectTriggers)(nil)).Elem()
-}
-
-func (i *projectProjectTriggersPtrType) ToProjectProjectTriggersPtrOutput() ProjectProjectTriggersPtrOutput {
-	return i.ToProjectProjectTriggersPtrOutputWithContext(context.Background())
-}
-
-func (i *projectProjectTriggersPtrType) ToProjectProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectProjectTriggersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectProjectTriggersPtrOutput)
-}
-
-type ProjectProjectTriggersOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectTriggersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectTriggers)(nil)).Elem()
-}
-
-func (o ProjectProjectTriggersOutput) ToProjectProjectTriggersOutput() ProjectProjectTriggersOutput {
-	return o
-}
-
-func (o ProjectProjectTriggersOutput) ToProjectProjectTriggersOutputWithContext(ctx context.Context) ProjectProjectTriggersOutput {
-	return o
-}
-
-func (o ProjectProjectTriggersOutput) ToProjectProjectTriggersPtrOutput() ProjectProjectTriggersPtrOutput {
-	return o.ToProjectProjectTriggersPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectProjectTriggersOutput) ToProjectProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectProjectTriggersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProjectTriggers) *ProjectProjectTriggers {
-		return &v
-	}).(ProjectProjectTriggersPtrOutput)
-}
-
-func (o ProjectProjectTriggersOutput) BuildType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectProjectTriggers) *string { return v.BuildType }).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectProjectTriggersOutput) FilterGroups() ProjectFilterGroupArrayOutput {
-	return o.ApplyT(func(v ProjectProjectTriggers) []ProjectFilterGroup { return v.FilterGroups }).(ProjectFilterGroupArrayOutput)
-}
-
-func (o ProjectProjectTriggersOutput) Webhook() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProjectProjectTriggers) *bool { return v.Webhook }).(pulumi.BoolPtrOutput)
-}
-
-type ProjectProjectTriggersPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectProjectTriggersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectProjectTriggers)(nil)).Elem()
-}
-
-func (o ProjectProjectTriggersPtrOutput) ToProjectProjectTriggersPtrOutput() ProjectProjectTriggersPtrOutput {
-	return o
-}
-
-func (o ProjectProjectTriggersPtrOutput) ToProjectProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectProjectTriggersPtrOutput {
-	return o
-}
-
-func (o ProjectProjectTriggersPtrOutput) Elem() ProjectProjectTriggersOutput {
-	return o.ApplyT(func(v *ProjectProjectTriggers) ProjectProjectTriggers {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectProjectTriggers
-		return ret
-	}).(ProjectProjectTriggersOutput)
-}
-
-func (o ProjectProjectTriggersPtrOutput) BuildType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectTriggers) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BuildType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProjectProjectTriggersPtrOutput) FilterGroups() ProjectFilterGroupArrayOutput {
-	return o.ApplyT(func(v *ProjectProjectTriggers) []ProjectFilterGroup {
-		if v == nil {
-			return nil
-		}
-		return v.FilterGroups
-	}).(ProjectFilterGroupArrayOutput)
-}
-
-func (o ProjectProjectTriggersPtrOutput) Webhook() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProjectProjectTriggers) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Webhook
-	}).(pulumi.BoolPtrOutput)
 }
 
 type ProjectRegistryCredential struct {
@@ -2974,6 +2711,106 @@ func (o ProjectSourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProjectSourceVersion struct {
+	SourceIdentifier string  `pulumi:"sourceIdentifier"`
+	SourceVersion    *string `pulumi:"sourceVersion"`
+}
+
+// ProjectSourceVersionInput is an input type that accepts ProjectSourceVersionArgs and ProjectSourceVersionOutput values.
+// You can construct a concrete instance of `ProjectSourceVersionInput` via:
+//
+//          ProjectSourceVersionArgs{...}
+type ProjectSourceVersionInput interface {
+	pulumi.Input
+
+	ToProjectSourceVersionOutput() ProjectSourceVersionOutput
+	ToProjectSourceVersionOutputWithContext(context.Context) ProjectSourceVersionOutput
+}
+
+type ProjectSourceVersionArgs struct {
+	SourceIdentifier pulumi.StringInput    `pulumi:"sourceIdentifier"`
+	SourceVersion    pulumi.StringPtrInput `pulumi:"sourceVersion"`
+}
+
+func (ProjectSourceVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceVersion)(nil)).Elem()
+}
+
+func (i ProjectSourceVersionArgs) ToProjectSourceVersionOutput() ProjectSourceVersionOutput {
+	return i.ToProjectSourceVersionOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceVersionArgs) ToProjectSourceVersionOutputWithContext(ctx context.Context) ProjectSourceVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceVersionOutput)
+}
+
+// ProjectSourceVersionArrayInput is an input type that accepts ProjectSourceVersionArray and ProjectSourceVersionArrayOutput values.
+// You can construct a concrete instance of `ProjectSourceVersionArrayInput` via:
+//
+//          ProjectSourceVersionArray{ ProjectSourceVersionArgs{...} }
+type ProjectSourceVersionArrayInput interface {
+	pulumi.Input
+
+	ToProjectSourceVersionArrayOutput() ProjectSourceVersionArrayOutput
+	ToProjectSourceVersionArrayOutputWithContext(context.Context) ProjectSourceVersionArrayOutput
+}
+
+type ProjectSourceVersionArray []ProjectSourceVersionInput
+
+func (ProjectSourceVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSourceVersion)(nil)).Elem()
+}
+
+func (i ProjectSourceVersionArray) ToProjectSourceVersionArrayOutput() ProjectSourceVersionArrayOutput {
+	return i.ToProjectSourceVersionArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectSourceVersionArray) ToProjectSourceVersionArrayOutputWithContext(ctx context.Context) ProjectSourceVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceVersionArrayOutput)
+}
+
+type ProjectSourceVersionOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectSourceVersion)(nil)).Elem()
+}
+
+func (o ProjectSourceVersionOutput) ToProjectSourceVersionOutput() ProjectSourceVersionOutput {
+	return o
+}
+
+func (o ProjectSourceVersionOutput) ToProjectSourceVersionOutputWithContext(ctx context.Context) ProjectSourceVersionOutput {
+	return o
+}
+
+func (o ProjectSourceVersionOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectSourceVersion) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ProjectSourceVersionOutput) SourceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectSourceVersion) *string { return v.SourceVersion }).(pulumi.StringPtrOutput)
+}
+
+type ProjectSourceVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectSourceVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectSourceVersion)(nil)).Elem()
+}
+
+func (o ProjectSourceVersionArrayOutput) ToProjectSourceVersionArrayOutput() ProjectSourceVersionArrayOutput {
+	return o
+}
+
+func (o ProjectSourceVersionArrayOutput) ToProjectSourceVersionArrayOutputWithContext(ctx context.Context) ProjectSourceVersionArrayOutput {
+	return o
+}
+
+func (o ProjectSourceVersionArrayOutput) Index(i pulumi.IntInput) ProjectSourceVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSourceVersion {
+		return vs[0].([]ProjectSourceVersion)[vs[1].(int)]
+	}).(ProjectSourceVersionOutput)
+}
+
 type ProjectTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -3072,6 +2909,169 @@ func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
 		return vs[0].([]ProjectTag)[vs[1].(int)]
 	}).(ProjectTagOutput)
+}
+
+type ProjectTriggers struct {
+	BuildType    *string              `pulumi:"buildType"`
+	FilterGroups []ProjectFilterGroup `pulumi:"filterGroups"`
+	Webhook      *bool                `pulumi:"webhook"`
+}
+
+// ProjectTriggersInput is an input type that accepts ProjectTriggersArgs and ProjectTriggersOutput values.
+// You can construct a concrete instance of `ProjectTriggersInput` via:
+//
+//          ProjectTriggersArgs{...}
+type ProjectTriggersInput interface {
+	pulumi.Input
+
+	ToProjectTriggersOutput() ProjectTriggersOutput
+	ToProjectTriggersOutputWithContext(context.Context) ProjectTriggersOutput
+}
+
+type ProjectTriggersArgs struct {
+	BuildType    pulumi.StringPtrInput        `pulumi:"buildType"`
+	FilterGroups ProjectFilterGroupArrayInput `pulumi:"filterGroups"`
+	Webhook      pulumi.BoolPtrInput          `pulumi:"webhook"`
+}
+
+func (ProjectTriggersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTriggers)(nil)).Elem()
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersOutput() ProjectTriggersOutput {
+	return i.ToProjectTriggersOutputWithContext(context.Background())
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersOutputWithContext(ctx context.Context) ProjectTriggersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersOutput)
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return i.ToProjectTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectTriggersArgs) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersOutput).ToProjectTriggersPtrOutputWithContext(ctx)
+}
+
+// ProjectTriggersPtrInput is an input type that accepts ProjectTriggersArgs, ProjectTriggersPtr and ProjectTriggersPtrOutput values.
+// You can construct a concrete instance of `ProjectTriggersPtrInput` via:
+//
+//          ProjectTriggersArgs{...}
+//
+//  or:
+//
+//          nil
+type ProjectTriggersPtrInput interface {
+	pulumi.Input
+
+	ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput
+	ToProjectTriggersPtrOutputWithContext(context.Context) ProjectTriggersPtrOutput
+}
+
+type projectTriggersPtrType ProjectTriggersArgs
+
+func ProjectTriggersPtr(v *ProjectTriggersArgs) ProjectTriggersPtrInput {
+	return (*projectTriggersPtrType)(v)
+}
+
+func (*projectTriggersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTriggers)(nil)).Elem()
+}
+
+func (i *projectTriggersPtrType) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return i.ToProjectTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i *projectTriggersPtrType) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTriggersPtrOutput)
+}
+
+type ProjectTriggersOutput struct{ *pulumi.OutputState }
+
+func (ProjectTriggersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTriggers)(nil)).Elem()
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersOutput() ProjectTriggersOutput {
+	return o
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersOutputWithContext(ctx context.Context) ProjectTriggersOutput {
+	return o
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return o.ToProjectTriggersPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectTriggersOutput) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectTriggers) *ProjectTriggers {
+		return &v
+	}).(ProjectTriggersPtrOutput)
+}
+
+func (o ProjectTriggersOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectTriggers) *string { return v.BuildType }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectTriggersOutput) FilterGroups() ProjectFilterGroupArrayOutput {
+	return o.ApplyT(func(v ProjectTriggers) []ProjectFilterGroup { return v.FilterGroups }).(ProjectFilterGroupArrayOutput)
+}
+
+func (o ProjectTriggersOutput) Webhook() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProjectTriggers) *bool { return v.Webhook }).(pulumi.BoolPtrOutput)
+}
+
+type ProjectTriggersPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectTriggersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectTriggers)(nil)).Elem()
+}
+
+func (o ProjectTriggersPtrOutput) ToProjectTriggersPtrOutput() ProjectTriggersPtrOutput {
+	return o
+}
+
+func (o ProjectTriggersPtrOutput) ToProjectTriggersPtrOutputWithContext(ctx context.Context) ProjectTriggersPtrOutput {
+	return o
+}
+
+func (o ProjectTriggersPtrOutput) Elem() ProjectTriggersOutput {
+	return o.ApplyT(func(v *ProjectTriggers) ProjectTriggers {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectTriggers
+		return ret
+	}).(ProjectTriggersOutput)
+}
+
+func (o ProjectTriggersPtrOutput) BuildType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectTriggers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectTriggersPtrOutput) FilterGroups() ProjectFilterGroupArrayOutput {
+	return o.ApplyT(func(v *ProjectTriggers) []ProjectFilterGroup {
+		if v == nil {
+			return nil
+		}
+		return v.FilterGroups
+	}).(ProjectFilterGroupArrayOutput)
+}
+
+func (o ProjectTriggersPtrOutput) Webhook() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProjectTriggers) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Webhook
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ProjectVpcConfig struct {
@@ -3699,30 +3699,26 @@ func init() {
 	pulumi.RegisterOutputType(ProjectArtifactsArrayOutput{})
 	pulumi.RegisterOutputType(ProjectBatchRestrictionsOutput{})
 	pulumi.RegisterOutputType(ProjectBatchRestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigOutput{})
+	pulumi.RegisterOutputType(ProjectBuildBatchConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectBuildStatusConfigOutput{})
 	pulumi.RegisterOutputType(ProjectBuildStatusConfigPtrOutput{})
+	pulumi.RegisterOutputType(ProjectCacheOutput{})
+	pulumi.RegisterOutputType(ProjectCachePtrOutput{})
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectCloudWatchLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(ProjectFileSystemLocationOutput{})
+	pulumi.RegisterOutputType(ProjectFileSystemLocationArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFilterGroupOutput{})
 	pulumi.RegisterOutputType(ProjectFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(ProjectGitSubmodulesConfigOutput{})
 	pulumi.RegisterOutputType(ProjectGitSubmodulesConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigOutput{})
 	pulumi.RegisterOutputType(ProjectLogsConfigPtrOutput{})
-	pulumi.RegisterOutputType(ProjectProjectBuildBatchConfigOutput{})
-	pulumi.RegisterOutputType(ProjectProjectBuildBatchConfigPtrOutput{})
-	pulumi.RegisterOutputType(ProjectProjectCacheOutput{})
-	pulumi.RegisterOutputType(ProjectProjectCachePtrOutput{})
-	pulumi.RegisterOutputType(ProjectProjectFileSystemLocationOutput{})
-	pulumi.RegisterOutputType(ProjectProjectFileSystemLocationArrayOutput{})
-	pulumi.RegisterOutputType(ProjectProjectSourceVersionOutput{})
-	pulumi.RegisterOutputType(ProjectProjectSourceVersionArrayOutput{})
-	pulumi.RegisterOutputType(ProjectProjectTriggersOutput{})
-	pulumi.RegisterOutputType(ProjectProjectTriggersPtrOutput{})
 	pulumi.RegisterOutputType(ProjectRegistryCredentialOutput{})
 	pulumi.RegisterOutputType(ProjectRegistryCredentialPtrOutput{})
 	pulumi.RegisterOutputType(ProjectS3LogsConfigOutput{})
@@ -3732,8 +3728,12 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSourceArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})
 	pulumi.RegisterOutputType(ProjectSourceAuthPtrOutput{})
+	pulumi.RegisterOutputType(ProjectSourceVersionOutput{})
+	pulumi.RegisterOutputType(ProjectSourceVersionArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTagOutput{})
 	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
+	pulumi.RegisterOutputType(ProjectTriggersOutput{})
+	pulumi.RegisterOutputType(ProjectTriggersPtrOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupReportExportConfigOutput{})

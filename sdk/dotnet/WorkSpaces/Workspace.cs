@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Output<string?> VolumeEncryptionKey { get; private set; } = null!;
 
         [Output("workspaceProperties")]
-        public Output<Outputs.WorkspaceWorkspaceProperties?> WorkspaceProperties { get; private set; } = null!;
+        public Output<Outputs.WorkspaceProperties?> WorkspaceProperties { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Input<string>? VolumeEncryptionKey { get; set; }
 
         [Input("workspaceProperties")]
-        public Input<Inputs.WorkspaceWorkspacePropertiesArgs>? WorkspaceProperties { get; set; }
+        public Input<Inputs.WorkspacePropertiesArgs>? WorkspaceProperties { get; set; }
 
         public WorkspaceArgs()
         {

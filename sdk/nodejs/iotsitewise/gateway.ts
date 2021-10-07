@@ -38,7 +38,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * A list of gateway capability summaries that each contain a namespace and status.
      */
-    public readonly gatewayCapabilitySummaries!: pulumi.Output<outputs.iotsitewise.GatewayGatewayCapabilitySummary[] | undefined>;
+    public readonly gatewayCapabilitySummaries!: pulumi.Output<outputs.iotsitewise.GatewayCapabilitySummary[] | undefined>;
     /**
      * The ID of the gateway device.
      */
@@ -50,7 +50,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The gateway's platform. You can only specify one platform in a gateway.
      */
-    public readonly gatewayPlatform!: pulumi.Output<outputs.iotsitewise.GatewayGatewayPlatform>;
+    public readonly gatewayPlatform!: pulumi.Output<outputs.iotsitewise.GatewayPlatform>;
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */
@@ -99,7 +99,7 @@ export interface GatewayArgs {
     /**
      * A list of gateway capability summaries that each contain a namespace and status.
      */
-    gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.iotsitewise.GatewayGatewayCapabilitySummaryArgs>[]>;
+    gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.iotsitewise.GatewayCapabilitySummaryArgs>[]>;
     /**
      * A unique, friendly name for the gateway.
      */
@@ -107,7 +107,7 @@ export interface GatewayArgs {
     /**
      * The gateway's platform. You can only specify one platform in a gateway.
      */
-    gatewayPlatform: pulumi.Input<inputs.iotsitewise.GatewayGatewayPlatformArgs>;
+    gatewayPlatform: pulumi.Input<inputs.iotsitewise.GatewayPlatformArgs>;
     /**
      * A list of key-value pairs that contain metadata for the gateway.
      */

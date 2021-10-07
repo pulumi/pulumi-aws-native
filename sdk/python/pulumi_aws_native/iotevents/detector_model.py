@@ -16,7 +16,7 @@ __all__ = ['DetectorModelArgs', 'DetectorModel']
 @pulumi.input_type
 class DetectorModelArgs:
     def __init__(__self__, *,
-                 detector_model_definition: pulumi.Input['DetectorModelDetectorModelDefinitionArgs'],
+                 detector_model_definition: pulumi.Input['DetectorModelDefinitionArgs'],
                  role_arn: pulumi.Input[str],
                  detector_model_description: Optional[pulumi.Input[str]] = None,
                  detector_model_name: Optional[pulumi.Input[str]] = None,
@@ -51,11 +51,11 @@ class DetectorModelArgs:
 
     @property
     @pulumi.getter(name="detectorModelDefinition")
-    def detector_model_definition(self) -> pulumi.Input['DetectorModelDetectorModelDefinitionArgs']:
+    def detector_model_definition(self) -> pulumi.Input['DetectorModelDefinitionArgs']:
         return pulumi.get(self, "detector_model_definition")
 
     @detector_model_definition.setter
-    def detector_model_definition(self, value: pulumi.Input['DetectorModelDetectorModelDefinitionArgs']):
+    def detector_model_definition(self, value: pulumi.Input['DetectorModelDefinitionArgs']):
         pulumi.set(self, "detector_model_definition", value)
 
     @property
@@ -140,7 +140,7 @@ class DetectorModel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_model_definition: Optional[pulumi.Input[pulumi.InputType['DetectorModelDetectorModelDefinitionArgs']]] = None,
+                 detector_model_definition: Optional[pulumi.Input[pulumi.InputType['DetectorModelDefinitionArgs']]] = None,
                  detector_model_description: Optional[pulumi.Input[str]] = None,
                  detector_model_name: Optional[pulumi.Input[str]] = None,
                  evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
@@ -188,7 +188,7 @@ class DetectorModel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_model_definition: Optional[pulumi.Input[pulumi.InputType['DetectorModelDetectorModelDefinitionArgs']]] = None,
+                 detector_model_definition: Optional[pulumi.Input[pulumi.InputType['DetectorModelDefinitionArgs']]] = None,
                  detector_model_description: Optional[pulumi.Input[str]] = None,
                  detector_model_name: Optional[pulumi.Input[str]] = None,
                  evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
@@ -251,7 +251,7 @@ class DetectorModel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detectorModelDefinition")
-    def detector_model_definition(self) -> pulumi.Output['outputs.DetectorModelDetectorModelDefinition']:
+    def detector_model_definition(self) -> pulumi.Output['outputs.DetectorModelDefinition']:
         return pulumi.get(self, "detector_model_definition")
 
     @property

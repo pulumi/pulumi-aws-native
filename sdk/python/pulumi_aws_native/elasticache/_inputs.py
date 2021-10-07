@@ -15,7 +15,7 @@ __all__ = [
     'CacheClusterKinesisFirehoseDestinationDetailsArgs',
     'CacheClusterLogDeliveryConfigurationRequestArgs',
     'CacheClusterTagArgs',
-    'GlobalReplicationGroupGlobalReplicationGroupMemberArgs',
+    'GlobalReplicationGroupMemberArgs',
     'GlobalReplicationGroupRegionalConfigurationArgs',
     'GlobalReplicationGroupReshardingConfigurationArgs',
     'ParameterGroupTagArgs',
@@ -167,15 +167,15 @@ class CacheClusterTagArgs:
 
 
 @pulumi.input_type
-class GlobalReplicationGroupGlobalReplicationGroupMemberArgs:
+class GlobalReplicationGroupMemberArgs:
     def __init__(__self__, *,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  replication_group_region: Optional[pulumi.Input[str]] = None,
-                 role: Optional[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole']] = None):
+                 role: Optional[pulumi.Input['GlobalReplicationGroupMemberRole']] = None):
         """
         :param pulumi.Input[str] replication_group_id: Regionally unique identifier for the member i.e. ReplicationGroupId.
         :param pulumi.Input[str] replication_group_region: The AWS region of the Global Datastore member.
-        :param pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole'] role: Indicates the role of the member, primary or secondary.
+        :param pulumi.Input['GlobalReplicationGroupMemberRole'] role: Indicates the role of the member, primary or secondary.
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -210,14 +210,14 @@ class GlobalReplicationGroupGlobalReplicationGroupMemberArgs:
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole']]:
+    def role(self) -> Optional[pulumi.Input['GlobalReplicationGroupMemberRole']]:
         """
         Indicates the role of the member, primary or secondary.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberRole']]):
+    def role(self, value: Optional[pulumi.Input['GlobalReplicationGroupMemberRole']]):
         pulumi.set(self, "role", value)
 
 

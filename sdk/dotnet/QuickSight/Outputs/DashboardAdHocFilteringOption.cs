@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardAdHocFilteringOption
     {
-        public readonly Pulumi.AwsNative.QuickSight.DashboardDashboardBehavior? AvailabilityStatus;
+        public readonly Pulumi.AwsNative.QuickSight.DashboardBehavior? AvailabilityStatus;
 
         [OutputConstructor]
-        private DashboardAdHocFilteringOption(Pulumi.AwsNative.QuickSight.DashboardDashboardBehavior? availabilityStatus)
+        private DashboardAdHocFilteringOption(Pulumi.AwsNative.QuickSight.DashboardBehavior? availabilityStatus)
         {
             AvailabilityStatus = availabilityStatus;
         }

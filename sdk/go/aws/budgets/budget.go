@@ -17,7 +17,7 @@ import (
 type Budget struct {
 	pulumi.CustomResourceState
 
-	Budget                       BudgetBudgetDataOutput                       `pulumi:"budget"`
+	Budget                       BudgetDataOutput                             `pulumi:"budget"`
 	NotificationsWithSubscribers BudgetNotificationWithSubscribersArrayOutput `pulumi:"notificationsWithSubscribers"`
 }
 
@@ -63,13 +63,13 @@ func (BudgetState) ElementType() reflect.Type {
 }
 
 type budgetArgs struct {
-	Budget                       BudgetBudgetData                    `pulumi:"budget"`
+	Budget                       BudgetData                          `pulumi:"budget"`
 	NotificationsWithSubscribers []BudgetNotificationWithSubscribers `pulumi:"notificationsWithSubscribers"`
 }
 
 // The set of arguments for constructing a Budget resource.
 type BudgetArgs struct {
-	Budget                       BudgetBudgetDataInput
+	Budget                       BudgetDataInput
 	NotificationsWithSubscribers BudgetNotificationWithSubscribersArrayInput
 }
 

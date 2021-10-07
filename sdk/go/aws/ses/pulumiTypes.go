@@ -2577,150 +2577,150 @@ func (o ReceiptRuleWorkmailActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type TemplateTemplate struct {
+type TemplateType struct {
 	HtmlPart     *string `pulumi:"htmlPart"`
 	SubjectPart  *string `pulumi:"subjectPart"`
 	TemplateName *string `pulumi:"templateName"`
 	TextPart     *string `pulumi:"textPart"`
 }
 
-// TemplateTemplateInput is an input type that accepts TemplateTemplateArgs and TemplateTemplateOutput values.
-// You can construct a concrete instance of `TemplateTemplateInput` via:
+// TemplateTypeInput is an input type that accepts TemplateTypeArgs and TemplateTypeOutput values.
+// You can construct a concrete instance of `TemplateTypeInput` via:
 //
-//          TemplateTemplateArgs{...}
-type TemplateTemplateInput interface {
+//          TemplateTypeArgs{...}
+type TemplateTypeInput interface {
 	pulumi.Input
 
-	ToTemplateTemplateOutput() TemplateTemplateOutput
-	ToTemplateTemplateOutputWithContext(context.Context) TemplateTemplateOutput
+	ToTemplateTypeOutput() TemplateTypeOutput
+	ToTemplateTypeOutputWithContext(context.Context) TemplateTypeOutput
 }
 
-type TemplateTemplateArgs struct {
+type TemplateTypeArgs struct {
 	HtmlPart     pulumi.StringPtrInput `pulumi:"htmlPart"`
 	SubjectPart  pulumi.StringPtrInput `pulumi:"subjectPart"`
 	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
 	TextPart     pulumi.StringPtrInput `pulumi:"textPart"`
 }
 
-func (TemplateTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplate)(nil)).Elem()
+func (TemplateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateType)(nil)).Elem()
 }
 
-func (i TemplateTemplateArgs) ToTemplateTemplateOutput() TemplateTemplateOutput {
-	return i.ToTemplateTemplateOutputWithContext(context.Background())
+func (i TemplateTypeArgs) ToTemplateTypeOutput() TemplateTypeOutput {
+	return i.ToTemplateTypeOutputWithContext(context.Background())
 }
 
-func (i TemplateTemplateArgs) ToTemplateTemplateOutputWithContext(ctx context.Context) TemplateTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateOutput)
+func (i TemplateTypeArgs) ToTemplateTypeOutputWithContext(ctx context.Context) TemplateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTypeOutput)
 }
 
-func (i TemplateTemplateArgs) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
-	return i.ToTemplateTemplatePtrOutputWithContext(context.Background())
+func (i TemplateTypeArgs) ToTemplateTypePtrOutput() TemplateTypePtrOutput {
+	return i.ToTemplateTypePtrOutputWithContext(context.Background())
 }
 
-func (i TemplateTemplateArgs) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateOutput).ToTemplateTemplatePtrOutputWithContext(ctx)
+func (i TemplateTypeArgs) ToTemplateTypePtrOutputWithContext(ctx context.Context) TemplateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTypeOutput).ToTemplateTypePtrOutputWithContext(ctx)
 }
 
-// TemplateTemplatePtrInput is an input type that accepts TemplateTemplateArgs, TemplateTemplatePtr and TemplateTemplatePtrOutput values.
-// You can construct a concrete instance of `TemplateTemplatePtrInput` via:
+// TemplateTypePtrInput is an input type that accepts TemplateTypeArgs, TemplateTypePtr and TemplateTypePtrOutput values.
+// You can construct a concrete instance of `TemplateTypePtrInput` via:
 //
-//          TemplateTemplateArgs{...}
+//          TemplateTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type TemplateTemplatePtrInput interface {
+type TemplateTypePtrInput interface {
 	pulumi.Input
 
-	ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput
-	ToTemplateTemplatePtrOutputWithContext(context.Context) TemplateTemplatePtrOutput
+	ToTemplateTypePtrOutput() TemplateTypePtrOutput
+	ToTemplateTypePtrOutputWithContext(context.Context) TemplateTypePtrOutput
 }
 
-type templateTemplatePtrType TemplateTemplateArgs
+type templateTypePtrType TemplateTypeArgs
 
-func TemplateTemplatePtr(v *TemplateTemplateArgs) TemplateTemplatePtrInput {
-	return (*templateTemplatePtrType)(v)
+func TemplateTypePtr(v *TemplateTypeArgs) TemplateTypePtrInput {
+	return (*templateTypePtrType)(v)
 }
 
-func (*templateTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplate)(nil)).Elem()
+func (*templateTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateType)(nil)).Elem()
 }
 
-func (i *templateTemplatePtrType) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
-	return i.ToTemplateTemplatePtrOutputWithContext(context.Background())
+func (i *templateTypePtrType) ToTemplateTypePtrOutput() TemplateTypePtrOutput {
+	return i.ToTemplateTypePtrOutputWithContext(context.Background())
 }
 
-func (i *templateTemplatePtrType) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplatePtrOutput)
+func (i *templateTypePtrType) ToTemplateTypePtrOutputWithContext(ctx context.Context) TemplateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTypePtrOutput)
 }
 
-type TemplateTemplateOutput struct{ *pulumi.OutputState }
+type TemplateTypeOutput struct{ *pulumi.OutputState }
 
-func (TemplateTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplate)(nil)).Elem()
+func (TemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateType)(nil)).Elem()
 }
 
-func (o TemplateTemplateOutput) ToTemplateTemplateOutput() TemplateTemplateOutput {
+func (o TemplateTypeOutput) ToTemplateTypeOutput() TemplateTypeOutput {
 	return o
 }
 
-func (o TemplateTemplateOutput) ToTemplateTemplateOutputWithContext(ctx context.Context) TemplateTemplateOutput {
+func (o TemplateTypeOutput) ToTemplateTypeOutputWithContext(ctx context.Context) TemplateTypeOutput {
 	return o
 }
 
-func (o TemplateTemplateOutput) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
-	return o.ToTemplateTemplatePtrOutputWithContext(context.Background())
+func (o TemplateTypeOutput) ToTemplateTypePtrOutput() TemplateTypePtrOutput {
+	return o.ToTemplateTypePtrOutputWithContext(context.Background())
 }
 
-func (o TemplateTemplateOutput) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTemplate) *TemplateTemplate {
+func (o TemplateTypeOutput) ToTemplateTypePtrOutputWithContext(ctx context.Context) TemplateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateType) *TemplateType {
 		return &v
-	}).(TemplateTemplatePtrOutput)
+	}).(TemplateTypePtrOutput)
 }
 
-func (o TemplateTemplateOutput) HtmlPart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplate) *string { return v.HtmlPart }).(pulumi.StringPtrOutput)
+func (o TemplateTypeOutput) HtmlPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateType) *string { return v.HtmlPart }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateOutput) SubjectPart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplate) *string { return v.SubjectPart }).(pulumi.StringPtrOutput)
+func (o TemplateTypeOutput) SubjectPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateType) *string { return v.SubjectPart }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateOutput) TemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplate) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
+func (o TemplateTypeOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateType) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateOutput) TextPart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplate) *string { return v.TextPart }).(pulumi.StringPtrOutput)
+func (o TemplateTypeOutput) TextPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateType) *string { return v.TextPart }).(pulumi.StringPtrOutput)
 }
 
-type TemplateTemplatePtrOutput struct{ *pulumi.OutputState }
+type TemplateTypePtrOutput struct{ *pulumi.OutputState }
 
-func (TemplateTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplate)(nil)).Elem()
+func (TemplateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateType)(nil)).Elem()
 }
 
-func (o TemplateTemplatePtrOutput) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
+func (o TemplateTypePtrOutput) ToTemplateTypePtrOutput() TemplateTypePtrOutput {
 	return o
 }
 
-func (o TemplateTemplatePtrOutput) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
+func (o TemplateTypePtrOutput) ToTemplateTypePtrOutputWithContext(ctx context.Context) TemplateTypePtrOutput {
 	return o
 }
 
-func (o TemplateTemplatePtrOutput) Elem() TemplateTemplateOutput {
-	return o.ApplyT(func(v *TemplateTemplate) TemplateTemplate {
+func (o TemplateTypePtrOutput) Elem() TemplateTypeOutput {
+	return o.ApplyT(func(v *TemplateType) TemplateType {
 		if v != nil {
 			return *v
 		}
-		var ret TemplateTemplate
+		var ret TemplateType
 		return ret
-	}).(TemplateTemplateOutput)
+	}).(TemplateTypeOutput)
 }
 
-func (o TemplateTemplatePtrOutput) HtmlPart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplate) *string {
+func (o TemplateTypePtrOutput) HtmlPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2728,8 +2728,8 @@ func (o TemplateTemplatePtrOutput) HtmlPart() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplatePtrOutput) SubjectPart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplate) *string {
+func (o TemplateTypePtrOutput) SubjectPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2737,8 +2737,8 @@ func (o TemplateTemplatePtrOutput) SubjectPart() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplatePtrOutput) TemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplate) *string {
+func (o TemplateTypePtrOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2746,8 +2746,8 @@ func (o TemplateTemplatePtrOutput) TemplateName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplatePtrOutput) TextPart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplate) *string {
+func (o TemplateTypePtrOutput) TextPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2790,6 +2790,6 @@ func init() {
 	pulumi.RegisterOutputType(ReceiptRuleStopActionPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateOutput{})
-	pulumi.RegisterOutputType(TemplateTemplatePtrOutput{})
+	pulumi.RegisterOutputType(TemplateTypeOutput{})
+	pulumi.RegisterOutputType(TemplateTypePtrOutput{})
 }

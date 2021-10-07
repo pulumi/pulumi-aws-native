@@ -15,7 +15,7 @@ __all__ = ['KeyGroupArgs', 'KeyGroup']
 @pulumi.input_type
 class KeyGroupArgs:
     def __init__(__self__, *,
-                 key_group_config: pulumi.Input['KeyGroupKeyGroupConfigArgs']):
+                 key_group_config: pulumi.Input['KeyGroupConfigArgs']):
         """
         The set of arguments for constructing a KeyGroup resource.
         """
@@ -23,11 +23,11 @@ class KeyGroupArgs:
 
     @property
     @pulumi.getter(name="keyGroupConfig")
-    def key_group_config(self) -> pulumi.Input['KeyGroupKeyGroupConfigArgs']:
+    def key_group_config(self) -> pulumi.Input['KeyGroupConfigArgs']:
         return pulumi.get(self, "key_group_config")
 
     @key_group_config.setter
-    def key_group_config(self, value: pulumi.Input['KeyGroupKeyGroupConfigArgs']):
+    def key_group_config(self, value: pulumi.Input['KeyGroupConfigArgs']):
         pulumi.set(self, "key_group_config", value)
 
 
@@ -36,7 +36,7 @@ class KeyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: Optional[pulumi.Input[pulumi.InputType['KeyGroupKeyGroupConfigArgs']]] = None,
+                 key_group_config: Optional[pulumi.Input[pulumi.InputType['KeyGroupConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::KeyGroup
@@ -68,7 +68,7 @@ class KeyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_group_config: Optional[pulumi.Input[pulumi.InputType['KeyGroupKeyGroupConfigArgs']]] = None,
+                 key_group_config: Optional[pulumi.Input[pulumi.InputType['KeyGroupConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -113,7 +113,7 @@ class KeyGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyGroupConfig")
-    def key_group_config(self) -> pulumi.Output['outputs.KeyGroupKeyGroupConfig']:
+    def key_group_config(self) -> pulumi.Output['outputs.KeyGroupConfig']:
         return pulumi.get(self, "key_group_config")
 
     @property

@@ -12,8 +12,8 @@ from ._enums import *
 
 __all__ = [
     'ContactChannelTargetInfo',
-    'ContactContactTargetInfo',
     'ContactStage',
+    'ContactTargetInfo',
     'ContactTargets',
 ]
 
@@ -70,58 +70,6 @@ class ContactChannelTargetInfo(dict):
 
 
 @pulumi.output_type
-class ContactContactTargetInfo(dict):
-    """
-    The contact that SSM Incident Manager is engaging during an incident.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "contactId":
-            suggest = "contact_id"
-        elif key == "isEssential":
-            suggest = "is_essential"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ContactContactTargetInfo. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ContactContactTargetInfo.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ContactContactTargetInfo.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 contact_id: str,
-                 is_essential: bool):
-        """
-        The contact that SSM Incident Manager is engaging during an incident.
-        :param str contact_id: The Amazon Resource Name (ARN) of the contact.
-        :param bool is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
-        pulumi.set(__self__, "contact_id", contact_id)
-        pulumi.set(__self__, "is_essential", is_essential)
-
-    @property
-    @pulumi.getter(name="contactId")
-    def contact_id(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of the contact.
-        """
-        return pulumi.get(self, "contact_id")
-
-    @property
-    @pulumi.getter(name="isEssential")
-    def is_essential(self) -> bool:
-        """
-        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
-        return pulumi.get(self, "is_essential")
-
-
-@pulumi.output_type
 class ContactStage(dict):
     """
     A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
@@ -173,6 +121,58 @@ class ContactStage(dict):
 
 
 @pulumi.output_type
+class ContactTargetInfo(dict):
+    """
+    The contact that SSM Incident Manager is engaging during an incident.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactId":
+            suggest = "contact_id"
+        elif key == "isEssential":
+            suggest = "is_essential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContactTargetInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContactTargetInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContactTargetInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_id: str,
+                 is_essential: bool):
+        """
+        The contact that SSM Incident Manager is engaging during an incident.
+        :param str contact_id: The Amazon Resource Name (ARN) of the contact.
+        :param bool is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+        """
+        pulumi.set(__self__, "contact_id", contact_id)
+        pulumi.set(__self__, "is_essential", is_essential)
+
+    @property
+    @pulumi.getter(name="contactId")
+    def contact_id(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the contact.
+        """
+        return pulumi.get(self, "contact_id")
+
+    @property
+    @pulumi.getter(name="isEssential")
+    def is_essential(self) -> bool:
+        """
+        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+        """
+        return pulumi.get(self, "is_essential")
+
+
+@pulumi.output_type
 class ContactTargets(dict):
     """
     The contacts or contact methods that the escalation plan or engagement plan is engaging.
@@ -198,7 +198,7 @@ class ContactTargets(dict):
 
     def __init__(__self__, *,
                  channel_target_info: Optional['outputs.ContactChannelTargetInfo'] = None,
-                 contact_target_info: Optional['outputs.ContactContactTargetInfo'] = None):
+                 contact_target_info: Optional['outputs.ContactTargetInfo'] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
@@ -214,7 +214,7 @@ class ContactTargets(dict):
 
     @property
     @pulumi.getter(name="contactTargetInfo")
-    def contact_target_info(self) -> Optional['outputs.ContactContactTargetInfo']:
+    def contact_target_info(self) -> Optional['outputs.ContactTargetInfo']:
         return pulumi.get(self, "contact_target_info")
 
 

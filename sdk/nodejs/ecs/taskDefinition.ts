@@ -45,7 +45,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly memory!: pulumi.Output<string | undefined>;
     public readonly networkMode!: pulumi.Output<string | undefined>;
     public readonly pidMode!: pulumi.Output<string | undefined>;
-    public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionTaskDefinitionPlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionPlacementConstraint[] | undefined>;
     public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.ecs.TaskDefinitionTag[] | undefined>;
@@ -124,7 +124,7 @@ export interface TaskDefinitionArgs {
     memory?: pulumi.Input<string>;
     networkMode?: pulumi.Input<string>;
     pidMode?: pulumi.Input<string>;
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraintArgs>[]>;
     proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfigurationArgs>;
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionTagArgs>[]>;

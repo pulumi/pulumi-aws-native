@@ -13,7 +13,7 @@ __all__ = [
     'RuleGroupStatefulRuleAction',
     'RuleGroupTCPFlag',
     'RuleGroupTargetType',
-    'RuleGroupType',
+    'RuleGroupTypeEnum',
 ]
 
 
@@ -82,6 +82,6 @@ class RuleGroupTargetType(str, Enum):
     HTTP_HOST = "HTTP_HOST"
 
 
-class RuleGroupType(str, Enum):
+class RuleGroupTypeEnum(str, Enum):
     STATELESS = "STATELESS"
     STATEFUL = "STATEFUL"

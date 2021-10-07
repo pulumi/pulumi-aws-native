@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
         /// </summary>
         [Output("errors")]
-        public Output<ImmutableArray<Outputs.AnalysisAnalysisError>> Errors { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AnalysisError>> Errors { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The time that the analysis was last updated.&lt;/p&gt;
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.AnalysisSheet>> Sheets { get; private set; } = null!;
 
         [Output("sourceEntity")]
-        public Output<Outputs.AnalysisAnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
+        public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
 
         [Output("status")]
         public Output<Pulumi.AwsNative.QuickSight.AnalysisResourceStatus> Status { get; private set; } = null!;
@@ -148,14 +148,14 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string> AwsAccountId { get; set; } = null!;
 
         [Input("errors")]
-        private InputList<Inputs.AnalysisAnalysisErrorArgs>? _errors;
+        private InputList<Inputs.AnalysisErrorArgs>? _errors;
 
         /// <summary>
         /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
         /// </summary>
-        public InputList<Inputs.AnalysisAnalysisErrorArgs> Errors
+        public InputList<Inputs.AnalysisErrorArgs> Errors
         {
-            get => _errors ?? (_errors = new InputList<Inputs.AnalysisAnalysisErrorArgs>());
+            get => _errors ?? (_errors = new InputList<Inputs.AnalysisErrorArgs>());
             set => _errors = value;
         }
 
@@ -186,7 +186,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("sourceEntity")]
-        public Input<Inputs.AnalysisAnalysisSourceEntityArgs>? SourceEntity { get; set; }
+        public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AnalysisTagArgs>? _tags;

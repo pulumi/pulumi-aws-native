@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ApplicationApplicationResourceLifecycleConfig',
-    'ApplicationApplicationVersionLifecycleConfig',
     'ApplicationMaxAgeRule',
     'ApplicationMaxCountRule',
+    'ApplicationResourceLifecycleConfig',
+    'ApplicationVersionLifecycleConfig',
     'ApplicationVersionSourceBundle',
     'ConfigurationTemplateConfigurationOptionSetting',
     'ConfigurationTemplateSourceConfiguration',
@@ -21,86 +21,6 @@ __all__ = [
     'EnvironmentTag',
     'EnvironmentTier',
 ]
-
-@pulumi.output_type
-class ApplicationApplicationResourceLifecycleConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serviceRole":
-            suggest = "service_role"
-        elif key == "versionLifecycleConfig":
-            suggest = "version_lifecycle_config"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationResourceLifecycleConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationApplicationResourceLifecycleConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationApplicationResourceLifecycleConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 service_role: Optional[str] = None,
-                 version_lifecycle_config: Optional['outputs.ApplicationApplicationVersionLifecycleConfig'] = None):
-        if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
-        if version_lifecycle_config is not None:
-            pulumi.set(__self__, "version_lifecycle_config", version_lifecycle_config)
-
-    @property
-    @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[str]:
-        return pulumi.get(self, "service_role")
-
-    @property
-    @pulumi.getter(name="versionLifecycleConfig")
-    def version_lifecycle_config(self) -> Optional['outputs.ApplicationApplicationVersionLifecycleConfig']:
-        return pulumi.get(self, "version_lifecycle_config")
-
-
-@pulumi.output_type
-class ApplicationApplicationVersionLifecycleConfig(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "maxAgeRule":
-            suggest = "max_age_rule"
-        elif key == "maxCountRule":
-            suggest = "max_count_rule"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationApplicationVersionLifecycleConfig. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationApplicationVersionLifecycleConfig.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationApplicationVersionLifecycleConfig.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 max_age_rule: Optional['outputs.ApplicationMaxAgeRule'] = None,
-                 max_count_rule: Optional['outputs.ApplicationMaxCountRule'] = None):
-        if max_age_rule is not None:
-            pulumi.set(__self__, "max_age_rule", max_age_rule)
-        if max_count_rule is not None:
-            pulumi.set(__self__, "max_count_rule", max_count_rule)
-
-    @property
-    @pulumi.getter(name="maxAgeRule")
-    def max_age_rule(self) -> Optional['outputs.ApplicationMaxAgeRule']:
-        return pulumi.get(self, "max_age_rule")
-
-    @property
-    @pulumi.getter(name="maxCountRule")
-    def max_count_rule(self) -> Optional['outputs.ApplicationMaxCountRule']:
-        return pulumi.get(self, "max_count_rule")
-
 
 @pulumi.output_type
 class ApplicationMaxAgeRule(dict):
@@ -196,6 +116,86 @@ class ApplicationMaxCountRule(dict):
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[int]:
         return pulumi.get(self, "max_count")
+
+
+@pulumi.output_type
+class ApplicationResourceLifecycleConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceRole":
+            suggest = "service_role"
+        elif key == "versionLifecycleConfig":
+            suggest = "version_lifecycle_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationResourceLifecycleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationResourceLifecycleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationResourceLifecycleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_role: Optional[str] = None,
+                 version_lifecycle_config: Optional['outputs.ApplicationVersionLifecycleConfig'] = None):
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
+        if version_lifecycle_config is not None:
+            pulumi.set(__self__, "version_lifecycle_config", version_lifecycle_config)
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[str]:
+        return pulumi.get(self, "service_role")
+
+    @property
+    @pulumi.getter(name="versionLifecycleConfig")
+    def version_lifecycle_config(self) -> Optional['outputs.ApplicationVersionLifecycleConfig']:
+        return pulumi.get(self, "version_lifecycle_config")
+
+
+@pulumi.output_type
+class ApplicationVersionLifecycleConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAgeRule":
+            suggest = "max_age_rule"
+        elif key == "maxCountRule":
+            suggest = "max_count_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationVersionLifecycleConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationVersionLifecycleConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationVersionLifecycleConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_age_rule: Optional['outputs.ApplicationMaxAgeRule'] = None,
+                 max_count_rule: Optional['outputs.ApplicationMaxCountRule'] = None):
+        if max_age_rule is not None:
+            pulumi.set(__self__, "max_age_rule", max_age_rule)
+        if max_count_rule is not None:
+            pulumi.set(__self__, "max_count_rule", max_count_rule)
+
+    @property
+    @pulumi.getter(name="maxAgeRule")
+    def max_age_rule(self) -> Optional['outputs.ApplicationMaxAgeRule']:
+        return pulumi.get(self, "max_age_rule")
+
+    @property
+    @pulumi.getter(name="maxCountRule")
+    def max_count_rule(self) -> Optional['outputs.ApplicationMaxCountRule']:
+        return pulumi.get(self, "max_count_rule")
 
 
 @pulumi.output_type

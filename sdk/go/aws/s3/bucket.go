@@ -18,7 +18,7 @@ type Bucket struct {
 	AccessControl                    pulumi.StringPtrOutput                           `pulumi:"accessControl"`
 	AnalyticsConfigurations          BucketAnalyticsConfigurationArrayOutput          `pulumi:"analyticsConfigurations"`
 	Arn                              pulumi.StringOutput                              `pulumi:"arn"`
-	BucketEncryption                 BucketBucketEncryptionPtrOutput                  `pulumi:"bucketEncryption"`
+	BucketEncryption                 BucketEncryptionPtrOutput                        `pulumi:"bucketEncryption"`
 	BucketName                       pulumi.StringPtrOutput                           `pulumi:"bucketName"`
 	CorsConfiguration                BucketCorsConfigurationPtrOutput                 `pulumi:"corsConfiguration"`
 	DomainName                       pulumi.StringOutput                              `pulumi:"domainName"`
@@ -83,7 +83,7 @@ type bucketArgs struct {
 	AccelerateConfiguration          *BucketAccelerateConfiguration          `pulumi:"accelerateConfiguration"`
 	AccessControl                    *string                                 `pulumi:"accessControl"`
 	AnalyticsConfigurations          []BucketAnalyticsConfiguration          `pulumi:"analyticsConfigurations"`
-	BucketEncryption                 *BucketBucketEncryption                 `pulumi:"bucketEncryption"`
+	BucketEncryption                 *BucketEncryption                       `pulumi:"bucketEncryption"`
 	BucketName                       *string                                 `pulumi:"bucketName"`
 	CorsConfiguration                *BucketCorsConfiguration                `pulumi:"corsConfiguration"`
 	IntelligentTieringConfigurations []BucketIntelligentTieringConfiguration `pulumi:"intelligentTieringConfigurations"`
@@ -107,7 +107,7 @@ type BucketArgs struct {
 	AccelerateConfiguration          BucketAccelerateConfigurationPtrInput
 	AccessControl                    pulumi.StringPtrInput
 	AnalyticsConfigurations          BucketAnalyticsConfigurationArrayInput
-	BucketEncryption                 BucketBucketEncryptionPtrInput
+	BucketEncryption                 BucketEncryptionPtrInput
 	BucketName                       pulumi.StringPtrInput
 	CorsConfiguration                BucketCorsConfigurationPtrInput
 	IntelligentTieringConfigurations BucketIntelligentTieringConfigurationArrayInput

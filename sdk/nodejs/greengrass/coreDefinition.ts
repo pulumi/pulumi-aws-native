@@ -39,7 +39,7 @@ export class CoreDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.CoreDefinitionCoreDefinitionVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.CoreDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -83,7 +83,7 @@ export class CoreDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a CoreDefinition resource.
  */
 export interface CoreDefinitionArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.CoreDefinitionCoreDefinitionVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.CoreDefinitionVersionArgs>;
     name: pulumi.Input<string>;
     tags?: any;
 }

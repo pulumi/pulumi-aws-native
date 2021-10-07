@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public Output<bool?> ClonePermissions { get; private set; } = null!;
 
         [Output("configurationManager")]
-        public Output<Outputs.StackStackConfigurationManager?> ConfigurationManager { get; private set; } = null!;
+        public Output<Outputs.StackConfigurationManager?> ConfigurationManager { get; private set; } = null!;
 
         [Output("customCookbooksSource")]
         public Output<Outputs.StackSource?> CustomCookbooksSource { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.OpsWorks
         public Input<bool>? ClonePermissions { get; set; }
 
         [Input("configurationManager")]
-        public Input<Inputs.StackStackConfigurationManagerArgs>? ConfigurationManager { get; set; }
+        public Input<Inputs.StackConfigurationManagerArgs>? ConfigurationManager { get; set; }
 
         [Input("customCookbooksSource")]
         public Input<Inputs.StackSourceArgs>? CustomCookbooksSource { get; set; }

@@ -15,7 +15,7 @@ __all__ = ['MemberArgs', 'Member']
 @pulumi.input_type
 class MemberArgs:
     def __init__(__self__, *,
-                 member_configuration: pulumi.Input['MemberMemberConfigurationArgs'],
+                 member_configuration: pulumi.Input['MemberConfigurationArgs'],
                  invitation_id: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['MemberNetworkConfigurationArgs']] = None,
                  network_id: Optional[pulumi.Input[str]] = None):
@@ -32,11 +32,11 @@ class MemberArgs:
 
     @property
     @pulumi.getter(name="memberConfiguration")
-    def member_configuration(self) -> pulumi.Input['MemberMemberConfigurationArgs']:
+    def member_configuration(self) -> pulumi.Input['MemberConfigurationArgs']:
         return pulumi.get(self, "member_configuration")
 
     @member_configuration.setter
-    def member_configuration(self, value: pulumi.Input['MemberMemberConfigurationArgs']):
+    def member_configuration(self, value: pulumi.Input['MemberConfigurationArgs']):
         pulumi.set(self, "member_configuration", value)
 
     @property
@@ -78,7 +78,7 @@ class Member(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
-                 member_configuration: Optional[pulumi.Input[pulumi.InputType['MemberMemberConfigurationArgs']]] = None,
+                 member_configuration: Optional[pulumi.Input[pulumi.InputType['MemberConfigurationArgs']]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['MemberNetworkConfigurationArgs']]] = None,
                  network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -113,7 +113,7 @@ class Member(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  invitation_id: Optional[pulumi.Input[str]] = None,
-                 member_configuration: Optional[pulumi.Input[pulumi.InputType['MemberMemberConfigurationArgs']]] = None,
+                 member_configuration: Optional[pulumi.Input[pulumi.InputType['MemberConfigurationArgs']]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['MemberNetworkConfigurationArgs']]] = None,
                  network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -172,7 +172,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberConfiguration")
-    def member_configuration(self) -> pulumi.Output['outputs.MemberMemberConfiguration']:
+    def member_configuration(self) -> pulumi.Output['outputs.MemberConfiguration']:
         return pulumi.get(self, "member_configuration")
 
     @property

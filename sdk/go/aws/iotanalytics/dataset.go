@@ -17,14 +17,14 @@ import (
 type Dataset struct {
 	pulumi.CustomResourceState
 
-	Actions                 DatasetActionArrayOutput                     `pulumi:"actions"`
-	ContentDeliveryRules    DatasetDatasetContentDeliveryRuleArrayOutput `pulumi:"contentDeliveryRules"`
-	DatasetName             pulumi.StringPtrOutput                       `pulumi:"datasetName"`
-	LateDataRules           DatasetLateDataRuleArrayOutput               `pulumi:"lateDataRules"`
-	RetentionPeriod         DatasetRetentionPeriodPtrOutput              `pulumi:"retentionPeriod"`
-	Tags                    DatasetTagArrayOutput                        `pulumi:"tags"`
-	Triggers                DatasetTriggerArrayOutput                    `pulumi:"triggers"`
-	VersioningConfiguration DatasetVersioningConfigurationPtrOutput      `pulumi:"versioningConfiguration"`
+	Actions                 DatasetActionArrayOutput                `pulumi:"actions"`
+	ContentDeliveryRules    DatasetContentDeliveryRuleArrayOutput   `pulumi:"contentDeliveryRules"`
+	DatasetName             pulumi.StringPtrOutput                  `pulumi:"datasetName"`
+	LateDataRules           DatasetLateDataRuleArrayOutput          `pulumi:"lateDataRules"`
+	RetentionPeriod         DatasetRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
+	Tags                    DatasetTagArrayOutput                   `pulumi:"tags"`
+	Triggers                DatasetTriggerArrayOutput               `pulumi:"triggers"`
+	VersioningConfiguration DatasetVersioningConfigurationPtrOutput `pulumi:"versioningConfiguration"`
 }
 
 // NewDataset registers a new resource with the given unique name, arguments, and options.
@@ -69,20 +69,20 @@ func (DatasetState) ElementType() reflect.Type {
 }
 
 type datasetArgs struct {
-	Actions                 []DatasetAction                     `pulumi:"actions"`
-	ContentDeliveryRules    []DatasetDatasetContentDeliveryRule `pulumi:"contentDeliveryRules"`
-	DatasetName             *string                             `pulumi:"datasetName"`
-	LateDataRules           []DatasetLateDataRule               `pulumi:"lateDataRules"`
-	RetentionPeriod         *DatasetRetentionPeriod             `pulumi:"retentionPeriod"`
-	Tags                    []DatasetTag                        `pulumi:"tags"`
-	Triggers                []DatasetTrigger                    `pulumi:"triggers"`
-	VersioningConfiguration *DatasetVersioningConfiguration     `pulumi:"versioningConfiguration"`
+	Actions                 []DatasetAction                 `pulumi:"actions"`
+	ContentDeliveryRules    []DatasetContentDeliveryRule    `pulumi:"contentDeliveryRules"`
+	DatasetName             *string                         `pulumi:"datasetName"`
+	LateDataRules           []DatasetLateDataRule           `pulumi:"lateDataRules"`
+	RetentionPeriod         *DatasetRetentionPeriod         `pulumi:"retentionPeriod"`
+	Tags                    []DatasetTag                    `pulumi:"tags"`
+	Triggers                []DatasetTrigger                `pulumi:"triggers"`
+	VersioningConfiguration *DatasetVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
 	Actions                 DatasetActionArrayInput
-	ContentDeliveryRules    DatasetDatasetContentDeliveryRuleArrayInput
+	ContentDeliveryRules    DatasetContentDeliveryRuleArrayInput
 	DatasetName             pulumi.StringPtrInput
 	LateDataRules           DatasetLateDataRuleArrayInput
 	RetentionPeriod         DatasetRetentionPeriodPtrInput

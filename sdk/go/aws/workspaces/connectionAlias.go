@@ -15,11 +15,11 @@ import (
 type ConnectionAlias struct {
 	pulumi.CustomResourceState
 
-	AliasId              pulumi.StringOutput                                  `pulumi:"aliasId"`
-	Associations         ConnectionAliasConnectionAliasAssociationArrayOutput `pulumi:"associations"`
-	ConnectionAliasState ConnectionAliasConnectionAliasStateOutput            `pulumi:"connectionAliasState"`
-	ConnectionString     pulumi.StringOutput                                  `pulumi:"connectionString"`
-	Tags                 ConnectionAliasTagArrayOutput                        `pulumi:"tags"`
+	AliasId              pulumi.StringOutput                   `pulumi:"aliasId"`
+	Associations         ConnectionAliasAssociationArrayOutput `pulumi:"associations"`
+	ConnectionAliasState ConnectionAliasStateEnumOutput        `pulumi:"connectionAliasState"`
+	ConnectionString     pulumi.StringOutput                   `pulumi:"connectionString"`
+	Tags                 ConnectionAliasTagArrayOutput         `pulumi:"tags"`
 }
 
 // NewConnectionAlias registers a new resource with the given unique name, arguments, and options.

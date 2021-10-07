@@ -32,7 +32,7 @@ type GlobalReplicationGroup struct {
 	// The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
 	GlobalReplicationGroupIdSuffix pulumi.StringPtrOutput `pulumi:"globalReplicationGroupIdSuffix"`
 	// The replication groups that comprise the Global Datastore.
-	Members GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput `pulumi:"members"`
+	Members GlobalReplicationGroupMemberArrayOutput `pulumi:"members"`
 	// Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
 	RegionalConfigurations GlobalReplicationGroupRegionalConfigurationArrayOutput `pulumi:"regionalConfigurations"`
 	// The status of the Global Datastore
@@ -96,7 +96,7 @@ type globalReplicationGroupArgs struct {
 	// The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
 	GlobalReplicationGroupIdSuffix *string `pulumi:"globalReplicationGroupIdSuffix"`
 	// The replication groups that comprise the Global Datastore.
-	Members []GlobalReplicationGroupGlobalReplicationGroupMember `pulumi:"members"`
+	Members []GlobalReplicationGroupMember `pulumi:"members"`
 	// Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
 	RegionalConfigurations []GlobalReplicationGroupRegionalConfiguration `pulumi:"regionalConfigurations"`
 }
@@ -118,7 +118,7 @@ type GlobalReplicationGroupArgs struct {
 	// The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
 	GlobalReplicationGroupIdSuffix pulumi.StringPtrInput
 	// The replication groups that comprise the Global Datastore.
-	Members GlobalReplicationGroupGlobalReplicationGroupMemberArrayInput
+	Members GlobalReplicationGroupMemberArrayInput
 	// Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
 	RegionalConfigurations GlobalReplicationGroupRegionalConfigurationArrayInput
 }

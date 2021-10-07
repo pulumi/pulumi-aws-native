@@ -14,7 +14,7 @@ __all__ = [
     'ConfigAntennaDownlinkConfig',
     'ConfigAntennaDownlinkDemodDecodeConfig',
     'ConfigAntennaUplinkConfig',
-    'ConfigConfigData',
+    'ConfigData',
     'ConfigDataflowEndpointConfig',
     'ConfigDecodeConfig',
     'ConfigDemodulationConfig',
@@ -167,7 +167,7 @@ class ConfigAntennaUplinkConfig(dict):
 
 
 @pulumi.output_type
-class ConfigConfigData(dict):
+class ConfigData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -187,14 +187,14 @@ class ConfigConfigData(dict):
             suggest = "uplink_echo_config"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConfigConfigData. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConfigData. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConfigConfigData.__key_warning(key)
+        ConfigData.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConfigConfigData.__key_warning(key)
+        ConfigData.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

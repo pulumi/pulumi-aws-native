@@ -16,7 +16,7 @@ __all__ = ['RouteArgs', 'Route']
 class RouteArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[str],
-                 spec: pulumi.Input['RouteRouteSpecArgs'],
+                 spec: pulumi.Input['RouteSpecArgs'],
                  virtual_router_name: pulumi.Input[str],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
@@ -45,11 +45,11 @@ class RouteArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Input['RouteRouteSpecArgs']:
+    def spec(self) -> pulumi.Input['RouteSpecArgs']:
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: pulumi.Input['RouteRouteSpecArgs']):
+    def spec(self, value: pulumi.Input['RouteSpecArgs']):
         pulumi.set(self, "spec", value)
 
     @property
@@ -102,7 +102,7 @@ class Route(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['RouteRouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTagArgs']]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -139,7 +139,7 @@ class Route(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['RouteRouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTagArgs']]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -230,7 +230,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output['outputs.RouteRouteSpec']:
+    def spec(self) -> pulumi.Output['outputs.RouteSpec']:
         return pulumi.get(self, "spec")
 
     @property

@@ -10,323 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-type AccessPolicyAccessPolicyIdentity struct {
-	IamRole *AccessPolicyIamRole `pulumi:"iamRole"`
-	IamUser *AccessPolicyIamUser `pulumi:"iamUser"`
-	User    *AccessPolicyUser    `pulumi:"user"`
-}
-
-// AccessPolicyAccessPolicyIdentityInput is an input type that accepts AccessPolicyAccessPolicyIdentityArgs and AccessPolicyAccessPolicyIdentityOutput values.
-// You can construct a concrete instance of `AccessPolicyAccessPolicyIdentityInput` via:
-//
-//          AccessPolicyAccessPolicyIdentityArgs{...}
-type AccessPolicyAccessPolicyIdentityInput interface {
-	pulumi.Input
-
-	ToAccessPolicyAccessPolicyIdentityOutput() AccessPolicyAccessPolicyIdentityOutput
-	ToAccessPolicyAccessPolicyIdentityOutputWithContext(context.Context) AccessPolicyAccessPolicyIdentityOutput
-}
-
-// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-type AccessPolicyAccessPolicyIdentityArgs struct {
-	IamRole AccessPolicyIamRolePtrInput `pulumi:"iamRole"`
-	IamUser AccessPolicyIamUserPtrInput `pulumi:"iamUser"`
-	User    AccessPolicyUserPtrInput    `pulumi:"user"`
-}
-
-func (AccessPolicyAccessPolicyIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyAccessPolicyIdentity)(nil)).Elem()
-}
-
-func (i AccessPolicyAccessPolicyIdentityArgs) ToAccessPolicyAccessPolicyIdentityOutput() AccessPolicyAccessPolicyIdentityOutput {
-	return i.ToAccessPolicyAccessPolicyIdentityOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyAccessPolicyIdentityArgs) ToAccessPolicyAccessPolicyIdentityOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyIdentityOutput)
-}
-
-func (i AccessPolicyAccessPolicyIdentityArgs) ToAccessPolicyAccessPolicyIdentityPtrOutput() AccessPolicyAccessPolicyIdentityPtrOutput {
-	return i.ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyAccessPolicyIdentityArgs) ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyIdentityOutput).ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(ctx)
-}
-
-// AccessPolicyAccessPolicyIdentityPtrInput is an input type that accepts AccessPolicyAccessPolicyIdentityArgs, AccessPolicyAccessPolicyIdentityPtr and AccessPolicyAccessPolicyIdentityPtrOutput values.
-// You can construct a concrete instance of `AccessPolicyAccessPolicyIdentityPtrInput` via:
-//
-//          AccessPolicyAccessPolicyIdentityArgs{...}
-//
-//  or:
-//
-//          nil
-type AccessPolicyAccessPolicyIdentityPtrInput interface {
-	pulumi.Input
-
-	ToAccessPolicyAccessPolicyIdentityPtrOutput() AccessPolicyAccessPolicyIdentityPtrOutput
-	ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(context.Context) AccessPolicyAccessPolicyIdentityPtrOutput
-}
-
-type accessPolicyAccessPolicyIdentityPtrType AccessPolicyAccessPolicyIdentityArgs
-
-func AccessPolicyAccessPolicyIdentityPtr(v *AccessPolicyAccessPolicyIdentityArgs) AccessPolicyAccessPolicyIdentityPtrInput {
-	return (*accessPolicyAccessPolicyIdentityPtrType)(v)
-}
-
-func (*accessPolicyAccessPolicyIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyAccessPolicyIdentity)(nil)).Elem()
-}
-
-func (i *accessPolicyAccessPolicyIdentityPtrType) ToAccessPolicyAccessPolicyIdentityPtrOutput() AccessPolicyAccessPolicyIdentityPtrOutput {
-	return i.ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *accessPolicyAccessPolicyIdentityPtrType) ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyIdentityPtrOutput)
-}
-
-// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-type AccessPolicyAccessPolicyIdentityOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyAccessPolicyIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyAccessPolicyIdentity)(nil)).Elem()
-}
-
-func (o AccessPolicyAccessPolicyIdentityOutput) ToAccessPolicyAccessPolicyIdentityOutput() AccessPolicyAccessPolicyIdentityOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyIdentityOutput) ToAccessPolicyAccessPolicyIdentityOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyIdentityOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyIdentityOutput) ToAccessPolicyAccessPolicyIdentityPtrOutput() AccessPolicyAccessPolicyIdentityPtrOutput {
-	return o.ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o AccessPolicyAccessPolicyIdentityOutput) ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyAccessPolicyIdentity) *AccessPolicyAccessPolicyIdentity {
-		return &v
-	}).(AccessPolicyAccessPolicyIdentityPtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
-	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyIamRole { return v.IamRole }).(AccessPolicyIamRolePtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyIdentityOutput) IamUser() AccessPolicyIamUserPtrOutput {
-	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyIamUser { return v.IamUser }).(AccessPolicyIamUserPtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
-	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
-}
-
-type AccessPolicyAccessPolicyIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyAccessPolicyIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyAccessPolicyIdentity)(nil)).Elem()
-}
-
-func (o AccessPolicyAccessPolicyIdentityPtrOutput) ToAccessPolicyAccessPolicyIdentityPtrOutput() AccessPolicyAccessPolicyIdentityPtrOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyIdentityPtrOutput) ToAccessPolicyAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyIdentityPtrOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyIdentityPtrOutput) Elem() AccessPolicyAccessPolicyIdentityOutput {
-	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) AccessPolicyAccessPolicyIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret AccessPolicyAccessPolicyIdentity
-		return ret
-	}).(AccessPolicyAccessPolicyIdentityOutput)
-}
-
-func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
-	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyIamRole {
-		if v == nil {
-			return nil
-		}
-		return v.IamRole
-	}).(AccessPolicyIamRolePtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyIamUser {
-		if v == nil {
-			return nil
-		}
-		return v.IamUser
-	}).(AccessPolicyIamUserPtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyUser {
-		if v == nil {
-			return nil
-		}
-		return v.User
-	}).(AccessPolicyUserPtrOutput)
-}
-
-// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-type AccessPolicyAccessPolicyResource struct {
-	Portal  *AccessPolicyPortal  `pulumi:"portal"`
-	Project *AccessPolicyProject `pulumi:"project"`
-}
-
-// AccessPolicyAccessPolicyResourceInput is an input type that accepts AccessPolicyAccessPolicyResourceArgs and AccessPolicyAccessPolicyResourceOutput values.
-// You can construct a concrete instance of `AccessPolicyAccessPolicyResourceInput` via:
-//
-//          AccessPolicyAccessPolicyResourceArgs{...}
-type AccessPolicyAccessPolicyResourceInput interface {
-	pulumi.Input
-
-	ToAccessPolicyAccessPolicyResourceOutput() AccessPolicyAccessPolicyResourceOutput
-	ToAccessPolicyAccessPolicyResourceOutputWithContext(context.Context) AccessPolicyAccessPolicyResourceOutput
-}
-
-// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-type AccessPolicyAccessPolicyResourceArgs struct {
-	Portal  AccessPolicyPortalPtrInput  `pulumi:"portal"`
-	Project AccessPolicyProjectPtrInput `pulumi:"project"`
-}
-
-func (AccessPolicyAccessPolicyResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyAccessPolicyResource)(nil)).Elem()
-}
-
-func (i AccessPolicyAccessPolicyResourceArgs) ToAccessPolicyAccessPolicyResourceOutput() AccessPolicyAccessPolicyResourceOutput {
-	return i.ToAccessPolicyAccessPolicyResourceOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyAccessPolicyResourceArgs) ToAccessPolicyAccessPolicyResourceOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyResourceOutput)
-}
-
-func (i AccessPolicyAccessPolicyResourceArgs) ToAccessPolicyAccessPolicyResourcePtrOutput() AccessPolicyAccessPolicyResourcePtrOutput {
-	return i.ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyAccessPolicyResourceArgs) ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyResourceOutput).ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(ctx)
-}
-
-// AccessPolicyAccessPolicyResourcePtrInput is an input type that accepts AccessPolicyAccessPolicyResourceArgs, AccessPolicyAccessPolicyResourcePtr and AccessPolicyAccessPolicyResourcePtrOutput values.
-// You can construct a concrete instance of `AccessPolicyAccessPolicyResourcePtrInput` via:
-//
-//          AccessPolicyAccessPolicyResourceArgs{...}
-//
-//  or:
-//
-//          nil
-type AccessPolicyAccessPolicyResourcePtrInput interface {
-	pulumi.Input
-
-	ToAccessPolicyAccessPolicyResourcePtrOutput() AccessPolicyAccessPolicyResourcePtrOutput
-	ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(context.Context) AccessPolicyAccessPolicyResourcePtrOutput
-}
-
-type accessPolicyAccessPolicyResourcePtrType AccessPolicyAccessPolicyResourceArgs
-
-func AccessPolicyAccessPolicyResourcePtr(v *AccessPolicyAccessPolicyResourceArgs) AccessPolicyAccessPolicyResourcePtrInput {
-	return (*accessPolicyAccessPolicyResourcePtrType)(v)
-}
-
-func (*accessPolicyAccessPolicyResourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyAccessPolicyResource)(nil)).Elem()
-}
-
-func (i *accessPolicyAccessPolicyResourcePtrType) ToAccessPolicyAccessPolicyResourcePtrOutput() AccessPolicyAccessPolicyResourcePtrOutput {
-	return i.ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(context.Background())
-}
-
-func (i *accessPolicyAccessPolicyResourcePtrType) ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyResourcePtrOutput)
-}
-
-// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-type AccessPolicyAccessPolicyResourceOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyAccessPolicyResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyAccessPolicyResource)(nil)).Elem()
-}
-
-func (o AccessPolicyAccessPolicyResourceOutput) ToAccessPolicyAccessPolicyResourceOutput() AccessPolicyAccessPolicyResourceOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyResourceOutput) ToAccessPolicyAccessPolicyResourceOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyResourceOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyResourceOutput) ToAccessPolicyAccessPolicyResourcePtrOutput() AccessPolicyAccessPolicyResourcePtrOutput {
-	return o.ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(context.Background())
-}
-
-func (o AccessPolicyAccessPolicyResourceOutput) ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyAccessPolicyResource) *AccessPolicyAccessPolicyResource {
-		return &v
-	}).(AccessPolicyAccessPolicyResourcePtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyResourceOutput) Portal() AccessPolicyPortalPtrOutput {
-	return o.ApplyT(func(v AccessPolicyAccessPolicyResource) *AccessPolicyPortal { return v.Portal }).(AccessPolicyPortalPtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyResourceOutput) Project() AccessPolicyProjectPtrOutput {
-	return o.ApplyT(func(v AccessPolicyAccessPolicyResource) *AccessPolicyProject { return v.Project }).(AccessPolicyProjectPtrOutput)
-}
-
-type AccessPolicyAccessPolicyResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyAccessPolicyResourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessPolicyAccessPolicyResource)(nil)).Elem()
-}
-
-func (o AccessPolicyAccessPolicyResourcePtrOutput) ToAccessPolicyAccessPolicyResourcePtrOutput() AccessPolicyAccessPolicyResourcePtrOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyResourcePtrOutput) ToAccessPolicyAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyAccessPolicyResourcePtrOutput {
-	return o
-}
-
-func (o AccessPolicyAccessPolicyResourcePtrOutput) Elem() AccessPolicyAccessPolicyResourceOutput {
-	return o.ApplyT(func(v *AccessPolicyAccessPolicyResource) AccessPolicyAccessPolicyResource {
-		if v != nil {
-			return *v
-		}
-		var ret AccessPolicyAccessPolicyResource
-		return ret
-	}).(AccessPolicyAccessPolicyResourceOutput)
-}
-
-func (o AccessPolicyAccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyAccessPolicyResource) *AccessPolicyPortal {
-		if v == nil {
-			return nil
-		}
-		return v.Portal
-	}).(AccessPolicyPortalPtrOutput)
-}
-
-func (o AccessPolicyAccessPolicyResourcePtrOutput) Project() AccessPolicyProjectPtrOutput {
-	return o.ApplyT(func(v *AccessPolicyAccessPolicyResource) *AccessPolicyProject {
-		if v == nil {
-			return nil
-		}
-		return v.Project
-	}).(AccessPolicyProjectPtrOutput)
-}
-
 // Contains information for an IAM role identity in an access policy.
 type AccessPolicyIamRole struct {
 	// The ARN of the IAM role.
@@ -605,6 +288,172 @@ func (o AccessPolicyIamUserPtrOutput) Arn() pulumi.StringPtrOutput {
 		}
 		return v.Arn
 	}).(pulumi.StringPtrOutput)
+}
+
+// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+type AccessPolicyIdentity struct {
+	IamRole *AccessPolicyIamRole `pulumi:"iamRole"`
+	IamUser *AccessPolicyIamUser `pulumi:"iamUser"`
+	User    *AccessPolicyUser    `pulumi:"user"`
+}
+
+// AccessPolicyIdentityInput is an input type that accepts AccessPolicyIdentityArgs and AccessPolicyIdentityOutput values.
+// You can construct a concrete instance of `AccessPolicyIdentityInput` via:
+//
+//          AccessPolicyIdentityArgs{...}
+type AccessPolicyIdentityInput interface {
+	pulumi.Input
+
+	ToAccessPolicyIdentityOutput() AccessPolicyIdentityOutput
+	ToAccessPolicyIdentityOutputWithContext(context.Context) AccessPolicyIdentityOutput
+}
+
+// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+type AccessPolicyIdentityArgs struct {
+	IamRole AccessPolicyIamRolePtrInput `pulumi:"iamRole"`
+	IamUser AccessPolicyIamUserPtrInput `pulumi:"iamUser"`
+	User    AccessPolicyUserPtrInput    `pulumi:"user"`
+}
+
+func (AccessPolicyIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyIdentity)(nil)).Elem()
+}
+
+func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityOutput() AccessPolicyIdentityOutput {
+	return i.ToAccessPolicyIdentityOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityOutputWithContext(ctx context.Context) AccessPolicyIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIdentityOutput)
+}
+
+func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
+	return i.ToAccessPolicyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyIdentityArgs) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIdentityOutput).ToAccessPolicyIdentityPtrOutputWithContext(ctx)
+}
+
+// AccessPolicyIdentityPtrInput is an input type that accepts AccessPolicyIdentityArgs, AccessPolicyIdentityPtr and AccessPolicyIdentityPtrOutput values.
+// You can construct a concrete instance of `AccessPolicyIdentityPtrInput` via:
+//
+//          AccessPolicyIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessPolicyIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput
+	ToAccessPolicyIdentityPtrOutputWithContext(context.Context) AccessPolicyIdentityPtrOutput
+}
+
+type accessPolicyIdentityPtrType AccessPolicyIdentityArgs
+
+func AccessPolicyIdentityPtr(v *AccessPolicyIdentityArgs) AccessPolicyIdentityPtrInput {
+	return (*accessPolicyIdentityPtrType)(v)
+}
+
+func (*accessPolicyIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyIdentity)(nil)).Elem()
+}
+
+func (i *accessPolicyIdentityPtrType) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
+	return i.ToAccessPolicyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPolicyIdentityPtrType) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIdentityPtrOutput)
+}
+
+// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+type AccessPolicyIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyIdentity)(nil)).Elem()
+}
+
+func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityOutput() AccessPolicyIdentityOutput {
+	return o
+}
+
+func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityOutputWithContext(ctx context.Context) AccessPolicyIdentityOutput {
+	return o
+}
+
+func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
+	return o.ToAccessPolicyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyIdentity) *AccessPolicyIdentity {
+		return &v
+	}).(AccessPolicyIdentityPtrOutput)
+}
+
+func (o AccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
+	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyIamRole { return v.IamRole }).(AccessPolicyIamRolePtrOutput)
+}
+
+func (o AccessPolicyIdentityOutput) IamUser() AccessPolicyIamUserPtrOutput {
+	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyIamUser { return v.IamUser }).(AccessPolicyIamUserPtrOutput)
+}
+
+func (o AccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
+	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
+}
+
+type AccessPolicyIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyIdentity)(nil)).Elem()
+}
+
+func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutput() AccessPolicyIdentityPtrOutput {
+	return o
+}
+
+func (o AccessPolicyIdentityPtrOutput) ToAccessPolicyIdentityPtrOutputWithContext(ctx context.Context) AccessPolicyIdentityPtrOutput {
+	return o
+}
+
+func (o AccessPolicyIdentityPtrOutput) Elem() AccessPolicyIdentityOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) AccessPolicyIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyIdentity
+		return ret
+	}).(AccessPolicyIdentityOutput)
+}
+
+func (o AccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamRole {
+		if v == nil {
+			return nil
+		}
+		return v.IamRole
+	}).(AccessPolicyIamRolePtrOutput)
+}
+
+func (o AccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamUser {
+		if v == nil {
+			return nil
+		}
+		return v.IamUser
+	}).(AccessPolicyIamUserPtrOutput)
+}
+
+func (o AccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyUser {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(AccessPolicyUserPtrOutput)
 }
 
 // A portal resource.
@@ -887,6 +736,157 @@ func (o AccessPolicyProjectPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+type AccessPolicyResource struct {
+	Portal  *AccessPolicyPortal  `pulumi:"portal"`
+	Project *AccessPolicyProject `pulumi:"project"`
+}
+
+// AccessPolicyResourceInput is an input type that accepts AccessPolicyResourceArgs and AccessPolicyResourceOutput values.
+// You can construct a concrete instance of `AccessPolicyResourceInput` via:
+//
+//          AccessPolicyResourceArgs{...}
+type AccessPolicyResourceInput interface {
+	pulumi.Input
+
+	ToAccessPolicyResourceOutput() AccessPolicyResourceOutput
+	ToAccessPolicyResourceOutputWithContext(context.Context) AccessPolicyResourceOutput
+}
+
+// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+type AccessPolicyResourceArgs struct {
+	Portal  AccessPolicyPortalPtrInput  `pulumi:"portal"`
+	Project AccessPolicyProjectPtrInput `pulumi:"project"`
+}
+
+func (AccessPolicyResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyResource)(nil)).Elem()
+}
+
+func (i AccessPolicyResourceArgs) ToAccessPolicyResourceOutput() AccessPolicyResourceOutput {
+	return i.ToAccessPolicyResourceOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyResourceArgs) ToAccessPolicyResourceOutputWithContext(ctx context.Context) AccessPolicyResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResourceOutput)
+}
+
+func (i AccessPolicyResourceArgs) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
+	return i.ToAccessPolicyResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AccessPolicyResourceArgs) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResourceOutput).ToAccessPolicyResourcePtrOutputWithContext(ctx)
+}
+
+// AccessPolicyResourcePtrInput is an input type that accepts AccessPolicyResourceArgs, AccessPolicyResourcePtr and AccessPolicyResourcePtrOutput values.
+// You can construct a concrete instance of `AccessPolicyResourcePtrInput` via:
+//
+//          AccessPolicyResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessPolicyResourcePtrInput interface {
+	pulumi.Input
+
+	ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput
+	ToAccessPolicyResourcePtrOutputWithContext(context.Context) AccessPolicyResourcePtrOutput
+}
+
+type accessPolicyResourcePtrType AccessPolicyResourceArgs
+
+func AccessPolicyResourcePtr(v *AccessPolicyResourceArgs) AccessPolicyResourcePtrInput {
+	return (*accessPolicyResourcePtrType)(v)
+}
+
+func (*accessPolicyResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyResource)(nil)).Elem()
+}
+
+func (i *accessPolicyResourcePtrType) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
+	return i.ToAccessPolicyResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *accessPolicyResourcePtrType) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyResourcePtrOutput)
+}
+
+// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+type AccessPolicyResourceOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPolicyResource)(nil)).Elem()
+}
+
+func (o AccessPolicyResourceOutput) ToAccessPolicyResourceOutput() AccessPolicyResourceOutput {
+	return o
+}
+
+func (o AccessPolicyResourceOutput) ToAccessPolicyResourceOutputWithContext(ctx context.Context) AccessPolicyResourceOutput {
+	return o
+}
+
+func (o AccessPolicyResourceOutput) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
+	return o.ToAccessPolicyResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AccessPolicyResourceOutput) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPolicyResource) *AccessPolicyResource {
+		return &v
+	}).(AccessPolicyResourcePtrOutput)
+}
+
+func (o AccessPolicyResourceOutput) Portal() AccessPolicyPortalPtrOutput {
+	return o.ApplyT(func(v AccessPolicyResource) *AccessPolicyPortal { return v.Portal }).(AccessPolicyPortalPtrOutput)
+}
+
+func (o AccessPolicyResourceOutput) Project() AccessPolicyProjectPtrOutput {
+	return o.ApplyT(func(v AccessPolicyResource) *AccessPolicyProject { return v.Project }).(AccessPolicyProjectPtrOutput)
+}
+
+type AccessPolicyResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPolicyResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPolicyResource)(nil)).Elem()
+}
+
+func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutput() AccessPolicyResourcePtrOutput {
+	return o
+}
+
+func (o AccessPolicyResourcePtrOutput) ToAccessPolicyResourcePtrOutputWithContext(ctx context.Context) AccessPolicyResourcePtrOutput {
+	return o
+}
+
+func (o AccessPolicyResourcePtrOutput) Elem() AccessPolicyResourceOutput {
+	return o.ApplyT(func(v *AccessPolicyResource) AccessPolicyResource {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPolicyResource
+		return ret
+	}).(AccessPolicyResourceOutput)
+}
+
+func (o AccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyPortal {
+		if v == nil {
+			return nil
+		}
+		return v.Portal
+	}).(AccessPolicyPortalPtrOutput)
+}
+
+func (o AccessPolicyResourcePtrOutput) Project() AccessPolicyProjectPtrOutput {
+	return o.ApplyT(func(v *AccessPolicyResource) *AccessPolicyProject {
+		if v == nil {
+			return nil
+		}
+		return v.Project
+	}).(AccessPolicyProjectPtrOutput)
+}
+
 // Contains information for a user identity in an access policy.
 type AccessPolicyUser struct {
 	// The AWS SSO ID of the user.
@@ -1028,622 +1028,112 @@ func (o AccessPolicyUserPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // A hierarchy specifies allowed parent/child asset relationships.
-type AssetAssetHierarchy struct {
+type AssetHierarchy struct {
 	// The ID of the child asset to be associated.
 	ChildAssetId string `pulumi:"childAssetId"`
 	// The LogicalID of a hierarchy in the parent asset's model.
 	LogicalId string `pulumi:"logicalId"`
 }
 
-// AssetAssetHierarchyInput is an input type that accepts AssetAssetHierarchyArgs and AssetAssetHierarchyOutput values.
-// You can construct a concrete instance of `AssetAssetHierarchyInput` via:
+// AssetHierarchyInput is an input type that accepts AssetHierarchyArgs and AssetHierarchyOutput values.
+// You can construct a concrete instance of `AssetHierarchyInput` via:
 //
-//          AssetAssetHierarchyArgs{...}
-type AssetAssetHierarchyInput interface {
+//          AssetHierarchyArgs{...}
+type AssetHierarchyInput interface {
 	pulumi.Input
 
-	ToAssetAssetHierarchyOutput() AssetAssetHierarchyOutput
-	ToAssetAssetHierarchyOutputWithContext(context.Context) AssetAssetHierarchyOutput
+	ToAssetHierarchyOutput() AssetHierarchyOutput
+	ToAssetHierarchyOutputWithContext(context.Context) AssetHierarchyOutput
 }
 
 // A hierarchy specifies allowed parent/child asset relationships.
-type AssetAssetHierarchyArgs struct {
+type AssetHierarchyArgs struct {
 	// The ID of the child asset to be associated.
 	ChildAssetId pulumi.StringInput `pulumi:"childAssetId"`
 	// The LogicalID of a hierarchy in the parent asset's model.
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
 }
 
-func (AssetAssetHierarchyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetAssetHierarchy)(nil)).Elem()
+func (AssetHierarchyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetHierarchy)(nil)).Elem()
 }
 
-func (i AssetAssetHierarchyArgs) ToAssetAssetHierarchyOutput() AssetAssetHierarchyOutput {
-	return i.ToAssetAssetHierarchyOutputWithContext(context.Background())
+func (i AssetHierarchyArgs) ToAssetHierarchyOutput() AssetHierarchyOutput {
+	return i.ToAssetHierarchyOutputWithContext(context.Background())
 }
 
-func (i AssetAssetHierarchyArgs) ToAssetAssetHierarchyOutputWithContext(ctx context.Context) AssetAssetHierarchyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetAssetHierarchyOutput)
+func (i AssetHierarchyArgs) ToAssetHierarchyOutputWithContext(ctx context.Context) AssetHierarchyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetHierarchyOutput)
 }
 
-// AssetAssetHierarchyArrayInput is an input type that accepts AssetAssetHierarchyArray and AssetAssetHierarchyArrayOutput values.
-// You can construct a concrete instance of `AssetAssetHierarchyArrayInput` via:
+// AssetHierarchyArrayInput is an input type that accepts AssetHierarchyArray and AssetHierarchyArrayOutput values.
+// You can construct a concrete instance of `AssetHierarchyArrayInput` via:
 //
-//          AssetAssetHierarchyArray{ AssetAssetHierarchyArgs{...} }
-type AssetAssetHierarchyArrayInput interface {
+//          AssetHierarchyArray{ AssetHierarchyArgs{...} }
+type AssetHierarchyArrayInput interface {
 	pulumi.Input
 
-	ToAssetAssetHierarchyArrayOutput() AssetAssetHierarchyArrayOutput
-	ToAssetAssetHierarchyArrayOutputWithContext(context.Context) AssetAssetHierarchyArrayOutput
+	ToAssetHierarchyArrayOutput() AssetHierarchyArrayOutput
+	ToAssetHierarchyArrayOutputWithContext(context.Context) AssetHierarchyArrayOutput
 }
 
-type AssetAssetHierarchyArray []AssetAssetHierarchyInput
+type AssetHierarchyArray []AssetHierarchyInput
 
-func (AssetAssetHierarchyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetAssetHierarchy)(nil)).Elem()
+func (AssetHierarchyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetHierarchy)(nil)).Elem()
 }
 
-func (i AssetAssetHierarchyArray) ToAssetAssetHierarchyArrayOutput() AssetAssetHierarchyArrayOutput {
-	return i.ToAssetAssetHierarchyArrayOutputWithContext(context.Background())
+func (i AssetHierarchyArray) ToAssetHierarchyArrayOutput() AssetHierarchyArrayOutput {
+	return i.ToAssetHierarchyArrayOutputWithContext(context.Background())
 }
 
-func (i AssetAssetHierarchyArray) ToAssetAssetHierarchyArrayOutputWithContext(ctx context.Context) AssetAssetHierarchyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetAssetHierarchyArrayOutput)
+func (i AssetHierarchyArray) ToAssetHierarchyArrayOutputWithContext(ctx context.Context) AssetHierarchyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetHierarchyArrayOutput)
 }
 
 // A hierarchy specifies allowed parent/child asset relationships.
-type AssetAssetHierarchyOutput struct{ *pulumi.OutputState }
+type AssetHierarchyOutput struct{ *pulumi.OutputState }
 
-func (AssetAssetHierarchyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetAssetHierarchy)(nil)).Elem()
+func (AssetHierarchyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetHierarchy)(nil)).Elem()
 }
 
-func (o AssetAssetHierarchyOutput) ToAssetAssetHierarchyOutput() AssetAssetHierarchyOutput {
+func (o AssetHierarchyOutput) ToAssetHierarchyOutput() AssetHierarchyOutput {
 	return o
 }
 
-func (o AssetAssetHierarchyOutput) ToAssetAssetHierarchyOutputWithContext(ctx context.Context) AssetAssetHierarchyOutput {
+func (o AssetHierarchyOutput) ToAssetHierarchyOutputWithContext(ctx context.Context) AssetHierarchyOutput {
 	return o
 }
 
 // The ID of the child asset to be associated.
-func (o AssetAssetHierarchyOutput) ChildAssetId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetAssetHierarchy) string { return v.ChildAssetId }).(pulumi.StringOutput)
+func (o AssetHierarchyOutput) ChildAssetId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetHierarchy) string { return v.ChildAssetId }).(pulumi.StringOutput)
 }
 
 // The LogicalID of a hierarchy in the parent asset's model.
-func (o AssetAssetHierarchyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetAssetHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
+func (o AssetHierarchyOutput) LogicalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
 }
 
-type AssetAssetHierarchyArrayOutput struct{ *pulumi.OutputState }
+type AssetHierarchyArrayOutput struct{ *pulumi.OutputState }
 
-func (AssetAssetHierarchyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetAssetHierarchy)(nil)).Elem()
+func (AssetHierarchyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetHierarchy)(nil)).Elem()
 }
 
-func (o AssetAssetHierarchyArrayOutput) ToAssetAssetHierarchyArrayOutput() AssetAssetHierarchyArrayOutput {
+func (o AssetHierarchyArrayOutput) ToAssetHierarchyArrayOutput() AssetHierarchyArrayOutput {
 	return o
 }
 
-func (o AssetAssetHierarchyArrayOutput) ToAssetAssetHierarchyArrayOutputWithContext(ctx context.Context) AssetAssetHierarchyArrayOutput {
+func (o AssetHierarchyArrayOutput) ToAssetHierarchyArrayOutputWithContext(ctx context.Context) AssetHierarchyArrayOutput {
 	return o
 }
 
-func (o AssetAssetHierarchyArrayOutput) Index(i pulumi.IntInput) AssetAssetHierarchyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetAssetHierarchy {
-		return vs[0].([]AssetAssetHierarchy)[vs[1].(int)]
-	}).(AssetAssetHierarchyOutput)
-}
-
-// The asset property's definition, alias, and notification state.
-type AssetAssetProperty struct {
-	// The property alias that identifies the property.
-	Alias *string `pulumi:"alias"`
-	// Customer provided ID for property.
-	LogicalId string `pulumi:"logicalId"`
-	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
-	NotificationState *AssetAssetPropertyNotificationState `pulumi:"notificationState"`
-}
-
-// AssetAssetPropertyInput is an input type that accepts AssetAssetPropertyArgs and AssetAssetPropertyOutput values.
-// You can construct a concrete instance of `AssetAssetPropertyInput` via:
-//
-//          AssetAssetPropertyArgs{...}
-type AssetAssetPropertyInput interface {
-	pulumi.Input
-
-	ToAssetAssetPropertyOutput() AssetAssetPropertyOutput
-	ToAssetAssetPropertyOutputWithContext(context.Context) AssetAssetPropertyOutput
-}
-
-// The asset property's definition, alias, and notification state.
-type AssetAssetPropertyArgs struct {
-	// The property alias that identifies the property.
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// Customer provided ID for property.
-	LogicalId pulumi.StringInput `pulumi:"logicalId"`
-	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
-	NotificationState AssetAssetPropertyNotificationStatePtrInput `pulumi:"notificationState"`
-}
-
-func (AssetAssetPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetAssetProperty)(nil)).Elem()
-}
-
-func (i AssetAssetPropertyArgs) ToAssetAssetPropertyOutput() AssetAssetPropertyOutput {
-	return i.ToAssetAssetPropertyOutputWithContext(context.Background())
-}
-
-func (i AssetAssetPropertyArgs) ToAssetAssetPropertyOutputWithContext(ctx context.Context) AssetAssetPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetAssetPropertyOutput)
-}
-
-// AssetAssetPropertyArrayInput is an input type that accepts AssetAssetPropertyArray and AssetAssetPropertyArrayOutput values.
-// You can construct a concrete instance of `AssetAssetPropertyArrayInput` via:
-//
-//          AssetAssetPropertyArray{ AssetAssetPropertyArgs{...} }
-type AssetAssetPropertyArrayInput interface {
-	pulumi.Input
-
-	ToAssetAssetPropertyArrayOutput() AssetAssetPropertyArrayOutput
-	ToAssetAssetPropertyArrayOutputWithContext(context.Context) AssetAssetPropertyArrayOutput
-}
-
-type AssetAssetPropertyArray []AssetAssetPropertyInput
-
-func (AssetAssetPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetAssetProperty)(nil)).Elem()
-}
-
-func (i AssetAssetPropertyArray) ToAssetAssetPropertyArrayOutput() AssetAssetPropertyArrayOutput {
-	return i.ToAssetAssetPropertyArrayOutputWithContext(context.Background())
-}
-
-func (i AssetAssetPropertyArray) ToAssetAssetPropertyArrayOutputWithContext(ctx context.Context) AssetAssetPropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetAssetPropertyArrayOutput)
-}
-
-// The asset property's definition, alias, and notification state.
-type AssetAssetPropertyOutput struct{ *pulumi.OutputState }
-
-func (AssetAssetPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetAssetProperty)(nil)).Elem()
-}
-
-func (o AssetAssetPropertyOutput) ToAssetAssetPropertyOutput() AssetAssetPropertyOutput {
-	return o
-}
-
-func (o AssetAssetPropertyOutput) ToAssetAssetPropertyOutputWithContext(ctx context.Context) AssetAssetPropertyOutput {
-	return o
-}
-
-// The property alias that identifies the property.
-func (o AssetAssetPropertyOutput) Alias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssetAssetProperty) *string { return v.Alias }).(pulumi.StringPtrOutput)
-}
-
-// Customer provided ID for property.
-func (o AssetAssetPropertyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetAssetProperty) string { return v.LogicalId }).(pulumi.StringOutput)
-}
-
-// The MQTT notification state (ENABLED or DISABLED) for this asset property.
-func (o AssetAssetPropertyOutput) NotificationState() AssetAssetPropertyNotificationStatePtrOutput {
-	return o.ApplyT(func(v AssetAssetProperty) *AssetAssetPropertyNotificationState { return v.NotificationState }).(AssetAssetPropertyNotificationStatePtrOutput)
-}
-
-type AssetAssetPropertyArrayOutput struct{ *pulumi.OutputState }
-
-func (AssetAssetPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetAssetProperty)(nil)).Elem()
-}
-
-func (o AssetAssetPropertyArrayOutput) ToAssetAssetPropertyArrayOutput() AssetAssetPropertyArrayOutput {
-	return o
-}
-
-func (o AssetAssetPropertyArrayOutput) ToAssetAssetPropertyArrayOutputWithContext(ctx context.Context) AssetAssetPropertyArrayOutput {
-	return o
-}
-
-func (o AssetAssetPropertyArrayOutput) Index(i pulumi.IntInput) AssetAssetPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetAssetProperty {
-		return vs[0].([]AssetAssetProperty)[vs[1].(int)]
-	}).(AssetAssetPropertyOutput)
-}
-
-// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
-type AssetModelAssetModelCompositeModel struct {
-	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
-	CompositeModelProperties []AssetModelAssetModelProperty `pulumi:"compositeModelProperties"`
-	// A description for the asset composite model.
-	Description *string `pulumi:"description"`
-	// A unique, friendly name for the asset composite model.
-	Name string `pulumi:"name"`
-	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
-	Type string `pulumi:"type"`
-}
-
-// AssetModelAssetModelCompositeModelInput is an input type that accepts AssetModelAssetModelCompositeModelArgs and AssetModelAssetModelCompositeModelOutput values.
-// You can construct a concrete instance of `AssetModelAssetModelCompositeModelInput` via:
-//
-//          AssetModelAssetModelCompositeModelArgs{...}
-type AssetModelAssetModelCompositeModelInput interface {
-	pulumi.Input
-
-	ToAssetModelAssetModelCompositeModelOutput() AssetModelAssetModelCompositeModelOutput
-	ToAssetModelAssetModelCompositeModelOutputWithContext(context.Context) AssetModelAssetModelCompositeModelOutput
-}
-
-// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
-type AssetModelAssetModelCompositeModelArgs struct {
-	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
-	CompositeModelProperties AssetModelAssetModelPropertyArrayInput `pulumi:"compositeModelProperties"`
-	// A description for the asset composite model.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A unique, friendly name for the asset composite model.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AssetModelAssetModelCompositeModelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelAssetModelCompositeModel)(nil)).Elem()
-}
-
-func (i AssetModelAssetModelCompositeModelArgs) ToAssetModelAssetModelCompositeModelOutput() AssetModelAssetModelCompositeModelOutput {
-	return i.ToAssetModelAssetModelCompositeModelOutputWithContext(context.Background())
-}
-
-func (i AssetModelAssetModelCompositeModelArgs) ToAssetModelAssetModelCompositeModelOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelCompositeModelOutput)
-}
-
-// AssetModelAssetModelCompositeModelArrayInput is an input type that accepts AssetModelAssetModelCompositeModelArray and AssetModelAssetModelCompositeModelArrayOutput values.
-// You can construct a concrete instance of `AssetModelAssetModelCompositeModelArrayInput` via:
-//
-//          AssetModelAssetModelCompositeModelArray{ AssetModelAssetModelCompositeModelArgs{...} }
-type AssetModelAssetModelCompositeModelArrayInput interface {
-	pulumi.Input
-
-	ToAssetModelAssetModelCompositeModelArrayOutput() AssetModelAssetModelCompositeModelArrayOutput
-	ToAssetModelAssetModelCompositeModelArrayOutputWithContext(context.Context) AssetModelAssetModelCompositeModelArrayOutput
-}
-
-type AssetModelAssetModelCompositeModelArray []AssetModelAssetModelCompositeModelInput
-
-func (AssetModelAssetModelCompositeModelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelAssetModelCompositeModel)(nil)).Elem()
-}
-
-func (i AssetModelAssetModelCompositeModelArray) ToAssetModelAssetModelCompositeModelArrayOutput() AssetModelAssetModelCompositeModelArrayOutput {
-	return i.ToAssetModelAssetModelCompositeModelArrayOutputWithContext(context.Background())
-}
-
-func (i AssetModelAssetModelCompositeModelArray) ToAssetModelAssetModelCompositeModelArrayOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelCompositeModelArrayOutput)
-}
-
-// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
-type AssetModelAssetModelCompositeModelOutput struct{ *pulumi.OutputState }
-
-func (AssetModelAssetModelCompositeModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelAssetModelCompositeModel)(nil)).Elem()
-}
-
-func (o AssetModelAssetModelCompositeModelOutput) ToAssetModelAssetModelCompositeModelOutput() AssetModelAssetModelCompositeModelOutput {
-	return o
-}
-
-func (o AssetModelAssetModelCompositeModelOutput) ToAssetModelAssetModelCompositeModelOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelOutput {
-	return o
-}
-
-// The property definitions of the asset model. You can specify up to 200 properties per asset model.
-func (o AssetModelAssetModelCompositeModelOutput) CompositeModelProperties() AssetModelAssetModelPropertyArrayOutput {
-	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) []AssetModelAssetModelProperty {
-		return v.CompositeModelProperties
-	}).(AssetModelAssetModelPropertyArrayOutput)
-}
-
-// A description for the asset composite model.
-func (o AssetModelAssetModelCompositeModelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// A unique, friendly name for the asset composite model.
-func (o AssetModelAssetModelCompositeModelOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The type of the composite model. For alarm composite models, this type is AWS/ALARM
-func (o AssetModelAssetModelCompositeModelOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AssetModelAssetModelCompositeModelArrayOutput struct{ *pulumi.OutputState }
-
-func (AssetModelAssetModelCompositeModelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelAssetModelCompositeModel)(nil)).Elem()
-}
-
-func (o AssetModelAssetModelCompositeModelArrayOutput) ToAssetModelAssetModelCompositeModelArrayOutput() AssetModelAssetModelCompositeModelArrayOutput {
-	return o
-}
-
-func (o AssetModelAssetModelCompositeModelArrayOutput) ToAssetModelAssetModelCompositeModelArrayOutputWithContext(ctx context.Context) AssetModelAssetModelCompositeModelArrayOutput {
-	return o
-}
-
-func (o AssetModelAssetModelCompositeModelArrayOutput) Index(i pulumi.IntInput) AssetModelAssetModelCompositeModelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelAssetModelCompositeModel {
-		return vs[0].([]AssetModelAssetModelCompositeModel)[vs[1].(int)]
-	}).(AssetModelAssetModelCompositeModelOutput)
-}
-
-// Contains information about an asset model hierarchy.
-type AssetModelAssetModelHierarchy struct {
-	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
-	ChildAssetModelId string `pulumi:"childAssetModelId"`
-	// Customer provided ID for hierarchy.
-	LogicalId string `pulumi:"logicalId"`
-	// The name of the asset model hierarchy.
-	Name string `pulumi:"name"`
-}
-
-// AssetModelAssetModelHierarchyInput is an input type that accepts AssetModelAssetModelHierarchyArgs and AssetModelAssetModelHierarchyOutput values.
-// You can construct a concrete instance of `AssetModelAssetModelHierarchyInput` via:
-//
-//          AssetModelAssetModelHierarchyArgs{...}
-type AssetModelAssetModelHierarchyInput interface {
-	pulumi.Input
-
-	ToAssetModelAssetModelHierarchyOutput() AssetModelAssetModelHierarchyOutput
-	ToAssetModelAssetModelHierarchyOutputWithContext(context.Context) AssetModelAssetModelHierarchyOutput
-}
-
-// Contains information about an asset model hierarchy.
-type AssetModelAssetModelHierarchyArgs struct {
-	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
-	ChildAssetModelId pulumi.StringInput `pulumi:"childAssetModelId"`
-	// Customer provided ID for hierarchy.
-	LogicalId pulumi.StringInput `pulumi:"logicalId"`
-	// The name of the asset model hierarchy.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (AssetModelAssetModelHierarchyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelAssetModelHierarchy)(nil)).Elem()
-}
-
-func (i AssetModelAssetModelHierarchyArgs) ToAssetModelAssetModelHierarchyOutput() AssetModelAssetModelHierarchyOutput {
-	return i.ToAssetModelAssetModelHierarchyOutputWithContext(context.Background())
-}
-
-func (i AssetModelAssetModelHierarchyArgs) ToAssetModelAssetModelHierarchyOutputWithContext(ctx context.Context) AssetModelAssetModelHierarchyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelHierarchyOutput)
-}
-
-// AssetModelAssetModelHierarchyArrayInput is an input type that accepts AssetModelAssetModelHierarchyArray and AssetModelAssetModelHierarchyArrayOutput values.
-// You can construct a concrete instance of `AssetModelAssetModelHierarchyArrayInput` via:
-//
-//          AssetModelAssetModelHierarchyArray{ AssetModelAssetModelHierarchyArgs{...} }
-type AssetModelAssetModelHierarchyArrayInput interface {
-	pulumi.Input
-
-	ToAssetModelAssetModelHierarchyArrayOutput() AssetModelAssetModelHierarchyArrayOutput
-	ToAssetModelAssetModelHierarchyArrayOutputWithContext(context.Context) AssetModelAssetModelHierarchyArrayOutput
-}
-
-type AssetModelAssetModelHierarchyArray []AssetModelAssetModelHierarchyInput
-
-func (AssetModelAssetModelHierarchyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelAssetModelHierarchy)(nil)).Elem()
-}
-
-func (i AssetModelAssetModelHierarchyArray) ToAssetModelAssetModelHierarchyArrayOutput() AssetModelAssetModelHierarchyArrayOutput {
-	return i.ToAssetModelAssetModelHierarchyArrayOutputWithContext(context.Background())
-}
-
-func (i AssetModelAssetModelHierarchyArray) ToAssetModelAssetModelHierarchyArrayOutputWithContext(ctx context.Context) AssetModelAssetModelHierarchyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelHierarchyArrayOutput)
-}
-
-// Contains information about an asset model hierarchy.
-type AssetModelAssetModelHierarchyOutput struct{ *pulumi.OutputState }
-
-func (AssetModelAssetModelHierarchyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelAssetModelHierarchy)(nil)).Elem()
-}
-
-func (o AssetModelAssetModelHierarchyOutput) ToAssetModelAssetModelHierarchyOutput() AssetModelAssetModelHierarchyOutput {
-	return o
-}
-
-func (o AssetModelAssetModelHierarchyOutput) ToAssetModelAssetModelHierarchyOutputWithContext(ctx context.Context) AssetModelAssetModelHierarchyOutput {
-	return o
-}
-
-// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
-func (o AssetModelAssetModelHierarchyOutput) ChildAssetModelId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelHierarchy) string { return v.ChildAssetModelId }).(pulumi.StringOutput)
-}
-
-// Customer provided ID for hierarchy.
-func (o AssetModelAssetModelHierarchyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
-}
-
-// The name of the asset model hierarchy.
-func (o AssetModelAssetModelHierarchyOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelHierarchy) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type AssetModelAssetModelHierarchyArrayOutput struct{ *pulumi.OutputState }
-
-func (AssetModelAssetModelHierarchyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelAssetModelHierarchy)(nil)).Elem()
-}
-
-func (o AssetModelAssetModelHierarchyArrayOutput) ToAssetModelAssetModelHierarchyArrayOutput() AssetModelAssetModelHierarchyArrayOutput {
-	return o
-}
-
-func (o AssetModelAssetModelHierarchyArrayOutput) ToAssetModelAssetModelHierarchyArrayOutputWithContext(ctx context.Context) AssetModelAssetModelHierarchyArrayOutput {
-	return o
-}
-
-func (o AssetModelAssetModelHierarchyArrayOutput) Index(i pulumi.IntInput) AssetModelAssetModelHierarchyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelAssetModelHierarchy {
-		return vs[0].([]AssetModelAssetModelHierarchy)[vs[1].(int)]
-	}).(AssetModelAssetModelHierarchyOutput)
-}
-
-// Contains information about an asset model property.
-type AssetModelAssetModelProperty struct {
-	// The data type of the asset model property.
-	DataType AssetModelDataType `pulumi:"dataType"`
-	// The data type of the structure for this property.
-	DataTypeSpec *AssetModelDataTypeSpec `pulumi:"dataTypeSpec"`
-	// Customer provided ID for property.
-	LogicalId string `pulumi:"logicalId"`
-	// The name of the asset model property.
-	Name string `pulumi:"name"`
-	// The property type
-	Type AssetModelPropertyType `pulumi:"type"`
-	// The unit of the asset model property, such as Newtons or RPM.
-	Unit *string `pulumi:"unit"`
-}
-
-// AssetModelAssetModelPropertyInput is an input type that accepts AssetModelAssetModelPropertyArgs and AssetModelAssetModelPropertyOutput values.
-// You can construct a concrete instance of `AssetModelAssetModelPropertyInput` via:
-//
-//          AssetModelAssetModelPropertyArgs{...}
-type AssetModelAssetModelPropertyInput interface {
-	pulumi.Input
-
-	ToAssetModelAssetModelPropertyOutput() AssetModelAssetModelPropertyOutput
-	ToAssetModelAssetModelPropertyOutputWithContext(context.Context) AssetModelAssetModelPropertyOutput
-}
-
-// Contains information about an asset model property.
-type AssetModelAssetModelPropertyArgs struct {
-	// The data type of the asset model property.
-	DataType AssetModelDataTypeInput `pulumi:"dataType"`
-	// The data type of the structure for this property.
-	DataTypeSpec AssetModelDataTypeSpecPtrInput `pulumi:"dataTypeSpec"`
-	// Customer provided ID for property.
-	LogicalId pulumi.StringInput `pulumi:"logicalId"`
-	// The name of the asset model property.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The property type
-	Type AssetModelPropertyTypeInput `pulumi:"type"`
-	// The unit of the asset model property, such as Newtons or RPM.
-	Unit pulumi.StringPtrInput `pulumi:"unit"`
-}
-
-func (AssetModelAssetModelPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelAssetModelProperty)(nil)).Elem()
-}
-
-func (i AssetModelAssetModelPropertyArgs) ToAssetModelAssetModelPropertyOutput() AssetModelAssetModelPropertyOutput {
-	return i.ToAssetModelAssetModelPropertyOutputWithContext(context.Background())
-}
-
-func (i AssetModelAssetModelPropertyArgs) ToAssetModelAssetModelPropertyOutputWithContext(ctx context.Context) AssetModelAssetModelPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelPropertyOutput)
-}
-
-// AssetModelAssetModelPropertyArrayInput is an input type that accepts AssetModelAssetModelPropertyArray and AssetModelAssetModelPropertyArrayOutput values.
-// You can construct a concrete instance of `AssetModelAssetModelPropertyArrayInput` via:
-//
-//          AssetModelAssetModelPropertyArray{ AssetModelAssetModelPropertyArgs{...} }
-type AssetModelAssetModelPropertyArrayInput interface {
-	pulumi.Input
-
-	ToAssetModelAssetModelPropertyArrayOutput() AssetModelAssetModelPropertyArrayOutput
-	ToAssetModelAssetModelPropertyArrayOutputWithContext(context.Context) AssetModelAssetModelPropertyArrayOutput
-}
-
-type AssetModelAssetModelPropertyArray []AssetModelAssetModelPropertyInput
-
-func (AssetModelAssetModelPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelAssetModelProperty)(nil)).Elem()
-}
-
-func (i AssetModelAssetModelPropertyArray) ToAssetModelAssetModelPropertyArrayOutput() AssetModelAssetModelPropertyArrayOutput {
-	return i.ToAssetModelAssetModelPropertyArrayOutputWithContext(context.Background())
-}
-
-func (i AssetModelAssetModelPropertyArray) ToAssetModelAssetModelPropertyArrayOutputWithContext(ctx context.Context) AssetModelAssetModelPropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelPropertyArrayOutput)
-}
-
-// Contains information about an asset model property.
-type AssetModelAssetModelPropertyOutput struct{ *pulumi.OutputState }
-
-func (AssetModelAssetModelPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetModelAssetModelProperty)(nil)).Elem()
-}
-
-func (o AssetModelAssetModelPropertyOutput) ToAssetModelAssetModelPropertyOutput() AssetModelAssetModelPropertyOutput {
-	return o
-}
-
-func (o AssetModelAssetModelPropertyOutput) ToAssetModelAssetModelPropertyOutputWithContext(ctx context.Context) AssetModelAssetModelPropertyOutput {
-	return o
-}
-
-// The data type of the asset model property.
-func (o AssetModelAssetModelPropertyOutput) DataType() AssetModelDataTypeOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) AssetModelDataType { return v.DataType }).(AssetModelDataTypeOutput)
-}
-
-// The data type of the structure for this property.
-func (o AssetModelAssetModelPropertyOutput) DataTypeSpec() AssetModelDataTypeSpecPtrOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) *AssetModelDataTypeSpec { return v.DataTypeSpec }).(AssetModelDataTypeSpecPtrOutput)
-}
-
-// Customer provided ID for property.
-func (o AssetModelAssetModelPropertyOutput) LogicalId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) string { return v.LogicalId }).(pulumi.StringOutput)
-}
-
-// The name of the asset model property.
-func (o AssetModelAssetModelPropertyOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The property type
-func (o AssetModelAssetModelPropertyOutput) Type() AssetModelPropertyTypeOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) AssetModelPropertyType { return v.Type }).(AssetModelPropertyTypeOutput)
-}
-
-// The unit of the asset model property, such as Newtons or RPM.
-func (o AssetModelAssetModelPropertyOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssetModelAssetModelProperty) *string { return v.Unit }).(pulumi.StringPtrOutput)
-}
-
-type AssetModelAssetModelPropertyArrayOutput struct{ *pulumi.OutputState }
-
-func (AssetModelAssetModelPropertyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AssetModelAssetModelProperty)(nil)).Elem()
-}
-
-func (o AssetModelAssetModelPropertyArrayOutput) ToAssetModelAssetModelPropertyArrayOutput() AssetModelAssetModelPropertyArrayOutput {
-	return o
-}
-
-func (o AssetModelAssetModelPropertyArrayOutput) ToAssetModelAssetModelPropertyArrayOutputWithContext(ctx context.Context) AssetModelAssetModelPropertyArrayOutput {
-	return o
-}
-
-func (o AssetModelAssetModelPropertyArrayOutput) Index(i pulumi.IntInput) AssetModelAssetModelPropertyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelAssetModelProperty {
-		return vs[0].([]AssetModelAssetModelProperty)[vs[1].(int)]
-	}).(AssetModelAssetModelPropertyOutput)
+func (o AssetHierarchyArrayOutput) Index(i pulumi.IntInput) AssetHierarchyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetHierarchy {
+		return vs[0].([]AssetHierarchy)[vs[1].(int)]
+	}).(AssetHierarchyOutput)
 }
 
 type AssetModelAttribute struct {
@@ -1779,6 +1269,133 @@ func (o AssetModelAttributePtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
+type AssetModelCompositeModel struct {
+	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
+	CompositeModelProperties []AssetModelProperty `pulumi:"compositeModelProperties"`
+	// A description for the asset composite model.
+	Description *string `pulumi:"description"`
+	// A unique, friendly name for the asset composite model.
+	Name string `pulumi:"name"`
+	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
+	Type string `pulumi:"type"`
+}
+
+// AssetModelCompositeModelInput is an input type that accepts AssetModelCompositeModelArgs and AssetModelCompositeModelOutput values.
+// You can construct a concrete instance of `AssetModelCompositeModelInput` via:
+//
+//          AssetModelCompositeModelArgs{...}
+type AssetModelCompositeModelInput interface {
+	pulumi.Input
+
+	ToAssetModelCompositeModelOutput() AssetModelCompositeModelOutput
+	ToAssetModelCompositeModelOutputWithContext(context.Context) AssetModelCompositeModelOutput
+}
+
+// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
+type AssetModelCompositeModelArgs struct {
+	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
+	CompositeModelProperties AssetModelPropertyArrayInput `pulumi:"compositeModelProperties"`
+	// A description for the asset composite model.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A unique, friendly name for the asset composite model.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AssetModelCompositeModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelCompositeModel)(nil)).Elem()
+}
+
+func (i AssetModelCompositeModelArgs) ToAssetModelCompositeModelOutput() AssetModelCompositeModelOutput {
+	return i.ToAssetModelCompositeModelOutputWithContext(context.Background())
+}
+
+func (i AssetModelCompositeModelArgs) ToAssetModelCompositeModelOutputWithContext(ctx context.Context) AssetModelCompositeModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelCompositeModelOutput)
+}
+
+// AssetModelCompositeModelArrayInput is an input type that accepts AssetModelCompositeModelArray and AssetModelCompositeModelArrayOutput values.
+// You can construct a concrete instance of `AssetModelCompositeModelArrayInput` via:
+//
+//          AssetModelCompositeModelArray{ AssetModelCompositeModelArgs{...} }
+type AssetModelCompositeModelArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelCompositeModelArrayOutput() AssetModelCompositeModelArrayOutput
+	ToAssetModelCompositeModelArrayOutputWithContext(context.Context) AssetModelCompositeModelArrayOutput
+}
+
+type AssetModelCompositeModelArray []AssetModelCompositeModelInput
+
+func (AssetModelCompositeModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelCompositeModel)(nil)).Elem()
+}
+
+func (i AssetModelCompositeModelArray) ToAssetModelCompositeModelArrayOutput() AssetModelCompositeModelArrayOutput {
+	return i.ToAssetModelCompositeModelArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelCompositeModelArray) ToAssetModelCompositeModelArrayOutputWithContext(ctx context.Context) AssetModelCompositeModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelCompositeModelArrayOutput)
+}
+
+// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
+type AssetModelCompositeModelOutput struct{ *pulumi.OutputState }
+
+func (AssetModelCompositeModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelCompositeModel)(nil)).Elem()
+}
+
+func (o AssetModelCompositeModelOutput) ToAssetModelCompositeModelOutput() AssetModelCompositeModelOutput {
+	return o
+}
+
+func (o AssetModelCompositeModelOutput) ToAssetModelCompositeModelOutputWithContext(ctx context.Context) AssetModelCompositeModelOutput {
+	return o
+}
+
+// The property definitions of the asset model. You can specify up to 200 properties per asset model.
+func (o AssetModelCompositeModelOutput) CompositeModelProperties() AssetModelPropertyArrayOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) []AssetModelProperty { return v.CompositeModelProperties }).(AssetModelPropertyArrayOutput)
+}
+
+// A description for the asset composite model.
+func (o AssetModelCompositeModelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique, friendly name for the asset composite model.
+func (o AssetModelCompositeModelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the composite model. For alarm composite models, this type is AWS/ALARM
+func (o AssetModelCompositeModelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelCompositeModel) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AssetModelCompositeModelArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelCompositeModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelCompositeModel)(nil)).Elem()
+}
+
+func (o AssetModelCompositeModelArrayOutput) ToAssetModelCompositeModelArrayOutput() AssetModelCompositeModelArrayOutput {
+	return o
+}
+
+func (o AssetModelCompositeModelArrayOutput) ToAssetModelCompositeModelArrayOutputWithContext(ctx context.Context) AssetModelCompositeModelArrayOutput {
+	return o
+}
+
+func (o AssetModelCompositeModelArrayOutput) Index(i pulumi.IntInput) AssetModelCompositeModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelCompositeModel {
+		return vs[0].([]AssetModelCompositeModel)[vs[1].(int)]
+	}).(AssetModelCompositeModelOutput)
+}
+
 type AssetModelExpressionVariable struct {
 	// The friendly name of the variable to be used in the expression.
 	Name string `pulumi:"name"`
@@ -1883,6 +1500,124 @@ func (o AssetModelExpressionVariableArrayOutput) Index(i pulumi.IntInput) AssetM
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelExpressionVariable {
 		return vs[0].([]AssetModelExpressionVariable)[vs[1].(int)]
 	}).(AssetModelExpressionVariableOutput)
+}
+
+// Contains information about an asset model hierarchy.
+type AssetModelHierarchy struct {
+	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
+	ChildAssetModelId string `pulumi:"childAssetModelId"`
+	// Customer provided ID for hierarchy.
+	LogicalId string `pulumi:"logicalId"`
+	// The name of the asset model hierarchy.
+	Name string `pulumi:"name"`
+}
+
+// AssetModelHierarchyInput is an input type that accepts AssetModelHierarchyArgs and AssetModelHierarchyOutput values.
+// You can construct a concrete instance of `AssetModelHierarchyInput` via:
+//
+//          AssetModelHierarchyArgs{...}
+type AssetModelHierarchyInput interface {
+	pulumi.Input
+
+	ToAssetModelHierarchyOutput() AssetModelHierarchyOutput
+	ToAssetModelHierarchyOutputWithContext(context.Context) AssetModelHierarchyOutput
+}
+
+// Contains information about an asset model hierarchy.
+type AssetModelHierarchyArgs struct {
+	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
+	ChildAssetModelId pulumi.StringInput `pulumi:"childAssetModelId"`
+	// Customer provided ID for hierarchy.
+	LogicalId pulumi.StringInput `pulumi:"logicalId"`
+	// The name of the asset model hierarchy.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AssetModelHierarchyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelHierarchy)(nil)).Elem()
+}
+
+func (i AssetModelHierarchyArgs) ToAssetModelHierarchyOutput() AssetModelHierarchyOutput {
+	return i.ToAssetModelHierarchyOutputWithContext(context.Background())
+}
+
+func (i AssetModelHierarchyArgs) ToAssetModelHierarchyOutputWithContext(ctx context.Context) AssetModelHierarchyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelHierarchyOutput)
+}
+
+// AssetModelHierarchyArrayInput is an input type that accepts AssetModelHierarchyArray and AssetModelHierarchyArrayOutput values.
+// You can construct a concrete instance of `AssetModelHierarchyArrayInput` via:
+//
+//          AssetModelHierarchyArray{ AssetModelHierarchyArgs{...} }
+type AssetModelHierarchyArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelHierarchyArrayOutput() AssetModelHierarchyArrayOutput
+	ToAssetModelHierarchyArrayOutputWithContext(context.Context) AssetModelHierarchyArrayOutput
+}
+
+type AssetModelHierarchyArray []AssetModelHierarchyInput
+
+func (AssetModelHierarchyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelHierarchy)(nil)).Elem()
+}
+
+func (i AssetModelHierarchyArray) ToAssetModelHierarchyArrayOutput() AssetModelHierarchyArrayOutput {
+	return i.ToAssetModelHierarchyArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelHierarchyArray) ToAssetModelHierarchyArrayOutputWithContext(ctx context.Context) AssetModelHierarchyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelHierarchyArrayOutput)
+}
+
+// Contains information about an asset model hierarchy.
+type AssetModelHierarchyOutput struct{ *pulumi.OutputState }
+
+func (AssetModelHierarchyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelHierarchy)(nil)).Elem()
+}
+
+func (o AssetModelHierarchyOutput) ToAssetModelHierarchyOutput() AssetModelHierarchyOutput {
+	return o
+}
+
+func (o AssetModelHierarchyOutput) ToAssetModelHierarchyOutputWithContext(ctx context.Context) AssetModelHierarchyOutput {
+	return o
+}
+
+// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
+func (o AssetModelHierarchyOutput) ChildAssetModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelHierarchy) string { return v.ChildAssetModelId }).(pulumi.StringOutput)
+}
+
+// Customer provided ID for hierarchy.
+func (o AssetModelHierarchyOutput) LogicalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
+}
+
+// The name of the asset model hierarchy.
+func (o AssetModelHierarchyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelHierarchy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AssetModelHierarchyArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelHierarchyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelHierarchy)(nil)).Elem()
+}
+
+func (o AssetModelHierarchyArrayOutput) ToAssetModelHierarchyArrayOutput() AssetModelHierarchyArrayOutput {
+	return o
+}
+
+func (o AssetModelHierarchyArrayOutput) ToAssetModelHierarchyArrayOutputWithContext(ctx context.Context) AssetModelHierarchyArrayOutput {
+	return o
+}
+
+func (o AssetModelHierarchyArrayOutput) Index(i pulumi.IntInput) AssetModelHierarchyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelHierarchy {
+		return vs[0].([]AssetModelHierarchy)[vs[1].(int)]
+	}).(AssetModelHierarchyOutput)
 }
 
 type AssetModelMetric struct {
@@ -2194,6 +1929,151 @@ func (o AssetModelMetricWindowPtrOutput) Tumbling() AssetModelTumblingWindowPtrO
 		}
 		return v.Tumbling
 	}).(AssetModelTumblingWindowPtrOutput)
+}
+
+// Contains information about an asset model property.
+type AssetModelProperty struct {
+	// The data type of the asset model property.
+	DataType AssetModelDataType `pulumi:"dataType"`
+	// The data type of the structure for this property.
+	DataTypeSpec *AssetModelDataTypeSpec `pulumi:"dataTypeSpec"`
+	// Customer provided ID for property.
+	LogicalId string `pulumi:"logicalId"`
+	// The name of the asset model property.
+	Name string `pulumi:"name"`
+	// The property type
+	Type AssetModelPropertyType `pulumi:"type"`
+	// The unit of the asset model property, such as Newtons or RPM.
+	Unit *string `pulumi:"unit"`
+}
+
+// AssetModelPropertyInput is an input type that accepts AssetModelPropertyArgs and AssetModelPropertyOutput values.
+// You can construct a concrete instance of `AssetModelPropertyInput` via:
+//
+//          AssetModelPropertyArgs{...}
+type AssetModelPropertyInput interface {
+	pulumi.Input
+
+	ToAssetModelPropertyOutput() AssetModelPropertyOutput
+	ToAssetModelPropertyOutputWithContext(context.Context) AssetModelPropertyOutput
+}
+
+// Contains information about an asset model property.
+type AssetModelPropertyArgs struct {
+	// The data type of the asset model property.
+	DataType AssetModelDataTypeInput `pulumi:"dataType"`
+	// The data type of the structure for this property.
+	DataTypeSpec AssetModelDataTypeSpecPtrInput `pulumi:"dataTypeSpec"`
+	// Customer provided ID for property.
+	LogicalId pulumi.StringInput `pulumi:"logicalId"`
+	// The name of the asset model property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The property type
+	Type AssetModelPropertyTypeInput `pulumi:"type"`
+	// The unit of the asset model property, such as Newtons or RPM.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (AssetModelPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelProperty)(nil)).Elem()
+}
+
+func (i AssetModelPropertyArgs) ToAssetModelPropertyOutput() AssetModelPropertyOutput {
+	return i.ToAssetModelPropertyOutputWithContext(context.Background())
+}
+
+func (i AssetModelPropertyArgs) ToAssetModelPropertyOutputWithContext(ctx context.Context) AssetModelPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyOutput)
+}
+
+// AssetModelPropertyArrayInput is an input type that accepts AssetModelPropertyArray and AssetModelPropertyArrayOutput values.
+// You can construct a concrete instance of `AssetModelPropertyArrayInput` via:
+//
+//          AssetModelPropertyArray{ AssetModelPropertyArgs{...} }
+type AssetModelPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelPropertyArrayOutput() AssetModelPropertyArrayOutput
+	ToAssetModelPropertyArrayOutputWithContext(context.Context) AssetModelPropertyArrayOutput
+}
+
+type AssetModelPropertyArray []AssetModelPropertyInput
+
+func (AssetModelPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelProperty)(nil)).Elem()
+}
+
+func (i AssetModelPropertyArray) ToAssetModelPropertyArrayOutput() AssetModelPropertyArrayOutput {
+	return i.ToAssetModelPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelPropertyArray) ToAssetModelPropertyArrayOutputWithContext(ctx context.Context) AssetModelPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyArrayOutput)
+}
+
+// Contains information about an asset model property.
+type AssetModelPropertyOutput struct{ *pulumi.OutputState }
+
+func (AssetModelPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelProperty)(nil)).Elem()
+}
+
+func (o AssetModelPropertyOutput) ToAssetModelPropertyOutput() AssetModelPropertyOutput {
+	return o
+}
+
+func (o AssetModelPropertyOutput) ToAssetModelPropertyOutputWithContext(ctx context.Context) AssetModelPropertyOutput {
+	return o
+}
+
+// The data type of the asset model property.
+func (o AssetModelPropertyOutput) DataType() AssetModelDataTypeOutput {
+	return o.ApplyT(func(v AssetModelProperty) AssetModelDataType { return v.DataType }).(AssetModelDataTypeOutput)
+}
+
+// The data type of the structure for this property.
+func (o AssetModelPropertyOutput) DataTypeSpec() AssetModelDataTypeSpecPtrOutput {
+	return o.ApplyT(func(v AssetModelProperty) *AssetModelDataTypeSpec { return v.DataTypeSpec }).(AssetModelDataTypeSpecPtrOutput)
+}
+
+// Customer provided ID for property.
+func (o AssetModelPropertyOutput) LogicalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelProperty) string { return v.LogicalId }).(pulumi.StringOutput)
+}
+
+// The name of the asset model property.
+func (o AssetModelPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The property type
+func (o AssetModelPropertyOutput) Type() AssetModelPropertyTypeOutput {
+	return o.ApplyT(func(v AssetModelProperty) AssetModelPropertyType { return v.Type }).(AssetModelPropertyTypeOutput)
+}
+
+// The unit of the asset model property, such as Newtons or RPM.
+func (o AssetModelPropertyOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetModelProperty) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type AssetModelPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelProperty)(nil)).Elem()
+}
+
+func (o AssetModelPropertyArrayOutput) ToAssetModelPropertyArrayOutput() AssetModelPropertyArrayOutput {
+	return o
+}
+
+func (o AssetModelPropertyArrayOutput) ToAssetModelPropertyArrayOutputWithContext(ctx context.Context) AssetModelPropertyArrayOutput {
+	return o
+}
+
+func (o AssetModelPropertyArrayOutput) Index(i pulumi.IntInput) AssetModelPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelProperty {
+		return vs[0].([]AssetModelProperty)[vs[1].(int)]
+	}).(AssetModelPropertyOutput)
 }
 
 // Contains a property type, which can be one of attribute, measurement, metric, or transform.
@@ -2728,6 +2608,124 @@ func (o AssetModelVariableValueOutput) PropertyLogicalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) string { return v.PropertyLogicalId }).(pulumi.StringOutput)
 }
 
+// The asset property's definition, alias, and notification state.
+type AssetProperty struct {
+	// The property alias that identifies the property.
+	Alias *string `pulumi:"alias"`
+	// Customer provided ID for property.
+	LogicalId string `pulumi:"logicalId"`
+	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
+	NotificationState *AssetPropertyNotificationState `pulumi:"notificationState"`
+}
+
+// AssetPropertyInput is an input type that accepts AssetPropertyArgs and AssetPropertyOutput values.
+// You can construct a concrete instance of `AssetPropertyInput` via:
+//
+//          AssetPropertyArgs{...}
+type AssetPropertyInput interface {
+	pulumi.Input
+
+	ToAssetPropertyOutput() AssetPropertyOutput
+	ToAssetPropertyOutputWithContext(context.Context) AssetPropertyOutput
+}
+
+// The asset property's definition, alias, and notification state.
+type AssetPropertyArgs struct {
+	// The property alias that identifies the property.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// Customer provided ID for property.
+	LogicalId pulumi.StringInput `pulumi:"logicalId"`
+	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
+	NotificationState AssetPropertyNotificationStatePtrInput `pulumi:"notificationState"`
+}
+
+func (AssetPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetProperty)(nil)).Elem()
+}
+
+func (i AssetPropertyArgs) ToAssetPropertyOutput() AssetPropertyOutput {
+	return i.ToAssetPropertyOutputWithContext(context.Background())
+}
+
+func (i AssetPropertyArgs) ToAssetPropertyOutputWithContext(ctx context.Context) AssetPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetPropertyOutput)
+}
+
+// AssetPropertyArrayInput is an input type that accepts AssetPropertyArray and AssetPropertyArrayOutput values.
+// You can construct a concrete instance of `AssetPropertyArrayInput` via:
+//
+//          AssetPropertyArray{ AssetPropertyArgs{...} }
+type AssetPropertyArrayInput interface {
+	pulumi.Input
+
+	ToAssetPropertyArrayOutput() AssetPropertyArrayOutput
+	ToAssetPropertyArrayOutputWithContext(context.Context) AssetPropertyArrayOutput
+}
+
+type AssetPropertyArray []AssetPropertyInput
+
+func (AssetPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetProperty)(nil)).Elem()
+}
+
+func (i AssetPropertyArray) ToAssetPropertyArrayOutput() AssetPropertyArrayOutput {
+	return i.ToAssetPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i AssetPropertyArray) ToAssetPropertyArrayOutputWithContext(ctx context.Context) AssetPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetPropertyArrayOutput)
+}
+
+// The asset property's definition, alias, and notification state.
+type AssetPropertyOutput struct{ *pulumi.OutputState }
+
+func (AssetPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetProperty)(nil)).Elem()
+}
+
+func (o AssetPropertyOutput) ToAssetPropertyOutput() AssetPropertyOutput {
+	return o
+}
+
+func (o AssetPropertyOutput) ToAssetPropertyOutputWithContext(ctx context.Context) AssetPropertyOutput {
+	return o
+}
+
+// The property alias that identifies the property.
+func (o AssetPropertyOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetProperty) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// Customer provided ID for property.
+func (o AssetPropertyOutput) LogicalId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetProperty) string { return v.LogicalId }).(pulumi.StringOutput)
+}
+
+// The MQTT notification state (ENABLED or DISABLED) for this asset property.
+func (o AssetPropertyOutput) NotificationState() AssetPropertyNotificationStatePtrOutput {
+	return o.ApplyT(func(v AssetProperty) *AssetPropertyNotificationState { return v.NotificationState }).(AssetPropertyNotificationStatePtrOutput)
+}
+
+type AssetPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetProperty)(nil)).Elem()
+}
+
+func (o AssetPropertyArrayOutput) ToAssetPropertyArrayOutput() AssetPropertyArrayOutput {
+	return o
+}
+
+func (o AssetPropertyArrayOutput) ToAssetPropertyArrayOutputWithContext(ctx context.Context) AssetPropertyArrayOutput {
+	return o
+}
+
+func (o AssetPropertyArrayOutput) Index(i pulumi.IntInput) AssetPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetProperty {
+		return vs[0].([]AssetProperty)[vs[1].(int)]
+	}).(AssetPropertyOutput)
+}
+
 type AssetTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2932,246 +2930,106 @@ func (o DashboardTagArrayOutput) Index(i pulumi.IntInput) DashboardTagOutput {
 }
 
 // Contains a summary of a gateway capability configuration.
-type GatewayGatewayCapabilitySummary struct {
+type GatewayCapabilitySummary struct {
 	CapabilityConfiguration *string `pulumi:"capabilityConfiguration"`
 	CapabilityNamespace     string  `pulumi:"capabilityNamespace"`
 }
 
-// GatewayGatewayCapabilitySummaryInput is an input type that accepts GatewayGatewayCapabilitySummaryArgs and GatewayGatewayCapabilitySummaryOutput values.
-// You can construct a concrete instance of `GatewayGatewayCapabilitySummaryInput` via:
+// GatewayCapabilitySummaryInput is an input type that accepts GatewayCapabilitySummaryArgs and GatewayCapabilitySummaryOutput values.
+// You can construct a concrete instance of `GatewayCapabilitySummaryInput` via:
 //
-//          GatewayGatewayCapabilitySummaryArgs{...}
-type GatewayGatewayCapabilitySummaryInput interface {
+//          GatewayCapabilitySummaryArgs{...}
+type GatewayCapabilitySummaryInput interface {
 	pulumi.Input
 
-	ToGatewayGatewayCapabilitySummaryOutput() GatewayGatewayCapabilitySummaryOutput
-	ToGatewayGatewayCapabilitySummaryOutputWithContext(context.Context) GatewayGatewayCapabilitySummaryOutput
+	ToGatewayCapabilitySummaryOutput() GatewayCapabilitySummaryOutput
+	ToGatewayCapabilitySummaryOutputWithContext(context.Context) GatewayCapabilitySummaryOutput
 }
 
 // Contains a summary of a gateway capability configuration.
-type GatewayGatewayCapabilitySummaryArgs struct {
+type GatewayCapabilitySummaryArgs struct {
 	CapabilityConfiguration pulumi.StringPtrInput `pulumi:"capabilityConfiguration"`
 	CapabilityNamespace     pulumi.StringInput    `pulumi:"capabilityNamespace"`
 }
 
-func (GatewayGatewayCapabilitySummaryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayGatewayCapabilitySummary)(nil)).Elem()
+func (GatewayCapabilitySummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayCapabilitySummary)(nil)).Elem()
 }
 
-func (i GatewayGatewayCapabilitySummaryArgs) ToGatewayGatewayCapabilitySummaryOutput() GatewayGatewayCapabilitySummaryOutput {
-	return i.ToGatewayGatewayCapabilitySummaryOutputWithContext(context.Background())
+func (i GatewayCapabilitySummaryArgs) ToGatewayCapabilitySummaryOutput() GatewayCapabilitySummaryOutput {
+	return i.ToGatewayCapabilitySummaryOutputWithContext(context.Background())
 }
 
-func (i GatewayGatewayCapabilitySummaryArgs) ToGatewayGatewayCapabilitySummaryOutputWithContext(ctx context.Context) GatewayGatewayCapabilitySummaryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayCapabilitySummaryOutput)
+func (i GatewayCapabilitySummaryArgs) ToGatewayCapabilitySummaryOutputWithContext(ctx context.Context) GatewayCapabilitySummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayCapabilitySummaryOutput)
 }
 
-// GatewayGatewayCapabilitySummaryArrayInput is an input type that accepts GatewayGatewayCapabilitySummaryArray and GatewayGatewayCapabilitySummaryArrayOutput values.
-// You can construct a concrete instance of `GatewayGatewayCapabilitySummaryArrayInput` via:
+// GatewayCapabilitySummaryArrayInput is an input type that accepts GatewayCapabilitySummaryArray and GatewayCapabilitySummaryArrayOutput values.
+// You can construct a concrete instance of `GatewayCapabilitySummaryArrayInput` via:
 //
-//          GatewayGatewayCapabilitySummaryArray{ GatewayGatewayCapabilitySummaryArgs{...} }
-type GatewayGatewayCapabilitySummaryArrayInput interface {
+//          GatewayCapabilitySummaryArray{ GatewayCapabilitySummaryArgs{...} }
+type GatewayCapabilitySummaryArrayInput interface {
 	pulumi.Input
 
-	ToGatewayGatewayCapabilitySummaryArrayOutput() GatewayGatewayCapabilitySummaryArrayOutput
-	ToGatewayGatewayCapabilitySummaryArrayOutputWithContext(context.Context) GatewayGatewayCapabilitySummaryArrayOutput
+	ToGatewayCapabilitySummaryArrayOutput() GatewayCapabilitySummaryArrayOutput
+	ToGatewayCapabilitySummaryArrayOutputWithContext(context.Context) GatewayCapabilitySummaryArrayOutput
 }
 
-type GatewayGatewayCapabilitySummaryArray []GatewayGatewayCapabilitySummaryInput
+type GatewayCapabilitySummaryArray []GatewayCapabilitySummaryInput
 
-func (GatewayGatewayCapabilitySummaryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayGatewayCapabilitySummary)(nil)).Elem()
+func (GatewayCapabilitySummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayCapabilitySummary)(nil)).Elem()
 }
 
-func (i GatewayGatewayCapabilitySummaryArray) ToGatewayGatewayCapabilitySummaryArrayOutput() GatewayGatewayCapabilitySummaryArrayOutput {
-	return i.ToGatewayGatewayCapabilitySummaryArrayOutputWithContext(context.Background())
+func (i GatewayCapabilitySummaryArray) ToGatewayCapabilitySummaryArrayOutput() GatewayCapabilitySummaryArrayOutput {
+	return i.ToGatewayCapabilitySummaryArrayOutputWithContext(context.Background())
 }
 
-func (i GatewayGatewayCapabilitySummaryArray) ToGatewayGatewayCapabilitySummaryArrayOutputWithContext(ctx context.Context) GatewayGatewayCapabilitySummaryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayCapabilitySummaryArrayOutput)
+func (i GatewayCapabilitySummaryArray) ToGatewayCapabilitySummaryArrayOutputWithContext(ctx context.Context) GatewayCapabilitySummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayCapabilitySummaryArrayOutput)
 }
 
 // Contains a summary of a gateway capability configuration.
-type GatewayGatewayCapabilitySummaryOutput struct{ *pulumi.OutputState }
+type GatewayCapabilitySummaryOutput struct{ *pulumi.OutputState }
 
-func (GatewayGatewayCapabilitySummaryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayGatewayCapabilitySummary)(nil)).Elem()
+func (GatewayCapabilitySummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayCapabilitySummary)(nil)).Elem()
 }
 
-func (o GatewayGatewayCapabilitySummaryOutput) ToGatewayGatewayCapabilitySummaryOutput() GatewayGatewayCapabilitySummaryOutput {
+func (o GatewayCapabilitySummaryOutput) ToGatewayCapabilitySummaryOutput() GatewayCapabilitySummaryOutput {
 	return o
 }
 
-func (o GatewayGatewayCapabilitySummaryOutput) ToGatewayGatewayCapabilitySummaryOutputWithContext(ctx context.Context) GatewayGatewayCapabilitySummaryOutput {
+func (o GatewayCapabilitySummaryOutput) ToGatewayCapabilitySummaryOutputWithContext(ctx context.Context) GatewayCapabilitySummaryOutput {
 	return o
 }
 
-func (o GatewayGatewayCapabilitySummaryOutput) CapabilityConfiguration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GatewayGatewayCapabilitySummary) *string { return v.CapabilityConfiguration }).(pulumi.StringPtrOutput)
+func (o GatewayCapabilitySummaryOutput) CapabilityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayCapabilitySummary) *string { return v.CapabilityConfiguration }).(pulumi.StringPtrOutput)
 }
 
-func (o GatewayGatewayCapabilitySummaryOutput) CapabilityNamespace() pulumi.StringOutput {
-	return o.ApplyT(func(v GatewayGatewayCapabilitySummary) string { return v.CapabilityNamespace }).(pulumi.StringOutput)
+func (o GatewayCapabilitySummaryOutput) CapabilityNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayCapabilitySummary) string { return v.CapabilityNamespace }).(pulumi.StringOutput)
 }
 
-type GatewayGatewayCapabilitySummaryArrayOutput struct{ *pulumi.OutputState }
+type GatewayCapabilitySummaryArrayOutput struct{ *pulumi.OutputState }
 
-func (GatewayGatewayCapabilitySummaryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayGatewayCapabilitySummary)(nil)).Elem()
+func (GatewayCapabilitySummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayCapabilitySummary)(nil)).Elem()
 }
 
-func (o GatewayGatewayCapabilitySummaryArrayOutput) ToGatewayGatewayCapabilitySummaryArrayOutput() GatewayGatewayCapabilitySummaryArrayOutput {
+func (o GatewayCapabilitySummaryArrayOutput) ToGatewayCapabilitySummaryArrayOutput() GatewayCapabilitySummaryArrayOutput {
 	return o
 }
 
-func (o GatewayGatewayCapabilitySummaryArrayOutput) ToGatewayGatewayCapabilitySummaryArrayOutputWithContext(ctx context.Context) GatewayGatewayCapabilitySummaryArrayOutput {
+func (o GatewayCapabilitySummaryArrayOutput) ToGatewayCapabilitySummaryArrayOutputWithContext(ctx context.Context) GatewayCapabilitySummaryArrayOutput {
 	return o
 }
 
-func (o GatewayGatewayCapabilitySummaryArrayOutput) Index(i pulumi.IntInput) GatewayGatewayCapabilitySummaryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayGatewayCapabilitySummary {
-		return vs[0].([]GatewayGatewayCapabilitySummary)[vs[1].(int)]
-	}).(GatewayGatewayCapabilitySummaryOutput)
-}
-
-// Contains a gateway's platform information.
-type GatewayGatewayPlatform struct {
-	// A gateway that runs on AWS IoT Greengrass.
-	Greengrass GatewayGreengrass `pulumi:"greengrass"`
-}
-
-// GatewayGatewayPlatformInput is an input type that accepts GatewayGatewayPlatformArgs and GatewayGatewayPlatformOutput values.
-// You can construct a concrete instance of `GatewayGatewayPlatformInput` via:
-//
-//          GatewayGatewayPlatformArgs{...}
-type GatewayGatewayPlatformInput interface {
-	pulumi.Input
-
-	ToGatewayGatewayPlatformOutput() GatewayGatewayPlatformOutput
-	ToGatewayGatewayPlatformOutputWithContext(context.Context) GatewayGatewayPlatformOutput
-}
-
-// Contains a gateway's platform information.
-type GatewayGatewayPlatformArgs struct {
-	// A gateway that runs on AWS IoT Greengrass.
-	Greengrass GatewayGreengrassInput `pulumi:"greengrass"`
-}
-
-func (GatewayGatewayPlatformArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayGatewayPlatform)(nil)).Elem()
-}
-
-func (i GatewayGatewayPlatformArgs) ToGatewayGatewayPlatformOutput() GatewayGatewayPlatformOutput {
-	return i.ToGatewayGatewayPlatformOutputWithContext(context.Background())
-}
-
-func (i GatewayGatewayPlatformArgs) ToGatewayGatewayPlatformOutputWithContext(ctx context.Context) GatewayGatewayPlatformOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayPlatformOutput)
-}
-
-func (i GatewayGatewayPlatformArgs) ToGatewayGatewayPlatformPtrOutput() GatewayGatewayPlatformPtrOutput {
-	return i.ToGatewayGatewayPlatformPtrOutputWithContext(context.Background())
-}
-
-func (i GatewayGatewayPlatformArgs) ToGatewayGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayGatewayPlatformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayPlatformOutput).ToGatewayGatewayPlatformPtrOutputWithContext(ctx)
-}
-
-// GatewayGatewayPlatformPtrInput is an input type that accepts GatewayGatewayPlatformArgs, GatewayGatewayPlatformPtr and GatewayGatewayPlatformPtrOutput values.
-// You can construct a concrete instance of `GatewayGatewayPlatformPtrInput` via:
-//
-//          GatewayGatewayPlatformArgs{...}
-//
-//  or:
-//
-//          nil
-type GatewayGatewayPlatformPtrInput interface {
-	pulumi.Input
-
-	ToGatewayGatewayPlatformPtrOutput() GatewayGatewayPlatformPtrOutput
-	ToGatewayGatewayPlatformPtrOutputWithContext(context.Context) GatewayGatewayPlatformPtrOutput
-}
-
-type gatewayGatewayPlatformPtrType GatewayGatewayPlatformArgs
-
-func GatewayGatewayPlatformPtr(v *GatewayGatewayPlatformArgs) GatewayGatewayPlatformPtrInput {
-	return (*gatewayGatewayPlatformPtrType)(v)
-}
-
-func (*gatewayGatewayPlatformPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayGatewayPlatform)(nil)).Elem()
-}
-
-func (i *gatewayGatewayPlatformPtrType) ToGatewayGatewayPlatformPtrOutput() GatewayGatewayPlatformPtrOutput {
-	return i.ToGatewayGatewayPlatformPtrOutputWithContext(context.Background())
-}
-
-func (i *gatewayGatewayPlatformPtrType) ToGatewayGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayGatewayPlatformPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayPlatformPtrOutput)
-}
-
-// Contains a gateway's platform information.
-type GatewayGatewayPlatformOutput struct{ *pulumi.OutputState }
-
-func (GatewayGatewayPlatformOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayGatewayPlatform)(nil)).Elem()
-}
-
-func (o GatewayGatewayPlatformOutput) ToGatewayGatewayPlatformOutput() GatewayGatewayPlatformOutput {
-	return o
-}
-
-func (o GatewayGatewayPlatformOutput) ToGatewayGatewayPlatformOutputWithContext(ctx context.Context) GatewayGatewayPlatformOutput {
-	return o
-}
-
-func (o GatewayGatewayPlatformOutput) ToGatewayGatewayPlatformPtrOutput() GatewayGatewayPlatformPtrOutput {
-	return o.ToGatewayGatewayPlatformPtrOutputWithContext(context.Background())
-}
-
-func (o GatewayGatewayPlatformOutput) ToGatewayGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayGatewayPlatformPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayGatewayPlatform) *GatewayGatewayPlatform {
-		return &v
-	}).(GatewayGatewayPlatformPtrOutput)
-}
-
-// A gateway that runs on AWS IoT Greengrass.
-func (o GatewayGatewayPlatformOutput) Greengrass() GatewayGreengrassOutput {
-	return o.ApplyT(func(v GatewayGatewayPlatform) GatewayGreengrass { return v.Greengrass }).(GatewayGreengrassOutput)
-}
-
-type GatewayGatewayPlatformPtrOutput struct{ *pulumi.OutputState }
-
-func (GatewayGatewayPlatformPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GatewayGatewayPlatform)(nil)).Elem()
-}
-
-func (o GatewayGatewayPlatformPtrOutput) ToGatewayGatewayPlatformPtrOutput() GatewayGatewayPlatformPtrOutput {
-	return o
-}
-
-func (o GatewayGatewayPlatformPtrOutput) ToGatewayGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayGatewayPlatformPtrOutput {
-	return o
-}
-
-func (o GatewayGatewayPlatformPtrOutput) Elem() GatewayGatewayPlatformOutput {
-	return o.ApplyT(func(v *GatewayGatewayPlatform) GatewayGatewayPlatform {
-		if v != nil {
-			return *v
-		}
-		var ret GatewayGatewayPlatform
-		return ret
-	}).(GatewayGatewayPlatformOutput)
-}
-
-// A gateway that runs on AWS IoT Greengrass.
-func (o GatewayGatewayPlatformPtrOutput) Greengrass() GatewayGreengrassPtrOutput {
-	return o.ApplyT(func(v *GatewayGatewayPlatform) *GatewayGreengrass {
-		if v == nil {
-			return nil
-		}
-		return &v.Greengrass
-	}).(GatewayGreengrassPtrOutput)
+func (o GatewayCapabilitySummaryArrayOutput) Index(i pulumi.IntInput) GatewayCapabilitySummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayCapabilitySummary {
+		return vs[0].([]GatewayCapabilitySummary)[vs[1].(int)]
+	}).(GatewayCapabilitySummaryOutput)
 }
 
 // Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
@@ -3312,6 +3170,146 @@ func (o GatewayGreengrassPtrOutput) GroupArn() pulumi.StringPtrOutput {
 		}
 		return &v.GroupArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Contains a gateway's platform information.
+type GatewayPlatform struct {
+	// A gateway that runs on AWS IoT Greengrass.
+	Greengrass GatewayGreengrass `pulumi:"greengrass"`
+}
+
+// GatewayPlatformInput is an input type that accepts GatewayPlatformArgs and GatewayPlatformOutput values.
+// You can construct a concrete instance of `GatewayPlatformInput` via:
+//
+//          GatewayPlatformArgs{...}
+type GatewayPlatformInput interface {
+	pulumi.Input
+
+	ToGatewayPlatformOutput() GatewayPlatformOutput
+	ToGatewayPlatformOutputWithContext(context.Context) GatewayPlatformOutput
+}
+
+// Contains a gateway's platform information.
+type GatewayPlatformArgs struct {
+	// A gateway that runs on AWS IoT Greengrass.
+	Greengrass GatewayGreengrassInput `pulumi:"greengrass"`
+}
+
+func (GatewayPlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPlatform)(nil)).Elem()
+}
+
+func (i GatewayPlatformArgs) ToGatewayPlatformOutput() GatewayPlatformOutput {
+	return i.ToGatewayPlatformOutputWithContext(context.Background())
+}
+
+func (i GatewayPlatformArgs) ToGatewayPlatformOutputWithContext(ctx context.Context) GatewayPlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPlatformOutput)
+}
+
+func (i GatewayPlatformArgs) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
+	return i.ToGatewayPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayPlatformArgs) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPlatformOutput).ToGatewayPlatformPtrOutputWithContext(ctx)
+}
+
+// GatewayPlatformPtrInput is an input type that accepts GatewayPlatformArgs, GatewayPlatformPtr and GatewayPlatformPtrOutput values.
+// You can construct a concrete instance of `GatewayPlatformPtrInput` via:
+//
+//          GatewayPlatformArgs{...}
+//
+//  or:
+//
+//          nil
+type GatewayPlatformPtrInput interface {
+	pulumi.Input
+
+	ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput
+	ToGatewayPlatformPtrOutputWithContext(context.Context) GatewayPlatformPtrOutput
+}
+
+type gatewayPlatformPtrType GatewayPlatformArgs
+
+func GatewayPlatformPtr(v *GatewayPlatformArgs) GatewayPlatformPtrInput {
+	return (*gatewayPlatformPtrType)(v)
+}
+
+func (*gatewayPlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPlatform)(nil)).Elem()
+}
+
+func (i *gatewayPlatformPtrType) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
+	return i.ToGatewayPlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayPlatformPtrType) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayPlatformPtrOutput)
+}
+
+// Contains a gateway's platform information.
+type GatewayPlatformOutput struct{ *pulumi.OutputState }
+
+func (GatewayPlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayPlatform)(nil)).Elem()
+}
+
+func (o GatewayPlatformOutput) ToGatewayPlatformOutput() GatewayPlatformOutput {
+	return o
+}
+
+func (o GatewayPlatformOutput) ToGatewayPlatformOutputWithContext(ctx context.Context) GatewayPlatformOutput {
+	return o
+}
+
+func (o GatewayPlatformOutput) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
+	return o.ToGatewayPlatformPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayPlatformOutput) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayPlatform) *GatewayPlatform {
+		return &v
+	}).(GatewayPlatformPtrOutput)
+}
+
+// A gateway that runs on AWS IoT Greengrass.
+func (o GatewayPlatformOutput) Greengrass() GatewayGreengrassOutput {
+	return o.ApplyT(func(v GatewayPlatform) GatewayGreengrass { return v.Greengrass }).(GatewayGreengrassOutput)
+}
+
+type GatewayPlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayPlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayPlatform)(nil)).Elem()
+}
+
+func (o GatewayPlatformPtrOutput) ToGatewayPlatformPtrOutput() GatewayPlatformPtrOutput {
+	return o
+}
+
+func (o GatewayPlatformPtrOutput) ToGatewayPlatformPtrOutputWithContext(ctx context.Context) GatewayPlatformPtrOutput {
+	return o
+}
+
+func (o GatewayPlatformPtrOutput) Elem() GatewayPlatformOutput {
+	return o.ApplyT(func(v *GatewayPlatform) GatewayPlatform {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayPlatform
+		return ret
+	}).(GatewayPlatformOutput)
+}
+
+// A gateway that runs on AWS IoT Greengrass.
+func (o GatewayPlatformPtrOutput) Greengrass() GatewayGreengrassPtrOutput {
+	return o.ApplyT(func(v *GatewayPlatform) *GatewayGreengrass {
+		if v == nil {
+			return nil
+		}
+		return &v.Greengrass
+	}).(GatewayGreengrassPtrOutput)
 }
 
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
@@ -3624,38 +3622,36 @@ func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccessPolicyAccessPolicyIdentityOutput{})
-	pulumi.RegisterOutputType(AccessPolicyAccessPolicyIdentityPtrOutput{})
-	pulumi.RegisterOutputType(AccessPolicyAccessPolicyResourceOutput{})
-	pulumi.RegisterOutputType(AccessPolicyAccessPolicyResourcePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamRoleOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamRolePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamUserOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamUserPtrOutput{})
+	pulumi.RegisterOutputType(AccessPolicyIdentityOutput{})
+	pulumi.RegisterOutputType(AccessPolicyIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalOutput{})
 	pulumi.RegisterOutputType(AccessPolicyPortalPtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyProjectOutput{})
 	pulumi.RegisterOutputType(AccessPolicyProjectPtrOutput{})
+	pulumi.RegisterOutputType(AccessPolicyResourceOutput{})
+	pulumi.RegisterOutputType(AccessPolicyResourcePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserOutput{})
 	pulumi.RegisterOutputType(AccessPolicyUserPtrOutput{})
-	pulumi.RegisterOutputType(AssetAssetHierarchyOutput{})
-	pulumi.RegisterOutputType(AssetAssetHierarchyArrayOutput{})
-	pulumi.RegisterOutputType(AssetAssetPropertyOutput{})
-	pulumi.RegisterOutputType(AssetAssetPropertyArrayOutput{})
-	pulumi.RegisterOutputType(AssetModelAssetModelCompositeModelOutput{})
-	pulumi.RegisterOutputType(AssetModelAssetModelCompositeModelArrayOutput{})
-	pulumi.RegisterOutputType(AssetModelAssetModelHierarchyOutput{})
-	pulumi.RegisterOutputType(AssetModelAssetModelHierarchyArrayOutput{})
-	pulumi.RegisterOutputType(AssetModelAssetModelPropertyOutput{})
-	pulumi.RegisterOutputType(AssetModelAssetModelPropertyArrayOutput{})
+	pulumi.RegisterOutputType(AssetHierarchyOutput{})
+	pulumi.RegisterOutputType(AssetHierarchyArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelAttributeOutput{})
 	pulumi.RegisterOutputType(AssetModelAttributePtrOutput{})
+	pulumi.RegisterOutputType(AssetModelCompositeModelOutput{})
+	pulumi.RegisterOutputType(AssetModelCompositeModelArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelExpressionVariableOutput{})
 	pulumi.RegisterOutputType(AssetModelExpressionVariableArrayOutput{})
+	pulumi.RegisterOutputType(AssetModelHierarchyOutput{})
+	pulumi.RegisterOutputType(AssetModelHierarchyArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelMetricOutput{})
 	pulumi.RegisterOutputType(AssetModelMetricPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelMetricWindowOutput{})
 	pulumi.RegisterOutputType(AssetModelMetricWindowPtrOutput{})
+	pulumi.RegisterOutputType(AssetModelPropertyOutput{})
+	pulumi.RegisterOutputType(AssetModelPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelPropertyTypeOutput{})
 	pulumi.RegisterOutputType(AssetModelTagOutput{})
 	pulumi.RegisterOutputType(AssetModelTagArrayOutput{})
@@ -3664,16 +3660,18 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelTumblingWindowOutput{})
 	pulumi.RegisterOutputType(AssetModelTumblingWindowPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelVariableValueOutput{})
+	pulumi.RegisterOutputType(AssetPropertyOutput{})
+	pulumi.RegisterOutputType(AssetPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AssetTagOutput{})
 	pulumi.RegisterOutputType(AssetTagArrayOutput{})
 	pulumi.RegisterOutputType(DashboardTagOutput{})
 	pulumi.RegisterOutputType(DashboardTagArrayOutput{})
-	pulumi.RegisterOutputType(GatewayGatewayCapabilitySummaryOutput{})
-	pulumi.RegisterOutputType(GatewayGatewayCapabilitySummaryArrayOutput{})
-	pulumi.RegisterOutputType(GatewayGatewayPlatformOutput{})
-	pulumi.RegisterOutputType(GatewayGatewayPlatformPtrOutput{})
+	pulumi.RegisterOutputType(GatewayCapabilitySummaryOutput{})
+	pulumi.RegisterOutputType(GatewayCapabilitySummaryArrayOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassPtrOutput{})
+	pulumi.RegisterOutputType(GatewayPlatformOutput{})
+	pulumi.RegisterOutputType(GatewayPlatformPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTagOutput{})
 	pulumi.RegisterOutputType(GatewayTagArrayOutput{})
 	pulumi.RegisterOutputType(PortalTagOutput{})

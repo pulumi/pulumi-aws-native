@@ -46,7 +46,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    public readonly excludeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamMetricStreamFilter[] | undefined>;
+    public readonly excludeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamFilter[] | undefined>;
     /**
      * The ARN of the Kinesis Firehose where to stream the data.
      */
@@ -54,7 +54,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamMetricStreamFilter[] | undefined>;
+    public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamFilter[] | undefined>;
     /**
      * The date of the last update of the metric stream.
      */
@@ -138,7 +138,7 @@ export interface MetricStreamArgs {
     /**
      * Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamMetricStreamFilterArgs>[]>;
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamFilterArgs>[]>;
     /**
      * The ARN of the Kinesis Firehose where to stream the data.
      */
@@ -146,7 +146,7 @@ export interface MetricStreamArgs {
     /**
      * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamMetricStreamFilterArgs>[]>;
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamFilterArgs>[]>;
     /**
      * Name of the metric stream.
      */

@@ -47,7 +47,7 @@ export class Theme extends pulumi.CustomResource {
      * 			within a QuickSight analysis. </p>
      */
     public readonly baseThemeId!: pulumi.Output<string | undefined>;
-    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeThemeConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
     /**
      * <p>The date and time that the theme was created.</p>
      */
@@ -71,8 +71,8 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.quicksight.ThemeTag[] | undefined>;
     public readonly themeId!: pulumi.Output<string>;
-    public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeThemeType>;
-    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeThemeVersion>;
+    public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeType>;
+    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeVersion>;
     /**
      * <p>A description of the first version of the theme that you're creating. Every time
      * 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
@@ -145,7 +145,7 @@ export interface ThemeArgs {
      * 			within a QuickSight analysis. </p>
      */
     baseThemeId?: pulumi.Input<string>;
-    configuration?: pulumi.Input<inputs.quicksight.ThemeThemeConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.quicksight.ThemeConfigurationArgs>;
     /**
      * <p>A display name for the theme.</p>
      */

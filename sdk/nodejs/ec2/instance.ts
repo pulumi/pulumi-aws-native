@@ -57,7 +57,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
     public readonly instanceType!: pulumi.Output<string | undefined>;
     public readonly ipv6AddressCount!: pulumi.Output<number | undefined>;
-    public readonly ipv6Addresses!: pulumi.Output<outputs.ec2.InstanceInstanceIpv6Address[] | undefined>;
+    public readonly ipv6Addresses!: pulumi.Output<outputs.ec2.InstanceIpv6Address[] | undefined>;
     public readonly kernelId!: pulumi.Output<string | undefined>;
     public readonly keyName!: pulumi.Output<string | undefined>;
     public readonly launchTemplate!: pulumi.Output<outputs.ec2.InstanceLaunchTemplateSpecification | undefined>;
@@ -210,7 +210,7 @@ export interface InstanceArgs {
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     instanceType?: pulumi.Input<string>;
     ipv6AddressCount?: pulumi.Input<number>;
-    ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceInstanceIpv6AddressArgs>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<inputs.ec2.InstanceIpv6AddressArgs>[]>;
     kernelId?: pulumi.Input<string>;
     keyName?: pulumi.Input<string>;
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplateSpecificationArgs>;

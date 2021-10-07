@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("objectTypeField")]
-        public Input<Inputs.ObjectTypeObjectTypeFieldArgs>? ObjectTypeField { get; set; }
+        public Input<Inputs.ObjectTypeFieldArgs>? ObjectTypeField { get; set; }
 
         public ObjectTypeFieldMapArgs()
         {

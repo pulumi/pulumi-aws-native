@@ -36,7 +36,7 @@ export class PublicKey extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    public readonly publicKeyConfig!: pulumi.Output<outputs.cloudfront.PublicKeyPublicKeyConfig>;
+    public readonly publicKeyConfig!: pulumi.Output<outputs.cloudfront.PublicKeyConfig>;
 
     /**
      * Create a PublicKey resource with the given unique name, arguments, and options.
@@ -69,5 +69,5 @@ export class PublicKey extends pulumi.CustomResource {
  * The set of arguments for constructing a PublicKey resource.
  */
 export interface PublicKeyArgs {
-    publicKeyConfig: pulumi.Input<inputs.cloudfront.PublicKeyPublicKeyConfigArgs>;
+    publicKeyConfig: pulumi.Input<inputs.cloudfront.PublicKeyConfigArgs>;
 }

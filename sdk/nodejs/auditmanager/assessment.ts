@@ -37,7 +37,7 @@ export class Assessment extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly assessmentId!: pulumi.Output<string>;
-    public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentAssessmentReportsDestination | undefined>;
+    public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentReportsDestination | undefined>;
     public readonly awsAccount!: pulumi.Output<outputs.auditmanager.AssessmentAWSAccount | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<number>;
     /**
@@ -52,7 +52,7 @@ export class Assessment extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
-    public readonly status!: pulumi.Output<enums.auditmanager.AssessmentAssessmentStatus | undefined>;
+    public readonly status!: pulumi.Output<enums.auditmanager.AssessmentStatus | undefined>;
     /**
      * The tags associated with the assessment.
      */
@@ -108,7 +108,7 @@ export class Assessment extends pulumi.CustomResource {
  * The set of arguments for constructing a Assessment resource.
  */
 export interface AssessmentArgs {
-    assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentAssessmentReportsDestinationArgs>;
+    assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentReportsDestinationArgs>;
     awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAWSAccountArgs>;
     description?: pulumi.Input<string>;
     frameworkId?: pulumi.Input<string>;
@@ -118,7 +118,7 @@ export interface AssessmentArgs {
      */
     roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRoleArgs>[]>;
     scope?: pulumi.Input<inputs.auditmanager.AssessmentScopeArgs>;
-    status?: pulumi.Input<enums.auditmanager.AssessmentAssessmentStatus>;
+    status?: pulumi.Input<enums.auditmanager.AssessmentStatus>;
     /**
      * The tags associated with the assessment.
      */

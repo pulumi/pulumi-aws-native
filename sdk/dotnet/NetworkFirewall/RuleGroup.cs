@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("ruleGroup")]
-        public Output<Outputs.RuleGroupRuleGroup?> RuleGroupValue { get; private set; } = null!;
+        public Output<Outputs.RuleGroup?> RuleGroupValue { get; private set; } = null!;
 
         [Output("ruleGroupArn")]
         public Output<string> RuleGroupArn { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Output<ImmutableArray<Outputs.RuleGroupTag>> Tags { get; private set; } = null!;
 
         [Output("type")]
-        public Output<Pulumi.AwsNative.NetworkFirewall.RuleGroupType> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.NetworkFirewall.RuleGroupTypeEnum> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         [Input("ruleGroup")]
-        public Input<Inputs.RuleGroupRuleGroupArgs>? RuleGroupValue { get; set; }
+        public Input<Inputs.RuleGroupArgs>? RuleGroupValue { get; set; }
 
         [Input("ruleGroupName", required: true)]
         public Input<string> RuleGroupName { get; set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         }
 
         [Input("type", required: true)]
-        public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupType> Type { get; set; } = null!;
+        public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupTypeEnum> Type { get; set; } = null!;
 
         public RuleGroupArgs()
         {

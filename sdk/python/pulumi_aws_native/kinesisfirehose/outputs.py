@@ -18,13 +18,13 @@ __all__ = [
     'DeliveryStreamCloudWatchLoggingOptions',
     'DeliveryStreamCopyCommand',
     'DeliveryStreamDataFormatConversionConfiguration',
-    'DeliveryStreamDeliveryStreamEncryptionConfigurationInput',
     'DeliveryStreamDeserializer',
     'DeliveryStreamDynamicPartitioningConfiguration',
     'DeliveryStreamElasticsearchBufferingHints',
     'DeliveryStreamElasticsearchDestinationConfiguration',
     'DeliveryStreamElasticsearchRetryOptions',
     'DeliveryStreamEncryptionConfiguration',
+    'DeliveryStreamEncryptionConfigurationInput',
     'DeliveryStreamExtendedS3DestinationConfiguration',
     'DeliveryStreamHiveJsonSerDe',
     'DeliveryStreamHttpEndpointCommonAttribute',
@@ -466,45 +466,6 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
 
 
 @pulumi.output_type
-class DeliveryStreamDeliveryStreamEncryptionConfigurationInput(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyType":
-            suggest = "key_type"
-        elif key == "keyARN":
-            suggest = "key_arn"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDeliveryStreamEncryptionConfigurationInput. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeliveryStreamDeliveryStreamEncryptionConfigurationInput.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeliveryStreamDeliveryStreamEncryptionConfigurationInput.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_type: 'DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType',
-                 key_arn: Optional[str] = None):
-        pulumi.set(__self__, "key_type", key_type)
-        if key_arn is not None:
-            pulumi.set(__self__, "key_arn", key_arn)
-
-    @property
-    @pulumi.getter(name="keyType")
-    def key_type(self) -> 'DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType':
-        return pulumi.get(self, "key_type")
-
-    @property
-    @pulumi.getter(name="keyARN")
-    def key_arn(self) -> Optional[str]:
-        return pulumi.get(self, "key_arn")
-
-
-@pulumi.output_type
 class DeliveryStreamDeserializer(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -837,6 +798,45 @@ class DeliveryStreamEncryptionConfiguration(dict):
     @pulumi.getter(name="noEncryptionConfig")
     def no_encryption_config(self) -> Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']:
         return pulumi.get(self, "no_encryption_config")
+
+
+@pulumi.output_type
+class DeliveryStreamEncryptionConfigurationInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "keyARN":
+            suggest = "key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamEncryptionConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamEncryptionConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamEncryptionConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_type: 'DeliveryStreamEncryptionConfigurationInputKeyType',
+                 key_arn: Optional[str] = None):
+        pulumi.set(__self__, "key_type", key_type)
+        if key_arn is not None:
+            pulumi.set(__self__, "key_arn", key_arn)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> 'DeliveryStreamEncryptionConfigurationInputKeyType':
+        return pulumi.get(self, "key_type")
+
+    @property
+    @pulumi.getter(name="keyARN")
+    def key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "key_arn")
 
 
 @pulumi.output_type

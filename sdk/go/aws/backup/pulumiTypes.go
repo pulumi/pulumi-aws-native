@@ -110,171 +110,6 @@ func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) Index(i pulumi.I
 	}).(BackupPlanAdvancedBackupSettingResourceTypeOutput)
 }
 
-type BackupPlanBackupPlanResourceType struct {
-	AdvancedBackupSettings []BackupPlanAdvancedBackupSettingResourceType `pulumi:"advancedBackupSettings"`
-	BackupPlanName         string                                        `pulumi:"backupPlanName"`
-	BackupPlanRule         []BackupPlanBackupRuleResourceType            `pulumi:"backupPlanRule"`
-}
-
-// BackupPlanBackupPlanResourceTypeInput is an input type that accepts BackupPlanBackupPlanResourceTypeArgs and BackupPlanBackupPlanResourceTypeOutput values.
-// You can construct a concrete instance of `BackupPlanBackupPlanResourceTypeInput` via:
-//
-//          BackupPlanBackupPlanResourceTypeArgs{...}
-type BackupPlanBackupPlanResourceTypeInput interface {
-	pulumi.Input
-
-	ToBackupPlanBackupPlanResourceTypeOutput() BackupPlanBackupPlanResourceTypeOutput
-	ToBackupPlanBackupPlanResourceTypeOutputWithContext(context.Context) BackupPlanBackupPlanResourceTypeOutput
-}
-
-type BackupPlanBackupPlanResourceTypeArgs struct {
-	AdvancedBackupSettings BackupPlanAdvancedBackupSettingResourceTypeArrayInput `pulumi:"advancedBackupSettings"`
-	BackupPlanName         pulumi.StringInput                                    `pulumi:"backupPlanName"`
-	BackupPlanRule         BackupPlanBackupRuleResourceTypeArrayInput            `pulumi:"backupPlanRule"`
-}
-
-func (BackupPlanBackupPlanResourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPlanBackupPlanResourceType)(nil)).Elem()
-}
-
-func (i BackupPlanBackupPlanResourceTypeArgs) ToBackupPlanBackupPlanResourceTypeOutput() BackupPlanBackupPlanResourceTypeOutput {
-	return i.ToBackupPlanBackupPlanResourceTypeOutputWithContext(context.Background())
-}
-
-func (i BackupPlanBackupPlanResourceTypeArgs) ToBackupPlanBackupPlanResourceTypeOutputWithContext(ctx context.Context) BackupPlanBackupPlanResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanBackupPlanResourceTypeOutput)
-}
-
-func (i BackupPlanBackupPlanResourceTypeArgs) ToBackupPlanBackupPlanResourceTypePtrOutput() BackupPlanBackupPlanResourceTypePtrOutput {
-	return i.ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (i BackupPlanBackupPlanResourceTypeArgs) ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanBackupPlanResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanBackupPlanResourceTypeOutput).ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(ctx)
-}
-
-// BackupPlanBackupPlanResourceTypePtrInput is an input type that accepts BackupPlanBackupPlanResourceTypeArgs, BackupPlanBackupPlanResourceTypePtr and BackupPlanBackupPlanResourceTypePtrOutput values.
-// You can construct a concrete instance of `BackupPlanBackupPlanResourceTypePtrInput` via:
-//
-//          BackupPlanBackupPlanResourceTypeArgs{...}
-//
-//  or:
-//
-//          nil
-type BackupPlanBackupPlanResourceTypePtrInput interface {
-	pulumi.Input
-
-	ToBackupPlanBackupPlanResourceTypePtrOutput() BackupPlanBackupPlanResourceTypePtrOutput
-	ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(context.Context) BackupPlanBackupPlanResourceTypePtrOutput
-}
-
-type backupPlanBackupPlanResourceTypePtrType BackupPlanBackupPlanResourceTypeArgs
-
-func BackupPlanBackupPlanResourceTypePtr(v *BackupPlanBackupPlanResourceTypeArgs) BackupPlanBackupPlanResourceTypePtrInput {
-	return (*backupPlanBackupPlanResourceTypePtrType)(v)
-}
-
-func (*backupPlanBackupPlanResourceTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPlanBackupPlanResourceType)(nil)).Elem()
-}
-
-func (i *backupPlanBackupPlanResourceTypePtrType) ToBackupPlanBackupPlanResourceTypePtrOutput() BackupPlanBackupPlanResourceTypePtrOutput {
-	return i.ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (i *backupPlanBackupPlanResourceTypePtrType) ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanBackupPlanResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanBackupPlanResourceTypePtrOutput)
-}
-
-type BackupPlanBackupPlanResourceTypeOutput struct{ *pulumi.OutputState }
-
-func (BackupPlanBackupPlanResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPlanBackupPlanResourceType)(nil)).Elem()
-}
-
-func (o BackupPlanBackupPlanResourceTypeOutput) ToBackupPlanBackupPlanResourceTypeOutput() BackupPlanBackupPlanResourceTypeOutput {
-	return o
-}
-
-func (o BackupPlanBackupPlanResourceTypeOutput) ToBackupPlanBackupPlanResourceTypeOutputWithContext(ctx context.Context) BackupPlanBackupPlanResourceTypeOutput {
-	return o
-}
-
-func (o BackupPlanBackupPlanResourceTypeOutput) ToBackupPlanBackupPlanResourceTypePtrOutput() BackupPlanBackupPlanResourceTypePtrOutput {
-	return o.ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(context.Background())
-}
-
-func (o BackupPlanBackupPlanResourceTypeOutput) ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanBackupPlanResourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPlanBackupPlanResourceType) *BackupPlanBackupPlanResourceType {
-		return &v
-	}).(BackupPlanBackupPlanResourceTypePtrOutput)
-}
-
-func (o BackupPlanBackupPlanResourceTypeOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
-	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
-		return v.AdvancedBackupSettings
-	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
-}
-
-func (o BackupPlanBackupPlanResourceTypeOutput) BackupPlanName() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) string { return v.BackupPlanName }).(pulumi.StringOutput)
-}
-
-func (o BackupPlanBackupPlanResourceTypeOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
-	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) []BackupPlanBackupRuleResourceType { return v.BackupPlanRule }).(BackupPlanBackupRuleResourceTypeArrayOutput)
-}
-
-type BackupPlanBackupPlanResourceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupPlanBackupPlanResourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPlanBackupPlanResourceType)(nil)).Elem()
-}
-
-func (o BackupPlanBackupPlanResourceTypePtrOutput) ToBackupPlanBackupPlanResourceTypePtrOutput() BackupPlanBackupPlanResourceTypePtrOutput {
-	return o
-}
-
-func (o BackupPlanBackupPlanResourceTypePtrOutput) ToBackupPlanBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanBackupPlanResourceTypePtrOutput {
-	return o
-}
-
-func (o BackupPlanBackupPlanResourceTypePtrOutput) Elem() BackupPlanBackupPlanResourceTypeOutput {
-	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) BackupPlanBackupPlanResourceType {
-		if v != nil {
-			return *v
-		}
-		var ret BackupPlanBackupPlanResourceType
-		return ret
-	}).(BackupPlanBackupPlanResourceTypeOutput)
-}
-
-func (o BackupPlanBackupPlanResourceTypePtrOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
-	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
-		if v == nil {
-			return nil
-		}
-		return v.AdvancedBackupSettings
-	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
-}
-
-func (o BackupPlanBackupPlanResourceTypePtrOutput) BackupPlanName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BackupPlanName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o BackupPlanBackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
-	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) []BackupPlanBackupRuleResourceType {
-		if v == nil {
-			return nil
-		}
-		return v.BackupPlanRule
-	}).(BackupPlanBackupRuleResourceTypeArrayOutput)
-}
-
 type BackupPlanBackupRuleResourceType struct {
 	CompletionWindowMinutes *float64                           `pulumi:"completionWindowMinutes"`
 	CopyActions             []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
@@ -665,184 +500,169 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) MoveToColdStorageAfterDays() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-type BackupSelectionBackupSelectionResourceType struct {
-	IamRoleArn    string                                 `pulumi:"iamRoleArn"`
-	ListOfTags    []BackupSelectionConditionResourceType `pulumi:"listOfTags"`
-	Resources     []string                               `pulumi:"resources"`
-	SelectionName string                                 `pulumi:"selectionName"`
+type BackupPlanResourceType struct {
+	AdvancedBackupSettings []BackupPlanAdvancedBackupSettingResourceType `pulumi:"advancedBackupSettings"`
+	BackupPlanName         string                                        `pulumi:"backupPlanName"`
+	BackupPlanRule         []BackupPlanBackupRuleResourceType            `pulumi:"backupPlanRule"`
 }
 
-// BackupSelectionBackupSelectionResourceTypeInput is an input type that accepts BackupSelectionBackupSelectionResourceTypeArgs and BackupSelectionBackupSelectionResourceTypeOutput values.
-// You can construct a concrete instance of `BackupSelectionBackupSelectionResourceTypeInput` via:
+// BackupPlanResourceTypeInput is an input type that accepts BackupPlanResourceTypeArgs and BackupPlanResourceTypeOutput values.
+// You can construct a concrete instance of `BackupPlanResourceTypeInput` via:
 //
-//          BackupSelectionBackupSelectionResourceTypeArgs{...}
-type BackupSelectionBackupSelectionResourceTypeInput interface {
+//          BackupPlanResourceTypeArgs{...}
+type BackupPlanResourceTypeInput interface {
 	pulumi.Input
 
-	ToBackupSelectionBackupSelectionResourceTypeOutput() BackupSelectionBackupSelectionResourceTypeOutput
-	ToBackupSelectionBackupSelectionResourceTypeOutputWithContext(context.Context) BackupSelectionBackupSelectionResourceTypeOutput
+	ToBackupPlanResourceTypeOutput() BackupPlanResourceTypeOutput
+	ToBackupPlanResourceTypeOutputWithContext(context.Context) BackupPlanResourceTypeOutput
 }
 
-type BackupSelectionBackupSelectionResourceTypeArgs struct {
-	IamRoleArn    pulumi.StringInput                             `pulumi:"iamRoleArn"`
-	ListOfTags    BackupSelectionConditionResourceTypeArrayInput `pulumi:"listOfTags"`
-	Resources     pulumi.StringArrayInput                        `pulumi:"resources"`
-	SelectionName pulumi.StringInput                             `pulumi:"selectionName"`
+type BackupPlanResourceTypeArgs struct {
+	AdvancedBackupSettings BackupPlanAdvancedBackupSettingResourceTypeArrayInput `pulumi:"advancedBackupSettings"`
+	BackupPlanName         pulumi.StringInput                                    `pulumi:"backupPlanName"`
+	BackupPlanRule         BackupPlanBackupRuleResourceTypeArrayInput            `pulumi:"backupPlanRule"`
 }
 
-func (BackupSelectionBackupSelectionResourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupSelectionBackupSelectionResourceType)(nil)).Elem()
+func (BackupPlanResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanResourceType)(nil)).Elem()
 }
 
-func (i BackupSelectionBackupSelectionResourceTypeArgs) ToBackupSelectionBackupSelectionResourceTypeOutput() BackupSelectionBackupSelectionResourceTypeOutput {
-	return i.ToBackupSelectionBackupSelectionResourceTypeOutputWithContext(context.Background())
+func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypeOutput() BackupPlanResourceTypeOutput {
+	return i.ToBackupPlanResourceTypeOutputWithContext(context.Background())
 }
 
-func (i BackupSelectionBackupSelectionResourceTypeArgs) ToBackupSelectionBackupSelectionResourceTypeOutputWithContext(ctx context.Context) BackupSelectionBackupSelectionResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionBackupSelectionResourceTypeOutput)
+func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypeOutputWithContext(ctx context.Context) BackupPlanResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanResourceTypeOutput)
 }
 
-func (i BackupSelectionBackupSelectionResourceTypeArgs) ToBackupSelectionBackupSelectionResourceTypePtrOutput() BackupSelectionBackupSelectionResourceTypePtrOutput {
-	return i.ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(context.Background())
+func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
+	return i.ToBackupPlanResourceTypePtrOutputWithContext(context.Background())
 }
 
-func (i BackupSelectionBackupSelectionResourceTypeArgs) ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionBackupSelectionResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionBackupSelectionResourceTypeOutput).ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(ctx)
+func (i BackupPlanResourceTypeArgs) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanResourceTypeOutput).ToBackupPlanResourceTypePtrOutputWithContext(ctx)
 }
 
-// BackupSelectionBackupSelectionResourceTypePtrInput is an input type that accepts BackupSelectionBackupSelectionResourceTypeArgs, BackupSelectionBackupSelectionResourceTypePtr and BackupSelectionBackupSelectionResourceTypePtrOutput values.
-// You can construct a concrete instance of `BackupSelectionBackupSelectionResourceTypePtrInput` via:
+// BackupPlanResourceTypePtrInput is an input type that accepts BackupPlanResourceTypeArgs, BackupPlanResourceTypePtr and BackupPlanResourceTypePtrOutput values.
+// You can construct a concrete instance of `BackupPlanResourceTypePtrInput` via:
 //
-//          BackupSelectionBackupSelectionResourceTypeArgs{...}
+//          BackupPlanResourceTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type BackupSelectionBackupSelectionResourceTypePtrInput interface {
+type BackupPlanResourceTypePtrInput interface {
 	pulumi.Input
 
-	ToBackupSelectionBackupSelectionResourceTypePtrOutput() BackupSelectionBackupSelectionResourceTypePtrOutput
-	ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(context.Context) BackupSelectionBackupSelectionResourceTypePtrOutput
+	ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput
+	ToBackupPlanResourceTypePtrOutputWithContext(context.Context) BackupPlanResourceTypePtrOutput
 }
 
-type backupSelectionBackupSelectionResourceTypePtrType BackupSelectionBackupSelectionResourceTypeArgs
+type backupPlanResourceTypePtrType BackupPlanResourceTypeArgs
 
-func BackupSelectionBackupSelectionResourceTypePtr(v *BackupSelectionBackupSelectionResourceTypeArgs) BackupSelectionBackupSelectionResourceTypePtrInput {
-	return (*backupSelectionBackupSelectionResourceTypePtrType)(v)
+func BackupPlanResourceTypePtr(v *BackupPlanResourceTypeArgs) BackupPlanResourceTypePtrInput {
+	return (*backupPlanResourceTypePtrType)(v)
 }
 
-func (*backupSelectionBackupSelectionResourceTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSelectionBackupSelectionResourceType)(nil)).Elem()
+func (*backupPlanResourceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPlanResourceType)(nil)).Elem()
 }
 
-func (i *backupSelectionBackupSelectionResourceTypePtrType) ToBackupSelectionBackupSelectionResourceTypePtrOutput() BackupSelectionBackupSelectionResourceTypePtrOutput {
-	return i.ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(context.Background())
+func (i *backupPlanResourceTypePtrType) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
+	return i.ToBackupPlanResourceTypePtrOutputWithContext(context.Background())
 }
 
-func (i *backupSelectionBackupSelectionResourceTypePtrType) ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionBackupSelectionResourceTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionBackupSelectionResourceTypePtrOutput)
+func (i *backupPlanResourceTypePtrType) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanResourceTypePtrOutput)
 }
 
-type BackupSelectionBackupSelectionResourceTypeOutput struct{ *pulumi.OutputState }
+type BackupPlanResourceTypeOutput struct{ *pulumi.OutputState }
 
-func (BackupSelectionBackupSelectionResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupSelectionBackupSelectionResourceType)(nil)).Elem()
+func (BackupPlanResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPlanResourceType)(nil)).Elem()
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) ToBackupSelectionBackupSelectionResourceTypeOutput() BackupSelectionBackupSelectionResourceTypeOutput {
+func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypeOutput() BackupPlanResourceTypeOutput {
 	return o
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) ToBackupSelectionBackupSelectionResourceTypeOutputWithContext(ctx context.Context) BackupSelectionBackupSelectionResourceTypeOutput {
+func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypeOutputWithContext(ctx context.Context) BackupPlanResourceTypeOutput {
 	return o
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) ToBackupSelectionBackupSelectionResourceTypePtrOutput() BackupSelectionBackupSelectionResourceTypePtrOutput {
-	return o.ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(context.Background())
+func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
+	return o.ToBackupPlanResourceTypePtrOutputWithContext(context.Background())
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionBackupSelectionResourceTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupSelectionBackupSelectionResourceType) *BackupSelectionBackupSelectionResourceType {
+func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPlanResourceType) *BackupPlanResourceType {
 		return &v
-	}).(BackupSelectionBackupSelectionResourceTypePtrOutput)
+	}).(BackupPlanResourceTypePtrOutput)
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) IamRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) string { return v.IamRoleArn }).(pulumi.StringOutput)
+func (o BackupPlanResourceTypeOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
+		return v.AdvancedBackupSettings
+	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
-	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) []BackupSelectionConditionResourceType {
-		return v.ListOfTags
-	}).(BackupSelectionConditionResourceTypeArrayOutput)
+func (o BackupPlanResourceTypeOutput) BackupPlanName() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPlanResourceType) string { return v.BackupPlanName }).(pulumi.StringOutput)
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) []string { return v.Resources }).(pulumi.StringArrayOutput)
+func (o BackupPlanResourceTypeOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
+	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanBackupRuleResourceType { return v.BackupPlanRule }).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
 
-func (o BackupSelectionBackupSelectionResourceTypeOutput) SelectionName() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) string { return v.SelectionName }).(pulumi.StringOutput)
+type BackupPlanResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPlanResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPlanResourceType)(nil)).Elem()
 }
 
-type BackupSelectionBackupSelectionResourceTypePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupSelectionBackupSelectionResourceTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSelectionBackupSelectionResourceType)(nil)).Elem()
-}
-
-func (o BackupSelectionBackupSelectionResourceTypePtrOutput) ToBackupSelectionBackupSelectionResourceTypePtrOutput() BackupSelectionBackupSelectionResourceTypePtrOutput {
+func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutput() BackupPlanResourceTypePtrOutput {
 	return o
 }
 
-func (o BackupSelectionBackupSelectionResourceTypePtrOutput) ToBackupSelectionBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionBackupSelectionResourceTypePtrOutput {
+func (o BackupPlanResourceTypePtrOutput) ToBackupPlanResourceTypePtrOutputWithContext(ctx context.Context) BackupPlanResourceTypePtrOutput {
 	return o
 }
 
-func (o BackupSelectionBackupSelectionResourceTypePtrOutput) Elem() BackupSelectionBackupSelectionResourceTypeOutput {
-	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) BackupSelectionBackupSelectionResourceType {
+func (o BackupPlanResourceTypePtrOutput) Elem() BackupPlanResourceTypeOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) BackupPlanResourceType {
 		if v != nil {
 			return *v
 		}
-		var ret BackupSelectionBackupSelectionResourceType
+		var ret BackupPlanResourceType
 		return ret
-	}).(BackupSelectionBackupSelectionResourceTypeOutput)
+	}).(BackupPlanResourceTypeOutput)
 }
 
-func (o BackupSelectionBackupSelectionResourceTypePtrOutput) IamRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) *string {
+func (o BackupPlanResourceTypePtrOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
 		if v == nil {
 			return nil
 		}
-		return &v.IamRoleArn
+		return v.AdvancedBackupSettings
+	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
+}
+
+func (o BackupPlanResourceTypePtrOutput) BackupPlanName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BackupPlanName
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BackupSelectionBackupSelectionResourceTypePtrOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
-	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) []BackupSelectionConditionResourceType {
+func (o BackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
+	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanBackupRuleResourceType {
 		if v == nil {
 			return nil
 		}
-		return v.ListOfTags
-	}).(BackupSelectionConditionResourceTypeArrayOutput)
-}
-
-func (o BackupSelectionBackupSelectionResourceTypePtrOutput) Resources() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Resources
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o BackupSelectionBackupSelectionResourceTypePtrOutput) SelectionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SelectionName
-	}).(pulumi.StringPtrOutput)
+		return v.BackupPlanRule
+	}).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
 
 type BackupSelectionConditionResourceType struct {
@@ -949,6 +769,184 @@ func (o BackupSelectionConditionResourceTypeArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupSelectionConditionResourceType {
 		return vs[0].([]BackupSelectionConditionResourceType)[vs[1].(int)]
 	}).(BackupSelectionConditionResourceTypeOutput)
+}
+
+type BackupSelectionResourceType struct {
+	IamRoleArn    string                                 `pulumi:"iamRoleArn"`
+	ListOfTags    []BackupSelectionConditionResourceType `pulumi:"listOfTags"`
+	Resources     []string                               `pulumi:"resources"`
+	SelectionName string                                 `pulumi:"selectionName"`
+}
+
+// BackupSelectionResourceTypeInput is an input type that accepts BackupSelectionResourceTypeArgs and BackupSelectionResourceTypeOutput values.
+// You can construct a concrete instance of `BackupSelectionResourceTypeInput` via:
+//
+//          BackupSelectionResourceTypeArgs{...}
+type BackupSelectionResourceTypeInput interface {
+	pulumi.Input
+
+	ToBackupSelectionResourceTypeOutput() BackupSelectionResourceTypeOutput
+	ToBackupSelectionResourceTypeOutputWithContext(context.Context) BackupSelectionResourceTypeOutput
+}
+
+type BackupSelectionResourceTypeArgs struct {
+	IamRoleArn    pulumi.StringInput                             `pulumi:"iamRoleArn"`
+	ListOfTags    BackupSelectionConditionResourceTypeArrayInput `pulumi:"listOfTags"`
+	Resources     pulumi.StringArrayInput                        `pulumi:"resources"`
+	SelectionName pulumi.StringInput                             `pulumi:"selectionName"`
+}
+
+func (BackupSelectionResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSelectionResourceType)(nil)).Elem()
+}
+
+func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypeOutput() BackupSelectionResourceTypeOutput {
+	return i.ToBackupSelectionResourceTypeOutputWithContext(context.Background())
+}
+
+func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypeOutputWithContext(ctx context.Context) BackupSelectionResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypeOutput)
+}
+
+func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
+	return i.ToBackupSelectionResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i BackupSelectionResourceTypeArgs) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypeOutput).ToBackupSelectionResourceTypePtrOutputWithContext(ctx)
+}
+
+// BackupSelectionResourceTypePtrInput is an input type that accepts BackupSelectionResourceTypeArgs, BackupSelectionResourceTypePtr and BackupSelectionResourceTypePtrOutput values.
+// You can construct a concrete instance of `BackupSelectionResourceTypePtrInput` via:
+//
+//          BackupSelectionResourceTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupSelectionResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput
+	ToBackupSelectionResourceTypePtrOutputWithContext(context.Context) BackupSelectionResourceTypePtrOutput
+}
+
+type backupSelectionResourceTypePtrType BackupSelectionResourceTypeArgs
+
+func BackupSelectionResourceTypePtr(v *BackupSelectionResourceTypeArgs) BackupSelectionResourceTypePtrInput {
+	return (*backupSelectionResourceTypePtrType)(v)
+}
+
+func (*backupSelectionResourceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupSelectionResourceType)(nil)).Elem()
+}
+
+func (i *backupSelectionResourceTypePtrType) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
+	return i.ToBackupSelectionResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i *backupSelectionResourceTypePtrType) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionResourceTypePtrOutput)
+}
+
+type BackupSelectionResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupSelectionResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSelectionResourceType)(nil)).Elem()
+}
+
+func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypeOutput() BackupSelectionResourceTypeOutput {
+	return o
+}
+
+func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypeOutputWithContext(ctx context.Context) BackupSelectionResourceTypeOutput {
+	return o
+}
+
+func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
+	return o.ToBackupSelectionResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackupSelectionResourceTypeOutput) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupSelectionResourceType) *BackupSelectionResourceType {
+		return &v
+	}).(BackupSelectionResourceTypePtrOutput)
+}
+
+func (o BackupSelectionResourceTypeOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupSelectionResourceType) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+func (o BackupSelectionResourceTypeOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
+	return o.ApplyT(func(v BackupSelectionResourceType) []BackupSelectionConditionResourceType { return v.ListOfTags }).(BackupSelectionConditionResourceTypeArrayOutput)
+}
+
+func (o BackupSelectionResourceTypeOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupSelectionResourceType) []string { return v.Resources }).(pulumi.StringArrayOutput)
+}
+
+func (o BackupSelectionResourceTypeOutput) SelectionName() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupSelectionResourceType) string { return v.SelectionName }).(pulumi.StringOutput)
+}
+
+type BackupSelectionResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupSelectionResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupSelectionResourceType)(nil)).Elem()
+}
+
+func (o BackupSelectionResourceTypePtrOutput) ToBackupSelectionResourceTypePtrOutput() BackupSelectionResourceTypePtrOutput {
+	return o
+}
+
+func (o BackupSelectionResourceTypePtrOutput) ToBackupSelectionResourceTypePtrOutputWithContext(ctx context.Context) BackupSelectionResourceTypePtrOutput {
+	return o
+}
+
+func (o BackupSelectionResourceTypePtrOutput) Elem() BackupSelectionResourceTypeOutput {
+	return o.ApplyT(func(v *BackupSelectionResourceType) BackupSelectionResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupSelectionResourceType
+		return ret
+	}).(BackupSelectionResourceTypeOutput)
+}
+
+func (o BackupSelectionResourceTypePtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSelectionResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupSelectionResourceTypePtrOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
+	return o.ApplyT(func(v *BackupSelectionResourceType) []BackupSelectionConditionResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.ListOfTags
+	}).(BackupSelectionConditionResourceTypeArrayOutput)
+}
+
+func (o BackupSelectionResourceTypePtrOutput) Resources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupSelectionResourceType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Resources
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BackupSelectionResourceTypePtrOutput) SelectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSelectionResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SelectionName
+	}).(pulumi.StringPtrOutput)
 }
 
 type BackupVaultLockConfigurationType struct {
@@ -1265,18 +1263,18 @@ func (o BackupVaultNotificationObjectTypePtrOutput) SNSTopicArn() pulumi.StringP
 func init() {
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput{})
-	pulumi.RegisterOutputType(BackupPlanBackupPlanResourceTypeOutput{})
-	pulumi.RegisterOutputType(BackupPlanBackupPlanResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanCopyActionResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanCopyActionResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanLifecycleResourceTypePtrOutput{})
-	pulumi.RegisterOutputType(BackupSelectionBackupSelectionResourceTypeOutput{})
-	pulumi.RegisterOutputType(BackupSelectionBackupSelectionResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(BackupPlanResourceTypeOutput{})
+	pulumi.RegisterOutputType(BackupPlanResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupSelectionConditionResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(BackupSelectionResourceTypeOutput{})
+	pulumi.RegisterOutputType(BackupSelectionResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupVaultLockConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(BackupVaultLockConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(BackupVaultNotificationObjectTypeOutput{})

@@ -16,7 +16,7 @@ __all__ = ['FunctionDefinitionArgs', 'FunctionDefinition']
 class FunctionDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 initial_version: Optional[pulumi.Input['FunctionDefinitionFunctionDefinitionVersionArgs']] = None,
+                 initial_version: Optional[pulumi.Input['FunctionDefinitionVersionArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a FunctionDefinition resource.
@@ -38,11 +38,11 @@ class FunctionDefinitionArgs:
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> Optional[pulumi.Input['FunctionDefinitionFunctionDefinitionVersionArgs']]:
+    def initial_version(self) -> Optional[pulumi.Input['FunctionDefinitionVersionArgs']]:
         return pulumi.get(self, "initial_version")
 
     @initial_version.setter
-    def initial_version(self, value: Optional[pulumi.Input['FunctionDefinitionFunctionDefinitionVersionArgs']]):
+    def initial_version(self, value: Optional[pulumi.Input['FunctionDefinitionVersionArgs']]):
         pulumi.set(self, "initial_version", value)
 
     @property
@@ -65,7 +65,7 @@ class FunctionDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['FunctionDefinitionFunctionDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['FunctionDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class FunctionDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['FunctionDefinitionFunctionDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['FunctionDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -158,7 +158,7 @@ class FunctionDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> pulumi.Output[Optional['outputs.FunctionDefinitionFunctionDefinitionVersion']]:
+    def initial_version(self) -> pulumi.Output[Optional['outputs.FunctionDefinitionVersion']]:
         return pulumi.get(self, "initial_version")
 
     @property

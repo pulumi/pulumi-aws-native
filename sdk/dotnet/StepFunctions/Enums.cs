@@ -38,26 +38,26 @@ namespace Pulumi.AwsNative.StepFunctions
     }
 
     [EnumType]
-    public readonly struct StateMachineStateMachineType : IEquatable<StateMachineStateMachineType>
+    public readonly struct StateMachineType : IEquatable<StateMachineType>
     {
         private readonly string _value;
 
-        private StateMachineStateMachineType(string value)
+        private StateMachineType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static StateMachineStateMachineType Standard { get; } = new StateMachineStateMachineType("STANDARD");
-        public static StateMachineStateMachineType Express { get; } = new StateMachineStateMachineType("EXPRESS");
+        public static StateMachineType Standard { get; } = new StateMachineType("STANDARD");
+        public static StateMachineType Express { get; } = new StateMachineType("EXPRESS");
 
-        public static bool operator ==(StateMachineStateMachineType left, StateMachineStateMachineType right) => left.Equals(right);
-        public static bool operator !=(StateMachineStateMachineType left, StateMachineStateMachineType right) => !left.Equals(right);
+        public static bool operator ==(StateMachineType left, StateMachineType right) => left.Equals(right);
+        public static bool operator !=(StateMachineType left, StateMachineType right) => !left.Equals(right);
 
-        public static explicit operator string(StateMachineStateMachineType value) => value._value;
+        public static explicit operator string(StateMachineType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StateMachineStateMachineType other && Equals(other);
-        public bool Equals(StateMachineStateMachineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is StateMachineType other && Equals(other);
+        public bool Equals(StateMachineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

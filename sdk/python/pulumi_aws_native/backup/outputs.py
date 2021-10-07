@@ -11,12 +11,12 @@ from . import outputs
 
 __all__ = [
     'BackupPlanAdvancedBackupSettingResourceType',
-    'BackupPlanBackupPlanResourceType',
     'BackupPlanBackupRuleResourceType',
     'BackupPlanCopyActionResourceType',
     'BackupPlanLifecycleResourceType',
-    'BackupSelectionBackupSelectionResourceType',
+    'BackupPlanResourceType',
     'BackupSelectionConditionResourceType',
+    'BackupSelectionResourceType',
     'BackupVaultLockConfigurationType',
     'BackupVaultNotificationObjectType',
 ]
@@ -57,54 +57,6 @@ class BackupPlanAdvancedBackupSettingResourceType(dict):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> str:
         return pulumi.get(self, "resource_type")
-
-
-@pulumi.output_type
-class BackupPlanBackupPlanResourceType(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "backupPlanName":
-            suggest = "backup_plan_name"
-        elif key == "backupPlanRule":
-            suggest = "backup_plan_rule"
-        elif key == "advancedBackupSettings":
-            suggest = "advanced_backup_settings"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BackupPlanBackupPlanResourceType. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BackupPlanBackupPlanResourceType.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BackupPlanBackupPlanResourceType.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 backup_plan_name: str,
-                 backup_plan_rule: Sequence['outputs.BackupPlanBackupRuleResourceType'],
-                 advanced_backup_settings: Optional[Sequence['outputs.BackupPlanAdvancedBackupSettingResourceType']] = None):
-        pulumi.set(__self__, "backup_plan_name", backup_plan_name)
-        pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
-        if advanced_backup_settings is not None:
-            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
-
-    @property
-    @pulumi.getter(name="backupPlanName")
-    def backup_plan_name(self) -> str:
-        return pulumi.get(self, "backup_plan_name")
-
-    @property
-    @pulumi.getter(name="backupPlanRule")
-    def backup_plan_rule(self) -> Sequence['outputs.BackupPlanBackupRuleResourceType']:
-        return pulumi.get(self, "backup_plan_rule")
-
-    @property
-    @pulumi.getter(name="advancedBackupSettings")
-    def advanced_backup_settings(self) -> Optional[Sequence['outputs.BackupPlanAdvancedBackupSettingResourceType']]:
-        return pulumi.get(self, "advanced_backup_settings")
 
 
 @pulumi.output_type
@@ -291,59 +243,51 @@ class BackupPlanLifecycleResourceType(dict):
 
 
 @pulumi.output_type
-class BackupSelectionBackupSelectionResourceType(dict):
+class BackupPlanResourceType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "iamRoleArn":
-            suggest = "iam_role_arn"
-        elif key == "selectionName":
-            suggest = "selection_name"
-        elif key == "listOfTags":
-            suggest = "list_of_tags"
+        if key == "backupPlanName":
+            suggest = "backup_plan_name"
+        elif key == "backupPlanRule":
+            suggest = "backup_plan_rule"
+        elif key == "advancedBackupSettings":
+            suggest = "advanced_backup_settings"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BackupSelectionBackupSelectionResourceType. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in BackupPlanResourceType. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        BackupSelectionBackupSelectionResourceType.__key_warning(key)
+        BackupPlanResourceType.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        BackupSelectionBackupSelectionResourceType.__key_warning(key)
+        BackupPlanResourceType.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 iam_role_arn: str,
-                 selection_name: str,
-                 list_of_tags: Optional[Sequence['outputs.BackupSelectionConditionResourceType']] = None,
-                 resources: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
-        pulumi.set(__self__, "selection_name", selection_name)
-        if list_of_tags is not None:
-            pulumi.set(__self__, "list_of_tags", list_of_tags)
-        if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+                 backup_plan_name: str,
+                 backup_plan_rule: Sequence['outputs.BackupPlanBackupRuleResourceType'],
+                 advanced_backup_settings: Optional[Sequence['outputs.BackupPlanAdvancedBackupSettingResourceType']] = None):
+        pulumi.set(__self__, "backup_plan_name", backup_plan_name)
+        pulumi.set(__self__, "backup_plan_rule", backup_plan_rule)
+        if advanced_backup_settings is not None:
+            pulumi.set(__self__, "advanced_backup_settings", advanced_backup_settings)
 
     @property
-    @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> str:
-        return pulumi.get(self, "iam_role_arn")
+    @pulumi.getter(name="backupPlanName")
+    def backup_plan_name(self) -> str:
+        return pulumi.get(self, "backup_plan_name")
 
     @property
-    @pulumi.getter(name="selectionName")
-    def selection_name(self) -> str:
-        return pulumi.get(self, "selection_name")
+    @pulumi.getter(name="backupPlanRule")
+    def backup_plan_rule(self) -> Sequence['outputs.BackupPlanBackupRuleResourceType']:
+        return pulumi.get(self, "backup_plan_rule")
 
     @property
-    @pulumi.getter(name="listOfTags")
-    def list_of_tags(self) -> Optional[Sequence['outputs.BackupSelectionConditionResourceType']]:
-        return pulumi.get(self, "list_of_tags")
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "resources")
+    @pulumi.getter(name="advancedBackupSettings")
+    def advanced_backup_settings(self) -> Optional[Sequence['outputs.BackupPlanAdvancedBackupSettingResourceType']]:
+        return pulumi.get(self, "advanced_backup_settings")
 
 
 @pulumi.output_type
@@ -391,6 +335,62 @@ class BackupSelectionConditionResourceType(dict):
     @pulumi.getter(name="conditionValue")
     def condition_value(self) -> str:
         return pulumi.get(self, "condition_value")
+
+
+@pulumi.output_type
+class BackupSelectionResourceType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamRoleArn":
+            suggest = "iam_role_arn"
+        elif key == "selectionName":
+            suggest = "selection_name"
+        elif key == "listOfTags":
+            suggest = "list_of_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupSelectionResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupSelectionResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupSelectionResourceType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_role_arn: str,
+                 selection_name: str,
+                 list_of_tags: Optional[Sequence['outputs.BackupSelectionConditionResourceType']] = None,
+                 resources: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "selection_name", selection_name)
+        if list_of_tags is not None:
+            pulumi.set(__self__, "list_of_tags", list_of_tags)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> str:
+        return pulumi.get(self, "iam_role_arn")
+
+    @property
+    @pulumi.getter(name="selectionName")
+    def selection_name(self) -> str:
+        return pulumi.get(self, "selection_name")
+
+    @property
+    @pulumi.getter(name="listOfTags")
+    def list_of_tags(self) -> Optional[Sequence['outputs.BackupSelectionConditionResourceType']]:
+        return pulumi.get(self, "list_of_tags")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type

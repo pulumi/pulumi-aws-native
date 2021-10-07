@@ -633,144 +633,144 @@ func (o DeploymentCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-type DeploymentDeploymentCanarySettings struct {
+type DeploymentCanarySettings struct {
 	PercentTraffic         *float64    `pulumi:"percentTraffic"`
 	StageVariableOverrides interface{} `pulumi:"stageVariableOverrides"`
 	UseStageCache          *bool       `pulumi:"useStageCache"`
 }
 
-// DeploymentDeploymentCanarySettingsInput is an input type that accepts DeploymentDeploymentCanarySettingsArgs and DeploymentDeploymentCanarySettingsOutput values.
-// You can construct a concrete instance of `DeploymentDeploymentCanarySettingsInput` via:
+// DeploymentCanarySettingsInput is an input type that accepts DeploymentCanarySettingsArgs and DeploymentCanarySettingsOutput values.
+// You can construct a concrete instance of `DeploymentCanarySettingsInput` via:
 //
-//          DeploymentDeploymentCanarySettingsArgs{...}
-type DeploymentDeploymentCanarySettingsInput interface {
+//          DeploymentCanarySettingsArgs{...}
+type DeploymentCanarySettingsInput interface {
 	pulumi.Input
 
-	ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput
-	ToDeploymentDeploymentCanarySettingsOutputWithContext(context.Context) DeploymentDeploymentCanarySettingsOutput
+	ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput
+	ToDeploymentCanarySettingsOutputWithContext(context.Context) DeploymentCanarySettingsOutput
 }
 
-type DeploymentDeploymentCanarySettingsArgs struct {
+type DeploymentCanarySettingsArgs struct {
 	PercentTraffic         pulumi.Float64PtrInput `pulumi:"percentTraffic"`
 	StageVariableOverrides pulumi.Input           `pulumi:"stageVariableOverrides"`
 	UseStageCache          pulumi.BoolPtrInput    `pulumi:"useStageCache"`
 }
 
-func (DeploymentDeploymentCanarySettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentDeploymentCanarySettings)(nil)).Elem()
+func (DeploymentCanarySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentCanarySettings)(nil)).Elem()
 }
 
-func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput {
-	return i.ToDeploymentDeploymentCanarySettingsOutputWithContext(context.Background())
+func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput {
+	return i.ToDeploymentCanarySettingsOutputWithContext(context.Background())
 }
 
-func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsOutput)
+func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentCanarySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsOutput)
 }
 
-func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
-	return i.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
+	return i.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
 }
 
-func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsOutput).ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx)
+func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsOutput).ToDeploymentCanarySettingsPtrOutputWithContext(ctx)
 }
 
-// DeploymentDeploymentCanarySettingsPtrInput is an input type that accepts DeploymentDeploymentCanarySettingsArgs, DeploymentDeploymentCanarySettingsPtr and DeploymentDeploymentCanarySettingsPtrOutput values.
-// You can construct a concrete instance of `DeploymentDeploymentCanarySettingsPtrInput` via:
+// DeploymentCanarySettingsPtrInput is an input type that accepts DeploymentCanarySettingsArgs, DeploymentCanarySettingsPtr and DeploymentCanarySettingsPtrOutput values.
+// You can construct a concrete instance of `DeploymentCanarySettingsPtrInput` via:
 //
-//          DeploymentDeploymentCanarySettingsArgs{...}
+//          DeploymentCanarySettingsArgs{...}
 //
 //  or:
 //
 //          nil
-type DeploymentDeploymentCanarySettingsPtrInput interface {
+type DeploymentCanarySettingsPtrInput interface {
 	pulumi.Input
 
-	ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput
-	ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Context) DeploymentDeploymentCanarySettingsPtrOutput
+	ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput
+	ToDeploymentCanarySettingsPtrOutputWithContext(context.Context) DeploymentCanarySettingsPtrOutput
 }
 
-type deploymentDeploymentCanarySettingsPtrType DeploymentDeploymentCanarySettingsArgs
+type deploymentCanarySettingsPtrType DeploymentCanarySettingsArgs
 
-func DeploymentDeploymentCanarySettingsPtr(v *DeploymentDeploymentCanarySettingsArgs) DeploymentDeploymentCanarySettingsPtrInput {
-	return (*deploymentDeploymentCanarySettingsPtrType)(v)
+func DeploymentCanarySettingsPtr(v *DeploymentCanarySettingsArgs) DeploymentCanarySettingsPtrInput {
+	return (*deploymentCanarySettingsPtrType)(v)
 }
 
-func (*deploymentDeploymentCanarySettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentDeploymentCanarySettings)(nil)).Elem()
+func (*deploymentCanarySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentCanarySettings)(nil)).Elem()
 }
 
-func (i *deploymentDeploymentCanarySettingsPtrType) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
-	return i.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+func (i *deploymentCanarySettingsPtrType) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
+	return i.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
 }
 
-func (i *deploymentDeploymentCanarySettingsPtrType) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsPtrOutput)
+func (i *deploymentCanarySettingsPtrType) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsPtrOutput)
 }
 
-type DeploymentDeploymentCanarySettingsOutput struct{ *pulumi.OutputState }
+type DeploymentCanarySettingsOutput struct{ *pulumi.OutputState }
 
-func (DeploymentDeploymentCanarySettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentDeploymentCanarySettings)(nil)).Elem()
+func (DeploymentCanarySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentCanarySettings)(nil)).Elem()
 }
 
-func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput {
+func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput {
 	return o
 }
 
-func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsOutput {
+func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentCanarySettingsOutput {
 	return o
 }
 
-func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
-	return o.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
+	return o.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
 }
 
-func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentDeploymentCanarySettings) *DeploymentDeploymentCanarySettings {
+func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentCanarySettings) *DeploymentCanarySettings {
 		return &v
-	}).(DeploymentDeploymentCanarySettingsPtrOutput)
+	}).(DeploymentCanarySettingsPtrOutput)
 }
 
-func (o DeploymentDeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+func (o DeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
 }
 
-func (o DeploymentDeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
+func (o DeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v DeploymentCanarySettings) interface{} { return v.StageVariableOverrides }).(pulumi.AnyOutput)
 }
 
-func (o DeploymentDeploymentCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+func (o DeploymentCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
 }
 
-type DeploymentDeploymentCanarySettingsPtrOutput struct{ *pulumi.OutputState }
+type DeploymentCanarySettingsPtrOutput struct{ *pulumi.OutputState }
 
-func (DeploymentDeploymentCanarySettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentDeploymentCanarySettings)(nil)).Elem()
+func (DeploymentCanarySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentCanarySettings)(nil)).Elem()
 }
 
-func (o DeploymentDeploymentCanarySettingsPtrOutput) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+func (o DeploymentCanarySettingsPtrOutput) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
 	return o
 }
 
-func (o DeploymentDeploymentCanarySettingsPtrOutput) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+func (o DeploymentCanarySettingsPtrOutput) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
 	return o
 }
 
-func (o DeploymentDeploymentCanarySettingsPtrOutput) Elem() DeploymentDeploymentCanarySettingsOutput {
-	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) DeploymentDeploymentCanarySettings {
+func (o DeploymentCanarySettingsPtrOutput) Elem() DeploymentCanarySettingsOutput {
+	return o.ApplyT(func(v *DeploymentCanarySettings) DeploymentCanarySettings {
 		if v != nil {
 			return *v
 		}
-		var ret DeploymentDeploymentCanarySettings
+		var ret DeploymentCanarySettings
 		return ret
-	}).(DeploymentDeploymentCanarySettingsOutput)
+	}).(DeploymentCanarySettingsOutput)
 }
 
-func (o DeploymentDeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) *float64 {
+func (o DeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentCanarySettings) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -778,8 +778,8 @@ func (o DeploymentDeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-func (o DeploymentDeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) interface{} {
+func (o DeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeploymentCanarySettings) interface{} {
 		if v == nil {
 			return nil
 		}
@@ -787,8 +787,8 @@ func (o DeploymentDeploymentCanarySettingsPtrOutput) StageVariableOverrides() pu
 	}).(pulumi.AnyOutput)
 }
 
-func (o DeploymentDeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) *bool {
+func (o DeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentCanarySettings) *bool {
 		if v == nil {
 			return nil
 		}
@@ -2467,110 +2467,110 @@ func (o MethodIntegrationResponseArrayOutput) Index(i pulumi.IntInput) MethodInt
 	}).(MethodIntegrationResponseOutput)
 }
 
-type MethodMethodResponse struct {
+type MethodResponse struct {
 	ResponseModels     interface{} `pulumi:"responseModels"`
 	ResponseParameters interface{} `pulumi:"responseParameters"`
 	StatusCode         string      `pulumi:"statusCode"`
 }
 
-// MethodMethodResponseInput is an input type that accepts MethodMethodResponseArgs and MethodMethodResponseOutput values.
-// You can construct a concrete instance of `MethodMethodResponseInput` via:
+// MethodResponseInput is an input type that accepts MethodResponseArgs and MethodResponseOutput values.
+// You can construct a concrete instance of `MethodResponseInput` via:
 //
-//          MethodMethodResponseArgs{...}
-type MethodMethodResponseInput interface {
+//          MethodResponseArgs{...}
+type MethodResponseInput interface {
 	pulumi.Input
 
-	ToMethodMethodResponseOutput() MethodMethodResponseOutput
-	ToMethodMethodResponseOutputWithContext(context.Context) MethodMethodResponseOutput
+	ToMethodResponseOutput() MethodResponseOutput
+	ToMethodResponseOutputWithContext(context.Context) MethodResponseOutput
 }
 
-type MethodMethodResponseArgs struct {
+type MethodResponseArgs struct {
 	ResponseModels     pulumi.Input       `pulumi:"responseModels"`
 	ResponseParameters pulumi.Input       `pulumi:"responseParameters"`
 	StatusCode         pulumi.StringInput `pulumi:"statusCode"`
 }
 
-func (MethodMethodResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodMethodResponse)(nil)).Elem()
+func (MethodResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodResponse)(nil)).Elem()
 }
 
-func (i MethodMethodResponseArgs) ToMethodMethodResponseOutput() MethodMethodResponseOutput {
-	return i.ToMethodMethodResponseOutputWithContext(context.Background())
+func (i MethodResponseArgs) ToMethodResponseOutput() MethodResponseOutput {
+	return i.ToMethodResponseOutputWithContext(context.Background())
 }
 
-func (i MethodMethodResponseArgs) ToMethodMethodResponseOutputWithContext(ctx context.Context) MethodMethodResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodMethodResponseOutput)
+func (i MethodResponseArgs) ToMethodResponseOutputWithContext(ctx context.Context) MethodResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseOutput)
 }
 
-// MethodMethodResponseArrayInput is an input type that accepts MethodMethodResponseArray and MethodMethodResponseArrayOutput values.
-// You can construct a concrete instance of `MethodMethodResponseArrayInput` via:
+// MethodResponseArrayInput is an input type that accepts MethodResponseArray and MethodResponseArrayOutput values.
+// You can construct a concrete instance of `MethodResponseArrayInput` via:
 //
-//          MethodMethodResponseArray{ MethodMethodResponseArgs{...} }
-type MethodMethodResponseArrayInput interface {
+//          MethodResponseArray{ MethodResponseArgs{...} }
+type MethodResponseArrayInput interface {
 	pulumi.Input
 
-	ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput
-	ToMethodMethodResponseArrayOutputWithContext(context.Context) MethodMethodResponseArrayOutput
+	ToMethodResponseArrayOutput() MethodResponseArrayOutput
+	ToMethodResponseArrayOutputWithContext(context.Context) MethodResponseArrayOutput
 }
 
-type MethodMethodResponseArray []MethodMethodResponseInput
+type MethodResponseArray []MethodResponseInput
 
-func (MethodMethodResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MethodMethodResponse)(nil)).Elem()
+func (MethodResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodResponse)(nil)).Elem()
 }
 
-func (i MethodMethodResponseArray) ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput {
-	return i.ToMethodMethodResponseArrayOutputWithContext(context.Background())
+func (i MethodResponseArray) ToMethodResponseArrayOutput() MethodResponseArrayOutput {
+	return i.ToMethodResponseArrayOutputWithContext(context.Background())
 }
 
-func (i MethodMethodResponseArray) ToMethodMethodResponseArrayOutputWithContext(ctx context.Context) MethodMethodResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodMethodResponseArrayOutput)
+func (i MethodResponseArray) ToMethodResponseArrayOutputWithContext(ctx context.Context) MethodResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseArrayOutput)
 }
 
-type MethodMethodResponseOutput struct{ *pulumi.OutputState }
+type MethodResponseOutput struct{ *pulumi.OutputState }
 
-func (MethodMethodResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MethodMethodResponse)(nil)).Elem()
+func (MethodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodResponse)(nil)).Elem()
 }
 
-func (o MethodMethodResponseOutput) ToMethodMethodResponseOutput() MethodMethodResponseOutput {
+func (o MethodResponseOutput) ToMethodResponseOutput() MethodResponseOutput {
 	return o
 }
 
-func (o MethodMethodResponseOutput) ToMethodMethodResponseOutputWithContext(ctx context.Context) MethodMethodResponseOutput {
+func (o MethodResponseOutput) ToMethodResponseOutputWithContext(ctx context.Context) MethodResponseOutput {
 	return o
 }
 
-func (o MethodMethodResponseOutput) ResponseModels() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodMethodResponse) interface{} { return v.ResponseModels }).(pulumi.AnyOutput)
+func (o MethodResponseOutput) ResponseModels() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodResponse) interface{} { return v.ResponseModels }).(pulumi.AnyOutput)
 }
 
-func (o MethodMethodResponseOutput) ResponseParameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v MethodMethodResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
+func (o MethodResponseOutput) ResponseParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MethodResponse) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
 }
 
-func (o MethodMethodResponseOutput) StatusCode() pulumi.StringOutput {
-	return o.ApplyT(func(v MethodMethodResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+func (o MethodResponseOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v MethodResponse) string { return v.StatusCode }).(pulumi.StringOutput)
 }
 
-type MethodMethodResponseArrayOutput struct{ *pulumi.OutputState }
+type MethodResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (MethodMethodResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MethodMethodResponse)(nil)).Elem()
+func (MethodResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodResponse)(nil)).Elem()
 }
 
-func (o MethodMethodResponseArrayOutput) ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput {
+func (o MethodResponseArrayOutput) ToMethodResponseArrayOutput() MethodResponseArrayOutput {
 	return o
 }
 
-func (o MethodMethodResponseArrayOutput) ToMethodMethodResponseArrayOutputWithContext(ctx context.Context) MethodMethodResponseArrayOutput {
+func (o MethodResponseArrayOutput) ToMethodResponseArrayOutputWithContext(ctx context.Context) MethodResponseArrayOutput {
 	return o
 }
 
-func (o MethodMethodResponseArrayOutput) Index(i pulumi.IntInput) MethodMethodResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodMethodResponse {
-		return vs[0].([]MethodMethodResponse)[vs[1].(int)]
-	}).(MethodMethodResponseOutput)
+func (o MethodResponseArrayOutput) Index(i pulumi.IntInput) MethodResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodResponse {
+		return vs[0].([]MethodResponse)[vs[1].(int)]
+	}).(MethodResponseOutput)
 }
 
 type RestApiEndpointConfiguration struct {
@@ -4136,8 +4136,8 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentAccessLogSettingPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentCanarySettingOutput{})
 	pulumi.RegisterOutputType(DeploymentCanarySettingPtrOutput{})
-	pulumi.RegisterOutputType(DeploymentDeploymentCanarySettingsOutput{})
-	pulumi.RegisterOutputType(DeploymentDeploymentCanarySettingsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentCanarySettingsOutput{})
+	pulumi.RegisterOutputType(DeploymentCanarySettingsPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentMethodSettingOutput{})
 	pulumi.RegisterOutputType(DeploymentMethodSettingArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentStageDescriptionOutput{})
@@ -4156,8 +4156,8 @@ func init() {
 	pulumi.RegisterOutputType(MethodIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationResponseOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationResponseArrayOutput{})
-	pulumi.RegisterOutputType(MethodMethodResponseOutput{})
-	pulumi.RegisterOutputType(MethodMethodResponseArrayOutput{})
+	pulumi.RegisterOutputType(MethodResponseOutput{})
+	pulumi.RegisterOutputType(MethodResponseArrayOutput{})
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RestApiS3LocationOutput{})

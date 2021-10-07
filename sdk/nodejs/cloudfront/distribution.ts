@@ -35,7 +35,7 @@ export class Distribution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Distribution.__pulumiType;
     }
 
-    public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionDistributionConfig>;
+    public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionConfig>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.cloudfront.DistributionTag[] | undefined>;
 
@@ -72,6 +72,6 @@ export class Distribution extends pulumi.CustomResource {
  * The set of arguments for constructing a Distribution resource.
  */
 export interface DistributionArgs {
-    distributionConfig: pulumi.Input<inputs.cloudfront.DistributionDistributionConfigArgs>;
+    distributionConfig: pulumi.Input<inputs.cloudfront.DistributionConfigArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTagArgs>[]>;
 }

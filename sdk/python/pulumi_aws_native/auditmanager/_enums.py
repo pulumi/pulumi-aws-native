@@ -5,26 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'AssessmentAssessmentReportDestinationType',
-    'AssessmentAssessmentStatus',
     'AssessmentDelegationStatus',
+    'AssessmentReportDestinationType',
     'AssessmentRoleType',
+    'AssessmentStatus',
 ]
-
-
-class AssessmentAssessmentReportDestinationType(str, Enum):
-    """
-    The destination type, such as Amazon S3.
-    """
-    S3 = "S3"
-
-
-class AssessmentAssessmentStatus(str, Enum):
-    """
-    The status of the specified assessment. 
-    """
-    ACTIVE = "ACTIVE"
-    INACTIVE = "INACTIVE"
 
 
 class AssessmentDelegationStatus(str, Enum):
@@ -36,9 +21,24 @@ class AssessmentDelegationStatus(str, Enum):
     COMPLETE = "COMPLETE"
 
 
+class AssessmentReportDestinationType(str, Enum):
+    """
+    The destination type, such as Amazon S3.
+    """
+    S3 = "S3"
+
+
 class AssessmentRoleType(str, Enum):
     """
      The IAM role type.
     """
     PROCESS_OWNER = "PROCESS_OWNER"
     RESOURCE_OWNER = "RESOURCE_OWNER"
+
+
+class AssessmentStatus(str, Enum):
+    """
+    The status of the specified assessment. 
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"

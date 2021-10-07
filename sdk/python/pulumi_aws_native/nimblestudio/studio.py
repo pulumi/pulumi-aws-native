@@ -19,7 +19,7 @@ class StudioArgs:
                  display_name: pulumi.Input[str],
                  studio_name: pulumi.Input[str],
                  user_role_arn: pulumi.Input[str],
-                 studio_encryption_configuration: Optional[pulumi.Input['StudioStudioEncryptionConfigurationArgs']] = None,
+                 studio_encryption_configuration: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Studio resource.
@@ -71,11 +71,11 @@ class StudioArgs:
 
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
-    def studio_encryption_configuration(self) -> Optional[pulumi.Input['StudioStudioEncryptionConfigurationArgs']]:
+    def studio_encryption_configuration(self) -> Optional[pulumi.Input['StudioEncryptionConfigurationArgs']]:
         return pulumi.get(self, "studio_encryption_configuration")
 
     @studio_encryption_configuration.setter
-    def studio_encryption_configuration(self, value: Optional[pulumi.Input['StudioStudioEncryptionConfigurationArgs']]):
+    def studio_encryption_configuration(self, value: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']]):
         pulumi.set(self, "studio_encryption_configuration", value)
 
     @property
@@ -95,7 +95,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_role_arn: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioStudioEncryptionConfigurationArgs']]] = None,
+                 studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_role_arn: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioStudioEncryptionConfigurationArgs']]] = None,
+                 studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioEncryptionConfigurationArgs']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,
@@ -222,7 +222,7 @@ class Studio(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
-    def studio_encryption_configuration(self) -> pulumi.Output[Optional['outputs.StudioStudioEncryptionConfiguration']]:
+    def studio_encryption_configuration(self) -> pulumi.Output[Optional['outputs.StudioEncryptionConfiguration']]:
         return pulumi.get(self, "studio_encryption_configuration")
 
     @property

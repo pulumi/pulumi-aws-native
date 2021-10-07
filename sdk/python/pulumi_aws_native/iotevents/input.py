@@ -15,7 +15,7 @@ __all__ = ['InputArgs', 'Input']
 @pulumi.input_type
 class InputArgs:
     def __init__(__self__, *,
-                 input_definition: pulumi.Input['InputInputDefinitionArgs'],
+                 input_definition: pulumi.Input['InputDefinitionArgs'],
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]]] = None):
@@ -37,11 +37,11 @@ class InputArgs:
 
     @property
     @pulumi.getter(name="inputDefinition")
-    def input_definition(self) -> pulumi.Input['InputInputDefinitionArgs']:
+    def input_definition(self) -> pulumi.Input['InputDefinitionArgs']:
         return pulumi.get(self, "input_definition")
 
     @input_definition.setter
-    def input_definition(self, value: pulumi.Input['InputInputDefinitionArgs']):
+    def input_definition(self, value: pulumi.Input['InputDefinitionArgs']):
         pulumi.set(self, "input_definition", value)
 
     @property
@@ -88,7 +88,7 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: Optional[pulumi.Input[pulumi.InputType['InputInputDefinitionArgs']]] = None,
+                 input_definition: Optional[pulumi.Input[pulumi.InputType['InputDefinitionArgs']]] = None,
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputTagArgs']]]]] = None,
@@ -128,7 +128,7 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: Optional[pulumi.Input[pulumi.InputType['InputInputDefinitionArgs']]] = None,
+                 input_definition: Optional[pulumi.Input[pulumi.InputType['InputDefinitionArgs']]] = None,
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputTagArgs']]]]] = None,
@@ -180,7 +180,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inputDefinition")
-    def input_definition(self) -> pulumi.Output['outputs.InputInputDefinition']:
+    def input_definition(self) -> pulumi.Output['outputs.InputDefinition']:
         return pulumi.get(self, "input_definition")
 
     @property

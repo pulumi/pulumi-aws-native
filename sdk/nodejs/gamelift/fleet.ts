@@ -66,7 +66,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
      */
-    public readonly fleetType!: pulumi.Output<enums.gamelift.FleetFleetType | undefined>;
+    public readonly fleetType!: pulumi.Output<enums.gamelift.FleetType | undefined>;
     /**
      * A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */
@@ -226,7 +226,7 @@ export interface FleetArgs {
     /**
      * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
      */
-    fleetType?: pulumi.Input<enums.gamelift.FleetFleetType>;
+    fleetType?: pulumi.Input<enums.gamelift.FleetType>;
     /**
      * A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */

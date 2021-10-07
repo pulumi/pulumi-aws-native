@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     public sealed class DatasetVariableArgs : Pulumi.ResourceArgs
     {
         [Input("datasetContentVersionValue")]
-        public Input<Inputs.DatasetDatasetContentVersionValueArgs>? DatasetContentVersionValue { get; set; }
+        public Input<Inputs.DatasetContentVersionValueArgs>? DatasetContentVersionValue { get; set; }
 
         [Input("doubleValue")]
         public Input<double>? DoubleValue { get; set; }

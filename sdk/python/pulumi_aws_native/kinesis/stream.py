@@ -19,14 +19,14 @@ class StreamArgs:
                  shard_count: pulumi.Input[int],
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
-                 stream_encryption: Optional[pulumi.Input['StreamStreamEncryptionArgs']] = None,
+                 stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
         :param pulumi.Input[int] shard_count: The number of shards that the stream uses.
         :param pulumi.Input[str] name: The name of the Kinesis stream.
         :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
-        :param pulumi.Input['StreamStreamEncryptionArgs'] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input['StreamEncryptionArgs'] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         :param pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         pulumi.set(__self__, "shard_count", shard_count)
@@ -77,14 +77,14 @@ class StreamArgs:
 
     @property
     @pulumi.getter(name="streamEncryption")
-    def stream_encryption(self) -> Optional[pulumi.Input['StreamStreamEncryptionArgs']]:
+    def stream_encryption(self) -> Optional[pulumi.Input['StreamEncryptionArgs']]:
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         """
         return pulumi.get(self, "stream_encryption")
 
     @stream_encryption.setter
-    def stream_encryption(self, value: Optional[pulumi.Input['StreamStreamEncryptionArgs']]):
+    def stream_encryption(self, value: Optional[pulumi.Input['StreamEncryptionArgs']]):
         pulumi.set(self, "stream_encryption", value)
 
     @property
@@ -108,7 +108,7 @@ class Stream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
-                 stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamStreamEncryptionArgs']]] = None,
+                 stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -119,7 +119,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Kinesis stream.
         :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[int] shard_count: The number of shards that the stream uses.
-        :param pulumi.Input[pulumi.InputType['StreamStreamEncryptionArgs']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input[pulumi.InputType['StreamEncryptionArgs']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         ...
@@ -149,7 +149,7 @@ class Stream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
-                 stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamStreamEncryptionArgs']]] = None,
+                 stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamEncryptionArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -235,7 +235,7 @@ class Stream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamEncryption")
-    def stream_encryption(self) -> pulumi.Output[Optional['outputs.StreamStreamEncryption']]:
+    def stream_encryption(self) -> pulumi.Output[Optional['outputs.StreamEncryption']]:
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         """

@@ -139,12 +139,12 @@ class ConnectionAlias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def associations(self) -> pulumi.Output[Sequence['outputs.ConnectionAliasConnectionAliasAssociation']]:
+    def associations(self) -> pulumi.Output[Sequence['outputs.ConnectionAliasAssociation']]:
         return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter(name="connectionAliasState")
-    def connection_alias_state(self) -> pulumi.Output['ConnectionAliasConnectionAliasState']:
+    def connection_alias_state(self) -> pulumi.Output['ConnectionAliasState']:
         return pulumi.get(self, "connection_alias_state")
 
     @property

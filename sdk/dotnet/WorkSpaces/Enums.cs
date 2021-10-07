@@ -8,29 +8,29 @@ using Pulumi;
 namespace Pulumi.AwsNative.WorkSpaces
 {
     [EnumType]
-    public readonly struct ConnectionAliasConnectionAliasAssociationAssociationStatus : IEquatable<ConnectionAliasConnectionAliasAssociationAssociationStatus>
+    public readonly struct ConnectionAliasAssociationAssociationStatus : IEquatable<ConnectionAliasAssociationAssociationStatus>
     {
         private readonly string _value;
 
-        private ConnectionAliasConnectionAliasAssociationAssociationStatus(string value)
+        private ConnectionAliasAssociationAssociationStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConnectionAliasConnectionAliasAssociationAssociationStatus NotAssociated { get; } = new ConnectionAliasConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED");
-        public static ConnectionAliasConnectionAliasAssociationAssociationStatus PendingAssociation { get; } = new ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_ASSOCIATION");
-        public static ConnectionAliasConnectionAliasAssociationAssociationStatus AssociatedWithOwnerAccount { get; } = new ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_OWNER_ACCOUNT");
-        public static ConnectionAliasConnectionAliasAssociationAssociationStatus AssociatedWithSharedAccount { get; } = new ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_SHARED_ACCOUNT");
-        public static ConnectionAliasConnectionAliasAssociationAssociationStatus PendingDisassociation { get; } = new ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_DISASSOCIATION");
+        public static ConnectionAliasAssociationAssociationStatus NotAssociated { get; } = new ConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED");
+        public static ConnectionAliasAssociationAssociationStatus PendingAssociation { get; } = new ConnectionAliasAssociationAssociationStatus("PENDING_ASSOCIATION");
+        public static ConnectionAliasAssociationAssociationStatus AssociatedWithOwnerAccount { get; } = new ConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_OWNER_ACCOUNT");
+        public static ConnectionAliasAssociationAssociationStatus AssociatedWithSharedAccount { get; } = new ConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_SHARED_ACCOUNT");
+        public static ConnectionAliasAssociationAssociationStatus PendingDisassociation { get; } = new ConnectionAliasAssociationAssociationStatus("PENDING_DISASSOCIATION");
 
-        public static bool operator ==(ConnectionAliasConnectionAliasAssociationAssociationStatus left, ConnectionAliasConnectionAliasAssociationAssociationStatus right) => left.Equals(right);
-        public static bool operator !=(ConnectionAliasConnectionAliasAssociationAssociationStatus left, ConnectionAliasConnectionAliasAssociationAssociationStatus right) => !left.Equals(right);
+        public static bool operator ==(ConnectionAliasAssociationAssociationStatus left, ConnectionAliasAssociationAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectionAliasAssociationAssociationStatus left, ConnectionAliasAssociationAssociationStatus right) => !left.Equals(right);
 
-        public static explicit operator string(ConnectionAliasConnectionAliasAssociationAssociationStatus value) => value._value;
+        public static explicit operator string(ConnectionAliasAssociationAssociationStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectionAliasConnectionAliasAssociationAssociationStatus other && Equals(other);
-        public bool Equals(ConnectionAliasConnectionAliasAssociationAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ConnectionAliasAssociationAssociationStatus other && Equals(other);
+        public bool Equals(ConnectionAliasAssociationAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -39,27 +39,27 @@ namespace Pulumi.AwsNative.WorkSpaces
     }
 
     [EnumType]
-    public readonly struct ConnectionAliasConnectionAliasState : IEquatable<ConnectionAliasConnectionAliasState>
+    public readonly struct ConnectionAliasState : IEquatable<ConnectionAliasState>
     {
         private readonly string _value;
 
-        private ConnectionAliasConnectionAliasState(string value)
+        private ConnectionAliasState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConnectionAliasConnectionAliasState Creating { get; } = new ConnectionAliasConnectionAliasState("CREATING");
-        public static ConnectionAliasConnectionAliasState Created { get; } = new ConnectionAliasConnectionAliasState("CREATED");
-        public static ConnectionAliasConnectionAliasState Deleting { get; } = new ConnectionAliasConnectionAliasState("DELETING");
+        public static ConnectionAliasState Creating { get; } = new ConnectionAliasState("CREATING");
+        public static ConnectionAliasState Created { get; } = new ConnectionAliasState("CREATED");
+        public static ConnectionAliasState Deleting { get; } = new ConnectionAliasState("DELETING");
 
-        public static bool operator ==(ConnectionAliasConnectionAliasState left, ConnectionAliasConnectionAliasState right) => left.Equals(right);
-        public static bool operator !=(ConnectionAliasConnectionAliasState left, ConnectionAliasConnectionAliasState right) => !left.Equals(right);
+        public static bool operator ==(ConnectionAliasState left, ConnectionAliasState right) => left.Equals(right);
+        public static bool operator !=(ConnectionAliasState left, ConnectionAliasState right) => !left.Equals(right);
 
-        public static explicit operator string(ConnectionAliasConnectionAliasState value) => value._value;
+        public static explicit operator string(ConnectionAliasState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectionAliasConnectionAliasState other && Equals(other);
-        public bool Equals(ConnectionAliasConnectionAliasState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ConnectionAliasState other && Equals(other);
+        public bool Equals(ConnectionAliasState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

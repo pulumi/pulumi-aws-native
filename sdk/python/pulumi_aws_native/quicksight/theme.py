@@ -19,7 +19,7 @@ class ThemeArgs:
                  aws_account_id: pulumi.Input[str],
                  theme_id: pulumi.Input[str],
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['ThemeThemeConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['ThemeConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]] = None,
@@ -90,11 +90,11 @@ class ThemeArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ThemeThemeConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ThemeThemeConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['ThemeConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -158,7 +158,7 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeThemeConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeTagArgs']]]]] = None,
@@ -210,7 +210,7 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeThemeConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeTagArgs']]]]] = None,
@@ -308,7 +308,7 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.ThemeThemeConfiguration']]:
+    def configuration(self) -> pulumi.Output[Optional['outputs.ThemeConfiguration']]:
         return pulumi.get(self, "configuration")
 
     @property
@@ -360,12 +360,12 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output['ThemeThemeType']:
+    def type(self) -> pulumi.Output['ThemeType']:
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output['outputs.ThemeThemeVersion']:
+    def version(self) -> pulumi.Output['outputs.ThemeVersion']:
         return pulumi.get(self, "version")
 
     @property

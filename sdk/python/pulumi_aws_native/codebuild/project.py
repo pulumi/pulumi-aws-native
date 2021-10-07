@@ -20,23 +20,23 @@ class ProjectArgs:
                  service_role: pulumi.Input[str],
                  source: pulumi.Input['ProjectSourceArgs'],
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
-                 build_batch_config: Optional[pulumi.Input['ProjectProjectBuildBatchConfigArgs']] = None,
-                 cache: Optional[pulumi.Input['ProjectProjectCacheArgs']] = None,
+                 build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
+                 cache: Optional[pulumi.Input['ProjectCacheArgs']] = None,
                  concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProjectFileSystemLocationArgs']]]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]] = None,
                  logs_config: Optional[pulumi.Input['ProjectLogsConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queued_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  resource_access_role: Optional[pulumi.Input[str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectArtifactsArgs']]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProjectSourceVersionArgs']]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceVersionArgs']]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceArgs']]]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 triggers: Optional[pulumi.Input['ProjectProjectTriggersArgs']] = None,
+                 triggers: Optional[pulumi.Input['ProjectTriggersArgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
@@ -134,20 +134,20 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="buildBatchConfig")
-    def build_batch_config(self) -> Optional[pulumi.Input['ProjectProjectBuildBatchConfigArgs']]:
+    def build_batch_config(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]:
         return pulumi.get(self, "build_batch_config")
 
     @build_batch_config.setter
-    def build_batch_config(self, value: Optional[pulumi.Input['ProjectProjectBuildBatchConfigArgs']]):
+    def build_batch_config(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]):
         pulumi.set(self, "build_batch_config", value)
 
     @property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['ProjectProjectCacheArgs']]:
+    def cache(self) -> Optional[pulumi.Input['ProjectCacheArgs']]:
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['ProjectProjectCacheArgs']]):
+    def cache(self, value: Optional[pulumi.Input['ProjectCacheArgs']]):
         pulumi.set(self, "cache", value)
 
     @property
@@ -179,11 +179,11 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="fileSystemLocations")
-    def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProjectFileSystemLocationArgs']]]]:
+    def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
         return pulumi.get(self, "file_system_locations")
 
     @file_system_locations.setter
-    def file_system_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProjectFileSystemLocationArgs']]]]):
+    def file_system_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]):
         pulumi.set(self, "file_system_locations", value)
 
     @property
@@ -233,11 +233,11 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="secondarySourceVersions")
-    def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProjectSourceVersionArgs']]]]:
+    def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceVersionArgs']]]]:
         return pulumi.get(self, "secondary_source_versions")
 
     @secondary_source_versions.setter
-    def secondary_source_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProjectSourceVersionArgs']]]]):
+    def secondary_source_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSourceVersionArgs']]]]):
         pulumi.set(self, "secondary_source_versions", value)
 
     @property
@@ -278,11 +278,11 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input['ProjectProjectTriggersArgs']]:
+    def triggers(self) -> Optional[pulumi.Input['ProjectTriggersArgs']]:
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input['ProjectProjectTriggersArgs']]):
+    def triggers(self, value: Optional[pulumi.Input['ProjectTriggersArgs']]):
         pulumi.set(self, "triggers", value)
 
     @property
@@ -316,26 +316,26 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
-                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectProjectBuildBatchConfigArgs']]] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['ProjectProjectCacheArgs']]] = None,
+                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
+                 cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
                  concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectProjectFileSystemLocationArgs']]]]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
                  logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queued_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  resource_access_role: Optional[pulumi.Input[str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectProjectSourceVersionArgs']]]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSourceVersionArgs']]]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]]]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 triggers: Optional[pulumi.Input[pulumi.InputType['ProjectProjectTriggersArgs']]] = None,
+                 triggers: Optional[pulumi.Input[pulumi.InputType['ProjectTriggersArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
@@ -371,26 +371,26 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
-                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectProjectBuildBatchConfigArgs']]] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['ProjectProjectCacheArgs']]] = None,
+                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
+                 cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
                  concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectProjectFileSystemLocationArgs']]]]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
                  logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queued_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  resource_access_role: Optional[pulumi.Input[str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectProjectSourceVersionArgs']]]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSourceVersionArgs']]]]] = None,
                  secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]]]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 triggers: Optional[pulumi.Input[pulumi.InputType['ProjectProjectTriggersArgs']]] = None,
+                 triggers: Optional[pulumi.Input[pulumi.InputType['ProjectTriggersArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
@@ -505,12 +505,12 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="buildBatchConfig")
-    def build_batch_config(self) -> pulumi.Output[Optional['outputs.ProjectProjectBuildBatchConfig']]:
+    def build_batch_config(self) -> pulumi.Output[Optional['outputs.ProjectBuildBatchConfig']]:
         return pulumi.get(self, "build_batch_config")
 
     @property
     @pulumi.getter
-    def cache(self) -> pulumi.Output[Optional['outputs.ProjectProjectCache']]:
+    def cache(self) -> pulumi.Output[Optional['outputs.ProjectCache']]:
         return pulumi.get(self, "cache")
 
     @property
@@ -535,7 +535,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemLocations")
-    def file_system_locations(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectProjectFileSystemLocation']]]:
+    def file_system_locations(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectFileSystemLocation']]]:
         return pulumi.get(self, "file_system_locations")
 
     @property
@@ -565,7 +565,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secondarySourceVersions")
-    def secondary_source_versions(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectProjectSourceVersion']]]:
+    def secondary_source_versions(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectSourceVersion']]]:
         return pulumi.get(self, "secondary_source_versions")
 
     @property
@@ -600,7 +600,7 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Output[Optional['outputs.ProjectProjectTriggers']]:
+    def triggers(self) -> pulumi.Output[Optional['outputs.ProjectTriggers']]:
         return pulumi.get(self, "triggers")
 
     @property

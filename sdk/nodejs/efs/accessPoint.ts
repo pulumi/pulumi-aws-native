@@ -36,7 +36,7 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly accessPointId!: pulumi.Output<string>;
-    public readonly accessPointTags!: pulumi.Output<outputs.efs.AccessPointAccessPointTag[] | undefined>;
+    public readonly accessPointTags!: pulumi.Output<outputs.efs.AccessPointTag[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
@@ -96,7 +96,7 @@ export class AccessPoint extends pulumi.CustomResource {
  * The set of arguments for constructing a AccessPoint resource.
  */
 export interface AccessPointArgs {
-    accessPointTags?: pulumi.Input<pulumi.Input<inputs.efs.AccessPointAccessPointTagArgs>[]>;
+    accessPointTags?: pulumi.Input<pulumi.Input<inputs.efs.AccessPointTagArgs>[]>;
     /**
      * (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
      */

@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public Output<string?> InvitationId { get; private set; } = null!;
 
         [Output("memberConfiguration")]
-        public Output<Outputs.MemberMemberConfiguration> MemberConfiguration { get; private set; } = null!;
+        public Output<Outputs.MemberConfiguration> MemberConfiguration { get; private set; } = null!;
 
         [Output("memberId")]
         public Output<string> MemberId { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public Input<string>? InvitationId { get; set; }
 
         [Input("memberConfiguration", required: true)]
-        public Input<Inputs.MemberMemberConfigurationArgs> MemberConfiguration { get; set; } = null!;
+        public Input<Inputs.MemberConfigurationArgs> MemberConfiguration { get; set; } = null!;
 
         [Input("networkConfiguration")]
         public Input<Inputs.MemberNetworkConfigurationArgs>? NetworkConfiguration { get; set; }

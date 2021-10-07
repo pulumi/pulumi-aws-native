@@ -83,9 +83,9 @@ export const RuleGroupTargetType = {
 
 export type RuleGroupTargetType = (typeof RuleGroupTargetType)[keyof typeof RuleGroupTargetType];
 
-export const RuleGroupType = {
+export const RuleGroupTypeEnum = {
     Stateless: "STATELESS",
     Stateful: "STATEFUL",
 } as const;
 
-export type RuleGroupType = (typeof RuleGroupType)[keyof typeof RuleGroupType];
+export type RuleGroupTypeEnum = (typeof RuleGroupTypeEnum)[keyof typeof RuleGroupTypeEnum];

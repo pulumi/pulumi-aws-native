@@ -508,125 +508,125 @@ func (in *documentAttachmentsSourceKeyPtr) ToDocumentAttachmentsSourceKeyPtrOutp
 }
 
 // Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-type DocumentDocumentFormat string
+type DocumentFormat string
 
 const (
-	DocumentDocumentFormatYaml = DocumentDocumentFormat("YAML")
-	DocumentDocumentFormatJson = DocumentDocumentFormat("JSON")
-	DocumentDocumentFormatText = DocumentDocumentFormat("TEXT")
+	DocumentFormatYaml = DocumentFormat("YAML")
+	DocumentFormatJson = DocumentFormat("JSON")
+	DocumentFormatText = DocumentFormat("TEXT")
 )
 
-func (DocumentDocumentFormat) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDocumentFormat)(nil)).Elem()
+func (DocumentFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentFormat)(nil)).Elem()
 }
 
-func (e DocumentDocumentFormat) ToDocumentDocumentFormatOutput() DocumentDocumentFormatOutput {
-	return pulumi.ToOutput(e).(DocumentDocumentFormatOutput)
+func (e DocumentFormat) ToDocumentFormatOutput() DocumentFormatOutput {
+	return pulumi.ToOutput(e).(DocumentFormatOutput)
 }
 
-func (e DocumentDocumentFormat) ToDocumentDocumentFormatOutputWithContext(ctx context.Context) DocumentDocumentFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DocumentDocumentFormatOutput)
+func (e DocumentFormat) ToDocumentFormatOutputWithContext(ctx context.Context) DocumentFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentFormatOutput)
 }
 
-func (e DocumentDocumentFormat) ToDocumentDocumentFormatPtrOutput() DocumentDocumentFormatPtrOutput {
-	return e.ToDocumentDocumentFormatPtrOutputWithContext(context.Background())
+func (e DocumentFormat) ToDocumentFormatPtrOutput() DocumentFormatPtrOutput {
+	return e.ToDocumentFormatPtrOutputWithContext(context.Background())
 }
 
-func (e DocumentDocumentFormat) ToDocumentDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentDocumentFormatPtrOutput {
-	return DocumentDocumentFormat(e).ToDocumentDocumentFormatOutputWithContext(ctx).ToDocumentDocumentFormatPtrOutputWithContext(ctx)
+func (e DocumentFormat) ToDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentFormatPtrOutput {
+	return DocumentFormat(e).ToDocumentFormatOutputWithContext(ctx).ToDocumentFormatPtrOutputWithContext(ctx)
 }
 
-func (e DocumentDocumentFormat) ToStringOutput() pulumi.StringOutput {
+func (e DocumentFormat) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DocumentDocumentFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DocumentFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DocumentDocumentFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DocumentFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DocumentDocumentFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DocumentFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DocumentDocumentFormatOutput struct{ *pulumi.OutputState }
+type DocumentFormatOutput struct{ *pulumi.OutputState }
 
-func (DocumentDocumentFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDocumentFormat)(nil)).Elem()
+func (DocumentFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentFormat)(nil)).Elem()
 }
 
-func (o DocumentDocumentFormatOutput) ToDocumentDocumentFormatOutput() DocumentDocumentFormatOutput {
+func (o DocumentFormatOutput) ToDocumentFormatOutput() DocumentFormatOutput {
 	return o
 }
 
-func (o DocumentDocumentFormatOutput) ToDocumentDocumentFormatOutputWithContext(ctx context.Context) DocumentDocumentFormatOutput {
+func (o DocumentFormatOutput) ToDocumentFormatOutputWithContext(ctx context.Context) DocumentFormatOutput {
 	return o
 }
 
-func (o DocumentDocumentFormatOutput) ToDocumentDocumentFormatPtrOutput() DocumentDocumentFormatPtrOutput {
-	return o.ToDocumentDocumentFormatPtrOutputWithContext(context.Background())
+func (o DocumentFormatOutput) ToDocumentFormatPtrOutput() DocumentFormatPtrOutput {
+	return o.ToDocumentFormatPtrOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentFormatOutput) ToDocumentDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentDocumentFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentDocumentFormat) *DocumentDocumentFormat {
+func (o DocumentFormatOutput) ToDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentFormat) *DocumentFormat {
 		return &v
-	}).(DocumentDocumentFormatPtrOutput)
+	}).(DocumentFormatPtrOutput)
 }
 
-func (o DocumentDocumentFormatOutput) ToStringOutput() pulumi.StringOutput {
+func (o DocumentFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentDocumentFormat) string {
+func (o DocumentFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentFormat) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DocumentDocumentFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DocumentFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentDocumentFormat) *string {
+func (o DocumentFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentFormat) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DocumentDocumentFormatPtrOutput struct{ *pulumi.OutputState }
+type DocumentFormatPtrOutput struct{ *pulumi.OutputState }
 
-func (DocumentDocumentFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentDocumentFormat)(nil)).Elem()
+func (DocumentFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentFormat)(nil)).Elem()
 }
 
-func (o DocumentDocumentFormatPtrOutput) ToDocumentDocumentFormatPtrOutput() DocumentDocumentFormatPtrOutput {
+func (o DocumentFormatPtrOutput) ToDocumentFormatPtrOutput() DocumentFormatPtrOutput {
 	return o
 }
 
-func (o DocumentDocumentFormatPtrOutput) ToDocumentDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentDocumentFormatPtrOutput {
+func (o DocumentFormatPtrOutput) ToDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentFormatPtrOutput {
 	return o
 }
 
-func (o DocumentDocumentFormatPtrOutput) Elem() DocumentDocumentFormatOutput {
-	return o.ApplyT(func(v *DocumentDocumentFormat) DocumentDocumentFormat {
+func (o DocumentFormatPtrOutput) Elem() DocumentFormatOutput {
+	return o.ApplyT(func(v *DocumentFormat) DocumentFormat {
 		if v != nil {
 			return *v
 		}
-		var ret DocumentDocumentFormat
+		var ret DocumentFormat
 		return ret
-	}).(DocumentDocumentFormatOutput)
+	}).(DocumentFormatOutput)
 }
 
-func (o DocumentDocumentFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DocumentFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentDocumentFormat) *string {
+func (o DocumentFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentFormat) *string {
 		if e == nil {
 			return nil
 		}
@@ -635,174 +635,174 @@ func (o DocumentDocumentFormatPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentDocumentFormatInput is an input type that accepts DocumentDocumentFormatArgs and DocumentDocumentFormatOutput values.
-// You can construct a concrete instance of `DocumentDocumentFormatInput` via:
+// DocumentFormatInput is an input type that accepts DocumentFormatArgs and DocumentFormatOutput values.
+// You can construct a concrete instance of `DocumentFormatInput` via:
 //
-//          DocumentDocumentFormatArgs{...}
-type DocumentDocumentFormatInput interface {
+//          DocumentFormatArgs{...}
+type DocumentFormatInput interface {
 	pulumi.Input
 
-	ToDocumentDocumentFormatOutput() DocumentDocumentFormatOutput
-	ToDocumentDocumentFormatOutputWithContext(context.Context) DocumentDocumentFormatOutput
+	ToDocumentFormatOutput() DocumentFormatOutput
+	ToDocumentFormatOutputWithContext(context.Context) DocumentFormatOutput
 }
 
-var documentDocumentFormatPtrType = reflect.TypeOf((**DocumentDocumentFormat)(nil)).Elem()
+var documentFormatPtrType = reflect.TypeOf((**DocumentFormat)(nil)).Elem()
 
-type DocumentDocumentFormatPtrInput interface {
+type DocumentFormatPtrInput interface {
 	pulumi.Input
 
-	ToDocumentDocumentFormatPtrOutput() DocumentDocumentFormatPtrOutput
-	ToDocumentDocumentFormatPtrOutputWithContext(context.Context) DocumentDocumentFormatPtrOutput
+	ToDocumentFormatPtrOutput() DocumentFormatPtrOutput
+	ToDocumentFormatPtrOutputWithContext(context.Context) DocumentFormatPtrOutput
 }
 
-type documentDocumentFormatPtr string
+type documentFormatPtr string
 
-func DocumentDocumentFormatPtr(v string) DocumentDocumentFormatPtrInput {
-	return (*documentDocumentFormatPtr)(&v)
+func DocumentFormatPtr(v string) DocumentFormatPtrInput {
+	return (*documentFormatPtr)(&v)
 }
 
-func (*documentDocumentFormatPtr) ElementType() reflect.Type {
-	return documentDocumentFormatPtrType
+func (*documentFormatPtr) ElementType() reflect.Type {
+	return documentFormatPtrType
 }
 
-func (in *documentDocumentFormatPtr) ToDocumentDocumentFormatPtrOutput() DocumentDocumentFormatPtrOutput {
-	return pulumi.ToOutput(in).(DocumentDocumentFormatPtrOutput)
+func (in *documentFormatPtr) ToDocumentFormatPtrOutput() DocumentFormatPtrOutput {
+	return pulumi.ToOutput(in).(DocumentFormatPtrOutput)
 }
 
-func (in *documentDocumentFormatPtr) ToDocumentDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentDocumentFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DocumentDocumentFormatPtrOutput)
+func (in *documentFormatPtr) ToDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentFormatPtrOutput)
 }
 
 // The type of document to create.
-type DocumentDocumentType string
+type DocumentType string
 
 const (
-	DocumentDocumentTypeApplicationConfiguration       = DocumentDocumentType("ApplicationConfiguration")
-	DocumentDocumentTypeApplicationConfigurationSchema = DocumentDocumentType("ApplicationConfigurationSchema")
-	DocumentDocumentTypeAutomation                     = DocumentDocumentType("Automation")
-	DocumentDocumentTypeAutomationChangeTemplate       = DocumentDocumentType("Automation.ChangeTemplate")
-	DocumentDocumentTypeChangeCalendar                 = DocumentDocumentType("ChangeCalendar")
-	DocumentDocumentTypeCloudFormation                 = DocumentDocumentType("CloudFormation")
-	DocumentDocumentTypeCommand                        = DocumentDocumentType("Command")
-	DocumentDocumentTypeDeploymentStrategy             = DocumentDocumentType("DeploymentStrategy")
-	DocumentDocumentTypePackage                        = DocumentDocumentType("Package")
-	DocumentDocumentTypePolicy                         = DocumentDocumentType("Policy")
-	DocumentDocumentTypeProblemAnalysis                = DocumentDocumentType("ProblemAnalysis")
-	DocumentDocumentTypeProblemAnalysisTemplate        = DocumentDocumentType("ProblemAnalysisTemplate")
-	DocumentDocumentTypeSession                        = DocumentDocumentType("Session")
+	DocumentTypeApplicationConfiguration       = DocumentType("ApplicationConfiguration")
+	DocumentTypeApplicationConfigurationSchema = DocumentType("ApplicationConfigurationSchema")
+	DocumentTypeAutomation                     = DocumentType("Automation")
+	DocumentTypeAutomationChangeTemplate       = DocumentType("Automation.ChangeTemplate")
+	DocumentTypeChangeCalendar                 = DocumentType("ChangeCalendar")
+	DocumentTypeCloudFormation                 = DocumentType("CloudFormation")
+	DocumentTypeCommand                        = DocumentType("Command")
+	DocumentTypeDeploymentStrategy             = DocumentType("DeploymentStrategy")
+	DocumentTypePackage                        = DocumentType("Package")
+	DocumentTypePolicy                         = DocumentType("Policy")
+	DocumentTypeProblemAnalysis                = DocumentType("ProblemAnalysis")
+	DocumentTypeProblemAnalysisTemplate        = DocumentType("ProblemAnalysisTemplate")
+	DocumentTypeSession                        = DocumentType("Session")
 )
 
-func (DocumentDocumentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDocumentType)(nil)).Elem()
+func (DocumentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentType)(nil)).Elem()
 }
 
-func (e DocumentDocumentType) ToDocumentDocumentTypeOutput() DocumentDocumentTypeOutput {
-	return pulumi.ToOutput(e).(DocumentDocumentTypeOutput)
+func (e DocumentType) ToDocumentTypeOutput() DocumentTypeOutput {
+	return pulumi.ToOutput(e).(DocumentTypeOutput)
 }
 
-func (e DocumentDocumentType) ToDocumentDocumentTypeOutputWithContext(ctx context.Context) DocumentDocumentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DocumentDocumentTypeOutput)
+func (e DocumentType) ToDocumentTypeOutputWithContext(ctx context.Context) DocumentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DocumentTypeOutput)
 }
 
-func (e DocumentDocumentType) ToDocumentDocumentTypePtrOutput() DocumentDocumentTypePtrOutput {
-	return e.ToDocumentDocumentTypePtrOutputWithContext(context.Background())
+func (e DocumentType) ToDocumentTypePtrOutput() DocumentTypePtrOutput {
+	return e.ToDocumentTypePtrOutputWithContext(context.Background())
 }
 
-func (e DocumentDocumentType) ToDocumentDocumentTypePtrOutputWithContext(ctx context.Context) DocumentDocumentTypePtrOutput {
-	return DocumentDocumentType(e).ToDocumentDocumentTypeOutputWithContext(ctx).ToDocumentDocumentTypePtrOutputWithContext(ctx)
+func (e DocumentType) ToDocumentTypePtrOutputWithContext(ctx context.Context) DocumentTypePtrOutput {
+	return DocumentType(e).ToDocumentTypeOutputWithContext(ctx).ToDocumentTypePtrOutputWithContext(ctx)
 }
 
-func (e DocumentDocumentType) ToStringOutput() pulumi.StringOutput {
+func (e DocumentType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DocumentDocumentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e DocumentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e DocumentDocumentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e DocumentType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e DocumentDocumentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e DocumentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DocumentDocumentTypeOutput struct{ *pulumi.OutputState }
+type DocumentTypeOutput struct{ *pulumi.OutputState }
 
-func (DocumentDocumentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentDocumentType)(nil)).Elem()
+func (DocumentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentType)(nil)).Elem()
 }
 
-func (o DocumentDocumentTypeOutput) ToDocumentDocumentTypeOutput() DocumentDocumentTypeOutput {
+func (o DocumentTypeOutput) ToDocumentTypeOutput() DocumentTypeOutput {
 	return o
 }
 
-func (o DocumentDocumentTypeOutput) ToDocumentDocumentTypeOutputWithContext(ctx context.Context) DocumentDocumentTypeOutput {
+func (o DocumentTypeOutput) ToDocumentTypeOutputWithContext(ctx context.Context) DocumentTypeOutput {
 	return o
 }
 
-func (o DocumentDocumentTypeOutput) ToDocumentDocumentTypePtrOutput() DocumentDocumentTypePtrOutput {
-	return o.ToDocumentDocumentTypePtrOutputWithContext(context.Background())
+func (o DocumentTypeOutput) ToDocumentTypePtrOutput() DocumentTypePtrOutput {
+	return o.ToDocumentTypePtrOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentTypeOutput) ToDocumentDocumentTypePtrOutputWithContext(ctx context.Context) DocumentDocumentTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentDocumentType) *DocumentDocumentType {
+func (o DocumentTypeOutput) ToDocumentTypePtrOutputWithContext(ctx context.Context) DocumentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentType) *DocumentType {
 		return &v
-	}).(DocumentDocumentTypePtrOutput)
+	}).(DocumentTypePtrOutput)
 }
 
-func (o DocumentDocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o DocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentDocumentType) string {
+func (o DocumentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o DocumentDocumentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DocumentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentDocumentType) *string {
+func (o DocumentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DocumentType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type DocumentDocumentTypePtrOutput struct{ *pulumi.OutputState }
+type DocumentTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DocumentDocumentTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentDocumentType)(nil)).Elem()
+func (DocumentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentType)(nil)).Elem()
 }
 
-func (o DocumentDocumentTypePtrOutput) ToDocumentDocumentTypePtrOutput() DocumentDocumentTypePtrOutput {
+func (o DocumentTypePtrOutput) ToDocumentTypePtrOutput() DocumentTypePtrOutput {
 	return o
 }
 
-func (o DocumentDocumentTypePtrOutput) ToDocumentDocumentTypePtrOutputWithContext(ctx context.Context) DocumentDocumentTypePtrOutput {
+func (o DocumentTypePtrOutput) ToDocumentTypePtrOutputWithContext(ctx context.Context) DocumentTypePtrOutput {
 	return o
 }
 
-func (o DocumentDocumentTypePtrOutput) Elem() DocumentDocumentTypeOutput {
-	return o.ApplyT(func(v *DocumentDocumentType) DocumentDocumentType {
+func (o DocumentTypePtrOutput) Elem() DocumentTypeOutput {
+	return o.ApplyT(func(v *DocumentType) DocumentType {
 		if v != nil {
 			return *v
 		}
-		var ret DocumentDocumentType
+		var ret DocumentType
 		return ret
-	}).(DocumentDocumentTypeOutput)
+	}).(DocumentTypeOutput)
 }
 
-func (o DocumentDocumentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o DocumentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o DocumentDocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentDocumentType) *string {
+func (o DocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DocumentType) *string {
 		if e == nil {
 			return nil
 		}
@@ -811,42 +811,42 @@ func (o DocumentDocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentDocumentTypeInput is an input type that accepts DocumentDocumentTypeArgs and DocumentDocumentTypeOutput values.
-// You can construct a concrete instance of `DocumentDocumentTypeInput` via:
+// DocumentTypeInput is an input type that accepts DocumentTypeArgs and DocumentTypeOutput values.
+// You can construct a concrete instance of `DocumentTypeInput` via:
 //
-//          DocumentDocumentTypeArgs{...}
-type DocumentDocumentTypeInput interface {
+//          DocumentTypeArgs{...}
+type DocumentTypeInput interface {
 	pulumi.Input
 
-	ToDocumentDocumentTypeOutput() DocumentDocumentTypeOutput
-	ToDocumentDocumentTypeOutputWithContext(context.Context) DocumentDocumentTypeOutput
+	ToDocumentTypeOutput() DocumentTypeOutput
+	ToDocumentTypeOutputWithContext(context.Context) DocumentTypeOutput
 }
 
-var documentDocumentTypePtrType = reflect.TypeOf((**DocumentDocumentType)(nil)).Elem()
+var documentTypePtrType = reflect.TypeOf((**DocumentType)(nil)).Elem()
 
-type DocumentDocumentTypePtrInput interface {
+type DocumentTypePtrInput interface {
 	pulumi.Input
 
-	ToDocumentDocumentTypePtrOutput() DocumentDocumentTypePtrOutput
-	ToDocumentDocumentTypePtrOutputWithContext(context.Context) DocumentDocumentTypePtrOutput
+	ToDocumentTypePtrOutput() DocumentTypePtrOutput
+	ToDocumentTypePtrOutputWithContext(context.Context) DocumentTypePtrOutput
 }
 
-type documentDocumentTypePtr string
+type documentTypePtr string
 
-func DocumentDocumentTypePtr(v string) DocumentDocumentTypePtrInput {
-	return (*documentDocumentTypePtr)(&v)
+func DocumentTypePtr(v string) DocumentTypePtrInput {
+	return (*documentTypePtr)(&v)
 }
 
-func (*documentDocumentTypePtr) ElementType() reflect.Type {
-	return documentDocumentTypePtrType
+func (*documentTypePtr) ElementType() reflect.Type {
+	return documentTypePtrType
 }
 
-func (in *documentDocumentTypePtr) ToDocumentDocumentTypePtrOutput() DocumentDocumentTypePtrOutput {
-	return pulumi.ToOutput(in).(DocumentDocumentTypePtrOutput)
+func (in *documentTypePtr) ToDocumentTypePtrOutput() DocumentTypePtrOutput {
+	return pulumi.ToOutput(in).(DocumentTypePtrOutput)
 }
 
-func (in *documentDocumentTypePtr) ToDocumentDocumentTypePtrOutputWithContext(ctx context.Context) DocumentDocumentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DocumentDocumentTypePtrOutput)
+func (in *documentTypePtr) ToDocumentTypePtrOutputWithContext(ctx context.Context) DocumentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DocumentTypePtrOutput)
 }
 
 func init() {
@@ -856,8 +856,8 @@ func init() {
 	pulumi.RegisterOutputType(AssociationSyncCompliancePtrOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceKeyOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceKeyPtrOutput{})
-	pulumi.RegisterOutputType(DocumentDocumentFormatOutput{})
-	pulumi.RegisterOutputType(DocumentDocumentFormatPtrOutput{})
-	pulumi.RegisterOutputType(DocumentDocumentTypeOutput{})
-	pulumi.RegisterOutputType(DocumentDocumentTypePtrOutput{})
+	pulumi.RegisterOutputType(DocumentFormatOutput{})
+	pulumi.RegisterOutputType(DocumentFormatPtrOutput{})
+	pulumi.RegisterOutputType(DocumentTypeOutput{})
+	pulumi.RegisterOutputType(DocumentTypePtrOutput{})
 }

@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Glue
         public Output<double?> AllocatedCapacity { get; private set; } = null!;
 
         [Output("command")]
-        public Output<Outputs.JobJobCommand> Command { get; private set; } = null!;
+        public Output<Outputs.JobCommand> Command { get; private set; } = null!;
 
         [Output("connections")]
         public Output<Outputs.JobConnectionsList?> Connections { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.Glue
         public Input<double>? AllocatedCapacity { get; set; }
 
         [Input("command", required: true)]
-        public Input<Inputs.JobJobCommandArgs> Command { get; set; } = null!;
+        public Input<Inputs.JobCommandArgs> Command { get; set; } = null!;
 
         [Input("connections")]
         public Input<Inputs.JobConnectionsListArgs>? Connections { get; set; }

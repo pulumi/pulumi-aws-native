@@ -17,14 +17,14 @@ import (
 type VirtualGateway struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                    `pulumi:"arn"`
-	MeshName           pulumi.StringOutput                    `pulumi:"meshName"`
-	MeshOwner          pulumi.StringPtrOutput                 `pulumi:"meshOwner"`
-	ResourceOwner      pulumi.StringOutput                    `pulumi:"resourceOwner"`
-	Spec               VirtualGatewayVirtualGatewaySpecOutput `pulumi:"spec"`
-	Tags               VirtualGatewayTagArrayOutput           `pulumi:"tags"`
-	Uid                pulumi.StringOutput                    `pulumi:"uid"`
-	VirtualGatewayName pulumi.StringPtrOutput                 `pulumi:"virtualGatewayName"`
+	Arn                pulumi.StringOutput          `pulumi:"arn"`
+	MeshName           pulumi.StringOutput          `pulumi:"meshName"`
+	MeshOwner          pulumi.StringPtrOutput       `pulumi:"meshOwner"`
+	ResourceOwner      pulumi.StringOutput          `pulumi:"resourceOwner"`
+	Spec               VirtualGatewaySpecOutput     `pulumi:"spec"`
+	Tags               VirtualGatewayTagArrayOutput `pulumi:"tags"`
+	Uid                pulumi.StringOutput          `pulumi:"uid"`
+	VirtualGatewayName pulumi.StringPtrOutput       `pulumi:"virtualGatewayName"`
 }
 
 // NewVirtualGateway registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +72,18 @@ func (VirtualGatewayState) ElementType() reflect.Type {
 }
 
 type virtualGatewayArgs struct {
-	MeshName           string                           `pulumi:"meshName"`
-	MeshOwner          *string                          `pulumi:"meshOwner"`
-	Spec               VirtualGatewayVirtualGatewaySpec `pulumi:"spec"`
-	Tags               []VirtualGatewayTag              `pulumi:"tags"`
-	VirtualGatewayName *string                          `pulumi:"virtualGatewayName"`
+	MeshName           string              `pulumi:"meshName"`
+	MeshOwner          *string             `pulumi:"meshOwner"`
+	Spec               VirtualGatewaySpec  `pulumi:"spec"`
+	Tags               []VirtualGatewayTag `pulumi:"tags"`
+	VirtualGatewayName *string             `pulumi:"virtualGatewayName"`
 }
 
 // The set of arguments for constructing a VirtualGateway resource.
 type VirtualGatewayArgs struct {
 	MeshName           pulumi.StringInput
 	MeshOwner          pulumi.StringPtrInput
-	Spec               VirtualGatewayVirtualGatewaySpecInput
+	Spec               VirtualGatewaySpecInput
 	Tags               VirtualGatewayTagArrayInput
 	VirtualGatewayName pulumi.StringPtrInput
 }

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
         public Input<string>? EndTime { get; set; }
 
         [Input("scalableTargetAction")]
-        public Input<Inputs.ScalableTargetScalableTargetActionArgs>? ScalableTargetAction { get; set; }
+        public Input<Inputs.ScalableTargetActionArgs>? ScalableTargetAction { get; set; }
 
         [Input("schedule", required: true)]
         public Input<string> Schedule { get; set; } = null!;

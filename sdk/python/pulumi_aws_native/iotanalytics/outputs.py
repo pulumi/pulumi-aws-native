@@ -10,16 +10,16 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'ChannelChannelStorage',
     'ChannelCustomerManagedS3',
     'ChannelRetentionPeriod',
     'ChannelServiceManagedS3',
+    'ChannelStorage',
     'ChannelTag',
     'DatasetAction',
     'DatasetContainerAction',
-    'DatasetDatasetContentDeliveryRule',
-    'DatasetDatasetContentDeliveryRuleDestination',
-    'DatasetDatasetContentVersionValue',
+    'DatasetContentDeliveryRule',
+    'DatasetContentDeliveryRuleDestination',
+    'DatasetContentVersionValue',
     'DatasetDeltaTime',
     'DatasetDeltaTimeSessionWindowConfiguration',
     'DatasetFilter',
@@ -41,17 +41,16 @@ __all__ = [
     'DatastoreColumn',
     'DatastoreCustomerManagedS3',
     'DatastoreCustomerManagedS3Storage',
-    'DatastoreDatastorePartition',
-    'DatastoreDatastorePartitions',
-    'DatastoreDatastoreStorage',
     'DatastoreFileFormatConfiguration',
     'DatastoreIotSiteWiseMultiLayerStorage',
     'DatastoreJsonConfiguration',
     'DatastoreParquetConfiguration',
     'DatastorePartition',
+    'DatastorePartitions',
     'DatastoreRetentionPeriod',
     'DatastoreSchemaDefinition',
     'DatastoreServiceManagedS3',
+    'DatastoreStorage',
     'DatastoreTag',
     'DatastoreTimestampPartition',
     'PipelineActivity',
@@ -67,46 +66,6 @@ __all__ = [
     'PipelineSelectAttributes',
     'PipelineTag',
 ]
-
-@pulumi.output_type
-class ChannelChannelStorage(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customerManagedS3":
-            suggest = "customer_managed_s3"
-        elif key == "serviceManagedS3":
-            suggest = "service_managed_s3"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ChannelChannelStorage. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ChannelChannelStorage.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ChannelChannelStorage.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 customer_managed_s3: Optional['outputs.ChannelCustomerManagedS3'] = None,
-                 service_managed_s3: Optional['outputs.ChannelServiceManagedS3'] = None):
-        if customer_managed_s3 is not None:
-            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
-        if service_managed_s3 is not None:
-            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
-
-    @property
-    @pulumi.getter(name="customerManagedS3")
-    def customer_managed_s3(self) -> Optional['outputs.ChannelCustomerManagedS3']:
-        return pulumi.get(self, "customer_managed_s3")
-
-    @property
-    @pulumi.getter(name="serviceManagedS3")
-    def service_managed_s3(self) -> Optional['outputs.ChannelServiceManagedS3']:
-        return pulumi.get(self, "service_managed_s3")
-
 
 @pulumi.output_type
 class ChannelCustomerManagedS3(dict):
@@ -196,6 +155,46 @@ class ChannelRetentionPeriod(dict):
 class ChannelServiceManagedS3(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class ChannelStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedS3":
+            suggest = "customer_managed_s3"
+        elif key == "serviceManagedS3":
+            suggest = "service_managed_s3"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_s3: Optional['outputs.ChannelCustomerManagedS3'] = None,
+                 service_managed_s3: Optional['outputs.ChannelServiceManagedS3'] = None):
+        if customer_managed_s3 is not None:
+            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
+        if service_managed_s3 is not None:
+            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
+
+    @property
+    @pulumi.getter(name="customerManagedS3")
+    def customer_managed_s3(self) -> Optional['outputs.ChannelCustomerManagedS3']:
+        return pulumi.get(self, "customer_managed_s3")
+
+    @property
+    @pulumi.getter(name="serviceManagedS3")
+    def service_managed_s3(self) -> Optional['outputs.ChannelServiceManagedS3']:
+        return pulumi.get(self, "service_managed_s3")
 
 
 @pulumi.output_type
@@ -320,7 +319,7 @@ class DatasetContainerAction(dict):
 
 
 @pulumi.output_type
-class DatasetDatasetContentDeliveryRule(dict):
+class DatasetContentDeliveryRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -328,18 +327,18 @@ class DatasetDatasetContentDeliveryRule(dict):
             suggest = "entry_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatasetDatasetContentDeliveryRule. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatasetContentDeliveryRule. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DatasetDatasetContentDeliveryRule.__key_warning(key)
+        DatasetContentDeliveryRule.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DatasetDatasetContentDeliveryRule.__key_warning(key)
+        DatasetContentDeliveryRule.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 destination: 'outputs.DatasetDatasetContentDeliveryRuleDestination',
+                 destination: 'outputs.DatasetContentDeliveryRuleDestination',
                  entry_name: Optional[str] = None):
         pulumi.set(__self__, "destination", destination)
         if entry_name is not None:
@@ -347,7 +346,7 @@ class DatasetDatasetContentDeliveryRule(dict):
 
     @property
     @pulumi.getter
-    def destination(self) -> 'outputs.DatasetDatasetContentDeliveryRuleDestination':
+    def destination(self) -> 'outputs.DatasetContentDeliveryRuleDestination':
         return pulumi.get(self, "destination")
 
     @property
@@ -357,7 +356,7 @@ class DatasetDatasetContentDeliveryRule(dict):
 
 
 @pulumi.output_type
-class DatasetDatasetContentDeliveryRuleDestination(dict):
+class DatasetContentDeliveryRuleDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -367,14 +366,14 @@ class DatasetDatasetContentDeliveryRuleDestination(dict):
             suggest = "s3_destination_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatasetDatasetContentDeliveryRuleDestination. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatasetContentDeliveryRuleDestination. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DatasetDatasetContentDeliveryRuleDestination.__key_warning(key)
+        DatasetContentDeliveryRuleDestination.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DatasetDatasetContentDeliveryRuleDestination.__key_warning(key)
+        DatasetContentDeliveryRuleDestination.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -397,7 +396,7 @@ class DatasetDatasetContentDeliveryRuleDestination(dict):
 
 
 @pulumi.output_type
-class DatasetDatasetContentVersionValue(dict):
+class DatasetContentVersionValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -405,14 +404,14 @@ class DatasetDatasetContentVersionValue(dict):
             suggest = "dataset_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatasetDatasetContentVersionValue. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatasetContentVersionValue. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DatasetDatasetContentVersionValue.__key_warning(key)
+        DatasetContentVersionValue.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DatasetDatasetContentVersionValue.__key_warning(key)
+        DatasetContentVersionValue.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1006,7 +1005,7 @@ class DatasetVariable(dict):
 
     def __init__(__self__, *,
                  variable_name: str,
-                 dataset_content_version_value: Optional['outputs.DatasetDatasetContentVersionValue'] = None,
+                 dataset_content_version_value: Optional['outputs.DatasetContentVersionValue'] = None,
                  double_value: Optional[float] = None,
                  output_file_uri_value: Optional['outputs.DatasetOutputFileUriValue'] = None,
                  string_value: Optional[str] = None):
@@ -1027,7 +1026,7 @@ class DatasetVariable(dict):
 
     @property
     @pulumi.getter(name="datasetContentVersionValue")
-    def dataset_content_version_value(self) -> Optional['outputs.DatasetDatasetContentVersionValue']:
+    def dataset_content_version_value(self) -> Optional['outputs.DatasetContentVersionValue']:
         return pulumi.get(self, "dataset_content_version_value")
 
     @property
@@ -1187,107 +1186,6 @@ class DatastoreCustomerManagedS3Storage(dict):
 
 
 @pulumi.output_type
-class DatastoreDatastorePartition(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "timestampPartition":
-            suggest = "timestamp_partition"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatastoreDatastorePartition. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatastoreDatastorePartition.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatastoreDatastorePartition.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 partition: Optional['outputs.DatastorePartition'] = None,
-                 timestamp_partition: Optional['outputs.DatastoreTimestampPartition'] = None):
-        if partition is not None:
-            pulumi.set(__self__, "partition", partition)
-        if timestamp_partition is not None:
-            pulumi.set(__self__, "timestamp_partition", timestamp_partition)
-
-    @property
-    @pulumi.getter
-    def partition(self) -> Optional['outputs.DatastorePartition']:
-        return pulumi.get(self, "partition")
-
-    @property
-    @pulumi.getter(name="timestampPartition")
-    def timestamp_partition(self) -> Optional['outputs.DatastoreTimestampPartition']:
-        return pulumi.get(self, "timestamp_partition")
-
-
-@pulumi.output_type
-class DatastoreDatastorePartitions(dict):
-    def __init__(__self__, *,
-                 partitions: Optional[Sequence['outputs.DatastoreDatastorePartition']] = None):
-        if partitions is not None:
-            pulumi.set(__self__, "partitions", partitions)
-
-    @property
-    @pulumi.getter
-    def partitions(self) -> Optional[Sequence['outputs.DatastoreDatastorePartition']]:
-        return pulumi.get(self, "partitions")
-
-
-@pulumi.output_type
-class DatastoreDatastoreStorage(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customerManagedS3":
-            suggest = "customer_managed_s3"
-        elif key == "iotSiteWiseMultiLayerStorage":
-            suggest = "iot_site_wise_multi_layer_storage"
-        elif key == "serviceManagedS3":
-            suggest = "service_managed_s3"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatastoreDatastoreStorage. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatastoreDatastoreStorage.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatastoreDatastoreStorage.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 customer_managed_s3: Optional['outputs.DatastoreCustomerManagedS3'] = None,
-                 iot_site_wise_multi_layer_storage: Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage'] = None,
-                 service_managed_s3: Optional['outputs.DatastoreServiceManagedS3'] = None):
-        if customer_managed_s3 is not None:
-            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
-        if iot_site_wise_multi_layer_storage is not None:
-            pulumi.set(__self__, "iot_site_wise_multi_layer_storage", iot_site_wise_multi_layer_storage)
-        if service_managed_s3 is not None:
-            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
-
-    @property
-    @pulumi.getter(name="customerManagedS3")
-    def customer_managed_s3(self) -> Optional['outputs.DatastoreCustomerManagedS3']:
-        return pulumi.get(self, "customer_managed_s3")
-
-    @property
-    @pulumi.getter(name="iotSiteWiseMultiLayerStorage")
-    def iot_site_wise_multi_layer_storage(self) -> Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage']:
-        return pulumi.get(self, "iot_site_wise_multi_layer_storage")
-
-    @property
-    @pulumi.getter(name="serviceManagedS3")
-    def service_managed_s3(self) -> Optional['outputs.DatastoreServiceManagedS3']:
-        return pulumi.get(self, "service_managed_s3")
-
-
-@pulumi.output_type
 class DatastoreFileFormatConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1397,8 +1295,8 @@ class DatastorePartition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "attributeName":
-            suggest = "attribute_name"
+        if key == "timestampPartition":
+            suggest = "timestamp_partition"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DatastorePartition. Access the value via the '{suggest}' property getter instead.")
@@ -1412,13 +1310,35 @@ class DatastorePartition(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 attribute_name: str):
-        pulumi.set(__self__, "attribute_name", attribute_name)
+                 partition: Optional['outputs.DatastorePartition'] = None,
+                 timestamp_partition: Optional['outputs.DatastoreTimestampPartition'] = None):
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+        if timestamp_partition is not None:
+            pulumi.set(__self__, "timestamp_partition", timestamp_partition)
 
     @property
-    @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> str:
-        return pulumi.get(self, "attribute_name")
+    @pulumi.getter
+    def partition(self) -> Optional['outputs.DatastorePartition']:
+        return pulumi.get(self, "partition")
+
+    @property
+    @pulumi.getter(name="timestampPartition")
+    def timestamp_partition(self) -> Optional['outputs.DatastoreTimestampPartition']:
+        return pulumi.get(self, "timestamp_partition")
+
+
+@pulumi.output_type
+class DatastorePartitions(dict):
+    def __init__(__self__, *,
+                 partitions: Optional[Sequence['outputs.DatastorePartition']] = None):
+        if partitions is not None:
+            pulumi.set(__self__, "partitions", partitions)
+
+    @property
+    @pulumi.getter
+    def partitions(self) -> Optional[Sequence['outputs.DatastorePartition']]:
+        return pulumi.get(self, "partitions")
 
 
 @pulumi.output_type
@@ -1476,6 +1396,56 @@ class DatastoreSchemaDefinition(dict):
 class DatastoreServiceManagedS3(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class DatastoreStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedS3":
+            suggest = "customer_managed_s3"
+        elif key == "iotSiteWiseMultiLayerStorage":
+            suggest = "iot_site_wise_multi_layer_storage"
+        elif key == "serviceManagedS3":
+            suggest = "service_managed_s3"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatastoreStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatastoreStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatastoreStorage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_s3: Optional['outputs.DatastoreCustomerManagedS3'] = None,
+                 iot_site_wise_multi_layer_storage: Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage'] = None,
+                 service_managed_s3: Optional['outputs.DatastoreServiceManagedS3'] = None):
+        if customer_managed_s3 is not None:
+            pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
+        if iot_site_wise_multi_layer_storage is not None:
+            pulumi.set(__self__, "iot_site_wise_multi_layer_storage", iot_site_wise_multi_layer_storage)
+        if service_managed_s3 is not None:
+            pulumi.set(__self__, "service_managed_s3", service_managed_s3)
+
+    @property
+    @pulumi.getter(name="customerManagedS3")
+    def customer_managed_s3(self) -> Optional['outputs.DatastoreCustomerManagedS3']:
+        return pulumi.get(self, "customer_managed_s3")
+
+    @property
+    @pulumi.getter(name="iotSiteWiseMultiLayerStorage")
+    def iot_site_wise_multi_layer_storage(self) -> Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage']:
+        return pulumi.get(self, "iot_site_wise_multi_layer_storage")
+
+    @property
+    @pulumi.getter(name="serviceManagedS3")
+    def service_managed_s3(self) -> Optional['outputs.DatastoreServiceManagedS3']:
+        return pulumi.get(self, "service_managed_s3")
 
 
 @pulumi.output_type

@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.DevOpsGuru
     /// The type of ResourceCollection
     /// </summary>
     [EnumType]
-    public readonly struct ResourceCollectionResourceCollectionType : IEquatable<ResourceCollectionResourceCollectionType>
+    public readonly struct ResourceCollectionType : IEquatable<ResourceCollectionType>
     {
         private readonly string _value;
 
-        private ResourceCollectionResourceCollectionType(string value)
+        private ResourceCollectionType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ResourceCollectionResourceCollectionType AwsCloudFormation { get; } = new ResourceCollectionResourceCollectionType("AWS_CLOUD_FORMATION");
+        public static ResourceCollectionType AwsCloudFormation { get; } = new ResourceCollectionType("AWS_CLOUD_FORMATION");
 
-        public static bool operator ==(ResourceCollectionResourceCollectionType left, ResourceCollectionResourceCollectionType right) => left.Equals(right);
-        public static bool operator !=(ResourceCollectionResourceCollectionType left, ResourceCollectionResourceCollectionType right) => !left.Equals(right);
+        public static bool operator ==(ResourceCollectionType left, ResourceCollectionType right) => left.Equals(right);
+        public static bool operator !=(ResourceCollectionType left, ResourceCollectionType right) => !left.Equals(right);
 
-        public static explicit operator string(ResourceCollectionResourceCollectionType value) => value._value;
+        public static explicit operator string(ResourceCollectionType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceCollectionResourceCollectionType other && Equals(other);
-        public bool Equals(ResourceCollectionResourceCollectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ResourceCollectionType other && Equals(other);
+        public bool Equals(ResourceCollectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

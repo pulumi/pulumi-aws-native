@@ -45,7 +45,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly cognitoOptions!: pulumi.Output<outputs.elasticsearch.DomainCognitoOptions | undefined>;
     public /*out*/ readonly domainArn!: pulumi.Output<string>;
     public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
-    public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainDomainEndpointOptions | undefined>;
+    public readonly domainEndpointOptions!: pulumi.Output<outputs.elasticsearch.DomainEndpointOptions | undefined>;
     public readonly domainName!: pulumi.Output<string | undefined>;
     public readonly eBSOptions!: pulumi.Output<outputs.elasticsearch.DomainEBSOptions | undefined>;
     public readonly elasticsearchClusterConfig!: pulumi.Output<outputs.elasticsearch.DomainElasticsearchClusterConfig | undefined>;
@@ -123,7 +123,7 @@ export interface DomainArgs {
     advancedOptions?: any;
     advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptionsInputArgs>;
     cognitoOptions?: pulumi.Input<inputs.elasticsearch.DomainCognitoOptionsArgs>;
-    domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainDomainEndpointOptionsArgs>;
+    domainEndpointOptions?: pulumi.Input<inputs.elasticsearch.DomainEndpointOptionsArgs>;
     domainName?: pulumi.Input<string>;
     eBSOptions?: pulumi.Input<inputs.elasticsearch.DomainEBSOptionsArgs>;
     elasticsearchClusterConfig?: pulumi.Input<inputs.elasticsearch.DomainElasticsearchClusterConfigArgs>;

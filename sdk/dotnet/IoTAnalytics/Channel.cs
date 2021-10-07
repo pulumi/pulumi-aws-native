@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<string?> ChannelName { get; private set; } = null!;
 
         [Output("channelStorage")]
-        public Output<Outputs.ChannelChannelStorage?> ChannelStorage { get; private set; } = null!;
+        public Output<Outputs.ChannelStorage?> ChannelStorage { get; private set; } = null!;
 
         [Output("retentionPeriod")]
         public Output<Outputs.ChannelRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Input<string>? ChannelName { get; set; }
 
         [Input("channelStorage")]
-        public Input<Inputs.ChannelChannelStorageArgs>? ChannelStorage { get; set; }
+        public Input<Inputs.ChannelStorageArgs>? ChannelStorage { get; set; }
 
         [Input("retentionPeriod")]
         public Input<Inputs.ChannelRetentionPeriodArgs>? RetentionPeriod { get; set; }

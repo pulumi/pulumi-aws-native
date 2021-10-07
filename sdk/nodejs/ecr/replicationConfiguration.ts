@@ -39,7 +39,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
      * The RegistryId associated with the aws account.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
-    public readonly replicationConfiguration!: pulumi.Output<outputs.ecr.ReplicationConfigurationReplicationConfiguration>;
+    public readonly replicationConfiguration!: pulumi.Output<outputs.ecr.ReplicationConfiguration>;
 
     /**
      * Create a ReplicationConfiguration resource with the given unique name, arguments, and options.
@@ -72,5 +72,5 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a ReplicationConfiguration resource.
  */
 export interface ReplicationConfigurationArgs {
-    replicationConfiguration: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfigurationArgs>;
+    replicationConfiguration: pulumi.Input<inputs.ecr.ReplicationConfigurationArgs>;
 }

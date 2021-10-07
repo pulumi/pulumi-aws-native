@@ -9,7 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ScalableTargetScalableTargetActionArgs',
+    'ScalableTargetActionArgs',
     'ScalableTargetScheduledActionArgs',
     'ScalableTargetSuspendedStateArgs',
     'ScalingPolicyCustomizedMetricSpecificationArgs',
@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class ScalableTargetScalableTargetActionArgs:
+class ScalableTargetActionArgs:
     def __init__(__self__, *,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[int]] = None):
@@ -55,7 +55,7 @@ class ScalableTargetScheduledActionArgs:
                  schedule: pulumi.Input[str],
                  scheduled_action_name: pulumi.Input[str],
                  end_time: Optional[pulumi.Input[str]] = None,
-                 scalable_target_action: Optional[pulumi.Input['ScalableTargetScalableTargetActionArgs']] = None,
+                 scalable_target_action: Optional[pulumi.Input['ScalableTargetActionArgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "schedule", schedule)
@@ -98,11 +98,11 @@ class ScalableTargetScheduledActionArgs:
 
     @property
     @pulumi.getter(name="scalableTargetAction")
-    def scalable_target_action(self) -> Optional[pulumi.Input['ScalableTargetScalableTargetActionArgs']]:
+    def scalable_target_action(self) -> Optional[pulumi.Input['ScalableTargetActionArgs']]:
         return pulumi.get(self, "scalable_target_action")
 
     @scalable_target_action.setter
-    def scalable_target_action(self, value: Optional[pulumi.Input['ScalableTargetScalableTargetActionArgs']]):
+    def scalable_target_action(self, value: Optional[pulumi.Input['ScalableTargetActionArgs']]):
         pulumi.set(self, "scalable_target_action", value)
 
     @property

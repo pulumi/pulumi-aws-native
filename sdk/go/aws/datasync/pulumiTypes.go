@@ -1988,6 +1988,146 @@ func (o TaskOptionsPtrOutput) VerifyMode() TaskOptionsVerifyModePtrOutput {
 	}).(TaskOptionsVerifyModePtrOutput)
 }
 
+// Specifies the schedule you want your task to use for repeated executions.
+type TaskSchedule struct {
+	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+	ScheduleExpression string `pulumi:"scheduleExpression"`
+}
+
+// TaskScheduleInput is an input type that accepts TaskScheduleArgs and TaskScheduleOutput values.
+// You can construct a concrete instance of `TaskScheduleInput` via:
+//
+//          TaskScheduleArgs{...}
+type TaskScheduleInput interface {
+	pulumi.Input
+
+	ToTaskScheduleOutput() TaskScheduleOutput
+	ToTaskScheduleOutputWithContext(context.Context) TaskScheduleOutput
+}
+
+// Specifies the schedule you want your task to use for repeated executions.
+type TaskScheduleArgs struct {
+	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+}
+
+func (TaskScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSchedule)(nil)).Elem()
+}
+
+func (i TaskScheduleArgs) ToTaskScheduleOutput() TaskScheduleOutput {
+	return i.ToTaskScheduleOutputWithContext(context.Background())
+}
+
+func (i TaskScheduleArgs) ToTaskScheduleOutputWithContext(ctx context.Context) TaskScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput)
+}
+
+func (i TaskScheduleArgs) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i TaskScheduleArgs) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput).ToTaskSchedulePtrOutputWithContext(ctx)
+}
+
+// TaskSchedulePtrInput is an input type that accepts TaskScheduleArgs, TaskSchedulePtr and TaskSchedulePtrOutput values.
+// You can construct a concrete instance of `TaskSchedulePtrInput` via:
+//
+//          TaskScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskSchedulePtrInput interface {
+	pulumi.Input
+
+	ToTaskSchedulePtrOutput() TaskSchedulePtrOutput
+	ToTaskSchedulePtrOutputWithContext(context.Context) TaskSchedulePtrOutput
+}
+
+type taskSchedulePtrType TaskScheduleArgs
+
+func TaskSchedulePtr(v *TaskScheduleArgs) TaskSchedulePtrInput {
+	return (*taskSchedulePtrType)(v)
+}
+
+func (*taskSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSchedule)(nil)).Elem()
+}
+
+func (i *taskSchedulePtrType) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *taskSchedulePtrType) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSchedulePtrOutput)
+}
+
+// Specifies the schedule you want your task to use for repeated executions.
+type TaskScheduleOutput struct{ *pulumi.OutputState }
+
+func (TaskScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSchedule)(nil)).Elem()
+}
+
+func (o TaskScheduleOutput) ToTaskScheduleOutput() TaskScheduleOutput {
+	return o
+}
+
+func (o TaskScheduleOutput) ToTaskScheduleOutputWithContext(ctx context.Context) TaskScheduleOutput {
+	return o
+}
+
+func (o TaskScheduleOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return o.ToTaskSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSchedule) *TaskSchedule {
+		return &v
+	}).(TaskSchedulePtrOutput)
+}
+
+// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
+}
+
+type TaskSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSchedule)(nil)).Elem()
+}
+
+func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
+	return o
+}
+
+func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
+	return o
+}
+
+func (o TaskSchedulePtrOutput) Elem() TaskScheduleOutput {
+	return o.ApplyT(func(v *TaskSchedule) TaskSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret TaskSchedule
+		return ret
+	}).(TaskScheduleOutput)
+}
+
+// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
+func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type TaskTag struct {
 	// The key for an AWS resource tag.
@@ -2097,146 +2237,6 @@ func (o TaskTagArrayOutput) Index(i pulumi.IntInput) TaskTagOutput {
 	}).(TaskTagOutput)
 }
 
-// Specifies the schedule you want your task to use for repeated executions.
-type TaskTaskSchedule struct {
-	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-	ScheduleExpression string `pulumi:"scheduleExpression"`
-}
-
-// TaskTaskScheduleInput is an input type that accepts TaskTaskScheduleArgs and TaskTaskScheduleOutput values.
-// You can construct a concrete instance of `TaskTaskScheduleInput` via:
-//
-//          TaskTaskScheduleArgs{...}
-type TaskTaskScheduleInput interface {
-	pulumi.Input
-
-	ToTaskTaskScheduleOutput() TaskTaskScheduleOutput
-	ToTaskTaskScheduleOutputWithContext(context.Context) TaskTaskScheduleOutput
-}
-
-// Specifies the schedule you want your task to use for repeated executions.
-type TaskTaskScheduleArgs struct {
-	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
-}
-
-func (TaskTaskScheduleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskTaskSchedule)(nil)).Elem()
-}
-
-func (i TaskTaskScheduleArgs) ToTaskTaskScheduleOutput() TaskTaskScheduleOutput {
-	return i.ToTaskTaskScheduleOutputWithContext(context.Background())
-}
-
-func (i TaskTaskScheduleArgs) ToTaskTaskScheduleOutputWithContext(ctx context.Context) TaskTaskScheduleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskScheduleOutput)
-}
-
-func (i TaskTaskScheduleArgs) ToTaskTaskSchedulePtrOutput() TaskTaskSchedulePtrOutput {
-	return i.ToTaskTaskSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i TaskTaskScheduleArgs) ToTaskTaskSchedulePtrOutputWithContext(ctx context.Context) TaskTaskSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskScheduleOutput).ToTaskTaskSchedulePtrOutputWithContext(ctx)
-}
-
-// TaskTaskSchedulePtrInput is an input type that accepts TaskTaskScheduleArgs, TaskTaskSchedulePtr and TaskTaskSchedulePtrOutput values.
-// You can construct a concrete instance of `TaskTaskSchedulePtrInput` via:
-//
-//          TaskTaskScheduleArgs{...}
-//
-//  or:
-//
-//          nil
-type TaskTaskSchedulePtrInput interface {
-	pulumi.Input
-
-	ToTaskTaskSchedulePtrOutput() TaskTaskSchedulePtrOutput
-	ToTaskTaskSchedulePtrOutputWithContext(context.Context) TaskTaskSchedulePtrOutput
-}
-
-type taskTaskSchedulePtrType TaskTaskScheduleArgs
-
-func TaskTaskSchedulePtr(v *TaskTaskScheduleArgs) TaskTaskSchedulePtrInput {
-	return (*taskTaskSchedulePtrType)(v)
-}
-
-func (*taskTaskSchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskTaskSchedule)(nil)).Elem()
-}
-
-func (i *taskTaskSchedulePtrType) ToTaskTaskSchedulePtrOutput() TaskTaskSchedulePtrOutput {
-	return i.ToTaskTaskSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *taskTaskSchedulePtrType) ToTaskTaskSchedulePtrOutputWithContext(ctx context.Context) TaskTaskSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskSchedulePtrOutput)
-}
-
-// Specifies the schedule you want your task to use for repeated executions.
-type TaskTaskScheduleOutput struct{ *pulumi.OutputState }
-
-func (TaskTaskScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskTaskSchedule)(nil)).Elem()
-}
-
-func (o TaskTaskScheduleOutput) ToTaskTaskScheduleOutput() TaskTaskScheduleOutput {
-	return o
-}
-
-func (o TaskTaskScheduleOutput) ToTaskTaskScheduleOutputWithContext(ctx context.Context) TaskTaskScheduleOutput {
-	return o
-}
-
-func (o TaskTaskScheduleOutput) ToTaskTaskSchedulePtrOutput() TaskTaskSchedulePtrOutput {
-	return o.ToTaskTaskSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o TaskTaskScheduleOutput) ToTaskTaskSchedulePtrOutputWithContext(ctx context.Context) TaskTaskSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTaskSchedule) *TaskTaskSchedule {
-		return &v
-	}).(TaskTaskSchedulePtrOutput)
-}
-
-// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-func (o TaskTaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskTaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
-}
-
-type TaskTaskSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (TaskTaskSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskTaskSchedule)(nil)).Elem()
-}
-
-func (o TaskTaskSchedulePtrOutput) ToTaskTaskSchedulePtrOutput() TaskTaskSchedulePtrOutput {
-	return o
-}
-
-func (o TaskTaskSchedulePtrOutput) ToTaskTaskSchedulePtrOutputWithContext(ctx context.Context) TaskTaskSchedulePtrOutput {
-	return o
-}
-
-func (o TaskTaskSchedulePtrOutput) Elem() TaskTaskScheduleOutput {
-	return o.ApplyT(func(v *TaskTaskSchedule) TaskTaskSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret TaskTaskSchedule
-		return ret
-	}).(TaskTaskScheduleOutput)
-}
-
-// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
-func (o TaskTaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskTaskSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ScheduleExpression
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AgentTagOutput{})
 	pulumi.RegisterOutputType(AgentTagArrayOutput{})
@@ -2266,8 +2266,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOutput{})
 	pulumi.RegisterOutputType(TaskOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TaskScheduleOutput{})
+	pulumi.RegisterOutputType(TaskSchedulePtrOutput{})
 	pulumi.RegisterOutputType(TaskTagOutput{})
 	pulumi.RegisterOutputType(TaskTagArrayOutput{})
-	pulumi.RegisterOutputType(TaskTaskScheduleOutput{})
-	pulumi.RegisterOutputType(TaskTaskSchedulePtrOutput{})
 }

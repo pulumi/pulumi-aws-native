@@ -22,7 +22,7 @@ class VariableArgs:
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]] = None,
-                 variable_type: Optional[pulumi.Input['VariableVariableType']] = None):
+                 variable_type: Optional[pulumi.Input['VariableType']] = None):
         """
         The set of arguments for constructing a Variable resource.
         :param pulumi.Input['VariableDataSource'] data_source: The source of the data.
@@ -31,7 +31,7 @@ class VariableArgs:
         :param pulumi.Input[str] name: The name of the variable.
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]] tags: Tags associated with this variable.
-        :param pulumi.Input['VariableVariableType'] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
+        :param pulumi.Input['VariableType'] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "data_type", data_type)
@@ -118,14 +118,14 @@ class VariableArgs:
 
     @property
     @pulumi.getter(name="variableType")
-    def variable_type(self) -> Optional[pulumi.Input['VariableVariableType']]:
+    def variable_type(self) -> Optional[pulumi.Input['VariableType']]:
         """
         The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         return pulumi.get(self, "variable_type")
 
     @variable_type.setter
-    def variable_type(self, value: Optional[pulumi.Input['VariableVariableType']]):
+    def variable_type(self, value: Optional[pulumi.Input['VariableType']]):
         pulumi.set(self, "variable_type", value)
 
 
@@ -140,7 +140,7 @@ class Variable(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableTagArgs']]]]] = None,
-                 variable_type: Optional[pulumi.Input['VariableVariableType']] = None,
+                 variable_type: Optional[pulumi.Input['VariableType']] = None,
                  __props__=None):
         """
         A resource schema for a Variable in Amazon Fraud Detector.
@@ -153,7 +153,7 @@ class Variable(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the variable.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableTagArgs']]]] tags: Tags associated with this variable.
-        :param pulumi.Input['VariableVariableType'] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
+        :param pulumi.Input['VariableType'] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         ...
     @overload
@@ -185,7 +185,7 @@ class Variable(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableTagArgs']]]]] = None,
-                 variable_type: Optional[pulumi.Input['VariableVariableType']] = None,
+                 variable_type: Optional[pulumi.Input['VariableType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -324,7 +324,7 @@ class Variable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="variableType")
-    def variable_type(self) -> pulumi.Output[Optional['VariableVariableType']]:
+    def variable_type(self) -> pulumi.Output[Optional['VariableType']]:
         """
         The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """

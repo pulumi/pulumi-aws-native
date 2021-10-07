@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.S3
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("bucketEncryption")]
-        public Output<Outputs.BucketBucketEncryption?> BucketEncryption { get; private set; } = null!;
+        public Output<Outputs.BucketEncryption?> BucketEncryption { get; private set; } = null!;
 
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.AwsNative.S3
         }
 
         [Input("bucketEncryption")]
-        public Input<Inputs.BucketBucketEncryptionArgs>? BucketEncryption { get; set; }
+        public Input<Inputs.BucketEncryptionArgs>? BucketEncryption { get; set; }
 
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }

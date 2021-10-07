@@ -14,7 +14,7 @@ __all__ = [
     'ClassifierGrokClassifierArgs',
     'ClassifierJsonClassifierArgs',
     'ClassifierXMLClassifierArgs',
-    'ConnectionConnectionInputArgs',
+    'ConnectionInputArgs',
     'ConnectionPhysicalConnectionRequirementsArgs',
     'CrawlerCatalogTargetArgs',
     'CrawlerDynamoDBTargetArgs',
@@ -25,15 +25,15 @@ __all__ = [
     'CrawlerSchemaChangePolicyArgs',
     'CrawlerTargetsArgs',
     'DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs',
-    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
     'DataCatalogEncryptionSettingsEncryptionAtRestArgs',
+    'DataCatalogEncryptionSettingsArgs',
     'DatabaseDataLakePrincipalArgs',
-    'DatabaseDatabaseIdentifierArgs',
-    'DatabaseDatabaseInputArgs',
+    'DatabaseIdentifierArgs',
+    'DatabaseInputArgs',
     'DatabasePrincipalPrivilegesArgs',
+    'JobCommandArgs',
     'JobConnectionsListArgs',
     'JobExecutionPropertyArgs',
-    'JobJobCommandArgs',
     'JobNotificationPropertyArgs',
     'MLTransformFindMatchesParametersArgs',
     'MLTransformGlueTablesArgs',
@@ -42,8 +42,8 @@ __all__ = [
     'MLTransformTransformEncryptionArgs',
     'MLTransformTransformParametersArgs',
     'PartitionColumnArgs',
+    'PartitionInputArgs',
     'PartitionOrderArgs',
-    'PartitionPartitionInputArgs',
     'PartitionSchemaIdArgs',
     'PartitionSchemaReferenceArgs',
     'PartitionSerdeInfoArgs',
@@ -51,22 +51,22 @@ __all__ = [
     'PartitionStorageDescriptorArgs',
     'RegistryTagArgs',
     'SchemaRegistryArgs',
-    'SchemaSchemaVersionArgs',
     'SchemaTagArgs',
     'SchemaVersionSchemaArgs',
+    'SchemaVersionArgs',
     'SecurityConfigurationCloudWatchEncryptionArgs',
     'SecurityConfigurationEncryptionConfigurationArgs',
     'SecurityConfigurationJobBookmarksEncryptionArgs',
     'SecurityConfigurationS3EncryptionsArgs',
     'TableColumnArgs',
+    'TableIdentifierArgs',
+    'TableInputArgs',
     'TableOrderArgs',
     'TableSchemaIdArgs',
     'TableSchemaReferenceArgs',
     'TableSerdeInfoArgs',
     'TableSkewedInfoArgs',
     'TableStorageDescriptorArgs',
-    'TableTableIdentifierArgs',
-    'TableTableInputArgs',
     'TriggerActionArgs',
     'TriggerConditionArgs',
     'TriggerNotificationPropertyArgs',
@@ -281,7 +281,7 @@ class ClassifierXMLClassifierArgs:
 
 
 @pulumi.input_type
-class ConnectionConnectionInputArgs:
+class ConnectionInputArgs:
     def __init__(__self__, *,
                  connection_type: pulumi.Input[str],
                  connection_properties: Optional[Any] = None,
@@ -671,35 +671,6 @@ class DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs:
 
 
 @pulumi.input_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs:
-    def __init__(__self__, *,
-                 connection_password_encryption: Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']] = None,
-                 encryption_at_rest: Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']] = None):
-        if connection_password_encryption is not None:
-            pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
-        if encryption_at_rest is not None:
-            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
-
-    @property
-    @pulumi.getter(name="connectionPasswordEncryption")
-    def connection_password_encryption(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']]:
-        return pulumi.get(self, "connection_password_encryption")
-
-    @connection_password_encryption.setter
-    def connection_password_encryption(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']]):
-        pulumi.set(self, "connection_password_encryption", value)
-
-    @property
-    @pulumi.getter(name="encryptionAtRest")
-    def encryption_at_rest(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']]:
-        return pulumi.get(self, "encryption_at_rest")
-
-    @encryption_at_rest.setter
-    def encryption_at_rest(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']]):
-        pulumi.set(self, "encryption_at_rest", value)
-
-
-@pulumi.input_type
 class DataCatalogEncryptionSettingsEncryptionAtRestArgs:
     def __init__(__self__, *,
                  catalog_encryption_mode: Optional[pulumi.Input[str]] = None,
@@ -729,6 +700,35 @@ class DataCatalogEncryptionSettingsEncryptionAtRestArgs:
 
 
 @pulumi.input_type
+class DataCatalogEncryptionSettingsArgs:
+    def __init__(__self__, *,
+                 connection_password_encryption: Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']] = None,
+                 encryption_at_rest: Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']] = None):
+        if connection_password_encryption is not None:
+            pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
+        if encryption_at_rest is not None:
+            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+
+    @property
+    @pulumi.getter(name="connectionPasswordEncryption")
+    def connection_password_encryption(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']]:
+        return pulumi.get(self, "connection_password_encryption")
+
+    @connection_password_encryption.setter
+    def connection_password_encryption(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']]):
+        pulumi.set(self, "connection_password_encryption", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtRest")
+    def encryption_at_rest(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']]:
+        return pulumi.get(self, "encryption_at_rest")
+
+    @encryption_at_rest.setter
+    def encryption_at_rest(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']]):
+        pulumi.set(self, "encryption_at_rest", value)
+
+
+@pulumi.input_type
 class DatabaseDataLakePrincipalArgs:
     def __init__(__self__, *,
                  data_lake_principal_identifier: Optional[pulumi.Input[str]] = None):
@@ -746,7 +746,7 @@ class DatabaseDataLakePrincipalArgs:
 
 
 @pulumi.input_type
-class DatabaseDatabaseIdentifierArgs:
+class DatabaseIdentifierArgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None):
@@ -775,14 +775,14 @@ class DatabaseDatabaseIdentifierArgs:
 
 
 @pulumi.input_type
-class DatabaseDatabaseInputArgs:
+class DatabaseInputArgs:
     def __init__(__self__, *,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
-                 target_database: Optional[pulumi.Input['DatabaseDatabaseIdentifierArgs']] = None):
+                 target_database: Optional[pulumi.Input['DatabaseIdentifierArgs']] = None):
         if create_table_default_permissions is not None:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if description is not None:
@@ -843,11 +843,11 @@ class DatabaseDatabaseInputArgs:
 
     @property
     @pulumi.getter(name="targetDatabase")
-    def target_database(self) -> Optional[pulumi.Input['DatabaseDatabaseIdentifierArgs']]:
+    def target_database(self) -> Optional[pulumi.Input['DatabaseIdentifierArgs']]:
         return pulumi.get(self, "target_database")
 
     @target_database.setter
-    def target_database(self, value: Optional[pulumi.Input['DatabaseDatabaseIdentifierArgs']]):
+    def target_database(self, value: Optional[pulumi.Input['DatabaseIdentifierArgs']]):
         pulumi.set(self, "target_database", value)
 
 
@@ -881,41 +881,7 @@ class DatabasePrincipalPrivilegesArgs:
 
 
 @pulumi.input_type
-class JobConnectionsListArgs:
-    def __init__(__self__, *,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        if connections is not None:
-            pulumi.set(__self__, "connections", connections)
-
-    @property
-    @pulumi.getter
-    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "connections")
-
-    @connections.setter
-    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "connections", value)
-
-
-@pulumi.input_type
-class JobExecutionPropertyArgs:
-    def __init__(__self__, *,
-                 max_concurrent_runs: Optional[pulumi.Input[float]] = None):
-        if max_concurrent_runs is not None:
-            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
-
-    @property
-    @pulumi.getter(name="maxConcurrentRuns")
-    def max_concurrent_runs(self) -> Optional[pulumi.Input[float]]:
-        return pulumi.get(self, "max_concurrent_runs")
-
-    @max_concurrent_runs.setter
-    def max_concurrent_runs(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "max_concurrent_runs", value)
-
-
-@pulumi.input_type
-class JobJobCommandArgs:
+class JobCommandArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  python_version: Optional[pulumi.Input[str]] = None,
@@ -953,6 +919,40 @@ class JobJobCommandArgs:
     @script_location.setter
     def script_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_location", value)
+
+
+@pulumi.input_type
+class JobConnectionsListArgs:
+    def __init__(__self__, *,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "connections")
+
+    @connections.setter
+    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connections", value)
+
+
+@pulumi.input_type
+class JobExecutionPropertyArgs:
+    def __init__(__self__, *,
+                 max_concurrent_runs: Optional[pulumi.Input[float]] = None):
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @max_concurrent_runs.setter
+    def max_concurrent_runs(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_concurrent_runs", value)
 
 
 @pulumi.input_type
@@ -1218,35 +1218,7 @@ class PartitionColumnArgs:
 
 
 @pulumi.input_type
-class PartitionOrderArgs:
-    def __init__(__self__, *,
-                 column: pulumi.Input[str],
-                 sort_order: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "column", column)
-        if sort_order is not None:
-            pulumi.set(__self__, "sort_order", sort_order)
-
-    @property
-    @pulumi.getter
-    def column(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "column")
-
-    @column.setter
-    def column(self, value: pulumi.Input[str]):
-        pulumi.set(self, "column", value)
-
-    @property
-    @pulumi.getter(name="sortOrder")
-    def sort_order(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "sort_order")
-
-    @sort_order.setter
-    def sort_order(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "sort_order", value)
-
-
-@pulumi.input_type
-class PartitionPartitionInputArgs:
+class PartitionInputArgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  parameters: Optional[Any] = None,
@@ -1283,6 +1255,34 @@ class PartitionPartitionInputArgs:
     @storage_descriptor.setter
     def storage_descriptor(self, value: Optional[pulumi.Input['PartitionStorageDescriptorArgs']]):
         pulumi.set(self, "storage_descriptor", value)
+
+
+@pulumi.input_type
+class PartitionOrderArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 sort_order: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "column", column)
+        if sort_order is not None:
+            pulumi.set(__self__, "sort_order", sort_order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "sort_order")
+
+    @sort_order.setter
+    def sort_order(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sort_order", value)
 
 
 @pulumi.input_type
@@ -1688,46 +1688,6 @@ class SchemaRegistryArgs:
 
 
 @pulumi.input_type
-class SchemaSchemaVersionArgs:
-    def __init__(__self__, *,
-                 is_latest: Optional[pulumi.Input[bool]] = None,
-                 version_number: Optional[pulumi.Input[int]] = None):
-        """
-        Specify checkpoint version for update. This is only required to update the Compatibility.
-        :param pulumi.Input[bool] is_latest: Indicates if the latest version needs to be updated.
-        :param pulumi.Input[int] version_number: Indicates the version number in the schema to update.
-        """
-        if is_latest is not None:
-            pulumi.set(__self__, "is_latest", is_latest)
-        if version_number is not None:
-            pulumi.set(__self__, "version_number", version_number)
-
-    @property
-    @pulumi.getter(name="isLatest")
-    def is_latest(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if the latest version needs to be updated.
-        """
-        return pulumi.get(self, "is_latest")
-
-    @is_latest.setter
-    def is_latest(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_latest", value)
-
-    @property
-    @pulumi.getter(name="versionNumber")
-    def version_number(self) -> Optional[pulumi.Input[int]]:
-        """
-        Indicates the version number in the schema to update.
-        """
-        return pulumi.get(self, "version_number")
-
-    @version_number.setter
-    def version_number(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "version_number", value)
-
-
-@pulumi.input_type
 class SchemaTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -1818,6 +1778,46 @@ class SchemaVersionSchemaArgs:
     @schema_name.setter
     def schema_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_name", value)
+
+
+@pulumi.input_type
+class SchemaVersionArgs:
+    def __init__(__self__, *,
+                 is_latest: Optional[pulumi.Input[bool]] = None,
+                 version_number: Optional[pulumi.Input[int]] = None):
+        """
+        Specify checkpoint version for update. This is only required to update the Compatibility.
+        :param pulumi.Input[bool] is_latest: Indicates if the latest version needs to be updated.
+        :param pulumi.Input[int] version_number: Indicates the version number in the schema to update.
+        """
+        if is_latest is not None:
+            pulumi.set(__self__, "is_latest", is_latest)
+        if version_number is not None:
+            pulumi.set(__self__, "version_number", version_number)
+
+    @property
+    @pulumi.getter(name="isLatest")
+    def is_latest(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the latest version needs to be updated.
+        """
+        return pulumi.get(self, "is_latest")
+
+    @is_latest.setter
+    def is_latest(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_latest", value)
+
+    @property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the version number in the schema to update.
+        """
+        return pulumi.get(self, "version_number")
+
+    @version_number.setter
+    def version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version_number", value)
 
 
 @pulumi.input_type
@@ -1963,6 +1963,184 @@ class TableColumnArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class TableIdentifierArgs:
+    def __init__(__self__, *,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class TableInputArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[Any] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 retention: Optional[pulumi.Input[int]] = None,
+                 storage_descriptor: Optional[pulumi.Input['TableStorageDescriptorArgs']] = None,
+                 table_type: Optional[pulumi.Input[str]] = None,
+                 target_table: Optional[pulumi.Input['TableIdentifierArgs']] = None,
+                 view_expanded_text: Optional[pulumi.Input[str]] = None,
+                 view_original_text: Optional[pulumi.Input[str]] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+        if retention is not None:
+            pulumi.set(__self__, "retention", retention)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+        if table_type is not None:
+            pulumi.set(__self__, "table_type", table_type)
+        if target_table is not None:
+            pulumi.set(__self__, "target_table", target_table)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[Any]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
+        return pulumi.get(self, "partition_keys")
+
+    @partition_keys.setter
+    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
+        pulumi.set(self, "partition_keys", value)
+
+    @property
+    @pulumi.getter
+    def retention(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "retention")
+
+    @retention.setter
+    def retention(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention", value)
+
+    @property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional[pulumi.Input['TableStorageDescriptorArgs']]:
+        return pulumi.get(self, "storage_descriptor")
+
+    @storage_descriptor.setter
+    def storage_descriptor(self, value: Optional[pulumi.Input['TableStorageDescriptorArgs']]):
+        pulumi.set(self, "storage_descriptor", value)
+
+    @property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "table_type")
+
+    @table_type.setter
+    def table_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_type", value)
+
+    @property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> Optional[pulumi.Input['TableIdentifierArgs']]:
+        return pulumi.get(self, "target_table")
+
+    @target_table.setter
+    def target_table(self, value: Optional[pulumi.Input['TableIdentifierArgs']]):
+        pulumi.set(self, "target_table", value)
+
+    @property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "view_expanded_text")
+
+    @view_expanded_text.setter
+    def view_expanded_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "view_expanded_text", value)
+
+    @property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "view_original_text")
+
+    @view_original_text.setter
+    def view_original_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "view_original_text", value)
 
 
 @pulumi.input_type
@@ -2315,184 +2493,6 @@ class TableStorageDescriptorArgs:
     @stored_as_sub_directories.setter
     def stored_as_sub_directories(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "stored_as_sub_directories", value)
-
-
-@pulumi.input_type
-class TableTableIdentifierArgs:
-    def __init__(__self__, *,
-                 catalog_id: Optional[pulumi.Input[str]] = None,
-                 database_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        if catalog_id is not None:
-            pulumi.set(__self__, "catalog_id", catalog_id)
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="catalogId")
-    def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "catalog_id")
-
-    @catalog_id.setter
-    def catalog_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "catalog_id", value)
-
-    @property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "database_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class TableTableInputArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 owner: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
-                 retention: Optional[pulumi.Input[int]] = None,
-                 storage_descriptor: Optional[pulumi.Input['TableStorageDescriptorArgs']] = None,
-                 table_type: Optional[pulumi.Input[str]] = None,
-                 target_table: Optional[pulumi.Input['TableTableIdentifierArgs']] = None,
-                 view_expanded_text: Optional[pulumi.Input[str]] = None,
-                 view_original_text: Optional[pulumi.Input[str]] = None):
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if owner is not None:
-            pulumi.set(__self__, "owner", owner)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if partition_keys is not None:
-            pulumi.set(__self__, "partition_keys", partition_keys)
-        if retention is not None:
-            pulumi.set(__self__, "retention", retention)
-        if storage_descriptor is not None:
-            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
-        if table_type is not None:
-            pulumi.set(__self__, "table_type", table_type)
-        if target_table is not None:
-            pulumi.set(__self__, "target_table", target_table)
-        if view_expanded_text is not None:
-            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
-        if view_original_text is not None:
-            pulumi.set(__self__, "view_original_text", view_original_text)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "owner")
-
-    @owner.setter
-    def owner(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "owner", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[Any]:
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[Any]):
-        pulumi.set(self, "parameters", value)
-
-    @property
-    @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
-        return pulumi.get(self, "partition_keys")
-
-    @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
-        pulumi.set(self, "partition_keys", value)
-
-    @property
-    @pulumi.getter
-    def retention(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "retention")
-
-    @retention.setter
-    def retention(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention", value)
-
-    @property
-    @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional[pulumi.Input['TableStorageDescriptorArgs']]:
-        return pulumi.get(self, "storage_descriptor")
-
-    @storage_descriptor.setter
-    def storage_descriptor(self, value: Optional[pulumi.Input['TableStorageDescriptorArgs']]):
-        pulumi.set(self, "storage_descriptor", value)
-
-    @property
-    @pulumi.getter(name="tableType")
-    def table_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "table_type")
-
-    @table_type.setter
-    def table_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "table_type", value)
-
-    @property
-    @pulumi.getter(name="targetTable")
-    def target_table(self) -> Optional[pulumi.Input['TableTableIdentifierArgs']]:
-        return pulumi.get(self, "target_table")
-
-    @target_table.setter
-    def target_table(self, value: Optional[pulumi.Input['TableTableIdentifierArgs']]):
-        pulumi.set(self, "target_table", value)
-
-    @property
-    @pulumi.getter(name="viewExpandedText")
-    def view_expanded_text(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "view_expanded_text")
-
-    @view_expanded_text.setter
-    def view_expanded_text(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "view_expanded_text", value)
-
-    @property
-    @pulumi.getter(name="viewOriginalText")
-    def view_original_text(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "view_original_text")
-
-    @view_original_text.setter
-    def view_original_text(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "view_original_text", value)
 
 
 @pulumi.input_type

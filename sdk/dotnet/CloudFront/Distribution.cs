@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CloudFront
     public partial class Distribution : Pulumi.CustomResource
     {
         [Output("distributionConfig")]
-        public Output<Outputs.DistributionDistributionConfig> DistributionConfig { get; private set; } = null!;
+        public Output<Outputs.DistributionConfig> DistributionConfig { get; private set; } = null!;
 
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class DistributionArgs : Pulumi.ResourceArgs
     {
         [Input("distributionConfig", required: true)]
-        public Input<Inputs.DistributionDistributionConfigArgs> DistributionConfig { get; set; } = null!;
+        public Input<Inputs.DistributionConfigArgs> DistributionConfig { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.DistributionTagArgs>? _tags;

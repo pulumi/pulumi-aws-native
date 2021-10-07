@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Job Sample
         /// </summary>
         [Output("jobSample")]
-        public Output<Outputs.JobJobSample?> JobSample { get; private set; } = null!;
+        public Output<Outputs.JobSample?> JobSample { get; private set; } = null!;
 
         /// <summary>
         /// Log subscription
@@ -197,7 +197,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// Job Sample
         /// </summary>
         [Input("jobSample")]
-        public Input<Inputs.JobJobSampleArgs>? JobSample { get; set; }
+        public Input<Inputs.JobSampleArgs>? JobSample { get; set; }
 
         /// <summary>
         /// Log subscription

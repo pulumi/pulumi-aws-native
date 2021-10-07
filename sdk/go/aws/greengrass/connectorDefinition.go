@@ -17,11 +17,11 @@ import (
 type ConnectorDefinition struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                                    `pulumi:"arn"`
-	InitialVersion   ConnectorDefinitionConnectorDefinitionVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput                                    `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput                                    `pulumi:"name"`
-	Tags             pulumi.AnyOutput                                       `pulumi:"tags"`
+	Arn              pulumi.StringOutput                     `pulumi:"arn"`
+	InitialVersion   ConnectorDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput                     `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput                     `pulumi:"name"`
+	Tags             pulumi.AnyOutput                        `pulumi:"tags"`
 }
 
 // NewConnectorDefinition registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (ConnectorDefinitionState) ElementType() reflect.Type {
 }
 
 type connectorDefinitionArgs struct {
-	InitialVersion *ConnectorDefinitionConnectorDefinitionVersion `pulumi:"initialVersion"`
-	Name           string                                         `pulumi:"name"`
-	Tags           interface{}                                    `pulumi:"tags"`
+	InitialVersion *ConnectorDefinitionVersionType `pulumi:"initialVersion"`
+	Name           string                          `pulumi:"name"`
+	Tags           interface{}                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectorDefinition resource.
 type ConnectorDefinitionArgs struct {
-	InitialVersion ConnectorDefinitionConnectorDefinitionVersionPtrInput
+	InitialVersion ConnectorDefinitionVersionTypePtrInput
 	Name           pulumi.StringInput
 	Tags           pulumi.Input
 }

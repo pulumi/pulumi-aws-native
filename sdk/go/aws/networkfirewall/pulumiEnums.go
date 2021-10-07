@@ -1437,124 +1437,124 @@ func (o RuleGroupTargetTypeArrayOutput) Index(i pulumi.IntInput) RuleGroupTarget
 	}).(RuleGroupTargetTypeOutput)
 }
 
-type RuleGroupType string
+type RuleGroupTypeEnum string
 
 const (
-	RuleGroupTypeStateless = RuleGroupType("STATELESS")
-	RuleGroupTypeStateful  = RuleGroupType("STATEFUL")
+	RuleGroupTypeEnumStateless = RuleGroupTypeEnum("STATELESS")
+	RuleGroupTypeEnumStateful  = RuleGroupTypeEnum("STATEFUL")
 )
 
-func (RuleGroupType) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupType)(nil)).Elem()
+func (RuleGroupTypeEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTypeEnum)(nil)).Elem()
 }
 
-func (e RuleGroupType) ToRuleGroupTypeOutput() RuleGroupTypeOutput {
-	return pulumi.ToOutput(e).(RuleGroupTypeOutput)
+func (e RuleGroupTypeEnum) ToRuleGroupTypeEnumOutput() RuleGroupTypeEnumOutput {
+	return pulumi.ToOutput(e).(RuleGroupTypeEnumOutput)
 }
 
-func (e RuleGroupType) ToRuleGroupTypeOutputWithContext(ctx context.Context) RuleGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupTypeOutput)
+func (e RuleGroupTypeEnum) ToRuleGroupTypeEnumOutputWithContext(ctx context.Context) RuleGroupTypeEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleGroupTypeEnumOutput)
 }
 
-func (e RuleGroupType) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
-	return e.ToRuleGroupTypePtrOutputWithContext(context.Background())
+func (e RuleGroupTypeEnum) ToRuleGroupTypeEnumPtrOutput() RuleGroupTypeEnumPtrOutput {
+	return e.ToRuleGroupTypeEnumPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupType) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
-	return RuleGroupType(e).ToRuleGroupTypeOutputWithContext(ctx).ToRuleGroupTypePtrOutputWithContext(ctx)
+func (e RuleGroupTypeEnum) ToRuleGroupTypeEnumPtrOutputWithContext(ctx context.Context) RuleGroupTypeEnumPtrOutput {
+	return RuleGroupTypeEnum(e).ToRuleGroupTypeEnumOutputWithContext(ctx).ToRuleGroupTypeEnumPtrOutputWithContext(ctx)
 }
 
-func (e RuleGroupType) ToStringOutput() pulumi.StringOutput {
+func (e RuleGroupTypeEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e RuleGroupTypeEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e RuleGroupType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e RuleGroupTypeEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e RuleGroupType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e RuleGroupTypeEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type RuleGroupTypeOutput struct{ *pulumi.OutputState }
+type RuleGroupTypeEnumOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupType)(nil)).Elem()
+func (RuleGroupTypeEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTypeEnum)(nil)).Elem()
 }
 
-func (o RuleGroupTypeOutput) ToRuleGroupTypeOutput() RuleGroupTypeOutput {
+func (o RuleGroupTypeEnumOutput) ToRuleGroupTypeEnumOutput() RuleGroupTypeEnumOutput {
 	return o
 }
 
-func (o RuleGroupTypeOutput) ToRuleGroupTypeOutputWithContext(ctx context.Context) RuleGroupTypeOutput {
+func (o RuleGroupTypeEnumOutput) ToRuleGroupTypeEnumOutputWithContext(ctx context.Context) RuleGroupTypeEnumOutput {
 	return o
 }
 
-func (o RuleGroupTypeOutput) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
-	return o.ToRuleGroupTypePtrOutputWithContext(context.Background())
+func (o RuleGroupTypeEnumOutput) ToRuleGroupTypeEnumPtrOutput() RuleGroupTypeEnumPtrOutput {
+	return o.ToRuleGroupTypeEnumPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupTypeOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupType) *RuleGroupType {
+func (o RuleGroupTypeEnumOutput) ToRuleGroupTypeEnumPtrOutputWithContext(ctx context.Context) RuleGroupTypeEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupTypeEnum) *RuleGroupTypeEnum {
 		return &v
-	}).(RuleGroupTypePtrOutput)
+	}).(RuleGroupTypeEnumPtrOutput)
 }
 
-func (o RuleGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o RuleGroupTypeEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o RuleGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupType) string {
+func (o RuleGroupTypeEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupTypeEnum) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o RuleGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupTypeEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupType) *string {
+func (o RuleGroupTypeEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleGroupTypeEnum) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type RuleGroupTypePtrOutput struct{ *pulumi.OutputState }
+type RuleGroupTypeEnumPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupType)(nil)).Elem()
+func (RuleGroupTypeEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupTypeEnum)(nil)).Elem()
 }
 
-func (o RuleGroupTypePtrOutput) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
+func (o RuleGroupTypeEnumPtrOutput) ToRuleGroupTypeEnumPtrOutput() RuleGroupTypeEnumPtrOutput {
 	return o
 }
 
-func (o RuleGroupTypePtrOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
+func (o RuleGroupTypeEnumPtrOutput) ToRuleGroupTypeEnumPtrOutputWithContext(ctx context.Context) RuleGroupTypeEnumPtrOutput {
 	return o
 }
 
-func (o RuleGroupTypePtrOutput) Elem() RuleGroupTypeOutput {
-	return o.ApplyT(func(v *RuleGroupType) RuleGroupType {
+func (o RuleGroupTypeEnumPtrOutput) Elem() RuleGroupTypeEnumOutput {
+	return o.ApplyT(func(v *RuleGroupTypeEnum) RuleGroupTypeEnum {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupType
+		var ret RuleGroupTypeEnum
 		return ret
-	}).(RuleGroupTypeOutput)
+	}).(RuleGroupTypeEnumOutput)
 }
 
-func (o RuleGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o RuleGroupTypeEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupType) *string {
+func (o RuleGroupTypeEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleGroupTypeEnum) *string {
 		if e == nil {
 			return nil
 		}
@@ -1563,42 +1563,42 @@ func (o RuleGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleGroupTypeInput is an input type that accepts RuleGroupTypeArgs and RuleGroupTypeOutput values.
-// You can construct a concrete instance of `RuleGroupTypeInput` via:
+// RuleGroupTypeEnumInput is an input type that accepts RuleGroupTypeEnumArgs and RuleGroupTypeEnumOutput values.
+// You can construct a concrete instance of `RuleGroupTypeEnumInput` via:
 //
-//          RuleGroupTypeArgs{...}
-type RuleGroupTypeInput interface {
+//          RuleGroupTypeEnumArgs{...}
+type RuleGroupTypeEnumInput interface {
 	pulumi.Input
 
-	ToRuleGroupTypeOutput() RuleGroupTypeOutput
-	ToRuleGroupTypeOutputWithContext(context.Context) RuleGroupTypeOutput
+	ToRuleGroupTypeEnumOutput() RuleGroupTypeEnumOutput
+	ToRuleGroupTypeEnumOutputWithContext(context.Context) RuleGroupTypeEnumOutput
 }
 
-var ruleGroupTypePtrType = reflect.TypeOf((**RuleGroupType)(nil)).Elem()
+var ruleGroupTypeEnumPtrType = reflect.TypeOf((**RuleGroupTypeEnum)(nil)).Elem()
 
-type RuleGroupTypePtrInput interface {
+type RuleGroupTypeEnumPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput
-	ToRuleGroupTypePtrOutputWithContext(context.Context) RuleGroupTypePtrOutput
+	ToRuleGroupTypeEnumPtrOutput() RuleGroupTypeEnumPtrOutput
+	ToRuleGroupTypeEnumPtrOutputWithContext(context.Context) RuleGroupTypeEnumPtrOutput
 }
 
-type ruleGroupTypePtr string
+type ruleGroupTypeEnumPtr string
 
-func RuleGroupTypePtr(v string) RuleGroupTypePtrInput {
-	return (*ruleGroupTypePtr)(&v)
+func RuleGroupTypeEnumPtr(v string) RuleGroupTypeEnumPtrInput {
+	return (*ruleGroupTypeEnumPtr)(&v)
 }
 
-func (*ruleGroupTypePtr) ElementType() reflect.Type {
-	return ruleGroupTypePtrType
+func (*ruleGroupTypeEnumPtr) ElementType() reflect.Type {
+	return ruleGroupTypeEnumPtrType
 }
 
-func (in *ruleGroupTypePtr) ToRuleGroupTypePtrOutput() RuleGroupTypePtrOutput {
-	return pulumi.ToOutput(in).(RuleGroupTypePtrOutput)
+func (in *ruleGroupTypeEnumPtr) ToRuleGroupTypeEnumPtrOutput() RuleGroupTypeEnumPtrOutput {
+	return pulumi.ToOutput(in).(RuleGroupTypeEnumPtrOutput)
 }
 
-func (in *ruleGroupTypePtr) ToRuleGroupTypePtrOutputWithContext(ctx context.Context) RuleGroupTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTypePtrOutput)
+func (in *ruleGroupTypeEnumPtr) ToRuleGroupTypeEnumPtrOutputWithContext(ctx context.Context) RuleGroupTypeEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTypeEnumPtrOutput)
 }
 
 func init() {
@@ -1620,6 +1620,6 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupTargetTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTargetTypeArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupTypeOutput{})
-	pulumi.RegisterOutputType(RuleGroupTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupTypeEnumOutput{})
+	pulumi.RegisterOutputType(RuleGroupTypeEnumPtrOutput{})
 }

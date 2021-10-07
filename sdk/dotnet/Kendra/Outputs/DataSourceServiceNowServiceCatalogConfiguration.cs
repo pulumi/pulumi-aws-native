@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string DocumentDataFieldName;
         public readonly string? DocumentTitleFieldName;
         public readonly ImmutableArray<string> ExcludeAttachmentFilePatterns;
-        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
         public readonly ImmutableArray<string> IncludeAttachmentFilePatterns;
 
         [OutputConstructor]
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             ImmutableArray<string> excludeAttachmentFilePatterns,
 
-            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
+            ImmutableArray<Outputs.DataSourceToIndexFieldMapping> fieldMappings,
 
             ImmutableArray<string> includeAttachmentFilePatterns)
         {

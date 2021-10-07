@@ -18,10 +18,10 @@ class DocumentArgs:
     def __init__(__self__, *,
                  content: Any,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
-                 document_format: Optional[pulumi.Input['DocumentDocumentFormat']] = None,
-                 document_type: Optional[pulumi.Input['DocumentDocumentType']] = None,
+                 document_format: Optional[pulumi.Input['DocumentFormat']] = None,
+                 document_type: Optional[pulumi.Input['DocumentType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  version_name: Optional[pulumi.Input[str]] = None):
@@ -29,10 +29,10 @@ class DocumentArgs:
         The set of arguments for constructing a Document resource.
         :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
         :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments: A list of key and value pairs that describe attachments to a version of a document.
-        :param pulumi.Input['DocumentDocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-        :param pulumi.Input['DocumentDocumentType'] document_type: The type of document to create.
+        :param pulumi.Input['DocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+        :param pulumi.Input['DocumentType'] document_type: The type of document to create.
         :param pulumi.Input[str] name: A name for the Systems Manager document.
-        :param pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         :param pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         :param pulumi.Input[str] target_type: Specify a target type to define the kinds of resources the document can run on.
         :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
@@ -81,26 +81,26 @@ class DocumentArgs:
 
     @property
     @pulumi.getter(name="documentFormat")
-    def document_format(self) -> Optional[pulumi.Input['DocumentDocumentFormat']]:
+    def document_format(self) -> Optional[pulumi.Input['DocumentFormat']]:
         """
         Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         """
         return pulumi.get(self, "document_format")
 
     @document_format.setter
-    def document_format(self, value: Optional[pulumi.Input['DocumentDocumentFormat']]):
+    def document_format(self, value: Optional[pulumi.Input['DocumentFormat']]):
         pulumi.set(self, "document_format", value)
 
     @property
     @pulumi.getter(name="documentType")
-    def document_type(self) -> Optional[pulumi.Input['DocumentDocumentType']]:
+    def document_type(self) -> Optional[pulumi.Input['DocumentType']]:
         """
         The type of document to create.
         """
         return pulumi.get(self, "document_type")
 
     @document_type.setter
-    def document_type(self, value: Optional[pulumi.Input['DocumentDocumentType']]):
+    def document_type(self, value: Optional[pulumi.Input['DocumentType']]):
         pulumi.set(self, "document_type", value)
 
     @property
@@ -117,14 +117,14 @@ class DocumentArgs:
 
     @property
     @pulumi.getter
-    def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]]:
+    def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]]:
         """
         A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         """
         return pulumi.get(self, "requires")
 
     @requires.setter
-    def requires(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]]):
+    def requires(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]]):
         pulumi.set(self, "requires", value)
 
     @property
@@ -171,10 +171,10 @@ class Document(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
                  content: Optional[Any] = None,
-                 document_format: Optional[pulumi.Input['DocumentDocumentFormat']] = None,
-                 document_type: Optional[pulumi.Input['DocumentDocumentType']] = None,
+                 document_format: Optional[pulumi.Input['DocumentFormat']] = None,
+                 document_type: Optional[pulumi.Input['DocumentType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
@@ -186,10 +186,10 @@ class Document(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
         :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
-        :param pulumi.Input['DocumentDocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-        :param pulumi.Input['DocumentDocumentType'] document_type: The type of document to create.
+        :param pulumi.Input['DocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+        :param pulumi.Input['DocumentType'] document_type: The type of document to create.
         :param pulumi.Input[str] name: A name for the Systems Manager document.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         :param pulumi.Input[str] target_type: Specify a target type to define the kinds of resources the document can run on.
         :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
@@ -220,10 +220,10 @@ class Document(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
                  content: Optional[Any] = None,
-                 document_format: Optional[pulumi.Input['DocumentDocumentFormat']] = None,
-                 document_type: Optional[pulumi.Input['DocumentDocumentType']] = None,
+                 document_format: Optional[pulumi.Input['DocumentFormat']] = None,
+                 document_type: Optional[pulumi.Input['DocumentType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentRequiresArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
@@ -301,7 +301,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentFormat")
-    def document_format(self) -> pulumi.Output[Optional['DocumentDocumentFormat']]:
+    def document_format(self) -> pulumi.Output[Optional['DocumentFormat']]:
         """
         Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         """
@@ -309,7 +309,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="documentType")
-    def document_type(self) -> pulumi.Output[Optional['DocumentDocumentType']]:
+    def document_type(self) -> pulumi.Output[Optional['DocumentType']]:
         """
         The type of document to create.
         """
@@ -325,7 +325,7 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requires(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentDocumentRequires']]]:
+    def requires(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentRequires']]]:
         """
         A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         """

@@ -17,13 +17,13 @@ import (
 type Segment struct {
 	pulumi.CustomResourceState
 
-	ApplicationId pulumi.StringOutput               `pulumi:"applicationId"`
-	Arn           pulumi.StringOutput               `pulumi:"arn"`
-	Dimensions    SegmentSegmentDimensionsPtrOutput `pulumi:"dimensions"`
-	Name          pulumi.StringOutput               `pulumi:"name"`
-	SegmentGroups SegmentSegmentGroupsPtrOutput     `pulumi:"segmentGroups"`
-	SegmentId     pulumi.StringOutput               `pulumi:"segmentId"`
-	Tags          pulumi.AnyOutput                  `pulumi:"tags"`
+	ApplicationId pulumi.StringOutput        `pulumi:"applicationId"`
+	Arn           pulumi.StringOutput        `pulumi:"arn"`
+	Dimensions    SegmentDimensionsPtrOutput `pulumi:"dimensions"`
+	Name          pulumi.StringOutput        `pulumi:"name"`
+	SegmentGroups SegmentGroupsPtrOutput     `pulumi:"segmentGroups"`
+	SegmentId     pulumi.StringOutput        `pulumi:"segmentId"`
+	Tags          pulumi.AnyOutput           `pulumi:"tags"`
 }
 
 // NewSegment registers a new resource with the given unique name, arguments, and options.
@@ -71,19 +71,19 @@ func (SegmentState) ElementType() reflect.Type {
 }
 
 type segmentArgs struct {
-	ApplicationId string                    `pulumi:"applicationId"`
-	Dimensions    *SegmentSegmentDimensions `pulumi:"dimensions"`
-	Name          string                    `pulumi:"name"`
-	SegmentGroups *SegmentSegmentGroups     `pulumi:"segmentGroups"`
-	Tags          interface{}               `pulumi:"tags"`
+	ApplicationId string             `pulumi:"applicationId"`
+	Dimensions    *SegmentDimensions `pulumi:"dimensions"`
+	Name          string             `pulumi:"name"`
+	SegmentGroups *SegmentGroups     `pulumi:"segmentGroups"`
+	Tags          interface{}        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Segment resource.
 type SegmentArgs struct {
 	ApplicationId pulumi.StringInput
-	Dimensions    SegmentSegmentDimensionsPtrInput
+	Dimensions    SegmentDimensionsPtrInput
 	Name          pulumi.StringInput
-	SegmentGroups SegmentSegmentGroupsPtrInput
+	SegmentGroups SegmentGroupsPtrInput
 	Tags          pulumi.Input
 }
 

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SES
     public partial class Template : Pulumi.CustomResource
     {
         [Output("template")]
-        public Output<Outputs.TemplateTemplate?> TemplateValue { get; private set; } = null!;
+        public Output<Outputs.Template?> TemplateValue { get; private set; } = null!;
 
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.SES
     public sealed class TemplateArgs : Pulumi.ResourceArgs
     {
         [Input("template")]
-        public Input<Inputs.TemplateTemplateArgs>? TemplateValue { get; set; }
+        public Input<Inputs.TemplateArgs>? TemplateValue { get; set; }
 
         public TemplateArgs()
         {

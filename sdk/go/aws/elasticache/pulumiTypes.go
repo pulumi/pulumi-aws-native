@@ -549,121 +549,119 @@ func (o CacheClusterTagArrayOutput) Index(i pulumi.IntInput) CacheClusterTagOutp
 	}).(CacheClusterTagOutput)
 }
 
-type GlobalReplicationGroupGlobalReplicationGroupMember struct {
+type GlobalReplicationGroupMember struct {
 	// Regionally unique identifier for the member i.e. ReplicationGroupId.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
 	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion *string `pulumi:"replicationGroupRegion"`
 	// Indicates the role of the member, primary or secondary.
-	Role *GlobalReplicationGroupGlobalReplicationGroupMemberRole `pulumi:"role"`
+	Role *GlobalReplicationGroupMemberRole `pulumi:"role"`
 }
 
-// GlobalReplicationGroupGlobalReplicationGroupMemberInput is an input type that accepts GlobalReplicationGroupGlobalReplicationGroupMemberArgs and GlobalReplicationGroupGlobalReplicationGroupMemberOutput values.
-// You can construct a concrete instance of `GlobalReplicationGroupGlobalReplicationGroupMemberInput` via:
+// GlobalReplicationGroupMemberInput is an input type that accepts GlobalReplicationGroupMemberArgs and GlobalReplicationGroupMemberOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupMemberInput` via:
 //
-//          GlobalReplicationGroupGlobalReplicationGroupMemberArgs{...}
-type GlobalReplicationGroupGlobalReplicationGroupMemberInput interface {
+//          GlobalReplicationGroupMemberArgs{...}
+type GlobalReplicationGroupMemberInput interface {
 	pulumi.Input
 
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberOutput() GlobalReplicationGroupGlobalReplicationGroupMemberOutput
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberOutput
+	ToGlobalReplicationGroupMemberOutput() GlobalReplicationGroupMemberOutput
+	ToGlobalReplicationGroupMemberOutputWithContext(context.Context) GlobalReplicationGroupMemberOutput
 }
 
-type GlobalReplicationGroupGlobalReplicationGroupMemberArgs struct {
+type GlobalReplicationGroupMemberArgs struct {
 	// Regionally unique identifier for the member i.e. ReplicationGroupId.
 	ReplicationGroupId pulumi.StringPtrInput `pulumi:"replicationGroupId"`
 	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion pulumi.StringPtrInput `pulumi:"replicationGroupRegion"`
 	// Indicates the role of the member, primary or secondary.
-	Role GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrInput `pulumi:"role"`
+	Role GlobalReplicationGroupMemberRolePtrInput `pulumi:"role"`
 }
 
-func (GlobalReplicationGroupGlobalReplicationGroupMemberArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
+func (GlobalReplicationGroupMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupMember)(nil)).Elem()
 }
 
-func (i GlobalReplicationGroupGlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutput() GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
-	return i.ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(context.Background())
+func (i GlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupMemberOutput() GlobalReplicationGroupMemberOutput {
+	return i.ToGlobalReplicationGroupMemberOutputWithContext(context.Background())
 }
 
-func (i GlobalReplicationGroupGlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalReplicationGroupMemberOutput)
+func (i GlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupMemberOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupMemberOutput)
 }
 
-// GlobalReplicationGroupGlobalReplicationGroupMemberArrayInput is an input type that accepts GlobalReplicationGroupGlobalReplicationGroupMemberArray and GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput values.
-// You can construct a concrete instance of `GlobalReplicationGroupGlobalReplicationGroupMemberArrayInput` via:
+// GlobalReplicationGroupMemberArrayInput is an input type that accepts GlobalReplicationGroupMemberArray and GlobalReplicationGroupMemberArrayOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupMemberArrayInput` via:
 //
-//          GlobalReplicationGroupGlobalReplicationGroupMemberArray{ GlobalReplicationGroupGlobalReplicationGroupMemberArgs{...} }
-type GlobalReplicationGroupGlobalReplicationGroupMemberArrayInput interface {
+//          GlobalReplicationGroupMemberArray{ GlobalReplicationGroupMemberArgs{...} }
+type GlobalReplicationGroupMemberArrayInput interface {
 	pulumi.Input
 
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput
+	ToGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupMemberArrayOutput
+	ToGlobalReplicationGroupMemberArrayOutputWithContext(context.Context) GlobalReplicationGroupMemberArrayOutput
 }
 
-type GlobalReplicationGroupGlobalReplicationGroupMemberArray []GlobalReplicationGroupGlobalReplicationGroupMemberInput
+type GlobalReplicationGroupMemberArray []GlobalReplicationGroupMemberInput
 
-func (GlobalReplicationGroupGlobalReplicationGroupMemberArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
+func (GlobalReplicationGroupMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupMember)(nil)).Elem()
 }
 
-func (i GlobalReplicationGroupGlobalReplicationGroupMemberArray) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
-	return i.ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(context.Background())
+func (i GlobalReplicationGroupMemberArray) ToGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupMemberArrayOutput {
+	return i.ToGlobalReplicationGroupMemberArrayOutputWithContext(context.Background())
 }
 
-func (i GlobalReplicationGroupGlobalReplicationGroupMemberArray) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput)
+func (i GlobalReplicationGroupMemberArray) ToGlobalReplicationGroupMemberArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupMemberArrayOutput)
 }
 
-type GlobalReplicationGroupGlobalReplicationGroupMemberOutput struct{ *pulumi.OutputState }
+type GlobalReplicationGroupMemberOutput struct{ *pulumi.OutputState }
 
-func (GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
+func (GlobalReplicationGroupMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupMember)(nil)).Elem()
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutput() GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
+func (o GlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupMemberOutput() GlobalReplicationGroupMemberOutput {
 	return o
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
+func (o GlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupMemberOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberOutput {
 	return o
 }
 
 // Regionally unique identifier for the member i.e. ReplicationGroupId.
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ReplicationGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.ReplicationGroupId }).(pulumi.StringPtrOutput)
+func (o GlobalReplicationGroupMemberOutput) ReplicationGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupMember) *string { return v.ReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS region of the Global Datastore member.
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ReplicationGroupRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.ReplicationGroupRegion }).(pulumi.StringPtrOutput)
+func (o GlobalReplicationGroupMemberOutput) ReplicationGroupRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupMember) *string { return v.ReplicationGroupRegion }).(pulumi.StringPtrOutput)
 }
 
 // Indicates the role of the member, primary or secondary.
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) Role() GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
-	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *GlobalReplicationGroupGlobalReplicationGroupMemberRole {
-		return v.Role
-	}).(GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput)
+func (o GlobalReplicationGroupMemberOutput) Role() GlobalReplicationGroupMemberRolePtrOutput {
+	return o.ApplyT(func(v GlobalReplicationGroupMember) *GlobalReplicationGroupMemberRole { return v.Role }).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
-type GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput struct{ *pulumi.OutputState }
+type GlobalReplicationGroupMemberArrayOutput struct{ *pulumi.OutputState }
 
-func (GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalReplicationGroupGlobalReplicationGroupMember)(nil)).Elem()
+func (GlobalReplicationGroupMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalReplicationGroupMember)(nil)).Elem()
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
+func (o GlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupMemberArrayOutput() GlobalReplicationGroupMemberArrayOutput {
 	return o
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput {
+func (o GlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupMemberArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberArrayOutput {
 	return o
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupGlobalReplicationGroupMemberOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalReplicationGroupGlobalReplicationGroupMember {
-		return vs[0].([]GlobalReplicationGroupGlobalReplicationGroupMember)[vs[1].(int)]
-	}).(GlobalReplicationGroupGlobalReplicationGroupMemberOutput)
+func (o GlobalReplicationGroupMemberArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalReplicationGroupMember {
+		return vs[0].([]GlobalReplicationGroupMember)[vs[1].(int)]
+	}).(GlobalReplicationGroupMemberOutput)
 }
 
 type GlobalReplicationGroupRegionalConfiguration struct {
@@ -1856,8 +1854,8 @@ func init() {
 	pulumi.RegisterOutputType(CacheClusterLogDeliveryConfigurationRequestArrayOutput{})
 	pulumi.RegisterOutputType(CacheClusterTagOutput{})
 	pulumi.RegisterOutputType(CacheClusterTagArrayOutput{})
-	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberOutput{})
-	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupMemberOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupMemberArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationOutput{})

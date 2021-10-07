@@ -18,8 +18,8 @@ class FunctionArgs:
                  name: pulumi.Input[str],
                  auto_publish: Optional[pulumi.Input[bool]] = None,
                  function_code: Optional[pulumi.Input[str]] = None,
-                 function_config: Optional[pulumi.Input['FunctionFunctionConfigArgs']] = None,
-                 function_metadata: Optional[pulumi.Input['FunctionFunctionMetadataArgs']] = None):
+                 function_config: Optional[pulumi.Input['FunctionConfigArgs']] = None,
+                 function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
         """
@@ -62,20 +62,20 @@ class FunctionArgs:
 
     @property
     @pulumi.getter(name="functionConfig")
-    def function_config(self) -> Optional[pulumi.Input['FunctionFunctionConfigArgs']]:
+    def function_config(self) -> Optional[pulumi.Input['FunctionConfigArgs']]:
         return pulumi.get(self, "function_config")
 
     @function_config.setter
-    def function_config(self, value: Optional[pulumi.Input['FunctionFunctionConfigArgs']]):
+    def function_config(self, value: Optional[pulumi.Input['FunctionConfigArgs']]):
         pulumi.set(self, "function_config", value)
 
     @property
     @pulumi.getter(name="functionMetadata")
-    def function_metadata(self) -> Optional[pulumi.Input['FunctionFunctionMetadataArgs']]:
+    def function_metadata(self) -> Optional[pulumi.Input['FunctionMetadataArgs']]:
         return pulumi.get(self, "function_metadata")
 
     @function_metadata.setter
-    def function_metadata(self, value: Optional[pulumi.Input['FunctionFunctionMetadataArgs']]):
+    def function_metadata(self, value: Optional[pulumi.Input['FunctionMetadataArgs']]):
         pulumi.set(self, "function_metadata", value)
 
 
@@ -86,8 +86,8 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_publish: Optional[pulumi.Input[bool]] = None,
                  function_code: Optional[pulumi.Input[str]] = None,
-                 function_config: Optional[pulumi.Input[pulumi.InputType['FunctionFunctionConfigArgs']]] = None,
-                 function_metadata: Optional[pulumi.Input[pulumi.InputType['FunctionFunctionMetadataArgs']]] = None,
+                 function_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigArgs']]] = None,
+                 function_metadata: Optional[pulumi.Input[pulumi.InputType['FunctionMetadataArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -122,8 +122,8 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_publish: Optional[pulumi.Input[bool]] = None,
                  function_code: Optional[pulumi.Input[str]] = None,
-                 function_config: Optional[pulumi.Input[pulumi.InputType['FunctionFunctionConfigArgs']]] = None,
-                 function_metadata: Optional[pulumi.Input[pulumi.InputType['FunctionFunctionMetadataArgs']]] = None,
+                 function_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigArgs']]] = None,
+                 function_metadata: Optional[pulumi.Input[pulumi.InputType['FunctionMetadataArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -194,12 +194,12 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionConfig")
-    def function_config(self) -> pulumi.Output[Optional['outputs.FunctionFunctionConfig']]:
+    def function_config(self) -> pulumi.Output[Optional['outputs.FunctionConfig']]:
         return pulumi.get(self, "function_config")
 
     @property
     @pulumi.getter(name="functionMetadata")
-    def function_metadata(self) -> pulumi.Output[Optional['outputs.FunctionFunctionMetadata']]:
+    def function_metadata(self) -> pulumi.Output[Optional['outputs.FunctionMetadata']]:
         return pulumi.get(self, "function_metadata")
 
     @property

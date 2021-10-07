@@ -58,7 +58,7 @@ export class Publisher extends pulumi.CustomResource {
     /**
      * Whether the publisher is verified.
      */
-    public /*out*/ readonly publisherStatus!: pulumi.Output<enums.cloudformation.PublisherPublisherStatus>;
+    public /*out*/ readonly publisherStatus!: pulumi.Output<enums.cloudformation.PublisherStatus>;
 
     /**
      * Create a Publisher resource with the given unique name, arguments, and options.

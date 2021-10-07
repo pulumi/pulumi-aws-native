@@ -20,8 +20,8 @@ class PipelineArgs:
                  activate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterValueArgs']]]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelinePipelineObjectArgs']]]] = None,
-                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelinePipelineTagArgs']]]] = None):
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]] = None,
+                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
         """
@@ -85,20 +85,20 @@ class PipelineArgs:
 
     @property
     @pulumi.getter(name="pipelineObjects")
-    def pipeline_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelinePipelineObjectArgs']]]]:
+    def pipeline_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]]:
         return pulumi.get(self, "pipeline_objects")
 
     @pipeline_objects.setter
-    def pipeline_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelinePipelineObjectArgs']]]]):
+    def pipeline_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]]):
         pulumi.set(self, "pipeline_objects", value)
 
     @property
     @pulumi.getter(name="pipelineTags")
-    def pipeline_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelinePipelineTagArgs']]]]:
+    def pipeline_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]]:
         return pulumi.get(self, "pipeline_tags")
 
     @pipeline_tags.setter
-    def pipeline_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelinePipelineTagArgs']]]]):
+    def pipeline_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]]):
         pulumi.set(self, "pipeline_tags", value)
 
 
@@ -117,8 +117,8 @@ class Pipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterObjectArgs']]]]] = None,
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterValueArgs']]]]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelinePipelineObjectArgs']]]]] = None,
-                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelinePipelineTagArgs']]]]] = None,
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineObjectArgs']]]]] = None,
+                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DataPipeline::Pipeline
@@ -155,8 +155,8 @@ class Pipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterObjectArgs']]]]] = None,
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterValueArgs']]]]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelinePipelineObjectArgs']]]]] = None,
-                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelinePipelineTagArgs']]]]] = None,
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineObjectArgs']]]]] = None,
+                 pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -239,11 +239,11 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pipelineObjects")
-    def pipeline_objects(self) -> pulumi.Output[Optional[Sequence['outputs.PipelinePipelineObject']]]:
+    def pipeline_objects(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineObject']]]:
         return pulumi.get(self, "pipeline_objects")
 
     @property
     @pulumi.getter(name="pipelineTags")
-    def pipeline_tags(self) -> pulumi.Output[Optional[Sequence['outputs.PipelinePipelineTag']]]:
+    def pipeline_tags(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineTag']]]:
         return pulumi.get(self, "pipeline_tags")
 

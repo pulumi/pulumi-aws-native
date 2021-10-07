@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Route53
     public partial class HostedZone : Pulumi.CustomResource
     {
         [Output("hostedZoneConfig")]
-        public Output<Outputs.HostedZoneHostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
+        public Output<Outputs.HostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
 
         /// <summary>
         /// Adds, edits, or deletes tags for a health check or a hosted zone.
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Route53
         /// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         /// </summary>
         [Output("hostedZoneTags")]
-        public Output<ImmutableArray<Outputs.HostedZoneHostedZoneTag>> HostedZoneTags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.HostedZoneTag>> HostedZoneTags { get; private set; } = null!;
 
         /// <summary>
         /// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
@@ -92,19 +92,19 @@ namespace Pulumi.AwsNative.Route53
     public sealed class HostedZoneArgs : Pulumi.ResourceArgs
     {
         [Input("hostedZoneConfig")]
-        public Input<Inputs.HostedZoneHostedZoneConfigArgs>? HostedZoneConfig { get; set; }
+        public Input<Inputs.HostedZoneConfigArgs>? HostedZoneConfig { get; set; }
 
         [Input("hostedZoneTags")]
-        private InputList<Inputs.HostedZoneHostedZoneTagArgs>? _hostedZoneTags;
+        private InputList<Inputs.HostedZoneTagArgs>? _hostedZoneTags;
 
         /// <summary>
         /// Adds, edits, or deletes tags for a health check or a hosted zone.
         /// 
         /// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         /// </summary>
-        public InputList<Inputs.HostedZoneHostedZoneTagArgs> HostedZoneTags
+        public InputList<Inputs.HostedZoneTagArgs> HostedZoneTags
         {
-            get => _hostedZoneTags ?? (_hostedZoneTags = new InputList<Inputs.HostedZoneHostedZoneTagArgs>());
+            get => _hostedZoneTags ?? (_hostedZoneTags = new InputList<Inputs.HostedZoneTagArgs>());
             set => _hostedZoneTags = value;
         }
 

@@ -57,7 +57,7 @@ export class UserPool extends pulumi.CustomResource {
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration | undefined>;
     public readonly smsVerificationMessage!: pulumi.Output<string | undefined>;
-    public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolUserPoolAddOns | undefined>;
+    public readonly userPoolAddOns!: pulumi.Output<outputs.cognito.UserPoolAddOns | undefined>;
     public readonly userPoolName!: pulumi.Output<string | undefined>;
     public readonly userPoolTags!: pulumi.Output<any | undefined>;
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
@@ -156,7 +156,7 @@ export interface UserPoolArgs {
     smsAuthenticationMessage?: pulumi.Input<string>;
     smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfigurationArgs>;
     smsVerificationMessage?: pulumi.Input<string>;
-    userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolUserPoolAddOnsArgs>;
+    userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolAddOnsArgs>;
     userPoolName?: pulumi.Input<string>;
     userPoolTags?: any;
     usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;

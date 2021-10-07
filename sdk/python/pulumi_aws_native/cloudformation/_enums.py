@@ -8,7 +8,7 @@ __all__ = [
     'ModuleVersionVisibility',
     'PublicTypeVersionType',
     'PublisherIdentityProvider',
-    'PublisherPublisherStatus',
+    'PublisherStatus',
     'ResourceVersionProvisioningType',
     'ResourceVersionVisibility',
     'StackSetCallAs',
@@ -48,7 +48,7 @@ class PublisherIdentityProvider(str, Enum):
     BITBUCKET = "Bitbucket"
 
 
-class PublisherPublisherStatus(str, Enum):
+class PublisherStatus(str, Enum):
     """
     Whether the publisher is verified.
     """

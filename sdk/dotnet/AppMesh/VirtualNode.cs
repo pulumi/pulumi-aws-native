@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         [Output("spec")]
-        public Output<Outputs.VirtualNodeVirtualNodeSpec> Spec { get; private set; } = null!;
+        public Output<Outputs.VirtualNodeSpec> Spec { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VirtualNodeTag>> Tags { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         [Input("spec", required: true)]
-        public Input<Inputs.VirtualNodeVirtualNodeSpecArgs> Spec { get; set; } = null!;
+        public Input<Inputs.VirtualNodeSpecArgs> Spec { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.VirtualNodeTagArgs>? _tags;

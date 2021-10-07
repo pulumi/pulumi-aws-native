@@ -39,8 +39,8 @@ export class Datastore extends pulumi.CustomResource {
     }
 
     public readonly datastoreName!: pulumi.Output<string | undefined>;
-    public readonly datastorePartitions!: pulumi.Output<outputs.iotanalytics.DatastoreDatastorePartitions | undefined>;
-    public readonly datastoreStorage!: pulumi.Output<outputs.iotanalytics.DatastoreDatastoreStorage | undefined>;
+    public readonly datastorePartitions!: pulumi.Output<outputs.iotanalytics.DatastorePartitions | undefined>;
+    public readonly datastoreStorage!: pulumi.Output<outputs.iotanalytics.DatastoreStorage | undefined>;
     public readonly fileFormatConfiguration!: pulumi.Output<outputs.iotanalytics.DatastoreFileFormatConfiguration | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatastoreRetentionPeriod | undefined>;
     public readonly tags!: pulumi.Output<outputs.iotanalytics.DatastoreTag[] | undefined>;
@@ -84,8 +84,8 @@ export class Datastore extends pulumi.CustomResource {
  */
 export interface DatastoreArgs {
     datastoreName?: pulumi.Input<string>;
-    datastorePartitions?: pulumi.Input<inputs.iotanalytics.DatastoreDatastorePartitionsArgs>;
-    datastoreStorage?: pulumi.Input<inputs.iotanalytics.DatastoreDatastoreStorageArgs>;
+    datastorePartitions?: pulumi.Input<inputs.iotanalytics.DatastorePartitionsArgs>;
+    datastoreStorage?: pulumi.Input<inputs.iotanalytics.DatastoreStorageArgs>;
     fileFormatConfiguration?: pulumi.Input<inputs.iotanalytics.DatastoreFileFormatConfigurationArgs>;
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatastoreRetentionPeriodArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatastoreTagArgs>[]>;

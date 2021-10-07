@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const StreamStreamEncryptionEncryptionType = {
+export const StreamEncryptionEncryptionType = {
     Kms: "KMS",
 } as const;
 
 /**
  * The encryption type to use. The only valid value is KMS. 
  */
-export type StreamStreamEncryptionEncryptionType = (typeof StreamStreamEncryptionEncryptionType)[keyof typeof StreamStreamEncryptionEncryptionType];
+export type StreamEncryptionEncryptionType = (typeof StreamEncryptionEncryptionType)[keyof typeof StreamEncryptionEncryptionType];

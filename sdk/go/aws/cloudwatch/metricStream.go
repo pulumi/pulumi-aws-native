@@ -20,11 +20,11 @@ type MetricStream struct {
 	// The date of creation of the metric stream.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
-	ExcludeFilters MetricStreamMetricStreamFilterArrayOutput `pulumi:"excludeFilters"`
+	ExcludeFilters MetricStreamFilterArrayOutput `pulumi:"excludeFilters"`
 	// The ARN of the Kinesis Firehose where to stream the data.
 	FirehoseArn pulumi.StringOutput `pulumi:"firehoseArn"`
 	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
-	IncludeFilters MetricStreamMetricStreamFilterArrayOutput `pulumi:"includeFilters"`
+	IncludeFilters MetricStreamFilterArrayOutput `pulumi:"includeFilters"`
 	// The date of the last update of the metric stream.
 	LastUpdateDate pulumi.StringOutput `pulumi:"lastUpdateDate"`
 	// Name of the metric stream.
@@ -88,11 +88,11 @@ func (MetricStreamState) ElementType() reflect.Type {
 
 type metricStreamArgs struct {
 	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
-	ExcludeFilters []MetricStreamMetricStreamFilter `pulumi:"excludeFilters"`
+	ExcludeFilters []MetricStreamFilter `pulumi:"excludeFilters"`
 	// The ARN of the Kinesis Firehose where to stream the data.
 	FirehoseArn string `pulumi:"firehoseArn"`
 	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
-	IncludeFilters []MetricStreamMetricStreamFilter `pulumi:"includeFilters"`
+	IncludeFilters []MetricStreamFilter `pulumi:"includeFilters"`
 	// Name of the metric stream.
 	Name *string `pulumi:"name"`
 	// The output format of the data streamed to the Kinesis Firehose.
@@ -106,11 +106,11 @@ type metricStreamArgs struct {
 // The set of arguments for constructing a MetricStream resource.
 type MetricStreamArgs struct {
 	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
-	ExcludeFilters MetricStreamMetricStreamFilterArrayInput
+	ExcludeFilters MetricStreamFilterArrayInput
 	// The ARN of the Kinesis Firehose where to stream the data.
 	FirehoseArn pulumi.StringInput
 	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
-	IncludeFilters MetricStreamMetricStreamFilterArrayInput
+	IncludeFilters MetricStreamFilterArrayInput
 	// Name of the metric stream.
 	Name pulumi.StringPtrInput
 	// The output format of the data streamed to the Kinesis Firehose.

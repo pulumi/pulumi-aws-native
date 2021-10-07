@@ -37,9 +37,9 @@ export class SamplingRule extends pulumi.CustomResource {
 
     public /*out*/ readonly ruleARN!: pulumi.Output<string>;
     public readonly ruleName!: pulumi.Output<string | undefined>;
-    public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRuleSamplingRule | undefined>;
-    public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleSamplingRuleRecord | undefined>;
-    public readonly samplingRuleUpdate!: pulumi.Output<outputs.xray.SamplingRuleSamplingRuleUpdate | undefined>;
+    public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRule | undefined>;
+    public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleRecord | undefined>;
+    public readonly samplingRuleUpdate!: pulumi.Output<outputs.xray.SamplingRuleUpdate | undefined>;
     public readonly tags!: pulumi.Output<any[] | undefined>;
 
     /**
@@ -79,8 +79,8 @@ export class SamplingRule extends pulumi.CustomResource {
  */
 export interface SamplingRuleArgs {
     ruleName?: pulumi.Input<string>;
-    samplingRule?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleArgs>;
-    samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleRecordArgs>;
-    samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleUpdateArgs>;
+    samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs>;
+    samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleRecordArgs>;
+    samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleUpdateArgs>;
     tags?: pulumi.Input<any[]>;
 }

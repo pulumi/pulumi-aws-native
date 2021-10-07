@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> BaseThemeId { get; private set; } = null!;
 
         [Output("configuration")]
-        public Output<Outputs.ThemeThemeConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.ThemeConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;The date and time that the theme was created.&lt;/p&gt;
@@ -72,10 +72,10 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> ThemeId { get; private set; } = null!;
 
         [Output("type")]
-        public Output<Pulumi.AwsNative.QuickSight.ThemeThemeType> Type { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.QuickSight.ThemeType> Type { get; private set; } = null!;
 
         [Output("version")]
-        public Output<Outputs.ThemeThemeVersion> Version { get; private set; } = null!;
+        public Output<Outputs.ThemeVersion> Version { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;A description of the first version of the theme that you're creating. Every time
@@ -144,7 +144,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? BaseThemeId { get; set; }
 
         [Input("configuration")]
-        public Input<Inputs.ThemeThemeConfigurationArgs>? Configuration { get; set; }
+        public Input<Inputs.ThemeConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
         /// &lt;p&gt;A display name for the theme.&lt;/p&gt;

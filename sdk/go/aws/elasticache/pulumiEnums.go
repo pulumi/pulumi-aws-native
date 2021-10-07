@@ -11,124 +11,124 @@ import (
 )
 
 // Indicates the role of the member, primary or secondary.
-type GlobalReplicationGroupGlobalReplicationGroupMemberRole string
+type GlobalReplicationGroupMemberRole string
 
 const (
-	GlobalReplicationGroupGlobalReplicationGroupMemberRolePrimary   = GlobalReplicationGroupGlobalReplicationGroupMemberRole("PRIMARY")
-	GlobalReplicationGroupGlobalReplicationGroupMemberRoleSecondary = GlobalReplicationGroupGlobalReplicationGroupMemberRole("SECONDARY")
+	GlobalReplicationGroupMemberRolePrimary   = GlobalReplicationGroupMemberRole("PRIMARY")
+	GlobalReplicationGroupMemberRoleSecondary = GlobalReplicationGroupMemberRole("SECONDARY")
 )
 
-func (GlobalReplicationGroupGlobalReplicationGroupMemberRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroupGlobalReplicationGroupMemberRole)(nil)).Elem()
+func (GlobalReplicationGroupMemberRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupMemberRole)(nil)).Elem()
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToGlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput {
-	return pulumi.ToOutput(e).(GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput)
+func (e GlobalReplicationGroupMemberRole) ToGlobalReplicationGroupMemberRoleOutput() GlobalReplicationGroupMemberRoleOutput {
+	return pulumi.ToOutput(e).(GlobalReplicationGroupMemberRoleOutput)
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToGlobalReplicationGroupGlobalReplicationGroupMemberRoleOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput)
+func (e GlobalReplicationGroupMemberRole) ToGlobalReplicationGroupMemberRoleOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GlobalReplicationGroupMemberRoleOutput)
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
-	return e.ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(context.Background())
+func (e GlobalReplicationGroupMemberRole) ToGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupMemberRolePtrOutput {
+	return e.ToGlobalReplicationGroupMemberRolePtrOutputWithContext(context.Background())
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
-	return GlobalReplicationGroupGlobalReplicationGroupMemberRole(e).ToGlobalReplicationGroupGlobalReplicationGroupMemberRoleOutputWithContext(ctx).ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx)
+func (e GlobalReplicationGroupMemberRole) ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRolePtrOutput {
+	return GlobalReplicationGroupMemberRole(e).ToGlobalReplicationGroupMemberRoleOutputWithContext(ctx).ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx)
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToStringOutput() pulumi.StringOutput {
+func (e GlobalReplicationGroupMemberRole) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e GlobalReplicationGroupMemberRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e GlobalReplicationGroupMemberRole) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e GlobalReplicationGroupGlobalReplicationGroupMemberRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e GlobalReplicationGroupMemberRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput struct{ *pulumi.OutputState }
+type GlobalReplicationGroupMemberRoleOutput struct{ *pulumi.OutputState }
 
-func (GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReplicationGroupGlobalReplicationGroupMemberRole)(nil)).Elem()
+func (GlobalReplicationGroupMemberRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalReplicationGroupMemberRole)(nil)).Elem()
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput {
+func (o GlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupMemberRoleOutput() GlobalReplicationGroupMemberRoleOutput {
 	return o
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberRoleOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput {
+func (o GlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupMemberRoleOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRoleOutput {
 	return o
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
-	return o.ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(context.Background())
+func (o GlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupMemberRolePtrOutput {
+	return o.ToGlobalReplicationGroupMemberRolePtrOutputWithContext(context.Background())
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalReplicationGroupGlobalReplicationGroupMemberRole) *GlobalReplicationGroupGlobalReplicationGroupMemberRole {
+func (o GlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalReplicationGroupMemberRole) *GlobalReplicationGroupMemberRole {
 		return &v
-	}).(GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput)
+	}).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToStringOutput() pulumi.StringOutput {
+func (o GlobalReplicationGroupMemberRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalReplicationGroupGlobalReplicationGroupMemberRole) string {
+func (o GlobalReplicationGroupMemberRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalReplicationGroupMemberRole) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o GlobalReplicationGroupMemberRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalReplicationGroupGlobalReplicationGroupMemberRole) *string {
+func (o GlobalReplicationGroupMemberRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GlobalReplicationGroupMemberRole) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput struct{ *pulumi.OutputState }
+type GlobalReplicationGroupMemberRolePtrOutput struct{ *pulumi.OutputState }
 
-func (GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalReplicationGroupGlobalReplicationGroupMemberRole)(nil)).Elem()
+func (GlobalReplicationGroupMemberRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalReplicationGroupMemberRole)(nil)).Elem()
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
+func (o GlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupMemberRolePtrOutput {
 	return o
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
+func (o GlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRolePtrOutput {
 	return o
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput) Elem() GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput {
-	return o.ApplyT(func(v *GlobalReplicationGroupGlobalReplicationGroupMemberRole) GlobalReplicationGroupGlobalReplicationGroupMemberRole {
+func (o GlobalReplicationGroupMemberRolePtrOutput) Elem() GlobalReplicationGroupMemberRoleOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroupMemberRole) GlobalReplicationGroupMemberRole {
 		if v != nil {
 			return *v
 		}
-		var ret GlobalReplicationGroupGlobalReplicationGroupMemberRole
+		var ret GlobalReplicationGroupMemberRole
 		return ret
-	}).(GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput)
+	}).(GlobalReplicationGroupMemberRoleOutput)
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o GlobalReplicationGroupMemberRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GlobalReplicationGroupGlobalReplicationGroupMemberRole) *string {
+func (o GlobalReplicationGroupMemberRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GlobalReplicationGroupMemberRole) *string {
 		if e == nil {
 			return nil
 		}
@@ -137,42 +137,42 @@ func (o GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// GlobalReplicationGroupGlobalReplicationGroupMemberRoleInput is an input type that accepts GlobalReplicationGroupGlobalReplicationGroupMemberRoleArgs and GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput values.
-// You can construct a concrete instance of `GlobalReplicationGroupGlobalReplicationGroupMemberRoleInput` via:
+// GlobalReplicationGroupMemberRoleInput is an input type that accepts GlobalReplicationGroupMemberRoleArgs and GlobalReplicationGroupMemberRoleOutput values.
+// You can construct a concrete instance of `GlobalReplicationGroupMemberRoleInput` via:
 //
-//          GlobalReplicationGroupGlobalReplicationGroupMemberRoleArgs{...}
-type GlobalReplicationGroupGlobalReplicationGroupMemberRoleInput interface {
+//          GlobalReplicationGroupMemberRoleArgs{...}
+type GlobalReplicationGroupMemberRoleInput interface {
 	pulumi.Input
 
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberRoleOutputWithContext(context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput
+	ToGlobalReplicationGroupMemberRoleOutput() GlobalReplicationGroupMemberRoleOutput
+	ToGlobalReplicationGroupMemberRoleOutputWithContext(context.Context) GlobalReplicationGroupMemberRoleOutput
 }
 
-var globalReplicationGroupGlobalReplicationGroupMemberRolePtrType = reflect.TypeOf((**GlobalReplicationGroupGlobalReplicationGroupMemberRole)(nil)).Elem()
+var globalReplicationGroupMemberRolePtrType = reflect.TypeOf((**GlobalReplicationGroupMemberRole)(nil)).Elem()
 
-type GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrInput interface {
+type GlobalReplicationGroupMemberRolePtrInput interface {
 	pulumi.Input
 
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput
-	ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput
+	ToGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupMemberRolePtrOutput
+	ToGlobalReplicationGroupMemberRolePtrOutputWithContext(context.Context) GlobalReplicationGroupMemberRolePtrOutput
 }
 
-type globalReplicationGroupGlobalReplicationGroupMemberRolePtr string
+type globalReplicationGroupMemberRolePtr string
 
-func GlobalReplicationGroupGlobalReplicationGroupMemberRolePtr(v string) GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrInput {
-	return (*globalReplicationGroupGlobalReplicationGroupMemberRolePtr)(&v)
+func GlobalReplicationGroupMemberRolePtr(v string) GlobalReplicationGroupMemberRolePtrInput {
+	return (*globalReplicationGroupMemberRolePtr)(&v)
 }
 
-func (*globalReplicationGroupGlobalReplicationGroupMemberRolePtr) ElementType() reflect.Type {
-	return globalReplicationGroupGlobalReplicationGroupMemberRolePtrType
+func (*globalReplicationGroupMemberRolePtr) ElementType() reflect.Type {
+	return globalReplicationGroupMemberRolePtrType
 }
 
-func (in *globalReplicationGroupGlobalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
-	return pulumi.ToOutput(in).(GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput)
+func (in *globalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupMemberRolePtrOutput() GlobalReplicationGroupMemberRolePtrOutput {
+	return pulumi.ToOutput(in).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
-func (in *globalReplicationGroupGlobalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput)
+func (in *globalReplicationGroupMemberRolePtr) ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
 // Must be redis.
@@ -504,8 +504,8 @@ func (in *userGroupEnginePtr) ToUserGroupEnginePtrOutputWithContext(ctx context.
 }
 
 func init() {
-	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberRoleOutput{})
-	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberRolePtrOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRoleOutput{})
+	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRolePtrOutput{})
 	pulumi.RegisterOutputType(UserEngineOutput{})
 	pulumi.RegisterOutputType(UserEnginePtrOutput{})
 	pulumi.RegisterOutputType(UserGroupEngineOutput{})

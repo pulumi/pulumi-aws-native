@@ -13,25 +13,17 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     [OutputType]
     public sealed class SegmentGroups
     {
-        public readonly ImmutableArray<Outputs.SegmentSegmentDimensions> Dimensions;
-        public readonly ImmutableArray<Outputs.SegmentSourceSegments> SourceSegments;
-        public readonly string? SourceType;
-        public readonly string? Type;
+        public readonly ImmutableArray<Outputs.SegmentGroups> Groups;
+        public readonly string? Include;
 
         [OutputConstructor]
         private SegmentGroups(
-            ImmutableArray<Outputs.SegmentSegmentDimensions> dimensions,
+            ImmutableArray<Outputs.SegmentGroups> groups,
 
-            ImmutableArray<Outputs.SegmentSourceSegments> sourceSegments,
-
-            string? sourceType,
-
-            string? type)
+            string? include)
         {
-            Dimensions = dimensions;
-            SourceSegments = sourceSegments;
-            SourceType = sourceType;
-            Type = type;
+            Groups = groups;
+            Include = include;
         }
     }
 }

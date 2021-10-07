@@ -17,16 +17,16 @@ type Input struct {
 	pulumi.CustomResourceState
 
 	Arn                 pulumi.StringOutput                     `pulumi:"arn"`
-	Destinations        InputInputDestinationRequestArrayOutput `pulumi:"destinations"`
-	InputDevices        InputInputDeviceSettingsArrayOutput     `pulumi:"inputDevices"`
+	Destinations        InputDestinationRequestArrayOutput      `pulumi:"destinations"`
+	InputDevices        InputDeviceSettingsArrayOutput          `pulumi:"inputDevices"`
 	InputSecurityGroups pulumi.StringArrayOutput                `pulumi:"inputSecurityGroups"`
 	MediaConnectFlows   InputMediaConnectFlowRequestArrayOutput `pulumi:"mediaConnectFlows"`
 	Name                pulumi.StringPtrOutput                  `pulumi:"name"`
 	RoleArn             pulumi.StringPtrOutput                  `pulumi:"roleArn"`
-	Sources             InputInputSourceRequestArrayOutput      `pulumi:"sources"`
+	Sources             InputSourceRequestArrayOutput           `pulumi:"sources"`
 	Tags                pulumi.AnyOutput                        `pulumi:"tags"`
 	Type                pulumi.StringPtrOutput                  `pulumi:"type"`
-	Vpc                 InputInputVpcRequestPtrOutput           `pulumi:"vpc"`
+	Vpc                 InputVpcRequestPtrOutput                `pulumi:"vpc"`
 }
 
 // NewInput registers a new resource with the given unique name, arguments, and options.
@@ -68,30 +68,30 @@ func (InputState) ElementType() reflect.Type {
 }
 
 type inputArgs struct {
-	Destinations        []InputInputDestinationRequest `pulumi:"destinations"`
-	InputDevices        []InputInputDeviceSettings     `pulumi:"inputDevices"`
+	Destinations        []InputDestinationRequest      `pulumi:"destinations"`
+	InputDevices        []InputDeviceSettings          `pulumi:"inputDevices"`
 	InputSecurityGroups []string                       `pulumi:"inputSecurityGroups"`
 	MediaConnectFlows   []InputMediaConnectFlowRequest `pulumi:"mediaConnectFlows"`
 	Name                *string                        `pulumi:"name"`
 	RoleArn             *string                        `pulumi:"roleArn"`
-	Sources             []InputInputSourceRequest      `pulumi:"sources"`
+	Sources             []InputSourceRequest           `pulumi:"sources"`
 	Tags                interface{}                    `pulumi:"tags"`
 	Type                *string                        `pulumi:"type"`
-	Vpc                 *InputInputVpcRequest          `pulumi:"vpc"`
+	Vpc                 *InputVpcRequest               `pulumi:"vpc"`
 }
 
 // The set of arguments for constructing a Input resource.
 type InputArgs struct {
-	Destinations        InputInputDestinationRequestArrayInput
-	InputDevices        InputInputDeviceSettingsArrayInput
+	Destinations        InputDestinationRequestArrayInput
+	InputDevices        InputDeviceSettingsArrayInput
 	InputSecurityGroups pulumi.StringArrayInput
 	MediaConnectFlows   InputMediaConnectFlowRequestArrayInput
 	Name                pulumi.StringPtrInput
 	RoleArn             pulumi.StringPtrInput
-	Sources             InputInputSourceRequestArrayInput
+	Sources             InputSourceRequestArrayInput
 	Tags                pulumi.Input
 	Type                pulumi.StringPtrInput
-	Vpc                 InputInputVpcRequestPtrInput
+	Vpc                 InputVpcRequestPtrInput
 }
 
 func (InputArgs) ElementType() reflect.Type {

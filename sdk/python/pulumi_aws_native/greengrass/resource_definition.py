@@ -16,7 +16,7 @@ __all__ = ['ResourceDefinitionArgs', 'ResourceDefinition']
 class ResourceDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 initial_version: Optional[pulumi.Input['ResourceDefinitionResourceDefinitionVersionArgs']] = None,
+                 initial_version: Optional[pulumi.Input['ResourceDefinitionVersionArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a ResourceDefinition resource.
@@ -38,11 +38,11 @@ class ResourceDefinitionArgs:
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> Optional[pulumi.Input['ResourceDefinitionResourceDefinitionVersionArgs']]:
+    def initial_version(self) -> Optional[pulumi.Input['ResourceDefinitionVersionArgs']]:
         return pulumi.get(self, "initial_version")
 
     @initial_version.setter
-    def initial_version(self, value: Optional[pulumi.Input['ResourceDefinitionResourceDefinitionVersionArgs']]):
+    def initial_version(self, value: Optional[pulumi.Input['ResourceDefinitionVersionArgs']]):
         pulumi.set(self, "initial_version", value)
 
     @property
@@ -65,7 +65,7 @@ class ResourceDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['ResourceDefinitionResourceDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['ResourceDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class ResourceDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['ResourceDefinitionResourceDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['ResourceDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -158,7 +158,7 @@ class ResourceDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> pulumi.Output[Optional['outputs.ResourceDefinitionResourceDefinitionVersion']]:
+    def initial_version(self) -> pulumi.Output[Optional['outputs.ResourceDefinitionVersion']]:
         return pulumi.get(self, "initial_version")
 
     @property

@@ -28,9 +28,9 @@ type WorkGroup struct {
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags WorkGroupTagArrayOutput `pulumi:"tags"`
 	// The workgroup configuration
-	WorkGroupConfiguration WorkGroupWorkGroupConfigurationPtrOutput `pulumi:"workGroupConfiguration"`
+	WorkGroupConfiguration WorkGroupConfigurationPtrOutput `pulumi:"workGroupConfiguration"`
 	// The workgroup configuration update object
-	WorkGroupConfigurationUpdates WorkGroupWorkGroupConfigurationUpdatesPtrOutput `pulumi:"workGroupConfigurationUpdates"`
+	WorkGroupConfigurationUpdates WorkGroupConfigurationUpdatesPtrOutput `pulumi:"workGroupConfigurationUpdates"`
 }
 
 // NewWorkGroup registers a new resource with the given unique name, arguments, and options.
@@ -86,9 +86,9 @@ type workGroupArgs struct {
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags []WorkGroupTag `pulumi:"tags"`
 	// The workgroup configuration
-	WorkGroupConfiguration *WorkGroupWorkGroupConfiguration `pulumi:"workGroupConfiguration"`
+	WorkGroupConfiguration *WorkGroupConfiguration `pulumi:"workGroupConfiguration"`
 	// The workgroup configuration update object
-	WorkGroupConfigurationUpdates *WorkGroupWorkGroupConfigurationUpdates `pulumi:"workGroupConfigurationUpdates"`
+	WorkGroupConfigurationUpdates *WorkGroupConfigurationUpdates `pulumi:"workGroupConfigurationUpdates"`
 }
 
 // The set of arguments for constructing a WorkGroup resource.
@@ -104,9 +104,9 @@ type WorkGroupArgs struct {
 	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
 	Tags WorkGroupTagArrayInput
 	// The workgroup configuration
-	WorkGroupConfiguration WorkGroupWorkGroupConfigurationPtrInput
+	WorkGroupConfiguration WorkGroupConfigurationPtrInput
 	// The workgroup configuration update object
-	WorkGroupConfigurationUpdates WorkGroupWorkGroupConfigurationUpdatesPtrInput
+	WorkGroupConfigurationUpdates WorkGroupConfigurationUpdatesPtrInput
 }
 
 func (WorkGroupArgs) ElementType() reflect.Type {

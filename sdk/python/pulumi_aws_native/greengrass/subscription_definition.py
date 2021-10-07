@@ -16,7 +16,7 @@ __all__ = ['SubscriptionDefinitionArgs', 'SubscriptionDefinition']
 class SubscriptionDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 initial_version: Optional[pulumi.Input['SubscriptionDefinitionSubscriptionDefinitionVersionArgs']] = None,
+                 initial_version: Optional[pulumi.Input['SubscriptionDefinitionVersionArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a SubscriptionDefinition resource.
@@ -38,11 +38,11 @@ class SubscriptionDefinitionArgs:
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> Optional[pulumi.Input['SubscriptionDefinitionSubscriptionDefinitionVersionArgs']]:
+    def initial_version(self) -> Optional[pulumi.Input['SubscriptionDefinitionVersionArgs']]:
         return pulumi.get(self, "initial_version")
 
     @initial_version.setter
-    def initial_version(self, value: Optional[pulumi.Input['SubscriptionDefinitionSubscriptionDefinitionVersionArgs']]):
+    def initial_version(self, value: Optional[pulumi.Input['SubscriptionDefinitionVersionArgs']]):
         pulumi.set(self, "initial_version", value)
 
     @property
@@ -65,7 +65,7 @@ class SubscriptionDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['SubscriptionDefinitionSubscriptionDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['SubscriptionDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class SubscriptionDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['SubscriptionDefinitionSubscriptionDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['SubscriptionDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -158,7 +158,7 @@ class SubscriptionDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> pulumi.Output[Optional['outputs.SubscriptionDefinitionSubscriptionDefinitionVersion']]:
+    def initial_version(self) -> pulumi.Output[Optional['outputs.SubscriptionDefinitionVersion']]:
         return pulumi.get(self, "initial_version")
 
     @property

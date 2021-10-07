@@ -20,8 +20,8 @@ class KeyArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_spec: Optional[pulumi.Input['KeyKeySpec']] = None,
-                 key_usage: Optional[pulumi.Input['KeyKeyUsage']] = None,
+                 key_spec: Optional[pulumi.Input['KeySpec']] = None,
+                 key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]] = None):
@@ -31,8 +31,8 @@ class KeyArgs:
         :param pulumi.Input[str] description: A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
         :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
         :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
-        :param pulumi.Input['KeyKeySpec'] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-        :param pulumi.Input['KeyKeyUsage'] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+        :param pulumi.Input['KeySpec'] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+        :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         :param pulumi.Input[bool] multi_region: Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -105,26 +105,26 @@ class KeyArgs:
 
     @property
     @pulumi.getter(name="keySpec")
-    def key_spec(self) -> Optional[pulumi.Input['KeyKeySpec']]:
+    def key_spec(self) -> Optional[pulumi.Input['KeySpec']]:
         """
         Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         """
         return pulumi.get(self, "key_spec")
 
     @key_spec.setter
-    def key_spec(self, value: Optional[pulumi.Input['KeyKeySpec']]):
+    def key_spec(self, value: Optional[pulumi.Input['KeySpec']]):
         pulumi.set(self, "key_spec", value)
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> Optional[pulumi.Input['KeyKeyUsage']]:
+    def key_usage(self) -> Optional[pulumi.Input['KeyUsage']]:
         """
         Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
-    def key_usage(self, value: Optional[pulumi.Input['KeyKeyUsage']]):
+    def key_usage(self, value: Optional[pulumi.Input['KeyUsage']]):
         pulumi.set(self, "key_usage", value)
 
     @property
@@ -173,8 +173,8 @@ class Key(pulumi.CustomResource):
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_policy: Optional[Any] = None,
-                 key_spec: Optional[pulumi.Input['KeyKeySpec']] = None,
-                 key_usage: Optional[pulumi.Input['KeyKeyUsage']] = None,
+                 key_spec: Optional[pulumi.Input['KeySpec']] = None,
+                 key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]]] = None,
@@ -188,8 +188,8 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
         :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
         :param Any key_policy: The key policy that authorizes use of the CMK. The key policy must observe the following rules.
-        :param pulumi.Input['KeyKeySpec'] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
-        :param pulumi.Input['KeyKeyUsage'] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+        :param pulumi.Input['KeySpec'] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+        :param pulumi.Input['KeyUsage'] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         :param pulumi.Input[bool] multi_region: Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -222,8 +222,8 @@ class Key(pulumi.CustomResource):
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_policy: Optional[Any] = None,
-                 key_spec: Optional[pulumi.Input['KeyKeySpec']] = None,
-                 key_usage: Optional[pulumi.Input['KeyKeyUsage']] = None,
+                 key_spec: Optional[pulumi.Input['KeySpec']] = None,
+                 key_usage: Optional[pulumi.Input['KeyUsage']] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]]] = None,
@@ -331,7 +331,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keySpec")
-    def key_spec(self) -> pulumi.Output[Optional['KeyKeySpec']]:
+    def key_spec(self) -> pulumi.Output[Optional['KeySpec']]:
         """
         Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         """
@@ -339,7 +339,7 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyUsage")
-    def key_usage(self) -> pulumi.Output[Optional['KeyKeyUsage']]:
+    def key_usage(self) -> pulumi.Output[Optional['KeyUsage']]:
         """
         Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         """

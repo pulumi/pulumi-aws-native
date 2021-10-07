@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.ASK
         public Output<Outputs.SkillAuthenticationConfiguration> AuthenticationConfiguration { get; private set; } = null!;
 
         [Output("skillPackage")]
-        public Output<Outputs.SkillSkillPackage> SkillPackage { get; private set; } = null!;
+        public Output<Outputs.SkillPackage> SkillPackage { get; private set; } = null!;
 
         [Output("vendorId")]
         public Output<string> VendorId { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.ASK
         public Input<Inputs.SkillAuthenticationConfigurationArgs> AuthenticationConfiguration { get; set; } = null!;
 
         [Input("skillPackage", required: true)]
-        public Input<Inputs.SkillSkillPackageArgs> SkillPackage { get; set; } = null!;
+        public Input<Inputs.SkillPackageArgs> SkillPackage { get; set; } = null!;
 
         [Input("vendorId", required: true)]
         public Input<string> VendorId { get; set; } = null!;

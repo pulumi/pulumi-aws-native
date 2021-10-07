@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         [Output("spec")]
-        public Output<Outputs.VirtualGatewayVirtualGatewaySpec> Spec { get; private set; } = null!;
+        public Output<Outputs.VirtualGatewaySpec> Spec { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VirtualGatewayTag>> Tags { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         [Input("spec", required: true)]
-        public Input<Inputs.VirtualGatewayVirtualGatewaySpecArgs> Spec { get; set; } = null!;
+        public Input<Inputs.VirtualGatewaySpecArgs> Spec { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.VirtualGatewayTagArgs>? _tags;

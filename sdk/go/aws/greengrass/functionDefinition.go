@@ -17,11 +17,11 @@ import (
 type FunctionDefinition struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                                  `pulumi:"arn"`
-	InitialVersion   FunctionDefinitionFunctionDefinitionVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput                                  `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput                                  `pulumi:"name"`
-	Tags             pulumi.AnyOutput                                     `pulumi:"tags"`
+	Arn              pulumi.StringOutput                    `pulumi:"arn"`
+	InitialVersion   FunctionDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput                    `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput                    `pulumi:"name"`
+	Tags             pulumi.AnyOutput                       `pulumi:"tags"`
 }
 
 // NewFunctionDefinition registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (FunctionDefinitionState) ElementType() reflect.Type {
 }
 
 type functionDefinitionArgs struct {
-	InitialVersion *FunctionDefinitionFunctionDefinitionVersion `pulumi:"initialVersion"`
-	Name           string                                       `pulumi:"name"`
-	Tags           interface{}                                  `pulumi:"tags"`
+	InitialVersion *FunctionDefinitionVersionType `pulumi:"initialVersion"`
+	Name           string                         `pulumi:"name"`
+	Tags           interface{}                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FunctionDefinition resource.
 type FunctionDefinitionArgs struct {
-	InitialVersion FunctionDefinitionFunctionDefinitionVersionPtrInput
+	InitialVersion FunctionDefinitionVersionTypePtrInput
 	Name           pulumi.StringInput
 	Tags           pulumi.Input
 }

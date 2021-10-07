@@ -1754,127 +1754,127 @@ func (in *integrationZendeskConnectorOperatorPtr) ToIntegrationZendeskConnectorO
 }
 
 // The content type of the field. Used for determining equality when searching.
-type ObjectTypeObjectTypeFieldContentType string
+type ObjectTypeFieldContentType string
 
 const (
-	ObjectTypeObjectTypeFieldContentTypeString       = ObjectTypeObjectTypeFieldContentType("STRING")
-	ObjectTypeObjectTypeFieldContentTypeNumber       = ObjectTypeObjectTypeFieldContentType("NUMBER")
-	ObjectTypeObjectTypeFieldContentTypePhoneNumber  = ObjectTypeObjectTypeFieldContentType("PHONE_NUMBER")
-	ObjectTypeObjectTypeFieldContentTypeEmailAddress = ObjectTypeObjectTypeFieldContentType("EMAIL_ADDRESS")
-	ObjectTypeObjectTypeFieldContentTypeName         = ObjectTypeObjectTypeFieldContentType("NAME")
+	ObjectTypeFieldContentTypeString       = ObjectTypeFieldContentType("STRING")
+	ObjectTypeFieldContentTypeNumber       = ObjectTypeFieldContentType("NUMBER")
+	ObjectTypeFieldContentTypePhoneNumber  = ObjectTypeFieldContentType("PHONE_NUMBER")
+	ObjectTypeFieldContentTypeEmailAddress = ObjectTypeFieldContentType("EMAIL_ADDRESS")
+	ObjectTypeFieldContentTypeName         = ObjectTypeFieldContentType("NAME")
 )
 
-func (ObjectTypeObjectTypeFieldContentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeFieldContentType)(nil)).Elem()
+func (ObjectTypeFieldContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeFieldContentType)(nil)).Elem()
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToObjectTypeObjectTypeFieldContentTypeOutput() ObjectTypeObjectTypeFieldContentTypeOutput {
-	return pulumi.ToOutput(e).(ObjectTypeObjectTypeFieldContentTypeOutput)
+func (e ObjectTypeFieldContentType) ToObjectTypeFieldContentTypeOutput() ObjectTypeFieldContentTypeOutput {
+	return pulumi.ToOutput(e).(ObjectTypeFieldContentTypeOutput)
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToObjectTypeObjectTypeFieldContentTypeOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldContentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ObjectTypeObjectTypeFieldContentTypeOutput)
+func (e ObjectTypeFieldContentType) ToObjectTypeFieldContentTypeOutputWithContext(ctx context.Context) ObjectTypeFieldContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ObjectTypeFieldContentTypeOutput)
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToObjectTypeObjectTypeFieldContentTypePtrOutput() ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return e.ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(context.Background())
+func (e ObjectTypeFieldContentType) ToObjectTypeFieldContentTypePtrOutput() ObjectTypeFieldContentTypePtrOutput {
+	return e.ToObjectTypeFieldContentTypePtrOutputWithContext(context.Background())
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return ObjectTypeObjectTypeFieldContentType(e).ToObjectTypeObjectTypeFieldContentTypeOutputWithContext(ctx).ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(ctx)
+func (e ObjectTypeFieldContentType) ToObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeFieldContentTypePtrOutput {
+	return ObjectTypeFieldContentType(e).ToObjectTypeFieldContentTypeOutputWithContext(ctx).ToObjectTypeFieldContentTypePtrOutputWithContext(ctx)
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToStringOutput() pulumi.StringOutput {
+func (e ObjectTypeFieldContentType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ObjectTypeFieldContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ObjectTypeFieldContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ObjectTypeObjectTypeFieldContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ObjectTypeFieldContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ObjectTypeObjectTypeFieldContentTypeOutput struct{ *pulumi.OutputState }
+type ObjectTypeFieldContentTypeOutput struct{ *pulumi.OutputState }
 
-func (ObjectTypeObjectTypeFieldContentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeFieldContentType)(nil)).Elem()
+func (ObjectTypeFieldContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeFieldContentType)(nil)).Elem()
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToObjectTypeObjectTypeFieldContentTypeOutput() ObjectTypeObjectTypeFieldContentTypeOutput {
+func (o ObjectTypeFieldContentTypeOutput) ToObjectTypeFieldContentTypeOutput() ObjectTypeFieldContentTypeOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToObjectTypeObjectTypeFieldContentTypeOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldContentTypeOutput {
+func (o ObjectTypeFieldContentTypeOutput) ToObjectTypeFieldContentTypeOutputWithContext(ctx context.Context) ObjectTypeFieldContentTypeOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToObjectTypeObjectTypeFieldContentTypePtrOutput() ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return o.ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(context.Background())
+func (o ObjectTypeFieldContentTypeOutput) ToObjectTypeFieldContentTypePtrOutput() ObjectTypeFieldContentTypePtrOutput {
+	return o.ToObjectTypeFieldContentTypePtrOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectTypeObjectTypeFieldContentType) *ObjectTypeObjectTypeFieldContentType {
+func (o ObjectTypeFieldContentTypeOutput) ToObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeFieldContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectTypeFieldContentType) *ObjectTypeFieldContentType {
 		return &v
-	}).(ObjectTypeObjectTypeFieldContentTypePtrOutput)
+	}).(ObjectTypeFieldContentTypePtrOutput)
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o ObjectTypeFieldContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeObjectTypeFieldContentType) string {
+func (o ObjectTypeFieldContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeFieldContentType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ObjectTypeFieldContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeObjectTypeFieldContentType) *string {
+func (o ObjectTypeFieldContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeFieldContentType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ObjectTypeObjectTypeFieldContentTypePtrOutput struct{ *pulumi.OutputState }
+type ObjectTypeFieldContentTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ObjectTypeObjectTypeFieldContentTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectTypeObjectTypeFieldContentType)(nil)).Elem()
+func (ObjectTypeFieldContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectTypeFieldContentType)(nil)).Elem()
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypePtrOutput) ToObjectTypeObjectTypeFieldContentTypePtrOutput() ObjectTypeObjectTypeFieldContentTypePtrOutput {
+func (o ObjectTypeFieldContentTypePtrOutput) ToObjectTypeFieldContentTypePtrOutput() ObjectTypeFieldContentTypePtrOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypePtrOutput) ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldContentTypePtrOutput {
+func (o ObjectTypeFieldContentTypePtrOutput) ToObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeFieldContentTypePtrOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypePtrOutput) Elem() ObjectTypeObjectTypeFieldContentTypeOutput {
-	return o.ApplyT(func(v *ObjectTypeObjectTypeFieldContentType) ObjectTypeObjectTypeFieldContentType {
+func (o ObjectTypeFieldContentTypePtrOutput) Elem() ObjectTypeFieldContentTypeOutput {
+	return o.ApplyT(func(v *ObjectTypeFieldContentType) ObjectTypeFieldContentType {
 		if v != nil {
 			return *v
 		}
-		var ret ObjectTypeObjectTypeFieldContentType
+		var ret ObjectTypeFieldContentType
 		return ret
-	}).(ObjectTypeObjectTypeFieldContentTypeOutput)
+	}).(ObjectTypeFieldContentTypeOutput)
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ObjectTypeFieldContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeFieldContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ObjectTypeObjectTypeFieldContentType) *string {
+func (o ObjectTypeFieldContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ObjectTypeFieldContentType) *string {
 		if e == nil {
 			return nil
 		}
@@ -1883,165 +1883,165 @@ func (o ObjectTypeObjectTypeFieldContentTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ObjectTypeObjectTypeFieldContentTypeInput is an input type that accepts ObjectTypeObjectTypeFieldContentTypeArgs and ObjectTypeObjectTypeFieldContentTypeOutput values.
-// You can construct a concrete instance of `ObjectTypeObjectTypeFieldContentTypeInput` via:
+// ObjectTypeFieldContentTypeInput is an input type that accepts ObjectTypeFieldContentTypeArgs and ObjectTypeFieldContentTypeOutput values.
+// You can construct a concrete instance of `ObjectTypeFieldContentTypeInput` via:
 //
-//          ObjectTypeObjectTypeFieldContentTypeArgs{...}
-type ObjectTypeObjectTypeFieldContentTypeInput interface {
+//          ObjectTypeFieldContentTypeArgs{...}
+type ObjectTypeFieldContentTypeInput interface {
 	pulumi.Input
 
-	ToObjectTypeObjectTypeFieldContentTypeOutput() ObjectTypeObjectTypeFieldContentTypeOutput
-	ToObjectTypeObjectTypeFieldContentTypeOutputWithContext(context.Context) ObjectTypeObjectTypeFieldContentTypeOutput
+	ToObjectTypeFieldContentTypeOutput() ObjectTypeFieldContentTypeOutput
+	ToObjectTypeFieldContentTypeOutputWithContext(context.Context) ObjectTypeFieldContentTypeOutput
 }
 
-var objectTypeObjectTypeFieldContentTypePtrType = reflect.TypeOf((**ObjectTypeObjectTypeFieldContentType)(nil)).Elem()
+var objectTypeFieldContentTypePtrType = reflect.TypeOf((**ObjectTypeFieldContentType)(nil)).Elem()
 
-type ObjectTypeObjectTypeFieldContentTypePtrInput interface {
+type ObjectTypeFieldContentTypePtrInput interface {
 	pulumi.Input
 
-	ToObjectTypeObjectTypeFieldContentTypePtrOutput() ObjectTypeObjectTypeFieldContentTypePtrOutput
-	ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(context.Context) ObjectTypeObjectTypeFieldContentTypePtrOutput
+	ToObjectTypeFieldContentTypePtrOutput() ObjectTypeFieldContentTypePtrOutput
+	ToObjectTypeFieldContentTypePtrOutputWithContext(context.Context) ObjectTypeFieldContentTypePtrOutput
 }
 
-type objectTypeObjectTypeFieldContentTypePtr string
+type objectTypeFieldContentTypePtr string
 
-func ObjectTypeObjectTypeFieldContentTypePtr(v string) ObjectTypeObjectTypeFieldContentTypePtrInput {
-	return (*objectTypeObjectTypeFieldContentTypePtr)(&v)
+func ObjectTypeFieldContentTypePtr(v string) ObjectTypeFieldContentTypePtrInput {
+	return (*objectTypeFieldContentTypePtr)(&v)
 }
 
-func (*objectTypeObjectTypeFieldContentTypePtr) ElementType() reflect.Type {
-	return objectTypeObjectTypeFieldContentTypePtrType
+func (*objectTypeFieldContentTypePtr) ElementType() reflect.Type {
+	return objectTypeFieldContentTypePtrType
 }
 
-func (in *objectTypeObjectTypeFieldContentTypePtr) ToObjectTypeObjectTypeFieldContentTypePtrOutput() ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return pulumi.ToOutput(in).(ObjectTypeObjectTypeFieldContentTypePtrOutput)
+func (in *objectTypeFieldContentTypePtr) ToObjectTypeFieldContentTypePtrOutput() ObjectTypeFieldContentTypePtrOutput {
+	return pulumi.ToOutput(in).(ObjectTypeFieldContentTypePtrOutput)
 }
 
-func (in *objectTypeObjectTypeFieldContentTypePtr) ToObjectTypeObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeFieldContentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ObjectTypeObjectTypeFieldContentTypePtrOutput)
+func (in *objectTypeFieldContentTypePtr) ToObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeFieldContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ObjectTypeFieldContentTypePtrOutput)
 }
 
-type ObjectTypeObjectTypeKeyStandardIdentifiersItem string
+type ObjectTypeKeyStandardIdentifiersItem string
 
 const (
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemProfile    = ObjectTypeObjectTypeKeyStandardIdentifiersItem("PROFILE")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemUnique     = ObjectTypeObjectTypeKeyStandardIdentifiersItem("UNIQUE")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemSecondary  = ObjectTypeObjectTypeKeyStandardIdentifiersItem("SECONDARY")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemLookupOnly = ObjectTypeObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY")
-	ObjectTypeObjectTypeKeyStandardIdentifiersItemNewOnly    = ObjectTypeObjectTypeKeyStandardIdentifiersItem("NEW_ONLY")
+	ObjectTypeKeyStandardIdentifiersItemProfile    = ObjectTypeKeyStandardIdentifiersItem("PROFILE")
+	ObjectTypeKeyStandardIdentifiersItemUnique     = ObjectTypeKeyStandardIdentifiersItem("UNIQUE")
+	ObjectTypeKeyStandardIdentifiersItemSecondary  = ObjectTypeKeyStandardIdentifiersItem("SECONDARY")
+	ObjectTypeKeyStandardIdentifiersItemLookupOnly = ObjectTypeKeyStandardIdentifiersItem("LOOKUP_ONLY")
+	ObjectTypeKeyStandardIdentifiersItemNewOnly    = ObjectTypeKeyStandardIdentifiersItem("NEW_ONLY")
 )
 
-func (ObjectTypeObjectTypeKeyStandardIdentifiersItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
+func (ObjectTypeKeyStandardIdentifiersItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToObjectTypeObjectTypeKeyStandardIdentifiersItemOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput {
-	return pulumi.ToOutput(e).(ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput)
+func (e ObjectTypeKeyStandardIdentifiersItem) ToObjectTypeKeyStandardIdentifiersItemOutput() ObjectTypeKeyStandardIdentifiersItemOutput {
+	return pulumi.ToOutput(e).(ObjectTypeKeyStandardIdentifiersItemOutput)
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToObjectTypeObjectTypeKeyStandardIdentifiersItemOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput)
+func (e ObjectTypeKeyStandardIdentifiersItem) ToObjectTypeKeyStandardIdentifiersItemOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ObjectTypeKeyStandardIdentifiersItemOutput)
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
-	return e.ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(context.Background())
+func (e ObjectTypeKeyStandardIdentifiersItem) ToObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeKeyStandardIdentifiersItemPtrOutput {
+	return e.ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(context.Background())
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
-	return ObjectTypeObjectTypeKeyStandardIdentifiersItem(e).ToObjectTypeObjectTypeKeyStandardIdentifiersItemOutputWithContext(ctx).ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx)
+func (e ObjectTypeKeyStandardIdentifiersItem) ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemPtrOutput {
+	return ObjectTypeKeyStandardIdentifiersItem(e).ToObjectTypeKeyStandardIdentifiersItemOutputWithContext(ctx).ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx)
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToStringOutput() pulumi.StringOutput {
+func (e ObjectTypeKeyStandardIdentifiersItem) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ObjectTypeKeyStandardIdentifiersItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ObjectTypeKeyStandardIdentifiersItem) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ObjectTypeObjectTypeKeyStandardIdentifiersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ObjectTypeKeyStandardIdentifiersItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput struct{ *pulumi.OutputState }
+type ObjectTypeKeyStandardIdentifiersItemOutput struct{ *pulumi.OutputState }
 
-func (ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectTypeObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
+func (ObjectTypeKeyStandardIdentifiersItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeKeyStandardIdentifiersItemOutput() ObjectTypeKeyStandardIdentifiersItemOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeKeyStandardIdentifiersItemOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
-	return o.ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(context.Background())
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeKeyStandardIdentifiersItemPtrOutput {
+	return o.ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectTypeObjectTypeKeyStandardIdentifiersItem) *ObjectTypeObjectTypeKeyStandardIdentifiersItem {
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectTypeKeyStandardIdentifiersItem) *ObjectTypeKeyStandardIdentifiersItem {
 		return &v
-	}).(ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput)
+	}).(ObjectTypeKeyStandardIdentifiersItemPtrOutput)
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToStringOutput() pulumi.StringOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeObjectTypeKeyStandardIdentifiersItem) string {
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeKeyStandardIdentifiersItem) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeObjectTypeKeyStandardIdentifiersItem) *string {
+func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ObjectTypeKeyStandardIdentifiersItem) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput struct{ *pulumi.OutputState }
+type ObjectTypeKeyStandardIdentifiersItemPtrOutput struct{ *pulumi.OutputState }
 
-func (ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectTypeObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
+func (ObjectTypeKeyStandardIdentifiersItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeKeyStandardIdentifiersItemPtrOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemPtrOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput) Elem() ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput {
-	return o.ApplyT(func(v *ObjectTypeObjectTypeKeyStandardIdentifiersItem) ObjectTypeObjectTypeKeyStandardIdentifiersItem {
+func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) Elem() ObjectTypeKeyStandardIdentifiersItemOutput {
+	return o.ApplyT(func(v *ObjectTypeKeyStandardIdentifiersItem) ObjectTypeKeyStandardIdentifiersItem {
 		if v != nil {
 			return *v
 		}
-		var ret ObjectTypeObjectTypeKeyStandardIdentifiersItem
+		var ret ObjectTypeKeyStandardIdentifiersItem
 		return ret
-	}).(ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput)
+	}).(ObjectTypeKeyStandardIdentifiersItemOutput)
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ObjectTypeObjectTypeKeyStandardIdentifiersItem) *string {
+func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ObjectTypeKeyStandardIdentifiersItem) *string {
 		if e == nil {
 			return nil
 		}
@@ -2050,87 +2050,87 @@ func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// ObjectTypeObjectTypeKeyStandardIdentifiersItemInput is an input type that accepts ObjectTypeObjectTypeKeyStandardIdentifiersItemArgs and ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput values.
-// You can construct a concrete instance of `ObjectTypeObjectTypeKeyStandardIdentifiersItemInput` via:
+// ObjectTypeKeyStandardIdentifiersItemInput is an input type that accepts ObjectTypeKeyStandardIdentifiersItemArgs and ObjectTypeKeyStandardIdentifiersItemOutput values.
+// You can construct a concrete instance of `ObjectTypeKeyStandardIdentifiersItemInput` via:
 //
-//          ObjectTypeObjectTypeKeyStandardIdentifiersItemArgs{...}
-type ObjectTypeObjectTypeKeyStandardIdentifiersItemInput interface {
+//          ObjectTypeKeyStandardIdentifiersItemArgs{...}
+type ObjectTypeKeyStandardIdentifiersItemInput interface {
 	pulumi.Input
 
-	ToObjectTypeObjectTypeKeyStandardIdentifiersItemOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput
-	ToObjectTypeObjectTypeKeyStandardIdentifiersItemOutputWithContext(context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput
+	ToObjectTypeKeyStandardIdentifiersItemOutput() ObjectTypeKeyStandardIdentifiersItemOutput
+	ToObjectTypeKeyStandardIdentifiersItemOutputWithContext(context.Context) ObjectTypeKeyStandardIdentifiersItemOutput
 }
 
-var objectTypeObjectTypeKeyStandardIdentifiersItemPtrType = reflect.TypeOf((**ObjectTypeObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
+var objectTypeKeyStandardIdentifiersItemPtrType = reflect.TypeOf((**ObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
 
-type ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrInput interface {
+type ObjectTypeKeyStandardIdentifiersItemPtrInput interface {
 	pulumi.Input
 
-	ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput
-	ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput
+	ToObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeKeyStandardIdentifiersItemPtrOutput
+	ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(context.Context) ObjectTypeKeyStandardIdentifiersItemPtrOutput
 }
 
-type objectTypeObjectTypeKeyStandardIdentifiersItemPtr string
+type objectTypeKeyStandardIdentifiersItemPtr string
 
-func ObjectTypeObjectTypeKeyStandardIdentifiersItemPtr(v string) ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrInput {
-	return (*objectTypeObjectTypeKeyStandardIdentifiersItemPtr)(&v)
+func ObjectTypeKeyStandardIdentifiersItemPtr(v string) ObjectTypeKeyStandardIdentifiersItemPtrInput {
+	return (*objectTypeKeyStandardIdentifiersItemPtr)(&v)
 }
 
-func (*objectTypeObjectTypeKeyStandardIdentifiersItemPtr) ElementType() reflect.Type {
-	return objectTypeObjectTypeKeyStandardIdentifiersItemPtrType
+func (*objectTypeKeyStandardIdentifiersItemPtr) ElementType() reflect.Type {
+	return objectTypeKeyStandardIdentifiersItemPtrType
 }
 
-func (in *objectTypeObjectTypeKeyStandardIdentifiersItemPtr) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
-	return pulumi.ToOutput(in).(ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput)
+func (in *objectTypeKeyStandardIdentifiersItemPtr) ToObjectTypeKeyStandardIdentifiersItemPtrOutput() ObjectTypeKeyStandardIdentifiersItemPtrOutput {
+	return pulumi.ToOutput(in).(ObjectTypeKeyStandardIdentifiersItemPtrOutput)
 }
 
-func (in *objectTypeObjectTypeKeyStandardIdentifiersItemPtr) ToObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput)
+func (in *objectTypeKeyStandardIdentifiersItemPtr) ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ObjectTypeKeyStandardIdentifiersItemPtrOutput)
 }
 
-// ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayInput is an input type that accepts ObjectTypeObjectTypeKeyStandardIdentifiersItemArray and ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput values.
-// You can construct a concrete instance of `ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayInput` via:
+// ObjectTypeKeyStandardIdentifiersItemArrayInput is an input type that accepts ObjectTypeKeyStandardIdentifiersItemArray and ObjectTypeKeyStandardIdentifiersItemArrayOutput values.
+// You can construct a concrete instance of `ObjectTypeKeyStandardIdentifiersItemArrayInput` via:
 //
-//          ObjectTypeObjectTypeKeyStandardIdentifiersItemArray{ ObjectTypeObjectTypeKeyStandardIdentifiersItemArgs{...} }
-type ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayInput interface {
+//          ObjectTypeKeyStandardIdentifiersItemArray{ ObjectTypeKeyStandardIdentifiersItemArgs{...} }
+type ObjectTypeKeyStandardIdentifiersItemArrayInput interface {
 	pulumi.Input
 
-	ToObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput
-	ToObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput
+	ToObjectTypeKeyStandardIdentifiersItemArrayOutput() ObjectTypeKeyStandardIdentifiersItemArrayOutput
+	ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(context.Context) ObjectTypeKeyStandardIdentifiersItemArrayOutput
 }
 
-type ObjectTypeObjectTypeKeyStandardIdentifiersItemArray []ObjectTypeObjectTypeKeyStandardIdentifiersItem
+type ObjectTypeKeyStandardIdentifiersItemArray []ObjectTypeKeyStandardIdentifiersItem
 
-func (ObjectTypeObjectTypeKeyStandardIdentifiersItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObjectTypeObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
+func (ObjectTypeKeyStandardIdentifiersItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
 }
 
-func (i ObjectTypeObjectTypeKeyStandardIdentifiersItemArray) ToObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput {
-	return i.ToObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(context.Background())
+func (i ObjectTypeKeyStandardIdentifiersItemArray) ToObjectTypeKeyStandardIdentifiersItemArrayOutput() ObjectTypeKeyStandardIdentifiersItemArrayOutput {
+	return i.ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(context.Background())
 }
 
-func (i ObjectTypeObjectTypeKeyStandardIdentifiersItemArray) ToObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput)
+func (i ObjectTypeKeyStandardIdentifiersItemArray) ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeKeyStandardIdentifiersItemArrayOutput)
 }
 
-type ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput struct{ *pulumi.OutputState }
+type ObjectTypeKeyStandardIdentifiersItemArrayOutput struct{ *pulumi.OutputState }
 
-func (ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObjectTypeObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
+func (ObjectTypeKeyStandardIdentifiersItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectTypeKeyStandardIdentifiersItem)(nil)).Elem()
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput() ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeKeyStandardIdentifiersItemArrayOutput() ObjectTypeKeyStandardIdentifiersItemArrayOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx context.Context) ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput {
+func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemArrayOutput {
 	return o
 }
 
-func (o ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput) Index(i pulumi.IntInput) ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectTypeObjectTypeKeyStandardIdentifiersItem {
-		return vs[0].([]ObjectTypeObjectTypeKeyStandardIdentifiersItem)[vs[1].(int)]
-	}).(ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput)
+func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyStandardIdentifiersItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectTypeKeyStandardIdentifiersItem {
+		return vs[0].([]ObjectTypeKeyStandardIdentifiersItem)[vs[1].(int)]
+	}).(ObjectTypeKeyStandardIdentifiersItemOutput)
 }
 
 func init() {
@@ -2154,9 +2154,9 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationTriggerTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationZendeskConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(IntegrationZendeskConnectorOperatorPtrOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeFieldContentTypeOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeFieldContentTypePtrOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeKeyStandardIdentifiersItemOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeKeyStandardIdentifiersItemPtrOutput{})
-	pulumi.RegisterOutputType(ObjectTypeObjectTypeKeyStandardIdentifiersItemArrayOutput{})
+	pulumi.RegisterOutputType(ObjectTypeFieldContentTypeOutput{})
+	pulumi.RegisterOutputType(ObjectTypeFieldContentTypePtrOutput{})
+	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemOutput{})
+	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemPtrOutput{})
+	pulumi.RegisterOutputType(ObjectTypeKeyStandardIdentifiersItemArrayOutput{})
 }

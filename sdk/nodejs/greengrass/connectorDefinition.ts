@@ -39,7 +39,7 @@ export class ConnectorDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.ConnectorDefinitionConnectorDefinitionVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.ConnectorDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -83,7 +83,7 @@ export class ConnectorDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a ConnectorDefinition resource.
  */
 export interface ConnectorDefinitionArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.ConnectorDefinitionConnectorDefinitionVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.ConnectorDefinitionVersionArgs>;
     name: pulumi.Input<string>;
     tags?: any;
 }

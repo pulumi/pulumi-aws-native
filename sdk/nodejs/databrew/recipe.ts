@@ -43,7 +43,7 @@ export class Recipe extends pulumi.CustomResource {
      * Recipe name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly steps!: pulumi.Output<outputs.databrew.RecipeRecipeStep[]>;
+    public readonly steps!: pulumi.Output<outputs.databrew.RecipeStep[]>;
     public readonly tags!: pulumi.Output<outputs.databrew.RecipeTag[] | undefined>;
 
     /**
@@ -92,6 +92,6 @@ export interface RecipeArgs {
      * Recipe name
      */
     name: pulumi.Input<string>;
-    steps: pulumi.Input<pulumi.Input<inputs.databrew.RecipeRecipeStepArgs>[]>;
+    steps: pulumi.Input<pulumi.Input<inputs.databrew.RecipeStepArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.databrew.RecipeTagArgs>[]>;
 }

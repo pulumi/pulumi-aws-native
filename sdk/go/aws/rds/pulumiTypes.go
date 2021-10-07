@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type DBClusterDBClusterRole struct {
-	FeatureName *string `pulumi:"featureName"`
-	RoleArn     string  `pulumi:"roleArn"`
-}
-
-// DBClusterDBClusterRoleInput is an input type that accepts DBClusterDBClusterRoleArgs and DBClusterDBClusterRoleOutput values.
-// You can construct a concrete instance of `DBClusterDBClusterRoleInput` via:
-//
-//          DBClusterDBClusterRoleArgs{...}
-type DBClusterDBClusterRoleInput interface {
-	pulumi.Input
-
-	ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput
-	ToDBClusterDBClusterRoleOutputWithContext(context.Context) DBClusterDBClusterRoleOutput
-}
-
-type DBClusterDBClusterRoleArgs struct {
-	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
-	RoleArn     pulumi.StringInput    `pulumi:"roleArn"`
-}
-
-func (DBClusterDBClusterRoleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterDBClusterRole)(nil)).Elem()
-}
-
-func (i DBClusterDBClusterRoleArgs) ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput {
-	return i.ToDBClusterDBClusterRoleOutputWithContext(context.Background())
-}
-
-func (i DBClusterDBClusterRoleArgs) ToDBClusterDBClusterRoleOutputWithContext(ctx context.Context) DBClusterDBClusterRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterDBClusterRoleOutput)
-}
-
-// DBClusterDBClusterRoleArrayInput is an input type that accepts DBClusterDBClusterRoleArray and DBClusterDBClusterRoleArrayOutput values.
-// You can construct a concrete instance of `DBClusterDBClusterRoleArrayInput` via:
-//
-//          DBClusterDBClusterRoleArray{ DBClusterDBClusterRoleArgs{...} }
-type DBClusterDBClusterRoleArrayInput interface {
-	pulumi.Input
-
-	ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput
-	ToDBClusterDBClusterRoleArrayOutputWithContext(context.Context) DBClusterDBClusterRoleArrayOutput
-}
-
-type DBClusterDBClusterRoleArray []DBClusterDBClusterRoleInput
-
-func (DBClusterDBClusterRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterDBClusterRole)(nil)).Elem()
-}
-
-func (i DBClusterDBClusterRoleArray) ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput {
-	return i.ToDBClusterDBClusterRoleArrayOutputWithContext(context.Background())
-}
-
-func (i DBClusterDBClusterRoleArray) ToDBClusterDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterDBClusterRoleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBClusterDBClusterRoleArrayOutput)
-}
-
-type DBClusterDBClusterRoleOutput struct{ *pulumi.OutputState }
-
-func (DBClusterDBClusterRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBClusterDBClusterRole)(nil)).Elem()
-}
-
-func (o DBClusterDBClusterRoleOutput) ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput {
-	return o
-}
-
-func (o DBClusterDBClusterRoleOutput) ToDBClusterDBClusterRoleOutputWithContext(ctx context.Context) DBClusterDBClusterRoleOutput {
-	return o
-}
-
-func (o DBClusterDBClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DBClusterDBClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
-}
-
-func (o DBClusterDBClusterRoleOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DBClusterDBClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-type DBClusterDBClusterRoleArrayOutput struct{ *pulumi.OutputState }
-
-func (DBClusterDBClusterRoleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBClusterDBClusterRole)(nil)).Elem()
-}
-
-func (o DBClusterDBClusterRoleArrayOutput) ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput {
-	return o
-}
-
-func (o DBClusterDBClusterRoleArrayOutput) ToDBClusterDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterDBClusterRoleArrayOutput {
-	return o
-}
-
-func (o DBClusterDBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterDBClusterRoleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterDBClusterRole {
-		return vs[0].([]DBClusterDBClusterRole)[vs[1].(int)]
-	}).(DBClusterDBClusterRoleOutput)
-}
-
 type DBClusterParameterGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -208,6 +108,106 @@ func (o DBClusterParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBCluste
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterParameterGroupTag {
 		return vs[0].([]DBClusterParameterGroupTag)[vs[1].(int)]
 	}).(DBClusterParameterGroupTagOutput)
+}
+
+type DBClusterRole struct {
+	FeatureName *string `pulumi:"featureName"`
+	RoleArn     string  `pulumi:"roleArn"`
+}
+
+// DBClusterRoleInput is an input type that accepts DBClusterRoleArgs and DBClusterRoleOutput values.
+// You can construct a concrete instance of `DBClusterRoleInput` via:
+//
+//          DBClusterRoleArgs{...}
+type DBClusterRoleInput interface {
+	pulumi.Input
+
+	ToDBClusterRoleOutput() DBClusterRoleOutput
+	ToDBClusterRoleOutputWithContext(context.Context) DBClusterRoleOutput
+}
+
+type DBClusterRoleArgs struct {
+	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
+	RoleArn     pulumi.StringInput    `pulumi:"roleArn"`
+}
+
+func (DBClusterRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterRole)(nil)).Elem()
+}
+
+func (i DBClusterRoleArgs) ToDBClusterRoleOutput() DBClusterRoleOutput {
+	return i.ToDBClusterRoleOutputWithContext(context.Background())
+}
+
+func (i DBClusterRoleArgs) ToDBClusterRoleOutputWithContext(ctx context.Context) DBClusterRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleOutput)
+}
+
+// DBClusterRoleArrayInput is an input type that accepts DBClusterRoleArray and DBClusterRoleArrayOutput values.
+// You can construct a concrete instance of `DBClusterRoleArrayInput` via:
+//
+//          DBClusterRoleArray{ DBClusterRoleArgs{...} }
+type DBClusterRoleArrayInput interface {
+	pulumi.Input
+
+	ToDBClusterRoleArrayOutput() DBClusterRoleArrayOutput
+	ToDBClusterRoleArrayOutputWithContext(context.Context) DBClusterRoleArrayOutput
+}
+
+type DBClusterRoleArray []DBClusterRoleInput
+
+func (DBClusterRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBClusterRole)(nil)).Elem()
+}
+
+func (i DBClusterRoleArray) ToDBClusterRoleArrayOutput() DBClusterRoleArrayOutput {
+	return i.ToDBClusterRoleArrayOutputWithContext(context.Background())
+}
+
+func (i DBClusterRoleArray) ToDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterRoleArrayOutput)
+}
+
+type DBClusterRoleOutput struct{ *pulumi.OutputState }
+
+func (DBClusterRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterRole)(nil)).Elem()
+}
+
+func (o DBClusterRoleOutput) ToDBClusterRoleOutput() DBClusterRoleOutput {
+	return o
+}
+
+func (o DBClusterRoleOutput) ToDBClusterRoleOutputWithContext(ctx context.Context) DBClusterRoleOutput {
+	return o
+}
+
+func (o DBClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
+}
+
+func (o DBClusterRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DBClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DBClusterRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (DBClusterRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBClusterRole)(nil)).Elem()
+}
+
+func (o DBClusterRoleArrayOutput) ToDBClusterRoleArrayOutput() DBClusterRoleArrayOutput {
+	return o
+}
+
+func (o DBClusterRoleArrayOutput) ToDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterRoleArrayOutput {
+	return o
+}
+
+func (o DBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterRole {
+		return vs[0].([]DBClusterRole)[vs[1].(int)]
+	}).(DBClusterRoleOutput)
 }
 
 type DBClusterScalingConfiguration struct {
@@ -488,106 +488,6 @@ func (o DBClusterTagArrayOutput) Index(i pulumi.IntInput) DBClusterTagOutput {
 	}).(DBClusterTagOutput)
 }
 
-type DBInstanceDBInstanceRole struct {
-	FeatureName string `pulumi:"featureName"`
-	RoleArn     string `pulumi:"roleArn"`
-}
-
-// DBInstanceDBInstanceRoleInput is an input type that accepts DBInstanceDBInstanceRoleArgs and DBInstanceDBInstanceRoleOutput values.
-// You can construct a concrete instance of `DBInstanceDBInstanceRoleInput` via:
-//
-//          DBInstanceDBInstanceRoleArgs{...}
-type DBInstanceDBInstanceRoleInput interface {
-	pulumi.Input
-
-	ToDBInstanceDBInstanceRoleOutput() DBInstanceDBInstanceRoleOutput
-	ToDBInstanceDBInstanceRoleOutputWithContext(context.Context) DBInstanceDBInstanceRoleOutput
-}
-
-type DBInstanceDBInstanceRoleArgs struct {
-	FeatureName pulumi.StringInput `pulumi:"featureName"`
-	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
-}
-
-func (DBInstanceDBInstanceRoleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceDBInstanceRole)(nil)).Elem()
-}
-
-func (i DBInstanceDBInstanceRoleArgs) ToDBInstanceDBInstanceRoleOutput() DBInstanceDBInstanceRoleOutput {
-	return i.ToDBInstanceDBInstanceRoleOutputWithContext(context.Background())
-}
-
-func (i DBInstanceDBInstanceRoleArgs) ToDBInstanceDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceDBInstanceRoleOutput)
-}
-
-// DBInstanceDBInstanceRoleArrayInput is an input type that accepts DBInstanceDBInstanceRoleArray and DBInstanceDBInstanceRoleArrayOutput values.
-// You can construct a concrete instance of `DBInstanceDBInstanceRoleArrayInput` via:
-//
-//          DBInstanceDBInstanceRoleArray{ DBInstanceDBInstanceRoleArgs{...} }
-type DBInstanceDBInstanceRoleArrayInput interface {
-	pulumi.Input
-
-	ToDBInstanceDBInstanceRoleArrayOutput() DBInstanceDBInstanceRoleArrayOutput
-	ToDBInstanceDBInstanceRoleArrayOutputWithContext(context.Context) DBInstanceDBInstanceRoleArrayOutput
-}
-
-type DBInstanceDBInstanceRoleArray []DBInstanceDBInstanceRoleInput
-
-func (DBInstanceDBInstanceRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceDBInstanceRole)(nil)).Elem()
-}
-
-func (i DBInstanceDBInstanceRoleArray) ToDBInstanceDBInstanceRoleArrayOutput() DBInstanceDBInstanceRoleArrayOutput {
-	return i.ToDBInstanceDBInstanceRoleArrayOutputWithContext(context.Background())
-}
-
-func (i DBInstanceDBInstanceRoleArray) ToDBInstanceDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceDBInstanceRoleArrayOutput)
-}
-
-type DBInstanceDBInstanceRoleOutput struct{ *pulumi.OutputState }
-
-func (DBInstanceDBInstanceRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DBInstanceDBInstanceRole)(nil)).Elem()
-}
-
-func (o DBInstanceDBInstanceRoleOutput) ToDBInstanceDBInstanceRoleOutput() DBInstanceDBInstanceRoleOutput {
-	return o
-}
-
-func (o DBInstanceDBInstanceRoleOutput) ToDBInstanceDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleOutput {
-	return o
-}
-
-func (o DBInstanceDBInstanceRoleOutput) FeatureName() pulumi.StringOutput {
-	return o.ApplyT(func(v DBInstanceDBInstanceRole) string { return v.FeatureName }).(pulumi.StringOutput)
-}
-
-func (o DBInstanceDBInstanceRoleOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DBInstanceDBInstanceRole) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-type DBInstanceDBInstanceRoleArrayOutput struct{ *pulumi.OutputState }
-
-func (DBInstanceDBInstanceRoleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DBInstanceDBInstanceRole)(nil)).Elem()
-}
-
-func (o DBInstanceDBInstanceRoleArrayOutput) ToDBInstanceDBInstanceRoleArrayOutput() DBInstanceDBInstanceRoleArrayOutput {
-	return o
-}
-
-func (o DBInstanceDBInstanceRoleArrayOutput) ToDBInstanceDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleArrayOutput {
-	return o
-}
-
-func (o DBInstanceDBInstanceRoleArrayOutput) Index(i pulumi.IntInput) DBInstanceDBInstanceRoleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceDBInstanceRole {
-		return vs[0].([]DBInstanceDBInstanceRole)[vs[1].(int)]
-	}).(DBInstanceDBInstanceRoleOutput)
-}
-
 type DBInstanceProcessorFeature struct {
 	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
@@ -686,6 +586,106 @@ func (o DBInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DBInstan
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceProcessorFeature {
 		return vs[0].([]DBInstanceProcessorFeature)[vs[1].(int)]
 	}).(DBInstanceProcessorFeatureOutput)
+}
+
+type DBInstanceRole struct {
+	FeatureName string `pulumi:"featureName"`
+	RoleArn     string `pulumi:"roleArn"`
+}
+
+// DBInstanceRoleInput is an input type that accepts DBInstanceRoleArgs and DBInstanceRoleOutput values.
+// You can construct a concrete instance of `DBInstanceRoleInput` via:
+//
+//          DBInstanceRoleArgs{...}
+type DBInstanceRoleInput interface {
+	pulumi.Input
+
+	ToDBInstanceRoleOutput() DBInstanceRoleOutput
+	ToDBInstanceRoleOutputWithContext(context.Context) DBInstanceRoleOutput
+}
+
+type DBInstanceRoleArgs struct {
+	FeatureName pulumi.StringInput `pulumi:"featureName"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (DBInstanceRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceRole)(nil)).Elem()
+}
+
+func (i DBInstanceRoleArgs) ToDBInstanceRoleOutput() DBInstanceRoleOutput {
+	return i.ToDBInstanceRoleOutputWithContext(context.Background())
+}
+
+func (i DBInstanceRoleArgs) ToDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceRoleOutput)
+}
+
+// DBInstanceRoleArrayInput is an input type that accepts DBInstanceRoleArray and DBInstanceRoleArrayOutput values.
+// You can construct a concrete instance of `DBInstanceRoleArrayInput` via:
+//
+//          DBInstanceRoleArray{ DBInstanceRoleArgs{...} }
+type DBInstanceRoleArrayInput interface {
+	pulumi.Input
+
+	ToDBInstanceRoleArrayOutput() DBInstanceRoleArrayOutput
+	ToDBInstanceRoleArrayOutputWithContext(context.Context) DBInstanceRoleArrayOutput
+}
+
+type DBInstanceRoleArray []DBInstanceRoleInput
+
+func (DBInstanceRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBInstanceRole)(nil)).Elem()
+}
+
+func (i DBInstanceRoleArray) ToDBInstanceRoleArrayOutput() DBInstanceRoleArrayOutput {
+	return i.ToDBInstanceRoleArrayOutputWithContext(context.Background())
+}
+
+func (i DBInstanceRoleArray) ToDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceRoleArrayOutput)
+}
+
+type DBInstanceRoleOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceRole)(nil)).Elem()
+}
+
+func (o DBInstanceRoleOutput) ToDBInstanceRoleOutput() DBInstanceRoleOutput {
+	return o
+}
+
+func (o DBInstanceRoleOutput) ToDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceRoleOutput {
+	return o
+}
+
+func (o DBInstanceRoleOutput) FeatureName() pulumi.StringOutput {
+	return o.ApplyT(func(v DBInstanceRole) string { return v.FeatureName }).(pulumi.StringOutput)
+}
+
+func (o DBInstanceRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DBInstanceRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DBInstanceRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBInstanceRole)(nil)).Elem()
+}
+
+func (o DBInstanceRoleArrayOutput) ToDBInstanceRoleArrayOutput() DBInstanceRoleArrayOutput {
+	return o
+}
+
+func (o DBInstanceRoleArrayOutput) ToDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceRoleArrayOutput {
+	return o
+}
+
+func (o DBInstanceRoleArrayOutput) Index(i pulumi.IntInput) DBInstanceRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceRole {
+		return vs[0].([]DBInstanceRole)[vs[1].(int)]
+	}).(DBInstanceRoleOutput)
 }
 
 type DBInstanceTag struct {
@@ -2075,18 +2075,18 @@ func (o OptionGroupTagArrayOutput) Index(i pulumi.IntInput) OptionGroupTagOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(DBClusterDBClusterRoleOutput{})
-	pulumi.RegisterOutputType(DBClusterDBClusterRoleArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupTagOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(DBClusterRoleOutput{})
+	pulumi.RegisterOutputType(DBClusterRoleArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(DBClusterScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterTagOutput{})
 	pulumi.RegisterOutputType(DBClusterTagArrayOutput{})
-	pulumi.RegisterOutputType(DBInstanceDBInstanceRoleOutput{})
-	pulumi.RegisterOutputType(DBInstanceDBInstanceRoleArrayOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureArrayOutput{})
+	pulumi.RegisterOutputType(DBInstanceRoleOutput{})
+	pulumi.RegisterOutputType(DBInstanceRoleArrayOutput{})
 	pulumi.RegisterOutputType(DBInstanceTagOutput{})
 	pulumi.RegisterOutputType(DBInstanceTagArrayOutput{})
 	pulumi.RegisterOutputType(DBParameterGroupTagOutput{})

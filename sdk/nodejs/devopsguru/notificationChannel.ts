@@ -35,7 +35,7 @@ export class NotificationChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannel.__pulumiType;
     }
 
-    public readonly config!: pulumi.Output<outputs.devopsguru.NotificationChannelNotificationChannelConfig>;
+    public readonly config!: pulumi.Output<outputs.devopsguru.NotificationChannelConfig>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -66,5 +66,5 @@ export class NotificationChannel extends pulumi.CustomResource {
  * The set of arguments for constructing a NotificationChannel resource.
  */
 export interface NotificationChannelArgs {
-    config: pulumi.Input<inputs.devopsguru.NotificationChannelNotificationChannelConfigArgs>;
+    config: pulumi.Input<inputs.devopsguru.NotificationChannelConfigArgs>;
 }

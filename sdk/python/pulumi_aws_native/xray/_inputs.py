@@ -10,9 +10,9 @@ from .. import _utilities
 
 __all__ = [
     'GroupInsightsConfigurationArgs',
-    'SamplingRuleSamplingRuleRecordArgs',
-    'SamplingRuleSamplingRuleUpdateArgs',
-    'SamplingRuleSamplingRuleArgs',
+    'SamplingRuleRecordArgs',
+    'SamplingRuleUpdateArgs',
+    'SamplingRuleArgs',
 ]
 
 @pulumi.input_type
@@ -55,11 +55,11 @@ class GroupInsightsConfigurationArgs:
 
 
 @pulumi.input_type
-class SamplingRuleSamplingRuleRecordArgs:
+class SamplingRuleRecordArgs:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[str]] = None,
                  modified_at: Optional[pulumi.Input[str]] = None,
-                 sampling_rule: Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']] = None):
+                 sampling_rule: Optional[pulumi.Input['SamplingRuleArgs']] = None):
         """
         :param pulumi.Input[str] created_at: When the rule was created, in Unix time seconds.
         :param pulumi.Input[str] modified_at: When the rule was modified, in Unix time seconds.
@@ -97,16 +97,16 @@ class SamplingRuleSamplingRuleRecordArgs:
 
     @property
     @pulumi.getter(name="samplingRule")
-    def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']]:
+    def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleArgs']]:
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter
-    def sampling_rule(self, value: Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']]):
+    def sampling_rule(self, value: Optional[pulumi.Input['SamplingRuleArgs']]):
         pulumi.set(self, "sampling_rule", value)
 
 
 @pulumi.input_type
-class SamplingRuleSamplingRuleUpdateArgs:
+class SamplingRuleUpdateArgs:
     def __init__(__self__, *,
                  attributes: Optional[Any] = None,
                  fixed_rate: Optional[pulumi.Input[float]] = None,
@@ -297,7 +297,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
 
 
 @pulumi.input_type
-class SamplingRuleSamplingRuleArgs:
+class SamplingRuleArgs:
     def __init__(__self__, *,
                  attributes: Optional[Any] = None,
                  fixed_rate: Optional[pulumi.Input[float]] = None,

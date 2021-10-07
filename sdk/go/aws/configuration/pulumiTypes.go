@@ -1108,106 +1108,106 @@ func (o ConfigurationRecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.Str
 }
 
 // Input parameters in the form of key-value pairs for the conformance pack.
-type ConformancePackConformancePackInputParameter struct {
+type ConformancePackInputParameter struct {
 	ParameterName  string `pulumi:"parameterName"`
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
-// ConformancePackConformancePackInputParameterInput is an input type that accepts ConformancePackConformancePackInputParameterArgs and ConformancePackConformancePackInputParameterOutput values.
-// You can construct a concrete instance of `ConformancePackConformancePackInputParameterInput` via:
+// ConformancePackInputParameterInput is an input type that accepts ConformancePackInputParameterArgs and ConformancePackInputParameterOutput values.
+// You can construct a concrete instance of `ConformancePackInputParameterInput` via:
 //
-//          ConformancePackConformancePackInputParameterArgs{...}
-type ConformancePackConformancePackInputParameterInput interface {
+//          ConformancePackInputParameterArgs{...}
+type ConformancePackInputParameterInput interface {
 	pulumi.Input
 
-	ToConformancePackConformancePackInputParameterOutput() ConformancePackConformancePackInputParameterOutput
-	ToConformancePackConformancePackInputParameterOutputWithContext(context.Context) ConformancePackConformancePackInputParameterOutput
+	ToConformancePackInputParameterOutput() ConformancePackInputParameterOutput
+	ToConformancePackInputParameterOutputWithContext(context.Context) ConformancePackInputParameterOutput
 }
 
 // Input parameters in the form of key-value pairs for the conformance pack.
-type ConformancePackConformancePackInputParameterArgs struct {
+type ConformancePackInputParameterArgs struct {
 	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
-func (ConformancePackConformancePackInputParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConformancePackConformancePackInputParameter)(nil)).Elem()
+func (ConformancePackInputParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackInputParameter)(nil)).Elem()
 }
 
-func (i ConformancePackConformancePackInputParameterArgs) ToConformancePackConformancePackInputParameterOutput() ConformancePackConformancePackInputParameterOutput {
-	return i.ToConformancePackConformancePackInputParameterOutputWithContext(context.Background())
+func (i ConformancePackInputParameterArgs) ToConformancePackInputParameterOutput() ConformancePackInputParameterOutput {
+	return i.ToConformancePackInputParameterOutputWithContext(context.Background())
 }
 
-func (i ConformancePackConformancePackInputParameterArgs) ToConformancePackConformancePackInputParameterOutputWithContext(ctx context.Context) ConformancePackConformancePackInputParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackConformancePackInputParameterOutput)
+func (i ConformancePackInputParameterArgs) ToConformancePackInputParameterOutputWithContext(ctx context.Context) ConformancePackInputParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackInputParameterOutput)
 }
 
-// ConformancePackConformancePackInputParameterArrayInput is an input type that accepts ConformancePackConformancePackInputParameterArray and ConformancePackConformancePackInputParameterArrayOutput values.
-// You can construct a concrete instance of `ConformancePackConformancePackInputParameterArrayInput` via:
+// ConformancePackInputParameterArrayInput is an input type that accepts ConformancePackInputParameterArray and ConformancePackInputParameterArrayOutput values.
+// You can construct a concrete instance of `ConformancePackInputParameterArrayInput` via:
 //
-//          ConformancePackConformancePackInputParameterArray{ ConformancePackConformancePackInputParameterArgs{...} }
-type ConformancePackConformancePackInputParameterArrayInput interface {
+//          ConformancePackInputParameterArray{ ConformancePackInputParameterArgs{...} }
+type ConformancePackInputParameterArrayInput interface {
 	pulumi.Input
 
-	ToConformancePackConformancePackInputParameterArrayOutput() ConformancePackConformancePackInputParameterArrayOutput
-	ToConformancePackConformancePackInputParameterArrayOutputWithContext(context.Context) ConformancePackConformancePackInputParameterArrayOutput
+	ToConformancePackInputParameterArrayOutput() ConformancePackInputParameterArrayOutput
+	ToConformancePackInputParameterArrayOutputWithContext(context.Context) ConformancePackInputParameterArrayOutput
 }
 
-type ConformancePackConformancePackInputParameterArray []ConformancePackConformancePackInputParameterInput
+type ConformancePackInputParameterArray []ConformancePackInputParameterInput
 
-func (ConformancePackConformancePackInputParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConformancePackConformancePackInputParameter)(nil)).Elem()
+func (ConformancePackInputParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConformancePackInputParameter)(nil)).Elem()
 }
 
-func (i ConformancePackConformancePackInputParameterArray) ToConformancePackConformancePackInputParameterArrayOutput() ConformancePackConformancePackInputParameterArrayOutput {
-	return i.ToConformancePackConformancePackInputParameterArrayOutputWithContext(context.Background())
+func (i ConformancePackInputParameterArray) ToConformancePackInputParameterArrayOutput() ConformancePackInputParameterArrayOutput {
+	return i.ToConformancePackInputParameterArrayOutputWithContext(context.Background())
 }
 
-func (i ConformancePackConformancePackInputParameterArray) ToConformancePackConformancePackInputParameterArrayOutputWithContext(ctx context.Context) ConformancePackConformancePackInputParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackConformancePackInputParameterArrayOutput)
+func (i ConformancePackInputParameterArray) ToConformancePackInputParameterArrayOutputWithContext(ctx context.Context) ConformancePackInputParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackInputParameterArrayOutput)
 }
 
 // Input parameters in the form of key-value pairs for the conformance pack.
-type ConformancePackConformancePackInputParameterOutput struct{ *pulumi.OutputState }
+type ConformancePackInputParameterOutput struct{ *pulumi.OutputState }
 
-func (ConformancePackConformancePackInputParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConformancePackConformancePackInputParameter)(nil)).Elem()
+func (ConformancePackInputParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConformancePackInputParameter)(nil)).Elem()
 }
 
-func (o ConformancePackConformancePackInputParameterOutput) ToConformancePackConformancePackInputParameterOutput() ConformancePackConformancePackInputParameterOutput {
+func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutput() ConformancePackInputParameterOutput {
 	return o
 }
 
-func (o ConformancePackConformancePackInputParameterOutput) ToConformancePackConformancePackInputParameterOutputWithContext(ctx context.Context) ConformancePackConformancePackInputParameterOutput {
+func (o ConformancePackInputParameterOutput) ToConformancePackInputParameterOutputWithContext(ctx context.Context) ConformancePackInputParameterOutput {
 	return o
 }
 
-func (o ConformancePackConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
-	return o.ApplyT(func(v ConformancePackConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
+func (o ConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
 }
 
-func (o ConformancePackConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
-	return o.ApplyT(func(v ConformancePackConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
+func (o ConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
 
-type ConformancePackConformancePackInputParameterArrayOutput struct{ *pulumi.OutputState }
+type ConformancePackInputParameterArrayOutput struct{ *pulumi.OutputState }
 
-func (ConformancePackConformancePackInputParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConformancePackConformancePackInputParameter)(nil)).Elem()
+func (ConformancePackInputParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConformancePackInputParameter)(nil)).Elem()
 }
 
-func (o ConformancePackConformancePackInputParameterArrayOutput) ToConformancePackConformancePackInputParameterArrayOutput() ConformancePackConformancePackInputParameterArrayOutput {
+func (o ConformancePackInputParameterArrayOutput) ToConformancePackInputParameterArrayOutput() ConformancePackInputParameterArrayOutput {
 	return o
 }
 
-func (o ConformancePackConformancePackInputParameterArrayOutput) ToConformancePackConformancePackInputParameterArrayOutputWithContext(ctx context.Context) ConformancePackConformancePackInputParameterArrayOutput {
+func (o ConformancePackInputParameterArrayOutput) ToConformancePackInputParameterArrayOutputWithContext(ctx context.Context) ConformancePackInputParameterArrayOutput {
 	return o
 }
 
-func (o ConformancePackConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) ConformancePackConformancePackInputParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConformancePackConformancePackInputParameter {
-		return vs[0].([]ConformancePackConformancePackInputParameter)[vs[1].(int)]
-	}).(ConformancePackConformancePackInputParameterOutput)
+func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) ConformancePackInputParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConformancePackInputParameter {
+		return vs[0].([]ConformancePackInputParameter)[vs[1].(int)]
+	}).(ConformancePackInputParameterOutput)
 }
 
 type DeliveryChannelConfigSnapshotDeliveryProperties struct {
@@ -2352,8 +2352,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupPtrOutput{})
-	pulumi.RegisterOutputType(ConformancePackConformancePackInputParameterOutput{})
-	pulumi.RegisterOutputType(ConformancePackConformancePackInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(ConformancePackInputParameterOutput{})
+	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput{})

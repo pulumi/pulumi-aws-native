@@ -59,7 +59,7 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
-    public readonly schedule!: pulumi.Output<outputs.datasync.TaskTaskSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.datasync.TaskSchedule | undefined>;
     /**
      * The ARN of the source location for the task.
      */
@@ -153,7 +153,7 @@ export interface TaskArgs {
      */
     name?: pulumi.Input<string>;
     options?: pulumi.Input<inputs.datasync.TaskOptionsArgs>;
-    schedule?: pulumi.Input<inputs.datasync.TaskTaskScheduleArgs>;
+    schedule?: pulumi.Input<inputs.datasync.TaskScheduleArgs>;
     /**
      * The ARN of the source location for the task.
      */

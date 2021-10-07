@@ -875,141 +875,6 @@ func (o BucketAnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) Bucket
 	}).(BucketAnalyticsConfigurationOutput)
 }
 
-type BucketBucketEncryption struct {
-	ServerSideEncryptionConfiguration []BucketServerSideEncryptionRule `pulumi:"serverSideEncryptionConfiguration"`
-}
-
-// BucketBucketEncryptionInput is an input type that accepts BucketBucketEncryptionArgs and BucketBucketEncryptionOutput values.
-// You can construct a concrete instance of `BucketBucketEncryptionInput` via:
-//
-//          BucketBucketEncryptionArgs{...}
-type BucketBucketEncryptionInput interface {
-	pulumi.Input
-
-	ToBucketBucketEncryptionOutput() BucketBucketEncryptionOutput
-	ToBucketBucketEncryptionOutputWithContext(context.Context) BucketBucketEncryptionOutput
-}
-
-type BucketBucketEncryptionArgs struct {
-	ServerSideEncryptionConfiguration BucketServerSideEncryptionRuleArrayInput `pulumi:"serverSideEncryptionConfiguration"`
-}
-
-func (BucketBucketEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketBucketEncryption)(nil)).Elem()
-}
-
-func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionOutput() BucketBucketEncryptionOutput {
-	return i.ToBucketBucketEncryptionOutputWithContext(context.Background())
-}
-
-func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionOutputWithContext(ctx context.Context) BucketBucketEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketBucketEncryptionOutput)
-}
-
-func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
-	return i.ToBucketBucketEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketBucketEncryptionOutput).ToBucketBucketEncryptionPtrOutputWithContext(ctx)
-}
-
-// BucketBucketEncryptionPtrInput is an input type that accepts BucketBucketEncryptionArgs, BucketBucketEncryptionPtr and BucketBucketEncryptionPtrOutput values.
-// You can construct a concrete instance of `BucketBucketEncryptionPtrInput` via:
-//
-//          BucketBucketEncryptionArgs{...}
-//
-//  or:
-//
-//          nil
-type BucketBucketEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput
-	ToBucketBucketEncryptionPtrOutputWithContext(context.Context) BucketBucketEncryptionPtrOutput
-}
-
-type bucketBucketEncryptionPtrType BucketBucketEncryptionArgs
-
-func BucketBucketEncryptionPtr(v *BucketBucketEncryptionArgs) BucketBucketEncryptionPtrInput {
-	return (*bucketBucketEncryptionPtrType)(v)
-}
-
-func (*bucketBucketEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketBucketEncryption)(nil)).Elem()
-}
-
-func (i *bucketBucketEncryptionPtrType) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
-	return i.ToBucketBucketEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketBucketEncryptionPtrType) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketBucketEncryptionPtrOutput)
-}
-
-type BucketBucketEncryptionOutput struct{ *pulumi.OutputState }
-
-func (BucketBucketEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketBucketEncryption)(nil)).Elem()
-}
-
-func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionOutput() BucketBucketEncryptionOutput {
-	return o
-}
-
-func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionOutputWithContext(ctx context.Context) BucketBucketEncryptionOutput {
-	return o
-}
-
-func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
-	return o.ToBucketBucketEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketBucketEncryption) *BucketBucketEncryption {
-		return &v
-	}).(BucketBucketEncryptionPtrOutput)
-}
-
-func (o BucketBucketEncryptionOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionRuleArrayOutput {
-	return o.ApplyT(func(v BucketBucketEncryption) []BucketServerSideEncryptionRule {
-		return v.ServerSideEncryptionConfiguration
-	}).(BucketServerSideEncryptionRuleArrayOutput)
-}
-
-type BucketBucketEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketBucketEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketBucketEncryption)(nil)).Elem()
-}
-
-func (o BucketBucketEncryptionPtrOutput) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
-	return o
-}
-
-func (o BucketBucketEncryptionPtrOutput) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
-	return o
-}
-
-func (o BucketBucketEncryptionPtrOutput) Elem() BucketBucketEncryptionOutput {
-	return o.ApplyT(func(v *BucketBucketEncryption) BucketBucketEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret BucketBucketEncryption
-		return ret
-	}).(BucketBucketEncryptionOutput)
-}
-
-func (o BucketBucketEncryptionPtrOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionRuleArrayOutput {
-	return o.ApplyT(func(v *BucketBucketEncryption) []BucketServerSideEncryptionRule {
-		if v == nil {
-			return nil
-		}
-		return v.ServerSideEncryptionConfiguration
-	}).(BucketServerSideEncryptionRuleArrayOutput)
-}
-
 type BucketCorsConfiguration struct {
 	CorsRules []BucketCorsRule `pulumi:"corsRules"`
 }
@@ -1887,6 +1752,139 @@ func (o BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 		}
 		return v.Prefix
 	}).(pulumi.StringPtrOutput)
+}
+
+type BucketEncryption struct {
+	ServerSideEncryptionConfiguration []BucketServerSideEncryptionRule `pulumi:"serverSideEncryptionConfiguration"`
+}
+
+// BucketEncryptionInput is an input type that accepts BucketEncryptionArgs and BucketEncryptionOutput values.
+// You can construct a concrete instance of `BucketEncryptionInput` via:
+//
+//          BucketEncryptionArgs{...}
+type BucketEncryptionInput interface {
+	pulumi.Input
+
+	ToBucketEncryptionOutput() BucketEncryptionOutput
+	ToBucketEncryptionOutputWithContext(context.Context) BucketEncryptionOutput
+}
+
+type BucketEncryptionArgs struct {
+	ServerSideEncryptionConfiguration BucketServerSideEncryptionRuleArrayInput `pulumi:"serverSideEncryptionConfiguration"`
+}
+
+func (BucketEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketEncryption)(nil)).Elem()
+}
+
+func (i BucketEncryptionArgs) ToBucketEncryptionOutput() BucketEncryptionOutput {
+	return i.ToBucketEncryptionOutputWithContext(context.Background())
+}
+
+func (i BucketEncryptionArgs) ToBucketEncryptionOutputWithContext(ctx context.Context) BucketEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionOutput)
+}
+
+func (i BucketEncryptionArgs) ToBucketEncryptionPtrOutput() BucketEncryptionPtrOutput {
+	return i.ToBucketEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketEncryptionArgs) ToBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionOutput).ToBucketEncryptionPtrOutputWithContext(ctx)
+}
+
+// BucketEncryptionPtrInput is an input type that accepts BucketEncryptionArgs, BucketEncryptionPtr and BucketEncryptionPtrOutput values.
+// You can construct a concrete instance of `BucketEncryptionPtrInput` via:
+//
+//          BucketEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToBucketEncryptionPtrOutput() BucketEncryptionPtrOutput
+	ToBucketEncryptionPtrOutputWithContext(context.Context) BucketEncryptionPtrOutput
+}
+
+type bucketEncryptionPtrType BucketEncryptionArgs
+
+func BucketEncryptionPtr(v *BucketEncryptionArgs) BucketEncryptionPtrInput {
+	return (*bucketEncryptionPtrType)(v)
+}
+
+func (*bucketEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketEncryption)(nil)).Elem()
+}
+
+func (i *bucketEncryptionPtrType) ToBucketEncryptionPtrOutput() BucketEncryptionPtrOutput {
+	return i.ToBucketEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketEncryptionPtrType) ToBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionPtrOutput)
+}
+
+type BucketEncryptionOutput struct{ *pulumi.OutputState }
+
+func (BucketEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketEncryption)(nil)).Elem()
+}
+
+func (o BucketEncryptionOutput) ToBucketEncryptionOutput() BucketEncryptionOutput {
+	return o
+}
+
+func (o BucketEncryptionOutput) ToBucketEncryptionOutputWithContext(ctx context.Context) BucketEncryptionOutput {
+	return o
+}
+
+func (o BucketEncryptionOutput) ToBucketEncryptionPtrOutput() BucketEncryptionPtrOutput {
+	return o.ToBucketEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketEncryptionOutput) ToBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketEncryption) *BucketEncryption {
+		return &v
+	}).(BucketEncryptionPtrOutput)
+}
+
+func (o BucketEncryptionOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionRuleArrayOutput {
+	return o.ApplyT(func(v BucketEncryption) []BucketServerSideEncryptionRule { return v.ServerSideEncryptionConfiguration }).(BucketServerSideEncryptionRuleArrayOutput)
+}
+
+type BucketEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketEncryption)(nil)).Elem()
+}
+
+func (o BucketEncryptionPtrOutput) ToBucketEncryptionPtrOutput() BucketEncryptionPtrOutput {
+	return o
+}
+
+func (o BucketEncryptionPtrOutput) ToBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketEncryptionPtrOutput {
+	return o
+}
+
+func (o BucketEncryptionPtrOutput) Elem() BucketEncryptionOutput {
+	return o.ApplyT(func(v *BucketEncryption) BucketEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret BucketEncryption
+		return ret
+	}).(BucketEncryptionOutput)
+}
+
+func (o BucketEncryptionPtrOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionRuleArrayOutput {
+	return o.ApplyT(func(v *BucketEncryption) []BucketServerSideEncryptionRule {
+		if v == nil {
+			return nil
+		}
+		return v.ServerSideEncryptionConfiguration
+	}).(BucketServerSideEncryptionRuleArrayOutput)
 }
 
 type BucketEncryptionConfiguration struct {
@@ -8797,6 +8795,255 @@ func (o StorageLensBucketsAndRegionsPtrOutput) Regions() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies the details of Amazon S3 Storage Lens configuration.
+type StorageLensConfiguration struct {
+	AccountLevel StorageLensAccountLevel       `pulumi:"accountLevel"`
+	AwsOrg       *StorageLensAwsOrg            `pulumi:"awsOrg"`
+	DataExport   *StorageLensDataExport        `pulumi:"dataExport"`
+	Exclude      *StorageLensBucketsAndRegions `pulumi:"exclude"`
+	Id           string                        `pulumi:"id"`
+	Include      *StorageLensBucketsAndRegions `pulumi:"include"`
+	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// The ARN for the Amazon S3 Storage Lens configuration.
+	StorageLensArn *string `pulumi:"storageLensArn"`
+}
+
+// StorageLensConfigurationInput is an input type that accepts StorageLensConfigurationArgs and StorageLensConfigurationOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationInput` via:
+//
+//          StorageLensConfigurationArgs{...}
+type StorageLensConfigurationInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationOutput() StorageLensConfigurationOutput
+	ToStorageLensConfigurationOutputWithContext(context.Context) StorageLensConfigurationOutput
+}
+
+// Specifies the details of Amazon S3 Storage Lens configuration.
+type StorageLensConfigurationArgs struct {
+	AccountLevel StorageLensAccountLevelInput         `pulumi:"accountLevel"`
+	AwsOrg       StorageLensAwsOrgPtrInput            `pulumi:"awsOrg"`
+	DataExport   StorageLensDataExportPtrInput        `pulumi:"dataExport"`
+	Exclude      StorageLensBucketsAndRegionsPtrInput `pulumi:"exclude"`
+	Id           pulumi.StringInput                   `pulumi:"id"`
+	Include      StorageLensBucketsAndRegionsPtrInput `pulumi:"include"`
+	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The ARN for the Amazon S3 Storage Lens configuration.
+	StorageLensArn pulumi.StringPtrInput `pulumi:"storageLensArn"`
+}
+
+func (StorageLensConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfiguration)(nil)).Elem()
+}
+
+func (i StorageLensConfigurationArgs) ToStorageLensConfigurationOutput() StorageLensConfigurationOutput {
+	return i.ToStorageLensConfigurationOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationArgs) ToStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationOutput)
+}
+
+func (i StorageLensConfigurationArgs) ToStorageLensConfigurationPtrOutput() StorageLensConfigurationPtrOutput {
+	return i.ToStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensConfigurationArgs) ToStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationOutput).ToStorageLensConfigurationPtrOutputWithContext(ctx)
+}
+
+// StorageLensConfigurationPtrInput is an input type that accepts StorageLensConfigurationArgs, StorageLensConfigurationPtr and StorageLensConfigurationPtrOutput values.
+// You can construct a concrete instance of `StorageLensConfigurationPtrInput` via:
+//
+//          StorageLensConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StorageLensConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensConfigurationPtrOutput() StorageLensConfigurationPtrOutput
+	ToStorageLensConfigurationPtrOutputWithContext(context.Context) StorageLensConfigurationPtrOutput
+}
+
+type storageLensConfigurationPtrType StorageLensConfigurationArgs
+
+func StorageLensConfigurationPtr(v *StorageLensConfigurationArgs) StorageLensConfigurationPtrInput {
+	return (*storageLensConfigurationPtrType)(v)
+}
+
+func (*storageLensConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfiguration)(nil)).Elem()
+}
+
+func (i *storageLensConfigurationPtrType) ToStorageLensConfigurationPtrOutput() StorageLensConfigurationPtrOutput {
+	return i.ToStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensConfigurationPtrType) ToStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationPtrOutput)
+}
+
+// Specifies the details of Amazon S3 Storage Lens configuration.
+type StorageLensConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensConfiguration)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutput() StorageLensConfigurationOutput {
+	return o
+}
+
+func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensConfigurationOutput {
+	return o
+}
+
+func (o StorageLensConfigurationOutput) ToStorageLensConfigurationPtrOutput() StorageLensConfigurationPtrOutput {
+	return o.ToStorageLensConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensConfigurationOutput) ToStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfiguration) *StorageLensConfiguration {
+		return &v
+	}).(StorageLensConfigurationPtrOutput)
+}
+
+func (o StorageLensConfigurationOutput) AccountLevel() StorageLensAccountLevelOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) StorageLensAccountLevel { return v.AccountLevel }).(StorageLensAccountLevelOutput)
+}
+
+func (o StorageLensConfigurationOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensAwsOrg { return v.AwsOrg }).(StorageLensAwsOrgPtrOutput)
+}
+
+func (o StorageLensConfigurationOutput) DataExport() StorageLensDataExportPtrOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensDataExport { return v.DataExport }).(StorageLensDataExportPtrOutput)
+}
+
+func (o StorageLensConfigurationOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Exclude }).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+func (o StorageLensConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o StorageLensConfigurationOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Include }).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+func (o StorageLensConfigurationOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The ARN for the Amazon S3 Storage Lens configuration.
+func (o StorageLensConfigurationOutput) StorageLensArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) *string { return v.StorageLensArn }).(pulumi.StringPtrOutput)
+}
+
+type StorageLensConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensConfiguration)(nil)).Elem()
+}
+
+func (o StorageLensConfigurationPtrOutput) ToStorageLensConfigurationPtrOutput() StorageLensConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationPtrOutput) ToStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationPtrOutput {
+	return o
+}
+
+func (o StorageLensConfigurationPtrOutput) Elem() StorageLensConfigurationOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) StorageLensConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensConfiguration
+		return ret
+	}).(StorageLensConfigurationOutput)
+}
+
+func (o StorageLensConfigurationPtrOutput) AccountLevel() StorageLensAccountLevelPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *StorageLensAccountLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountLevel
+	}).(StorageLensAccountLevelPtrOutput)
+}
+
+func (o StorageLensConfigurationPtrOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *StorageLensAwsOrg {
+		if v == nil {
+			return nil
+		}
+		return v.AwsOrg
+	}).(StorageLensAwsOrgPtrOutput)
+}
+
+func (o StorageLensConfigurationPtrOutput) DataExport() StorageLensDataExportPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *StorageLensDataExport {
+		if v == nil {
+			return nil
+		}
+		return v.DataExport
+	}).(StorageLensDataExportPtrOutput)
+}
+
+func (o StorageLensConfigurationPtrOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *StorageLensBucketsAndRegions {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+func (o StorageLensConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StorageLensConfigurationPtrOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *StorageLensBucketsAndRegions {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(StorageLensBucketsAndRegionsPtrOutput)
+}
+
+// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+func (o StorageLensConfigurationPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN for the Amazon S3 Storage Lens configuration.
+func (o StorageLensConfigurationPtrOutput) StorageLensArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageLensArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExport struct {
 	S3BucketDestination StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
@@ -9753,255 +10000,6 @@ func (o StorageLensSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Specifies the details of Amazon S3 Storage Lens configuration.
-type StorageLensStorageLensConfiguration struct {
-	AccountLevel StorageLensAccountLevel       `pulumi:"accountLevel"`
-	AwsOrg       *StorageLensAwsOrg            `pulumi:"awsOrg"`
-	DataExport   *StorageLensDataExport        `pulumi:"dataExport"`
-	Exclude      *StorageLensBucketsAndRegions `pulumi:"exclude"`
-	Id           string                        `pulumi:"id"`
-	Include      *StorageLensBucketsAndRegions `pulumi:"include"`
-	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The ARN for the Amazon S3 Storage Lens configuration.
-	StorageLensArn *string `pulumi:"storageLensArn"`
-}
-
-// StorageLensStorageLensConfigurationInput is an input type that accepts StorageLensStorageLensConfigurationArgs and StorageLensStorageLensConfigurationOutput values.
-// You can construct a concrete instance of `StorageLensStorageLensConfigurationInput` via:
-//
-//          StorageLensStorageLensConfigurationArgs{...}
-type StorageLensStorageLensConfigurationInput interface {
-	pulumi.Input
-
-	ToStorageLensStorageLensConfigurationOutput() StorageLensStorageLensConfigurationOutput
-	ToStorageLensStorageLensConfigurationOutputWithContext(context.Context) StorageLensStorageLensConfigurationOutput
-}
-
-// Specifies the details of Amazon S3 Storage Lens configuration.
-type StorageLensStorageLensConfigurationArgs struct {
-	AccountLevel StorageLensAccountLevelInput         `pulumi:"accountLevel"`
-	AwsOrg       StorageLensAwsOrgPtrInput            `pulumi:"awsOrg"`
-	DataExport   StorageLensDataExportPtrInput        `pulumi:"dataExport"`
-	Exclude      StorageLensBucketsAndRegionsPtrInput `pulumi:"exclude"`
-	Id           pulumi.StringInput                   `pulumi:"id"`
-	Include      StorageLensBucketsAndRegionsPtrInput `pulumi:"include"`
-	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The ARN for the Amazon S3 Storage Lens configuration.
-	StorageLensArn pulumi.StringPtrInput `pulumi:"storageLensArn"`
-}
-
-func (StorageLensStorageLensConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageLensStorageLensConfiguration)(nil)).Elem()
-}
-
-func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationOutput() StorageLensStorageLensConfigurationOutput {
-	return i.ToStorageLensStorageLensConfigurationOutputWithContext(context.Background())
-}
-
-func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageLensStorageLensConfigurationOutput)
-}
-
-func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
-	return i.ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i StorageLensStorageLensConfigurationArgs) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageLensStorageLensConfigurationOutput).ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx)
-}
-
-// StorageLensStorageLensConfigurationPtrInput is an input type that accepts StorageLensStorageLensConfigurationArgs, StorageLensStorageLensConfigurationPtr and StorageLensStorageLensConfigurationPtrOutput values.
-// You can construct a concrete instance of `StorageLensStorageLensConfigurationPtrInput` via:
-//
-//          StorageLensStorageLensConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type StorageLensStorageLensConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput
-	ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Context) StorageLensStorageLensConfigurationPtrOutput
-}
-
-type storageLensStorageLensConfigurationPtrType StorageLensStorageLensConfigurationArgs
-
-func StorageLensStorageLensConfigurationPtr(v *StorageLensStorageLensConfigurationArgs) StorageLensStorageLensConfigurationPtrInput {
-	return (*storageLensStorageLensConfigurationPtrType)(v)
-}
-
-func (*storageLensStorageLensConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageLensStorageLensConfiguration)(nil)).Elem()
-}
-
-func (i *storageLensStorageLensConfigurationPtrType) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
-	return i.ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *storageLensStorageLensConfigurationPtrType) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageLensStorageLensConfigurationPtrOutput)
-}
-
-// Specifies the details of Amazon S3 Storage Lens configuration.
-type StorageLensStorageLensConfigurationOutput struct{ *pulumi.OutputState }
-
-func (StorageLensStorageLensConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageLensStorageLensConfiguration)(nil)).Elem()
-}
-
-func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationOutput() StorageLensStorageLensConfigurationOutput {
-	return o
-}
-
-func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationOutput {
-	return o
-}
-
-func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
-	return o.ToStorageLensStorageLensConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensStorageLensConfiguration) *StorageLensStorageLensConfiguration {
-		return &v
-	}).(StorageLensStorageLensConfigurationPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationOutput) AccountLevel() StorageLensAccountLevelOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) StorageLensAccountLevel { return v.AccountLevel }).(StorageLensAccountLevelOutput)
-}
-
-func (o StorageLensStorageLensConfigurationOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensAwsOrg { return v.AwsOrg }).(StorageLensAwsOrgPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationOutput) DataExport() StorageLensDataExportPtrOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensDataExport { return v.DataExport }).(StorageLensDataExportPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Exclude }).(StorageLensBucketsAndRegionsPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o StorageLensStorageLensConfigurationOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Include }).(StorageLensBucketsAndRegionsPtrOutput)
-}
-
-// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
-func (o StorageLensStorageLensConfigurationOutput) IsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) bool { return v.IsEnabled }).(pulumi.BoolOutput)
-}
-
-// The ARN for the Amazon S3 Storage Lens configuration.
-func (o StorageLensStorageLensConfigurationOutput) StorageLensArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *string { return v.StorageLensArn }).(pulumi.StringPtrOutput)
-}
-
-type StorageLensStorageLensConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageLensStorageLensConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageLensStorageLensConfiguration)(nil)).Elem()
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) ToStorageLensStorageLensConfigurationPtrOutput() StorageLensStorageLensConfigurationPtrOutput {
-	return o
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) ToStorageLensStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensStorageLensConfigurationPtrOutput {
-	return o
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) Elem() StorageLensStorageLensConfigurationOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) StorageLensStorageLensConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret StorageLensStorageLensConfiguration
-		return ret
-	}).(StorageLensStorageLensConfigurationOutput)
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) AccountLevel() StorageLensAccountLevelPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensAccountLevel {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountLevel
-	}).(StorageLensAccountLevelPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensAwsOrg {
-		if v == nil {
-			return nil
-		}
-		return v.AwsOrg
-	}).(StorageLensAwsOrgPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) DataExport() StorageLensDataExportPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensDataExport {
-		if v == nil {
-			return nil
-		}
-		return v.DataExport
-	}).(StorageLensDataExportPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions {
-		if v == nil {
-			return nil
-		}
-		return v.Exclude
-	}).(StorageLensBucketsAndRegionsPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StorageLensStorageLensConfigurationPtrOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions {
-		if v == nil {
-			return nil
-		}
-		return v.Include
-	}).(StorageLensBucketsAndRegionsPtrOutput)
-}
-
-// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
-func (o StorageLensStorageLensConfigurationPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.IsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The ARN for the Amazon S3 Storage Lens configuration.
-func (o StorageLensStorageLensConfigurationPtrOutput) StorageLensArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageLensArn
-	}).(pulumi.StringPtrOutput)
-}
-
 type StorageLensTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -10115,8 +10113,6 @@ func init() {
 	pulumi.RegisterOutputType(BucketAccessControlTranslationPtrOutput{})
 	pulumi.RegisterOutputType(BucketAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketAnalyticsConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(BucketBucketEncryptionOutput{})
-	pulumi.RegisterOutputType(BucketBucketEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(BucketCorsConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketCorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleOutput{})
@@ -10129,6 +10125,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketDeleteMarkerReplicationPtrOutput{})
 	pulumi.RegisterOutputType(BucketDestinationOutput{})
 	pulumi.RegisterOutputType(BucketDestinationPtrOutput{})
+	pulumi.RegisterOutputType(BucketEncryptionOutput{})
+	pulumi.RegisterOutputType(BucketEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(BucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketFilterRuleOutput{})
@@ -10231,6 +10229,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensBucketLevelPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensBucketsAndRegionsOutput{})
 	pulumi.RegisterOutputType(StorageLensBucketsAndRegionsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationOutput{})
+	pulumi.RegisterOutputType(StorageLensConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensDataExportOutput{})
 	pulumi.RegisterOutputType(StorageLensDataExportPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionOutput{})
@@ -10243,8 +10243,6 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensS3BucketDestinationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(StorageLensStorageLensConfigurationOutput{})
-	pulumi.RegisterOutputType(StorageLensStorageLensConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensTagOutput{})
 	pulumi.RegisterOutputType(StorageLensTagArrayOutput{})
 }

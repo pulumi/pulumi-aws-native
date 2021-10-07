@@ -39,7 +39,7 @@ export class Schema extends pulumi.CustomResource {
      * Amazon Resource Name for the Schema.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaSchemaVersion | undefined>;
+    public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaVersion | undefined>;
     /**
      * Compatibility setting for the schema.
      */
@@ -126,7 +126,7 @@ export class Schema extends pulumi.CustomResource {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
-    checkpointVersion?: pulumi.Input<inputs.glue.SchemaSchemaVersionArgs>;
+    checkpointVersion?: pulumi.Input<inputs.glue.SchemaVersionArgs>;
     /**
      * Compatibility setting for the schema.
      */

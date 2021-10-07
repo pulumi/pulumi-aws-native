@@ -15,14 +15,14 @@ import (
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	Capacity      pulumi.IntOutput            `pulumi:"capacity"`
-	Description   pulumi.StringPtrOutput      `pulumi:"description"`
-	RuleGroup     RuleGroupRuleGroupPtrOutput `pulumi:"ruleGroup"`
-	RuleGroupArn  pulumi.StringOutput         `pulumi:"ruleGroupArn"`
-	RuleGroupId   pulumi.StringOutput         `pulumi:"ruleGroupId"`
-	RuleGroupName pulumi.StringOutput         `pulumi:"ruleGroupName"`
-	Tags          RuleGroupTagArrayOutput     `pulumi:"tags"`
-	Type          RuleGroupTypeOutput         `pulumi:"type"`
+	Capacity      pulumi.IntOutput        `pulumi:"capacity"`
+	Description   pulumi.StringPtrOutput  `pulumi:"description"`
+	RuleGroup     RuleGroupTypePtrOutput  `pulumi:"ruleGroup"`
+	RuleGroupArn  pulumi.StringOutput     `pulumi:"ruleGroupArn"`
+	RuleGroupId   pulumi.StringOutput     `pulumi:"ruleGroupId"`
+	RuleGroupName pulumi.StringOutput     `pulumi:"ruleGroupName"`
+	Tags          RuleGroupTagArrayOutput `pulumi:"tags"`
+	Type          RuleGroupTypeEnumOutput `pulumi:"type"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -73,22 +73,22 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	Capacity      int                 `pulumi:"capacity"`
-	Description   *string             `pulumi:"description"`
-	RuleGroup     *RuleGroupRuleGroup `pulumi:"ruleGroup"`
-	RuleGroupName string              `pulumi:"ruleGroupName"`
-	Tags          []RuleGroupTag      `pulumi:"tags"`
-	Type          RuleGroupType       `pulumi:"type"`
+	Capacity      int               `pulumi:"capacity"`
+	Description   *string           `pulumi:"description"`
+	RuleGroup     *RuleGroupType    `pulumi:"ruleGroup"`
+	RuleGroupName string            `pulumi:"ruleGroupName"`
+	Tags          []RuleGroupTag    `pulumi:"tags"`
+	Type          RuleGroupTypeEnum `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
 	Capacity      pulumi.IntInput
 	Description   pulumi.StringPtrInput
-	RuleGroup     RuleGroupRuleGroupPtrInput
+	RuleGroup     RuleGroupTypePtrInput
 	RuleGroupName pulumi.StringInput
 	Tags          RuleGroupTagArrayInput
-	Type          RuleGroupTypeInput
+	Type          RuleGroupTypeEnumInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {

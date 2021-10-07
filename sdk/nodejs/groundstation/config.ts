@@ -36,7 +36,7 @@ export class Config extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly configData!: pulumi.Output<outputs.groundstation.ConfigConfigData>;
+    public readonly configData!: pulumi.Output<outputs.groundstation.ConfigData>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.groundstation.ConfigTag[] | undefined>;
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -81,7 +81,7 @@ export class Config extends pulumi.CustomResource {
  * The set of arguments for constructing a Config resource.
  */
 export interface ConfigArgs {
-    configData: pulumi.Input<inputs.groundstation.ConfigConfigDataArgs>;
+    configData: pulumi.Input<inputs.groundstation.ConfigDataArgs>;
     name: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.groundstation.ConfigTagArgs>[]>;
 }

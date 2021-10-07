@@ -10,15 +10,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SamplingRuleArgs', 'SamplingRule']
+__all__ = ['SamplingRuleInitArgs', 'SamplingRule']
 
 @pulumi.input_type
-class SamplingRuleArgs:
+class SamplingRuleInitArgs:
     def __init__(__self__, *,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 sampling_rule: Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']] = None,
-                 sampling_rule_record: Optional[pulumi.Input['SamplingRuleSamplingRuleRecordArgs']] = None,
-                 sampling_rule_update: Optional[pulumi.Input['SamplingRuleSamplingRuleUpdateArgs']] = None,
+                 sampling_rule: Optional[pulumi.Input['SamplingRuleArgs']] = None,
+                 sampling_rule_record: Optional[pulumi.Input['SamplingRuleRecordArgs']] = None,
+                 sampling_rule_update: Optional[pulumi.Input['SamplingRuleUpdateArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[Any]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
@@ -45,29 +45,29 @@ class SamplingRuleArgs:
 
     @property
     @pulumi.getter(name="samplingRule")
-    def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']]:
+    def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleArgs']]:
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter
-    def sampling_rule(self, value: Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']]):
+    def sampling_rule(self, value: Optional[pulumi.Input['SamplingRuleArgs']]):
         pulumi.set(self, "sampling_rule", value)
 
     @property
     @pulumi.getter(name="samplingRuleRecord")
-    def sampling_rule_record(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleRecordArgs']]:
+    def sampling_rule_record(self) -> Optional[pulumi.Input['SamplingRuleRecordArgs']]:
         return pulumi.get(self, "sampling_rule_record")
 
     @sampling_rule_record.setter
-    def sampling_rule_record(self, value: Optional[pulumi.Input['SamplingRuleSamplingRuleRecordArgs']]):
+    def sampling_rule_record(self, value: Optional[pulumi.Input['SamplingRuleRecordArgs']]):
         pulumi.set(self, "sampling_rule_record", value)
 
     @property
     @pulumi.getter(name="samplingRuleUpdate")
-    def sampling_rule_update(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleUpdateArgs']]:
+    def sampling_rule_update(self) -> Optional[pulumi.Input['SamplingRuleUpdateArgs']]:
         return pulumi.get(self, "sampling_rule_update")
 
     @sampling_rule_update.setter
-    def sampling_rule_update(self, value: Optional[pulumi.Input['SamplingRuleSamplingRuleUpdateArgs']]):
+    def sampling_rule_update(self, value: Optional[pulumi.Input['SamplingRuleUpdateArgs']]):
         pulumi.set(self, "sampling_rule_update", value)
 
     @property
@@ -86,9 +86,9 @@ class SamplingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleArgs']]] = None,
-                 sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleRecordArgs']]] = None,
-                 sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleUpdateArgs']]] = None,
+                 sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleArgs']]] = None,
+                 sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleRecordArgs']]] = None,
+                 sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleUpdateArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[Any]]] = None,
                  __props__=None):
         """
@@ -101,18 +101,18 @@ class SamplingRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SamplingRuleArgs] = None,
+                 args: Optional[SamplingRuleInitArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 
         :param str resource_name: The name of the resource.
-        :param SamplingRuleArgs args: The arguments to use to populate this resource's properties.
+        :param SamplingRuleInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SamplingRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SamplingRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -122,9 +122,9 @@ class SamplingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleArgs']]] = None,
-                 sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleRecordArgs']]] = None,
-                 sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleUpdateArgs']]] = None,
+                 sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleArgs']]] = None,
+                 sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleRecordArgs']]] = None,
+                 sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleUpdateArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[Any]]] = None,
                  __props__=None):
         if opts is None:
@@ -136,7 +136,7 @@ class SamplingRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SamplingRuleArgs.__new__(SamplingRuleArgs)
+            __props__ = SamplingRuleInitArgs.__new__(SamplingRuleInitArgs)
 
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["sampling_rule"] = sampling_rule
@@ -164,7 +164,7 @@ class SamplingRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SamplingRuleArgs.__new__(SamplingRuleArgs)
+        __props__ = SamplingRuleInitArgs.__new__(SamplingRuleInitArgs)
 
         __props__.__dict__["rule_arn"] = None
         __props__.__dict__["rule_name"] = None
@@ -186,17 +186,17 @@ class SamplingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="samplingRule")
-    def sampling_rule(self) -> pulumi.Output[Optional['outputs.SamplingRuleSamplingRule']]:
+    def sampling_rule(self) -> pulumi.Output[Optional['outputs.SamplingRule']]:
         return pulumi.get(self, "sampling_rule")
 
     @property
     @pulumi.getter(name="samplingRuleRecord")
-    def sampling_rule_record(self) -> pulumi.Output[Optional['outputs.SamplingRuleSamplingRuleRecord']]:
+    def sampling_rule_record(self) -> pulumi.Output[Optional['outputs.SamplingRuleRecord']]:
         return pulumi.get(self, "sampling_rule_record")
 
     @property
     @pulumi.getter(name="samplingRuleUpdate")
-    def sampling_rule_update(self) -> pulumi.Output[Optional['outputs.SamplingRuleSamplingRuleUpdate']]:
+    def sampling_rule_update(self) -> pulumi.Output[Optional['outputs.SamplingRuleUpdate']]:
         return pulumi.get(self, "sampling_rule_update")
 
     @property

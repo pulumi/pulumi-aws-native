@@ -11,18 +11,19 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'FirewallPolicy',
     'FirewallPolicyActionDefinition',
     'FirewallPolicyCustomAction',
     'FirewallPolicyDimension',
-    'FirewallPolicyFirewallPolicy',
     'FirewallPolicyPublishMetricAction',
     'FirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyStatelessRuleGroupReference',
     'FirewallPolicyTag',
     'FirewallSubnetMapping',
     'FirewallTag',
+    'LoggingConfiguration',
     'LoggingConfigurationLogDestinationConfig',
-    'LoggingConfigurationLoggingConfiguration',
+    'RuleGroup',
     'RuleGroupActionDefinition',
     'RuleGroupAddress',
     'RuleGroupCustomAction',
@@ -32,7 +33,6 @@ __all__ = [
     'RuleGroupPortRange',
     'RuleGroupPublishMetricAction',
     'RuleGroupRuleDefinition',
-    'RuleGroupRuleGroup',
     'RuleGroupRuleOption',
     'RuleGroupRuleVariables',
     'RuleGroupRulesSource',
@@ -43,6 +43,74 @@ __all__ = [
     'RuleGroupTCPFlagField',
     'RuleGroupTag',
 ]
+
+@pulumi.output_type
+class FirewallPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statelessDefaultActions":
+            suggest = "stateless_default_actions"
+        elif key == "statelessFragmentDefaultActions":
+            suggest = "stateless_fragment_default_actions"
+        elif key == "statefulRuleGroupReferences":
+            suggest = "stateful_rule_group_references"
+        elif key == "statelessCustomActions":
+            suggest = "stateless_custom_actions"
+        elif key == "statelessRuleGroupReferences":
+            suggest = "stateless_rule_group_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stateless_default_actions: Sequence[str],
+                 stateless_fragment_default_actions: Sequence[str],
+                 stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None,
+                 stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyCustomAction']] = None,
+                 stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None):
+        pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
+        pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if stateful_rule_group_references is not None:
+            pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
+        if stateless_custom_actions is not None:
+            pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
+        if stateless_rule_group_references is not None:
+            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+
+    @property
+    @pulumi.getter(name="statelessDefaultActions")
+    def stateless_default_actions(self) -> Sequence[str]:
+        return pulumi.get(self, "stateless_default_actions")
+
+    @property
+    @pulumi.getter(name="statelessFragmentDefaultActions")
+    def stateless_fragment_default_actions(self) -> Sequence[str]:
+        return pulumi.get(self, "stateless_fragment_default_actions")
+
+    @property
+    @pulumi.getter(name="statefulRuleGroupReferences")
+    def stateful_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']]:
+        return pulumi.get(self, "stateful_rule_group_references")
+
+    @property
+    @pulumi.getter(name="statelessCustomActions")
+    def stateless_custom_actions(self) -> Optional[Sequence['outputs.FirewallPolicyCustomAction']]:
+        return pulumi.get(self, "stateless_custom_actions")
+
+    @property
+    @pulumi.getter(name="statelessRuleGroupReferences")
+    def stateless_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']]:
+        return pulumi.get(self, "stateless_rule_group_references")
+
 
 @pulumi.output_type
 class FirewallPolicyActionDefinition(dict):
@@ -122,74 +190,6 @@ class FirewallPolicyDimension(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class FirewallPolicyFirewallPolicy(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "statelessDefaultActions":
-            suggest = "stateless_default_actions"
-        elif key == "statelessFragmentDefaultActions":
-            suggest = "stateless_fragment_default_actions"
-        elif key == "statefulRuleGroupReferences":
-            suggest = "stateful_rule_group_references"
-        elif key == "statelessCustomActions":
-            suggest = "stateless_custom_actions"
-        elif key == "statelessRuleGroupReferences":
-            suggest = "stateless_rule_group_references"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicy. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FirewallPolicyFirewallPolicy.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FirewallPolicyFirewallPolicy.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 stateless_default_actions: Sequence[str],
-                 stateless_fragment_default_actions: Sequence[str],
-                 stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None,
-                 stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyCustomAction']] = None,
-                 stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None):
-        pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
-        pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
-        if stateful_rule_group_references is not None:
-            pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
-        if stateless_custom_actions is not None:
-            pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
-        if stateless_rule_group_references is not None:
-            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
-
-    @property
-    @pulumi.getter(name="statelessDefaultActions")
-    def stateless_default_actions(self) -> Sequence[str]:
-        return pulumi.get(self, "stateless_default_actions")
-
-    @property
-    @pulumi.getter(name="statelessFragmentDefaultActions")
-    def stateless_fragment_default_actions(self) -> Sequence[str]:
-        return pulumi.get(self, "stateless_fragment_default_actions")
-
-    @property
-    @pulumi.getter(name="statefulRuleGroupReferences")
-    def stateful_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']]:
-        return pulumi.get(self, "stateful_rule_group_references")
-
-    @property
-    @pulumi.getter(name="statelessCustomActions")
-    def stateless_custom_actions(self) -> Optional[Sequence['outputs.FirewallPolicyCustomAction']]:
-        return pulumi.get(self, "stateless_custom_actions")
-
-    @property
-    @pulumi.getter(name="statelessRuleGroupReferences")
-    def stateless_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']]:
-        return pulumi.get(self, "stateless_rule_group_references")
 
 
 @pulumi.output_type
@@ -343,6 +343,35 @@ class FirewallTag(dict):
 
 
 @pulumi.output_type
+class LoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestinationConfigs":
+            suggest = "log_destination_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_destination_configs: Sequence['outputs.LoggingConfigurationLogDestinationConfig']):
+        pulumi.set(__self__, "log_destination_configs", log_destination_configs)
+
+    @property
+    @pulumi.getter(name="logDestinationConfigs")
+    def log_destination_configs(self) -> Sequence['outputs.LoggingConfigurationLogDestinationConfig']:
+        return pulumi.get(self, "log_destination_configs")
+
+
+@pulumi.output_type
 class LoggingConfigurationLogDestinationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -396,32 +425,42 @@ class LoggingConfigurationLogDestinationConfig(dict):
 
 
 @pulumi.output_type
-class LoggingConfigurationLoggingConfiguration(dict):
+class RuleGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "logDestinationConfigs":
-            suggest = "log_destination_configs"
+        if key == "rulesSource":
+            suggest = "rules_source"
+        elif key == "ruleVariables":
+            suggest = "rule_variables"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroup. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        LoggingConfigurationLoggingConfiguration.__key_warning(key)
+        RuleGroup.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        LoggingConfigurationLoggingConfiguration.__key_warning(key)
+        RuleGroup.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 log_destination_configs: Sequence['outputs.LoggingConfigurationLogDestinationConfig']):
-        pulumi.set(__self__, "log_destination_configs", log_destination_configs)
+                 rules_source: 'outputs.RuleGroupRulesSource',
+                 rule_variables: Optional['outputs.RuleGroupRuleVariables'] = None):
+        pulumi.set(__self__, "rules_source", rules_source)
+        if rule_variables is not None:
+            pulumi.set(__self__, "rule_variables", rule_variables)
 
     @property
-    @pulumi.getter(name="logDestinationConfigs")
-    def log_destination_configs(self) -> Sequence['outputs.LoggingConfigurationLogDestinationConfig']:
-        return pulumi.get(self, "log_destination_configs")
+    @pulumi.getter(name="rulesSource")
+    def rules_source(self) -> 'outputs.RuleGroupRulesSource':
+        return pulumi.get(self, "rules_source")
+
+    @property
+    @pulumi.getter(name="ruleVariables")
+    def rule_variables(self) -> Optional['outputs.RuleGroupRuleVariables']:
+        return pulumi.get(self, "rule_variables")
 
 
 @pulumi.output_type
@@ -757,45 +796,6 @@ class RuleGroupRuleDefinition(dict):
     @pulumi.getter(name="matchAttributes")
     def match_attributes(self) -> 'outputs.RuleGroupMatchAttributes':
         return pulumi.get(self, "match_attributes")
-
-
-@pulumi.output_type
-class RuleGroupRuleGroup(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "rulesSource":
-            suggest = "rules_source"
-        elif key == "ruleVariables":
-            suggest = "rule_variables"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleGroup. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupRuleGroup.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupRuleGroup.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 rules_source: 'outputs.RuleGroupRulesSource',
-                 rule_variables: Optional['outputs.RuleGroupRuleVariables'] = None):
-        pulumi.set(__self__, "rules_source", rules_source)
-        if rule_variables is not None:
-            pulumi.set(__self__, "rule_variables", rule_variables)
-
-    @property
-    @pulumi.getter(name="rulesSource")
-    def rules_source(self) -> 'outputs.RuleGroupRulesSource':
-        return pulumi.get(self, "rules_source")
-
-    @property
-    @pulumi.getter(name="ruleVariables")
-    def rule_variables(self) -> Optional['outputs.RuleGroupRuleVariables']:
-        return pulumi.get(self, "rule_variables")
 
 
 @pulumi.output_type

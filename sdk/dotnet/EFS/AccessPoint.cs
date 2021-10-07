@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EFS
         public Output<string> AccessPointId { get; private set; } = null!;
 
         [Output("accessPointTags")]
-        public Output<ImmutableArray<Outputs.AccessPointAccessPointTag>> AccessPointTags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AccessPointTag>> AccessPointTags { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -94,10 +94,10 @@ namespace Pulumi.AwsNative.EFS
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
         [Input("accessPointTags")]
-        private InputList<Inputs.AccessPointAccessPointTagArgs>? _accessPointTags;
-        public InputList<Inputs.AccessPointAccessPointTagArgs> AccessPointTags
+        private InputList<Inputs.AccessPointTagArgs>? _accessPointTags;
+        public InputList<Inputs.AccessPointTagArgs> AccessPointTags
         {
-            get => _accessPointTags ?? (_accessPointTags = new InputList<Inputs.AccessPointAccessPointTagArgs>());
+            get => _accessPointTags ?? (_accessPointTags = new InputList<Inputs.AccessPointTagArgs>());
             set => _accessPointTags = value;
         }
 

@@ -25,10 +25,10 @@ __all__ = [
     'LayerTag',
     'LayerVolumeConfiguration',
     'StackChefConfiguration',
+    'StackConfigurationManager',
     'StackElasticIp',
     'StackRdsDbInstance',
     'StackSource',
-    'StackStackConfigurationManager',
     'StackTag',
 ]
 
@@ -795,6 +795,27 @@ class StackChefConfiguration(dict):
 
 
 @pulumi.output_type
+class StackConfigurationManager(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
 class StackElasticIp(dict):
     def __init__(__self__, *,
                  ip: str,
@@ -929,27 +950,6 @@ class StackSource(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class StackStackConfigurationManager(dict):
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 version: Optional[str] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

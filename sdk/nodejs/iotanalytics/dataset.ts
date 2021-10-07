@@ -39,7 +39,7 @@ export class Dataset extends pulumi.CustomResource {
     }
 
     public readonly actions!: pulumi.Output<outputs.iotanalytics.DatasetAction[]>;
-    public readonly contentDeliveryRules!: pulumi.Output<outputs.iotanalytics.DatasetDatasetContentDeliveryRule[] | undefined>;
+    public readonly contentDeliveryRules!: pulumi.Output<outputs.iotanalytics.DatasetContentDeliveryRule[] | undefined>;
     public readonly datasetName!: pulumi.Output<string | undefined>;
     public readonly lateDataRules!: pulumi.Output<outputs.iotanalytics.DatasetLateDataRule[] | undefined>;
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatasetRetentionPeriod | undefined>;
@@ -93,7 +93,7 @@ export class Dataset extends pulumi.CustomResource {
  */
 export interface DatasetArgs {
     actions: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetActionArgs>[]>;
-    contentDeliveryRules?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetDatasetContentDeliveryRuleArgs>[]>;
+    contentDeliveryRules?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetContentDeliveryRuleArgs>[]>;
     datasetName?: pulumi.Input<string>;
     lateDataRules?: pulumi.Input<pulumi.Input<inputs.iotanalytics.DatasetLateDataRuleArgs>[]>;
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatasetRetentionPeriodArgs>;

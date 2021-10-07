@@ -11,23 +11,23 @@ from .. import _utilities
 __all__ = [
     'ProjectArtifactsArgs',
     'ProjectBatchRestrictionsArgs',
+    'ProjectBuildBatchConfigArgs',
     'ProjectBuildStatusConfigArgs',
+    'ProjectCacheArgs',
     'ProjectCloudWatchLogsConfigArgs',
     'ProjectEnvironmentVariableArgs',
     'ProjectEnvironmentArgs',
+    'ProjectFileSystemLocationArgs',
     'ProjectFilterGroupArgs',
     'ProjectGitSubmodulesConfigArgs',
     'ProjectLogsConfigArgs',
-    'ProjectProjectBuildBatchConfigArgs',
-    'ProjectProjectCacheArgs',
-    'ProjectProjectFileSystemLocationArgs',
-    'ProjectProjectSourceVersionArgs',
-    'ProjectProjectTriggersArgs',
     'ProjectRegistryCredentialArgs',
     'ProjectS3LogsConfigArgs',
     'ProjectSourceAuthArgs',
+    'ProjectSourceVersionArgs',
     'ProjectSourceArgs',
     'ProjectTagArgs',
+    'ProjectTriggersArgs',
     'ProjectVpcConfigArgs',
     'ReportGroupReportExportConfigArgs',
     'ReportGroupS3ReportExportConfigArgs',
@@ -176,6 +176,59 @@ class ProjectBatchRestrictionsArgs:
 
 
 @pulumi.input_type
+class ProjectBuildBatchConfigArgs:
+    def __init__(__self__, *,
+                 combine_artifacts: Optional[pulumi.Input[bool]] = None,
+                 restrictions: Optional[pulumi.Input['ProjectBatchRestrictionsArgs']] = None,
+                 service_role: Optional[pulumi.Input[str]] = None,
+                 timeout_in_mins: Optional[pulumi.Input[int]] = None):
+        if combine_artifacts is not None:
+            pulumi.set(__self__, "combine_artifacts", combine_artifacts)
+        if restrictions is not None:
+            pulumi.set(__self__, "restrictions", restrictions)
+        if service_role is not None:
+            pulumi.set(__self__, "service_role", service_role)
+        if timeout_in_mins is not None:
+            pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
+
+    @property
+    @pulumi.getter(name="combineArtifacts")
+    def combine_artifacts(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "combine_artifacts")
+
+    @combine_artifacts.setter
+    def combine_artifacts(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "combine_artifacts", value)
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> Optional[pulumi.Input['ProjectBatchRestrictionsArgs']]:
+        return pulumi.get(self, "restrictions")
+
+    @restrictions.setter
+    def restrictions(self, value: Optional[pulumi.Input['ProjectBatchRestrictionsArgs']]):
+        pulumi.set(self, "restrictions", value)
+
+    @property
+    @pulumi.getter(name="serviceRole")
+    def service_role(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_role")
+
+    @service_role.setter
+    def service_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_role", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMins")
+    def timeout_in_mins(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_in_mins")
+
+    @timeout_in_mins.setter
+    def timeout_in_mins(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_mins", value)
+
+
+@pulumi.input_type
 class ProjectBuildStatusConfigArgs:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[str]] = None,
@@ -202,6 +255,46 @@ class ProjectBuildStatusConfigArgs:
     @target_url.setter
     def target_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_url", value)
+
+
+@pulumi.input_type
+class ProjectCacheArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "type", type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if modes is not None:
+            pulumi.set(__self__, "modes", modes)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "modes")
+
+    @modes.setter
+    def modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "modes", value)
 
 
 @pulumi.input_type
@@ -382,151 +475,7 @@ class ProjectEnvironmentArgs:
 
 
 @pulumi.input_type
-class ProjectFilterGroupArgs:
-    def __init__(__self__):
-        pass
-
-
-@pulumi.input_type
-class ProjectGitSubmodulesConfigArgs:
-    def __init__(__self__, *,
-                 fetch_submodules: pulumi.Input[bool]):
-        pulumi.set(__self__, "fetch_submodules", fetch_submodules)
-
-    @property
-    @pulumi.getter(name="fetchSubmodules")
-    def fetch_submodules(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "fetch_submodules")
-
-    @fetch_submodules.setter
-    def fetch_submodules(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "fetch_submodules", value)
-
-
-@pulumi.input_type
-class ProjectLogsConfigArgs:
-    def __init__(__self__, *,
-                 cloud_watch_logs: Optional[pulumi.Input['ProjectCloudWatchLogsConfigArgs']] = None,
-                 s3_logs: Optional[pulumi.Input['ProjectS3LogsConfigArgs']] = None):
-        if cloud_watch_logs is not None:
-            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
-        if s3_logs is not None:
-            pulumi.set(__self__, "s3_logs", s3_logs)
-
-    @property
-    @pulumi.getter(name="cloudWatchLogs")
-    def cloud_watch_logs(self) -> Optional[pulumi.Input['ProjectCloudWatchLogsConfigArgs']]:
-        return pulumi.get(self, "cloud_watch_logs")
-
-    @cloud_watch_logs.setter
-    def cloud_watch_logs(self, value: Optional[pulumi.Input['ProjectCloudWatchLogsConfigArgs']]):
-        pulumi.set(self, "cloud_watch_logs", value)
-
-    @property
-    @pulumi.getter(name="s3Logs")
-    def s3_logs(self) -> Optional[pulumi.Input['ProjectS3LogsConfigArgs']]:
-        return pulumi.get(self, "s3_logs")
-
-    @s3_logs.setter
-    def s3_logs(self, value: Optional[pulumi.Input['ProjectS3LogsConfigArgs']]):
-        pulumi.set(self, "s3_logs", value)
-
-
-@pulumi.input_type
-class ProjectProjectBuildBatchConfigArgs:
-    def __init__(__self__, *,
-                 combine_artifacts: Optional[pulumi.Input[bool]] = None,
-                 restrictions: Optional[pulumi.Input['ProjectBatchRestrictionsArgs']] = None,
-                 service_role: Optional[pulumi.Input[str]] = None,
-                 timeout_in_mins: Optional[pulumi.Input[int]] = None):
-        if combine_artifacts is not None:
-            pulumi.set(__self__, "combine_artifacts", combine_artifacts)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
-        if service_role is not None:
-            pulumi.set(__self__, "service_role", service_role)
-        if timeout_in_mins is not None:
-            pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
-
-    @property
-    @pulumi.getter(name="combineArtifacts")
-    def combine_artifacts(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "combine_artifacts")
-
-    @combine_artifacts.setter
-    def combine_artifacts(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "combine_artifacts", value)
-
-    @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input['ProjectBatchRestrictionsArgs']]:
-        return pulumi.get(self, "restrictions")
-
-    @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input['ProjectBatchRestrictionsArgs']]):
-        pulumi.set(self, "restrictions", value)
-
-    @property
-    @pulumi.getter(name="serviceRole")
-    def service_role(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "service_role")
-
-    @service_role.setter
-    def service_role(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "service_role", value)
-
-    @property
-    @pulumi.getter(name="timeoutInMins")
-    def timeout_in_mins(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "timeout_in_mins")
-
-    @timeout_in_mins.setter
-    def timeout_in_mins(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "timeout_in_mins", value)
-
-
-@pulumi.input_type
-class ProjectProjectCacheArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 location: Optional[pulumi.Input[str]] = None,
-                 modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "type", type)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if modes is not None:
-            pulumi.set(__self__, "modes", modes)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "modes")
-
-    @modes.setter
-    def modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "modes", value)
-
-
-@pulumi.input_type
-class ProjectProjectFileSystemLocationArgs:
+class ProjectFileSystemLocationArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[str],
                  location: pulumi.Input[str],
@@ -587,72 +536,54 @@ class ProjectProjectFileSystemLocationArgs:
 
 
 @pulumi.input_type
-class ProjectProjectSourceVersionArgs:
-    def __init__(__self__, *,
-                 source_identifier: pulumi.Input[str],
-                 source_version: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "source_identifier", source_identifier)
-        if source_version is not None:
-            pulumi.set(__self__, "source_version", source_version)
-
-    @property
-    @pulumi.getter(name="sourceIdentifier")
-    def source_identifier(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "source_identifier")
-
-    @source_identifier.setter
-    def source_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "source_identifier", value)
-
-    @property
-    @pulumi.getter(name="sourceVersion")
-    def source_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "source_version")
-
-    @source_version.setter
-    def source_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_version", value)
+class ProjectFilterGroupArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
-class ProjectProjectTriggersArgs:
+class ProjectGitSubmodulesConfigArgs:
     def __init__(__self__, *,
-                 build_type: Optional[pulumi.Input[str]] = None,
-                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFilterGroupArgs']]]] = None,
-                 webhook: Optional[pulumi.Input[bool]] = None):
-        if build_type is not None:
-            pulumi.set(__self__, "build_type", build_type)
-        if filter_groups is not None:
-            pulumi.set(__self__, "filter_groups", filter_groups)
-        if webhook is not None:
-            pulumi.set(__self__, "webhook", webhook)
+                 fetch_submodules: pulumi.Input[bool]):
+        pulumi.set(__self__, "fetch_submodules", fetch_submodules)
 
     @property
-    @pulumi.getter(name="buildType")
-    def build_type(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "build_type")
+    @pulumi.getter(name="fetchSubmodules")
+    def fetch_submodules(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "fetch_submodules")
 
-    @build_type.setter
-    def build_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "build_type", value)
+    @fetch_submodules.setter
+    def fetch_submodules(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "fetch_submodules", value)
+
+
+@pulumi.input_type
+class ProjectLogsConfigArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs: Optional[pulumi.Input['ProjectCloudWatchLogsConfigArgs']] = None,
+                 s3_logs: Optional[pulumi.Input['ProjectS3LogsConfigArgs']] = None):
+        if cloud_watch_logs is not None:
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+        if s3_logs is not None:
+            pulumi.set(__self__, "s3_logs", s3_logs)
 
     @property
-    @pulumi.getter(name="filterGroups")
-    def filter_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFilterGroupArgs']]]]:
-        return pulumi.get(self, "filter_groups")
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> Optional[pulumi.Input['ProjectCloudWatchLogsConfigArgs']]:
+        return pulumi.get(self, "cloud_watch_logs")
 
-    @filter_groups.setter
-    def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFilterGroupArgs']]]]):
-        pulumi.set(self, "filter_groups", value)
+    @cloud_watch_logs.setter
+    def cloud_watch_logs(self, value: Optional[pulumi.Input['ProjectCloudWatchLogsConfigArgs']]):
+        pulumi.set(self, "cloud_watch_logs", value)
 
     @property
-    @pulumi.getter
-    def webhook(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "webhook")
+    @pulumi.getter(name="s3Logs")
+    def s3_logs(self) -> Optional[pulumi.Input['ProjectS3LogsConfigArgs']]:
+        return pulumi.get(self, "s3_logs")
 
-    @webhook.setter
-    def webhook(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "webhook", value)
+    @s3_logs.setter
+    def s3_logs(self, value: Optional[pulumi.Input['ProjectS3LogsConfigArgs']]):
+        pulumi.set(self, "s3_logs", value)
 
 
 @pulumi.input_type
@@ -748,6 +679,34 @@ class ProjectSourceAuthArgs:
     @resource.setter
     def resource(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class ProjectSourceVersionArgs:
+    def __init__(__self__, *,
+                 source_identifier: pulumi.Input[str],
+                 source_version: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "source_identifier", source_identifier)
+        if source_version is not None:
+            pulumi.set(__self__, "source_version", source_version)
+
+    @property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_identifier")
+
+    @source_identifier.setter
+    def source_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_identifier", value)
+
+    @property
+    @pulumi.getter(name="sourceVersion")
+    def source_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_version")
+
+    @source_version.setter
+    def source_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_version", value)
 
 
 @pulumi.input_type
@@ -899,6 +858,47 @@ class ProjectTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ProjectTriggersArgs:
+    def __init__(__self__, *,
+                 build_type: Optional[pulumi.Input[str]] = None,
+                 filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFilterGroupArgs']]]] = None,
+                 webhook: Optional[pulumi.Input[bool]] = None):
+        if build_type is not None:
+            pulumi.set(__self__, "build_type", build_type)
+        if filter_groups is not None:
+            pulumi.set(__self__, "filter_groups", filter_groups)
+        if webhook is not None:
+            pulumi.set(__self__, "webhook", webhook)
+
+    @property
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "build_type")
+
+    @build_type.setter
+    def build_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_type", value)
+
+    @property
+    @pulumi.getter(name="filterGroups")
+    def filter_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFilterGroupArgs']]]]:
+        return pulumi.get(self, "filter_groups")
+
+    @filter_groups.setter
+    def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFilterGroupArgs']]]]):
+        pulumi.set(self, "filter_groups", value)
+
+    @property
+    @pulumi.getter
+    def webhook(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "webhook")
+
+    @webhook.setter
+    def webhook(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "webhook", value)
 
 
 @pulumi.input_type

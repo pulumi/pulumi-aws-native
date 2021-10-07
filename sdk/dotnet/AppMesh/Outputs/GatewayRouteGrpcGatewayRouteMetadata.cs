@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     public sealed class GatewayRouteGrpcGatewayRouteMetadata
     {
         public readonly bool? Invert;
-        public readonly Outputs.GatewayRouteGatewayRouteMetadataMatch? Match;
+        public readonly Outputs.GatewayRouteMetadataMatch? Match;
         public readonly string Name;
 
         [OutputConstructor]
         private GatewayRouteGrpcGatewayRouteMetadata(
             bool? invert,
 
-            Outputs.GatewayRouteGatewayRouteMetadataMatch? match,
+            Outputs.GatewayRouteMetadataMatch? match,
 
             string name)
         {

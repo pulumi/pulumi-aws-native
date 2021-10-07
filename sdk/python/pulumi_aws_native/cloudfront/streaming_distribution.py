@@ -15,7 +15,7 @@ __all__ = ['StreamingDistributionArgs', 'StreamingDistribution']
 @pulumi.input_type
 class StreamingDistributionArgs:
     def __init__(__self__, *,
-                 streaming_distribution_config: pulumi.Input['StreamingDistributionStreamingDistributionConfigArgs'],
+                 streaming_distribution_config: pulumi.Input['StreamingDistributionConfigArgs'],
                  tags: pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]]):
         """
         The set of arguments for constructing a StreamingDistribution resource.
@@ -25,11 +25,11 @@ class StreamingDistributionArgs:
 
     @property
     @pulumi.getter(name="streamingDistributionConfig")
-    def streaming_distribution_config(self) -> pulumi.Input['StreamingDistributionStreamingDistributionConfigArgs']:
+    def streaming_distribution_config(self) -> pulumi.Input['StreamingDistributionConfigArgs']:
         return pulumi.get(self, "streaming_distribution_config")
 
     @streaming_distribution_config.setter
-    def streaming_distribution_config(self, value: pulumi.Input['StreamingDistributionStreamingDistributionConfigArgs']):
+    def streaming_distribution_config(self, value: pulumi.Input['StreamingDistributionConfigArgs']):
         pulumi.set(self, "streaming_distribution_config", value)
 
     @property
@@ -52,7 +52,7 @@ class StreamingDistribution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 streaming_distribution_config: Optional[pulumi.Input[pulumi.InputType['StreamingDistributionStreamingDistributionConfigArgs']]] = None,
+                 streaming_distribution_config: Optional[pulumi.Input[pulumi.InputType['StreamingDistributionConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingDistributionTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -85,7 +85,7 @@ class StreamingDistribution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 streaming_distribution_config: Optional[pulumi.Input[pulumi.InputType['StreamingDistributionStreamingDistributionConfigArgs']]] = None,
+                 streaming_distribution_config: Optional[pulumi.Input[pulumi.InputType['StreamingDistributionConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamingDistributionTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""StreamingDistribution is deprecated: StreamingDistribution is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -141,7 +141,7 @@ class StreamingDistribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="streamingDistributionConfig")
-    def streaming_distribution_config(self) -> pulumi.Output['outputs.StreamingDistributionStreamingDistributionConfig']:
+    def streaming_distribution_config(self) -> pulumi.Output['outputs.StreamingDistributionConfig']:
         return pulumi.get(self, "streaming_distribution_config")
 
     @property

@@ -6,14 +6,14 @@ from enum import Enum
 
 __all__ = [
     'AuthorizerStatus',
-    'CertificateCertificateMode',
+    'CertificateMode',
     'CertificateStatus',
     'CustomMetricMetricType',
     'DimensionType',
-    'DomainConfigurationDomainConfigurationStatus',
     'DomainConfigurationDomainType',
     'DomainConfigurationServerCertificateSummaryServerCertificateStatus',
     'DomainConfigurationServiceType',
+    'DomainConfigurationStatus',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
     'MitigationActionUpdateCACertificateParamsAction',
@@ -25,7 +25,7 @@ __all__ = [
     'SecurityProfileMetricDimensionOperator',
     'SecurityProfileStatisticalThresholdStatistic',
     'TopicRuleCannedAccessControlList',
-    'TopicRuleDestinationTopicRuleDestinationStatus',
+    'TopicRuleDestinationStatus',
 ]
 
 
@@ -34,7 +34,7 @@ class AuthorizerStatus(str, Enum):
     INACTIVE = "INACTIVE"
 
 
-class CertificateCertificateMode(str, Enum):
+class CertificateMode(str, Enum):
     DEFAULT = "DEFAULT"
     SNI_ONLY = "SNI_ONLY"
 
@@ -64,11 +64,6 @@ class DimensionType(str, Enum):
     TOPIC_FILTER = "TOPIC_FILTER"
 
 
-class DomainConfigurationDomainConfigurationStatus(str, Enum):
-    ENABLED = "ENABLED"
-    DISABLED = "DISABLED"
-
-
 class DomainConfigurationDomainType(str, Enum):
     ENDPOINT = "ENDPOINT"
     AWS_MANAGED = "AWS_MANAGED"
@@ -84,6 +79,11 @@ class DomainConfigurationServiceType(str, Enum):
     DATA = "DATA"
     CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER"
     JOBS = "JOBS"
+
+
+class DomainConfigurationStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class MitigationActionEnableIoTLoggingParamsLogLevel(str, Enum):
@@ -193,7 +193,7 @@ class TopicRuleCannedAccessControlList(str, Enum):
     LOG_DELIVERY_WRITE = "log-delivery-write"
 
 
-class TopicRuleDestinationTopicRuleDestinationStatus(str, Enum):
+class TopicRuleDestinationStatus(str, Enum):
     ENABLED = "ENABLED"
     IN_PROGRESS = "IN_PROGRESS"
     DISABLED = "DISABLED"

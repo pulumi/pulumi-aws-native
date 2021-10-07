@@ -7,10 +7,9 @@ from enum import Enum
 __all__ = [
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode',
-    'DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType',
-    'DeliveryStreamDeliveryStreamType',
     'DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode',
+    'DeliveryStreamEncryptionConfigurationInputKeyType',
     'DeliveryStreamEncryptionConfigurationNoEncryptionConfig',
     'DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat',
     'DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode',
@@ -19,6 +18,7 @@ __all__ = [
     'DeliveryStreamRedshiftDestinationConfigurationS3BackupMode',
     'DeliveryStreamS3DestinationConfigurationCompressionFormat',
     'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
+    'DeliveryStreamType',
 ]
 
 
@@ -35,16 +35,6 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode(
     ALL_DOCUMENTS = "AllDocuments"
 
 
-class DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType(str, Enum):
-    AWS_OWNED_CMK = "AWS_OWNED_CMK"
-    CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
-
-
-class DeliveryStreamDeliveryStreamType(str, Enum):
-    DIRECT_PUT = "DirectPut"
-    KINESIS_STREAM_AS_SOURCE = "KinesisStreamAsSource"
-
-
 class DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod(str, Enum):
     NO_ROTATION = "NoRotation"
     ONE_HOUR = "OneHour"
@@ -56,6 +46,11 @@ class DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod(str
 class DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode(str, Enum):
     FAILED_DOCUMENTS_ONLY = "FailedDocumentsOnly"
     ALL_DOCUMENTS = "AllDocuments"
+
+
+class DeliveryStreamEncryptionConfigurationInputKeyType(str, Enum):
+    AWS_OWNED_CMK = "AWS_OWNED_CMK"
+    CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK"
 
 
 class DeliveryStreamEncryptionConfigurationNoEncryptionConfig(str, Enum):
@@ -103,3 +98,8 @@ class DeliveryStreamS3DestinationConfigurationCompressionFormat(str, Enum):
 class DeliveryStreamSplunkDestinationConfigurationHECEndpointType(str, Enum):
     RAW = "Raw"
     EVENT = "Event"
+
+
+class DeliveryStreamType(str, Enum):
+    DIRECT_PUT = "DirectPut"
+    KINESIS_STREAM_AS_SOURCE = "KinesisStreamAsSource"

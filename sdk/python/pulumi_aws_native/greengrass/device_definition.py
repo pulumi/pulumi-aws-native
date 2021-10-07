@@ -16,7 +16,7 @@ __all__ = ['DeviceDefinitionArgs', 'DeviceDefinition']
 class DeviceDefinitionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 initial_version: Optional[pulumi.Input['DeviceDefinitionDeviceDefinitionVersionArgs']] = None,
+                 initial_version: Optional[pulumi.Input['DeviceDefinitionVersionArgs']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a DeviceDefinition resource.
@@ -38,11 +38,11 @@ class DeviceDefinitionArgs:
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> Optional[pulumi.Input['DeviceDefinitionDeviceDefinitionVersionArgs']]:
+    def initial_version(self) -> Optional[pulumi.Input['DeviceDefinitionVersionArgs']]:
         return pulumi.get(self, "initial_version")
 
     @initial_version.setter
-    def initial_version(self, value: Optional[pulumi.Input['DeviceDefinitionDeviceDefinitionVersionArgs']]):
+    def initial_version(self, value: Optional[pulumi.Input['DeviceDefinitionVersionArgs']]):
         pulumi.set(self, "initial_version", value)
 
     @property
@@ -65,7 +65,7 @@ class DeviceDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['DeviceDefinitionDeviceDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['DeviceDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -99,7 +99,7 @@ class DeviceDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 initial_version: Optional[pulumi.Input[pulumi.InputType['DeviceDefinitionDeviceDefinitionVersionArgs']]] = None,
+                 initial_version: Optional[pulumi.Input[pulumi.InputType['DeviceDefinitionVersionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -158,7 +158,7 @@ class DeviceDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="initialVersion")
-    def initial_version(self) -> pulumi.Output[Optional['outputs.DeviceDefinitionDeviceDefinitionVersion']]:
+    def initial_version(self) -> pulumi.Output[Optional['outputs.DeviceDefinitionVersion']]:
         return pulumi.get(self, "initial_version")
 
     @property

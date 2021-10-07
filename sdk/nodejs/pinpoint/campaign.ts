@@ -41,7 +41,7 @@ export class Campaign extends pulumi.CustomResource {
     public readonly additionalTreatments!: pulumi.Output<outputs.pinpoint.CampaignWriteTreatmentResource[] | undefined>;
     public readonly applicationId!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly campaignHook!: pulumi.Output<outputs.pinpoint.CampaignCampaignHook | undefined>;
+    public readonly campaignHook!: pulumi.Output<outputs.pinpoint.CampaignHook | undefined>;
     public /*out*/ readonly campaignId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly holdoutPercent!: pulumi.Output<number | undefined>;
@@ -133,7 +133,7 @@ export class Campaign extends pulumi.CustomResource {
 export interface CampaignArgs {
     additionalTreatments?: pulumi.Input<pulumi.Input<inputs.pinpoint.CampaignWriteTreatmentResourceArgs>[]>;
     applicationId: pulumi.Input<string>;
-    campaignHook?: pulumi.Input<inputs.pinpoint.CampaignCampaignHookArgs>;
+    campaignHook?: pulumi.Input<inputs.pinpoint.CampaignHookArgs>;
     description?: pulumi.Input<string>;
     holdoutPercent?: pulumi.Input<number>;
     isPaused?: pulumi.Input<boolean>;

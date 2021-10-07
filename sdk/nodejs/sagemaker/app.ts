@@ -46,7 +46,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The type of app.
      */
-    public readonly appType!: pulumi.Output<enums.sagemaker.AppAppType>;
+    public readonly appType!: pulumi.Output<enums.sagemaker.AppType>;
     /**
      * The domain ID.
      */
@@ -121,7 +121,7 @@ export interface AppArgs {
     /**
      * The type of app.
      */
-    appType: pulumi.Input<enums.sagemaker.AppAppType>;
+    appType: pulumi.Input<enums.sagemaker.AppType>;
     /**
      * The domain ID.
      */

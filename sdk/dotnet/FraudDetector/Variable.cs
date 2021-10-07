@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         /// </summary>
         [Output("variableType")]
-        public Output<Pulumi.AwsNative.FraudDetector.VariableVariableType?> VariableType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.FraudDetector.VariableType?> VariableType { get; private set; } = null!;
 
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         /// </summary>
         [Input("variableType")]
-        public Input<Pulumi.AwsNative.FraudDetector.VariableVariableType>? VariableType { get; set; }
+        public Input<Pulumi.AwsNative.FraudDetector.VariableType>? VariableType { get; set; }
 
         public VariableArgs()
         {

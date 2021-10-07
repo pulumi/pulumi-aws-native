@@ -11,7 +11,7 @@ from .. import _utilities
 __all__ = [
     'ByteMatchSetByteMatchTupleArgs',
     'ByteMatchSetFieldToMatchArgs',
-    'IPSetIPSetDescriptorArgs',
+    'IPSetDescriptorArgs',
     'RulePredicateArgs',
     'SizeConstraintSetFieldToMatchArgs',
     'SizeConstraintSetSizeConstraintArgs',
@@ -114,7 +114,7 @@ class ByteMatchSetFieldToMatchArgs:
 
 
 @pulumi.input_type
-class IPSetIPSetDescriptorArgs:
+class IPSetDescriptorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):

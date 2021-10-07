@@ -15,9 +15,9 @@ import (
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
-	AccessPointId   pulumi.StringOutput                  `pulumi:"accessPointId"`
-	AccessPointTags AccessPointAccessPointTagArrayOutput `pulumi:"accessPointTags"`
-	Arn             pulumi.StringOutput                  `pulumi:"arn"`
+	AccessPointId   pulumi.StringOutput       `pulumi:"accessPointId"`
+	AccessPointTags AccessPointTagArrayOutput `pulumi:"accessPointTags"`
+	Arn             pulumi.StringOutput       `pulumi:"arn"`
 	// (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// The ID of the EFS file system that the access point provides access to.
@@ -70,7 +70,7 @@ func (AccessPointState) ElementType() reflect.Type {
 }
 
 type accessPointArgs struct {
-	AccessPointTags []AccessPointAccessPointTag `pulumi:"accessPointTags"`
+	AccessPointTags []AccessPointTag `pulumi:"accessPointTags"`
 	// (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
 	ClientToken *string `pulumi:"clientToken"`
 	// The ID of the EFS file system that the access point provides access to.
@@ -83,7 +83,7 @@ type accessPointArgs struct {
 
 // The set of arguments for constructing a AccessPoint resource.
 type AccessPointArgs struct {
-	AccessPointTags AccessPointAccessPointTagArrayInput
+	AccessPointTags AccessPointTagArrayInput
 	// (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
 	ClientToken pulumi.StringPtrInput
 	// The ID of the EFS file system that the access point provides access to.

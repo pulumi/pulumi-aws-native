@@ -110,6 +110,442 @@ func (o DataCatalogTagArrayOutput) Index(i pulumi.IntInput) DataCatalogTagOutput
 	}).(DataCatalogTagOutput)
 }
 
+type WorkGroupConfiguration struct {
+	BytesScannedCutoffPerQuery      *int                          `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration   *bool                         `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                   *WorkGroupEngineVersion       `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled *bool                         `pulumi:"publishCloudWatchMetricsEnabled"`
+	RequesterPaysEnabled            *bool                         `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration             *WorkGroupResultConfiguration `pulumi:"resultConfiguration"`
+}
+
+// WorkGroupConfigurationInput is an input type that accepts WorkGroupConfigurationArgs and WorkGroupConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupConfigurationInput` via:
+//
+//          WorkGroupConfigurationArgs{...}
+type WorkGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupConfigurationOutput() WorkGroupConfigurationOutput
+	ToWorkGroupConfigurationOutputWithContext(context.Context) WorkGroupConfigurationOutput
+}
+
+type WorkGroupConfigurationArgs struct {
+	BytesScannedCutoffPerQuery      pulumi.IntPtrInput                   `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration   pulumi.BoolPtrInput                  `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                   WorkGroupEngineVersionPtrInput       `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput                  `pulumi:"publishCloudWatchMetricsEnabled"`
+	RequesterPaysEnabled            pulumi.BoolPtrInput                  `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration             WorkGroupResultConfigurationPtrInput `pulumi:"resultConfiguration"`
+}
+
+func (WorkGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupConfigurationArgs) ToWorkGroupConfigurationOutput() WorkGroupConfigurationOutput {
+	return i.ToWorkGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupConfigurationArgs) ToWorkGroupConfigurationOutputWithContext(ctx context.Context) WorkGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationOutput)
+}
+
+func (i WorkGroupConfigurationArgs) ToWorkGroupConfigurationPtrOutput() WorkGroupConfigurationPtrOutput {
+	return i.ToWorkGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupConfigurationArgs) ToWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationOutput).ToWorkGroupConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupConfigurationPtrInput is an input type that accepts WorkGroupConfigurationArgs, WorkGroupConfigurationPtr and WorkGroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupConfigurationPtrInput` via:
+//
+//          WorkGroupConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkGroupConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupConfigurationPtrOutput() WorkGroupConfigurationPtrOutput
+	ToWorkGroupConfigurationPtrOutputWithContext(context.Context) WorkGroupConfigurationPtrOutput
+}
+
+type workGroupConfigurationPtrType WorkGroupConfigurationArgs
+
+func WorkGroupConfigurationPtr(v *WorkGroupConfigurationArgs) WorkGroupConfigurationPtrInput {
+	return (*workGroupConfigurationPtrType)(v)
+}
+
+func (*workGroupConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupConfigurationPtrType) ToWorkGroupConfigurationPtrOutput() WorkGroupConfigurationPtrOutput {
+	return i.ToWorkGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupConfigurationPtrType) ToWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationPtrOutput)
+}
+
+type WorkGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupConfigurationOutput) ToWorkGroupConfigurationOutput() WorkGroupConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationOutput) ToWorkGroupConfigurationOutputWithContext(ctx context.Context) WorkGroupConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationOutput) ToWorkGroupConfigurationPtrOutput() WorkGroupConfigurationPtrOutput {
+	return o.ToWorkGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupConfigurationOutput) ToWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupConfiguration) *WorkGroupConfiguration {
+		return &v
+	}).(WorkGroupConfigurationPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupResultConfiguration { return v.ResultConfiguration }).(WorkGroupResultConfigurationPtrOutput)
+}
+
+type WorkGroupConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupConfigurationPtrOutput) ToWorkGroupConfigurationPtrOutput() WorkGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationPtrOutput) ToWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationPtrOutput) Elem() WorkGroupConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) WorkGroupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupConfiguration
+		return ret
+	}).(WorkGroupConfigurationOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BytesScannedCutoffPerQuery
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceWorkGroupConfiguration
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupEngineVersion {
+		if v == nil {
+			return nil
+		}
+		return v.EngineVersion
+	}).(WorkGroupEngineVersionPtrOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishCloudWatchMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequesterPaysEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationPtrOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupResultConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ResultConfiguration
+	}).(WorkGroupResultConfigurationPtrOutput)
+}
+
+// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
+type WorkGroupConfigurationUpdates struct {
+	BytesScannedCutoffPerQuery       *int                                 `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration    *bool                                `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                    *WorkGroupEngineVersion              `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled  *bool                                `pulumi:"publishCloudWatchMetricsEnabled"`
+	RemoveBytesScannedCutoffPerQuery *bool                                `pulumi:"removeBytesScannedCutoffPerQuery"`
+	RequesterPaysEnabled             *bool                                `pulumi:"requesterPaysEnabled"`
+	ResultConfigurationUpdates       *WorkGroupResultConfigurationUpdates `pulumi:"resultConfigurationUpdates"`
+}
+
+// WorkGroupConfigurationUpdatesInput is an input type that accepts WorkGroupConfigurationUpdatesArgs and WorkGroupConfigurationUpdatesOutput values.
+// You can construct a concrete instance of `WorkGroupConfigurationUpdatesInput` via:
+//
+//          WorkGroupConfigurationUpdatesArgs{...}
+type WorkGroupConfigurationUpdatesInput interface {
+	pulumi.Input
+
+	ToWorkGroupConfigurationUpdatesOutput() WorkGroupConfigurationUpdatesOutput
+	ToWorkGroupConfigurationUpdatesOutputWithContext(context.Context) WorkGroupConfigurationUpdatesOutput
+}
+
+// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
+type WorkGroupConfigurationUpdatesArgs struct {
+	BytesScannedCutoffPerQuery       pulumi.IntPtrInput                          `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration    pulumi.BoolPtrInput                         `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                    WorkGroupEngineVersionPtrInput              `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled  pulumi.BoolPtrInput                         `pulumi:"publishCloudWatchMetricsEnabled"`
+	RemoveBytesScannedCutoffPerQuery pulumi.BoolPtrInput                         `pulumi:"removeBytesScannedCutoffPerQuery"`
+	RequesterPaysEnabled             pulumi.BoolPtrInput                         `pulumi:"requesterPaysEnabled"`
+	ResultConfigurationUpdates       WorkGroupResultConfigurationUpdatesPtrInput `pulumi:"resultConfigurationUpdates"`
+}
+
+func (WorkGroupConfigurationUpdatesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupConfigurationUpdates)(nil)).Elem()
+}
+
+func (i WorkGroupConfigurationUpdatesArgs) ToWorkGroupConfigurationUpdatesOutput() WorkGroupConfigurationUpdatesOutput {
+	return i.ToWorkGroupConfigurationUpdatesOutputWithContext(context.Background())
+}
+
+func (i WorkGroupConfigurationUpdatesArgs) ToWorkGroupConfigurationUpdatesOutputWithContext(ctx context.Context) WorkGroupConfigurationUpdatesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationUpdatesOutput)
+}
+
+func (i WorkGroupConfigurationUpdatesArgs) ToWorkGroupConfigurationUpdatesPtrOutput() WorkGroupConfigurationUpdatesPtrOutput {
+	return i.ToWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupConfigurationUpdatesArgs) ToWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationUpdatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationUpdatesOutput).ToWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx)
+}
+
+// WorkGroupConfigurationUpdatesPtrInput is an input type that accepts WorkGroupConfigurationUpdatesArgs, WorkGroupConfigurationUpdatesPtr and WorkGroupConfigurationUpdatesPtrOutput values.
+// You can construct a concrete instance of `WorkGroupConfigurationUpdatesPtrInput` via:
+//
+//          WorkGroupConfigurationUpdatesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkGroupConfigurationUpdatesPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupConfigurationUpdatesPtrOutput() WorkGroupConfigurationUpdatesPtrOutput
+	ToWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Context) WorkGroupConfigurationUpdatesPtrOutput
+}
+
+type workGroupConfigurationUpdatesPtrType WorkGroupConfigurationUpdatesArgs
+
+func WorkGroupConfigurationUpdatesPtr(v *WorkGroupConfigurationUpdatesArgs) WorkGroupConfigurationUpdatesPtrInput {
+	return (*workGroupConfigurationUpdatesPtrType)(v)
+}
+
+func (*workGroupConfigurationUpdatesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupConfigurationUpdates)(nil)).Elem()
+}
+
+func (i *workGroupConfigurationUpdatesPtrType) ToWorkGroupConfigurationUpdatesPtrOutput() WorkGroupConfigurationUpdatesPtrOutput {
+	return i.ToWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupConfigurationUpdatesPtrType) ToWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationUpdatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupConfigurationUpdatesPtrOutput)
+}
+
+// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
+type WorkGroupConfigurationUpdatesOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupConfigurationUpdatesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupConfigurationUpdates)(nil)).Elem()
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) ToWorkGroupConfigurationUpdatesOutput() WorkGroupConfigurationUpdatesOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) ToWorkGroupConfigurationUpdatesOutputWithContext(ctx context.Context) WorkGroupConfigurationUpdatesOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) ToWorkGroupConfigurationUpdatesPtrOutput() WorkGroupConfigurationUpdatesPtrOutput {
+	return o.ToWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) ToWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationUpdatesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupConfigurationUpdates) *WorkGroupConfigurationUpdates {
+		return &v
+	}).(WorkGroupConfigurationUpdatesPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) RemoveBytesScannedCutoffPerQuery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.RemoveBytesScannedCutoffPerQuery }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) ResultConfigurationUpdates() WorkGroupResultConfigurationUpdatesPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupResultConfigurationUpdates {
+		return v.ResultConfigurationUpdates
+	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
+}
+
+type WorkGroupConfigurationUpdatesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupConfigurationUpdatesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupConfigurationUpdates)(nil)).Elem()
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) ToWorkGroupConfigurationUpdatesPtrOutput() WorkGroupConfigurationUpdatesPtrOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) ToWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupConfigurationUpdatesPtrOutput {
+	return o
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) Elem() WorkGroupConfigurationUpdatesOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) WorkGroupConfigurationUpdates {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupConfigurationUpdates
+		return ret
+	}).(WorkGroupConfigurationUpdatesOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BytesScannedCutoffPerQuery
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceWorkGroupConfiguration
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *WorkGroupEngineVersion {
+		if v == nil {
+			return nil
+		}
+		return v.EngineVersion
+	}).(WorkGroupEngineVersionPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishCloudWatchMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) RemoveBytesScannedCutoffPerQuery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveBytesScannedCutoffPerQuery
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequesterPaysEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) ResultConfigurationUpdates() WorkGroupResultConfigurationUpdatesPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *WorkGroupResultConfigurationUpdates {
+		if v == nil {
+			return nil
+		}
+		return v.ResultConfigurationUpdates
+	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
+}
+
 // If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
 type WorkGroupEncryptionConfiguration struct {
 	EncryptionOption WorkGroupEncryptionOption `pulumi:"encryptionOption"`
@@ -848,445 +1284,13 @@ func (o WorkGroupTagArrayOutput) Index(i pulumi.IntInput) WorkGroupTagOutput {
 	}).(WorkGroupTagOutput)
 }
 
-type WorkGroupWorkGroupConfiguration struct {
-	BytesScannedCutoffPerQuery      *int                          `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration   *bool                         `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                   *WorkGroupEngineVersion       `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled *bool                         `pulumi:"publishCloudWatchMetricsEnabled"`
-	RequesterPaysEnabled            *bool                         `pulumi:"requesterPaysEnabled"`
-	ResultConfiguration             *WorkGroupResultConfiguration `pulumi:"resultConfiguration"`
-}
-
-// WorkGroupWorkGroupConfigurationInput is an input type that accepts WorkGroupWorkGroupConfigurationArgs and WorkGroupWorkGroupConfigurationOutput values.
-// You can construct a concrete instance of `WorkGroupWorkGroupConfigurationInput` via:
-//
-//          WorkGroupWorkGroupConfigurationArgs{...}
-type WorkGroupWorkGroupConfigurationInput interface {
-	pulumi.Input
-
-	ToWorkGroupWorkGroupConfigurationOutput() WorkGroupWorkGroupConfigurationOutput
-	ToWorkGroupWorkGroupConfigurationOutputWithContext(context.Context) WorkGroupWorkGroupConfigurationOutput
-}
-
-type WorkGroupWorkGroupConfigurationArgs struct {
-	BytesScannedCutoffPerQuery      pulumi.IntPtrInput                   `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration   pulumi.BoolPtrInput                  `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                   WorkGroupEngineVersionPtrInput       `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput                  `pulumi:"publishCloudWatchMetricsEnabled"`
-	RequesterPaysEnabled            pulumi.BoolPtrInput                  `pulumi:"requesterPaysEnabled"`
-	ResultConfiguration             WorkGroupResultConfigurationPtrInput `pulumi:"resultConfiguration"`
-}
-
-func (WorkGroupWorkGroupConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupWorkGroupConfiguration)(nil)).Elem()
-}
-
-func (i WorkGroupWorkGroupConfigurationArgs) ToWorkGroupWorkGroupConfigurationOutput() WorkGroupWorkGroupConfigurationOutput {
-	return i.ToWorkGroupWorkGroupConfigurationOutputWithContext(context.Background())
-}
-
-func (i WorkGroupWorkGroupConfigurationArgs) ToWorkGroupWorkGroupConfigurationOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationOutput)
-}
-
-func (i WorkGroupWorkGroupConfigurationArgs) ToWorkGroupWorkGroupConfigurationPtrOutput() WorkGroupWorkGroupConfigurationPtrOutput {
-	return i.ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i WorkGroupWorkGroupConfigurationArgs) ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationOutput).ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(ctx)
-}
-
-// WorkGroupWorkGroupConfigurationPtrInput is an input type that accepts WorkGroupWorkGroupConfigurationArgs, WorkGroupWorkGroupConfigurationPtr and WorkGroupWorkGroupConfigurationPtrOutput values.
-// You can construct a concrete instance of `WorkGroupWorkGroupConfigurationPtrInput` via:
-//
-//          WorkGroupWorkGroupConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkGroupWorkGroupConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToWorkGroupWorkGroupConfigurationPtrOutput() WorkGroupWorkGroupConfigurationPtrOutput
-	ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(context.Context) WorkGroupWorkGroupConfigurationPtrOutput
-}
-
-type workGroupWorkGroupConfigurationPtrType WorkGroupWorkGroupConfigurationArgs
-
-func WorkGroupWorkGroupConfigurationPtr(v *WorkGroupWorkGroupConfigurationArgs) WorkGroupWorkGroupConfigurationPtrInput {
-	return (*workGroupWorkGroupConfigurationPtrType)(v)
-}
-
-func (*workGroupWorkGroupConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkGroupWorkGroupConfiguration)(nil)).Elem()
-}
-
-func (i *workGroupWorkGroupConfigurationPtrType) ToWorkGroupWorkGroupConfigurationPtrOutput() WorkGroupWorkGroupConfigurationPtrOutput {
-	return i.ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *workGroupWorkGroupConfigurationPtrType) ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationPtrOutput)
-}
-
-type WorkGroupWorkGroupConfigurationOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupWorkGroupConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupWorkGroupConfiguration)(nil)).Elem()
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) ToWorkGroupWorkGroupConfigurationOutput() WorkGroupWorkGroupConfigurationOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) ToWorkGroupWorkGroupConfigurationOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) ToWorkGroupWorkGroupConfigurationPtrOutput() WorkGroupWorkGroupConfigurationPtrOutput {
-	return o.ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupWorkGroupConfiguration) *WorkGroupWorkGroupConfiguration {
-		return &v
-	}).(WorkGroupWorkGroupConfigurationPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *WorkGroupResultConfiguration { return v.ResultConfiguration }).(WorkGroupResultConfigurationPtrOutput)
-}
-
-type WorkGroupWorkGroupConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupWorkGroupConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkGroupWorkGroupConfiguration)(nil)).Elem()
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) ToWorkGroupWorkGroupConfigurationPtrOutput() WorkGroupWorkGroupConfigurationPtrOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) ToWorkGroupWorkGroupConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationPtrOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) Elem() WorkGroupWorkGroupConfigurationOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) WorkGroupWorkGroupConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret WorkGroupWorkGroupConfiguration
-		return ret
-	}).(WorkGroupWorkGroupConfigurationOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BytesScannedCutoffPerQuery
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnforceWorkGroupConfiguration
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *WorkGroupEngineVersion {
-		if v == nil {
-			return nil
-		}
-		return v.EngineVersion
-	}).(WorkGroupEngineVersionPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PublishCloudWatchMetricsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RequesterPaysEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationPtrOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *WorkGroupResultConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ResultConfiguration
-	}).(WorkGroupResultConfigurationPtrOutput)
-}
-
-// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
-type WorkGroupWorkGroupConfigurationUpdates struct {
-	BytesScannedCutoffPerQuery       *int                                 `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration    *bool                                `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                    *WorkGroupEngineVersion              `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled  *bool                                `pulumi:"publishCloudWatchMetricsEnabled"`
-	RemoveBytesScannedCutoffPerQuery *bool                                `pulumi:"removeBytesScannedCutoffPerQuery"`
-	RequesterPaysEnabled             *bool                                `pulumi:"requesterPaysEnabled"`
-	ResultConfigurationUpdates       *WorkGroupResultConfigurationUpdates `pulumi:"resultConfigurationUpdates"`
-}
-
-// WorkGroupWorkGroupConfigurationUpdatesInput is an input type that accepts WorkGroupWorkGroupConfigurationUpdatesArgs and WorkGroupWorkGroupConfigurationUpdatesOutput values.
-// You can construct a concrete instance of `WorkGroupWorkGroupConfigurationUpdatesInput` via:
-//
-//          WorkGroupWorkGroupConfigurationUpdatesArgs{...}
-type WorkGroupWorkGroupConfigurationUpdatesInput interface {
-	pulumi.Input
-
-	ToWorkGroupWorkGroupConfigurationUpdatesOutput() WorkGroupWorkGroupConfigurationUpdatesOutput
-	ToWorkGroupWorkGroupConfigurationUpdatesOutputWithContext(context.Context) WorkGroupWorkGroupConfigurationUpdatesOutput
-}
-
-// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
-type WorkGroupWorkGroupConfigurationUpdatesArgs struct {
-	BytesScannedCutoffPerQuery       pulumi.IntPtrInput                          `pulumi:"bytesScannedCutoffPerQuery"`
-	EnforceWorkGroupConfiguration    pulumi.BoolPtrInput                         `pulumi:"enforceWorkGroupConfiguration"`
-	EngineVersion                    WorkGroupEngineVersionPtrInput              `pulumi:"engineVersion"`
-	PublishCloudWatchMetricsEnabled  pulumi.BoolPtrInput                         `pulumi:"publishCloudWatchMetricsEnabled"`
-	RemoveBytesScannedCutoffPerQuery pulumi.BoolPtrInput                         `pulumi:"removeBytesScannedCutoffPerQuery"`
-	RequesterPaysEnabled             pulumi.BoolPtrInput                         `pulumi:"requesterPaysEnabled"`
-	ResultConfigurationUpdates       WorkGroupResultConfigurationUpdatesPtrInput `pulumi:"resultConfigurationUpdates"`
-}
-
-func (WorkGroupWorkGroupConfigurationUpdatesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupWorkGroupConfigurationUpdates)(nil)).Elem()
-}
-
-func (i WorkGroupWorkGroupConfigurationUpdatesArgs) ToWorkGroupWorkGroupConfigurationUpdatesOutput() WorkGroupWorkGroupConfigurationUpdatesOutput {
-	return i.ToWorkGroupWorkGroupConfigurationUpdatesOutputWithContext(context.Background())
-}
-
-func (i WorkGroupWorkGroupConfigurationUpdatesArgs) ToWorkGroupWorkGroupConfigurationUpdatesOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationUpdatesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationUpdatesOutput)
-}
-
-func (i WorkGroupWorkGroupConfigurationUpdatesArgs) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutput() WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return i.ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Background())
-}
-
-func (i WorkGroupWorkGroupConfigurationUpdatesArgs) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationUpdatesOutput).ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx)
-}
-
-// WorkGroupWorkGroupConfigurationUpdatesPtrInput is an input type that accepts WorkGroupWorkGroupConfigurationUpdatesArgs, WorkGroupWorkGroupConfigurationUpdatesPtr and WorkGroupWorkGroupConfigurationUpdatesPtrOutput values.
-// You can construct a concrete instance of `WorkGroupWorkGroupConfigurationUpdatesPtrInput` via:
-//
-//          WorkGroupWorkGroupConfigurationUpdatesArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkGroupWorkGroupConfigurationUpdatesPtrInput interface {
-	pulumi.Input
-
-	ToWorkGroupWorkGroupConfigurationUpdatesPtrOutput() WorkGroupWorkGroupConfigurationUpdatesPtrOutput
-	ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Context) WorkGroupWorkGroupConfigurationUpdatesPtrOutput
-}
-
-type workGroupWorkGroupConfigurationUpdatesPtrType WorkGroupWorkGroupConfigurationUpdatesArgs
-
-func WorkGroupWorkGroupConfigurationUpdatesPtr(v *WorkGroupWorkGroupConfigurationUpdatesArgs) WorkGroupWorkGroupConfigurationUpdatesPtrInput {
-	return (*workGroupWorkGroupConfigurationUpdatesPtrType)(v)
-}
-
-func (*workGroupWorkGroupConfigurationUpdatesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkGroupWorkGroupConfigurationUpdates)(nil)).Elem()
-}
-
-func (i *workGroupWorkGroupConfigurationUpdatesPtrType) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutput() WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return i.ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Background())
-}
-
-func (i *workGroupWorkGroupConfigurationUpdatesPtrType) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationUpdatesPtrOutput)
-}
-
-// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
-type WorkGroupWorkGroupConfigurationUpdatesOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupWorkGroupConfigurationUpdatesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkGroupWorkGroupConfigurationUpdates)(nil)).Elem()
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) ToWorkGroupWorkGroupConfigurationUpdatesOutput() WorkGroupWorkGroupConfigurationUpdatesOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) ToWorkGroupWorkGroupConfigurationUpdatesOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationUpdatesOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutput() WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return o.ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(context.Background())
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupWorkGroupConfigurationUpdates) *WorkGroupWorkGroupConfigurationUpdates {
-		return &v
-	}).(WorkGroupWorkGroupConfigurationUpdatesPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) RemoveBytesScannedCutoffPerQuery() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.RemoveBytesScannedCutoffPerQuery }).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesOutput) ResultConfigurationUpdates() WorkGroupResultConfigurationUpdatesPtrOutput {
-	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *WorkGroupResultConfigurationUpdates {
-		return v.ResultConfigurationUpdates
-	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
-}
-
-type WorkGroupWorkGroupConfigurationUpdatesPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkGroupWorkGroupConfigurationUpdates)(nil)).Elem()
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutput() WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ToWorkGroupWorkGroupConfigurationUpdatesPtrOutputWithContext(ctx context.Context) WorkGroupWorkGroupConfigurationUpdatesPtrOutput {
-	return o
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) Elem() WorkGroupWorkGroupConfigurationUpdatesOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) WorkGroupWorkGroupConfigurationUpdates {
-		if v != nil {
-			return *v
-		}
-		var ret WorkGroupWorkGroupConfigurationUpdates
-		return ret
-	}).(WorkGroupWorkGroupConfigurationUpdatesOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BytesScannedCutoffPerQuery
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnforceWorkGroupConfiguration
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *WorkGroupEngineVersion {
-		if v == nil {
-			return nil
-		}
-		return v.EngineVersion
-	}).(WorkGroupEngineVersionPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PublishCloudWatchMetricsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) RemoveBytesScannedCutoffPerQuery() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RemoveBytesScannedCutoffPerQuery
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RequesterPaysEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ResultConfigurationUpdates() WorkGroupResultConfigurationUpdatesPtrOutput {
-	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *WorkGroupResultConfigurationUpdates {
-		if v == nil {
-			return nil
-		}
-		return v.ResultConfigurationUpdates
-	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(DataCatalogTagOutput{})
 	pulumi.RegisterOutputType(DataCatalogTagArrayOutput{})
+	pulumi.RegisterOutputType(WorkGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupConfigurationUpdatesOutput{})
+	pulumi.RegisterOutputType(WorkGroupConfigurationUpdatesPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEngineVersionOutput{})
@@ -1297,8 +1301,4 @@ func init() {
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupTagOutput{})
 	pulumi.RegisterOutputType(WorkGroupTagArrayOutput{})
-	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationOutput{})
-	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationUpdatesOutput{})
-	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationUpdatesPtrOutput{})
 }

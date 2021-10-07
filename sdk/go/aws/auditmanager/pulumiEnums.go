@@ -10,335 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The destination type, such as Amazon S3.
-type AssessmentAssessmentReportDestinationType string
-
-const (
-	AssessmentAssessmentReportDestinationTypeS3 = AssessmentAssessmentReportDestinationType("S3")
-)
-
-func (AssessmentAssessmentReportDestinationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAssessmentReportDestinationType)(nil)).Elem()
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToAssessmentAssessmentReportDestinationTypeOutput() AssessmentAssessmentReportDestinationTypeOutput {
-	return pulumi.ToOutput(e).(AssessmentAssessmentReportDestinationTypeOutput)
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToAssessmentAssessmentReportDestinationTypeOutputWithContext(ctx context.Context) AssessmentAssessmentReportDestinationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AssessmentAssessmentReportDestinationTypeOutput)
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToAssessmentAssessmentReportDestinationTypePtrOutput() AssessmentAssessmentReportDestinationTypePtrOutput {
-	return e.ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(context.Background())
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportDestinationTypePtrOutput {
-	return AssessmentAssessmentReportDestinationType(e).ToAssessmentAssessmentReportDestinationTypeOutputWithContext(ctx).ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(ctx)
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AssessmentAssessmentReportDestinationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AssessmentAssessmentReportDestinationTypeOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAssessmentReportDestinationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAssessmentReportDestinationType)(nil)).Elem()
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToAssessmentAssessmentReportDestinationTypeOutput() AssessmentAssessmentReportDestinationTypeOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToAssessmentAssessmentReportDestinationTypeOutputWithContext(ctx context.Context) AssessmentAssessmentReportDestinationTypeOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToAssessmentAssessmentReportDestinationTypePtrOutput() AssessmentAssessmentReportDestinationTypePtrOutput {
-	return o.ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportDestinationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentAssessmentReportDestinationType) *AssessmentAssessmentReportDestinationType {
-		return &v
-	}).(AssessmentAssessmentReportDestinationTypePtrOutput)
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentAssessmentReportDestinationType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentReportDestinationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentAssessmentReportDestinationType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AssessmentAssessmentReportDestinationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAssessmentReportDestinationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAssessmentReportDestinationType)(nil)).Elem()
-}
-
-func (o AssessmentAssessmentReportDestinationTypePtrOutput) ToAssessmentAssessmentReportDestinationTypePtrOutput() AssessmentAssessmentReportDestinationTypePtrOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportDestinationTypePtrOutput) ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportDestinationTypePtrOutput {
-	return o
-}
-
-func (o AssessmentAssessmentReportDestinationTypePtrOutput) Elem() AssessmentAssessmentReportDestinationTypeOutput {
-	return o.ApplyT(func(v *AssessmentAssessmentReportDestinationType) AssessmentAssessmentReportDestinationType {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentAssessmentReportDestinationType
-		return ret
-	}).(AssessmentAssessmentReportDestinationTypeOutput)
-}
-
-func (o AssessmentAssessmentReportDestinationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentReportDestinationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssessmentAssessmentReportDestinationType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AssessmentAssessmentReportDestinationTypeInput is an input type that accepts AssessmentAssessmentReportDestinationTypeArgs and AssessmentAssessmentReportDestinationTypeOutput values.
-// You can construct a concrete instance of `AssessmentAssessmentReportDestinationTypeInput` via:
-//
-//          AssessmentAssessmentReportDestinationTypeArgs{...}
-type AssessmentAssessmentReportDestinationTypeInput interface {
-	pulumi.Input
-
-	ToAssessmentAssessmentReportDestinationTypeOutput() AssessmentAssessmentReportDestinationTypeOutput
-	ToAssessmentAssessmentReportDestinationTypeOutputWithContext(context.Context) AssessmentAssessmentReportDestinationTypeOutput
-}
-
-var assessmentAssessmentReportDestinationTypePtrType = reflect.TypeOf((**AssessmentAssessmentReportDestinationType)(nil)).Elem()
-
-type AssessmentAssessmentReportDestinationTypePtrInput interface {
-	pulumi.Input
-
-	ToAssessmentAssessmentReportDestinationTypePtrOutput() AssessmentAssessmentReportDestinationTypePtrOutput
-	ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(context.Context) AssessmentAssessmentReportDestinationTypePtrOutput
-}
-
-type assessmentAssessmentReportDestinationTypePtr string
-
-func AssessmentAssessmentReportDestinationTypePtr(v string) AssessmentAssessmentReportDestinationTypePtrInput {
-	return (*assessmentAssessmentReportDestinationTypePtr)(&v)
-}
-
-func (*assessmentAssessmentReportDestinationTypePtr) ElementType() reflect.Type {
-	return assessmentAssessmentReportDestinationTypePtrType
-}
-
-func (in *assessmentAssessmentReportDestinationTypePtr) ToAssessmentAssessmentReportDestinationTypePtrOutput() AssessmentAssessmentReportDestinationTypePtrOutput {
-	return pulumi.ToOutput(in).(AssessmentAssessmentReportDestinationTypePtrOutput)
-}
-
-func (in *assessmentAssessmentReportDestinationTypePtr) ToAssessmentAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportDestinationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AssessmentAssessmentReportDestinationTypePtrOutput)
-}
-
-// The status of the specified assessment.
-type AssessmentAssessmentStatus string
-
-const (
-	AssessmentAssessmentStatusActive   = AssessmentAssessmentStatus("ACTIVE")
-	AssessmentAssessmentStatusInactive = AssessmentAssessmentStatus("INACTIVE")
-)
-
-func (AssessmentAssessmentStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAssessmentStatus)(nil)).Elem()
-}
-
-func (e AssessmentAssessmentStatus) ToAssessmentAssessmentStatusOutput() AssessmentAssessmentStatusOutput {
-	return pulumi.ToOutput(e).(AssessmentAssessmentStatusOutput)
-}
-
-func (e AssessmentAssessmentStatus) ToAssessmentAssessmentStatusOutputWithContext(ctx context.Context) AssessmentAssessmentStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AssessmentAssessmentStatusOutput)
-}
-
-func (e AssessmentAssessmentStatus) ToAssessmentAssessmentStatusPtrOutput() AssessmentAssessmentStatusPtrOutput {
-	return e.ToAssessmentAssessmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (e AssessmentAssessmentStatus) ToAssessmentAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentAssessmentStatusPtrOutput {
-	return AssessmentAssessmentStatus(e).ToAssessmentAssessmentStatusOutputWithContext(ctx).ToAssessmentAssessmentStatusPtrOutputWithContext(ctx)
-}
-
-func (e AssessmentAssessmentStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssessmentAssessmentStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AssessmentAssessmentStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AssessmentAssessmentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AssessmentAssessmentStatusOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAssessmentStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentAssessmentStatus)(nil)).Elem()
-}
-
-func (o AssessmentAssessmentStatusOutput) ToAssessmentAssessmentStatusOutput() AssessmentAssessmentStatusOutput {
-	return o
-}
-
-func (o AssessmentAssessmentStatusOutput) ToAssessmentAssessmentStatusOutputWithContext(ctx context.Context) AssessmentAssessmentStatusOutput {
-	return o
-}
-
-func (o AssessmentAssessmentStatusOutput) ToAssessmentAssessmentStatusPtrOutput() AssessmentAssessmentStatusPtrOutput {
-	return o.ToAssessmentAssessmentStatusPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentStatusOutput) ToAssessmentAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentAssessmentStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentAssessmentStatus) *AssessmentAssessmentStatus {
-		return &v
-	}).(AssessmentAssessmentStatusPtrOutput)
-}
-
-func (o AssessmentAssessmentStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentAssessmentStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AssessmentAssessmentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentAssessmentStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AssessmentAssessmentStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentAssessmentStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentAssessmentStatus)(nil)).Elem()
-}
-
-func (o AssessmentAssessmentStatusPtrOutput) ToAssessmentAssessmentStatusPtrOutput() AssessmentAssessmentStatusPtrOutput {
-	return o
-}
-
-func (o AssessmentAssessmentStatusPtrOutput) ToAssessmentAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentAssessmentStatusPtrOutput {
-	return o
-}
-
-func (o AssessmentAssessmentStatusPtrOutput) Elem() AssessmentAssessmentStatusOutput {
-	return o.ApplyT(func(v *AssessmentAssessmentStatus) AssessmentAssessmentStatus {
-		if v != nil {
-			return *v
-		}
-		var ret AssessmentAssessmentStatus
-		return ret
-	}).(AssessmentAssessmentStatusOutput)
-}
-
-func (o AssessmentAssessmentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentAssessmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssessmentAssessmentStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AssessmentAssessmentStatusInput is an input type that accepts AssessmentAssessmentStatusArgs and AssessmentAssessmentStatusOutput values.
-// You can construct a concrete instance of `AssessmentAssessmentStatusInput` via:
-//
-//          AssessmentAssessmentStatusArgs{...}
-type AssessmentAssessmentStatusInput interface {
-	pulumi.Input
-
-	ToAssessmentAssessmentStatusOutput() AssessmentAssessmentStatusOutput
-	ToAssessmentAssessmentStatusOutputWithContext(context.Context) AssessmentAssessmentStatusOutput
-}
-
-var assessmentAssessmentStatusPtrType = reflect.TypeOf((**AssessmentAssessmentStatus)(nil)).Elem()
-
-type AssessmentAssessmentStatusPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentAssessmentStatusPtrOutput() AssessmentAssessmentStatusPtrOutput
-	ToAssessmentAssessmentStatusPtrOutputWithContext(context.Context) AssessmentAssessmentStatusPtrOutput
-}
-
-type assessmentAssessmentStatusPtr string
-
-func AssessmentAssessmentStatusPtr(v string) AssessmentAssessmentStatusPtrInput {
-	return (*assessmentAssessmentStatusPtr)(&v)
-}
-
-func (*assessmentAssessmentStatusPtr) ElementType() reflect.Type {
-	return assessmentAssessmentStatusPtrType
-}
-
-func (in *assessmentAssessmentStatusPtr) ToAssessmentAssessmentStatusPtrOutput() AssessmentAssessmentStatusPtrOutput {
-	return pulumi.ToOutput(in).(AssessmentAssessmentStatusPtrOutput)
-}
-
-func (in *assessmentAssessmentStatusPtr) ToAssessmentAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentAssessmentStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AssessmentAssessmentStatusPtrOutput)
-}
-
 // The status of the delegation.
 type AssessmentDelegationStatus string
 
@@ -503,6 +174,170 @@ func (in *assessmentDelegationStatusPtr) ToAssessmentDelegationStatusPtrOutput()
 
 func (in *assessmentDelegationStatusPtr) ToAssessmentDelegationStatusPtrOutputWithContext(ctx context.Context) AssessmentDelegationStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentDelegationStatusPtrOutput)
+}
+
+// The destination type, such as Amazon S3.
+type AssessmentReportDestinationType string
+
+const (
+	AssessmentReportDestinationTypeS3 = AssessmentReportDestinationType("S3")
+)
+
+func (AssessmentReportDestinationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentReportDestinationType)(nil)).Elem()
+}
+
+func (e AssessmentReportDestinationType) ToAssessmentReportDestinationTypeOutput() AssessmentReportDestinationTypeOutput {
+	return pulumi.ToOutput(e).(AssessmentReportDestinationTypeOutput)
+}
+
+func (e AssessmentReportDestinationType) ToAssessmentReportDestinationTypeOutputWithContext(ctx context.Context) AssessmentReportDestinationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssessmentReportDestinationTypeOutput)
+}
+
+func (e AssessmentReportDestinationType) ToAssessmentReportDestinationTypePtrOutput() AssessmentReportDestinationTypePtrOutput {
+	return e.ToAssessmentReportDestinationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentReportDestinationType) ToAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentReportDestinationTypePtrOutput {
+	return AssessmentReportDestinationType(e).ToAssessmentReportDestinationTypeOutputWithContext(ctx).ToAssessmentReportDestinationTypePtrOutputWithContext(ctx)
+}
+
+func (e AssessmentReportDestinationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentReportDestinationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentReportDestinationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentReportDestinationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssessmentReportDestinationTypeOutput struct{ *pulumi.OutputState }
+
+func (AssessmentReportDestinationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentReportDestinationType)(nil)).Elem()
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToAssessmentReportDestinationTypeOutput() AssessmentReportDestinationTypeOutput {
+	return o
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToAssessmentReportDestinationTypeOutputWithContext(ctx context.Context) AssessmentReportDestinationTypeOutput {
+	return o
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToAssessmentReportDestinationTypePtrOutput() AssessmentReportDestinationTypePtrOutput {
+	return o.ToAssessmentReportDestinationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentReportDestinationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentReportDestinationType) *AssessmentReportDestinationType {
+		return &v
+	}).(AssessmentReportDestinationTypePtrOutput)
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentReportDestinationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentReportDestinationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentReportDestinationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssessmentReportDestinationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentReportDestinationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentReportDestinationType)(nil)).Elem()
+}
+
+func (o AssessmentReportDestinationTypePtrOutput) ToAssessmentReportDestinationTypePtrOutput() AssessmentReportDestinationTypePtrOutput {
+	return o
+}
+
+func (o AssessmentReportDestinationTypePtrOutput) ToAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentReportDestinationTypePtrOutput {
+	return o
+}
+
+func (o AssessmentReportDestinationTypePtrOutput) Elem() AssessmentReportDestinationTypeOutput {
+	return o.ApplyT(func(v *AssessmentReportDestinationType) AssessmentReportDestinationType {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentReportDestinationType
+		return ret
+	}).(AssessmentReportDestinationTypeOutput)
+}
+
+func (o AssessmentReportDestinationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentReportDestinationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssessmentReportDestinationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssessmentReportDestinationTypeInput is an input type that accepts AssessmentReportDestinationTypeArgs and AssessmentReportDestinationTypeOutput values.
+// You can construct a concrete instance of `AssessmentReportDestinationTypeInput` via:
+//
+//          AssessmentReportDestinationTypeArgs{...}
+type AssessmentReportDestinationTypeInput interface {
+	pulumi.Input
+
+	ToAssessmentReportDestinationTypeOutput() AssessmentReportDestinationTypeOutput
+	ToAssessmentReportDestinationTypeOutputWithContext(context.Context) AssessmentReportDestinationTypeOutput
+}
+
+var assessmentReportDestinationTypePtrType = reflect.TypeOf((**AssessmentReportDestinationType)(nil)).Elem()
+
+type AssessmentReportDestinationTypePtrInput interface {
+	pulumi.Input
+
+	ToAssessmentReportDestinationTypePtrOutput() AssessmentReportDestinationTypePtrOutput
+	ToAssessmentReportDestinationTypePtrOutputWithContext(context.Context) AssessmentReportDestinationTypePtrOutput
+}
+
+type assessmentReportDestinationTypePtr string
+
+func AssessmentReportDestinationTypePtr(v string) AssessmentReportDestinationTypePtrInput {
+	return (*assessmentReportDestinationTypePtr)(&v)
+}
+
+func (*assessmentReportDestinationTypePtr) ElementType() reflect.Type {
+	return assessmentReportDestinationTypePtrType
+}
+
+func (in *assessmentReportDestinationTypePtr) ToAssessmentReportDestinationTypePtrOutput() AssessmentReportDestinationTypePtrOutput {
+	return pulumi.ToOutput(in).(AssessmentReportDestinationTypePtrOutput)
+}
+
+func (in *assessmentReportDestinationTypePtr) ToAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentReportDestinationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssessmentReportDestinationTypePtrOutput)
 }
 
 //  The IAM role type.
@@ -670,13 +505,178 @@ func (in *assessmentRoleTypePtr) ToAssessmentRoleTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentRoleTypePtrOutput)
 }
 
+// The status of the specified assessment.
+type AssessmentStatus string
+
+const (
+	AssessmentStatusActive   = AssessmentStatus("ACTIVE")
+	AssessmentStatusInactive = AssessmentStatus("INACTIVE")
+)
+
+func (AssessmentStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatus)(nil)).Elem()
+}
+
+func (e AssessmentStatus) ToAssessmentStatusOutput() AssessmentStatusOutput {
+	return pulumi.ToOutput(e).(AssessmentStatusOutput)
+}
+
+func (e AssessmentStatus) ToAssessmentStatusOutputWithContext(ctx context.Context) AssessmentStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssessmentStatusOutput)
+}
+
+func (e AssessmentStatus) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return e.ToAssessmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentStatus) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return AssessmentStatus(e).ToAssessmentStatusOutputWithContext(ctx).ToAssessmentStatusPtrOutputWithContext(ctx)
+}
+
+func (e AssessmentStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssessmentStatusOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentStatus)(nil)).Elem()
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusOutput() AssessmentStatusOutput {
+	return o
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusOutputWithContext(ctx context.Context) AssessmentStatusOutput {
+	return o
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return o.ToAssessmentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
+		return &v
+	}).(AssessmentStatusPtrOutput)
+}
+
+func (o AssessmentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssessmentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssessmentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssessmentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentStatus)(nil)).Elem()
+}
+
+func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return o
+}
+
+func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return o
+}
+
+func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
+	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentStatus
+		return ret
+	}).(AssessmentStatusOutput)
+}
+
+func (o AssessmentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssessmentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
+// You can construct a concrete instance of `AssessmentStatusInput` via:
+//
+//          AssessmentStatusArgs{...}
+type AssessmentStatusInput interface {
+	pulumi.Input
+
+	ToAssessmentStatusOutput() AssessmentStatusOutput
+	ToAssessmentStatusOutputWithContext(context.Context) AssessmentStatusOutput
+}
+
+var assessmentStatusPtrType = reflect.TypeOf((**AssessmentStatus)(nil)).Elem()
+
+type AssessmentStatusPtrInput interface {
+	pulumi.Input
+
+	ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput
+	ToAssessmentStatusPtrOutputWithContext(context.Context) AssessmentStatusPtrOutput
+}
+
+type assessmentStatusPtr string
+
+func AssessmentStatusPtr(v string) AssessmentStatusPtrInput {
+	return (*assessmentStatusPtr)(&v)
+}
+
+func (*assessmentStatusPtr) ElementType() reflect.Type {
+	return assessmentStatusPtrType
+}
+
+func (in *assessmentStatusPtr) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
+	return pulumi.ToOutput(in).(AssessmentStatusPtrOutput)
+}
+
+func (in *assessmentStatusPtr) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssessmentStatusPtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(AssessmentAssessmentReportDestinationTypeOutput{})
-	pulumi.RegisterOutputType(AssessmentAssessmentReportDestinationTypePtrOutput{})
-	pulumi.RegisterOutputType(AssessmentAssessmentStatusOutput{})
-	pulumi.RegisterOutputType(AssessmentAssessmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationStatusOutput{})
 	pulumi.RegisterOutputType(AssessmentDelegationStatusPtrOutput{})
+	pulumi.RegisterOutputType(AssessmentReportDestinationTypeOutput{})
+	pulumi.RegisterOutputType(AssessmentReportDestinationTypePtrOutput{})
 	pulumi.RegisterOutputType(AssessmentRoleTypeOutput{})
 	pulumi.RegisterOutputType(AssessmentRoleTypePtrOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusOutput{})
+	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
 }

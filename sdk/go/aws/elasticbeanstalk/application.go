@@ -16,9 +16,9 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApplicationName         pulumi.StringPtrOutput                                 `pulumi:"applicationName"`
-	Description             pulumi.StringPtrOutput                                 `pulumi:"description"`
-	ResourceLifecycleConfig ApplicationApplicationResourceLifecycleConfigPtrOutput `pulumi:"resourceLifecycleConfig"`
+	ApplicationName         pulumi.StringPtrOutput                      `pulumi:"applicationName"`
+	Description             pulumi.StringPtrOutput                      `pulumi:"description"`
+	ResourceLifecycleConfig ApplicationResourceLifecycleConfigPtrOutput `pulumi:"resourceLifecycleConfig"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -60,16 +60,16 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	ApplicationName         *string                                        `pulumi:"applicationName"`
-	Description             *string                                        `pulumi:"description"`
-	ResourceLifecycleConfig *ApplicationApplicationResourceLifecycleConfig `pulumi:"resourceLifecycleConfig"`
+	ApplicationName         *string                             `pulumi:"applicationName"`
+	Description             *string                             `pulumi:"description"`
+	ResourceLifecycleConfig *ApplicationResourceLifecycleConfig `pulumi:"resourceLifecycleConfig"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	ApplicationName         pulumi.StringPtrInput
 	Description             pulumi.StringPtrInput
-	ResourceLifecycleConfig ApplicationApplicationResourceLifecycleConfigPtrInput
+	ResourceLifecycleConfig ApplicationResourceLifecycleConfigPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

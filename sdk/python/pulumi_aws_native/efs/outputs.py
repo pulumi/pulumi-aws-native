@@ -10,35 +10,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'AccessPointAccessPointTag',
     'AccessPointCreationInfo',
     'AccessPointPosixUser',
     'AccessPointRootDirectory',
+    'AccessPointTag',
     'FileSystemBackupPolicy',
     'FileSystemElasticFileSystemTag',
     'FileSystemLifecyclePolicy',
 ]
-
-@pulumi.output_type
-class AccessPointAccessPointTag(dict):
-    def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
-
 
 @pulumi.output_type
 class AccessPointCreationInfo(dict):
@@ -203,6 +182,27 @@ class AccessPointRootDirectory(dict):
         Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class AccessPointTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

@@ -24,7 +24,7 @@ class JobArgs:
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
-                 job_sample: Optional[pulumi.Input['JobJobSampleArgs']] = None,
+                 job_sample: Optional[pulumi.Input['JobSampleArgs']] = None,
                  log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
@@ -43,7 +43,7 @@ class JobArgs:
         :param pulumi.Input[str] dataset_name: Dataset name
         :param pulumi.Input[str] encryption_key_arn: Encryption Key Arn
         :param pulumi.Input['JobEncryptionMode'] encryption_mode: Encryption mode
-        :param pulumi.Input['JobJobSampleArgs'] job_sample: Job Sample
+        :param pulumi.Input['JobSampleArgs'] job_sample: Job Sample
         :param pulumi.Input['JobLogSubscription'] log_subscription: Log subscription
         :param pulumi.Input[int] max_capacity: Max capacity
         :param pulumi.Input[int] max_retries: Max retries
@@ -180,14 +180,14 @@ class JobArgs:
 
     @property
     @pulumi.getter(name="jobSample")
-    def job_sample(self) -> Optional[pulumi.Input['JobJobSampleArgs']]:
+    def job_sample(self) -> Optional[pulumi.Input['JobSampleArgs']]:
         """
         Job Sample
         """
         return pulumi.get(self, "job_sample")
 
     @job_sample.setter
-    def job_sample(self, value: Optional[pulumi.Input['JobJobSampleArgs']]):
+    def job_sample(self, value: Optional[pulumi.Input['JobSampleArgs']]):
         pulumi.set(self, "job_sample", value)
 
     @property
@@ -312,7 +312,7 @@ class Job(pulumi.CustomResource):
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
-                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobJobSampleArgs']]] = None,
+                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobSampleArgs']]] = None,
                  log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
@@ -335,7 +335,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] dataset_name: Dataset name
         :param pulumi.Input[str] encryption_key_arn: Encryption Key Arn
         :param pulumi.Input['JobEncryptionMode'] encryption_mode: Encryption mode
-        :param pulumi.Input[pulumi.InputType['JobJobSampleArgs']] job_sample: Job Sample
+        :param pulumi.Input[pulumi.InputType['JobSampleArgs']] job_sample: Job Sample
         :param pulumi.Input['JobLogSubscription'] log_subscription: Log subscription
         :param pulumi.Input[int] max_capacity: Max capacity
         :param pulumi.Input[int] max_retries: Max retries
@@ -376,7 +376,7 @@ class Job(pulumi.CustomResource):
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
-                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobJobSampleArgs']]] = None,
+                 job_sample: Optional[pulumi.Input[pulumi.InputType['JobSampleArgs']]] = None,
                  log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
@@ -506,7 +506,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="jobSample")
-    def job_sample(self) -> pulumi.Output[Optional['outputs.JobJobSample']]:
+    def job_sample(self) -> pulumi.Output[Optional['outputs.JobSample']]:
         """
         Job Sample
         """

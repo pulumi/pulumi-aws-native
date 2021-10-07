@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.EC2
     public partial class SpotFleet : Pulumi.CustomResource
     {
         [Output("spotFleetRequestConfigData")]
-        public Output<Outputs.SpotFleetSpotFleetRequestConfigData> SpotFleetRequestConfigData { get; private set; } = null!;
+        public Output<Outputs.SpotFleetRequestConfigData> SpotFleetRequestConfigData { get; private set; } = null!;
 
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class SpotFleetArgs : Pulumi.ResourceArgs
     {
         [Input("spotFleetRequestConfigData", required: true)]
-        public Input<Inputs.SpotFleetSpotFleetRequestConfigDataArgs> SpotFleetRequestConfigData { get; set; } = null!;
+        public Input<Inputs.SpotFleetRequestConfigDataArgs> SpotFleetRequestConfigData { get; set; } = null!;
 
         public SpotFleetArgs()
         {

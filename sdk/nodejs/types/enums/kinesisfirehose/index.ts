@@ -19,20 +19,6 @@ export const DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3Back
 
 export type DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode = (typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode)[keyof typeof DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode];
 
-export const DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType = {
-    AwsOwnedCmk: "AWS_OWNED_CMK",
-    CustomerManagedCmk: "CUSTOMER_MANAGED_CMK",
-} as const;
-
-export type DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType = (typeof DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType)[keyof typeof DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType];
-
-export const DeliveryStreamDeliveryStreamType = {
-    DirectPut: "DirectPut",
-    KinesisStreamAsSource: "KinesisStreamAsSource",
-} as const;
-
-export type DeliveryStreamDeliveryStreamType = (typeof DeliveryStreamDeliveryStreamType)[keyof typeof DeliveryStreamDeliveryStreamType];
-
 export const DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod = {
     NoRotation: "NoRotation",
     OneHour: "OneHour",
@@ -49,6 +35,13 @@ export const DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode = {
 } as const;
 
 export type DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode = (typeof DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode)[keyof typeof DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode];
+
+export const DeliveryStreamEncryptionConfigurationInputKeyType = {
+    AwsOwnedCmk: "AWS_OWNED_CMK",
+    CustomerManagedCmk: "CUSTOMER_MANAGED_CMK",
+} as const;
+
+export type DeliveryStreamEncryptionConfigurationInputKeyType = (typeof DeliveryStreamEncryptionConfigurationInputKeyType)[keyof typeof DeliveryStreamEncryptionConfigurationInputKeyType];
 
 export const DeliveryStreamEncryptionConfigurationNoEncryptionConfig = {
     NoEncryption: "NoEncryption",
@@ -112,3 +105,10 @@ export const DeliveryStreamSplunkDestinationConfigurationHECEndpointType = {
 } as const;
 
 export type DeliveryStreamSplunkDestinationConfigurationHECEndpointType = (typeof DeliveryStreamSplunkDestinationConfigurationHECEndpointType)[keyof typeof DeliveryStreamSplunkDestinationConfigurationHECEndpointType];
+
+export const DeliveryStreamType = {
+    DirectPut: "DirectPut",
+    KinesisStreamAsSource: "KinesisStreamAsSource",
+} as const;
+
+export type DeliveryStreamType = (typeof DeliveryStreamType)[keyof typeof DeliveryStreamType];

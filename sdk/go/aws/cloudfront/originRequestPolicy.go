@@ -15,8 +15,8 @@ import (
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
-	LastModifiedTime          pulumi.StringOutput                                `pulumi:"lastModifiedTime"`
-	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfigOutput `pulumi:"originRequestPolicyConfig"`
+	LastModifiedTime          pulumi.StringOutput             `pulumi:"lastModifiedTime"`
+	OriginRequestPolicyConfig OriginRequestPolicyConfigOutput `pulumi:"originRequestPolicyConfig"`
 }
 
 // NewOriginRequestPolicy registers a new resource with the given unique name, arguments, and options.
@@ -61,12 +61,12 @@ func (OriginRequestPolicyState) ElementType() reflect.Type {
 }
 
 type originRequestPolicyArgs struct {
-	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfig `pulumi:"originRequestPolicyConfig"`
+	OriginRequestPolicyConfig OriginRequestPolicyConfig `pulumi:"originRequestPolicyConfig"`
 }
 
 // The set of arguments for constructing a OriginRequestPolicy resource.
 type OriginRequestPolicyArgs struct {
-	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfigInput
+	OriginRequestPolicyConfig OriginRequestPolicyConfigInput
 }
 
 func (OriginRequestPolicyArgs) ElementType() reflect.Type {

@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///             null, the &lt;code&gt;DataSourceParameters&lt;/code&gt; originally used with these
         ///                 &lt;code&gt;Credentials&lt;/code&gt; is automatically allowed.&lt;/p&gt;
         /// </summary>
-        public readonly ImmutableArray<Outputs.DataSourceDataSourceParameters> AlternateDataSourceParameters;
+        public readonly ImmutableArray<Outputs.DataSourceParameters> AlternateDataSourceParameters;
         /// <summary>
         /// &lt;p&gt;Password.&lt;/p&gt;
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSourceCredentialPair(
-            ImmutableArray<Outputs.DataSourceDataSourceParameters> alternateDataSourceParameters,
+            ImmutableArray<Outputs.DataSourceParameters> alternateDataSourceParameters,
 
             string password,
 

@@ -13,10 +13,10 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteGrpcGatewayRouteRewrite
     {
-        public readonly Outputs.GatewayRouteGatewayRouteHostnameRewrite? Hostname;
+        public readonly Outputs.GatewayRouteHostnameRewrite? Hostname;
 
         [OutputConstructor]
-        private GatewayRouteGrpcGatewayRouteRewrite(Outputs.GatewayRouteGatewayRouteHostnameRewrite? hostname)
+        private GatewayRouteGrpcGatewayRouteRewrite(Outputs.GatewayRouteHostnameRewrite? hostname)
         {
             Hostname = hostname;
         }

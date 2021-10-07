@@ -66,6 +66,7 @@ __all__ = [
     'TopicRuleKinesisAction',
     'TopicRuleLambdaAction',
     'TopicRuleOpenSearchAction',
+    'TopicRulePayload',
     'TopicRulePutAssetPropertyValueEntry',
     'TopicRulePutItemInput',
     'TopicRuleRepublishAction',
@@ -78,7 +79,6 @@ __all__ = [
     'TopicRuleTimestreamAction',
     'TopicRuleTimestreamDimension',
     'TopicRuleTimestreamTimestamp',
-    'TopicRuleTopicRulePayload',
 ]
 
 @pulumi.output_type
@@ -2798,6 +2798,78 @@ class TopicRuleOpenSearchAction(dict):
 
 
 @pulumi.output_type
+class TopicRulePayload(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIotSqlVersion":
+            suggest = "aws_iot_sql_version"
+        elif key == "errorAction":
+            suggest = "error_action"
+        elif key == "ruleDisabled":
+            suggest = "rule_disabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRulePayload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRulePayload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRulePayload.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.TopicRuleAction'],
+                 sql: str,
+                 aws_iot_sql_version: Optional[str] = None,
+                 description: Optional[str] = None,
+                 error_action: Optional['outputs.TopicRuleAction'] = None,
+                 rule_disabled: Optional[bool] = None):
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "sql", sql)
+        if aws_iot_sql_version is not None:
+            pulumi.set(__self__, "aws_iot_sql_version", aws_iot_sql_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if error_action is not None:
+            pulumi.set(__self__, "error_action", error_action)
+        if rule_disabled is not None:
+            pulumi.set(__self__, "rule_disabled", rule_disabled)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.TopicRuleAction']:
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> str:
+        return pulumi.get(self, "sql")
+
+    @property
+    @pulumi.getter(name="awsIotSqlVersion")
+    def aws_iot_sql_version(self) -> Optional[str]:
+        return pulumi.get(self, "aws_iot_sql_version")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="errorAction")
+    def error_action(self) -> Optional['outputs.TopicRuleAction']:
+        return pulumi.get(self, "error_action")
+
+    @property
+    @pulumi.getter(name="ruleDisabled")
+    def rule_disabled(self) -> Optional[bool]:
+        return pulumi.get(self, "rule_disabled")
+
+
+@pulumi.output_type
 class TopicRulePutAssetPropertyValueEntry(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3312,77 +3384,5 @@ class TopicRuleTimestreamTimestamp(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TopicRuleTopicRulePayload(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "awsIotSqlVersion":
-            suggest = "aws_iot_sql_version"
-        elif key == "errorAction":
-            suggest = "error_action"
-        elif key == "ruleDisabled":
-            suggest = "rule_disabled"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleTopicRulePayload. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TopicRuleTopicRulePayload.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TopicRuleTopicRulePayload.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 actions: Sequence['outputs.TopicRuleAction'],
-                 sql: str,
-                 aws_iot_sql_version: Optional[str] = None,
-                 description: Optional[str] = None,
-                 error_action: Optional['outputs.TopicRuleAction'] = None,
-                 rule_disabled: Optional[bool] = None):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "sql", sql)
-        if aws_iot_sql_version is not None:
-            pulumi.set(__self__, "aws_iot_sql_version", aws_iot_sql_version)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if error_action is not None:
-            pulumi.set(__self__, "error_action", error_action)
-        if rule_disabled is not None:
-            pulumi.set(__self__, "rule_disabled", rule_disabled)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Sequence['outputs.TopicRuleAction']:
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def sql(self) -> str:
-        return pulumi.get(self, "sql")
-
-    @property
-    @pulumi.getter(name="awsIotSqlVersion")
-    def aws_iot_sql_version(self) -> Optional[str]:
-        return pulumi.get(self, "aws_iot_sql_version")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="errorAction")
-    def error_action(self) -> Optional['outputs.TopicRuleAction']:
-        return pulumi.get(self, "error_action")
-
-    @property
-    @pulumi.getter(name="ruleDisabled")
-    def rule_disabled(self) -> Optional[bool]:
-        return pulumi.get(self, "rule_disabled")
 
 

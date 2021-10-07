@@ -37,7 +37,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
 
     public readonly firewallArn!: pulumi.Output<string>;
     public readonly firewallName!: pulumi.Output<string | undefined>;
-    public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfiguration>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -77,5 +77,5 @@ export class LoggingConfiguration extends pulumi.CustomResource {
 export interface LoggingConfigurationArgs {
     firewallArn: pulumi.Input<string>;
     firewallName?: pulumi.Input<string>;
-    loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfigurationArgs>;
+    loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationArgs>;
 }

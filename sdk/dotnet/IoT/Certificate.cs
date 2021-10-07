@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> CACertificatePem { get; private set; } = null!;
 
         [Output("certificateMode")]
-        public Output<Pulumi.AwsNative.IoT.CertificateCertificateMode?> CertificateMode { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.IoT.CertificateMode?> CertificateMode { get; private set; } = null!;
 
         [Output("certificatePem")]
         public Output<string?> CertificatePem { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? CACertificatePem { get; set; }
 
         [Input("certificateMode")]
-        public Input<Pulumi.AwsNative.IoT.CertificateCertificateMode>? CertificateMode { get; set; }
+        public Input<Pulumi.AwsNative.IoT.CertificateMode>? CertificateMode { get; set; }
 
         [Input("certificatePem")]
         public Input<string>? CertificatePem { get; set; }

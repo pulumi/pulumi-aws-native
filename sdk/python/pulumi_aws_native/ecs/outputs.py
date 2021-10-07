@@ -16,10 +16,10 @@ __all__ = [
     'CapacityProviderTag',
     'ClusterCapacityProviderAssociationsCapacityProviderStrategy',
     'ClusterCapacityProviderStrategyItem',
-    'ClusterClusterConfiguration',
-    'ClusterClusterSettings',
+    'ClusterConfiguration',
     'ClusterExecuteCommandConfiguration',
     'ClusterExecuteCommandLogConfiguration',
+    'ClusterSettings',
     'ClusterTag',
     'ServiceAwsVpcConfiguration',
     'ServiceCapacityProviderStrategyItem',
@@ -30,7 +30,7 @@ __all__ = [
     'ServiceNetworkConfiguration',
     'ServicePlacementConstraint',
     'ServicePlacementStrategy',
-    'ServiceServiceRegistry',
+    'ServiceRegistry',
     'ServiceTag',
     'TaskDefinitionAuthorizationConfig',
     'TaskDefinitionContainerDefinition',
@@ -50,6 +50,7 @@ __all__ = [
     'TaskDefinitionLinuxParameters',
     'TaskDefinitionLogConfiguration',
     'TaskDefinitionMountPoint',
+    'TaskDefinitionPlacementConstraint',
     'TaskDefinitionPortMapping',
     'TaskDefinitionProxyConfiguration',
     'TaskDefinitionRepositoryCredentials',
@@ -57,7 +58,6 @@ __all__ = [
     'TaskDefinitionSecret',
     'TaskDefinitionSystemControl',
     'TaskDefinitionTag',
-    'TaskDefinitionTaskDefinitionPlacementConstraint',
     'TaskDefinitionTmpfs',
     'TaskDefinitionUlimit',
     'TaskDefinitionVolume',
@@ -311,7 +311,7 @@ class ClusterCapacityProviderStrategyItem(dict):
 
 
 @pulumi.output_type
-class ClusterClusterConfiguration(dict):
+class ClusterConfiguration(dict):
     """
     The configurations to be set at cluster level.
     """
@@ -322,14 +322,14 @@ class ClusterClusterConfiguration(dict):
             suggest = "execute_command_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ClusterClusterConfiguration.__key_warning(key)
+        ClusterConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ClusterClusterConfiguration.__key_warning(key)
+        ClusterConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -344,33 +344,6 @@ class ClusterClusterConfiguration(dict):
     @pulumi.getter(name="executeCommandConfiguration")
     def execute_command_configuration(self) -> Optional['outputs.ClusterExecuteCommandConfiguration']:
         return pulumi.get(self, "execute_command_configuration")
-
-
-@pulumi.output_type
-class ClusterClusterSettings(dict):
-    """
-    The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -501,6 +474,33 @@ class ClusterExecuteCommandLogConfiguration(dict):
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[str]:
         return pulumi.get(self, "s3_key_prefix")
+
+
+@pulumi.output_type
+class ClusterSettings(dict):
+    """
+    The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -837,7 +837,7 @@ class ServicePlacementStrategy(dict):
 
 
 @pulumi.output_type
-class ServiceServiceRegistry(dict):
+class ServiceRegistry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -849,14 +849,14 @@ class ServiceServiceRegistry(dict):
             suggest = "registry_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceServiceRegistry. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServiceRegistry. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ServiceServiceRegistry.__key_warning(key)
+        ServiceRegistry.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ServiceServiceRegistry.__key_warning(key)
+        ServiceRegistry.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2074,6 +2074,26 @@ class TaskDefinitionMountPoint(dict):
 
 
 @pulumi.output_type
+class TaskDefinitionPlacementConstraint(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 expression: Optional[str] = None):
+        pulumi.set(__self__, "type", type)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
 class TaskDefinitionPortMapping(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2293,26 +2313,6 @@ class TaskDefinitionTag(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class TaskDefinitionTaskDefinitionPlacementConstraint(dict):
-    def __init__(__self__, *,
-                 type: str,
-                 expression: Optional[str] = None):
-        pulumi.set(__self__, "type", type)
-        if expression is not None:
-            pulumi.set(__self__, "expression", expression)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def expression(self) -> Optional[str]:
-        return pulumi.get(self, "expression")
 
 
 @pulumi.output_type

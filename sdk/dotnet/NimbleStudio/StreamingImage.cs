@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> Ec2ImageId { get; private set; } = null!;
 
         [Output("encryptionConfiguration")]
-        public Output<Outputs.StreamingImageStreamingImageEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
+        public Output<Outputs.StreamingImageEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 
         [Output("eulaIds")]
         public Output<ImmutableArray<string>> EulaIds { get; private set; } = null!;

@@ -15,7 +15,7 @@ __all__ = ['BudgetArgs', 'Budget']
 @pulumi.input_type
 class BudgetArgs:
     def __init__(__self__, *,
-                 budget: pulumi.Input['BudgetBudgetDataArgs'],
+                 budget: pulumi.Input['BudgetDataArgs'],
                  notifications_with_subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationWithSubscribersArgs']]]] = None):
         """
         The set of arguments for constructing a Budget resource.
@@ -26,11 +26,11 @@ class BudgetArgs:
 
     @property
     @pulumi.getter
-    def budget(self) -> pulumi.Input['BudgetBudgetDataArgs']:
+    def budget(self) -> pulumi.Input['BudgetDataArgs']:
         return pulumi.get(self, "budget")
 
     @budget.setter
-    def budget(self, value: pulumi.Input['BudgetBudgetDataArgs']):
+    def budget(self, value: pulumi.Input['BudgetDataArgs']):
         pulumi.set(self, "budget", value)
 
     @property
@@ -53,7 +53,7 @@ class Budget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 budget: Optional[pulumi.Input[pulumi.InputType['BudgetBudgetDataArgs']]] = None,
+                 budget: Optional[pulumi.Input[pulumi.InputType['BudgetDataArgs']]] = None,
                  notifications_with_subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetNotificationWithSubscribersArgs']]]]] = None,
                  __props__=None):
         """
@@ -86,7 +86,7 @@ class Budget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 budget: Optional[pulumi.Input[pulumi.InputType['BudgetBudgetDataArgs']]] = None,
+                 budget: Optional[pulumi.Input[pulumi.InputType['BudgetDataArgs']]] = None,
                  notifications_with_subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetNotificationWithSubscribersArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Budget is deprecated: Budget is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -133,7 +133,7 @@ class Budget(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def budget(self) -> pulumi.Output['outputs.BudgetBudgetData']:
+    def budget(self) -> pulumi.Output['outputs.BudgetData']:
         return pulumi.get(self, "budget")
 
     @property

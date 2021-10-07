@@ -17,31 +17,31 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                         `pulumi:"arn"`
-	Artifacts               ProjectArtifactsOutput                      `pulumi:"artifacts"`
-	BadgeEnabled            pulumi.BoolPtrOutput                        `pulumi:"badgeEnabled"`
-	BuildBatchConfig        ProjectProjectBuildBatchConfigPtrOutput     `pulumi:"buildBatchConfig"`
-	Cache                   ProjectProjectCachePtrOutput                `pulumi:"cache"`
-	ConcurrentBuildLimit    pulumi.IntPtrOutput                         `pulumi:"concurrentBuildLimit"`
-	Description             pulumi.StringPtrOutput                      `pulumi:"description"`
-	EncryptionKey           pulumi.StringPtrOutput                      `pulumi:"encryptionKey"`
-	Environment             ProjectEnvironmentOutput                    `pulumi:"environment"`
-	FileSystemLocations     ProjectProjectFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
-	LogsConfig              ProjectLogsConfigPtrOutput                  `pulumi:"logsConfig"`
-	Name                    pulumi.StringPtrOutput                      `pulumi:"name"`
-	QueuedTimeoutInMinutes  pulumi.IntPtrOutput                         `pulumi:"queuedTimeoutInMinutes"`
-	ResourceAccessRole      pulumi.StringPtrOutput                      `pulumi:"resourceAccessRole"`
-	SecondaryArtifacts      ProjectArtifactsArrayOutput                 `pulumi:"secondaryArtifacts"`
-	SecondarySourceVersions ProjectProjectSourceVersionArrayOutput      `pulumi:"secondarySourceVersions"`
-	SecondarySources        ProjectSourceArrayOutput                    `pulumi:"secondarySources"`
-	ServiceRole             pulumi.StringOutput                         `pulumi:"serviceRole"`
-	Source                  ProjectSourceOutput                         `pulumi:"source"`
-	SourceVersion           pulumi.StringPtrOutput                      `pulumi:"sourceVersion"`
-	Tags                    ProjectTagArrayOutput                       `pulumi:"tags"`
-	TimeoutInMinutes        pulumi.IntPtrOutput                         `pulumi:"timeoutInMinutes"`
-	Triggers                ProjectProjectTriggersPtrOutput             `pulumi:"triggers"`
-	Visibility              pulumi.StringPtrOutput                      `pulumi:"visibility"`
-	VpcConfig               ProjectVpcConfigPtrOutput                   `pulumi:"vpcConfig"`
+	Arn                     pulumi.StringOutput                  `pulumi:"arn"`
+	Artifacts               ProjectArtifactsOutput               `pulumi:"artifacts"`
+	BadgeEnabled            pulumi.BoolPtrOutput                 `pulumi:"badgeEnabled"`
+	BuildBatchConfig        ProjectBuildBatchConfigPtrOutput     `pulumi:"buildBatchConfig"`
+	Cache                   ProjectCachePtrOutput                `pulumi:"cache"`
+	ConcurrentBuildLimit    pulumi.IntPtrOutput                  `pulumi:"concurrentBuildLimit"`
+	Description             pulumi.StringPtrOutput               `pulumi:"description"`
+	EncryptionKey           pulumi.StringPtrOutput               `pulumi:"encryptionKey"`
+	Environment             ProjectEnvironmentOutput             `pulumi:"environment"`
+	FileSystemLocations     ProjectFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
+	LogsConfig              ProjectLogsConfigPtrOutput           `pulumi:"logsConfig"`
+	Name                    pulumi.StringPtrOutput               `pulumi:"name"`
+	QueuedTimeoutInMinutes  pulumi.IntPtrOutput                  `pulumi:"queuedTimeoutInMinutes"`
+	ResourceAccessRole      pulumi.StringPtrOutput               `pulumi:"resourceAccessRole"`
+	SecondaryArtifacts      ProjectArtifactsArrayOutput          `pulumi:"secondaryArtifacts"`
+	SecondarySourceVersions ProjectSourceVersionArrayOutput      `pulumi:"secondarySourceVersions"`
+	SecondarySources        ProjectSourceArrayOutput             `pulumi:"secondarySources"`
+	ServiceRole             pulumi.StringOutput                  `pulumi:"serviceRole"`
+	Source                  ProjectSourceOutput                  `pulumi:"source"`
+	SourceVersion           pulumi.StringPtrOutput               `pulumi:"sourceVersion"`
+	Tags                    ProjectTagArrayOutput                `pulumi:"tags"`
+	TimeoutInMinutes        pulumi.IntPtrOutput                  `pulumi:"timeoutInMinutes"`
+	Triggers                ProjectTriggersPtrOutput             `pulumi:"triggers"`
+	Visibility              pulumi.StringPtrOutput               `pulumi:"visibility"`
+	VpcConfig               ProjectVpcConfigPtrOutput            `pulumi:"vpcConfig"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -95,56 +95,56 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	Artifacts               ProjectArtifacts                   `pulumi:"artifacts"`
-	BadgeEnabled            *bool                              `pulumi:"badgeEnabled"`
-	BuildBatchConfig        *ProjectProjectBuildBatchConfig    `pulumi:"buildBatchConfig"`
-	Cache                   *ProjectProjectCache               `pulumi:"cache"`
-	ConcurrentBuildLimit    *int                               `pulumi:"concurrentBuildLimit"`
-	Description             *string                            `pulumi:"description"`
-	EncryptionKey           *string                            `pulumi:"encryptionKey"`
-	Environment             ProjectEnvironment                 `pulumi:"environment"`
-	FileSystemLocations     []ProjectProjectFileSystemLocation `pulumi:"fileSystemLocations"`
-	LogsConfig              *ProjectLogsConfig                 `pulumi:"logsConfig"`
-	Name                    *string                            `pulumi:"name"`
-	QueuedTimeoutInMinutes  *int                               `pulumi:"queuedTimeoutInMinutes"`
-	ResourceAccessRole      *string                            `pulumi:"resourceAccessRole"`
-	SecondaryArtifacts      []ProjectArtifacts                 `pulumi:"secondaryArtifacts"`
-	SecondarySourceVersions []ProjectProjectSourceVersion      `pulumi:"secondarySourceVersions"`
-	SecondarySources        []ProjectSource                    `pulumi:"secondarySources"`
-	ServiceRole             string                             `pulumi:"serviceRole"`
-	Source                  ProjectSource                      `pulumi:"source"`
-	SourceVersion           *string                            `pulumi:"sourceVersion"`
-	Tags                    []ProjectTag                       `pulumi:"tags"`
-	TimeoutInMinutes        *int                               `pulumi:"timeoutInMinutes"`
-	Triggers                *ProjectProjectTriggers            `pulumi:"triggers"`
-	Visibility              *string                            `pulumi:"visibility"`
-	VpcConfig               *ProjectVpcConfig                  `pulumi:"vpcConfig"`
+	Artifacts               ProjectArtifacts            `pulumi:"artifacts"`
+	BadgeEnabled            *bool                       `pulumi:"badgeEnabled"`
+	BuildBatchConfig        *ProjectBuildBatchConfig    `pulumi:"buildBatchConfig"`
+	Cache                   *ProjectCache               `pulumi:"cache"`
+	ConcurrentBuildLimit    *int                        `pulumi:"concurrentBuildLimit"`
+	Description             *string                     `pulumi:"description"`
+	EncryptionKey           *string                     `pulumi:"encryptionKey"`
+	Environment             ProjectEnvironment          `pulumi:"environment"`
+	FileSystemLocations     []ProjectFileSystemLocation `pulumi:"fileSystemLocations"`
+	LogsConfig              *ProjectLogsConfig          `pulumi:"logsConfig"`
+	Name                    *string                     `pulumi:"name"`
+	QueuedTimeoutInMinutes  *int                        `pulumi:"queuedTimeoutInMinutes"`
+	ResourceAccessRole      *string                     `pulumi:"resourceAccessRole"`
+	SecondaryArtifacts      []ProjectArtifacts          `pulumi:"secondaryArtifacts"`
+	SecondarySourceVersions []ProjectSourceVersion      `pulumi:"secondarySourceVersions"`
+	SecondarySources        []ProjectSource             `pulumi:"secondarySources"`
+	ServiceRole             string                      `pulumi:"serviceRole"`
+	Source                  ProjectSource               `pulumi:"source"`
+	SourceVersion           *string                     `pulumi:"sourceVersion"`
+	Tags                    []ProjectTag                `pulumi:"tags"`
+	TimeoutInMinutes        *int                        `pulumi:"timeoutInMinutes"`
+	Triggers                *ProjectTriggers            `pulumi:"triggers"`
+	Visibility              *string                     `pulumi:"visibility"`
+	VpcConfig               *ProjectVpcConfig           `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
 	Artifacts               ProjectArtifactsInput
 	BadgeEnabled            pulumi.BoolPtrInput
-	BuildBatchConfig        ProjectProjectBuildBatchConfigPtrInput
-	Cache                   ProjectProjectCachePtrInput
+	BuildBatchConfig        ProjectBuildBatchConfigPtrInput
+	Cache                   ProjectCachePtrInput
 	ConcurrentBuildLimit    pulumi.IntPtrInput
 	Description             pulumi.StringPtrInput
 	EncryptionKey           pulumi.StringPtrInput
 	Environment             ProjectEnvironmentInput
-	FileSystemLocations     ProjectProjectFileSystemLocationArrayInput
+	FileSystemLocations     ProjectFileSystemLocationArrayInput
 	LogsConfig              ProjectLogsConfigPtrInput
 	Name                    pulumi.StringPtrInput
 	QueuedTimeoutInMinutes  pulumi.IntPtrInput
 	ResourceAccessRole      pulumi.StringPtrInput
 	SecondaryArtifacts      ProjectArtifactsArrayInput
-	SecondarySourceVersions ProjectProjectSourceVersionArrayInput
+	SecondarySourceVersions ProjectSourceVersionArrayInput
 	SecondarySources        ProjectSourceArrayInput
 	ServiceRole             pulumi.StringInput
 	Source                  ProjectSourceInput
 	SourceVersion           pulumi.StringPtrInput
 	Tags                    ProjectTagArrayInput
 	TimeoutInMinutes        pulumi.IntPtrInput
-	Triggers                ProjectProjectTriggersPtrInput
+	Triggers                ProjectTriggersPtrInput
 	Visibility              pulumi.StringPtrInput
 	VpcConfig               ProjectVpcConfigPtrInput
 }

@@ -689,244 +689,139 @@ func (o ClusterCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 }
 
 // The configurations to be set at cluster level.
-type ClusterClusterConfiguration struct {
+type ClusterConfiguration struct {
 	ExecuteCommandConfiguration *ClusterExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
 }
 
-// ClusterClusterConfigurationInput is an input type that accepts ClusterClusterConfigurationArgs and ClusterClusterConfigurationOutput values.
-// You can construct a concrete instance of `ClusterClusterConfigurationInput` via:
+// ClusterConfigurationInput is an input type that accepts ClusterConfigurationArgs and ClusterConfigurationOutput values.
+// You can construct a concrete instance of `ClusterConfigurationInput` via:
 //
-//          ClusterClusterConfigurationArgs{...}
-type ClusterClusterConfigurationInput interface {
+//          ClusterConfigurationArgs{...}
+type ClusterConfigurationInput interface {
 	pulumi.Input
 
-	ToClusterClusterConfigurationOutput() ClusterClusterConfigurationOutput
-	ToClusterClusterConfigurationOutputWithContext(context.Context) ClusterClusterConfigurationOutput
+	ToClusterConfigurationOutput() ClusterConfigurationOutput
+	ToClusterConfigurationOutputWithContext(context.Context) ClusterConfigurationOutput
 }
 
 // The configurations to be set at cluster level.
-type ClusterClusterConfigurationArgs struct {
+type ClusterConfigurationArgs struct {
 	ExecuteCommandConfiguration ClusterExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
 }
 
-func (ClusterClusterConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterConfiguration)(nil)).Elem()
+func (ClusterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfiguration)(nil)).Elem()
 }
 
-func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationOutput() ClusterClusterConfigurationOutput {
-	return i.ToClusterClusterConfigurationOutputWithContext(context.Background())
+func (i ClusterConfigurationArgs) ToClusterConfigurationOutput() ClusterConfigurationOutput {
+	return i.ToClusterConfigurationOutputWithContext(context.Background())
 }
 
-func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationOutputWithContext(ctx context.Context) ClusterClusterConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterConfigurationOutput)
+func (i ClusterConfigurationArgs) ToClusterConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationOutput)
 }
 
-func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
-	return i.ToClusterClusterConfigurationPtrOutputWithContext(context.Background())
+func (i ClusterConfigurationArgs) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
+	return i.ToClusterConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterConfigurationOutput).ToClusterClusterConfigurationPtrOutputWithContext(ctx)
+func (i ClusterConfigurationArgs) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationOutput).ToClusterConfigurationPtrOutputWithContext(ctx)
 }
 
-// ClusterClusterConfigurationPtrInput is an input type that accepts ClusterClusterConfigurationArgs, ClusterClusterConfigurationPtr and ClusterClusterConfigurationPtrOutput values.
-// You can construct a concrete instance of `ClusterClusterConfigurationPtrInput` via:
+// ClusterConfigurationPtrInput is an input type that accepts ClusterConfigurationArgs, ClusterConfigurationPtr and ClusterConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterConfigurationPtrInput` via:
 //
-//          ClusterClusterConfigurationArgs{...}
+//          ClusterConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type ClusterClusterConfigurationPtrInput interface {
+type ClusterConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput
-	ToClusterClusterConfigurationPtrOutputWithContext(context.Context) ClusterClusterConfigurationPtrOutput
+	ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput
+	ToClusterConfigurationPtrOutputWithContext(context.Context) ClusterConfigurationPtrOutput
 }
 
-type clusterClusterConfigurationPtrType ClusterClusterConfigurationArgs
+type clusterConfigurationPtrType ClusterConfigurationArgs
 
-func ClusterClusterConfigurationPtr(v *ClusterClusterConfigurationArgs) ClusterClusterConfigurationPtrInput {
-	return (*clusterClusterConfigurationPtrType)(v)
+func ClusterConfigurationPtr(v *ClusterConfigurationArgs) ClusterConfigurationPtrInput {
+	return (*clusterConfigurationPtrType)(v)
 }
 
-func (*clusterClusterConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterClusterConfiguration)(nil)).Elem()
+func (*clusterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfiguration)(nil)).Elem()
 }
 
-func (i *clusterClusterConfigurationPtrType) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
-	return i.ToClusterClusterConfigurationPtrOutputWithContext(context.Background())
+func (i *clusterConfigurationPtrType) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
+	return i.ToClusterConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *clusterClusterConfigurationPtrType) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterConfigurationPtrOutput)
+func (i *clusterConfigurationPtrType) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationPtrOutput)
 }
 
 // The configurations to be set at cluster level.
-type ClusterClusterConfigurationOutput struct{ *pulumi.OutputState }
+type ClusterConfigurationOutput struct{ *pulumi.OutputState }
 
-func (ClusterClusterConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterConfiguration)(nil)).Elem()
+func (ClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfiguration)(nil)).Elem()
 }
 
-func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationOutput() ClusterClusterConfigurationOutput {
+func (o ClusterConfigurationOutput) ToClusterConfigurationOutput() ClusterConfigurationOutput {
 	return o
 }
 
-func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationOutputWithContext(ctx context.Context) ClusterClusterConfigurationOutput {
+func (o ClusterConfigurationOutput) ToClusterConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationOutput {
 	return o
 }
 
-func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
-	return o.ToClusterClusterConfigurationPtrOutputWithContext(context.Background())
+func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
+	return o.ToClusterConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterClusterConfiguration) *ClusterClusterConfiguration {
+func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterConfiguration) *ClusterConfiguration {
 		return &v
-	}).(ClusterClusterConfigurationPtrOutput)
+	}).(ClusterConfigurationPtrOutput)
 }
 
-func (o ClusterClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterClusterConfiguration) *ClusterExecuteCommandConfiguration {
-		return v.ExecuteCommandConfiguration
-	}).(ClusterExecuteCommandConfigurationPtrOutput)
+func (o ClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfiguration) *ClusterExecuteCommandConfiguration { return v.ExecuteCommandConfiguration }).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
-type ClusterClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
+type ClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (ClusterClusterConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterClusterConfiguration)(nil)).Elem()
+func (ClusterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfiguration)(nil)).Elem()
 }
 
-func (o ClusterClusterConfigurationPtrOutput) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
+func (o ClusterConfigurationPtrOutput) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
 	return o
 }
 
-func (o ClusterClusterConfigurationPtrOutput) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
+func (o ClusterConfigurationPtrOutput) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
 	return o
 }
 
-func (o ClusterClusterConfigurationPtrOutput) Elem() ClusterClusterConfigurationOutput {
-	return o.ApplyT(func(v *ClusterClusterConfiguration) ClusterClusterConfiguration {
+func (o ClusterConfigurationPtrOutput) Elem() ClusterConfigurationOutput {
+	return o.ApplyT(func(v *ClusterConfiguration) ClusterConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret ClusterClusterConfiguration
+		var ret ClusterConfiguration
 		return ret
-	}).(ClusterClusterConfigurationOutput)
+	}).(ClusterConfigurationOutput)
 }
 
-func (o ClusterClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
-	return o.ApplyT(func(v *ClusterClusterConfiguration) *ClusterExecuteCommandConfiguration {
+func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterConfiguration) *ClusterExecuteCommandConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.ExecuteCommandConfiguration
 	}).(ClusterExecuteCommandConfigurationPtrOutput)
-}
-
-// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-type ClusterClusterSettings struct {
-	Name  *string `pulumi:"name"`
-	Value *string `pulumi:"value"`
-}
-
-// ClusterClusterSettingsInput is an input type that accepts ClusterClusterSettingsArgs and ClusterClusterSettingsOutput values.
-// You can construct a concrete instance of `ClusterClusterSettingsInput` via:
-//
-//          ClusterClusterSettingsArgs{...}
-type ClusterClusterSettingsInput interface {
-	pulumi.Input
-
-	ToClusterClusterSettingsOutput() ClusterClusterSettingsOutput
-	ToClusterClusterSettingsOutputWithContext(context.Context) ClusterClusterSettingsOutput
-}
-
-// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-type ClusterClusterSettingsArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ClusterClusterSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterSettings)(nil)).Elem()
-}
-
-func (i ClusterClusterSettingsArgs) ToClusterClusterSettingsOutput() ClusterClusterSettingsOutput {
-	return i.ToClusterClusterSettingsOutputWithContext(context.Background())
-}
-
-func (i ClusterClusterSettingsArgs) ToClusterClusterSettingsOutputWithContext(ctx context.Context) ClusterClusterSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterSettingsOutput)
-}
-
-// ClusterClusterSettingsArrayInput is an input type that accepts ClusterClusterSettingsArray and ClusterClusterSettingsArrayOutput values.
-// You can construct a concrete instance of `ClusterClusterSettingsArrayInput` via:
-//
-//          ClusterClusterSettingsArray{ ClusterClusterSettingsArgs{...} }
-type ClusterClusterSettingsArrayInput interface {
-	pulumi.Input
-
-	ToClusterClusterSettingsArrayOutput() ClusterClusterSettingsArrayOutput
-	ToClusterClusterSettingsArrayOutputWithContext(context.Context) ClusterClusterSettingsArrayOutput
-}
-
-type ClusterClusterSettingsArray []ClusterClusterSettingsInput
-
-func (ClusterClusterSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterClusterSettings)(nil)).Elem()
-}
-
-func (i ClusterClusterSettingsArray) ToClusterClusterSettingsArrayOutput() ClusterClusterSettingsArrayOutput {
-	return i.ToClusterClusterSettingsArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterClusterSettingsArray) ToClusterClusterSettingsArrayOutputWithContext(ctx context.Context) ClusterClusterSettingsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterSettingsArrayOutput)
-}
-
-// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
-type ClusterClusterSettingsOutput struct{ *pulumi.OutputState }
-
-func (ClusterClusterSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterSettings)(nil)).Elem()
-}
-
-func (o ClusterClusterSettingsOutput) ToClusterClusterSettingsOutput() ClusterClusterSettingsOutput {
-	return o
-}
-
-func (o ClusterClusterSettingsOutput) ToClusterClusterSettingsOutputWithContext(ctx context.Context) ClusterClusterSettingsOutput {
-	return o
-}
-
-func (o ClusterClusterSettingsOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterClusterSettingsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterClusterSettings) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ClusterClusterSettingsArrayOutput struct{ *pulumi.OutputState }
-
-func (ClusterClusterSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterClusterSettings)(nil)).Elem()
-}
-
-func (o ClusterClusterSettingsArrayOutput) ToClusterClusterSettingsArrayOutput() ClusterClusterSettingsArrayOutput {
-	return o
-}
-
-func (o ClusterClusterSettingsArrayOutput) ToClusterClusterSettingsArrayOutputWithContext(ctx context.Context) ClusterClusterSettingsArrayOutput {
-	return o
-}
-
-func (o ClusterClusterSettingsArrayOutput) Index(i pulumi.IntInput) ClusterClusterSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterClusterSettings {
-		return vs[0].([]ClusterClusterSettings)[vs[1].(int)]
-	}).(ClusterClusterSettingsOutput)
 }
 
 // The configuration for ExecuteCommand.
@@ -1291,6 +1186,109 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 		}
 		return v.S3KeyPrefix
 	}).(pulumi.StringPtrOutput)
+}
+
+// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+type ClusterSettings struct {
+	Name  *string `pulumi:"name"`
+	Value *string `pulumi:"value"`
+}
+
+// ClusterSettingsInput is an input type that accepts ClusterSettingsArgs and ClusterSettingsOutput values.
+// You can construct a concrete instance of `ClusterSettingsInput` via:
+//
+//          ClusterSettingsArgs{...}
+type ClusterSettingsInput interface {
+	pulumi.Input
+
+	ToClusterSettingsOutput() ClusterSettingsOutput
+	ToClusterSettingsOutputWithContext(context.Context) ClusterSettingsOutput
+}
+
+// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+type ClusterSettingsArgs struct {
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ClusterSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSettings)(nil)).Elem()
+}
+
+func (i ClusterSettingsArgs) ToClusterSettingsOutput() ClusterSettingsOutput {
+	return i.ToClusterSettingsOutputWithContext(context.Background())
+}
+
+func (i ClusterSettingsArgs) ToClusterSettingsOutputWithContext(ctx context.Context) ClusterSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSettingsOutput)
+}
+
+// ClusterSettingsArrayInput is an input type that accepts ClusterSettingsArray and ClusterSettingsArrayOutput values.
+// You can construct a concrete instance of `ClusterSettingsArrayInput` via:
+//
+//          ClusterSettingsArray{ ClusterSettingsArgs{...} }
+type ClusterSettingsArrayInput interface {
+	pulumi.Input
+
+	ToClusterSettingsArrayOutput() ClusterSettingsArrayOutput
+	ToClusterSettingsArrayOutputWithContext(context.Context) ClusterSettingsArrayOutput
+}
+
+type ClusterSettingsArray []ClusterSettingsInput
+
+func (ClusterSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSettings)(nil)).Elem()
+}
+
+func (i ClusterSettingsArray) ToClusterSettingsArrayOutput() ClusterSettingsArrayOutput {
+	return i.ToClusterSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterSettingsArray) ToClusterSettingsArrayOutputWithContext(ctx context.Context) ClusterSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSettingsArrayOutput)
+}
+
+// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
+type ClusterSettingsOutput struct{ *pulumi.OutputState }
+
+func (ClusterSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSettings)(nil)).Elem()
+}
+
+func (o ClusterSettingsOutput) ToClusterSettingsOutput() ClusterSettingsOutput {
+	return o
+}
+
+func (o ClusterSettingsOutput) ToClusterSettingsOutputWithContext(ctx context.Context) ClusterSettingsOutput {
+	return o
+}
+
+func (o ClusterSettingsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterSettingsOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterSettings) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ClusterSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterSettings)(nil)).Elem()
+}
+
+func (o ClusterSettingsArrayOutput) ToClusterSettingsArrayOutput() ClusterSettingsArrayOutput {
+	return o
+}
+
+func (o ClusterSettingsArrayOutput) ToClusterSettingsArrayOutputWithContext(ctx context.Context) ClusterSettingsArrayOutput {
+	return o
+}
+
+func (o ClusterSettingsArrayOutput) Index(i pulumi.IntInput) ClusterSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterSettings {
+		return vs[0].([]ClusterSettings)[vs[1].(int)]
+	}).(ClusterSettingsOutput)
 }
 
 // The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
@@ -2556,116 +2554,116 @@ func (o ServicePlacementStrategyArrayOutput) Index(i pulumi.IntInput) ServicePla
 	}).(ServicePlacementStrategyOutput)
 }
 
-type ServiceServiceRegistry struct {
+type ServiceRegistry struct {
 	ContainerName *string `pulumi:"containerName"`
 	ContainerPort *int    `pulumi:"containerPort"`
 	Port          *int    `pulumi:"port"`
 	RegistryArn   *string `pulumi:"registryArn"`
 }
 
-// ServiceServiceRegistryInput is an input type that accepts ServiceServiceRegistryArgs and ServiceServiceRegistryOutput values.
-// You can construct a concrete instance of `ServiceServiceRegistryInput` via:
+// ServiceRegistryInput is an input type that accepts ServiceRegistryArgs and ServiceRegistryOutput values.
+// You can construct a concrete instance of `ServiceRegistryInput` via:
 //
-//          ServiceServiceRegistryArgs{...}
-type ServiceServiceRegistryInput interface {
+//          ServiceRegistryArgs{...}
+type ServiceRegistryInput interface {
 	pulumi.Input
 
-	ToServiceServiceRegistryOutput() ServiceServiceRegistryOutput
-	ToServiceServiceRegistryOutputWithContext(context.Context) ServiceServiceRegistryOutput
+	ToServiceRegistryOutput() ServiceRegistryOutput
+	ToServiceRegistryOutputWithContext(context.Context) ServiceRegistryOutput
 }
 
-type ServiceServiceRegistryArgs struct {
+type ServiceRegistryArgs struct {
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
 	ContainerPort pulumi.IntPtrInput    `pulumi:"containerPort"`
 	Port          pulumi.IntPtrInput    `pulumi:"port"`
 	RegistryArn   pulumi.StringPtrInput `pulumi:"registryArn"`
 }
 
-func (ServiceServiceRegistryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceServiceRegistry)(nil)).Elem()
+func (ServiceRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegistry)(nil)).Elem()
 }
 
-func (i ServiceServiceRegistryArgs) ToServiceServiceRegistryOutput() ServiceServiceRegistryOutput {
-	return i.ToServiceServiceRegistryOutputWithContext(context.Background())
+func (i ServiceRegistryArgs) ToServiceRegistryOutput() ServiceRegistryOutput {
+	return i.ToServiceRegistryOutputWithContext(context.Background())
 }
 
-func (i ServiceServiceRegistryArgs) ToServiceServiceRegistryOutputWithContext(ctx context.Context) ServiceServiceRegistryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceRegistryOutput)
+func (i ServiceRegistryArgs) ToServiceRegistryOutputWithContext(ctx context.Context) ServiceRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegistryOutput)
 }
 
-// ServiceServiceRegistryArrayInput is an input type that accepts ServiceServiceRegistryArray and ServiceServiceRegistryArrayOutput values.
-// You can construct a concrete instance of `ServiceServiceRegistryArrayInput` via:
+// ServiceRegistryArrayInput is an input type that accepts ServiceRegistryArray and ServiceRegistryArrayOutput values.
+// You can construct a concrete instance of `ServiceRegistryArrayInput` via:
 //
-//          ServiceServiceRegistryArray{ ServiceServiceRegistryArgs{...} }
-type ServiceServiceRegistryArrayInput interface {
+//          ServiceRegistryArray{ ServiceRegistryArgs{...} }
+type ServiceRegistryArrayInput interface {
 	pulumi.Input
 
-	ToServiceServiceRegistryArrayOutput() ServiceServiceRegistryArrayOutput
-	ToServiceServiceRegistryArrayOutputWithContext(context.Context) ServiceServiceRegistryArrayOutput
+	ToServiceRegistryArrayOutput() ServiceRegistryArrayOutput
+	ToServiceRegistryArrayOutputWithContext(context.Context) ServiceRegistryArrayOutput
 }
 
-type ServiceServiceRegistryArray []ServiceServiceRegistryInput
+type ServiceRegistryArray []ServiceRegistryInput
 
-func (ServiceServiceRegistryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceServiceRegistry)(nil)).Elem()
+func (ServiceRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceRegistry)(nil)).Elem()
 }
 
-func (i ServiceServiceRegistryArray) ToServiceServiceRegistryArrayOutput() ServiceServiceRegistryArrayOutput {
-	return i.ToServiceServiceRegistryArrayOutputWithContext(context.Background())
+func (i ServiceRegistryArray) ToServiceRegistryArrayOutput() ServiceRegistryArrayOutput {
+	return i.ToServiceRegistryArrayOutputWithContext(context.Background())
 }
 
-func (i ServiceServiceRegistryArray) ToServiceServiceRegistryArrayOutputWithContext(ctx context.Context) ServiceServiceRegistryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceRegistryArrayOutput)
+func (i ServiceRegistryArray) ToServiceRegistryArrayOutputWithContext(ctx context.Context) ServiceRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegistryArrayOutput)
 }
 
-type ServiceServiceRegistryOutput struct{ *pulumi.OutputState }
+type ServiceRegistryOutput struct{ *pulumi.OutputState }
 
-func (ServiceServiceRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceServiceRegistry)(nil)).Elem()
+func (ServiceRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceRegistry)(nil)).Elem()
 }
 
-func (o ServiceServiceRegistryOutput) ToServiceServiceRegistryOutput() ServiceServiceRegistryOutput {
+func (o ServiceRegistryOutput) ToServiceRegistryOutput() ServiceRegistryOutput {
 	return o
 }
 
-func (o ServiceServiceRegistryOutput) ToServiceServiceRegistryOutputWithContext(ctx context.Context) ServiceServiceRegistryOutput {
+func (o ServiceRegistryOutput) ToServiceRegistryOutputWithContext(ctx context.Context) ServiceRegistryOutput {
 	return o
 }
 
-func (o ServiceServiceRegistryOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistry) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+func (o ServiceRegistryOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegistry) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceServiceRegistryOutput) ContainerPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistry) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+func (o ServiceRegistryOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceRegistry) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceServiceRegistryOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistry) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o ServiceRegistryOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceRegistry) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-func (o ServiceServiceRegistryOutput) RegistryArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistry) *string { return v.RegistryArn }).(pulumi.StringPtrOutput)
+func (o ServiceRegistryOutput) RegistryArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceRegistry) *string { return v.RegistryArn }).(pulumi.StringPtrOutput)
 }
 
-type ServiceServiceRegistryArrayOutput struct{ *pulumi.OutputState }
+type ServiceRegistryArrayOutput struct{ *pulumi.OutputState }
 
-func (ServiceServiceRegistryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceServiceRegistry)(nil)).Elem()
+func (ServiceRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceRegistry)(nil)).Elem()
 }
 
-func (o ServiceServiceRegistryArrayOutput) ToServiceServiceRegistryArrayOutput() ServiceServiceRegistryArrayOutput {
+func (o ServiceRegistryArrayOutput) ToServiceRegistryArrayOutput() ServiceRegistryArrayOutput {
 	return o
 }
 
-func (o ServiceServiceRegistryArrayOutput) ToServiceServiceRegistryArrayOutputWithContext(ctx context.Context) ServiceServiceRegistryArrayOutput {
+func (o ServiceRegistryArrayOutput) ToServiceRegistryArrayOutputWithContext(ctx context.Context) ServiceRegistryArrayOutput {
 	return o
 }
 
-func (o ServiceServiceRegistryArrayOutput) Index(i pulumi.IntInput) ServiceServiceRegistryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceServiceRegistry {
-		return vs[0].([]ServiceServiceRegistry)[vs[1].(int)]
-	}).(ServiceServiceRegistryOutput)
+func (o ServiceRegistryArrayOutput) Index(i pulumi.IntInput) ServiceRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceRegistry {
+		return vs[0].([]ServiceRegistry)[vs[1].(int)]
+	}).(ServiceRegistryOutput)
 }
 
 type ServiceTag struct {
@@ -5531,6 +5529,106 @@ func (o TaskDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) TaskDefini
 	}).(TaskDefinitionMountPointOutput)
 }
 
+type TaskDefinitionPlacementConstraint struct {
+	Expression *string `pulumi:"expression"`
+	Type       string  `pulumi:"type"`
+}
+
+// TaskDefinitionPlacementConstraintInput is an input type that accepts TaskDefinitionPlacementConstraintArgs and TaskDefinitionPlacementConstraintOutput values.
+// You can construct a concrete instance of `TaskDefinitionPlacementConstraintInput` via:
+//
+//          TaskDefinitionPlacementConstraintArgs{...}
+type TaskDefinitionPlacementConstraintInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionPlacementConstraintOutput() TaskDefinitionPlacementConstraintOutput
+	ToTaskDefinitionPlacementConstraintOutputWithContext(context.Context) TaskDefinitionPlacementConstraintOutput
+}
+
+type TaskDefinitionPlacementConstraintArgs struct {
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	Type       pulumi.StringInput    `pulumi:"type"`
+}
+
+func (TaskDefinitionPlacementConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (i TaskDefinitionPlacementConstraintArgs) ToTaskDefinitionPlacementConstraintOutput() TaskDefinitionPlacementConstraintOutput {
+	return i.ToTaskDefinitionPlacementConstraintOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionPlacementConstraintArgs) ToTaskDefinitionPlacementConstraintOutputWithContext(ctx context.Context) TaskDefinitionPlacementConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionPlacementConstraintOutput)
+}
+
+// TaskDefinitionPlacementConstraintArrayInput is an input type that accepts TaskDefinitionPlacementConstraintArray and TaskDefinitionPlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionPlacementConstraintArrayInput` via:
+//
+//          TaskDefinitionPlacementConstraintArray{ TaskDefinitionPlacementConstraintArgs{...} }
+type TaskDefinitionPlacementConstraintArrayInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionPlacementConstraintArrayOutput() TaskDefinitionPlacementConstraintArrayOutput
+	ToTaskDefinitionPlacementConstraintArrayOutputWithContext(context.Context) TaskDefinitionPlacementConstraintArrayOutput
+}
+
+type TaskDefinitionPlacementConstraintArray []TaskDefinitionPlacementConstraintInput
+
+func (TaskDefinitionPlacementConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (i TaskDefinitionPlacementConstraintArray) ToTaskDefinitionPlacementConstraintArrayOutput() TaskDefinitionPlacementConstraintArrayOutput {
+	return i.ToTaskDefinitionPlacementConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionPlacementConstraintArray) ToTaskDefinitionPlacementConstraintArrayOutputWithContext(ctx context.Context) TaskDefinitionPlacementConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionPlacementConstraintArrayOutput)
+}
+
+type TaskDefinitionPlacementConstraintOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionPlacementConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (o TaskDefinitionPlacementConstraintOutput) ToTaskDefinitionPlacementConstraintOutput() TaskDefinitionPlacementConstraintOutput {
+	return o
+}
+
+func (o TaskDefinitionPlacementConstraintOutput) ToTaskDefinitionPlacementConstraintOutputWithContext(ctx context.Context) TaskDefinitionPlacementConstraintOutput {
+	return o
+}
+
+func (o TaskDefinitionPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionPlacementConstraintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TaskDefinitionPlacementConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionPlacementConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionPlacementConstraint)(nil)).Elem()
+}
+
+func (o TaskDefinitionPlacementConstraintArrayOutput) ToTaskDefinitionPlacementConstraintArrayOutput() TaskDefinitionPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionPlacementConstraintArrayOutput) ToTaskDefinitionPlacementConstraintArrayOutputWithContext(ctx context.Context) TaskDefinitionPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionPlacementConstraintArrayOutput) Index(i pulumi.IntInput) TaskDefinitionPlacementConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionPlacementConstraint {
+		return vs[0].([]TaskDefinitionPlacementConstraint)[vs[1].(int)]
+	}).(TaskDefinitionPlacementConstraintOutput)
+}
+
 type TaskDefinitionPortMapping struct {
 	ContainerPort *int    `pulumi:"containerPort"`
 	HostPort      *int    `pulumi:"hostPort"`
@@ -6333,106 +6431,6 @@ func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTag
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionTag {
 		return vs[0].([]TaskDefinitionTag)[vs[1].(int)]
 	}).(TaskDefinitionTagOutput)
-}
-
-type TaskDefinitionTaskDefinitionPlacementConstraint struct {
-	Expression *string `pulumi:"expression"`
-	Type       string  `pulumi:"type"`
-}
-
-// TaskDefinitionTaskDefinitionPlacementConstraintInput is an input type that accepts TaskDefinitionTaskDefinitionPlacementConstraintArgs and TaskDefinitionTaskDefinitionPlacementConstraintOutput values.
-// You can construct a concrete instance of `TaskDefinitionTaskDefinitionPlacementConstraintInput` via:
-//
-//          TaskDefinitionTaskDefinitionPlacementConstraintArgs{...}
-type TaskDefinitionTaskDefinitionPlacementConstraintInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionTaskDefinitionPlacementConstraintOutput() TaskDefinitionTaskDefinitionPlacementConstraintOutput
-	ToTaskDefinitionTaskDefinitionPlacementConstraintOutputWithContext(context.Context) TaskDefinitionTaskDefinitionPlacementConstraintOutput
-}
-
-type TaskDefinitionTaskDefinitionPlacementConstraintArgs struct {
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	Type       pulumi.StringInput    `pulumi:"type"`
-}
-
-func (TaskDefinitionTaskDefinitionPlacementConstraintArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTaskDefinitionPlacementConstraint)(nil)).Elem()
-}
-
-func (i TaskDefinitionTaskDefinitionPlacementConstraintArgs) ToTaskDefinitionTaskDefinitionPlacementConstraintOutput() TaskDefinitionTaskDefinitionPlacementConstraintOutput {
-	return i.ToTaskDefinitionTaskDefinitionPlacementConstraintOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionTaskDefinitionPlacementConstraintArgs) ToTaskDefinitionTaskDefinitionPlacementConstraintOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionPlacementConstraintOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTaskDefinitionPlacementConstraintOutput)
-}
-
-// TaskDefinitionTaskDefinitionPlacementConstraintArrayInput is an input type that accepts TaskDefinitionTaskDefinitionPlacementConstraintArray and TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput values.
-// You can construct a concrete instance of `TaskDefinitionTaskDefinitionPlacementConstraintArrayInput` via:
-//
-//          TaskDefinitionTaskDefinitionPlacementConstraintArray{ TaskDefinitionTaskDefinitionPlacementConstraintArgs{...} }
-type TaskDefinitionTaskDefinitionPlacementConstraintArrayInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionTaskDefinitionPlacementConstraintArrayOutput() TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput
-	ToTaskDefinitionTaskDefinitionPlacementConstraintArrayOutputWithContext(context.Context) TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput
-}
-
-type TaskDefinitionTaskDefinitionPlacementConstraintArray []TaskDefinitionTaskDefinitionPlacementConstraintInput
-
-func (TaskDefinitionTaskDefinitionPlacementConstraintArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionTaskDefinitionPlacementConstraint)(nil)).Elem()
-}
-
-func (i TaskDefinitionTaskDefinitionPlacementConstraintArray) ToTaskDefinitionTaskDefinitionPlacementConstraintArrayOutput() TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput {
-	return i.ToTaskDefinitionTaskDefinitionPlacementConstraintArrayOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionTaskDefinitionPlacementConstraintArray) ToTaskDefinitionTaskDefinitionPlacementConstraintArrayOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput)
-}
-
-type TaskDefinitionTaskDefinitionPlacementConstraintOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionTaskDefinitionPlacementConstraintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTaskDefinitionPlacementConstraint)(nil)).Elem()
-}
-
-func (o TaskDefinitionTaskDefinitionPlacementConstraintOutput) ToTaskDefinitionTaskDefinitionPlacementConstraintOutput() TaskDefinitionTaskDefinitionPlacementConstraintOutput {
-	return o
-}
-
-func (o TaskDefinitionTaskDefinitionPlacementConstraintOutput) ToTaskDefinitionTaskDefinitionPlacementConstraintOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionPlacementConstraintOutput {
-	return o
-}
-
-func (o TaskDefinitionTaskDefinitionPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionTaskDefinitionPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskDefinitionTaskDefinitionPlacementConstraintOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskDefinitionTaskDefinitionPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionTaskDefinitionPlacementConstraint)(nil)).Elem()
-}
-
-func (o TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput) ToTaskDefinitionTaskDefinitionPlacementConstraintArrayOutput() TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput) ToTaskDefinitionTaskDefinitionPlacementConstraintArrayOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTaskDefinitionPlacementConstraintOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionTaskDefinitionPlacementConstraint {
-		return vs[0].([]TaskDefinitionTaskDefinitionPlacementConstraint)[vs[1].(int)]
-	}).(TaskDefinitionTaskDefinitionPlacementConstraintOutput)
 }
 
 type TaskDefinitionTmpfs struct {
@@ -7593,14 +7591,14 @@ func init() {
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderStrategyItemOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderStrategyItemArrayOutput{})
-	pulumi.RegisterOutputType(ClusterClusterConfigurationOutput{})
-	pulumi.RegisterOutputType(ClusterClusterConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ClusterClusterSettingsOutput{})
-	pulumi.RegisterOutputType(ClusterClusterSettingsArrayOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSettingsOutput{})
+	pulumi.RegisterOutputType(ClusterSettingsArrayOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})
 	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})
@@ -7621,8 +7619,8 @@ func init() {
 	pulumi.RegisterOutputType(ServicePlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(ServicePlacementStrategyOutput{})
 	pulumi.RegisterOutputType(ServicePlacementStrategyArrayOutput{})
-	pulumi.RegisterOutputType(ServiceServiceRegistryOutput{})
-	pulumi.RegisterOutputType(ServiceServiceRegistryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceRegistryOutput{})
+	pulumi.RegisterOutputType(ServiceRegistryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigOutput{})
@@ -7661,6 +7659,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionMountPointOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionMountPointArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionProxyConfigurationOutput{})
@@ -7675,8 +7675,6 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTagOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTagArrayOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTaskDefinitionPlacementConstraintOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUlimitOutput{})

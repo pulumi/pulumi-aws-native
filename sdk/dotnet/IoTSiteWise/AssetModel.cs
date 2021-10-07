@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
         /// </summary>
         [Output("assetModelCompositeModels")]
-        public Output<ImmutableArray<Outputs.AssetModelAssetModelCompositeModel>> AssetModelCompositeModels { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssetModelCompositeModel>> AssetModelCompositeModels { get; private set; } = null!;
 
         /// <summary>
         /// A description for the asset model.
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
         /// </summary>
         [Output("assetModelHierarchies")]
-        public Output<ImmutableArray<Outputs.AssetModelAssetModelHierarchy>> AssetModelHierarchies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssetModelHierarchy>> AssetModelHierarchies { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the asset model.
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The property definitions of the asset model. You can specify up to 200 properties per asset model.
         /// </summary>
         [Output("assetModelProperties")]
-        public Output<ImmutableArray<Outputs.AssetModelAssetModelProperty>> AssetModelProperties { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssetModelProperty>> AssetModelProperties { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
@@ -109,14 +109,14 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class AssetModelArgs : Pulumi.ResourceArgs
     {
         [Input("assetModelCompositeModels")]
-        private InputList<Inputs.AssetModelAssetModelCompositeModelArgs>? _assetModelCompositeModels;
+        private InputList<Inputs.AssetModelCompositeModelArgs>? _assetModelCompositeModels;
 
         /// <summary>
         /// The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
         /// </summary>
-        public InputList<Inputs.AssetModelAssetModelCompositeModelArgs> AssetModelCompositeModels
+        public InputList<Inputs.AssetModelCompositeModelArgs> AssetModelCompositeModels
         {
-            get => _assetModelCompositeModels ?? (_assetModelCompositeModels = new InputList<Inputs.AssetModelAssetModelCompositeModelArgs>());
+            get => _assetModelCompositeModels ?? (_assetModelCompositeModels = new InputList<Inputs.AssetModelCompositeModelArgs>());
             set => _assetModelCompositeModels = value;
         }
 
@@ -127,14 +127,14 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Input<string>? AssetModelDescription { get; set; }
 
         [Input("assetModelHierarchies")]
-        private InputList<Inputs.AssetModelAssetModelHierarchyArgs>? _assetModelHierarchies;
+        private InputList<Inputs.AssetModelHierarchyArgs>? _assetModelHierarchies;
 
         /// <summary>
         /// The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
         /// </summary>
-        public InputList<Inputs.AssetModelAssetModelHierarchyArgs> AssetModelHierarchies
+        public InputList<Inputs.AssetModelHierarchyArgs> AssetModelHierarchies
         {
-            get => _assetModelHierarchies ?? (_assetModelHierarchies = new InputList<Inputs.AssetModelAssetModelHierarchyArgs>());
+            get => _assetModelHierarchies ?? (_assetModelHierarchies = new InputList<Inputs.AssetModelHierarchyArgs>());
             set => _assetModelHierarchies = value;
         }
 
@@ -145,14 +145,14 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Input<string> AssetModelName { get; set; } = null!;
 
         [Input("assetModelProperties")]
-        private InputList<Inputs.AssetModelAssetModelPropertyArgs>? _assetModelProperties;
+        private InputList<Inputs.AssetModelPropertyArgs>? _assetModelProperties;
 
         /// <summary>
         /// The property definitions of the asset model. You can specify up to 200 properties per asset model.
         /// </summary>
-        public InputList<Inputs.AssetModelAssetModelPropertyArgs> AssetModelProperties
+        public InputList<Inputs.AssetModelPropertyArgs> AssetModelProperties
         {
-            get => _assetModelProperties ?? (_assetModelProperties = new InputList<Inputs.AssetModelAssetModelPropertyArgs>());
+            get => _assetModelProperties ?? (_assetModelProperties = new InputList<Inputs.AssetModelPropertyArgs>());
             set => _assetModelProperties = value;
         }
 

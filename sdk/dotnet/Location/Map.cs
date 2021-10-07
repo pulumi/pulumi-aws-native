@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Location
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("configuration")]
-        public Output<Outputs.MapMapConfiguration> Configuration { get; private set; } = null!;
+        public Output<Outputs.MapConfiguration> Configuration { get; private set; } = null!;
 
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.Location
     public sealed class MapArgs : Pulumi.ResourceArgs
     {
         [Input("configuration", required: true)]
-        public Input<Inputs.MapMapConfigurationArgs> Configuration { get; set; } = null!;
+        public Input<Inputs.MapConfigurationArgs> Configuration { get; set; } = null!;
 
         [Input("description")]
         public Input<string>? Description { get; set; }

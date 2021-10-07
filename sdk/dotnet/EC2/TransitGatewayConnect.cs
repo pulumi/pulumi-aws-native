@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.EC2
         /// The Connect attachment options.
         /// </summary>
         [Output("options")]
-        public Output<Outputs.TransitGatewayConnectTransitGatewayConnectOptions> Options { get; private set; } = null!;
+        public Output<Outputs.TransitGatewayConnectOptions> Options { get; private set; } = null!;
 
         /// <summary>
         /// The state of the attachment.
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.EC2
         /// The Connect attachment options.
         /// </summary>
         [Input("options", required: true)]
-        public Input<Inputs.TransitGatewayConnectTransitGatewayConnectOptionsArgs> Options { get; set; } = null!;
+        public Input<Inputs.TransitGatewayConnectOptionsArgs> Options { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.TransitGatewayConnectTagArgs>? _tags;

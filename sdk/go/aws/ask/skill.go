@@ -18,7 +18,7 @@ type Skill struct {
 	pulumi.CustomResourceState
 
 	AuthenticationConfiguration SkillAuthenticationConfigurationOutput `pulumi:"authenticationConfiguration"`
-	SkillPackage                SkillSkillPackageOutput                `pulumi:"skillPackage"`
+	SkillPackage                SkillPackageOutput                     `pulumi:"skillPackage"`
 	VendorId                    pulumi.StringOutput                    `pulumi:"vendorId"`
 }
 
@@ -71,14 +71,14 @@ func (SkillState) ElementType() reflect.Type {
 
 type skillArgs struct {
 	AuthenticationConfiguration SkillAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	SkillPackage                SkillSkillPackage                `pulumi:"skillPackage"`
+	SkillPackage                SkillPackage                     `pulumi:"skillPackage"`
 	VendorId                    string                           `pulumi:"vendorId"`
 }
 
 // The set of arguments for constructing a Skill resource.
 type SkillArgs struct {
 	AuthenticationConfiguration SkillAuthenticationConfigurationInput
-	SkillPackage                SkillSkillPackageInput
+	SkillPackage                SkillPackageInput
 	VendorId                    pulumi.StringInput
 }
 

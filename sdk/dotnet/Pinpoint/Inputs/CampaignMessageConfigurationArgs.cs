@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public Input<Inputs.CampaignMessageArgs>? DefaultMessage { get; set; }
 
         [Input("emailMessage")]
-        public Input<Inputs.CampaignCampaignEmailMessageArgs>? EmailMessage { get; set; }
+        public Input<Inputs.CampaignEmailMessageArgs>? EmailMessage { get; set; }
 
         [Input("gCMMessage")]
         public Input<Inputs.CampaignMessageArgs>? GCMMessage { get; set; }
 
         [Input("sMSMessage")]
-        public Input<Inputs.CampaignCampaignSmsMessageArgs>? SMSMessage { get; set; }
+        public Input<Inputs.CampaignSmsMessageArgs>? SMSMessage { get; set; }
 
         public CampaignMessageConfigurationArgs()
         {

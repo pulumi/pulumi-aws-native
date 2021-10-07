@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const DetectorDetectorVersionStatus = {
-    Draft: "DRAFT",
-    Active: "ACTIVE",
-} as const;
-
-/**
- * The desired detector version status for the detector
- */
-export type DetectorDetectorVersionStatus = (typeof DetectorDetectorVersionStatus)[keyof typeof DetectorDetectorVersionStatus];
-
 export const DetectorEventVariableDataSource = {
     Event: "EVENT",
 } as const;
@@ -77,6 +67,16 @@ export const DetectorRuleLanguage = {
 } as const;
 
 export type DetectorRuleLanguage = (typeof DetectorRuleLanguage)[keyof typeof DetectorRuleLanguage];
+
+export const DetectorVersionStatus = {
+    Draft: "DRAFT",
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * The desired detector version status for the detector
+ */
+export type DetectorVersionStatus = (typeof DetectorVersionStatus)[keyof typeof DetectorVersionStatus];
 
 export const EventTypeEventVariableDataSource = {
     Event: "EVENT",
@@ -153,7 +153,7 @@ export const VariableDataType = {
  */
 export type VariableDataType = (typeof VariableDataType)[keyof typeof VariableDataType];
 
-export const VariableVariableType = {
+export const VariableType = {
     AuthCode: "AUTH_CODE",
     Avs: "AVS",
     BillingAddressL1: "BILLING_ADDRESS_L1",
@@ -192,4 +192,4 @@ export const VariableVariableType = {
 /**
  * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
  */
-export type VariableVariableType = (typeof VariableVariableType)[keyof typeof VariableVariableType];
+export type VariableType = (typeof VariableType)[keyof typeof VariableType];

@@ -13,12 +13,12 @@ __all__ = [
     'StudioComponentActiveDirectoryComputerAttributeArgs',
     'StudioComponentActiveDirectoryConfigurationArgs',
     'StudioComponentComputeFarmConfigurationArgs',
+    'StudioComponentConfigurationArgs',
+    'StudioComponentInitializationScriptArgs',
     'StudioComponentLicenseServiceConfigurationArgs',
     'StudioComponentScriptParameterKeyValueArgs',
     'StudioComponentSharedFileSystemConfigurationArgs',
-    'StudioComponentStudioComponentConfigurationArgs',
-    'StudioComponentStudioComponentInitializationScriptArgs',
-    'StudioStudioEncryptionConfigurationArgs',
+    'StudioEncryptionConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -171,6 +171,112 @@ class StudioComponentComputeFarmConfigurationArgs:
 
 
 @pulumi.input_type
+class StudioComponentConfigurationArgs:
+    def __init__(__self__, *,
+                 active_directory_configuration: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']] = None,
+                 compute_farm_configuration: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']] = None,
+                 license_service_configuration: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']] = None,
+                 shared_file_system_configuration: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']] = None):
+        if active_directory_configuration is not None:
+            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
+        if compute_farm_configuration is not None:
+            pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
+        if license_service_configuration is not None:
+            pulumi.set(__self__, "license_service_configuration", license_service_configuration)
+        if shared_file_system_configuration is not None:
+            pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
+
+    @property
+    @pulumi.getter(name="activeDirectoryConfiguration")
+    def active_directory_configuration(self) -> Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]:
+        return pulumi.get(self, "active_directory_configuration")
+
+    @active_directory_configuration.setter
+    def active_directory_configuration(self, value: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]):
+        pulumi.set(self, "active_directory_configuration", value)
+
+    @property
+    @pulumi.getter(name="computeFarmConfiguration")
+    def compute_farm_configuration(self) -> Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]:
+        return pulumi.get(self, "compute_farm_configuration")
+
+    @compute_farm_configuration.setter
+    def compute_farm_configuration(self, value: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]):
+        pulumi.set(self, "compute_farm_configuration", value)
+
+    @property
+    @pulumi.getter(name="licenseServiceConfiguration")
+    def license_service_configuration(self) -> Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]:
+        return pulumi.get(self, "license_service_configuration")
+
+    @license_service_configuration.setter
+    def license_service_configuration(self, value: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]):
+        pulumi.set(self, "license_service_configuration", value)
+
+    @property
+    @pulumi.getter(name="sharedFileSystemConfiguration")
+    def shared_file_system_configuration(self) -> Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]:
+        return pulumi.get(self, "shared_file_system_configuration")
+
+    @shared_file_system_configuration.setter
+    def shared_file_system_configuration(self, value: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]):
+        pulumi.set(self, "shared_file_system_configuration", value)
+
+
+@pulumi.input_type
+class StudioComponentInitializationScriptArgs:
+    def __init__(__self__, *,
+                 launch_profile_protocol_version: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
+                 run_context: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None):
+        if launch_profile_protocol_version is not None:
+            pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if run_context is not None:
+            pulumi.set(__self__, "run_context", run_context)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter(name="launchProfileProtocolVersion")
+    def launch_profile_protocol_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "launch_profile_protocol_version")
+
+    @launch_profile_protocol_version.setter
+    def launch_profile_protocol_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_profile_protocol_version", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter(name="runContext")
+    def run_context(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_context")
+
+    @run_context.setter
+    def run_context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_context", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+
+@pulumi.input_type
 class StudioComponentLicenseServiceConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None):
@@ -282,113 +388,7 @@ class StudioComponentSharedFileSystemConfigurationArgs:
 
 
 @pulumi.input_type
-class StudioComponentStudioComponentConfigurationArgs:
-    def __init__(__self__, *,
-                 active_directory_configuration: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']] = None,
-                 compute_farm_configuration: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']] = None,
-                 license_service_configuration: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']] = None,
-                 shared_file_system_configuration: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']] = None):
-        if active_directory_configuration is not None:
-            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
-        if compute_farm_configuration is not None:
-            pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
-        if license_service_configuration is not None:
-            pulumi.set(__self__, "license_service_configuration", license_service_configuration)
-        if shared_file_system_configuration is not None:
-            pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
-
-    @property
-    @pulumi.getter(name="activeDirectoryConfiguration")
-    def active_directory_configuration(self) -> Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]:
-        return pulumi.get(self, "active_directory_configuration")
-
-    @active_directory_configuration.setter
-    def active_directory_configuration(self, value: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]):
-        pulumi.set(self, "active_directory_configuration", value)
-
-    @property
-    @pulumi.getter(name="computeFarmConfiguration")
-    def compute_farm_configuration(self) -> Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]:
-        return pulumi.get(self, "compute_farm_configuration")
-
-    @compute_farm_configuration.setter
-    def compute_farm_configuration(self, value: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]):
-        pulumi.set(self, "compute_farm_configuration", value)
-
-    @property
-    @pulumi.getter(name="licenseServiceConfiguration")
-    def license_service_configuration(self) -> Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]:
-        return pulumi.get(self, "license_service_configuration")
-
-    @license_service_configuration.setter
-    def license_service_configuration(self, value: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]):
-        pulumi.set(self, "license_service_configuration", value)
-
-    @property
-    @pulumi.getter(name="sharedFileSystemConfiguration")
-    def shared_file_system_configuration(self) -> Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]:
-        return pulumi.get(self, "shared_file_system_configuration")
-
-    @shared_file_system_configuration.setter
-    def shared_file_system_configuration(self, value: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]):
-        pulumi.set(self, "shared_file_system_configuration", value)
-
-
-@pulumi.input_type
-class StudioComponentStudioComponentInitializationScriptArgs:
-    def __init__(__self__, *,
-                 launch_profile_protocol_version: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[str]] = None,
-                 run_context: Optional[pulumi.Input[str]] = None,
-                 script: Optional[pulumi.Input[str]] = None):
-        if launch_profile_protocol_version is not None:
-            pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
-        if platform is not None:
-            pulumi.set(__self__, "platform", platform)
-        if run_context is not None:
-            pulumi.set(__self__, "run_context", run_context)
-        if script is not None:
-            pulumi.set(__self__, "script", script)
-
-    @property
-    @pulumi.getter(name="launchProfileProtocolVersion")
-    def launch_profile_protocol_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "launch_profile_protocol_version")
-
-    @launch_profile_protocol_version.setter
-    def launch_profile_protocol_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "launch_profile_protocol_version", value)
-
-    @property
-    @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "platform")
-
-    @platform.setter
-    def platform(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "platform", value)
-
-    @property
-    @pulumi.getter(name="runContext")
-    def run_context(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "run_context")
-
-    @run_context.setter
-    def run_context(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "run_context", value)
-
-    @property
-    @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "script")
-
-    @script.setter
-    def script(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "script", value)
-
-
-@pulumi.input_type
-class StudioStudioEncryptionConfigurationArgs:
+class StudioEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  key_type: pulumi.Input[str],
                  key_arn: Optional[pulumi.Input[str]] = None):

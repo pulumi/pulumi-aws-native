@@ -141,7 +141,7 @@ export const HostAutoPlacement = {
  */
 export type HostAutoPlacement = (typeof HostAutoPlacement)[keyof typeof HostAutoPlacement];
 
-export const HostHostRecovery = {
+export const HostRecovery = {
     On: "on",
     Off: "off",
 } as const;
@@ -149,7 +149,7 @@ export const HostHostRecovery = {
 /**
  * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
  */
-export type HostHostRecovery = (typeof HostHostRecovery)[keyof typeof HostHostRecovery];
+export type HostRecovery = (typeof HostRecovery)[keyof typeof HostRecovery];
 
 export const NetworkInsightsAnalysisStatus = {
     Running: "running",
@@ -188,44 +188,52 @@ export const SpotFleetEbsBlockDeviceVolumeType = {
 
 export type SpotFleetEbsBlockDeviceVolumeType = (typeof SpotFleetEbsBlockDeviceVolumeType)[keyof typeof SpotFleetEbsBlockDeviceVolumeType];
 
-export const SpotFleetSpotCapacityRebalanceReplacementStrategy = {
-    Launch: "launch",
-} as const;
-
-export type SpotFleetSpotCapacityRebalanceReplacementStrategy = (typeof SpotFleetSpotCapacityRebalanceReplacementStrategy)[keyof typeof SpotFleetSpotCapacityRebalanceReplacementStrategy];
-
-export const SpotFleetSpotFleetRequestConfigDataAllocationStrategy = {
+export const SpotFleetRequestConfigDataAllocationStrategy = {
     CapacityOptimized: "capacityOptimized",
     CapacityOptimizedPrioritized: "capacityOptimizedPrioritized",
     Diversified: "diversified",
     LowestPrice: "lowestPrice",
 } as const;
 
-export type SpotFleetSpotFleetRequestConfigDataAllocationStrategy = (typeof SpotFleetSpotFleetRequestConfigDataAllocationStrategy)[keyof typeof SpotFleetSpotFleetRequestConfigDataAllocationStrategy];
+export type SpotFleetRequestConfigDataAllocationStrategy = (typeof SpotFleetRequestConfigDataAllocationStrategy)[keyof typeof SpotFleetRequestConfigDataAllocationStrategy];
 
-export const SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy = {
+export const SpotFleetRequestConfigDataExcessCapacityTerminationPolicy = {
     Default: "Default",
     NoTermination: "NoTermination",
 } as const;
 
-export type SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy = (typeof SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy)[keyof typeof SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy];
+export type SpotFleetRequestConfigDataExcessCapacityTerminationPolicy = (typeof SpotFleetRequestConfigDataExcessCapacityTerminationPolicy)[keyof typeof SpotFleetRequestConfigDataExcessCapacityTerminationPolicy];
 
-export const SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior = {
+export const SpotFleetRequestConfigDataInstanceInterruptionBehavior = {
     Hibernate: "hibernate",
     Stop: "stop",
     Terminate: "terminate",
 } as const;
 
-export type SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior = (typeof SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior)[keyof typeof SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior];
+export type SpotFleetRequestConfigDataInstanceInterruptionBehavior = (typeof SpotFleetRequestConfigDataInstanceInterruptionBehavior)[keyof typeof SpotFleetRequestConfigDataInstanceInterruptionBehavior];
 
-export const SpotFleetSpotFleetRequestConfigDataType = {
+export const SpotFleetRequestConfigDataType = {
     Maintain: "maintain",
     Request: "request",
 } as const;
 
-export type SpotFleetSpotFleetRequestConfigDataType = (typeof SpotFleetSpotFleetRequestConfigDataType)[keyof typeof SpotFleetSpotFleetRequestConfigDataType];
+export type SpotFleetRequestConfigDataType = (typeof SpotFleetRequestConfigDataType)[keyof typeof SpotFleetRequestConfigDataType];
 
-export const SpotFleetSpotFleetTagSpecificationResourceType = {
+export const SpotFleetSpotCapacityRebalanceReplacementStrategy = {
+    Launch: "launch",
+} as const;
+
+export type SpotFleetSpotCapacityRebalanceReplacementStrategy = (typeof SpotFleetSpotCapacityRebalanceReplacementStrategy)[keyof typeof SpotFleetSpotCapacityRebalanceReplacementStrategy];
+
+export const SpotFleetSpotPlacementTenancy = {
+    Dedicated: "dedicated",
+    Default: "default",
+    Host: "host",
+} as const;
+
+export type SpotFleetSpotPlacementTenancy = (typeof SpotFleetSpotPlacementTenancy)[keyof typeof SpotFleetSpotPlacementTenancy];
+
+export const SpotFleetTagSpecificationResourceType = {
     ClientVpnEndpoint: "client-vpn-endpoint",
     CustomerGateway: "customer-gateway",
     DedicatedHost: "dedicated-host",
@@ -275,12 +283,4 @@ export const SpotFleetSpotFleetTagSpecificationResourceType = {
     VpnGateway: "vpn-gateway",
 } as const;
 
-export type SpotFleetSpotFleetTagSpecificationResourceType = (typeof SpotFleetSpotFleetTagSpecificationResourceType)[keyof typeof SpotFleetSpotFleetTagSpecificationResourceType];
-
-export const SpotFleetSpotPlacementTenancy = {
-    Dedicated: "dedicated",
-    Default: "default",
-    Host: "host",
-} as const;
-
-export type SpotFleetSpotPlacementTenancy = (typeof SpotFleetSpotPlacementTenancy)[keyof typeof SpotFleetSpotPlacementTenancy];
+export type SpotFleetTagSpecificationResourceType = (typeof SpotFleetTagSpecificationResourceType)[keyof typeof SpotFleetTagSpecificationResourceType];

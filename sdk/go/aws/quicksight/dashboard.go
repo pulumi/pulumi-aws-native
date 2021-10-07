@@ -19,9 +19,9 @@ type Dashboard struct {
 	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime             pulumi.StringOutput                       `pulumi:"createdTime"`
-	DashboardId             pulumi.StringOutput                       `pulumi:"dashboardId"`
-	DashboardPublishOptions DashboardDashboardPublishOptionsPtrOutput `pulumi:"dashboardPublishOptions"`
+	CreatedTime             pulumi.StringOutput              `pulumi:"createdTime"`
+	DashboardId             pulumi.StringOutput              `pulumi:"dashboardId"`
+	DashboardPublishOptions DashboardPublishOptionsPtrOutput `pulumi:"dashboardPublishOptions"`
 	// <p>The last time that this dataset was published.</p>
 	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
 	// <p>The last time that this dataset was updated.</p>
@@ -34,8 +34,8 @@ type Dashboard struct {
 	//             principal ARN. </p>
 	//
 	//         <p>To specify no permissions, omit the permissions list.</p>
-	Permissions  DashboardResourcePermissionArrayOutput  `pulumi:"permissions"`
-	SourceEntity DashboardDashboardSourceEntityPtrOutput `pulumi:"sourceEntity"`
+	Permissions  DashboardResourcePermissionArrayOutput `pulumi:"permissions"`
+	SourceEntity DashboardSourceEntityPtrOutput         `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             dashboard.</p>
 	Tags DashboardTagArrayOutput `pulumi:"tags"`
@@ -43,8 +43,8 @@ type Dashboard struct {
 	//             you add a value for this field, it overrides the value that is used in the source
 	//             entity. The theme ARN must exist in the same AWS account where you create the
 	//             dashboard.</p>
-	ThemeArn pulumi.StringPtrOutput          `pulumi:"themeArn"`
-	Version  DashboardDashboardVersionOutput `pulumi:"version"`
+	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
+	Version  DashboardVersionOutput `pulumi:"version"`
 	// <p>A description for the first version of the dashboard being created.</p>
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 }
@@ -94,9 +94,9 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	AwsAccountId            string                            `pulumi:"awsAccountId"`
-	DashboardId             string                            `pulumi:"dashboardId"`
-	DashboardPublishOptions *DashboardDashboardPublishOptions `pulumi:"dashboardPublishOptions"`
+	AwsAccountId            string                   `pulumi:"awsAccountId"`
+	DashboardId             string                   `pulumi:"dashboardId"`
+	DashboardPublishOptions *DashboardPublishOptions `pulumi:"dashboardPublishOptions"`
 	// <p>The display name of the dashboard.</p>
 	Name       *string              `pulumi:"name"`
 	Parameters *DashboardParameters `pulumi:"parameters"`
@@ -105,8 +105,8 @@ type dashboardArgs struct {
 	//             principal ARN. </p>
 	//
 	//         <p>To specify no permissions, omit the permissions list.</p>
-	Permissions  []DashboardResourcePermission   `pulumi:"permissions"`
-	SourceEntity *DashboardDashboardSourceEntity `pulumi:"sourceEntity"`
+	Permissions  []DashboardResourcePermission `pulumi:"permissions"`
+	SourceEntity *DashboardSourceEntity        `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             dashboard.</p>
 	Tags []DashboardTag `pulumi:"tags"`
@@ -123,7 +123,7 @@ type dashboardArgs struct {
 type DashboardArgs struct {
 	AwsAccountId            pulumi.StringInput
 	DashboardId             pulumi.StringInput
-	DashboardPublishOptions DashboardDashboardPublishOptionsPtrInput
+	DashboardPublishOptions DashboardPublishOptionsPtrInput
 	// <p>The display name of the dashboard.</p>
 	Name       pulumi.StringPtrInput
 	Parameters DashboardParametersPtrInput
@@ -133,7 +133,7 @@ type DashboardArgs struct {
 	//
 	//         <p>To specify no permissions, omit the permissions list.</p>
 	Permissions  DashboardResourcePermissionArrayInput
-	SourceEntity DashboardDashboardSourceEntityPtrInput
+	SourceEntity DashboardSourceEntityPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             dashboard.</p>
 	Tags DashboardTagArrayInput

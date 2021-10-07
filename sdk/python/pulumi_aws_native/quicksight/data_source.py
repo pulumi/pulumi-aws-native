@@ -16,21 +16,21 @@ __all__ = ['DataSourceArgs', 'DataSource']
 @pulumi.input_type
 class DataSourceArgs:
     def __init__(__self__, *,
-                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]] = None,
+                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input['DataSourceDataSourceCredentialsArgs']] = None,
+                 credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
-                 data_source_parameters: Optional[pulumi.Input['DataSourceDataSourceParametersArgs']] = None,
-                 error_info: Optional[pulumi.Input['DataSourceDataSourceErrorInfoArgs']] = None,
+                 data_source_parameters: Optional[pulumi.Input['DataSourceParametersArgs']] = None,
+                 error_info: Optional[pulumi.Input['DataSourceErrorInfoArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
                  ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
-                 type: Optional[pulumi.Input['DataSourceDataSourceType']] = None,
+                 type: Optional[pulumi.Input['DataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
                            stored with this data source. The credentials are applied in tandem with the data source
                            parameters when you copy a data source by using a create or update request. The API
                            operation compares the <code>DataSourceParameters</code> structure that's in the request
@@ -70,7 +70,7 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter(name="alternateDataSourceParameters")
-    def alternate_data_source_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]]:
+    def alternate_data_source_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]]:
         """
         <p>A set of alternate data source parameters that you want to share for the credentials
                     stored with this data source. The credentials are applied in tandem with the data source
@@ -85,7 +85,7 @@ class DataSourceArgs:
         return pulumi.get(self, "alternate_data_source_parameters")
 
     @alternate_data_source_parameters.setter
-    def alternate_data_source_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]]):
+    def alternate_data_source_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]]):
         pulumi.set(self, "alternate_data_source_parameters", value)
 
     @property
@@ -99,11 +99,11 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['DataSourceDataSourceCredentialsArgs']]:
+    def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['DataSourceDataSourceCredentialsArgs']]):
+    def credentials(self, value: Optional[pulumi.Input['DataSourceCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @property
@@ -117,20 +117,20 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter(name="dataSourceParameters")
-    def data_source_parameters(self) -> Optional[pulumi.Input['DataSourceDataSourceParametersArgs']]:
+    def data_source_parameters(self) -> Optional[pulumi.Input['DataSourceParametersArgs']]:
         return pulumi.get(self, "data_source_parameters")
 
     @data_source_parameters.setter
-    def data_source_parameters(self, value: Optional[pulumi.Input['DataSourceDataSourceParametersArgs']]):
+    def data_source_parameters(self, value: Optional[pulumi.Input['DataSourceParametersArgs']]):
         pulumi.set(self, "data_source_parameters", value)
 
     @property
     @pulumi.getter(name="errorInfo")
-    def error_info(self) -> Optional[pulumi.Input['DataSourceDataSourceErrorInfoArgs']]:
+    def error_info(self) -> Optional[pulumi.Input['DataSourceErrorInfoArgs']]:
         return pulumi.get(self, "error_info")
 
     @error_info.setter
-    def error_info(self, value: Optional[pulumi.Input['DataSourceDataSourceErrorInfoArgs']]):
+    def error_info(self, value: Optional[pulumi.Input['DataSourceErrorInfoArgs']]):
         pulumi.set(self, "error_info", value)
 
     @property
@@ -180,11 +180,11 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['DataSourceDataSourceType']]:
+    def type(self) -> Optional[pulumi.Input['DataSourceType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['DataSourceDataSourceType']]):
+    def type(self, value: Optional[pulumi.Input['DataSourceType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -202,17 +202,17 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']]]]] = None,
+                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceParametersArgs']]]]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['DataSourceCredentialsArgs']]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
-                 data_source_parameters: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']]] = None,
-                 error_info: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceErrorInfoArgs']]] = None,
+                 data_source_parameters: Optional[pulumi.Input[pulumi.InputType['DataSourceParametersArgs']]] = None,
+                 error_info: Optional[pulumi.Input[pulumi.InputType['DataSourceErrorInfoArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input['DataSourceDataSourceType']] = None,
+                 type: Optional[pulumi.Input['DataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
         """
@@ -220,7 +220,7 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']]]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceParametersArgs']]]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
                            stored with this data source. The credentials are applied in tandem with the data source
                            parameters when you copy a data source by using a create or update request. The API
                            operation compares the <code>DataSourceParameters</code> structure that's in the request
@@ -257,17 +257,17 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']]]]] = None,
+                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceParametersArgs']]]]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 credentials: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceCredentialsArgs']]] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['DataSourceCredentialsArgs']]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
-                 data_source_parameters: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']]] = None,
-                 error_info: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceErrorInfoArgs']]] = None,
+                 data_source_parameters: Optional[pulumi.Input[pulumi.InputType['DataSourceParametersArgs']]] = None,
+                 error_info: Optional[pulumi.Input[pulumi.InputType['DataSourceErrorInfoArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input['DataSourceDataSourceType']] = None,
+                 type: Optional[pulumi.Input['DataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -339,7 +339,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alternateDataSourceParameters")
-    def alternate_data_source_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceDataSourceParameters']]]:
+    def alternate_data_source_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceParameters']]]:
         """
         <p>A set of alternate data source parameters that you want to share for the credentials
                     stored with this data source. The credentials are applied in tandem with the data source
@@ -376,7 +376,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def credentials(self) -> pulumi.Output[Optional['outputs.DataSourceDataSourceCredentials']]:
+    def credentials(self) -> pulumi.Output[Optional['outputs.DataSourceCredentials']]:
         return pulumi.get(self, "credentials")
 
     @property
@@ -386,12 +386,12 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceParameters")
-    def data_source_parameters(self) -> pulumi.Output[Optional['outputs.DataSourceDataSourceParameters']]:
+    def data_source_parameters(self) -> pulumi.Output[Optional['outputs.DataSourceParameters']]:
         return pulumi.get(self, "data_source_parameters")
 
     @property
     @pulumi.getter(name="errorInfo")
-    def error_info(self) -> pulumi.Output[Optional['outputs.DataSourceDataSourceErrorInfo']]:
+    def error_info(self) -> pulumi.Output[Optional['outputs.DataSourceErrorInfo']]:
         return pulumi.get(self, "error_info")
 
     @property
@@ -438,7 +438,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional['DataSourceDataSourceType']]:
+    def type(self) -> pulumi.Output[Optional['DataSourceType']]:
         return pulumi.get(self, "type")
 
     @property

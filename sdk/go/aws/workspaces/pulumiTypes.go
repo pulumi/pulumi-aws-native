@@ -10,118 +10,118 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ConnectionAliasConnectionAliasAssociation struct {
-	AssociatedAccountId  *string                                                     `pulumi:"associatedAccountId"`
-	AssociationStatus    *ConnectionAliasConnectionAliasAssociationAssociationStatus `pulumi:"associationStatus"`
-	ConnectionIdentifier *string                                                     `pulumi:"connectionIdentifier"`
-	ResourceId           *string                                                     `pulumi:"resourceId"`
+type ConnectionAliasAssociation struct {
+	AssociatedAccountId  *string                                      `pulumi:"associatedAccountId"`
+	AssociationStatus    *ConnectionAliasAssociationAssociationStatus `pulumi:"associationStatus"`
+	ConnectionIdentifier *string                                      `pulumi:"connectionIdentifier"`
+	ResourceId           *string                                      `pulumi:"resourceId"`
 }
 
-// ConnectionAliasConnectionAliasAssociationInput is an input type that accepts ConnectionAliasConnectionAliasAssociationArgs and ConnectionAliasConnectionAliasAssociationOutput values.
-// You can construct a concrete instance of `ConnectionAliasConnectionAliasAssociationInput` via:
+// ConnectionAliasAssociationInput is an input type that accepts ConnectionAliasAssociationArgs and ConnectionAliasAssociationOutput values.
+// You can construct a concrete instance of `ConnectionAliasAssociationInput` via:
 //
-//          ConnectionAliasConnectionAliasAssociationArgs{...}
-type ConnectionAliasConnectionAliasAssociationInput interface {
+//          ConnectionAliasAssociationArgs{...}
+type ConnectionAliasAssociationInput interface {
 	pulumi.Input
 
-	ToConnectionAliasConnectionAliasAssociationOutput() ConnectionAliasConnectionAliasAssociationOutput
-	ToConnectionAliasConnectionAliasAssociationOutputWithContext(context.Context) ConnectionAliasConnectionAliasAssociationOutput
+	ToConnectionAliasAssociationOutput() ConnectionAliasAssociationOutput
+	ToConnectionAliasAssociationOutputWithContext(context.Context) ConnectionAliasAssociationOutput
 }
 
-type ConnectionAliasConnectionAliasAssociationArgs struct {
-	AssociatedAccountId  pulumi.StringPtrInput                                              `pulumi:"associatedAccountId"`
-	AssociationStatus    ConnectionAliasConnectionAliasAssociationAssociationStatusPtrInput `pulumi:"associationStatus"`
-	ConnectionIdentifier pulumi.StringPtrInput                                              `pulumi:"connectionIdentifier"`
-	ResourceId           pulumi.StringPtrInput                                              `pulumi:"resourceId"`
+type ConnectionAliasAssociationArgs struct {
+	AssociatedAccountId  pulumi.StringPtrInput                               `pulumi:"associatedAccountId"`
+	AssociationStatus    ConnectionAliasAssociationAssociationStatusPtrInput `pulumi:"associationStatus"`
+	ConnectionIdentifier pulumi.StringPtrInput                               `pulumi:"connectionIdentifier"`
+	ResourceId           pulumi.StringPtrInput                               `pulumi:"resourceId"`
 }
 
-func (ConnectionAliasConnectionAliasAssociationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+func (ConnectionAliasAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasAssociation)(nil)).Elem()
 }
 
-func (i ConnectionAliasConnectionAliasAssociationArgs) ToConnectionAliasConnectionAliasAssociationOutput() ConnectionAliasConnectionAliasAssociationOutput {
-	return i.ToConnectionAliasConnectionAliasAssociationOutputWithContext(context.Background())
+func (i ConnectionAliasAssociationArgs) ToConnectionAliasAssociationOutput() ConnectionAliasAssociationOutput {
+	return i.ToConnectionAliasAssociationOutputWithContext(context.Background())
 }
 
-func (i ConnectionAliasConnectionAliasAssociationArgs) ToConnectionAliasConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasConnectionAliasAssociationOutput)
+func (i ConnectionAliasAssociationArgs) ToConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasAssociationOutput)
 }
 
-// ConnectionAliasConnectionAliasAssociationArrayInput is an input type that accepts ConnectionAliasConnectionAliasAssociationArray and ConnectionAliasConnectionAliasAssociationArrayOutput values.
-// You can construct a concrete instance of `ConnectionAliasConnectionAliasAssociationArrayInput` via:
+// ConnectionAliasAssociationArrayInput is an input type that accepts ConnectionAliasAssociationArray and ConnectionAliasAssociationArrayOutput values.
+// You can construct a concrete instance of `ConnectionAliasAssociationArrayInput` via:
 //
-//          ConnectionAliasConnectionAliasAssociationArray{ ConnectionAliasConnectionAliasAssociationArgs{...} }
-type ConnectionAliasConnectionAliasAssociationArrayInput interface {
+//          ConnectionAliasAssociationArray{ ConnectionAliasAssociationArgs{...} }
+type ConnectionAliasAssociationArrayInput interface {
 	pulumi.Input
 
-	ToConnectionAliasConnectionAliasAssociationArrayOutput() ConnectionAliasConnectionAliasAssociationArrayOutput
-	ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(context.Context) ConnectionAliasConnectionAliasAssociationArrayOutput
+	ToConnectionAliasAssociationArrayOutput() ConnectionAliasAssociationArrayOutput
+	ToConnectionAliasAssociationArrayOutputWithContext(context.Context) ConnectionAliasAssociationArrayOutput
 }
 
-type ConnectionAliasConnectionAliasAssociationArray []ConnectionAliasConnectionAliasAssociationInput
+type ConnectionAliasAssociationArray []ConnectionAliasAssociationInput
 
-func (ConnectionAliasConnectionAliasAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+func (ConnectionAliasAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionAliasAssociation)(nil)).Elem()
 }
 
-func (i ConnectionAliasConnectionAliasAssociationArray) ToConnectionAliasConnectionAliasAssociationArrayOutput() ConnectionAliasConnectionAliasAssociationArrayOutput {
-	return i.ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(context.Background())
+func (i ConnectionAliasAssociationArray) ToConnectionAliasAssociationArrayOutput() ConnectionAliasAssociationArrayOutput {
+	return i.ToConnectionAliasAssociationArrayOutputWithContext(context.Background())
 }
 
-func (i ConnectionAliasConnectionAliasAssociationArray) ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasConnectionAliasAssociationArrayOutput)
+func (i ConnectionAliasAssociationArray) ToConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasAssociationArrayOutput)
 }
 
-type ConnectionAliasConnectionAliasAssociationOutput struct{ *pulumi.OutputState }
+type ConnectionAliasAssociationOutput struct{ *pulumi.OutputState }
 
-func (ConnectionAliasConnectionAliasAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+func (ConnectionAliasAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasAssociation)(nil)).Elem()
 }
 
-func (o ConnectionAliasConnectionAliasAssociationOutput) ToConnectionAliasConnectionAliasAssociationOutput() ConnectionAliasConnectionAliasAssociationOutput {
+func (o ConnectionAliasAssociationOutput) ToConnectionAliasAssociationOutput() ConnectionAliasAssociationOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationOutput) ToConnectionAliasConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationOutput {
+func (o ConnectionAliasAssociationOutput) ToConnectionAliasAssociationOutputWithContext(ctx context.Context) ConnectionAliasAssociationOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationOutput) AssociatedAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.AssociatedAccountId }).(pulumi.StringPtrOutput)
+func (o ConnectionAliasAssociationOutput) AssociatedAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasAssociation) *string { return v.AssociatedAccountId }).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionAliasConnectionAliasAssociationOutput) AssociationStatus() ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
-	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *ConnectionAliasConnectionAliasAssociationAssociationStatus {
+func (o ConnectionAliasAssociationOutput) AssociationStatus() ConnectionAliasAssociationAssociationStatusPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasAssociation) *ConnectionAliasAssociationAssociationStatus {
 		return v.AssociationStatus
-	}).(ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput)
+	}).(ConnectionAliasAssociationAssociationStatusPtrOutput)
 }
 
-func (o ConnectionAliasConnectionAliasAssociationOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
+func (o ConnectionAliasAssociationOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasAssociation) *string { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
 }
 
-func (o ConnectionAliasConnectionAliasAssociationOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionAliasConnectionAliasAssociation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+func (o ConnectionAliasAssociationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasAssociation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-type ConnectionAliasConnectionAliasAssociationArrayOutput struct{ *pulumi.OutputState }
+type ConnectionAliasAssociationArrayOutput struct{ *pulumi.OutputState }
 
-func (ConnectionAliasConnectionAliasAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionAliasConnectionAliasAssociation)(nil)).Elem()
+func (ConnectionAliasAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionAliasAssociation)(nil)).Elem()
 }
 
-func (o ConnectionAliasConnectionAliasAssociationArrayOutput) ToConnectionAliasConnectionAliasAssociationArrayOutput() ConnectionAliasConnectionAliasAssociationArrayOutput {
+func (o ConnectionAliasAssociationArrayOutput) ToConnectionAliasAssociationArrayOutput() ConnectionAliasAssociationArrayOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationArrayOutput) ToConnectionAliasConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationArrayOutput {
+func (o ConnectionAliasAssociationArrayOutput) ToConnectionAliasAssociationArrayOutputWithContext(ctx context.Context) ConnectionAliasAssociationArrayOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionAliasConnectionAliasAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionAliasConnectionAliasAssociation {
-		return vs[0].([]ConnectionAliasConnectionAliasAssociation)[vs[1].(int)]
-	}).(ConnectionAliasConnectionAliasAssociationOutput)
+func (o ConnectionAliasAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionAliasAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionAliasAssociation {
+		return vs[0].([]ConnectionAliasAssociation)[vs[1].(int)]
+	}).(ConnectionAliasAssociationOutput)
 }
 
 type ConnectionAliasTag struct {
@@ -224,6 +224,199 @@ func (o ConnectionAliasTagArrayOutput) Index(i pulumi.IntInput) ConnectionAliasT
 	}).(ConnectionAliasTagOutput)
 }
 
+type WorkspaceProperties struct {
+	ComputeTypeName                     *string `pulumi:"computeTypeName"`
+	RootVolumeSizeGib                   *int    `pulumi:"rootVolumeSizeGib"`
+	RunningMode                         *string `pulumi:"runningMode"`
+	RunningModeAutoStopTimeoutInMinutes *int    `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	UserVolumeSizeGib                   *int    `pulumi:"userVolumeSizeGib"`
+}
+
+// WorkspacePropertiesInput is an input type that accepts WorkspacePropertiesArgs and WorkspacePropertiesOutput values.
+// You can construct a concrete instance of `WorkspacePropertiesInput` via:
+//
+//          WorkspacePropertiesArgs{...}
+type WorkspacePropertiesInput interface {
+	pulumi.Input
+
+	ToWorkspacePropertiesOutput() WorkspacePropertiesOutput
+	ToWorkspacePropertiesOutputWithContext(context.Context) WorkspacePropertiesOutput
+}
+
+type WorkspacePropertiesArgs struct {
+	ComputeTypeName                     pulumi.StringPtrInput `pulumi:"computeTypeName"`
+	RootVolumeSizeGib                   pulumi.IntPtrInput    `pulumi:"rootVolumeSizeGib"`
+	RunningMode                         pulumi.StringPtrInput `pulumi:"runningMode"`
+	RunningModeAutoStopTimeoutInMinutes pulumi.IntPtrInput    `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	UserVolumeSizeGib                   pulumi.IntPtrInput    `pulumi:"userVolumeSizeGib"`
+}
+
+func (WorkspacePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProperties)(nil)).Elem()
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesOutput() WorkspacePropertiesOutput {
+	return i.ToWorkspacePropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspacePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesOutput)
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return i.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesOutput).ToWorkspacePropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkspacePropertiesPtrInput is an input type that accepts WorkspacePropertiesArgs, WorkspacePropertiesPtr and WorkspacePropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkspacePropertiesPtrInput` via:
+//
+//          WorkspacePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspacePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput
+	ToWorkspacePropertiesPtrOutputWithContext(context.Context) WorkspacePropertiesPtrOutput
+}
+
+type workspacePropertiesPtrType WorkspacePropertiesArgs
+
+func WorkspacePropertiesPtr(v *WorkspacePropertiesArgs) WorkspacePropertiesPtrInput {
+	return (*workspacePropertiesPtrType)(v)
+}
+
+func (*workspacePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceProperties)(nil)).Elem()
+}
+
+func (i *workspacePropertiesPtrType) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return i.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workspacePropertiesPtrType) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesPtrOutput)
+}
+
+type WorkspacePropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesOutput() WorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return o.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePropertiesOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceProperties) *WorkspaceProperties {
+		return &v
+	}).(WorkspacePropertiesPtrOutput)
+}
+
+func (o WorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePropertiesOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *int { return v.RootVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspacePropertiesOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *string { return v.RunningMode }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePropertiesOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspacePropertiesOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceProperties) *int { return v.UserVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+type WorkspacePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspacePropertiesPtrOutput) Elem() WorkspacePropertiesOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) WorkspaceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceProperties
+		return ret
+	}).(WorkspacePropertiesOutput)
+}
+
+func (o WorkspacePropertiesPtrOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeTypeName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePropertiesPtrOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RootVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspacePropertiesPtrOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunningMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePropertiesPtrOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunningModeAutoStopTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UserVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
 type WorkspaceTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -324,206 +517,13 @@ func (o WorkspaceTagArrayOutput) Index(i pulumi.IntInput) WorkspaceTagOutput {
 	}).(WorkspaceTagOutput)
 }
 
-type WorkspaceWorkspaceProperties struct {
-	ComputeTypeName                     *string `pulumi:"computeTypeName"`
-	RootVolumeSizeGib                   *int    `pulumi:"rootVolumeSizeGib"`
-	RunningMode                         *string `pulumi:"runningMode"`
-	RunningModeAutoStopTimeoutInMinutes *int    `pulumi:"runningModeAutoStopTimeoutInMinutes"`
-	UserVolumeSizeGib                   *int    `pulumi:"userVolumeSizeGib"`
-}
-
-// WorkspaceWorkspacePropertiesInput is an input type that accepts WorkspaceWorkspacePropertiesArgs and WorkspaceWorkspacePropertiesOutput values.
-// You can construct a concrete instance of `WorkspaceWorkspacePropertiesInput` via:
-//
-//          WorkspaceWorkspacePropertiesArgs{...}
-type WorkspaceWorkspacePropertiesInput interface {
-	pulumi.Input
-
-	ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput
-	ToWorkspaceWorkspacePropertiesOutputWithContext(context.Context) WorkspaceWorkspacePropertiesOutput
-}
-
-type WorkspaceWorkspacePropertiesArgs struct {
-	ComputeTypeName                     pulumi.StringPtrInput `pulumi:"computeTypeName"`
-	RootVolumeSizeGib                   pulumi.IntPtrInput    `pulumi:"rootVolumeSizeGib"`
-	RunningMode                         pulumi.StringPtrInput `pulumi:"runningMode"`
-	RunningModeAutoStopTimeoutInMinutes pulumi.IntPtrInput    `pulumi:"runningModeAutoStopTimeoutInMinutes"`
-	UserVolumeSizeGib                   pulumi.IntPtrInput    `pulumi:"userVolumeSizeGib"`
-}
-
-func (WorkspaceWorkspacePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceWorkspaceProperties)(nil)).Elem()
-}
-
-func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput {
-	return i.ToWorkspaceWorkspacePropertiesOutputWithContext(context.Background())
-}
-
-func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesOutput)
-}
-
-func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
-	return i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesOutput).ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx)
-}
-
-// WorkspaceWorkspacePropertiesPtrInput is an input type that accepts WorkspaceWorkspacePropertiesArgs, WorkspaceWorkspacePropertiesPtr and WorkspaceWorkspacePropertiesPtrOutput values.
-// You can construct a concrete instance of `WorkspaceWorkspacePropertiesPtrInput` via:
-//
-//          WorkspaceWorkspacePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkspaceWorkspacePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput
-	ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Context) WorkspaceWorkspacePropertiesPtrOutput
-}
-
-type workspaceWorkspacePropertiesPtrType WorkspaceWorkspacePropertiesArgs
-
-func WorkspaceWorkspacePropertiesPtr(v *WorkspaceWorkspacePropertiesArgs) WorkspaceWorkspacePropertiesPtrInput {
-	return (*workspaceWorkspacePropertiesPtrType)(v)
-}
-
-func (*workspaceWorkspacePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceWorkspaceProperties)(nil)).Elem()
-}
-
-func (i *workspaceWorkspacePropertiesPtrType) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
-	return i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceWorkspacePropertiesPtrType) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesPtrOutput)
-}
-
-type WorkspaceWorkspacePropertiesOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceWorkspacePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceWorkspaceProperties)(nil)).Elem()
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput {
-	return o
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesOutput {
-	return o
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
-	return o.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceWorkspaceProperties) *WorkspaceWorkspaceProperties {
-		return &v
-	}).(WorkspaceWorkspacePropertiesPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.RootVolumeSizeGib }).(pulumi.IntPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) RunningMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.RunningMode }).(pulumi.StringPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.UserVolumeSizeGib }).(pulumi.IntPtrOutput)
-}
-
-type WorkspaceWorkspacePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceWorkspacePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceWorkspaceProperties)(nil)).Elem()
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
-	return o
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
-	return o
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) Elem() WorkspaceWorkspacePropertiesOutput {
-	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) WorkspaceWorkspaceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceWorkspaceProperties
-		return ret
-	}).(WorkspaceWorkspacePropertiesOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) ComputeTypeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeTypeName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RootVolumeSizeGib
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) RunningMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RunningMode
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RunningModeAutoStopTimeoutInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o WorkspaceWorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.UserVolumeSizeGib
-	}).(pulumi.IntPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationOutput{})
-	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasAssociationOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTagOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasTagArrayOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
+	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceTagOutput{})
 	pulumi.RegisterOutputType(WorkspaceTagArrayOutput{})
-	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesOutput{})
-	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesPtrOutput{})
 }

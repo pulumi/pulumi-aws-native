@@ -5,12 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'KeyKeySpec',
-    'KeyKeyUsage',
+    'KeySpec',
+    'KeyUsage',
 ]
 
 
-class KeyKeySpec(str, Enum):
+class KeySpec(str, Enum):
     """
     Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
     """
@@ -24,7 +24,7 @@ class KeyKeySpec(str, Enum):
     ECC_SECG_P256K1 = "ECC_SECG_P256K1"
 
 
-class KeyKeyUsage(str, Enum):
+class KeyUsage(str, Enum):
     """
     Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
     """

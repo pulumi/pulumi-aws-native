@@ -17,7 +17,7 @@ type Cluster struct {
 	// The Amazon Resource Name (ARN) of the cluster.
 	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
 	// Endpoints for the cluster.
-	ClusterEndpoints ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
+	ClusterEndpoints ClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.

@@ -13,9 +13,9 @@ __all__ = [
     'AlertActionArgs',
     'AlertLambdaConfigurationArgs',
     'AlertSNSConfigurationArgs',
-    'AnomalyDetectorAnomalyDetectorConfigArgs',
     'AnomalyDetectorAppFlowConfigArgs',
     'AnomalyDetectorCloudwatchConfigArgs',
+    'AnomalyDetectorConfigArgs',
     'AnomalyDetectorCsvFormatDescriptorArgs',
     'AnomalyDetectorFileFormatDescriptorArgs',
     'AnomalyDetectorJsonFormatDescriptorArgs',
@@ -135,28 +135,6 @@ class AlertSNSConfigurationArgs:
 
 
 @pulumi.input_type
-class AnomalyDetectorAnomalyDetectorConfigArgs:
-    def __init__(__self__, *,
-                 anomaly_detector_frequency: pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency']):
-        """
-        :param pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency'] anomaly_detector_frequency: Frequency of anomaly detection
-        """
-        pulumi.set(__self__, "anomaly_detector_frequency", anomaly_detector_frequency)
-
-    @property
-    @pulumi.getter(name="anomalyDetectorFrequency")
-    def anomaly_detector_frequency(self) -> pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency']:
-        """
-        Frequency of anomaly detection
-        """
-        return pulumi.get(self, "anomaly_detector_frequency")
-
-    @anomaly_detector_frequency.setter
-    def anomaly_detector_frequency(self, value: pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency']):
-        pulumi.set(self, "anomaly_detector_frequency", value)
-
-
-@pulumi.input_type
 class AnomalyDetectorAppFlowConfigArgs:
     def __init__(__self__, *,
                  flow_name: pulumi.Input[str],
@@ -197,6 +175,28 @@ class AnomalyDetectorCloudwatchConfigArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class AnomalyDetectorConfigArgs:
+    def __init__(__self__, *,
+                 anomaly_detector_frequency: pulumi.Input['AnomalyDetectorFrequency']):
+        """
+        :param pulumi.Input['AnomalyDetectorFrequency'] anomaly_detector_frequency: Frequency of anomaly detection
+        """
+        pulumi.set(__self__, "anomaly_detector_frequency", anomaly_detector_frequency)
+
+    @property
+    @pulumi.getter(name="anomalyDetectorFrequency")
+    def anomaly_detector_frequency(self) -> pulumi.Input['AnomalyDetectorFrequency']:
+        """
+        Frequency of anomaly detection
+        """
+        return pulumi.get(self, "anomaly_detector_frequency")
+
+    @anomaly_detector_frequency.setter
+    def anomaly_detector_frequency(self, value: pulumi.Input['AnomalyDetectorFrequency']):
+        pulumi.set(self, "anomaly_detector_frequency", value)
 
 
 @pulumi.input_type

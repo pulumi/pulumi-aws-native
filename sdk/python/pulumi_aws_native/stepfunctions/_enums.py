@@ -6,7 +6,7 @@ from enum import Enum
 
 __all__ = [
     'StateMachineLoggingConfigurationLevel',
-    'StateMachineStateMachineType',
+    'StateMachineType',
 ]
 
 
@@ -17,6 +17,6 @@ class StateMachineLoggingConfigurationLevel(str, Enum):
     OFF = "OFF"
 
 
-class StateMachineStateMachineType(str, Enum):
+class StateMachineType(str, Enum):
     STANDARD = "STANDARD"
     EXPRESS = "EXPRESS"

@@ -12,13 +12,13 @@ from ._enums import *
 
 __all__ = [
     'DataCatalogTag',
+    'WorkGroupConfiguration',
+    'WorkGroupConfigurationUpdates',
     'WorkGroupEncryptionConfiguration',
     'WorkGroupEngineVersion',
     'WorkGroupResultConfiguration',
     'WorkGroupResultConfigurationUpdates',
     'WorkGroupTag',
-    'WorkGroupWorkGroupConfiguration',
-    'WorkGroupWorkGroupConfigurationUpdates',
 ]
 
 @pulumi.output_type
@@ -38,6 +38,182 @@ class DataCatalogTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WorkGroupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesScannedCutoffPerQuery":
+            suggest = "bytes_scanned_cutoff_per_query"
+        elif key == "enforceWorkGroupConfiguration":
+            suggest = "enforce_work_group_configuration"
+        elif key == "engineVersion":
+            suggest = "engine_version"
+        elif key == "publishCloudWatchMetricsEnabled":
+            suggest = "publish_cloud_watch_metrics_enabled"
+        elif key == "requesterPaysEnabled":
+            suggest = "requester_pays_enabled"
+        elif key == "resultConfiguration":
+            suggest = "result_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bytes_scanned_cutoff_per_query: Optional[int] = None,
+                 enforce_work_group_configuration: Optional[bool] = None,
+                 engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
+                 publish_cloud_watch_metrics_enabled: Optional[bool] = None,
+                 requester_pays_enabled: Optional[bool] = None,
+                 result_configuration: Optional['outputs.WorkGroupResultConfiguration'] = None):
+        if bytes_scanned_cutoff_per_query is not None:
+            pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
+        if enforce_work_group_configuration is not None:
+            pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if publish_cloud_watch_metrics_enabled is not None:
+            pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
+        if requester_pays_enabled is not None:
+            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
+        if result_configuration is not None:
+            pulumi.set(__self__, "result_configuration", result_configuration)
+
+    @property
+    @pulumi.getter(name="bytesScannedCutoffPerQuery")
+    def bytes_scanned_cutoff_per_query(self) -> Optional[int]:
+        return pulumi.get(self, "bytes_scanned_cutoff_per_query")
+
+    @property
+    @pulumi.getter(name="enforceWorkGroupConfiguration")
+    def enforce_work_group_configuration(self) -> Optional[bool]:
+        return pulumi.get(self, "enforce_work_group_configuration")
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional['outputs.WorkGroupEngineVersion']:
+        return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="publishCloudWatchMetricsEnabled")
+    def publish_cloud_watch_metrics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "publish_cloud_watch_metrics_enabled")
+
+    @property
+    @pulumi.getter(name="requesterPaysEnabled")
+    def requester_pays_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "requester_pays_enabled")
+
+    @property
+    @pulumi.getter(name="resultConfiguration")
+    def result_configuration(self) -> Optional['outputs.WorkGroupResultConfiguration']:
+        return pulumi.get(self, "result_configuration")
+
+
+@pulumi.output_type
+class WorkGroupConfigurationUpdates(dict):
+    """
+    The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesScannedCutoffPerQuery":
+            suggest = "bytes_scanned_cutoff_per_query"
+        elif key == "enforceWorkGroupConfiguration":
+            suggest = "enforce_work_group_configuration"
+        elif key == "engineVersion":
+            suggest = "engine_version"
+        elif key == "publishCloudWatchMetricsEnabled":
+            suggest = "publish_cloud_watch_metrics_enabled"
+        elif key == "removeBytesScannedCutoffPerQuery":
+            suggest = "remove_bytes_scanned_cutoff_per_query"
+        elif key == "requesterPaysEnabled":
+            suggest = "requester_pays_enabled"
+        elif key == "resultConfigurationUpdates":
+            suggest = "result_configuration_updates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkGroupConfigurationUpdates. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkGroupConfigurationUpdates.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkGroupConfigurationUpdates.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bytes_scanned_cutoff_per_query: Optional[int] = None,
+                 enforce_work_group_configuration: Optional[bool] = None,
+                 engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
+                 publish_cloud_watch_metrics_enabled: Optional[bool] = None,
+                 remove_bytes_scanned_cutoff_per_query: Optional[bool] = None,
+                 requester_pays_enabled: Optional[bool] = None,
+                 result_configuration_updates: Optional['outputs.WorkGroupResultConfigurationUpdates'] = None):
+        """
+        The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
+        """
+        if bytes_scanned_cutoff_per_query is not None:
+            pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
+        if enforce_work_group_configuration is not None:
+            pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if publish_cloud_watch_metrics_enabled is not None:
+            pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
+        if remove_bytes_scanned_cutoff_per_query is not None:
+            pulumi.set(__self__, "remove_bytes_scanned_cutoff_per_query", remove_bytes_scanned_cutoff_per_query)
+        if requester_pays_enabled is not None:
+            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
+        if result_configuration_updates is not None:
+            pulumi.set(__self__, "result_configuration_updates", result_configuration_updates)
+
+    @property
+    @pulumi.getter(name="bytesScannedCutoffPerQuery")
+    def bytes_scanned_cutoff_per_query(self) -> Optional[int]:
+        return pulumi.get(self, "bytes_scanned_cutoff_per_query")
+
+    @property
+    @pulumi.getter(name="enforceWorkGroupConfiguration")
+    def enforce_work_group_configuration(self) -> Optional[bool]:
+        return pulumi.get(self, "enforce_work_group_configuration")
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional['outputs.WorkGroupEngineVersion']:
+        return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="publishCloudWatchMetricsEnabled")
+    def publish_cloud_watch_metrics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "publish_cloud_watch_metrics_enabled")
+
+    @property
+    @pulumi.getter(name="removeBytesScannedCutoffPerQuery")
+    def remove_bytes_scanned_cutoff_per_query(self) -> Optional[bool]:
+        return pulumi.get(self, "remove_bytes_scanned_cutoff_per_query")
+
+    @property
+    @pulumi.getter(name="requesterPaysEnabled")
+    def requester_pays_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "requester_pays_enabled")
+
+    @property
+    @pulumi.getter(name="resultConfigurationUpdates")
+    def result_configuration_updates(self) -> Optional['outputs.WorkGroupResultConfigurationUpdates']:
+        return pulumi.get(self, "result_configuration_updates")
 
 
 @pulumi.output_type
@@ -260,181 +436,5 @@ class WorkGroupTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class WorkGroupWorkGroupConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bytesScannedCutoffPerQuery":
-            suggest = "bytes_scanned_cutoff_per_query"
-        elif key == "enforceWorkGroupConfiguration":
-            suggest = "enforce_work_group_configuration"
-        elif key == "engineVersion":
-            suggest = "engine_version"
-        elif key == "publishCloudWatchMetricsEnabled":
-            suggest = "publish_cloud_watch_metrics_enabled"
-        elif key == "requesterPaysEnabled":
-            suggest = "requester_pays_enabled"
-        elif key == "resultConfiguration":
-            suggest = "result_configuration"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkGroupWorkGroupConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkGroupWorkGroupConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkGroupWorkGroupConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bytes_scanned_cutoff_per_query: Optional[int] = None,
-                 enforce_work_group_configuration: Optional[bool] = None,
-                 engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
-                 publish_cloud_watch_metrics_enabled: Optional[bool] = None,
-                 requester_pays_enabled: Optional[bool] = None,
-                 result_configuration: Optional['outputs.WorkGroupResultConfiguration'] = None):
-        if bytes_scanned_cutoff_per_query is not None:
-            pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
-        if enforce_work_group_configuration is not None:
-            pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
-        if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
-        if publish_cloud_watch_metrics_enabled is not None:
-            pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
-        if requester_pays_enabled is not None:
-            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
-        if result_configuration is not None:
-            pulumi.set(__self__, "result_configuration", result_configuration)
-
-    @property
-    @pulumi.getter(name="bytesScannedCutoffPerQuery")
-    def bytes_scanned_cutoff_per_query(self) -> Optional[int]:
-        return pulumi.get(self, "bytes_scanned_cutoff_per_query")
-
-    @property
-    @pulumi.getter(name="enforceWorkGroupConfiguration")
-    def enforce_work_group_configuration(self) -> Optional[bool]:
-        return pulumi.get(self, "enforce_work_group_configuration")
-
-    @property
-    @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional['outputs.WorkGroupEngineVersion']:
-        return pulumi.get(self, "engine_version")
-
-    @property
-    @pulumi.getter(name="publishCloudWatchMetricsEnabled")
-    def publish_cloud_watch_metrics_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "publish_cloud_watch_metrics_enabled")
-
-    @property
-    @pulumi.getter(name="requesterPaysEnabled")
-    def requester_pays_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "requester_pays_enabled")
-
-    @property
-    @pulumi.getter(name="resultConfiguration")
-    def result_configuration(self) -> Optional['outputs.WorkGroupResultConfiguration']:
-        return pulumi.get(self, "result_configuration")
-
-
-@pulumi.output_type
-class WorkGroupWorkGroupConfigurationUpdates(dict):
-    """
-    The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "bytesScannedCutoffPerQuery":
-            suggest = "bytes_scanned_cutoff_per_query"
-        elif key == "enforceWorkGroupConfiguration":
-            suggest = "enforce_work_group_configuration"
-        elif key == "engineVersion":
-            suggest = "engine_version"
-        elif key == "publishCloudWatchMetricsEnabled":
-            suggest = "publish_cloud_watch_metrics_enabled"
-        elif key == "removeBytesScannedCutoffPerQuery":
-            suggest = "remove_bytes_scanned_cutoff_per_query"
-        elif key == "requesterPaysEnabled":
-            suggest = "requester_pays_enabled"
-        elif key == "resultConfigurationUpdates":
-            suggest = "result_configuration_updates"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkGroupWorkGroupConfigurationUpdates. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WorkGroupWorkGroupConfigurationUpdates.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WorkGroupWorkGroupConfigurationUpdates.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 bytes_scanned_cutoff_per_query: Optional[int] = None,
-                 enforce_work_group_configuration: Optional[bool] = None,
-                 engine_version: Optional['outputs.WorkGroupEngineVersion'] = None,
-                 publish_cloud_watch_metrics_enabled: Optional[bool] = None,
-                 remove_bytes_scanned_cutoff_per_query: Optional[bool] = None,
-                 requester_pays_enabled: Optional[bool] = None,
-                 result_configuration_updates: Optional['outputs.WorkGroupResultConfigurationUpdates'] = None):
-        """
-        The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
-        """
-        if bytes_scanned_cutoff_per_query is not None:
-            pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
-        if enforce_work_group_configuration is not None:
-            pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
-        if engine_version is not None:
-            pulumi.set(__self__, "engine_version", engine_version)
-        if publish_cloud_watch_metrics_enabled is not None:
-            pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
-        if remove_bytes_scanned_cutoff_per_query is not None:
-            pulumi.set(__self__, "remove_bytes_scanned_cutoff_per_query", remove_bytes_scanned_cutoff_per_query)
-        if requester_pays_enabled is not None:
-            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
-        if result_configuration_updates is not None:
-            pulumi.set(__self__, "result_configuration_updates", result_configuration_updates)
-
-    @property
-    @pulumi.getter(name="bytesScannedCutoffPerQuery")
-    def bytes_scanned_cutoff_per_query(self) -> Optional[int]:
-        return pulumi.get(self, "bytes_scanned_cutoff_per_query")
-
-    @property
-    @pulumi.getter(name="enforceWorkGroupConfiguration")
-    def enforce_work_group_configuration(self) -> Optional[bool]:
-        return pulumi.get(self, "enforce_work_group_configuration")
-
-    @property
-    @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional['outputs.WorkGroupEngineVersion']:
-        return pulumi.get(self, "engine_version")
-
-    @property
-    @pulumi.getter(name="publishCloudWatchMetricsEnabled")
-    def publish_cloud_watch_metrics_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "publish_cloud_watch_metrics_enabled")
-
-    @property
-    @pulumi.getter(name="removeBytesScannedCutoffPerQuery")
-    def remove_bytes_scanned_cutoff_per_query(self) -> Optional[bool]:
-        return pulumi.get(self, "remove_bytes_scanned_cutoff_per_query")
-
-    @property
-    @pulumi.getter(name="requesterPaysEnabled")
-    def requester_pays_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "requester_pays_enabled")
-
-    @property
-    @pulumi.getter(name="resultConfigurationUpdates")
-    def result_configuration_updates(self) -> Optional['outputs.WorkGroupResultConfigurationUpdates']:
-        return pulumi.get(self, "result_configuration_updates")
 
 

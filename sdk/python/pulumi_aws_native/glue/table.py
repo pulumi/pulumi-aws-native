@@ -17,7 +17,7 @@ class TableArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  database_name: pulumi.Input[str],
-                 table_input: pulumi.Input['TableTableInputArgs']):
+                 table_input: pulumi.Input['TableInputArgs']):
         """
         The set of arguments for constructing a Table resource.
         """
@@ -45,11 +45,11 @@ class TableArgs:
 
     @property
     @pulumi.getter(name="tableInput")
-    def table_input(self) -> pulumi.Input['TableTableInputArgs']:
+    def table_input(self) -> pulumi.Input['TableInputArgs']:
         return pulumi.get(self, "table_input")
 
     @table_input.setter
-    def table_input(self, value: pulumi.Input['TableTableInputArgs']):
+    def table_input(self, value: pulumi.Input['TableInputArgs']):
         pulumi.set(self, "table_input", value)
 
 
@@ -65,7 +65,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 table_input: Optional[pulumi.Input[pulumi.InputType['TableTableInputArgs']]] = None,
+                 table_input: Optional[pulumi.Input[pulumi.InputType['TableInputArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Table
@@ -99,7 +99,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 table_input: Optional[pulumi.Input[pulumi.InputType['TableTableInputArgs']]] = None,
+                 table_input: Optional[pulumi.Input[pulumi.InputType['TableInputArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Table is deprecated: Table is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -161,6 +161,6 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableInput")
-    def table_input(self) -> pulumi.Output['outputs.TableTableInput']:
+    def table_input(self) -> pulumi.Output['outputs.TableInput']:
         return pulumi.get(self, "table_input")
 

@@ -8,38 +8,6 @@ using Pulumi;
 namespace Pulumi.AwsNative.DataBrew
 {
     /// <summary>
-    /// Parameter type
-    /// </summary>
-    [EnumType]
-    public readonly struct DatasetDatasetParameterType : IEquatable<DatasetDatasetParameterType>
-    {
-        private readonly string _value;
-
-        private DatasetDatasetParameterType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatasetDatasetParameterType String { get; } = new DatasetDatasetParameterType("String");
-        public static DatasetDatasetParameterType Number { get; } = new DatasetDatasetParameterType("Number");
-        public static DatasetDatasetParameterType Datetime { get; } = new DatasetDatasetParameterType("Datetime");
-
-        public static bool operator ==(DatasetDatasetParameterType left, DatasetDatasetParameterType right) => left.Equals(right);
-        public static bool operator !=(DatasetDatasetParameterType left, DatasetDatasetParameterType right) => !left.Equals(right);
-
-        public static explicit operator string(DatasetDatasetParameterType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatasetDatasetParameterType other && Equals(other);
-        public bool Equals(DatasetDatasetParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Order
     /// </summary>
     [EnumType]
@@ -126,6 +94,38 @@ namespace Pulumi.AwsNative.DataBrew
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatasetFormat other && Equals(other);
         public bool Equals(DatasetFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Parameter type
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetParameterType : IEquatable<DatasetParameterType>
+    {
+        private readonly string _value;
+
+        private DatasetParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetParameterType String { get; } = new DatasetParameterType("String");
+        public static DatasetParameterType Number { get; } = new DatasetParameterType("Number");
+        public static DatasetParameterType Datetime { get; } = new DatasetParameterType("Datetime");
+
+        public static bool operator ==(DatasetParameterType left, DatasetParameterType right) => left.Equals(right);
+        public static bool operator !=(DatasetParameterType left, DatasetParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetParameterType other && Equals(other);
+        public bool Equals(DatasetParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

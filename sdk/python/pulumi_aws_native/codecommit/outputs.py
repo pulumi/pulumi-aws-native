@@ -11,9 +11,9 @@ from . import outputs
 
 __all__ = [
     'RepositoryCode',
-    'RepositoryRepositoryTrigger',
     'RepositoryS3',
     'RepositoryTag',
+    'RepositoryTrigger',
 ]
 
 @pulumi.output_type
@@ -51,67 +51,6 @@ class RepositoryCode(dict):
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[str]:
         return pulumi.get(self, "branch_name")
-
-
-@pulumi.output_type
-class RepositoryRepositoryTrigger(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "destinationArn":
-            suggest = "destination_arn"
-        elif key == "customData":
-            suggest = "custom_data"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RepositoryRepositoryTrigger. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RepositoryRepositoryTrigger.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RepositoryRepositoryTrigger.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 destination_arn: str,
-                 events: Sequence[str],
-                 name: str,
-                 branches: Optional[Sequence[str]] = None,
-                 custom_data: Optional[str] = None):
-        pulumi.set(__self__, "destination_arn", destination_arn)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "name", name)
-        if branches is not None:
-            pulumi.set(__self__, "branches", branches)
-        if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
-
-    @property
-    @pulumi.getter(name="destinationArn")
-    def destination_arn(self) -> str:
-        return pulumi.get(self, "destination_arn")
-
-    @property
-    @pulumi.getter
-    def events(self) -> Sequence[str]:
-        return pulumi.get(self, "events")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def branches(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "branches")
-
-    @property
-    @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[str]:
-        return pulumi.get(self, "custom_data")
 
 
 @pulumi.output_type
@@ -175,5 +114,66 @@ class RepositoryTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RepositoryTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+        elif key == "customData":
+            suggest = "custom_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_arn: str,
+                 events: Sequence[str],
+                 name: str,
+                 branches: Optional[Sequence[str]] = None,
+                 custom_data: Optional[str] = None):
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "name", name)
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> str:
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Sequence[str]:
+        return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[str]:
+        return pulumi.get(self, "custom_data")
 
 

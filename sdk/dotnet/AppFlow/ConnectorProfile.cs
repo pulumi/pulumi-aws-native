@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// Connector specific configurations needed to create connector profile
         /// </summary>
         [Output("connectorProfileConfig")]
-        public Output<Outputs.ConnectorProfileConnectorProfileConfig?> ConnectorProfileConfig { get; private set; } = null!;
+        public Output<Outputs.ConnectorProfileConfig?> ConnectorProfileConfig { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.AppFlow
         /// Connector specific configurations needed to create connector profile
         /// </summary>
         [Input("connectorProfileConfig")]
-        public Input<Inputs.ConnectorProfileConnectorProfileConfigArgs>? ConnectorProfileConfig { get; set; }
+        public Input<Inputs.ConnectorProfileConfigArgs>? ConnectorProfileConfig { get; set; }
 
         /// <summary>
         /// The maximum number of items to retrieve in a single batch.

@@ -11,117 +11,36 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AccessPolicyAccessPolicyIdentity',
-    'AccessPolicyAccessPolicyResource',
     'AccessPolicyIamRole',
     'AccessPolicyIamUser',
+    'AccessPolicyIdentity',
     'AccessPolicyPortal',
     'AccessPolicyProject',
+    'AccessPolicyResource',
     'AccessPolicyUser',
-    'AssetAssetHierarchy',
-    'AssetAssetProperty',
-    'AssetModelAssetModelCompositeModel',
-    'AssetModelAssetModelHierarchy',
-    'AssetModelAssetModelProperty',
+    'AssetHierarchy',
     'AssetModelAttribute',
+    'AssetModelCompositeModel',
     'AssetModelExpressionVariable',
+    'AssetModelHierarchy',
     'AssetModelMetric',
     'AssetModelMetricWindow',
+    'AssetModelProperty',
     'AssetModelPropertyType',
     'AssetModelTag',
     'AssetModelTransform',
     'AssetModelTumblingWindow',
     'AssetModelVariableValue',
+    'AssetProperty',
     'AssetTag',
     'DashboardTag',
-    'GatewayGatewayCapabilitySummary',
-    'GatewayGatewayPlatform',
+    'GatewayCapabilitySummary',
     'GatewayGreengrass',
+    'GatewayPlatform',
     'GatewayTag',
     'PortalTag',
     'ProjectTag',
 ]
-
-@pulumi.output_type
-class AccessPolicyAccessPolicyIdentity(dict):
-    """
-    The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "iamRole":
-            suggest = "iam_role"
-        elif key == "iamUser":
-            suggest = "iam_user"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyAccessPolicyIdentity. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AccessPolicyAccessPolicyIdentity.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AccessPolicyAccessPolicyIdentity.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 iam_role: Optional['outputs.AccessPolicyIamRole'] = None,
-                 iam_user: Optional['outputs.AccessPolicyIamUser'] = None,
-                 user: Optional['outputs.AccessPolicyUser'] = None):
-        """
-        The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-        """
-        if iam_role is not None:
-            pulumi.set(__self__, "iam_role", iam_role)
-        if iam_user is not None:
-            pulumi.set(__self__, "iam_user", iam_user)
-        if user is not None:
-            pulumi.set(__self__, "user", user)
-
-    @property
-    @pulumi.getter(name="iamRole")
-    def iam_role(self) -> Optional['outputs.AccessPolicyIamRole']:
-        return pulumi.get(self, "iam_role")
-
-    @property
-    @pulumi.getter(name="iamUser")
-    def iam_user(self) -> Optional['outputs.AccessPolicyIamUser']:
-        return pulumi.get(self, "iam_user")
-
-    @property
-    @pulumi.getter
-    def user(self) -> Optional['outputs.AccessPolicyUser']:
-        return pulumi.get(self, "user")
-
-
-@pulumi.output_type
-class AccessPolicyAccessPolicyResource(dict):
-    """
-    The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-    """
-    def __init__(__self__, *,
-                 portal: Optional['outputs.AccessPolicyPortal'] = None,
-                 project: Optional['outputs.AccessPolicyProject'] = None):
-        """
-        The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
-        """
-        if portal is not None:
-            pulumi.set(__self__, "portal", portal)
-        if project is not None:
-            pulumi.set(__self__, "project", project)
-
-    @property
-    @pulumi.getter
-    def portal(self) -> Optional['outputs.AccessPolicyPortal']:
-        return pulumi.get(self, "portal")
-
-    @property
-    @pulumi.getter
-    def project(self) -> Optional['outputs.AccessPolicyProject']:
-        return pulumi.get(self, "project")
-
 
 @pulumi.output_type
 class AccessPolicyIamRole(dict):
@@ -167,6 +86,60 @@ class AccessPolicyIamUser(dict):
         The ARN of the IAM user.
         """
         return pulumi.get(self, "arn")
+
+
+@pulumi.output_type
+class AccessPolicyIdentity(dict):
+    """
+    The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamRole":
+            suggest = "iam_role"
+        elif key == "iamUser":
+            suggest = "iam_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPolicyIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPolicyIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPolicyIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_role: Optional['outputs.AccessPolicyIamRole'] = None,
+                 iam_user: Optional['outputs.AccessPolicyIamUser'] = None,
+                 user: Optional['outputs.AccessPolicyUser'] = None):
+        """
+        The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
+        """
+        if iam_role is not None:
+            pulumi.set(__self__, "iam_role", iam_role)
+        if iam_user is not None:
+            pulumi.set(__self__, "iam_user", iam_user)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter(name="iamRole")
+    def iam_role(self) -> Optional['outputs.AccessPolicyIamRole']:
+        return pulumi.get(self, "iam_role")
+
+    @property
+    @pulumi.getter(name="iamUser")
+    def iam_user(self) -> Optional['outputs.AccessPolicyIamUser']:
+        return pulumi.get(self, "iam_user")
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional['outputs.AccessPolicyUser']:
+        return pulumi.get(self, "user")
 
 
 @pulumi.output_type
@@ -216,6 +189,33 @@ class AccessPolicyProject(dict):
 
 
 @pulumi.output_type
+class AccessPolicyResource(dict):
+    """
+    The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+    """
+    def __init__(__self__, *,
+                 portal: Optional['outputs.AccessPolicyPortal'] = None,
+                 project: Optional['outputs.AccessPolicyProject'] = None):
+        """
+        The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
+        """
+        if portal is not None:
+            pulumi.set(__self__, "portal", portal)
+        if project is not None:
+            pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter
+    def portal(self) -> Optional['outputs.AccessPolicyPortal']:
+        return pulumi.get(self, "portal")
+
+    @property
+    @pulumi.getter
+    def project(self) -> Optional['outputs.AccessPolicyProject']:
+        return pulumi.get(self, "project")
+
+
+@pulumi.output_type
 class AccessPolicyUser(dict):
     """
     Contains information for a user identity in an access policy.
@@ -239,7 +239,7 @@ class AccessPolicyUser(dict):
 
 
 @pulumi.output_type
-class AssetAssetHierarchy(dict):
+class AssetHierarchy(dict):
     """
     A hierarchy specifies allowed parent/child asset relationships.
     """
@@ -252,14 +252,14 @@ class AssetAssetHierarchy(dict):
             suggest = "logical_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssetAssetHierarchy. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssetHierarchy. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssetAssetHierarchy.__key_warning(key)
+        AssetHierarchy.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssetAssetHierarchy.__key_warning(key)
+        AssetHierarchy.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -291,72 +291,37 @@ class AssetAssetHierarchy(dict):
 
 
 @pulumi.output_type
-class AssetAssetProperty(dict):
-    """
-    The asset property's definition, alias, and notification state.
-    """
+class AssetModelAttribute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "logicalId":
-            suggest = "logical_id"
-        elif key == "notificationState":
-            suggest = "notification_state"
+        if key == "defaultValue":
+            suggest = "default_value"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssetAssetProperty. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelAttribute. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssetAssetProperty.__key_warning(key)
+        AssetModelAttribute.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssetAssetProperty.__key_warning(key)
+        AssetModelAttribute.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 logical_id: str,
-                 alias: Optional[str] = None,
-                 notification_state: Optional['AssetAssetPropertyNotificationState'] = None):
-        """
-        The asset property's definition, alias, and notification state.
-        :param str logical_id: Customer provided ID for property.
-        :param str alias: The property alias that identifies the property.
-        :param 'AssetAssetPropertyNotificationState' notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
-        """
-        pulumi.set(__self__, "logical_id", logical_id)
-        if alias is not None:
-            pulumi.set(__self__, "alias", alias)
-        if notification_state is not None:
-            pulumi.set(__self__, "notification_state", notification_state)
+                 default_value: Optional[str] = None):
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
 
     @property
-    @pulumi.getter(name="logicalId")
-    def logical_id(self) -> str:
-        """
-        Customer provided ID for property.
-        """
-        return pulumi.get(self, "logical_id")
-
-    @property
-    @pulumi.getter
-    def alias(self) -> Optional[str]:
-        """
-        The property alias that identifies the property.
-        """
-        return pulumi.get(self, "alias")
-
-    @property
-    @pulumi.getter(name="notificationState")
-    def notification_state(self) -> Optional['AssetAssetPropertyNotificationState']:
-        """
-        The MQTT notification state (ENABLED or DISABLED) for this asset property.
-        """
-        return pulumi.get(self, "notification_state")
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        return pulumi.get(self, "default_value")
 
 
 @pulumi.output_type
-class AssetModelAssetModelCompositeModel(dict):
+class AssetModelCompositeModel(dict):
     """
     Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
     """
@@ -367,26 +332,26 @@ class AssetModelAssetModelCompositeModel(dict):
             suggest = "composite_model_properties"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssetModelAssetModelCompositeModel. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelCompositeModel. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssetModelAssetModelCompositeModel.__key_warning(key)
+        AssetModelCompositeModel.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssetModelAssetModelCompositeModel.__key_warning(key)
+        AssetModelCompositeModel.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  name: str,
                  type: str,
-                 composite_model_properties: Optional[Sequence['outputs.AssetModelAssetModelProperty']] = None,
+                 composite_model_properties: Optional[Sequence['outputs.AssetModelProperty']] = None,
                  description: Optional[str] = None):
         """
         Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
         :param str name: A unique, friendly name for the asset composite model.
         :param str type: The type of the composite model. For alarm composite models, this type is AWS/ALARM
-        :param Sequence['AssetModelAssetModelProperty'] composite_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
+        :param Sequence['AssetModelProperty'] composite_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
         :param str description: A description for the asset composite model.
         """
         pulumi.set(__self__, "name", name)
@@ -414,7 +379,7 @@ class AssetModelAssetModelCompositeModel(dict):
 
     @property
     @pulumi.getter(name="compositeModelProperties")
-    def composite_model_properties(self) -> Optional[Sequence['outputs.AssetModelAssetModelProperty']]:
+    def composite_model_properties(self) -> Optional[Sequence['outputs.AssetModelProperty']]:
         """
         The property definitions of the asset model. You can specify up to 200 properties per asset model.
         """
@@ -430,7 +395,36 @@ class AssetModelAssetModelCompositeModel(dict):
 
 
 @pulumi.output_type
-class AssetModelAssetModelHierarchy(dict):
+class AssetModelExpressionVariable(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: 'outputs.AssetModelVariableValue'):
+        """
+        :param str name: The friendly name of the variable to be used in the expression.
+        :param 'AssetModelVariableValue' value: The variable that identifies an asset property from which to use values.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The friendly name of the variable to be used in the expression.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.AssetModelVariableValue':
+        """
+        The variable that identifies an asset property from which to use values.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AssetModelHierarchy(dict):
     """
     Contains information about an asset model hierarchy.
     """
@@ -443,14 +437,14 @@ class AssetModelAssetModelHierarchy(dict):
             suggest = "logical_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssetModelAssetModelHierarchy. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelHierarchy. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssetModelAssetModelHierarchy.__key_warning(key)
+        AssetModelHierarchy.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssetModelAssetModelHierarchy.__key_warning(key)
+        AssetModelHierarchy.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -493,7 +487,66 @@ class AssetModelAssetModelHierarchy(dict):
 
 
 @pulumi.output_type
-class AssetModelAssetModelProperty(dict):
+class AssetModelMetric(dict):
+    def __init__(__self__, *,
+                 expression: str,
+                 variables: Sequence['outputs.AssetModelExpressionVariable'],
+                 window: 'outputs.AssetModelMetricWindow'):
+        """
+        :param str expression: The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
+        :param Sequence['AssetModelExpressionVariable'] variables: The list of variables used in the expression.
+        :param 'AssetModelMetricWindow' window: The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
+        """
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "variables", variables)
+        pulumi.set(__self__, "window", window)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Sequence['outputs.AssetModelExpressionVariable']:
+        """
+        The list of variables used in the expression.
+        """
+        return pulumi.get(self, "variables")
+
+    @property
+    @pulumi.getter
+    def window(self) -> 'outputs.AssetModelMetricWindow':
+        """
+        The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
+        """
+        return pulumi.get(self, "window")
+
+
+@pulumi.output_type
+class AssetModelMetricWindow(dict):
+    """
+    Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+    """
+    def __init__(__self__, *,
+                 tumbling: Optional['outputs.AssetModelTumblingWindow'] = None):
+        """
+        Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
+        """
+        if tumbling is not None:
+            pulumi.set(__self__, "tumbling", tumbling)
+
+    @property
+    @pulumi.getter
+    def tumbling(self) -> Optional['outputs.AssetModelTumblingWindow']:
+        return pulumi.get(self, "tumbling")
+
+
+@pulumi.output_type
+class AssetModelProperty(dict):
     """
     Contains information about an asset model property.
     """
@@ -508,14 +561,14 @@ class AssetModelAssetModelProperty(dict):
             suggest = "data_type_spec"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssetModelAssetModelProperty. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssetModelProperty. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssetModelAssetModelProperty.__key_warning(key)
+        AssetModelProperty.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssetModelAssetModelProperty.__key_warning(key)
+        AssetModelProperty.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -590,124 +643,6 @@ class AssetModelAssetModelProperty(dict):
         The unit of the asset model property, such as Newtons or RPM.
         """
         return pulumi.get(self, "unit")
-
-
-@pulumi.output_type
-class AssetModelAttribute(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "defaultValue":
-            suggest = "default_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssetModelAttribute. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AssetModelAttribute.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AssetModelAttribute.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 default_value: Optional[str] = None):
-        if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
-
-    @property
-    @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[str]:
-        return pulumi.get(self, "default_value")
-
-
-@pulumi.output_type
-class AssetModelExpressionVariable(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 value: 'outputs.AssetModelVariableValue'):
-        """
-        :param str name: The friendly name of the variable to be used in the expression.
-        :param 'AssetModelVariableValue' value: The variable that identifies an asset property from which to use values.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The friendly name of the variable to be used in the expression.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> 'outputs.AssetModelVariableValue':
-        """
-        The variable that identifies an asset property from which to use values.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class AssetModelMetric(dict):
-    def __init__(__self__, *,
-                 expression: str,
-                 variables: Sequence['outputs.AssetModelExpressionVariable'],
-                 window: 'outputs.AssetModelMetricWindow'):
-        """
-        :param str expression: The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
-        :param Sequence['AssetModelExpressionVariable'] variables: The list of variables used in the expression.
-        :param 'AssetModelMetricWindow' window: The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
-        """
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "variables", variables)
-        pulumi.set(__self__, "window", window)
-
-    @property
-    @pulumi.getter
-    def expression(self) -> str:
-        """
-        The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
-        """
-        return pulumi.get(self, "expression")
-
-    @property
-    @pulumi.getter
-    def variables(self) -> Sequence['outputs.AssetModelExpressionVariable']:
-        """
-        The list of variables used in the expression.
-        """
-        return pulumi.get(self, "variables")
-
-    @property
-    @pulumi.getter
-    def window(self) -> 'outputs.AssetModelMetricWindow':
-        """
-        The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
-        """
-        return pulumi.get(self, "window")
-
-
-@pulumi.output_type
-class AssetModelMetricWindow(dict):
-    """
-    Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
-    """
-    def __init__(__self__, *,
-                 tumbling: Optional['outputs.AssetModelTumblingWindow'] = None):
-        """
-        Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
-        """
-        if tumbling is not None:
-            pulumi.set(__self__, "tumbling", tumbling)
-
-    @property
-    @pulumi.getter
-    def tumbling(self) -> Optional['outputs.AssetModelTumblingWindow']:
-        return pulumi.get(self, "tumbling")
 
 
 @pulumi.output_type
@@ -883,6 +818,71 @@ class AssetModelVariableValue(dict):
 
 
 @pulumi.output_type
+class AssetProperty(dict):
+    """
+    The asset property's definition, alias, and notification state.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicalId":
+            suggest = "logical_id"
+        elif key == "notificationState":
+            suggest = "notification_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 logical_id: str,
+                 alias: Optional[str] = None,
+                 notification_state: Optional['AssetPropertyNotificationState'] = None):
+        """
+        The asset property's definition, alias, and notification state.
+        :param str logical_id: Customer provided ID for property.
+        :param str alias: The property alias that identifies the property.
+        :param 'AssetPropertyNotificationState' notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        """
+        pulumi.set(__self__, "logical_id", logical_id)
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
+        if notification_state is not None:
+            pulumi.set(__self__, "notification_state", notification_state)
+
+    @property
+    @pulumi.getter(name="logicalId")
+    def logical_id(self) -> str:
+        """
+        Customer provided ID for property.
+        """
+        return pulumi.get(self, "logical_id")
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        """
+        The property alias that identifies the property.
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="notificationState")
+    def notification_state(self) -> Optional['AssetPropertyNotificationState']:
+        """
+        The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        """
+        return pulumi.get(self, "notification_state")
+
+
+@pulumi.output_type
 class AssetTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -927,7 +927,7 @@ class DashboardTag(dict):
 
 
 @pulumi.output_type
-class GatewayGatewayCapabilitySummary(dict):
+class GatewayCapabilitySummary(dict):
     """
     Contains a summary of a gateway capability configuration.
     """
@@ -940,14 +940,14 @@ class GatewayGatewayCapabilitySummary(dict):
             suggest = "capability_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GatewayGatewayCapabilitySummary. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in GatewayCapabilitySummary. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GatewayGatewayCapabilitySummary.__key_warning(key)
+        GatewayCapabilitySummary.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GatewayGatewayCapabilitySummary.__key_warning(key)
+        GatewayCapabilitySummary.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -969,28 +969,6 @@ class GatewayGatewayCapabilitySummary(dict):
     @pulumi.getter(name="capabilityConfiguration")
     def capability_configuration(self) -> Optional[str]:
         return pulumi.get(self, "capability_configuration")
-
-
-@pulumi.output_type
-class GatewayGatewayPlatform(dict):
-    """
-    Contains a gateway's platform information.
-    """
-    def __init__(__self__, *,
-                 greengrass: 'outputs.GatewayGreengrass'):
-        """
-        Contains a gateway's platform information.
-        :param 'GatewayGreengrass' greengrass: A gateway that runs on AWS IoT Greengrass.
-        """
-        pulumi.set(__self__, "greengrass", greengrass)
-
-    @property
-    @pulumi.getter
-    def greengrass(self) -> 'outputs.GatewayGreengrass':
-        """
-        A gateway that runs on AWS IoT Greengrass.
-        """
-        return pulumi.get(self, "greengrass")
 
 
 @pulumi.output_type
@@ -1030,6 +1008,28 @@ class GatewayGreengrass(dict):
         The ARN of the Greengrass group.
         """
         return pulumi.get(self, "group_arn")
+
+
+@pulumi.output_type
+class GatewayPlatform(dict):
+    """
+    Contains a gateway's platform information.
+    """
+    def __init__(__self__, *,
+                 greengrass: 'outputs.GatewayGreengrass'):
+        """
+        Contains a gateway's platform information.
+        :param 'GatewayGreengrass' greengrass: A gateway that runs on AWS IoT Greengrass.
+        """
+        pulumi.set(__self__, "greengrass", greengrass)
+
+    @property
+    @pulumi.getter
+    def greengrass(self) -> 'outputs.GatewayGreengrass':
+        """
+        A gateway that runs on AWS IoT Greengrass.
+        """
+        return pulumi.get(self, "greengrass")
 
 
 @pulumi.output_type

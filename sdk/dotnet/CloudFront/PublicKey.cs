@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> CreatedTime { get; private set; } = null!;
 
         [Output("publicKeyConfig")]
-        public Output<Outputs.PublicKeyPublicKeyConfig> PublicKeyConfig { get; private set; } = null!;
+        public Output<Outputs.PublicKeyConfig> PublicKeyConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class PublicKeyArgs : Pulumi.ResourceArgs
     {
         [Input("publicKeyConfig", required: true)]
-        public Input<Inputs.PublicKeyPublicKeyConfigArgs> PublicKeyConfig { get; set; } = null!;
+        public Input<Inputs.PublicKeyConfigArgs> PublicKeyConfig { get; set; } = null!;
 
         public PublicKeyArgs()
         {

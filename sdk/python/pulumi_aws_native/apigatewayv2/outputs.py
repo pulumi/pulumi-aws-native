@@ -18,7 +18,7 @@ __all__ = [
     'ApiGatewayManagedOverridesRouteSettings',
     'ApiGatewayManagedOverridesStageOverrides',
     'AuthorizerJWTConfiguration',
-    'DomainNameDomainNameConfiguration',
+    'DomainNameConfiguration',
     'DomainNameMutualTlsAuthentication',
     'IntegrationTlsConfig',
     'StageAccessLogSettings',
@@ -476,7 +476,7 @@ class AuthorizerJWTConfiguration(dict):
 
 
 @pulumi.output_type
-class DomainNameDomainNameConfiguration(dict):
+class DomainNameConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -492,14 +492,14 @@ class DomainNameDomainNameConfiguration(dict):
             suggest = "security_policy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DomainNameDomainNameConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DomainNameConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DomainNameDomainNameConfiguration.__key_warning(key)
+        DomainNameConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DomainNameDomainNameConfiguration.__key_warning(key)
+        DomainNameConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

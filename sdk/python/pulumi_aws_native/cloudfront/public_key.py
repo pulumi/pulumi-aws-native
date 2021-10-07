@@ -15,7 +15,7 @@ __all__ = ['PublicKeyArgs', 'PublicKey']
 @pulumi.input_type
 class PublicKeyArgs:
     def __init__(__self__, *,
-                 public_key_config: pulumi.Input['PublicKeyPublicKeyConfigArgs']):
+                 public_key_config: pulumi.Input['PublicKeyConfigArgs']):
         """
         The set of arguments for constructing a PublicKey resource.
         """
@@ -23,11 +23,11 @@ class PublicKeyArgs:
 
     @property
     @pulumi.getter(name="publicKeyConfig")
-    def public_key_config(self) -> pulumi.Input['PublicKeyPublicKeyConfigArgs']:
+    def public_key_config(self) -> pulumi.Input['PublicKeyConfigArgs']:
         return pulumi.get(self, "public_key_config")
 
     @public_key_config.setter
-    def public_key_config(self, value: pulumi.Input['PublicKeyPublicKeyConfigArgs']):
+    def public_key_config(self, value: pulumi.Input['PublicKeyConfigArgs']):
         pulumi.set(self, "public_key_config", value)
 
 
@@ -36,7 +36,7 @@ class PublicKey(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyPublicKeyConfigArgs']]] = None,
+                 public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudFront::PublicKey
@@ -68,7 +68,7 @@ class PublicKey(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyPublicKeyConfigArgs']]] = None,
+                 public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -118,6 +118,6 @@ class PublicKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKeyConfig")
-    def public_key_config(self) -> pulumi.Output['outputs.PublicKeyPublicKeyConfig']:
+    def public_key_config(self) -> pulumi.Output['outputs.PublicKeyConfig']:
         return pulumi.get(self, "public_key_config")
 

@@ -16,13 +16,13 @@ type Gateway struct {
 	pulumi.CustomResourceState
 
 	// A list of gateway capability summaries that each contain a namespace and status.
-	GatewayCapabilitySummaries GatewayGatewayCapabilitySummaryArrayOutput `pulumi:"gatewayCapabilitySummaries"`
+	GatewayCapabilitySummaries GatewayCapabilitySummaryArrayOutput `pulumi:"gatewayCapabilitySummaries"`
 	// The ID of the gateway device.
 	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
 	// A unique, friendly name for the gateway.
 	GatewayName pulumi.StringOutput `pulumi:"gatewayName"`
 	// The gateway's platform. You can only specify one platform in a gateway.
-	GatewayPlatform GatewayGatewayPlatformOutput `pulumi:"gatewayPlatform"`
+	GatewayPlatform GatewayPlatformOutput `pulumi:"gatewayPlatform"`
 	// A list of key-value pairs that contain metadata for the gateway.
 	Tags GatewayTagArrayOutput `pulumi:"tags"`
 }
@@ -73,11 +73,11 @@ func (GatewayState) ElementType() reflect.Type {
 
 type gatewayArgs struct {
 	// A list of gateway capability summaries that each contain a namespace and status.
-	GatewayCapabilitySummaries []GatewayGatewayCapabilitySummary `pulumi:"gatewayCapabilitySummaries"`
+	GatewayCapabilitySummaries []GatewayCapabilitySummary `pulumi:"gatewayCapabilitySummaries"`
 	// A unique, friendly name for the gateway.
 	GatewayName string `pulumi:"gatewayName"`
 	// The gateway's platform. You can only specify one platform in a gateway.
-	GatewayPlatform GatewayGatewayPlatform `pulumi:"gatewayPlatform"`
+	GatewayPlatform GatewayPlatform `pulumi:"gatewayPlatform"`
 	// A list of key-value pairs that contain metadata for the gateway.
 	Tags []GatewayTag `pulumi:"tags"`
 }
@@ -85,11 +85,11 @@ type gatewayArgs struct {
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
 	// A list of gateway capability summaries that each contain a namespace and status.
-	GatewayCapabilitySummaries GatewayGatewayCapabilitySummaryArrayInput
+	GatewayCapabilitySummaries GatewayCapabilitySummaryArrayInput
 	// A unique, friendly name for the gateway.
 	GatewayName pulumi.StringInput
 	// The gateway's platform. You can only specify one platform in a gateway.
-	GatewayPlatform GatewayGatewayPlatformInput
+	GatewayPlatform GatewayPlatformInput
 	// A list of key-value pairs that contain metadata for the gateway.
 	Tags GatewayTagArrayInput
 }

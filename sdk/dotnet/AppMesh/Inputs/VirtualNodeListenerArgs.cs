@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
     public sealed class VirtualNodeListenerArgs : Pulumi.ResourceArgs
     {
         [Input("connectionPool")]
-        public Input<Inputs.VirtualNodeVirtualNodeConnectionPoolArgs>? ConnectionPool { get; set; }
+        public Input<Inputs.VirtualNodeConnectionPoolArgs>? ConnectionPool { get; set; }
 
         [Input("healthCheck")]
         public Input<Inputs.VirtualNodeHealthCheckArgs>? HealthCheck { get; set; }

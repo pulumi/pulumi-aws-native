@@ -154,12 +154,12 @@ __all__ = [
     'ChannelVpcOutputSettingsArgs',
     'ChannelWavSettingsArgs',
     'ChannelWebvttDestinationSettingsArgs',
-    'InputInputDestinationRequestArgs',
-    'InputInputDeviceSettingsArgs',
-    'InputInputSourceRequestArgs',
-    'InputInputVpcRequestArgs',
+    'InputDestinationRequestArgs',
+    'InputDeviceSettingsArgs',
     'InputMediaConnectFlowRequestArgs',
     'InputSecurityGroupInputWhitelistRuleCidrArgs',
+    'InputSourceRequestArgs',
+    'InputVpcRequestArgs',
 ]
 
 @pulumi.input_type
@@ -8491,7 +8491,7 @@ class ChannelWebvttDestinationSettingsArgs:
 
 
 @pulumi.input_type
-class InputInputDestinationRequestArgs:
+class InputDestinationRequestArgs:
     def __init__(__self__, *,
                  stream_name: Optional[pulumi.Input[str]] = None):
         if stream_name is not None:
@@ -8508,7 +8508,7 @@ class InputInputDestinationRequestArgs:
 
 
 @pulumi.input_type
-class InputInputDeviceSettingsArgs:
+class InputDeviceSettingsArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
         if id is not None:
@@ -8525,7 +8525,41 @@ class InputInputDeviceSettingsArgs:
 
 
 @pulumi.input_type
-class InputInputSourceRequestArgs:
+class InputMediaConnectFlowRequestArgs:
+    def __init__(__self__, *,
+                 flow_arn: Optional[pulumi.Input[str]] = None):
+        if flow_arn is not None:
+            pulumi.set(__self__, "flow_arn", flow_arn)
+
+    @property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "flow_arn")
+
+    @flow_arn.setter
+    def flow_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flow_arn", value)
+
+
+@pulumi.input_type
+class InputSecurityGroupInputWhitelistRuleCidrArgs:
+    def __init__(__self__, *,
+                 cidr: Optional[pulumi.Input[str]] = None):
+        if cidr is not None:
+            pulumi.set(__self__, "cidr", cidr)
+
+    @property
+    @pulumi.getter
+    def cidr(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cidr")
+
+    @cidr.setter
+    def cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr", value)
+
+
+@pulumi.input_type
+class InputSourceRequestArgs:
     def __init__(__self__, *,
                  password_param: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
@@ -8566,7 +8600,7 @@ class InputInputSourceRequestArgs:
 
 
 @pulumi.input_type
-class InputInputVpcRequestArgs:
+class InputVpcRequestArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -8592,39 +8626,5 @@ class InputInputVpcRequestArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
-
-
-@pulumi.input_type
-class InputMediaConnectFlowRequestArgs:
-    def __init__(__self__, *,
-                 flow_arn: Optional[pulumi.Input[str]] = None):
-        if flow_arn is not None:
-            pulumi.set(__self__, "flow_arn", flow_arn)
-
-    @property
-    @pulumi.getter(name="flowArn")
-    def flow_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "flow_arn")
-
-    @flow_arn.setter
-    def flow_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "flow_arn", value)
-
-
-@pulumi.input_type
-class InputSecurityGroupInputWhitelistRuleCidrArgs:
-    def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[str]] = None):
-        if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
-
-    @property
-    @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "cidr")
-
-    @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cidr", value)
 
 

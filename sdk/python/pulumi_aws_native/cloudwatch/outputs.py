@@ -18,7 +18,7 @@ __all__ = [
     'AnomalyDetectorDimension',
     'AnomalyDetectorRange',
     'InsightRuleTags',
-    'MetricStreamMetricStreamFilter',
+    'MetricStreamFilter',
     'MetricStreamTag',
 ]
 
@@ -306,7 +306,7 @@ class InsightRuleTags(dict):
 
 
 @pulumi.output_type
-class MetricStreamMetricStreamFilter(dict):
+class MetricStreamFilter(dict):
     """
     This structure defines the metrics that will be streamed.
     """

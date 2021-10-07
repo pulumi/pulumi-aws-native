@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("resourceLifecycleConfig")]
-        public Output<Outputs.ApplicationApplicationResourceLifecycleConfig?> ResourceLifecycleConfig { get; private set; } = null!;
+        public Output<Outputs.ApplicationResourceLifecycleConfig?> ResourceLifecycleConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Input<string>? Description { get; set; }
 
         [Input("resourceLifecycleConfig")]
-        public Input<Inputs.ApplicationApplicationResourceLifecycleConfigArgs>? ResourceLifecycleConfig { get; set; }
+        public Input<Inputs.ApplicationResourceLifecycleConfigArgs>? ResourceLifecycleConfig { get; set; }
 
         public ApplicationArgs()
         {

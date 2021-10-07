@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Output<string> DomainNameValue { get; private set; } = null!;
 
         [Output("domainNameConfigurations")]
-        public Output<ImmutableArray<Outputs.DomainNameDomainNameConfiguration>> DomainNameConfigurations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DomainNameConfiguration>> DomainNameConfigurations { get; private set; } = null!;
 
         [Output("mutualTlsAuthentication")]
         public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
@@ -83,10 +83,10 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         public Input<string> DomainNameValue { get; set; } = null!;
 
         [Input("domainNameConfigurations")]
-        private InputList<Inputs.DomainNameDomainNameConfigurationArgs>? _domainNameConfigurations;
-        public InputList<Inputs.DomainNameDomainNameConfigurationArgs> DomainNameConfigurations
+        private InputList<Inputs.DomainNameConfigurationArgs>? _domainNameConfigurations;
+        public InputList<Inputs.DomainNameConfigurationArgs> DomainNameConfigurations
         {
-            get => _domainNameConfigurations ?? (_domainNameConfigurations = new InputList<Inputs.DomainNameDomainNameConfigurationArgs>());
+            get => _domainNameConfigurations ?? (_domainNameConfigurations = new InputList<Inputs.DomainNameConfigurationArgs>());
             set => _domainNameConfigurations = value;
         }
 

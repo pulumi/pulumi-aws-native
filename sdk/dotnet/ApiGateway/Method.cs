@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<Outputs.MethodIntegration?> Integration { get; private set; } = null!;
 
         [Output("methodResponses")]
-        public Output<ImmutableArray<Outputs.MethodMethodResponse>> MethodResponses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MethodResponse>> MethodResponses { get; private set; } = null!;
 
         [Output("operationName")]
         public Output<string?> OperationName { get; private set; } = null!;
@@ -123,10 +123,10 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<Inputs.MethodIntegrationArgs>? Integration { get; set; }
 
         [Input("methodResponses")]
-        private InputList<Inputs.MethodMethodResponseArgs>? _methodResponses;
-        public InputList<Inputs.MethodMethodResponseArgs> MethodResponses
+        private InputList<Inputs.MethodResponseArgs>? _methodResponses;
+        public InputList<Inputs.MethodResponseArgs> MethodResponses
         {
-            get => _methodResponses ?? (_methodResponses = new InputList<Inputs.MethodMethodResponseArgs>());
+            get => _methodResponses ?? (_methodResponses = new InputList<Inputs.MethodResponseArgs>());
             set => _methodResponses = value;
         }
 

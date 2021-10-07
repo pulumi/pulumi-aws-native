@@ -17,13 +17,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// Step action operation
         /// </summary>
         public readonly string Operation;
-        public readonly Union<Outputs.RecipeRecipeParameters, Outputs.RecipeParameterMap>? Parameters;
+        public readonly Union<Outputs.RecipeParameters, Outputs.RecipeParameterMap>? Parameters;
 
         [OutputConstructor]
         private RecipeAction(
             string operation,
 
-            Union<Outputs.RecipeRecipeParameters, Outputs.RecipeParameterMap>? parameters)
+            Union<Outputs.RecipeParameters, Outputs.RecipeParameterMap>? parameters)
         {
             Operation = operation;
             Parameters = parameters;

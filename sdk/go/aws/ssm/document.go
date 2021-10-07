@@ -20,13 +20,13 @@ type Document struct {
 	// The content for the Systems Manager document in JSON, YAML or String format.
 	Content pulumi.AnyOutput `pulumi:"content"`
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-	DocumentFormat DocumentDocumentFormatPtrOutput `pulumi:"documentFormat"`
+	DocumentFormat DocumentFormatPtrOutput `pulumi:"documentFormat"`
 	// The type of document to create.
-	DocumentType DocumentDocumentTypePtrOutput `pulumi:"documentType"`
+	DocumentType DocumentTypePtrOutput `pulumi:"documentType"`
 	// A name for the Systems Manager document.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
-	Requires DocumentDocumentRequiresArrayOutput `pulumi:"requires"`
+	Requires DocumentRequiresArrayOutput `pulumi:"requires"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
 	Tags DocumentTagArrayOutput `pulumi:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
@@ -82,13 +82,13 @@ type documentArgs struct {
 	// The content for the Systems Manager document in JSON, YAML or String format.
 	Content interface{} `pulumi:"content"`
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-	DocumentFormat *DocumentDocumentFormat `pulumi:"documentFormat"`
+	DocumentFormat *DocumentFormat `pulumi:"documentFormat"`
 	// The type of document to create.
-	DocumentType *DocumentDocumentType `pulumi:"documentType"`
+	DocumentType *DocumentType `pulumi:"documentType"`
 	// A name for the Systems Manager document.
 	Name *string `pulumi:"name"`
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
-	Requires []DocumentDocumentRequires `pulumi:"requires"`
+	Requires []DocumentRequires `pulumi:"requires"`
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
 	Tags []DocumentTag `pulumi:"tags"`
 	// Specify a target type to define the kinds of resources the document can run on.
@@ -104,13 +104,13 @@ type DocumentArgs struct {
 	// The content for the Systems Manager document in JSON, YAML or String format.
 	Content pulumi.Input
 	// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
-	DocumentFormat DocumentDocumentFormatPtrInput
+	DocumentFormat DocumentFormatPtrInput
 	// The type of document to create.
-	DocumentType DocumentDocumentTypePtrInput
+	DocumentType DocumentTypePtrInput
 	// A name for the Systems Manager document.
 	Name pulumi.StringPtrInput
 	// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
-	Requires DocumentDocumentRequiresArrayInput
+	Requires DocumentRequiresArrayInput
 	// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
 	Tags DocumentTagArrayInput
 	// Specify a target type to define the kinds of resources the document can run on.

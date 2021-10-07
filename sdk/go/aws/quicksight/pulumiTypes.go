@@ -10,407 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// <p>A metadata error structure for an analysis.</p>
-type AnalysisAnalysisError struct {
-	// <p>The message associated with the analysis error.</p>
-	Message *string                    `pulumi:"message"`
-	Type    *AnalysisAnalysisErrorType `pulumi:"type"`
-}
-
-// AnalysisAnalysisErrorInput is an input type that accepts AnalysisAnalysisErrorArgs and AnalysisAnalysisErrorOutput values.
-// You can construct a concrete instance of `AnalysisAnalysisErrorInput` via:
-//
-//          AnalysisAnalysisErrorArgs{...}
-type AnalysisAnalysisErrorInput interface {
-	pulumi.Input
-
-	ToAnalysisAnalysisErrorOutput() AnalysisAnalysisErrorOutput
-	ToAnalysisAnalysisErrorOutputWithContext(context.Context) AnalysisAnalysisErrorOutput
-}
-
-// <p>A metadata error structure for an analysis.</p>
-type AnalysisAnalysisErrorArgs struct {
-	// <p>The message associated with the analysis error.</p>
-	Message pulumi.StringPtrInput             `pulumi:"message"`
-	Type    AnalysisAnalysisErrorTypePtrInput `pulumi:"type"`
-}
-
-func (AnalysisAnalysisErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisAnalysisError)(nil)).Elem()
-}
-
-func (i AnalysisAnalysisErrorArgs) ToAnalysisAnalysisErrorOutput() AnalysisAnalysisErrorOutput {
-	return i.ToAnalysisAnalysisErrorOutputWithContext(context.Background())
-}
-
-func (i AnalysisAnalysisErrorArgs) ToAnalysisAnalysisErrorOutputWithContext(ctx context.Context) AnalysisAnalysisErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisErrorOutput)
-}
-
-// AnalysisAnalysisErrorArrayInput is an input type that accepts AnalysisAnalysisErrorArray and AnalysisAnalysisErrorArrayOutput values.
-// You can construct a concrete instance of `AnalysisAnalysisErrorArrayInput` via:
-//
-//          AnalysisAnalysisErrorArray{ AnalysisAnalysisErrorArgs{...} }
-type AnalysisAnalysisErrorArrayInput interface {
-	pulumi.Input
-
-	ToAnalysisAnalysisErrorArrayOutput() AnalysisAnalysisErrorArrayOutput
-	ToAnalysisAnalysisErrorArrayOutputWithContext(context.Context) AnalysisAnalysisErrorArrayOutput
-}
-
-type AnalysisAnalysisErrorArray []AnalysisAnalysisErrorInput
-
-func (AnalysisAnalysisErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisAnalysisError)(nil)).Elem()
-}
-
-func (i AnalysisAnalysisErrorArray) ToAnalysisAnalysisErrorArrayOutput() AnalysisAnalysisErrorArrayOutput {
-	return i.ToAnalysisAnalysisErrorArrayOutputWithContext(context.Background())
-}
-
-func (i AnalysisAnalysisErrorArray) ToAnalysisAnalysisErrorArrayOutputWithContext(ctx context.Context) AnalysisAnalysisErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisErrorArrayOutput)
-}
-
-// <p>A metadata error structure for an analysis.</p>
-type AnalysisAnalysisErrorOutput struct{ *pulumi.OutputState }
-
-func (AnalysisAnalysisErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisAnalysisError)(nil)).Elem()
-}
-
-func (o AnalysisAnalysisErrorOutput) ToAnalysisAnalysisErrorOutput() AnalysisAnalysisErrorOutput {
-	return o
-}
-
-func (o AnalysisAnalysisErrorOutput) ToAnalysisAnalysisErrorOutputWithContext(ctx context.Context) AnalysisAnalysisErrorOutput {
-	return o
-}
-
-// <p>The message associated with the analysis error.</p>
-func (o AnalysisAnalysisErrorOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalysisAnalysisError) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-func (o AnalysisAnalysisErrorOutput) Type() AnalysisAnalysisErrorTypePtrOutput {
-	return o.ApplyT(func(v AnalysisAnalysisError) *AnalysisAnalysisErrorType { return v.Type }).(AnalysisAnalysisErrorTypePtrOutput)
-}
-
-type AnalysisAnalysisErrorArrayOutput struct{ *pulumi.OutputState }
-
-func (AnalysisAnalysisErrorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AnalysisAnalysisError)(nil)).Elem()
-}
-
-func (o AnalysisAnalysisErrorArrayOutput) ToAnalysisAnalysisErrorArrayOutput() AnalysisAnalysisErrorArrayOutput {
-	return o
-}
-
-func (o AnalysisAnalysisErrorArrayOutput) ToAnalysisAnalysisErrorArrayOutputWithContext(ctx context.Context) AnalysisAnalysisErrorArrayOutput {
-	return o
-}
-
-func (o AnalysisAnalysisErrorArrayOutput) Index(i pulumi.IntInput) AnalysisAnalysisErrorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisAnalysisError {
-		return vs[0].([]AnalysisAnalysisError)[vs[1].(int)]
-	}).(AnalysisAnalysisErrorOutput)
-}
-
-// <p>The source entity of an analysis.</p>
-type AnalysisAnalysisSourceEntity struct {
-	SourceTemplate *AnalysisAnalysisSourceTemplate `pulumi:"sourceTemplate"`
-}
-
-// AnalysisAnalysisSourceEntityInput is an input type that accepts AnalysisAnalysisSourceEntityArgs and AnalysisAnalysisSourceEntityOutput values.
-// You can construct a concrete instance of `AnalysisAnalysisSourceEntityInput` via:
-//
-//          AnalysisAnalysisSourceEntityArgs{...}
-type AnalysisAnalysisSourceEntityInput interface {
-	pulumi.Input
-
-	ToAnalysisAnalysisSourceEntityOutput() AnalysisAnalysisSourceEntityOutput
-	ToAnalysisAnalysisSourceEntityOutputWithContext(context.Context) AnalysisAnalysisSourceEntityOutput
-}
-
-// <p>The source entity of an analysis.</p>
-type AnalysisAnalysisSourceEntityArgs struct {
-	SourceTemplate AnalysisAnalysisSourceTemplatePtrInput `pulumi:"sourceTemplate"`
-}
-
-func (AnalysisAnalysisSourceEntityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisAnalysisSourceEntity)(nil)).Elem()
-}
-
-func (i AnalysisAnalysisSourceEntityArgs) ToAnalysisAnalysisSourceEntityOutput() AnalysisAnalysisSourceEntityOutput {
-	return i.ToAnalysisAnalysisSourceEntityOutputWithContext(context.Background())
-}
-
-func (i AnalysisAnalysisSourceEntityArgs) ToAnalysisAnalysisSourceEntityOutputWithContext(ctx context.Context) AnalysisAnalysisSourceEntityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceEntityOutput)
-}
-
-func (i AnalysisAnalysisSourceEntityArgs) ToAnalysisAnalysisSourceEntityPtrOutput() AnalysisAnalysisSourceEntityPtrOutput {
-	return i.ToAnalysisAnalysisSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisAnalysisSourceEntityArgs) ToAnalysisAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceEntityOutput).ToAnalysisAnalysisSourceEntityPtrOutputWithContext(ctx)
-}
-
-// AnalysisAnalysisSourceEntityPtrInput is an input type that accepts AnalysisAnalysisSourceEntityArgs, AnalysisAnalysisSourceEntityPtr and AnalysisAnalysisSourceEntityPtrOutput values.
-// You can construct a concrete instance of `AnalysisAnalysisSourceEntityPtrInput` via:
-//
-//          AnalysisAnalysisSourceEntityArgs{...}
-//
-//  or:
-//
-//          nil
-type AnalysisAnalysisSourceEntityPtrInput interface {
-	pulumi.Input
-
-	ToAnalysisAnalysisSourceEntityPtrOutput() AnalysisAnalysisSourceEntityPtrOutput
-	ToAnalysisAnalysisSourceEntityPtrOutputWithContext(context.Context) AnalysisAnalysisSourceEntityPtrOutput
-}
-
-type analysisAnalysisSourceEntityPtrType AnalysisAnalysisSourceEntityArgs
-
-func AnalysisAnalysisSourceEntityPtr(v *AnalysisAnalysisSourceEntityArgs) AnalysisAnalysisSourceEntityPtrInput {
-	return (*analysisAnalysisSourceEntityPtrType)(v)
-}
-
-func (*analysisAnalysisSourceEntityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisAnalysisSourceEntity)(nil)).Elem()
-}
-
-func (i *analysisAnalysisSourceEntityPtrType) ToAnalysisAnalysisSourceEntityPtrOutput() AnalysisAnalysisSourceEntityPtrOutput {
-	return i.ToAnalysisAnalysisSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *analysisAnalysisSourceEntityPtrType) ToAnalysisAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceEntityPtrOutput)
-}
-
-// <p>The source entity of an analysis.</p>
-type AnalysisAnalysisSourceEntityOutput struct{ *pulumi.OutputState }
-
-func (AnalysisAnalysisSourceEntityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisAnalysisSourceEntity)(nil)).Elem()
-}
-
-func (o AnalysisAnalysisSourceEntityOutput) ToAnalysisAnalysisSourceEntityOutput() AnalysisAnalysisSourceEntityOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceEntityOutput) ToAnalysisAnalysisSourceEntityOutputWithContext(ctx context.Context) AnalysisAnalysisSourceEntityOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceEntityOutput) ToAnalysisAnalysisSourceEntityPtrOutput() AnalysisAnalysisSourceEntityPtrOutput {
-	return o.ToAnalysisAnalysisSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisAnalysisSourceEntityOutput) ToAnalysisAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceEntityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisAnalysisSourceEntity) *AnalysisAnalysisSourceEntity {
-		return &v
-	}).(AnalysisAnalysisSourceEntityPtrOutput)
-}
-
-func (o AnalysisAnalysisSourceEntityOutput) SourceTemplate() AnalysisAnalysisSourceTemplatePtrOutput {
-	return o.ApplyT(func(v AnalysisAnalysisSourceEntity) *AnalysisAnalysisSourceTemplate { return v.SourceTemplate }).(AnalysisAnalysisSourceTemplatePtrOutput)
-}
-
-type AnalysisAnalysisSourceEntityPtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisAnalysisSourceEntityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisAnalysisSourceEntity)(nil)).Elem()
-}
-
-func (o AnalysisAnalysisSourceEntityPtrOutput) ToAnalysisAnalysisSourceEntityPtrOutput() AnalysisAnalysisSourceEntityPtrOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceEntityPtrOutput) ToAnalysisAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceEntityPtrOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceEntityPtrOutput) Elem() AnalysisAnalysisSourceEntityOutput {
-	return o.ApplyT(func(v *AnalysisAnalysisSourceEntity) AnalysisAnalysisSourceEntity {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisAnalysisSourceEntity
-		return ret
-	}).(AnalysisAnalysisSourceEntityOutput)
-}
-
-func (o AnalysisAnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisAnalysisSourceTemplatePtrOutput {
-	return o.ApplyT(func(v *AnalysisAnalysisSourceEntity) *AnalysisAnalysisSourceTemplate {
-		if v == nil {
-			return nil
-		}
-		return v.SourceTemplate
-	}).(AnalysisAnalysisSourceTemplatePtrOutput)
-}
-
-// <p>The source template of an analysis.</p>
-type AnalysisAnalysisSourceTemplate struct {
-	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-	Arn string `pulumi:"arn"`
-	// <p>The dataset references of the source template of an analysis.</p>
-	DataSetReferences []AnalysisDataSetReference `pulumi:"dataSetReferences"`
-}
-
-// AnalysisAnalysisSourceTemplateInput is an input type that accepts AnalysisAnalysisSourceTemplateArgs and AnalysisAnalysisSourceTemplateOutput values.
-// You can construct a concrete instance of `AnalysisAnalysisSourceTemplateInput` via:
-//
-//          AnalysisAnalysisSourceTemplateArgs{...}
-type AnalysisAnalysisSourceTemplateInput interface {
-	pulumi.Input
-
-	ToAnalysisAnalysisSourceTemplateOutput() AnalysisAnalysisSourceTemplateOutput
-	ToAnalysisAnalysisSourceTemplateOutputWithContext(context.Context) AnalysisAnalysisSourceTemplateOutput
-}
-
-// <p>The source template of an analysis.</p>
-type AnalysisAnalysisSourceTemplateArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// <p>The dataset references of the source template of an analysis.</p>
-	DataSetReferences AnalysisDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
-}
-
-func (AnalysisAnalysisSourceTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisAnalysisSourceTemplate)(nil)).Elem()
-}
-
-func (i AnalysisAnalysisSourceTemplateArgs) ToAnalysisAnalysisSourceTemplateOutput() AnalysisAnalysisSourceTemplateOutput {
-	return i.ToAnalysisAnalysisSourceTemplateOutputWithContext(context.Background())
-}
-
-func (i AnalysisAnalysisSourceTemplateArgs) ToAnalysisAnalysisSourceTemplateOutputWithContext(ctx context.Context) AnalysisAnalysisSourceTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceTemplateOutput)
-}
-
-func (i AnalysisAnalysisSourceTemplateArgs) ToAnalysisAnalysisSourceTemplatePtrOutput() AnalysisAnalysisSourceTemplatePtrOutput {
-	return i.ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i AnalysisAnalysisSourceTemplateArgs) ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceTemplateOutput).ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(ctx)
-}
-
-// AnalysisAnalysisSourceTemplatePtrInput is an input type that accepts AnalysisAnalysisSourceTemplateArgs, AnalysisAnalysisSourceTemplatePtr and AnalysisAnalysisSourceTemplatePtrOutput values.
-// You can construct a concrete instance of `AnalysisAnalysisSourceTemplatePtrInput` via:
-//
-//          AnalysisAnalysisSourceTemplateArgs{...}
-//
-//  or:
-//
-//          nil
-type AnalysisAnalysisSourceTemplatePtrInput interface {
-	pulumi.Input
-
-	ToAnalysisAnalysisSourceTemplatePtrOutput() AnalysisAnalysisSourceTemplatePtrOutput
-	ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(context.Context) AnalysisAnalysisSourceTemplatePtrOutput
-}
-
-type analysisAnalysisSourceTemplatePtrType AnalysisAnalysisSourceTemplateArgs
-
-func AnalysisAnalysisSourceTemplatePtr(v *AnalysisAnalysisSourceTemplateArgs) AnalysisAnalysisSourceTemplatePtrInput {
-	return (*analysisAnalysisSourceTemplatePtrType)(v)
-}
-
-func (*analysisAnalysisSourceTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisAnalysisSourceTemplate)(nil)).Elem()
-}
-
-func (i *analysisAnalysisSourceTemplatePtrType) ToAnalysisAnalysisSourceTemplatePtrOutput() AnalysisAnalysisSourceTemplatePtrOutput {
-	return i.ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *analysisAnalysisSourceTemplatePtrType) ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceTemplatePtrOutput)
-}
-
-// <p>The source template of an analysis.</p>
-type AnalysisAnalysisSourceTemplateOutput struct{ *pulumi.OutputState }
-
-func (AnalysisAnalysisSourceTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalysisAnalysisSourceTemplate)(nil)).Elem()
-}
-
-func (o AnalysisAnalysisSourceTemplateOutput) ToAnalysisAnalysisSourceTemplateOutput() AnalysisAnalysisSourceTemplateOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceTemplateOutput) ToAnalysisAnalysisSourceTemplateOutputWithContext(ctx context.Context) AnalysisAnalysisSourceTemplateOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceTemplateOutput) ToAnalysisAnalysisSourceTemplatePtrOutput() AnalysisAnalysisSourceTemplatePtrOutput {
-	return o.ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o AnalysisAnalysisSourceTemplateOutput) ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisAnalysisSourceTemplate) *AnalysisAnalysisSourceTemplate {
-		return &v
-	}).(AnalysisAnalysisSourceTemplatePtrOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-func (o AnalysisAnalysisSourceTemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalysisAnalysisSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
-}
-
-// <p>The dataset references of the source template of an analysis.</p>
-func (o AnalysisAnalysisSourceTemplateOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
-	return o.ApplyT(func(v AnalysisAnalysisSourceTemplate) []AnalysisDataSetReference { return v.DataSetReferences }).(AnalysisDataSetReferenceArrayOutput)
-}
-
-type AnalysisAnalysisSourceTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (AnalysisAnalysisSourceTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AnalysisAnalysisSourceTemplate)(nil)).Elem()
-}
-
-func (o AnalysisAnalysisSourceTemplatePtrOutput) ToAnalysisAnalysisSourceTemplatePtrOutput() AnalysisAnalysisSourceTemplatePtrOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceTemplatePtrOutput) ToAnalysisAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisAnalysisSourceTemplatePtrOutput {
-	return o
-}
-
-func (o AnalysisAnalysisSourceTemplatePtrOutput) Elem() AnalysisAnalysisSourceTemplateOutput {
-	return o.ApplyT(func(v *AnalysisAnalysisSourceTemplate) AnalysisAnalysisSourceTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret AnalysisAnalysisSourceTemplate
-		return ret
-	}).(AnalysisAnalysisSourceTemplateOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-func (o AnalysisAnalysisSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AnalysisAnalysisSourceTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The dataset references of the source template of an analysis.</p>
-func (o AnalysisAnalysisSourceTemplatePtrOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
-	return o.ApplyT(func(v *AnalysisAnalysisSourceTemplate) []AnalysisDataSetReference {
-		if v == nil {
-			return nil
-		}
-		return v.DataSetReferences
-	}).(AnalysisDataSetReferenceArrayOutput)
-}
-
 // <p>Dataset reference.</p>
 type AnalysisDataSetReference struct {
 	// <p>Dataset Amazon Resource Name (ARN).</p>
@@ -736,6 +335,112 @@ func (o AnalysisDecimalParameterArrayOutput) Index(i pulumi.IntInput) AnalysisDe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisDecimalParameter {
 		return vs[0].([]AnalysisDecimalParameter)[vs[1].(int)]
 	}).(AnalysisDecimalParameterOutput)
+}
+
+// <p>A metadata error structure for an analysis.</p>
+type AnalysisError struct {
+	// <p>The message associated with the analysis error.</p>
+	Message *string            `pulumi:"message"`
+	Type    *AnalysisErrorType `pulumi:"type"`
+}
+
+// AnalysisErrorInput is an input type that accepts AnalysisErrorArgs and AnalysisErrorOutput values.
+// You can construct a concrete instance of `AnalysisErrorInput` via:
+//
+//          AnalysisErrorArgs{...}
+type AnalysisErrorInput interface {
+	pulumi.Input
+
+	ToAnalysisErrorOutput() AnalysisErrorOutput
+	ToAnalysisErrorOutputWithContext(context.Context) AnalysisErrorOutput
+}
+
+// <p>A metadata error structure for an analysis.</p>
+type AnalysisErrorArgs struct {
+	// <p>The message associated with the analysis error.</p>
+	Message pulumi.StringPtrInput     `pulumi:"message"`
+	Type    AnalysisErrorTypePtrInput `pulumi:"type"`
+}
+
+func (AnalysisErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisError)(nil)).Elem()
+}
+
+func (i AnalysisErrorArgs) ToAnalysisErrorOutput() AnalysisErrorOutput {
+	return i.ToAnalysisErrorOutputWithContext(context.Background())
+}
+
+func (i AnalysisErrorArgs) ToAnalysisErrorOutputWithContext(ctx context.Context) AnalysisErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisErrorOutput)
+}
+
+// AnalysisErrorArrayInput is an input type that accepts AnalysisErrorArray and AnalysisErrorArrayOutput values.
+// You can construct a concrete instance of `AnalysisErrorArrayInput` via:
+//
+//          AnalysisErrorArray{ AnalysisErrorArgs{...} }
+type AnalysisErrorArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisErrorArrayOutput() AnalysisErrorArrayOutput
+	ToAnalysisErrorArrayOutputWithContext(context.Context) AnalysisErrorArrayOutput
+}
+
+type AnalysisErrorArray []AnalysisErrorInput
+
+func (AnalysisErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisError)(nil)).Elem()
+}
+
+func (i AnalysisErrorArray) ToAnalysisErrorArrayOutput() AnalysisErrorArrayOutput {
+	return i.ToAnalysisErrorArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisErrorArray) ToAnalysisErrorArrayOutputWithContext(ctx context.Context) AnalysisErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisErrorArrayOutput)
+}
+
+// <p>A metadata error structure for an analysis.</p>
+type AnalysisErrorOutput struct{ *pulumi.OutputState }
+
+func (AnalysisErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisError)(nil)).Elem()
+}
+
+func (o AnalysisErrorOutput) ToAnalysisErrorOutput() AnalysisErrorOutput {
+	return o
+}
+
+func (o AnalysisErrorOutput) ToAnalysisErrorOutputWithContext(ctx context.Context) AnalysisErrorOutput {
+	return o
+}
+
+// <p>The message associated with the analysis error.</p>
+func (o AnalysisErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalysisError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalysisErrorOutput) Type() AnalysisErrorTypePtrOutput {
+	return o.ApplyT(func(v AnalysisError) *AnalysisErrorType { return v.Type }).(AnalysisErrorTypePtrOutput)
+}
+
+type AnalysisErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisError)(nil)).Elem()
+}
+
+func (o AnalysisErrorArrayOutput) ToAnalysisErrorArrayOutput() AnalysisErrorArrayOutput {
+	return o
+}
+
+func (o AnalysisErrorArrayOutput) ToAnalysisErrorArrayOutputWithContext(ctx context.Context) AnalysisErrorArrayOutput {
+	return o
+}
+
+func (o AnalysisErrorArrayOutput) Index(i pulumi.IntInput) AnalysisErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisError {
+		return vs[0].([]AnalysisError)[vs[1].(int)]
+	}).(AnalysisErrorOutput)
 }
 
 // <p>An integer parameter.</p>
@@ -1319,6 +1024,301 @@ func (o AnalysisSheetArrayOutput) Index(i pulumi.IntInput) AnalysisSheetOutput {
 	}).(AnalysisSheetOutput)
 }
 
+// <p>The source entity of an analysis.</p>
+type AnalysisSourceEntity struct {
+	SourceTemplate *AnalysisSourceTemplate `pulumi:"sourceTemplate"`
+}
+
+// AnalysisSourceEntityInput is an input type that accepts AnalysisSourceEntityArgs and AnalysisSourceEntityOutput values.
+// You can construct a concrete instance of `AnalysisSourceEntityInput` via:
+//
+//          AnalysisSourceEntityArgs{...}
+type AnalysisSourceEntityInput interface {
+	pulumi.Input
+
+	ToAnalysisSourceEntityOutput() AnalysisSourceEntityOutput
+	ToAnalysisSourceEntityOutputWithContext(context.Context) AnalysisSourceEntityOutput
+}
+
+// <p>The source entity of an analysis.</p>
+type AnalysisSourceEntityArgs struct {
+	SourceTemplate AnalysisSourceTemplatePtrInput `pulumi:"sourceTemplate"`
+}
+
+func (AnalysisSourceEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSourceEntity)(nil)).Elem()
+}
+
+func (i AnalysisSourceEntityArgs) ToAnalysisSourceEntityOutput() AnalysisSourceEntityOutput {
+	return i.ToAnalysisSourceEntityOutputWithContext(context.Background())
+}
+
+func (i AnalysisSourceEntityArgs) ToAnalysisSourceEntityOutputWithContext(ctx context.Context) AnalysisSourceEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceEntityOutput)
+}
+
+func (i AnalysisSourceEntityArgs) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
+	return i.ToAnalysisSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisSourceEntityArgs) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceEntityOutput).ToAnalysisSourceEntityPtrOutputWithContext(ctx)
+}
+
+// AnalysisSourceEntityPtrInput is an input type that accepts AnalysisSourceEntityArgs, AnalysisSourceEntityPtr and AnalysisSourceEntityPtrOutput values.
+// You can construct a concrete instance of `AnalysisSourceEntityPtrInput` via:
+//
+//          AnalysisSourceEntityArgs{...}
+//
+//  or:
+//
+//          nil
+type AnalysisSourceEntityPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput
+	ToAnalysisSourceEntityPtrOutputWithContext(context.Context) AnalysisSourceEntityPtrOutput
+}
+
+type analysisSourceEntityPtrType AnalysisSourceEntityArgs
+
+func AnalysisSourceEntityPtr(v *AnalysisSourceEntityArgs) AnalysisSourceEntityPtrInput {
+	return (*analysisSourceEntityPtrType)(v)
+}
+
+func (*analysisSourceEntityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSourceEntity)(nil)).Elem()
+}
+
+func (i *analysisSourceEntityPtrType) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
+	return i.ToAnalysisSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisSourceEntityPtrType) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceEntityPtrOutput)
+}
+
+// <p>The source entity of an analysis.</p>
+type AnalysisSourceEntityOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSourceEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSourceEntity)(nil)).Elem()
+}
+
+func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityOutput() AnalysisSourceEntityOutput {
+	return o
+}
+
+func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityOutputWithContext(ctx context.Context) AnalysisSourceEntityOutput {
+	return o
+}
+
+func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
+	return o.ToAnalysisSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSourceEntity) *AnalysisSourceEntity {
+		return &v
+	}).(AnalysisSourceEntityPtrOutput)
+}
+
+func (o AnalysisSourceEntityOutput) SourceTemplate() AnalysisSourceTemplatePtrOutput {
+	return o.ApplyT(func(v AnalysisSourceEntity) *AnalysisSourceTemplate { return v.SourceTemplate }).(AnalysisSourceTemplatePtrOutput)
+}
+
+type AnalysisSourceEntityPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSourceEntityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSourceEntity)(nil)).Elem()
+}
+
+func (o AnalysisSourceEntityPtrOutput) ToAnalysisSourceEntityPtrOutput() AnalysisSourceEntityPtrOutput {
+	return o
+}
+
+func (o AnalysisSourceEntityPtrOutput) ToAnalysisSourceEntityPtrOutputWithContext(ctx context.Context) AnalysisSourceEntityPtrOutput {
+	return o
+}
+
+func (o AnalysisSourceEntityPtrOutput) Elem() AnalysisSourceEntityOutput {
+	return o.ApplyT(func(v *AnalysisSourceEntity) AnalysisSourceEntity {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSourceEntity
+		return ret
+	}).(AnalysisSourceEntityOutput)
+}
+
+func (o AnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisSourceTemplatePtrOutput {
+	return o.ApplyT(func(v *AnalysisSourceEntity) *AnalysisSourceTemplate {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTemplate
+	}).(AnalysisSourceTemplatePtrOutput)
+}
+
+// <p>The source template of an analysis.</p>
+type AnalysisSourceTemplate struct {
+	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+	Arn string `pulumi:"arn"`
+	// <p>The dataset references of the source template of an analysis.</p>
+	DataSetReferences []AnalysisDataSetReference `pulumi:"dataSetReferences"`
+}
+
+// AnalysisSourceTemplateInput is an input type that accepts AnalysisSourceTemplateArgs and AnalysisSourceTemplateOutput values.
+// You can construct a concrete instance of `AnalysisSourceTemplateInput` via:
+//
+//          AnalysisSourceTemplateArgs{...}
+type AnalysisSourceTemplateInput interface {
+	pulumi.Input
+
+	ToAnalysisSourceTemplateOutput() AnalysisSourceTemplateOutput
+	ToAnalysisSourceTemplateOutputWithContext(context.Context) AnalysisSourceTemplateOutput
+}
+
+// <p>The source template of an analysis.</p>
+type AnalysisSourceTemplateArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// <p>The dataset references of the source template of an analysis.</p>
+	DataSetReferences AnalysisDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
+}
+
+func (AnalysisSourceTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSourceTemplate)(nil)).Elem()
+}
+
+func (i AnalysisSourceTemplateArgs) ToAnalysisSourceTemplateOutput() AnalysisSourceTemplateOutput {
+	return i.ToAnalysisSourceTemplateOutputWithContext(context.Background())
+}
+
+func (i AnalysisSourceTemplateArgs) ToAnalysisSourceTemplateOutputWithContext(ctx context.Context) AnalysisSourceTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceTemplateOutput)
+}
+
+func (i AnalysisSourceTemplateArgs) ToAnalysisSourceTemplatePtrOutput() AnalysisSourceTemplatePtrOutput {
+	return i.ToAnalysisSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisSourceTemplateArgs) ToAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisSourceTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceTemplateOutput).ToAnalysisSourceTemplatePtrOutputWithContext(ctx)
+}
+
+// AnalysisSourceTemplatePtrInput is an input type that accepts AnalysisSourceTemplateArgs, AnalysisSourceTemplatePtr and AnalysisSourceTemplatePtrOutput values.
+// You can construct a concrete instance of `AnalysisSourceTemplatePtrInput` via:
+//
+//          AnalysisSourceTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type AnalysisSourceTemplatePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSourceTemplatePtrOutput() AnalysisSourceTemplatePtrOutput
+	ToAnalysisSourceTemplatePtrOutputWithContext(context.Context) AnalysisSourceTemplatePtrOutput
+}
+
+type analysisSourceTemplatePtrType AnalysisSourceTemplateArgs
+
+func AnalysisSourceTemplatePtr(v *AnalysisSourceTemplateArgs) AnalysisSourceTemplatePtrInput {
+	return (*analysisSourceTemplatePtrType)(v)
+}
+
+func (*analysisSourceTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSourceTemplate)(nil)).Elem()
+}
+
+func (i *analysisSourceTemplatePtrType) ToAnalysisSourceTemplatePtrOutput() AnalysisSourceTemplatePtrOutput {
+	return i.ToAnalysisSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *analysisSourceTemplatePtrType) ToAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisSourceTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSourceTemplatePtrOutput)
+}
+
+// <p>The source template of an analysis.</p>
+type AnalysisSourceTemplateOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSourceTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSourceTemplate)(nil)).Elem()
+}
+
+func (o AnalysisSourceTemplateOutput) ToAnalysisSourceTemplateOutput() AnalysisSourceTemplateOutput {
+	return o
+}
+
+func (o AnalysisSourceTemplateOutput) ToAnalysisSourceTemplateOutputWithContext(ctx context.Context) AnalysisSourceTemplateOutput {
+	return o
+}
+
+func (o AnalysisSourceTemplateOutput) ToAnalysisSourceTemplatePtrOutput() AnalysisSourceTemplatePtrOutput {
+	return o.ToAnalysisSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSourceTemplateOutput) ToAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisSourceTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSourceTemplate) *AnalysisSourceTemplate {
+		return &v
+	}).(AnalysisSourceTemplatePtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+func (o AnalysisSourceTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// <p>The dataset references of the source template of an analysis.</p>
+func (o AnalysisSourceTemplateOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
+	return o.ApplyT(func(v AnalysisSourceTemplate) []AnalysisDataSetReference { return v.DataSetReferences }).(AnalysisDataSetReferenceArrayOutput)
+}
+
+type AnalysisSourceTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSourceTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSourceTemplate)(nil)).Elem()
+}
+
+func (o AnalysisSourceTemplatePtrOutput) ToAnalysisSourceTemplatePtrOutput() AnalysisSourceTemplatePtrOutput {
+	return o
+}
+
+func (o AnalysisSourceTemplatePtrOutput) ToAnalysisSourceTemplatePtrOutputWithContext(ctx context.Context) AnalysisSourceTemplatePtrOutput {
+	return o
+}
+
+func (o AnalysisSourceTemplatePtrOutput) Elem() AnalysisSourceTemplateOutput {
+	return o.ApplyT(func(v *AnalysisSourceTemplate) AnalysisSourceTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSourceTemplate
+		return ret
+	}).(AnalysisSourceTemplateOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+func (o AnalysisSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalysisSourceTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The dataset references of the source template of an analysis.</p>
+func (o AnalysisSourceTemplatePtrOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
+	return o.ApplyT(func(v *AnalysisSourceTemplate) []AnalysisDataSetReference {
+		if v == nil {
+			return nil
+		}
+		return v.DataSetReferences
+	}).(AnalysisDataSetReferenceArrayOutput)
+}
+
 // <p>A string parameter.</p>
 type AnalysisStringParameter struct {
 	// <p>A display name for a string parameter.</p>
@@ -1542,7 +1542,7 @@ func (o AnalysisTagArrayOutput) Index(i pulumi.IntInput) AnalysisTagOutput {
 
 // <p>Ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOption struct {
-	AvailabilityStatus *DashboardDashboardBehavior `pulumi:"availabilityStatus"`
+	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
 
 // DashboardAdHocFilteringOptionInput is an input type that accepts DashboardAdHocFilteringOptionArgs and DashboardAdHocFilteringOptionOutput values.
@@ -1558,7 +1558,7 @@ type DashboardAdHocFilteringOptionInput interface {
 
 // <p>Ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOptionArgs struct {
-	AvailabilityStatus DashboardDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
+	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
 
 func (DashboardAdHocFilteringOptionArgs) ElementType() reflect.Type {
@@ -1639,8 +1639,8 @@ func (o DashboardAdHocFilteringOptionOutput) ToDashboardAdHocFilteringOptionPtrO
 	}).(DashboardAdHocFilteringOptionPtrOutput)
 }
 
-func (o DashboardAdHocFilteringOptionOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v DashboardAdHocFilteringOption) *DashboardDashboardBehavior { return v.AvailabilityStatus }).(DashboardDashboardBehaviorPtrOutput)
+func (o DashboardAdHocFilteringOptionOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v DashboardAdHocFilteringOption) *DashboardBehavior { return v.AvailabilityStatus }).(DashboardBehaviorPtrOutput)
 }
 
 type DashboardAdHocFilteringOptionPtrOutput struct{ *pulumi.OutputState }
@@ -1667,891 +1667,13 @@ func (o DashboardAdHocFilteringOptionPtrOutput) Elem() DashboardAdHocFilteringOp
 	}).(DashboardAdHocFilteringOptionOutput)
 }
 
-func (o DashboardAdHocFilteringOptionPtrOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v *DashboardAdHocFilteringOption) *DashboardDashboardBehavior {
+func (o DashboardAdHocFilteringOptionPtrOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *DashboardAdHocFilteringOption) *DashboardBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.AvailabilityStatus
-	}).(DashboardDashboardBehaviorPtrOutput)
-}
-
-// <p>Dashboard error.</p>
-type DashboardDashboardError struct {
-	// <p>Message.</p>
-	Message *string                      `pulumi:"message"`
-	Type    *DashboardDashboardErrorType `pulumi:"type"`
-}
-
-// DashboardDashboardErrorInput is an input type that accepts DashboardDashboardErrorArgs and DashboardDashboardErrorOutput values.
-// You can construct a concrete instance of `DashboardDashboardErrorInput` via:
-//
-//          DashboardDashboardErrorArgs{...}
-type DashboardDashboardErrorInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardErrorOutput() DashboardDashboardErrorOutput
-	ToDashboardDashboardErrorOutputWithContext(context.Context) DashboardDashboardErrorOutput
-}
-
-// <p>Dashboard error.</p>
-type DashboardDashboardErrorArgs struct {
-	// <p>Message.</p>
-	Message pulumi.StringPtrInput               `pulumi:"message"`
-	Type    DashboardDashboardErrorTypePtrInput `pulumi:"type"`
-}
-
-func (DashboardDashboardErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardError)(nil)).Elem()
-}
-
-func (i DashboardDashboardErrorArgs) ToDashboardDashboardErrorOutput() DashboardDashboardErrorOutput {
-	return i.ToDashboardDashboardErrorOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardErrorArgs) ToDashboardDashboardErrorOutputWithContext(ctx context.Context) DashboardDashboardErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardErrorOutput)
-}
-
-// DashboardDashboardErrorArrayInput is an input type that accepts DashboardDashboardErrorArray and DashboardDashboardErrorArrayOutput values.
-// You can construct a concrete instance of `DashboardDashboardErrorArrayInput` via:
-//
-//          DashboardDashboardErrorArray{ DashboardDashboardErrorArgs{...} }
-type DashboardDashboardErrorArrayInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardErrorArrayOutput() DashboardDashboardErrorArrayOutput
-	ToDashboardDashboardErrorArrayOutputWithContext(context.Context) DashboardDashboardErrorArrayOutput
-}
-
-type DashboardDashboardErrorArray []DashboardDashboardErrorInput
-
-func (DashboardDashboardErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardDashboardError)(nil)).Elem()
-}
-
-func (i DashboardDashboardErrorArray) ToDashboardDashboardErrorArrayOutput() DashboardDashboardErrorArrayOutput {
-	return i.ToDashboardDashboardErrorArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardErrorArray) ToDashboardDashboardErrorArrayOutputWithContext(ctx context.Context) DashboardDashboardErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardErrorArrayOutput)
-}
-
-// <p>Dashboard error.</p>
-type DashboardDashboardErrorOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardError)(nil)).Elem()
-}
-
-func (o DashboardDashboardErrorOutput) ToDashboardDashboardErrorOutput() DashboardDashboardErrorOutput {
-	return o
-}
-
-func (o DashboardDashboardErrorOutput) ToDashboardDashboardErrorOutputWithContext(ctx context.Context) DashboardDashboardErrorOutput {
-	return o
-}
-
-// <p>Message.</p>
-func (o DashboardDashboardErrorOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardError) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardDashboardErrorOutput) Type() DashboardDashboardErrorTypePtrOutput {
-	return o.ApplyT(func(v DashboardDashboardError) *DashboardDashboardErrorType { return v.Type }).(DashboardDashboardErrorTypePtrOutput)
-}
-
-type DashboardDashboardErrorArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardErrorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardDashboardError)(nil)).Elem()
-}
-
-func (o DashboardDashboardErrorArrayOutput) ToDashboardDashboardErrorArrayOutput() DashboardDashboardErrorArrayOutput {
-	return o
-}
-
-func (o DashboardDashboardErrorArrayOutput) ToDashboardDashboardErrorArrayOutputWithContext(ctx context.Context) DashboardDashboardErrorArrayOutput {
-	return o
-}
-
-func (o DashboardDashboardErrorArrayOutput) Index(i pulumi.IntInput) DashboardDashboardErrorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardDashboardError {
-		return vs[0].([]DashboardDashboardError)[vs[1].(int)]
-	}).(DashboardDashboardErrorOutput)
-}
-
-// <p>Dashboard publish options.</p>
-type DashboardDashboardPublishOptions struct {
-	AdHocFilteringOption *DashboardAdHocFilteringOption `pulumi:"adHocFilteringOption"`
-	ExportToCSVOption    *DashboardExportToCSVOption    `pulumi:"exportToCSVOption"`
-	SheetControlsOption  *DashboardSheetControlsOption  `pulumi:"sheetControlsOption"`
-}
-
-// DashboardDashboardPublishOptionsInput is an input type that accepts DashboardDashboardPublishOptionsArgs and DashboardDashboardPublishOptionsOutput values.
-// You can construct a concrete instance of `DashboardDashboardPublishOptionsInput` via:
-//
-//          DashboardDashboardPublishOptionsArgs{...}
-type DashboardDashboardPublishOptionsInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardPublishOptionsOutput() DashboardDashboardPublishOptionsOutput
-	ToDashboardDashboardPublishOptionsOutputWithContext(context.Context) DashboardDashboardPublishOptionsOutput
-}
-
-// <p>Dashboard publish options.</p>
-type DashboardDashboardPublishOptionsArgs struct {
-	AdHocFilteringOption DashboardAdHocFilteringOptionPtrInput `pulumi:"adHocFilteringOption"`
-	ExportToCSVOption    DashboardExportToCSVOptionPtrInput    `pulumi:"exportToCSVOption"`
-	SheetControlsOption  DashboardSheetControlsOptionPtrInput  `pulumi:"sheetControlsOption"`
-}
-
-func (DashboardDashboardPublishOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardPublishOptions)(nil)).Elem()
-}
-
-func (i DashboardDashboardPublishOptionsArgs) ToDashboardDashboardPublishOptionsOutput() DashboardDashboardPublishOptionsOutput {
-	return i.ToDashboardDashboardPublishOptionsOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardPublishOptionsArgs) ToDashboardDashboardPublishOptionsOutputWithContext(ctx context.Context) DashboardDashboardPublishOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardPublishOptionsOutput)
-}
-
-func (i DashboardDashboardPublishOptionsArgs) ToDashboardDashboardPublishOptionsPtrOutput() DashboardDashboardPublishOptionsPtrOutput {
-	return i.ToDashboardDashboardPublishOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardPublishOptionsArgs) ToDashboardDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardDashboardPublishOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardPublishOptionsOutput).ToDashboardDashboardPublishOptionsPtrOutputWithContext(ctx)
-}
-
-// DashboardDashboardPublishOptionsPtrInput is an input type that accepts DashboardDashboardPublishOptionsArgs, DashboardDashboardPublishOptionsPtr and DashboardDashboardPublishOptionsPtrOutput values.
-// You can construct a concrete instance of `DashboardDashboardPublishOptionsPtrInput` via:
-//
-//          DashboardDashboardPublishOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type DashboardDashboardPublishOptionsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardPublishOptionsPtrOutput() DashboardDashboardPublishOptionsPtrOutput
-	ToDashboardDashboardPublishOptionsPtrOutputWithContext(context.Context) DashboardDashboardPublishOptionsPtrOutput
-}
-
-type dashboardDashboardPublishOptionsPtrType DashboardDashboardPublishOptionsArgs
-
-func DashboardDashboardPublishOptionsPtr(v *DashboardDashboardPublishOptionsArgs) DashboardDashboardPublishOptionsPtrInput {
-	return (*dashboardDashboardPublishOptionsPtrType)(v)
-}
-
-func (*dashboardDashboardPublishOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardPublishOptions)(nil)).Elem()
-}
-
-func (i *dashboardDashboardPublishOptionsPtrType) ToDashboardDashboardPublishOptionsPtrOutput() DashboardDashboardPublishOptionsPtrOutput {
-	return i.ToDashboardDashboardPublishOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardDashboardPublishOptionsPtrType) ToDashboardDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardDashboardPublishOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardPublishOptionsPtrOutput)
-}
-
-// <p>Dashboard publish options.</p>
-type DashboardDashboardPublishOptionsOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardPublishOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardPublishOptions)(nil)).Elem()
-}
-
-func (o DashboardDashboardPublishOptionsOutput) ToDashboardDashboardPublishOptionsOutput() DashboardDashboardPublishOptionsOutput {
-	return o
-}
-
-func (o DashboardDashboardPublishOptionsOutput) ToDashboardDashboardPublishOptionsOutputWithContext(ctx context.Context) DashboardDashboardPublishOptionsOutput {
-	return o
-}
-
-func (o DashboardDashboardPublishOptionsOutput) ToDashboardDashboardPublishOptionsPtrOutput() DashboardDashboardPublishOptionsPtrOutput {
-	return o.ToDashboardDashboardPublishOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardDashboardPublishOptionsOutput) ToDashboardDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardDashboardPublishOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptions {
-		return &v
-	}).(DashboardDashboardPublishOptionsPtrOutput)
-}
-
-func (o DashboardDashboardPublishOptionsOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardAdHocFilteringOption { return v.AdHocFilteringOption }).(DashboardAdHocFilteringOptionPtrOutput)
-}
-
-func (o DashboardDashboardPublishOptionsOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardExportToCSVOption { return v.ExportToCSVOption }).(DashboardExportToCSVOptionPtrOutput)
-}
-
-func (o DashboardDashboardPublishOptionsOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardSheetControlsOption { return v.SheetControlsOption }).(DashboardSheetControlsOptionPtrOutput)
-}
-
-type DashboardDashboardPublishOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardPublishOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardPublishOptions)(nil)).Elem()
-}
-
-func (o DashboardDashboardPublishOptionsPtrOutput) ToDashboardDashboardPublishOptionsPtrOutput() DashboardDashboardPublishOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardDashboardPublishOptionsPtrOutput) ToDashboardDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardDashboardPublishOptionsPtrOutput {
-	return o
-}
-
-func (o DashboardDashboardPublishOptionsPtrOutput) Elem() DashboardDashboardPublishOptionsOutput {
-	return o.ApplyT(func(v *DashboardDashboardPublishOptions) DashboardDashboardPublishOptions {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardDashboardPublishOptions
-		return ret
-	}).(DashboardDashboardPublishOptionsOutput)
-}
-
-func (o DashboardDashboardPublishOptionsPtrOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardAdHocFilteringOption {
-		if v == nil {
-			return nil
-		}
-		return v.AdHocFilteringOption
-	}).(DashboardAdHocFilteringOptionPtrOutput)
-}
-
-func (o DashboardDashboardPublishOptionsPtrOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardExportToCSVOption {
-		if v == nil {
-			return nil
-		}
-		return v.ExportToCSVOption
-	}).(DashboardExportToCSVOptionPtrOutput)
-}
-
-func (o DashboardDashboardPublishOptionsPtrOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardSheetControlsOption {
-		if v == nil {
-			return nil
-		}
-		return v.SheetControlsOption
-	}).(DashboardSheetControlsOptionPtrOutput)
-}
-
-// <p>Dashboard source entity.</p>
-type DashboardDashboardSourceEntity struct {
-	SourceTemplate *DashboardDashboardSourceTemplate `pulumi:"sourceTemplate"`
-}
-
-// DashboardDashboardSourceEntityInput is an input type that accepts DashboardDashboardSourceEntityArgs and DashboardDashboardSourceEntityOutput values.
-// You can construct a concrete instance of `DashboardDashboardSourceEntityInput` via:
-//
-//          DashboardDashboardSourceEntityArgs{...}
-type DashboardDashboardSourceEntityInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardSourceEntityOutput() DashboardDashboardSourceEntityOutput
-	ToDashboardDashboardSourceEntityOutputWithContext(context.Context) DashboardDashboardSourceEntityOutput
-}
-
-// <p>Dashboard source entity.</p>
-type DashboardDashboardSourceEntityArgs struct {
-	SourceTemplate DashboardDashboardSourceTemplatePtrInput `pulumi:"sourceTemplate"`
-}
-
-func (DashboardDashboardSourceEntityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardSourceEntity)(nil)).Elem()
-}
-
-func (i DashboardDashboardSourceEntityArgs) ToDashboardDashboardSourceEntityOutput() DashboardDashboardSourceEntityOutput {
-	return i.ToDashboardDashboardSourceEntityOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardSourceEntityArgs) ToDashboardDashboardSourceEntityOutputWithContext(ctx context.Context) DashboardDashboardSourceEntityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceEntityOutput)
-}
-
-func (i DashboardDashboardSourceEntityArgs) ToDashboardDashboardSourceEntityPtrOutput() DashboardDashboardSourceEntityPtrOutput {
-	return i.ToDashboardDashboardSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardSourceEntityArgs) ToDashboardDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardDashboardSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceEntityOutput).ToDashboardDashboardSourceEntityPtrOutputWithContext(ctx)
-}
-
-// DashboardDashboardSourceEntityPtrInput is an input type that accepts DashboardDashboardSourceEntityArgs, DashboardDashboardSourceEntityPtr and DashboardDashboardSourceEntityPtrOutput values.
-// You can construct a concrete instance of `DashboardDashboardSourceEntityPtrInput` via:
-//
-//          DashboardDashboardSourceEntityArgs{...}
-//
-//  or:
-//
-//          nil
-type DashboardDashboardSourceEntityPtrInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardSourceEntityPtrOutput() DashboardDashboardSourceEntityPtrOutput
-	ToDashboardDashboardSourceEntityPtrOutputWithContext(context.Context) DashboardDashboardSourceEntityPtrOutput
-}
-
-type dashboardDashboardSourceEntityPtrType DashboardDashboardSourceEntityArgs
-
-func DashboardDashboardSourceEntityPtr(v *DashboardDashboardSourceEntityArgs) DashboardDashboardSourceEntityPtrInput {
-	return (*dashboardDashboardSourceEntityPtrType)(v)
-}
-
-func (*dashboardDashboardSourceEntityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardSourceEntity)(nil)).Elem()
-}
-
-func (i *dashboardDashboardSourceEntityPtrType) ToDashboardDashboardSourceEntityPtrOutput() DashboardDashboardSourceEntityPtrOutput {
-	return i.ToDashboardDashboardSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardDashboardSourceEntityPtrType) ToDashboardDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardDashboardSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceEntityPtrOutput)
-}
-
-// <p>Dashboard source entity.</p>
-type DashboardDashboardSourceEntityOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardSourceEntityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardSourceEntity)(nil)).Elem()
-}
-
-func (o DashboardDashboardSourceEntityOutput) ToDashboardDashboardSourceEntityOutput() DashboardDashboardSourceEntityOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceEntityOutput) ToDashboardDashboardSourceEntityOutputWithContext(ctx context.Context) DashboardDashboardSourceEntityOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceEntityOutput) ToDashboardDashboardSourceEntityPtrOutput() DashboardDashboardSourceEntityPtrOutput {
-	return o.ToDashboardDashboardSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardDashboardSourceEntityOutput) ToDashboardDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardDashboardSourceEntityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDashboardSourceEntity) *DashboardDashboardSourceEntity {
-		return &v
-	}).(DashboardDashboardSourceEntityPtrOutput)
-}
-
-func (o DashboardDashboardSourceEntityOutput) SourceTemplate() DashboardDashboardSourceTemplatePtrOutput {
-	return o.ApplyT(func(v DashboardDashboardSourceEntity) *DashboardDashboardSourceTemplate { return v.SourceTemplate }).(DashboardDashboardSourceTemplatePtrOutput)
-}
-
-type DashboardDashboardSourceEntityPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardSourceEntityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardSourceEntity)(nil)).Elem()
-}
-
-func (o DashboardDashboardSourceEntityPtrOutput) ToDashboardDashboardSourceEntityPtrOutput() DashboardDashboardSourceEntityPtrOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceEntityPtrOutput) ToDashboardDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardDashboardSourceEntityPtrOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceEntityPtrOutput) Elem() DashboardDashboardSourceEntityOutput {
-	return o.ApplyT(func(v *DashboardDashboardSourceEntity) DashboardDashboardSourceEntity {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardDashboardSourceEntity
-		return ret
-	}).(DashboardDashboardSourceEntityOutput)
-}
-
-func (o DashboardDashboardSourceEntityPtrOutput) SourceTemplate() DashboardDashboardSourceTemplatePtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardSourceEntity) *DashboardDashboardSourceTemplate {
-		if v == nil {
-			return nil
-		}
-		return v.SourceTemplate
-	}).(DashboardDashboardSourceTemplatePtrOutput)
-}
-
-// <p>Dashboard source template.</p>
-type DashboardDashboardSourceTemplate struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn string `pulumi:"arn"`
-	// <p>Dataset references.</p>
-	DataSetReferences []DashboardDataSetReference `pulumi:"dataSetReferences"`
-}
-
-// DashboardDashboardSourceTemplateInput is an input type that accepts DashboardDashboardSourceTemplateArgs and DashboardDashboardSourceTemplateOutput values.
-// You can construct a concrete instance of `DashboardDashboardSourceTemplateInput` via:
-//
-//          DashboardDashboardSourceTemplateArgs{...}
-type DashboardDashboardSourceTemplateInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardSourceTemplateOutput() DashboardDashboardSourceTemplateOutput
-	ToDashboardDashboardSourceTemplateOutputWithContext(context.Context) DashboardDashboardSourceTemplateOutput
-}
-
-// <p>Dashboard source template.</p>
-type DashboardDashboardSourceTemplateArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// <p>Dataset references.</p>
-	DataSetReferences DashboardDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
-}
-
-func (DashboardDashboardSourceTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardSourceTemplate)(nil)).Elem()
-}
-
-func (i DashboardDashboardSourceTemplateArgs) ToDashboardDashboardSourceTemplateOutput() DashboardDashboardSourceTemplateOutput {
-	return i.ToDashboardDashboardSourceTemplateOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardSourceTemplateArgs) ToDashboardDashboardSourceTemplateOutputWithContext(ctx context.Context) DashboardDashboardSourceTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceTemplateOutput)
-}
-
-func (i DashboardDashboardSourceTemplateArgs) ToDashboardDashboardSourceTemplatePtrOutput() DashboardDashboardSourceTemplatePtrOutput {
-	return i.ToDashboardDashboardSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardSourceTemplateArgs) ToDashboardDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardDashboardSourceTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceTemplateOutput).ToDashboardDashboardSourceTemplatePtrOutputWithContext(ctx)
-}
-
-// DashboardDashboardSourceTemplatePtrInput is an input type that accepts DashboardDashboardSourceTemplateArgs, DashboardDashboardSourceTemplatePtr and DashboardDashboardSourceTemplatePtrOutput values.
-// You can construct a concrete instance of `DashboardDashboardSourceTemplatePtrInput` via:
-//
-//          DashboardDashboardSourceTemplateArgs{...}
-//
-//  or:
-//
-//          nil
-type DashboardDashboardSourceTemplatePtrInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardSourceTemplatePtrOutput() DashboardDashboardSourceTemplatePtrOutput
-	ToDashboardDashboardSourceTemplatePtrOutputWithContext(context.Context) DashboardDashboardSourceTemplatePtrOutput
-}
-
-type dashboardDashboardSourceTemplatePtrType DashboardDashboardSourceTemplateArgs
-
-func DashboardDashboardSourceTemplatePtr(v *DashboardDashboardSourceTemplateArgs) DashboardDashboardSourceTemplatePtrInput {
-	return (*dashboardDashboardSourceTemplatePtrType)(v)
-}
-
-func (*dashboardDashboardSourceTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardSourceTemplate)(nil)).Elem()
-}
-
-func (i *dashboardDashboardSourceTemplatePtrType) ToDashboardDashboardSourceTemplatePtrOutput() DashboardDashboardSourceTemplatePtrOutput {
-	return i.ToDashboardDashboardSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardDashboardSourceTemplatePtrType) ToDashboardDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardDashboardSourceTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceTemplatePtrOutput)
-}
-
-// <p>Dashboard source template.</p>
-type DashboardDashboardSourceTemplateOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardSourceTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardSourceTemplate)(nil)).Elem()
-}
-
-func (o DashboardDashboardSourceTemplateOutput) ToDashboardDashboardSourceTemplateOutput() DashboardDashboardSourceTemplateOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceTemplateOutput) ToDashboardDashboardSourceTemplateOutputWithContext(ctx context.Context) DashboardDashboardSourceTemplateOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceTemplateOutput) ToDashboardDashboardSourceTemplatePtrOutput() DashboardDashboardSourceTemplatePtrOutput {
-	return o.ToDashboardDashboardSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardDashboardSourceTemplateOutput) ToDashboardDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardDashboardSourceTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDashboardSourceTemplate) *DashboardDashboardSourceTemplate {
-		return &v
-	}).(DashboardDashboardSourceTemplatePtrOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o DashboardDashboardSourceTemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardDashboardSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
-}
-
-// <p>Dataset references.</p>
-func (o DashboardDashboardSourceTemplateOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
-	return o.ApplyT(func(v DashboardDashboardSourceTemplate) []DashboardDataSetReference { return v.DataSetReferences }).(DashboardDataSetReferenceArrayOutput)
-}
-
-type DashboardDashboardSourceTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardSourceTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardSourceTemplate)(nil)).Elem()
-}
-
-func (o DashboardDashboardSourceTemplatePtrOutput) ToDashboardDashboardSourceTemplatePtrOutput() DashboardDashboardSourceTemplatePtrOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceTemplatePtrOutput) ToDashboardDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardDashboardSourceTemplatePtrOutput {
-	return o
-}
-
-func (o DashboardDashboardSourceTemplatePtrOutput) Elem() DashboardDashboardSourceTemplateOutput {
-	return o.ApplyT(func(v *DashboardDashboardSourceTemplate) DashboardDashboardSourceTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardDashboardSourceTemplate
-		return ret
-	}).(DashboardDashboardSourceTemplateOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o DashboardDashboardSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardSourceTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Dataset references.</p>
-func (o DashboardDashboardSourceTemplatePtrOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
-	return o.ApplyT(func(v *DashboardDashboardSourceTemplate) []DashboardDataSetReference {
-		if v == nil {
-			return nil
-		}
-		return v.DataSetReferences
-	}).(DashboardDataSetReferenceArrayOutput)
-}
-
-// <p>Dashboard version.</p>
-type DashboardDashboardVersion struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn *string `pulumi:"arn"`
-	// <p>The time that this dashboard version was created.</p>
-	CreatedTime *string `pulumi:"createdTime"`
-	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-	//             version of the dashboard.</p>
-	DataSetArns []string `pulumi:"dataSetArns"`
-	// <p>Description.</p>
-	Description *string `pulumi:"description"`
-	// <p>Errors associated with this dashboard version.</p>
-	Errors []DashboardDashboardError `pulumi:"errors"`
-	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-	Sheets []DashboardSheet `pulumi:"sheets"`
-	// <p>Source entity ARN.</p>
-	SourceEntityArn *string                  `pulumi:"sourceEntityArn"`
-	Status          *DashboardResourceStatus `pulumi:"status"`
-	// <p>The ARN of the theme associated with a version of the dashboard.</p>
-	ThemeArn *string `pulumi:"themeArn"`
-	// <p>Version number for this version of the dashboard.</p>
-	VersionNumber *float64 `pulumi:"versionNumber"`
-}
-
-// DashboardDashboardVersionInput is an input type that accepts DashboardDashboardVersionArgs and DashboardDashboardVersionOutput values.
-// You can construct a concrete instance of `DashboardDashboardVersionInput` via:
-//
-//          DashboardDashboardVersionArgs{...}
-type DashboardDashboardVersionInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardVersionOutput() DashboardDashboardVersionOutput
-	ToDashboardDashboardVersionOutputWithContext(context.Context) DashboardDashboardVersionOutput
-}
-
-// <p>Dashboard version.</p>
-type DashboardDashboardVersionArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// <p>The time that this dashboard version was created.</p>
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-	//             version of the dashboard.</p>
-	DataSetArns pulumi.StringArrayInput `pulumi:"dataSetArns"`
-	// <p>Description.</p>
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// <p>Errors associated with this dashboard version.</p>
-	Errors DashboardDashboardErrorArrayInput `pulumi:"errors"`
-	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-	Sheets DashboardSheetArrayInput `pulumi:"sheets"`
-	// <p>Source entity ARN.</p>
-	SourceEntityArn pulumi.StringPtrInput           `pulumi:"sourceEntityArn"`
-	Status          DashboardResourceStatusPtrInput `pulumi:"status"`
-	// <p>The ARN of the theme associated with a version of the dashboard.</p>
-	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
-	// <p>Version number for this version of the dashboard.</p>
-	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
-}
-
-func (DashboardDashboardVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardVersion)(nil)).Elem()
-}
-
-func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionOutput() DashboardDashboardVersionOutput {
-	return i.ToDashboardDashboardVersionOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionOutputWithContext(ctx context.Context) DashboardDashboardVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardVersionOutput)
-}
-
-func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
-	return i.ToDashboardDashboardVersionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardVersionOutput).ToDashboardDashboardVersionPtrOutputWithContext(ctx)
-}
-
-// DashboardDashboardVersionPtrInput is an input type that accepts DashboardDashboardVersionArgs, DashboardDashboardVersionPtr and DashboardDashboardVersionPtrOutput values.
-// You can construct a concrete instance of `DashboardDashboardVersionPtrInput` via:
-//
-//          DashboardDashboardVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type DashboardDashboardVersionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput
-	ToDashboardDashboardVersionPtrOutputWithContext(context.Context) DashboardDashboardVersionPtrOutput
-}
-
-type dashboardDashboardVersionPtrType DashboardDashboardVersionArgs
-
-func DashboardDashboardVersionPtr(v *DashboardDashboardVersionArgs) DashboardDashboardVersionPtrInput {
-	return (*dashboardDashboardVersionPtrType)(v)
-}
-
-func (*dashboardDashboardVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardVersion)(nil)).Elem()
-}
-
-func (i *dashboardDashboardVersionPtrType) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
-	return i.ToDashboardDashboardVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardDashboardVersionPtrType) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardVersionPtrOutput)
-}
-
-// <p>Dashboard version.</p>
-type DashboardDashboardVersionOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardDashboardVersion)(nil)).Elem()
-}
-
-func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionOutput() DashboardDashboardVersionOutput {
-	return o
-}
-
-func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionOutputWithContext(ctx context.Context) DashboardDashboardVersionOutput {
-	return o
-}
-
-func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
-	return o.ToDashboardDashboardVersionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDashboardVersion) *DashboardDashboardVersion {
-		return &v
-	}).(DashboardDashboardVersionPtrOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o DashboardDashboardVersionOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-// <p>The time that this dashboard version was created.</p>
-func (o DashboardDashboardVersionOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
-}
-
-// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-//             version of the dashboard.</p>
-func (o DashboardDashboardVersionOutput) DataSetArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) []string { return v.DataSetArns }).(pulumi.StringArrayOutput)
-}
-
-// <p>Description.</p>
-func (o DashboardDashboardVersionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// <p>Errors associated with this dashboard version.</p>
-func (o DashboardDashboardVersionOutput) Errors() DashboardDashboardErrorArrayOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) []DashboardDashboardError { return v.Errors }).(DashboardDashboardErrorArrayOutput)
-}
-
-// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-func (o DashboardDashboardVersionOutput) Sheets() DashboardSheetArrayOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) []DashboardSheet { return v.Sheets }).(DashboardSheetArrayOutput)
-}
-
-// <p>Source entity ARN.</p>
-func (o DashboardDashboardVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardDashboardVersionOutput) Status() DashboardResourceStatusPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *DashboardResourceStatus { return v.Status }).(DashboardResourceStatusPtrOutput)
-}
-
-// <p>The ARN of the theme associated with a version of the dashboard.</p>
-func (o DashboardDashboardVersionOutput) ThemeArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
-}
-
-// <p>Version number for this version of the dashboard.</p>
-func (o DashboardDashboardVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardDashboardVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
-}
-
-type DashboardDashboardVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardDashboardVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardDashboardVersion)(nil)).Elem()
-}
-
-func (o DashboardDashboardVersionPtrOutput) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
-	return o
-}
-
-func (o DashboardDashboardVersionPtrOutput) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
-	return o
-}
-
-func (o DashboardDashboardVersionPtrOutput) Elem() DashboardDashboardVersionOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) DashboardDashboardVersion {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardDashboardVersion
-		return ret
-	}).(DashboardDashboardVersionOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o DashboardDashboardVersionPtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The time that this dashboard version was created.</p>
-func (o DashboardDashboardVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
-//             version of the dashboard.</p>
-func (o DashboardDashboardVersionPtrOutput) DataSetArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DataSetArns
-	}).(pulumi.StringArrayOutput)
-}
-
-// <p>Description.</p>
-func (o DashboardDashboardVersionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Errors associated with this dashboard version.</p>
-func (o DashboardDashboardVersionPtrOutput) Errors() DashboardDashboardErrorArrayOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) []DashboardDashboardError {
-		if v == nil {
-			return nil
-		}
-		return v.Errors
-	}).(DashboardDashboardErrorArrayOutput)
-}
-
-// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-func (o DashboardDashboardVersionPtrOutput) Sheets() DashboardSheetArrayOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) []DashboardSheet {
-		if v == nil {
-			return nil
-		}
-		return v.Sheets
-	}).(DashboardSheetArrayOutput)
-}
-
-// <p>Source entity ARN.</p>
-func (o DashboardDashboardVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceEntityArn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DashboardDashboardVersionPtrOutput) Status() DashboardResourceStatusPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *DashboardResourceStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(DashboardResourceStatusPtrOutput)
-}
-
-// <p>The ARN of the theme associated with a version of the dashboard.</p>
-func (o DashboardDashboardVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ThemeArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Version number for this version of the dashboard.</p>
-func (o DashboardDashboardVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardDashboardVersion) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.VersionNumber
-	}).(pulumi.Float64PtrOutput)
+	}).(DashboardBehaviorPtrOutput)
 }
 
 // <p>Dataset reference.</p>
@@ -2881,9 +2003,115 @@ func (o DashboardDecimalParameterArrayOutput) Index(i pulumi.IntInput) Dashboard
 	}).(DashboardDecimalParameterOutput)
 }
 
+// <p>Dashboard error.</p>
+type DashboardError struct {
+	// <p>Message.</p>
+	Message *string             `pulumi:"message"`
+	Type    *DashboardErrorType `pulumi:"type"`
+}
+
+// DashboardErrorInput is an input type that accepts DashboardErrorArgs and DashboardErrorOutput values.
+// You can construct a concrete instance of `DashboardErrorInput` via:
+//
+//          DashboardErrorArgs{...}
+type DashboardErrorInput interface {
+	pulumi.Input
+
+	ToDashboardErrorOutput() DashboardErrorOutput
+	ToDashboardErrorOutputWithContext(context.Context) DashboardErrorOutput
+}
+
+// <p>Dashboard error.</p>
+type DashboardErrorArgs struct {
+	// <p>Message.</p>
+	Message pulumi.StringPtrInput      `pulumi:"message"`
+	Type    DashboardErrorTypePtrInput `pulumi:"type"`
+}
+
+func (DashboardErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardError)(nil)).Elem()
+}
+
+func (i DashboardErrorArgs) ToDashboardErrorOutput() DashboardErrorOutput {
+	return i.ToDashboardErrorOutputWithContext(context.Background())
+}
+
+func (i DashboardErrorArgs) ToDashboardErrorOutputWithContext(ctx context.Context) DashboardErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardErrorOutput)
+}
+
+// DashboardErrorArrayInput is an input type that accepts DashboardErrorArray and DashboardErrorArrayOutput values.
+// You can construct a concrete instance of `DashboardErrorArrayInput` via:
+//
+//          DashboardErrorArray{ DashboardErrorArgs{...} }
+type DashboardErrorArrayInput interface {
+	pulumi.Input
+
+	ToDashboardErrorArrayOutput() DashboardErrorArrayOutput
+	ToDashboardErrorArrayOutputWithContext(context.Context) DashboardErrorArrayOutput
+}
+
+type DashboardErrorArray []DashboardErrorInput
+
+func (DashboardErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardError)(nil)).Elem()
+}
+
+func (i DashboardErrorArray) ToDashboardErrorArrayOutput() DashboardErrorArrayOutput {
+	return i.ToDashboardErrorArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardErrorArray) ToDashboardErrorArrayOutputWithContext(ctx context.Context) DashboardErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardErrorArrayOutput)
+}
+
+// <p>Dashboard error.</p>
+type DashboardErrorOutput struct{ *pulumi.OutputState }
+
+func (DashboardErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardError)(nil)).Elem()
+}
+
+func (o DashboardErrorOutput) ToDashboardErrorOutput() DashboardErrorOutput {
+	return o
+}
+
+func (o DashboardErrorOutput) ToDashboardErrorOutputWithContext(ctx context.Context) DashboardErrorOutput {
+	return o
+}
+
+// <p>Message.</p>
+func (o DashboardErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardErrorOutput) Type() DashboardErrorTypePtrOutput {
+	return o.ApplyT(func(v DashboardError) *DashboardErrorType { return v.Type }).(DashboardErrorTypePtrOutput)
+}
+
+type DashboardErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardError)(nil)).Elem()
+}
+
+func (o DashboardErrorArrayOutput) ToDashboardErrorArrayOutput() DashboardErrorArrayOutput {
+	return o
+}
+
+func (o DashboardErrorArrayOutput) ToDashboardErrorArrayOutputWithContext(ctx context.Context) DashboardErrorArrayOutput {
+	return o
+}
+
+func (o DashboardErrorArrayOutput) Index(i pulumi.IntInput) DashboardErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardError {
+		return vs[0].([]DashboardError)[vs[1].(int)]
+	}).(DashboardErrorOutput)
+}
+
 // <p>Export to .csv option.</p>
 type DashboardExportToCSVOption struct {
-	AvailabilityStatus *DashboardDashboardBehavior `pulumi:"availabilityStatus"`
+	AvailabilityStatus *DashboardBehavior `pulumi:"availabilityStatus"`
 }
 
 // DashboardExportToCSVOptionInput is an input type that accepts DashboardExportToCSVOptionArgs and DashboardExportToCSVOptionOutput values.
@@ -2899,7 +2127,7 @@ type DashboardExportToCSVOptionInput interface {
 
 // <p>Export to .csv option.</p>
 type DashboardExportToCSVOptionArgs struct {
-	AvailabilityStatus DashboardDashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
+	AvailabilityStatus DashboardBehaviorPtrInput `pulumi:"availabilityStatus"`
 }
 
 func (DashboardExportToCSVOptionArgs) ElementType() reflect.Type {
@@ -2980,8 +2208,8 @@ func (o DashboardExportToCSVOptionOutput) ToDashboardExportToCSVOptionPtrOutputW
 	}).(DashboardExportToCSVOptionPtrOutput)
 }
 
-func (o DashboardExportToCSVOptionOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v DashboardExportToCSVOption) *DashboardDashboardBehavior { return v.AvailabilityStatus }).(DashboardDashboardBehaviorPtrOutput)
+func (o DashboardExportToCSVOptionOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v DashboardExportToCSVOption) *DashboardBehavior { return v.AvailabilityStatus }).(DashboardBehaviorPtrOutput)
 }
 
 type DashboardExportToCSVOptionPtrOutput struct{ *pulumi.OutputState }
@@ -3008,13 +2236,13 @@ func (o DashboardExportToCSVOptionPtrOutput) Elem() DashboardExportToCSVOptionOu
 	}).(DashboardExportToCSVOptionOutput)
 }
 
-func (o DashboardExportToCSVOptionPtrOutput) AvailabilityStatus() DashboardDashboardBehaviorPtrOutput {
-	return o.ApplyT(func(v *DashboardExportToCSVOption) *DashboardDashboardBehavior {
+func (o DashboardExportToCSVOptionPtrOutput) AvailabilityStatus() DashboardBehaviorPtrOutput {
+	return o.ApplyT(func(v *DashboardExportToCSVOption) *DashboardBehavior {
 		if v == nil {
 			return nil
 		}
 		return v.AvailabilityStatus
-	}).(DashboardDashboardBehaviorPtrOutput)
+	}).(DashboardBehaviorPtrOutput)
 }
 
 // <p>An integer parameter.</p>
@@ -3323,6 +2551,172 @@ func (o DashboardParametersPtrOutput) StringParameters() DashboardStringParamete
 	}).(DashboardStringParameterArrayOutput)
 }
 
+// <p>Dashboard publish options.</p>
+type DashboardPublishOptions struct {
+	AdHocFilteringOption *DashboardAdHocFilteringOption `pulumi:"adHocFilteringOption"`
+	ExportToCSVOption    *DashboardExportToCSVOption    `pulumi:"exportToCSVOption"`
+	SheetControlsOption  *DashboardSheetControlsOption  `pulumi:"sheetControlsOption"`
+}
+
+// DashboardPublishOptionsInput is an input type that accepts DashboardPublishOptionsArgs and DashboardPublishOptionsOutput values.
+// You can construct a concrete instance of `DashboardPublishOptionsInput` via:
+//
+//          DashboardPublishOptionsArgs{...}
+type DashboardPublishOptionsInput interface {
+	pulumi.Input
+
+	ToDashboardPublishOptionsOutput() DashboardPublishOptionsOutput
+	ToDashboardPublishOptionsOutputWithContext(context.Context) DashboardPublishOptionsOutput
+}
+
+// <p>Dashboard publish options.</p>
+type DashboardPublishOptionsArgs struct {
+	AdHocFilteringOption DashboardAdHocFilteringOptionPtrInput `pulumi:"adHocFilteringOption"`
+	ExportToCSVOption    DashboardExportToCSVOptionPtrInput    `pulumi:"exportToCSVOption"`
+	SheetControlsOption  DashboardSheetControlsOptionPtrInput  `pulumi:"sheetControlsOption"`
+}
+
+func (DashboardPublishOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPublishOptions)(nil)).Elem()
+}
+
+func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsOutput() DashboardPublishOptionsOutput {
+	return i.ToDashboardPublishOptionsOutputWithContext(context.Background())
+}
+
+func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsOutputWithContext(ctx context.Context) DashboardPublishOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPublishOptionsOutput)
+}
+
+func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
+	return i.ToDashboardPublishOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardPublishOptionsArgs) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPublishOptionsOutput).ToDashboardPublishOptionsPtrOutputWithContext(ctx)
+}
+
+// DashboardPublishOptionsPtrInput is an input type that accepts DashboardPublishOptionsArgs, DashboardPublishOptionsPtr and DashboardPublishOptionsPtrOutput values.
+// You can construct a concrete instance of `DashboardPublishOptionsPtrInput` via:
+//
+//          DashboardPublishOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DashboardPublishOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput
+	ToDashboardPublishOptionsPtrOutputWithContext(context.Context) DashboardPublishOptionsPtrOutput
+}
+
+type dashboardPublishOptionsPtrType DashboardPublishOptionsArgs
+
+func DashboardPublishOptionsPtr(v *DashboardPublishOptionsArgs) DashboardPublishOptionsPtrInput {
+	return (*dashboardPublishOptionsPtrType)(v)
+}
+
+func (*dashboardPublishOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardPublishOptions)(nil)).Elem()
+}
+
+func (i *dashboardPublishOptionsPtrType) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
+	return i.ToDashboardPublishOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardPublishOptionsPtrType) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardPublishOptionsPtrOutput)
+}
+
+// <p>Dashboard publish options.</p>
+type DashboardPublishOptionsOutput struct{ *pulumi.OutputState }
+
+func (DashboardPublishOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPublishOptions)(nil)).Elem()
+}
+
+func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsOutput() DashboardPublishOptionsOutput {
+	return o
+}
+
+func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsOutputWithContext(ctx context.Context) DashboardPublishOptionsOutput {
+	return o
+}
+
+func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
+	return o.ToDashboardPublishOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardPublishOptionsOutput) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPublishOptions) *DashboardPublishOptions {
+		return &v
+	}).(DashboardPublishOptionsPtrOutput)
+}
+
+func (o DashboardPublishOptionsOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
+	return o.ApplyT(func(v DashboardPublishOptions) *DashboardAdHocFilteringOption { return v.AdHocFilteringOption }).(DashboardAdHocFilteringOptionPtrOutput)
+}
+
+func (o DashboardPublishOptionsOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
+	return o.ApplyT(func(v DashboardPublishOptions) *DashboardExportToCSVOption { return v.ExportToCSVOption }).(DashboardExportToCSVOptionPtrOutput)
+}
+
+func (o DashboardPublishOptionsOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
+	return o.ApplyT(func(v DashboardPublishOptions) *DashboardSheetControlsOption { return v.SheetControlsOption }).(DashboardSheetControlsOptionPtrOutput)
+}
+
+type DashboardPublishOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardPublishOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardPublishOptions)(nil)).Elem()
+}
+
+func (o DashboardPublishOptionsPtrOutput) ToDashboardPublishOptionsPtrOutput() DashboardPublishOptionsPtrOutput {
+	return o
+}
+
+func (o DashboardPublishOptionsPtrOutput) ToDashboardPublishOptionsPtrOutputWithContext(ctx context.Context) DashboardPublishOptionsPtrOutput {
+	return o
+}
+
+func (o DashboardPublishOptionsPtrOutput) Elem() DashboardPublishOptionsOutput {
+	return o.ApplyT(func(v *DashboardPublishOptions) DashboardPublishOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardPublishOptions
+		return ret
+	}).(DashboardPublishOptionsOutput)
+}
+
+func (o DashboardPublishOptionsPtrOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
+	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardAdHocFilteringOption {
+		if v == nil {
+			return nil
+		}
+		return v.AdHocFilteringOption
+	}).(DashboardAdHocFilteringOptionPtrOutput)
+}
+
+func (o DashboardPublishOptionsPtrOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
+	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardExportToCSVOption {
+		if v == nil {
+			return nil
+		}
+		return v.ExportToCSVOption
+	}).(DashboardExportToCSVOptionPtrOutput)
+}
+
+func (o DashboardPublishOptionsPtrOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
+	return o.ApplyT(func(v *DashboardPublishOptions) *DashboardSheetControlsOption {
+		if v == nil {
+			return nil
+		}
+		return v.SheetControlsOption
+	}).(DashboardSheetControlsOptionPtrOutput)
+}
+
 // <p>Permission for the resource.</p>
 type DashboardResourcePermission struct {
 	// <p>The IAM action to grant or revoke permissions on.</p>
@@ -3600,7 +2994,7 @@ func (o DashboardSheetArrayOutput) Index(i pulumi.IntInput) DashboardSheetOutput
 
 // <p>Sheet controls option.</p>
 type DashboardSheetControlsOption struct {
-	VisibilityState *DashboardDashboardUIState `pulumi:"visibilityState"`
+	VisibilityState *DashboardUIState `pulumi:"visibilityState"`
 }
 
 // DashboardSheetControlsOptionInput is an input type that accepts DashboardSheetControlsOptionArgs and DashboardSheetControlsOptionOutput values.
@@ -3616,7 +3010,7 @@ type DashboardSheetControlsOptionInput interface {
 
 // <p>Sheet controls option.</p>
 type DashboardSheetControlsOptionArgs struct {
-	VisibilityState DashboardDashboardUIStatePtrInput `pulumi:"visibilityState"`
+	VisibilityState DashboardUIStatePtrInput `pulumi:"visibilityState"`
 }
 
 func (DashboardSheetControlsOptionArgs) ElementType() reflect.Type {
@@ -3697,8 +3091,8 @@ func (o DashboardSheetControlsOptionOutput) ToDashboardSheetControlsOptionPtrOut
 	}).(DashboardSheetControlsOptionPtrOutput)
 }
 
-func (o DashboardSheetControlsOptionOutput) VisibilityState() DashboardDashboardUIStatePtrOutput {
-	return o.ApplyT(func(v DashboardSheetControlsOption) *DashboardDashboardUIState { return v.VisibilityState }).(DashboardDashboardUIStatePtrOutput)
+func (o DashboardSheetControlsOptionOutput) VisibilityState() DashboardUIStatePtrOutput {
+	return o.ApplyT(func(v DashboardSheetControlsOption) *DashboardUIState { return v.VisibilityState }).(DashboardUIStatePtrOutput)
 }
 
 type DashboardSheetControlsOptionPtrOutput struct{ *pulumi.OutputState }
@@ -3725,13 +3119,308 @@ func (o DashboardSheetControlsOptionPtrOutput) Elem() DashboardSheetControlsOpti
 	}).(DashboardSheetControlsOptionOutput)
 }
 
-func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() DashboardDashboardUIStatePtrOutput {
-	return o.ApplyT(func(v *DashboardSheetControlsOption) *DashboardDashboardUIState {
+func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() DashboardUIStatePtrOutput {
+	return o.ApplyT(func(v *DashboardSheetControlsOption) *DashboardUIState {
 		if v == nil {
 			return nil
 		}
 		return v.VisibilityState
-	}).(DashboardDashboardUIStatePtrOutput)
+	}).(DashboardUIStatePtrOutput)
+}
+
+// <p>Dashboard source entity.</p>
+type DashboardSourceEntity struct {
+	SourceTemplate *DashboardSourceTemplate `pulumi:"sourceTemplate"`
+}
+
+// DashboardSourceEntityInput is an input type that accepts DashboardSourceEntityArgs and DashboardSourceEntityOutput values.
+// You can construct a concrete instance of `DashboardSourceEntityInput` via:
+//
+//          DashboardSourceEntityArgs{...}
+type DashboardSourceEntityInput interface {
+	pulumi.Input
+
+	ToDashboardSourceEntityOutput() DashboardSourceEntityOutput
+	ToDashboardSourceEntityOutputWithContext(context.Context) DashboardSourceEntityOutput
+}
+
+// <p>Dashboard source entity.</p>
+type DashboardSourceEntityArgs struct {
+	SourceTemplate DashboardSourceTemplatePtrInput `pulumi:"sourceTemplate"`
+}
+
+func (DashboardSourceEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSourceEntity)(nil)).Elem()
+}
+
+func (i DashboardSourceEntityArgs) ToDashboardSourceEntityOutput() DashboardSourceEntityOutput {
+	return i.ToDashboardSourceEntityOutputWithContext(context.Background())
+}
+
+func (i DashboardSourceEntityArgs) ToDashboardSourceEntityOutputWithContext(ctx context.Context) DashboardSourceEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceEntityOutput)
+}
+
+func (i DashboardSourceEntityArgs) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
+	return i.ToDashboardSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardSourceEntityArgs) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceEntityOutput).ToDashboardSourceEntityPtrOutputWithContext(ctx)
+}
+
+// DashboardSourceEntityPtrInput is an input type that accepts DashboardSourceEntityArgs, DashboardSourceEntityPtr and DashboardSourceEntityPtrOutput values.
+// You can construct a concrete instance of `DashboardSourceEntityPtrInput` via:
+//
+//          DashboardSourceEntityArgs{...}
+//
+//  or:
+//
+//          nil
+type DashboardSourceEntityPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput
+	ToDashboardSourceEntityPtrOutputWithContext(context.Context) DashboardSourceEntityPtrOutput
+}
+
+type dashboardSourceEntityPtrType DashboardSourceEntityArgs
+
+func DashboardSourceEntityPtr(v *DashboardSourceEntityArgs) DashboardSourceEntityPtrInput {
+	return (*dashboardSourceEntityPtrType)(v)
+}
+
+func (*dashboardSourceEntityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSourceEntity)(nil)).Elem()
+}
+
+func (i *dashboardSourceEntityPtrType) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
+	return i.ToDashboardSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardSourceEntityPtrType) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceEntityPtrOutput)
+}
+
+// <p>Dashboard source entity.</p>
+type DashboardSourceEntityOutput struct{ *pulumi.OutputState }
+
+func (DashboardSourceEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSourceEntity)(nil)).Elem()
+}
+
+func (o DashboardSourceEntityOutput) ToDashboardSourceEntityOutput() DashboardSourceEntityOutput {
+	return o
+}
+
+func (o DashboardSourceEntityOutput) ToDashboardSourceEntityOutputWithContext(ctx context.Context) DashboardSourceEntityOutput {
+	return o
+}
+
+func (o DashboardSourceEntityOutput) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
+	return o.ToDashboardSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSourceEntityOutput) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSourceEntity) *DashboardSourceEntity {
+		return &v
+	}).(DashboardSourceEntityPtrOutput)
+}
+
+func (o DashboardSourceEntityOutput) SourceTemplate() DashboardSourceTemplatePtrOutput {
+	return o.ApplyT(func(v DashboardSourceEntity) *DashboardSourceTemplate { return v.SourceTemplate }).(DashboardSourceTemplatePtrOutput)
+}
+
+type DashboardSourceEntityPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSourceEntityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSourceEntity)(nil)).Elem()
+}
+
+func (o DashboardSourceEntityPtrOutput) ToDashboardSourceEntityPtrOutput() DashboardSourceEntityPtrOutput {
+	return o
+}
+
+func (o DashboardSourceEntityPtrOutput) ToDashboardSourceEntityPtrOutputWithContext(ctx context.Context) DashboardSourceEntityPtrOutput {
+	return o
+}
+
+func (o DashboardSourceEntityPtrOutput) Elem() DashboardSourceEntityOutput {
+	return o.ApplyT(func(v *DashboardSourceEntity) DashboardSourceEntity {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSourceEntity
+		return ret
+	}).(DashboardSourceEntityOutput)
+}
+
+func (o DashboardSourceEntityPtrOutput) SourceTemplate() DashboardSourceTemplatePtrOutput {
+	return o.ApplyT(func(v *DashboardSourceEntity) *DashboardSourceTemplate {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTemplate
+	}).(DashboardSourceTemplatePtrOutput)
+}
+
+// <p>Dashboard source template.</p>
+type DashboardSourceTemplate struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn string `pulumi:"arn"`
+	// <p>Dataset references.</p>
+	DataSetReferences []DashboardDataSetReference `pulumi:"dataSetReferences"`
+}
+
+// DashboardSourceTemplateInput is an input type that accepts DashboardSourceTemplateArgs and DashboardSourceTemplateOutput values.
+// You can construct a concrete instance of `DashboardSourceTemplateInput` via:
+//
+//          DashboardSourceTemplateArgs{...}
+type DashboardSourceTemplateInput interface {
+	pulumi.Input
+
+	ToDashboardSourceTemplateOutput() DashboardSourceTemplateOutput
+	ToDashboardSourceTemplateOutputWithContext(context.Context) DashboardSourceTemplateOutput
+}
+
+// <p>Dashboard source template.</p>
+type DashboardSourceTemplateArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// <p>Dataset references.</p>
+	DataSetReferences DashboardDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
+}
+
+func (DashboardSourceTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSourceTemplate)(nil)).Elem()
+}
+
+func (i DashboardSourceTemplateArgs) ToDashboardSourceTemplateOutput() DashboardSourceTemplateOutput {
+	return i.ToDashboardSourceTemplateOutputWithContext(context.Background())
+}
+
+func (i DashboardSourceTemplateArgs) ToDashboardSourceTemplateOutputWithContext(ctx context.Context) DashboardSourceTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceTemplateOutput)
+}
+
+func (i DashboardSourceTemplateArgs) ToDashboardSourceTemplatePtrOutput() DashboardSourceTemplatePtrOutput {
+	return i.ToDashboardSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardSourceTemplateArgs) ToDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardSourceTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceTemplateOutput).ToDashboardSourceTemplatePtrOutputWithContext(ctx)
+}
+
+// DashboardSourceTemplatePtrInput is an input type that accepts DashboardSourceTemplateArgs, DashboardSourceTemplatePtr and DashboardSourceTemplatePtrOutput values.
+// You can construct a concrete instance of `DashboardSourceTemplatePtrInput` via:
+//
+//          DashboardSourceTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type DashboardSourceTemplatePtrInput interface {
+	pulumi.Input
+
+	ToDashboardSourceTemplatePtrOutput() DashboardSourceTemplatePtrOutput
+	ToDashboardSourceTemplatePtrOutputWithContext(context.Context) DashboardSourceTemplatePtrOutput
+}
+
+type dashboardSourceTemplatePtrType DashboardSourceTemplateArgs
+
+func DashboardSourceTemplatePtr(v *DashboardSourceTemplateArgs) DashboardSourceTemplatePtrInput {
+	return (*dashboardSourceTemplatePtrType)(v)
+}
+
+func (*dashboardSourceTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSourceTemplate)(nil)).Elem()
+}
+
+func (i *dashboardSourceTemplatePtrType) ToDashboardSourceTemplatePtrOutput() DashboardSourceTemplatePtrOutput {
+	return i.ToDashboardSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardSourceTemplatePtrType) ToDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardSourceTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSourceTemplatePtrOutput)
+}
+
+// <p>Dashboard source template.</p>
+type DashboardSourceTemplateOutput struct{ *pulumi.OutputState }
+
+func (DashboardSourceTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSourceTemplate)(nil)).Elem()
+}
+
+func (o DashboardSourceTemplateOutput) ToDashboardSourceTemplateOutput() DashboardSourceTemplateOutput {
+	return o
+}
+
+func (o DashboardSourceTemplateOutput) ToDashboardSourceTemplateOutputWithContext(ctx context.Context) DashboardSourceTemplateOutput {
+	return o
+}
+
+func (o DashboardSourceTemplateOutput) ToDashboardSourceTemplatePtrOutput() DashboardSourceTemplatePtrOutput {
+	return o.ToDashboardSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSourceTemplateOutput) ToDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardSourceTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSourceTemplate) *DashboardSourceTemplate {
+		return &v
+	}).(DashboardSourceTemplatePtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DashboardSourceTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// <p>Dataset references.</p>
+func (o DashboardSourceTemplateOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
+	return o.ApplyT(func(v DashboardSourceTemplate) []DashboardDataSetReference { return v.DataSetReferences }).(DashboardDataSetReferenceArrayOutput)
+}
+
+type DashboardSourceTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSourceTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSourceTemplate)(nil)).Elem()
+}
+
+func (o DashboardSourceTemplatePtrOutput) ToDashboardSourceTemplatePtrOutput() DashboardSourceTemplatePtrOutput {
+	return o
+}
+
+func (o DashboardSourceTemplatePtrOutput) ToDashboardSourceTemplatePtrOutputWithContext(ctx context.Context) DashboardSourceTemplatePtrOutput {
+	return o
+}
+
+func (o DashboardSourceTemplatePtrOutput) Elem() DashboardSourceTemplateOutput {
+	return o.ApplyT(func(v *DashboardSourceTemplate) DashboardSourceTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSourceTemplate
+		return ret
+	}).(DashboardSourceTemplateOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DashboardSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardSourceTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Dataset references.</p>
+func (o DashboardSourceTemplatePtrOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
+	return o.ApplyT(func(v *DashboardSourceTemplate) []DashboardDataSetReference {
+		if v == nil {
+			return nil
+		}
+		return v.DataSetReferences
+	}).(DashboardDataSetReferenceArrayOutput)
 }
 
 // <p>A string parameter.</p>
@@ -3953,6 +3642,317 @@ func (o DashboardTagArrayOutput) Index(i pulumi.IntInput) DashboardTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardTag {
 		return vs[0].([]DashboardTag)[vs[1].(int)]
 	}).(DashboardTagOutput)
+}
+
+// <p>Dashboard version.</p>
+type DashboardVersion struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The time that this dashboard version was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+	//             version of the dashboard.</p>
+	DataSetArns []string `pulumi:"dataSetArns"`
+	// <p>Description.</p>
+	Description *string `pulumi:"description"`
+	// <p>Errors associated with this dashboard version.</p>
+	Errors []DashboardError `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets []DashboardSheet `pulumi:"sheets"`
+	// <p>Source entity ARN.</p>
+	SourceEntityArn *string                  `pulumi:"sourceEntityArn"`
+	Status          *DashboardResourceStatus `pulumi:"status"`
+	// <p>The ARN of the theme associated with a version of the dashboard.</p>
+	ThemeArn *string `pulumi:"themeArn"`
+	// <p>Version number for this version of the dashboard.</p>
+	VersionNumber *float64 `pulumi:"versionNumber"`
+}
+
+// DashboardVersionInput is an input type that accepts DashboardVersionArgs and DashboardVersionOutput values.
+// You can construct a concrete instance of `DashboardVersionInput` via:
+//
+//          DashboardVersionArgs{...}
+type DashboardVersionInput interface {
+	pulumi.Input
+
+	ToDashboardVersionOutput() DashboardVersionOutput
+	ToDashboardVersionOutputWithContext(context.Context) DashboardVersionOutput
+}
+
+// <p>Dashboard version.</p>
+type DashboardVersionArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// <p>The time that this dashboard version was created.</p>
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+	//             version of the dashboard.</p>
+	DataSetArns pulumi.StringArrayInput `pulumi:"dataSetArns"`
+	// <p>Description.</p>
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// <p>Errors associated with this dashboard version.</p>
+	Errors DashboardErrorArrayInput `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets DashboardSheetArrayInput `pulumi:"sheets"`
+	// <p>Source entity ARN.</p>
+	SourceEntityArn pulumi.StringPtrInput           `pulumi:"sourceEntityArn"`
+	Status          DashboardResourceStatusPtrInput `pulumi:"status"`
+	// <p>The ARN of the theme associated with a version of the dashboard.</p>
+	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
+	// <p>Version number for this version of the dashboard.</p>
+	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
+}
+
+func (DashboardVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardVersion)(nil)).Elem()
+}
+
+func (i DashboardVersionArgs) ToDashboardVersionOutput() DashboardVersionOutput {
+	return i.ToDashboardVersionOutputWithContext(context.Background())
+}
+
+func (i DashboardVersionArgs) ToDashboardVersionOutputWithContext(ctx context.Context) DashboardVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardVersionOutput)
+}
+
+func (i DashboardVersionArgs) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
+	return i.ToDashboardVersionPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardVersionArgs) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardVersionOutput).ToDashboardVersionPtrOutputWithContext(ctx)
+}
+
+// DashboardVersionPtrInput is an input type that accepts DashboardVersionArgs, DashboardVersionPtr and DashboardVersionPtrOutput values.
+// You can construct a concrete instance of `DashboardVersionPtrInput` via:
+//
+//          DashboardVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type DashboardVersionPtrInput interface {
+	pulumi.Input
+
+	ToDashboardVersionPtrOutput() DashboardVersionPtrOutput
+	ToDashboardVersionPtrOutputWithContext(context.Context) DashboardVersionPtrOutput
+}
+
+type dashboardVersionPtrType DashboardVersionArgs
+
+func DashboardVersionPtr(v *DashboardVersionArgs) DashboardVersionPtrInput {
+	return (*dashboardVersionPtrType)(v)
+}
+
+func (*dashboardVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardVersion)(nil)).Elem()
+}
+
+func (i *dashboardVersionPtrType) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
+	return i.ToDashboardVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardVersionPtrType) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardVersionPtrOutput)
+}
+
+// <p>Dashboard version.</p>
+type DashboardVersionOutput struct{ *pulumi.OutputState }
+
+func (DashboardVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardVersion)(nil)).Elem()
+}
+
+func (o DashboardVersionOutput) ToDashboardVersionOutput() DashboardVersionOutput {
+	return o
+}
+
+func (o DashboardVersionOutput) ToDashboardVersionOutputWithContext(ctx context.Context) DashboardVersionOutput {
+	return o
+}
+
+func (o DashboardVersionOutput) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
+	return o.ToDashboardVersionPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardVersionOutput) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardVersion) *DashboardVersion {
+		return &v
+	}).(DashboardVersionPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DashboardVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// <p>The time that this dashboard version was created.</p>
+func (o DashboardVersionOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+//             version of the dashboard.</p>
+func (o DashboardVersionOutput) DataSetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardVersion) []string { return v.DataSetArns }).(pulumi.StringArrayOutput)
+}
+
+// <p>Description.</p>
+func (o DashboardVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with this dashboard version.</p>
+func (o DashboardVersionOutput) Errors() DashboardErrorArrayOutput {
+	return o.ApplyT(func(v DashboardVersion) []DashboardError { return v.Errors }).(DashboardErrorArrayOutput)
+}
+
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+func (o DashboardVersionOutput) Sheets() DashboardSheetArrayOutput {
+	return o.ApplyT(func(v DashboardVersion) []DashboardSheet { return v.Sheets }).(DashboardSheetArrayOutput)
+}
+
+// <p>Source entity ARN.</p>
+func (o DashboardVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardVersionOutput) Status() DashboardResourceStatusPtrOutput {
+	return o.ApplyT(func(v DashboardVersion) *DashboardResourceStatus { return v.Status }).(DashboardResourceStatusPtrOutput)
+}
+
+// <p>The ARN of the theme associated with a version of the dashboard.</p>
+func (o DashboardVersionOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
+}
+
+// <p>Version number for this version of the dashboard.</p>
+func (o DashboardVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DashboardVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
+}
+
+type DashboardVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardVersion)(nil)).Elem()
+}
+
+func (o DashboardVersionPtrOutput) ToDashboardVersionPtrOutput() DashboardVersionPtrOutput {
+	return o
+}
+
+func (o DashboardVersionPtrOutput) ToDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardVersionPtrOutput {
+	return o
+}
+
+func (o DashboardVersionPtrOutput) Elem() DashboardVersionOutput {
+	return o.ApplyT(func(v *DashboardVersion) DashboardVersion {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardVersion
+		return ret
+	}).(DashboardVersionOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DashboardVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The time that this dashboard version was created.</p>
+func (o DashboardVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+//             version of the dashboard.</p>
+func (o DashboardVersionPtrOutput) DataSetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DashboardVersion) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSetArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// <p>Description.</p>
+func (o DashboardVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with this dashboard version.</p>
+func (o DashboardVersionPtrOutput) Errors() DashboardErrorArrayOutput {
+	return o.ApplyT(func(v *DashboardVersion) []DashboardError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(DashboardErrorArrayOutput)
+}
+
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+func (o DashboardVersionPtrOutput) Sheets() DashboardSheetArrayOutput {
+	return o.ApplyT(func(v *DashboardVersion) []DashboardSheet {
+		if v == nil {
+			return nil
+		}
+		return v.Sheets
+	}).(DashboardSheetArrayOutput)
+}
+
+// <p>Source entity ARN.</p>
+func (o DashboardVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceEntityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardVersionPtrOutput) Status() DashboardResourceStatusPtrOutput {
+	return o.ApplyT(func(v *DashboardVersion) *DashboardResourceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DashboardResourceStatusPtrOutput)
+}
+
+// <p>The ARN of the theme associated with a version of the dashboard.</p>
+func (o DashboardVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThemeArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Version number for this version of the dashboard.</p>
+func (o DashboardVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DashboardVersion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.Float64PtrOutput)
 }
 
 // <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
@@ -6069,7 +6069,7 @@ type DataSourceCredentialPair struct {
 	//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
 	//             null, the <code>DataSourceParameters</code> originally used with these
 	//                 <code>Credentials</code> is automatically allowed.</p>
-	AlternateDataSourceParameters []DataSourceDataSourceParameters `pulumi:"alternateDataSourceParameters"`
+	AlternateDataSourceParameters []DataSourceParameters `pulumi:"alternateDataSourceParameters"`
 	// <p>Password.</p>
 	Password string `pulumi:"password"`
 	// <p>User name.</p>
@@ -6098,7 +6098,7 @@ type DataSourceCredentialPairArgs struct {
 	//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
 	//             null, the <code>DataSourceParameters</code> originally used with these
 	//                 <code>Credentials</code> is automatically allowed.</p>
-	AlternateDataSourceParameters DataSourceDataSourceParametersArrayInput `pulumi:"alternateDataSourceParameters"`
+	AlternateDataSourceParameters DataSourceParametersArrayInput `pulumi:"alternateDataSourceParameters"`
 	// <p>Password.</p>
 	Password pulumi.StringInput `pulumi:"password"`
 	// <p>User name.</p>
@@ -6192,10 +6192,8 @@ func (o DataSourceCredentialPairOutput) ToDataSourceCredentialPairPtrOutputWithC
 //             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
 //             null, the <code>DataSourceParameters</code> originally used with these
 //                 <code>Credentials</code> is automatically allowed.</p>
-func (o DataSourceCredentialPairOutput) AlternateDataSourceParameters() DataSourceDataSourceParametersArrayOutput {
-	return o.ApplyT(func(v DataSourceCredentialPair) []DataSourceDataSourceParameters {
-		return v.AlternateDataSourceParameters
-	}).(DataSourceDataSourceParametersArrayOutput)
+func (o DataSourceCredentialPairOutput) AlternateDataSourceParameters() DataSourceParametersArrayOutput {
+	return o.ApplyT(func(v DataSourceCredentialPair) []DataSourceParameters { return v.AlternateDataSourceParameters }).(DataSourceParametersArrayOutput)
 }
 
 // <p>Password.</p>
@@ -6241,13 +6239,13 @@ func (o DataSourceCredentialPairPtrOutput) Elem() DataSourceCredentialPairOutput
 //             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
 //             null, the <code>DataSourceParameters</code> originally used with these
 //                 <code>Credentials</code> is automatically allowed.</p>
-func (o DataSourceCredentialPairPtrOutput) AlternateDataSourceParameters() DataSourceDataSourceParametersArrayOutput {
-	return o.ApplyT(func(v *DataSourceCredentialPair) []DataSourceDataSourceParameters {
+func (o DataSourceCredentialPairPtrOutput) AlternateDataSourceParameters() DataSourceParametersArrayOutput {
+	return o.ApplyT(func(v *DataSourceCredentialPair) []DataSourceParameters {
 		if v == nil {
 			return nil
 		}
 		return v.AlternateDataSourceParameters
-	}).(DataSourceDataSourceParametersArrayOutput)
+	}).(DataSourceParametersArrayOutput)
 }
 
 // <p>Password.</p>
@@ -6272,7 +6270,7 @@ func (o DataSourceCredentialPairPtrOutput) Username() pulumi.StringPtrOutput {
 
 // <p>Data source credentials. This is a variant type structure. For this structure to be
 //             valid, only one of the attributes can be non-null.</p>
-type DataSourceDataSourceCredentials struct {
+type DataSourceCredentials struct {
 	// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
 	//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
 	//             data source in the ARN is used as the credentials for the
@@ -6281,20 +6279,20 @@ type DataSourceDataSourceCredentials struct {
 	CredentialPair *DataSourceCredentialPair `pulumi:"credentialPair"`
 }
 
-// DataSourceDataSourceCredentialsInput is an input type that accepts DataSourceDataSourceCredentialsArgs and DataSourceDataSourceCredentialsOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceCredentialsInput` via:
+// DataSourceCredentialsInput is an input type that accepts DataSourceCredentialsArgs and DataSourceCredentialsOutput values.
+// You can construct a concrete instance of `DataSourceCredentialsInput` via:
 //
-//          DataSourceDataSourceCredentialsArgs{...}
-type DataSourceDataSourceCredentialsInput interface {
+//          DataSourceCredentialsArgs{...}
+type DataSourceCredentialsInput interface {
 	pulumi.Input
 
-	ToDataSourceDataSourceCredentialsOutput() DataSourceDataSourceCredentialsOutput
-	ToDataSourceDataSourceCredentialsOutputWithContext(context.Context) DataSourceDataSourceCredentialsOutput
+	ToDataSourceCredentialsOutput() DataSourceCredentialsOutput
+	ToDataSourceCredentialsOutputWithContext(context.Context) DataSourceCredentialsOutput
 }
 
 // <p>Data source credentials. This is a variant type structure. For this structure to be
 //             valid, only one of the attributes can be non-null.</p>
-type DataSourceDataSourceCredentialsArgs struct {
+type DataSourceCredentialsArgs struct {
 	// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
 	//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
 	//             data source in the ARN is used as the credentials for the
@@ -6303,127 +6301,127 @@ type DataSourceDataSourceCredentialsArgs struct {
 	CredentialPair DataSourceCredentialPairPtrInput `pulumi:"credentialPair"`
 }
 
-func (DataSourceDataSourceCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceCredentials)(nil)).Elem()
+func (DataSourceCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCredentials)(nil)).Elem()
 }
 
-func (i DataSourceDataSourceCredentialsArgs) ToDataSourceDataSourceCredentialsOutput() DataSourceDataSourceCredentialsOutput {
-	return i.ToDataSourceDataSourceCredentialsOutputWithContext(context.Background())
+func (i DataSourceCredentialsArgs) ToDataSourceCredentialsOutput() DataSourceCredentialsOutput {
+	return i.ToDataSourceCredentialsOutputWithContext(context.Background())
 }
 
-func (i DataSourceDataSourceCredentialsArgs) ToDataSourceDataSourceCredentialsOutputWithContext(ctx context.Context) DataSourceDataSourceCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceCredentialsOutput)
+func (i DataSourceCredentialsArgs) ToDataSourceCredentialsOutputWithContext(ctx context.Context) DataSourceCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCredentialsOutput)
 }
 
-func (i DataSourceDataSourceCredentialsArgs) ToDataSourceDataSourceCredentialsPtrOutput() DataSourceDataSourceCredentialsPtrOutput {
-	return i.ToDataSourceDataSourceCredentialsPtrOutputWithContext(context.Background())
+func (i DataSourceCredentialsArgs) ToDataSourceCredentialsPtrOutput() DataSourceCredentialsPtrOutput {
+	return i.ToDataSourceCredentialsPtrOutputWithContext(context.Background())
 }
 
-func (i DataSourceDataSourceCredentialsArgs) ToDataSourceDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceCredentialsOutput).ToDataSourceDataSourceCredentialsPtrOutputWithContext(ctx)
+func (i DataSourceCredentialsArgs) ToDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCredentialsOutput).ToDataSourceCredentialsPtrOutputWithContext(ctx)
 }
 
-// DataSourceDataSourceCredentialsPtrInput is an input type that accepts DataSourceDataSourceCredentialsArgs, DataSourceDataSourceCredentialsPtr and DataSourceDataSourceCredentialsPtrOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceCredentialsPtrInput` via:
+// DataSourceCredentialsPtrInput is an input type that accepts DataSourceCredentialsArgs, DataSourceCredentialsPtr and DataSourceCredentialsPtrOutput values.
+// You can construct a concrete instance of `DataSourceCredentialsPtrInput` via:
 //
-//          DataSourceDataSourceCredentialsArgs{...}
+//          DataSourceCredentialsArgs{...}
 //
 //  or:
 //
 //          nil
-type DataSourceDataSourceCredentialsPtrInput interface {
+type DataSourceCredentialsPtrInput interface {
 	pulumi.Input
 
-	ToDataSourceDataSourceCredentialsPtrOutput() DataSourceDataSourceCredentialsPtrOutput
-	ToDataSourceDataSourceCredentialsPtrOutputWithContext(context.Context) DataSourceDataSourceCredentialsPtrOutput
+	ToDataSourceCredentialsPtrOutput() DataSourceCredentialsPtrOutput
+	ToDataSourceCredentialsPtrOutputWithContext(context.Context) DataSourceCredentialsPtrOutput
 }
 
-type dataSourceDataSourceCredentialsPtrType DataSourceDataSourceCredentialsArgs
+type dataSourceCredentialsPtrType DataSourceCredentialsArgs
 
-func DataSourceDataSourceCredentialsPtr(v *DataSourceDataSourceCredentialsArgs) DataSourceDataSourceCredentialsPtrInput {
-	return (*dataSourceDataSourceCredentialsPtrType)(v)
+func DataSourceCredentialsPtr(v *DataSourceCredentialsArgs) DataSourceCredentialsPtrInput {
+	return (*dataSourceCredentialsPtrType)(v)
 }
 
-func (*dataSourceDataSourceCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceCredentials)(nil)).Elem()
+func (*dataSourceCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCredentials)(nil)).Elem()
 }
 
-func (i *dataSourceDataSourceCredentialsPtrType) ToDataSourceDataSourceCredentialsPtrOutput() DataSourceDataSourceCredentialsPtrOutput {
-	return i.ToDataSourceDataSourceCredentialsPtrOutputWithContext(context.Background())
+func (i *dataSourceCredentialsPtrType) ToDataSourceCredentialsPtrOutput() DataSourceCredentialsPtrOutput {
+	return i.ToDataSourceCredentialsPtrOutputWithContext(context.Background())
 }
 
-func (i *dataSourceDataSourceCredentialsPtrType) ToDataSourceDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceCredentialsPtrOutput)
+func (i *dataSourceCredentialsPtrType) ToDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCredentialsPtrOutput)
 }
 
 // <p>Data source credentials. This is a variant type structure. For this structure to be
 //             valid, only one of the attributes can be non-null.</p>
-type DataSourceDataSourceCredentialsOutput struct{ *pulumi.OutputState }
+type DataSourceCredentialsOutput struct{ *pulumi.OutputState }
 
-func (DataSourceDataSourceCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceCredentials)(nil)).Elem()
+func (DataSourceCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceCredentials)(nil)).Elem()
 }
 
-func (o DataSourceDataSourceCredentialsOutput) ToDataSourceDataSourceCredentialsOutput() DataSourceDataSourceCredentialsOutput {
+func (o DataSourceCredentialsOutput) ToDataSourceCredentialsOutput() DataSourceCredentialsOutput {
 	return o
 }
 
-func (o DataSourceDataSourceCredentialsOutput) ToDataSourceDataSourceCredentialsOutputWithContext(ctx context.Context) DataSourceDataSourceCredentialsOutput {
+func (o DataSourceCredentialsOutput) ToDataSourceCredentialsOutputWithContext(ctx context.Context) DataSourceCredentialsOutput {
 	return o
 }
 
-func (o DataSourceDataSourceCredentialsOutput) ToDataSourceDataSourceCredentialsPtrOutput() DataSourceDataSourceCredentialsPtrOutput {
-	return o.ToDataSourceDataSourceCredentialsPtrOutputWithContext(context.Background())
+func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutput() DataSourceCredentialsPtrOutput {
+	return o.ToDataSourceCredentialsPtrOutputWithContext(context.Background())
 }
 
-func (o DataSourceDataSourceCredentialsOutput) ToDataSourceDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDataSourceCredentials) *DataSourceDataSourceCredentials {
+func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceCredentials) *DataSourceCredentials {
 		return &v
-	}).(DataSourceDataSourceCredentialsPtrOutput)
+	}).(DataSourceCredentialsPtrOutput)
 }
 
 // <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
 //             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
 //             data source in the ARN is used as the credentials for the
 //             <code>DataSourceCredentials</code> structure.</p>
-func (o DataSourceDataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
+func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceDataSourceCredentialsOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceCredentials) *DataSourceCredentialPair { return v.CredentialPair }).(DataSourceCredentialPairPtrOutput)
+func (o DataSourceCredentialsOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
+	return o.ApplyT(func(v DataSourceCredentials) *DataSourceCredentialPair { return v.CredentialPair }).(DataSourceCredentialPairPtrOutput)
 }
 
-type DataSourceDataSourceCredentialsPtrOutput struct{ *pulumi.OutputState }
+type DataSourceCredentialsPtrOutput struct{ *pulumi.OutputState }
 
-func (DataSourceDataSourceCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceCredentials)(nil)).Elem()
+func (DataSourceCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceCredentials)(nil)).Elem()
 }
 
-func (o DataSourceDataSourceCredentialsPtrOutput) ToDataSourceDataSourceCredentialsPtrOutput() DataSourceDataSourceCredentialsPtrOutput {
+func (o DataSourceCredentialsPtrOutput) ToDataSourceCredentialsPtrOutput() DataSourceCredentialsPtrOutput {
 	return o
 }
 
-func (o DataSourceDataSourceCredentialsPtrOutput) ToDataSourceDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceDataSourceCredentialsPtrOutput {
+func (o DataSourceCredentialsPtrOutput) ToDataSourceCredentialsPtrOutputWithContext(ctx context.Context) DataSourceCredentialsPtrOutput {
 	return o
 }
 
-func (o DataSourceDataSourceCredentialsPtrOutput) Elem() DataSourceDataSourceCredentialsOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceCredentials) DataSourceDataSourceCredentials {
+func (o DataSourceCredentialsPtrOutput) Elem() DataSourceCredentialsOutput {
+	return o.ApplyT(func(v *DataSourceCredentials) DataSourceCredentials {
 		if v != nil {
 			return *v
 		}
-		var ret DataSourceDataSourceCredentials
+		var ret DataSourceCredentials
 		return ret
-	}).(DataSourceDataSourceCredentialsOutput)
+	}).(DataSourceCredentialsOutput)
 }
 
 // <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
 //             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
 //             data source in the ARN is used as the credentials for the
 //             <code>DataSourceCredentials</code> structure.</p>
-func (o DataSourceDataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceCredentials) *string {
+func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
 			return nil
 		}
@@ -6431,8 +6429,8 @@ func (o DataSourceDataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceDataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceCredentials) *DataSourceCredentialPair {
+func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
+	return o.ApplyT(func(v *DataSourceCredentials) *DataSourceCredentialPair {
 		if v == nil {
 			return nil
 		}
@@ -6441,144 +6439,144 @@ func (o DataSourceDataSourceCredentialsPtrOutput) CredentialPair() DataSourceCre
 }
 
 // <p>Error information for the data source creation or update.</p>
-type DataSourceDataSourceErrorInfo struct {
+type DataSourceErrorInfo struct {
 	// <p>Error message.</p>
-	Message *string                            `pulumi:"message"`
-	Type    *DataSourceDataSourceErrorInfoType `pulumi:"type"`
+	Message *string                  `pulumi:"message"`
+	Type    *DataSourceErrorInfoType `pulumi:"type"`
 }
 
-// DataSourceDataSourceErrorInfoInput is an input type that accepts DataSourceDataSourceErrorInfoArgs and DataSourceDataSourceErrorInfoOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceErrorInfoInput` via:
+// DataSourceErrorInfoInput is an input type that accepts DataSourceErrorInfoArgs and DataSourceErrorInfoOutput values.
+// You can construct a concrete instance of `DataSourceErrorInfoInput` via:
 //
-//          DataSourceDataSourceErrorInfoArgs{...}
-type DataSourceDataSourceErrorInfoInput interface {
+//          DataSourceErrorInfoArgs{...}
+type DataSourceErrorInfoInput interface {
 	pulumi.Input
 
-	ToDataSourceDataSourceErrorInfoOutput() DataSourceDataSourceErrorInfoOutput
-	ToDataSourceDataSourceErrorInfoOutputWithContext(context.Context) DataSourceDataSourceErrorInfoOutput
+	ToDataSourceErrorInfoOutput() DataSourceErrorInfoOutput
+	ToDataSourceErrorInfoOutputWithContext(context.Context) DataSourceErrorInfoOutput
 }
 
 // <p>Error information for the data source creation or update.</p>
-type DataSourceDataSourceErrorInfoArgs struct {
+type DataSourceErrorInfoArgs struct {
 	// <p>Error message.</p>
-	Message pulumi.StringPtrInput                     `pulumi:"message"`
-	Type    DataSourceDataSourceErrorInfoTypePtrInput `pulumi:"type"`
+	Message pulumi.StringPtrInput           `pulumi:"message"`
+	Type    DataSourceErrorInfoTypePtrInput `pulumi:"type"`
 }
 
-func (DataSourceDataSourceErrorInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceErrorInfo)(nil)).Elem()
+func (DataSourceErrorInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceErrorInfo)(nil)).Elem()
 }
 
-func (i DataSourceDataSourceErrorInfoArgs) ToDataSourceDataSourceErrorInfoOutput() DataSourceDataSourceErrorInfoOutput {
-	return i.ToDataSourceDataSourceErrorInfoOutputWithContext(context.Background())
+func (i DataSourceErrorInfoArgs) ToDataSourceErrorInfoOutput() DataSourceErrorInfoOutput {
+	return i.ToDataSourceErrorInfoOutputWithContext(context.Background())
 }
 
-func (i DataSourceDataSourceErrorInfoArgs) ToDataSourceDataSourceErrorInfoOutputWithContext(ctx context.Context) DataSourceDataSourceErrorInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceErrorInfoOutput)
+func (i DataSourceErrorInfoArgs) ToDataSourceErrorInfoOutputWithContext(ctx context.Context) DataSourceErrorInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceErrorInfoOutput)
 }
 
-func (i DataSourceDataSourceErrorInfoArgs) ToDataSourceDataSourceErrorInfoPtrOutput() DataSourceDataSourceErrorInfoPtrOutput {
-	return i.ToDataSourceDataSourceErrorInfoPtrOutputWithContext(context.Background())
+func (i DataSourceErrorInfoArgs) ToDataSourceErrorInfoPtrOutput() DataSourceErrorInfoPtrOutput {
+	return i.ToDataSourceErrorInfoPtrOutputWithContext(context.Background())
 }
 
-func (i DataSourceDataSourceErrorInfoArgs) ToDataSourceDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceDataSourceErrorInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceErrorInfoOutput).ToDataSourceDataSourceErrorInfoPtrOutputWithContext(ctx)
+func (i DataSourceErrorInfoArgs) ToDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceErrorInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceErrorInfoOutput).ToDataSourceErrorInfoPtrOutputWithContext(ctx)
 }
 
-// DataSourceDataSourceErrorInfoPtrInput is an input type that accepts DataSourceDataSourceErrorInfoArgs, DataSourceDataSourceErrorInfoPtr and DataSourceDataSourceErrorInfoPtrOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceErrorInfoPtrInput` via:
+// DataSourceErrorInfoPtrInput is an input type that accepts DataSourceErrorInfoArgs, DataSourceErrorInfoPtr and DataSourceErrorInfoPtrOutput values.
+// You can construct a concrete instance of `DataSourceErrorInfoPtrInput` via:
 //
-//          DataSourceDataSourceErrorInfoArgs{...}
+//          DataSourceErrorInfoArgs{...}
 //
 //  or:
 //
 //          nil
-type DataSourceDataSourceErrorInfoPtrInput interface {
+type DataSourceErrorInfoPtrInput interface {
 	pulumi.Input
 
-	ToDataSourceDataSourceErrorInfoPtrOutput() DataSourceDataSourceErrorInfoPtrOutput
-	ToDataSourceDataSourceErrorInfoPtrOutputWithContext(context.Context) DataSourceDataSourceErrorInfoPtrOutput
+	ToDataSourceErrorInfoPtrOutput() DataSourceErrorInfoPtrOutput
+	ToDataSourceErrorInfoPtrOutputWithContext(context.Context) DataSourceErrorInfoPtrOutput
 }
 
-type dataSourceDataSourceErrorInfoPtrType DataSourceDataSourceErrorInfoArgs
+type dataSourceErrorInfoPtrType DataSourceErrorInfoArgs
 
-func DataSourceDataSourceErrorInfoPtr(v *DataSourceDataSourceErrorInfoArgs) DataSourceDataSourceErrorInfoPtrInput {
-	return (*dataSourceDataSourceErrorInfoPtrType)(v)
+func DataSourceErrorInfoPtr(v *DataSourceErrorInfoArgs) DataSourceErrorInfoPtrInput {
+	return (*dataSourceErrorInfoPtrType)(v)
 }
 
-func (*dataSourceDataSourceErrorInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceErrorInfo)(nil)).Elem()
+func (*dataSourceErrorInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceErrorInfo)(nil)).Elem()
 }
 
-func (i *dataSourceDataSourceErrorInfoPtrType) ToDataSourceDataSourceErrorInfoPtrOutput() DataSourceDataSourceErrorInfoPtrOutput {
-	return i.ToDataSourceDataSourceErrorInfoPtrOutputWithContext(context.Background())
+func (i *dataSourceErrorInfoPtrType) ToDataSourceErrorInfoPtrOutput() DataSourceErrorInfoPtrOutput {
+	return i.ToDataSourceErrorInfoPtrOutputWithContext(context.Background())
 }
 
-func (i *dataSourceDataSourceErrorInfoPtrType) ToDataSourceDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceDataSourceErrorInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceErrorInfoPtrOutput)
+func (i *dataSourceErrorInfoPtrType) ToDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceErrorInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceErrorInfoPtrOutput)
 }
 
 // <p>Error information for the data source creation or update.</p>
-type DataSourceDataSourceErrorInfoOutput struct{ *pulumi.OutputState }
+type DataSourceErrorInfoOutput struct{ *pulumi.OutputState }
 
-func (DataSourceDataSourceErrorInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceErrorInfo)(nil)).Elem()
+func (DataSourceErrorInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceErrorInfo)(nil)).Elem()
 }
 
-func (o DataSourceDataSourceErrorInfoOutput) ToDataSourceDataSourceErrorInfoOutput() DataSourceDataSourceErrorInfoOutput {
+func (o DataSourceErrorInfoOutput) ToDataSourceErrorInfoOutput() DataSourceErrorInfoOutput {
 	return o
 }
 
-func (o DataSourceDataSourceErrorInfoOutput) ToDataSourceDataSourceErrorInfoOutputWithContext(ctx context.Context) DataSourceDataSourceErrorInfoOutput {
+func (o DataSourceErrorInfoOutput) ToDataSourceErrorInfoOutputWithContext(ctx context.Context) DataSourceErrorInfoOutput {
 	return o
 }
 
-func (o DataSourceDataSourceErrorInfoOutput) ToDataSourceDataSourceErrorInfoPtrOutput() DataSourceDataSourceErrorInfoPtrOutput {
-	return o.ToDataSourceDataSourceErrorInfoPtrOutputWithContext(context.Background())
+func (o DataSourceErrorInfoOutput) ToDataSourceErrorInfoPtrOutput() DataSourceErrorInfoPtrOutput {
+	return o.ToDataSourceErrorInfoPtrOutputWithContext(context.Background())
 }
 
-func (o DataSourceDataSourceErrorInfoOutput) ToDataSourceDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceDataSourceErrorInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDataSourceErrorInfo) *DataSourceDataSourceErrorInfo {
+func (o DataSourceErrorInfoOutput) ToDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceErrorInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceErrorInfo) *DataSourceErrorInfo {
 		return &v
-	}).(DataSourceDataSourceErrorInfoPtrOutput)
+	}).(DataSourceErrorInfoPtrOutput)
 }
 
 // <p>Error message.</p>
-func (o DataSourceDataSourceErrorInfoOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceErrorInfo) *string { return v.Message }).(pulumi.StringPtrOutput)
+func (o DataSourceErrorInfoOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceErrorInfo) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceDataSourceErrorInfoOutput) Type() DataSourceDataSourceErrorInfoTypePtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceErrorInfo) *DataSourceDataSourceErrorInfoType { return v.Type }).(DataSourceDataSourceErrorInfoTypePtrOutput)
+func (o DataSourceErrorInfoOutput) Type() DataSourceErrorInfoTypePtrOutput {
+	return o.ApplyT(func(v DataSourceErrorInfo) *DataSourceErrorInfoType { return v.Type }).(DataSourceErrorInfoTypePtrOutput)
 }
 
-type DataSourceDataSourceErrorInfoPtrOutput struct{ *pulumi.OutputState }
+type DataSourceErrorInfoPtrOutput struct{ *pulumi.OutputState }
 
-func (DataSourceDataSourceErrorInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceErrorInfo)(nil)).Elem()
+func (DataSourceErrorInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceErrorInfo)(nil)).Elem()
 }
 
-func (o DataSourceDataSourceErrorInfoPtrOutput) ToDataSourceDataSourceErrorInfoPtrOutput() DataSourceDataSourceErrorInfoPtrOutput {
+func (o DataSourceErrorInfoPtrOutput) ToDataSourceErrorInfoPtrOutput() DataSourceErrorInfoPtrOutput {
 	return o
 }
 
-func (o DataSourceDataSourceErrorInfoPtrOutput) ToDataSourceDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceDataSourceErrorInfoPtrOutput {
+func (o DataSourceErrorInfoPtrOutput) ToDataSourceErrorInfoPtrOutputWithContext(ctx context.Context) DataSourceErrorInfoPtrOutput {
 	return o
 }
 
-func (o DataSourceDataSourceErrorInfoPtrOutput) Elem() DataSourceDataSourceErrorInfoOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceErrorInfo) DataSourceDataSourceErrorInfo {
+func (o DataSourceErrorInfoPtrOutput) Elem() DataSourceErrorInfoOutput {
+	return o.ApplyT(func(v *DataSourceErrorInfo) DataSourceErrorInfo {
 		if v != nil {
 			return *v
 		}
-		var ret DataSourceDataSourceErrorInfo
+		var ret DataSourceErrorInfo
 		return ret
-	}).(DataSourceDataSourceErrorInfoOutput)
+	}).(DataSourceErrorInfoOutput)
 }
 
 // <p>Error message.</p>
-func (o DataSourceDataSourceErrorInfoPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceErrorInfo) *string {
+func (o DataSourceErrorInfoPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceErrorInfo) *string {
 		if v == nil {
 			return nil
 		}
@@ -6586,429 +6584,13 @@ func (o DataSourceDataSourceErrorInfoPtrOutput) Message() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o DataSourceDataSourceErrorInfoPtrOutput) Type() DataSourceDataSourceErrorInfoTypePtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceErrorInfo) *DataSourceDataSourceErrorInfoType {
+func (o DataSourceErrorInfoPtrOutput) Type() DataSourceErrorInfoTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceErrorInfo) *DataSourceErrorInfoType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(DataSourceDataSourceErrorInfoTypePtrOutput)
-}
-
-// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-//             This is a variant type structure. For this structure to be valid, only one of the
-//             attributes can be non-null.</p>
-type DataSourceDataSourceParameters struct {
-	AmazonElasticsearchParameters *DataSourceAmazonElasticsearchParameters `pulumi:"amazonElasticsearchParameters"`
-	AthenaParameters              *DataSourceAthenaParameters              `pulumi:"athenaParameters"`
-	AuroraParameters              *DataSourceAuroraParameters              `pulumi:"auroraParameters"`
-	AuroraPostgreSqlParameters    *DataSourceAuroraPostgreSqlParameters    `pulumi:"auroraPostgreSqlParameters"`
-	MariaDbParameters             *DataSourceMariaDbParameters             `pulumi:"mariaDbParameters"`
-	MySqlParameters               *DataSourceMySqlParameters               `pulumi:"mySqlParameters"`
-	OracleParameters              *DataSourceOracleParameters              `pulumi:"oracleParameters"`
-	PostgreSqlParameters          *DataSourcePostgreSqlParameters          `pulumi:"postgreSqlParameters"`
-	PrestoParameters              *DataSourcePrestoParameters              `pulumi:"prestoParameters"`
-	RdsParameters                 *DataSourceRdsParameters                 `pulumi:"rdsParameters"`
-	RedshiftParameters            *DataSourceRedshiftParameters            `pulumi:"redshiftParameters"`
-	S3Parameters                  *DataSourceS3Parameters                  `pulumi:"s3Parameters"`
-	SnowflakeParameters           *DataSourceSnowflakeParameters           `pulumi:"snowflakeParameters"`
-	SparkParameters               *DataSourceSparkParameters               `pulumi:"sparkParameters"`
-	SqlServerParameters           *DataSourceSqlServerParameters           `pulumi:"sqlServerParameters"`
-	TeradataParameters            *DataSourceTeradataParameters            `pulumi:"teradataParameters"`
-}
-
-// DataSourceDataSourceParametersInput is an input type that accepts DataSourceDataSourceParametersArgs and DataSourceDataSourceParametersOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceParametersInput` via:
-//
-//          DataSourceDataSourceParametersArgs{...}
-type DataSourceDataSourceParametersInput interface {
-	pulumi.Input
-
-	ToDataSourceDataSourceParametersOutput() DataSourceDataSourceParametersOutput
-	ToDataSourceDataSourceParametersOutputWithContext(context.Context) DataSourceDataSourceParametersOutput
-}
-
-// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-//             This is a variant type structure. For this structure to be valid, only one of the
-//             attributes can be non-null.</p>
-type DataSourceDataSourceParametersArgs struct {
-	AmazonElasticsearchParameters DataSourceAmazonElasticsearchParametersPtrInput `pulumi:"amazonElasticsearchParameters"`
-	AthenaParameters              DataSourceAthenaParametersPtrInput              `pulumi:"athenaParameters"`
-	AuroraParameters              DataSourceAuroraParametersPtrInput              `pulumi:"auroraParameters"`
-	AuroraPostgreSqlParameters    DataSourceAuroraPostgreSqlParametersPtrInput    `pulumi:"auroraPostgreSqlParameters"`
-	MariaDbParameters             DataSourceMariaDbParametersPtrInput             `pulumi:"mariaDbParameters"`
-	MySqlParameters               DataSourceMySqlParametersPtrInput               `pulumi:"mySqlParameters"`
-	OracleParameters              DataSourceOracleParametersPtrInput              `pulumi:"oracleParameters"`
-	PostgreSqlParameters          DataSourcePostgreSqlParametersPtrInput          `pulumi:"postgreSqlParameters"`
-	PrestoParameters              DataSourcePrestoParametersPtrInput              `pulumi:"prestoParameters"`
-	RdsParameters                 DataSourceRdsParametersPtrInput                 `pulumi:"rdsParameters"`
-	RedshiftParameters            DataSourceRedshiftParametersPtrInput            `pulumi:"redshiftParameters"`
-	S3Parameters                  DataSourceS3ParametersPtrInput                  `pulumi:"s3Parameters"`
-	SnowflakeParameters           DataSourceSnowflakeParametersPtrInput           `pulumi:"snowflakeParameters"`
-	SparkParameters               DataSourceSparkParametersPtrInput               `pulumi:"sparkParameters"`
-	SqlServerParameters           DataSourceSqlServerParametersPtrInput           `pulumi:"sqlServerParameters"`
-	TeradataParameters            DataSourceTeradataParametersPtrInput            `pulumi:"teradataParameters"`
-}
-
-func (DataSourceDataSourceParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceParameters)(nil)).Elem()
-}
-
-func (i DataSourceDataSourceParametersArgs) ToDataSourceDataSourceParametersOutput() DataSourceDataSourceParametersOutput {
-	return i.ToDataSourceDataSourceParametersOutputWithContext(context.Background())
-}
-
-func (i DataSourceDataSourceParametersArgs) ToDataSourceDataSourceParametersOutputWithContext(ctx context.Context) DataSourceDataSourceParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceParametersOutput)
-}
-
-func (i DataSourceDataSourceParametersArgs) ToDataSourceDataSourceParametersPtrOutput() DataSourceDataSourceParametersPtrOutput {
-	return i.ToDataSourceDataSourceParametersPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceDataSourceParametersArgs) ToDataSourceDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceDataSourceParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceParametersOutput).ToDataSourceDataSourceParametersPtrOutputWithContext(ctx)
-}
-
-// DataSourceDataSourceParametersPtrInput is an input type that accepts DataSourceDataSourceParametersArgs, DataSourceDataSourceParametersPtr and DataSourceDataSourceParametersPtrOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceParametersPtrInput` via:
-//
-//          DataSourceDataSourceParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceDataSourceParametersPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceDataSourceParametersPtrOutput() DataSourceDataSourceParametersPtrOutput
-	ToDataSourceDataSourceParametersPtrOutputWithContext(context.Context) DataSourceDataSourceParametersPtrOutput
-}
-
-type dataSourceDataSourceParametersPtrType DataSourceDataSourceParametersArgs
-
-func DataSourceDataSourceParametersPtr(v *DataSourceDataSourceParametersArgs) DataSourceDataSourceParametersPtrInput {
-	return (*dataSourceDataSourceParametersPtrType)(v)
-}
-
-func (*dataSourceDataSourceParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceParameters)(nil)).Elem()
-}
-
-func (i *dataSourceDataSourceParametersPtrType) ToDataSourceDataSourceParametersPtrOutput() DataSourceDataSourceParametersPtrOutput {
-	return i.ToDataSourceDataSourceParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceDataSourceParametersPtrType) ToDataSourceDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceDataSourceParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceParametersPtrOutput)
-}
-
-// DataSourceDataSourceParametersArrayInput is an input type that accepts DataSourceDataSourceParametersArray and DataSourceDataSourceParametersArrayOutput values.
-// You can construct a concrete instance of `DataSourceDataSourceParametersArrayInput` via:
-//
-//          DataSourceDataSourceParametersArray{ DataSourceDataSourceParametersArgs{...} }
-type DataSourceDataSourceParametersArrayInput interface {
-	pulumi.Input
-
-	ToDataSourceDataSourceParametersArrayOutput() DataSourceDataSourceParametersArrayOutput
-	ToDataSourceDataSourceParametersArrayOutputWithContext(context.Context) DataSourceDataSourceParametersArrayOutput
-}
-
-type DataSourceDataSourceParametersArray []DataSourceDataSourceParametersInput
-
-func (DataSourceDataSourceParametersArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourceDataSourceParameters)(nil)).Elem()
-}
-
-func (i DataSourceDataSourceParametersArray) ToDataSourceDataSourceParametersArrayOutput() DataSourceDataSourceParametersArrayOutput {
-	return i.ToDataSourceDataSourceParametersArrayOutputWithContext(context.Background())
-}
-
-func (i DataSourceDataSourceParametersArray) ToDataSourceDataSourceParametersArrayOutputWithContext(ctx context.Context) DataSourceDataSourceParametersArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceParametersArrayOutput)
-}
-
-// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
-//             This is a variant type structure. For this structure to be valid, only one of the
-//             attributes can be non-null.</p>
-type DataSourceDataSourceParametersOutput struct{ *pulumi.OutputState }
-
-func (DataSourceDataSourceParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceDataSourceParameters)(nil)).Elem()
-}
-
-func (o DataSourceDataSourceParametersOutput) ToDataSourceDataSourceParametersOutput() DataSourceDataSourceParametersOutput {
-	return o
-}
-
-func (o DataSourceDataSourceParametersOutput) ToDataSourceDataSourceParametersOutputWithContext(ctx context.Context) DataSourceDataSourceParametersOutput {
-	return o
-}
-
-func (o DataSourceDataSourceParametersOutput) ToDataSourceDataSourceParametersPtrOutput() DataSourceDataSourceParametersPtrOutput {
-	return o.ToDataSourceDataSourceParametersPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceDataSourceParametersOutput) ToDataSourceDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceDataSourceParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDataSourceParameters) *DataSourceDataSourceParameters {
-		return &v
-	}).(DataSourceDataSourceParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) AmazonElasticsearchParameters() DataSourceAmazonElasticsearchParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAmazonElasticsearchParameters {
-		return v.AmazonElasticsearchParameters
-	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAthenaParameters { return v.AthenaParameters }).(DataSourceAthenaParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAuroraParameters { return v.AuroraParameters }).(DataSourceAuroraParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
-		return v.AuroraPostgreSqlParameters
-	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceMariaDbParameters { return v.MariaDbParameters }).(DataSourceMariaDbParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) MySqlParameters() DataSourceMySqlParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceMySqlParameters { return v.MySqlParameters }).(DataSourceMySqlParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) OracleParameters() DataSourceOracleParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceOracleParameters { return v.OracleParameters }).(DataSourceOracleParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) PostgreSqlParameters() DataSourcePostgreSqlParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourcePostgreSqlParameters { return v.PostgreSqlParameters }).(DataSourcePostgreSqlParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) PrestoParameters() DataSourcePrestoParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourcePrestoParameters { return v.PrestoParameters }).(DataSourcePrestoParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) RdsParameters() DataSourceRdsParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceRdsParameters { return v.RdsParameters }).(DataSourceRdsParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceRedshiftParameters { return v.RedshiftParameters }).(DataSourceRedshiftParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) S3Parameters() DataSourceS3ParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceS3Parameters { return v.S3Parameters }).(DataSourceS3ParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) SnowflakeParameters() DataSourceSnowflakeParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceSnowflakeParameters { return v.SnowflakeParameters }).(DataSourceSnowflakeParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) SparkParameters() DataSourceSparkParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceSparkParameters { return v.SparkParameters }).(DataSourceSparkParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) SqlServerParameters() DataSourceSqlServerParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceSqlServerParameters { return v.SqlServerParameters }).(DataSourceSqlServerParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersOutput) TeradataParameters() DataSourceTeradataParametersPtrOutput {
-	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceTeradataParameters { return v.TeradataParameters }).(DataSourceTeradataParametersPtrOutput)
-}
-
-type DataSourceDataSourceParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceDataSourceParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceDataSourceParameters)(nil)).Elem()
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) ToDataSourceDataSourceParametersPtrOutput() DataSourceDataSourceParametersPtrOutput {
-	return o
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) ToDataSourceDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceDataSourceParametersPtrOutput {
-	return o
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) Elem() DataSourceDataSourceParametersOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) DataSourceDataSourceParameters {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceDataSourceParameters
-		return ret
-	}).(DataSourceDataSourceParametersOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) AmazonElasticsearchParameters() DataSourceAmazonElasticsearchParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAmazonElasticsearchParameters {
-		if v == nil {
-			return nil
-		}
-		return v.AmazonElasticsearchParameters
-	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAthenaParameters {
-		if v == nil {
-			return nil
-		}
-		return v.AthenaParameters
-	}).(DataSourceAthenaParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAuroraParameters {
-		if v == nil {
-			return nil
-		}
-		return v.AuroraParameters
-	}).(DataSourceAuroraParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
-		if v == nil {
-			return nil
-		}
-		return v.AuroraPostgreSqlParameters
-	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceMariaDbParameters {
-		if v == nil {
-			return nil
-		}
-		return v.MariaDbParameters
-	}).(DataSourceMariaDbParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) MySqlParameters() DataSourceMySqlParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceMySqlParameters {
-		if v == nil {
-			return nil
-		}
-		return v.MySqlParameters
-	}).(DataSourceMySqlParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) OracleParameters() DataSourceOracleParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceOracleParameters {
-		if v == nil {
-			return nil
-		}
-		return v.OracleParameters
-	}).(DataSourceOracleParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) PostgreSqlParameters() DataSourcePostgreSqlParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourcePostgreSqlParameters {
-		if v == nil {
-			return nil
-		}
-		return v.PostgreSqlParameters
-	}).(DataSourcePostgreSqlParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) PrestoParameters() DataSourcePrestoParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourcePrestoParameters {
-		if v == nil {
-			return nil
-		}
-		return v.PrestoParameters
-	}).(DataSourcePrestoParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) RdsParameters() DataSourceRdsParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceRdsParameters {
-		if v == nil {
-			return nil
-		}
-		return v.RdsParameters
-	}).(DataSourceRdsParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceRedshiftParameters {
-		if v == nil {
-			return nil
-		}
-		return v.RedshiftParameters
-	}).(DataSourceRedshiftParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) S3Parameters() DataSourceS3ParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceS3Parameters {
-		if v == nil {
-			return nil
-		}
-		return v.S3Parameters
-	}).(DataSourceS3ParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) SnowflakeParameters() DataSourceSnowflakeParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceSnowflakeParameters {
-		if v == nil {
-			return nil
-		}
-		return v.SnowflakeParameters
-	}).(DataSourceSnowflakeParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) SparkParameters() DataSourceSparkParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceSparkParameters {
-		if v == nil {
-			return nil
-		}
-		return v.SparkParameters
-	}).(DataSourceSparkParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) SqlServerParameters() DataSourceSqlServerParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceSqlServerParameters {
-		if v == nil {
-			return nil
-		}
-		return v.SqlServerParameters
-	}).(DataSourceSqlServerParametersPtrOutput)
-}
-
-func (o DataSourceDataSourceParametersPtrOutput) TeradataParameters() DataSourceTeradataParametersPtrOutput {
-	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceTeradataParameters {
-		if v == nil {
-			return nil
-		}
-		return v.TeradataParameters
-	}).(DataSourceTeradataParametersPtrOutput)
-}
-
-type DataSourceDataSourceParametersArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSourceDataSourceParametersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourceDataSourceParameters)(nil)).Elem()
-}
-
-func (o DataSourceDataSourceParametersArrayOutput) ToDataSourceDataSourceParametersArrayOutput() DataSourceDataSourceParametersArrayOutput {
-	return o
-}
-
-func (o DataSourceDataSourceParametersArrayOutput) ToDataSourceDataSourceParametersArrayOutputWithContext(ctx context.Context) DataSourceDataSourceParametersArrayOutput {
-	return o
-}
-
-func (o DataSourceDataSourceParametersArrayOutput) Index(i pulumi.IntInput) DataSourceDataSourceParametersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceDataSourceParameters {
-		return vs[0].([]DataSourceDataSourceParameters)[vs[1].(int)]
-	}).(DataSourceDataSourceParametersOutput)
+	}).(DataSourceErrorInfoTypePtrOutput)
 }
 
 // <p>Amazon S3 manifest file location.</p>
@@ -7687,6 +7269,422 @@ func (o DataSourceOracleParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 		}
 		return &v.Port
 	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+//             This is a variant type structure. For this structure to be valid, only one of the
+//             attributes can be non-null.</p>
+type DataSourceParameters struct {
+	AmazonElasticsearchParameters *DataSourceAmazonElasticsearchParameters `pulumi:"amazonElasticsearchParameters"`
+	AthenaParameters              *DataSourceAthenaParameters              `pulumi:"athenaParameters"`
+	AuroraParameters              *DataSourceAuroraParameters              `pulumi:"auroraParameters"`
+	AuroraPostgreSqlParameters    *DataSourceAuroraPostgreSqlParameters    `pulumi:"auroraPostgreSqlParameters"`
+	MariaDbParameters             *DataSourceMariaDbParameters             `pulumi:"mariaDbParameters"`
+	MySqlParameters               *DataSourceMySqlParameters               `pulumi:"mySqlParameters"`
+	OracleParameters              *DataSourceOracleParameters              `pulumi:"oracleParameters"`
+	PostgreSqlParameters          *DataSourcePostgreSqlParameters          `pulumi:"postgreSqlParameters"`
+	PrestoParameters              *DataSourcePrestoParameters              `pulumi:"prestoParameters"`
+	RdsParameters                 *DataSourceRdsParameters                 `pulumi:"rdsParameters"`
+	RedshiftParameters            *DataSourceRedshiftParameters            `pulumi:"redshiftParameters"`
+	S3Parameters                  *DataSourceS3Parameters                  `pulumi:"s3Parameters"`
+	SnowflakeParameters           *DataSourceSnowflakeParameters           `pulumi:"snowflakeParameters"`
+	SparkParameters               *DataSourceSparkParameters               `pulumi:"sparkParameters"`
+	SqlServerParameters           *DataSourceSqlServerParameters           `pulumi:"sqlServerParameters"`
+	TeradataParameters            *DataSourceTeradataParameters            `pulumi:"teradataParameters"`
+}
+
+// DataSourceParametersInput is an input type that accepts DataSourceParametersArgs and DataSourceParametersOutput values.
+// You can construct a concrete instance of `DataSourceParametersInput` via:
+//
+//          DataSourceParametersArgs{...}
+type DataSourceParametersInput interface {
+	pulumi.Input
+
+	ToDataSourceParametersOutput() DataSourceParametersOutput
+	ToDataSourceParametersOutputWithContext(context.Context) DataSourceParametersOutput
+}
+
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+//             This is a variant type structure. For this structure to be valid, only one of the
+//             attributes can be non-null.</p>
+type DataSourceParametersArgs struct {
+	AmazonElasticsearchParameters DataSourceAmazonElasticsearchParametersPtrInput `pulumi:"amazonElasticsearchParameters"`
+	AthenaParameters              DataSourceAthenaParametersPtrInput              `pulumi:"athenaParameters"`
+	AuroraParameters              DataSourceAuroraParametersPtrInput              `pulumi:"auroraParameters"`
+	AuroraPostgreSqlParameters    DataSourceAuroraPostgreSqlParametersPtrInput    `pulumi:"auroraPostgreSqlParameters"`
+	MariaDbParameters             DataSourceMariaDbParametersPtrInput             `pulumi:"mariaDbParameters"`
+	MySqlParameters               DataSourceMySqlParametersPtrInput               `pulumi:"mySqlParameters"`
+	OracleParameters              DataSourceOracleParametersPtrInput              `pulumi:"oracleParameters"`
+	PostgreSqlParameters          DataSourcePostgreSqlParametersPtrInput          `pulumi:"postgreSqlParameters"`
+	PrestoParameters              DataSourcePrestoParametersPtrInput              `pulumi:"prestoParameters"`
+	RdsParameters                 DataSourceRdsParametersPtrInput                 `pulumi:"rdsParameters"`
+	RedshiftParameters            DataSourceRedshiftParametersPtrInput            `pulumi:"redshiftParameters"`
+	S3Parameters                  DataSourceS3ParametersPtrInput                  `pulumi:"s3Parameters"`
+	SnowflakeParameters           DataSourceSnowflakeParametersPtrInput           `pulumi:"snowflakeParameters"`
+	SparkParameters               DataSourceSparkParametersPtrInput               `pulumi:"sparkParameters"`
+	SqlServerParameters           DataSourceSqlServerParametersPtrInput           `pulumi:"sqlServerParameters"`
+	TeradataParameters            DataSourceTeradataParametersPtrInput            `pulumi:"teradataParameters"`
+}
+
+func (DataSourceParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParameters)(nil)).Elem()
+}
+
+func (i DataSourceParametersArgs) ToDataSourceParametersOutput() DataSourceParametersOutput {
+	return i.ToDataSourceParametersOutputWithContext(context.Background())
+}
+
+func (i DataSourceParametersArgs) ToDataSourceParametersOutputWithContext(ctx context.Context) DataSourceParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersOutput)
+}
+
+func (i DataSourceParametersArgs) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
+	return i.ToDataSourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceParametersArgs) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersOutput).ToDataSourceParametersPtrOutputWithContext(ctx)
+}
+
+// DataSourceParametersPtrInput is an input type that accepts DataSourceParametersArgs, DataSourceParametersPtr and DataSourceParametersPtrOutput values.
+// You can construct a concrete instance of `DataSourceParametersPtrInput` via:
+//
+//          DataSourceParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSourceParametersPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput
+	ToDataSourceParametersPtrOutputWithContext(context.Context) DataSourceParametersPtrOutput
+}
+
+type dataSourceParametersPtrType DataSourceParametersArgs
+
+func DataSourceParametersPtr(v *DataSourceParametersArgs) DataSourceParametersPtrInput {
+	return (*dataSourceParametersPtrType)(v)
+}
+
+func (*dataSourceParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParameters)(nil)).Elem()
+}
+
+func (i *dataSourceParametersPtrType) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
+	return i.ToDataSourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceParametersPtrType) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersPtrOutput)
+}
+
+// DataSourceParametersArrayInput is an input type that accepts DataSourceParametersArray and DataSourceParametersArrayOutput values.
+// You can construct a concrete instance of `DataSourceParametersArrayInput` via:
+//
+//          DataSourceParametersArray{ DataSourceParametersArgs{...} }
+type DataSourceParametersArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceParametersArrayOutput() DataSourceParametersArrayOutput
+	ToDataSourceParametersArrayOutputWithContext(context.Context) DataSourceParametersArrayOutput
+}
+
+type DataSourceParametersArray []DataSourceParametersInput
+
+func (DataSourceParametersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceParameters)(nil)).Elem()
+}
+
+func (i DataSourceParametersArray) ToDataSourceParametersArrayOutput() DataSourceParametersArrayOutput {
+	return i.ToDataSourceParametersArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceParametersArray) ToDataSourceParametersArrayOutputWithContext(ctx context.Context) DataSourceParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersArrayOutput)
+}
+
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+//             This is a variant type structure. For this structure to be valid, only one of the
+//             attributes can be non-null.</p>
+type DataSourceParametersOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParameters)(nil)).Elem()
+}
+
+func (o DataSourceParametersOutput) ToDataSourceParametersOutput() DataSourceParametersOutput {
+	return o
+}
+
+func (o DataSourceParametersOutput) ToDataSourceParametersOutputWithContext(ctx context.Context) DataSourceParametersOutput {
+	return o
+}
+
+func (o DataSourceParametersOutput) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
+	return o.ToDataSourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParametersOutput) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceParameters) *DataSourceParameters {
+		return &v
+	}).(DataSourceParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) AmazonElasticsearchParameters() DataSourceAmazonElasticsearchParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceAmazonElasticsearchParameters {
+		return v.AmazonElasticsearchParameters
+	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceAthenaParameters { return v.AthenaParameters }).(DataSourceAthenaParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceAuroraParameters { return v.AuroraParameters }).(DataSourceAuroraParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
+		return v.AuroraPostgreSqlParameters
+	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceMariaDbParameters { return v.MariaDbParameters }).(DataSourceMariaDbParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) MySqlParameters() DataSourceMySqlParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceMySqlParameters { return v.MySqlParameters }).(DataSourceMySqlParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) OracleParameters() DataSourceOracleParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceOracleParameters { return v.OracleParameters }).(DataSourceOracleParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) PostgreSqlParameters() DataSourcePostgreSqlParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourcePostgreSqlParameters { return v.PostgreSqlParameters }).(DataSourcePostgreSqlParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) PrestoParameters() DataSourcePrestoParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourcePrestoParameters { return v.PrestoParameters }).(DataSourcePrestoParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) RdsParameters() DataSourceRdsParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceRdsParameters { return v.RdsParameters }).(DataSourceRdsParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceRedshiftParameters { return v.RedshiftParameters }).(DataSourceRedshiftParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) S3Parameters() DataSourceS3ParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceS3Parameters { return v.S3Parameters }).(DataSourceS3ParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) SnowflakeParameters() DataSourceSnowflakeParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceSnowflakeParameters { return v.SnowflakeParameters }).(DataSourceSnowflakeParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) SparkParameters() DataSourceSparkParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceSparkParameters { return v.SparkParameters }).(DataSourceSparkParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) SqlServerParameters() DataSourceSqlServerParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceSqlServerParameters { return v.SqlServerParameters }).(DataSourceSqlServerParametersPtrOutput)
+}
+
+func (o DataSourceParametersOutput) TeradataParameters() DataSourceTeradataParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceTeradataParameters { return v.TeradataParameters }).(DataSourceTeradataParametersPtrOutput)
+}
+
+type DataSourceParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParameters)(nil)).Elem()
+}
+
+func (o DataSourceParametersPtrOutput) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceParametersPtrOutput) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceParametersPtrOutput) Elem() DataSourceParametersOutput {
+	return o.ApplyT(func(v *DataSourceParameters) DataSourceParameters {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceParameters
+		return ret
+	}).(DataSourceParametersOutput)
+}
+
+func (o DataSourceParametersPtrOutput) AmazonElasticsearchParameters() DataSourceAmazonElasticsearchParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAmazonElasticsearchParameters {
+		if v == nil {
+			return nil
+		}
+		return v.AmazonElasticsearchParameters
+	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAthenaParameters {
+		if v == nil {
+			return nil
+		}
+		return v.AthenaParameters
+	}).(DataSourceAthenaParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAuroraParameters {
+		if v == nil {
+			return nil
+		}
+		return v.AuroraParameters
+	}).(DataSourceAuroraParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
+		if v == nil {
+			return nil
+		}
+		return v.AuroraPostgreSqlParameters
+	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceMariaDbParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MariaDbParameters
+	}).(DataSourceMariaDbParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) MySqlParameters() DataSourceMySqlParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceMySqlParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MySqlParameters
+	}).(DataSourceMySqlParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) OracleParameters() DataSourceOracleParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceOracleParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OracleParameters
+	}).(DataSourceOracleParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) PostgreSqlParameters() DataSourcePostgreSqlParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourcePostgreSqlParameters {
+		if v == nil {
+			return nil
+		}
+		return v.PostgreSqlParameters
+	}).(DataSourcePostgreSqlParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) PrestoParameters() DataSourcePrestoParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourcePrestoParameters {
+		if v == nil {
+			return nil
+		}
+		return v.PrestoParameters
+	}).(DataSourcePrestoParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) RdsParameters() DataSourceRdsParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceRdsParameters {
+		if v == nil {
+			return nil
+		}
+		return v.RdsParameters
+	}).(DataSourceRdsParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceRedshiftParameters {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftParameters
+	}).(DataSourceRedshiftParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) S3Parameters() DataSourceS3ParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceS3Parameters {
+		if v == nil {
+			return nil
+		}
+		return v.S3Parameters
+	}).(DataSourceS3ParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) SnowflakeParameters() DataSourceSnowflakeParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceSnowflakeParameters {
+		if v == nil {
+			return nil
+		}
+		return v.SnowflakeParameters
+	}).(DataSourceSnowflakeParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) SparkParameters() DataSourceSparkParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceSparkParameters {
+		if v == nil {
+			return nil
+		}
+		return v.SparkParameters
+	}).(DataSourceSparkParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) SqlServerParameters() DataSourceSqlServerParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceSqlServerParameters {
+		if v == nil {
+			return nil
+		}
+		return v.SqlServerParameters
+	}).(DataSourceSqlServerParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) TeradataParameters() DataSourceTeradataParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceTeradataParameters {
+		if v == nil {
+			return nil
+		}
+		return v.TeradataParameters
+	}).(DataSourceTeradataParametersPtrOutput)
+}
+
+type DataSourceParametersArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParametersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceParameters)(nil)).Elem()
+}
+
+func (o DataSourceParametersArrayOutput) ToDataSourceParametersArrayOutput() DataSourceParametersArrayOutput {
+	return o
+}
+
+func (o DataSourceParametersArrayOutput) ToDataSourceParametersArrayOutputWithContext(ctx context.Context) DataSourceParametersArrayOutput {
+	return o
+}
+
+func (o DataSourceParametersArrayOutput) Index(i pulumi.IntInput) DataSourceParametersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceParameters {
+		return vs[0].([]DataSourceParameters)[vs[1].(int)]
+	}).(DataSourceParametersOutput)
 }
 
 // <p>PostgreSQL parameters.</p>
@@ -10479,6 +10477,112 @@ func (o TemplateDataSetSchemaPtrOutput) ColumnSchemaList() TemplateColumnSchemaA
 	}).(TemplateColumnSchemaArrayOutput)
 }
 
+// <p>List of errors that occurred when the template version creation failed.</p>
+type TemplateError struct {
+	// <p>Description of the error type.</p>
+	Message *string            `pulumi:"message"`
+	Type    *TemplateErrorType `pulumi:"type"`
+}
+
+// TemplateErrorInput is an input type that accepts TemplateErrorArgs and TemplateErrorOutput values.
+// You can construct a concrete instance of `TemplateErrorInput` via:
+//
+//          TemplateErrorArgs{...}
+type TemplateErrorInput interface {
+	pulumi.Input
+
+	ToTemplateErrorOutput() TemplateErrorOutput
+	ToTemplateErrorOutputWithContext(context.Context) TemplateErrorOutput
+}
+
+// <p>List of errors that occurred when the template version creation failed.</p>
+type TemplateErrorArgs struct {
+	// <p>Description of the error type.</p>
+	Message pulumi.StringPtrInput     `pulumi:"message"`
+	Type    TemplateErrorTypePtrInput `pulumi:"type"`
+}
+
+func (TemplateErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateError)(nil)).Elem()
+}
+
+func (i TemplateErrorArgs) ToTemplateErrorOutput() TemplateErrorOutput {
+	return i.ToTemplateErrorOutputWithContext(context.Background())
+}
+
+func (i TemplateErrorArgs) ToTemplateErrorOutputWithContext(ctx context.Context) TemplateErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateErrorOutput)
+}
+
+// TemplateErrorArrayInput is an input type that accepts TemplateErrorArray and TemplateErrorArrayOutput values.
+// You can construct a concrete instance of `TemplateErrorArrayInput` via:
+//
+//          TemplateErrorArray{ TemplateErrorArgs{...} }
+type TemplateErrorArrayInput interface {
+	pulumi.Input
+
+	ToTemplateErrorArrayOutput() TemplateErrorArrayOutput
+	ToTemplateErrorArrayOutputWithContext(context.Context) TemplateErrorArrayOutput
+}
+
+type TemplateErrorArray []TemplateErrorInput
+
+func (TemplateErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateError)(nil)).Elem()
+}
+
+func (i TemplateErrorArray) ToTemplateErrorArrayOutput() TemplateErrorArrayOutput {
+	return i.ToTemplateErrorArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateErrorArray) ToTemplateErrorArrayOutputWithContext(ctx context.Context) TemplateErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateErrorArrayOutput)
+}
+
+// <p>List of errors that occurred when the template version creation failed.</p>
+type TemplateErrorOutput struct{ *pulumi.OutputState }
+
+func (TemplateErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateError)(nil)).Elem()
+}
+
+func (o TemplateErrorOutput) ToTemplateErrorOutput() TemplateErrorOutput {
+	return o
+}
+
+func (o TemplateErrorOutput) ToTemplateErrorOutputWithContext(ctx context.Context) TemplateErrorOutput {
+	return o
+}
+
+// <p>Description of the error type.</p>
+func (o TemplateErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateErrorOutput) Type() TemplateErrorTypePtrOutput {
+	return o.ApplyT(func(v TemplateError) *TemplateErrorType { return v.Type }).(TemplateErrorTypePtrOutput)
+}
+
+type TemplateErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateError)(nil)).Elem()
+}
+
+func (o TemplateErrorArrayOutput) ToTemplateErrorArrayOutput() TemplateErrorArrayOutput {
+	return o
+}
+
+func (o TemplateErrorArrayOutput) ToTemplateErrorArrayOutputWithContext(ctx context.Context) TemplateErrorArrayOutput {
+	return o
+}
+
+func (o TemplateErrorArrayOutput) Index(i pulumi.IntInput) TemplateErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateError {
+		return vs[0].([]TemplateError)[vs[1].(int)]
+	}).(TemplateErrorOutput)
+}
+
 // <p>Permission for the resource.</p>
 type TemplateResourcePermission struct {
 	// <p>The IAM action to grant or revoke permissions on.</p>
@@ -10754,6 +10858,460 @@ func (o TemplateSheetArrayOutput) Index(i pulumi.IntInput) TemplateSheetOutput {
 	}).(TemplateSheetOutput)
 }
 
+// <p>The source analysis of the template.</p>
+type TemplateSourceAnalysis struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn string `pulumi:"arn"`
+	// <p>A structure containing information about the dataset references used as placeholders
+	//             in the template.</p>
+	DataSetReferences []TemplateDataSetReference `pulumi:"dataSetReferences"`
+}
+
+// TemplateSourceAnalysisInput is an input type that accepts TemplateSourceAnalysisArgs and TemplateSourceAnalysisOutput values.
+// You can construct a concrete instance of `TemplateSourceAnalysisInput` via:
+//
+//          TemplateSourceAnalysisArgs{...}
+type TemplateSourceAnalysisInput interface {
+	pulumi.Input
+
+	ToTemplateSourceAnalysisOutput() TemplateSourceAnalysisOutput
+	ToTemplateSourceAnalysisOutputWithContext(context.Context) TemplateSourceAnalysisOutput
+}
+
+// <p>The source analysis of the template.</p>
+type TemplateSourceAnalysisArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// <p>A structure containing information about the dataset references used as placeholders
+	//             in the template.</p>
+	DataSetReferences TemplateDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
+}
+
+func (TemplateSourceAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSourceAnalysis)(nil)).Elem()
+}
+
+func (i TemplateSourceAnalysisArgs) ToTemplateSourceAnalysisOutput() TemplateSourceAnalysisOutput {
+	return i.ToTemplateSourceAnalysisOutputWithContext(context.Background())
+}
+
+func (i TemplateSourceAnalysisArgs) ToTemplateSourceAnalysisOutputWithContext(ctx context.Context) TemplateSourceAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceAnalysisOutput)
+}
+
+func (i TemplateSourceAnalysisArgs) ToTemplateSourceAnalysisPtrOutput() TemplateSourceAnalysisPtrOutput {
+	return i.ToTemplateSourceAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateSourceAnalysisArgs) ToTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateSourceAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceAnalysisOutput).ToTemplateSourceAnalysisPtrOutputWithContext(ctx)
+}
+
+// TemplateSourceAnalysisPtrInput is an input type that accepts TemplateSourceAnalysisArgs, TemplateSourceAnalysisPtr and TemplateSourceAnalysisPtrOutput values.
+// You can construct a concrete instance of `TemplateSourceAnalysisPtrInput` via:
+//
+//          TemplateSourceAnalysisArgs{...}
+//
+//  or:
+//
+//          nil
+type TemplateSourceAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToTemplateSourceAnalysisPtrOutput() TemplateSourceAnalysisPtrOutput
+	ToTemplateSourceAnalysisPtrOutputWithContext(context.Context) TemplateSourceAnalysisPtrOutput
+}
+
+type templateSourceAnalysisPtrType TemplateSourceAnalysisArgs
+
+func TemplateSourceAnalysisPtr(v *TemplateSourceAnalysisArgs) TemplateSourceAnalysisPtrInput {
+	return (*templateSourceAnalysisPtrType)(v)
+}
+
+func (*templateSourceAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSourceAnalysis)(nil)).Elem()
+}
+
+func (i *templateSourceAnalysisPtrType) ToTemplateSourceAnalysisPtrOutput() TemplateSourceAnalysisPtrOutput {
+	return i.ToTemplateSourceAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *templateSourceAnalysisPtrType) ToTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateSourceAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceAnalysisPtrOutput)
+}
+
+// <p>The source analysis of the template.</p>
+type TemplateSourceAnalysisOutput struct{ *pulumi.OutputState }
+
+func (TemplateSourceAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSourceAnalysis)(nil)).Elem()
+}
+
+func (o TemplateSourceAnalysisOutput) ToTemplateSourceAnalysisOutput() TemplateSourceAnalysisOutput {
+	return o
+}
+
+func (o TemplateSourceAnalysisOutput) ToTemplateSourceAnalysisOutputWithContext(ctx context.Context) TemplateSourceAnalysisOutput {
+	return o
+}
+
+func (o TemplateSourceAnalysisOutput) ToTemplateSourceAnalysisPtrOutput() TemplateSourceAnalysisPtrOutput {
+	return o.ToTemplateSourceAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSourceAnalysisOutput) ToTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateSourceAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSourceAnalysis) *TemplateSourceAnalysis {
+		return &v
+	}).(TemplateSourceAnalysisPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o TemplateSourceAnalysisOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSourceAnalysis) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// <p>A structure containing information about the dataset references used as placeholders
+//             in the template.</p>
+func (o TemplateSourceAnalysisOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
+	return o.ApplyT(func(v TemplateSourceAnalysis) []TemplateDataSetReference { return v.DataSetReferences }).(TemplateDataSetReferenceArrayOutput)
+}
+
+type TemplateSourceAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSourceAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSourceAnalysis)(nil)).Elem()
+}
+
+func (o TemplateSourceAnalysisPtrOutput) ToTemplateSourceAnalysisPtrOutput() TemplateSourceAnalysisPtrOutput {
+	return o
+}
+
+func (o TemplateSourceAnalysisPtrOutput) ToTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateSourceAnalysisPtrOutput {
+	return o
+}
+
+func (o TemplateSourceAnalysisPtrOutput) Elem() TemplateSourceAnalysisOutput {
+	return o.ApplyT(func(v *TemplateSourceAnalysis) TemplateSourceAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSourceAnalysis
+		return ret
+	}).(TemplateSourceAnalysisOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o TemplateSourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSourceAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>A structure containing information about the dataset references used as placeholders
+//             in the template.</p>
+func (o TemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
+	return o.ApplyT(func(v *TemplateSourceAnalysis) []TemplateDataSetReference {
+		if v == nil {
+			return nil
+		}
+		return v.DataSetReferences
+	}).(TemplateDataSetReferenceArrayOutput)
+}
+
+// <p>The source entity of the template.</p>
+type TemplateSourceEntity struct {
+	SourceAnalysis *TemplateSourceAnalysis `pulumi:"sourceAnalysis"`
+	SourceTemplate *TemplateSourceTemplate `pulumi:"sourceTemplate"`
+}
+
+// TemplateSourceEntityInput is an input type that accepts TemplateSourceEntityArgs and TemplateSourceEntityOutput values.
+// You can construct a concrete instance of `TemplateSourceEntityInput` via:
+//
+//          TemplateSourceEntityArgs{...}
+type TemplateSourceEntityInput interface {
+	pulumi.Input
+
+	ToTemplateSourceEntityOutput() TemplateSourceEntityOutput
+	ToTemplateSourceEntityOutputWithContext(context.Context) TemplateSourceEntityOutput
+}
+
+// <p>The source entity of the template.</p>
+type TemplateSourceEntityArgs struct {
+	SourceAnalysis TemplateSourceAnalysisPtrInput `pulumi:"sourceAnalysis"`
+	SourceTemplate TemplateSourceTemplatePtrInput `pulumi:"sourceTemplate"`
+}
+
+func (TemplateSourceEntityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSourceEntity)(nil)).Elem()
+}
+
+func (i TemplateSourceEntityArgs) ToTemplateSourceEntityOutput() TemplateSourceEntityOutput {
+	return i.ToTemplateSourceEntityOutputWithContext(context.Background())
+}
+
+func (i TemplateSourceEntityArgs) ToTemplateSourceEntityOutputWithContext(ctx context.Context) TemplateSourceEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceEntityOutput)
+}
+
+func (i TemplateSourceEntityArgs) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
+	return i.ToTemplateSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateSourceEntityArgs) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceEntityOutput).ToTemplateSourceEntityPtrOutputWithContext(ctx)
+}
+
+// TemplateSourceEntityPtrInput is an input type that accepts TemplateSourceEntityArgs, TemplateSourceEntityPtr and TemplateSourceEntityPtrOutput values.
+// You can construct a concrete instance of `TemplateSourceEntityPtrInput` via:
+//
+//          TemplateSourceEntityArgs{...}
+//
+//  or:
+//
+//          nil
+type TemplateSourceEntityPtrInput interface {
+	pulumi.Input
+
+	ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput
+	ToTemplateSourceEntityPtrOutputWithContext(context.Context) TemplateSourceEntityPtrOutput
+}
+
+type templateSourceEntityPtrType TemplateSourceEntityArgs
+
+func TemplateSourceEntityPtr(v *TemplateSourceEntityArgs) TemplateSourceEntityPtrInput {
+	return (*templateSourceEntityPtrType)(v)
+}
+
+func (*templateSourceEntityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSourceEntity)(nil)).Elem()
+}
+
+func (i *templateSourceEntityPtrType) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
+	return i.ToTemplateSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (i *templateSourceEntityPtrType) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceEntityPtrOutput)
+}
+
+// <p>The source entity of the template.</p>
+type TemplateSourceEntityOutput struct{ *pulumi.OutputState }
+
+func (TemplateSourceEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSourceEntity)(nil)).Elem()
+}
+
+func (o TemplateSourceEntityOutput) ToTemplateSourceEntityOutput() TemplateSourceEntityOutput {
+	return o
+}
+
+func (o TemplateSourceEntityOutput) ToTemplateSourceEntityOutputWithContext(ctx context.Context) TemplateSourceEntityOutput {
+	return o
+}
+
+func (o TemplateSourceEntityOutput) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
+	return o.ToTemplateSourceEntityPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSourceEntityOutput) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSourceEntity) *TemplateSourceEntity {
+		return &v
+	}).(TemplateSourceEntityPtrOutput)
+}
+
+func (o TemplateSourceEntityOutput) SourceAnalysis() TemplateSourceAnalysisPtrOutput {
+	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceAnalysis { return v.SourceAnalysis }).(TemplateSourceAnalysisPtrOutput)
+}
+
+func (o TemplateSourceEntityOutput) SourceTemplate() TemplateSourceTemplatePtrOutput {
+	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceTemplate { return v.SourceTemplate }).(TemplateSourceTemplatePtrOutput)
+}
+
+type TemplateSourceEntityPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSourceEntityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSourceEntity)(nil)).Elem()
+}
+
+func (o TemplateSourceEntityPtrOutput) ToTemplateSourceEntityPtrOutput() TemplateSourceEntityPtrOutput {
+	return o
+}
+
+func (o TemplateSourceEntityPtrOutput) ToTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateSourceEntityPtrOutput {
+	return o
+}
+
+func (o TemplateSourceEntityPtrOutput) Elem() TemplateSourceEntityOutput {
+	return o.ApplyT(func(v *TemplateSourceEntity) TemplateSourceEntity {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSourceEntity
+		return ret
+	}).(TemplateSourceEntityOutput)
+}
+
+func (o TemplateSourceEntityPtrOutput) SourceAnalysis() TemplateSourceAnalysisPtrOutput {
+	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceAnalysis {
+		if v == nil {
+			return nil
+		}
+		return v.SourceAnalysis
+	}).(TemplateSourceAnalysisPtrOutput)
+}
+
+func (o TemplateSourceEntityPtrOutput) SourceTemplate() TemplateSourceTemplatePtrOutput {
+	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceTemplate {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTemplate
+	}).(TemplateSourceTemplatePtrOutput)
+}
+
+// <p>The source template of the template.</p>
+type TemplateSourceTemplate struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn string `pulumi:"arn"`
+}
+
+// TemplateSourceTemplateInput is an input type that accepts TemplateSourceTemplateArgs and TemplateSourceTemplateOutput values.
+// You can construct a concrete instance of `TemplateSourceTemplateInput` via:
+//
+//          TemplateSourceTemplateArgs{...}
+type TemplateSourceTemplateInput interface {
+	pulumi.Input
+
+	ToTemplateSourceTemplateOutput() TemplateSourceTemplateOutput
+	ToTemplateSourceTemplateOutputWithContext(context.Context) TemplateSourceTemplateOutput
+}
+
+// <p>The source template of the template.</p>
+type TemplateSourceTemplateArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (TemplateSourceTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSourceTemplate)(nil)).Elem()
+}
+
+func (i TemplateSourceTemplateArgs) ToTemplateSourceTemplateOutput() TemplateSourceTemplateOutput {
+	return i.ToTemplateSourceTemplateOutputWithContext(context.Background())
+}
+
+func (i TemplateSourceTemplateArgs) ToTemplateSourceTemplateOutputWithContext(ctx context.Context) TemplateSourceTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceTemplateOutput)
+}
+
+func (i TemplateSourceTemplateArgs) ToTemplateSourceTemplatePtrOutput() TemplateSourceTemplatePtrOutput {
+	return i.ToTemplateSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateSourceTemplateArgs) ToTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateSourceTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceTemplateOutput).ToTemplateSourceTemplatePtrOutputWithContext(ctx)
+}
+
+// TemplateSourceTemplatePtrInput is an input type that accepts TemplateSourceTemplateArgs, TemplateSourceTemplatePtr and TemplateSourceTemplatePtrOutput values.
+// You can construct a concrete instance of `TemplateSourceTemplatePtrInput` via:
+//
+//          TemplateSourceTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type TemplateSourceTemplatePtrInput interface {
+	pulumi.Input
+
+	ToTemplateSourceTemplatePtrOutput() TemplateSourceTemplatePtrOutput
+	ToTemplateSourceTemplatePtrOutputWithContext(context.Context) TemplateSourceTemplatePtrOutput
+}
+
+type templateSourceTemplatePtrType TemplateSourceTemplateArgs
+
+func TemplateSourceTemplatePtr(v *TemplateSourceTemplateArgs) TemplateSourceTemplatePtrInput {
+	return (*templateSourceTemplatePtrType)(v)
+}
+
+func (*templateSourceTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSourceTemplate)(nil)).Elem()
+}
+
+func (i *templateSourceTemplatePtrType) ToTemplateSourceTemplatePtrOutput() TemplateSourceTemplatePtrOutput {
+	return i.ToTemplateSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *templateSourceTemplatePtrType) ToTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateSourceTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSourceTemplatePtrOutput)
+}
+
+// <p>The source template of the template.</p>
+type TemplateSourceTemplateOutput struct{ *pulumi.OutputState }
+
+func (TemplateSourceTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSourceTemplate)(nil)).Elem()
+}
+
+func (o TemplateSourceTemplateOutput) ToTemplateSourceTemplateOutput() TemplateSourceTemplateOutput {
+	return o
+}
+
+func (o TemplateSourceTemplateOutput) ToTemplateSourceTemplateOutputWithContext(ctx context.Context) TemplateSourceTemplateOutput {
+	return o
+}
+
+func (o TemplateSourceTemplateOutput) ToTemplateSourceTemplatePtrOutput() TemplateSourceTemplatePtrOutput {
+	return o.ToTemplateSourceTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSourceTemplateOutput) ToTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateSourceTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSourceTemplate) *TemplateSourceTemplate {
+		return &v
+	}).(TemplateSourceTemplatePtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o TemplateSourceTemplateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+type TemplateSourceTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSourceTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSourceTemplate)(nil)).Elem()
+}
+
+func (o TemplateSourceTemplatePtrOutput) ToTemplateSourceTemplatePtrOutput() TemplateSourceTemplatePtrOutput {
+	return o
+}
+
+func (o TemplateSourceTemplatePtrOutput) ToTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateSourceTemplatePtrOutput {
+	return o
+}
+
+func (o TemplateSourceTemplatePtrOutput) Elem() TemplateSourceTemplateOutput {
+	return o.ApplyT(func(v *TemplateSourceTemplate) TemplateSourceTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSourceTemplate
+		return ret
+	}).(TemplateSourceTemplateOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o TemplateSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSourceTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
 //             resource.</p>
 type TemplateTag struct {
@@ -10866,568 +11424,8 @@ func (o TemplateTagArrayOutput) Index(i pulumi.IntInput) TemplateTagOutput {
 	}).(TemplateTagOutput)
 }
 
-// <p>List of errors that occurred when the template version creation failed.</p>
-type TemplateTemplateError struct {
-	// <p>Description of the error type.</p>
-	Message *string                    `pulumi:"message"`
-	Type    *TemplateTemplateErrorType `pulumi:"type"`
-}
-
-// TemplateTemplateErrorInput is an input type that accepts TemplateTemplateErrorArgs and TemplateTemplateErrorOutput values.
-// You can construct a concrete instance of `TemplateTemplateErrorInput` via:
-//
-//          TemplateTemplateErrorArgs{...}
-type TemplateTemplateErrorInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateErrorOutput() TemplateTemplateErrorOutput
-	ToTemplateTemplateErrorOutputWithContext(context.Context) TemplateTemplateErrorOutput
-}
-
-// <p>List of errors that occurred when the template version creation failed.</p>
-type TemplateTemplateErrorArgs struct {
-	// <p>Description of the error type.</p>
-	Message pulumi.StringPtrInput             `pulumi:"message"`
-	Type    TemplateTemplateErrorTypePtrInput `pulumi:"type"`
-}
-
-func (TemplateTemplateErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateError)(nil)).Elem()
-}
-
-func (i TemplateTemplateErrorArgs) ToTemplateTemplateErrorOutput() TemplateTemplateErrorOutput {
-	return i.ToTemplateTemplateErrorOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateErrorArgs) ToTemplateTemplateErrorOutputWithContext(ctx context.Context) TemplateTemplateErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateErrorOutput)
-}
-
-// TemplateTemplateErrorArrayInput is an input type that accepts TemplateTemplateErrorArray and TemplateTemplateErrorArrayOutput values.
-// You can construct a concrete instance of `TemplateTemplateErrorArrayInput` via:
-//
-//          TemplateTemplateErrorArray{ TemplateTemplateErrorArgs{...} }
-type TemplateTemplateErrorArrayInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateErrorArrayOutput() TemplateTemplateErrorArrayOutput
-	ToTemplateTemplateErrorArrayOutputWithContext(context.Context) TemplateTemplateErrorArrayOutput
-}
-
-type TemplateTemplateErrorArray []TemplateTemplateErrorInput
-
-func (TemplateTemplateErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateTemplateError)(nil)).Elem()
-}
-
-func (i TemplateTemplateErrorArray) ToTemplateTemplateErrorArrayOutput() TemplateTemplateErrorArrayOutput {
-	return i.ToTemplateTemplateErrorArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateErrorArray) ToTemplateTemplateErrorArrayOutputWithContext(ctx context.Context) TemplateTemplateErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateErrorArrayOutput)
-}
-
-// <p>List of errors that occurred when the template version creation failed.</p>
-type TemplateTemplateErrorOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateError)(nil)).Elem()
-}
-
-func (o TemplateTemplateErrorOutput) ToTemplateTemplateErrorOutput() TemplateTemplateErrorOutput {
-	return o
-}
-
-func (o TemplateTemplateErrorOutput) ToTemplateTemplateErrorOutputWithContext(ctx context.Context) TemplateTemplateErrorOutput {
-	return o
-}
-
-// <p>Description of the error type.</p>
-func (o TemplateTemplateErrorOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateError) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-func (o TemplateTemplateErrorOutput) Type() TemplateTemplateErrorTypePtrOutput {
-	return o.ApplyT(func(v TemplateTemplateError) *TemplateTemplateErrorType { return v.Type }).(TemplateTemplateErrorTypePtrOutput)
-}
-
-type TemplateTemplateErrorArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateErrorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateTemplateError)(nil)).Elem()
-}
-
-func (o TemplateTemplateErrorArrayOutput) ToTemplateTemplateErrorArrayOutput() TemplateTemplateErrorArrayOutput {
-	return o
-}
-
-func (o TemplateTemplateErrorArrayOutput) ToTemplateTemplateErrorArrayOutputWithContext(ctx context.Context) TemplateTemplateErrorArrayOutput {
-	return o
-}
-
-func (o TemplateTemplateErrorArrayOutput) Index(i pulumi.IntInput) TemplateTemplateErrorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTemplateError {
-		return vs[0].([]TemplateTemplateError)[vs[1].(int)]
-	}).(TemplateTemplateErrorOutput)
-}
-
-// <p>The source analysis of the template.</p>
-type TemplateTemplateSourceAnalysis struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn string `pulumi:"arn"`
-	// <p>A structure containing information about the dataset references used as placeholders
-	//             in the template.</p>
-	DataSetReferences []TemplateDataSetReference `pulumi:"dataSetReferences"`
-}
-
-// TemplateTemplateSourceAnalysisInput is an input type that accepts TemplateTemplateSourceAnalysisArgs and TemplateTemplateSourceAnalysisOutput values.
-// You can construct a concrete instance of `TemplateTemplateSourceAnalysisInput` via:
-//
-//          TemplateTemplateSourceAnalysisArgs{...}
-type TemplateTemplateSourceAnalysisInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateSourceAnalysisOutput() TemplateTemplateSourceAnalysisOutput
-	ToTemplateTemplateSourceAnalysisOutputWithContext(context.Context) TemplateTemplateSourceAnalysisOutput
-}
-
-// <p>The source analysis of the template.</p>
-type TemplateTemplateSourceAnalysisArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// <p>A structure containing information about the dataset references used as placeholders
-	//             in the template.</p>
-	DataSetReferences TemplateDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
-}
-
-func (TemplateTemplateSourceAnalysisArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateSourceAnalysis)(nil)).Elem()
-}
-
-func (i TemplateTemplateSourceAnalysisArgs) ToTemplateTemplateSourceAnalysisOutput() TemplateTemplateSourceAnalysisOutput {
-	return i.ToTemplateTemplateSourceAnalysisOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateSourceAnalysisArgs) ToTemplateTemplateSourceAnalysisOutputWithContext(ctx context.Context) TemplateTemplateSourceAnalysisOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceAnalysisOutput)
-}
-
-func (i TemplateTemplateSourceAnalysisArgs) ToTemplateTemplateSourceAnalysisPtrOutput() TemplateTemplateSourceAnalysisPtrOutput {
-	return i.ToTemplateTemplateSourceAnalysisPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateSourceAnalysisArgs) ToTemplateTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceAnalysisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceAnalysisOutput).ToTemplateTemplateSourceAnalysisPtrOutputWithContext(ctx)
-}
-
-// TemplateTemplateSourceAnalysisPtrInput is an input type that accepts TemplateTemplateSourceAnalysisArgs, TemplateTemplateSourceAnalysisPtr and TemplateTemplateSourceAnalysisPtrOutput values.
-// You can construct a concrete instance of `TemplateTemplateSourceAnalysisPtrInput` via:
-//
-//          TemplateTemplateSourceAnalysisArgs{...}
-//
-//  or:
-//
-//          nil
-type TemplateTemplateSourceAnalysisPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateSourceAnalysisPtrOutput() TemplateTemplateSourceAnalysisPtrOutput
-	ToTemplateTemplateSourceAnalysisPtrOutputWithContext(context.Context) TemplateTemplateSourceAnalysisPtrOutput
-}
-
-type templateTemplateSourceAnalysisPtrType TemplateTemplateSourceAnalysisArgs
-
-func TemplateTemplateSourceAnalysisPtr(v *TemplateTemplateSourceAnalysisArgs) TemplateTemplateSourceAnalysisPtrInput {
-	return (*templateTemplateSourceAnalysisPtrType)(v)
-}
-
-func (*templateTemplateSourceAnalysisPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateSourceAnalysis)(nil)).Elem()
-}
-
-func (i *templateTemplateSourceAnalysisPtrType) ToTemplateTemplateSourceAnalysisPtrOutput() TemplateTemplateSourceAnalysisPtrOutput {
-	return i.ToTemplateTemplateSourceAnalysisPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTemplateSourceAnalysisPtrType) ToTemplateTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceAnalysisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceAnalysisPtrOutput)
-}
-
-// <p>The source analysis of the template.</p>
-type TemplateTemplateSourceAnalysisOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateSourceAnalysisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateSourceAnalysis)(nil)).Elem()
-}
-
-func (o TemplateTemplateSourceAnalysisOutput) ToTemplateTemplateSourceAnalysisOutput() TemplateTemplateSourceAnalysisOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceAnalysisOutput) ToTemplateTemplateSourceAnalysisOutputWithContext(ctx context.Context) TemplateTemplateSourceAnalysisOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceAnalysisOutput) ToTemplateTemplateSourceAnalysisPtrOutput() TemplateTemplateSourceAnalysisPtrOutput {
-	return o.ToTemplateTemplateSourceAnalysisPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTemplateSourceAnalysisOutput) ToTemplateTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceAnalysisPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTemplateSourceAnalysis) *TemplateTemplateSourceAnalysis {
-		return &v
-	}).(TemplateTemplateSourceAnalysisPtrOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o TemplateTemplateSourceAnalysisOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateTemplateSourceAnalysis) string { return v.Arn }).(pulumi.StringOutput)
-}
-
-// <p>A structure containing information about the dataset references used as placeholders
-//             in the template.</p>
-func (o TemplateTemplateSourceAnalysisOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
-	return o.ApplyT(func(v TemplateTemplateSourceAnalysis) []TemplateDataSetReference { return v.DataSetReferences }).(TemplateDataSetReferenceArrayOutput)
-}
-
-type TemplateTemplateSourceAnalysisPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateSourceAnalysisPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateSourceAnalysis)(nil)).Elem()
-}
-
-func (o TemplateTemplateSourceAnalysisPtrOutput) ToTemplateTemplateSourceAnalysisPtrOutput() TemplateTemplateSourceAnalysisPtrOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceAnalysisPtrOutput) ToTemplateTemplateSourceAnalysisPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceAnalysisPtrOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceAnalysisPtrOutput) Elem() TemplateTemplateSourceAnalysisOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceAnalysis) TemplateTemplateSourceAnalysis {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTemplateSourceAnalysis
-		return ret
-	}).(TemplateTemplateSourceAnalysisOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o TemplateTemplateSourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceAnalysis) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>A structure containing information about the dataset references used as placeholders
-//             in the template.</p>
-func (o TemplateTemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceAnalysis) []TemplateDataSetReference {
-		if v == nil {
-			return nil
-		}
-		return v.DataSetReferences
-	}).(TemplateDataSetReferenceArrayOutput)
-}
-
-// <p>The source entity of the template.</p>
-type TemplateTemplateSourceEntity struct {
-	SourceAnalysis *TemplateTemplateSourceAnalysis `pulumi:"sourceAnalysis"`
-	SourceTemplate *TemplateTemplateSourceTemplate `pulumi:"sourceTemplate"`
-}
-
-// TemplateTemplateSourceEntityInput is an input type that accepts TemplateTemplateSourceEntityArgs and TemplateTemplateSourceEntityOutput values.
-// You can construct a concrete instance of `TemplateTemplateSourceEntityInput` via:
-//
-//          TemplateTemplateSourceEntityArgs{...}
-type TemplateTemplateSourceEntityInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateSourceEntityOutput() TemplateTemplateSourceEntityOutput
-	ToTemplateTemplateSourceEntityOutputWithContext(context.Context) TemplateTemplateSourceEntityOutput
-}
-
-// <p>The source entity of the template.</p>
-type TemplateTemplateSourceEntityArgs struct {
-	SourceAnalysis TemplateTemplateSourceAnalysisPtrInput `pulumi:"sourceAnalysis"`
-	SourceTemplate TemplateTemplateSourceTemplatePtrInput `pulumi:"sourceTemplate"`
-}
-
-func (TemplateTemplateSourceEntityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateSourceEntity)(nil)).Elem()
-}
-
-func (i TemplateTemplateSourceEntityArgs) ToTemplateTemplateSourceEntityOutput() TemplateTemplateSourceEntityOutput {
-	return i.ToTemplateTemplateSourceEntityOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateSourceEntityArgs) ToTemplateTemplateSourceEntityOutputWithContext(ctx context.Context) TemplateTemplateSourceEntityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceEntityOutput)
-}
-
-func (i TemplateTemplateSourceEntityArgs) ToTemplateTemplateSourceEntityPtrOutput() TemplateTemplateSourceEntityPtrOutput {
-	return i.ToTemplateTemplateSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateSourceEntityArgs) ToTemplateTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceEntityOutput).ToTemplateTemplateSourceEntityPtrOutputWithContext(ctx)
-}
-
-// TemplateTemplateSourceEntityPtrInput is an input type that accepts TemplateTemplateSourceEntityArgs, TemplateTemplateSourceEntityPtr and TemplateTemplateSourceEntityPtrOutput values.
-// You can construct a concrete instance of `TemplateTemplateSourceEntityPtrInput` via:
-//
-//          TemplateTemplateSourceEntityArgs{...}
-//
-//  or:
-//
-//          nil
-type TemplateTemplateSourceEntityPtrInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateSourceEntityPtrOutput() TemplateTemplateSourceEntityPtrOutput
-	ToTemplateTemplateSourceEntityPtrOutputWithContext(context.Context) TemplateTemplateSourceEntityPtrOutput
-}
-
-type templateTemplateSourceEntityPtrType TemplateTemplateSourceEntityArgs
-
-func TemplateTemplateSourceEntityPtr(v *TemplateTemplateSourceEntityArgs) TemplateTemplateSourceEntityPtrInput {
-	return (*templateTemplateSourceEntityPtrType)(v)
-}
-
-func (*templateTemplateSourceEntityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateSourceEntity)(nil)).Elem()
-}
-
-func (i *templateTemplateSourceEntityPtrType) ToTemplateTemplateSourceEntityPtrOutput() TemplateTemplateSourceEntityPtrOutput {
-	return i.ToTemplateTemplateSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (i *templateTemplateSourceEntityPtrType) ToTemplateTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceEntityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceEntityPtrOutput)
-}
-
-// <p>The source entity of the template.</p>
-type TemplateTemplateSourceEntityOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateSourceEntityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateSourceEntity)(nil)).Elem()
-}
-
-func (o TemplateTemplateSourceEntityOutput) ToTemplateTemplateSourceEntityOutput() TemplateTemplateSourceEntityOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceEntityOutput) ToTemplateTemplateSourceEntityOutputWithContext(ctx context.Context) TemplateTemplateSourceEntityOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceEntityOutput) ToTemplateTemplateSourceEntityPtrOutput() TemplateTemplateSourceEntityPtrOutput {
-	return o.ToTemplateTemplateSourceEntityPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTemplateSourceEntityOutput) ToTemplateTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceEntityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTemplateSourceEntity) *TemplateTemplateSourceEntity {
-		return &v
-	}).(TemplateTemplateSourceEntityPtrOutput)
-}
-
-func (o TemplateTemplateSourceEntityOutput) SourceAnalysis() TemplateTemplateSourceAnalysisPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateSourceEntity) *TemplateTemplateSourceAnalysis { return v.SourceAnalysis }).(TemplateTemplateSourceAnalysisPtrOutput)
-}
-
-func (o TemplateTemplateSourceEntityOutput) SourceTemplate() TemplateTemplateSourceTemplatePtrOutput {
-	return o.ApplyT(func(v TemplateTemplateSourceEntity) *TemplateTemplateSourceTemplate { return v.SourceTemplate }).(TemplateTemplateSourceTemplatePtrOutput)
-}
-
-type TemplateTemplateSourceEntityPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateSourceEntityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateSourceEntity)(nil)).Elem()
-}
-
-func (o TemplateTemplateSourceEntityPtrOutput) ToTemplateTemplateSourceEntityPtrOutput() TemplateTemplateSourceEntityPtrOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceEntityPtrOutput) ToTemplateTemplateSourceEntityPtrOutputWithContext(ctx context.Context) TemplateTemplateSourceEntityPtrOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceEntityPtrOutput) Elem() TemplateTemplateSourceEntityOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceEntity) TemplateTemplateSourceEntity {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTemplateSourceEntity
-		return ret
-	}).(TemplateTemplateSourceEntityOutput)
-}
-
-func (o TemplateTemplateSourceEntityPtrOutput) SourceAnalysis() TemplateTemplateSourceAnalysisPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceEntity) *TemplateTemplateSourceAnalysis {
-		if v == nil {
-			return nil
-		}
-		return v.SourceAnalysis
-	}).(TemplateTemplateSourceAnalysisPtrOutput)
-}
-
-func (o TemplateTemplateSourceEntityPtrOutput) SourceTemplate() TemplateTemplateSourceTemplatePtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceEntity) *TemplateTemplateSourceTemplate {
-		if v == nil {
-			return nil
-		}
-		return v.SourceTemplate
-	}).(TemplateTemplateSourceTemplatePtrOutput)
-}
-
-// <p>The source template of the template.</p>
-type TemplateTemplateSourceTemplate struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn string `pulumi:"arn"`
-}
-
-// TemplateTemplateSourceTemplateInput is an input type that accepts TemplateTemplateSourceTemplateArgs and TemplateTemplateSourceTemplateOutput values.
-// You can construct a concrete instance of `TemplateTemplateSourceTemplateInput` via:
-//
-//          TemplateTemplateSourceTemplateArgs{...}
-type TemplateTemplateSourceTemplateInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateSourceTemplateOutput() TemplateTemplateSourceTemplateOutput
-	ToTemplateTemplateSourceTemplateOutputWithContext(context.Context) TemplateTemplateSourceTemplateOutput
-}
-
-// <p>The source template of the template.</p>
-type TemplateTemplateSourceTemplateArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn pulumi.StringInput `pulumi:"arn"`
-}
-
-func (TemplateTemplateSourceTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateSourceTemplate)(nil)).Elem()
-}
-
-func (i TemplateTemplateSourceTemplateArgs) ToTemplateTemplateSourceTemplateOutput() TemplateTemplateSourceTemplateOutput {
-	return i.ToTemplateTemplateSourceTemplateOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateSourceTemplateArgs) ToTemplateTemplateSourceTemplateOutputWithContext(ctx context.Context) TemplateTemplateSourceTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceTemplateOutput)
-}
-
-func (i TemplateTemplateSourceTemplateArgs) ToTemplateTemplateSourceTemplatePtrOutput() TemplateTemplateSourceTemplatePtrOutput {
-	return i.ToTemplateTemplateSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i TemplateTemplateSourceTemplateArgs) ToTemplateTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplateSourceTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceTemplateOutput).ToTemplateTemplateSourceTemplatePtrOutputWithContext(ctx)
-}
-
-// TemplateTemplateSourceTemplatePtrInput is an input type that accepts TemplateTemplateSourceTemplateArgs, TemplateTemplateSourceTemplatePtr and TemplateTemplateSourceTemplatePtrOutput values.
-// You can construct a concrete instance of `TemplateTemplateSourceTemplatePtrInput` via:
-//
-//          TemplateTemplateSourceTemplateArgs{...}
-//
-//  or:
-//
-//          nil
-type TemplateTemplateSourceTemplatePtrInput interface {
-	pulumi.Input
-
-	ToTemplateTemplateSourceTemplatePtrOutput() TemplateTemplateSourceTemplatePtrOutput
-	ToTemplateTemplateSourceTemplatePtrOutputWithContext(context.Context) TemplateTemplateSourceTemplatePtrOutput
-}
-
-type templateTemplateSourceTemplatePtrType TemplateTemplateSourceTemplateArgs
-
-func TemplateTemplateSourceTemplatePtr(v *TemplateTemplateSourceTemplateArgs) TemplateTemplateSourceTemplatePtrInput {
-	return (*templateTemplateSourceTemplatePtrType)(v)
-}
-
-func (*templateTemplateSourceTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateSourceTemplate)(nil)).Elem()
-}
-
-func (i *templateTemplateSourceTemplatePtrType) ToTemplateTemplateSourceTemplatePtrOutput() TemplateTemplateSourceTemplatePtrOutput {
-	return i.ToTemplateTemplateSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *templateTemplateSourceTemplatePtrType) ToTemplateTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplateSourceTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceTemplatePtrOutput)
-}
-
-// <p>The source template of the template.</p>
-type TemplateTemplateSourceTemplateOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateSourceTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateSourceTemplate)(nil)).Elem()
-}
-
-func (o TemplateTemplateSourceTemplateOutput) ToTemplateTemplateSourceTemplateOutput() TemplateTemplateSourceTemplateOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceTemplateOutput) ToTemplateTemplateSourceTemplateOutputWithContext(ctx context.Context) TemplateTemplateSourceTemplateOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceTemplateOutput) ToTemplateTemplateSourceTemplatePtrOutput() TemplateTemplateSourceTemplatePtrOutput {
-	return o.ToTemplateTemplateSourceTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateTemplateSourceTemplateOutput) ToTemplateTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplateSourceTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTemplateSourceTemplate) *TemplateTemplateSourceTemplate {
-		return &v
-	}).(TemplateTemplateSourceTemplatePtrOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o TemplateTemplateSourceTemplateOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateTemplateSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
-}
-
-type TemplateTemplateSourceTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateTemplateSourceTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateSourceTemplate)(nil)).Elem()
-}
-
-func (o TemplateTemplateSourceTemplatePtrOutput) ToTemplateTemplateSourceTemplatePtrOutput() TemplateTemplateSourceTemplatePtrOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceTemplatePtrOutput) ToTemplateTemplateSourceTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplateSourceTemplatePtrOutput {
-	return o
-}
-
-func (o TemplateTemplateSourceTemplatePtrOutput) Elem() TemplateTemplateSourceTemplateOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceTemplate) TemplateTemplateSourceTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateTemplateSourceTemplate
-		return ret
-	}).(TemplateTemplateSourceTemplateOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o TemplateTemplateSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateSourceTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
 // <p>A version of a template.</p>
-type TemplateTemplateVersion struct {
+type TemplateVersion struct {
 	// <p>The time that this template version was created.</p>
 	CreatedTime *string `pulumi:"createdTime"`
 	// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
@@ -11437,7 +11435,7 @@ type TemplateTemplateVersion struct {
 	// <p>The description of the template.</p>
 	Description *string `pulumi:"description"`
 	// <p>Errors associated with this template version.</p>
-	Errors []TemplateTemplateError `pulumi:"errors"`
+	Errors []TemplateError `pulumi:"errors"`
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets []TemplateSheet `pulumi:"sheets"`
 	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
@@ -11450,19 +11448,19 @@ type TemplateTemplateVersion struct {
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
-// TemplateTemplateVersionInput is an input type that accepts TemplateTemplateVersionArgs and TemplateTemplateVersionOutput values.
-// You can construct a concrete instance of `TemplateTemplateVersionInput` via:
+// TemplateVersionInput is an input type that accepts TemplateVersionArgs and TemplateVersionOutput values.
+// You can construct a concrete instance of `TemplateVersionInput` via:
 //
-//          TemplateTemplateVersionArgs{...}
-type TemplateTemplateVersionInput interface {
+//          TemplateVersionArgs{...}
+type TemplateVersionInput interface {
 	pulumi.Input
 
-	ToTemplateTemplateVersionOutput() TemplateTemplateVersionOutput
-	ToTemplateTemplateVersionOutputWithContext(context.Context) TemplateTemplateVersionOutput
+	ToTemplateVersionOutput() TemplateVersionOutput
+	ToTemplateVersionOutputWithContext(context.Context) TemplateVersionOutput
 }
 
 // <p>A version of a template.</p>
-type TemplateTemplateVersionArgs struct {
+type TemplateVersionArgs struct {
 	// <p>The time that this template version was created.</p>
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
@@ -11472,7 +11470,7 @@ type TemplateTemplateVersionArgs struct {
 	// <p>The description of the template.</p>
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// <p>Errors associated with this template version.</p>
-	Errors TemplateTemplateErrorArrayInput `pulumi:"errors"`
+	Errors TemplateErrorArrayInput `pulumi:"errors"`
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets TemplateSheetArrayInput `pulumi:"sheets"`
 	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
@@ -11485,158 +11483,158 @@ type TemplateTemplateVersionArgs struct {
 	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
 }
 
-func (TemplateTemplateVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateVersion)(nil)).Elem()
+func (TemplateVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVersion)(nil)).Elem()
 }
 
-func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionOutput() TemplateTemplateVersionOutput {
-	return i.ToTemplateTemplateVersionOutputWithContext(context.Background())
+func (i TemplateVersionArgs) ToTemplateVersionOutput() TemplateVersionOutput {
+	return i.ToTemplateVersionOutputWithContext(context.Background())
 }
 
-func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionOutputWithContext(ctx context.Context) TemplateTemplateVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateVersionOutput)
+func (i TemplateVersionArgs) ToTemplateVersionOutputWithContext(ctx context.Context) TemplateVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVersionOutput)
 }
 
-func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
-	return i.ToTemplateTemplateVersionPtrOutputWithContext(context.Background())
+func (i TemplateVersionArgs) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
+	return i.ToTemplateVersionPtrOutputWithContext(context.Background())
 }
 
-func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateVersionOutput).ToTemplateTemplateVersionPtrOutputWithContext(ctx)
+func (i TemplateVersionArgs) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVersionOutput).ToTemplateVersionPtrOutputWithContext(ctx)
 }
 
-// TemplateTemplateVersionPtrInput is an input type that accepts TemplateTemplateVersionArgs, TemplateTemplateVersionPtr and TemplateTemplateVersionPtrOutput values.
-// You can construct a concrete instance of `TemplateTemplateVersionPtrInput` via:
+// TemplateVersionPtrInput is an input type that accepts TemplateVersionArgs, TemplateVersionPtr and TemplateVersionPtrOutput values.
+// You can construct a concrete instance of `TemplateVersionPtrInput` via:
 //
-//          TemplateTemplateVersionArgs{...}
+//          TemplateVersionArgs{...}
 //
 //  or:
 //
 //          nil
-type TemplateTemplateVersionPtrInput interface {
+type TemplateVersionPtrInput interface {
 	pulumi.Input
 
-	ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput
-	ToTemplateTemplateVersionPtrOutputWithContext(context.Context) TemplateTemplateVersionPtrOutput
+	ToTemplateVersionPtrOutput() TemplateVersionPtrOutput
+	ToTemplateVersionPtrOutputWithContext(context.Context) TemplateVersionPtrOutput
 }
 
-type templateTemplateVersionPtrType TemplateTemplateVersionArgs
+type templateVersionPtrType TemplateVersionArgs
 
-func TemplateTemplateVersionPtr(v *TemplateTemplateVersionArgs) TemplateTemplateVersionPtrInput {
-	return (*templateTemplateVersionPtrType)(v)
+func TemplateVersionPtr(v *TemplateVersionArgs) TemplateVersionPtrInput {
+	return (*templateVersionPtrType)(v)
 }
 
-func (*templateTemplateVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateVersion)(nil)).Elem()
+func (*templateVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVersion)(nil)).Elem()
 }
 
-func (i *templateTemplateVersionPtrType) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
-	return i.ToTemplateTemplateVersionPtrOutputWithContext(context.Background())
+func (i *templateVersionPtrType) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
+	return i.ToTemplateVersionPtrOutputWithContext(context.Background())
 }
 
-func (i *templateTemplateVersionPtrType) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateVersionPtrOutput)
+func (i *templateVersionPtrType) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateVersionPtrOutput)
 }
 
 // <p>A version of a template.</p>
-type TemplateTemplateVersionOutput struct{ *pulumi.OutputState }
+type TemplateVersionOutput struct{ *pulumi.OutputState }
 
-func (TemplateTemplateVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTemplateVersion)(nil)).Elem()
+func (TemplateVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateVersion)(nil)).Elem()
 }
 
-func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionOutput() TemplateTemplateVersionOutput {
+func (o TemplateVersionOutput) ToTemplateVersionOutput() TemplateVersionOutput {
 	return o
 }
 
-func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionOutputWithContext(ctx context.Context) TemplateTemplateVersionOutput {
+func (o TemplateVersionOutput) ToTemplateVersionOutputWithContext(ctx context.Context) TemplateVersionOutput {
 	return o
 }
 
-func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
-	return o.ToTemplateTemplateVersionPtrOutputWithContext(context.Background())
+func (o TemplateVersionOutput) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
+	return o.ToTemplateVersionPtrOutputWithContext(context.Background())
 }
 
-func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTemplateVersion) *TemplateTemplateVersion {
+func (o TemplateVersionOutput) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVersion) *TemplateVersion {
 		return &v
-	}).(TemplateTemplateVersionPtrOutput)
+	}).(TemplateVersionPtrOutput)
 }
 
 // <p>The time that this template version was created.</p>
-func (o TemplateTemplateVersionOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+func (o TemplateVersionOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
 // <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
 //             template should be bound to new datasets matching the same schema described through this
 //             API operation.</p>
-func (o TemplateTemplateVersionOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) []TemplateDataSetConfiguration { return v.DataSetConfigurations }).(TemplateDataSetConfigurationArrayOutput)
+func (o TemplateVersionOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
+	return o.ApplyT(func(v TemplateVersion) []TemplateDataSetConfiguration { return v.DataSetConfigurations }).(TemplateDataSetConfigurationArrayOutput)
 }
 
 // <p>The description of the template.</p>
-func (o TemplateTemplateVersionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o TemplateVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // <p>Errors associated with this template version.</p>
-func (o TemplateTemplateVersionOutput) Errors() TemplateTemplateErrorArrayOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) []TemplateTemplateError { return v.Errors }).(TemplateTemplateErrorArrayOutput)
+func (o TemplateVersionOutput) Errors() TemplateErrorArrayOutput {
+	return o.ApplyT(func(v TemplateVersion) []TemplateError { return v.Errors }).(TemplateErrorArrayOutput)
 }
 
 // <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-func (o TemplateTemplateVersionOutput) Sheets() TemplateSheetArrayOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) []TemplateSheet { return v.Sheets }).(TemplateSheetArrayOutput)
+func (o TemplateVersionOutput) Sheets() TemplateSheetArrayOutput {
+	return o.ApplyT(func(v TemplateVersion) []TemplateSheet { return v.Sheets }).(TemplateSheetArrayOutput)
 }
 
 // <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
 //             template.</p>
-func (o TemplateTemplateVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
+func (o TemplateVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateVersionOutput) Status() TemplateResourceStatusPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) *TemplateResourceStatus { return v.Status }).(TemplateResourceStatusPtrOutput)
+func (o TemplateVersionOutput) Status() TemplateResourceStatusPtrOutput {
+	return o.ApplyT(func(v TemplateVersion) *TemplateResourceStatus { return v.Status }).(TemplateResourceStatusPtrOutput)
 }
 
 // <p>The ARN of the theme associated with this version of the template.</p>
-func (o TemplateTemplateVersionOutput) ThemeArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
+func (o TemplateVersionOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }
 
 // <p>The version number of the template version.</p>
-func (o TemplateTemplateVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v TemplateTemplateVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
+func (o TemplateVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
 }
 
-type TemplateTemplateVersionPtrOutput struct{ *pulumi.OutputState }
+type TemplateVersionPtrOutput struct{ *pulumi.OutputState }
 
-func (TemplateTemplateVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateTemplateVersion)(nil)).Elem()
+func (TemplateVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateVersion)(nil)).Elem()
 }
 
-func (o TemplateTemplateVersionPtrOutput) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
+func (o TemplateVersionPtrOutput) ToTemplateVersionPtrOutput() TemplateVersionPtrOutput {
 	return o
 }
 
-func (o TemplateTemplateVersionPtrOutput) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
+func (o TemplateVersionPtrOutput) ToTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateVersionPtrOutput {
 	return o
 }
 
-func (o TemplateTemplateVersionPtrOutput) Elem() TemplateTemplateVersionOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) TemplateTemplateVersion {
+func (o TemplateVersionPtrOutput) Elem() TemplateVersionOutput {
+	return o.ApplyT(func(v *TemplateVersion) TemplateVersion {
 		if v != nil {
 			return *v
 		}
-		var ret TemplateTemplateVersion
+		var ret TemplateVersion
 		return ret
-	}).(TemplateTemplateVersionOutput)
+	}).(TemplateVersionOutput)
 }
 
 // <p>The time that this template version was created.</p>
-func (o TemplateTemplateVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+func (o TemplateVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
 			return nil
 		}
@@ -11647,8 +11645,8 @@ func (o TemplateTemplateVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 // <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
 //             template should be bound to new datasets matching the same schema described through this
 //             API operation.</p>
-func (o TemplateTemplateVersionPtrOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) []TemplateDataSetConfiguration {
+func (o TemplateVersionPtrOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
+	return o.ApplyT(func(v *TemplateVersion) []TemplateDataSetConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -11657,8 +11655,8 @@ func (o TemplateTemplateVersionPtrOutput) DataSetConfigurations() TemplateDataSe
 }
 
 // <p>The description of the template.</p>
-func (o TemplateTemplateVersionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+func (o TemplateVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
 			return nil
 		}
@@ -11667,18 +11665,18 @@ func (o TemplateTemplateVersionPtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // <p>Errors associated with this template version.</p>
-func (o TemplateTemplateVersionPtrOutput) Errors() TemplateTemplateErrorArrayOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) []TemplateTemplateError {
+func (o TemplateVersionPtrOutput) Errors() TemplateErrorArrayOutput {
+	return o.ApplyT(func(v *TemplateVersion) []TemplateError {
 		if v == nil {
 			return nil
 		}
 		return v.Errors
-	}).(TemplateTemplateErrorArrayOutput)
+	}).(TemplateErrorArrayOutput)
 }
 
 // <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-func (o TemplateTemplateVersionPtrOutput) Sheets() TemplateSheetArrayOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) []TemplateSheet {
+func (o TemplateVersionPtrOutput) Sheets() TemplateSheetArrayOutput {
+	return o.ApplyT(func(v *TemplateVersion) []TemplateSheet {
 		if v == nil {
 			return nil
 		}
@@ -11688,8 +11686,8 @@ func (o TemplateTemplateVersionPtrOutput) Sheets() TemplateSheetArrayOutput {
 
 // <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
 //             template.</p>
-func (o TemplateTemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+func (o TemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
 			return nil
 		}
@@ -11697,8 +11695,8 @@ func (o TemplateTemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o TemplateTemplateVersionPtrOutput) Status() TemplateResourceStatusPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) *TemplateResourceStatus {
+func (o TemplateVersionPtrOutput) Status() TemplateResourceStatusPtrOutput {
+	return o.ApplyT(func(v *TemplateVersion) *TemplateResourceStatus {
 		if v == nil {
 			return nil
 		}
@@ -11707,8 +11705,8 @@ func (o TemplateTemplateVersionPtrOutput) Status() TemplateResourceStatusPtrOutp
 }
 
 // <p>The ARN of the theme associated with this version of the template.</p>
-func (o TemplateTemplateVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+func (o TemplateVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateVersion) *string {
 		if v == nil {
 			return nil
 		}
@@ -11717,8 +11715,8 @@ func (o TemplateTemplateVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
 }
 
 // <p>The version number of the template version.</p>
-func (o TemplateTemplateVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *TemplateTemplateVersion) *float64 {
+func (o TemplateVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateVersion) *float64 {
 		if v == nil {
 			return nil
 		}
@@ -11864,6 +11862,190 @@ func (o ThemeBorderStylePtrOutput) Show() pulumi.BoolPtrOutput {
 		}
 		return v.Show
 	}).(pulumi.BoolPtrOutput)
+}
+
+// <p>The theme configuration. This configuration contains all of the display properties for
+//             a theme.</p>
+type ThemeConfiguration struct {
+	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
+	Sheet            *ThemeSheetStyle       `pulumi:"sheet"`
+	Typography       *ThemeTypography       `pulumi:"typography"`
+	UIColorPalette   *ThemeUIColorPalette   `pulumi:"uIColorPalette"`
+}
+
+// ThemeConfigurationInput is an input type that accepts ThemeConfigurationArgs and ThemeConfigurationOutput values.
+// You can construct a concrete instance of `ThemeConfigurationInput` via:
+//
+//          ThemeConfigurationArgs{...}
+type ThemeConfigurationInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationOutput() ThemeConfigurationOutput
+	ToThemeConfigurationOutputWithContext(context.Context) ThemeConfigurationOutput
+}
+
+// <p>The theme configuration. This configuration contains all of the display properties for
+//             a theme.</p>
+type ThemeConfigurationArgs struct {
+	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
+	Sheet            ThemeSheetStylePtrInput       `pulumi:"sheet"`
+	Typography       ThemeTypographyPtrInput       `pulumi:"typography"`
+	UIColorPalette   ThemeUIColorPalettePtrInput   `pulumi:"uIColorPalette"`
+}
+
+func (ThemeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfiguration)(nil)).Elem()
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationOutput() ThemeConfigurationOutput {
+	return i.ToThemeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationOutputWithContext(ctx context.Context) ThemeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationOutput)
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return i.ToThemeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationOutput).ToThemeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationPtrInput is an input type that accepts ThemeConfigurationArgs, ThemeConfigurationPtr and ThemeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationPtrInput` via:
+//
+//          ThemeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ThemeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput
+	ToThemeConfigurationPtrOutputWithContext(context.Context) ThemeConfigurationPtrOutput
+}
+
+type themeConfigurationPtrType ThemeConfigurationArgs
+
+func ThemeConfigurationPtr(v *ThemeConfigurationArgs) ThemeConfigurationPtrInput {
+	return (*themeConfigurationPtrType)(v)
+}
+
+func (*themeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfiguration)(nil)).Elem()
+}
+
+func (i *themeConfigurationPtrType) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return i.ToThemeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationPtrType) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationPtrOutput)
+}
+
+// <p>The theme configuration. This configuration contains all of the display properties for
+//             a theme.</p>
+type ThemeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfiguration)(nil)).Elem()
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationOutput() ThemeConfigurationOutput {
+	return o
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationOutputWithContext(ctx context.Context) ThemeConfigurationOutput {
+	return o
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return o.ToThemeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfiguration) *ThemeConfiguration {
+		return &v
+	}).(ThemeConfigurationPtrOutput)
+}
+
+func (o ThemeConfigurationOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeDataColorPalette { return v.DataColorPalette }).(ThemeDataColorPalettePtrOutput)
+}
+
+func (o ThemeConfigurationOutput) Sheet() ThemeSheetStylePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeSheetStyle { return v.Sheet }).(ThemeSheetStylePtrOutput)
+}
+
+func (o ThemeConfigurationOutput) Typography() ThemeTypographyPtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeTypography { return v.Typography }).(ThemeTypographyPtrOutput)
+}
+
+func (o ThemeConfigurationOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeUIColorPalette { return v.UIColorPalette }).(ThemeUIColorPalettePtrOutput)
+}
+
+type ThemeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfiguration)(nil)).Elem()
+}
+
+func (o ThemeConfigurationPtrOutput) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationPtrOutput) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationPtrOutput) Elem() ThemeConfigurationOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) ThemeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfiguration
+		return ret
+	}).(ThemeConfigurationOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeDataColorPalette {
+		if v == nil {
+			return nil
+		}
+		return v.DataColorPalette
+	}).(ThemeDataColorPalettePtrOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeSheetStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Sheet
+	}).(ThemeSheetStylePtrOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeTypography {
+		if v == nil {
+			return nil
+		}
+		return v.Typography
+	}).(ThemeTypographyPtrOutput)
+}
+
+func (o ThemeConfigurationPtrOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeUIColorPalette {
+		if v == nil {
+			return nil
+		}
+		return v.UIColorPalette
+	}).(ThemeUIColorPalettePtrOutput)
 }
 
 // <p>The theme colors that are used for data colors in charts. The colors description is a
@@ -12052,6 +12234,112 @@ func (o ThemeDataColorPalettePtrOutput) MinMaxGradient() pulumi.StringArrayOutpu
 		}
 		return v.MinMaxGradient
 	}).(pulumi.StringArrayOutput)
+}
+
+// <p>Theme error.</p>
+type ThemeError struct {
+	// <p>The error message.</p>
+	Message *string         `pulumi:"message"`
+	Type    *ThemeErrorType `pulumi:"type"`
+}
+
+// ThemeErrorInput is an input type that accepts ThemeErrorArgs and ThemeErrorOutput values.
+// You can construct a concrete instance of `ThemeErrorInput` via:
+//
+//          ThemeErrorArgs{...}
+type ThemeErrorInput interface {
+	pulumi.Input
+
+	ToThemeErrorOutput() ThemeErrorOutput
+	ToThemeErrorOutputWithContext(context.Context) ThemeErrorOutput
+}
+
+// <p>Theme error.</p>
+type ThemeErrorArgs struct {
+	// <p>The error message.</p>
+	Message pulumi.StringPtrInput  `pulumi:"message"`
+	Type    ThemeErrorTypePtrInput `pulumi:"type"`
+}
+
+func (ThemeErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeError)(nil)).Elem()
+}
+
+func (i ThemeErrorArgs) ToThemeErrorOutput() ThemeErrorOutput {
+	return i.ToThemeErrorOutputWithContext(context.Background())
+}
+
+func (i ThemeErrorArgs) ToThemeErrorOutputWithContext(ctx context.Context) ThemeErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeErrorOutput)
+}
+
+// ThemeErrorArrayInput is an input type that accepts ThemeErrorArray and ThemeErrorArrayOutput values.
+// You can construct a concrete instance of `ThemeErrorArrayInput` via:
+//
+//          ThemeErrorArray{ ThemeErrorArgs{...} }
+type ThemeErrorArrayInput interface {
+	pulumi.Input
+
+	ToThemeErrorArrayOutput() ThemeErrorArrayOutput
+	ToThemeErrorArrayOutputWithContext(context.Context) ThemeErrorArrayOutput
+}
+
+type ThemeErrorArray []ThemeErrorInput
+
+func (ThemeErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeError)(nil)).Elem()
+}
+
+func (i ThemeErrorArray) ToThemeErrorArrayOutput() ThemeErrorArrayOutput {
+	return i.ToThemeErrorArrayOutputWithContext(context.Background())
+}
+
+func (i ThemeErrorArray) ToThemeErrorArrayOutputWithContext(ctx context.Context) ThemeErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeErrorArrayOutput)
+}
+
+// <p>Theme error.</p>
+type ThemeErrorOutput struct{ *pulumi.OutputState }
+
+func (ThemeErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeError)(nil)).Elem()
+}
+
+func (o ThemeErrorOutput) ToThemeErrorOutput() ThemeErrorOutput {
+	return o
+}
+
+func (o ThemeErrorOutput) ToThemeErrorOutputWithContext(ctx context.Context) ThemeErrorOutput {
+	return o
+}
+
+// <p>The error message.</p>
+func (o ThemeErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeErrorOutput) Type() ThemeErrorTypePtrOutput {
+	return o.ApplyT(func(v ThemeError) *ThemeErrorType { return v.Type }).(ThemeErrorTypePtrOutput)
+}
+
+type ThemeErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeError)(nil)).Elem()
+}
+
+func (o ThemeErrorArrayOutput) ToThemeErrorArrayOutput() ThemeErrorArrayOutput {
+	return o
+}
+
+func (o ThemeErrorArrayOutput) ToThemeErrorArrayOutputWithContext(ctx context.Context) ThemeErrorArrayOutput {
+	return o
+}
+
+func (o ThemeErrorArrayOutput) Index(i pulumi.IntInput) ThemeErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeError {
+		return vs[0].([]ThemeError)[vs[1].(int)]
+	}).(ThemeErrorOutput)
 }
 
 type ThemeFont struct {
@@ -12844,565 +13132,6 @@ func (o ThemeTagArrayOutput) Index(i pulumi.IntInput) ThemeTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeTag {
 		return vs[0].([]ThemeTag)[vs[1].(int)]
 	}).(ThemeTagOutput)
-}
-
-// <p>The theme configuration. This configuration contains all of the display properties for
-//             a theme.</p>
-type ThemeThemeConfiguration struct {
-	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
-	Sheet            *ThemeSheetStyle       `pulumi:"sheet"`
-	Typography       *ThemeTypography       `pulumi:"typography"`
-	UIColorPalette   *ThemeUIColorPalette   `pulumi:"uIColorPalette"`
-}
-
-// ThemeThemeConfigurationInput is an input type that accepts ThemeThemeConfigurationArgs and ThemeThemeConfigurationOutput values.
-// You can construct a concrete instance of `ThemeThemeConfigurationInput` via:
-//
-//          ThemeThemeConfigurationArgs{...}
-type ThemeThemeConfigurationInput interface {
-	pulumi.Input
-
-	ToThemeThemeConfigurationOutput() ThemeThemeConfigurationOutput
-	ToThemeThemeConfigurationOutputWithContext(context.Context) ThemeThemeConfigurationOutput
-}
-
-// <p>The theme configuration. This configuration contains all of the display properties for
-//             a theme.</p>
-type ThemeThemeConfigurationArgs struct {
-	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
-	Sheet            ThemeSheetStylePtrInput       `pulumi:"sheet"`
-	Typography       ThemeTypographyPtrInput       `pulumi:"typography"`
-	UIColorPalette   ThemeUIColorPalettePtrInput   `pulumi:"uIColorPalette"`
-}
-
-func (ThemeThemeConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeThemeConfiguration)(nil)).Elem()
-}
-
-func (i ThemeThemeConfigurationArgs) ToThemeThemeConfigurationOutput() ThemeThemeConfigurationOutput {
-	return i.ToThemeThemeConfigurationOutputWithContext(context.Background())
-}
-
-func (i ThemeThemeConfigurationArgs) ToThemeThemeConfigurationOutputWithContext(ctx context.Context) ThemeThemeConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeConfigurationOutput)
-}
-
-func (i ThemeThemeConfigurationArgs) ToThemeThemeConfigurationPtrOutput() ThemeThemeConfigurationPtrOutput {
-	return i.ToThemeThemeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ThemeThemeConfigurationArgs) ToThemeThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeThemeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeConfigurationOutput).ToThemeThemeConfigurationPtrOutputWithContext(ctx)
-}
-
-// ThemeThemeConfigurationPtrInput is an input type that accepts ThemeThemeConfigurationArgs, ThemeThemeConfigurationPtr and ThemeThemeConfigurationPtrOutput values.
-// You can construct a concrete instance of `ThemeThemeConfigurationPtrInput` via:
-//
-//          ThemeThemeConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ThemeThemeConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToThemeThemeConfigurationPtrOutput() ThemeThemeConfigurationPtrOutput
-	ToThemeThemeConfigurationPtrOutputWithContext(context.Context) ThemeThemeConfigurationPtrOutput
-}
-
-type themeThemeConfigurationPtrType ThemeThemeConfigurationArgs
-
-func ThemeThemeConfigurationPtr(v *ThemeThemeConfigurationArgs) ThemeThemeConfigurationPtrInput {
-	return (*themeThemeConfigurationPtrType)(v)
-}
-
-func (*themeThemeConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeThemeConfiguration)(nil)).Elem()
-}
-
-func (i *themeThemeConfigurationPtrType) ToThemeThemeConfigurationPtrOutput() ThemeThemeConfigurationPtrOutput {
-	return i.ToThemeThemeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *themeThemeConfigurationPtrType) ToThemeThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeThemeConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeConfigurationPtrOutput)
-}
-
-// <p>The theme configuration. This configuration contains all of the display properties for
-//             a theme.</p>
-type ThemeThemeConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ThemeThemeConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeThemeConfiguration)(nil)).Elem()
-}
-
-func (o ThemeThemeConfigurationOutput) ToThemeThemeConfigurationOutput() ThemeThemeConfigurationOutput {
-	return o
-}
-
-func (o ThemeThemeConfigurationOutput) ToThemeThemeConfigurationOutputWithContext(ctx context.Context) ThemeThemeConfigurationOutput {
-	return o
-}
-
-func (o ThemeThemeConfigurationOutput) ToThemeThemeConfigurationPtrOutput() ThemeThemeConfigurationPtrOutput {
-	return o.ToThemeThemeConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ThemeThemeConfigurationOutput) ToThemeThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeThemeConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeThemeConfiguration) *ThemeThemeConfiguration {
-		return &v
-	}).(ThemeThemeConfigurationPtrOutput)
-}
-
-func (o ThemeThemeConfigurationOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
-	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeDataColorPalette { return v.DataColorPalette }).(ThemeDataColorPalettePtrOutput)
-}
-
-func (o ThemeThemeConfigurationOutput) Sheet() ThemeSheetStylePtrOutput {
-	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeSheetStyle { return v.Sheet }).(ThemeSheetStylePtrOutput)
-}
-
-func (o ThemeThemeConfigurationOutput) Typography() ThemeTypographyPtrOutput {
-	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeTypography { return v.Typography }).(ThemeTypographyPtrOutput)
-}
-
-func (o ThemeThemeConfigurationOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
-	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeUIColorPalette { return v.UIColorPalette }).(ThemeUIColorPalettePtrOutput)
-}
-
-type ThemeThemeConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ThemeThemeConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeThemeConfiguration)(nil)).Elem()
-}
-
-func (o ThemeThemeConfigurationPtrOutput) ToThemeThemeConfigurationPtrOutput() ThemeThemeConfigurationPtrOutput {
-	return o
-}
-
-func (o ThemeThemeConfigurationPtrOutput) ToThemeThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeThemeConfigurationPtrOutput {
-	return o
-}
-
-func (o ThemeThemeConfigurationPtrOutput) Elem() ThemeThemeConfigurationOutput {
-	return o.ApplyT(func(v *ThemeThemeConfiguration) ThemeThemeConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ThemeThemeConfiguration
-		return ret
-	}).(ThemeThemeConfigurationOutput)
-}
-
-func (o ThemeThemeConfigurationPtrOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
-	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeDataColorPalette {
-		if v == nil {
-			return nil
-		}
-		return v.DataColorPalette
-	}).(ThemeDataColorPalettePtrOutput)
-}
-
-func (o ThemeThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
-	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeSheetStyle {
-		if v == nil {
-			return nil
-		}
-		return v.Sheet
-	}).(ThemeSheetStylePtrOutput)
-}
-
-func (o ThemeThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeTypography {
-		if v == nil {
-			return nil
-		}
-		return v.Typography
-	}).(ThemeTypographyPtrOutput)
-}
-
-func (o ThemeThemeConfigurationPtrOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
-	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeUIColorPalette {
-		if v == nil {
-			return nil
-		}
-		return v.UIColorPalette
-	}).(ThemeUIColorPalettePtrOutput)
-}
-
-// <p>Theme error.</p>
-type ThemeThemeError struct {
-	// <p>The error message.</p>
-	Message *string              `pulumi:"message"`
-	Type    *ThemeThemeErrorType `pulumi:"type"`
-}
-
-// ThemeThemeErrorInput is an input type that accepts ThemeThemeErrorArgs and ThemeThemeErrorOutput values.
-// You can construct a concrete instance of `ThemeThemeErrorInput` via:
-//
-//          ThemeThemeErrorArgs{...}
-type ThemeThemeErrorInput interface {
-	pulumi.Input
-
-	ToThemeThemeErrorOutput() ThemeThemeErrorOutput
-	ToThemeThemeErrorOutputWithContext(context.Context) ThemeThemeErrorOutput
-}
-
-// <p>Theme error.</p>
-type ThemeThemeErrorArgs struct {
-	// <p>The error message.</p>
-	Message pulumi.StringPtrInput       `pulumi:"message"`
-	Type    ThemeThemeErrorTypePtrInput `pulumi:"type"`
-}
-
-func (ThemeThemeErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeThemeError)(nil)).Elem()
-}
-
-func (i ThemeThemeErrorArgs) ToThemeThemeErrorOutput() ThemeThemeErrorOutput {
-	return i.ToThemeThemeErrorOutputWithContext(context.Background())
-}
-
-func (i ThemeThemeErrorArgs) ToThemeThemeErrorOutputWithContext(ctx context.Context) ThemeThemeErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeErrorOutput)
-}
-
-// ThemeThemeErrorArrayInput is an input type that accepts ThemeThemeErrorArray and ThemeThemeErrorArrayOutput values.
-// You can construct a concrete instance of `ThemeThemeErrorArrayInput` via:
-//
-//          ThemeThemeErrorArray{ ThemeThemeErrorArgs{...} }
-type ThemeThemeErrorArrayInput interface {
-	pulumi.Input
-
-	ToThemeThemeErrorArrayOutput() ThemeThemeErrorArrayOutput
-	ToThemeThemeErrorArrayOutputWithContext(context.Context) ThemeThemeErrorArrayOutput
-}
-
-type ThemeThemeErrorArray []ThemeThemeErrorInput
-
-func (ThemeThemeErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThemeThemeError)(nil)).Elem()
-}
-
-func (i ThemeThemeErrorArray) ToThemeThemeErrorArrayOutput() ThemeThemeErrorArrayOutput {
-	return i.ToThemeThemeErrorArrayOutputWithContext(context.Background())
-}
-
-func (i ThemeThemeErrorArray) ToThemeThemeErrorArrayOutputWithContext(ctx context.Context) ThemeThemeErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeErrorArrayOutput)
-}
-
-// <p>Theme error.</p>
-type ThemeThemeErrorOutput struct{ *pulumi.OutputState }
-
-func (ThemeThemeErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeThemeError)(nil)).Elem()
-}
-
-func (o ThemeThemeErrorOutput) ToThemeThemeErrorOutput() ThemeThemeErrorOutput {
-	return o
-}
-
-func (o ThemeThemeErrorOutput) ToThemeThemeErrorOutputWithContext(ctx context.Context) ThemeThemeErrorOutput {
-	return o
-}
-
-// <p>The error message.</p>
-func (o ThemeThemeErrorOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeThemeError) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-func (o ThemeThemeErrorOutput) Type() ThemeThemeErrorTypePtrOutput {
-	return o.ApplyT(func(v ThemeThemeError) *ThemeThemeErrorType { return v.Type }).(ThemeThemeErrorTypePtrOutput)
-}
-
-type ThemeThemeErrorArrayOutput struct{ *pulumi.OutputState }
-
-func (ThemeThemeErrorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThemeThemeError)(nil)).Elem()
-}
-
-func (o ThemeThemeErrorArrayOutput) ToThemeThemeErrorArrayOutput() ThemeThemeErrorArrayOutput {
-	return o
-}
-
-func (o ThemeThemeErrorArrayOutput) ToThemeThemeErrorArrayOutputWithContext(ctx context.Context) ThemeThemeErrorArrayOutput {
-	return o
-}
-
-func (o ThemeThemeErrorArrayOutput) Index(i pulumi.IntInput) ThemeThemeErrorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeThemeError {
-		return vs[0].([]ThemeThemeError)[vs[1].(int)]
-	}).(ThemeThemeErrorOutput)
-}
-
-// <p>A version of a theme.</p>
-type ThemeThemeVersion struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn *string `pulumi:"arn"`
-	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-	//             themes initially inherit from a default QuickSight theme.</p>
-	BaseThemeId   *string                  `pulumi:"baseThemeId"`
-	Configuration *ThemeThemeConfiguration `pulumi:"configuration"`
-	// <p>The date and time that this theme version was created.</p>
-	CreatedTime *string `pulumi:"createdTime"`
-	// <p>The description of the theme.</p>
-	Description *string `pulumi:"description"`
-	// <p>Errors associated with the theme.</p>
-	Errors []ThemeThemeError    `pulumi:"errors"`
-	Status *ThemeResourceStatus `pulumi:"status"`
-	// <p>The version number of the theme.</p>
-	VersionNumber *float64 `pulumi:"versionNumber"`
-}
-
-// ThemeThemeVersionInput is an input type that accepts ThemeThemeVersionArgs and ThemeThemeVersionOutput values.
-// You can construct a concrete instance of `ThemeThemeVersionInput` via:
-//
-//          ThemeThemeVersionArgs{...}
-type ThemeThemeVersionInput interface {
-	pulumi.Input
-
-	ToThemeThemeVersionOutput() ThemeThemeVersionOutput
-	ToThemeThemeVersionOutputWithContext(context.Context) ThemeThemeVersionOutput
-}
-
-// <p>A version of a theme.</p>
-type ThemeThemeVersionArgs struct {
-	// <p>The Amazon Resource Name (ARN) of the resource.</p>
-	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-	//             themes initially inherit from a default QuickSight theme.</p>
-	BaseThemeId   pulumi.StringPtrInput           `pulumi:"baseThemeId"`
-	Configuration ThemeThemeConfigurationPtrInput `pulumi:"configuration"`
-	// <p>The date and time that this theme version was created.</p>
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// <p>The description of the theme.</p>
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// <p>Errors associated with the theme.</p>
-	Errors ThemeThemeErrorArrayInput   `pulumi:"errors"`
-	Status ThemeResourceStatusPtrInput `pulumi:"status"`
-	// <p>The version number of the theme.</p>
-	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
-}
-
-func (ThemeThemeVersionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeThemeVersion)(nil)).Elem()
-}
-
-func (i ThemeThemeVersionArgs) ToThemeThemeVersionOutput() ThemeThemeVersionOutput {
-	return i.ToThemeThemeVersionOutputWithContext(context.Background())
-}
-
-func (i ThemeThemeVersionArgs) ToThemeThemeVersionOutputWithContext(ctx context.Context) ThemeThemeVersionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeVersionOutput)
-}
-
-func (i ThemeThemeVersionArgs) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
-	return i.ToThemeThemeVersionPtrOutputWithContext(context.Background())
-}
-
-func (i ThemeThemeVersionArgs) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeVersionOutput).ToThemeThemeVersionPtrOutputWithContext(ctx)
-}
-
-// ThemeThemeVersionPtrInput is an input type that accepts ThemeThemeVersionArgs, ThemeThemeVersionPtr and ThemeThemeVersionPtrOutput values.
-// You can construct a concrete instance of `ThemeThemeVersionPtrInput` via:
-//
-//          ThemeThemeVersionArgs{...}
-//
-//  or:
-//
-//          nil
-type ThemeThemeVersionPtrInput interface {
-	pulumi.Input
-
-	ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput
-	ToThemeThemeVersionPtrOutputWithContext(context.Context) ThemeThemeVersionPtrOutput
-}
-
-type themeThemeVersionPtrType ThemeThemeVersionArgs
-
-func ThemeThemeVersionPtr(v *ThemeThemeVersionArgs) ThemeThemeVersionPtrInput {
-	return (*themeThemeVersionPtrType)(v)
-}
-
-func (*themeThemeVersionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeThemeVersion)(nil)).Elem()
-}
-
-func (i *themeThemeVersionPtrType) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
-	return i.ToThemeThemeVersionPtrOutputWithContext(context.Background())
-}
-
-func (i *themeThemeVersionPtrType) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeVersionPtrOutput)
-}
-
-// <p>A version of a theme.</p>
-type ThemeThemeVersionOutput struct{ *pulumi.OutputState }
-
-func (ThemeThemeVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThemeThemeVersion)(nil)).Elem()
-}
-
-func (o ThemeThemeVersionOutput) ToThemeThemeVersionOutput() ThemeThemeVersionOutput {
-	return o
-}
-
-func (o ThemeThemeVersionOutput) ToThemeThemeVersionOutputWithContext(ctx context.Context) ThemeThemeVersionOutput {
-	return o
-}
-
-func (o ThemeThemeVersionOutput) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
-	return o.ToThemeThemeVersionPtrOutputWithContext(context.Background())
-}
-
-func (o ThemeThemeVersionOutput) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeThemeVersion) *ThemeThemeVersion {
-		return &v
-	}).(ThemeThemeVersionPtrOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o ThemeThemeVersionOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-//             themes initially inherit from a default QuickSight theme.</p>
-func (o ThemeThemeVersionOutput) BaseThemeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
-}
-
-func (o ThemeThemeVersionOutput) Configuration() ThemeThemeConfigurationPtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *ThemeThemeConfiguration { return v.Configuration }).(ThemeThemeConfigurationPtrOutput)
-}
-
-// <p>The date and time that this theme version was created.</p>
-func (o ThemeThemeVersionOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
-}
-
-// <p>The description of the theme.</p>
-func (o ThemeThemeVersionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// <p>Errors associated with the theme.</p>
-func (o ThemeThemeVersionOutput) Errors() ThemeThemeErrorArrayOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) []ThemeThemeError { return v.Errors }).(ThemeThemeErrorArrayOutput)
-}
-
-func (o ThemeThemeVersionOutput) Status() ThemeResourceStatusPtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *ThemeResourceStatus { return v.Status }).(ThemeResourceStatusPtrOutput)
-}
-
-// <p>The version number of the theme.</p>
-func (o ThemeThemeVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v ThemeThemeVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
-}
-
-type ThemeThemeVersionPtrOutput struct{ *pulumi.OutputState }
-
-func (ThemeThemeVersionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThemeThemeVersion)(nil)).Elem()
-}
-
-func (o ThemeThemeVersionPtrOutput) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
-	return o
-}
-
-func (o ThemeThemeVersionPtrOutput) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
-	return o
-}
-
-func (o ThemeThemeVersionPtrOutput) Elem() ThemeThemeVersionOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) ThemeThemeVersion {
-		if v != nil {
-			return *v
-		}
-		var ret ThemeThemeVersion
-		return ret
-	}).(ThemeThemeVersionOutput)
-}
-
-// <p>The Amazon Resource Name (ARN) of the resource.</p>
-func (o ThemeThemeVersionPtrOutput) Arn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Arn
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-//             themes initially inherit from a default QuickSight theme.</p>
-func (o ThemeThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaseThemeId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ThemeThemeVersionPtrOutput) Configuration() ThemeThemeConfigurationPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *ThemeThemeConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.Configuration
-	}).(ThemeThemeConfigurationPtrOutput)
-}
-
-// <p>The date and time that this theme version was created.</p>
-func (o ThemeThemeVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>The description of the theme.</p>
-func (o ThemeThemeVersionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// <p>Errors associated with the theme.</p>
-func (o ThemeThemeVersionPtrOutput) Errors() ThemeThemeErrorArrayOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) []ThemeThemeError {
-		if v == nil {
-			return nil
-		}
-		return v.Errors
-	}).(ThemeThemeErrorArrayOutput)
-}
-
-func (o ThemeThemeVersionPtrOutput) Status() ThemeResourceStatusPtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *ThemeResourceStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(ThemeResourceStatusPtrOutput)
-}
-
-// <p>The version number of the theme.</p>
-func (o ThemeThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ThemeThemeVersion) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.VersionNumber
-	}).(pulumi.Float64PtrOutput)
 }
 
 // <p>The display options for the layout of tiles on a sheet.</p>
@@ -14302,19 +14031,284 @@ func (o ThemeUIColorPalettePtrOutput) WarningForeground() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>A version of a theme.</p>
+type ThemeVersion struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+	//             themes initially inherit from a default QuickSight theme.</p>
+	BaseThemeId   *string             `pulumi:"baseThemeId"`
+	Configuration *ThemeConfiguration `pulumi:"configuration"`
+	// <p>The date and time that this theme version was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The description of the theme.</p>
+	Description *string `pulumi:"description"`
+	// <p>Errors associated with the theme.</p>
+	Errors []ThemeError         `pulumi:"errors"`
+	Status *ThemeResourceStatus `pulumi:"status"`
+	// <p>The version number of the theme.</p>
+	VersionNumber *float64 `pulumi:"versionNumber"`
+}
+
+// ThemeVersionInput is an input type that accepts ThemeVersionArgs and ThemeVersionOutput values.
+// You can construct a concrete instance of `ThemeVersionInput` via:
+//
+//          ThemeVersionArgs{...}
+type ThemeVersionInput interface {
+	pulumi.Input
+
+	ToThemeVersionOutput() ThemeVersionOutput
+	ToThemeVersionOutputWithContext(context.Context) ThemeVersionOutput
+}
+
+// <p>A version of a theme.</p>
+type ThemeVersionArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+	//             themes initially inherit from a default QuickSight theme.</p>
+	BaseThemeId   pulumi.StringPtrInput      `pulumi:"baseThemeId"`
+	Configuration ThemeConfigurationPtrInput `pulumi:"configuration"`
+	// <p>The date and time that this theme version was created.</p>
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// <p>The description of the theme.</p>
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// <p>Errors associated with the theme.</p>
+	Errors ThemeErrorArrayInput        `pulumi:"errors"`
+	Status ThemeResourceStatusPtrInput `pulumi:"status"`
+	// <p>The version number of the theme.</p>
+	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
+}
+
+func (ThemeVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeVersion)(nil)).Elem()
+}
+
+func (i ThemeVersionArgs) ToThemeVersionOutput() ThemeVersionOutput {
+	return i.ToThemeVersionOutputWithContext(context.Background())
+}
+
+func (i ThemeVersionArgs) ToThemeVersionOutputWithContext(ctx context.Context) ThemeVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeVersionOutput)
+}
+
+func (i ThemeVersionArgs) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
+	return i.ToThemeVersionPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeVersionArgs) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeVersionOutput).ToThemeVersionPtrOutputWithContext(ctx)
+}
+
+// ThemeVersionPtrInput is an input type that accepts ThemeVersionArgs, ThemeVersionPtr and ThemeVersionPtrOutput values.
+// You can construct a concrete instance of `ThemeVersionPtrInput` via:
+//
+//          ThemeVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type ThemeVersionPtrInput interface {
+	pulumi.Input
+
+	ToThemeVersionPtrOutput() ThemeVersionPtrOutput
+	ToThemeVersionPtrOutputWithContext(context.Context) ThemeVersionPtrOutput
+}
+
+type themeVersionPtrType ThemeVersionArgs
+
+func ThemeVersionPtr(v *ThemeVersionArgs) ThemeVersionPtrInput {
+	return (*themeVersionPtrType)(v)
+}
+
+func (*themeVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeVersion)(nil)).Elem()
+}
+
+func (i *themeVersionPtrType) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
+	return i.ToThemeVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *themeVersionPtrType) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeVersionPtrOutput)
+}
+
+// <p>A version of a theme.</p>
+type ThemeVersionOutput struct{ *pulumi.OutputState }
+
+func (ThemeVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeVersion)(nil)).Elem()
+}
+
+func (o ThemeVersionOutput) ToThemeVersionOutput() ThemeVersionOutput {
+	return o
+}
+
+func (o ThemeVersionOutput) ToThemeVersionOutputWithContext(ctx context.Context) ThemeVersionOutput {
+	return o
+}
+
+func (o ThemeVersionOutput) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
+	return o.ToThemeVersionPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeVersionOutput) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeVersion) *ThemeVersion {
+		return &v
+	}).(ThemeVersionPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o ThemeVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+//             themes initially inherit from a default QuickSight theme.</p>
+func (o ThemeVersionOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionOutput) Configuration() ThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *ThemeConfiguration { return v.Configuration }).(ThemeConfigurationPtrOutput)
+}
+
+// <p>The date and time that this theme version was created.</p>
+func (o ThemeVersionOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// <p>The description of the theme.</p>
+func (o ThemeVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with the theme.</p>
+func (o ThemeVersionOutput) Errors() ThemeErrorArrayOutput {
+	return o.ApplyT(func(v ThemeVersion) []ThemeError { return v.Errors }).(ThemeErrorArrayOutput)
+}
+
+func (o ThemeVersionOutput) Status() ThemeResourceStatusPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *ThemeResourceStatus { return v.Status }).(ThemeResourceStatusPtrOutput)
+}
+
+// <p>The version number of the theme.</p>
+func (o ThemeVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
+}
+
+type ThemeVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeVersion)(nil)).Elem()
+}
+
+func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeVersionPtrOutput) Elem() ThemeVersionOutput {
+	return o.ApplyT(func(v *ThemeVersion) ThemeVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeVersion
+		return ret
+	}).(ThemeVersionOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o ThemeVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+//             themes initially inherit from a default QuickSight theme.</p>
+func (o ThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseThemeId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) Configuration() ThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *ThemeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ThemeConfigurationPtrOutput)
+}
+
+// <p>The date and time that this theme version was created.</p>
+func (o ThemeVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The description of the theme.</p>
+func (o ThemeVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with the theme.</p>
+func (o ThemeVersionPtrOutput) Errors() ThemeErrorArrayOutput {
+	return o.ApplyT(func(v *ThemeVersion) []ThemeError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(ThemeErrorArrayOutput)
+}
+
+func (o ThemeVersionPtrOutput) Status() ThemeResourceStatusPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *ThemeResourceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(ThemeResourceStatusPtrOutput)
+}
+
+// <p>The version number of the theme.</p>
+func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
 func init() {
-	pulumi.RegisterOutputType(AnalysisAnalysisErrorOutput{})
-	pulumi.RegisterOutputType(AnalysisAnalysisErrorArrayOutput{})
-	pulumi.RegisterOutputType(AnalysisAnalysisSourceEntityOutput{})
-	pulumi.RegisterOutputType(AnalysisAnalysisSourceEntityPtrOutput{})
-	pulumi.RegisterOutputType(AnalysisAnalysisSourceTemplateOutput{})
-	pulumi.RegisterOutputType(AnalysisAnalysisSourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisDataSetReferenceOutput{})
 	pulumi.RegisterOutputType(AnalysisDataSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisDateTimeParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisDateTimeParameterArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisDecimalParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisDecimalParameterArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisErrorOutput{})
+	pulumi.RegisterOutputType(AnalysisErrorArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisIntegerParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisIntegerParameterArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisParametersOutput{})
@@ -14323,44 +14317,48 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisSourceEntityOutput{})
+	pulumi.RegisterOutputType(AnalysisSourceEntityPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSourceTemplateOutput{})
+	pulumi.RegisterOutputType(AnalysisSourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisStringParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisStringParameterArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTagOutput{})
 	pulumi.RegisterOutputType(AnalysisTagArrayOutput{})
 	pulumi.RegisterOutputType(DashboardAdHocFilteringOptionOutput{})
 	pulumi.RegisterOutputType(DashboardAdHocFilteringOptionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardErrorOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardErrorArrayOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardPublishOptionsOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardPublishOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardSourceEntityOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardSourceEntityPtrOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardSourceTemplateOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardSourceTemplatePtrOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardVersionOutput{})
-	pulumi.RegisterOutputType(DashboardDashboardVersionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDataSetReferenceOutput{})
 	pulumi.RegisterOutputType(DashboardDataSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(DashboardDateTimeParameterOutput{})
 	pulumi.RegisterOutputType(DashboardDateTimeParameterArrayOutput{})
 	pulumi.RegisterOutputType(DashboardDecimalParameterOutput{})
 	pulumi.RegisterOutputType(DashboardDecimalParameterArrayOutput{})
+	pulumi.RegisterOutputType(DashboardErrorOutput{})
+	pulumi.RegisterOutputType(DashboardErrorArrayOutput{})
 	pulumi.RegisterOutputType(DashboardExportToCSVOptionOutput{})
 	pulumi.RegisterOutputType(DashboardExportToCSVOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardIntegerParameterOutput{})
 	pulumi.RegisterOutputType(DashboardIntegerParameterArrayOutput{})
 	pulumi.RegisterOutputType(DashboardParametersOutput{})
 	pulumi.RegisterOutputType(DashboardParametersPtrOutput{})
+	pulumi.RegisterOutputType(DashboardPublishOptionsOutput{})
+	pulumi.RegisterOutputType(DashboardPublishOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardResourcePermissionOutput{})
 	pulumi.RegisterOutputType(DashboardResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(DashboardSheetOutput{})
 	pulumi.RegisterOutputType(DashboardSheetArrayOutput{})
 	pulumi.RegisterOutputType(DashboardSheetControlsOptionOutput{})
 	pulumi.RegisterOutputType(DashboardSheetControlsOptionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardSourceEntityOutput{})
+	pulumi.RegisterOutputType(DashboardSourceEntityPtrOutput{})
+	pulumi.RegisterOutputType(DashboardSourceTemplateOutput{})
+	pulumi.RegisterOutputType(DashboardSourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(DashboardStringParameterOutput{})
 	pulumi.RegisterOutputType(DashboardStringParameterArrayOutput{})
 	pulumi.RegisterOutputType(DashboardTagOutput{})
 	pulumi.RegisterOutputType(DashboardTagArrayOutput{})
+	pulumi.RegisterOutputType(DashboardVersionOutput{})
+	pulumi.RegisterOutputType(DashboardVersionPtrOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleOutput{})
@@ -14393,13 +14391,10 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceAuroraPostgreSqlParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialPairOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialPairPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceCredentialsOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceCredentialsPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceErrorInfoOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceErrorInfoPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceParametersOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceParametersPtrOutput{})
-	pulumi.RegisterOutputType(DataSourceDataSourceParametersArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceCredentialsOutput{})
+	pulumi.RegisterOutputType(DataSourceCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceErrorInfoOutput{})
+	pulumi.RegisterOutputType(DataSourceErrorInfoPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceManifestFileLocationOutput{})
 	pulumi.RegisterOutputType(DataSourceManifestFileLocationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMariaDbParametersOutput{})
@@ -14408,6 +14403,9 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceMySqlParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceOracleParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceOracleParametersPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceParametersOutput{})
+	pulumi.RegisterOutputType(DataSourceParametersPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceParametersArrayOutput{})
 	pulumi.RegisterOutputType(DataSourcePostgreSqlParametersOutput{})
 	pulumi.RegisterOutputType(DataSourcePostgreSqlParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourcePrestoParametersOutput{})
@@ -14446,26 +14444,30 @@ func init() {
 	pulumi.RegisterOutputType(TemplateDataSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(TemplateDataSetSchemaOutput{})
 	pulumi.RegisterOutputType(TemplateDataSetSchemaPtrOutput{})
+	pulumi.RegisterOutputType(TemplateErrorOutput{})
+	pulumi.RegisterOutputType(TemplateErrorArrayOutput{})
 	pulumi.RegisterOutputType(TemplateResourcePermissionOutput{})
 	pulumi.RegisterOutputType(TemplateResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSheetOutput{})
 	pulumi.RegisterOutputType(TemplateSheetArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSourceAnalysisOutput{})
+	pulumi.RegisterOutputType(TemplateSourceAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSourceEntityOutput{})
+	pulumi.RegisterOutputType(TemplateSourceEntityPtrOutput{})
+	pulumi.RegisterOutputType(TemplateSourceTemplateOutput{})
+	pulumi.RegisterOutputType(TemplateSourceTemplatePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTagOutput{})
 	pulumi.RegisterOutputType(TemplateTagArrayOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateErrorOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateErrorArrayOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateSourceAnalysisOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateSourceAnalysisPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateSourceEntityOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateSourceEntityPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateSourceTemplateOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateSourceTemplatePtrOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateVersionOutput{})
-	pulumi.RegisterOutputType(TemplateTemplateVersionPtrOutput{})
+	pulumi.RegisterOutputType(TemplateVersionOutput{})
+	pulumi.RegisterOutputType(TemplateVersionPtrOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStyleOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ThemeDataColorPaletteOutput{})
 	pulumi.RegisterOutputType(ThemeDataColorPalettePtrOutput{})
+	pulumi.RegisterOutputType(ThemeErrorOutput{})
+	pulumi.RegisterOutputType(ThemeErrorArrayOutput{})
 	pulumi.RegisterOutputType(ThemeFontOutput{})
 	pulumi.RegisterOutputType(ThemeFontArrayOutput{})
 	pulumi.RegisterOutputType(ThemeGutterStyleOutput{})
@@ -14478,12 +14480,6 @@ func init() {
 	pulumi.RegisterOutputType(ThemeSheetStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeTagOutput{})
 	pulumi.RegisterOutputType(ThemeTagArrayOutput{})
-	pulumi.RegisterOutputType(ThemeThemeConfigurationOutput{})
-	pulumi.RegisterOutputType(ThemeThemeConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ThemeThemeErrorOutput{})
-	pulumi.RegisterOutputType(ThemeThemeErrorArrayOutput{})
-	pulumi.RegisterOutputType(ThemeThemeVersionOutput{})
-	pulumi.RegisterOutputType(ThemeThemeVersionPtrOutput{})
 	pulumi.RegisterOutputType(ThemeTileLayoutStyleOutput{})
 	pulumi.RegisterOutputType(ThemeTileLayoutStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeTileStyleOutput{})
@@ -14492,4 +14488,6 @@ func init() {
 	pulumi.RegisterOutputType(ThemeTypographyPtrOutput{})
 	pulumi.RegisterOutputType(ThemeUIColorPaletteOutput{})
 	pulumi.RegisterOutputType(ThemeUIColorPalettePtrOutput{})
+	pulumi.RegisterOutputType(ThemeVersionOutput{})
+	pulumi.RegisterOutputType(ThemeVersionPtrOutput{})
 }

@@ -17,7 +17,7 @@ class PartitionArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  database_name: pulumi.Input[str],
-                 partition_input: pulumi.Input['PartitionPartitionInputArgs'],
+                 partition_input: pulumi.Input['PartitionInputArgs'],
                  table_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a Partition resource.
@@ -47,11 +47,11 @@ class PartitionArgs:
 
     @property
     @pulumi.getter(name="partitionInput")
-    def partition_input(self) -> pulumi.Input['PartitionPartitionInputArgs']:
+    def partition_input(self) -> pulumi.Input['PartitionInputArgs']:
         return pulumi.get(self, "partition_input")
 
     @partition_input.setter
-    def partition_input(self, value: pulumi.Input['PartitionPartitionInputArgs']):
+    def partition_input(self, value: pulumi.Input['PartitionInputArgs']):
         pulumi.set(self, "partition_input", value)
 
     @property
@@ -76,7 +76,7 @@ class Partition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 partition_input: Optional[pulumi.Input[pulumi.InputType['PartitionPartitionInputArgs']]] = None,
+                 partition_input: Optional[pulumi.Input[pulumi.InputType['PartitionInputArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -111,7 +111,7 @@ class Partition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 partition_input: Optional[pulumi.Input[pulumi.InputType['PartitionPartitionInputArgs']]] = None,
+                 partition_input: Optional[pulumi.Input[pulumi.InputType['PartitionInputArgs']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""Partition is deprecated: Partition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -178,7 +178,7 @@ class Partition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionInput")
-    def partition_input(self) -> pulumi.Output['outputs.PartitionPartitionInput']:
+    def partition_input(self) -> pulumi.Output['outputs.PartitionInput']:
         return pulumi.get(self, "partition_input")
 
     @property

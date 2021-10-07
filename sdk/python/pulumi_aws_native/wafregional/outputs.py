@@ -13,7 +13,7 @@ __all__ = [
     'ByteMatchSetByteMatchTuple',
     'ByteMatchSetFieldToMatch',
     'GeoMatchSetGeoMatchConstraint',
-    'IPSetIPSetDescriptor',
+    'IPSetDescriptor',
     'RateBasedRulePredicate',
     'RulePredicate',
     'SizeConstraintSetFieldToMatch',
@@ -133,7 +133,7 @@ class GeoMatchSetGeoMatchConstraint(dict):
 
 
 @pulumi.output_type
-class IPSetIPSetDescriptor(dict):
+class IPSetDescriptor(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):

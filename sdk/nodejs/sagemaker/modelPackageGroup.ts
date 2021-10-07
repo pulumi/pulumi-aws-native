@@ -46,7 +46,7 @@ export class ModelPackageGroup extends pulumi.CustomResource {
     /**
      * The status of a modelpackage group job.
      */
-    public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<enums.sagemaker.ModelPackageGroupModelPackageGroupStatus>;
+    public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<enums.sagemaker.ModelPackageGroupStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

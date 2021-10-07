@@ -8,37 +8,6 @@ using Pulumi;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// The type of app.
-    /// </summary>
-    [EnumType]
-    public readonly struct AppAppType : IEquatable<AppAppType>
-    {
-        private readonly string _value;
-
-        private AppAppType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AppAppType JupyterServer { get; } = new AppAppType("JupyterServer");
-        public static AppAppType KernelGateway { get; } = new AppAppType("KernelGateway");
-
-        public static bool operator ==(AppAppType left, AppAppType right) => left.Equals(right);
-        public static bool operator !=(AppAppType left, AppAppType right) => !left.Equals(right);
-
-        public static explicit operator string(AppAppType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AppAppType other && Equals(other);
-        public bool Equals(AppAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The instance type that the image version runs on.
     /// </summary>
     [EnumType]
@@ -92,6 +61,37 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AppResourceSpecInstanceType other && Equals(other);
         public bool Equals(AppResourceSpecInstanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of app.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppType : IEquatable<AppType>
+    {
+        private readonly string _value;
+
+        private AppType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppType JupyterServer { get; } = new AppType("JupyterServer");
+        public static AppType KernelGateway { get; } = new AppType("KernelGateway");
+
+        public static bool operator ==(AppType left, AppType right) => left.Equals(right);
+        public static bool operator !=(AppType left, AppType right) => !left.Equals(right);
+
+        public static explicit operator string(AppType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppType other && Equals(other);
+        public bool Equals(AppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -565,30 +565,30 @@ namespace Pulumi.AwsNative.SageMaker
     /// The status of a modelpackage group job.
     /// </summary>
     [EnumType]
-    public readonly struct ModelPackageGroupModelPackageGroupStatus : IEquatable<ModelPackageGroupModelPackageGroupStatus>
+    public readonly struct ModelPackageGroupStatus : IEquatable<ModelPackageGroupStatus>
     {
         private readonly string _value;
 
-        private ModelPackageGroupModelPackageGroupStatus(string value)
+        private ModelPackageGroupStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ModelPackageGroupModelPackageGroupStatus Pending { get; } = new ModelPackageGroupModelPackageGroupStatus("Pending");
-        public static ModelPackageGroupModelPackageGroupStatus InProgress { get; } = new ModelPackageGroupModelPackageGroupStatus("InProgress");
-        public static ModelPackageGroupModelPackageGroupStatus Completed { get; } = new ModelPackageGroupModelPackageGroupStatus("Completed");
-        public static ModelPackageGroupModelPackageGroupStatus Failed { get; } = new ModelPackageGroupModelPackageGroupStatus("Failed");
-        public static ModelPackageGroupModelPackageGroupStatus Deleting { get; } = new ModelPackageGroupModelPackageGroupStatus("Deleting");
-        public static ModelPackageGroupModelPackageGroupStatus DeleteFailed { get; } = new ModelPackageGroupModelPackageGroupStatus("DeleteFailed");
+        public static ModelPackageGroupStatus Pending { get; } = new ModelPackageGroupStatus("Pending");
+        public static ModelPackageGroupStatus InProgress { get; } = new ModelPackageGroupStatus("InProgress");
+        public static ModelPackageGroupStatus Completed { get; } = new ModelPackageGroupStatus("Completed");
+        public static ModelPackageGroupStatus Failed { get; } = new ModelPackageGroupStatus("Failed");
+        public static ModelPackageGroupStatus Deleting { get; } = new ModelPackageGroupStatus("Deleting");
+        public static ModelPackageGroupStatus DeleteFailed { get; } = new ModelPackageGroupStatus("DeleteFailed");
 
-        public static bool operator ==(ModelPackageGroupModelPackageGroupStatus left, ModelPackageGroupModelPackageGroupStatus right) => left.Equals(right);
-        public static bool operator !=(ModelPackageGroupModelPackageGroupStatus left, ModelPackageGroupModelPackageGroupStatus right) => !left.Equals(right);
+        public static bool operator ==(ModelPackageGroupStatus left, ModelPackageGroupStatus right) => left.Equals(right);
+        public static bool operator !=(ModelPackageGroupStatus left, ModelPackageGroupStatus right) => !left.Equals(right);
 
-        public static explicit operator string(ModelPackageGroupModelPackageGroupStatus value) => value._value;
+        public static explicit operator string(ModelPackageGroupStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ModelPackageGroupModelPackageGroupStatus other && Equals(other);
-        public bool Equals(ModelPackageGroupModelPackageGroupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ModelPackageGroupStatus other && Equals(other);
+        public bool Equals(ModelPackageGroupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -820,39 +820,6 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
-    /// The status of a schedule job.
-    /// </summary>
-    [EnumType]
-    public readonly struct MonitoringScheduleMonitoringScheduleStatus : IEquatable<MonitoringScheduleMonitoringScheduleStatus>
-    {
-        private readonly string _value;
-
-        private MonitoringScheduleMonitoringScheduleStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MonitoringScheduleMonitoringScheduleStatus Pending { get; } = new MonitoringScheduleMonitoringScheduleStatus("Pending");
-        public static MonitoringScheduleMonitoringScheduleStatus Failed { get; } = new MonitoringScheduleMonitoringScheduleStatus("Failed");
-        public static MonitoringScheduleMonitoringScheduleStatus Scheduled { get; } = new MonitoringScheduleMonitoringScheduleStatus("Scheduled");
-        public static MonitoringScheduleMonitoringScheduleStatus Stopped { get; } = new MonitoringScheduleMonitoringScheduleStatus("Stopped");
-
-        public static bool operator ==(MonitoringScheduleMonitoringScheduleStatus left, MonitoringScheduleMonitoringScheduleStatus right) => left.Equals(right);
-        public static bool operator !=(MonitoringScheduleMonitoringScheduleStatus left, MonitoringScheduleMonitoringScheduleStatus right) => !left.Equals(right);
-
-        public static explicit operator string(MonitoringScheduleMonitoringScheduleStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MonitoringScheduleMonitoringScheduleStatus other && Equals(other);
-        public bool Equals(MonitoringScheduleMonitoringScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of monitoring job.
     /// </summary>
     [EnumType]
@@ -917,34 +884,67 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
-    /// The status of a project.
+    /// The status of a schedule job.
     /// </summary>
     [EnumType]
-    public readonly struct ProjectProjectStatus : IEquatable<ProjectProjectStatus>
+    public readonly struct MonitoringScheduleStatus : IEquatable<MonitoringScheduleStatus>
     {
         private readonly string _value;
 
-        private ProjectProjectStatus(string value)
+        private MonitoringScheduleStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ProjectProjectStatus Pending { get; } = new ProjectProjectStatus("Pending");
-        public static ProjectProjectStatus CreateInProgress { get; } = new ProjectProjectStatus("CreateInProgress");
-        public static ProjectProjectStatus CreateCompleted { get; } = new ProjectProjectStatus("CreateCompleted");
-        public static ProjectProjectStatus CreateFailed { get; } = new ProjectProjectStatus("CreateFailed");
-        public static ProjectProjectStatus DeleteInProgress { get; } = new ProjectProjectStatus("DeleteInProgress");
-        public static ProjectProjectStatus DeleteFailed { get; } = new ProjectProjectStatus("DeleteFailed");
-        public static ProjectProjectStatus DeleteCompleted { get; } = new ProjectProjectStatus("DeleteCompleted");
+        public static MonitoringScheduleStatus Pending { get; } = new MonitoringScheduleStatus("Pending");
+        public static MonitoringScheduleStatus Failed { get; } = new MonitoringScheduleStatus("Failed");
+        public static MonitoringScheduleStatus Scheduled { get; } = new MonitoringScheduleStatus("Scheduled");
+        public static MonitoringScheduleStatus Stopped { get; } = new MonitoringScheduleStatus("Stopped");
 
-        public static bool operator ==(ProjectProjectStatus left, ProjectProjectStatus right) => left.Equals(right);
-        public static bool operator !=(ProjectProjectStatus left, ProjectProjectStatus right) => !left.Equals(right);
+        public static bool operator ==(MonitoringScheduleStatus left, MonitoringScheduleStatus right) => left.Equals(right);
+        public static bool operator !=(MonitoringScheduleStatus left, MonitoringScheduleStatus right) => !left.Equals(right);
 
-        public static explicit operator string(ProjectProjectStatus value) => value._value;
+        public static explicit operator string(MonitoringScheduleStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProjectProjectStatus other && Equals(other);
-        public bool Equals(ProjectProjectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is MonitoringScheduleStatus other && Equals(other);
+        public bool Equals(MonitoringScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of a project.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProjectStatus : IEquatable<ProjectStatus>
+    {
+        private readonly string _value;
+
+        private ProjectStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProjectStatus Pending { get; } = new ProjectStatus("Pending");
+        public static ProjectStatus CreateInProgress { get; } = new ProjectStatus("CreateInProgress");
+        public static ProjectStatus CreateCompleted { get; } = new ProjectStatus("CreateCompleted");
+        public static ProjectStatus CreateFailed { get; } = new ProjectStatus("CreateFailed");
+        public static ProjectStatus DeleteInProgress { get; } = new ProjectStatus("DeleteInProgress");
+        public static ProjectStatus DeleteFailed { get; } = new ProjectStatus("DeleteFailed");
+        public static ProjectStatus DeleteCompleted { get; } = new ProjectStatus("DeleteCompleted");
+
+        public static bool operator ==(ProjectStatus left, ProjectStatus right) => left.Equals(right);
+        public static bool operator !=(ProjectStatus left, ProjectStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ProjectStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProjectStatus other && Equals(other);
+        public bool Equals(ProjectStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

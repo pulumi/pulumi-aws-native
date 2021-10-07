@@ -16,8 +16,8 @@ __all__ = ['DatastoreArgs', 'Datastore']
 class DatastoreArgs:
     def __init__(__self__, *,
                  datastore_name: Optional[pulumi.Input[str]] = None,
-                 datastore_partitions: Optional[pulumi.Input['DatastoreDatastorePartitionsArgs']] = None,
-                 datastore_storage: Optional[pulumi.Input['DatastoreDatastoreStorageArgs']] = None,
+                 datastore_partitions: Optional[pulumi.Input['DatastorePartitionsArgs']] = None,
+                 datastore_storage: Optional[pulumi.Input['DatastoreStorageArgs']] = None,
                  file_format_configuration: Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']] = None,
                  retention_period: Optional[pulumi.Input['DatastoreRetentionPeriodArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatastoreTagArgs']]]] = None):
@@ -48,20 +48,20 @@ class DatastoreArgs:
 
     @property
     @pulumi.getter(name="datastorePartitions")
-    def datastore_partitions(self) -> Optional[pulumi.Input['DatastoreDatastorePartitionsArgs']]:
+    def datastore_partitions(self) -> Optional[pulumi.Input['DatastorePartitionsArgs']]:
         return pulumi.get(self, "datastore_partitions")
 
     @datastore_partitions.setter
-    def datastore_partitions(self, value: Optional[pulumi.Input['DatastoreDatastorePartitionsArgs']]):
+    def datastore_partitions(self, value: Optional[pulumi.Input['DatastorePartitionsArgs']]):
         pulumi.set(self, "datastore_partitions", value)
 
     @property
     @pulumi.getter(name="datastoreStorage")
-    def datastore_storage(self) -> Optional[pulumi.Input['DatastoreDatastoreStorageArgs']]:
+    def datastore_storage(self) -> Optional[pulumi.Input['DatastoreStorageArgs']]:
         return pulumi.get(self, "datastore_storage")
 
     @datastore_storage.setter
-    def datastore_storage(self, value: Optional[pulumi.Input['DatastoreDatastoreStorageArgs']]):
+    def datastore_storage(self, value: Optional[pulumi.Input['DatastoreStorageArgs']]):
         pulumi.set(self, "datastore_storage", value)
 
     @property
@@ -103,8 +103,8 @@ class Datastore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
-                 datastore_partitions: Optional[pulumi.Input[pulumi.InputType['DatastoreDatastorePartitionsArgs']]] = None,
-                 datastore_storage: Optional[pulumi.Input[pulumi.InputType['DatastoreDatastoreStorageArgs']]] = None,
+                 datastore_partitions: Optional[pulumi.Input[pulumi.InputType['DatastorePartitionsArgs']]] = None,
+                 datastore_storage: Optional[pulumi.Input[pulumi.InputType['DatastoreStorageArgs']]] = None,
                  file_format_configuration: Optional[pulumi.Input[pulumi.InputType['DatastoreFileFormatConfigurationArgs']]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatastoreTagArgs']]]]] = None,
@@ -140,8 +140,8 @@ class Datastore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
-                 datastore_partitions: Optional[pulumi.Input[pulumi.InputType['DatastoreDatastorePartitionsArgs']]] = None,
-                 datastore_storage: Optional[pulumi.Input[pulumi.InputType['DatastoreDatastoreStorageArgs']]] = None,
+                 datastore_partitions: Optional[pulumi.Input[pulumi.InputType['DatastorePartitionsArgs']]] = None,
+                 datastore_storage: Optional[pulumi.Input[pulumi.InputType['DatastoreStorageArgs']]] = None,
                  file_format_configuration: Optional[pulumi.Input[pulumi.InputType['DatastoreFileFormatConfigurationArgs']]] = None,
                  retention_period: Optional[pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatastoreTagArgs']]]]] = None,
@@ -201,12 +201,12 @@ class Datastore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="datastorePartitions")
-    def datastore_partitions(self) -> pulumi.Output[Optional['outputs.DatastoreDatastorePartitions']]:
+    def datastore_partitions(self) -> pulumi.Output[Optional['outputs.DatastorePartitions']]:
         return pulumi.get(self, "datastore_partitions")
 
     @property
     @pulumi.getter(name="datastoreStorage")
-    def datastore_storage(self) -> pulumi.Output[Optional['outputs.DatastoreDatastoreStorage']]:
+    def datastore_storage(self) -> pulumi.Output[Optional['outputs.DatastoreStorage']]:
         return pulumi.get(self, "datastore_storage")
 
     @property

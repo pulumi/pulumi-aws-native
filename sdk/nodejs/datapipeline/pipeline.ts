@@ -43,8 +43,8 @@ export class Pipeline extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly parameterObjects!: pulumi.Output<outputs.datapipeline.PipelineParameterObject[]>;
     public readonly parameterValues!: pulumi.Output<outputs.datapipeline.PipelineParameterValue[] | undefined>;
-    public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelinePipelineObject[] | undefined>;
-    public readonly pipelineTags!: pulumi.Output<outputs.datapipeline.PipelinePipelineTag[] | undefined>;
+    public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineObject[] | undefined>;
+    public readonly pipelineTags!: pulumi.Output<outputs.datapipeline.PipelineTag[] | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -97,6 +97,6 @@ export interface PipelineArgs {
     name: pulumi.Input<string>;
     parameterObjects: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterObjectArgs>[]>;
     parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterValueArgs>[]>;
-    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelinePipelineObjectArgs>[]>;
-    pipelineTags?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelinePipelineTagArgs>[]>;
+    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineObjectArgs>[]>;
+    pipelineTags?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineTagArgs>[]>;
 }

@@ -16,19 +16,19 @@ import (
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
-	CanonicalHostedZoneID  pulumi.StringOutput                          `pulumi:"canonicalHostedZoneID"`
-	DNSName                pulumi.StringOutput                          `pulumi:"dNSName"`
-	IpAddressType          pulumi.StringPtrOutput                       `pulumi:"ipAddressType"`
-	LoadBalancerAttributes LoadBalancerLoadBalancerAttributeArrayOutput `pulumi:"loadBalancerAttributes"`
-	LoadBalancerFullName   pulumi.StringOutput                          `pulumi:"loadBalancerFullName"`
-	LoadBalancerName       pulumi.StringOutput                          `pulumi:"loadBalancerName"`
-	Name                   pulumi.StringPtrOutput                       `pulumi:"name"`
-	Scheme                 pulumi.StringPtrOutput                       `pulumi:"scheme"`
-	SecurityGroups         pulumi.StringArrayOutput                     `pulumi:"securityGroups"`
-	SubnetMappings         LoadBalancerSubnetMappingArrayOutput         `pulumi:"subnetMappings"`
-	Subnets                pulumi.StringArrayOutput                     `pulumi:"subnets"`
-	Tags                   LoadBalancerTagArrayOutput                   `pulumi:"tags"`
-	Type                   pulumi.StringPtrOutput                       `pulumi:"type"`
+	CanonicalHostedZoneID  pulumi.StringOutput                  `pulumi:"canonicalHostedZoneID"`
+	DNSName                pulumi.StringOutput                  `pulumi:"dNSName"`
+	IpAddressType          pulumi.StringPtrOutput               `pulumi:"ipAddressType"`
+	LoadBalancerAttributes LoadBalancerAttributeArrayOutput     `pulumi:"loadBalancerAttributes"`
+	LoadBalancerFullName   pulumi.StringOutput                  `pulumi:"loadBalancerFullName"`
+	LoadBalancerName       pulumi.StringOutput                  `pulumi:"loadBalancerName"`
+	Name                   pulumi.StringPtrOutput               `pulumi:"name"`
+	Scheme                 pulumi.StringPtrOutput               `pulumi:"scheme"`
+	SecurityGroups         pulumi.StringArrayOutput             `pulumi:"securityGroups"`
+	SubnetMappings         LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
+	Subnets                pulumi.StringArrayOutput             `pulumi:"subnets"`
+	Tags                   LoadBalancerTagArrayOutput           `pulumi:"tags"`
+	Type                   pulumi.StringPtrOutput               `pulumi:"type"`
 }
 
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
@@ -70,21 +70,21 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
-	IpAddressType          *string                             `pulumi:"ipAddressType"`
-	LoadBalancerAttributes []LoadBalancerLoadBalancerAttribute `pulumi:"loadBalancerAttributes"`
-	Name                   *string                             `pulumi:"name"`
-	Scheme                 *string                             `pulumi:"scheme"`
-	SecurityGroups         []string                            `pulumi:"securityGroups"`
-	SubnetMappings         []LoadBalancerSubnetMapping         `pulumi:"subnetMappings"`
-	Subnets                []string                            `pulumi:"subnets"`
-	Tags                   []LoadBalancerTag                   `pulumi:"tags"`
-	Type                   *string                             `pulumi:"type"`
+	IpAddressType          *string                     `pulumi:"ipAddressType"`
+	LoadBalancerAttributes []LoadBalancerAttribute     `pulumi:"loadBalancerAttributes"`
+	Name                   *string                     `pulumi:"name"`
+	Scheme                 *string                     `pulumi:"scheme"`
+	SecurityGroups         []string                    `pulumi:"securityGroups"`
+	SubnetMappings         []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
+	Subnets                []string                    `pulumi:"subnets"`
+	Tags                   []LoadBalancerTag           `pulumi:"tags"`
+	Type                   *string                     `pulumi:"type"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
 	IpAddressType          pulumi.StringPtrInput
-	LoadBalancerAttributes LoadBalancerLoadBalancerAttributeArrayInput
+	LoadBalancerAttributes LoadBalancerAttributeArrayInput
 	Name                   pulumi.StringPtrInput
 	Scheme                 pulumi.StringPtrInput
 	SecurityGroups         pulumi.StringArrayInput

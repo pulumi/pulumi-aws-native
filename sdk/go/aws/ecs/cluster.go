@@ -19,8 +19,8 @@ type Cluster struct {
 	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
 	ClusterName                     pulumi.StringPtrOutput                         `pulumi:"clusterName"`
-	ClusterSettings                 ClusterClusterSettingsArrayOutput              `pulumi:"clusterSettings"`
-	Configuration                   ClusterClusterConfigurationPtrOutput           `pulumi:"configuration"`
+	ClusterSettings                 ClusterSettingsArrayOutput                     `pulumi:"clusterSettings"`
+	Configuration                   ClusterConfigurationPtrOutput                  `pulumi:"configuration"`
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayOutput `pulumi:"defaultCapacityProviderStrategy"`
 	Tags                            ClusterTagArrayOutput                          `pulumi:"tags"`
 }
@@ -67,8 +67,8 @@ type clusterArgs struct {
 	CapacityProviders []string `pulumi:"capacityProviders"`
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
 	ClusterName                     *string                               `pulumi:"clusterName"`
-	ClusterSettings                 []ClusterClusterSettings              `pulumi:"clusterSettings"`
-	Configuration                   *ClusterClusterConfiguration          `pulumi:"configuration"`
+	ClusterSettings                 []ClusterSettings                     `pulumi:"clusterSettings"`
+	Configuration                   *ClusterConfiguration                 `pulumi:"configuration"`
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderStrategyItem `pulumi:"defaultCapacityProviderStrategy"`
 	Tags                            []ClusterTag                          `pulumi:"tags"`
 }
@@ -78,8 +78,8 @@ type ClusterArgs struct {
 	CapacityProviders pulumi.StringArrayInput
 	// A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
 	ClusterName                     pulumi.StringPtrInput
-	ClusterSettings                 ClusterClusterSettingsArrayInput
-	Configuration                   ClusterClusterConfigurationPtrInput
+	ClusterSettings                 ClusterSettingsArrayInput
+	Configuration                   ClusterConfigurationPtrInput
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayInput
 	Tags                            ClusterTagArrayInput
 }

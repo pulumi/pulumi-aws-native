@@ -11,125 +11,125 @@ import (
 )
 
 // The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-type QuickConnectQuickConnectType string
+type QuickConnectType string
 
 const (
-	QuickConnectQuickConnectTypePhoneNumber = QuickConnectQuickConnectType("PHONE_NUMBER")
-	QuickConnectQuickConnectTypeQueue       = QuickConnectQuickConnectType("QUEUE")
-	QuickConnectQuickConnectTypeUser        = QuickConnectQuickConnectType("USER")
+	QuickConnectTypePhoneNumber = QuickConnectType("PHONE_NUMBER")
+	QuickConnectTypeQueue       = QuickConnectType("QUEUE")
+	QuickConnectTypeUser        = QuickConnectType("USER")
 )
 
-func (QuickConnectQuickConnectType) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnectQuickConnectType)(nil)).Elem()
+func (QuickConnectType) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectType)(nil)).Elem()
 }
 
-func (e QuickConnectQuickConnectType) ToQuickConnectQuickConnectTypeOutput() QuickConnectQuickConnectTypeOutput {
-	return pulumi.ToOutput(e).(QuickConnectQuickConnectTypeOutput)
+func (e QuickConnectType) ToQuickConnectTypeOutput() QuickConnectTypeOutput {
+	return pulumi.ToOutput(e).(QuickConnectTypeOutput)
 }
 
-func (e QuickConnectQuickConnectType) ToQuickConnectQuickConnectTypeOutputWithContext(ctx context.Context) QuickConnectQuickConnectTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(QuickConnectQuickConnectTypeOutput)
+func (e QuickConnectType) ToQuickConnectTypeOutputWithContext(ctx context.Context) QuickConnectTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QuickConnectTypeOutput)
 }
 
-func (e QuickConnectQuickConnectType) ToQuickConnectQuickConnectTypePtrOutput() QuickConnectQuickConnectTypePtrOutput {
-	return e.ToQuickConnectQuickConnectTypePtrOutputWithContext(context.Background())
+func (e QuickConnectType) ToQuickConnectTypePtrOutput() QuickConnectTypePtrOutput {
+	return e.ToQuickConnectTypePtrOutputWithContext(context.Background())
 }
 
-func (e QuickConnectQuickConnectType) ToQuickConnectQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectTypePtrOutput {
-	return QuickConnectQuickConnectType(e).ToQuickConnectQuickConnectTypeOutputWithContext(ctx).ToQuickConnectQuickConnectTypePtrOutputWithContext(ctx)
+func (e QuickConnectType) ToQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectTypePtrOutput {
+	return QuickConnectType(e).ToQuickConnectTypeOutputWithContext(ctx).ToQuickConnectTypePtrOutputWithContext(ctx)
 }
 
-func (e QuickConnectQuickConnectType) ToStringOutput() pulumi.StringOutput {
+func (e QuickConnectType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e QuickConnectQuickConnectType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e QuickConnectType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e QuickConnectQuickConnectType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e QuickConnectType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e QuickConnectQuickConnectType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e QuickConnectType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type QuickConnectQuickConnectTypeOutput struct{ *pulumi.OutputState }
+type QuickConnectTypeOutput struct{ *pulumi.OutputState }
 
-func (QuickConnectQuickConnectTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QuickConnectQuickConnectType)(nil)).Elem()
+func (QuickConnectTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectType)(nil)).Elem()
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToQuickConnectQuickConnectTypeOutput() QuickConnectQuickConnectTypeOutput {
+func (o QuickConnectTypeOutput) ToQuickConnectTypeOutput() QuickConnectTypeOutput {
 	return o
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToQuickConnectQuickConnectTypeOutputWithContext(ctx context.Context) QuickConnectQuickConnectTypeOutput {
+func (o QuickConnectTypeOutput) ToQuickConnectTypeOutputWithContext(ctx context.Context) QuickConnectTypeOutput {
 	return o
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToQuickConnectQuickConnectTypePtrOutput() QuickConnectQuickConnectTypePtrOutput {
-	return o.ToQuickConnectQuickConnectTypePtrOutputWithContext(context.Background())
+func (o QuickConnectTypeOutput) ToQuickConnectTypePtrOutput() QuickConnectTypePtrOutput {
+	return o.ToQuickConnectTypePtrOutputWithContext(context.Background())
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToQuickConnectQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickConnectQuickConnectType) *QuickConnectQuickConnectType {
+func (o QuickConnectTypeOutput) ToQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickConnectType) *QuickConnectType {
 		return &v
-	}).(QuickConnectQuickConnectTypePtrOutput)
+	}).(QuickConnectTypePtrOutput)
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o QuickConnectTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickConnectQuickConnectType) string {
+func (o QuickConnectTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickConnectType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o QuickConnectTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o QuickConnectQuickConnectTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickConnectQuickConnectType) *string {
+func (o QuickConnectTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QuickConnectType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type QuickConnectQuickConnectTypePtrOutput struct{ *pulumi.OutputState }
+type QuickConnectTypePtrOutput struct{ *pulumi.OutputState }
 
-func (QuickConnectQuickConnectTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QuickConnectQuickConnectType)(nil)).Elem()
+func (QuickConnectTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickConnectType)(nil)).Elem()
 }
 
-func (o QuickConnectQuickConnectTypePtrOutput) ToQuickConnectQuickConnectTypePtrOutput() QuickConnectQuickConnectTypePtrOutput {
+func (o QuickConnectTypePtrOutput) ToQuickConnectTypePtrOutput() QuickConnectTypePtrOutput {
 	return o
 }
 
-func (o QuickConnectQuickConnectTypePtrOutput) ToQuickConnectQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectTypePtrOutput {
+func (o QuickConnectTypePtrOutput) ToQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectTypePtrOutput {
 	return o
 }
 
-func (o QuickConnectQuickConnectTypePtrOutput) Elem() QuickConnectQuickConnectTypeOutput {
-	return o.ApplyT(func(v *QuickConnectQuickConnectType) QuickConnectQuickConnectType {
+func (o QuickConnectTypePtrOutput) Elem() QuickConnectTypeOutput {
+	return o.ApplyT(func(v *QuickConnectType) QuickConnectType {
 		if v != nil {
 			return *v
 		}
-		var ret QuickConnectQuickConnectType
+		var ret QuickConnectType
 		return ret
-	}).(QuickConnectQuickConnectTypeOutput)
+	}).(QuickConnectTypeOutput)
 }
 
-func (o QuickConnectQuickConnectTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o QuickConnectTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o QuickConnectQuickConnectTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QuickConnectQuickConnectType) *string {
+func (o QuickConnectTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QuickConnectType) *string {
 		if e == nil {
 			return nil
 		}
@@ -138,45 +138,45 @@ func (o QuickConnectQuickConnectTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// QuickConnectQuickConnectTypeInput is an input type that accepts QuickConnectQuickConnectTypeArgs and QuickConnectQuickConnectTypeOutput values.
-// You can construct a concrete instance of `QuickConnectQuickConnectTypeInput` via:
+// QuickConnectTypeInput is an input type that accepts QuickConnectTypeArgs and QuickConnectTypeOutput values.
+// You can construct a concrete instance of `QuickConnectTypeInput` via:
 //
-//          QuickConnectQuickConnectTypeArgs{...}
-type QuickConnectQuickConnectTypeInput interface {
+//          QuickConnectTypeArgs{...}
+type QuickConnectTypeInput interface {
 	pulumi.Input
 
-	ToQuickConnectQuickConnectTypeOutput() QuickConnectQuickConnectTypeOutput
-	ToQuickConnectQuickConnectTypeOutputWithContext(context.Context) QuickConnectQuickConnectTypeOutput
+	ToQuickConnectTypeOutput() QuickConnectTypeOutput
+	ToQuickConnectTypeOutputWithContext(context.Context) QuickConnectTypeOutput
 }
 
-var quickConnectQuickConnectTypePtrType = reflect.TypeOf((**QuickConnectQuickConnectType)(nil)).Elem()
+var quickConnectTypePtrType = reflect.TypeOf((**QuickConnectType)(nil)).Elem()
 
-type QuickConnectQuickConnectTypePtrInput interface {
+type QuickConnectTypePtrInput interface {
 	pulumi.Input
 
-	ToQuickConnectQuickConnectTypePtrOutput() QuickConnectQuickConnectTypePtrOutput
-	ToQuickConnectQuickConnectTypePtrOutputWithContext(context.Context) QuickConnectQuickConnectTypePtrOutput
+	ToQuickConnectTypePtrOutput() QuickConnectTypePtrOutput
+	ToQuickConnectTypePtrOutputWithContext(context.Context) QuickConnectTypePtrOutput
 }
 
-type quickConnectQuickConnectTypePtr string
+type quickConnectTypePtr string
 
-func QuickConnectQuickConnectTypePtr(v string) QuickConnectQuickConnectTypePtrInput {
-	return (*quickConnectQuickConnectTypePtr)(&v)
+func QuickConnectTypePtr(v string) QuickConnectTypePtrInput {
+	return (*quickConnectTypePtr)(&v)
 }
 
-func (*quickConnectQuickConnectTypePtr) ElementType() reflect.Type {
-	return quickConnectQuickConnectTypePtrType
+func (*quickConnectTypePtr) ElementType() reflect.Type {
+	return quickConnectTypePtrType
 }
 
-func (in *quickConnectQuickConnectTypePtr) ToQuickConnectQuickConnectTypePtrOutput() QuickConnectQuickConnectTypePtrOutput {
-	return pulumi.ToOutput(in).(QuickConnectQuickConnectTypePtrOutput)
+func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutput() QuickConnectTypePtrOutput {
+	return pulumi.ToOutput(in).(QuickConnectTypePtrOutput)
 }
 
-func (in *quickConnectQuickConnectTypePtr) ToQuickConnectQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectQuickConnectTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(QuickConnectQuickConnectTypePtrOutput)
+func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutputWithContext(ctx context.Context) QuickConnectTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QuickConnectTypePtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(QuickConnectQuickConnectTypeOutput{})
-	pulumi.RegisterOutputType(QuickConnectQuickConnectTypePtrOutput{})
+	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
+	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
 }

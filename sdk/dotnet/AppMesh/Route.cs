@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Output<string?> RouteName { get; private set; } = null!;
 
         [Output("spec")]
-        public Output<Outputs.RouteRouteSpec> Spec { get; private set; } = null!;
+        public Output<Outputs.RouteSpec> Spec { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.RouteTag>> Tags { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Input<string>? RouteName { get; set; }
 
         [Input("spec", required: true)]
-        public Input<Inputs.RouteRouteSpecArgs> Spec { get; set; } = null!;
+        public Input<Inputs.RouteSpecArgs> Spec { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.RouteTagArgs>? _tags;

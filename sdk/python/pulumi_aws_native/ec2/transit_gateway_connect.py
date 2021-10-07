@@ -15,12 +15,12 @@ __all__ = ['TransitGatewayConnectArgs', 'TransitGatewayConnect']
 @pulumi.input_type
 class TransitGatewayConnectArgs:
     def __init__(__self__, *,
-                 options: pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs'],
+                 options: pulumi.Input['TransitGatewayConnectOptionsArgs'],
                  transport_transit_gateway_attachment_id: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayConnect resource.
-        :param pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs'] options: The Connect attachment options.
+        :param pulumi.Input['TransitGatewayConnectOptionsArgs'] options: The Connect attachment options.
         :param pulumi.Input[str] transport_transit_gateway_attachment_id: The ID of the attachment from which the Connect attachment was created.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]] tags: The tags for the attachment.
         """
@@ -31,14 +31,14 @@ class TransitGatewayConnectArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs']:
+    def options(self) -> pulumi.Input['TransitGatewayConnectOptionsArgs']:
         """
         The Connect attachment options.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs']):
+    def options(self, value: pulumi.Input['TransitGatewayConnectOptionsArgs']):
         pulumi.set(self, "options", value)
 
     @property
@@ -71,7 +71,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectTransitGatewayConnectOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayConnectTagArgs']]]]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -80,7 +80,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayConnectTransitGatewayConnectOptionsArgs']] options: The Connect attachment options.
+        :param pulumi.Input[pulumi.InputType['TransitGatewayConnectOptionsArgs']] options: The Connect attachment options.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayConnectTagArgs']]]] tags: The tags for the attachment.
         :param pulumi.Input[str] transport_transit_gateway_attachment_id: The ID of the attachment from which the Connect attachment was created.
         """
@@ -108,7 +108,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectTransitGatewayConnectOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayConnectTagArgs']]]]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -175,7 +175,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Output['outputs.TransitGatewayConnectTransitGatewayConnectOptions']:
+    def options(self) -> pulumi.Output['outputs.TransitGatewayConnectOptions']:
         """
         The Connect attachment options.
         """

@@ -16,7 +16,7 @@ __all__ = [
     'DetectorModelAssetPropertyValue',
     'DetectorModelAssetPropertyVariant',
     'DetectorModelClearTimer',
-    'DetectorModelDetectorModelDefinition',
+    'DetectorModelDefinition',
     'DetectorModelDynamoDB',
     'DetectorModelDynamoDBv2',
     'DetectorModelEvent',
@@ -38,7 +38,7 @@ __all__ = [
     'DetectorModelTag',
     'DetectorModelTransitionEvent',
     'InputAttribute',
-    'InputInputDefinition',
+    'InputDefinition',
     'InputTag',
 ]
 
@@ -401,7 +401,7 @@ class DetectorModelClearTimer(dict):
 
 
 @pulumi.output_type
-class DetectorModelDetectorModelDefinition(dict):
+class DetectorModelDefinition(dict):
     """
     Information that defines how a detector operates.
     """
@@ -412,14 +412,14 @@ class DetectorModelDetectorModelDefinition(dict):
             suggest = "initial_state_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DetectorModelDetectorModelDefinition. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DetectorModelDefinition. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DetectorModelDetectorModelDefinition.__key_warning(key)
+        DetectorModelDefinition.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DetectorModelDetectorModelDefinition.__key_warning(key)
+        DetectorModelDefinition.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1681,7 +1681,7 @@ class InputAttribute(dict):
 
 
 @pulumi.output_type
-class InputInputDefinition(dict):
+class InputDefinition(dict):
     """
     The definition of the input.
     """

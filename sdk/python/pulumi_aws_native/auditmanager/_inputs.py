@@ -12,7 +12,7 @@ from ._enums import *
 __all__ = [
     'AssessmentAWSAccountArgs',
     'AssessmentAWSServiceArgs',
-    'AssessmentAssessmentReportsDestinationArgs',
+    'AssessmentReportsDestinationArgs',
     'AssessmentRoleArgs',
     'AssessmentScopeArgs',
     'AssessmentTagArgs',
@@ -83,10 +83,10 @@ class AssessmentAWSServiceArgs:
 
 
 @pulumi.input_type
-class AssessmentAssessmentReportsDestinationArgs:
+class AssessmentReportsDestinationArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
-                 destination_type: Optional[pulumi.Input['AssessmentAssessmentReportDestinationType']] = None):
+                 destination_type: Optional[pulumi.Input['AssessmentReportDestinationType']] = None):
         """
         The destination in which evidence reports are stored for the specified assessment.
         """
@@ -106,11 +106,11 @@ class AssessmentAssessmentReportsDestinationArgs:
 
     @property
     @pulumi.getter(name="destinationType")
-    def destination_type(self) -> Optional[pulumi.Input['AssessmentAssessmentReportDestinationType']]:
+    def destination_type(self) -> Optional[pulumi.Input['AssessmentReportDestinationType']]:
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
-    def destination_type(self, value: Optional[pulumi.Input['AssessmentAssessmentReportDestinationType']]):
+    def destination_type(self, value: Optional[pulumi.Input['AssessmentReportDestinationType']]):
         pulumi.set(self, "destination_type", value)
 
 

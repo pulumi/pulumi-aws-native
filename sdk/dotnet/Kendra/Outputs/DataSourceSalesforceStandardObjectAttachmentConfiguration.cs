@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     public sealed class DataSourceSalesforceStandardObjectAttachmentConfiguration
     {
         public readonly string? DocumentTitleFieldName;
-        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
 
         [OutputConstructor]
         private DataSourceSalesforceStandardObjectAttachmentConfiguration(
             string? documentTitleFieldName,
 
-            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings)
+            ImmutableArray<Outputs.DataSourceToIndexFieldMapping> fieldMappings)
         {
             DocumentTitleFieldName = documentTitleFieldName;
             FieldMappings = fieldMappings;

@@ -18,7 +18,7 @@ class DBInstanceArgs:
                  d_b_instance_class: pulumi.Input[str],
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceDBInstanceRoleArgs']]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
@@ -209,11 +209,11 @@ class DBInstanceArgs:
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceDBInstanceRoleArgs']]]]:
+    def associated_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]]:
         return pulumi.get(self, "associated_roles")
 
     @associated_roles.setter
-    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceDBInstanceRoleArgs']]]]):
+    def associated_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceRoleArgs']]]]):
         pulumi.set(self, "associated_roles", value)
 
     @property
@@ -679,7 +679,7 @@ class DBInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceDBInstanceRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
@@ -764,7 +764,7 @@ class DBInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocated_storage: Optional[pulumi.Input[str]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceDBInstanceRoleArgs']]]]] = None,
+                 associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceRoleArgs']]]]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
@@ -975,7 +975,7 @@ class DBInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="associatedRoles")
-    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceDBInstanceRole']]]:
+    def associated_roles(self) -> pulumi.Output[Optional[Sequence['outputs.DBInstanceRole']]]:
         return pulumi.get(self, "associated_roles")
 
     @property

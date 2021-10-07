@@ -38,7 +38,7 @@ export class IPSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPSet.__pulumiType;
     }
 
-    public readonly iPSetDescriptors!: pulumi.Output<outputs.waf.IPSetIPSetDescriptor[] | undefined>;
+    public readonly iPSetDescriptors!: pulumi.Output<outputs.waf.IPSetDescriptor[] | undefined>;
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -74,6 +74,6 @@ export class IPSet extends pulumi.CustomResource {
  * The set of arguments for constructing a IPSet resource.
  */
 export interface IPSetArgs {
-    iPSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IPSetIPSetDescriptorArgs>[]>;
+    iPSetDescriptors?: pulumi.Input<pulumi.Input<inputs.waf.IPSetDescriptorArgs>[]>;
     name: pulumi.Input<string>;
 }

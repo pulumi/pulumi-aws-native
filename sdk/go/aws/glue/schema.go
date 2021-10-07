@@ -16,8 +16,8 @@ type Schema struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name for the Schema.
-	Arn               pulumi.StringOutput          `pulumi:"arn"`
-	CheckpointVersion SchemaSchemaVersionPtrOutput `pulumi:"checkpointVersion"`
+	Arn               pulumi.StringOutput        `pulumi:"arn"`
+	CheckpointVersion SchemaVersionTypePtrOutput `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityOutput `pulumi:"compatibility"`
 	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
@@ -86,7 +86,7 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
-	CheckpointVersion *SchemaSchemaVersion `pulumi:"checkpointVersion"`
+	CheckpointVersion *SchemaVersionType `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibility `pulumi:"compatibility"`
 	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
@@ -104,7 +104,7 @@ type schemaArgs struct {
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
-	CheckpointVersion SchemaSchemaVersionPtrInput
+	CheckpointVersion SchemaVersionTypePtrInput
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityInput
 	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'

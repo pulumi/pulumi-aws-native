@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
         }
 
         [Input("hostname")]
-        public Input<Inputs.GatewayRouteGatewayRouteHostnameMatchArgs>? Hostname { get; set; }
+        public Input<Inputs.GatewayRouteHostnameMatchArgs>? Hostname { get; set; }
 
         [Input("method")]
         public Input<string>? Method { get; set; }

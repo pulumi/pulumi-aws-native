@@ -16,7 +16,7 @@ __all__ = ['DatabaseArgs', 'Database']
 class DatabaseArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
-                 database_input: pulumi.Input['DatabaseDatabaseInputArgs']):
+                 database_input: pulumi.Input['DatabaseInputArgs']):
         """
         The set of arguments for constructing a Database resource.
         """
@@ -34,11 +34,11 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="databaseInput")
-    def database_input(self) -> pulumi.Input['DatabaseDatabaseInputArgs']:
+    def database_input(self) -> pulumi.Input['DatabaseInputArgs']:
         return pulumi.get(self, "database_input")
 
     @database_input.setter
-    def database_input(self, value: pulumi.Input['DatabaseDatabaseInputArgs']):
+    def database_input(self, value: pulumi.Input['DatabaseInputArgs']):
         pulumi.set(self, "database_input", value)
 
 
@@ -53,7 +53,7 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 database_input: Optional[pulumi.Input[pulumi.InputType['DatabaseDatabaseInputArgs']]] = None,
+                 database_input: Optional[pulumi.Input[pulumi.InputType['DatabaseInputArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Database
@@ -86,7 +86,7 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 database_input: Optional[pulumi.Input[pulumi.InputType['DatabaseDatabaseInputArgs']]] = None,
+                 database_input: Optional[pulumi.Input[pulumi.InputType['DatabaseInputArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Database is deprecated: Database is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -139,6 +139,6 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="databaseInput")
-    def database_input(self) -> pulumi.Output['outputs.DatabaseDatabaseInput']:
+    def database_input(self) -> pulumi.Output['outputs.DatabaseInput']:
         return pulumi.get(self, "database_input")
 

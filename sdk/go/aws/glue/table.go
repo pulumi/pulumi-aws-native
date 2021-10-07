@@ -17,9 +17,9 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
-	CatalogId    pulumi.StringOutput   `pulumi:"catalogId"`
-	DatabaseName pulumi.StringOutput   `pulumi:"databaseName"`
-	TableInput   TableTableInputOutput `pulumi:"tableInput"`
+	CatalogId    pulumi.StringOutput  `pulumi:"catalogId"`
+	DatabaseName pulumi.StringOutput  `pulumi:"databaseName"`
+	TableInput   TableInputTypeOutput `pulumi:"tableInput"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -70,16 +70,16 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	CatalogId    string          `pulumi:"catalogId"`
-	DatabaseName string          `pulumi:"databaseName"`
-	TableInput   TableTableInput `pulumi:"tableInput"`
+	CatalogId    string         `pulumi:"catalogId"`
+	DatabaseName string         `pulumi:"databaseName"`
+	TableInput   TableInputType `pulumi:"tableInput"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
 	CatalogId    pulumi.StringInput
 	DatabaseName pulumi.StringInput
-	TableInput   TableTableInputInput
+	TableInput   TableInputTypeInput
 }
 
 func (TableArgs) ElementType() reflect.Type {

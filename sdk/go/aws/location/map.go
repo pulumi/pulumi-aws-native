@@ -15,15 +15,15 @@ import (
 type Map struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput       `pulumi:"arn"`
-	Configuration MapMapConfigurationOutput `pulumi:"configuration"`
-	CreateTime    pulumi.StringOutput       `pulumi:"createTime"`
-	DataSource    pulumi.StringOutput       `pulumi:"dataSource"`
-	Description   pulumi.StringPtrOutput    `pulumi:"description"`
-	MapArn        pulumi.StringOutput       `pulumi:"mapArn"`
-	MapName       pulumi.StringOutput       `pulumi:"mapName"`
-	PricingPlan   MapPricingPlanOutput      `pulumi:"pricingPlan"`
-	UpdateTime    pulumi.StringOutput       `pulumi:"updateTime"`
+	Arn           pulumi.StringOutput    `pulumi:"arn"`
+	Configuration MapConfigurationOutput `pulumi:"configuration"`
+	CreateTime    pulumi.StringOutput    `pulumi:"createTime"`
+	DataSource    pulumi.StringOutput    `pulumi:"dataSource"`
+	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	MapArn        pulumi.StringOutput    `pulumi:"mapArn"`
+	MapName       pulumi.StringOutput    `pulumi:"mapName"`
+	PricingPlan   MapPricingPlanOutput   `pulumi:"pricingPlan"`
+	UpdateTime    pulumi.StringOutput    `pulumi:"updateTime"`
 }
 
 // NewMap registers a new resource with the given unique name, arguments, and options.
@@ -74,15 +74,15 @@ func (MapState) ElementType() reflect.Type {
 }
 
 type mapArgs struct {
-	Configuration MapMapConfiguration `pulumi:"configuration"`
-	Description   *string             `pulumi:"description"`
-	MapName       string              `pulumi:"mapName"`
-	PricingPlan   MapPricingPlan      `pulumi:"pricingPlan"`
+	Configuration MapConfiguration `pulumi:"configuration"`
+	Description   *string          `pulumi:"description"`
+	MapName       string           `pulumi:"mapName"`
+	PricingPlan   MapPricingPlan   `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a Map resource.
 type MapArgs struct {
-	Configuration MapMapConfigurationInput
+	Configuration MapConfigurationInput
 	Description   pulumi.StringPtrInput
 	MapName       pulumi.StringInput
 	PricingPlan   MapPricingPlanInput

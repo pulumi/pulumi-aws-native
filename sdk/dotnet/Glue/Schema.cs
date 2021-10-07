@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Glue
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("checkpointVersion")]
-        public Output<Outputs.SchemaSchemaVersion?> CheckpointVersion { get; private set; } = null!;
+        public Output<Outputs.SchemaVersion?> CheckpointVersion { get; private set; } = null!;
 
         /// <summary>
         /// Compatibility setting for the schema.
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Glue
     public sealed class SchemaArgs : Pulumi.ResourceArgs
     {
         [Input("checkpointVersion")]
-        public Input<Inputs.SchemaSchemaVersionArgs>? CheckpointVersion { get; set; }
+        public Input<Inputs.SchemaVersionArgs>? CheckpointVersion { get; set; }
 
         /// <summary>
         /// Compatibility setting for the schema.

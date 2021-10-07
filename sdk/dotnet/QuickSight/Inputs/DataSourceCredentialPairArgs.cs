@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DataSourceCredentialPairArgs : Pulumi.ResourceArgs
     {
         [Input("alternateDataSourceParameters")]
-        private InputList<Inputs.DataSourceDataSourceParametersArgs>? _alternateDataSourceParameters;
+        private InputList<Inputs.DataSourceParametersArgs>? _alternateDataSourceParameters;
 
         /// <summary>
         /// &lt;p&gt;A set of alternate data source parameters that you want to share for these
@@ -29,9 +29,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         ///             null, the &lt;code&gt;DataSourceParameters&lt;/code&gt; originally used with these
         ///                 &lt;code&gt;Credentials&lt;/code&gt; is automatically allowed.&lt;/p&gt;
         /// </summary>
-        public InputList<Inputs.DataSourceDataSourceParametersArgs> AlternateDataSourceParameters
+        public InputList<Inputs.DataSourceParametersArgs> AlternateDataSourceParameters
         {
-            get => _alternateDataSourceParameters ?? (_alternateDataSourceParameters = new InputList<Inputs.DataSourceDataSourceParametersArgs>());
+            get => _alternateDataSourceParameters ?? (_alternateDataSourceParameters = new InputList<Inputs.DataSourceParametersArgs>());
             set => _alternateDataSourceParameters = value;
         }
 

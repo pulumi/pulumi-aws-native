@@ -25663,446 +25663,192 @@ func (o ChannelWebvttDestinationSettingsPtrOutput) Elem() ChannelWebvttDestinati
 	}).(ChannelWebvttDestinationSettingsOutput)
 }
 
-type InputInputDestinationRequest struct {
+type InputDestinationRequest struct {
 	StreamName *string `pulumi:"streamName"`
 }
 
-// InputInputDestinationRequestInput is an input type that accepts InputInputDestinationRequestArgs and InputInputDestinationRequestOutput values.
-// You can construct a concrete instance of `InputInputDestinationRequestInput` via:
+// InputDestinationRequestInput is an input type that accepts InputDestinationRequestArgs and InputDestinationRequestOutput values.
+// You can construct a concrete instance of `InputDestinationRequestInput` via:
 //
-//          InputInputDestinationRequestArgs{...}
-type InputInputDestinationRequestInput interface {
+//          InputDestinationRequestArgs{...}
+type InputDestinationRequestInput interface {
 	pulumi.Input
 
-	ToInputInputDestinationRequestOutput() InputInputDestinationRequestOutput
-	ToInputInputDestinationRequestOutputWithContext(context.Context) InputInputDestinationRequestOutput
+	ToInputDestinationRequestOutput() InputDestinationRequestOutput
+	ToInputDestinationRequestOutputWithContext(context.Context) InputDestinationRequestOutput
 }
 
-type InputInputDestinationRequestArgs struct {
+type InputDestinationRequestArgs struct {
 	StreamName pulumi.StringPtrInput `pulumi:"streamName"`
 }
 
-func (InputInputDestinationRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputDestinationRequest)(nil)).Elem()
+func (InputDestinationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestinationRequest)(nil)).Elem()
 }
 
-func (i InputInputDestinationRequestArgs) ToInputInputDestinationRequestOutput() InputInputDestinationRequestOutput {
-	return i.ToInputInputDestinationRequestOutputWithContext(context.Background())
+func (i InputDestinationRequestArgs) ToInputDestinationRequestOutput() InputDestinationRequestOutput {
+	return i.ToInputDestinationRequestOutputWithContext(context.Background())
 }
 
-func (i InputInputDestinationRequestArgs) ToInputInputDestinationRequestOutputWithContext(ctx context.Context) InputInputDestinationRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputDestinationRequestOutput)
+func (i InputDestinationRequestArgs) ToInputDestinationRequestOutputWithContext(ctx context.Context) InputDestinationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationRequestOutput)
 }
 
-// InputInputDestinationRequestArrayInput is an input type that accepts InputInputDestinationRequestArray and InputInputDestinationRequestArrayOutput values.
-// You can construct a concrete instance of `InputInputDestinationRequestArrayInput` via:
+// InputDestinationRequestArrayInput is an input type that accepts InputDestinationRequestArray and InputDestinationRequestArrayOutput values.
+// You can construct a concrete instance of `InputDestinationRequestArrayInput` via:
 //
-//          InputInputDestinationRequestArray{ InputInputDestinationRequestArgs{...} }
-type InputInputDestinationRequestArrayInput interface {
+//          InputDestinationRequestArray{ InputDestinationRequestArgs{...} }
+type InputDestinationRequestArrayInput interface {
 	pulumi.Input
 
-	ToInputInputDestinationRequestArrayOutput() InputInputDestinationRequestArrayOutput
-	ToInputInputDestinationRequestArrayOutputWithContext(context.Context) InputInputDestinationRequestArrayOutput
+	ToInputDestinationRequestArrayOutput() InputDestinationRequestArrayOutput
+	ToInputDestinationRequestArrayOutputWithContext(context.Context) InputDestinationRequestArrayOutput
 }
 
-type InputInputDestinationRequestArray []InputInputDestinationRequestInput
+type InputDestinationRequestArray []InputDestinationRequestInput
 
-func (InputInputDestinationRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputInputDestinationRequest)(nil)).Elem()
+func (InputDestinationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDestinationRequest)(nil)).Elem()
 }
 
-func (i InputInputDestinationRequestArray) ToInputInputDestinationRequestArrayOutput() InputInputDestinationRequestArrayOutput {
-	return i.ToInputInputDestinationRequestArrayOutputWithContext(context.Background())
+func (i InputDestinationRequestArray) ToInputDestinationRequestArrayOutput() InputDestinationRequestArrayOutput {
+	return i.ToInputDestinationRequestArrayOutputWithContext(context.Background())
 }
 
-func (i InputInputDestinationRequestArray) ToInputInputDestinationRequestArrayOutputWithContext(ctx context.Context) InputInputDestinationRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputDestinationRequestArrayOutput)
+func (i InputDestinationRequestArray) ToInputDestinationRequestArrayOutputWithContext(ctx context.Context) InputDestinationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDestinationRequestArrayOutput)
 }
 
-type InputInputDestinationRequestOutput struct{ *pulumi.OutputState }
+type InputDestinationRequestOutput struct{ *pulumi.OutputState }
 
-func (InputInputDestinationRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputDestinationRequest)(nil)).Elem()
+func (InputDestinationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDestinationRequest)(nil)).Elem()
 }
 
-func (o InputInputDestinationRequestOutput) ToInputInputDestinationRequestOutput() InputInputDestinationRequestOutput {
+func (o InputDestinationRequestOutput) ToInputDestinationRequestOutput() InputDestinationRequestOutput {
 	return o
 }
 
-func (o InputInputDestinationRequestOutput) ToInputInputDestinationRequestOutputWithContext(ctx context.Context) InputInputDestinationRequestOutput {
+func (o InputDestinationRequestOutput) ToInputDestinationRequestOutputWithContext(ctx context.Context) InputDestinationRequestOutput {
 	return o
 }
 
-func (o InputInputDestinationRequestOutput) StreamName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InputInputDestinationRequest) *string { return v.StreamName }).(pulumi.StringPtrOutput)
+func (o InputDestinationRequestOutput) StreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDestinationRequest) *string { return v.StreamName }).(pulumi.StringPtrOutput)
 }
 
-type InputInputDestinationRequestArrayOutput struct{ *pulumi.OutputState }
+type InputDestinationRequestArrayOutput struct{ *pulumi.OutputState }
 
-func (InputInputDestinationRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputInputDestinationRequest)(nil)).Elem()
+func (InputDestinationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDestinationRequest)(nil)).Elem()
 }
 
-func (o InputInputDestinationRequestArrayOutput) ToInputInputDestinationRequestArrayOutput() InputInputDestinationRequestArrayOutput {
+func (o InputDestinationRequestArrayOutput) ToInputDestinationRequestArrayOutput() InputDestinationRequestArrayOutput {
 	return o
 }
 
-func (o InputInputDestinationRequestArrayOutput) ToInputInputDestinationRequestArrayOutputWithContext(ctx context.Context) InputInputDestinationRequestArrayOutput {
+func (o InputDestinationRequestArrayOutput) ToInputDestinationRequestArrayOutputWithContext(ctx context.Context) InputDestinationRequestArrayOutput {
 	return o
 }
 
-func (o InputInputDestinationRequestArrayOutput) Index(i pulumi.IntInput) InputInputDestinationRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputInputDestinationRequest {
-		return vs[0].([]InputInputDestinationRequest)[vs[1].(int)]
-	}).(InputInputDestinationRequestOutput)
+func (o InputDestinationRequestArrayOutput) Index(i pulumi.IntInput) InputDestinationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputDestinationRequest {
+		return vs[0].([]InputDestinationRequest)[vs[1].(int)]
+	}).(InputDestinationRequestOutput)
 }
 
-type InputInputDeviceSettings struct {
+type InputDeviceSettings struct {
 	Id *string `pulumi:"id"`
 }
 
-// InputInputDeviceSettingsInput is an input type that accepts InputInputDeviceSettingsArgs and InputInputDeviceSettingsOutput values.
-// You can construct a concrete instance of `InputInputDeviceSettingsInput` via:
+// InputDeviceSettingsInput is an input type that accepts InputDeviceSettingsArgs and InputDeviceSettingsOutput values.
+// You can construct a concrete instance of `InputDeviceSettingsInput` via:
 //
-//          InputInputDeviceSettingsArgs{...}
-type InputInputDeviceSettingsInput interface {
+//          InputDeviceSettingsArgs{...}
+type InputDeviceSettingsInput interface {
 	pulumi.Input
 
-	ToInputInputDeviceSettingsOutput() InputInputDeviceSettingsOutput
-	ToInputInputDeviceSettingsOutputWithContext(context.Context) InputInputDeviceSettingsOutput
+	ToInputDeviceSettingsOutput() InputDeviceSettingsOutput
+	ToInputDeviceSettingsOutputWithContext(context.Context) InputDeviceSettingsOutput
 }
 
-type InputInputDeviceSettingsArgs struct {
+type InputDeviceSettingsArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (InputInputDeviceSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputDeviceSettings)(nil)).Elem()
+func (InputDeviceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDeviceSettings)(nil)).Elem()
 }
 
-func (i InputInputDeviceSettingsArgs) ToInputInputDeviceSettingsOutput() InputInputDeviceSettingsOutput {
-	return i.ToInputInputDeviceSettingsOutputWithContext(context.Background())
+func (i InputDeviceSettingsArgs) ToInputDeviceSettingsOutput() InputDeviceSettingsOutput {
+	return i.ToInputDeviceSettingsOutputWithContext(context.Background())
 }
 
-func (i InputInputDeviceSettingsArgs) ToInputInputDeviceSettingsOutputWithContext(ctx context.Context) InputInputDeviceSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputDeviceSettingsOutput)
+func (i InputDeviceSettingsArgs) ToInputDeviceSettingsOutputWithContext(ctx context.Context) InputDeviceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDeviceSettingsOutput)
 }
 
-// InputInputDeviceSettingsArrayInput is an input type that accepts InputInputDeviceSettingsArray and InputInputDeviceSettingsArrayOutput values.
-// You can construct a concrete instance of `InputInputDeviceSettingsArrayInput` via:
+// InputDeviceSettingsArrayInput is an input type that accepts InputDeviceSettingsArray and InputDeviceSettingsArrayOutput values.
+// You can construct a concrete instance of `InputDeviceSettingsArrayInput` via:
 //
-//          InputInputDeviceSettingsArray{ InputInputDeviceSettingsArgs{...} }
-type InputInputDeviceSettingsArrayInput interface {
+//          InputDeviceSettingsArray{ InputDeviceSettingsArgs{...} }
+type InputDeviceSettingsArrayInput interface {
 	pulumi.Input
 
-	ToInputInputDeviceSettingsArrayOutput() InputInputDeviceSettingsArrayOutput
-	ToInputInputDeviceSettingsArrayOutputWithContext(context.Context) InputInputDeviceSettingsArrayOutput
+	ToInputDeviceSettingsArrayOutput() InputDeviceSettingsArrayOutput
+	ToInputDeviceSettingsArrayOutputWithContext(context.Context) InputDeviceSettingsArrayOutput
 }
 
-type InputInputDeviceSettingsArray []InputInputDeviceSettingsInput
+type InputDeviceSettingsArray []InputDeviceSettingsInput
 
-func (InputInputDeviceSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputInputDeviceSettings)(nil)).Elem()
+func (InputDeviceSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDeviceSettings)(nil)).Elem()
 }
 
-func (i InputInputDeviceSettingsArray) ToInputInputDeviceSettingsArrayOutput() InputInputDeviceSettingsArrayOutput {
-	return i.ToInputInputDeviceSettingsArrayOutputWithContext(context.Background())
+func (i InputDeviceSettingsArray) ToInputDeviceSettingsArrayOutput() InputDeviceSettingsArrayOutput {
+	return i.ToInputDeviceSettingsArrayOutputWithContext(context.Background())
 }
 
-func (i InputInputDeviceSettingsArray) ToInputInputDeviceSettingsArrayOutputWithContext(ctx context.Context) InputInputDeviceSettingsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputDeviceSettingsArrayOutput)
+func (i InputDeviceSettingsArray) ToInputDeviceSettingsArrayOutputWithContext(ctx context.Context) InputDeviceSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputDeviceSettingsArrayOutput)
 }
 
-type InputInputDeviceSettingsOutput struct{ *pulumi.OutputState }
+type InputDeviceSettingsOutput struct{ *pulumi.OutputState }
 
-func (InputInputDeviceSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputDeviceSettings)(nil)).Elem()
+func (InputDeviceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputDeviceSettings)(nil)).Elem()
 }
 
-func (o InputInputDeviceSettingsOutput) ToInputInputDeviceSettingsOutput() InputInputDeviceSettingsOutput {
+func (o InputDeviceSettingsOutput) ToInputDeviceSettingsOutput() InputDeviceSettingsOutput {
 	return o
 }
 
-func (o InputInputDeviceSettingsOutput) ToInputInputDeviceSettingsOutputWithContext(ctx context.Context) InputInputDeviceSettingsOutput {
+func (o InputDeviceSettingsOutput) ToInputDeviceSettingsOutputWithContext(ctx context.Context) InputDeviceSettingsOutput {
 	return o
 }
 
-func (o InputInputDeviceSettingsOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InputInputDeviceSettings) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o InputDeviceSettingsOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputDeviceSettings) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type InputInputDeviceSettingsArrayOutput struct{ *pulumi.OutputState }
+type InputDeviceSettingsArrayOutput struct{ *pulumi.OutputState }
 
-func (InputInputDeviceSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputInputDeviceSettings)(nil)).Elem()
+func (InputDeviceSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputDeviceSettings)(nil)).Elem()
 }
 
-func (o InputInputDeviceSettingsArrayOutput) ToInputInputDeviceSettingsArrayOutput() InputInputDeviceSettingsArrayOutput {
+func (o InputDeviceSettingsArrayOutput) ToInputDeviceSettingsArrayOutput() InputDeviceSettingsArrayOutput {
 	return o
 }
 
-func (o InputInputDeviceSettingsArrayOutput) ToInputInputDeviceSettingsArrayOutputWithContext(ctx context.Context) InputInputDeviceSettingsArrayOutput {
+func (o InputDeviceSettingsArrayOutput) ToInputDeviceSettingsArrayOutputWithContext(ctx context.Context) InputDeviceSettingsArrayOutput {
 	return o
 }
 
-func (o InputInputDeviceSettingsArrayOutput) Index(i pulumi.IntInput) InputInputDeviceSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputInputDeviceSettings {
-		return vs[0].([]InputInputDeviceSettings)[vs[1].(int)]
-	}).(InputInputDeviceSettingsOutput)
-}
-
-type InputInputSourceRequest struct {
-	PasswordParam *string `pulumi:"passwordParam"`
-	Url           *string `pulumi:"url"`
-	Username      *string `pulumi:"username"`
-}
-
-// InputInputSourceRequestInput is an input type that accepts InputInputSourceRequestArgs and InputInputSourceRequestOutput values.
-// You can construct a concrete instance of `InputInputSourceRequestInput` via:
-//
-//          InputInputSourceRequestArgs{...}
-type InputInputSourceRequestInput interface {
-	pulumi.Input
-
-	ToInputInputSourceRequestOutput() InputInputSourceRequestOutput
-	ToInputInputSourceRequestOutputWithContext(context.Context) InputInputSourceRequestOutput
-}
-
-type InputInputSourceRequestArgs struct {
-	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
-	Url           pulumi.StringPtrInput `pulumi:"url"`
-	Username      pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (InputInputSourceRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputSourceRequest)(nil)).Elem()
-}
-
-func (i InputInputSourceRequestArgs) ToInputInputSourceRequestOutput() InputInputSourceRequestOutput {
-	return i.ToInputInputSourceRequestOutputWithContext(context.Background())
-}
-
-func (i InputInputSourceRequestArgs) ToInputInputSourceRequestOutputWithContext(ctx context.Context) InputInputSourceRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputSourceRequestOutput)
-}
-
-// InputInputSourceRequestArrayInput is an input type that accepts InputInputSourceRequestArray and InputInputSourceRequestArrayOutput values.
-// You can construct a concrete instance of `InputInputSourceRequestArrayInput` via:
-//
-//          InputInputSourceRequestArray{ InputInputSourceRequestArgs{...} }
-type InputInputSourceRequestArrayInput interface {
-	pulumi.Input
-
-	ToInputInputSourceRequestArrayOutput() InputInputSourceRequestArrayOutput
-	ToInputInputSourceRequestArrayOutputWithContext(context.Context) InputInputSourceRequestArrayOutput
-}
-
-type InputInputSourceRequestArray []InputInputSourceRequestInput
-
-func (InputInputSourceRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputInputSourceRequest)(nil)).Elem()
-}
-
-func (i InputInputSourceRequestArray) ToInputInputSourceRequestArrayOutput() InputInputSourceRequestArrayOutput {
-	return i.ToInputInputSourceRequestArrayOutputWithContext(context.Background())
-}
-
-func (i InputInputSourceRequestArray) ToInputInputSourceRequestArrayOutputWithContext(ctx context.Context) InputInputSourceRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputSourceRequestArrayOutput)
-}
-
-type InputInputSourceRequestOutput struct{ *pulumi.OutputState }
-
-func (InputInputSourceRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputSourceRequest)(nil)).Elem()
-}
-
-func (o InputInputSourceRequestOutput) ToInputInputSourceRequestOutput() InputInputSourceRequestOutput {
-	return o
-}
-
-func (o InputInputSourceRequestOutput) ToInputInputSourceRequestOutputWithContext(ctx context.Context) InputInputSourceRequestOutput {
-	return o
-}
-
-func (o InputInputSourceRequestOutput) PasswordParam() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InputInputSourceRequest) *string { return v.PasswordParam }).(pulumi.StringPtrOutput)
-}
-
-func (o InputInputSourceRequestOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InputInputSourceRequest) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-func (o InputInputSourceRequestOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InputInputSourceRequest) *string { return v.Username }).(pulumi.StringPtrOutput)
-}
-
-type InputInputSourceRequestArrayOutput struct{ *pulumi.OutputState }
-
-func (InputInputSourceRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InputInputSourceRequest)(nil)).Elem()
-}
-
-func (o InputInputSourceRequestArrayOutput) ToInputInputSourceRequestArrayOutput() InputInputSourceRequestArrayOutput {
-	return o
-}
-
-func (o InputInputSourceRequestArrayOutput) ToInputInputSourceRequestArrayOutputWithContext(ctx context.Context) InputInputSourceRequestArrayOutput {
-	return o
-}
-
-func (o InputInputSourceRequestArrayOutput) Index(i pulumi.IntInput) InputInputSourceRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputInputSourceRequest {
-		return vs[0].([]InputInputSourceRequest)[vs[1].(int)]
-	}).(InputInputSourceRequestOutput)
-}
-
-type InputInputVpcRequest struct {
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-}
-
-// InputInputVpcRequestInput is an input type that accepts InputInputVpcRequestArgs and InputInputVpcRequestOutput values.
-// You can construct a concrete instance of `InputInputVpcRequestInput` via:
-//
-//          InputInputVpcRequestArgs{...}
-type InputInputVpcRequestInput interface {
-	pulumi.Input
-
-	ToInputInputVpcRequestOutput() InputInputVpcRequestOutput
-	ToInputInputVpcRequestOutputWithContext(context.Context) InputInputVpcRequestOutput
-}
-
-type InputInputVpcRequestArgs struct {
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-}
-
-func (InputInputVpcRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputVpcRequest)(nil)).Elem()
-}
-
-func (i InputInputVpcRequestArgs) ToInputInputVpcRequestOutput() InputInputVpcRequestOutput {
-	return i.ToInputInputVpcRequestOutputWithContext(context.Background())
-}
-
-func (i InputInputVpcRequestArgs) ToInputInputVpcRequestOutputWithContext(ctx context.Context) InputInputVpcRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputVpcRequestOutput)
-}
-
-func (i InputInputVpcRequestArgs) ToInputInputVpcRequestPtrOutput() InputInputVpcRequestPtrOutput {
-	return i.ToInputInputVpcRequestPtrOutputWithContext(context.Background())
-}
-
-func (i InputInputVpcRequestArgs) ToInputInputVpcRequestPtrOutputWithContext(ctx context.Context) InputInputVpcRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputVpcRequestOutput).ToInputInputVpcRequestPtrOutputWithContext(ctx)
-}
-
-// InputInputVpcRequestPtrInput is an input type that accepts InputInputVpcRequestArgs, InputInputVpcRequestPtr and InputInputVpcRequestPtrOutput values.
-// You can construct a concrete instance of `InputInputVpcRequestPtrInput` via:
-//
-//          InputInputVpcRequestArgs{...}
-//
-//  or:
-//
-//          nil
-type InputInputVpcRequestPtrInput interface {
-	pulumi.Input
-
-	ToInputInputVpcRequestPtrOutput() InputInputVpcRequestPtrOutput
-	ToInputInputVpcRequestPtrOutputWithContext(context.Context) InputInputVpcRequestPtrOutput
-}
-
-type inputInputVpcRequestPtrType InputInputVpcRequestArgs
-
-func InputInputVpcRequestPtr(v *InputInputVpcRequestArgs) InputInputVpcRequestPtrInput {
-	return (*inputInputVpcRequestPtrType)(v)
-}
-
-func (*inputInputVpcRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputInputVpcRequest)(nil)).Elem()
-}
-
-func (i *inputInputVpcRequestPtrType) ToInputInputVpcRequestPtrOutput() InputInputVpcRequestPtrOutput {
-	return i.ToInputInputVpcRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *inputInputVpcRequestPtrType) ToInputInputVpcRequestPtrOutputWithContext(ctx context.Context) InputInputVpcRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputInputVpcRequestPtrOutput)
-}
-
-type InputInputVpcRequestOutput struct{ *pulumi.OutputState }
-
-func (InputInputVpcRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputInputVpcRequest)(nil)).Elem()
-}
-
-func (o InputInputVpcRequestOutput) ToInputInputVpcRequestOutput() InputInputVpcRequestOutput {
-	return o
-}
-
-func (o InputInputVpcRequestOutput) ToInputInputVpcRequestOutputWithContext(ctx context.Context) InputInputVpcRequestOutput {
-	return o
-}
-
-func (o InputInputVpcRequestOutput) ToInputInputVpcRequestPtrOutput() InputInputVpcRequestPtrOutput {
-	return o.ToInputInputVpcRequestPtrOutputWithContext(context.Background())
-}
-
-func (o InputInputVpcRequestOutput) ToInputInputVpcRequestPtrOutputWithContext(ctx context.Context) InputInputVpcRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputInputVpcRequest) *InputInputVpcRequest {
-		return &v
-	}).(InputInputVpcRequestPtrOutput)
-}
-
-func (o InputInputVpcRequestOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v InputInputVpcRequest) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
-}
-
-func (o InputInputVpcRequestOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v InputInputVpcRequest) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
-}
-
-type InputInputVpcRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (InputInputVpcRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputInputVpcRequest)(nil)).Elem()
-}
-
-func (o InputInputVpcRequestPtrOutput) ToInputInputVpcRequestPtrOutput() InputInputVpcRequestPtrOutput {
-	return o
-}
-
-func (o InputInputVpcRequestPtrOutput) ToInputInputVpcRequestPtrOutputWithContext(ctx context.Context) InputInputVpcRequestPtrOutput {
-	return o
-}
-
-func (o InputInputVpcRequestPtrOutput) Elem() InputInputVpcRequestOutput {
-	return o.ApplyT(func(v *InputInputVpcRequest) InputInputVpcRequest {
-		if v != nil {
-			return *v
-		}
-		var ret InputInputVpcRequest
-		return ret
-	}).(InputInputVpcRequestOutput)
-}
-
-func (o InputInputVpcRequestPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *InputInputVpcRequest) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o InputInputVpcRequestPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *InputInputVpcRequest) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
+func (o InputDeviceSettingsArrayOutput) Index(i pulumi.IntInput) InputDeviceSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputDeviceSettings {
+		return vs[0].([]InputDeviceSettings)[vs[1].(int)]
+	}).(InputDeviceSettingsOutput)
 }
 
 type InputMediaConnectFlowRequest struct {
@@ -26291,6 +26037,260 @@ func (o InputSecurityGroupInputWhitelistRuleCidrArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputSecurityGroupInputWhitelistRuleCidr {
 		return vs[0].([]InputSecurityGroupInputWhitelistRuleCidr)[vs[1].(int)]
 	}).(InputSecurityGroupInputWhitelistRuleCidrOutput)
+}
+
+type InputSourceRequest struct {
+	PasswordParam *string `pulumi:"passwordParam"`
+	Url           *string `pulumi:"url"`
+	Username      *string `pulumi:"username"`
+}
+
+// InputSourceRequestInput is an input type that accepts InputSourceRequestArgs and InputSourceRequestOutput values.
+// You can construct a concrete instance of `InputSourceRequestInput` via:
+//
+//          InputSourceRequestArgs{...}
+type InputSourceRequestInput interface {
+	pulumi.Input
+
+	ToInputSourceRequestOutput() InputSourceRequestOutput
+	ToInputSourceRequestOutputWithContext(context.Context) InputSourceRequestOutput
+}
+
+type InputSourceRequestArgs struct {
+	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
+	Url           pulumi.StringPtrInput `pulumi:"url"`
+	Username      pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (InputSourceRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSourceRequest)(nil)).Elem()
+}
+
+func (i InputSourceRequestArgs) ToInputSourceRequestOutput() InputSourceRequestOutput {
+	return i.ToInputSourceRequestOutputWithContext(context.Background())
+}
+
+func (i InputSourceRequestArgs) ToInputSourceRequestOutputWithContext(ctx context.Context) InputSourceRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSourceRequestOutput)
+}
+
+// InputSourceRequestArrayInput is an input type that accepts InputSourceRequestArray and InputSourceRequestArrayOutput values.
+// You can construct a concrete instance of `InputSourceRequestArrayInput` via:
+//
+//          InputSourceRequestArray{ InputSourceRequestArgs{...} }
+type InputSourceRequestArrayInput interface {
+	pulumi.Input
+
+	ToInputSourceRequestArrayOutput() InputSourceRequestArrayOutput
+	ToInputSourceRequestArrayOutputWithContext(context.Context) InputSourceRequestArrayOutput
+}
+
+type InputSourceRequestArray []InputSourceRequestInput
+
+func (InputSourceRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSourceRequest)(nil)).Elem()
+}
+
+func (i InputSourceRequestArray) ToInputSourceRequestArrayOutput() InputSourceRequestArrayOutput {
+	return i.ToInputSourceRequestArrayOutputWithContext(context.Background())
+}
+
+func (i InputSourceRequestArray) ToInputSourceRequestArrayOutputWithContext(ctx context.Context) InputSourceRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputSourceRequestArrayOutput)
+}
+
+type InputSourceRequestOutput struct{ *pulumi.OutputState }
+
+func (InputSourceRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputSourceRequest)(nil)).Elem()
+}
+
+func (o InputSourceRequestOutput) ToInputSourceRequestOutput() InputSourceRequestOutput {
+	return o
+}
+
+func (o InputSourceRequestOutput) ToInputSourceRequestOutputWithContext(ctx context.Context) InputSourceRequestOutput {
+	return o
+}
+
+func (o InputSourceRequestOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSourceRequest) *string { return v.PasswordParam }).(pulumi.StringPtrOutput)
+}
+
+func (o InputSourceRequestOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSourceRequest) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+func (o InputSourceRequestOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InputSourceRequest) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type InputSourceRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (InputSourceRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputSourceRequest)(nil)).Elem()
+}
+
+func (o InputSourceRequestArrayOutput) ToInputSourceRequestArrayOutput() InputSourceRequestArrayOutput {
+	return o
+}
+
+func (o InputSourceRequestArrayOutput) ToInputSourceRequestArrayOutputWithContext(ctx context.Context) InputSourceRequestArrayOutput {
+	return o
+}
+
+func (o InputSourceRequestArrayOutput) Index(i pulumi.IntInput) InputSourceRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputSourceRequest {
+		return vs[0].([]InputSourceRequest)[vs[1].(int)]
+	}).(InputSourceRequestOutput)
+}
+
+type InputVpcRequest struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+}
+
+// InputVpcRequestInput is an input type that accepts InputVpcRequestArgs and InputVpcRequestOutput values.
+// You can construct a concrete instance of `InputVpcRequestInput` via:
+//
+//          InputVpcRequestArgs{...}
+type InputVpcRequestInput interface {
+	pulumi.Input
+
+	ToInputVpcRequestOutput() InputVpcRequestOutput
+	ToInputVpcRequestOutputWithContext(context.Context) InputVpcRequestOutput
+}
+
+type InputVpcRequestArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (InputVpcRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputVpcRequest)(nil)).Elem()
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestOutput() InputVpcRequestOutput {
+	return i.ToInputVpcRequestOutputWithContext(context.Background())
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestOutputWithContext(ctx context.Context) InputVpcRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestOutput)
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return i.ToInputVpcRequestPtrOutputWithContext(context.Background())
+}
+
+func (i InputVpcRequestArgs) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestOutput).ToInputVpcRequestPtrOutputWithContext(ctx)
+}
+
+// InputVpcRequestPtrInput is an input type that accepts InputVpcRequestArgs, InputVpcRequestPtr and InputVpcRequestPtrOutput values.
+// You can construct a concrete instance of `InputVpcRequestPtrInput` via:
+//
+//          InputVpcRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type InputVpcRequestPtrInput interface {
+	pulumi.Input
+
+	ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput
+	ToInputVpcRequestPtrOutputWithContext(context.Context) InputVpcRequestPtrOutput
+}
+
+type inputVpcRequestPtrType InputVpcRequestArgs
+
+func InputVpcRequestPtr(v *InputVpcRequestArgs) InputVpcRequestPtrInput {
+	return (*inputVpcRequestPtrType)(v)
+}
+
+func (*inputVpcRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputVpcRequest)(nil)).Elem()
+}
+
+func (i *inputVpcRequestPtrType) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return i.ToInputVpcRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *inputVpcRequestPtrType) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputVpcRequestPtrOutput)
+}
+
+type InputVpcRequestOutput struct{ *pulumi.OutputState }
+
+func (InputVpcRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputVpcRequest)(nil)).Elem()
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestOutput() InputVpcRequestOutput {
+	return o
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestOutputWithContext(ctx context.Context) InputVpcRequestOutput {
+	return o
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return o.ToInputVpcRequestPtrOutputWithContext(context.Background())
+}
+
+func (o InputVpcRequestOutput) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputVpcRequest) *InputVpcRequest {
+		return &v
+	}).(InputVpcRequestPtrOutput)
+}
+
+func (o InputVpcRequestOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InputVpcRequest) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o InputVpcRequestOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InputVpcRequest) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type InputVpcRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (InputVpcRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InputVpcRequest)(nil)).Elem()
+}
+
+func (o InputVpcRequestPtrOutput) ToInputVpcRequestPtrOutput() InputVpcRequestPtrOutput {
+	return o
+}
+
+func (o InputVpcRequestPtrOutput) ToInputVpcRequestPtrOutputWithContext(ctx context.Context) InputVpcRequestPtrOutput {
+	return o
+}
+
+func (o InputVpcRequestPtrOutput) Elem() InputVpcRequestOutput {
+	return o.ApplyT(func(v *InputVpcRequest) InputVpcRequest {
+		if v != nil {
+			return *v
+		}
+		var ret InputVpcRequest
+		return ret
+	}).(InputVpcRequestOutput)
+}
+
+func (o InputVpcRequestPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InputVpcRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o InputVpcRequestPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InputVpcRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
 }
 
 func init() {
@@ -26584,16 +26584,16 @@ func init() {
 	pulumi.RegisterOutputType(ChannelWavSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelWebvttDestinationSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelWebvttDestinationSettingsPtrOutput{})
-	pulumi.RegisterOutputType(InputInputDestinationRequestOutput{})
-	pulumi.RegisterOutputType(InputInputDestinationRequestArrayOutput{})
-	pulumi.RegisterOutputType(InputInputDeviceSettingsOutput{})
-	pulumi.RegisterOutputType(InputInputDeviceSettingsArrayOutput{})
-	pulumi.RegisterOutputType(InputInputSourceRequestOutput{})
-	pulumi.RegisterOutputType(InputInputSourceRequestArrayOutput{})
-	pulumi.RegisterOutputType(InputInputVpcRequestOutput{})
-	pulumi.RegisterOutputType(InputInputVpcRequestPtrOutput{})
+	pulumi.RegisterOutputType(InputDestinationRequestOutput{})
+	pulumi.RegisterOutputType(InputDestinationRequestArrayOutput{})
+	pulumi.RegisterOutputType(InputDeviceSettingsOutput{})
+	pulumi.RegisterOutputType(InputDeviceSettingsArrayOutput{})
 	pulumi.RegisterOutputType(InputMediaConnectFlowRequestOutput{})
 	pulumi.RegisterOutputType(InputMediaConnectFlowRequestArrayOutput{})
 	pulumi.RegisterOutputType(InputSecurityGroupInputWhitelistRuleCidrOutput{})
 	pulumi.RegisterOutputType(InputSecurityGroupInputWhitelistRuleCidrArrayOutput{})
+	pulumi.RegisterOutputType(InputSourceRequestOutput{})
+	pulumi.RegisterOutputType(InputSourceRequestArrayOutput{})
+	pulumi.RegisterOutputType(InputVpcRequestOutput{})
+	pulumi.RegisterOutputType(InputVpcRequestPtrOutput{})
 }

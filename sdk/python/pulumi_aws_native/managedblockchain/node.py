@@ -17,7 +17,7 @@ class NodeArgs:
     def __init__(__self__, *,
                  member_id: pulumi.Input[str],
                  network_id: pulumi.Input[str],
-                 node_configuration: pulumi.Input['NodeNodeConfigurationArgs']):
+                 node_configuration: pulumi.Input['NodeConfigurationArgs']):
         """
         The set of arguments for constructing a Node resource.
         """
@@ -45,11 +45,11 @@ class NodeArgs:
 
     @property
     @pulumi.getter(name="nodeConfiguration")
-    def node_configuration(self) -> pulumi.Input['NodeNodeConfigurationArgs']:
+    def node_configuration(self) -> pulumi.Input['NodeConfigurationArgs']:
         return pulumi.get(self, "node_configuration")
 
     @node_configuration.setter
-    def node_configuration(self, value: pulumi.Input['NodeNodeConfigurationArgs']):
+    def node_configuration(self, value: pulumi.Input['NodeConfigurationArgs']):
         pulumi.set(self, "node_configuration", value)
 
 
@@ -65,7 +65,7 @@ class Node(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  member_id: Optional[pulumi.Input[str]] = None,
                  network_id: Optional[pulumi.Input[str]] = None,
-                 node_configuration: Optional[pulumi.Input[pulumi.InputType['NodeNodeConfigurationArgs']]] = None,
+                 node_configuration: Optional[pulumi.Input[pulumi.InputType['NodeConfigurationArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ManagedBlockchain::Node
@@ -99,7 +99,7 @@ class Node(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  member_id: Optional[pulumi.Input[str]] = None,
                  network_id: Optional[pulumi.Input[str]] = None,
-                 node_configuration: Optional[pulumi.Input[pulumi.InputType['NodeNodeConfigurationArgs']]] = None,
+                 node_configuration: Optional[pulumi.Input[pulumi.InputType['NodeConfigurationArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Node is deprecated: Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -170,7 +170,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeConfiguration")
-    def node_configuration(self) -> pulumi.Output['outputs.NodeNodeConfiguration']:
+    def node_configuration(self) -> pulumi.Output['outputs.NodeConfiguration']:
         return pulumi.get(self, "node_configuration")
 
     @property

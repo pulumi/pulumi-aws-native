@@ -10,127 +10,127 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ConnectionAliasConnectionAliasAssociationAssociationStatus string
+type ConnectionAliasAssociationAssociationStatus string
 
 const (
-	ConnectionAliasConnectionAliasAssociationAssociationStatusNotAssociated               = ConnectionAliasConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusPendingAssociation          = ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_ASSOCIATION")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusAssociatedWithOwnerAccount  = ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_OWNER_ACCOUNT")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusAssociatedWithSharedAccount = ConnectionAliasConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_SHARED_ACCOUNT")
-	ConnectionAliasConnectionAliasAssociationAssociationStatusPendingDisassociation       = ConnectionAliasConnectionAliasAssociationAssociationStatus("PENDING_DISASSOCIATION")
+	ConnectionAliasAssociationAssociationStatusNotAssociated               = ConnectionAliasAssociationAssociationStatus("NOT_ASSOCIATED")
+	ConnectionAliasAssociationAssociationStatusPendingAssociation          = ConnectionAliasAssociationAssociationStatus("PENDING_ASSOCIATION")
+	ConnectionAliasAssociationAssociationStatusAssociatedWithOwnerAccount  = ConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_OWNER_ACCOUNT")
+	ConnectionAliasAssociationAssociationStatusAssociatedWithSharedAccount = ConnectionAliasAssociationAssociationStatus("ASSOCIATED_WITH_SHARED_ACCOUNT")
+	ConnectionAliasAssociationAssociationStatusPendingDisassociation       = ConnectionAliasAssociationAssociationStatus("PENDING_DISASSOCIATION")
 )
 
-func (ConnectionAliasConnectionAliasAssociationAssociationStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasConnectionAliasAssociationAssociationStatus)(nil)).Elem()
+func (ConnectionAliasAssociationAssociationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasAssociationAssociationStatus)(nil)).Elem()
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToConnectionAliasConnectionAliasAssociationAssociationStatusOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusOutput {
-	return pulumi.ToOutput(e).(ConnectionAliasConnectionAliasAssociationAssociationStatusOutput)
+func (e ConnectionAliasAssociationAssociationStatus) ToConnectionAliasAssociationAssociationStatusOutput() ConnectionAliasAssociationAssociationStatusOutput {
+	return pulumi.ToOutput(e).(ConnectionAliasAssociationAssociationStatusOutput)
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToConnectionAliasConnectionAliasAssociationAssociationStatusOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ConnectionAliasConnectionAliasAssociationAssociationStatusOutput)
+func (e ConnectionAliasAssociationAssociationStatus) ToConnectionAliasAssociationAssociationStatusOutputWithContext(ctx context.Context) ConnectionAliasAssociationAssociationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionAliasAssociationAssociationStatusOutput)
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
-	return e.ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(context.Background())
+func (e ConnectionAliasAssociationAssociationStatus) ToConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasAssociationAssociationStatusPtrOutput {
+	return e.ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(context.Background())
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
-	return ConnectionAliasConnectionAliasAssociationAssociationStatus(e).ToConnectionAliasConnectionAliasAssociationAssociationStatusOutputWithContext(ctx).ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx)
+func (e ConnectionAliasAssociationAssociationStatus) ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasAssociationAssociationStatusPtrOutput {
+	return ConnectionAliasAssociationAssociationStatus(e).ToConnectionAliasAssociationAssociationStatusOutputWithContext(ctx).ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx)
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToStringOutput() pulumi.StringOutput {
+func (e ConnectionAliasAssociationAssociationStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ConnectionAliasAssociationAssociationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ConnectionAliasAssociationAssociationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ConnectionAliasConnectionAliasAssociationAssociationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ConnectionAliasAssociationAssociationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ConnectionAliasConnectionAliasAssociationAssociationStatusOutput struct{ *pulumi.OutputState }
+type ConnectionAliasAssociationAssociationStatusOutput struct{ *pulumi.OutputState }
 
-func (ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasConnectionAliasAssociationAssociationStatus)(nil)).Elem()
+func (ConnectionAliasAssociationAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasAssociationAssociationStatus)(nil)).Elem()
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasConnectionAliasAssociationAssociationStatusOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusOutput {
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasAssociationAssociationStatusOutput() ConnectionAliasAssociationAssociationStatusOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasConnectionAliasAssociationAssociationStatusOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusOutput {
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasAssociationAssociationStatusOutputWithContext(ctx context.Context) ConnectionAliasAssociationAssociationStatusOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
-	return o.ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(context.Background())
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasAssociationAssociationStatusPtrOutput {
+	return o.ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAliasConnectionAliasAssociationAssociationStatus) *ConnectionAliasConnectionAliasAssociationAssociationStatus {
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasAssociationAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAliasAssociationAssociationStatus) *ConnectionAliasAssociationAssociationStatus {
 		return &v
-	}).(ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput)
+	}).(ConnectionAliasAssociationAssociationStatusPtrOutput)
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasConnectionAliasAssociationAssociationStatus) string {
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasAssociationAssociationStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasConnectionAliasAssociationAssociationStatus) *string {
+func (o ConnectionAliasAssociationAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasAssociationAssociationStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+type ConnectionAliasAssociationAssociationStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionAliasConnectionAliasAssociationAssociationStatus)(nil)).Elem()
+func (ConnectionAliasAssociationAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasAssociationAssociationStatus)(nil)).Elem()
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
+func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasAssociationAssociationStatusPtrOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
+func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasAssociationAssociationStatusPtrOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput) Elem() ConnectionAliasConnectionAliasAssociationAssociationStatusOutput {
-	return o.ApplyT(func(v *ConnectionAliasConnectionAliasAssociationAssociationStatus) ConnectionAliasConnectionAliasAssociationAssociationStatus {
+func (o ConnectionAliasAssociationAssociationStatusPtrOutput) Elem() ConnectionAliasAssociationAssociationStatusOutput {
+	return o.ApplyT(func(v *ConnectionAliasAssociationAssociationStatus) ConnectionAliasAssociationAssociationStatus {
 		if v != nil {
 			return *v
 		}
-		var ret ConnectionAliasConnectionAliasAssociationAssociationStatus
+		var ret ConnectionAliasAssociationAssociationStatus
 		return ret
-	}).(ConnectionAliasConnectionAliasAssociationAssociationStatusOutput)
+	}).(ConnectionAliasAssociationAssociationStatusOutput)
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionAliasConnectionAliasAssociationAssociationStatus) *string {
+func (o ConnectionAliasAssociationAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionAliasAssociationAssociationStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -139,163 +139,163 @@ func (o ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionAliasConnectionAliasAssociationAssociationStatusInput is an input type that accepts ConnectionAliasConnectionAliasAssociationAssociationStatusArgs and ConnectionAliasConnectionAliasAssociationAssociationStatusOutput values.
-// You can construct a concrete instance of `ConnectionAliasConnectionAliasAssociationAssociationStatusInput` via:
+// ConnectionAliasAssociationAssociationStatusInput is an input type that accepts ConnectionAliasAssociationAssociationStatusArgs and ConnectionAliasAssociationAssociationStatusOutput values.
+// You can construct a concrete instance of `ConnectionAliasAssociationAssociationStatusInput` via:
 //
-//          ConnectionAliasConnectionAliasAssociationAssociationStatusArgs{...}
-type ConnectionAliasConnectionAliasAssociationAssociationStatusInput interface {
+//          ConnectionAliasAssociationAssociationStatusArgs{...}
+type ConnectionAliasAssociationAssociationStatusInput interface {
 	pulumi.Input
 
-	ToConnectionAliasConnectionAliasAssociationAssociationStatusOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusOutput
-	ToConnectionAliasConnectionAliasAssociationAssociationStatusOutputWithContext(context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusOutput
+	ToConnectionAliasAssociationAssociationStatusOutput() ConnectionAliasAssociationAssociationStatusOutput
+	ToConnectionAliasAssociationAssociationStatusOutputWithContext(context.Context) ConnectionAliasAssociationAssociationStatusOutput
 }
 
-var connectionAliasConnectionAliasAssociationAssociationStatusPtrType = reflect.TypeOf((**ConnectionAliasConnectionAliasAssociationAssociationStatus)(nil)).Elem()
+var connectionAliasAssociationAssociationStatusPtrType = reflect.TypeOf((**ConnectionAliasAssociationAssociationStatus)(nil)).Elem()
 
-type ConnectionAliasConnectionAliasAssociationAssociationStatusPtrInput interface {
+type ConnectionAliasAssociationAssociationStatusPtrInput interface {
 	pulumi.Input
 
-	ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput
-	ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput
+	ToConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasAssociationAssociationStatusPtrOutput
+	ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(context.Context) ConnectionAliasAssociationAssociationStatusPtrOutput
 }
 
-type connectionAliasConnectionAliasAssociationAssociationStatusPtr string
+type connectionAliasAssociationAssociationStatusPtr string
 
-func ConnectionAliasConnectionAliasAssociationAssociationStatusPtr(v string) ConnectionAliasConnectionAliasAssociationAssociationStatusPtrInput {
-	return (*connectionAliasConnectionAliasAssociationAssociationStatusPtr)(&v)
+func ConnectionAliasAssociationAssociationStatusPtr(v string) ConnectionAliasAssociationAssociationStatusPtrInput {
+	return (*connectionAliasAssociationAssociationStatusPtr)(&v)
 }
 
-func (*connectionAliasConnectionAliasAssociationAssociationStatusPtr) ElementType() reflect.Type {
-	return connectionAliasConnectionAliasAssociationAssociationStatusPtrType
+func (*connectionAliasAssociationAssociationStatusPtr) ElementType() reflect.Type {
+	return connectionAliasAssociationAssociationStatusPtrType
 }
 
-func (in *connectionAliasConnectionAliasAssociationAssociationStatusPtr) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
-	return pulumi.ToOutput(in).(ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput)
+func (in *connectionAliasAssociationAssociationStatusPtr) ToConnectionAliasAssociationAssociationStatusPtrOutput() ConnectionAliasAssociationAssociationStatusPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionAliasAssociationAssociationStatusPtrOutput)
 }
 
-func (in *connectionAliasConnectionAliasAssociationAssociationStatusPtr) ToConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput)
+func (in *connectionAliasAssociationAssociationStatusPtr) ToConnectionAliasAssociationAssociationStatusPtrOutputWithContext(ctx context.Context) ConnectionAliasAssociationAssociationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAliasAssociationAssociationStatusPtrOutput)
 }
 
-type ConnectionAliasConnectionAliasState string
+type ConnectionAliasStateEnum string
 
 const (
-	ConnectionAliasConnectionAliasStateCreating = ConnectionAliasConnectionAliasState("CREATING")
-	ConnectionAliasConnectionAliasStateCreated  = ConnectionAliasConnectionAliasState("CREATED")
-	ConnectionAliasConnectionAliasStateDeleting = ConnectionAliasConnectionAliasState("DELETING")
+	ConnectionAliasStateEnumCreating = ConnectionAliasStateEnum("CREATING")
+	ConnectionAliasStateEnumCreated  = ConnectionAliasStateEnum("CREATED")
+	ConnectionAliasStateEnumDeleting = ConnectionAliasStateEnum("DELETING")
 )
 
-func (ConnectionAliasConnectionAliasState) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasConnectionAliasState)(nil)).Elem()
+func (ConnectionAliasStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasStateEnum)(nil)).Elem()
 }
 
-func (e ConnectionAliasConnectionAliasState) ToConnectionAliasConnectionAliasStateOutput() ConnectionAliasConnectionAliasStateOutput {
-	return pulumi.ToOutput(e).(ConnectionAliasConnectionAliasStateOutput)
+func (e ConnectionAliasStateEnum) ToConnectionAliasStateEnumOutput() ConnectionAliasStateEnumOutput {
+	return pulumi.ToOutput(e).(ConnectionAliasStateEnumOutput)
 }
 
-func (e ConnectionAliasConnectionAliasState) ToConnectionAliasConnectionAliasStateOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasStateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ConnectionAliasConnectionAliasStateOutput)
+func (e ConnectionAliasStateEnum) ToConnectionAliasStateEnumOutputWithContext(ctx context.Context) ConnectionAliasStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionAliasStateEnumOutput)
 }
 
-func (e ConnectionAliasConnectionAliasState) ToConnectionAliasConnectionAliasStatePtrOutput() ConnectionAliasConnectionAliasStatePtrOutput {
-	return e.ToConnectionAliasConnectionAliasStatePtrOutputWithContext(context.Background())
+func (e ConnectionAliasStateEnum) ToConnectionAliasStateEnumPtrOutput() ConnectionAliasStateEnumPtrOutput {
+	return e.ToConnectionAliasStateEnumPtrOutputWithContext(context.Background())
 }
 
-func (e ConnectionAliasConnectionAliasState) ToConnectionAliasConnectionAliasStatePtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasStatePtrOutput {
-	return ConnectionAliasConnectionAliasState(e).ToConnectionAliasConnectionAliasStateOutputWithContext(ctx).ToConnectionAliasConnectionAliasStatePtrOutputWithContext(ctx)
+func (e ConnectionAliasStateEnum) ToConnectionAliasStateEnumPtrOutputWithContext(ctx context.Context) ConnectionAliasStateEnumPtrOutput {
+	return ConnectionAliasStateEnum(e).ToConnectionAliasStateEnumOutputWithContext(ctx).ToConnectionAliasStateEnumPtrOutputWithContext(ctx)
 }
 
-func (e ConnectionAliasConnectionAliasState) ToStringOutput() pulumi.StringOutput {
+func (e ConnectionAliasStateEnum) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ConnectionAliasConnectionAliasState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ConnectionAliasStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ConnectionAliasConnectionAliasState) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ConnectionAliasStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ConnectionAliasConnectionAliasState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ConnectionAliasStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ConnectionAliasConnectionAliasStateOutput struct{ *pulumi.OutputState }
+type ConnectionAliasStateEnumOutput struct{ *pulumi.OutputState }
 
-func (ConnectionAliasConnectionAliasStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionAliasConnectionAliasState)(nil)).Elem()
+func (ConnectionAliasStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasStateEnum)(nil)).Elem()
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToConnectionAliasConnectionAliasStateOutput() ConnectionAliasConnectionAliasStateOutput {
+func (o ConnectionAliasStateEnumOutput) ToConnectionAliasStateEnumOutput() ConnectionAliasStateEnumOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToConnectionAliasConnectionAliasStateOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasStateOutput {
+func (o ConnectionAliasStateEnumOutput) ToConnectionAliasStateEnumOutputWithContext(ctx context.Context) ConnectionAliasStateEnumOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToConnectionAliasConnectionAliasStatePtrOutput() ConnectionAliasConnectionAliasStatePtrOutput {
-	return o.ToConnectionAliasConnectionAliasStatePtrOutputWithContext(context.Background())
+func (o ConnectionAliasStateEnumOutput) ToConnectionAliasStateEnumPtrOutput() ConnectionAliasStateEnumPtrOutput {
+	return o.ToConnectionAliasStateEnumPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToConnectionAliasConnectionAliasStatePtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAliasConnectionAliasState) *ConnectionAliasConnectionAliasState {
+func (o ConnectionAliasStateEnumOutput) ToConnectionAliasStateEnumPtrOutputWithContext(ctx context.Context) ConnectionAliasStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAliasStateEnum) *ConnectionAliasStateEnum {
 		return &v
-	}).(ConnectionAliasConnectionAliasStatePtrOutput)
+	}).(ConnectionAliasStateEnumPtrOutput)
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToStringOutput() pulumi.StringOutput {
+func (o ConnectionAliasStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasConnectionAliasState) string {
+func (o ConnectionAliasStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasStateEnum) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ConnectionAliasStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasConnectionAliasState) *string {
+func (o ConnectionAliasStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionAliasStateEnum) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ConnectionAliasConnectionAliasStatePtrOutput struct{ *pulumi.OutputState }
+type ConnectionAliasStateEnumPtrOutput struct{ *pulumi.OutputState }
 
-func (ConnectionAliasConnectionAliasStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionAliasConnectionAliasState)(nil)).Elem()
+func (ConnectionAliasStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasStateEnum)(nil)).Elem()
 }
 
-func (o ConnectionAliasConnectionAliasStatePtrOutput) ToConnectionAliasConnectionAliasStatePtrOutput() ConnectionAliasConnectionAliasStatePtrOutput {
+func (o ConnectionAliasStateEnumPtrOutput) ToConnectionAliasStateEnumPtrOutput() ConnectionAliasStateEnumPtrOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasStatePtrOutput) ToConnectionAliasConnectionAliasStatePtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasStatePtrOutput {
+func (o ConnectionAliasStateEnumPtrOutput) ToConnectionAliasStateEnumPtrOutputWithContext(ctx context.Context) ConnectionAliasStateEnumPtrOutput {
 	return o
 }
 
-func (o ConnectionAliasConnectionAliasStatePtrOutput) Elem() ConnectionAliasConnectionAliasStateOutput {
-	return o.ApplyT(func(v *ConnectionAliasConnectionAliasState) ConnectionAliasConnectionAliasState {
+func (o ConnectionAliasStateEnumPtrOutput) Elem() ConnectionAliasStateEnumOutput {
+	return o.ApplyT(func(v *ConnectionAliasStateEnum) ConnectionAliasStateEnum {
 		if v != nil {
 			return *v
 		}
-		var ret ConnectionAliasConnectionAliasState
+		var ret ConnectionAliasStateEnum
 		return ret
-	}).(ConnectionAliasConnectionAliasStateOutput)
+	}).(ConnectionAliasStateEnumOutput)
 }
 
-func (o ConnectionAliasConnectionAliasStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ConnectionAliasStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectionAliasConnectionAliasStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionAliasConnectionAliasState) *string {
+func (o ConnectionAliasStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionAliasStateEnum) *string {
 		if e == nil {
 			return nil
 		}
@@ -304,47 +304,47 @@ func (o ConnectionAliasConnectionAliasStatePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionAliasConnectionAliasStateInput is an input type that accepts ConnectionAliasConnectionAliasStateArgs and ConnectionAliasConnectionAliasStateOutput values.
-// You can construct a concrete instance of `ConnectionAliasConnectionAliasStateInput` via:
+// ConnectionAliasStateEnumInput is an input type that accepts ConnectionAliasStateEnumArgs and ConnectionAliasStateEnumOutput values.
+// You can construct a concrete instance of `ConnectionAliasStateEnumInput` via:
 //
-//          ConnectionAliasConnectionAliasStateArgs{...}
-type ConnectionAliasConnectionAliasStateInput interface {
+//          ConnectionAliasStateEnumArgs{...}
+type ConnectionAliasStateEnumInput interface {
 	pulumi.Input
 
-	ToConnectionAliasConnectionAliasStateOutput() ConnectionAliasConnectionAliasStateOutput
-	ToConnectionAliasConnectionAliasStateOutputWithContext(context.Context) ConnectionAliasConnectionAliasStateOutput
+	ToConnectionAliasStateEnumOutput() ConnectionAliasStateEnumOutput
+	ToConnectionAliasStateEnumOutputWithContext(context.Context) ConnectionAliasStateEnumOutput
 }
 
-var connectionAliasConnectionAliasStatePtrType = reflect.TypeOf((**ConnectionAliasConnectionAliasState)(nil)).Elem()
+var connectionAliasStateEnumPtrType = reflect.TypeOf((**ConnectionAliasStateEnum)(nil)).Elem()
 
-type ConnectionAliasConnectionAliasStatePtrInput interface {
+type ConnectionAliasStateEnumPtrInput interface {
 	pulumi.Input
 
-	ToConnectionAliasConnectionAliasStatePtrOutput() ConnectionAliasConnectionAliasStatePtrOutput
-	ToConnectionAliasConnectionAliasStatePtrOutputWithContext(context.Context) ConnectionAliasConnectionAliasStatePtrOutput
+	ToConnectionAliasStateEnumPtrOutput() ConnectionAliasStateEnumPtrOutput
+	ToConnectionAliasStateEnumPtrOutputWithContext(context.Context) ConnectionAliasStateEnumPtrOutput
 }
 
-type connectionAliasConnectionAliasStatePtr string
+type connectionAliasStateEnumPtr string
 
-func ConnectionAliasConnectionAliasStatePtr(v string) ConnectionAliasConnectionAliasStatePtrInput {
-	return (*connectionAliasConnectionAliasStatePtr)(&v)
+func ConnectionAliasStateEnumPtr(v string) ConnectionAliasStateEnumPtrInput {
+	return (*connectionAliasStateEnumPtr)(&v)
 }
 
-func (*connectionAliasConnectionAliasStatePtr) ElementType() reflect.Type {
-	return connectionAliasConnectionAliasStatePtrType
+func (*connectionAliasStateEnumPtr) ElementType() reflect.Type {
+	return connectionAliasStateEnumPtrType
 }
 
-func (in *connectionAliasConnectionAliasStatePtr) ToConnectionAliasConnectionAliasStatePtrOutput() ConnectionAliasConnectionAliasStatePtrOutput {
-	return pulumi.ToOutput(in).(ConnectionAliasConnectionAliasStatePtrOutput)
+func (in *connectionAliasStateEnumPtr) ToConnectionAliasStateEnumPtrOutput() ConnectionAliasStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionAliasStateEnumPtrOutput)
 }
 
-func (in *connectionAliasConnectionAliasStatePtr) ToConnectionAliasConnectionAliasStatePtrOutputWithContext(ctx context.Context) ConnectionAliasConnectionAliasStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAliasConnectionAliasStatePtrOutput)
+func (in *connectionAliasStateEnumPtr) ToConnectionAliasStateEnumPtrOutputWithContext(ctx context.Context) ConnectionAliasStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionAliasStateEnumPtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationAssociationStatusOutput{})
-	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationAssociationStatusPtrOutput{})
-	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasStateOutput{})
-	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasStatePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasAssociationAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasStateEnumOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasStateEnumPtrOutput{})
 }

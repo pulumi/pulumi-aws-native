@@ -35,12 +35,12 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExperimentTemplate.__pulumiType;
     }
 
-    public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentTemplateActionMap | undefined>;
+    public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateActionMap | undefined>;
     public readonly description!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
-    public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentTemplateStopCondition[]>;
+    public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateStopCondition[]>;
     public readonly tags!: pulumi.Output<any>;
-    public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentTemplateTargetMap>;
+    public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateTargetMap>;
 
     /**
      * Create a ExperimentTemplate resource with the given unique name, arguments, and options.
@@ -93,10 +93,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a ExperimentTemplate resource.
  */
 export interface ExperimentTemplateArgs {
-    actions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateActionMapArgs>;
+    actions?: pulumi.Input<inputs.fis.ExperimentTemplateActionMapArgs>;
     description: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
-    stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateStopConditionArgs>[]>;
+    stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateStopConditionArgs>[]>;
     tags: any;
-    targets: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateTargetMapArgs>;
+    targets: pulumi.Input<inputs.fis.ExperimentTemplateTargetMapArgs>;
 }

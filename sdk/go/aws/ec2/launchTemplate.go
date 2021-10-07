@@ -16,11 +16,11 @@ import (
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
 
-	DefaultVersionNumber pulumi.StringOutput                                     `pulumi:"defaultVersionNumber"`
-	LatestVersionNumber  pulumi.StringOutput                                     `pulumi:"latestVersionNumber"`
-	LaunchTemplateData   LaunchTemplateLaunchTemplateDataPtrOutput               `pulumi:"launchTemplateData"`
-	LaunchTemplateName   pulumi.StringPtrOutput                                  `pulumi:"launchTemplateName"`
-	TagSpecifications    LaunchTemplateLaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
+	DefaultVersionNumber pulumi.StringOutput                       `pulumi:"defaultVersionNumber"`
+	LatestVersionNumber  pulumi.StringOutput                       `pulumi:"latestVersionNumber"`
+	LaunchTemplateData   LaunchTemplateDataPtrOutput               `pulumi:"launchTemplateData"`
+	LaunchTemplateName   pulumi.StringPtrOutput                    `pulumi:"launchTemplateName"`
+	TagSpecifications    LaunchTemplateTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 }
 
 // NewLaunchTemplate registers a new resource with the given unique name, arguments, and options.
@@ -62,16 +62,16 @@ func (LaunchTemplateState) ElementType() reflect.Type {
 }
 
 type launchTemplateArgs struct {
-	LaunchTemplateData *LaunchTemplateLaunchTemplateData              `pulumi:"launchTemplateData"`
-	LaunchTemplateName *string                                        `pulumi:"launchTemplateName"`
-	TagSpecifications  []LaunchTemplateLaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
+	LaunchTemplateData *LaunchTemplateData              `pulumi:"launchTemplateData"`
+	LaunchTemplateName *string                          `pulumi:"launchTemplateName"`
+	TagSpecifications  []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 }
 
 // The set of arguments for constructing a LaunchTemplate resource.
 type LaunchTemplateArgs struct {
-	LaunchTemplateData LaunchTemplateLaunchTemplateDataPtrInput
+	LaunchTemplateData LaunchTemplateDataPtrInput
 	LaunchTemplateName pulumi.StringPtrInput
-	TagSpecifications  LaunchTemplateLaunchTemplateTagSpecificationArrayInput
+	TagSpecifications  LaunchTemplateTagSpecificationArrayInput
 }
 
 func (LaunchTemplateArgs) ElementType() reflect.Type {

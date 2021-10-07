@@ -35,11 +35,11 @@ export class ResourceCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceCollection.__pulumiType;
     }
 
-    public readonly resourceCollectionFilter!: pulumi.Output<outputs.devopsguru.ResourceCollectionResourceCollectionFilter>;
+    public readonly resourceCollectionFilter!: pulumi.Output<outputs.devopsguru.ResourceCollectionFilter>;
     /**
      * The type of ResourceCollection
      */
-    public /*out*/ readonly resourceCollectionType!: pulumi.Output<enums.devopsguru.ResourceCollectionResourceCollectionType>;
+    public /*out*/ readonly resourceCollectionType!: pulumi.Output<enums.devopsguru.ResourceCollectionType>;
 
     /**
      * Create a ResourceCollection resource with the given unique name, arguments, and options.
@@ -72,5 +72,5 @@ export class ResourceCollection extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceCollection resource.
  */
 export interface ResourceCollectionArgs {
-    resourceCollectionFilter: pulumi.Input<inputs.devopsguru.ResourceCollectionResourceCollectionFilterArgs>;
+    resourceCollectionFilter: pulumi.Input<inputs.devopsguru.ResourceCollectionFilterArgs>;
 }

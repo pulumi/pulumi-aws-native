@@ -15,11 +15,11 @@ import (
 type BackupPlan struct {
 	pulumi.CustomResourceState
 
-	BackupPlan     BackupPlanBackupPlanResourceTypeOutput `pulumi:"backupPlan"`
-	BackupPlanArn  pulumi.StringOutput                    `pulumi:"backupPlanArn"`
-	BackupPlanId   pulumi.StringOutput                    `pulumi:"backupPlanId"`
-	BackupPlanTags pulumi.AnyOutput                       `pulumi:"backupPlanTags"`
-	VersionId      pulumi.StringOutput                    `pulumi:"versionId"`
+	BackupPlan     BackupPlanResourceTypeOutput `pulumi:"backupPlan"`
+	BackupPlanArn  pulumi.StringOutput          `pulumi:"backupPlanArn"`
+	BackupPlanId   pulumi.StringOutput          `pulumi:"backupPlanId"`
+	BackupPlanTags pulumi.AnyOutput             `pulumi:"backupPlanTags"`
+	VersionId      pulumi.StringOutput          `pulumi:"versionId"`
 }
 
 // NewBackupPlan registers a new resource with the given unique name, arguments, and options.
@@ -64,13 +64,13 @@ func (BackupPlanState) ElementType() reflect.Type {
 }
 
 type backupPlanArgs struct {
-	BackupPlan     BackupPlanBackupPlanResourceType `pulumi:"backupPlan"`
-	BackupPlanTags interface{}                      `pulumi:"backupPlanTags"`
+	BackupPlan     BackupPlanResourceType `pulumi:"backupPlan"`
+	BackupPlanTags interface{}            `pulumi:"backupPlanTags"`
 }
 
 // The set of arguments for constructing a BackupPlan resource.
 type BackupPlanArgs struct {
-	BackupPlan     BackupPlanBackupPlanResourceTypeInput
+	BackupPlan     BackupPlanResourceTypeInput
 	BackupPlanTags pulumi.Input
 }
 

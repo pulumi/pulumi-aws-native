@@ -19,7 +19,7 @@ class DataSourceArgs:
                  index_id: pulumi.Input[str],
                  name: pulumi.Input[str],
                  type: pulumi.Input['DataSourceType'],
-                 data_source_configuration: Optional[pulumi.Input['DataSourceDataSourceConfigurationArgs']] = None,
+                 data_source_configuration: Optional[pulumi.Input['DataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -71,11 +71,11 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
-    def data_source_configuration(self) -> Optional[pulumi.Input['DataSourceDataSourceConfigurationArgs']]:
+    def data_source_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationArgs']]:
         return pulumi.get(self, "data_source_configuration")
 
     @data_source_configuration.setter
-    def data_source_configuration(self, value: Optional[pulumi.Input['DataSourceDataSourceConfigurationArgs']]):
+    def data_source_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationArgs']]):
         pulumi.set(self, "data_source_configuration", value)
 
     @property
@@ -123,7 +123,7 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceConfigurationArgs']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -163,7 +163,7 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceDataSourceConfigurationArgs']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -238,7 +238,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
-    def data_source_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceDataSourceConfiguration']]:
+    def data_source_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceConfiguration']]:
         return pulumi.get(self, "data_source_configuration")
 
     @property

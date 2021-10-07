@@ -39,7 +39,7 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
     }
 
     public readonly catalogId!: pulumi.Output<string>;
-    public readonly dataCatalogEncryptionSettings!: pulumi.Output<outputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    public readonly dataCatalogEncryptionSettings!: pulumi.Output<outputs.glue.DataCatalogEncryptionSettings>;
 
     /**
      * Create a DataCatalogEncryptionSettings resource with the given unique name, arguments, and options.
@@ -78,5 +78,5 @@ export class DataCatalogEncryptionSettings extends pulumi.CustomResource {
  */
 export interface DataCatalogEncryptionSettingsArgs {
     catalogId: pulumi.Input<string>;
-    dataCatalogEncryptionSettings: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs>;
+    dataCatalogEncryptionSettings: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsArgs>;
 }

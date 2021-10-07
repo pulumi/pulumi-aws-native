@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'HealthCheckHealthCheckTag',
-    'HostedZoneHostedZoneConfig',
-    'HostedZoneHostedZoneTag',
+    'HealthCheckTag',
+    'HostedZoneConfig',
     'HostedZoneQueryLoggingConfig',
+    'HostedZoneTag',
     'HostedZoneVPC',
     'RecordSetAliasTarget',
     'RecordSetGeoLocation',
@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class HealthCheckHealthCheckTag(dict):
+class HealthCheckTag(dict):
     """
     A key-value pair to associate with a resource.
     """
@@ -57,7 +57,7 @@ class HealthCheckHealthCheckTag(dict):
 
 
 @pulumi.output_type
-class HostedZoneHostedZoneConfig(dict):
+class HostedZoneConfig(dict):
     """
     A complex type that contains an optional comment.
 
@@ -81,39 +81,6 @@ class HostedZoneHostedZoneConfig(dict):
         Any comments that you want to include about the hosted zone.
         """
         return pulumi.get(self, "comment")
-
-
-@pulumi.output_type
-class HostedZoneHostedZoneTag(dict):
-    """
-    A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-    """
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        """
-        A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
-        :param str key: The key name of the tag.
-        :param str value: The value for the tag.
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key name of the tag.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value for the tag.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -153,6 +120,39 @@ class HostedZoneQueryLoggingConfig(dict):
         The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
         """
         return pulumi.get(self, "cloud_watch_logs_log_group_arn")
+
+
+@pulumi.output_type
+class HostedZoneTag(dict):
+    """
+    A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+        :param str key: The key name of the tag.
+        :param str value: The value for the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

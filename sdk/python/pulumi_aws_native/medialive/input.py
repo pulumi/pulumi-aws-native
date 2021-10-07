@@ -15,16 +15,16 @@ __all__ = ['InputArgs', 'Input']
 @pulumi.input_type
 class InputArgs:
     def __init__(__self__, *,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDestinationRequestArgs']]]] = None,
-                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceSettingsArgs']]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationRequestArgs']]]] = None,
+                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InputDeviceSettingsArgs']]]] = None,
                  input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowRequestArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputSourceRequestArgs']]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceRequestArgs']]]] = None,
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 vpc: Optional[pulumi.Input['InputInputVpcRequestArgs']] = None):
+                 vpc: Optional[pulumi.Input['InputVpcRequestArgs']] = None):
         """
         The set of arguments for constructing a Input resource.
         """
@@ -51,20 +51,20 @@ class InputArgs:
 
     @property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDestinationRequestArgs']]]]:
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationRequestArgs']]]]:
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDestinationRequestArgs']]]]):
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationRequestArgs']]]]):
         pulumi.set(self, "destinations", value)
 
     @property
     @pulumi.getter(name="inputDevices")
-    def input_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceSettingsArgs']]]]:
+    def input_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputDeviceSettingsArgs']]]]:
         return pulumi.get(self, "input_devices")
 
     @input_devices.setter
-    def input_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceSettingsArgs']]]]):
+    def input_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputDeviceSettingsArgs']]]]):
         pulumi.set(self, "input_devices", value)
 
     @property
@@ -105,11 +105,11 @@ class InputArgs:
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputInputSourceRequestArgs']]]]:
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceRequestArgs']]]]:
         return pulumi.get(self, "sources")
 
     @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputInputSourceRequestArgs']]]]):
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceRequestArgs']]]]):
         pulumi.set(self, "sources", value)
 
     @property
@@ -132,11 +132,11 @@ class InputArgs:
 
     @property
     @pulumi.getter
-    def vpc(self) -> Optional[pulumi.Input['InputInputVpcRequestArgs']]:
+    def vpc(self) -> Optional[pulumi.Input['InputVpcRequestArgs']]:
         return pulumi.get(self, "vpc")
 
     @vpc.setter
-    def vpc(self, value: Optional[pulumi.Input['InputInputVpcRequestArgs']]):
+    def vpc(self, value: Optional[pulumi.Input['InputVpcRequestArgs']]):
         pulumi.set(self, "vpc", value)
 
 
@@ -150,16 +150,16 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputDestinationRequestArgs']]]]] = None,
-                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputDeviceSettingsArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputDestinationRequestArgs']]]]] = None,
+                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputDeviceSettingsArgs']]]]] = None,
                  input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputMediaConnectFlowRequestArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputSourceRequestArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSourceRequestArgs']]]]] = None,
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 vpc: Optional[pulumi.Input[pulumi.InputType['InputInputVpcRequestArgs']]] = None,
+                 vpc: Optional[pulumi.Input[pulumi.InputType['InputVpcRequestArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MediaLive::Input
@@ -191,16 +191,16 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputDestinationRequestArgs']]]]] = None,
-                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputDeviceSettingsArgs']]]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputDestinationRequestArgs']]]]] = None,
+                 input_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputDeviceSettingsArgs']]]]] = None,
                  input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputMediaConnectFlowRequestArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputSourceRequestArgs']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSourceRequestArgs']]]]] = None,
                  tags: Optional[Any] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 vpc: Optional[pulumi.Input[pulumi.InputType['InputInputVpcRequestArgs']]] = None,
+                 vpc: Optional[pulumi.Input[pulumi.InputType['InputVpcRequestArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Input is deprecated: Input is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -267,12 +267,12 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destinations(self) -> pulumi.Output[Optional[Sequence['outputs.InputInputDestinationRequest']]]:
+    def destinations(self) -> pulumi.Output[Optional[Sequence['outputs.InputDestinationRequest']]]:
         return pulumi.get(self, "destinations")
 
     @property
     @pulumi.getter(name="inputDevices")
-    def input_devices(self) -> pulumi.Output[Optional[Sequence['outputs.InputInputDeviceSettings']]]:
+    def input_devices(self) -> pulumi.Output[Optional[Sequence['outputs.InputDeviceSettings']]]:
         return pulumi.get(self, "input_devices")
 
     @property
@@ -297,7 +297,7 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.InputInputSourceRequest']]]:
+    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.InputSourceRequest']]]:
         return pulumi.get(self, "sources")
 
     @property
@@ -312,6 +312,6 @@ class Input(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vpc(self) -> pulumi.Output[Optional['outputs.InputInputVpcRequest']]:
+    def vpc(self) -> pulumi.Output[Optional['outputs.InputVpcRequest']]:
         return pulumi.get(self, "vpc")
 

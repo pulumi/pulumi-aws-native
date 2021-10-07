@@ -53,7 +53,7 @@ export class TargetGroup extends pulumi.CustomResource {
     public readonly protocol!: pulumi.Output<string | undefined>;
     public readonly protocolVersion!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTag[] | undefined>;
-    public readonly targetGroupAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTargetGroupAttribute[] | undefined>;
+    public readonly targetGroupAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupAttribute[] | undefined>;
     public /*out*/ readonly targetGroupFullName!: pulumi.Output<string>;
     public /*out*/ readonly targetGroupName!: pulumi.Output<string>;
     public readonly targetType!: pulumi.Output<string | undefined>;
@@ -145,7 +145,7 @@ export interface TargetGroupArgs {
     protocol?: pulumi.Input<string>;
     protocolVersion?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTagArgs>[]>;
-    targetGroupAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTargetGroupAttributeArgs>[]>;
+    targetGroupAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupAttributeArgs>[]>;
     targetType?: pulumi.Input<string>;
     targets?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTargetDescriptionArgs>[]>;
     unhealthyThresholdCount?: pulumi.Input<number>;

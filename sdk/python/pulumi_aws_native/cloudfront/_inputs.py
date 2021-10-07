@@ -9,18 +9,18 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CachePolicyCachePolicyConfigArgs',
+    'CachePolicyConfigArgs',
     'CachePolicyCookiesConfigArgs',
     'CachePolicyHeadersConfigArgs',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs',
     'CachePolicyQueryStringsConfigArgs',
-    'CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs',
+    'CloudFrontOriginAccessIdentityConfigArgs',
     'DistributionCacheBehaviorArgs',
+    'DistributionConfigArgs',
     'DistributionCookiesArgs',
     'DistributionCustomErrorResponseArgs',
     'DistributionCustomOriginConfigArgs',
     'DistributionDefaultCacheBehaviorArgs',
-    'DistributionDistributionConfigArgs',
     'DistributionForwardedValuesArgs',
     'DistributionFunctionAssociationArgs',
     'DistributionGeoRestrictionArgs',
@@ -41,25 +41,25 @@ __all__ = [
     'DistributionStatusCodesArgs',
     'DistributionTagArgs',
     'DistributionViewerCertificateArgs',
-    'FunctionFunctionConfigArgs',
-    'FunctionFunctionMetadataArgs',
-    'KeyGroupKeyGroupConfigArgs',
+    'FunctionConfigArgs',
+    'FunctionMetadataArgs',
+    'KeyGroupConfigArgs',
+    'OriginRequestPolicyConfigArgs',
     'OriginRequestPolicyCookiesConfigArgs',
     'OriginRequestPolicyHeadersConfigArgs',
-    'OriginRequestPolicyOriginRequestPolicyConfigArgs',
     'OriginRequestPolicyQueryStringsConfigArgs',
-    'PublicKeyPublicKeyConfigArgs',
+    'PublicKeyConfigArgs',
     'RealtimeLogConfigEndPointArgs',
     'RealtimeLogConfigKinesisStreamConfigArgs',
+    'StreamingDistributionConfigArgs',
     'StreamingDistributionLoggingArgs',
     'StreamingDistributionS3OriginArgs',
-    'StreamingDistributionStreamingDistributionConfigArgs',
     'StreamingDistributionTagArgs',
     'StreamingDistributionTrustedSignersArgs',
 ]
 
 @pulumi.input_type
-class CachePolicyCachePolicyConfigArgs:
+class CachePolicyConfigArgs:
     def __init__(__self__, *,
                  default_ttl: pulumi.Input[float],
                  max_ttl: pulumi.Input[float],
@@ -276,7 +276,7 @@ class CachePolicyQueryStringsConfigArgs:
 
 
 @pulumi.input_type
-class CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs:
+class CloudFrontOriginAccessIdentityConfigArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[str]):
         pulumi.set(__self__, "comment", comment)
@@ -519,6 +519,238 @@ class DistributionCacheBehaviorArgs:
     @trusted_signers.setter
     def trusted_signers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "trusted_signers", value)
+
+
+@pulumi.input_type
+class DistributionConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 c_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
+                 custom_origin: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']] = None,
+                 default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
+                 default_root_object: Optional[pulumi.Input[str]] = None,
+                 http_version: Optional[pulumi.Input[str]] = None,
+                 i_pv6_enabled: Optional[pulumi.Input[bool]] = None,
+                 logging: Optional[pulumi.Input['DistributionLoggingArgs']] = None,
+                 origin_groups: Optional[pulumi.Input['DistributionOriginGroupsArgs']] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
+                 price_class: Optional[pulumi.Input[str]] = None,
+                 restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
+                 s3_origin: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']] = None,
+                 viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
+                 web_acl_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if c_names is not None:
+            pulumi.set(__self__, "c_names", c_names)
+        if cache_behaviors is not None:
+            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if custom_error_responses is not None:
+            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
+        if custom_origin is not None:
+            pulumi.set(__self__, "custom_origin", custom_origin)
+        if default_cache_behavior is not None:
+            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
+        if default_root_object is not None:
+            pulumi.set(__self__, "default_root_object", default_root_object)
+        if http_version is not None:
+            pulumi.set(__self__, "http_version", http_version)
+        if i_pv6_enabled is not None:
+            pulumi.set(__self__, "i_pv6_enabled", i_pv6_enabled)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+        if origin_groups is not None:
+            pulumi.set(__self__, "origin_groups", origin_groups)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+        if price_class is not None:
+            pulumi.set(__self__, "price_class", price_class)
+        if restrictions is not None:
+            pulumi.set(__self__, "restrictions", restrictions)
+        if s3_origin is not None:
+            pulumi.set(__self__, "s3_origin", s3_origin)
+        if viewer_certificate is not None:
+            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+        if web_acl_id is not None:
+            pulumi.set(__self__, "web_acl_id", web_acl_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aliases", value)
+
+    @property
+    @pulumi.getter(name="cNAMEs")
+    def c_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "c_names")
+
+    @c_names.setter
+    def c_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "c_names", value)
+
+    @property
+    @pulumi.getter(name="cacheBehaviors")
+    def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]:
+        return pulumi.get(self, "cache_behaviors")
+
+    @cache_behaviors.setter
+    def cache_behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]):
+        pulumi.set(self, "cache_behaviors", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="customErrorResponses")
+    def custom_error_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]:
+        return pulumi.get(self, "custom_error_responses")
+
+    @custom_error_responses.setter
+    def custom_error_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]):
+        pulumi.set(self, "custom_error_responses", value)
+
+    @property
+    @pulumi.getter(name="customOrigin")
+    def custom_origin(self) -> Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']]:
+        return pulumi.get(self, "custom_origin")
+
+    @custom_origin.setter
+    def custom_origin(self, value: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']]):
+        pulumi.set(self, "custom_origin", value)
+
+    @property
+    @pulumi.getter(name="defaultCacheBehavior")
+    def default_cache_behavior(self) -> Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]:
+        return pulumi.get(self, "default_cache_behavior")
+
+    @default_cache_behavior.setter
+    def default_cache_behavior(self, value: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]):
+        pulumi.set(self, "default_cache_behavior", value)
+
+    @property
+    @pulumi.getter(name="defaultRootObject")
+    def default_root_object(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_root_object")
+
+    @default_root_object.setter
+    def default_root_object(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_root_object", value)
+
+    @property
+    @pulumi.getter(name="httpVersion")
+    def http_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "http_version")
+
+    @http_version.setter
+    def http_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_version", value)
+
+    @property
+    @pulumi.getter(name="iPV6Enabled")
+    def i_pv6_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "i_pv6_enabled")
+
+    @i_pv6_enabled.setter
+    def i_pv6_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "i_pv6_enabled", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input['DistributionLoggingArgs']]:
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input['DistributionLoggingArgs']]):
+        pulumi.set(self, "logging", value)
+
+    @property
+    @pulumi.getter(name="originGroups")
+    def origin_groups(self) -> Optional[pulumi.Input['DistributionOriginGroupsArgs']]:
+        return pulumi.get(self, "origin_groups")
+
+    @origin_groups.setter
+    def origin_groups(self, value: Optional[pulumi.Input['DistributionOriginGroupsArgs']]):
+        pulumi.set(self, "origin_groups", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]:
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]):
+        pulumi.set(self, "origins", value)
+
+    @property
+    @pulumi.getter(name="priceClass")
+    def price_class(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "price_class")
+
+    @price_class.setter
+    def price_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "price_class", value)
+
+    @property
+    @pulumi.getter
+    def restrictions(self) -> Optional[pulumi.Input['DistributionRestrictionsArgs']]:
+        return pulumi.get(self, "restrictions")
+
+    @restrictions.setter
+    def restrictions(self, value: Optional[pulumi.Input['DistributionRestrictionsArgs']]):
+        pulumi.set(self, "restrictions", value)
+
+    @property
+    @pulumi.getter(name="s3Origin")
+    def s3_origin(self) -> Optional[pulumi.Input['DistributionLegacyS3OriginArgs']]:
+        return pulumi.get(self, "s3_origin")
+
+    @s3_origin.setter
+    def s3_origin(self, value: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']]):
+        pulumi.set(self, "s3_origin", value)
+
+    @property
+    @pulumi.getter(name="viewerCertificate")
+    def viewer_certificate(self) -> Optional[pulumi.Input['DistributionViewerCertificateArgs']]:
+        return pulumi.get(self, "viewer_certificate")
+
+    @viewer_certificate.setter
+    def viewer_certificate(self, value: Optional[pulumi.Input['DistributionViewerCertificateArgs']]):
+        pulumi.set(self, "viewer_certificate", value)
+
+    @property
+    @pulumi.getter(name="webACLId")
+    def web_acl_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "web_acl_id")
+
+    @web_acl_id.setter
+    def web_acl_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_acl_id", value)
 
 
 @pulumi.input_type
@@ -894,238 +1126,6 @@ class DistributionDefaultCacheBehaviorArgs:
     @trusted_signers.setter
     def trusted_signers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "trusted_signers", value)
-
-
-@pulumi.input_type
-class DistributionDistributionConfigArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[bool],
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 c_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
-                 comment: Optional[pulumi.Input[str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
-                 custom_origin: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']] = None,
-                 default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
-                 default_root_object: Optional[pulumi.Input[str]] = None,
-                 http_version: Optional[pulumi.Input[str]] = None,
-                 i_pv6_enabled: Optional[pulumi.Input[bool]] = None,
-                 logging: Optional[pulumi.Input['DistributionLoggingArgs']] = None,
-                 origin_groups: Optional[pulumi.Input['DistributionOriginGroupsArgs']] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]] = None,
-                 price_class: Optional[pulumi.Input[str]] = None,
-                 restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
-                 s3_origin: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']] = None,
-                 viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
-                 web_acl_id: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if aliases is not None:
-            pulumi.set(__self__, "aliases", aliases)
-        if c_names is not None:
-            pulumi.set(__self__, "c_names", c_names)
-        if cache_behaviors is not None:
-            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
-        if custom_error_responses is not None:
-            pulumi.set(__self__, "custom_error_responses", custom_error_responses)
-        if custom_origin is not None:
-            pulumi.set(__self__, "custom_origin", custom_origin)
-        if default_cache_behavior is not None:
-            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
-        if default_root_object is not None:
-            pulumi.set(__self__, "default_root_object", default_root_object)
-        if http_version is not None:
-            pulumi.set(__self__, "http_version", http_version)
-        if i_pv6_enabled is not None:
-            pulumi.set(__self__, "i_pv6_enabled", i_pv6_enabled)
-        if logging is not None:
-            pulumi.set(__self__, "logging", logging)
-        if origin_groups is not None:
-            pulumi.set(__self__, "origin_groups", origin_groups)
-        if origins is not None:
-            pulumi.set(__self__, "origins", origins)
-        if price_class is not None:
-            pulumi.set(__self__, "price_class", price_class)
-        if restrictions is not None:
-            pulumi.set(__self__, "restrictions", restrictions)
-        if s3_origin is not None:
-            pulumi.set(__self__, "s3_origin", s3_origin)
-        if viewer_certificate is not None:
-            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
-        if web_acl_id is not None:
-            pulumi.set(__self__, "web_acl_id", web_acl_id)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "aliases")
-
-    @aliases.setter
-    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "aliases", value)
-
-    @property
-    @pulumi.getter(name="cNAMEs")
-    def c_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "c_names")
-
-    @c_names.setter
-    def c_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "c_names", value)
-
-    @property
-    @pulumi.getter(name="cacheBehaviors")
-    def cache_behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]:
-        return pulumi.get(self, "cache_behaviors")
-
-    @cache_behaviors.setter
-    def cache_behaviors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]]):
-        pulumi.set(self, "cache_behaviors", value)
-
-    @property
-    @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "comment")
-
-    @comment.setter
-    def comment(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "comment", value)
-
-    @property
-    @pulumi.getter(name="customErrorResponses")
-    def custom_error_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]:
-        return pulumi.get(self, "custom_error_responses")
-
-    @custom_error_responses.setter
-    def custom_error_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]]):
-        pulumi.set(self, "custom_error_responses", value)
-
-    @property
-    @pulumi.getter(name="customOrigin")
-    def custom_origin(self) -> Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']]:
-        return pulumi.get(self, "custom_origin")
-
-    @custom_origin.setter
-    def custom_origin(self, value: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']]):
-        pulumi.set(self, "custom_origin", value)
-
-    @property
-    @pulumi.getter(name="defaultCacheBehavior")
-    def default_cache_behavior(self) -> Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]:
-        return pulumi.get(self, "default_cache_behavior")
-
-    @default_cache_behavior.setter
-    def default_cache_behavior(self, value: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']]):
-        pulumi.set(self, "default_cache_behavior", value)
-
-    @property
-    @pulumi.getter(name="defaultRootObject")
-    def default_root_object(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "default_root_object")
-
-    @default_root_object.setter
-    def default_root_object(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_root_object", value)
-
-    @property
-    @pulumi.getter(name="httpVersion")
-    def http_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "http_version")
-
-    @http_version.setter
-    def http_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "http_version", value)
-
-    @property
-    @pulumi.getter(name="iPV6Enabled")
-    def i_pv6_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "i_pv6_enabled")
-
-    @i_pv6_enabled.setter
-    def i_pv6_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "i_pv6_enabled", value)
-
-    @property
-    @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input['DistributionLoggingArgs']]:
-        return pulumi.get(self, "logging")
-
-    @logging.setter
-    def logging(self, value: Optional[pulumi.Input['DistributionLoggingArgs']]):
-        pulumi.set(self, "logging", value)
-
-    @property
-    @pulumi.getter(name="originGroups")
-    def origin_groups(self) -> Optional[pulumi.Input['DistributionOriginGroupsArgs']]:
-        return pulumi.get(self, "origin_groups")
-
-    @origin_groups.setter
-    def origin_groups(self, value: Optional[pulumi.Input['DistributionOriginGroupsArgs']]):
-        pulumi.set(self, "origin_groups", value)
-
-    @property
-    @pulumi.getter
-    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]:
-        return pulumi.get(self, "origins")
-
-    @origins.setter
-    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]]]):
-        pulumi.set(self, "origins", value)
-
-    @property
-    @pulumi.getter(name="priceClass")
-    def price_class(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "price_class")
-
-    @price_class.setter
-    def price_class(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "price_class", value)
-
-    @property
-    @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input['DistributionRestrictionsArgs']]:
-        return pulumi.get(self, "restrictions")
-
-    @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input['DistributionRestrictionsArgs']]):
-        pulumi.set(self, "restrictions", value)
-
-    @property
-    @pulumi.getter(name="s3Origin")
-    def s3_origin(self) -> Optional[pulumi.Input['DistributionLegacyS3OriginArgs']]:
-        return pulumi.get(self, "s3_origin")
-
-    @s3_origin.setter
-    def s3_origin(self, value: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']]):
-        pulumi.set(self, "s3_origin", value)
-
-    @property
-    @pulumi.getter(name="viewerCertificate")
-    def viewer_certificate(self) -> Optional[pulumi.Input['DistributionViewerCertificateArgs']]:
-        return pulumi.get(self, "viewer_certificate")
-
-    @viewer_certificate.setter
-    def viewer_certificate(self, value: Optional[pulumi.Input['DistributionViewerCertificateArgs']]):
-        pulumi.set(self, "viewer_certificate", value)
-
-    @property
-    @pulumi.getter(name="webACLId")
-    def web_acl_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "web_acl_id")
-
-    @web_acl_id.setter
-    def web_acl_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "web_acl_id", value)
 
 
 @pulumi.input_type
@@ -1853,7 +1853,7 @@ class DistributionViewerCertificateArgs:
 
 
 @pulumi.input_type
-class FunctionFunctionConfigArgs:
+class FunctionConfigArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[str],
                  runtime: pulumi.Input[str]):
@@ -1880,7 +1880,7 @@ class FunctionFunctionConfigArgs:
 
 
 @pulumi.input_type
-class FunctionFunctionMetadataArgs:
+class FunctionMetadataArgs:
     def __init__(__self__, *,
                  function_arn: Optional[pulumi.Input[str]] = None):
         if function_arn is not None:
@@ -1897,7 +1897,7 @@ class FunctionFunctionMetadataArgs:
 
 
 @pulumi.input_type
-class KeyGroupKeyGroupConfigArgs:
+class KeyGroupConfigArgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
@@ -1924,6 +1924,67 @@ class KeyGroupKeyGroupConfigArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+
+@pulumi.input_type
+class OriginRequestPolicyConfigArgs:
+    def __init__(__self__, *,
+                 cookies_config: pulumi.Input['OriginRequestPolicyCookiesConfigArgs'],
+                 headers_config: pulumi.Input['OriginRequestPolicyHeadersConfigArgs'],
+                 name: pulumi.Input[str],
+                 query_strings_config: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'],
+                 comment: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "cookies_config", cookies_config)
+        pulumi.set(__self__, "headers_config", headers_config)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query_strings_config", query_strings_config)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+
+    @property
+    @pulumi.getter(name="cookiesConfig")
+    def cookies_config(self) -> pulumi.Input['OriginRequestPolicyCookiesConfigArgs']:
+        return pulumi.get(self, "cookies_config")
+
+    @cookies_config.setter
+    def cookies_config(self, value: pulumi.Input['OriginRequestPolicyCookiesConfigArgs']):
+        pulumi.set(self, "cookies_config", value)
+
+    @property
+    @pulumi.getter(name="headersConfig")
+    def headers_config(self) -> pulumi.Input['OriginRequestPolicyHeadersConfigArgs']:
+        return pulumi.get(self, "headers_config")
+
+    @headers_config.setter
+    def headers_config(self, value: pulumi.Input['OriginRequestPolicyHeadersConfigArgs']):
+        pulumi.set(self, "headers_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="queryStringsConfig")
+    def query_strings_config(self) -> pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']:
+        return pulumi.get(self, "query_strings_config")
+
+    @query_strings_config.setter
+    def query_strings_config(self, value: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']):
+        pulumi.set(self, "query_strings_config", value)
 
     @property
     @pulumi.getter
@@ -1992,67 +2053,6 @@ class OriginRequestPolicyHeadersConfigArgs:
 
 
 @pulumi.input_type
-class OriginRequestPolicyOriginRequestPolicyConfigArgs:
-    def __init__(__self__, *,
-                 cookies_config: pulumi.Input['OriginRequestPolicyCookiesConfigArgs'],
-                 headers_config: pulumi.Input['OriginRequestPolicyHeadersConfigArgs'],
-                 name: pulumi.Input[str],
-                 query_strings_config: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'],
-                 comment: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "cookies_config", cookies_config)
-        pulumi.set(__self__, "headers_config", headers_config)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "query_strings_config", query_strings_config)
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
-
-    @property
-    @pulumi.getter(name="cookiesConfig")
-    def cookies_config(self) -> pulumi.Input['OriginRequestPolicyCookiesConfigArgs']:
-        return pulumi.get(self, "cookies_config")
-
-    @cookies_config.setter
-    def cookies_config(self, value: pulumi.Input['OriginRequestPolicyCookiesConfigArgs']):
-        pulumi.set(self, "cookies_config", value)
-
-    @property
-    @pulumi.getter(name="headersConfig")
-    def headers_config(self) -> pulumi.Input['OriginRequestPolicyHeadersConfigArgs']:
-        return pulumi.get(self, "headers_config")
-
-    @headers_config.setter
-    def headers_config(self, value: pulumi.Input['OriginRequestPolicyHeadersConfigArgs']):
-        pulumi.set(self, "headers_config", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="queryStringsConfig")
-    def query_strings_config(self) -> pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']:
-        return pulumi.get(self, "query_strings_config")
-
-    @query_strings_config.setter
-    def query_strings_config(self, value: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']):
-        pulumi.set(self, "query_strings_config", value)
-
-    @property
-    @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "comment")
-
-    @comment.setter
-    def comment(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "comment", value)
-
-
-@pulumi.input_type
 class OriginRequestPolicyQueryStringsConfigArgs:
     def __init__(__self__, *,
                  query_string_behavior: pulumi.Input[str],
@@ -2081,7 +2081,7 @@ class OriginRequestPolicyQueryStringsConfigArgs:
 
 
 @pulumi.input_type
-class PublicKeyPublicKeyConfigArgs:
+class PublicKeyConfigArgs:
     def __init__(__self__, *,
                  caller_reference: pulumi.Input[str],
                  encoded_key: pulumi.Input[str],
@@ -2185,72 +2185,7 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
 
 
 @pulumi.input_type
-class StreamingDistributionLoggingArgs:
-    def __init__(__self__, *,
-                 bucket: pulumi.Input[str],
-                 enabled: pulumi.Input[bool],
-                 prefix: pulumi.Input[str]):
-        pulumi.set(__self__, "bucket", bucket)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "prefix", prefix)
-
-    @property
-    @pulumi.getter
-    def bucket(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "bucket")
-
-    @bucket.setter
-    def bucket(self, value: pulumi.Input[str]):
-        pulumi.set(self, "bucket", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def prefix(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "prefix")
-
-    @prefix.setter
-    def prefix(self, value: pulumi.Input[str]):
-        pulumi.set(self, "prefix", value)
-
-
-@pulumi.input_type
-class StreamingDistributionS3OriginArgs:
-    def __init__(__self__, *,
-                 domain_name: pulumi.Input[str],
-                 origin_access_identity: pulumi.Input[str]):
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "origin_access_identity", origin_access_identity)
-
-    @property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_name", value)
-
-    @property
-    @pulumi.getter(name="originAccessIdentity")
-    def origin_access_identity(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "origin_access_identity")
-
-    @origin_access_identity.setter
-    def origin_access_identity(self, value: pulumi.Input[str]):
-        pulumi.set(self, "origin_access_identity", value)
-
-
-@pulumi.input_type
-class StreamingDistributionStreamingDistributionConfigArgs:
+class StreamingDistributionConfigArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
@@ -2332,6 +2267,71 @@ class StreamingDistributionStreamingDistributionConfigArgs:
     @price_class.setter
     def price_class(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "price_class", value)
+
+
+@pulumi.input_type
+class StreamingDistributionLoggingArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 enabled: pulumi.Input[bool],
+                 prefix: pulumi.Input[str]):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+
+@pulumi.input_type
+class StreamingDistributionS3OriginArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 origin_access_identity: pulumi.Input[str]):
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "origin_access_identity", origin_access_identity)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="originAccessIdentity")
+    def origin_access_identity(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "origin_access_identity")
+
+    @origin_access_identity.setter
+    def origin_access_identity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "origin_access_identity", value)
 
 
 @pulumi.input_type

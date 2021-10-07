@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CloudFront
     public partial class KeyGroup : Pulumi.CustomResource
     {
         [Output("keyGroupConfig")]
-        public Output<Outputs.KeyGroupKeyGroupConfig> KeyGroupConfig { get; private set; } = null!;
+        public Output<Outputs.KeyGroupConfig> KeyGroupConfig { get; private set; } = null!;
 
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class KeyGroupArgs : Pulumi.ResourceArgs
     {
         [Input("keyGroupConfig", required: true)]
-        public Input<Inputs.KeyGroupKeyGroupConfigArgs> KeyGroupConfig { get; set; } = null!;
+        public Input<Inputs.KeyGroupConfigArgs> KeyGroupConfig { get; set; } = null!;
 
         public KeyGroupArgs()
         {

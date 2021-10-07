@@ -11,12 +11,12 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ReplicationConfigurationArgs', 'ReplicationConfiguration']
+__all__ = ['ReplicationConfigurationInitArgs', 'ReplicationConfiguration']
 
 @pulumi.input_type
-class ReplicationConfigurationArgs:
+class ReplicationConfigurationInitArgs:
     def __init__(__self__, *,
-                 replication_configuration: pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']):
+                 replication_configuration: pulumi.Input['ReplicationConfigurationArgs']):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
         """
@@ -24,11 +24,11 @@ class ReplicationConfigurationArgs:
 
     @property
     @pulumi.getter(name="replicationConfiguration")
-    def replication_configuration(self) -> pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']:
+    def replication_configuration(self) -> pulumi.Input['ReplicationConfigurationArgs']:
         return pulumi.get(self, "replication_configuration")
 
     @replication_configuration.setter
-    def replication_configuration(self, value: pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']):
+    def replication_configuration(self, value: pulumi.Input['ReplicationConfigurationArgs']):
         pulumi.set(self, "replication_configuration", value)
 
 
@@ -37,7 +37,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationArgs']]] = None,
                  __props__=None):
         """
         The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
@@ -49,18 +49,18 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicationConfigurationArgs,
+                 args: ReplicationConfigurationInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
 
         :param str resource_name: The name of the resource.
-        :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicationConfigurationInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicationConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationConfigurationInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -69,7 +69,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -80,7 +80,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicationConfigurationArgs.__new__(ReplicationConfigurationArgs)
+            __props__ = ReplicationConfigurationInitArgs.__new__(ReplicationConfigurationInitArgs)
 
             if replication_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_configuration'")
@@ -106,7 +106,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ReplicationConfigurationArgs.__new__(ReplicationConfigurationArgs)
+        __props__ = ReplicationConfigurationInitArgs.__new__(ReplicationConfigurationInitArgs)
 
         __props__.__dict__["registry_id"] = None
         __props__.__dict__["replication_configuration"] = None
@@ -122,6 +122,6 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationConfiguration")
-    def replication_configuration(self) -> pulumi.Output['outputs.ReplicationConfigurationReplicationConfiguration']:
+    def replication_configuration(self) -> pulumi.Output['outputs.ReplicationConfiguration']:
         return pulumi.get(self, "replication_configuration")
 

@@ -17,15 +17,15 @@ import (
 type Repository struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                    `pulumi:"arn"`
-	CloneUrlHttp          pulumi.StringOutput                    `pulumi:"cloneUrlHttp"`
-	CloneUrlSsh           pulumi.StringOutput                    `pulumi:"cloneUrlSsh"`
-	Code                  RepositoryCodePtrOutput                `pulumi:"code"`
-	Name                  pulumi.StringOutput                    `pulumi:"name"`
-	RepositoryDescription pulumi.StringPtrOutput                 `pulumi:"repositoryDescription"`
-	RepositoryName        pulumi.StringOutput                    `pulumi:"repositoryName"`
-	Tags                  RepositoryTagArrayOutput               `pulumi:"tags"`
-	Triggers              RepositoryRepositoryTriggerArrayOutput `pulumi:"triggers"`
+	Arn                   pulumi.StringOutput          `pulumi:"arn"`
+	CloneUrlHttp          pulumi.StringOutput          `pulumi:"cloneUrlHttp"`
+	CloneUrlSsh           pulumi.StringOutput          `pulumi:"cloneUrlSsh"`
+	Code                  RepositoryCodePtrOutput      `pulumi:"code"`
+	Name                  pulumi.StringOutput          `pulumi:"name"`
+	RepositoryDescription pulumi.StringPtrOutput       `pulumi:"repositoryDescription"`
+	RepositoryName        pulumi.StringOutput          `pulumi:"repositoryName"`
+	Tags                  RepositoryTagArrayOutput     `pulumi:"tags"`
+	Triggers              RepositoryTriggerArrayOutput `pulumi:"triggers"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -70,11 +70,11 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	Code                  *RepositoryCode               `pulumi:"code"`
-	RepositoryDescription *string                       `pulumi:"repositoryDescription"`
-	RepositoryName        string                        `pulumi:"repositoryName"`
-	Tags                  []RepositoryTag               `pulumi:"tags"`
-	Triggers              []RepositoryRepositoryTrigger `pulumi:"triggers"`
+	Code                  *RepositoryCode     `pulumi:"code"`
+	RepositoryDescription *string             `pulumi:"repositoryDescription"`
+	RepositoryName        string              `pulumi:"repositoryName"`
+	Tags                  []RepositoryTag     `pulumi:"tags"`
+	Triggers              []RepositoryTrigger `pulumi:"triggers"`
 }
 
 // The set of arguments for constructing a Repository resource.
@@ -83,7 +83,7 @@ type RepositoryArgs struct {
 	RepositoryDescription pulumi.StringPtrInput
 	RepositoryName        pulumi.StringInput
 	Tags                  RepositoryTagArrayInput
-	Triggers              RepositoryRepositoryTriggerArrayInput
+	Triggers              RepositoryTriggerArrayInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {

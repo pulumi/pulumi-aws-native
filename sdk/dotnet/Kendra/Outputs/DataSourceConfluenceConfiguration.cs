@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly string ServerUrl;
         public readonly Outputs.DataSourceConfluenceSpaceConfiguration? SpaceConfiguration;
         public readonly Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion Version;
-        public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
+        public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]
         private DataSourceConfluenceConfiguration(
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion version,
 
-            Outputs.DataSourceDataSourceVpcConfiguration? vpcConfiguration)
+            Outputs.DataSourceVpcConfiguration? vpcConfiguration)
         {
             AttachmentConfiguration = attachmentConfiguration;
             BlogConfiguration = blogConfiguration;

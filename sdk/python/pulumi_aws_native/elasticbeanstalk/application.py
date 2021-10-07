@@ -17,7 +17,7 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  application_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 resource_lifecycle_config: Optional[pulumi.Input['ApplicationApplicationResourceLifecycleConfigArgs']] = None):
+                 resource_lifecycle_config: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
         """
@@ -48,11 +48,11 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter(name="resourceLifecycleConfig")
-    def resource_lifecycle_config(self) -> Optional[pulumi.Input['ApplicationApplicationResourceLifecycleConfigArgs']]:
+    def resource_lifecycle_config(self) -> Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']]:
         return pulumi.get(self, "resource_lifecycle_config")
 
     @resource_lifecycle_config.setter
-    def resource_lifecycle_config(self, value: Optional[pulumi.Input['ApplicationApplicationResourceLifecycleConfigArgs']]):
+    def resource_lifecycle_config(self, value: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']]):
         pulumi.set(self, "resource_lifecycle_config", value)
 
 
@@ -68,7 +68,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 resource_lifecycle_config: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationResourceLifecycleConfigArgs']]] = None,
+                 resource_lifecycle_config: Optional[pulumi.Input[pulumi.InputType['ApplicationResourceLifecycleConfigArgs']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::Application
@@ -102,7 +102,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 resource_lifecycle_config: Optional[pulumi.Input[pulumi.InputType['ApplicationApplicationResourceLifecycleConfigArgs']]] = None,
+                 resource_lifecycle_config: Optional[pulumi.Input[pulumi.InputType['ApplicationResourceLifecycleConfigArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         if opts is None:
@@ -158,6 +158,6 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceLifecycleConfig")
-    def resource_lifecycle_config(self) -> pulumi.Output[Optional['outputs.ApplicationApplicationResourceLifecycleConfig']]:
+    def resource_lifecycle_config(self) -> pulumi.Output[Optional['outputs.ApplicationResourceLifecycleConfig']]:
         return pulumi.get(self, "resource_lifecycle_config")
 

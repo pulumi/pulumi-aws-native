@@ -18,7 +18,7 @@ class BucketArgs:
                  accelerate_configuration: Optional[pulumi.Input['BucketAccelerateConfigurationArgs']] = None,
                  access_control: Optional[pulumi.Input[str]] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]]] = None,
-                 bucket_encryption: Optional[pulumi.Input['BucketBucketEncryptionArgs']] = None,
+                 bucket_encryption: Optional[pulumi.Input['BucketEncryptionArgs']] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  cors_configuration: Optional[pulumi.Input['BucketCorsConfigurationArgs']] = None,
                  intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketIntelligentTieringConfigurationArgs']]]] = None,
@@ -108,11 +108,11 @@ class BucketArgs:
 
     @property
     @pulumi.getter(name="bucketEncryption")
-    def bucket_encryption(self) -> Optional[pulumi.Input['BucketBucketEncryptionArgs']]:
+    def bucket_encryption(self) -> Optional[pulumi.Input['BucketEncryptionArgs']]:
         return pulumi.get(self, "bucket_encryption")
 
     @bucket_encryption.setter
-    def bucket_encryption(self, value: Optional[pulumi.Input['BucketBucketEncryptionArgs']]):
+    def bucket_encryption(self, value: Optional[pulumi.Input['BucketEncryptionArgs']]):
         pulumi.set(self, "bucket_encryption", value)
 
     @property
@@ -268,7 +268,7 @@ class Bucket(pulumi.CustomResource):
                  accelerate_configuration: Optional[pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']]] = None,
                  access_control: Optional[pulumi.Input[str]] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]]] = None,
-                 bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketBucketEncryptionArgs']]] = None,
+                 bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketEncryptionArgs']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']]] = None,
                  intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]]] = None,
@@ -319,7 +319,7 @@ class Bucket(pulumi.CustomResource):
                  accelerate_configuration: Optional[pulumi.Input[pulumi.InputType['BucketAccelerateConfigurationArgs']]] = None,
                  access_control: Optional[pulumi.Input[str]] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketAnalyticsConfigurationArgs']]]]] = None,
-                 bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketBucketEncryptionArgs']]] = None,
+                 bucket_encryption: Optional[pulumi.Input[pulumi.InputType['BucketEncryptionArgs']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['BucketCorsConfigurationArgs']]] = None,
                  intelligent_tiering_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketIntelligentTieringConfigurationArgs']]]]] = None,
@@ -444,7 +444,7 @@ class Bucket(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketEncryption")
-    def bucket_encryption(self) -> pulumi.Output[Optional['outputs.BucketBucketEncryption']]:
+    def bucket_encryption(self) -> pulumi.Output[Optional['outputs.BucketEncryption']]:
         return pulumi.get(self, "bucket_encryption")
 
     @property

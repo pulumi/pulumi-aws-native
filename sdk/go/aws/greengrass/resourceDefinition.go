@@ -17,11 +17,11 @@ import (
 type ResourceDefinition struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                                  `pulumi:"arn"`
-	InitialVersion   ResourceDefinitionResourceDefinitionVersionPtrOutput `pulumi:"initialVersion"`
-	LatestVersionArn pulumi.StringOutput                                  `pulumi:"latestVersionArn"`
-	Name             pulumi.StringOutput                                  `pulumi:"name"`
-	Tags             pulumi.AnyOutput                                     `pulumi:"tags"`
+	Arn              pulumi.StringOutput                    `pulumi:"arn"`
+	InitialVersion   ResourceDefinitionVersionTypePtrOutput `pulumi:"initialVersion"`
+	LatestVersionArn pulumi.StringOutput                    `pulumi:"latestVersionArn"`
+	Name             pulumi.StringOutput                    `pulumi:"name"`
+	Tags             pulumi.AnyOutput                       `pulumi:"tags"`
 }
 
 // NewResourceDefinition registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,14 @@ func (ResourceDefinitionState) ElementType() reflect.Type {
 }
 
 type resourceDefinitionArgs struct {
-	InitialVersion *ResourceDefinitionResourceDefinitionVersion `pulumi:"initialVersion"`
-	Name           string                                       `pulumi:"name"`
-	Tags           interface{}                                  `pulumi:"tags"`
+	InitialVersion *ResourceDefinitionVersionType `pulumi:"initialVersion"`
+	Name           string                         `pulumi:"name"`
+	Tags           interface{}                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceDefinition resource.
 type ResourceDefinitionArgs struct {
-	InitialVersion ResourceDefinitionResourceDefinitionVersionPtrInput
+	InitialVersion ResourceDefinitionVersionTypePtrInput
 	Name           pulumi.StringInput
 	Tags           pulumi.Input
 }

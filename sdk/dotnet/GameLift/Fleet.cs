@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.GameLift
         /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         /// </summary>
         [Output("fleetType")]
-        public Output<Pulumi.AwsNative.GameLift.FleetFleetType?> FleetType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GameLift.FleetType?> FleetType { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
@@ -245,7 +245,7 @@ namespace Pulumi.AwsNative.GameLift
         /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         /// </summary>
         [Input("fleetType")]
-        public Input<Pulumi.AwsNative.GameLift.FleetFleetType>? FleetType { get; set; }
+        public Input<Pulumi.AwsNative.GameLift.FleetType>? FleetType { get; set; }
 
         /// <summary>
         /// A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.

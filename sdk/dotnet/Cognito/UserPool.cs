@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string?> SmsVerificationMessage { get; private set; } = null!;
 
         [Output("userPoolAddOns")]
-        public Output<Outputs.UserPoolUserPoolAddOns?> UserPoolAddOns { get; private set; } = null!;
+        public Output<Outputs.UserPoolAddOns?> UserPoolAddOns { get; private set; } = null!;
 
         [Output("userPoolName")]
         public Output<string?> UserPoolName { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string>? SmsVerificationMessage { get; set; }
 
         [Input("userPoolAddOns")]
-        public Input<Inputs.UserPoolUserPoolAddOnsArgs>? UserPoolAddOns { get; set; }
+        public Input<Inputs.UserPoolAddOnsArgs>? UserPoolAddOns { get; set; }
 
         [Input("userPoolName")]
         public Input<string>? UserPoolName { get; set; }

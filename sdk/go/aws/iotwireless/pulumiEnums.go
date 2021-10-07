@@ -176,123 +176,123 @@ func (in *destinationExpressionTypePtr) ToDestinationExpressionTypePtrOutputWith
 }
 
 // A filter to list only the wireless gateway task definitions that use this task definition type
-type TaskDefinitionTaskDefinitionType string
+type TaskDefinitionType string
 
 const (
-	TaskDefinitionTaskDefinitionTypeUpdate = TaskDefinitionTaskDefinitionType("UPDATE")
+	TaskDefinitionTypeUpdate = TaskDefinitionType("UPDATE")
 )
 
-func (TaskDefinitionTaskDefinitionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTaskDefinitionType)(nil)).Elem()
+func (TaskDefinitionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionType)(nil)).Elem()
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToTaskDefinitionTaskDefinitionTypeOutput() TaskDefinitionTaskDefinitionTypeOutput {
-	return pulumi.ToOutput(e).(TaskDefinitionTaskDefinitionTypeOutput)
+func (e TaskDefinitionType) ToTaskDefinitionTypeOutput() TaskDefinitionTypeOutput {
+	return pulumi.ToOutput(e).(TaskDefinitionTypeOutput)
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToTaskDefinitionTaskDefinitionTypeOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionTaskDefinitionTypeOutput)
+func (e TaskDefinitionType) ToTaskDefinitionTypeOutputWithContext(ctx context.Context) TaskDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionTypeOutput)
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToTaskDefinitionTaskDefinitionTypePtrOutput() TaskDefinitionTaskDefinitionTypePtrOutput {
-	return e.ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(context.Background())
+func (e TaskDefinitionType) ToTaskDefinitionTypePtrOutput() TaskDefinitionTypePtrOutput {
+	return e.ToTaskDefinitionTypePtrOutputWithContext(context.Background())
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionTypePtrOutput {
-	return TaskDefinitionTaskDefinitionType(e).ToTaskDefinitionTaskDefinitionTypeOutputWithContext(ctx).ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(ctx)
+func (e TaskDefinitionType) ToTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTypePtrOutput {
+	return TaskDefinitionType(e).ToTaskDefinitionTypeOutputWithContext(ctx).ToTaskDefinitionTypePtrOutputWithContext(ctx)
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToStringOutput() pulumi.StringOutput {
+func (e TaskDefinitionType) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TaskDefinitionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TaskDefinitionType) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TaskDefinitionTaskDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TaskDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TaskDefinitionTaskDefinitionTypeOutput struct{ *pulumi.OutputState }
+type TaskDefinitionTypeOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionTaskDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionTaskDefinitionType)(nil)).Elem()
+func (TaskDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionType)(nil)).Elem()
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToTaskDefinitionTaskDefinitionTypeOutput() TaskDefinitionTaskDefinitionTypeOutput {
+func (o TaskDefinitionTypeOutput) ToTaskDefinitionTypeOutput() TaskDefinitionTypeOutput {
 	return o
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToTaskDefinitionTaskDefinitionTypeOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionTypeOutput {
+func (o TaskDefinitionTypeOutput) ToTaskDefinitionTypeOutputWithContext(ctx context.Context) TaskDefinitionTypeOutput {
 	return o
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToTaskDefinitionTaskDefinitionTypePtrOutput() TaskDefinitionTaskDefinitionTypePtrOutput {
-	return o.ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(context.Background())
+func (o TaskDefinitionTypeOutput) ToTaskDefinitionTypePtrOutput() TaskDefinitionTypePtrOutput {
+	return o.ToTaskDefinitionTypePtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionTaskDefinitionType) *TaskDefinitionTaskDefinitionType {
+func (o TaskDefinitionTypeOutput) ToTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionType) *TaskDefinitionType {
 		return &v
-	}).(TaskDefinitionTaskDefinitionTypePtrOutput)
+	}).(TaskDefinitionTypePtrOutput)
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
+func (o TaskDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionTaskDefinitionType) string {
+func (o TaskDefinitionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TaskDefinitionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionTaskDefinitionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionTaskDefinitionType) *string {
+func (o TaskDefinitionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TaskDefinitionTaskDefinitionTypePtrOutput struct{ *pulumi.OutputState }
+type TaskDefinitionTypePtrOutput struct{ *pulumi.OutputState }
 
-func (TaskDefinitionTaskDefinitionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskDefinitionTaskDefinitionType)(nil)).Elem()
+func (TaskDefinitionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionType)(nil)).Elem()
 }
 
-func (o TaskDefinitionTaskDefinitionTypePtrOutput) ToTaskDefinitionTaskDefinitionTypePtrOutput() TaskDefinitionTaskDefinitionTypePtrOutput {
+func (o TaskDefinitionTypePtrOutput) ToTaskDefinitionTypePtrOutput() TaskDefinitionTypePtrOutput {
 	return o
 }
 
-func (o TaskDefinitionTaskDefinitionTypePtrOutput) ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionTypePtrOutput {
+func (o TaskDefinitionTypePtrOutput) ToTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTypePtrOutput {
 	return o
 }
 
-func (o TaskDefinitionTaskDefinitionTypePtrOutput) Elem() TaskDefinitionTaskDefinitionTypeOutput {
-	return o.ApplyT(func(v *TaskDefinitionTaskDefinitionType) TaskDefinitionTaskDefinitionType {
+func (o TaskDefinitionTypePtrOutput) Elem() TaskDefinitionTypeOutput {
+	return o.ApplyT(func(v *TaskDefinitionType) TaskDefinitionType {
 		if v != nil {
 			return *v
 		}
-		var ret TaskDefinitionTaskDefinitionType
+		var ret TaskDefinitionType
 		return ret
-	}).(TaskDefinitionTaskDefinitionTypeOutput)
+	}).(TaskDefinitionTypeOutput)
 }
 
-func (o TaskDefinitionTaskDefinitionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TaskDefinitionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TaskDefinitionTaskDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionTaskDefinitionType) *string {
+func (o TaskDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionType) *string {
 		if e == nil {
 			return nil
 		}
@@ -301,42 +301,42 @@ func (o TaskDefinitionTaskDefinitionTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskDefinitionTaskDefinitionTypeInput is an input type that accepts TaskDefinitionTaskDefinitionTypeArgs and TaskDefinitionTaskDefinitionTypeOutput values.
-// You can construct a concrete instance of `TaskDefinitionTaskDefinitionTypeInput` via:
+// TaskDefinitionTypeInput is an input type that accepts TaskDefinitionTypeArgs and TaskDefinitionTypeOutput values.
+// You can construct a concrete instance of `TaskDefinitionTypeInput` via:
 //
-//          TaskDefinitionTaskDefinitionTypeArgs{...}
-type TaskDefinitionTaskDefinitionTypeInput interface {
+//          TaskDefinitionTypeArgs{...}
+type TaskDefinitionTypeInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionTaskDefinitionTypeOutput() TaskDefinitionTaskDefinitionTypeOutput
-	ToTaskDefinitionTaskDefinitionTypeOutputWithContext(context.Context) TaskDefinitionTaskDefinitionTypeOutput
+	ToTaskDefinitionTypeOutput() TaskDefinitionTypeOutput
+	ToTaskDefinitionTypeOutputWithContext(context.Context) TaskDefinitionTypeOutput
 }
 
-var taskDefinitionTaskDefinitionTypePtrType = reflect.TypeOf((**TaskDefinitionTaskDefinitionType)(nil)).Elem()
+var taskDefinitionTypePtrType = reflect.TypeOf((**TaskDefinitionType)(nil)).Elem()
 
-type TaskDefinitionTaskDefinitionTypePtrInput interface {
+type TaskDefinitionTypePtrInput interface {
 	pulumi.Input
 
-	ToTaskDefinitionTaskDefinitionTypePtrOutput() TaskDefinitionTaskDefinitionTypePtrOutput
-	ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(context.Context) TaskDefinitionTaskDefinitionTypePtrOutput
+	ToTaskDefinitionTypePtrOutput() TaskDefinitionTypePtrOutput
+	ToTaskDefinitionTypePtrOutputWithContext(context.Context) TaskDefinitionTypePtrOutput
 }
 
-type taskDefinitionTaskDefinitionTypePtr string
+type taskDefinitionTypePtr string
 
-func TaskDefinitionTaskDefinitionTypePtr(v string) TaskDefinitionTaskDefinitionTypePtrInput {
-	return (*taskDefinitionTaskDefinitionTypePtr)(&v)
+func TaskDefinitionTypePtr(v string) TaskDefinitionTypePtrInput {
+	return (*taskDefinitionTypePtr)(&v)
 }
 
-func (*taskDefinitionTaskDefinitionTypePtr) ElementType() reflect.Type {
-	return taskDefinitionTaskDefinitionTypePtrType
+func (*taskDefinitionTypePtr) ElementType() reflect.Type {
+	return taskDefinitionTypePtrType
 }
 
-func (in *taskDefinitionTaskDefinitionTypePtr) ToTaskDefinitionTaskDefinitionTypePtrOutput() TaskDefinitionTaskDefinitionTypePtrOutput {
-	return pulumi.ToOutput(in).(TaskDefinitionTaskDefinitionTypePtrOutput)
+func (in *taskDefinitionTypePtr) ToTaskDefinitionTypePtrOutput() TaskDefinitionTypePtrOutput {
+	return pulumi.ToOutput(in).(TaskDefinitionTypePtrOutput)
 }
 
-func (in *taskDefinitionTaskDefinitionTypePtr) ToTaskDefinitionTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTaskDefinitionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionTaskDefinitionTypePtrOutput)
+func (in *taskDefinitionTypePtr) ToTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionTypePtrOutput)
 }
 
 // Wireless device type, currently only Sidewalk and LoRa
@@ -507,8 +507,8 @@ func (in *wirelessDeviceTypePtr) ToWirelessDeviceTypePtrOutputWithContext(ctx co
 func init() {
 	pulumi.RegisterOutputType(DestinationExpressionTypeOutput{})
 	pulumi.RegisterOutputType(DestinationExpressionTypePtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTaskDefinitionTypeOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionTaskDefinitionTypePtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTypeOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTypePtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTypeOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTypePtrOutput{})
 }

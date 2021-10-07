@@ -27,7 +27,7 @@ type Image struct {
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// The image tests configuration used when creating this image.
-	ImageTestsConfiguration ImageImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
+	ImageTestsConfiguration ImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrOutput `pulumi:"infrastructureConfigurationArn"`
 	// The name of the image.
@@ -84,7 +84,7 @@ type imageArgs struct {
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// The image tests configuration used when creating this image.
-	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
+	ImageTestsConfiguration *ImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// The tags associated with the image.
@@ -102,7 +102,7 @@ type ImageArgs struct {
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrInput
 	// The image tests configuration used when creating this image.
-	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
+	ImageTestsConfiguration ImageTestsConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	InfrastructureConfigurationArn pulumi.StringPtrInput
 	// The tags associated with the image.

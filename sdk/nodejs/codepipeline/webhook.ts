@@ -39,8 +39,8 @@ export class Webhook extends pulumi.CustomResource {
     }
 
     public readonly authentication!: pulumi.Output<string>;
-    public readonly authenticationConfiguration!: pulumi.Output<outputs.codepipeline.WebhookWebhookAuthConfiguration>;
-    public readonly filters!: pulumi.Output<outputs.codepipeline.WebhookWebhookFilterRule[]>;
+    public readonly authenticationConfiguration!: pulumi.Output<outputs.codepipeline.WebhookAuthConfiguration>;
+    public readonly filters!: pulumi.Output<outputs.codepipeline.WebhookFilterRule[]>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly registerWithThirdParty!: pulumi.Output<boolean | undefined>;
     public readonly targetAction!: pulumi.Output<string>;
@@ -111,8 +111,8 @@ export class Webhook extends pulumi.CustomResource {
  */
 export interface WebhookArgs {
     authentication: pulumi.Input<string>;
-    authenticationConfiguration: pulumi.Input<inputs.codepipeline.WebhookWebhookAuthConfigurationArgs>;
-    filters: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookWebhookFilterRuleArgs>[]>;
+    authenticationConfiguration: pulumi.Input<inputs.codepipeline.WebhookAuthConfigurationArgs>;
+    filters: pulumi.Input<pulumi.Input<inputs.codepipeline.WebhookFilterRuleArgs>[]>;
     name?: pulumi.Input<string>;
     registerWithThirdParty?: pulumi.Input<boolean>;
     targetAction: pulumi.Input<string>;

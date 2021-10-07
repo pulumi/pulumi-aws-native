@@ -16,7 +16,7 @@ __all__ = [
     'ClientCertificateTag',
     'DeploymentAccessLogSetting',
     'DeploymentCanarySetting',
-    'DeploymentDeploymentCanarySettings',
+    'DeploymentCanarySettings',
     'DeploymentMethodSetting',
     'DeploymentStageDescription',
     'DeploymentTag',
@@ -26,7 +26,7 @@ __all__ = [
     'DomainNameTag',
     'MethodIntegration',
     'MethodIntegrationResponse',
-    'MethodMethodResponse',
+    'MethodResponse',
     'RestApiEndpointConfiguration',
     'RestApiS3Location',
     'RestApiTag',
@@ -227,7 +227,7 @@ class DeploymentCanarySetting(dict):
 
 
 @pulumi.output_type
-class DeploymentDeploymentCanarySettings(dict):
+class DeploymentCanarySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -239,14 +239,14 @@ class DeploymentDeploymentCanarySettings(dict):
             suggest = "use_stage_cache"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentDeploymentCanarySettings. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentCanarySettings. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DeploymentDeploymentCanarySettings.__key_warning(key)
+        DeploymentCanarySettings.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DeploymentDeploymentCanarySettings.__key_warning(key)
+        DeploymentCanarySettings.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -979,7 +979,7 @@ class MethodIntegrationResponse(dict):
 
 
 @pulumi.output_type
-class MethodMethodResponse(dict):
+class MethodResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -991,14 +991,14 @@ class MethodMethodResponse(dict):
             suggest = "response_parameters"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MethodMethodResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MethodResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MethodMethodResponse.__key_warning(key)
+        MethodResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MethodMethodResponse.__key_warning(key)
+        MethodResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

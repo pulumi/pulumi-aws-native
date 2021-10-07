@@ -17,8 +17,8 @@ type Datastore struct {
 	pulumi.CustomResourceState
 
 	DatastoreName           pulumi.StringPtrOutput                    `pulumi:"datastoreName"`
-	DatastorePartitions     DatastoreDatastorePartitionsPtrOutput     `pulumi:"datastorePartitions"`
-	DatastoreStorage        DatastoreDatastoreStoragePtrOutput        `pulumi:"datastoreStorage"`
+	DatastorePartitions     DatastorePartitionsPtrOutput              `pulumi:"datastorePartitions"`
+	DatastoreStorage        DatastoreStoragePtrOutput                 `pulumi:"datastoreStorage"`
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrOutput `pulumi:"fileFormatConfiguration"`
 	RetentionPeriod         DatastoreRetentionPeriodPtrOutput         `pulumi:"retentionPeriod"`
 	Tags                    DatastoreTagArrayOutput                   `pulumi:"tags"`
@@ -64,8 +64,8 @@ func (DatastoreState) ElementType() reflect.Type {
 
 type datastoreArgs struct {
 	DatastoreName           *string                           `pulumi:"datastoreName"`
-	DatastorePartitions     *DatastoreDatastorePartitions     `pulumi:"datastorePartitions"`
-	DatastoreStorage        *DatastoreDatastoreStorage        `pulumi:"datastoreStorage"`
+	DatastorePartitions     *DatastorePartitions              `pulumi:"datastorePartitions"`
+	DatastoreStorage        *DatastoreStorage                 `pulumi:"datastoreStorage"`
 	FileFormatConfiguration *DatastoreFileFormatConfiguration `pulumi:"fileFormatConfiguration"`
 	RetentionPeriod         *DatastoreRetentionPeriod         `pulumi:"retentionPeriod"`
 	Tags                    []DatastoreTag                    `pulumi:"tags"`
@@ -74,8 +74,8 @@ type datastoreArgs struct {
 // The set of arguments for constructing a Datastore resource.
 type DatastoreArgs struct {
 	DatastoreName           pulumi.StringPtrInput
-	DatastorePartitions     DatastoreDatastorePartitionsPtrInput
-	DatastoreStorage        DatastoreDatastoreStoragePtrInput
+	DatastorePartitions     DatastorePartitionsPtrInput
+	DatastoreStorage        DatastoreStoragePtrInput
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrInput
 	RetentionPeriod         DatastoreRetentionPeriodPtrInput
 	Tags                    DatastoreTagArrayInput

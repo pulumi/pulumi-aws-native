@@ -38,7 +38,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The Edge Device you want to register against a device fleet
      */
-    public readonly device!: pulumi.Output<outputs.sagemaker.DeviceDevice | undefined>;
+    public readonly device!: pulumi.Output<outputs.sagemaker.Device | undefined>;
     /**
      * The name of the edge device fleet
      */
@@ -84,7 +84,7 @@ export interface DeviceArgs {
     /**
      * The Edge Device you want to register against a device fleet
      */
-    device?: pulumi.Input<inputs.sagemaker.DeviceDeviceArgs>;
+    device?: pulumi.Input<inputs.sagemaker.DeviceArgs>;
     /**
      * The name of the edge device fleet
      */

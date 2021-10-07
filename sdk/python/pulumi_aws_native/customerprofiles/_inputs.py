@@ -28,9 +28,9 @@ __all__ = [
     'IntegrationTriggerPropertiesArgs',
     'IntegrationZendeskSourcePropertiesArgs',
     'ObjectTypeFieldMapArgs',
+    'ObjectTypeFieldArgs',
     'ObjectTypeKeyMapArgs',
-    'ObjectTypeObjectTypeFieldArgs',
-    'ObjectTypeObjectTypeKeyArgs',
+    'ObjectTypeKeyArgs',
     'ObjectTypeTagArgs',
 ]
 
@@ -701,7 +701,7 @@ class IntegrationZendeskSourcePropertiesArgs:
 class ObjectTypeFieldMapArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 object_type_field: Optional[pulumi.Input['ObjectTypeObjectTypeFieldArgs']] = None):
+                 object_type_field: Optional[pulumi.Input['ObjectTypeFieldArgs']] = None):
         if name is not None:
             pulumi.set(__self__, "name", name)
         if object_type_field is not None:
@@ -718,52 +718,23 @@ class ObjectTypeFieldMapArgs:
 
     @property
     @pulumi.getter(name="objectTypeField")
-    def object_type_field(self) -> Optional[pulumi.Input['ObjectTypeObjectTypeFieldArgs']]:
+    def object_type_field(self) -> Optional[pulumi.Input['ObjectTypeFieldArgs']]:
         return pulumi.get(self, "object_type_field")
 
     @object_type_field.setter
-    def object_type_field(self, value: Optional[pulumi.Input['ObjectTypeObjectTypeFieldArgs']]):
+    def object_type_field(self, value: Optional[pulumi.Input['ObjectTypeFieldArgs']]):
         pulumi.set(self, "object_type_field", value)
 
 
 @pulumi.input_type
-class ObjectTypeKeyMapArgs:
+class ObjectTypeFieldArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyArgs']]]] = None):
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if object_type_key_list is not None:
-            pulumi.set(__self__, "object_type_key_list", object_type_key_list)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="objectTypeKeyList")
-    def object_type_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyArgs']]]]:
-        return pulumi.get(self, "object_type_key_list")
-
-    @object_type_key_list.setter
-    def object_type_key_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyArgs']]]]):
-        pulumi.set(self, "object_type_key_list", value)
-
-
-@pulumi.input_type
-class ObjectTypeObjectTypeFieldArgs:
-    def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input['ObjectTypeObjectTypeFieldContentType']] = None,
+                 content_type: Optional[pulumi.Input['ObjectTypeFieldContentType']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None):
         """
         Represents a field in a ProfileObjectType.
-        :param pulumi.Input['ObjectTypeObjectTypeFieldContentType'] content_type: The content type of the field. Used for determining equality when searching.
+        :param pulumi.Input['ObjectTypeFieldContentType'] content_type: The content type of the field. Used for determining equality when searching.
         :param pulumi.Input[str] source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param pulumi.Input[str] target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
@@ -776,14 +747,14 @@ class ObjectTypeObjectTypeFieldArgs:
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input['ObjectTypeObjectTypeFieldContentType']]:
+    def content_type(self) -> Optional[pulumi.Input['ObjectTypeFieldContentType']]:
         """
         The content type of the field. Used for determining equality when searching.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input['ObjectTypeObjectTypeFieldContentType']]):
+    def content_type(self, value: Optional[pulumi.Input['ObjectTypeFieldContentType']]):
         pulumi.set(self, "content_type", value)
 
     @property
@@ -812,14 +783,43 @@ class ObjectTypeObjectTypeFieldArgs:
 
 
 @pulumi.input_type
-class ObjectTypeObjectTypeKeyArgs:
+class ObjectTypeKeyMapArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_type_key_list is not None:
+            pulumi.set(__self__, "object_type_key_list", object_type_key_list)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="objectTypeKeyList")
+    def object_type_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]]:
+        return pulumi.get(self, "object_type_key_list")
+
+    @object_type_key_list.setter
+    def object_type_key_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]]):
+        pulumi.set(self, "object_type_key_list", value)
+
+
+@pulumi.input_type
+class ObjectTypeKeyArgs:
     def __init__(__self__, *,
                  field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]]] = None):
+                 standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]] = None):
         """
         An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] field_names: The reference for the key name of the fields map. 
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         if field_names is not None:
             pulumi.set(__self__, "field_names", field_names)
@@ -840,14 +840,14 @@ class ObjectTypeObjectTypeKeyArgs:
 
     @property
     @pulumi.getter(name="standardIdentifiers")
-    def standard_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]]]:
+    def standard_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]:
         """
         The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         return pulumi.get(self, "standard_identifiers")
 
     @standard_identifiers.setter
-    def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]]]):
+    def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]):
         pulumi.set(self, "standard_identifiers", value)
 
 

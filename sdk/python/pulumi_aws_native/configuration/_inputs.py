@@ -17,7 +17,7 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSourceArgs',
     'ConfigurationAggregatorTagArgs',
     'ConfigurationRecorderRecordingGroupArgs',
-    'ConformancePackConformancePackInputParameterArgs',
+    'ConformancePackInputParameterArgs',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesArgs',
     'OrganizationConfigRuleOrganizationCustomRuleMetadataArgs',
     'OrganizationConfigRuleOrganizationManagedRuleMetadataArgs',
@@ -356,7 +356,7 @@ class ConfigurationRecorderRecordingGroupArgs:
 
 
 @pulumi.input_type
-class ConformancePackConformancePackInputParameterArgs:
+class ConformancePackInputParameterArgs:
     def __init__(__self__, *,
                  parameter_name: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):

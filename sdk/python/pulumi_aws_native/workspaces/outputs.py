@@ -10,14 +10,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ConnectionAliasConnectionAliasAssociation',
+    'ConnectionAliasAssociation',
     'ConnectionAliasTag',
+    'WorkspaceProperties',
     'WorkspaceTag',
-    'WorkspaceWorkspaceProperties',
 ]
 
 @pulumi.output_type
-class ConnectionAliasConnectionAliasAssociation(dict):
+class ConnectionAliasAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31,19 +31,19 @@ class ConnectionAliasConnectionAliasAssociation(dict):
             suggest = "resource_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConnectionAliasConnectionAliasAssociation. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAliasAssociation. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ConnectionAliasConnectionAliasAssociation.__key_warning(key)
+        ConnectionAliasAssociation.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ConnectionAliasConnectionAliasAssociation.__key_warning(key)
+        ConnectionAliasAssociation.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  associated_account_id: Optional[str] = None,
-                 association_status: Optional['ConnectionAliasConnectionAliasAssociationAssociationStatus'] = None,
+                 association_status: Optional['ConnectionAliasAssociationAssociationStatus'] = None,
                  connection_identifier: Optional[str] = None,
                  resource_id: Optional[str] = None):
         if associated_account_id is not None:
@@ -62,7 +62,7 @@ class ConnectionAliasConnectionAliasAssociation(dict):
 
     @property
     @pulumi.getter(name="associationStatus")
-    def association_status(self) -> Optional['ConnectionAliasConnectionAliasAssociationAssociationStatus']:
+    def association_status(self) -> Optional['ConnectionAliasAssociationAssociationStatus']:
         return pulumi.get(self, "association_status")
 
     @property
@@ -96,26 +96,7 @@ class ConnectionAliasTag(dict):
 
 
 @pulumi.output_type
-class WorkspaceTag(dict):
-    def __init__(__self__, *,
-                 key: str,
-                 value: str):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class WorkspaceWorkspaceProperties(dict):
+class WorkspaceProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -131,14 +112,14 @@ class WorkspaceWorkspaceProperties(dict):
             suggest = "user_volume_size_gib"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkspaceWorkspaceProperties. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkspaceWorkspaceProperties.__key_warning(key)
+        WorkspaceProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkspaceWorkspaceProperties.__key_warning(key)
+        WorkspaceProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -182,5 +163,24 @@ class WorkspaceWorkspaceProperties(dict):
     @pulumi.getter(name="userVolumeSizeGib")
     def user_volume_size_gib(self) -> Optional[int]:
         return pulumi.get(self, "user_volume_size_gib")
+
+
+@pulumi.output_type
+class WorkspaceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

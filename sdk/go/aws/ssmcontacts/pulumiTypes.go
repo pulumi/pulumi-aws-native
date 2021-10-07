@@ -169,165 +169,6 @@ func (o ContactChannelTargetInfoPtrOutput) RetryIntervalInMinutes() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The contact that SSM Incident Manager is engaging during an incident.
-type ContactContactTargetInfo struct {
-	// The Amazon Resource Name (ARN) of the contact.
-	ContactId string `pulumi:"contactId"`
-	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-	IsEssential bool `pulumi:"isEssential"`
-}
-
-// ContactContactTargetInfoInput is an input type that accepts ContactContactTargetInfoArgs and ContactContactTargetInfoOutput values.
-// You can construct a concrete instance of `ContactContactTargetInfoInput` via:
-//
-//          ContactContactTargetInfoArgs{...}
-type ContactContactTargetInfoInput interface {
-	pulumi.Input
-
-	ToContactContactTargetInfoOutput() ContactContactTargetInfoOutput
-	ToContactContactTargetInfoOutputWithContext(context.Context) ContactContactTargetInfoOutput
-}
-
-// The contact that SSM Incident Manager is engaging during an incident.
-type ContactContactTargetInfoArgs struct {
-	// The Amazon Resource Name (ARN) of the contact.
-	ContactId pulumi.StringInput `pulumi:"contactId"`
-	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-	IsEssential pulumi.BoolInput `pulumi:"isEssential"`
-}
-
-func (ContactContactTargetInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactContactTargetInfo)(nil)).Elem()
-}
-
-func (i ContactContactTargetInfoArgs) ToContactContactTargetInfoOutput() ContactContactTargetInfoOutput {
-	return i.ToContactContactTargetInfoOutputWithContext(context.Background())
-}
-
-func (i ContactContactTargetInfoArgs) ToContactContactTargetInfoOutputWithContext(ctx context.Context) ContactContactTargetInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactContactTargetInfoOutput)
-}
-
-func (i ContactContactTargetInfoArgs) ToContactContactTargetInfoPtrOutput() ContactContactTargetInfoPtrOutput {
-	return i.ToContactContactTargetInfoPtrOutputWithContext(context.Background())
-}
-
-func (i ContactContactTargetInfoArgs) ToContactContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactContactTargetInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactContactTargetInfoOutput).ToContactContactTargetInfoPtrOutputWithContext(ctx)
-}
-
-// ContactContactTargetInfoPtrInput is an input type that accepts ContactContactTargetInfoArgs, ContactContactTargetInfoPtr and ContactContactTargetInfoPtrOutput values.
-// You can construct a concrete instance of `ContactContactTargetInfoPtrInput` via:
-//
-//          ContactContactTargetInfoArgs{...}
-//
-//  or:
-//
-//          nil
-type ContactContactTargetInfoPtrInput interface {
-	pulumi.Input
-
-	ToContactContactTargetInfoPtrOutput() ContactContactTargetInfoPtrOutput
-	ToContactContactTargetInfoPtrOutputWithContext(context.Context) ContactContactTargetInfoPtrOutput
-}
-
-type contactContactTargetInfoPtrType ContactContactTargetInfoArgs
-
-func ContactContactTargetInfoPtr(v *ContactContactTargetInfoArgs) ContactContactTargetInfoPtrInput {
-	return (*contactContactTargetInfoPtrType)(v)
-}
-
-func (*contactContactTargetInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContactContactTargetInfo)(nil)).Elem()
-}
-
-func (i *contactContactTargetInfoPtrType) ToContactContactTargetInfoPtrOutput() ContactContactTargetInfoPtrOutput {
-	return i.ToContactContactTargetInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *contactContactTargetInfoPtrType) ToContactContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactContactTargetInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactContactTargetInfoPtrOutput)
-}
-
-// The contact that SSM Incident Manager is engaging during an incident.
-type ContactContactTargetInfoOutput struct{ *pulumi.OutputState }
-
-func (ContactContactTargetInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactContactTargetInfo)(nil)).Elem()
-}
-
-func (o ContactContactTargetInfoOutput) ToContactContactTargetInfoOutput() ContactContactTargetInfoOutput {
-	return o
-}
-
-func (o ContactContactTargetInfoOutput) ToContactContactTargetInfoOutputWithContext(ctx context.Context) ContactContactTargetInfoOutput {
-	return o
-}
-
-func (o ContactContactTargetInfoOutput) ToContactContactTargetInfoPtrOutput() ContactContactTargetInfoPtrOutput {
-	return o.ToContactContactTargetInfoPtrOutputWithContext(context.Background())
-}
-
-func (o ContactContactTargetInfoOutput) ToContactContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactContactTargetInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactContactTargetInfo) *ContactContactTargetInfo {
-		return &v
-	}).(ContactContactTargetInfoPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the contact.
-func (o ContactContactTargetInfoOutput) ContactId() pulumi.StringOutput {
-	return o.ApplyT(func(v ContactContactTargetInfo) string { return v.ContactId }).(pulumi.StringOutput)
-}
-
-// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-func (o ContactContactTargetInfoOutput) IsEssential() pulumi.BoolOutput {
-	return o.ApplyT(func(v ContactContactTargetInfo) bool { return v.IsEssential }).(pulumi.BoolOutput)
-}
-
-type ContactContactTargetInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (ContactContactTargetInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContactContactTargetInfo)(nil)).Elem()
-}
-
-func (o ContactContactTargetInfoPtrOutput) ToContactContactTargetInfoPtrOutput() ContactContactTargetInfoPtrOutput {
-	return o
-}
-
-func (o ContactContactTargetInfoPtrOutput) ToContactContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactContactTargetInfoPtrOutput {
-	return o
-}
-
-func (o ContactContactTargetInfoPtrOutput) Elem() ContactContactTargetInfoOutput {
-	return o.ApplyT(func(v *ContactContactTargetInfo) ContactContactTargetInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ContactContactTargetInfo
-		return ret
-	}).(ContactContactTargetInfoOutput)
-}
-
-// The Amazon Resource Name (ARN) of the contact.
-func (o ContactContactTargetInfoPtrOutput) ContactId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContactContactTargetInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ContactId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-func (o ContactContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ContactContactTargetInfo) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.IsEssential
-	}).(pulumi.BoolPtrOutput)
-}
-
 // A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type ContactStage struct {
 	// The time to wait until beginning the next stage.
@@ -437,10 +278,169 @@ func (o ContactStageArrayOutput) Index(i pulumi.IntInput) ContactStageOutput {
 	}).(ContactStageOutput)
 }
 
+// The contact that SSM Incident Manager is engaging during an incident.
+type ContactTargetInfo struct {
+	// The Amazon Resource Name (ARN) of the contact.
+	ContactId string `pulumi:"contactId"`
+	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+	IsEssential bool `pulumi:"isEssential"`
+}
+
+// ContactTargetInfoInput is an input type that accepts ContactTargetInfoArgs and ContactTargetInfoOutput values.
+// You can construct a concrete instance of `ContactTargetInfoInput` via:
+//
+//          ContactTargetInfoArgs{...}
+type ContactTargetInfoInput interface {
+	pulumi.Input
+
+	ToContactTargetInfoOutput() ContactTargetInfoOutput
+	ToContactTargetInfoOutputWithContext(context.Context) ContactTargetInfoOutput
+}
+
+// The contact that SSM Incident Manager is engaging during an incident.
+type ContactTargetInfoArgs struct {
+	// The Amazon Resource Name (ARN) of the contact.
+	ContactId pulumi.StringInput `pulumi:"contactId"`
+	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+	IsEssential pulumi.BoolInput `pulumi:"isEssential"`
+}
+
+func (ContactTargetInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactTargetInfo)(nil)).Elem()
+}
+
+func (i ContactTargetInfoArgs) ToContactTargetInfoOutput() ContactTargetInfoOutput {
+	return i.ToContactTargetInfoOutputWithContext(context.Background())
+}
+
+func (i ContactTargetInfoArgs) ToContactTargetInfoOutputWithContext(ctx context.Context) ContactTargetInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetInfoOutput)
+}
+
+func (i ContactTargetInfoArgs) ToContactTargetInfoPtrOutput() ContactTargetInfoPtrOutput {
+	return i.ToContactTargetInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ContactTargetInfoArgs) ToContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactTargetInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetInfoOutput).ToContactTargetInfoPtrOutputWithContext(ctx)
+}
+
+// ContactTargetInfoPtrInput is an input type that accepts ContactTargetInfoArgs, ContactTargetInfoPtr and ContactTargetInfoPtrOutput values.
+// You can construct a concrete instance of `ContactTargetInfoPtrInput` via:
+//
+//          ContactTargetInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ContactTargetInfoPtrInput interface {
+	pulumi.Input
+
+	ToContactTargetInfoPtrOutput() ContactTargetInfoPtrOutput
+	ToContactTargetInfoPtrOutputWithContext(context.Context) ContactTargetInfoPtrOutput
+}
+
+type contactTargetInfoPtrType ContactTargetInfoArgs
+
+func ContactTargetInfoPtr(v *ContactTargetInfoArgs) ContactTargetInfoPtrInput {
+	return (*contactTargetInfoPtrType)(v)
+}
+
+func (*contactTargetInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactTargetInfo)(nil)).Elem()
+}
+
+func (i *contactTargetInfoPtrType) ToContactTargetInfoPtrOutput() ContactTargetInfoPtrOutput {
+	return i.ToContactTargetInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *contactTargetInfoPtrType) ToContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactTargetInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetInfoPtrOutput)
+}
+
+// The contact that SSM Incident Manager is engaging during an incident.
+type ContactTargetInfoOutput struct{ *pulumi.OutputState }
+
+func (ContactTargetInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactTargetInfo)(nil)).Elem()
+}
+
+func (o ContactTargetInfoOutput) ToContactTargetInfoOutput() ContactTargetInfoOutput {
+	return o
+}
+
+func (o ContactTargetInfoOutput) ToContactTargetInfoOutputWithContext(ctx context.Context) ContactTargetInfoOutput {
+	return o
+}
+
+func (o ContactTargetInfoOutput) ToContactTargetInfoPtrOutput() ContactTargetInfoPtrOutput {
+	return o.ToContactTargetInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ContactTargetInfoOutput) ToContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactTargetInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactTargetInfo) *ContactTargetInfo {
+		return &v
+	}).(ContactTargetInfoPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the contact.
+func (o ContactTargetInfoOutput) ContactId() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactTargetInfo) string { return v.ContactId }).(pulumi.StringOutput)
+}
+
+// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+func (o ContactTargetInfoOutput) IsEssential() pulumi.BoolOutput {
+	return o.ApplyT(func(v ContactTargetInfo) bool { return v.IsEssential }).(pulumi.BoolOutput)
+}
+
+type ContactTargetInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ContactTargetInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactTargetInfo)(nil)).Elem()
+}
+
+func (o ContactTargetInfoPtrOutput) ToContactTargetInfoPtrOutput() ContactTargetInfoPtrOutput {
+	return o
+}
+
+func (o ContactTargetInfoPtrOutput) ToContactTargetInfoPtrOutputWithContext(ctx context.Context) ContactTargetInfoPtrOutput {
+	return o
+}
+
+func (o ContactTargetInfoPtrOutput) Elem() ContactTargetInfoOutput {
+	return o.ApplyT(func(v *ContactTargetInfo) ContactTargetInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ContactTargetInfo
+		return ret
+	}).(ContactTargetInfoOutput)
+}
+
+// The Amazon Resource Name (ARN) of the contact.
+func (o ContactTargetInfoPtrOutput) ContactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactTargetInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContactId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+func (o ContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContactTargetInfo) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEssential
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargets struct {
 	ChannelTargetInfo *ContactChannelTargetInfo `pulumi:"channelTargetInfo"`
-	ContactTargetInfo *ContactContactTargetInfo `pulumi:"contactTargetInfo"`
+	ContactTargetInfo *ContactTargetInfo        `pulumi:"contactTargetInfo"`
 }
 
 // ContactTargetsInput is an input type that accepts ContactTargetsArgs and ContactTargetsOutput values.
@@ -457,7 +457,7 @@ type ContactTargetsInput interface {
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargetsArgs struct {
 	ChannelTargetInfo ContactChannelTargetInfoPtrInput `pulumi:"channelTargetInfo"`
-	ContactTargetInfo ContactContactTargetInfoPtrInput `pulumi:"contactTargetInfo"`
+	ContactTargetInfo ContactTargetInfoPtrInput        `pulumi:"contactTargetInfo"`
 }
 
 func (ContactTargetsArgs) ElementType() reflect.Type {
@@ -516,8 +516,8 @@ func (o ContactTargetsOutput) ChannelTargetInfo() ContactChannelTargetInfoPtrOut
 	return o.ApplyT(func(v ContactTargets) *ContactChannelTargetInfo { return v.ChannelTargetInfo }).(ContactChannelTargetInfoPtrOutput)
 }
 
-func (o ContactTargetsOutput) ContactTargetInfo() ContactContactTargetInfoPtrOutput {
-	return o.ApplyT(func(v ContactTargets) *ContactContactTargetInfo { return v.ContactTargetInfo }).(ContactContactTargetInfoPtrOutput)
+func (o ContactTargetsOutput) ContactTargetInfo() ContactTargetInfoPtrOutput {
+	return o.ApplyT(func(v ContactTargets) *ContactTargetInfo { return v.ContactTargetInfo }).(ContactTargetInfoPtrOutput)
 }
 
 type ContactTargetsArrayOutput struct{ *pulumi.OutputState }
@@ -543,10 +543,10 @@ func (o ContactTargetsArrayOutput) Index(i pulumi.IntInput) ContactTargetsOutput
 func init() {
 	pulumi.RegisterOutputType(ContactChannelTargetInfoOutput{})
 	pulumi.RegisterOutputType(ContactChannelTargetInfoPtrOutput{})
-	pulumi.RegisterOutputType(ContactContactTargetInfoOutput{})
-	pulumi.RegisterOutputType(ContactContactTargetInfoPtrOutput{})
 	pulumi.RegisterOutputType(ContactStageOutput{})
 	pulumi.RegisterOutputType(ContactStageArrayOutput{})
+	pulumi.RegisterOutputType(ContactTargetInfoOutput{})
+	pulumi.RegisterOutputType(ContactTargetInfoPtrOutput{})
 	pulumi.RegisterOutputType(ContactTargetsOutput{})
 	pulumi.RegisterOutputType(ContactTargetsArrayOutput{})
 }

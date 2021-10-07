@@ -10,171 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The type of app.
-type AppAppType string
-
-const (
-	AppAppTypeJupyterServer = AppAppType("JupyterServer")
-	AppAppTypeKernelGateway = AppAppType("KernelGateway")
-)
-
-func (AppAppType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppAppType)(nil)).Elem()
-}
-
-func (e AppAppType) ToAppAppTypeOutput() AppAppTypeOutput {
-	return pulumi.ToOutput(e).(AppAppTypeOutput)
-}
-
-func (e AppAppType) ToAppAppTypeOutputWithContext(ctx context.Context) AppAppTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AppAppTypeOutput)
-}
-
-func (e AppAppType) ToAppAppTypePtrOutput() AppAppTypePtrOutput {
-	return e.ToAppAppTypePtrOutputWithContext(context.Background())
-}
-
-func (e AppAppType) ToAppAppTypePtrOutputWithContext(ctx context.Context) AppAppTypePtrOutput {
-	return AppAppType(e).ToAppAppTypeOutputWithContext(ctx).ToAppAppTypePtrOutputWithContext(ctx)
-}
-
-func (e AppAppType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppAppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e AppAppType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e AppAppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AppAppTypeOutput struct{ *pulumi.OutputState }
-
-func (AppAppTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppAppType)(nil)).Elem()
-}
-
-func (o AppAppTypeOutput) ToAppAppTypeOutput() AppAppTypeOutput {
-	return o
-}
-
-func (o AppAppTypeOutput) ToAppAppTypeOutputWithContext(ctx context.Context) AppAppTypeOutput {
-	return o
-}
-
-func (o AppAppTypeOutput) ToAppAppTypePtrOutput() AppAppTypePtrOutput {
-	return o.ToAppAppTypePtrOutputWithContext(context.Background())
-}
-
-func (o AppAppTypeOutput) ToAppAppTypePtrOutputWithContext(ctx context.Context) AppAppTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAppType) *AppAppType {
-		return &v
-	}).(AppAppTypePtrOutput)
-}
-
-func (o AppAppTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AppAppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAppType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AppAppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppAppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppAppType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AppAppTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AppAppTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppAppType)(nil)).Elem()
-}
-
-func (o AppAppTypePtrOutput) ToAppAppTypePtrOutput() AppAppTypePtrOutput {
-	return o
-}
-
-func (o AppAppTypePtrOutput) ToAppAppTypePtrOutputWithContext(ctx context.Context) AppAppTypePtrOutput {
-	return o
-}
-
-func (o AppAppTypePtrOutput) Elem() AppAppTypeOutput {
-	return o.ApplyT(func(v *AppAppType) AppAppType {
-		if v != nil {
-			return *v
-		}
-		var ret AppAppType
-		return ret
-	}).(AppAppTypeOutput)
-}
-
-func (o AppAppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AppAppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppAppType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// AppAppTypeInput is an input type that accepts AppAppTypeArgs and AppAppTypeOutput values.
-// You can construct a concrete instance of `AppAppTypeInput` via:
-//
-//          AppAppTypeArgs{...}
-type AppAppTypeInput interface {
-	pulumi.Input
-
-	ToAppAppTypeOutput() AppAppTypeOutput
-	ToAppAppTypeOutputWithContext(context.Context) AppAppTypeOutput
-}
-
-var appAppTypePtrType = reflect.TypeOf((**AppAppType)(nil)).Elem()
-
-type AppAppTypePtrInput interface {
-	pulumi.Input
-
-	ToAppAppTypePtrOutput() AppAppTypePtrOutput
-	ToAppAppTypePtrOutputWithContext(context.Context) AppAppTypePtrOutput
-}
-
-type appAppTypePtr string
-
-func AppAppTypePtr(v string) AppAppTypePtrInput {
-	return (*appAppTypePtr)(&v)
-}
-
-func (*appAppTypePtr) ElementType() reflect.Type {
-	return appAppTypePtrType
-}
-
-func (in *appAppTypePtr) ToAppAppTypePtrOutput() AppAppTypePtrOutput {
-	return pulumi.ToOutput(in).(AppAppTypePtrOutput)
-}
-
-func (in *appAppTypePtr) ToAppAppTypePtrOutputWithContext(ctx context.Context) AppAppTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AppAppTypePtrOutput)
-}
-
 // The instance type that the image version runs on.
 type AppResourceSpecInstanceType string
 
@@ -368,6 +203,171 @@ func (in *appResourceSpecInstanceTypePtr) ToAppResourceSpecInstanceTypePtrOutput
 
 func (in *appResourceSpecInstanceTypePtr) ToAppResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) AppResourceSpecInstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppResourceSpecInstanceTypePtrOutput)
+}
+
+// The type of app.
+type AppType string
+
+const (
+	AppTypeJupyterServer = AppType("JupyterServer")
+	AppTypeKernelGateway = AppType("KernelGateway")
+)
+
+func (AppType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppType)(nil)).Elem()
+}
+
+func (e AppType) ToAppTypeOutput() AppTypeOutput {
+	return pulumi.ToOutput(e).(AppTypeOutput)
+}
+
+func (e AppType) ToAppTypeOutputWithContext(ctx context.Context) AppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppTypeOutput)
+}
+
+func (e AppType) ToAppTypePtrOutput() AppTypePtrOutput {
+	return e.ToAppTypePtrOutputWithContext(context.Background())
+}
+
+func (e AppType) ToAppTypePtrOutputWithContext(ctx context.Context) AppTypePtrOutput {
+	return AppType(e).ToAppTypeOutputWithContext(ctx).ToAppTypePtrOutputWithContext(ctx)
+}
+
+func (e AppType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppTypeOutput struct{ *pulumi.OutputState }
+
+func (AppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppType)(nil)).Elem()
+}
+
+func (o AppTypeOutput) ToAppTypeOutput() AppTypeOutput {
+	return o
+}
+
+func (o AppTypeOutput) ToAppTypeOutputWithContext(ctx context.Context) AppTypeOutput {
+	return o
+}
+
+func (o AppTypeOutput) ToAppTypePtrOutput() AppTypePtrOutput {
+	return o.ToAppTypePtrOutputWithContext(context.Background())
+}
+
+func (o AppTypeOutput) ToAppTypePtrOutputWithContext(ctx context.Context) AppTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppType) *AppType {
+		return &v
+	}).(AppTypePtrOutput)
+}
+
+func (o AppTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppType)(nil)).Elem()
+}
+
+func (o AppTypePtrOutput) ToAppTypePtrOutput() AppTypePtrOutput {
+	return o
+}
+
+func (o AppTypePtrOutput) ToAppTypePtrOutputWithContext(ctx context.Context) AppTypePtrOutput {
+	return o
+}
+
+func (o AppTypePtrOutput) Elem() AppTypeOutput {
+	return o.ApplyT(func(v *AppType) AppType {
+		if v != nil {
+			return *v
+		}
+		var ret AppType
+		return ret
+	}).(AppTypeOutput)
+}
+
+func (o AppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppTypeInput is an input type that accepts AppTypeArgs and AppTypeOutput values.
+// You can construct a concrete instance of `AppTypeInput` via:
+//
+//          AppTypeArgs{...}
+type AppTypeInput interface {
+	pulumi.Input
+
+	ToAppTypeOutput() AppTypeOutput
+	ToAppTypeOutputWithContext(context.Context) AppTypeOutput
+}
+
+var appTypePtrType = reflect.TypeOf((**AppType)(nil)).Elem()
+
+type AppTypePtrInput interface {
+	pulumi.Input
+
+	ToAppTypePtrOutput() AppTypePtrOutput
+	ToAppTypePtrOutputWithContext(context.Context) AppTypePtrOutput
+}
+
+type appTypePtr string
+
+func AppTypePtr(v string) AppTypePtrInput {
+	return (*appTypePtr)(&v)
+}
+
+func (*appTypePtr) ElementType() reflect.Type {
+	return appTypePtrType
+}
+
+func (in *appTypePtr) ToAppTypePtrOutput() AppTypePtrOutput {
+	return pulumi.ToOutput(in).(AppTypePtrOutput)
+}
+
+func (in *appTypePtr) ToAppTypePtrOutputWithContext(ctx context.Context) AppTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppTypePtrOutput)
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -2711,128 +2711,128 @@ func (in *modelExplainabilityJobDefinitionS3OutputS3UploadModePtr) ToModelExplai
 }
 
 // The status of a modelpackage group job.
-type ModelPackageGroupModelPackageGroupStatus string
+type ModelPackageGroupStatus string
 
 const (
-	ModelPackageGroupModelPackageGroupStatusPending      = ModelPackageGroupModelPackageGroupStatus("Pending")
-	ModelPackageGroupModelPackageGroupStatusInProgress   = ModelPackageGroupModelPackageGroupStatus("InProgress")
-	ModelPackageGroupModelPackageGroupStatusCompleted    = ModelPackageGroupModelPackageGroupStatus("Completed")
-	ModelPackageGroupModelPackageGroupStatusFailed       = ModelPackageGroupModelPackageGroupStatus("Failed")
-	ModelPackageGroupModelPackageGroupStatusDeleting     = ModelPackageGroupModelPackageGroupStatus("Deleting")
-	ModelPackageGroupModelPackageGroupStatusDeleteFailed = ModelPackageGroupModelPackageGroupStatus("DeleteFailed")
+	ModelPackageGroupStatusPending      = ModelPackageGroupStatus("Pending")
+	ModelPackageGroupStatusInProgress   = ModelPackageGroupStatus("InProgress")
+	ModelPackageGroupStatusCompleted    = ModelPackageGroupStatus("Completed")
+	ModelPackageGroupStatusFailed       = ModelPackageGroupStatus("Failed")
+	ModelPackageGroupStatusDeleting     = ModelPackageGroupStatus("Deleting")
+	ModelPackageGroupStatusDeleteFailed = ModelPackageGroupStatus("DeleteFailed")
 )
 
-func (ModelPackageGroupModelPackageGroupStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroupModelPackageGroupStatus)(nil)).Elem()
+func (ModelPackageGroupStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageGroupStatus)(nil)).Elem()
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToModelPackageGroupModelPackageGroupStatusOutput() ModelPackageGroupModelPackageGroupStatusOutput {
-	return pulumi.ToOutput(e).(ModelPackageGroupModelPackageGroupStatusOutput)
+func (e ModelPackageGroupStatus) ToModelPackageGroupStatusOutput() ModelPackageGroupStatusOutput {
+	return pulumi.ToOutput(e).(ModelPackageGroupStatusOutput)
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToModelPackageGroupModelPackageGroupStatusOutputWithContext(ctx context.Context) ModelPackageGroupModelPackageGroupStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageGroupModelPackageGroupStatusOutput)
+func (e ModelPackageGroupStatus) ToModelPackageGroupStatusOutputWithContext(ctx context.Context) ModelPackageGroupStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelPackageGroupStatusOutput)
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToModelPackageGroupModelPackageGroupStatusPtrOutput() ModelPackageGroupModelPackageGroupStatusPtrOutput {
-	return e.ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(context.Background())
+func (e ModelPackageGroupStatus) ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput {
+	return e.ToModelPackageGroupStatusPtrOutputWithContext(context.Background())
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupModelPackageGroupStatusPtrOutput {
-	return ModelPackageGroupModelPackageGroupStatus(e).ToModelPackageGroupModelPackageGroupStatusOutputWithContext(ctx).ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(ctx)
+func (e ModelPackageGroupStatus) ToModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupStatusPtrOutput {
+	return ModelPackageGroupStatus(e).ToModelPackageGroupStatusOutputWithContext(ctx).ToModelPackageGroupStatusPtrOutputWithContext(ctx)
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToStringOutput() pulumi.StringOutput {
+func (e ModelPackageGroupStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e ModelPackageGroupStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e ModelPackageGroupStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ModelPackageGroupModelPackageGroupStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e ModelPackageGroupStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ModelPackageGroupModelPackageGroupStatusOutput struct{ *pulumi.OutputState }
+type ModelPackageGroupStatusOutput struct{ *pulumi.OutputState }
 
-func (ModelPackageGroupModelPackageGroupStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroupModelPackageGroupStatus)(nil)).Elem()
+func (ModelPackageGroupStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageGroupStatus)(nil)).Elem()
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToModelPackageGroupModelPackageGroupStatusOutput() ModelPackageGroupModelPackageGroupStatusOutput {
+func (o ModelPackageGroupStatusOutput) ToModelPackageGroupStatusOutput() ModelPackageGroupStatusOutput {
 	return o
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToModelPackageGroupModelPackageGroupStatusOutputWithContext(ctx context.Context) ModelPackageGroupModelPackageGroupStatusOutput {
+func (o ModelPackageGroupStatusOutput) ToModelPackageGroupStatusOutputWithContext(ctx context.Context) ModelPackageGroupStatusOutput {
 	return o
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToModelPackageGroupModelPackageGroupStatusPtrOutput() ModelPackageGroupModelPackageGroupStatusPtrOutput {
-	return o.ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(context.Background())
+func (o ModelPackageGroupStatusOutput) ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput {
+	return o.ToModelPackageGroupStatusPtrOutputWithContext(context.Background())
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupModelPackageGroupStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageGroupModelPackageGroupStatus) *ModelPackageGroupModelPackageGroupStatus {
+func (o ModelPackageGroupStatusOutput) ToModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageGroupStatus) *ModelPackageGroupStatus {
 		return &v
-	}).(ModelPackageGroupModelPackageGroupStatusPtrOutput)
+	}).(ModelPackageGroupStatusPtrOutput)
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ModelPackageGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageGroupModelPackageGroupStatus) string {
+func (o ModelPackageGroupStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageGroupStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ModelPackageGroupStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageGroupModelPackageGroupStatus) *string {
+func (o ModelPackageGroupStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelPackageGroupStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ModelPackageGroupModelPackageGroupStatusPtrOutput struct{ *pulumi.OutputState }
+type ModelPackageGroupStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (ModelPackageGroupModelPackageGroupStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelPackageGroupModelPackageGroupStatus)(nil)).Elem()
+func (ModelPackageGroupStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPackageGroupStatus)(nil)).Elem()
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusPtrOutput) ToModelPackageGroupModelPackageGroupStatusPtrOutput() ModelPackageGroupModelPackageGroupStatusPtrOutput {
+func (o ModelPackageGroupStatusPtrOutput) ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput {
 	return o
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusPtrOutput) ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupModelPackageGroupStatusPtrOutput {
+func (o ModelPackageGroupStatusPtrOutput) ToModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupStatusPtrOutput {
 	return o
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusPtrOutput) Elem() ModelPackageGroupModelPackageGroupStatusOutput {
-	return o.ApplyT(func(v *ModelPackageGroupModelPackageGroupStatus) ModelPackageGroupModelPackageGroupStatus {
+func (o ModelPackageGroupStatusPtrOutput) Elem() ModelPackageGroupStatusOutput {
+	return o.ApplyT(func(v *ModelPackageGroupStatus) ModelPackageGroupStatus {
 		if v != nil {
 			return *v
 		}
-		var ret ModelPackageGroupModelPackageGroupStatus
+		var ret ModelPackageGroupStatus
 		return ret
-	}).(ModelPackageGroupModelPackageGroupStatusOutput)
+	}).(ModelPackageGroupStatusOutput)
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ModelPackageGroupStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ModelPackageGroupModelPackageGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageGroupModelPackageGroupStatus) *string {
+func (o ModelPackageGroupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelPackageGroupStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -2841,42 +2841,42 @@ func (o ModelPackageGroupModelPackageGroupStatusPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// ModelPackageGroupModelPackageGroupStatusInput is an input type that accepts ModelPackageGroupModelPackageGroupStatusArgs and ModelPackageGroupModelPackageGroupStatusOutput values.
-// You can construct a concrete instance of `ModelPackageGroupModelPackageGroupStatusInput` via:
+// ModelPackageGroupStatusInput is an input type that accepts ModelPackageGroupStatusArgs and ModelPackageGroupStatusOutput values.
+// You can construct a concrete instance of `ModelPackageGroupStatusInput` via:
 //
-//          ModelPackageGroupModelPackageGroupStatusArgs{...}
-type ModelPackageGroupModelPackageGroupStatusInput interface {
+//          ModelPackageGroupStatusArgs{...}
+type ModelPackageGroupStatusInput interface {
 	pulumi.Input
 
-	ToModelPackageGroupModelPackageGroupStatusOutput() ModelPackageGroupModelPackageGroupStatusOutput
-	ToModelPackageGroupModelPackageGroupStatusOutputWithContext(context.Context) ModelPackageGroupModelPackageGroupStatusOutput
+	ToModelPackageGroupStatusOutput() ModelPackageGroupStatusOutput
+	ToModelPackageGroupStatusOutputWithContext(context.Context) ModelPackageGroupStatusOutput
 }
 
-var modelPackageGroupModelPackageGroupStatusPtrType = reflect.TypeOf((**ModelPackageGroupModelPackageGroupStatus)(nil)).Elem()
+var modelPackageGroupStatusPtrType = reflect.TypeOf((**ModelPackageGroupStatus)(nil)).Elem()
 
-type ModelPackageGroupModelPackageGroupStatusPtrInput interface {
+type ModelPackageGroupStatusPtrInput interface {
 	pulumi.Input
 
-	ToModelPackageGroupModelPackageGroupStatusPtrOutput() ModelPackageGroupModelPackageGroupStatusPtrOutput
-	ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(context.Context) ModelPackageGroupModelPackageGroupStatusPtrOutput
+	ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput
+	ToModelPackageGroupStatusPtrOutputWithContext(context.Context) ModelPackageGroupStatusPtrOutput
 }
 
-type modelPackageGroupModelPackageGroupStatusPtr string
+type modelPackageGroupStatusPtr string
 
-func ModelPackageGroupModelPackageGroupStatusPtr(v string) ModelPackageGroupModelPackageGroupStatusPtrInput {
-	return (*modelPackageGroupModelPackageGroupStatusPtr)(&v)
+func ModelPackageGroupStatusPtr(v string) ModelPackageGroupStatusPtrInput {
+	return (*modelPackageGroupStatusPtr)(&v)
 }
 
-func (*modelPackageGroupModelPackageGroupStatusPtr) ElementType() reflect.Type {
-	return modelPackageGroupModelPackageGroupStatusPtrType
+func (*modelPackageGroupStatusPtr) ElementType() reflect.Type {
+	return modelPackageGroupStatusPtrType
 }
 
-func (in *modelPackageGroupModelPackageGroupStatusPtr) ToModelPackageGroupModelPackageGroupStatusPtrOutput() ModelPackageGroupModelPackageGroupStatusPtrOutput {
-	return pulumi.ToOutput(in).(ModelPackageGroupModelPackageGroupStatusPtrOutput)
+func (in *modelPackageGroupStatusPtr) ToModelPackageGroupStatusPtrOutput() ModelPackageGroupStatusPtrOutput {
+	return pulumi.ToOutput(in).(ModelPackageGroupStatusPtrOutput)
 }
 
-func (in *modelPackageGroupModelPackageGroupStatusPtr) ToModelPackageGroupModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupModelPackageGroupStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageGroupModelPackageGroupStatusPtrOutput)
+func (in *modelPackageGroupStatusPtr) ToModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelPackageGroupStatusPtrOutput)
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -4040,173 +4040,6 @@ func (in *monitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusP
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput)
 }
 
-// The status of a schedule job.
-type MonitoringScheduleMonitoringScheduleStatus string
-
-const (
-	MonitoringScheduleMonitoringScheduleStatusPending   = MonitoringScheduleMonitoringScheduleStatus("Pending")
-	MonitoringScheduleMonitoringScheduleStatusFailed    = MonitoringScheduleMonitoringScheduleStatus("Failed")
-	MonitoringScheduleMonitoringScheduleStatusScheduled = MonitoringScheduleMonitoringScheduleStatus("Scheduled")
-	MonitoringScheduleMonitoringScheduleStatusStopped   = MonitoringScheduleMonitoringScheduleStatus("Stopped")
-)
-
-func (MonitoringScheduleMonitoringScheduleStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleStatus)(nil)).Elem()
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToMonitoringScheduleMonitoringScheduleStatusOutput() MonitoringScheduleMonitoringScheduleStatusOutput {
-	return pulumi.ToOutput(e).(MonitoringScheduleMonitoringScheduleStatusOutput)
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToMonitoringScheduleMonitoringScheduleStatusOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MonitoringScheduleMonitoringScheduleStatusOutput)
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToMonitoringScheduleMonitoringScheduleStatusPtrOutput() MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return e.ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(context.Background())
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return MonitoringScheduleMonitoringScheduleStatus(e).ToMonitoringScheduleMonitoringScheduleStatusOutputWithContext(ctx).ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(ctx)
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MonitoringScheduleMonitoringScheduleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type MonitoringScheduleMonitoringScheduleStatusOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleMonitoringScheduleStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleStatus)(nil)).Elem()
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToMonitoringScheduleMonitoringScheduleStatusOutput() MonitoringScheduleMonitoringScheduleStatusOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToMonitoringScheduleMonitoringScheduleStatusOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleStatusOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToMonitoringScheduleMonitoringScheduleStatusPtrOutput() MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return o.ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleStatus) *MonitoringScheduleMonitoringScheduleStatus {
-		return &v
-	}).(MonitoringScheduleMonitoringScheduleStatusPtrOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleMonitoringScheduleStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleMonitoringScheduleStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MonitoringScheduleMonitoringScheduleStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleMonitoringScheduleStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleStatus)(nil)).Elem()
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusPtrOutput) ToMonitoringScheduleMonitoringScheduleStatusPtrOutput() MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusPtrOutput) ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusPtrOutput) Elem() MonitoringScheduleMonitoringScheduleStatusOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleStatus) MonitoringScheduleMonitoringScheduleStatus {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringScheduleMonitoringScheduleStatus
-		return ret
-	}).(MonitoringScheduleMonitoringScheduleStatusOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleMonitoringScheduleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitoringScheduleMonitoringScheduleStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// MonitoringScheduleMonitoringScheduleStatusInput is an input type that accepts MonitoringScheduleMonitoringScheduleStatusArgs and MonitoringScheduleMonitoringScheduleStatusOutput values.
-// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleStatusInput` via:
-//
-//          MonitoringScheduleMonitoringScheduleStatusArgs{...}
-type MonitoringScheduleMonitoringScheduleStatusInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleMonitoringScheduleStatusOutput() MonitoringScheduleMonitoringScheduleStatusOutput
-	ToMonitoringScheduleMonitoringScheduleStatusOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleStatusOutput
-}
-
-var monitoringScheduleMonitoringScheduleStatusPtrType = reflect.TypeOf((**MonitoringScheduleMonitoringScheduleStatus)(nil)).Elem()
-
-type MonitoringScheduleMonitoringScheduleStatusPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleMonitoringScheduleStatusPtrOutput() MonitoringScheduleMonitoringScheduleStatusPtrOutput
-	ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleStatusPtrOutput
-}
-
-type monitoringScheduleMonitoringScheduleStatusPtr string
-
-func MonitoringScheduleMonitoringScheduleStatusPtr(v string) MonitoringScheduleMonitoringScheduleStatusPtrInput {
-	return (*monitoringScheduleMonitoringScheduleStatusPtr)(&v)
-}
-
-func (*monitoringScheduleMonitoringScheduleStatusPtr) ElementType() reflect.Type {
-	return monitoringScheduleMonitoringScheduleStatusPtrType
-}
-
-func (in *monitoringScheduleMonitoringScheduleStatusPtr) ToMonitoringScheduleMonitoringScheduleStatusPtrOutput() MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return pulumi.ToOutput(in).(MonitoringScheduleMonitoringScheduleStatusPtrOutput)
-}
-
-func (in *monitoringScheduleMonitoringScheduleStatusPtr) ToMonitoringScheduleMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MonitoringScheduleMonitoringScheduleStatusPtrOutput)
-}
-
 // The type of monitoring job.
 type MonitoringScheduleMonitoringType string
 
@@ -4539,130 +4372,127 @@ func (in *monitoringScheduleS3OutputS3UploadModePtr) ToMonitoringScheduleS3Outpu
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringScheduleS3OutputS3UploadModePtrOutput)
 }
 
-// The status of a project.
-type ProjectProjectStatus string
+// The status of a schedule job.
+type MonitoringScheduleStatus string
 
 const (
-	ProjectProjectStatusPending          = ProjectProjectStatus("Pending")
-	ProjectProjectStatusCreateInProgress = ProjectProjectStatus("CreateInProgress")
-	ProjectProjectStatusCreateCompleted  = ProjectProjectStatus("CreateCompleted")
-	ProjectProjectStatusCreateFailed     = ProjectProjectStatus("CreateFailed")
-	ProjectProjectStatusDeleteInProgress = ProjectProjectStatus("DeleteInProgress")
-	ProjectProjectStatusDeleteFailed     = ProjectProjectStatus("DeleteFailed")
-	ProjectProjectStatusDeleteCompleted  = ProjectProjectStatus("DeleteCompleted")
+	MonitoringScheduleStatusPending   = MonitoringScheduleStatus("Pending")
+	MonitoringScheduleStatusFailed    = MonitoringScheduleStatus("Failed")
+	MonitoringScheduleStatusScheduled = MonitoringScheduleStatus("Scheduled")
+	MonitoringScheduleStatusStopped   = MonitoringScheduleStatus("Stopped")
 )
 
-func (ProjectProjectStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectStatus)(nil)).Elem()
+func (MonitoringScheduleStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleStatus)(nil)).Elem()
 }
 
-func (e ProjectProjectStatus) ToProjectProjectStatusOutput() ProjectProjectStatusOutput {
-	return pulumi.ToOutput(e).(ProjectProjectStatusOutput)
+func (e MonitoringScheduleStatus) ToMonitoringScheduleStatusOutput() MonitoringScheduleStatusOutput {
+	return pulumi.ToOutput(e).(MonitoringScheduleStatusOutput)
 }
 
-func (e ProjectProjectStatus) ToProjectProjectStatusOutputWithContext(ctx context.Context) ProjectProjectStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ProjectProjectStatusOutput)
+func (e MonitoringScheduleStatus) ToMonitoringScheduleStatusOutputWithContext(ctx context.Context) MonitoringScheduleStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MonitoringScheduleStatusOutput)
 }
 
-func (e ProjectProjectStatus) ToProjectProjectStatusPtrOutput() ProjectProjectStatusPtrOutput {
-	return e.ToProjectProjectStatusPtrOutputWithContext(context.Background())
+func (e MonitoringScheduleStatus) ToMonitoringScheduleStatusPtrOutput() MonitoringScheduleStatusPtrOutput {
+	return e.ToMonitoringScheduleStatusPtrOutputWithContext(context.Background())
 }
 
-func (e ProjectProjectStatus) ToProjectProjectStatusPtrOutputWithContext(ctx context.Context) ProjectProjectStatusPtrOutput {
-	return ProjectProjectStatus(e).ToProjectProjectStatusOutputWithContext(ctx).ToProjectProjectStatusPtrOutputWithContext(ctx)
+func (e MonitoringScheduleStatus) ToMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleStatusPtrOutput {
+	return MonitoringScheduleStatus(e).ToMonitoringScheduleStatusOutputWithContext(ctx).ToMonitoringScheduleStatusPtrOutputWithContext(ctx)
 }
 
-func (e ProjectProjectStatus) ToStringOutput() pulumi.StringOutput {
+func (e MonitoringScheduleStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ProjectProjectStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e MonitoringScheduleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e ProjectProjectStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e MonitoringScheduleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e ProjectProjectStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e MonitoringScheduleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ProjectProjectStatusOutput struct{ *pulumi.OutputState }
+type MonitoringScheduleStatusOutput struct{ *pulumi.OutputState }
 
-func (ProjectProjectStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProjectStatus)(nil)).Elem()
+func (MonitoringScheduleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleStatus)(nil)).Elem()
 }
 
-func (o ProjectProjectStatusOutput) ToProjectProjectStatusOutput() ProjectProjectStatusOutput {
+func (o MonitoringScheduleStatusOutput) ToMonitoringScheduleStatusOutput() MonitoringScheduleStatusOutput {
 	return o
 }
 
-func (o ProjectProjectStatusOutput) ToProjectProjectStatusOutputWithContext(ctx context.Context) ProjectProjectStatusOutput {
+func (o MonitoringScheduleStatusOutput) ToMonitoringScheduleStatusOutputWithContext(ctx context.Context) MonitoringScheduleStatusOutput {
 	return o
 }
 
-func (o ProjectProjectStatusOutput) ToProjectProjectStatusPtrOutput() ProjectProjectStatusPtrOutput {
-	return o.ToProjectProjectStatusPtrOutputWithContext(context.Background())
+func (o MonitoringScheduleStatusOutput) ToMonitoringScheduleStatusPtrOutput() MonitoringScheduleStatusPtrOutput {
+	return o.ToMonitoringScheduleStatusPtrOutputWithContext(context.Background())
 }
 
-func (o ProjectProjectStatusOutput) ToProjectProjectStatusPtrOutputWithContext(ctx context.Context) ProjectProjectStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProjectStatus) *ProjectProjectStatus {
+func (o MonitoringScheduleStatusOutput) ToMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleStatus) *MonitoringScheduleStatus {
 		return &v
-	}).(ProjectProjectStatusPtrOutput)
+	}).(MonitoringScheduleStatusPtrOutput)
 }
 
-func (o ProjectProjectStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o MonitoringScheduleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ProjectProjectStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectProjectStatus) string {
+func (o MonitoringScheduleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ProjectProjectStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o MonitoringScheduleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ProjectProjectStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectProjectStatus) *string {
+func (o MonitoringScheduleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ProjectProjectStatusPtrOutput struct{ *pulumi.OutputState }
+type MonitoringScheduleStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (ProjectProjectStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectProjectStatus)(nil)).Elem()
+func (MonitoringScheduleStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleStatus)(nil)).Elem()
 }
 
-func (o ProjectProjectStatusPtrOutput) ToProjectProjectStatusPtrOutput() ProjectProjectStatusPtrOutput {
+func (o MonitoringScheduleStatusPtrOutput) ToMonitoringScheduleStatusPtrOutput() MonitoringScheduleStatusPtrOutput {
 	return o
 }
 
-func (o ProjectProjectStatusPtrOutput) ToProjectProjectStatusPtrOutputWithContext(ctx context.Context) ProjectProjectStatusPtrOutput {
+func (o MonitoringScheduleStatusPtrOutput) ToMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleStatusPtrOutput {
 	return o
 }
 
-func (o ProjectProjectStatusPtrOutput) Elem() ProjectProjectStatusOutput {
-	return o.ApplyT(func(v *ProjectProjectStatus) ProjectProjectStatus {
+func (o MonitoringScheduleStatusPtrOutput) Elem() MonitoringScheduleStatusOutput {
+	return o.ApplyT(func(v *MonitoringScheduleStatus) MonitoringScheduleStatus {
 		if v != nil {
 			return *v
 		}
-		var ret ProjectProjectStatus
+		var ret MonitoringScheduleStatus
 		return ret
-	}).(ProjectProjectStatusOutput)
+	}).(MonitoringScheduleStatusOutput)
 }
 
-func (o ProjectProjectStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o MonitoringScheduleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ProjectProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProjectProjectStatus) *string {
+func (o MonitoringScheduleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitoringScheduleStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -4671,42 +4501,212 @@ func (o ProjectProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ProjectProjectStatusInput is an input type that accepts ProjectProjectStatusArgs and ProjectProjectStatusOutput values.
-// You can construct a concrete instance of `ProjectProjectStatusInput` via:
+// MonitoringScheduleStatusInput is an input type that accepts MonitoringScheduleStatusArgs and MonitoringScheduleStatusOutput values.
+// You can construct a concrete instance of `MonitoringScheduleStatusInput` via:
 //
-//          ProjectProjectStatusArgs{...}
-type ProjectProjectStatusInput interface {
+//          MonitoringScheduleStatusArgs{...}
+type MonitoringScheduleStatusInput interface {
 	pulumi.Input
 
-	ToProjectProjectStatusOutput() ProjectProjectStatusOutput
-	ToProjectProjectStatusOutputWithContext(context.Context) ProjectProjectStatusOutput
+	ToMonitoringScheduleStatusOutput() MonitoringScheduleStatusOutput
+	ToMonitoringScheduleStatusOutputWithContext(context.Context) MonitoringScheduleStatusOutput
 }
 
-var projectProjectStatusPtrType = reflect.TypeOf((**ProjectProjectStatus)(nil)).Elem()
+var monitoringScheduleStatusPtrType = reflect.TypeOf((**MonitoringScheduleStatus)(nil)).Elem()
 
-type ProjectProjectStatusPtrInput interface {
+type MonitoringScheduleStatusPtrInput interface {
 	pulumi.Input
 
-	ToProjectProjectStatusPtrOutput() ProjectProjectStatusPtrOutput
-	ToProjectProjectStatusPtrOutputWithContext(context.Context) ProjectProjectStatusPtrOutput
+	ToMonitoringScheduleStatusPtrOutput() MonitoringScheduleStatusPtrOutput
+	ToMonitoringScheduleStatusPtrOutputWithContext(context.Context) MonitoringScheduleStatusPtrOutput
 }
 
-type projectProjectStatusPtr string
+type monitoringScheduleStatusPtr string
 
-func ProjectProjectStatusPtr(v string) ProjectProjectStatusPtrInput {
-	return (*projectProjectStatusPtr)(&v)
+func MonitoringScheduleStatusPtr(v string) MonitoringScheduleStatusPtrInput {
+	return (*monitoringScheduleStatusPtr)(&v)
 }
 
-func (*projectProjectStatusPtr) ElementType() reflect.Type {
-	return projectProjectStatusPtrType
+func (*monitoringScheduleStatusPtr) ElementType() reflect.Type {
+	return monitoringScheduleStatusPtrType
 }
 
-func (in *projectProjectStatusPtr) ToProjectProjectStatusPtrOutput() ProjectProjectStatusPtrOutput {
-	return pulumi.ToOutput(in).(ProjectProjectStatusPtrOutput)
+func (in *monitoringScheduleStatusPtr) ToMonitoringScheduleStatusPtrOutput() MonitoringScheduleStatusPtrOutput {
+	return pulumi.ToOutput(in).(MonitoringScheduleStatusPtrOutput)
 }
 
-func (in *projectProjectStatusPtr) ToProjectProjectStatusPtrOutputWithContext(ctx context.Context) ProjectProjectStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ProjectProjectStatusPtrOutput)
+func (in *monitoringScheduleStatusPtr) ToMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MonitoringScheduleStatusPtrOutput)
+}
+
+// The status of a project.
+type ProjectStatus string
+
+const (
+	ProjectStatusPending          = ProjectStatus("Pending")
+	ProjectStatusCreateInProgress = ProjectStatus("CreateInProgress")
+	ProjectStatusCreateCompleted  = ProjectStatus("CreateCompleted")
+	ProjectStatusCreateFailed     = ProjectStatus("CreateFailed")
+	ProjectStatusDeleteInProgress = ProjectStatus("DeleteInProgress")
+	ProjectStatusDeleteFailed     = ProjectStatus("DeleteFailed")
+	ProjectStatusDeleteCompleted  = ProjectStatus("DeleteCompleted")
+)
+
+func (ProjectStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectStatus)(nil)).Elem()
+}
+
+func (e ProjectStatus) ToProjectStatusOutput() ProjectStatusOutput {
+	return pulumi.ToOutput(e).(ProjectStatusOutput)
+}
+
+func (e ProjectStatus) ToProjectStatusOutputWithContext(ctx context.Context) ProjectStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProjectStatusOutput)
+}
+
+func (e ProjectStatus) ToProjectStatusPtrOutput() ProjectStatusPtrOutput {
+	return e.ToProjectStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectStatus) ToProjectStatusPtrOutputWithContext(ctx context.Context) ProjectStatusPtrOutput {
+	return ProjectStatus(e).ToProjectStatusOutputWithContext(ctx).ToProjectStatusPtrOutputWithContext(ctx)
+}
+
+func (e ProjectStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProjectStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProjectStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProjectStatusOutput struct{ *pulumi.OutputState }
+
+func (ProjectStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectStatus)(nil)).Elem()
+}
+
+func (o ProjectStatusOutput) ToProjectStatusOutput() ProjectStatusOutput {
+	return o
+}
+
+func (o ProjectStatusOutput) ToProjectStatusOutputWithContext(ctx context.Context) ProjectStatusOutput {
+	return o
+}
+
+func (o ProjectStatusOutput) ToProjectStatusPtrOutput() ProjectStatusPtrOutput {
+	return o.ToProjectStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectStatusOutput) ToProjectStatusPtrOutputWithContext(ctx context.Context) ProjectStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectStatus) *ProjectStatus {
+		return &v
+	}).(ProjectStatusPtrOutput)
+}
+
+func (o ProjectStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProjectStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProjectStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProjectStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectStatus)(nil)).Elem()
+}
+
+func (o ProjectStatusPtrOutput) ToProjectStatusPtrOutput() ProjectStatusPtrOutput {
+	return o
+}
+
+func (o ProjectStatusPtrOutput) ToProjectStatusPtrOutputWithContext(ctx context.Context) ProjectStatusPtrOutput {
+	return o
+}
+
+func (o ProjectStatusPtrOutput) Elem() ProjectStatusOutput {
+	return o.ApplyT(func(v *ProjectStatus) ProjectStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectStatus
+		return ret
+	}).(ProjectStatusOutput)
+}
+
+func (o ProjectStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProjectStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ProjectStatusInput is an input type that accepts ProjectStatusArgs and ProjectStatusOutput values.
+// You can construct a concrete instance of `ProjectStatusInput` via:
+//
+//          ProjectStatusArgs{...}
+type ProjectStatusInput interface {
+	pulumi.Input
+
+	ToProjectStatusOutput() ProjectStatusOutput
+	ToProjectStatusOutputWithContext(context.Context) ProjectStatusOutput
+}
+
+var projectStatusPtrType = reflect.TypeOf((**ProjectStatus)(nil)).Elem()
+
+type ProjectStatusPtrInput interface {
+	pulumi.Input
+
+	ToProjectStatusPtrOutput() ProjectStatusPtrOutput
+	ToProjectStatusPtrOutputWithContext(context.Context) ProjectStatusPtrOutput
+}
+
+type projectStatusPtr string
+
+func ProjectStatusPtr(v string) ProjectStatusPtrInput {
+	return (*projectStatusPtr)(&v)
+}
+
+func (*projectStatusPtr) ElementType() reflect.Type {
+	return projectStatusPtrType
+}
+
+func (in *projectStatusPtr) ToProjectStatusPtrOutput() ProjectStatusPtrOutput {
+	return pulumi.ToOutput(in).(ProjectStatusPtrOutput)
+}
+
+func (in *projectStatusPtr) ToProjectStatusPtrOutputWithContext(ctx context.Context) ProjectStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProjectStatusPtrOutput)
 }
 
 // The instance type that the image version runs on.
@@ -5070,10 +5070,10 @@ func (in *userProfileSharingSettingsNotebookOutputOptionPtr) ToUserProfileSharin
 }
 
 func init() {
-	pulumi.RegisterOutputType(AppAppTypeOutput{})
-	pulumi.RegisterOutputType(AppAppTypePtrOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(AppTypeOutput{})
+	pulumi.RegisterOutputType(AppTypePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputS3InputModeOutput{})
@@ -5102,8 +5102,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput{})
-	pulumi.RegisterOutputType(ModelPackageGroupModelPackageGroupStatusOutput{})
-	pulumi.RegisterOutputType(ModelPackageGroupModelPackageGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageGroupStatusOutput{})
+	pulumi.RegisterOutputType(ModelPackageGroupStatusPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3InputModeOutput{})
@@ -5118,14 +5118,14 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleStatusOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleStatusPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringTypeOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleS3OutputS3UploadModePtrOutput{})
-	pulumi.RegisterOutputType(ProjectProjectStatusOutput{})
-	pulumi.RegisterOutputType(ProjectProjectStatusPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleStatusOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleStatusPtrOutput{})
+	pulumi.RegisterOutputType(ProjectStatusOutput{})
+	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(UserProfileResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsNotebookOutputOptionOutput{})

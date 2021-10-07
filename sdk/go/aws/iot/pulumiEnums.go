@@ -174,124 +174,124 @@ func (in *authorizerStatusPtr) ToAuthorizerStatusPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizerStatusPtrOutput)
 }
 
-type CertificateCertificateMode string
+type CertificateMode string
 
 const (
-	CertificateCertificateModeDefault = CertificateCertificateMode("DEFAULT")
-	CertificateCertificateModeSniOnly = CertificateCertificateMode("SNI_ONLY")
+	CertificateModeDefault = CertificateMode("DEFAULT")
+	CertificateModeSniOnly = CertificateMode("SNI_ONLY")
 )
 
-func (CertificateCertificateMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateCertificateMode)(nil)).Elem()
+func (CertificateMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateMode)(nil)).Elem()
 }
 
-func (e CertificateCertificateMode) ToCertificateCertificateModeOutput() CertificateCertificateModeOutput {
-	return pulumi.ToOutput(e).(CertificateCertificateModeOutput)
+func (e CertificateMode) ToCertificateModeOutput() CertificateModeOutput {
+	return pulumi.ToOutput(e).(CertificateModeOutput)
 }
 
-func (e CertificateCertificateMode) ToCertificateCertificateModeOutputWithContext(ctx context.Context) CertificateCertificateModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CertificateCertificateModeOutput)
+func (e CertificateMode) ToCertificateModeOutputWithContext(ctx context.Context) CertificateModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CertificateModeOutput)
 }
 
-func (e CertificateCertificateMode) ToCertificateCertificateModePtrOutput() CertificateCertificateModePtrOutput {
-	return e.ToCertificateCertificateModePtrOutputWithContext(context.Background())
+func (e CertificateMode) ToCertificateModePtrOutput() CertificateModePtrOutput {
+	return e.ToCertificateModePtrOutputWithContext(context.Background())
 }
 
-func (e CertificateCertificateMode) ToCertificateCertificateModePtrOutputWithContext(ctx context.Context) CertificateCertificateModePtrOutput {
-	return CertificateCertificateMode(e).ToCertificateCertificateModeOutputWithContext(ctx).ToCertificateCertificateModePtrOutputWithContext(ctx)
+func (e CertificateMode) ToCertificateModePtrOutputWithContext(ctx context.Context) CertificateModePtrOutput {
+	return CertificateMode(e).ToCertificateModeOutputWithContext(ctx).ToCertificateModePtrOutputWithContext(ctx)
 }
 
-func (e CertificateCertificateMode) ToStringOutput() pulumi.StringOutput {
+func (e CertificateMode) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CertificateCertificateMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e CertificateMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e CertificateCertificateMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e CertificateMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e CertificateCertificateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e CertificateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CertificateCertificateModeOutput struct{ *pulumi.OutputState }
+type CertificateModeOutput struct{ *pulumi.OutputState }
 
-func (CertificateCertificateModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateCertificateMode)(nil)).Elem()
+func (CertificateModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateMode)(nil)).Elem()
 }
 
-func (o CertificateCertificateModeOutput) ToCertificateCertificateModeOutput() CertificateCertificateModeOutput {
+func (o CertificateModeOutput) ToCertificateModeOutput() CertificateModeOutput {
 	return o
 }
 
-func (o CertificateCertificateModeOutput) ToCertificateCertificateModeOutputWithContext(ctx context.Context) CertificateCertificateModeOutput {
+func (o CertificateModeOutput) ToCertificateModeOutputWithContext(ctx context.Context) CertificateModeOutput {
 	return o
 }
 
-func (o CertificateCertificateModeOutput) ToCertificateCertificateModePtrOutput() CertificateCertificateModePtrOutput {
-	return o.ToCertificateCertificateModePtrOutputWithContext(context.Background())
+func (o CertificateModeOutput) ToCertificateModePtrOutput() CertificateModePtrOutput {
+	return o.ToCertificateModePtrOutputWithContext(context.Background())
 }
 
-func (o CertificateCertificateModeOutput) ToCertificateCertificateModePtrOutputWithContext(ctx context.Context) CertificateCertificateModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificateMode) *CertificateCertificateMode {
+func (o CertificateModeOutput) ToCertificateModePtrOutputWithContext(ctx context.Context) CertificateModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateMode) *CertificateMode {
 		return &v
-	}).(CertificateCertificateModePtrOutput)
+	}).(CertificateModePtrOutput)
 }
 
-func (o CertificateCertificateModeOutput) ToStringOutput() pulumi.StringOutput {
+func (o CertificateModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o CertificateCertificateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateCertificateMode) string {
+func (o CertificateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateMode) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o CertificateCertificateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CertificateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CertificateCertificateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateCertificateMode) *string {
+func (o CertificateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateMode) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type CertificateCertificateModePtrOutput struct{ *pulumi.OutputState }
+type CertificateModePtrOutput struct{ *pulumi.OutputState }
 
-func (CertificateCertificateModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateCertificateMode)(nil)).Elem()
+func (CertificateModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateMode)(nil)).Elem()
 }
 
-func (o CertificateCertificateModePtrOutput) ToCertificateCertificateModePtrOutput() CertificateCertificateModePtrOutput {
+func (o CertificateModePtrOutput) ToCertificateModePtrOutput() CertificateModePtrOutput {
 	return o
 }
 
-func (o CertificateCertificateModePtrOutput) ToCertificateCertificateModePtrOutputWithContext(ctx context.Context) CertificateCertificateModePtrOutput {
+func (o CertificateModePtrOutput) ToCertificateModePtrOutputWithContext(ctx context.Context) CertificateModePtrOutput {
 	return o
 }
 
-func (o CertificateCertificateModePtrOutput) Elem() CertificateCertificateModeOutput {
-	return o.ApplyT(func(v *CertificateCertificateMode) CertificateCertificateMode {
+func (o CertificateModePtrOutput) Elem() CertificateModeOutput {
+	return o.ApplyT(func(v *CertificateMode) CertificateMode {
 		if v != nil {
 			return *v
 		}
-		var ret CertificateCertificateMode
+		var ret CertificateMode
 		return ret
-	}).(CertificateCertificateModeOutput)
+	}).(CertificateModeOutput)
 }
 
-func (o CertificateCertificateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o CertificateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o CertificateCertificateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateCertificateMode) *string {
+func (o CertificateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateMode) *string {
 		if e == nil {
 			return nil
 		}
@@ -300,42 +300,42 @@ func (o CertificateCertificateModePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateCertificateModeInput is an input type that accepts CertificateCertificateModeArgs and CertificateCertificateModeOutput values.
-// You can construct a concrete instance of `CertificateCertificateModeInput` via:
+// CertificateModeInput is an input type that accepts CertificateModeArgs and CertificateModeOutput values.
+// You can construct a concrete instance of `CertificateModeInput` via:
 //
-//          CertificateCertificateModeArgs{...}
-type CertificateCertificateModeInput interface {
+//          CertificateModeArgs{...}
+type CertificateModeInput interface {
 	pulumi.Input
 
-	ToCertificateCertificateModeOutput() CertificateCertificateModeOutput
-	ToCertificateCertificateModeOutputWithContext(context.Context) CertificateCertificateModeOutput
+	ToCertificateModeOutput() CertificateModeOutput
+	ToCertificateModeOutputWithContext(context.Context) CertificateModeOutput
 }
 
-var certificateCertificateModePtrType = reflect.TypeOf((**CertificateCertificateMode)(nil)).Elem()
+var certificateModePtrType = reflect.TypeOf((**CertificateMode)(nil)).Elem()
 
-type CertificateCertificateModePtrInput interface {
+type CertificateModePtrInput interface {
 	pulumi.Input
 
-	ToCertificateCertificateModePtrOutput() CertificateCertificateModePtrOutput
-	ToCertificateCertificateModePtrOutputWithContext(context.Context) CertificateCertificateModePtrOutput
+	ToCertificateModePtrOutput() CertificateModePtrOutput
+	ToCertificateModePtrOutputWithContext(context.Context) CertificateModePtrOutput
 }
 
-type certificateCertificateModePtr string
+type certificateModePtr string
 
-func CertificateCertificateModePtr(v string) CertificateCertificateModePtrInput {
-	return (*certificateCertificateModePtr)(&v)
+func CertificateModePtr(v string) CertificateModePtrInput {
+	return (*certificateModePtr)(&v)
 }
 
-func (*certificateCertificateModePtr) ElementType() reflect.Type {
-	return certificateCertificateModePtrType
+func (*certificateModePtr) ElementType() reflect.Type {
+	return certificateModePtrType
 }
 
-func (in *certificateCertificateModePtr) ToCertificateCertificateModePtrOutput() CertificateCertificateModePtrOutput {
-	return pulumi.ToOutput(in).(CertificateCertificateModePtrOutput)
+func (in *certificateModePtr) ToCertificateModePtrOutput() CertificateModePtrOutput {
+	return pulumi.ToOutput(in).(CertificateModePtrOutput)
 }
 
-func (in *certificateCertificateModePtr) ToCertificateCertificateModePtrOutputWithContext(ctx context.Context) CertificateCertificateModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CertificateCertificateModePtrOutput)
+func (in *certificateModePtr) ToCertificateModePtrOutputWithContext(ctx context.Context) CertificateModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CertificateModePtrOutput)
 }
 
 type CertificateStatus string
@@ -836,170 +836,6 @@ func (in *dimensionTypePtr) ToDimensionTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DimensionTypePtrOutput)
 }
 
-type DomainConfigurationDomainConfigurationStatus string
-
-const (
-	DomainConfigurationDomainConfigurationStatusEnabled  = DomainConfigurationDomainConfigurationStatus("ENABLED")
-	DomainConfigurationDomainConfigurationStatusDisabled = DomainConfigurationDomainConfigurationStatus("DISABLED")
-)
-
-func (DomainConfigurationDomainConfigurationStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationDomainConfigurationStatus)(nil)).Elem()
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToDomainConfigurationDomainConfigurationStatusOutput() DomainConfigurationDomainConfigurationStatusOutput {
-	return pulumi.ToOutput(e).(DomainConfigurationDomainConfigurationStatusOutput)
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToDomainConfigurationDomainConfigurationStatusOutputWithContext(ctx context.Context) DomainConfigurationDomainConfigurationStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DomainConfigurationDomainConfigurationStatusOutput)
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToDomainConfigurationDomainConfigurationStatusPtrOutput() DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return e.ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(context.Background())
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return DomainConfigurationDomainConfigurationStatus(e).ToDomainConfigurationDomainConfigurationStatusOutputWithContext(ctx).ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(ctx)
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DomainConfigurationDomainConfigurationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DomainConfigurationDomainConfigurationStatusOutput struct{ *pulumi.OutputState }
-
-func (DomainConfigurationDomainConfigurationStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationDomainConfigurationStatus)(nil)).Elem()
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToDomainConfigurationDomainConfigurationStatusOutput() DomainConfigurationDomainConfigurationStatusOutput {
-	return o
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToDomainConfigurationDomainConfigurationStatusOutputWithContext(ctx context.Context) DomainConfigurationDomainConfigurationStatusOutput {
-	return o
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToDomainConfigurationDomainConfigurationStatusPtrOutput() DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return o.ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(context.Background())
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationDomainConfigurationStatus) *DomainConfigurationDomainConfigurationStatus {
-		return &v
-	}).(DomainConfigurationDomainConfigurationStatusPtrOutput)
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationDomainConfigurationStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DomainConfigurationDomainConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationDomainConfigurationStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DomainConfigurationDomainConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainConfigurationDomainConfigurationStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainConfigurationDomainConfigurationStatus)(nil)).Elem()
-}
-
-func (o DomainConfigurationDomainConfigurationStatusPtrOutput) ToDomainConfigurationDomainConfigurationStatusPtrOutput() DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return o
-}
-
-func (o DomainConfigurationDomainConfigurationStatusPtrOutput) ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return o
-}
-
-func (o DomainConfigurationDomainConfigurationStatusPtrOutput) Elem() DomainConfigurationDomainConfigurationStatusOutput {
-	return o.ApplyT(func(v *DomainConfigurationDomainConfigurationStatus) DomainConfigurationDomainConfigurationStatus {
-		if v != nil {
-			return *v
-		}
-		var ret DomainConfigurationDomainConfigurationStatus
-		return ret
-	}).(DomainConfigurationDomainConfigurationStatusOutput)
-}
-
-func (o DomainConfigurationDomainConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DomainConfigurationDomainConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainConfigurationDomainConfigurationStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DomainConfigurationDomainConfigurationStatusInput is an input type that accepts DomainConfigurationDomainConfigurationStatusArgs and DomainConfigurationDomainConfigurationStatusOutput values.
-// You can construct a concrete instance of `DomainConfigurationDomainConfigurationStatusInput` via:
-//
-//          DomainConfigurationDomainConfigurationStatusArgs{...}
-type DomainConfigurationDomainConfigurationStatusInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationDomainConfigurationStatusOutput() DomainConfigurationDomainConfigurationStatusOutput
-	ToDomainConfigurationDomainConfigurationStatusOutputWithContext(context.Context) DomainConfigurationDomainConfigurationStatusOutput
-}
-
-var domainConfigurationDomainConfigurationStatusPtrType = reflect.TypeOf((**DomainConfigurationDomainConfigurationStatus)(nil)).Elem()
-
-type DomainConfigurationDomainConfigurationStatusPtrInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationDomainConfigurationStatusPtrOutput() DomainConfigurationDomainConfigurationStatusPtrOutput
-	ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(context.Context) DomainConfigurationDomainConfigurationStatusPtrOutput
-}
-
-type domainConfigurationDomainConfigurationStatusPtr string
-
-func DomainConfigurationDomainConfigurationStatusPtr(v string) DomainConfigurationDomainConfigurationStatusPtrInput {
-	return (*domainConfigurationDomainConfigurationStatusPtr)(&v)
-}
-
-func (*domainConfigurationDomainConfigurationStatusPtr) ElementType() reflect.Type {
-	return domainConfigurationDomainConfigurationStatusPtrType
-}
-
-func (in *domainConfigurationDomainConfigurationStatusPtr) ToDomainConfigurationDomainConfigurationStatusPtrOutput() DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return pulumi.ToOutput(in).(DomainConfigurationDomainConfigurationStatusPtrOutput)
-}
-
-func (in *domainConfigurationDomainConfigurationStatusPtr) ToDomainConfigurationDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationDomainConfigurationStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationDomainConfigurationStatusPtrOutput)
-}
-
 type DomainConfigurationDomainType string
 
 const (
@@ -1492,6 +1328,170 @@ func (in *domainConfigurationServiceTypePtr) ToDomainConfigurationServiceTypePtr
 
 func (in *domainConfigurationServiceTypePtr) ToDomainConfigurationServiceTypePtrOutputWithContext(ctx context.Context) DomainConfigurationServiceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationServiceTypePtrOutput)
+}
+
+type DomainConfigurationStatus string
+
+const (
+	DomainConfigurationStatusEnabled  = DomainConfigurationStatus("ENABLED")
+	DomainConfigurationStatusDisabled = DomainConfigurationStatus("DISABLED")
+)
+
+func (DomainConfigurationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationStatus)(nil)).Elem()
+}
+
+func (e DomainConfigurationStatus) ToDomainConfigurationStatusOutput() DomainConfigurationStatusOutput {
+	return pulumi.ToOutput(e).(DomainConfigurationStatusOutput)
+}
+
+func (e DomainConfigurationStatus) ToDomainConfigurationStatusOutputWithContext(ctx context.Context) DomainConfigurationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainConfigurationStatusOutput)
+}
+
+func (e DomainConfigurationStatus) ToDomainConfigurationStatusPtrOutput() DomainConfigurationStatusPtrOutput {
+	return e.ToDomainConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DomainConfigurationStatus) ToDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationStatusPtrOutput {
+	return DomainConfigurationStatus(e).ToDomainConfigurationStatusOutputWithContext(ctx).ToDomainConfigurationStatusPtrOutputWithContext(ctx)
+}
+
+func (e DomainConfigurationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConfigurationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainConfigurationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainConfigurationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationStatus)(nil)).Elem()
+}
+
+func (o DomainConfigurationStatusOutput) ToDomainConfigurationStatusOutput() DomainConfigurationStatusOutput {
+	return o
+}
+
+func (o DomainConfigurationStatusOutput) ToDomainConfigurationStatusOutputWithContext(ctx context.Context) DomainConfigurationStatusOutput {
+	return o
+}
+
+func (o DomainConfigurationStatusOutput) ToDomainConfigurationStatusPtrOutput() DomainConfigurationStatusPtrOutput {
+	return o.ToDomainConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationStatusOutput) ToDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationStatus) *DomainConfigurationStatus {
+		return &v
+	}).(DomainConfigurationStatusPtrOutput)
+}
+
+func (o DomainConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainConfigurationStatus)(nil)).Elem()
+}
+
+func (o DomainConfigurationStatusPtrOutput) ToDomainConfigurationStatusPtrOutput() DomainConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationStatusPtrOutput) ToDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o DomainConfigurationStatusPtrOutput) Elem() DomainConfigurationStatusOutput {
+	return o.ApplyT(func(v *DomainConfigurationStatus) DomainConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DomainConfigurationStatus
+		return ret
+	}).(DomainConfigurationStatusOutput)
+}
+
+func (o DomainConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainConfigurationStatusInput is an input type that accepts DomainConfigurationStatusArgs and DomainConfigurationStatusOutput values.
+// You can construct a concrete instance of `DomainConfigurationStatusInput` via:
+//
+//          DomainConfigurationStatusArgs{...}
+type DomainConfigurationStatusInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationStatusOutput() DomainConfigurationStatusOutput
+	ToDomainConfigurationStatusOutputWithContext(context.Context) DomainConfigurationStatusOutput
+}
+
+var domainConfigurationStatusPtrType = reflect.TypeOf((**DomainConfigurationStatus)(nil)).Elem()
+
+type DomainConfigurationStatusPtrInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationStatusPtrOutput() DomainConfigurationStatusPtrOutput
+	ToDomainConfigurationStatusPtrOutputWithContext(context.Context) DomainConfigurationStatusPtrOutput
+}
+
+type domainConfigurationStatusPtr string
+
+func DomainConfigurationStatusPtr(v string) DomainConfigurationStatusPtrInput {
+	return (*domainConfigurationStatusPtr)(&v)
+}
+
+func (*domainConfigurationStatusPtr) ElementType() reflect.Type {
+	return domainConfigurationStatusPtrType
+}
+
+func (in *domainConfigurationStatusPtr) ToDomainConfigurationStatusPtrOutput() DomainConfigurationStatusPtrOutput {
+	return pulumi.ToOutput(in).(DomainConfigurationStatusPtrOutput)
+}
+
+func (in *domainConfigurationStatusPtr) ToDomainConfigurationStatusPtrOutputWithContext(ctx context.Context) DomainConfigurationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainConfigurationStatusPtrOutput)
 }
 
 //  Specifies which types of information are logged.
@@ -3336,125 +3336,125 @@ func (in *topicRuleCannedAccessControlListPtr) ToTopicRuleCannedAccessControlLis
 	return pulumi.ToOutputWithContext(ctx, in).(TopicRuleCannedAccessControlListPtrOutput)
 }
 
-type TopicRuleDestinationTopicRuleDestinationStatus string
+type TopicRuleDestinationStatus string
 
 const (
-	TopicRuleDestinationTopicRuleDestinationStatusEnabled    = TopicRuleDestinationTopicRuleDestinationStatus("ENABLED")
-	TopicRuleDestinationTopicRuleDestinationStatusInProgress = TopicRuleDestinationTopicRuleDestinationStatus("IN_PROGRESS")
-	TopicRuleDestinationTopicRuleDestinationStatusDisabled   = TopicRuleDestinationTopicRuleDestinationStatus("DISABLED")
+	TopicRuleDestinationStatusEnabled    = TopicRuleDestinationStatus("ENABLED")
+	TopicRuleDestinationStatusInProgress = TopicRuleDestinationStatus("IN_PROGRESS")
+	TopicRuleDestinationStatusDisabled   = TopicRuleDestinationStatus("DISABLED")
 )
 
-func (TopicRuleDestinationTopicRuleDestinationStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleDestinationTopicRuleDestinationStatus)(nil)).Elem()
+func (TopicRuleDestinationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationStatus)(nil)).Elem()
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToTopicRuleDestinationTopicRuleDestinationStatusOutput() TopicRuleDestinationTopicRuleDestinationStatusOutput {
-	return pulumi.ToOutput(e).(TopicRuleDestinationTopicRuleDestinationStatusOutput)
+func (e TopicRuleDestinationStatus) ToTopicRuleDestinationStatusOutput() TopicRuleDestinationStatusOutput {
+	return pulumi.ToOutput(e).(TopicRuleDestinationStatusOutput)
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToTopicRuleDestinationTopicRuleDestinationStatusOutputWithContext(ctx context.Context) TopicRuleDestinationTopicRuleDestinationStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TopicRuleDestinationTopicRuleDestinationStatusOutput)
+func (e TopicRuleDestinationStatus) ToTopicRuleDestinationStatusOutputWithContext(ctx context.Context) TopicRuleDestinationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TopicRuleDestinationStatusOutput)
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
-	return e.ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(context.Background())
+func (e TopicRuleDestinationStatus) ToTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationStatusPtrOutput {
+	return e.ToTopicRuleDestinationStatusPtrOutputWithContext(context.Background())
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
-	return TopicRuleDestinationTopicRuleDestinationStatus(e).ToTopicRuleDestinationTopicRuleDestinationStatusOutputWithContext(ctx).ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(ctx)
+func (e TopicRuleDestinationStatus) ToTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationStatusPtrOutput {
+	return TopicRuleDestinationStatus(e).ToTopicRuleDestinationStatusOutputWithContext(ctx).ToTopicRuleDestinationStatusPtrOutputWithContext(ctx)
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToStringOutput() pulumi.StringOutput {
+func (e TopicRuleDestinationStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TopicRuleDestinationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TopicRuleDestinationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TopicRuleDestinationTopicRuleDestinationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TopicRuleDestinationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type TopicRuleDestinationTopicRuleDestinationStatusOutput struct{ *pulumi.OutputState }
+type TopicRuleDestinationStatusOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleDestinationTopicRuleDestinationStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleDestinationTopicRuleDestinationStatus)(nil)).Elem()
+func (TopicRuleDestinationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationStatus)(nil)).Elem()
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToTopicRuleDestinationTopicRuleDestinationStatusOutput() TopicRuleDestinationTopicRuleDestinationStatusOutput {
+func (o TopicRuleDestinationStatusOutput) ToTopicRuleDestinationStatusOutput() TopicRuleDestinationStatusOutput {
 	return o
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToTopicRuleDestinationTopicRuleDestinationStatusOutputWithContext(ctx context.Context) TopicRuleDestinationTopicRuleDestinationStatusOutput {
+func (o TopicRuleDestinationStatusOutput) ToTopicRuleDestinationStatusOutputWithContext(ctx context.Context) TopicRuleDestinationStatusOutput {
 	return o
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
-	return o.ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(context.Background())
+func (o TopicRuleDestinationStatusOutput) ToTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationStatusPtrOutput {
+	return o.ToTopicRuleDestinationStatusPtrOutputWithContext(context.Background())
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDestinationTopicRuleDestinationStatus) *TopicRuleDestinationTopicRuleDestinationStatus {
+func (o TopicRuleDestinationStatusOutput) ToTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDestinationStatus) *TopicRuleDestinationStatus {
 		return &v
-	}).(TopicRuleDestinationTopicRuleDestinationStatusPtrOutput)
+	}).(TopicRuleDestinationStatusPtrOutput)
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o TopicRuleDestinationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicRuleDestinationTopicRuleDestinationStatus) string {
+func (o TopicRuleDestinationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicRuleDestinationStatus) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TopicRuleDestinationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicRuleDestinationTopicRuleDestinationStatus) *string {
+func (o TopicRuleDestinationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TopicRuleDestinationStatus) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type TopicRuleDestinationTopicRuleDestinationStatusPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleDestinationStatusPtrOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleDestinationTopicRuleDestinationStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleDestinationTopicRuleDestinationStatus)(nil)).Elem()
+func (TopicRuleDestinationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationStatus)(nil)).Elem()
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusPtrOutput) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
+func (o TopicRuleDestinationStatusPtrOutput) ToTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationStatusPtrOutput {
 	return o
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusPtrOutput) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
+func (o TopicRuleDestinationStatusPtrOutput) ToTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationStatusPtrOutput {
 	return o
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusPtrOutput) Elem() TopicRuleDestinationTopicRuleDestinationStatusOutput {
-	return o.ApplyT(func(v *TopicRuleDestinationTopicRuleDestinationStatus) TopicRuleDestinationTopicRuleDestinationStatus {
+func (o TopicRuleDestinationStatusPtrOutput) Elem() TopicRuleDestinationStatusOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationStatus) TopicRuleDestinationStatus {
 		if v != nil {
 			return *v
 		}
-		var ret TopicRuleDestinationTopicRuleDestinationStatus
+		var ret TopicRuleDestinationStatus
 		return ret
-	}).(TopicRuleDestinationTopicRuleDestinationStatusOutput)
+	}).(TopicRuleDestinationStatusOutput)
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o TopicRuleDestinationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o TopicRuleDestinationTopicRuleDestinationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicRuleDestinationTopicRuleDestinationStatus) *string {
+func (o TopicRuleDestinationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TopicRuleDestinationStatus) *string {
 		if e == nil {
 			return nil
 		}
@@ -3463,63 +3463,63 @@ func (o TopicRuleDestinationTopicRuleDestinationStatusPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// TopicRuleDestinationTopicRuleDestinationStatusInput is an input type that accepts TopicRuleDestinationTopicRuleDestinationStatusArgs and TopicRuleDestinationTopicRuleDestinationStatusOutput values.
-// You can construct a concrete instance of `TopicRuleDestinationTopicRuleDestinationStatusInput` via:
+// TopicRuleDestinationStatusInput is an input type that accepts TopicRuleDestinationStatusArgs and TopicRuleDestinationStatusOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationStatusInput` via:
 //
-//          TopicRuleDestinationTopicRuleDestinationStatusArgs{...}
-type TopicRuleDestinationTopicRuleDestinationStatusInput interface {
+//          TopicRuleDestinationStatusArgs{...}
+type TopicRuleDestinationStatusInput interface {
 	pulumi.Input
 
-	ToTopicRuleDestinationTopicRuleDestinationStatusOutput() TopicRuleDestinationTopicRuleDestinationStatusOutput
-	ToTopicRuleDestinationTopicRuleDestinationStatusOutputWithContext(context.Context) TopicRuleDestinationTopicRuleDestinationStatusOutput
+	ToTopicRuleDestinationStatusOutput() TopicRuleDestinationStatusOutput
+	ToTopicRuleDestinationStatusOutputWithContext(context.Context) TopicRuleDestinationStatusOutput
 }
 
-var topicRuleDestinationTopicRuleDestinationStatusPtrType = reflect.TypeOf((**TopicRuleDestinationTopicRuleDestinationStatus)(nil)).Elem()
+var topicRuleDestinationStatusPtrType = reflect.TypeOf((**TopicRuleDestinationStatus)(nil)).Elem()
 
-type TopicRuleDestinationTopicRuleDestinationStatusPtrInput interface {
+type TopicRuleDestinationStatusPtrInput interface {
 	pulumi.Input
 
-	ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationTopicRuleDestinationStatusPtrOutput
-	ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(context.Context) TopicRuleDestinationTopicRuleDestinationStatusPtrOutput
+	ToTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationStatusPtrOutput
+	ToTopicRuleDestinationStatusPtrOutputWithContext(context.Context) TopicRuleDestinationStatusPtrOutput
 }
 
-type topicRuleDestinationTopicRuleDestinationStatusPtr string
+type topicRuleDestinationStatusPtr string
 
-func TopicRuleDestinationTopicRuleDestinationStatusPtr(v string) TopicRuleDestinationTopicRuleDestinationStatusPtrInput {
-	return (*topicRuleDestinationTopicRuleDestinationStatusPtr)(&v)
+func TopicRuleDestinationStatusPtr(v string) TopicRuleDestinationStatusPtrInput {
+	return (*topicRuleDestinationStatusPtr)(&v)
 }
 
-func (*topicRuleDestinationTopicRuleDestinationStatusPtr) ElementType() reflect.Type {
-	return topicRuleDestinationTopicRuleDestinationStatusPtrType
+func (*topicRuleDestinationStatusPtr) ElementType() reflect.Type {
+	return topicRuleDestinationStatusPtrType
 }
 
-func (in *topicRuleDestinationTopicRuleDestinationStatusPtr) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
-	return pulumi.ToOutput(in).(TopicRuleDestinationTopicRuleDestinationStatusPtrOutput)
+func (in *topicRuleDestinationStatusPtr) ToTopicRuleDestinationStatusPtrOutput() TopicRuleDestinationStatusPtrOutput {
+	return pulumi.ToOutput(in).(TopicRuleDestinationStatusPtrOutput)
 }
 
-func (in *topicRuleDestinationTopicRuleDestinationStatusPtr) ToTopicRuleDestinationTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationTopicRuleDestinationStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TopicRuleDestinationTopicRuleDestinationStatusPtrOutput)
+func (in *topicRuleDestinationStatusPtr) ToTopicRuleDestinationStatusPtrOutputWithContext(ctx context.Context) TopicRuleDestinationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TopicRuleDestinationStatusPtrOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(AuthorizerStatusOutput{})
 	pulumi.RegisterOutputType(AuthorizerStatusPtrOutput{})
-	pulumi.RegisterOutputType(CertificateCertificateModeOutput{})
-	pulumi.RegisterOutputType(CertificateCertificateModePtrOutput{})
+	pulumi.RegisterOutputType(CertificateModeOutput{})
+	pulumi.RegisterOutputType(CertificateModePtrOutput{})
 	pulumi.RegisterOutputType(CertificateStatusOutput{})
 	pulumi.RegisterOutputType(CertificateStatusPtrOutput{})
 	pulumi.RegisterOutputType(CustomMetricMetricTypeOutput{})
 	pulumi.RegisterOutputType(CustomMetricMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(DimensionTypeOutput{})
 	pulumi.RegisterOutputType(DimensionTypePtrOutput{})
-	pulumi.RegisterOutputType(DomainConfigurationDomainConfigurationStatusOutput{})
-	pulumi.RegisterOutputType(DomainConfigurationDomainConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationDomainTypeOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationDomainTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryServerCertificateStatusOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryServerCertificateStatusPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServiceTypeOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServiceTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsTemplateNameOutput{})
@@ -3542,6 +3542,6 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdStatisticPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCannedAccessControlListOutput{})
 	pulumi.RegisterOutputType(TopicRuleCannedAccessControlListPtrOutput{})
-	pulumi.RegisterOutputType(TopicRuleDestinationTopicRuleDestinationStatusOutput{})
-	pulumi.RegisterOutputType(TopicRuleDestinationTopicRuleDestinationStatusPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationStatusOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationStatusPtrOutput{})
 }

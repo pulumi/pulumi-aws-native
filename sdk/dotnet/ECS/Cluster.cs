@@ -31,10 +31,10 @@ namespace Pulumi.AwsNative.ECS
         public Output<string?> ClusterName { get; private set; } = null!;
 
         [Output("clusterSettings")]
-        public Output<ImmutableArray<Outputs.ClusterClusterSettings>> ClusterSettings { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterSettings>> ClusterSettings { get; private set; } = null!;
 
         [Output("configuration")]
-        public Output<Outputs.ClusterClusterConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.ClusterConfiguration?> Configuration { get; private set; } = null!;
 
         [Output("defaultCapacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem>> DefaultCapacityProviderStrategy { get; private set; } = null!;
@@ -102,15 +102,15 @@ namespace Pulumi.AwsNative.ECS
         public Input<string>? ClusterName { get; set; }
 
         [Input("clusterSettings")]
-        private InputList<Inputs.ClusterClusterSettingsArgs>? _clusterSettings;
-        public InputList<Inputs.ClusterClusterSettingsArgs> ClusterSettings
+        private InputList<Inputs.ClusterSettingsArgs>? _clusterSettings;
+        public InputList<Inputs.ClusterSettingsArgs> ClusterSettings
         {
-            get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.ClusterClusterSettingsArgs>());
+            get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.ClusterSettingsArgs>());
             set => _clusterSettings = value;
         }
 
         [Input("configuration")]
-        public Input<Inputs.ClusterClusterConfigurationArgs>? Configuration { get; set; }
+        public Input<Inputs.ClusterConfigurationArgs>? Configuration { get; set; }
 
         [Input("defaultCapacityProviderStrategy")]
         private InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>? _defaultCapacityProviderStrategy;

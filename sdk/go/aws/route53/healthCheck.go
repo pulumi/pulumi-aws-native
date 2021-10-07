@@ -19,7 +19,7 @@ type HealthCheck struct {
 	HealthCheckConfig pulumi.AnyOutput    `pulumi:"healthCheckConfig"`
 	HealthCheckId     pulumi.StringOutput `pulumi:"healthCheckId"`
 	// An array of key-value pairs to apply to this resource.
-	HealthCheckTags HealthCheckHealthCheckTagArrayOutput `pulumi:"healthCheckTags"`
+	HealthCheckTags HealthCheckTagArrayOutput `pulumi:"healthCheckTags"`
 }
 
 // NewHealthCheck registers a new resource with the given unique name, arguments, and options.
@@ -67,7 +67,7 @@ type healthCheckArgs struct {
 	// A complex type that contains information about the health check.
 	HealthCheckConfig interface{} `pulumi:"healthCheckConfig"`
 	// An array of key-value pairs to apply to this resource.
-	HealthCheckTags []HealthCheckHealthCheckTag `pulumi:"healthCheckTags"`
+	HealthCheckTags []HealthCheckTag `pulumi:"healthCheckTags"`
 }
 
 // The set of arguments for constructing a HealthCheck resource.
@@ -75,7 +75,7 @@ type HealthCheckArgs struct {
 	// A complex type that contains information about the health check.
 	HealthCheckConfig pulumi.Input
 	// An array of key-value pairs to apply to this resource.
-	HealthCheckTags HealthCheckHealthCheckTagArrayInput
+	HealthCheckTags HealthCheckTagArrayInput
 }
 
 func (HealthCheckArgs) ElementType() reflect.Type {

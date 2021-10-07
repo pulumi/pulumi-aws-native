@@ -23,7 +23,7 @@ class StateMachineArgs:
                  definition_substitutions: Optional[pulumi.Input['StateMachineDefinitionSubstitutionsArgs']] = None,
                  logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
-                 state_machine_type: Optional[pulumi.Input['StateMachineStateMachineType']] = None,
+                 state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]]] = None,
                  tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None):
         """
@@ -114,11 +114,11 @@ class StateMachineArgs:
 
     @property
     @pulumi.getter(name="stateMachineType")
-    def state_machine_type(self) -> Optional[pulumi.Input['StateMachineStateMachineType']]:
+    def state_machine_type(self) -> Optional[pulumi.Input['StateMachineType']]:
         return pulumi.get(self, "state_machine_type")
 
     @state_machine_type.setter
-    def state_machine_type(self, value: Optional[pulumi.Input['StateMachineStateMachineType']]):
+    def state_machine_type(self, value: Optional[pulumi.Input['StateMachineType']]):
         pulumi.set(self, "state_machine_type", value)
 
     @property
@@ -152,7 +152,7 @@ class StateMachine(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
-                 state_machine_type: Optional[pulumi.Input['StateMachineStateMachineType']] = None,
+                 state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineTagsEntryArgs']]]]] = None,
                  tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
                  __props__=None):
@@ -193,7 +193,7 @@ class StateMachine(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  state_machine_name: Optional[pulumi.Input[str]] = None,
-                 state_machine_type: Optional[pulumi.Input['StateMachineStateMachineType']] = None,
+                 state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StateMachineTagsEntryArgs']]]]] = None,
                  tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
                  __props__=None):
@@ -305,7 +305,7 @@ class StateMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="stateMachineType")
-    def state_machine_type(self) -> pulumi.Output[Optional['StateMachineStateMachineType']]:
+    def state_machine_type(self) -> pulumi.Output[Optional['StateMachineType']]:
         return pulumi.get(self, "state_machine_type")
 
     @property

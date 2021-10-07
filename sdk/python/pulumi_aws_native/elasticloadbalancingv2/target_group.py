@@ -29,7 +29,7 @@ class TargetGroupArgs:
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetGroupAttributeArgs']]]] = None,
+                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
                  unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
@@ -204,11 +204,11 @@ class TargetGroupArgs:
 
     @property
     @pulumi.getter(name="targetGroupAttributes")
-    def target_group_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetGroupAttributeArgs']]]]:
+    def target_group_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]]:
         return pulumi.get(self, "target_group_attributes")
 
     @target_group_attributes.setter
-    def target_group_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetGroupAttributeArgs']]]]):
+    def target_group_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]]):
         pulumi.set(self, "target_group_attributes", value)
 
     @property
@@ -272,7 +272,7 @@ class TargetGroup(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTagArgs']]]]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetGroupAttributeArgs']]]]] = None,
+                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]]] = None,
                  unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
@@ -322,7 +322,7 @@ class TargetGroup(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTagArgs']]]]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetGroupAttributeArgs']]]]] = None,
+                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupAttributeArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetDescriptionArgs']]]]] = None,
                  unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
@@ -485,7 +485,7 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetGroupAttributes")
-    def target_group_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.TargetGroupTargetGroupAttribute']]]:
+    def target_group_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.TargetGroupAttribute']]]:
         return pulumi.get(self, "target_group_attributes")
 
     @property

@@ -35,7 +35,7 @@ export class BackupPlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupPlan.__pulumiType;
     }
 
-    public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanBackupPlanResourceType>;
+    public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanResourceType>;
     public /*out*/ readonly backupPlanArn!: pulumi.Output<string>;
     public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
     public readonly backupPlanTags!: pulumi.Output<any | undefined>;
@@ -78,6 +78,6 @@ export class BackupPlan extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupPlan resource.
  */
 export interface BackupPlanArgs {
-    backupPlan: pulumi.Input<inputs.backup.BackupPlanBackupPlanResourceTypeArgs>;
+    backupPlan: pulumi.Input<inputs.backup.BackupPlanResourceTypeArgs>;
     backupPlanTags?: any;
 }

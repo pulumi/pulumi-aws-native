@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SubscriptionDefinitionVersionArgs', 'SubscriptionDefinitionVersion']
+__all__ = ['SubscriptionDefinitionVersionInitArgs', 'SubscriptionDefinitionVersion']
 
 @pulumi.input_type
-class SubscriptionDefinitionVersionArgs:
+class SubscriptionDefinitionVersionInitArgs:
     def __init__(__self__, *,
                  subscription_definition_id: pulumi.Input[str],
                  subscriptions: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionVersionSubscriptionArgs']]]):
@@ -65,18 +65,18 @@ class SubscriptionDefinitionVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubscriptionDefinitionVersionArgs,
+                 args: SubscriptionDefinitionVersionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Greengrass::SubscriptionDefinitionVersion
 
         :param str resource_name: The name of the resource.
-        :param SubscriptionDefinitionVersionArgs args: The arguments to use to populate this resource's properties.
+        :param SubscriptionDefinitionVersionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionDefinitionVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionDefinitionVersionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -98,7 +98,7 @@ class SubscriptionDefinitionVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubscriptionDefinitionVersionArgs.__new__(SubscriptionDefinitionVersionArgs)
+            __props__ = SubscriptionDefinitionVersionInitArgs.__new__(SubscriptionDefinitionVersionInitArgs)
 
             if subscription_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_definition_id'")
@@ -126,7 +126,7 @@ class SubscriptionDefinitionVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SubscriptionDefinitionVersionArgs.__new__(SubscriptionDefinitionVersionArgs)
+        __props__ = SubscriptionDefinitionVersionInitArgs.__new__(SubscriptionDefinitionVersionInitArgs)
 
         __props__.__dict__["subscription_definition_id"] = None
         __props__.__dict__["subscriptions"] = None

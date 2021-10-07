@@ -162,6 +162,157 @@ func (o ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput) SecretKey
 	}).(pulumi.StringPtrOutput)
 }
 
+// Connector specific configurations needed to create connector profile
+type ConnectorProfileConfig struct {
+	ConnectorProfileCredentials ConnectorProfileCredentials `pulumi:"connectorProfileCredentials"`
+	ConnectorProfileProperties  *ConnectorProfileProperties `pulumi:"connectorProfileProperties"`
+}
+
+// ConnectorProfileConfigInput is an input type that accepts ConnectorProfileConfigArgs and ConnectorProfileConfigOutput values.
+// You can construct a concrete instance of `ConnectorProfileConfigInput` via:
+//
+//          ConnectorProfileConfigArgs{...}
+type ConnectorProfileConfigInput interface {
+	pulumi.Input
+
+	ToConnectorProfileConfigOutput() ConnectorProfileConfigOutput
+	ToConnectorProfileConfigOutputWithContext(context.Context) ConnectorProfileConfigOutput
+}
+
+// Connector specific configurations needed to create connector profile
+type ConnectorProfileConfigArgs struct {
+	ConnectorProfileCredentials ConnectorProfileCredentialsInput   `pulumi:"connectorProfileCredentials"`
+	ConnectorProfileProperties  ConnectorProfilePropertiesPtrInput `pulumi:"connectorProfileProperties"`
+}
+
+func (ConnectorProfileConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileConfig)(nil)).Elem()
+}
+
+func (i ConnectorProfileConfigArgs) ToConnectorProfileConfigOutput() ConnectorProfileConfigOutput {
+	return i.ToConnectorProfileConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileConfigArgs) ToConnectorProfileConfigOutputWithContext(ctx context.Context) ConnectorProfileConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConfigOutput)
+}
+
+func (i ConnectorProfileConfigArgs) ToConnectorProfileConfigPtrOutput() ConnectorProfileConfigPtrOutput {
+	return i.ToConnectorProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfileConfigArgs) ToConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConfigOutput).ToConnectorProfileConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorProfileConfigPtrInput is an input type that accepts ConnectorProfileConfigArgs, ConnectorProfileConfigPtr and ConnectorProfileConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfileConfigPtrInput` via:
+//
+//          ConnectorProfileConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectorProfileConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfileConfigPtrOutput() ConnectorProfileConfigPtrOutput
+	ToConnectorProfileConfigPtrOutputWithContext(context.Context) ConnectorProfileConfigPtrOutput
+}
+
+type connectorProfileConfigPtrType ConnectorProfileConfigArgs
+
+func ConnectorProfileConfigPtr(v *ConnectorProfileConfigArgs) ConnectorProfileConfigPtrInput {
+	return (*connectorProfileConfigPtrType)(v)
+}
+
+func (*connectorProfileConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileConfig)(nil)).Elem()
+}
+
+func (i *connectorProfileConfigPtrType) ToConnectorProfileConfigPtrOutput() ConnectorProfileConfigPtrOutput {
+	return i.ToConnectorProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorProfileConfigPtrType) ToConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConfigPtrOutput)
+}
+
+// Connector specific configurations needed to create connector profile
+type ConnectorProfileConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileConfig)(nil)).Elem()
+}
+
+func (o ConnectorProfileConfigOutput) ToConnectorProfileConfigOutput() ConnectorProfileConfigOutput {
+	return o
+}
+
+func (o ConnectorProfileConfigOutput) ToConnectorProfileConfigOutputWithContext(ctx context.Context) ConnectorProfileConfigOutput {
+	return o
+}
+
+func (o ConnectorProfileConfigOutput) ToConnectorProfileConfigPtrOutput() ConnectorProfileConfigPtrOutput {
+	return o.ToConnectorProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfileConfigOutput) ToConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConfig) *ConnectorProfileConfig {
+		return &v
+	}).(ConnectorProfileConfigPtrOutput)
+}
+
+func (o ConnectorProfileConfigOutput) ConnectorProfileCredentials() ConnectorProfileCredentialsOutput {
+	return o.ApplyT(func(v ConnectorProfileConfig) ConnectorProfileCredentials { return v.ConnectorProfileCredentials }).(ConnectorProfileCredentialsOutput)
+}
+
+func (o ConnectorProfileConfigOutput) ConnectorProfileProperties() ConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConfig) *ConnectorProfileProperties { return v.ConnectorProfileProperties }).(ConnectorProfilePropertiesPtrOutput)
+}
+
+type ConnectorProfileConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfileConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileConfig)(nil)).Elem()
+}
+
+func (o ConnectorProfileConfigPtrOutput) ToConnectorProfileConfigPtrOutput() ConnectorProfileConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileConfigPtrOutput) ToConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorProfileConfigPtrOutput) Elem() ConnectorProfileConfigOutput {
+	return o.ApplyT(func(v *ConnectorProfileConfig) ConnectorProfileConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfileConfig
+		return ret
+	}).(ConnectorProfileConfigOutput)
+}
+
+func (o ConnectorProfileConfigPtrOutput) ConnectorProfileCredentials() ConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConfig) *ConnectorProfileCredentials {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectorProfileCredentials
+	}).(ConnectorProfileCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileConfigPtrOutput) ConnectorProfileProperties() ConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConfig) *ConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorProfileProperties
+	}).(ConnectorProfilePropertiesPtrOutput)
+}
+
 type ConnectorProfileConnectorOAuthRequest struct {
 	// The code provided by the connector when it has been authenticated via the connected app.
 	AuthCode *string `pulumi:"authCode"`
@@ -322,163 +473,8 @@ func (o ConnectorProfileConnectorOAuthRequestPtrOutput) RedirectUri() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Connector specific configurations needed to create connector profile
-type ConnectorProfileConnectorProfileConfig struct {
-	ConnectorProfileCredentials ConnectorProfileConnectorProfileCredentials `pulumi:"connectorProfileCredentials"`
-	ConnectorProfileProperties  *ConnectorProfileConnectorProfileProperties `pulumi:"connectorProfileProperties"`
-}
-
-// ConnectorProfileConnectorProfileConfigInput is an input type that accepts ConnectorProfileConnectorProfileConfigArgs and ConnectorProfileConnectorProfileConfigOutput values.
-// You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigInput` via:
-//
-//          ConnectorProfileConnectorProfileConfigArgs{...}
-type ConnectorProfileConnectorProfileConfigInput interface {
-	pulumi.Input
-
-	ToConnectorProfileConnectorProfileConfigOutput() ConnectorProfileConnectorProfileConfigOutput
-	ToConnectorProfileConnectorProfileConfigOutputWithContext(context.Context) ConnectorProfileConnectorProfileConfigOutput
-}
-
-// Connector specific configurations needed to create connector profile
-type ConnectorProfileConnectorProfileConfigArgs struct {
-	ConnectorProfileCredentials ConnectorProfileConnectorProfileCredentialsInput   `pulumi:"connectorProfileCredentials"`
-	ConnectorProfileProperties  ConnectorProfileConnectorProfilePropertiesPtrInput `pulumi:"connectorProfileProperties"`
-}
-
-func (ConnectorProfileConnectorProfileConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileConnectorProfileConfig)(nil)).Elem()
-}
-
-func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorProfileConfigOutput() ConnectorProfileConnectorProfileConfigOutput {
-	return i.ToConnectorProfileConnectorProfileConfigOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorProfileConfigOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigOutput)
-}
-
-func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorProfileConfigPtrOutput() ConnectorProfileConnectorProfileConfigPtrOutput {
-	return i.ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigOutput).ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileConnectorProfileConfigPtrInput is an input type that accepts ConnectorProfileConnectorProfileConfigArgs, ConnectorProfileConnectorProfileConfigPtr and ConnectorProfileConnectorProfileConfigPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileConnectorProfileConfigPtrInput` via:
-//
-//          ConnectorProfileConnectorProfileConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorProfileConnectorProfileConfigPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileConnectorProfileConfigPtrOutput() ConnectorProfileConnectorProfileConfigPtrOutput
-	ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(context.Context) ConnectorProfileConnectorProfileConfigPtrOutput
-}
-
-type connectorProfileConnectorProfileConfigPtrType ConnectorProfileConnectorProfileConfigArgs
-
-func ConnectorProfileConnectorProfileConfigPtr(v *ConnectorProfileConnectorProfileConfigArgs) ConnectorProfileConnectorProfileConfigPtrInput {
-	return (*connectorProfileConnectorProfileConfigPtrType)(v)
-}
-
-func (*connectorProfileConnectorProfileConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileConnectorProfileConfig)(nil)).Elem()
-}
-
-func (i *connectorProfileConnectorProfileConfigPtrType) ToConnectorProfileConnectorProfileConfigPtrOutput() ConnectorProfileConnectorProfileConfigPtrOutput {
-	return i.ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileConnectorProfileConfigPtrType) ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigPtrOutput)
-}
-
-// Connector specific configurations needed to create connector profile
-type ConnectorProfileConnectorProfileConfigOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileConnectorProfileConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileConnectorProfileConfig)(nil)).Elem()
-}
-
-func (o ConnectorProfileConnectorProfileConfigOutput) ToConnectorProfileConnectorProfileConfigOutput() ConnectorProfileConnectorProfileConfigOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigOutput) ToConnectorProfileConnectorProfileConfigOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigOutput) ToConnectorProfileConnectorProfileConfigPtrOutput() ConnectorProfileConnectorProfileConfigPtrOutput {
-	return o.ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileConnectorProfileConfigOutput) ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileConfig {
-		return &v
-	}).(ConnectorProfileConnectorProfileConfigPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigOutput) ConnectorProfileCredentials() ConnectorProfileConnectorProfileCredentialsOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfig) ConnectorProfileConnectorProfileCredentials {
-		return v.ConnectorProfileCredentials
-	}).(ConnectorProfileConnectorProfileCredentialsOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigOutput) ConnectorProfileProperties() ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileProperties {
-		return v.ConnectorProfileProperties
-	}).(ConnectorProfileConnectorProfilePropertiesPtrOutput)
-}
-
-type ConnectorProfileConnectorProfileConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileConnectorProfileConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileConnectorProfileConfig)(nil)).Elem()
-}
-
-func (o ConnectorProfileConnectorProfileConfigPtrOutput) ToConnectorProfileConnectorProfileConfigPtrOutput() ConnectorProfileConnectorProfileConfigPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigPtrOutput) ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigPtrOutput) Elem() ConnectorProfileConnectorProfileConfigOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfig) ConnectorProfileConnectorProfileConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileConnectorProfileConfig
-		return ret
-	}).(ConnectorProfileConnectorProfileConfigOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigPtrOutput) ConnectorProfileCredentials() ConnectorProfileConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileCredentials {
-		if v == nil {
-			return nil
-		}
-		return &v.ConnectorProfileCredentials
-	}).(ConnectorProfileConnectorProfileCredentialsPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigPtrOutput) ConnectorProfileProperties() ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectorProfileProperties
-	}).(ConnectorProfileConnectorProfilePropertiesPtrOutput)
-}
-
 // Connector specific configuration needed to create connector profile based on Authentication mechanism
-type ConnectorProfileConnectorProfileCredentials struct {
+type ConnectorProfileCredentials struct {
 	Amplitude       *ConnectorProfileAmplitudeConnectorProfileCredentials       `pulumi:"amplitude"`
 	Datadog         *ConnectorProfileDatadogConnectorProfileCredentials         `pulumi:"datadog"`
 	Dynatrace       *ConnectorProfileDynatraceConnectorProfileCredentials       `pulumi:"dynatrace"`
@@ -496,19 +492,19 @@ type ConnectorProfileConnectorProfileCredentials struct {
 	Zendesk         *ConnectorProfileZendeskConnectorProfileCredentials         `pulumi:"zendesk"`
 }
 
-// ConnectorProfileConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileConnectorProfileCredentialsArgs and ConnectorProfileConnectorProfileCredentialsOutput values.
-// You can construct a concrete instance of `ConnectorProfileConnectorProfileCredentialsInput` via:
+// ConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileCredentialsArgs and ConnectorProfileCredentialsOutput values.
+// You can construct a concrete instance of `ConnectorProfileCredentialsInput` via:
 //
-//          ConnectorProfileConnectorProfileCredentialsArgs{...}
-type ConnectorProfileConnectorProfileCredentialsInput interface {
+//          ConnectorProfileCredentialsArgs{...}
+type ConnectorProfileCredentialsInput interface {
 	pulumi.Input
 
-	ToConnectorProfileConnectorProfileCredentialsOutput() ConnectorProfileConnectorProfileCredentialsOutput
-	ToConnectorProfileConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileConnectorProfileCredentialsOutput
+	ToConnectorProfileCredentialsOutput() ConnectorProfileCredentialsOutput
+	ToConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileCredentialsOutput
 }
 
 // Connector specific configuration needed to create connector profile based on Authentication mechanism
-type ConnectorProfileConnectorProfileCredentialsArgs struct {
+type ConnectorProfileCredentialsArgs struct {
 	Amplitude       ConnectorProfileAmplitudeConnectorProfileCredentialsPtrInput       `pulumi:"amplitude"`
 	Datadog         ConnectorProfileDatadogConnectorProfileCredentialsPtrInput         `pulumi:"datadog"`
 	Dynatrace       ConnectorProfileDynatraceConnectorProfileCredentialsPtrInput       `pulumi:"dynatrace"`
@@ -526,200 +522,196 @@ type ConnectorProfileConnectorProfileCredentialsArgs struct {
 	Zendesk         ConnectorProfileZendeskConnectorProfileCredentialsPtrInput         `pulumi:"zendesk"`
 }
 
-func (ConnectorProfileConnectorProfileCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileConnectorProfileCredentials)(nil)).Elem()
+func (ConnectorProfileCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileCredentials)(nil)).Elem()
 }
 
-func (i ConnectorProfileConnectorProfileCredentialsArgs) ToConnectorProfileConnectorProfileCredentialsOutput() ConnectorProfileConnectorProfileCredentialsOutput {
-	return i.ToConnectorProfileConnectorProfileCredentialsOutputWithContext(context.Background())
+func (i ConnectorProfileCredentialsArgs) ToConnectorProfileCredentialsOutput() ConnectorProfileCredentialsOutput {
+	return i.ToConnectorProfileCredentialsOutputWithContext(context.Background())
 }
 
-func (i ConnectorProfileConnectorProfileCredentialsArgs) ToConnectorProfileConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileCredentialsOutput)
+func (i ConnectorProfileCredentialsArgs) ToConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileCredentialsOutput)
 }
 
-func (i ConnectorProfileConnectorProfileCredentialsArgs) ToConnectorProfileConnectorProfileCredentialsPtrOutput() ConnectorProfileConnectorProfileCredentialsPtrOutput {
-	return i.ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+func (i ConnectorProfileCredentialsArgs) ToConnectorProfileCredentialsPtrOutput() ConnectorProfileCredentialsPtrOutput {
+	return i.ToConnectorProfileCredentialsPtrOutputWithContext(context.Background())
 }
 
-func (i ConnectorProfileConnectorProfileCredentialsArgs) ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileCredentialsOutput).ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(ctx)
+func (i ConnectorProfileCredentialsArgs) ToConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileCredentialsOutput).ToConnectorProfileCredentialsPtrOutputWithContext(ctx)
 }
 
-// ConnectorProfileConnectorProfileCredentialsPtrInput is an input type that accepts ConnectorProfileConnectorProfileCredentialsArgs, ConnectorProfileConnectorProfileCredentialsPtr and ConnectorProfileConnectorProfileCredentialsPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileConnectorProfileCredentialsPtrInput` via:
+// ConnectorProfileCredentialsPtrInput is an input type that accepts ConnectorProfileCredentialsArgs, ConnectorProfileCredentialsPtr and ConnectorProfileCredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfileCredentialsPtrInput` via:
 //
-//          ConnectorProfileConnectorProfileCredentialsArgs{...}
+//          ConnectorProfileCredentialsArgs{...}
 //
 //  or:
 //
 //          nil
-type ConnectorProfileConnectorProfileCredentialsPtrInput interface {
+type ConnectorProfileCredentialsPtrInput interface {
 	pulumi.Input
 
-	ToConnectorProfileConnectorProfileCredentialsPtrOutput() ConnectorProfileConnectorProfileCredentialsPtrOutput
-	ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(context.Context) ConnectorProfileConnectorProfileCredentialsPtrOutput
+	ToConnectorProfileCredentialsPtrOutput() ConnectorProfileCredentialsPtrOutput
+	ToConnectorProfileCredentialsPtrOutputWithContext(context.Context) ConnectorProfileCredentialsPtrOutput
 }
 
-type connectorProfileConnectorProfileCredentialsPtrType ConnectorProfileConnectorProfileCredentialsArgs
+type connectorProfileCredentialsPtrType ConnectorProfileCredentialsArgs
 
-func ConnectorProfileConnectorProfileCredentialsPtr(v *ConnectorProfileConnectorProfileCredentialsArgs) ConnectorProfileConnectorProfileCredentialsPtrInput {
-	return (*connectorProfileConnectorProfileCredentialsPtrType)(v)
+func ConnectorProfileCredentialsPtr(v *ConnectorProfileCredentialsArgs) ConnectorProfileCredentialsPtrInput {
+	return (*connectorProfileCredentialsPtrType)(v)
 }
 
-func (*connectorProfileConnectorProfileCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileConnectorProfileCredentials)(nil)).Elem()
+func (*connectorProfileCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileCredentials)(nil)).Elem()
 }
 
-func (i *connectorProfileConnectorProfileCredentialsPtrType) ToConnectorProfileConnectorProfileCredentialsPtrOutput() ConnectorProfileConnectorProfileCredentialsPtrOutput {
-	return i.ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+func (i *connectorProfileCredentialsPtrType) ToConnectorProfileCredentialsPtrOutput() ConnectorProfileCredentialsPtrOutput {
+	return i.ToConnectorProfileCredentialsPtrOutputWithContext(context.Background())
 }
 
-func (i *connectorProfileConnectorProfileCredentialsPtrType) ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileCredentialsPtrOutput)
+func (i *connectorProfileCredentialsPtrType) ToConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileCredentialsPtrOutput)
 }
 
 // Connector specific configuration needed to create connector profile based on Authentication mechanism
-type ConnectorProfileConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
+type ConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
-func (ConnectorProfileConnectorProfileCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileConnectorProfileCredentials)(nil)).Elem()
+func (ConnectorProfileCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileCredentials)(nil)).Elem()
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) ToConnectorProfileConnectorProfileCredentialsOutput() ConnectorProfileConnectorProfileCredentialsOutput {
+func (o ConnectorProfileCredentialsOutput) ToConnectorProfileCredentialsOutput() ConnectorProfileCredentialsOutput {
 	return o
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) ToConnectorProfileConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileCredentialsOutput {
+func (o ConnectorProfileCredentialsOutput) ToConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfileCredentialsOutput {
 	return o
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) ToConnectorProfileConnectorProfileCredentialsPtrOutput() ConnectorProfileConnectorProfileCredentialsPtrOutput {
-	return o.ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+func (o ConnectorProfileCredentialsOutput) ToConnectorProfileCredentialsPtrOutput() ConnectorProfileCredentialsPtrOutput {
+	return o.ToConnectorProfileCredentialsPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) ToConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileCredentials) *ConnectorProfileCredentials {
 		return &v
-	}).(ConnectorProfileConnectorProfileCredentialsPtrOutput)
+	}).(ConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Amplitude() ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileAmplitudeConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Amplitude() ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileAmplitudeConnectorProfileCredentials {
 		return v.Amplitude
 	}).(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
 		return v.Datadog
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
 		return v.Dynatrace
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
 		return v.GoogleAnalytics
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
 		return v.InforNexus
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
 		return v.Redshift
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		return v.Salesforce
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
 		return v.ServiceNow
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
 		return v.Singular
 	}).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials {
-		return v.Slack
-	}).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
+func (o ConnectorProfileCredentialsOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials { return v.Slack }).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
 		return v.Snowflake
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
 		return v.Trendmicro
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials {
-		return v.Veeva
-	}).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
+func (o ConnectorProfileCredentialsOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials { return v.Veeva }).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
 		return v.Zendesk
 	}).(ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput)
 }
 
-type ConnectorProfileConnectorProfileCredentialsPtrOutput struct{ *pulumi.OutputState }
+type ConnectorProfileCredentialsPtrOutput struct{ *pulumi.OutputState }
 
-func (ConnectorProfileConnectorProfileCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileConnectorProfileCredentials)(nil)).Elem()
+func (ConnectorProfileCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileCredentials)(nil)).Elem()
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) ToConnectorProfileConnectorProfileCredentialsPtrOutput() ConnectorProfileConnectorProfileCredentialsPtrOutput {
+func (o ConnectorProfileCredentialsPtrOutput) ToConnectorProfileCredentialsPtrOutput() ConnectorProfileCredentialsPtrOutput {
 	return o
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) ToConnectorProfileConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileCredentialsPtrOutput {
+func (o ConnectorProfileCredentialsPtrOutput) ToConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileCredentialsPtrOutput {
 	return o
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Elem() ConnectorProfileConnectorProfileCredentialsOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) ConnectorProfileConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Elem() ConnectorProfileCredentialsOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) ConnectorProfileCredentials {
 		if v != nil {
 			return *v
 		}
-		var ret ConnectorProfileConnectorProfileCredentials
+		var ret ConnectorProfileCredentials
 		return ret
-	}).(ConnectorProfileConnectorProfileCredentialsOutput)
+	}).(ConnectorProfileCredentialsOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Amplitude() ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileAmplitudeConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Amplitude() ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileAmplitudeConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -727,8 +719,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Amplitude() Connec
 	}).(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -736,8 +728,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Datadog() Connecto
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -745,8 +737,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Dynatrace() Connec
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -754,8 +746,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) GoogleAnalytics() 
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -763,8 +755,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) InforNexus() Conne
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -772,8 +764,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Marketo() Connecto
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -781,8 +773,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Redshift() Connect
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -790,8 +782,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Salesforce() Conne
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -799,8 +791,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) ServiceNow() Conne
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -808,8 +800,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Singular() Connect
 	}).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -817,8 +809,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Slack() ConnectorP
 	}).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -826,8 +818,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Snowflake() Connec
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -835,8 +827,8 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Trendmicro() Conne
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
@@ -844,321 +836,13 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Veeva() ConnectorP
 	}).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
+func (o ConnectorProfileCredentialsPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
 		if v == nil {
 			return nil
 		}
 		return v.Zendesk
 	}).(ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput)
-}
-
-// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
-type ConnectorProfileConnectorProfileProperties struct {
-	Datadog    *ConnectorProfileDatadogConnectorProfileProperties    `pulumi:"datadog"`
-	Dynatrace  *ConnectorProfileDynatraceConnectorProfileProperties  `pulumi:"dynatrace"`
-	InforNexus *ConnectorProfileInforNexusConnectorProfileProperties `pulumi:"inforNexus"`
-	Marketo    *ConnectorProfileMarketoConnectorProfileProperties    `pulumi:"marketo"`
-	Redshift   *ConnectorProfileRedshiftConnectorProfileProperties   `pulumi:"redshift"`
-	Salesforce *ConnectorProfileSalesforceConnectorProfileProperties `pulumi:"salesforce"`
-	ServiceNow *ConnectorProfileServiceNowConnectorProfileProperties `pulumi:"serviceNow"`
-	Slack      *ConnectorProfileSlackConnectorProfileProperties      `pulumi:"slack"`
-	Snowflake  *ConnectorProfileSnowflakeConnectorProfileProperties  `pulumi:"snowflake"`
-	Veeva      *ConnectorProfileVeevaConnectorProfileProperties      `pulumi:"veeva"`
-	Zendesk    *ConnectorProfileZendeskConnectorProfileProperties    `pulumi:"zendesk"`
-}
-
-// ConnectorProfileConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileConnectorProfilePropertiesArgs and ConnectorProfileConnectorProfilePropertiesOutput values.
-// You can construct a concrete instance of `ConnectorProfileConnectorProfilePropertiesInput` via:
-//
-//          ConnectorProfileConnectorProfilePropertiesArgs{...}
-type ConnectorProfileConnectorProfilePropertiesInput interface {
-	pulumi.Input
-
-	ToConnectorProfileConnectorProfilePropertiesOutput() ConnectorProfileConnectorProfilePropertiesOutput
-	ToConnectorProfileConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileConnectorProfilePropertiesOutput
-}
-
-// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
-type ConnectorProfileConnectorProfilePropertiesArgs struct {
-	Datadog    ConnectorProfileDatadogConnectorProfilePropertiesPtrInput    `pulumi:"datadog"`
-	Dynatrace  ConnectorProfileDynatraceConnectorProfilePropertiesPtrInput  `pulumi:"dynatrace"`
-	InforNexus ConnectorProfileInforNexusConnectorProfilePropertiesPtrInput `pulumi:"inforNexus"`
-	Marketo    ConnectorProfileMarketoConnectorProfilePropertiesPtrInput    `pulumi:"marketo"`
-	Redshift   ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput   `pulumi:"redshift"`
-	Salesforce ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput `pulumi:"salesforce"`
-	ServiceNow ConnectorProfileServiceNowConnectorProfilePropertiesPtrInput `pulumi:"serviceNow"`
-	Slack      ConnectorProfileSlackConnectorProfilePropertiesPtrInput      `pulumi:"slack"`
-	Snowflake  ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput  `pulumi:"snowflake"`
-	Veeva      ConnectorProfileVeevaConnectorProfilePropertiesPtrInput      `pulumi:"veeva"`
-	Zendesk    ConnectorProfileZendeskConnectorProfilePropertiesPtrInput    `pulumi:"zendesk"`
-}
-
-func (ConnectorProfileConnectorProfilePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileConnectorProfileProperties)(nil)).Elem()
-}
-
-func (i ConnectorProfileConnectorProfilePropertiesArgs) ToConnectorProfileConnectorProfilePropertiesOutput() ConnectorProfileConnectorProfilePropertiesOutput {
-	return i.ToConnectorProfileConnectorProfilePropertiesOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileConnectorProfilePropertiesArgs) ToConnectorProfileConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfilePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfilePropertiesOutput)
-}
-
-func (i ConnectorProfileConnectorProfilePropertiesArgs) ToConnectorProfileConnectorProfilePropertiesPtrOutput() ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return i.ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorProfileConnectorProfilePropertiesArgs) ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfilePropertiesOutput).ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(ctx)
-}
-
-// ConnectorProfileConnectorProfilePropertiesPtrInput is an input type that accepts ConnectorProfileConnectorProfilePropertiesArgs, ConnectorProfileConnectorProfilePropertiesPtr and ConnectorProfileConnectorProfilePropertiesPtrOutput values.
-// You can construct a concrete instance of `ConnectorProfileConnectorProfilePropertiesPtrInput` via:
-//
-//          ConnectorProfileConnectorProfilePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectorProfileConnectorProfilePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConnectorProfileConnectorProfilePropertiesPtrOutput() ConnectorProfileConnectorProfilePropertiesPtrOutput
-	ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(context.Context) ConnectorProfileConnectorProfilePropertiesPtrOutput
-}
-
-type connectorProfileConnectorProfilePropertiesPtrType ConnectorProfileConnectorProfilePropertiesArgs
-
-func ConnectorProfileConnectorProfilePropertiesPtr(v *ConnectorProfileConnectorProfilePropertiesArgs) ConnectorProfileConnectorProfilePropertiesPtrInput {
-	return (*connectorProfileConnectorProfilePropertiesPtrType)(v)
-}
-
-func (*connectorProfileConnectorProfilePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileConnectorProfileProperties)(nil)).Elem()
-}
-
-func (i *connectorProfileConnectorProfilePropertiesPtrType) ToConnectorProfileConnectorProfilePropertiesPtrOutput() ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return i.ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *connectorProfileConnectorProfilePropertiesPtrType) ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfilePropertiesPtrOutput)
-}
-
-// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
-type ConnectorProfileConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileConnectorProfilePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorProfileConnectorProfileProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) ToConnectorProfileConnectorProfilePropertiesOutput() ConnectorProfileConnectorProfilePropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) ToConnectorProfileConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfilePropertiesOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) ToConnectorProfileConnectorProfilePropertiesPtrOutput() ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return o.ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileProperties) *ConnectorProfileConnectorProfileProperties {
-		return &v
-	}).(ConnectorProfileConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
-		return v.Datadog
-	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
-		return v.Dynatrace
-	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
-		return v.InforNexus
-	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
-		return v.Marketo
-	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
-		return v.Redshift
-	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
-		return v.Salesforce
-	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
-		return v.ServiceNow
-	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties {
-		return v.Slack
-	}).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
-		return v.Snowflake
-	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties {
-		return v.Veeva
-	}).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
-		return v.Zendesk
-	}).(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput)
-}
-
-type ConnectorProfileConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorProfileConnectorProfilePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorProfileConnectorProfileProperties)(nil)).Elem()
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) ToConnectorProfileConnectorProfilePropertiesPtrOutput() ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) ToConnectorProfileConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfilePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Elem() ConnectorProfileConnectorProfilePropertiesOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) ConnectorProfileConnectorProfileProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorProfileConnectorProfileProperties
-		return ret
-	}).(ConnectorProfileConnectorProfilePropertiesOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Datadog
-	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Dynatrace
-	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.InforNexus
-	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Marketo
-	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Redshift
-	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Salesforce
-	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceNow
-	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Slack
-	}).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Snowflake
-	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Veeva
-	}).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Zendesk
-	}).(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput)
 }
 
 type ConnectorProfileDatadogConnectorProfileCredentials struct {
@@ -2605,6 +2289,310 @@ func (o ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput) InstanceUrl(
 		}
 		return &v.InstanceUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+type ConnectorProfileProperties struct {
+	Datadog    *ConnectorProfileDatadogConnectorProfileProperties    `pulumi:"datadog"`
+	Dynatrace  *ConnectorProfileDynatraceConnectorProfileProperties  `pulumi:"dynatrace"`
+	InforNexus *ConnectorProfileInforNexusConnectorProfileProperties `pulumi:"inforNexus"`
+	Marketo    *ConnectorProfileMarketoConnectorProfileProperties    `pulumi:"marketo"`
+	Redshift   *ConnectorProfileRedshiftConnectorProfileProperties   `pulumi:"redshift"`
+	Salesforce *ConnectorProfileSalesforceConnectorProfileProperties `pulumi:"salesforce"`
+	ServiceNow *ConnectorProfileServiceNowConnectorProfileProperties `pulumi:"serviceNow"`
+	Slack      *ConnectorProfileSlackConnectorProfileProperties      `pulumi:"slack"`
+	Snowflake  *ConnectorProfileSnowflakeConnectorProfileProperties  `pulumi:"snowflake"`
+	Veeva      *ConnectorProfileVeevaConnectorProfileProperties      `pulumi:"veeva"`
+	Zendesk    *ConnectorProfileZendeskConnectorProfileProperties    `pulumi:"zendesk"`
+}
+
+// ConnectorProfilePropertiesInput is an input type that accepts ConnectorProfilePropertiesArgs and ConnectorProfilePropertiesOutput values.
+// You can construct a concrete instance of `ConnectorProfilePropertiesInput` via:
+//
+//          ConnectorProfilePropertiesArgs{...}
+type ConnectorProfilePropertiesInput interface {
+	pulumi.Input
+
+	ToConnectorProfilePropertiesOutput() ConnectorProfilePropertiesOutput
+	ToConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfilePropertiesOutput
+}
+
+// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+type ConnectorProfilePropertiesArgs struct {
+	Datadog    ConnectorProfileDatadogConnectorProfilePropertiesPtrInput    `pulumi:"datadog"`
+	Dynatrace  ConnectorProfileDynatraceConnectorProfilePropertiesPtrInput  `pulumi:"dynatrace"`
+	InforNexus ConnectorProfileInforNexusConnectorProfilePropertiesPtrInput `pulumi:"inforNexus"`
+	Marketo    ConnectorProfileMarketoConnectorProfilePropertiesPtrInput    `pulumi:"marketo"`
+	Redshift   ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput   `pulumi:"redshift"`
+	Salesforce ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput `pulumi:"salesforce"`
+	ServiceNow ConnectorProfileServiceNowConnectorProfilePropertiesPtrInput `pulumi:"serviceNow"`
+	Slack      ConnectorProfileSlackConnectorProfilePropertiesPtrInput      `pulumi:"slack"`
+	Snowflake  ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput  `pulumi:"snowflake"`
+	Veeva      ConnectorProfileVeevaConnectorProfilePropertiesPtrInput      `pulumi:"veeva"`
+	Zendesk    ConnectorProfileZendeskConnectorProfilePropertiesPtrInput    `pulumi:"zendesk"`
+}
+
+func (ConnectorProfilePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileProperties)(nil)).Elem()
+}
+
+func (i ConnectorProfilePropertiesArgs) ToConnectorProfilePropertiesOutput() ConnectorProfilePropertiesOutput {
+	return i.ToConnectorProfilePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfilePropertiesArgs) ToConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfilePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePropertiesOutput)
+}
+
+func (i ConnectorProfilePropertiesArgs) ToConnectorProfilePropertiesPtrOutput() ConnectorProfilePropertiesPtrOutput {
+	return i.ToConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfilePropertiesArgs) ToConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePropertiesOutput).ToConnectorProfilePropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectorProfilePropertiesPtrInput is an input type that accepts ConnectorProfilePropertiesArgs, ConnectorProfilePropertiesPtr and ConnectorProfilePropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfilePropertiesPtrInput` via:
+//
+//          ConnectorProfilePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectorProfilePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfilePropertiesPtrOutput() ConnectorProfilePropertiesPtrOutput
+	ToConnectorProfilePropertiesPtrOutputWithContext(context.Context) ConnectorProfilePropertiesPtrOutput
+}
+
+type connectorProfilePropertiesPtrType ConnectorProfilePropertiesArgs
+
+func ConnectorProfilePropertiesPtr(v *ConnectorProfilePropertiesArgs) ConnectorProfilePropertiesPtrInput {
+	return (*connectorProfilePropertiesPtrType)(v)
+}
+
+func (*connectorProfilePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileProperties)(nil)).Elem()
+}
+
+func (i *connectorProfilePropertiesPtrType) ToConnectorProfilePropertiesPtrOutput() ConnectorProfilePropertiesPtrOutput {
+	return i.ToConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorProfilePropertiesPtrType) ToConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePropertiesPtrOutput)
+}
+
+// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
+type ConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfilePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfileProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfilePropertiesOutput) ToConnectorProfilePropertiesOutput() ConnectorProfilePropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfilePropertiesOutput) ToConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfilePropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfilePropertiesOutput) ToConnectorProfilePropertiesPtrOutput() ConnectorProfilePropertiesPtrOutput {
+	return o.ToConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfilePropertiesOutput) ToConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileProperties) *ConnectorProfileProperties {
+		return &v
+	}).(ConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
+		return v.Datadog
+	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
+		return v.Dynatrace
+	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
+		return v.InforNexus
+	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
+		return v.Marketo
+	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
+		return v.Redshift
+	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
+		return v.Salesforce
+	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
+		return v.ServiceNow
+	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties { return v.Slack }).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
+		return v.Snowflake
+	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties { return v.Veeva }).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
+		return v.Zendesk
+	}).(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput)
+}
+
+type ConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfilePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfileProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) ToConnectorProfilePropertiesPtrOutput() ConnectorProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) ToConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Elem() ConnectorProfilePropertiesOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) ConnectorProfileProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfileProperties
+		return ret
+	}).(ConnectorProfilePropertiesOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Datadog
+	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Dynatrace
+	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InforNexus
+	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Marketo
+	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Redshift
+	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Salesforce
+	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceNow
+	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Slack
+	}).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Snowflake
+	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Veeva
+	}).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Zendesk
+	}).(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput)
 }
 
 type ConnectorProfileRedshiftConnectorProfileCredentials struct {
@@ -11239,14 +11227,12 @@ func (o FlowZendeskSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterOutputType(ConnectorProfileAmplitudeConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileConnectorOAuthRequestOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileConnectorOAuthRequestPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileConnectorProfileConfigOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileConnectorProfileConfigPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileConnectorProfileCredentialsOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileConnectorProfileCredentialsPtrOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileConnectorProfilePropertiesOutput{})
-	pulumi.RegisterOutputType(ConnectorProfileConnectorProfilePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileCredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileDatadogConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileDatadogConnectorProfilePropertiesOutput{})
@@ -11265,6 +11251,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileMarketoConnectorProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfilePropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectorProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileRedshiftConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileRedshiftConnectorProfilePropertiesOutput{})

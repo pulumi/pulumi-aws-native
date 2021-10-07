@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> SsoClientId { get; private set; } = null!;
 
         [Output("studioEncryptionConfiguration")]
-        public Output<Outputs.StudioStudioEncryptionConfiguration?> StudioEncryptionConfiguration { get; private set; } = null!;
+        public Output<Outputs.StudioEncryptionConfiguration?> StudioEncryptionConfiguration { get; private set; } = null!;
 
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("studioEncryptionConfiguration")]
-        public Input<Inputs.StudioStudioEncryptionConfigurationArgs>? StudioEncryptionConfiguration { get; set; }
+        public Input<Inputs.StudioEncryptionConfigurationArgs>? StudioEncryptionConfiguration { get; set; }
 
         [Input("studioName", required: true)]
         public Input<string> StudioName { get; set; } = null!;

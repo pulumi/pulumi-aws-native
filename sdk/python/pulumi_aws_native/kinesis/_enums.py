@@ -5,11 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'StreamStreamEncryptionEncryptionType',
+    'StreamEncryptionEncryptionType',
 ]
 
 
-class StreamStreamEncryptionEncryptionType(str, Enum):
+class StreamEncryptionEncryptionType(str, Enum):
     """
     The encryption type to use. The only valid value is KMS. 
     """

@@ -34,7 +34,7 @@ type Variable struct {
 	// Tags associated with this variable.
 	Tags VariableTagArrayOutput `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
-	VariableType VariableVariableTypePtrOutput `pulumi:"variableType"`
+	VariableType VariableTypePtrOutput `pulumi:"variableType"`
 }
 
 // NewVariable registers a new resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ type variableArgs struct {
 	// Tags associated with this variable.
 	Tags []VariableTag `pulumi:"tags"`
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
-	VariableType *VariableVariableType `pulumi:"variableType"`
+	VariableType *VariableType `pulumi:"variableType"`
 }
 
 // The set of arguments for constructing a Variable resource.
@@ -119,7 +119,7 @@ type VariableArgs struct {
 	// Tags associated with this variable.
 	Tags VariableTagArrayInput
 	// The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
-	VariableType VariableVariableTypePtrInput
+	VariableType VariableTypePtrInput
 }
 
 func (VariableArgs) ElementType() reflect.Type {

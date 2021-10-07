@@ -16,7 +16,7 @@ __all__ = ['VirtualGatewayArgs', 'VirtualGateway']
 class VirtualGatewayArgs:
     def __init__(__self__, *,
                  mesh_name: pulumi.Input[str],
-                 spec: pulumi.Input['VirtualGatewayVirtualGatewaySpecArgs'],
+                 spec: pulumi.Input['VirtualGatewaySpecArgs'],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualGatewayTagArgs']]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None):
@@ -43,11 +43,11 @@ class VirtualGatewayArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Input['VirtualGatewayVirtualGatewaySpecArgs']:
+    def spec(self) -> pulumi.Input['VirtualGatewaySpecArgs']:
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: pulumi.Input['VirtualGatewayVirtualGatewaySpecArgs']):
+    def spec(self, value: pulumi.Input['VirtualGatewaySpecArgs']):
         pulumi.set(self, "spec", value)
 
     @property
@@ -90,7 +90,7 @@ class VirtualGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualGatewayVirtualGatewaySpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualGatewaySpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualGatewayTagArgs']]]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -126,7 +126,7 @@ class VirtualGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualGatewayVirtualGatewaySpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualGatewaySpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualGatewayTagArgs']]]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -208,7 +208,7 @@ class VirtualGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output['outputs.VirtualGatewayVirtualGatewaySpec']:
+    def spec(self) -> pulumi.Output['outputs.VirtualGatewaySpec']:
         return pulumi.get(self, "spec")
 
     @property

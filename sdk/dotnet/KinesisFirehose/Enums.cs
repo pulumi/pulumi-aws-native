@@ -67,62 +67,6 @@ namespace Pulumi.AwsNative.KinesisFirehose
     }
 
     [EnumType]
-    public readonly struct DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType : IEquatable<DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType>
-    {
-        private readonly string _value;
-
-        private DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType AwsOwnedCmk { get; } = new DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("AWS_OWNED_CMK");
-        public static DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType CustomerManagedCmk { get; } = new DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType("CUSTOMER_MANAGED_CMK");
-
-        public static bool operator ==(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType left, DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType right) => left.Equals(right);
-        public static bool operator !=(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType left, DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType right) => !left.Equals(right);
-
-        public static explicit operator string(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType other && Equals(other);
-        public bool Equals(DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct DeliveryStreamDeliveryStreamType : IEquatable<DeliveryStreamDeliveryStreamType>
-    {
-        private readonly string _value;
-
-        private DeliveryStreamDeliveryStreamType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DeliveryStreamDeliveryStreamType DirectPut { get; } = new DeliveryStreamDeliveryStreamType("DirectPut");
-        public static DeliveryStreamDeliveryStreamType KinesisStreamAsSource { get; } = new DeliveryStreamDeliveryStreamType("KinesisStreamAsSource");
-
-        public static bool operator ==(DeliveryStreamDeliveryStreamType left, DeliveryStreamDeliveryStreamType right) => left.Equals(right);
-        public static bool operator !=(DeliveryStreamDeliveryStreamType left, DeliveryStreamDeliveryStreamType right) => !left.Equals(right);
-
-        public static explicit operator string(DeliveryStreamDeliveryStreamType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DeliveryStreamDeliveryStreamType other && Equals(other);
-        public bool Equals(DeliveryStreamDeliveryStreamType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod : IEquatable<DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod>
     {
         private readonly string _value;
@@ -174,6 +118,34 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode other && Equals(other);
         public bool Equals(DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DeliveryStreamEncryptionConfigurationInputKeyType : IEquatable<DeliveryStreamEncryptionConfigurationInputKeyType>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamEncryptionConfigurationInputKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamEncryptionConfigurationInputKeyType AwsOwnedCmk { get; } = new DeliveryStreamEncryptionConfigurationInputKeyType("AWS_OWNED_CMK");
+        public static DeliveryStreamEncryptionConfigurationInputKeyType CustomerManagedCmk { get; } = new DeliveryStreamEncryptionConfigurationInputKeyType("CUSTOMER_MANAGED_CMK");
+
+        public static bool operator ==(DeliveryStreamEncryptionConfigurationInputKeyType left, DeliveryStreamEncryptionConfigurationInputKeyType right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamEncryptionConfigurationInputKeyType left, DeliveryStreamEncryptionConfigurationInputKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamEncryptionConfigurationInputKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamEncryptionConfigurationInputKeyType other && Equals(other);
+        public bool Equals(DeliveryStreamEncryptionConfigurationInputKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -405,6 +377,34 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DeliveryStreamSplunkDestinationConfigurationHECEndpointType other && Equals(other);
         public bool Equals(DeliveryStreamSplunkDestinationConfigurationHECEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DeliveryStreamType : IEquatable<DeliveryStreamType>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamType DirectPut { get; } = new DeliveryStreamType("DirectPut");
+        public static DeliveryStreamType KinesisStreamAsSource { get; } = new DeliveryStreamType("KinesisStreamAsSource");
+
+        public static bool operator ==(DeliveryStreamType left, DeliveryStreamType right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamType left, DeliveryStreamType right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamType other && Equals(other);
+        public bool Equals(DeliveryStreamType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

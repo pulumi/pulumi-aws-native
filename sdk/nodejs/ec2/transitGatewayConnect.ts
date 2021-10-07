@@ -42,7 +42,7 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
     /**
      * The Connect attachment options.
      */
-    public readonly options!: pulumi.Output<outputs.ec2.TransitGatewayConnectTransitGatewayConnectOptions>;
+    public readonly options!: pulumi.Output<outputs.ec2.TransitGatewayConnectOptions>;
     /**
      * The state of the attachment.
      */
@@ -111,7 +111,7 @@ export interface TransitGatewayConnectArgs {
     /**
      * The Connect attachment options.
      */
-    options: pulumi.Input<inputs.ec2.TransitGatewayConnectTransitGatewayConnectOptionsArgs>;
+    options: pulumi.Input<inputs.ec2.TransitGatewayConnectOptionsArgs>;
     /**
      * The tags for the attachment.
      */

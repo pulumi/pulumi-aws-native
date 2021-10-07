@@ -12,9 +12,9 @@ __all__ = [
     'DomainAdvancedSecurityOptionsInputArgs',
     'DomainClusterConfigArgs',
     'DomainCognitoOptionsArgs',
-    'DomainDomainEndpointOptionsArgs',
     'DomainEBSOptionsArgs',
     'DomainEncryptionAtRestOptionsArgs',
+    'DomainEndpointOptionsArgs',
     'DomainMasterUserOptionsArgs',
     'DomainNodeToNodeEncryptionOptionsArgs',
     'DomainSnapshotOptionsArgs',
@@ -243,71 +243,6 @@ class DomainCognitoOptionsArgs:
 
 
 @pulumi.input_type
-class DomainDomainEndpointOptionsArgs:
-    def __init__(__self__, *,
-                 custom_endpoint: Optional[pulumi.Input[str]] = None,
-                 custom_endpoint_certificate_arn: Optional[pulumi.Input[str]] = None,
-                 custom_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-                 enforce_https: Optional[pulumi.Input[bool]] = None,
-                 t_ls_security_policy: Optional[pulumi.Input[str]] = None):
-        if custom_endpoint is not None:
-            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
-        if custom_endpoint_certificate_arn is not None:
-            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
-        if custom_endpoint_enabled is not None:
-            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
-        if enforce_https is not None:
-            pulumi.set(__self__, "enforce_https", enforce_https)
-        if t_ls_security_policy is not None:
-            pulumi.set(__self__, "t_ls_security_policy", t_ls_security_policy)
-
-    @property
-    @pulumi.getter(name="customEndpoint")
-    def custom_endpoint(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "custom_endpoint")
-
-    @custom_endpoint.setter
-    def custom_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_endpoint", value)
-
-    @property
-    @pulumi.getter(name="customEndpointCertificateArn")
-    def custom_endpoint_certificate_arn(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "custom_endpoint_certificate_arn")
-
-    @custom_endpoint_certificate_arn.setter
-    def custom_endpoint_certificate_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_endpoint_certificate_arn", value)
-
-    @property
-    @pulumi.getter(name="customEndpointEnabled")
-    def custom_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "custom_endpoint_enabled")
-
-    @custom_endpoint_enabled.setter
-    def custom_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "custom_endpoint_enabled", value)
-
-    @property
-    @pulumi.getter(name="enforceHTTPS")
-    def enforce_https(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enforce_https")
-
-    @enforce_https.setter
-    def enforce_https(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enforce_https", value)
-
-    @property
-    @pulumi.getter(name="tLSSecurityPolicy")
-    def t_ls_security_policy(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "t_ls_security_policy")
-
-    @t_ls_security_policy.setter
-    def t_ls_security_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "t_ls_security_policy", value)
-
-
-@pulumi.input_type
 class DomainEBSOptionsArgs:
     def __init__(__self__, *,
                  e_bs_enabled: Optional[pulumi.Input[bool]] = None,
@@ -387,6 +322,71 @@ class DomainEncryptionAtRestOptionsArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class DomainEndpointOptionsArgs:
+    def __init__(__self__, *,
+                 custom_endpoint: Optional[pulumi.Input[str]] = None,
+                 custom_endpoint_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 custom_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 enforce_https: Optional[pulumi.Input[bool]] = None,
+                 t_ls_security_policy: Optional[pulumi.Input[str]] = None):
+        if custom_endpoint is not None:
+            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
+        if custom_endpoint_certificate_arn is not None:
+            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
+        if custom_endpoint_enabled is not None:
+            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
+        if enforce_https is not None:
+            pulumi.set(__self__, "enforce_https", enforce_https)
+        if t_ls_security_policy is not None:
+            pulumi.set(__self__, "t_ls_security_policy", t_ls_security_policy)
+
+    @property
+    @pulumi.getter(name="customEndpoint")
+    def custom_endpoint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_endpoint")
+
+    @custom_endpoint.setter
+    def custom_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_endpoint", value)
+
+    @property
+    @pulumi.getter(name="customEndpointCertificateArn")
+    def custom_endpoint_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_endpoint_certificate_arn")
+
+    @custom_endpoint_certificate_arn.setter
+    def custom_endpoint_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_endpoint_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="customEndpointEnabled")
+    def custom_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "custom_endpoint_enabled")
+
+    @custom_endpoint_enabled.setter
+    def custom_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_endpoint_enabled", value)
+
+    @property
+    @pulumi.getter(name="enforceHTTPS")
+    def enforce_https(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enforce_https")
+
+    @enforce_https.setter
+    def enforce_https(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_https", value)
+
+    @property
+    @pulumi.getter(name="tLSSecurityPolicy")
+    def t_ls_security_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "t_ls_security_policy")
+
+    @t_ls_security_policy.setter
+    def t_ls_security_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "t_ls_security_policy", value)
 
 
 @pulumi.input_type

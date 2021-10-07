@@ -11,8 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'AliasAliasRoutingConfiguration',
     'AliasProvisionedConcurrencyConfiguration',
+    'AliasRoutingConfiguration',
     'AliasVersionWeight',
     'CodeSigningConfigAllowedPublishers',
     'CodeSigningConfigCodeSigningPolicies',
@@ -35,35 +35,6 @@ __all__ = [
     'LayerVersionContent',
     'VersionProvisionedConcurrencyConfiguration',
 ]
-
-@pulumi.output_type
-class AliasAliasRoutingConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "additionalVersionWeights":
-            suggest = "additional_version_weights"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AliasAliasRoutingConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AliasAliasRoutingConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AliasAliasRoutingConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 additional_version_weights: Sequence['outputs.AliasVersionWeight']):
-        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
-
-    @property
-    @pulumi.getter(name="additionalVersionWeights")
-    def additional_version_weights(self) -> Sequence['outputs.AliasVersionWeight']:
-        return pulumi.get(self, "additional_version_weights")
-
 
 @pulumi.output_type
 class AliasProvisionedConcurrencyConfiguration(dict):
@@ -92,6 +63,35 @@ class AliasProvisionedConcurrencyConfiguration(dict):
     @pulumi.getter(name="provisionedConcurrentExecutions")
     def provisioned_concurrent_executions(self) -> int:
         return pulumi.get(self, "provisioned_concurrent_executions")
+
+
+@pulumi.output_type
+class AliasRoutingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalVersionWeights":
+            suggest = "additional_version_weights"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasRoutingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasRoutingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasRoutingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_version_weights: Sequence['outputs.AliasVersionWeight']):
+        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
+
+    @property
+    @pulumi.getter(name="additionalVersionWeights")
+    def additional_version_weights(self) -> Sequence['outputs.AliasVersionWeight']:
+        return pulumi.get(self, "additional_version_weights")
 
 
 @pulumi.output_type

@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         [Output("spec")]
-        public Output<Outputs.GatewayRouteGatewayRouteSpec> Spec { get; private set; } = null!;
+        public Output<Outputs.GatewayRouteSpec> Spec { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GatewayRouteTag>> Tags { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.AppMesh
         public Input<string>? MeshOwner { get; set; }
 
         [Input("spec", required: true)]
-        public Input<Inputs.GatewayRouteGatewayRouteSpecArgs> Spec { get; set; } = null!;
+        public Input<Inputs.GatewayRouteSpecArgs> Spec { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.GatewayRouteTagArgs>? _tags;

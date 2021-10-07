@@ -36,26 +36,26 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
-    public readonly struct CertificateCertificateMode : IEquatable<CertificateCertificateMode>
+    public readonly struct CertificateMode : IEquatable<CertificateMode>
     {
         private readonly string _value;
 
-        private CertificateCertificateMode(string value)
+        private CertificateMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static CertificateCertificateMode Default { get; } = new CertificateCertificateMode("DEFAULT");
-        public static CertificateCertificateMode SniOnly { get; } = new CertificateCertificateMode("SNI_ONLY");
+        public static CertificateMode Default { get; } = new CertificateMode("DEFAULT");
+        public static CertificateMode SniOnly { get; } = new CertificateMode("SNI_ONLY");
 
-        public static bool operator ==(CertificateCertificateMode left, CertificateCertificateMode right) => left.Equals(right);
-        public static bool operator !=(CertificateCertificateMode left, CertificateCertificateMode right) => !left.Equals(right);
+        public static bool operator ==(CertificateMode left, CertificateMode right) => left.Equals(right);
+        public static bool operator !=(CertificateMode left, CertificateMode right) => !left.Equals(right);
 
-        public static explicit operator string(CertificateCertificateMode value) => value._value;
+        public static explicit operator string(CertificateMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CertificateCertificateMode other && Equals(other);
-        public bool Equals(CertificateCertificateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is CertificateMode other && Equals(other);
+        public bool Equals(CertificateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -158,34 +158,6 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
-    public readonly struct DomainConfigurationDomainConfigurationStatus : IEquatable<DomainConfigurationDomainConfigurationStatus>
-    {
-        private readonly string _value;
-
-        private DomainConfigurationDomainConfigurationStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DomainConfigurationDomainConfigurationStatus Enabled { get; } = new DomainConfigurationDomainConfigurationStatus("ENABLED");
-        public static DomainConfigurationDomainConfigurationStatus Disabled { get; } = new DomainConfigurationDomainConfigurationStatus("DISABLED");
-
-        public static bool operator ==(DomainConfigurationDomainConfigurationStatus left, DomainConfigurationDomainConfigurationStatus right) => left.Equals(right);
-        public static bool operator !=(DomainConfigurationDomainConfigurationStatus left, DomainConfigurationDomainConfigurationStatus right) => !left.Equals(right);
-
-        public static explicit operator string(DomainConfigurationDomainConfigurationStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DomainConfigurationDomainConfigurationStatus other && Equals(other);
-        public bool Equals(DomainConfigurationDomainConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct DomainConfigurationDomainType : IEquatable<DomainConfigurationDomainType>
     {
         private readonly string _value;
@@ -264,6 +236,34 @@ namespace Pulumi.AwsNative.IoT
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainConfigurationServiceType other && Equals(other);
         public bool Equals(DomainConfigurationServiceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DomainConfigurationStatus : IEquatable<DomainConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private DomainConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainConfigurationStatus Enabled { get; } = new DomainConfigurationStatus("ENABLED");
+        public static DomainConfigurationStatus Disabled { get; } = new DomainConfigurationStatus("DISABLED");
+
+        public static bool operator ==(DomainConfigurationStatus left, DomainConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(DomainConfigurationStatus left, DomainConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DomainConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainConfigurationStatus other && Equals(other);
+        public bool Equals(DomainConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -632,27 +632,27 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
-    public readonly struct TopicRuleDestinationTopicRuleDestinationStatus : IEquatable<TopicRuleDestinationTopicRuleDestinationStatus>
+    public readonly struct TopicRuleDestinationStatus : IEquatable<TopicRuleDestinationStatus>
     {
         private readonly string _value;
 
-        private TopicRuleDestinationTopicRuleDestinationStatus(string value)
+        private TopicRuleDestinationStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TopicRuleDestinationTopicRuleDestinationStatus Enabled { get; } = new TopicRuleDestinationTopicRuleDestinationStatus("ENABLED");
-        public static TopicRuleDestinationTopicRuleDestinationStatus InProgress { get; } = new TopicRuleDestinationTopicRuleDestinationStatus("IN_PROGRESS");
-        public static TopicRuleDestinationTopicRuleDestinationStatus Disabled { get; } = new TopicRuleDestinationTopicRuleDestinationStatus("DISABLED");
+        public static TopicRuleDestinationStatus Enabled { get; } = new TopicRuleDestinationStatus("ENABLED");
+        public static TopicRuleDestinationStatus InProgress { get; } = new TopicRuleDestinationStatus("IN_PROGRESS");
+        public static TopicRuleDestinationStatus Disabled { get; } = new TopicRuleDestinationStatus("DISABLED");
 
-        public static bool operator ==(TopicRuleDestinationTopicRuleDestinationStatus left, TopicRuleDestinationTopicRuleDestinationStatus right) => left.Equals(right);
-        public static bool operator !=(TopicRuleDestinationTopicRuleDestinationStatus left, TopicRuleDestinationTopicRuleDestinationStatus right) => !left.Equals(right);
+        public static bool operator ==(TopicRuleDestinationStatus left, TopicRuleDestinationStatus right) => left.Equals(right);
+        public static bool operator !=(TopicRuleDestinationStatus left, TopicRuleDestinationStatus right) => !left.Equals(right);
 
-        public static explicit operator string(TopicRuleDestinationTopicRuleDestinationStatus value) => value._value;
+        public static explicit operator string(TopicRuleDestinationStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TopicRuleDestinationTopicRuleDestinationStatus other && Equals(other);
-        public bool Equals(TopicRuleDestinationTopicRuleDestinationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TopicRuleDestinationStatus other && Equals(other);
+        public bool Equals(TopicRuleDestinationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -10,18 +10,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DeviceArgs', 'Device']
+__all__ = ['DeviceInitArgs', 'Device']
 
 @pulumi.input_type
-class DeviceArgs:
+class DeviceInitArgs:
     def __init__(__self__, *,
                  device_fleet_name: pulumi.Input[str],
-                 device: Optional[pulumi.Input['DeviceDeviceArgs']] = None,
+                 device: Optional[pulumi.Input['DeviceArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Device resource.
         :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
-        :param pulumi.Input['DeviceDeviceArgs'] device: The Edge Device you want to register against a device fleet
+        :param pulumi.Input['DeviceArgs'] device: The Edge Device you want to register against a device fleet
         :param pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]] tags: Associate tags with the resource
         """
         pulumi.set(__self__, "device_fleet_name", device_fleet_name)
@@ -44,14 +44,14 @@ class DeviceArgs:
 
     @property
     @pulumi.getter
-    def device(self) -> Optional[pulumi.Input['DeviceDeviceArgs']]:
+    def device(self) -> Optional[pulumi.Input['DeviceArgs']]:
         """
         The Edge Device you want to register against a device fleet
         """
         return pulumi.get(self, "device")
 
     @device.setter
-    def device(self, value: Optional[pulumi.Input['DeviceDeviceArgs']]):
+    def device(self, value: Optional[pulumi.Input['DeviceArgs']]):
         pulumi.set(self, "device", value)
 
     @property
@@ -72,7 +72,7 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[pulumi.InputType['DeviceDeviceArgs']]] = None,
+                 device: Optional[pulumi.Input[pulumi.InputType['DeviceArgs']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
                  __props__=None):
@@ -81,7 +81,7 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceDeviceArgs']] device: The Edge Device you want to register against a device fleet
+        :param pulumi.Input[pulumi.InputType['DeviceArgs']] device: The Edge Device you want to register against a device fleet
         :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]] tags: Associate tags with the resource
         """
@@ -89,18 +89,18 @@ class Device(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DeviceArgs,
+                 args: DeviceInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::SageMaker::Device
 
         :param str resource_name: The name of the resource.
-        :param DeviceArgs args: The arguments to use to populate this resource's properties.
+        :param DeviceInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DeviceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DeviceInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -109,7 +109,7 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[pulumi.InputType['DeviceDeviceArgs']]] = None,
+                 device: Optional[pulumi.Input[pulumi.InputType['DeviceArgs']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
                  __props__=None):
@@ -122,7 +122,7 @@ class Device(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DeviceArgs.__new__(DeviceArgs)
+            __props__ = DeviceInitArgs.__new__(DeviceInitArgs)
 
             __props__.__dict__["device"] = device
             if device_fleet_name is None and not opts.urn:
@@ -149,7 +149,7 @@ class Device(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DeviceArgs.__new__(DeviceArgs)
+        __props__ = DeviceInitArgs.__new__(DeviceInitArgs)
 
         __props__.__dict__["device"] = None
         __props__.__dict__["device_fleet_name"] = None
@@ -158,7 +158,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def device(self) -> pulumi.Output[Optional['outputs.DeviceDevice']]:
+    def device(self) -> pulumi.Output[Optional['outputs.Device']]:
         """
         The Edge Device you want to register against a device fleet
         """

@@ -16,7 +16,7 @@ __all__ = ['MeshArgs', 'Mesh']
 class MeshArgs:
     def __init__(__self__, *,
                  mesh_name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input['MeshMeshSpecArgs']] = None,
+                 spec: Optional[pulumi.Input['MeshSpecArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MeshTagArgs']]]] = None):
         """
         The set of arguments for constructing a Mesh resource.
@@ -39,11 +39,11 @@ class MeshArgs:
 
     @property
     @pulumi.getter
-    def spec(self) -> Optional[pulumi.Input['MeshMeshSpecArgs']]:
+    def spec(self) -> Optional[pulumi.Input['MeshSpecArgs']]:
         return pulumi.get(self, "spec")
 
     @spec.setter
-    def spec(self, value: Optional[pulumi.Input['MeshMeshSpecArgs']]):
+    def spec(self, value: Optional[pulumi.Input['MeshSpecArgs']]):
         pulumi.set(self, "spec", value)
 
     @property
@@ -67,7 +67,7 @@ class Mesh(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['MeshMeshSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['MeshSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MeshTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -101,7 +101,7 @@ class Mesh(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mesh_name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['MeshMeshSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[pulumi.InputType['MeshSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MeshTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Mesh is deprecated: Mesh is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -176,7 +176,7 @@ class Mesh(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def spec(self) -> pulumi.Output[Optional['outputs.MeshMeshSpec']]:
+    def spec(self) -> pulumi.Output[Optional['outputs.MeshSpec']]:
         return pulumi.get(self, "spec")
 
     @property

@@ -42,7 +42,7 @@ export class VirtualGateway extends pulumi.CustomResource {
     public readonly meshName!: pulumi.Output<string>;
     public readonly meshOwner!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
-    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualGatewayVirtualGatewaySpec>;
+    public readonly spec!: pulumi.Output<outputs.appmesh.VirtualGatewaySpec>;
     public readonly tags!: pulumi.Output<outputs.appmesh.VirtualGatewayTag[] | undefined>;
     public /*out*/ readonly uid!: pulumi.Output<string>;
     public readonly virtualGatewayName!: pulumi.Output<string | undefined>;
@@ -97,7 +97,7 @@ export class VirtualGateway extends pulumi.CustomResource {
 export interface VirtualGatewayArgs {
     meshName: pulumi.Input<string>;
     meshOwner?: pulumi.Input<string>;
-    spec: pulumi.Input<inputs.appmesh.VirtualGatewayVirtualGatewaySpecArgs>;
+    spec: pulumi.Input<inputs.appmesh.VirtualGatewaySpecArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualGatewayTagArgs>[]>;
     virtualGatewayName?: pulumi.Input<string>;
 }

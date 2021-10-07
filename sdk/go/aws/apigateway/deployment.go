@@ -17,11 +17,11 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	DeploymentCanarySettings DeploymentDeploymentCanarySettingsPtrOutput `pulumi:"deploymentCanarySettings"`
-	Description              pulumi.StringPtrOutput                      `pulumi:"description"`
-	RestApiId                pulumi.StringOutput                         `pulumi:"restApiId"`
-	StageDescription         DeploymentStageDescriptionPtrOutput         `pulumi:"stageDescription"`
-	StageName                pulumi.StringPtrOutput                      `pulumi:"stageName"`
+	DeploymentCanarySettings DeploymentCanarySettingsPtrOutput   `pulumi:"deploymentCanarySettings"`
+	Description              pulumi.StringPtrOutput              `pulumi:"description"`
+	RestApiId                pulumi.StringOutput                 `pulumi:"restApiId"`
+	StageDescription         DeploymentStageDescriptionPtrOutput `pulumi:"stageDescription"`
+	StageName                pulumi.StringPtrOutput              `pulumi:"stageName"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -66,16 +66,16 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	DeploymentCanarySettings *DeploymentDeploymentCanarySettings `pulumi:"deploymentCanarySettings"`
-	Description              *string                             `pulumi:"description"`
-	RestApiId                string                              `pulumi:"restApiId"`
-	StageDescription         *DeploymentStageDescription         `pulumi:"stageDescription"`
-	StageName                *string                             `pulumi:"stageName"`
+	DeploymentCanarySettings *DeploymentCanarySettings   `pulumi:"deploymentCanarySettings"`
+	Description              *string                     `pulumi:"description"`
+	RestApiId                string                      `pulumi:"restApiId"`
+	StageDescription         *DeploymentStageDescription `pulumi:"stageDescription"`
+	StageName                *string                     `pulumi:"stageName"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	DeploymentCanarySettings DeploymentDeploymentCanarySettingsPtrInput
+	DeploymentCanarySettings DeploymentCanarySettingsPtrInput
 	Description              pulumi.StringPtrInput
 	RestApiId                pulumi.StringInput
 	StageDescription         DeploymentStageDescriptionPtrInput

@@ -10,172 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Parameter type
-type DatasetDatasetParameterType string
-
-const (
-	DatasetDatasetParameterTypeString   = DatasetDatasetParameterType("String")
-	DatasetDatasetParameterTypeNumber   = DatasetDatasetParameterType("Number")
-	DatasetDatasetParameterTypeDatetime = DatasetDatasetParameterType("Datetime")
-)
-
-func (DatasetDatasetParameterType) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetParameterType)(nil)).Elem()
-}
-
-func (e DatasetDatasetParameterType) ToDatasetDatasetParameterTypeOutput() DatasetDatasetParameterTypeOutput {
-	return pulumi.ToOutput(e).(DatasetDatasetParameterTypeOutput)
-}
-
-func (e DatasetDatasetParameterType) ToDatasetDatasetParameterTypeOutputWithContext(ctx context.Context) DatasetDatasetParameterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DatasetDatasetParameterTypeOutput)
-}
-
-func (e DatasetDatasetParameterType) ToDatasetDatasetParameterTypePtrOutput() DatasetDatasetParameterTypePtrOutput {
-	return e.ToDatasetDatasetParameterTypePtrOutputWithContext(context.Background())
-}
-
-func (e DatasetDatasetParameterType) ToDatasetDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetDatasetParameterTypePtrOutput {
-	return DatasetDatasetParameterType(e).ToDatasetDatasetParameterTypeOutputWithContext(ctx).ToDatasetDatasetParameterTypePtrOutputWithContext(ctx)
-}
-
-func (e DatasetDatasetParameterType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DatasetDatasetParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DatasetDatasetParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DatasetDatasetParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DatasetDatasetParameterTypeOutput struct{ *pulumi.OutputState }
-
-func (DatasetDatasetParameterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatasetDatasetParameterType)(nil)).Elem()
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToDatasetDatasetParameterTypeOutput() DatasetDatasetParameterTypeOutput {
-	return o
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToDatasetDatasetParameterTypeOutputWithContext(ctx context.Context) DatasetDatasetParameterTypeOutput {
-	return o
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToDatasetDatasetParameterTypePtrOutput() DatasetDatasetParameterTypePtrOutput {
-	return o.ToDatasetDatasetParameterTypePtrOutputWithContext(context.Background())
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToDatasetDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetDatasetParameterTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetDatasetParameterType) *DatasetDatasetParameterType {
-		return &v
-	}).(DatasetDatasetParameterTypePtrOutput)
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetDatasetParameterType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetDatasetParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetDatasetParameterType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DatasetDatasetParameterTypePtrOutput struct{ *pulumi.OutputState }
-
-func (DatasetDatasetParameterTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DatasetDatasetParameterType)(nil)).Elem()
-}
-
-func (o DatasetDatasetParameterTypePtrOutput) ToDatasetDatasetParameterTypePtrOutput() DatasetDatasetParameterTypePtrOutput {
-	return o
-}
-
-func (o DatasetDatasetParameterTypePtrOutput) ToDatasetDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetDatasetParameterTypePtrOutput {
-	return o
-}
-
-func (o DatasetDatasetParameterTypePtrOutput) Elem() DatasetDatasetParameterTypeOutput {
-	return o.ApplyT(func(v *DatasetDatasetParameterType) DatasetDatasetParameterType {
-		if v != nil {
-			return *v
-		}
-		var ret DatasetDatasetParameterType
-		return ret
-	}).(DatasetDatasetParameterTypeOutput)
-}
-
-func (o DatasetDatasetParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DatasetDatasetParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatasetDatasetParameterType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DatasetDatasetParameterTypeInput is an input type that accepts DatasetDatasetParameterTypeArgs and DatasetDatasetParameterTypeOutput values.
-// You can construct a concrete instance of `DatasetDatasetParameterTypeInput` via:
-//
-//          DatasetDatasetParameterTypeArgs{...}
-type DatasetDatasetParameterTypeInput interface {
-	pulumi.Input
-
-	ToDatasetDatasetParameterTypeOutput() DatasetDatasetParameterTypeOutput
-	ToDatasetDatasetParameterTypeOutputWithContext(context.Context) DatasetDatasetParameterTypeOutput
-}
-
-var datasetDatasetParameterTypePtrType = reflect.TypeOf((**DatasetDatasetParameterType)(nil)).Elem()
-
-type DatasetDatasetParameterTypePtrInput interface {
-	pulumi.Input
-
-	ToDatasetDatasetParameterTypePtrOutput() DatasetDatasetParameterTypePtrOutput
-	ToDatasetDatasetParameterTypePtrOutputWithContext(context.Context) DatasetDatasetParameterTypePtrOutput
-}
-
-type datasetDatasetParameterTypePtr string
-
-func DatasetDatasetParameterTypePtr(v string) DatasetDatasetParameterTypePtrInput {
-	return (*datasetDatasetParameterTypePtr)(&v)
-}
-
-func (*datasetDatasetParameterTypePtr) ElementType() reflect.Type {
-	return datasetDatasetParameterTypePtrType
-}
-
-func (in *datasetDatasetParameterTypePtr) ToDatasetDatasetParameterTypePtrOutput() DatasetDatasetParameterTypePtrOutput {
-	return pulumi.ToOutput(in).(DatasetDatasetParameterTypePtrOutput)
-}
-
-func (in *datasetDatasetParameterTypePtr) ToDatasetDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetDatasetParameterTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DatasetDatasetParameterTypePtrOutput)
-}
-
 // Order
 type DatasetFilesLimitOrder string
 
@@ -670,6 +504,172 @@ func (in *datasetFormatPtr) ToDatasetFormatPtrOutput() DatasetFormatPtrOutput {
 
 func (in *datasetFormatPtr) ToDatasetFormatPtrOutputWithContext(ctx context.Context) DatasetFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatasetFormatPtrOutput)
+}
+
+// Parameter type
+type DatasetParameterType string
+
+const (
+	DatasetParameterTypeString   = DatasetParameterType("String")
+	DatasetParameterTypeNumber   = DatasetParameterType("Number")
+	DatasetParameterTypeDatetime = DatasetParameterType("Datetime")
+)
+
+func (DatasetParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParameterType)(nil)).Elem()
+}
+
+func (e DatasetParameterType) ToDatasetParameterTypeOutput() DatasetParameterTypeOutput {
+	return pulumi.ToOutput(e).(DatasetParameterTypeOutput)
+}
+
+func (e DatasetParameterType) ToDatasetParameterTypeOutputWithContext(ctx context.Context) DatasetParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DatasetParameterTypeOutput)
+}
+
+func (e DatasetParameterType) ToDatasetParameterTypePtrOutput() DatasetParameterTypePtrOutput {
+	return e.ToDatasetParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e DatasetParameterType) ToDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetParameterTypePtrOutput {
+	return DatasetParameterType(e).ToDatasetParameterTypeOutputWithContext(ctx).ToDatasetParameterTypePtrOutputWithContext(ctx)
+}
+
+func (e DatasetParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatasetParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DatasetParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DatasetParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (DatasetParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetParameterType)(nil)).Elem()
+}
+
+func (o DatasetParameterTypeOutput) ToDatasetParameterTypeOutput() DatasetParameterTypeOutput {
+	return o
+}
+
+func (o DatasetParameterTypeOutput) ToDatasetParameterTypeOutputWithContext(ctx context.Context) DatasetParameterTypeOutput {
+	return o
+}
+
+func (o DatasetParameterTypeOutput) ToDatasetParameterTypePtrOutput() DatasetParameterTypePtrOutput {
+	return o.ToDatasetParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o DatasetParameterTypeOutput) ToDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetParameterType) *DatasetParameterType {
+		return &v
+	}).(DatasetParameterTypePtrOutput)
+}
+
+func (o DatasetParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DatasetParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DatasetParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatasetParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasetParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetParameterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetParameterType)(nil)).Elem()
+}
+
+func (o DatasetParameterTypePtrOutput) ToDatasetParameterTypePtrOutput() DatasetParameterTypePtrOutput {
+	return o
+}
+
+func (o DatasetParameterTypePtrOutput) ToDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetParameterTypePtrOutput {
+	return o
+}
+
+func (o DatasetParameterTypePtrOutput) Elem() DatasetParameterTypeOutput {
+	return o.ApplyT(func(v *DatasetParameterType) DatasetParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret DatasetParameterType
+		return ret
+	}).(DatasetParameterTypeOutput)
+}
+
+func (o DatasetParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatasetParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DatasetParameterTypeInput is an input type that accepts DatasetParameterTypeArgs and DatasetParameterTypeOutput values.
+// You can construct a concrete instance of `DatasetParameterTypeInput` via:
+//
+//          DatasetParameterTypeArgs{...}
+type DatasetParameterTypeInput interface {
+	pulumi.Input
+
+	ToDatasetParameterTypeOutput() DatasetParameterTypeOutput
+	ToDatasetParameterTypeOutputWithContext(context.Context) DatasetParameterTypeOutput
+}
+
+var datasetParameterTypePtrType = reflect.TypeOf((**DatasetParameterType)(nil)).Elem()
+
+type DatasetParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToDatasetParameterTypePtrOutput() DatasetParameterTypePtrOutput
+	ToDatasetParameterTypePtrOutputWithContext(context.Context) DatasetParameterTypePtrOutput
+}
+
+type datasetParameterTypePtr string
+
+func DatasetParameterTypePtr(v string) DatasetParameterTypePtrInput {
+	return (*datasetParameterTypePtr)(&v)
+}
+
+func (*datasetParameterTypePtr) ElementType() reflect.Type {
+	return datasetParameterTypePtrType
+}
+
+func (in *datasetParameterTypePtr) ToDatasetParameterTypePtrOutput() DatasetParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(DatasetParameterTypePtrOutput)
+}
+
+func (in *datasetParameterTypePtr) ToDatasetParameterTypePtrOutputWithContext(ctx context.Context) DatasetParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DatasetParameterTypePtrOutput)
 }
 
 // Database table name
@@ -2004,14 +2004,14 @@ func (in *projectSampleTypePtr) ToProjectSampleTypePtrOutputWithContext(ctx cont
 }
 
 func init() {
-	pulumi.RegisterOutputType(DatasetDatasetParameterTypeOutput{})
-	pulumi.RegisterOutputType(DatasetDatasetParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderOutput{})
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderPtrOutput{})
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderedByOutput{})
 	pulumi.RegisterOutputType(DatasetFilesLimitOrderedByPtrOutput{})
 	pulumi.RegisterOutputType(DatasetFormatOutput{})
 	pulumi.RegisterOutputType(DatasetFormatPtrOutput{})
+	pulumi.RegisterOutputType(DatasetParameterTypeOutput{})
+	pulumi.RegisterOutputType(DatasetParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(JobDatabaseOutputDatabaseOutputModeOutput{})
 	pulumi.RegisterOutputType(JobDatabaseOutputDatabaseOutputModePtrOutput{})
 	pulumi.RegisterOutputType(JobEncryptionModeOutput{})

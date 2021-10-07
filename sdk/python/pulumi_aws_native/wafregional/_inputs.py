@@ -12,7 +12,7 @@ __all__ = [
     'ByteMatchSetByteMatchTupleArgs',
     'ByteMatchSetFieldToMatchArgs',
     'GeoMatchSetGeoMatchConstraintArgs',
-    'IPSetIPSetDescriptorArgs',
+    'IPSetDescriptorArgs',
     'RateBasedRulePredicateArgs',
     'RulePredicateArgs',
     'SizeConstraintSetFieldToMatchArgs',
@@ -143,7 +143,7 @@ class GeoMatchSetGeoMatchConstraintArgs:
 
 
 @pulumi.input_type
-class IPSetIPSetDescriptorArgs:
+class IPSetDescriptorArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):

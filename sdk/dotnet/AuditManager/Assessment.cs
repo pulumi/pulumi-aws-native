@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Output<string> AssessmentId { get; private set; } = null!;
 
         [Output("assessmentReportsDestination")]
-        public Output<Outputs.AssessmentAssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
+        public Output<Outputs.AssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
 
         [Output("awsAccount")]
         public Output<Outputs.AssessmentAWSAccount?> AwsAccount { get; private set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Output<Outputs.AssessmentScope?> Scope { get; private set; } = null!;
 
         [Output("status")]
-        public Output<Pulumi.AwsNative.AuditManager.AssessmentAssessmentStatus?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.AuditManager.AssessmentStatus?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags associated with the assessment.
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.AuditManager
     public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
         [Input("assessmentReportsDestination")]
-        public Input<Inputs.AssessmentAssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
+        public Input<Inputs.AssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
 
         [Input("awsAccount")]
         public Input<Inputs.AssessmentAWSAccountArgs>? AwsAccount { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Input<Inputs.AssessmentScopeArgs>? Scope { get; set; }
 
         [Input("status")]
-        public Input<Pulumi.AwsNative.AuditManager.AssessmentAssessmentStatus>? Status { get; set; }
+        public Input<Pulumi.AwsNative.AuditManager.AssessmentStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AssessmentTagArgs>? _tags;

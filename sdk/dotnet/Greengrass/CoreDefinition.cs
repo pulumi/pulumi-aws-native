@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Greengrass
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("initialVersion")]
-        public Output<Outputs.CoreDefinitionCoreDefinitionVersion?> InitialVersion { get; private set; } = null!;
+        public Output<Outputs.CoreDefinitionVersion?> InitialVersion { get; private set; } = null!;
 
         [Output("latestVersionArn")]
         public Output<string> LatestVersionArn { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Greengrass
     public sealed class CoreDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("initialVersion")]
-        public Input<Inputs.CoreDefinitionCoreDefinitionVersionArgs>? InitialVersion { get; set; }
+        public Input<Inputs.CoreDefinitionVersionArgs>? InitialVersion { get; set; }
 
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

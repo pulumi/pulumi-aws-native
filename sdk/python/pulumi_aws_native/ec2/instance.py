@@ -34,7 +34,7 @@ class InstanceArgs:
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceInstanceIpv6AddressArgs']]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['InstanceLaunchTemplateSpecificationArgs']] = None,
@@ -306,11 +306,11 @@ class InstanceArgs:
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceInstanceIpv6AddressArgs']]]]:
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]]]:
         return pulumi.get(self, "ipv6_addresses")
 
     @ipv6_addresses.setter
-    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceInstanceIpv6AddressArgs']]]]):
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]]]):
         pulumi.set(self, "ipv6_addresses", value)
 
     @property
@@ -505,7 +505,7 @@ class Instance(pulumi.CustomResource):
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceInstanceIpv6AddressArgs']]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceIpv6AddressArgs']]]]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateSpecificationArgs']]] = None,
@@ -574,7 +574,7 @@ class Instance(pulumi.CustomResource):
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
-                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceInstanceIpv6AddressArgs']]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceIpv6AddressArgs']]]]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateSpecificationArgs']]] = None,
@@ -811,7 +811,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipv6Addresses")
-    def ipv6_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceInstanceIpv6Address']]]:
+    def ipv6_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceIpv6Address']]]:
         return pulumi.get(self, "ipv6_addresses")
 
     @property

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
     public sealed class GatewayRouteHttpGatewayRouteMatch
     {
         public readonly ImmutableArray<Outputs.GatewayRouteHttpGatewayRouteHeader> Headers;
-        public readonly Outputs.GatewayRouteGatewayRouteHostnameMatch? Hostname;
+        public readonly Outputs.GatewayRouteHostnameMatch? Hostname;
         public readonly string? Method;
         public readonly Outputs.GatewayRouteHttpPathMatch? Path;
         public readonly string? Prefix;
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.AppMesh.Outputs
         private GatewayRouteHttpGatewayRouteMatch(
             ImmutableArray<Outputs.GatewayRouteHttpGatewayRouteHeader> headers,
 
-            Outputs.GatewayRouteGatewayRouteHostnameMatch? hostname,
+            Outputs.GatewayRouteHostnameMatch? hostname,
 
             string? method,
 

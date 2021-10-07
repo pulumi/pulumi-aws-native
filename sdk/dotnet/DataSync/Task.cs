@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<Outputs.TaskOptions?> Options { get; private set; } = null!;
 
         [Output("schedule")]
-        public Output<Outputs.TaskTaskSchedule?> Schedule { get; private set; } = null!;
+        public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the source location for the task.
@@ -170,7 +170,7 @@ namespace Pulumi.AwsNative.DataSync
         public Input<Inputs.TaskOptionsArgs>? Options { get; set; }
 
         [Input("schedule")]
-        public Input<Inputs.TaskTaskScheduleArgs>? Schedule { get; set; }
+        public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
         /// The ARN of the source location for the task.

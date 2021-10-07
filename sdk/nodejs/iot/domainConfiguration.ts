@@ -38,7 +38,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
     public readonly domainConfigurationName!: pulumi.Output<string | undefined>;
-    public readonly domainConfigurationStatus!: pulumi.Output<enums.iot.DomainConfigurationDomainConfigurationStatus | undefined>;
+    public readonly domainConfigurationStatus!: pulumi.Output<enums.iot.DomainConfigurationStatus | undefined>;
     public readonly domainName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly domainType!: pulumi.Output<enums.iot.DomainConfigurationDomainType>;
     public readonly serverCertificateArns!: pulumi.Output<string[] | undefined>;
@@ -95,7 +95,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
 export interface DomainConfigurationArgs {
     authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfigArgs>;
     domainConfigurationName?: pulumi.Input<string>;
-    domainConfigurationStatus?: pulumi.Input<enums.iot.DomainConfigurationDomainConfigurationStatus>;
+    domainConfigurationStatus?: pulumi.Input<enums.iot.DomainConfigurationStatus>;
     domainName?: pulumi.Input<string>;
     serverCertificateArns?: pulumi.Input<pulumi.Input<string>[]>;
     serviceType?: pulumi.Input<enums.iot.DomainConfigurationServiceType>;

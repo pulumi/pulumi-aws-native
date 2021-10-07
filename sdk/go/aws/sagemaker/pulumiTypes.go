@@ -3368,7 +3368,7 @@ func (o DataQualityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArray
 }
 
 // Edge device you want to create
-type DeviceDevice struct {
+type DeviceType struct {
 	// Description of the device
 	Description *string `pulumi:"description"`
 	// The name of the device
@@ -3377,19 +3377,19 @@ type DeviceDevice struct {
 	IotThingName *string `pulumi:"iotThingName"`
 }
 
-// DeviceDeviceInput is an input type that accepts DeviceDeviceArgs and DeviceDeviceOutput values.
-// You can construct a concrete instance of `DeviceDeviceInput` via:
+// DeviceTypeInput is an input type that accepts DeviceTypeArgs and DeviceTypeOutput values.
+// You can construct a concrete instance of `DeviceTypeInput` via:
 //
-//          DeviceDeviceArgs{...}
-type DeviceDeviceInput interface {
+//          DeviceTypeArgs{...}
+type DeviceTypeInput interface {
 	pulumi.Input
 
-	ToDeviceDeviceOutput() DeviceDeviceOutput
-	ToDeviceDeviceOutputWithContext(context.Context) DeviceDeviceOutput
+	ToDeviceTypeOutput() DeviceTypeOutput
+	ToDeviceTypeOutputWithContext(context.Context) DeviceTypeOutput
 }
 
 // Edge device you want to create
-type DeviceDeviceArgs struct {
+type DeviceTypeArgs struct {
 	// Description of the device
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The name of the device
@@ -3398,126 +3398,126 @@ type DeviceDeviceArgs struct {
 	IotThingName pulumi.StringPtrInput `pulumi:"iotThingName"`
 }
 
-func (DeviceDeviceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceDevice)(nil)).Elem()
+func (DeviceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceType)(nil)).Elem()
 }
 
-func (i DeviceDeviceArgs) ToDeviceDeviceOutput() DeviceDeviceOutput {
-	return i.ToDeviceDeviceOutputWithContext(context.Background())
+func (i DeviceTypeArgs) ToDeviceTypeOutput() DeviceTypeOutput {
+	return i.ToDeviceTypeOutputWithContext(context.Background())
 }
 
-func (i DeviceDeviceArgs) ToDeviceDeviceOutputWithContext(ctx context.Context) DeviceDeviceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceDeviceOutput)
+func (i DeviceTypeArgs) ToDeviceTypeOutputWithContext(ctx context.Context) DeviceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTypeOutput)
 }
 
-func (i DeviceDeviceArgs) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
-	return i.ToDeviceDevicePtrOutputWithContext(context.Background())
+func (i DeviceTypeArgs) ToDeviceTypePtrOutput() DeviceTypePtrOutput {
+	return i.ToDeviceTypePtrOutputWithContext(context.Background())
 }
 
-func (i DeviceDeviceArgs) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceDeviceOutput).ToDeviceDevicePtrOutputWithContext(ctx)
+func (i DeviceTypeArgs) ToDeviceTypePtrOutputWithContext(ctx context.Context) DeviceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTypeOutput).ToDeviceTypePtrOutputWithContext(ctx)
 }
 
-// DeviceDevicePtrInput is an input type that accepts DeviceDeviceArgs, DeviceDevicePtr and DeviceDevicePtrOutput values.
-// You can construct a concrete instance of `DeviceDevicePtrInput` via:
+// DeviceTypePtrInput is an input type that accepts DeviceTypeArgs, DeviceTypePtr and DeviceTypePtrOutput values.
+// You can construct a concrete instance of `DeviceTypePtrInput` via:
 //
-//          DeviceDeviceArgs{...}
+//          DeviceTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type DeviceDevicePtrInput interface {
+type DeviceTypePtrInput interface {
 	pulumi.Input
 
-	ToDeviceDevicePtrOutput() DeviceDevicePtrOutput
-	ToDeviceDevicePtrOutputWithContext(context.Context) DeviceDevicePtrOutput
+	ToDeviceTypePtrOutput() DeviceTypePtrOutput
+	ToDeviceTypePtrOutputWithContext(context.Context) DeviceTypePtrOutput
 }
 
-type deviceDevicePtrType DeviceDeviceArgs
+type deviceTypePtrType DeviceTypeArgs
 
-func DeviceDevicePtr(v *DeviceDeviceArgs) DeviceDevicePtrInput {
-	return (*deviceDevicePtrType)(v)
+func DeviceTypePtr(v *DeviceTypeArgs) DeviceTypePtrInput {
+	return (*deviceTypePtrType)(v)
 }
 
-func (*deviceDevicePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceDevice)(nil)).Elem()
+func (*deviceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceType)(nil)).Elem()
 }
 
-func (i *deviceDevicePtrType) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
-	return i.ToDeviceDevicePtrOutputWithContext(context.Background())
+func (i *deviceTypePtrType) ToDeviceTypePtrOutput() DeviceTypePtrOutput {
+	return i.ToDeviceTypePtrOutputWithContext(context.Background())
 }
 
-func (i *deviceDevicePtrType) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceDevicePtrOutput)
+func (i *deviceTypePtrType) ToDeviceTypePtrOutputWithContext(ctx context.Context) DeviceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTypePtrOutput)
 }
 
 // Edge device you want to create
-type DeviceDeviceOutput struct{ *pulumi.OutputState }
+type DeviceTypeOutput struct{ *pulumi.OutputState }
 
-func (DeviceDeviceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceDevice)(nil)).Elem()
+func (DeviceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceType)(nil)).Elem()
 }
 
-func (o DeviceDeviceOutput) ToDeviceDeviceOutput() DeviceDeviceOutput {
+func (o DeviceTypeOutput) ToDeviceTypeOutput() DeviceTypeOutput {
 	return o
 }
 
-func (o DeviceDeviceOutput) ToDeviceDeviceOutputWithContext(ctx context.Context) DeviceDeviceOutput {
+func (o DeviceTypeOutput) ToDeviceTypeOutputWithContext(ctx context.Context) DeviceTypeOutput {
 	return o
 }
 
-func (o DeviceDeviceOutput) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
-	return o.ToDeviceDevicePtrOutputWithContext(context.Background())
+func (o DeviceTypeOutput) ToDeviceTypePtrOutput() DeviceTypePtrOutput {
+	return o.ToDeviceTypePtrOutputWithContext(context.Background())
 }
 
-func (o DeviceDeviceOutput) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceDevice) *DeviceDevice {
+func (o DeviceTypeOutput) ToDeviceTypePtrOutputWithContext(ctx context.Context) DeviceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceType) *DeviceType {
 		return &v
-	}).(DeviceDevicePtrOutput)
+	}).(DeviceTypePtrOutput)
 }
 
 // Description of the device
-func (o DeviceDeviceOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceDevice) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o DeviceTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The name of the device
-func (o DeviceDeviceOutput) DeviceName() pulumi.StringOutput {
-	return o.ApplyT(func(v DeviceDevice) string { return v.DeviceName }).(pulumi.StringOutput)
+func (o DeviceTypeOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceType) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
 // AWS Internet of Things (IoT) object name.
-func (o DeviceDeviceOutput) IotThingName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeviceDevice) *string { return v.IotThingName }).(pulumi.StringPtrOutput)
+func (o DeviceTypeOutput) IotThingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceType) *string { return v.IotThingName }).(pulumi.StringPtrOutput)
 }
 
-type DeviceDevicePtrOutput struct{ *pulumi.OutputState }
+type DeviceTypePtrOutput struct{ *pulumi.OutputState }
 
-func (DeviceDevicePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceDevice)(nil)).Elem()
+func (DeviceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceType)(nil)).Elem()
 }
 
-func (o DeviceDevicePtrOutput) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
+func (o DeviceTypePtrOutput) ToDeviceTypePtrOutput() DeviceTypePtrOutput {
 	return o
 }
 
-func (o DeviceDevicePtrOutput) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
+func (o DeviceTypePtrOutput) ToDeviceTypePtrOutputWithContext(ctx context.Context) DeviceTypePtrOutput {
 	return o
 }
 
-func (o DeviceDevicePtrOutput) Elem() DeviceDeviceOutput {
-	return o.ApplyT(func(v *DeviceDevice) DeviceDevice {
+func (o DeviceTypePtrOutput) Elem() DeviceTypeOutput {
+	return o.ApplyT(func(v *DeviceType) DeviceType {
 		if v != nil {
 			return *v
 		}
-		var ret DeviceDevice
+		var ret DeviceType
 		return ret
-	}).(DeviceDeviceOutput)
+	}).(DeviceTypeOutput)
 }
 
 // Description of the device
-func (o DeviceDevicePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceDevice) *string {
+func (o DeviceTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3526,8 +3526,8 @@ func (o DeviceDevicePtrOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The name of the device
-func (o DeviceDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceDevice) *string {
+func (o DeviceTypePtrOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceType) *string {
 		if v == nil {
 			return nil
 		}
@@ -3536,8 +3536,8 @@ func (o DeviceDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
 }
 
 // AWS Internet of Things (IoT) object name.
-func (o DeviceDevicePtrOutput) IotThingName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceDevice) *string {
+func (o DeviceTypePtrOutput) IotThingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceType) *string {
 		if v == nil {
 			return nil
 		}
@@ -15998,6 +15998,193 @@ func (o MonitoringScheduleClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
+type MonitoringScheduleConfig struct {
+	MonitoringJobDefinition *MonitoringScheduleMonitoringJobDefinition `pulumi:"monitoringJobDefinition"`
+	// Name of the job definition
+	MonitoringJobDefinitionName *string                           `pulumi:"monitoringJobDefinitionName"`
+	MonitoringType              *MonitoringScheduleMonitoringType `pulumi:"monitoringType"`
+	ScheduleConfig              *MonitoringScheduleScheduleConfig `pulumi:"scheduleConfig"`
+}
+
+// MonitoringScheduleConfigInput is an input type that accepts MonitoringScheduleConfigArgs and MonitoringScheduleConfigOutput values.
+// You can construct a concrete instance of `MonitoringScheduleConfigInput` via:
+//
+//          MonitoringScheduleConfigArgs{...}
+type MonitoringScheduleConfigInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleConfigOutput() MonitoringScheduleConfigOutput
+	ToMonitoringScheduleConfigOutputWithContext(context.Context) MonitoringScheduleConfigOutput
+}
+
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
+type MonitoringScheduleConfigArgs struct {
+	MonitoringJobDefinition MonitoringScheduleMonitoringJobDefinitionPtrInput `pulumi:"monitoringJobDefinition"`
+	// Name of the job definition
+	MonitoringJobDefinitionName pulumi.StringPtrInput                    `pulumi:"monitoringJobDefinitionName"`
+	MonitoringType              MonitoringScheduleMonitoringTypePtrInput `pulumi:"monitoringType"`
+	ScheduleConfig              MonitoringScheduleScheduleConfigPtrInput `pulumi:"scheduleConfig"`
+}
+
+func (MonitoringScheduleConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleConfig)(nil)).Elem()
+}
+
+func (i MonitoringScheduleConfigArgs) ToMonitoringScheduleConfigOutput() MonitoringScheduleConfigOutput {
+	return i.ToMonitoringScheduleConfigOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleConfigArgs) ToMonitoringScheduleConfigOutputWithContext(ctx context.Context) MonitoringScheduleConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleConfigOutput)
+}
+
+func (i MonitoringScheduleConfigArgs) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
+	return i.ToMonitoringScheduleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleConfigArgs) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleConfigOutput).ToMonitoringScheduleConfigPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleConfigPtrInput is an input type that accepts MonitoringScheduleConfigArgs, MonitoringScheduleConfigPtr and MonitoringScheduleConfigPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleConfigPtrInput` via:
+//
+//          MonitoringScheduleConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type MonitoringScheduleConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput
+	ToMonitoringScheduleConfigPtrOutputWithContext(context.Context) MonitoringScheduleConfigPtrOutput
+}
+
+type monitoringScheduleConfigPtrType MonitoringScheduleConfigArgs
+
+func MonitoringScheduleConfigPtr(v *MonitoringScheduleConfigArgs) MonitoringScheduleConfigPtrInput {
+	return (*monitoringScheduleConfigPtrType)(v)
+}
+
+func (*monitoringScheduleConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleConfig)(nil)).Elem()
+}
+
+func (i *monitoringScheduleConfigPtrType) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
+	return i.ToMonitoringScheduleConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleConfigPtrType) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleConfigPtrOutput)
+}
+
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
+type MonitoringScheduleConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigOutput() MonitoringScheduleConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigOutputWithContext(ctx context.Context) MonitoringScheduleConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
+	return o.ToMonitoringScheduleConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleConfigOutput) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleConfig) *MonitoringScheduleConfig {
+		return &v
+	}).(MonitoringScheduleConfigPtrOutput)
+}
+
+func (o MonitoringScheduleConfigOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
+		return v.MonitoringJobDefinition
+	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
+}
+
+// Name of the job definition
+func (o MonitoringScheduleConfigOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleConfig) *string { return v.MonitoringJobDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+func (o MonitoringScheduleConfigOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleConfig) *MonitoringScheduleMonitoringType { return v.MonitoringType }).(MonitoringScheduleMonitoringTypePtrOutput)
+}
+
+func (o MonitoringScheduleConfigOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig { return v.ScheduleConfig }).(MonitoringScheduleScheduleConfigPtrOutput)
+}
+
+type MonitoringScheduleConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleConfigPtrOutput) ToMonitoringScheduleConfigPtrOutput() MonitoringScheduleConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleConfigPtrOutput) ToMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleConfigPtrOutput) Elem() MonitoringScheduleConfigOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) MonitoringScheduleConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleConfig
+		return ret
+	}).(MonitoringScheduleConfigOutput)
+}
+
+func (o MonitoringScheduleConfigPtrOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringJobDefinition
+	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
+}
+
+// Name of the job definition
+func (o MonitoringScheduleConfigPtrOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringJobDefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MonitoringScheduleConfigPtrOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleMonitoringType {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringType
+	}).(MonitoringScheduleMonitoringTypePtrOutput)
+}
+
+func (o MonitoringScheduleConfigPtrOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleConfig
+	}).(MonitoringScheduleScheduleConfigPtrOutput)
+}
+
 // The baseline constraints resource for a monitoring job.
 type MonitoringScheduleConstraintsResource struct {
 	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
@@ -17471,197 +17658,6 @@ func (o MonitoringScheduleMonitoringResourcesPtrOutput) ClusterConfig() Monitori
 		}
 		return &v.ClusterConfig
 	}).(MonitoringScheduleClusterConfigPtrOutput)
-}
-
-// The configuration object that specifies the monitoring schedule and defines the monitoring job.
-type MonitoringScheduleMonitoringScheduleConfig struct {
-	MonitoringJobDefinition *MonitoringScheduleMonitoringJobDefinition `pulumi:"monitoringJobDefinition"`
-	// Name of the job definition
-	MonitoringJobDefinitionName *string                           `pulumi:"monitoringJobDefinitionName"`
-	MonitoringType              *MonitoringScheduleMonitoringType `pulumi:"monitoringType"`
-	ScheduleConfig              *MonitoringScheduleScheduleConfig `pulumi:"scheduleConfig"`
-}
-
-// MonitoringScheduleMonitoringScheduleConfigInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigArgs and MonitoringScheduleMonitoringScheduleConfigOutput values.
-// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigInput` via:
-//
-//          MonitoringScheduleMonitoringScheduleConfigArgs{...}
-type MonitoringScheduleMonitoringScheduleConfigInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleMonitoringScheduleConfigOutput() MonitoringScheduleMonitoringScheduleConfigOutput
-	ToMonitoringScheduleMonitoringScheduleConfigOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigOutput
-}
-
-// The configuration object that specifies the monitoring schedule and defines the monitoring job.
-type MonitoringScheduleMonitoringScheduleConfigArgs struct {
-	MonitoringJobDefinition MonitoringScheduleMonitoringJobDefinitionPtrInput `pulumi:"monitoringJobDefinition"`
-	// Name of the job definition
-	MonitoringJobDefinitionName pulumi.StringPtrInput                    `pulumi:"monitoringJobDefinitionName"`
-	MonitoringType              MonitoringScheduleMonitoringTypePtrInput `pulumi:"monitoringType"`
-	ScheduleConfig              MonitoringScheduleScheduleConfigPtrInput `pulumi:"scheduleConfig"`
-}
-
-func (MonitoringScheduleMonitoringScheduleConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfig)(nil)).Elem()
-}
-
-func (i MonitoringScheduleMonitoringScheduleConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigOutput() MonitoringScheduleMonitoringScheduleConfigOutput {
-	return i.ToMonitoringScheduleMonitoringScheduleConfigOutputWithContext(context.Background())
-}
-
-func (i MonitoringScheduleMonitoringScheduleConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigOutput)
-}
-
-func (i MonitoringScheduleMonitoringScheduleConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return i.ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i MonitoringScheduleMonitoringScheduleConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigOutput).ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(ctx)
-}
-
-// MonitoringScheduleMonitoringScheduleConfigPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigArgs, MonitoringScheduleMonitoringScheduleConfigPtr and MonitoringScheduleMonitoringScheduleConfigPtrOutput values.
-// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigPtrInput` via:
-//
-//          MonitoringScheduleMonitoringScheduleConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type MonitoringScheduleMonitoringScheduleConfigPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleMonitoringScheduleConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigPtrOutput
-	ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigPtrOutput
-}
-
-type monitoringScheduleMonitoringScheduleConfigPtrType MonitoringScheduleMonitoringScheduleConfigArgs
-
-func MonitoringScheduleMonitoringScheduleConfigPtr(v *MonitoringScheduleMonitoringScheduleConfigArgs) MonitoringScheduleMonitoringScheduleConfigPtrInput {
-	return (*monitoringScheduleMonitoringScheduleConfigPtrType)(v)
-}
-
-func (*monitoringScheduleMonitoringScheduleConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfig)(nil)).Elem()
-}
-
-func (i *monitoringScheduleMonitoringScheduleConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return i.ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringScheduleMonitoringScheduleConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigPtrOutput)
-}
-
-// The configuration object that specifies the monitoring schedule and defines the monitoring job.
-type MonitoringScheduleMonitoringScheduleConfigOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleMonitoringScheduleConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfig)(nil)).Elem()
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigOutput() MonitoringScheduleMonitoringScheduleConfigOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return o.ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringScheduleConfig {
-		return &v
-	}).(MonitoringScheduleMonitoringScheduleConfigPtrOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
-		return v.MonitoringJobDefinition
-	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
-}
-
-// Name of the job definition
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *string { return v.MonitoringJobDefinitionName }).(pulumi.StringPtrOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringType {
-		return v.MonitoringType
-	}).(MonitoringScheduleMonitoringTypePtrOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
-		return v.ScheduleConfig
-	}).(MonitoringScheduleScheduleConfigPtrOutput)
-}
-
-type MonitoringScheduleMonitoringScheduleConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleMonitoringScheduleConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfig)(nil)).Elem()
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) MonitoringScheduleMonitoringScheduleConfig {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringScheduleMonitoringScheduleConfig
-		return ret
-	}).(MonitoringScheduleMonitoringScheduleConfigOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringJobDefinition
-	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
-}
-
-// Name of the job definition
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringJobDefinitionName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringType() MonitoringScheduleMonitoringTypePtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringType {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringType
-	}).(MonitoringScheduleMonitoringTypePtrOutput)
-}
-
-func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
-		if v == nil {
-			return nil
-		}
-		return v.ScheduleConfig
-	}).(MonitoringScheduleScheduleConfigPtrOutput)
 }
 
 // Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
@@ -20524,8 +20520,8 @@ func init() {
 	pulumi.RegisterOutputType(DataQualityJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionVpcConfigPtrOutput{})
-	pulumi.RegisterOutputType(DeviceDeviceOutput{})
-	pulumi.RegisterOutputType(DeviceDevicePtrOutput{})
+	pulumi.RegisterOutputType(DeviceTypeOutput{})
+	pulumi.RegisterOutputType(DeviceTypePtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetTagOutput{})
@@ -20692,6 +20688,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleBaselineConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleConfigOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputOutput{})
@@ -20709,8 +20707,6 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringResourcesOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringResourcesPtrOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleNetworkConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleS3OutputOutput{})

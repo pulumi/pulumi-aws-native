@@ -41,7 +41,7 @@ export class Node extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly memberId!: pulumi.Output<string>;
     public readonly networkId!: pulumi.Output<string>;
-    public readonly nodeConfiguration!: pulumi.Output<outputs.managedblockchain.NodeNodeConfiguration>;
+    public readonly nodeConfiguration!: pulumi.Output<outputs.managedblockchain.NodeConfiguration>;
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
 
     /**
@@ -91,5 +91,5 @@ export class Node extends pulumi.CustomResource {
 export interface NodeArgs {
     memberId: pulumi.Input<string>;
     networkId: pulumi.Input<string>;
-    nodeConfiguration: pulumi.Input<inputs.managedblockchain.NodeNodeConfigurationArgs>;
+    nodeConfiguration: pulumi.Input<inputs.managedblockchain.NodeConfigurationArgs>;
 }

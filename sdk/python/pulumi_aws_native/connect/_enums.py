@@ -5,11 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'QuickConnectQuickConnectType',
+    'QuickConnectType',
 ]
 
 
-class QuickConnectQuickConnectType(str, Enum):
+class QuickConnectType(str, Enum):
     """
     The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     """

@@ -16,7 +16,7 @@ __all__ = ['DomainNameArgs', 'DomainName']
 class DomainNameArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameDomainNameConfigurationArgs']]]] = None,
+                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  tags: Optional[Any] = None):
         """
@@ -41,11 +41,11 @@ class DomainNameArgs:
 
     @property
     @pulumi.getter(name="domainNameConfigurations")
-    def domain_name_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameDomainNameConfigurationArgs']]]]:
+    def domain_name_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]]:
         return pulumi.get(self, "domain_name_configurations")
 
     @domain_name_configurations.setter
-    def domain_name_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameDomainNameConfigurationArgs']]]]):
+    def domain_name_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]]):
         pulumi.set(self, "domain_name_configurations", value)
 
     @property
@@ -78,7 +78,7 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]]]] = None,
+                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameConfigurationArgs']]]]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -113,7 +113,7 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]]]] = None,
+                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainNameConfigurationArgs']]]]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -174,7 +174,7 @@ class DomainName(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="domainNameConfigurations")
-    def domain_name_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.DomainNameDomainNameConfiguration']]]:
+    def domain_name_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.DomainNameConfiguration']]]:
         return pulumi.get(self, "domain_name_configurations")
 
     @property

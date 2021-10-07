@@ -27,7 +27,7 @@ type DataSet struct {
 	CreatedTime         pulumi.StringOutput                 `pulumi:"createdTime"`
 	DataSetId           pulumi.StringPtrOutput              `pulumi:"dataSetId"`
 	FieldFolders        DataSetFieldFolderMapPtrOutput      `pulumi:"fieldFolders"`
-	ImportMode          DataSetDataSetImportModePtrOutput   `pulumi:"importMode"`
+	ImportMode          DataSetImportModePtrOutput          `pulumi:"importMode"`
 	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrOutput `pulumi:"ingestionWaitPolicy"`
 	// <p>The last time that this dataset was updated.</p>
 	LastUpdatedTime pulumi.StringOutput             `pulumi:"lastUpdatedTime"`
@@ -90,7 +90,7 @@ type dataSetArgs struct {
 	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
 	DataSetId                  *string                            `pulumi:"dataSetId"`
 	FieldFolders               *DataSetFieldFolderMap             `pulumi:"fieldFolders"`
-	ImportMode                 *DataSetDataSetImportMode          `pulumi:"importMode"`
+	ImportMode                 *DataSetImportMode                 `pulumi:"importMode"`
 	IngestionWaitPolicy        *DataSetIngestionWaitPolicy        `pulumi:"ingestionWaitPolicy"`
 	LogicalTableMap            *DataSetLogicalTableMap            `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
@@ -111,7 +111,7 @@ type DataSetArgs struct {
 	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
 	DataSetId                  pulumi.StringPtrInput
 	FieldFolders               DataSetFieldFolderMapPtrInput
-	ImportMode                 DataSetDataSetImportModePtrInput
+	ImportMode                 DataSetImportModePtrInput
 	IngestionWaitPolicy        DataSetIngestionWaitPolicyPtrInput
 	LogicalTableMap            DataSetLogicalTableMapPtrInput
 	// <p>The display name for the dataset.</p>

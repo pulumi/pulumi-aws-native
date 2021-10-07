@@ -38,7 +38,7 @@ export class EventIntegration extends pulumi.CustomResource {
     /**
      * The associations with the event integration.
      */
-    public /*out*/ readonly associations!: pulumi.Output<outputs.appintegrations.EventIntegrationEventIntegrationAssociation[]>;
+    public /*out*/ readonly associations!: pulumi.Output<outputs.appintegrations.EventIntegrationAssociation[]>;
     /**
      * The event integration description.
      */

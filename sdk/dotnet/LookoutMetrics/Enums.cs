@@ -7,39 +7,6 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.LookoutMetrics
 {
-    /// <summary>
-    /// Frequency of anomaly detection
-    /// </summary>
-    [EnumType]
-    public readonly struct AnomalyDetectorAnomalyDetectorFrequency : IEquatable<AnomalyDetectorAnomalyDetectorFrequency>
-    {
-        private readonly string _value;
-
-        private AnomalyDetectorAnomalyDetectorFrequency(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AnomalyDetectorAnomalyDetectorFrequency Pt5m { get; } = new AnomalyDetectorAnomalyDetectorFrequency("PT5M");
-        public static AnomalyDetectorAnomalyDetectorFrequency Pt10m { get; } = new AnomalyDetectorAnomalyDetectorFrequency("PT10M");
-        public static AnomalyDetectorAnomalyDetectorFrequency Pt1h { get; } = new AnomalyDetectorAnomalyDetectorFrequency("PT1H");
-        public static AnomalyDetectorAnomalyDetectorFrequency P1d { get; } = new AnomalyDetectorAnomalyDetectorFrequency("P1D");
-
-        public static bool operator ==(AnomalyDetectorAnomalyDetectorFrequency left, AnomalyDetectorAnomalyDetectorFrequency right) => left.Equals(right);
-        public static bool operator !=(AnomalyDetectorAnomalyDetectorFrequency left, AnomalyDetectorAnomalyDetectorFrequency right) => !left.Equals(right);
-
-        public static explicit operator string(AnomalyDetectorAnomalyDetectorFrequency value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AnomalyDetectorAnomalyDetectorFrequency other && Equals(other);
-        public bool Equals(AnomalyDetectorAnomalyDetectorFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct AnomalyDetectorCsvFormatDescriptorFileCompression : IEquatable<AnomalyDetectorCsvFormatDescriptorFileCompression>
     {
@@ -61,6 +28,39 @@ namespace Pulumi.AwsNative.LookoutMetrics
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnomalyDetectorCsvFormatDescriptorFileCompression other && Equals(other);
         public bool Equals(AnomalyDetectorCsvFormatDescriptorFileCompression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Frequency of anomaly detection
+    /// </summary>
+    [EnumType]
+    public readonly struct AnomalyDetectorFrequency : IEquatable<AnomalyDetectorFrequency>
+    {
+        private readonly string _value;
+
+        private AnomalyDetectorFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnomalyDetectorFrequency Pt5m { get; } = new AnomalyDetectorFrequency("PT5M");
+        public static AnomalyDetectorFrequency Pt10m { get; } = new AnomalyDetectorFrequency("PT10M");
+        public static AnomalyDetectorFrequency Pt1h { get; } = new AnomalyDetectorFrequency("PT1H");
+        public static AnomalyDetectorFrequency P1d { get; } = new AnomalyDetectorFrequency("P1D");
+
+        public static bool operator ==(AnomalyDetectorFrequency left, AnomalyDetectorFrequency right) => left.Equals(right);
+        public static bool operator !=(AnomalyDetectorFrequency left, AnomalyDetectorFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(AnomalyDetectorFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnomalyDetectorFrequency other && Equals(other);
+        public bool Equals(AnomalyDetectorFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

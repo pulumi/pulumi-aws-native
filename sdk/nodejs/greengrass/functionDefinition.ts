@@ -39,7 +39,7 @@ export class FunctionDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.FunctionDefinitionFunctionDefinitionVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.FunctionDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -83,7 +83,7 @@ export class FunctionDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a FunctionDefinition resource.
  */
 export interface FunctionDefinitionArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.FunctionDefinitionFunctionDefinitionVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.FunctionDefinitionVersionArgs>;
     name: pulumi.Input<string>;
     tags?: any;
 }

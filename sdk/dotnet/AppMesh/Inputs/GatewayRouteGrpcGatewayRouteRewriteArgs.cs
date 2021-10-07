@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AppMesh.Inputs
     public sealed class GatewayRouteGrpcGatewayRouteRewriteArgs : Pulumi.ResourceArgs
     {
         [Input("hostname")]
-        public Input<Inputs.GatewayRouteGatewayRouteHostnameRewriteArgs>? Hostname { get; set; }
+        public Input<Inputs.GatewayRouteHostnameRewriteArgs>? Hostname { get; set; }
 
         public GatewayRouteGrpcGatewayRouteRewriteArgs()
         {

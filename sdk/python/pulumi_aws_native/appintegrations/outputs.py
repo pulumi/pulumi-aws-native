@@ -10,32 +10,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'EventIntegrationAssociation',
     'EventIntegrationEventFilter',
-    'EventIntegrationEventIntegrationAssociation',
     'EventIntegrationMetadata',
     'EventIntegrationTag',
 ]
 
 @pulumi.output_type
-class EventIntegrationEventFilter(dict):
-    def __init__(__self__, *,
-                 source: str):
-        """
-        :param str source: The source of the events.
-        """
-        pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def source(self) -> str:
-        """
-        The source of the events.
-        """
-        return pulumi.get(self, "source")
-
-
-@pulumi.output_type
-class EventIntegrationEventIntegrationAssociation(dict):
+class EventIntegrationAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -51,14 +33,14 @@ class EventIntegrationEventIntegrationAssociation(dict):
             suggest = "event_integration_association_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EventIntegrationEventIntegrationAssociation. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EventIntegrationAssociation. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        EventIntegrationEventIntegrationAssociation.__key_warning(key)
+        EventIntegrationAssociation.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        EventIntegrationEventIntegrationAssociation.__key_warning(key)
+        EventIntegrationAssociation.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -124,6 +106,24 @@ class EventIntegrationEventIntegrationAssociation(dict):
         The identifier for the event integration association.
         """
         return pulumi.get(self, "event_integration_association_id")
+
+
+@pulumi.output_type
+class EventIntegrationEventFilter(dict):
+    def __init__(__self__, *,
+                 source: str):
+        """
+        :param str source: The source of the events.
+        """
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The source of the events.
+        """
+        return pulumi.get(self, "source")
 
 
 @pulumi.output_type

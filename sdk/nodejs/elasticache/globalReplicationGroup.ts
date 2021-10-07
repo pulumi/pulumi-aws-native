@@ -70,7 +70,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     /**
      * The replication groups that comprise the Global Datastore.
      */
-    public readonly members!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupGlobalReplicationGroupMember[]>;
+    public readonly members!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupMember[]>;
     /**
      * Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
      */
@@ -160,7 +160,7 @@ export interface GlobalReplicationGroupArgs {
     /**
      * The replication groups that comprise the Global Datastore.
      */
-    members: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupGlobalReplicationGroupMemberArgs>[]>;
+    members: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupMemberArgs>[]>;
     /**
      * Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
      */

@@ -46,11 +46,11 @@ export class Document extends pulumi.CustomResource {
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */
-    public readonly documentFormat!: pulumi.Output<enums.ssm.DocumentDocumentFormat | undefined>;
+    public readonly documentFormat!: pulumi.Output<enums.ssm.DocumentFormat | undefined>;
     /**
      * The type of document to create.
      */
-    public readonly documentType!: pulumi.Output<enums.ssm.DocumentDocumentType | undefined>;
+    public readonly documentType!: pulumi.Output<enums.ssm.DocumentType | undefined>;
     /**
      * A name for the Systems Manager document.
      */
@@ -58,7 +58,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
      */
-    public readonly requires!: pulumi.Output<outputs.ssm.DocumentDocumentRequires[] | undefined>;
+    public readonly requires!: pulumi.Output<outputs.ssm.DocumentRequires[] | undefined>;
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
      */
@@ -128,11 +128,11 @@ export interface DocumentArgs {
     /**
      * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
      */
-    documentFormat?: pulumi.Input<enums.ssm.DocumentDocumentFormat>;
+    documentFormat?: pulumi.Input<enums.ssm.DocumentFormat>;
     /**
      * The type of document to create.
      */
-    documentType?: pulumi.Input<enums.ssm.DocumentDocumentType>;
+    documentType?: pulumi.Input<enums.ssm.DocumentType>;
     /**
      * A name for the Systems Manager document.
      */
@@ -140,7 +140,7 @@ export interface DocumentArgs {
     /**
      * A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
      */
-    requires?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentDocumentRequiresArgs>[]>;
+    requires?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentRequiresArgs>[]>;
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
      */

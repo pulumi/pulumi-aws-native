@@ -15,7 +15,7 @@ import (
 type StorageLens struct {
 	pulumi.CustomResourceState
 
-	StorageLensConfiguration StorageLensStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
+	StorageLensConfiguration StorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
 	Tags StorageLensTagArrayOutput `pulumi:"tags"`
 }
@@ -62,14 +62,14 @@ func (StorageLensState) ElementType() reflect.Type {
 }
 
 type storageLensArgs struct {
-	StorageLensConfiguration StorageLensStorageLensConfiguration `pulumi:"storageLensConfiguration"`
+	StorageLensConfiguration StorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
 	Tags []StorageLensTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageLens resource.
 type StorageLensArgs struct {
-	StorageLensConfiguration StorageLensStorageLensConfigurationInput
+	StorageLensConfiguration StorageLensConfigurationInput
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
 	Tags StorageLensTagArrayInput
 }

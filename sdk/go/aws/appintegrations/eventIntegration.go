@@ -16,7 +16,7 @@ type EventIntegration struct {
 	pulumi.CustomResourceState
 
 	// The associations with the event integration.
-	Associations EventIntegrationEventIntegrationAssociationArrayOutput `pulumi:"associations"`
+	Associations EventIntegrationAssociationArrayOutput `pulumi:"associations"`
 	// The event integration description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Eventbridge bus for the event integration.

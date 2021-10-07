@@ -36,8 +36,8 @@ export class ConnectionAlias extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
-    public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasConnectionAliasAssociation[]>;
-    public /*out*/ readonly connectionAliasState!: pulumi.Output<enums.workspaces.ConnectionAliasConnectionAliasState>;
+    public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasAssociation[]>;
+    public /*out*/ readonly connectionAliasState!: pulumi.Output<enums.workspaces.ConnectionAliasState>;
     public readonly connectionString!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.workspaces.ConnectionAliasTag[] | undefined>;
 

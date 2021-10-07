@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
         public Input<Inputs.ContactChannelTargetInfoArgs>? ChannelTargetInfo { get; set; }
 
         [Input("contactTargetInfo")]
-        public Input<Inputs.ContactContactTargetInfoArgs>? ContactTargetInfo { get; set; }
+        public Input<Inputs.ContactTargetInfoArgs>? ContactTargetInfo { get; set; }
 
         public ContactTargetsArgs()
         {

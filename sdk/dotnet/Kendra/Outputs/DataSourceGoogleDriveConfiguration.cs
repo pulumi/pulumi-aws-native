@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         public readonly ImmutableArray<string> ExcludeSharedDrives;
         public readonly ImmutableArray<string> ExcludeUserAccounts;
         public readonly ImmutableArray<string> ExclusionPatterns;
-        public readonly ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> FieldMappings;
+        public readonly ImmutableArray<Outputs.DataSourceToIndexFieldMapping> FieldMappings;
         public readonly ImmutableArray<string> InclusionPatterns;
         public readonly string SecretArn;
 
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
 
             ImmutableArray<string> exclusionPatterns,
 
-            ImmutableArray<Outputs.DataSourceDataSourceToIndexFieldMapping> fieldMappings,
+            ImmutableArray<Outputs.DataSourceToIndexFieldMapping> fieldMappings,
 
             ImmutableArray<string> inclusionPatterns,
 

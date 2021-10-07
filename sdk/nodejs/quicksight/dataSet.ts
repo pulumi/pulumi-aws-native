@@ -56,7 +56,7 @@ export class DataSet extends pulumi.CustomResource {
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public readonly dataSetId!: pulumi.Output<string | undefined>;
     public readonly fieldFolders!: pulumi.Output<outputs.quicksight.DataSetFieldFolderMap | undefined>;
-    public readonly importMode!: pulumi.Output<enums.quicksight.DataSetDataSetImportMode | undefined>;
+    public readonly importMode!: pulumi.Output<enums.quicksight.DataSetImportMode | undefined>;
     public readonly ingestionWaitPolicy!: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
     /**
      * <p>The last time that this dataset was updated.</p>
@@ -151,7 +151,7 @@ export interface DataSetArgs {
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
     dataSetId?: pulumi.Input<string>;
     fieldFolders?: pulumi.Input<inputs.quicksight.DataSetFieldFolderMapArgs>;
-    importMode?: pulumi.Input<enums.quicksight.DataSetDataSetImportMode>;
+    importMode?: pulumi.Input<enums.quicksight.DataSetImportMode>;
     ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;
     logicalTableMap?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapArgs>;
     /**

@@ -10,12 +10,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'MapMapConfigurationArgs',
+    'MapConfigurationArgs',
     'PlaceIndexDataSourceConfigurationArgs',
 ]
 
 @pulumi.input_type
-class MapMapConfigurationArgs:
+class MapConfigurationArgs:
     def __init__(__self__, *,
                  style: pulumi.Input[str]):
         pulumi.set(__self__, "style", style)

@@ -18,7 +18,7 @@ type Member struct {
 	pulumi.CustomResourceState
 
 	InvitationId         pulumi.StringPtrOutput              `pulumi:"invitationId"`
-	MemberConfiguration  MemberMemberConfigurationOutput     `pulumi:"memberConfiguration"`
+	MemberConfiguration  MemberConfigurationOutput           `pulumi:"memberConfiguration"`
 	MemberId             pulumi.StringOutput                 `pulumi:"memberId"`
 	NetworkConfiguration MemberNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	NetworkId            pulumi.StringPtrOutput              `pulumi:"networkId"`
@@ -67,7 +67,7 @@ func (MemberState) ElementType() reflect.Type {
 
 type memberArgs struct {
 	InvitationId         *string                     `pulumi:"invitationId"`
-	MemberConfiguration  MemberMemberConfiguration   `pulumi:"memberConfiguration"`
+	MemberConfiguration  MemberConfiguration         `pulumi:"memberConfiguration"`
 	NetworkConfiguration *MemberNetworkConfiguration `pulumi:"networkConfiguration"`
 	NetworkId            *string                     `pulumi:"networkId"`
 }
@@ -75,7 +75,7 @@ type memberArgs struct {
 // The set of arguments for constructing a Member resource.
 type MemberArgs struct {
 	InvitationId         pulumi.StringPtrInput
-	MemberConfiguration  MemberMemberConfigurationInput
+	MemberConfiguration  MemberConfigurationInput
 	NetworkConfiguration MemberNetworkConfigurationPtrInput
 	NetworkId            pulumi.StringPtrInput
 }

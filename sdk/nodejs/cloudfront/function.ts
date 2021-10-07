@@ -38,8 +38,8 @@ export class Function extends pulumi.CustomResource {
     public readonly autoPublish!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly functionARN!: pulumi.Output<string>;
     public readonly functionCode!: pulumi.Output<string | undefined>;
-    public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionFunctionConfig | undefined>;
-    public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionFunctionMetadata | undefined>;
+    public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionConfig | undefined>;
+    public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionMetadata | undefined>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly stage!: pulumi.Output<string>;
 
@@ -86,7 +86,7 @@ export class Function extends pulumi.CustomResource {
 export interface FunctionArgs {
     autoPublish?: pulumi.Input<boolean>;
     functionCode?: pulumi.Input<string>;
-    functionConfig?: pulumi.Input<inputs.cloudfront.FunctionFunctionConfigArgs>;
-    functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionFunctionMetadataArgs>;
+    functionConfig?: pulumi.Input<inputs.cloudfront.FunctionConfigArgs>;
+    functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionMetadataArgs>;
     name: pulumi.Input<string>;
 }

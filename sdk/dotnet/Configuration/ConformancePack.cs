@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Configuration
         /// A list of ConformancePackInputParameter objects.
         /// </summary>
         [Output("conformancePackInputParameters")]
-        public Output<ImmutableArray<Outputs.ConformancePackConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
 
         /// <summary>
         /// Name of the conformance pack which will be assigned as the unique identifier.
@@ -97,14 +97,14 @@ namespace Pulumi.AwsNative.Configuration
     public sealed class ConformancePackArgs : Pulumi.ResourceArgs
     {
         [Input("conformancePackInputParameters")]
-        private InputList<Inputs.ConformancePackConformancePackInputParameterArgs>? _conformancePackInputParameters;
+        private InputList<Inputs.ConformancePackInputParameterArgs>? _conformancePackInputParameters;
 
         /// <summary>
         /// A list of ConformancePackInputParameter objects.
         /// </summary>
-        public InputList<Inputs.ConformancePackConformancePackInputParameterArgs> ConformancePackInputParameters
+        public InputList<Inputs.ConformancePackInputParameterArgs> ConformancePackInputParameters
         {
-            get => _conformancePackInputParameters ?? (_conformancePackInputParameters = new InputList<Inputs.ConformancePackConformancePackInputParameterArgs>());
+            get => _conformancePackInputParameters ?? (_conformancePackInputParameters = new InputList<Inputs.ConformancePackInputParameterArgs>());
             set => _conformancePackInputParameters = value;
         }
 

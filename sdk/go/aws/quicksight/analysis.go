@@ -24,7 +24,7 @@ type Analysis struct {
 	// <p>The ARNs of the datasets of the analysis.</p>
 	DataSetArns pulumi.StringArrayOutput `pulumi:"dataSetArns"`
 	// <p>Errors associated with the analysis.</p>
-	Errors AnalysisAnalysisErrorArrayOutput `pulumi:"errors"`
+	Errors AnalysisErrorArrayOutput `pulumi:"errors"`
 	// <p>The time that the analysis was last updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// <p>The descriptive name of the analysis.</p>
@@ -38,9 +38,9 @@ type Analysis struct {
 	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
 	Permissions AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-	Sheets       AnalysisSheetArrayOutput              `pulumi:"sheets"`
-	SourceEntity AnalysisAnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	Status       AnalysisResourceStatusOutput          `pulumi:"status"`
+	Sheets       AnalysisSheetArrayOutput      `pulumi:"sheets"`
+	SourceEntity AnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
+	Status       AnalysisResourceStatusOutput  `pulumi:"status"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             analysis.</p>
 	Tags AnalysisTagArrayOutput `pulumi:"tags"`
@@ -96,7 +96,7 @@ type analysisArgs struct {
 	AnalysisId   string `pulumi:"analysisId"`
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// <p>Errors associated with the analysis.</p>
-	Errors []AnalysisAnalysisError `pulumi:"errors"`
+	Errors []AnalysisError `pulumi:"errors"`
 	// <p>The descriptive name of the analysis.</p>
 	Name       *string             `pulumi:"name"`
 	Parameters *AnalysisParameters `pulumi:"parameters"`
@@ -106,8 +106,8 @@ type analysisArgs struct {
 	//             principal listed by Amazon Resource Name (ARN). </p>
 	//
 	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
-	Permissions  []AnalysisResourcePermission  `pulumi:"permissions"`
-	SourceEntity *AnalysisAnalysisSourceEntity `pulumi:"sourceEntity"`
+	Permissions  []AnalysisResourcePermission `pulumi:"permissions"`
+	SourceEntity *AnalysisSourceEntity        `pulumi:"sourceEntity"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             analysis.</p>
 	Tags []AnalysisTag `pulumi:"tags"`
@@ -120,7 +120,7 @@ type AnalysisArgs struct {
 	AnalysisId   pulumi.StringInput
 	AwsAccountId pulumi.StringInput
 	// <p>Errors associated with the analysis.</p>
-	Errors AnalysisAnalysisErrorArrayInput
+	Errors AnalysisErrorArrayInput
 	// <p>The descriptive name of the analysis.</p>
 	Name       pulumi.StringPtrInput
 	Parameters AnalysisParametersPtrInput
@@ -131,7 +131,7 @@ type AnalysisArgs struct {
 	//
 	//         <p>To specify no permissions, omit <code>Permissions</code>.</p>
 	Permissions  AnalysisResourcePermissionArrayInput
-	SourceEntity AnalysisAnalysisSourceEntityPtrInput
+	SourceEntity AnalysisSourceEntityPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
 	//             analysis.</p>
 	Tags AnalysisTagArrayInput

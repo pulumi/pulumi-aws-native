@@ -34,7 +34,7 @@ type Service struct {
 	SchedulingStrategy            ServiceSchedulingStrategyPtrOutput             `pulumi:"schedulingStrategy"`
 	ServiceArn                    pulumi.StringOutput                            `pulumi:"serviceArn"`
 	ServiceName                   pulumi.StringPtrOutput                         `pulumi:"serviceName"`
-	ServiceRegistries             ServiceServiceRegistryArrayOutput              `pulumi:"serviceRegistries"`
+	ServiceRegistries             ServiceRegistryArrayOutput                     `pulumi:"serviceRegistries"`
 	Tags                          ServiceTagArrayOutput                          `pulumi:"tags"`
 	TaskDefinition                pulumi.StringPtrOutput                         `pulumi:"taskDefinition"`
 }
@@ -96,7 +96,7 @@ type serviceArgs struct {
 	Role                          *string                               `pulumi:"role"`
 	SchedulingStrategy            *ServiceSchedulingStrategy            `pulumi:"schedulingStrategy"`
 	ServiceName                   *string                               `pulumi:"serviceName"`
-	ServiceRegistries             []ServiceServiceRegistry              `pulumi:"serviceRegistries"`
+	ServiceRegistries             []ServiceRegistry                     `pulumi:"serviceRegistries"`
 	Tags                          []ServiceTag                          `pulumi:"tags"`
 	TaskDefinition                *string                               `pulumi:"taskDefinition"`
 }
@@ -121,7 +121,7 @@ type ServiceArgs struct {
 	Role                          pulumi.StringPtrInput
 	SchedulingStrategy            ServiceSchedulingStrategyPtrInput
 	ServiceName                   pulumi.StringPtrInput
-	ServiceRegistries             ServiceServiceRegistryArrayInput
+	ServiceRegistries             ServiceRegistryArrayInput
 	Tags                          ServiceTagArrayInput
 	TaskDefinition                pulumi.StringPtrInput
 }
