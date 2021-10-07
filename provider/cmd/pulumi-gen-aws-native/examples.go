@@ -6,22 +6,23 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
+	"os"
+	"path"
+	"path/filepath"
+	"strings"
+	"text/template"
+
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
 	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"os"
-	"path"
-	"path/filepath"
-	"strings"
-	"text/template"
 )
 
 func generateExamples(pkgSpec *schema.PackageSpec, metadata *pschema.CloudAPIMetadata, languages []string) error {
@@ -33,12 +34,12 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *pschema.CloudAPIMet
 	}
 
 	// Cache to speed up code generation.
-	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
+	hcl2Cache := pcl.Cache(pcl.NewPackageCache())
 	pkg, err := schema.ImportSpec(*pkgSpec, nil)
 	if err != nil {
 		return err
 	}
-	loaderOption := hcl2.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
+	loaderOption := pcl.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
 		"aws-native": pkg,
 	}))
 
@@ -77,7 +78,7 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *pschema.CloudAPIMet
 	return nil
 }
 
-func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages []string, bindOpts ...hcl2.BindOption) (*resourceExample, error) {
+func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages []string, bindOpts ...pcl.BindOption) (*resourceExample, error) {
 	body, diagnostics, err := cf2pulumi.RenderText(yaml, metadata)
 	if err != nil {
 		return nil, errors.Wrapf(err, "rendering YAML")
@@ -101,7 +102,7 @@ func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages 
 		return nil, errors.Errorf("parser diagnostic errors: %s", buf)
 	}
 
-	program, diags, err := hcl2.BindProgram(parser.Files, bindOpts...)
+	program, diags, err := pcl.BindProgram(parser.Files, bindOpts...)
 	if err != nil {
 		return nil, errors.Wrapf(err, "binding program")
 	}
@@ -113,7 +114,7 @@ func generateExample(yaml string, metadata *pschema.CloudAPIMetadata, languages 
 
 	resourceType := ""
 	for _, node := range program.Nodes {
-		if res, ok := node.(*hcl2.Resource); ok {
+		if res, ok := node.(*pcl.Resource); ok {
 			resourceType = res.Token
 			break
 		}
@@ -216,9 +217,9 @@ func findExamples(fileName string) ([]string, error) {
 	return result, scanner.Err()
 }
 
-type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
+type programGenFn func(*pcl.Program) (map[string][]byte, hcl.Diagnostics, error)
 
-func recoverableProgramGen(program *hcl2.Program, fn programGenFn) (files map[string][]byte, d hcl.Diagnostics, err error) {
+func recoverableProgramGen(program *pcl.Program, fn programGenFn) (files map[string][]byte, d hcl.Diagnostics, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during generation: %v", r)

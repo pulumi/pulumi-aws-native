@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "./types";
 import * as utilities from "./utilities";
 
 export function getSsmParameterString(args: GetSsmParameterStringArgs, opts?: pulumi.InvokeOptions): Promise<GetSsmParameterStringResult> {

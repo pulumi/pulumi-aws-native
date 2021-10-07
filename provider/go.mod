@@ -30,8 +30,8 @@ require (
 	github.com/lestrrat-go/structinfo v0.0.0-20210312050401-7f8bd69d6acb // indirect
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.12.0
-	github.com/pulumi/pulumi/sdk/v3 v3.12.0
+	github.com/pulumi/pulumi/pkg/v3 v3.14.0
+	github.com/pulumi/pulumi/sdk/v3 v3.13.2
 	github.com/stretchr/testify v1.7.0
 	github.com/zclconf/go-cty v1.3.1
 	google.golang.org/grpc v1.37.0
