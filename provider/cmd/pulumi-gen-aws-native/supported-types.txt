@@ -314,7 +314,6 @@ AWS::Route53RecoveryReadiness::ResourceSet
 AWS::Route53Resolver::FirewallDomainList
 AWS::Route53Resolver::FirewallRuleGroup
 AWS::Route53Resolver::FirewallRuleGroupAssociation
-AWS::Route53Resolver::ResolverConfig
 AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
