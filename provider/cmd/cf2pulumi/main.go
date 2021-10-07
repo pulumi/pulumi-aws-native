@@ -55,7 +55,7 @@ func main() {
 	programText := fmt.Sprintf("%v", template)
 
 	parser := syntax.NewParser()
-	if err := parser.ParseFile(strings.NewReader(programText), "prorgram.pp"); err != nil {
+	if err := parser.ParseFile(strings.NewReader(programText), "program.pp"); err != nil {
 		log.Fatalf("failed to parse IR: %v", err)
 	}
 	if parser.Diagnostics.HasErrors() {
