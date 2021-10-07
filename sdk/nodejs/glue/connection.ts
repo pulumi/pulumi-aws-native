@@ -39,7 +39,7 @@ export class Connection extends pulumi.CustomResource {
     }
 
     public readonly catalogId!: pulumi.Output<string>;
-    public readonly connectionInput!: pulumi.Output<outputs.glue.ConnectionConnectionInput>;
+    public readonly connectionInput!: pulumi.Output<outputs.glue.ConnectionInput>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -78,5 +78,5 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionArgs {
     catalogId: pulumi.Input<string>;
-    connectionInput: pulumi.Input<inputs.glue.ConnectionConnectionInputArgs>;
+    connectionInput: pulumi.Input<inputs.glue.ConnectionInputArgs>;
 }

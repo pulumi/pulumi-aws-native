@@ -62,7 +62,7 @@ export class Detector extends pulumi.CustomResource {
     /**
      * The desired detector version status for the detector
      */
-    public readonly detectorVersionStatus!: pulumi.Output<enums.frauddetector.DetectorDetectorVersionStatus | undefined>;
+    public readonly detectorVersionStatus!: pulumi.Output<enums.frauddetector.DetectorVersionStatus | undefined>;
     /**
      * The event type to associate this detector with.
      */
@@ -150,7 +150,7 @@ export interface DetectorArgs {
     /**
      * The desired detector version status for the detector
      */
-    detectorVersionStatus?: pulumi.Input<enums.frauddetector.DetectorDetectorVersionStatus>;
+    detectorVersionStatus?: pulumi.Input<enums.frauddetector.DetectorVersionStatus>;
     /**
      * The event type to associate this detector with.
      */

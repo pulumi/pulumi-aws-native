@@ -11,9 +11,9 @@ export const StateMachineLoggingConfigurationLevel = {
 
 export type StateMachineLoggingConfigurationLevel = (typeof StateMachineLoggingConfigurationLevel)[keyof typeof StateMachineLoggingConfigurationLevel];
 
-export const StateMachineStateMachineType = {
+export const StateMachineType = {
     Standard: "STANDARD",
     Express: "EXPRESS",
 } as const;
 
-export type StateMachineStateMachineType = (typeof StateMachineStateMachineType)[keyof typeof StateMachineStateMachineType];
+export type StateMachineType = (typeof StateMachineType)[keyof typeof StateMachineType];

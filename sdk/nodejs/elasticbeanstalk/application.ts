@@ -40,7 +40,7 @@ export class Application extends pulumi.CustomResource {
 
     public readonly applicationName!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly resourceLifecycleConfig!: pulumi.Output<outputs.elasticbeanstalk.ApplicationApplicationResourceLifecycleConfig | undefined>;
+    public readonly resourceLifecycleConfig!: pulumi.Output<outputs.elasticbeanstalk.ApplicationResourceLifecycleConfig | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -76,5 +76,5 @@ export class Application extends pulumi.CustomResource {
 export interface ApplicationArgs {
     applicationName?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    resourceLifecycleConfig?: pulumi.Input<inputs.elasticbeanstalk.ApplicationApplicationResourceLifecycleConfigArgs>;
+    resourceLifecycleConfig?: pulumi.Input<inputs.elasticbeanstalk.ApplicationResourceLifecycleConfigArgs>;
 }

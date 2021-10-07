@@ -42,7 +42,7 @@ export class AssetModel extends pulumi.CustomResource {
     /**
      * The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
      */
-    public readonly assetModelCompositeModels!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelCompositeModel[] | undefined>;
+    public readonly assetModelCompositeModels!: pulumi.Output<outputs.iotsitewise.AssetModelCompositeModel[] | undefined>;
     /**
      * A description for the asset model.
      */
@@ -50,7 +50,7 @@ export class AssetModel extends pulumi.CustomResource {
     /**
      * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
-    public readonly assetModelHierarchies!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelHierarchy[] | undefined>;
+    public readonly assetModelHierarchies!: pulumi.Output<outputs.iotsitewise.AssetModelHierarchy[] | undefined>;
     /**
      * The ID of the asset model.
      */
@@ -62,7 +62,7 @@ export class AssetModel extends pulumi.CustomResource {
     /**
      * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
-    public readonly assetModelProperties!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelProperty[] | undefined>;
+    public readonly assetModelProperties!: pulumi.Output<outputs.iotsitewise.AssetModelProperty[] | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
@@ -114,7 +114,7 @@ export interface AssetModelArgs {
     /**
      * The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
      */
-    assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelCompositeModelArgs>[]>;
+    assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelCompositeModelArgs>[]>;
     /**
      * A description for the asset model.
      */
@@ -122,7 +122,7 @@ export interface AssetModelArgs {
     /**
      * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
-    assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelHierarchyArgs>[]>;
+    assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelHierarchyArgs>[]>;
     /**
      * A unique, friendly name for the asset model.
      */
@@ -130,7 +130,7 @@ export interface AssetModelArgs {
     /**
      * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
-    assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelPropertyArgs>[]>;
+    assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelPropertyArgs>[]>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */

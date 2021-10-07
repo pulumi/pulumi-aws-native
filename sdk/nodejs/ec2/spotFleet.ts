@@ -35,7 +35,7 @@ export class SpotFleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpotFleet.__pulumiType;
     }
 
-    public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.ec2.SpotFleetSpotFleetRequestConfigData>;
+    public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.ec2.SpotFleetRequestConfigData>;
 
     /**
      * Create a SpotFleet resource with the given unique name, arguments, and options.
@@ -66,5 +66,5 @@ export class SpotFleet extends pulumi.CustomResource {
  * The set of arguments for constructing a SpotFleet resource.
  */
 export interface SpotFleetArgs {
-    spotFleetRequestConfigData: pulumi.Input<inputs.ec2.SpotFleetSpotFleetRequestConfigDataArgs>;
+    spotFleetRequestConfigData: pulumi.Input<inputs.ec2.SpotFleetRequestConfigDataArgs>;
 }

@@ -39,7 +39,7 @@ export class LoggerDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.LoggerDefinitionLoggerDefinitionVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.LoggerDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -83,7 +83,7 @@ export class LoggerDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a LoggerDefinition resource.
  */
 export interface LoggerDefinitionArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.LoggerDefinitionLoggerDefinitionVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.LoggerDefinitionVersionArgs>;
     name: pulumi.Input<string>;
     tags?: any;
 }

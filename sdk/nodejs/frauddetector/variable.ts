@@ -74,7 +74,7 @@ export class Variable extends pulumi.CustomResource {
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */
-    public readonly variableType!: pulumi.Output<enums.frauddetector.VariableVariableType | undefined>;
+    public readonly variableType!: pulumi.Output<enums.frauddetector.VariableType | undefined>;
 
     /**
      * Create a Variable resource with the given unique name, arguments, and options.
@@ -159,5 +159,5 @@ export interface VariableArgs {
     /**
      * The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
      */
-    variableType?: pulumi.Input<enums.frauddetector.VariableVariableType>;
+    variableType?: pulumi.Input<enums.frauddetector.VariableType>;
 }

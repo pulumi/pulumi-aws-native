@@ -54,7 +54,7 @@ export class QuickConnect extends pulumi.CustomResource {
     /**
      * Configuration settings for the quick connect.
      */
-    public readonly quickConnectConfig!: pulumi.Output<outputs.connect.QuickConnectQuickConnectConfig>;
+    public readonly quickConnectConfig!: pulumi.Output<outputs.connect.QuickConnectConfig>;
     /**
      * One or more tags.
      */
@@ -120,7 +120,7 @@ export interface QuickConnectArgs {
     /**
      * Configuration settings for the quick connect.
      */
-    quickConnectConfig: pulumi.Input<inputs.connect.QuickConnectQuickConnectConfigArgs>;
+    quickConnectConfig: pulumi.Input<inputs.connect.QuickConnectConfigArgs>;
     /**
      * One or more tags.
      */

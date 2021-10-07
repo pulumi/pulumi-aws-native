@@ -46,7 +46,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * Connector specific configurations needed to create connector profile
      */
-    public readonly connectorProfileConfig!: pulumi.Output<outputs.appflow.ConnectorProfileConnectorProfileConfig | undefined>;
+    public readonly connectorProfileConfig!: pulumi.Output<outputs.appflow.ConnectorProfileConfig | undefined>;
     /**
      * The maximum number of items to retrieve in a single batch.
      */
@@ -118,7 +118,7 @@ export interface ConnectorProfileArgs {
     /**
      * Connector specific configurations needed to create connector profile
      */
-    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigArgs>;
+    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConfigArgs>;
     /**
      * The maximum number of items to retrieve in a single batch.
      */

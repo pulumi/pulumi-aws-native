@@ -52,7 +52,7 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * <p>Errors associated with the analysis.</p>
      */
-    public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisAnalysisError[] | undefined>;
+    public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[] | undefined>;
     /**
      * <p>The time that the analysis was last updated.</p>
      */
@@ -75,7 +75,7 @@ export class Analysis extends pulumi.CustomResource {
      * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      */
     public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
-    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisAnalysisSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
@@ -152,7 +152,7 @@ export interface AnalysisArgs {
     /**
      * <p>Errors associated with the analysis.</p>
      */
-    errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisAnalysisErrorArgs>[]>;
+    errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisErrorArgs>[]>;
     /**
      * <p>The descriptive name of the analysis.</p>
      */
@@ -167,7 +167,7 @@ export interface AnalysisArgs {
      *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
-    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisAnalysisSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
      *             analysis.</p>

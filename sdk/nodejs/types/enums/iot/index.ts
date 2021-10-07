@@ -9,12 +9,12 @@ export const AuthorizerStatus = {
 
 export type AuthorizerStatus = (typeof AuthorizerStatus)[keyof typeof AuthorizerStatus];
 
-export const CertificateCertificateMode = {
+export const CertificateMode = {
     Default: "DEFAULT",
     SniOnly: "SNI_ONLY",
 } as const;
 
-export type CertificateCertificateMode = (typeof CertificateCertificateMode)[keyof typeof CertificateCertificateMode];
+export type CertificateMode = (typeof CertificateMode)[keyof typeof CertificateMode];
 
 export const CertificateStatus = {
     Active: "ACTIVE",
@@ -47,13 +47,6 @@ export const DimensionType = {
  */
 export type DimensionType = (typeof DimensionType)[keyof typeof DimensionType];
 
-export const DomainConfigurationDomainConfigurationStatus = {
-    Enabled: "ENABLED",
-    Disabled: "DISABLED",
-} as const;
-
-export type DomainConfigurationDomainConfigurationStatus = (typeof DomainConfigurationDomainConfigurationStatus)[keyof typeof DomainConfigurationDomainConfigurationStatus];
-
 export const DomainConfigurationDomainType = {
     Endpoint: "ENDPOINT",
     AwsManaged: "AWS_MANAGED",
@@ -76,6 +69,13 @@ export const DomainConfigurationServiceType = {
 } as const;
 
 export type DomainConfigurationServiceType = (typeof DomainConfigurationServiceType)[keyof typeof DomainConfigurationServiceType];
+
+export const DomainConfigurationStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DomainConfigurationStatus = (typeof DomainConfigurationStatus)[keyof typeof DomainConfigurationStatus];
 
 export const MitigationActionEnableIoTLoggingParamsLogLevel = {
     Debug: "DEBUG",
@@ -206,10 +206,10 @@ export const TopicRuleCannedAccessControlList = {
 
 export type TopicRuleCannedAccessControlList = (typeof TopicRuleCannedAccessControlList)[keyof typeof TopicRuleCannedAccessControlList];
 
-export const TopicRuleDestinationTopicRuleDestinationStatus = {
+export const TopicRuleDestinationStatus = {
     Enabled: "ENABLED",
     InProgress: "IN_PROGRESS",
     Disabled: "DISABLED",
 } as const;
 
-export type TopicRuleDestinationTopicRuleDestinationStatus = (typeof TopicRuleDestinationTopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationTopicRuleDestinationStatus];
+export type TopicRuleDestinationStatus = (typeof TopicRuleDestinationStatus)[keyof typeof TopicRuleDestinationStatus];

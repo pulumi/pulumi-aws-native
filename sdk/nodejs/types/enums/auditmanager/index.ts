@@ -2,25 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AssessmentAssessmentReportDestinationType = {
-    S3: "S3",
-} as const;
-
-/**
- * The destination type, such as Amazon S3.
- */
-export type AssessmentAssessmentReportDestinationType = (typeof AssessmentAssessmentReportDestinationType)[keyof typeof AssessmentAssessmentReportDestinationType];
-
-export const AssessmentAssessmentStatus = {
-    Active: "ACTIVE",
-    Inactive: "INACTIVE",
-} as const;
-
-/**
- * The status of the specified assessment. 
- */
-export type AssessmentAssessmentStatus = (typeof AssessmentAssessmentStatus)[keyof typeof AssessmentAssessmentStatus];
-
 export const AssessmentDelegationStatus = {
     InProgress: "IN_PROGRESS",
     UnderReview: "UNDER_REVIEW",
@@ -32,6 +13,15 @@ export const AssessmentDelegationStatus = {
  */
 export type AssessmentDelegationStatus = (typeof AssessmentDelegationStatus)[keyof typeof AssessmentDelegationStatus];
 
+export const AssessmentReportDestinationType = {
+    S3: "S3",
+} as const;
+
+/**
+ * The destination type, such as Amazon S3.
+ */
+export type AssessmentReportDestinationType = (typeof AssessmentReportDestinationType)[keyof typeof AssessmentReportDestinationType];
+
 export const AssessmentRoleType = {
     ProcessOwner: "PROCESS_OWNER",
     ResourceOwner: "RESOURCE_OWNER",
@@ -41,3 +31,13 @@ export const AssessmentRoleType = {
  *  The IAM role type.
  */
 export type AssessmentRoleType = (typeof AssessmentRoleType)[keyof typeof AssessmentRoleType];
+
+export const AssessmentStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The status of the specified assessment. 
+ */
+export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];

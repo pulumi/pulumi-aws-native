@@ -39,7 +39,7 @@ export class ResourceDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.ResourceDefinitionResourceDefinitionVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.ResourceDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -83,7 +83,7 @@ export class ResourceDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceDefinition resource.
  */
 export interface ResourceDefinitionArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.ResourceDefinitionResourceDefinitionVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.ResourceDefinitionVersionArgs>;
     name: pulumi.Input<string>;
     tags?: any;
 }

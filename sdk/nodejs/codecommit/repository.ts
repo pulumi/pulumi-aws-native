@@ -46,7 +46,7 @@ export class Repository extends pulumi.CustomResource {
     public readonly repositoryDescription!: pulumi.Output<string | undefined>;
     public readonly repositoryName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.codecommit.RepositoryTag[] | undefined>;
-    public readonly triggers!: pulumi.Output<outputs.codecommit.RepositoryRepositoryTrigger[] | undefined>;
+    public readonly triggers!: pulumi.Output<outputs.codecommit.RepositoryTrigger[] | undefined>;
 
     /**
      * Create a Repository resource with the given unique name, arguments, and options.
@@ -99,5 +99,5 @@ export interface RepositoryArgs {
     repositoryDescription?: pulumi.Input<string>;
     repositoryName: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryTagArgs>[]>;
-    triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryRepositoryTriggerArgs>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryTriggerArgs>[]>;
 }

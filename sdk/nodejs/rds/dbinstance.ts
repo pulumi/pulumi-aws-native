@@ -40,7 +40,7 @@ export class DBInstance extends pulumi.CustomResource {
 
     public readonly allocatedStorage!: pulumi.Output<string | undefined>;
     public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean | undefined>;
-    public readonly associatedRoles!: pulumi.Output<outputs.rds.DBInstanceDBInstanceRole[] | undefined>;
+    public readonly associatedRoles!: pulumi.Output<outputs.rds.DBInstanceRole[] | undefined>;
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
@@ -232,7 +232,7 @@ export class DBInstance extends pulumi.CustomResource {
 export interface DBInstanceArgs {
     allocatedStorage?: pulumi.Input<string>;
     allowMajorVersionUpgrade?: pulumi.Input<boolean>;
-    associatedRoles?: pulumi.Input<pulumi.Input<inputs.rds.DBInstanceDBInstanceRoleArgs>[]>;
+    associatedRoles?: pulumi.Input<pulumi.Input<inputs.rds.DBInstanceRoleArgs>[]>;
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     availabilityZone?: pulumi.Input<string>;
     backupRetentionPeriod?: pulumi.Input<number>;

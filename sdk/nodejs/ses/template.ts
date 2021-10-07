@@ -38,7 +38,7 @@ export class Template extends pulumi.CustomResource {
         return obj['__pulumiType'] === Template.__pulumiType;
     }
 
-    public readonly template!: pulumi.Output<outputs.ses.TemplateTemplate | undefined>;
+    public readonly template!: pulumi.Output<outputs.ses.Template | undefined>;
 
     /**
      * Create a Template resource with the given unique name, arguments, and options.
@@ -68,5 +68,5 @@ export class Template extends pulumi.CustomResource {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
-    template?: pulumi.Input<inputs.ses.TemplateTemplateArgs>;
+    template?: pulumi.Input<inputs.ses.TemplateArgs>;
 }

@@ -39,7 +39,7 @@ export class Bucket extends pulumi.CustomResource {
     public readonly accessControl!: pulumi.Output<string | undefined>;
     public readonly analyticsConfigurations!: pulumi.Output<outputs.s3.BucketAnalyticsConfiguration[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly bucketEncryption!: pulumi.Output<outputs.s3.BucketBucketEncryption | undefined>;
+    public readonly bucketEncryption!: pulumi.Output<outputs.s3.BucketEncryption | undefined>;
     public readonly bucketName!: pulumi.Output<string | undefined>;
     public readonly corsConfiguration!: pulumi.Output<outputs.s3.BucketCorsConfiguration | undefined>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
@@ -138,7 +138,7 @@ export interface BucketArgs {
     accelerateConfiguration?: pulumi.Input<inputs.s3.BucketAccelerateConfigurationArgs>;
     accessControl?: pulumi.Input<string>;
     analyticsConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketAnalyticsConfigurationArgs>[]>;
-    bucketEncryption?: pulumi.Input<inputs.s3.BucketBucketEncryptionArgs>;
+    bucketEncryption?: pulumi.Input<inputs.s3.BucketEncryptionArgs>;
     bucketName?: pulumi.Input<string>;
     corsConfiguration?: pulumi.Input<inputs.s3.BucketCorsConfigurationArgs>;
     intelligentTieringConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.BucketIntelligentTieringConfigurationArgs>[]>;

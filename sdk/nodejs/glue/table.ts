@@ -40,7 +40,7 @@ export class Table extends pulumi.CustomResource {
 
     public readonly catalogId!: pulumi.Output<string>;
     public readonly databaseName!: pulumi.Output<string>;
-    public readonly tableInput!: pulumi.Output<outputs.glue.TableTableInput>;
+    public readonly tableInput!: pulumi.Output<outputs.glue.TableInput>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -85,5 +85,5 @@ export class Table extends pulumi.CustomResource {
 export interface TableArgs {
     catalogId: pulumi.Input<string>;
     databaseName: pulumi.Input<string>;
-    tableInput: pulumi.Input<inputs.glue.TableTableInputArgs>;
+    tableInput: pulumi.Input<inputs.glue.TableInputArgs>;
 }

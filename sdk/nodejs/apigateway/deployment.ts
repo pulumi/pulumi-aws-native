@@ -38,7 +38,7 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
-    public readonly deploymentCanarySettings!: pulumi.Output<outputs.apigateway.DeploymentDeploymentCanarySettings | undefined>;
+    public readonly deploymentCanarySettings!: pulumi.Output<outputs.apigateway.DeploymentCanarySettings | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly restApiId!: pulumi.Output<string>;
     public readonly stageDescription!: pulumi.Output<outputs.apigateway.DeploymentStageDescription | undefined>;
@@ -83,7 +83,7 @@ export class Deployment extends pulumi.CustomResource {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
-    deploymentCanarySettings?: pulumi.Input<inputs.apigateway.DeploymentDeploymentCanarySettingsArgs>;
+    deploymentCanarySettings?: pulumi.Input<inputs.apigateway.DeploymentCanarySettingsArgs>;
     description?: pulumi.Input<string>;
     restApiId: pulumi.Input<string>;
     stageDescription?: pulumi.Input<inputs.apigateway.DeploymentStageDescriptionArgs>;

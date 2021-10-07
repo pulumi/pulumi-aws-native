@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const QuickConnectQuickConnectType = {
+export const QuickConnectType = {
     PhoneNumber: "PHONE_NUMBER",
     Queue: "QUEUE",
     User: "USER",
@@ -11,4 +11,4 @@ export const QuickConnectQuickConnectType = {
 /**
  * The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
  */
-export type QuickConnectQuickConnectType = (typeof QuickConnectQuickConnectType)[keyof typeof QuickConnectQuickConnectType];
+export type QuickConnectType = (typeof QuickConnectType)[keyof typeof QuickConnectType];

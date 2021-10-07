@@ -175,7 +175,7 @@ export const IntegrationZendeskConnectorOperator = {
 
 export type IntegrationZendeskConnectorOperator = (typeof IntegrationZendeskConnectorOperator)[keyof typeof IntegrationZendeskConnectorOperator];
 
-export const ObjectTypeObjectTypeFieldContentType = {
+export const ObjectTypeFieldContentType = {
     String: "STRING",
     Number: "NUMBER",
     PhoneNumber: "PHONE_NUMBER",
@@ -186,9 +186,9 @@ export const ObjectTypeObjectTypeFieldContentType = {
 /**
  * The content type of the field. Used for determining equality when searching.
  */
-export type ObjectTypeObjectTypeFieldContentType = (typeof ObjectTypeObjectTypeFieldContentType)[keyof typeof ObjectTypeObjectTypeFieldContentType];
+export type ObjectTypeFieldContentType = (typeof ObjectTypeFieldContentType)[keyof typeof ObjectTypeFieldContentType];
 
-export const ObjectTypeObjectTypeKeyStandardIdentifiersItem = {
+export const ObjectTypeKeyStandardIdentifiersItem = {
     Profile: "PROFILE",
     Unique: "UNIQUE",
     Secondary: "SECONDARY",
@@ -196,4 +196,4 @@ export const ObjectTypeObjectTypeKeyStandardIdentifiersItem = {
     NewOnly: "NEW_ONLY",
 } as const;
 
-export type ObjectTypeObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeObjectTypeKeyStandardIdentifiersItem];
+export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];

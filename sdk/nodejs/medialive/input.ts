@@ -39,16 +39,16 @@ export class Input extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly destinations!: pulumi.Output<outputs.medialive.InputInputDestinationRequest[] | undefined>;
-    public readonly inputDevices!: pulumi.Output<outputs.medialive.InputInputDeviceSettings[] | undefined>;
+    public readonly destinations!: pulumi.Output<outputs.medialive.InputDestinationRequest[] | undefined>;
+    public readonly inputDevices!: pulumi.Output<outputs.medialive.InputDeviceSettings[] | undefined>;
     public readonly inputSecurityGroups!: pulumi.Output<string[] | undefined>;
     public readonly mediaConnectFlows!: pulumi.Output<outputs.medialive.InputMediaConnectFlowRequest[] | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly roleArn!: pulumi.Output<string | undefined>;
-    public readonly sources!: pulumi.Output<outputs.medialive.InputInputSourceRequest[] | undefined>;
+    public readonly sources!: pulumi.Output<outputs.medialive.InputSourceRequest[] | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly type!: pulumi.Output<string | undefined>;
-    public readonly vpc!: pulumi.Output<outputs.medialive.InputInputVpcRequest | undefined>;
+    public readonly vpc!: pulumi.Output<outputs.medialive.InputVpcRequest | undefined>;
 
     /**
      * Create a Input resource with the given unique name, arguments, and options.
@@ -98,14 +98,14 @@ export class Input extends pulumi.CustomResource {
  * The set of arguments for constructing a Input resource.
  */
 export interface InputArgs {
-    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDestinationRequestArgs>[]>;
-    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputDeviceSettingsArgs>[]>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.medialive.InputDestinationRequestArgs>[]>;
+    inputDevices?: pulumi.Input<pulumi.Input<inputs.medialive.InputDeviceSettingsArgs>[]>;
     inputSecurityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     mediaConnectFlows?: pulumi.Input<pulumi.Input<inputs.medialive.InputMediaConnectFlowRequestArgs>[]>;
     name?: pulumi.Input<string>;
     roleArn?: pulumi.Input<string>;
-    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputInputSourceRequestArgs>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.medialive.InputSourceRequestArgs>[]>;
     tags?: any;
     type?: pulumi.Input<string>;
-    vpc?: pulumi.Input<inputs.medialive.InputInputVpcRequestArgs>;
+    vpc?: pulumi.Input<inputs.medialive.InputVpcRequestArgs>;
 }

@@ -50,7 +50,7 @@ export class Host extends pulumi.CustomResource {
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    public readonly hostRecovery!: pulumi.Output<enums.ec2.HostHostRecovery | undefined>;
+    public readonly hostRecovery!: pulumi.Output<enums.ec2.HostRecovery | undefined>;
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
      */
@@ -107,7 +107,7 @@ export interface HostArgs {
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    hostRecovery?: pulumi.Input<enums.ec2.HostHostRecovery>;
+    hostRecovery?: pulumi.Input<enums.ec2.HostRecovery>;
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
      */

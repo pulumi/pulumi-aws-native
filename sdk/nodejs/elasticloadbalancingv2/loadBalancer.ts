@@ -41,7 +41,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public /*out*/ readonly canonicalHostedZoneID!: pulumi.Output<string>;
     public /*out*/ readonly dNSName!: pulumi.Output<string>;
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
-    public readonly loadBalancerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerLoadBalancerAttribute[] | undefined>;
+    public readonly loadBalancerAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerAttribute[] | undefined>;
     public /*out*/ readonly loadBalancerFullName!: pulumi.Output<string>;
     public /*out*/ readonly loadBalancerName!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -105,7 +105,7 @@ export class LoadBalancer extends pulumi.CustomResource {
  */
 export interface LoadBalancerArgs {
     ipAddressType?: pulumi.Input<string>;
-    loadBalancerAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerLoadBalancerAttributeArgs>[]>;
+    loadBalancerAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerAttributeArgs>[]>;
     name?: pulumi.Input<string>;
     scheme?: pulumi.Input<string>;
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;

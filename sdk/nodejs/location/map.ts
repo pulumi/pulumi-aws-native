@@ -36,7 +36,7 @@ export class Map extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly configuration!: pulumi.Output<outputs.location.MapMapConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public /*out*/ readonly dataSource!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -96,7 +96,7 @@ export class Map extends pulumi.CustomResource {
  * The set of arguments for constructing a Map resource.
  */
 export interface MapArgs {
-    configuration: pulumi.Input<inputs.location.MapMapConfigurationArgs>;
+    configuration: pulumi.Input<inputs.location.MapConfigurationArgs>;
     description?: pulumi.Input<string>;
     mapName: pulumi.Input<string>;
     pricingPlan: pulumi.Input<enums.location.MapPricingPlan>;

@@ -58,7 +58,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */
-    public readonly taskDefinitionType!: pulumi.Output<enums.iotwireless.TaskDefinitionTaskDefinitionType | undefined>;
+    public readonly taskDefinitionType!: pulumi.Output<enums.iotwireless.TaskDefinitionType | undefined>;
     /**
      * Information about the gateways to update.
      */
@@ -124,7 +124,7 @@ export interface TaskDefinitionArgs {
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */
-    taskDefinitionType?: pulumi.Input<enums.iotwireless.TaskDefinitionTaskDefinitionType>;
+    taskDefinitionType?: pulumi.Input<enums.iotwireless.TaskDefinitionType>;
     /**
      * Information about the gateways to update.
      */

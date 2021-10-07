@@ -38,7 +38,7 @@ export class DBCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBCluster.__pulumiType;
     }
 
-    public readonly associatedRoles!: pulumi.Output<outputs.neptune.DBClusterDBClusterRole[] | undefined>;
+    public readonly associatedRoles!: pulumi.Output<outputs.neptune.DBClusterRole[] | undefined>;
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
@@ -140,7 +140,7 @@ export class DBCluster extends pulumi.CustomResource {
  * The set of arguments for constructing a DBCluster resource.
  */
 export interface DBClusterArgs {
-    associatedRoles?: pulumi.Input<pulumi.Input<inputs.neptune.DBClusterDBClusterRoleArgs>[]>;
+    associatedRoles?: pulumi.Input<pulumi.Input<inputs.neptune.DBClusterRoleArgs>[]>;
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     backupRetentionPeriod?: pulumi.Input<number>;
     dBClusterIdentifier?: pulumi.Input<string>;

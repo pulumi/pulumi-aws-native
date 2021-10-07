@@ -36,7 +36,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     }
 
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicy>;
     public /*out*/ readonly firewallPolicyArn!: pulumi.Output<string>;
     public /*out*/ readonly firewallPolicyId!: pulumi.Output<string>;
     public readonly firewallPolicyName!: pulumi.Output<string>;
@@ -85,7 +85,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
  */
 export interface FirewallPolicyArgs {
     description?: pulumi.Input<string>;
-    firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyArgs>;
+    firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyArgs>;
     firewallPolicyName: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyTagArgs>[]>;
 }

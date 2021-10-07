@@ -54,7 +54,7 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * Findings filters list.
      */
-    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.macie.FindingsFilterFindingsFilterListItem[]>;
+    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.macie.FindingsFilterListItem[]>;
     /**
      * Findings filter name
      */

@@ -42,7 +42,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Endpoints for the cluster.
      */
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[]>;
+    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterEndpoint[]>;
     /**
      * Name of a Cluster. You can use any non-white space character in the name
      */

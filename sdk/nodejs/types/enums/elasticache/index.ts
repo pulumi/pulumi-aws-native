@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const GlobalReplicationGroupGlobalReplicationGroupMemberRole = {
+export const GlobalReplicationGroupMemberRole = {
     Primary: "PRIMARY",
     Secondary: "SECONDARY",
 } as const;
@@ -10,7 +10,7 @@ export const GlobalReplicationGroupGlobalReplicationGroupMemberRole = {
 /**
  * Indicates the role of the member, primary or secondary.
  */
-export type GlobalReplicationGroupGlobalReplicationGroupMemberRole = (typeof GlobalReplicationGroupGlobalReplicationGroupMemberRole)[keyof typeof GlobalReplicationGroupGlobalReplicationGroupMemberRole];
+export type GlobalReplicationGroupMemberRole = (typeof GlobalReplicationGroupMemberRole)[keyof typeof GlobalReplicationGroupMemberRole];
 
 export const UserEngine = {
     Redis: "redis",

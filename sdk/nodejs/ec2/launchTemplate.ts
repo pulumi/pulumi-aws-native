@@ -40,9 +40,9 @@ export class LaunchTemplate extends pulumi.CustomResource {
 
     public /*out*/ readonly defaultVersionNumber!: pulumi.Output<string>;
     public /*out*/ readonly latestVersionNumber!: pulumi.Output<string>;
-    public readonly launchTemplateData!: pulumi.Output<outputs.ec2.LaunchTemplateLaunchTemplateData | undefined>;
+    public readonly launchTemplateData!: pulumi.Output<outputs.ec2.LaunchTemplateData | undefined>;
     public readonly launchTemplateName!: pulumi.Output<string | undefined>;
-    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateLaunchTemplateTagSpecification[] | undefined>;
+    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateTagSpecification[] | undefined>;
 
     /**
      * Create a LaunchTemplate resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a LaunchTemplate resource.
  */
 export interface LaunchTemplateArgs {
-    launchTemplateData?: pulumi.Input<inputs.ec2.LaunchTemplateLaunchTemplateDataArgs>;
+    launchTemplateData?: pulumi.Input<inputs.ec2.LaunchTemplateDataArgs>;
     launchTemplateName?: pulumi.Input<string>;
-    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLaunchTemplateTagSpecificationArgs>[]>;
+    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateTagSpecificationArgs>[]>;
 }

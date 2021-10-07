@@ -39,7 +39,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     public readonly allocatedCapacity!: pulumi.Output<number | undefined>;
-    public readonly command!: pulumi.Output<outputs.glue.JobJobCommand>;
+    public readonly command!: pulumi.Output<outputs.glue.JobCommand>;
     public readonly connections!: pulumi.Output<outputs.glue.JobConnectionsList | undefined>;
     public readonly defaultArguments!: pulumi.Output<any | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -126,7 +126,7 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobArgs {
     allocatedCapacity?: pulumi.Input<number>;
-    command: pulumi.Input<inputs.glue.JobJobCommandArgs>;
+    command: pulumi.Input<inputs.glue.JobCommandArgs>;
     connections?: pulumi.Input<inputs.glue.JobConnectionsListArgs>;
     defaultArguments?: any;
     description?: pulumi.Input<string>;

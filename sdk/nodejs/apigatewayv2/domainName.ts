@@ -39,7 +39,7 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     public readonly domainName!: pulumi.Output<string>;
-    public readonly domainNameConfigurations!: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration[] | undefined>;
+    public readonly domainNameConfigurations!: pulumi.Output<outputs.apigatewayv2.DomainNameConfiguration[] | undefined>;
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
@@ -87,7 +87,7 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameArgs {
     domainName: pulumi.Input<string>;
-    domainNameConfigurations?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfigurationArgs>[]>;
+    domainNameConfigurations?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.DomainNameConfigurationArgs>[]>;
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthenticationArgs>;
     tags?: any;
 }

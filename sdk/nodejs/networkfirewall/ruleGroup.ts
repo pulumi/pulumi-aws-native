@@ -37,12 +37,12 @@ export class RuleGroup extends pulumi.CustomResource {
 
     public readonly capacity!: pulumi.Output<number>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroupRuleGroup | undefined>;
+    public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroup | undefined>;
     public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
     public readonly ruleGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.networkfirewall.RuleGroupTag[] | undefined>;
-    public readonly type!: pulumi.Output<enums.networkfirewall.RuleGroupType>;
+    public readonly type!: pulumi.Output<enums.networkfirewall.RuleGroupTypeEnum>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -95,8 +95,8 @@ export class RuleGroup extends pulumi.CustomResource {
 export interface RuleGroupArgs {
     capacity: pulumi.Input<number>;
     description?: pulumi.Input<string>;
-    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupArgs>;
+    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupArgs>;
     ruleGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupTagArgs>[]>;
-    type: pulumi.Input<enums.networkfirewall.RuleGroupType>;
+    type: pulumi.Input<enums.networkfirewall.RuleGroupTypeEnum>;
 }

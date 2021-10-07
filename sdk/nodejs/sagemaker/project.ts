@@ -46,7 +46,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * The status of a project.
      */
-    public /*out*/ readonly projectStatus!: pulumi.Output<enums.sagemaker.ProjectProjectStatus>;
+    public /*out*/ readonly projectStatus!: pulumi.Output<enums.sagemaker.ProjectStatus>;
     /**
      * Provisioned ServiceCatalog  Details
      */

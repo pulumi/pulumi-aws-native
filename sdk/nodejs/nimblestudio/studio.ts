@@ -39,7 +39,7 @@ export class Studio extends pulumi.CustomResource {
     public readonly displayName!: pulumi.Output<string>;
     public /*out*/ readonly homeRegion!: pulumi.Output<string>;
     public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
-    public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StudioStudioEncryptionConfiguration | undefined>;
+    public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StudioEncryptionConfiguration | undefined>;
     public /*out*/ readonly studioId!: pulumi.Output<string>;
     public readonly studioName!: pulumi.Output<string>;
     public /*out*/ readonly studioUrl!: pulumi.Output<string>;
@@ -104,7 +104,7 @@ export class Studio extends pulumi.CustomResource {
 export interface StudioArgs {
     adminRoleArn: pulumi.Input<string>;
     displayName: pulumi.Input<string>;
-    studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioStudioEncryptionConfigurationArgs>;
+    studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioEncryptionConfigurationArgs>;
     studioName: pulumi.Input<string>;
     tags?: any;
     userRoleArn: pulumi.Input<string>;

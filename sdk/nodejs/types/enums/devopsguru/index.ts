@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ResourceCollectionResourceCollectionType = {
+export const ResourceCollectionType = {
     AwsCloudFormation: "AWS_CLOUD_FORMATION",
 } as const;
 
 /**
  * The type of ResourceCollection
  */
-export type ResourceCollectionResourceCollectionType = (typeof ResourceCollectionResourceCollectionType)[keyof typeof ResourceCollectionResourceCollectionType];
+export type ResourceCollectionType = (typeof ResourceCollectionType)[keyof typeof ResourceCollectionType];

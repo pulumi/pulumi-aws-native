@@ -46,7 +46,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The identity for this access policy. Choose either a user or a group but not both.
      */
-    public readonly accessPolicyIdentity!: pulumi.Output<outputs.iotsitewise.AccessPolicyAccessPolicyIdentity>;
+    public readonly accessPolicyIdentity!: pulumi.Output<outputs.iotsitewise.AccessPolicyIdentity>;
     /**
      * The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
      */
@@ -54,7 +54,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
      */
-    public readonly accessPolicyResource!: pulumi.Output<outputs.iotsitewise.AccessPolicyAccessPolicyResource>;
+    public readonly accessPolicyResource!: pulumi.Output<outputs.iotsitewise.AccessPolicyResource>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export interface AccessPolicyArgs {
     /**
      * The identity for this access policy. Choose either a user or a group but not both.
      */
-    accessPolicyIdentity: pulumi.Input<inputs.iotsitewise.AccessPolicyAccessPolicyIdentityArgs>;
+    accessPolicyIdentity: pulumi.Input<inputs.iotsitewise.AccessPolicyIdentityArgs>;
     /**
      * The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
      */
@@ -110,5 +110,5 @@ export interface AccessPolicyArgs {
     /**
      * The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
      */
-    accessPolicyResource: pulumi.Input<inputs.iotsitewise.AccessPolicyAccessPolicyResourceArgs>;
+    accessPolicyResource: pulumi.Input<inputs.iotsitewise.AccessPolicyResourceArgs>;
 }

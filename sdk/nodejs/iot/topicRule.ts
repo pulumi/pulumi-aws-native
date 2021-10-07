@@ -38,7 +38,7 @@ export class TopicRule extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly ruleName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.TopicRuleTag[] | undefined>;
-    public readonly topicRulePayload!: pulumi.Output<outputs.iot.TopicRuleTopicRulePayload>;
+    public readonly topicRulePayload!: pulumi.Output<outputs.iot.TopicRulePayload>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -77,5 +77,5 @@ export class TopicRule extends pulumi.CustomResource {
 export interface TopicRuleArgs {
     ruleName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTagArgs>[]>;
-    topicRulePayload: pulumi.Input<inputs.iot.TopicRuleTopicRulePayloadArgs>;
+    topicRulePayload: pulumi.Input<inputs.iot.TopicRulePayloadArgs>;
 }

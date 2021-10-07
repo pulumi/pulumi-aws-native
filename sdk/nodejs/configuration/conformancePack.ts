@@ -38,7 +38,7 @@ export class ConformancePack extends pulumi.CustomResource {
     /**
      * A list of ConformancePackInputParameter objects.
      */
-    public readonly conformancePackInputParameters!: pulumi.Output<outputs.configuration.ConformancePackConformancePackInputParameter[] | undefined>;
+    public readonly conformancePackInputParameters!: pulumi.Output<outputs.configuration.ConformancePackInputParameter[] | undefined>;
     /**
      * Name of the conformance pack which will be assigned as the unique identifier.
      */
@@ -102,7 +102,7 @@ export interface ConformancePackArgs {
     /**
      * A list of ConformancePackInputParameter objects.
      */
-    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.ConformancePackConformancePackInputParameterArgs>[]>;
+    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.ConformancePackInputParameterArgs>[]>;
     /**
      * Name of the conformance pack which will be assigned as the unique identifier.
      */

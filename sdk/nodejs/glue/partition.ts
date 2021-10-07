@@ -40,7 +40,7 @@ export class Partition extends pulumi.CustomResource {
 
     public readonly catalogId!: pulumi.Output<string>;
     public readonly databaseName!: pulumi.Output<string>;
-    public readonly partitionInput!: pulumi.Output<outputs.glue.PartitionPartitionInput>;
+    public readonly partitionInput!: pulumi.Output<outputs.glue.PartitionInput>;
     public readonly tableName!: pulumi.Output<string>;
 
     /**
@@ -91,6 +91,6 @@ export class Partition extends pulumi.CustomResource {
 export interface PartitionArgs {
     catalogId: pulumi.Input<string>;
     databaseName: pulumi.Input<string>;
-    partitionInput: pulumi.Input<inputs.glue.PartitionPartitionInputArgs>;
+    partitionInput: pulumi.Input<inputs.glue.PartitionInputArgs>;
     tableName: pulumi.Input<string>;
 }

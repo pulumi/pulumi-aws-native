@@ -39,7 +39,7 @@ export class DeviceDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.DeviceDefinitionDeviceDefinitionVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.DeviceDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -83,7 +83,7 @@ export class DeviceDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a DeviceDefinition resource.
  */
 export interface DeviceDefinitionArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.DeviceDefinitionDeviceDefinitionVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.DeviceDefinitionVersionArgs>;
     name: pulumi.Input<string>;
     tags?: any;
 }

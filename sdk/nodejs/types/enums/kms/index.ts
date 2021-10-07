@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const KeyKeySpec = {
+export const KeySpec = {
     SymmetricDefault: "SYMMETRIC_DEFAULT",
     Rsa2048: "RSA_2048",
     Rsa3072: "RSA_3072",
@@ -16,9 +16,9 @@ export const KeyKeySpec = {
 /**
  * Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
  */
-export type KeyKeySpec = (typeof KeyKeySpec)[keyof typeof KeyKeySpec];
+export type KeySpec = (typeof KeySpec)[keyof typeof KeySpec];
 
-export const KeyKeyUsage = {
+export const KeyUsage = {
     EncryptDecrypt: "ENCRYPT_DECRYPT",
     SignVerify: "SIGN_VERIFY",
 } as const;
@@ -26,4 +26,4 @@ export const KeyKeyUsage = {
 /**
  * Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
  */
-export type KeyKeyUsage = (typeof KeyKeyUsage)[keyof typeof KeyKeyUsage];
+export type KeyUsage = (typeof KeyUsage)[keyof typeof KeyUsage];

@@ -43,7 +43,7 @@ export class Alias extends pulumi.CustomResource {
     public readonly functionVersion!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly provisionedConcurrencyConfig!: pulumi.Output<outputs.lambda.AliasProvisionedConcurrencyConfiguration | undefined>;
-    public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasAliasRoutingConfiguration | undefined>;
+    public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfiguration | undefined>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -97,5 +97,5 @@ export interface AliasArgs {
     functionVersion: pulumi.Input<string>;
     name: pulumi.Input<string>;
     provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.AliasProvisionedConcurrencyConfigurationArgs>;
-    routingConfig?: pulumi.Input<inputs.lambda.AliasAliasRoutingConfigurationArgs>;
+    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfigurationArgs>;
 }

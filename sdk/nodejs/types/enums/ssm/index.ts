@@ -30,7 +30,7 @@ export const DocumentAttachmentsSourceKey = {
  */
 export type DocumentAttachmentsSourceKey = (typeof DocumentAttachmentsSourceKey)[keyof typeof DocumentAttachmentsSourceKey];
 
-export const DocumentDocumentFormat = {
+export const DocumentFormat = {
     Yaml: "YAML",
     Json: "JSON",
     Text: "TEXT",
@@ -39,9 +39,9 @@ export const DocumentDocumentFormat = {
 /**
  * Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
  */
-export type DocumentDocumentFormat = (typeof DocumentDocumentFormat)[keyof typeof DocumentDocumentFormat];
+export type DocumentFormat = (typeof DocumentFormat)[keyof typeof DocumentFormat];
 
-export const DocumentDocumentType = {
+export const DocumentType = {
     ApplicationConfiguration: "ApplicationConfiguration",
     ApplicationConfigurationSchema: "ApplicationConfigurationSchema",
     Automation: "Automation",
@@ -60,4 +60,4 @@ export const DocumentDocumentType = {
 /**
  * The type of document to create.
  */
-export type DocumentDocumentType = (typeof DocumentDocumentType)[keyof typeof DocumentDocumentType];
+export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType];

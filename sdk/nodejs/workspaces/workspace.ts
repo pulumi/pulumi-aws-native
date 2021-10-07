@@ -45,7 +45,7 @@ export class Workspace extends pulumi.CustomResource {
     public readonly userName!: pulumi.Output<string>;
     public readonly userVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly volumeEncryptionKey!: pulumi.Output<string | undefined>;
-    public readonly workspaceProperties!: pulumi.Output<outputs.workspaces.WorkspaceWorkspaceProperties | undefined>;
+    public readonly workspaceProperties!: pulumi.Output<outputs.workspaces.WorkspaceProperties | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -105,5 +105,5 @@ export interface WorkspaceArgs {
     userName: pulumi.Input<string>;
     userVolumeEncryptionEnabled?: pulumi.Input<boolean>;
     volumeEncryptionKey?: pulumi.Input<string>;
-    workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspaceWorkspacePropertiesArgs>;
+    workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspacePropertiesArgs>;
 }

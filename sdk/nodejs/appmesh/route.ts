@@ -43,7 +43,7 @@ export class Route extends pulumi.CustomResource {
     public readonly meshOwner!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
     public readonly routeName!: pulumi.Output<string | undefined>;
-    public readonly spec!: pulumi.Output<outputs.appmesh.RouteRouteSpec>;
+    public readonly spec!: pulumi.Output<outputs.appmesh.RouteSpec>;
     public readonly tags!: pulumi.Output<outputs.appmesh.RouteTag[] | undefined>;
     public /*out*/ readonly uid!: pulumi.Output<string>;
     public readonly virtualRouterName!: pulumi.Output<string>;
@@ -104,7 +104,7 @@ export interface RouteArgs {
     meshName: pulumi.Input<string>;
     meshOwner?: pulumi.Input<string>;
     routeName?: pulumi.Input<string>;
-    spec: pulumi.Input<inputs.appmesh.RouteRouteSpecArgs>;
+    spec: pulumi.Input<inputs.appmesh.RouteSpecArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.appmesh.RouteTagArgs>[]>;
     virtualRouterName: pulumi.Input<string>;
 }

@@ -38,7 +38,7 @@ export class AnomalyDetector extends pulumi.CustomResource {
     /**
      * Configuration options for the AnomalyDetector
      */
-    public readonly anomalyDetectorConfig!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorAnomalyDetectorConfig>;
+    public readonly anomalyDetectorConfig!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorConfig>;
     /**
      * A description for the AnomalyDetector.
      */
@@ -102,7 +102,7 @@ export interface AnomalyDetectorArgs {
     /**
      * Configuration options for the AnomalyDetector
      */
-    anomalyDetectorConfig: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorAnomalyDetectorConfigArgs>;
+    anomalyDetectorConfig: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorConfigArgs>;
     /**
      * A description for the AnomalyDetector.
      */

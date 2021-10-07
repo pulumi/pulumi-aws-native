@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AssetAssetPropertyNotificationState = {
-    Enabled: "ENABLED",
-    Disabled: "DISABLED",
-} as const;
-
-/**
- * The MQTT notification state (ENABLED or DISABLED) for this asset property.
- */
-export type AssetAssetPropertyNotificationState = (typeof AssetAssetPropertyNotificationState)[keyof typeof AssetAssetPropertyNotificationState];
-
 export const AssetModelDataType = {
     String: "STRING",
     Integer: "INTEGER",
@@ -36,3 +26,13 @@ export const AssetModelTypeName = {
 } as const;
 
 export type AssetModelTypeName = (typeof AssetModelTypeName)[keyof typeof AssetModelTypeName];
+
+export const AssetPropertyNotificationState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The MQTT notification state (ENABLED or DISABLED) for this asset property.
+ */
+export type AssetPropertyNotificationState = (typeof AssetPropertyNotificationState)[keyof typeof AssetPropertyNotificationState];

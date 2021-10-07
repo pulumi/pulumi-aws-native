@@ -35,7 +35,7 @@ export class CachePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === CachePolicy.__pulumiType;
     }
 
-    public readonly cachePolicyConfig!: pulumi.Output<outputs.cloudfront.CachePolicyCachePolicyConfig>;
+    public readonly cachePolicyConfig!: pulumi.Output<outputs.cloudfront.CachePolicyConfig>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
@@ -69,5 +69,5 @@ export class CachePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a CachePolicy resource.
  */
 export interface CachePolicyArgs {
-    cachePolicyConfig: pulumi.Input<inputs.cloudfront.CachePolicyCachePolicyConfigArgs>;
+    cachePolicyConfig: pulumi.Input<inputs.cloudfront.CachePolicyConfigArgs>;
 }

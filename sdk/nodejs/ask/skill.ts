@@ -39,7 +39,7 @@ export class Skill extends pulumi.CustomResource {
     }
 
     public readonly authenticationConfiguration!: pulumi.Output<outputs.ask.SkillAuthenticationConfiguration>;
-    public readonly skillPackage!: pulumi.Output<outputs.ask.SkillSkillPackage>;
+    public readonly skillPackage!: pulumi.Output<outputs.ask.SkillPackage>;
     public readonly vendorId!: pulumi.Output<string>;
 
     /**
@@ -84,6 +84,6 @@ export class Skill extends pulumi.CustomResource {
  */
 export interface SkillArgs {
     authenticationConfiguration: pulumi.Input<inputs.ask.SkillAuthenticationConfigurationArgs>;
-    skillPackage: pulumi.Input<inputs.ask.SkillSkillPackageArgs>;
+    skillPackage: pulumi.Input<inputs.ask.SkillPackageArgs>;
     vendorId: pulumi.Input<string>;
 }

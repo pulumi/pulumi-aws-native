@@ -37,7 +37,7 @@ export class StreamingImage extends pulumi.CustomResource {
 
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly ec2ImageId!: pulumi.Output<string>;
-    public /*out*/ readonly encryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StreamingImageStreamingImageEncryptionConfiguration>;
+    public /*out*/ readonly encryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StreamingImageEncryptionConfiguration>;
     public /*out*/ readonly eulaIds!: pulumi.Output<string[]>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly owner!: pulumi.Output<string>;

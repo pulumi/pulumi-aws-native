@@ -40,9 +40,9 @@ export class Segment extends pulumi.CustomResource {
 
     public readonly applicationId!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly dimensions!: pulumi.Output<outputs.pinpoint.SegmentSegmentDimensions | undefined>;
+    public readonly dimensions!: pulumi.Output<outputs.pinpoint.SegmentDimensions | undefined>;
     public readonly name!: pulumi.Output<string>;
-    public readonly segmentGroups!: pulumi.Output<outputs.pinpoint.SegmentSegmentGroups | undefined>;
+    public readonly segmentGroups!: pulumi.Output<outputs.pinpoint.SegmentGroups | undefined>;
     public /*out*/ readonly segmentId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
 
@@ -93,8 +93,8 @@ export class Segment extends pulumi.CustomResource {
  */
 export interface SegmentArgs {
     applicationId: pulumi.Input<string>;
-    dimensions?: pulumi.Input<inputs.pinpoint.SegmentSegmentDimensionsArgs>;
+    dimensions?: pulumi.Input<inputs.pinpoint.SegmentDimensionsArgs>;
     name: pulumi.Input<string>;
-    segmentGroups?: pulumi.Input<inputs.pinpoint.SegmentSegmentGroupsArgs>;
+    segmentGroups?: pulumi.Input<inputs.pinpoint.SegmentGroupsArgs>;
     tags?: any;
 }

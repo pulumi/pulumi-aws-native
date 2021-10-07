@@ -35,7 +35,7 @@ export class KeyGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyGroup.__pulumiType;
     }
 
-    public readonly keyGroupConfig!: pulumi.Output<outputs.cloudfront.KeyGroupKeyGroupConfig>;
+    public readonly keyGroupConfig!: pulumi.Output<outputs.cloudfront.KeyGroupConfig>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
@@ -69,5 +69,5 @@ export class KeyGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a KeyGroup resource.
  */
 export interface KeyGroupArgs {
-    keyGroupConfig: pulumi.Input<inputs.cloudfront.KeyGroupKeyGroupConfigArgs>;
+    keyGroupConfig: pulumi.Input<inputs.cloudfront.KeyGroupConfigArgs>;
 }

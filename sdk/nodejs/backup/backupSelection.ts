@@ -36,7 +36,7 @@ export class BackupSelection extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
-    public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionBackupSelectionResourceType>;
+    public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionResourceType>;
     public /*out*/ readonly selectionId!: pulumi.Output<string>;
 
     /**
@@ -72,5 +72,5 @@ export class BackupSelection extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupSelection resource.
  */
 export interface BackupSelectionArgs {
-    backupSelection: pulumi.Input<inputs.backup.BackupSelectionBackupSelectionResourceTypeArgs>;
+    backupSelection: pulumi.Input<inputs.backup.BackupSelectionResourceTypeArgs>;
 }

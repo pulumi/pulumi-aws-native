@@ -62,11 +62,11 @@ export class WorkGroup extends pulumi.CustomResource {
     /**
      * The workgroup configuration
      */
-    public readonly workGroupConfiguration!: pulumi.Output<outputs.athena.WorkGroupWorkGroupConfiguration | undefined>;
+    public readonly workGroupConfiguration!: pulumi.Output<outputs.athena.WorkGroupConfiguration | undefined>;
     /**
      * The workgroup configuration update object
      */
-    public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
+    public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.athena.WorkGroupConfigurationUpdates | undefined>;
 
     /**
      * Create a WorkGroup resource with the given unique name, arguments, and options.
@@ -134,9 +134,9 @@ export interface WorkGroupArgs {
     /**
      * The workgroup configuration
      */
-    workGroupConfiguration?: pulumi.Input<inputs.athena.WorkGroupWorkGroupConfigurationArgs>;
+    workGroupConfiguration?: pulumi.Input<inputs.athena.WorkGroupConfigurationArgs>;
     /**
      * The workgroup configuration update object
      */
-    workGroupConfigurationUpdates?: pulumi.Input<inputs.athena.WorkGroupWorkGroupConfigurationUpdatesArgs>;
+    workGroupConfigurationUpdates?: pulumi.Input<inputs.athena.WorkGroupConfigurationUpdatesArgs>;
 }

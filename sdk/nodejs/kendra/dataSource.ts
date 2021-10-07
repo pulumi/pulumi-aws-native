@@ -36,7 +36,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceDataSourceConfiguration | undefined>;
+    public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly indexId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
@@ -99,7 +99,7 @@ export class DataSource extends pulumi.CustomResource {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
-    dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceDataSourceConfigurationArgs>;
+    dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs>;
     description?: pulumi.Input<string>;
     indexId: pulumi.Input<string>;
     name: pulumi.Input<string>;

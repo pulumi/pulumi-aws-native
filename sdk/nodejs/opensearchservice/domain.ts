@@ -43,7 +43,7 @@ export class Domain extends pulumi.CustomResource {
     public readonly cognitoOptions!: pulumi.Output<outputs.opensearchservice.DomainCognitoOptions | undefined>;
     public /*out*/ readonly domainArn!: pulumi.Output<string>;
     public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
-    public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainDomainEndpointOptions | undefined>;
+    public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainEndpointOptions | undefined>;
     public /*out*/ readonly domainEndpoints!: pulumi.Output<any>;
     public readonly domainName!: pulumi.Output<string | undefined>;
     public readonly eBSOptions!: pulumi.Output<outputs.opensearchservice.DomainEBSOptions | undefined>;
@@ -128,7 +128,7 @@ export interface DomainArgs {
     advancedSecurityOptions?: pulumi.Input<inputs.opensearchservice.DomainAdvancedSecurityOptionsInputArgs>;
     clusterConfig?: pulumi.Input<inputs.opensearchservice.DomainClusterConfigArgs>;
     cognitoOptions?: pulumi.Input<inputs.opensearchservice.DomainCognitoOptionsArgs>;
-    domainEndpointOptions?: pulumi.Input<inputs.opensearchservice.DomainDomainEndpointOptionsArgs>;
+    domainEndpointOptions?: pulumi.Input<inputs.opensearchservice.DomainEndpointOptionsArgs>;
     domainName?: pulumi.Input<string>;
     eBSOptions?: pulumi.Input<inputs.opensearchservice.DomainEBSOptionsArgs>;
     encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs>;

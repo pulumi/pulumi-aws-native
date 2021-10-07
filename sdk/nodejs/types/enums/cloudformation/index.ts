@@ -36,7 +36,7 @@ export const PublisherIdentityProvider = {
  */
 export type PublisherIdentityProvider = (typeof PublisherIdentityProvider)[keyof typeof PublisherIdentityProvider];
 
-export const PublisherPublisherStatus = {
+export const PublisherStatus = {
     Verified: "VERIFIED",
     Unverified: "UNVERIFIED",
 } as const;
@@ -44,7 +44,7 @@ export const PublisherPublisherStatus = {
 /**
  * Whether the publisher is verified.
  */
-export type PublisherPublisherStatus = (typeof PublisherPublisherStatus)[keyof typeof PublisherPublisherStatus];
+export type PublisherStatus = (typeof PublisherStatus)[keyof typeof PublisherStatus];
 
 export const ResourceVersionProvisioningType = {
     NonProvisionable: "NON_PROVISIONABLE",

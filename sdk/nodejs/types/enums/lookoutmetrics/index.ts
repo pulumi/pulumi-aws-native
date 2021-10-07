@@ -2,7 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AnomalyDetectorAnomalyDetectorFrequency = {
+export const AnomalyDetectorCsvFormatDescriptorFileCompression = {
+    None: "NONE",
+    Gzip: "GZIP",
+} as const;
+
+export type AnomalyDetectorCsvFormatDescriptorFileCompression = (typeof AnomalyDetectorCsvFormatDescriptorFileCompression)[keyof typeof AnomalyDetectorCsvFormatDescriptorFileCompression];
+
+export const AnomalyDetectorFrequency = {
     Pt5m: "PT5M",
     Pt10m: "PT10M",
     Pt1h: "PT1H",
@@ -12,14 +19,7 @@ export const AnomalyDetectorAnomalyDetectorFrequency = {
 /**
  * Frequency of anomaly detection
  */
-export type AnomalyDetectorAnomalyDetectorFrequency = (typeof AnomalyDetectorAnomalyDetectorFrequency)[keyof typeof AnomalyDetectorAnomalyDetectorFrequency];
-
-export const AnomalyDetectorCsvFormatDescriptorFileCompression = {
-    None: "NONE",
-    Gzip: "GZIP",
-} as const;
-
-export type AnomalyDetectorCsvFormatDescriptorFileCompression = (typeof AnomalyDetectorCsvFormatDescriptorFileCompression)[keyof typeof AnomalyDetectorCsvFormatDescriptorFileCompression];
+export type AnomalyDetectorFrequency = (typeof AnomalyDetectorFrequency)[keyof typeof AnomalyDetectorFrequency];
 
 export const AnomalyDetectorJsonFormatDescriptorFileCompression = {
     None: "NONE",

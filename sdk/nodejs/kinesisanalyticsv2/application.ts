@@ -38,7 +38,7 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationApplicationConfiguration | undefined>;
+    public readonly applicationConfiguration!: pulumi.Output<outputs.kinesisanalyticsv2.ApplicationConfiguration | undefined>;
     public readonly applicationDescription!: pulumi.Output<string | undefined>;
     public readonly applicationMode!: pulumi.Output<string | undefined>;
     public readonly applicationName!: pulumi.Output<string | undefined>;
@@ -92,7 +92,7 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfigurationArgs>;
+    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationConfigurationArgs>;
     applicationDescription?: pulumi.Input<string>;
     applicationMode?: pulumi.Input<string>;
     applicationName?: pulumi.Input<string>;

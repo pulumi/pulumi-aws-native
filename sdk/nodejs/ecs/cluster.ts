@@ -44,8 +44,8 @@ export class Cluster extends pulumi.CustomResource {
      * A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
      */
     public readonly clusterName!: pulumi.Output<string | undefined>;
-    public readonly clusterSettings!: pulumi.Output<outputs.ecs.ClusterClusterSettings[] | undefined>;
-    public readonly configuration!: pulumi.Output<outputs.ecs.ClusterClusterConfiguration | undefined>;
+    public readonly clusterSettings!: pulumi.Output<outputs.ecs.ClusterSettings[] | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
     public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderStrategyItem[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.ecs.ClusterTag[] | undefined>;
 
@@ -92,8 +92,8 @@ export interface ClusterArgs {
      * A user-generated string that you use to identify your cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID for the name.
      */
     clusterName?: pulumi.Input<string>;
-    clusterSettings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterClusterSettingsArgs>[]>;
-    configuration?: pulumi.Input<inputs.ecs.ClusterClusterConfigurationArgs>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSettingsArgs>[]>;
+    configuration?: pulumi.Input<inputs.ecs.ClusterConfigurationArgs>;
     defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderStrategyItemArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterTagArgs>[]>;
 }

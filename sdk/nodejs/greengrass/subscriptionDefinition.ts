@@ -39,7 +39,7 @@ export class SubscriptionDefinition extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly initialVersion!: pulumi.Output<outputs.greengrass.SubscriptionDefinitionSubscriptionDefinitionVersion | undefined>;
+    public readonly initialVersion!: pulumi.Output<outputs.greengrass.SubscriptionDefinitionVersion | undefined>;
     public /*out*/ readonly latestVersionArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<any | undefined>;
@@ -83,7 +83,7 @@ export class SubscriptionDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a SubscriptionDefinition resource.
  */
 export interface SubscriptionDefinitionArgs {
-    initialVersion?: pulumi.Input<inputs.greengrass.SubscriptionDefinitionSubscriptionDefinitionVersionArgs>;
+    initialVersion?: pulumi.Input<inputs.greengrass.SubscriptionDefinitionVersionArgs>;
     name: pulumi.Input<string>;
     tags?: any;
 }

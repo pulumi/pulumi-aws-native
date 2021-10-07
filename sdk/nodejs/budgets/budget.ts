@@ -38,7 +38,7 @@ export class Budget extends pulumi.CustomResource {
         return obj['__pulumiType'] === Budget.__pulumiType;
     }
 
-    public readonly budget!: pulumi.Output<outputs.budgets.BudgetBudgetData>;
+    public readonly budget!: pulumi.Output<outputs.budgets.BudgetData>;
     public readonly notificationsWithSubscribers!: pulumi.Output<outputs.budgets.BudgetNotificationWithSubscribers[] | undefined>;
 
     /**
@@ -74,6 +74,6 @@ export class Budget extends pulumi.CustomResource {
  * The set of arguments for constructing a Budget resource.
  */
 export interface BudgetArgs {
-    budget: pulumi.Input<inputs.budgets.BudgetBudgetDataArgs>;
+    budget: pulumi.Input<inputs.budgets.BudgetDataArgs>;
     notificationsWithSubscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetNotificationWithSubscribersArgs>[]>;
 }

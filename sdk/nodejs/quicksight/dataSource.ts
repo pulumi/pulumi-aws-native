@@ -46,7 +46,7 @@ export class DataSource extends pulumi.CustomResource {
      *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
      *             are automatically allowed.</p>
      */
-    public readonly alternateDataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceDataSourceParameters[] | undefined>;
+    public readonly alternateDataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceParameters[] | undefined>;
     /**
      * <p>The Amazon Resource Name (ARN) of the data source.</p>
      */
@@ -56,10 +56,10 @@ export class DataSource extends pulumi.CustomResource {
      * <p>The time that this data source was created.</p>
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceDataSourceCredentials | undefined>;
+    public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
     public readonly dataSourceId!: pulumi.Output<string | undefined>;
-    public readonly dataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceDataSourceParameters | undefined>;
-    public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceDataSourceErrorInfo | undefined>;
+    public readonly dataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceParameters | undefined>;
+    public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceErrorInfo | undefined>;
     /**
      * <p>The last time that this data source was updated.</p>
      */
@@ -78,7 +78,7 @@ export class DataSource extends pulumi.CustomResource {
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
     public readonly tags!: pulumi.Output<outputs.quicksight.DataSourceTag[] | undefined>;
-    public readonly type!: pulumi.Output<enums.quicksight.DataSourceDataSourceType | undefined>;
+    public readonly type!: pulumi.Output<enums.quicksight.DataSourceType | undefined>;
     public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
@@ -148,12 +148,12 @@ export interface DataSourceArgs {
      *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
      *             are automatically allowed.</p>
      */
-    alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceDataSourceParametersArgs>[]>;
+    alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceParametersArgs>[]>;
     awsAccountId?: pulumi.Input<string>;
-    credentials?: pulumi.Input<inputs.quicksight.DataSourceDataSourceCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentialsArgs>;
     dataSourceId?: pulumi.Input<string>;
-    dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceDataSourceParametersArgs>;
-    errorInfo?: pulumi.Input<inputs.quicksight.DataSourceDataSourceErrorInfoArgs>;
+    dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceParametersArgs>;
+    errorInfo?: pulumi.Input<inputs.quicksight.DataSourceErrorInfoArgs>;
     /**
      * <p>A display name for the data source.</p>
      */
@@ -167,6 +167,6 @@ export interface DataSourceArgs {
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceTagArgs>[]>;
-    type?: pulumi.Input<enums.quicksight.DataSourceDataSourceType>;
+    type?: pulumi.Input<enums.quicksight.DataSourceType>;
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

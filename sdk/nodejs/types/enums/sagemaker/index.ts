@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AppAppType = {
-    JupyterServer: "JupyterServer",
-    KernelGateway: "KernelGateway",
-} as const;
-
-/**
- * The type of app.
- */
-export type AppAppType = (typeof AppAppType)[keyof typeof AppAppType];
-
 export const AppResourceSpecInstanceType = {
     System: "system",
     MlT3Micro: "ml.t3.micro",
@@ -51,6 +41,16 @@ export const AppResourceSpecInstanceType = {
  * The instance type that the image version runs on.
  */
 export type AppResourceSpecInstanceType = (typeof AppResourceSpecInstanceType)[keyof typeof AppResourceSpecInstanceType];
+
+export const AppType = {
+    JupyterServer: "JupyterServer",
+    KernelGateway: "KernelGateway",
+} as const;
+
+/**
+ * The type of app.
+ */
+export type AppType = (typeof AppType)[keyof typeof AppType];
 
 export const DataQualityJobDefinitionEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
@@ -220,7 +220,7 @@ export const ModelExplainabilityJobDefinitionS3OutputS3UploadMode = {
  */
 export type ModelExplainabilityJobDefinitionS3OutputS3UploadMode = (typeof ModelExplainabilityJobDefinitionS3OutputS3UploadMode)[keyof typeof ModelExplainabilityJobDefinitionS3OutputS3UploadMode];
 
-export const ModelPackageGroupModelPackageGroupStatus = {
+export const ModelPackageGroupStatus = {
     Pending: "Pending",
     InProgress: "InProgress",
     Completed: "Completed",
@@ -232,7 +232,7 @@ export const ModelPackageGroupModelPackageGroupStatus = {
 /**
  * The status of a modelpackage group job.
  */
-export type ModelPackageGroupModelPackageGroupStatus = (typeof ModelPackageGroupModelPackageGroupStatus)[keyof typeof ModelPackageGroupModelPackageGroupStatus];
+export type ModelPackageGroupStatus = (typeof ModelPackageGroupStatus)[keyof typeof ModelPackageGroupStatus];
 
 export const ModelQualityJobDefinitionEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
@@ -310,18 +310,6 @@ export const MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStat
  */
 export type MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus = (typeof MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus)[keyof typeof MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus];
 
-export const MonitoringScheduleMonitoringScheduleStatus = {
-    Pending: "Pending",
-    Failed: "Failed",
-    Scheduled: "Scheduled",
-    Stopped: "Stopped",
-} as const;
-
-/**
- * The status of a schedule job.
- */
-export type MonitoringScheduleMonitoringScheduleStatus = (typeof MonitoringScheduleMonitoringScheduleStatus)[keyof typeof MonitoringScheduleMonitoringScheduleStatus];
-
 export const MonitoringScheduleMonitoringType = {
     DataQuality: "DataQuality",
     ModelQuality: "ModelQuality",
@@ -344,7 +332,19 @@ export const MonitoringScheduleS3OutputS3UploadMode = {
  */
 export type MonitoringScheduleS3OutputS3UploadMode = (typeof MonitoringScheduleS3OutputS3UploadMode)[keyof typeof MonitoringScheduleS3OutputS3UploadMode];
 
-export const ProjectProjectStatus = {
+export const MonitoringScheduleStatus = {
+    Pending: "Pending",
+    Failed: "Failed",
+    Scheduled: "Scheduled",
+    Stopped: "Stopped",
+} as const;
+
+/**
+ * The status of a schedule job.
+ */
+export type MonitoringScheduleStatus = (typeof MonitoringScheduleStatus)[keyof typeof MonitoringScheduleStatus];
+
+export const ProjectStatus = {
     Pending: "Pending",
     CreateInProgress: "CreateInProgress",
     CreateCompleted: "CreateCompleted",
@@ -357,7 +357,7 @@ export const ProjectProjectStatus = {
 /**
  * The status of a project.
  */
-export type ProjectProjectStatus = (typeof ProjectProjectStatus)[keyof typeof ProjectProjectStatus];
+export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 export const UserProfileResourceSpecInstanceType = {
     System: "system",
