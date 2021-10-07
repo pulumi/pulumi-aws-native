@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// Resource Type definition for AWS::ApiGateway::Authorizer
     /// </summary>
-    [Obsolete(@"Authorizer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {

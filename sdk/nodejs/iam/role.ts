@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::IAM::Role
- *
- * @deprecated Role is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Role extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class Role extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Role {
-        pulumi.log.warn("Role is deprecated: Role is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Role(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,9 +54,7 @@ export class Role extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Role is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Role is deprecated: Role is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

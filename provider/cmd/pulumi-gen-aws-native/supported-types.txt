@@ -10,6 +10,7 @@ AWS::Amplify::Branch
 AWS::Amplify::Domain
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
+AWS::ApiGateway::Authorizer
 AWS::ApiGateway::BasePathMapping
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::DocumentationVersion
@@ -31,6 +32,7 @@ AWS::Athena::NamedQuery
 AWS::Athena::PreparedStatement
 AWS::Athena::WorkGroup
 AWS::AuditManager::Assessment
+AWS::AutoScaling::LaunchConfiguration
 AWS::AutoScaling::WarmPool
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
@@ -111,6 +113,7 @@ AWS::EC2::NetworkInsightsPath
 AWS::EC2::PrefixList
 AWS::EC2::RouteTable
 AWS::EC2::SpotFleet
+AWS::EC2::SubnetNetworkAclAssociation
 AWS::EC2::SubnetRouteTableAssociation
 AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayConnect
@@ -174,6 +177,7 @@ AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::MissionProfile
 AWS::HealthLake::FHIRDatastore
 AWS::IAM::OIDCProvider
+AWS::IAM::Role
 AWS::IAM::SAMLProvider
 AWS::IAM::ServerCertificate
 AWS::IAM::VirtualMFADevice
@@ -195,6 +199,7 @@ AWS::IoT::CustomMetric
 AWS::IoT::Dimension
 AWS::IoT::DomainConfiguration
 AWS::IoT::FleetMetric
+AWS::IoT::JobTemplate
 AWS::IoT::MitigationAction
 AWS::IoT::ProvisioningTemplate
 AWS::IoT::ScheduledAudit
@@ -309,6 +314,7 @@ AWS::Route53RecoveryReadiness::ResourceSet
 AWS::Route53Resolver::FirewallDomainList
 AWS::Route53Resolver::FirewallRuleGroup
 AWS::Route53Resolver::FirewallRuleGroupAssociation
+AWS::Route53Resolver::ResolverConfig
 AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation

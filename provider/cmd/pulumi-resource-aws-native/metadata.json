@@ -763,6 +763,86 @@
                 "value"
             ]
         },
+        "aws-native:apigateway:Authorizer": {
+            "cf": "AWS::ApiGateway::Authorizer",
+            "inputs": {
+                "authType": {
+                    "type": "string"
+                },
+                "authorizerCredentials": {
+                    "type": "string"
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer"
+                },
+                "authorizerUri": {
+                    "type": "string"
+                },
+                "identitySource": {
+                    "type": "string"
+                },
+                "identityValidationExpression": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "providerARNs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "authType": {
+                    "type": "string"
+                },
+                "authorizerCredentials": {
+                    "type": "string"
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer"
+                },
+                "authorizerUri": {
+                    "type": "string"
+                },
+                "identitySource": {
+                    "type": "string"
+                },
+                "identityValidationExpression": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "providerARNs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "restApiId",
+                "type"
+            ],
+            "createOnly": [
+                "restApiId"
+            ]
+        },
         "aws-native:apigateway:BasePathMapping": {
             "cf": "AWS::ApiGateway::BasePathMapping",
             "inputs": {
@@ -2327,6 +2407,170 @@
             "createOnly": [
                 "awsAccount",
                 "frameworkId"
+            ]
+        },
+        "aws-native:autoscaling:LaunchConfiguration": {
+            "cf": "AWS::AutoScaling::LaunchConfiguration",
+            "inputs": {
+                "associatePublicIpAddress": {
+                    "type": "boolean"
+                },
+                "blockDeviceMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
+                    }
+                },
+                "classicLinkVPCId": {
+                    "type": "string"
+                },
+                "classicLinkVPCSecurityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "iamInstanceProfile": {
+                    "type": "string"
+                },
+                "imageId": {
+                    "type": "string"
+                },
+                "instanceId": {
+                    "type": "string"
+                },
+                "instanceMonitoring": {
+                    "type": "boolean"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "kernelId": {
+                    "type": "string"
+                },
+                "keyName": {
+                    "type": "string"
+                },
+                "launchConfigurationName": {
+                    "type": "string"
+                },
+                "metadataOptions": {
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                },
+                "placementTenancy": {
+                    "type": "string"
+                },
+                "ramDiskId": {
+                    "type": "string"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "spotPrice": {
+                    "type": "string"
+                },
+                "userData": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "associatePublicIpAddress": {
+                    "type": "boolean"
+                },
+                "blockDeviceMappings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping"
+                    }
+                },
+                "classicLinkVPCId": {
+                    "type": "string"
+                },
+                "classicLinkVPCSecurityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ebsOptimized": {
+                    "type": "boolean"
+                },
+                "iamInstanceProfile": {
+                    "type": "string"
+                },
+                "imageId": {
+                    "type": "string"
+                },
+                "instanceId": {
+                    "type": "string"
+                },
+                "instanceMonitoring": {
+                    "type": "boolean"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "kernelId": {
+                    "type": "string"
+                },
+                "keyName": {
+                    "type": "string"
+                },
+                "launchConfigurationName": {
+                    "type": "string"
+                },
+                "metadataOptions": {
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationMetadataOptions"
+                },
+                "placementTenancy": {
+                    "type": "string"
+                },
+                "ramDiskId": {
+                    "type": "string"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "spotPrice": {
+                    "type": "string"
+                },
+                "userData": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "imageId",
+                "instanceType"
+            ],
+            "createOnly": [
+                "associatePublicIpAddress",
+                "blockDeviceMappings",
+                "classicLinkVPCId",
+                "classicLinkVPCSecurityGroups",
+                "ebsOptimized",
+                "iamInstanceProfile",
+                "imageId",
+                "instanceId",
+                "instanceMonitoring",
+                "instanceType",
+                "kernelId",
+                "keyName",
+                "launchConfigurationName",
+                "metadataOptions",
+                "placementTenancy",
+                "ramDiskId",
+                "securityGroups",
+                "spotPrice",
+                "userData"
             ]
         },
         "aws-native:autoscaling:WarmPool": {
@@ -7402,6 +7646,36 @@
                 "spotFleetRequestConfigData/ValidUntil"
             ]
         },
+        "aws-native:ec2:SubnetNetworkAclAssociation": {
+            "cf": "AWS::EC2::SubnetNetworkAclAssociation",
+            "inputs": {
+                "networkAclId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "associationId": {
+                    "type": "string"
+                },
+                "networkAclId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "networkAclId",
+                "subnetId"
+            ],
+            "createOnly": [
+                "networkAclId",
+                "subnetId"
+            ]
+        },
         "aws-native:ec2:SubnetRouteTableAssociation": {
             "cf": "AWS::EC2::SubnetRouteTableAssociation",
             "inputs": {
@@ -11955,6 +12229,98 @@
             ],
             "createOnly": [
                 "url"
+            ]
+        },
+        "aws-native:iam:Role": {
+            "cf": "AWS::IAM::Role",
+            "inputs": {
+                "assumeRolePolicyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "managedPolicyArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxSessionDuration": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "permissionsBoundary": {
+                    "type": "string"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RolePolicy"
+                    }
+                },
+                "roleName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RoleTag"
+                    }
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "assumeRolePolicyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "managedPolicyArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxSessionDuration": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "permissionsBoundary": {
+                    "type": "string"
+                },
+                "policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RolePolicy"
+                    }
+                },
+                "roleId": {
+                    "type": "string"
+                },
+                "roleName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iam:RoleTag"
+                    }
+                }
+            },
+            "required": [
+                "assumeRolePolicyDocument"
+            ],
+            "createOnly": [
+                "path",
+                "roleName"
             ]
         },
         "aws-native:iam:SAMLProvider": {
@@ -29315,6 +29681,63 @@
                 }
             }
         },
+        "aws-native:autoscaling:LaunchConfigurationBlockDevice": {
+            "type": "object",
+            "properties": {
+                "deleteOnTermination": {
+                    "type": "boolean"
+                },
+                "encrypted": {
+                    "type": "boolean"
+                },
+                "iops": {
+                    "type": "integer"
+                },
+                "snapshotId": {
+                    "type": "string"
+                },
+                "throughput": {
+                    "type": "integer"
+                },
+                "volumeSize": {
+                    "type": "integer"
+                },
+                "volumeType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:autoscaling:LaunchConfigurationBlockDeviceMapping": {
+            "type": "object",
+            "properties": {
+                "deviceName": {
+                    "type": "string"
+                },
+                "ebs": {
+                    "$ref": "#/types/aws-native:autoscaling:LaunchConfigurationBlockDevice"
+                },
+                "noDevice": {
+                    "type": "boolean"
+                },
+                "virtualName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:autoscaling:LaunchConfigurationMetadataOptions": {
+            "type": "object",
+            "properties": {
+                "httpEndpoint": {
+                    "type": "string"
+                },
+                "httpPutResponseHopLimit": {
+                    "type": "integer"
+                },
+                "httpTokens": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:backup:BackupPlanAdvancedBackupSettingResourceType": {
             "type": "object",
             "properties": {
@@ -37455,6 +37878,28 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:iam:RolePolicy": {
+            "type": "object",
+            "properties": {
+                "policyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "policyName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iam:RoleTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
