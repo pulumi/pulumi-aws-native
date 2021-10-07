@@ -21,7 +21,6 @@ require (
 	github.com/google/uuid v1.2.0
 	github.com/hashicorp/hcl/v2 v2.3.0
 	github.com/jpillora/backoff v1.0.0
-	github.com/kr/pretty v0.3.0 // indirect
 	github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c // indirect
 	github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d // indirect
 	github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3

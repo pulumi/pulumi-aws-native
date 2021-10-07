@@ -173,6 +173,8 @@ func resourceToken(typ string) string {
 	// Override the name of the Config module.
 	if moduleName == "Config" {
 		moduleName = "Configuration"
+	} else if moduleName == "config" {
+		moduleName = "configuration"
 	}
 	return "aws-native:" + moduleName + ":" + resourceName
 }
