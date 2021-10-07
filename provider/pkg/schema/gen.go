@@ -434,14 +434,19 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 
 	var resourceCount int
 	for _, jsonSchema := range jsonSchemas {
-		resourceName := jsonSchema.Extras["typeName"].(string)
-		isSupported := supportedResources.Has(resourceName)
+		cfTypeName := jsonSchema.Extras["typeName"].(string)
+		isSupported := supportedResources.Has(cfTypeName)
 		if isSupported || genAll {
+			resourceName, resourceToken := typeToken(cfTypeName)
+			fullMod := moduleName(cfTypeName)
+			mod := strings.ToLower(fullMod)
 			ctx := &context{
 				pkg:           &p,
 				metadata:      &metadata,
+				cfTypeName:    cfTypeName,
+				mod:           mod,
 				resourceName:  resourceName,
-				resourceToken: typeToken(resourceName),
+				resourceToken: resourceToken,
 				resourceSpec:  &jsonSchema,
 				visitedTypes:  codegen.NewStringSet(),
 				isSupported:   isSupported,
@@ -450,8 +455,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			if err != nil {
 				return nil, nil, err
 			}
-			module := moduleName(resourceName)
-			csharpNamespaces[strings.ToLower(module)] = module
+			csharpNamespaces[mod] = fullMod
 			resourceCount++
 		}
 	}
@@ -577,6 +581,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 type context struct {
 	pkg           *pschema.PackageSpec
 	metadata      *CloudAPIMetadata
+	cfTypeName    string
+	mod           string
 	resourceName  string
 	resourceToken string
 	resourceSpec  *jsschema.Schema
@@ -586,7 +592,7 @@ type context struct {
 
 // gatherResourceType builds the schema for the resource type in the context.
 func (ctx *context) gatherResourceType() error {
-	resourceTypeName := typeName(ctx.resourceName)
+	resourceTypeName := typeName(ctx.cfTypeName)
 
 	readOnlyProperties := codegen.NewStringSet()
 	if rop, ok := ctx.resourceSpec.Extras["readOnlyProperties"].([]interface{}); ok {
@@ -653,7 +659,7 @@ func (ctx *context) gatherResourceType() error {
 		}
 	}
 	ctx.metadata.Resources[ctx.resourceToken] = CloudAPIResource{
-		CfType:     ctx.resourceName,
+		CfType:     ctx.cfTypeName,
 		Inputs:     inputProperties,
 		Outputs:    properties,
 		CreateOnly: createOnlyProperties.SortedValues(),
@@ -686,11 +692,15 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 	// References to other type definitions.
 	if propSchema.Reference != "" {
 		schemaName := strings.TrimPrefix(propSchema.Reference, "#/definitions/")
-		tok := fmt.Sprintf(`%s%s`, ctx.resourceToken, schemaName)
+		typName := schemaName
+		if !strings.HasPrefix(schemaName, ctx.resourceName) {
+			typName = fmt.Sprintf("%s%s", ctx.resourceName, schemaName)
+		}
+		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
 		typeSchema, ok := ctx.resourceSpec.Definitions[schemaName]
 		if !ok {
-			return nil, errors.Errorf("definition %s not found in resource %s", schemaName, ctx.resourceName)
+			return nil, errors.Errorf("definition %s not found in resource %s", schemaName, ctx.cfTypeName)
 		}
 		baseType := "object"
 		if len(typeSchema.Type) > 0 {
@@ -699,7 +709,7 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		if baseType == "object" {
 			if !ctx.visitedTypes.Has(tok) {
 				ctx.visitedTypes.Add(tok)
-				specs, requiredSpecs, err := ctx.genProperties(schemaName, typeSchema)
+				specs, requiredSpecs, err := ctx.genProperties(typName, typeSchema)
 				if err != nil {
 					return nil, err
 				}
@@ -820,7 +830,15 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 	if propSchema.Type[0] != jsschema.StringType {
 		return nil, nil
 	}
-	tok := ctx.resourceToken + enumName
+	typName := enumName
+	if !strings.HasPrefix(enumName, ctx.resourceName) {
+		typName = ctx.resourceName + enumName
+	}
+	switch ctx.mod + ":" + typName {
+	case "networkfirewall:RuleGroupType":
+		typName = "RuleGroupTypeEnum" // Go SDK name conflict vs. RuleGroup resource
+	}
+	tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
 	enumSpec := &pschema.ComplexTypeSpec{
 		Enum: []pschema.EnumValueSpec{},
@@ -891,7 +909,7 @@ func moduleName(resourceType string) string {
 	return module
 }
 
-func typeToken(typ string) string {
+func typeToken(typ string) (string, string) {
 	resourceTypeComponents := strings.Split(typ, "::")
 	resourceName := resourceTypeComponents[2]
 	module := strings.ToLower(moduleName(typ))
@@ -904,7 +922,7 @@ func typeToken(typ string) string {
 		resourceName = strings.Replace(resourceName, "ApplicationOutput", "ApplicationOutputResource", 1)
 	}
 
-	return fmt.Sprintf("%s:%s:%s", packageName, module, resourceName)
+	return resourceName, fmt.Sprintf("%s:%s:%s", packageName, module, resourceName)
 }
 
 func typeName(typ string) string {
